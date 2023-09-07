@@ -107,6 +107,30 @@ test('test: eslint: comparePlaces: overrides', async ({comparePlaces}) => {
     await comparePlaces('operator-linebreak', [], overrides);
 });
 
+test('test: eslint: comparePlaces: overrides: ESM', async ({comparePlaces}) => {
+    const overrides = {
+        rules: {
+            'putout/putout': ['error', {
+                ignore: ['!**/fixture'],
+                plugins: [
+                    'apply-nullish-coalescing',
+                ],
+            }],
+        },
+    };
+    
+    const places = [{
+        message: `☝️ Looks like 'apply-nullish-coalescing' is ESM, extend from 'plugin:putout/esm' (putout)`,
+        position: {
+            column: 1,
+            line: 1,
+        },
+        rule: 'putout/putout (eslint)',
+    }];
+    
+    await comparePlaces('sync-esm', places, overrides);
+});
+
 test('test: eslint: noProcess: overrides', async ({noProcess}) => {
     const overrides = {
         rules: {

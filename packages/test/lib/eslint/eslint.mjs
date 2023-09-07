@@ -127,6 +127,7 @@ export const createTest = (url, plugins = {}) => {
             const [, places] = await eslint({
                 name: resolvedName,
                 code,
+                putout: true,
                 config: {
                     ...config,
                     ...override,
