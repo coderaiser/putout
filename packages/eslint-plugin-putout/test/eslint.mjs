@@ -206,3 +206,25 @@ test('eslint-plugin-putout: jsx: semi', async ({noProcess}) => {
         extends: ['plugin:putout/jsx'],
     });
 });
+
+test('eslint-plugin-putout: putout: sync: ESM', async ({comparePlaces}) => {
+    const override = {
+        rules: {
+            'putout/putout': ['error', {
+                ignore: ['!**/fixture'],
+                plugins: [
+                    'apply-nullish-coalescing',
+                ],
+            }],
+        },
+    };
+    
+    await comparePlaces('sync-esm', [{
+        message: `☝️ Looks like 'apply-nullish-coalescing' is ESM, extend from 'plugin:putout/esm' (putout)`,
+        position: {
+            column: 1,
+            line: 1,
+        },
+        rule: 'putout/putout (eslint)',
+    }], override);
+});
