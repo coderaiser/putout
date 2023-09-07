@@ -5,6 +5,8 @@ const {operator, types} = require('putout');
 const {remove} = operator;
 const {isProgram} = types;
 
+const isStrictMode = (a) => a.node.value.value === 'use strict';
+
 module.exports.report = () => `Avoid 'use strict' in ESM`;
 
 module.exports.fix = (path) => remove(path);
@@ -29,17 +31,20 @@ module.exports.traverse = ({push, store}) => ({
                 }
             }
             
-            if (path.node.directives.length)
-                path
-                    .get('directives')
+            const directives = path.get('directives');
+            
+            if (directives.length) {
+                directives
                     .slice(1)
+                    .filter(isStrictMode)
                     .forEach(push);
+            }
             
             if (!store('is-module'))
                 return;
             
-            path
-                .get('directives')
+            directives
+                .filter(isStrictMode)
                 .forEach(push);
             
             if (strictPath.isExpressionStatement() && strictPath.node.expression.value === 'use strict')

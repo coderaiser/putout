@@ -42,6 +42,11 @@ test('plugin-strict-mode: remove: transform: couple', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: remove: no transform: use-client', (t) => {
+    t.noTransform('use-client');
+    t.end();
+});
+
 test('plugin-strict-mode: remove: transform: typescript', (t) => {
     t.transform('typescript', {
         typescript,
