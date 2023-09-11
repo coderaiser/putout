@@ -16,17 +16,17 @@ module.exports = {
     create(context) {
         return {
             VariableDeclaration(node) {
-                const source = context.sourceCode;
-                const text = source.getText(node);
+                const {sourceCode} = context;
+                const text = sourceCode.getText(node);
                 
-                const newline = source
+                const newline = sourceCode
                     .getText(node, 0, 2)
                     .replace(text, '');
                 
                 if (newline !== '\n\n')
                     return;
                 
-                const nextNode = context.getNodeByRangeIndex(node.range[1] + 2);
+                const nextNode = sourceCode.getNodeByRangeIndex(node.range[1] + 2);
                 
                 if (!nextNode || nextNode.type !== 'VariableDeclaration')
                     return;
@@ -39,10 +39,10 @@ module.exports = {
                 if (nodeId.properties.length !== 1)
                     return;
                 
-                const textId = source.getText(nodeId.properties[0].value);
+                const textId = sourceCode.getText(nodeId.properties[0].value);
                 
                 const nextNodeInit = nextNode.declarations[0].init;
-                const nextTextInit = source.getText(nextNodeInit);
+                const nextTextInit = sourceCode.getText(nextNodeInit);
                 
                 if (textId !== nextTextInit)
                     return;

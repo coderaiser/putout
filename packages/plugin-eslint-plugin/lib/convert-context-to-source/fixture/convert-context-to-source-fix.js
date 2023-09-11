@@ -14,3 +14,4 @@ context.sourceCode;
 sourceCode.markVariableAsUsed(name);
 context.filename;
 context.physicalFilename;
+const nextNode = sourceCode.getNodeByRangeIndex(node.range[1] + 2);

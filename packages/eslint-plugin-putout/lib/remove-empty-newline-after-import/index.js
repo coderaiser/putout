@@ -25,10 +25,10 @@ module.exports = {
     create(context) {
         return {
             ImportDeclaration(node) {
-                const source = context.sourceCode;
-                const text = source.getText(node);
+                const {sourceCode} = context;
+                const text = sourceCode.getText(node);
                 
-                const newline = source
+                const newline = sourceCode
                     .getText(node, 0, 2)
                     .replace(text, '');
                 
@@ -38,7 +38,7 @@ module.exports = {
                 if (newline !== '\n\n')
                     return;
                 
-                const nextNode = context.getNodeByRangeIndex(node.range[1] + 2);
+                const nextNode = sourceCode.getNodeByRangeIndex(node.range[1] + 2);
                 
                 if (!nextNode || nextNode.type !== 'ImportDeclaration')
                     return;

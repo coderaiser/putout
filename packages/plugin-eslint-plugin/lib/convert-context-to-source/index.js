@@ -12,4 +12,5 @@ module.exports.replace = () => ({
     'context.markVariableAsUsed(__a)': 'sourceCode.markVariableAsUsed(__a)',
     'context.getFilename()': 'context.filename',
     'context.getPhysicalFilename()': 'context.physicalFilename',
+    'context.getNodeByRangeIndex(__args)': 'sourceCode.getNodeByRangeIndex(__args)',
 });
