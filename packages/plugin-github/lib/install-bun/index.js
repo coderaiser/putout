@@ -2,13 +2,14 @@
 
 const {operator, template} = require('putout');
 const {
-    compare,
     traverseProperties,
     getTemplateValues,
 } = operator;
 
+const BUN_USES = 'oven-sh/setup-bun@v1';
+
 const BUN = template.ast(`({
-    "uses": "oven-sh/setup-bun@v1",
+    "uses": "${BUN_USES}",
     "with": {
         "bun-version": "latest"
     }
@@ -34,7 +35,9 @@ module.exports.traverse = ({push}) => ({
         const steps = stepsPathValue.get('elements');
         
         for (const step of steps) {
-            if (compare(step, BUN))
+            const uses = parseUses(step);
+            
+            if (uses.startsWith(BUN_USES))
                 return;
         }
         
