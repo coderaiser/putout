@@ -29,7 +29,8 @@
     "rules": {
         "remove-useless-spread/object": ["on", {
             "exclude": "module.exports.rules = __"
-        }]
+        }],
+        "github/install-bun": "off"
     },
     "ignore": [
         "docs",
