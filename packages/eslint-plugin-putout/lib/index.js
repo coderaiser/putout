@@ -106,7 +106,6 @@ const recommended = {
         ...ts,
         ...jsx,
     ],
-    plugins: ['n'],
 };
 
 const safeRules = {

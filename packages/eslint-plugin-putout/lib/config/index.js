@@ -10,7 +10,7 @@ const compat = new FlatCompat({
     baseDirectory: __dirname,
 });
 
-const n = compat.config(nPlugin.configs.recommended);
+const n = nPlugin.configs['flat/mixed-esm-and-cjs'];
 
 const plugins = [{
     plugins: {
@@ -26,7 +26,6 @@ module.exports.recommended = [
 
 module.exports.safe = [
     ...n,
-    ...compat.config(putoutPlugin.configs.safe),
     ...getPutoutConfig('safe'),
     ...plugins,
 ];
