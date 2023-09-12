@@ -34,3 +34,8 @@ test('packages: install-bun: no report: wrong-place', (t) => {
     t.noReport('wrong-place');
     t.end();
 });
+
+test('packages: install-bun: transform: checkout-with-name', (t) => {
+    t.transform('checkout-with-name');
+    t.end();
+});

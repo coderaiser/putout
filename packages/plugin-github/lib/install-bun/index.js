@@ -39,12 +39,9 @@ module.exports.traverse = ({push}) => ({
         }
         
         for (const [index, step] of steps.entries()) {
-            const prop = step.get('properties.0');
-            const valueStr = prop
-                .get('value')
-                .toString();
+            const uses = parseUses(step);
             
-            if (!valueStr.includes('actions/checkout'))
+            if (!uses.startsWith('actions/checkout'))
                 continue;
             
             push({
@@ -56,3 +53,16 @@ module.exports.traverse = ({push}) => ({
         }
     },
 });
+
+function parseUses(step) {
+    const properties = step.get('properties');
+    
+    for (const prop of properties) {
+        const key = prop.get('key.value').node;
+        
+        if (key === 'uses')
+            return prop.get('value.value').node;
+    }
+    
+    return '';
+}
