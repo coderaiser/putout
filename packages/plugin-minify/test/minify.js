@@ -87,3 +87,8 @@ test('plugin-minify: transform: arrow', (t) => {
     t.transform('arrow');
     t.end();
 });
+
+test('plugin-minify: transform: mutation', (t) => {
+    t.transform('mutation');
+    t.end();
+});

@@ -1,10 +1,9 @@
 import {operator} from 'putout';
 
 const {remove} = operator;
+const getNode = (a) => a.node;
 
 export const report = () => `Merge variables`;
-
-const getNode = (a) => a.node;
 
 export const fix = ({path, vars}) => {
     path.node.declarations = vars.map(getNode);
@@ -20,6 +19,9 @@ export const traverse = ({push, uplist}) => ({
             return;
         
         if (path.parentPath.node.kind === 'let')
+            return;
+        
+        if (path.get('init').isAwaitExpression())
             return;
         
         uplist(path.scope.uid, path);

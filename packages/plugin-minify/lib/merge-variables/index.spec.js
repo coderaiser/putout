@@ -19,6 +19,11 @@ test('plugin-minify: merge-variables: transform', (t) => {
     t.end();
 });
 
+test('plugin-minify: merge-variables: transform: mutation', (t) => {
+    t.transform('await');
+    t.end();
+});
+
 test('plugin-minify: merge-variables: no transform: let', (t) => {
     t.noTransform('let');
     t.end();
