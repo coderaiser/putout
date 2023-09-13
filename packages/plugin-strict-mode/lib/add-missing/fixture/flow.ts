@@ -5,5 +5,5 @@ type BabelFileModulesMetadata = {
     exports: {
         exported: Array<Object>;
         specifiers: Array<Object>;
-};
+    };
 };
