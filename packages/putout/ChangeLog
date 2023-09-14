@@ -1,3 +1,9 @@
+2023.09.14, v32.0.1
+
+feature:
+- e63e3ed5c package: @putout/plugin-remove-unused-variables v7.0.0
+- a5d4eb3e7 @putout/plugin-remove-unused-variables: drop support of 🐊 < 32
+
 2023.09.14, v32.0.0
 
 feature:
