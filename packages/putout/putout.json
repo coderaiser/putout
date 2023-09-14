@@ -171,7 +171,6 @@
         "remove-useless-assign",
         "remove-useless-replace",
         "remove-useless-variables",
-        "remove-useless-else",
         "remove-useless-map",
         "remove-useless-constructor",
         "remove-useless-array-constructor",

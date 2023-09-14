@@ -40,6 +40,11 @@ test('plugin-conditions: transform: remove-zero', (t) => {
     t.end();
 });
 
+test('plugin-conditions: transform: remove-useless-else', (t) => {
+    t.transform('remove-useless-else');
+    t.end();
+});
+
 test('plugin-conditions: transform: evaluate', (t) => {
     t.transform('evaluate');
     t.end();
@@ -54,3 +59,4 @@ test('plugin-conditions: transform: merge-if-statements', (t) => {
     t.transform('merge-if-statements');
     t.end();
 });
+

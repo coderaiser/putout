@@ -1,9 +1,0 @@
-{
-    "printer": "putout",
-    "match": {
-        "*.md{js}": {
-            "apply-early-return": "off",
-            "remove-useless-else": "off"
-        }
-    }
-}

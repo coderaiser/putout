@@ -24,6 +24,7 @@ npm i @putout/plugin-conditions -D
         "conditions/remove-boolean": "on",
         "conditions/remove-constant": "on",
         "conditions/remove-zero": "on",
+        "conditions/remove-useless-else": "on",
         "conditions/merge-if-statements": "on"
     }
 }
@@ -240,6 +241,37 @@ if (a > b && b < c) {
     console.log('hello');
 }
 ```
+
+## remove-useless-else
+
+> You can skip the `else` block if your `if` block always executes a `return` statement, it makes code a lot easier to read.
+>
+> (c) [no else return](https://www.samanthaming.com/tidbits/23-no-else-return/)
+
+### ❌ Example of incorrect code
+
+```js
+if (x)
+    return;
+else
+    console.log();
+```
+
+### ✅ Example of correct code
+
+```js
+if (x)
+    return;
+
+console.log();
+```
+
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`conditions/remove-useless-else`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger#readme) | ✅
+⏣ **ESLint** | [`no-else-return`](https://eslint.org/docs/rules/no-else-return) | ✅
 
 ## License
 

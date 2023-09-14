@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "no-else-return": "off"
+    },
     "extends": [
         "plugin:n/recommended",
         "plugin:putout/safe+align"

@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const applyEarlyReturn = require('..');
+const applyEarlyReturn = require('.');
 
 const test = createTest(__dirname, {
     printer: 'putout',
@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-else: transform: report', (t) => {
-    t.report('else', `Remove useless 'else'`);
+    t.report('else', `Avoid useless 'else'`);
     t.end();
 });
 

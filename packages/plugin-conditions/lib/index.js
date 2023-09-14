@@ -8,6 +8,7 @@ const convertEqualToStrictEqual = require('./convert-equal-to-strict-equal');
 const mergeIfStatements = require('./merge-if-statements');
 const removeBoolean = require('./remove-boolean');
 const removeZero = require('./remove-zero');
+const removeUselessElse = require('./remove-useless-else');
 const simplify = require('./simplify');
 
 module.exports.rules = {
@@ -19,5 +20,6 @@ module.exports.rules = {
     'merge-if-statements': mergeIfStatements,
     'remove-boolean': removeBoolean,
     'remove-zero': removeZero,
+    'remove-useless-else': removeUselessElse,
     simplify,
 };

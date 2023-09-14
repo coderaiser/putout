@@ -5,7 +5,7 @@ const {
     isBlockStatement,
 } = require('putout').types;
 
-module.exports.report = () => `Remove useless 'else'`;
+module.exports.report = () => `Avoid useless 'else'`;
 
 module.exports.match = () => ({
     'if (__a) __b; else __c': ({__b}) => {
