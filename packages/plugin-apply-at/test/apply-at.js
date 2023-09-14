@@ -20,6 +20,16 @@ test('plugin-apply-at: transform: object', (t) => {
     t.end();
 });
 
+test('plugin-apply-at: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
+
+test('plugin-apply-at: no report: not-couple', (t) => {
+    t.noReport('not-couple');
+    t.end();
+});
+
 test('plugin-apply-at: no transform: assignment', (t) => {
     t.noTransform('assignment');
     t.end();

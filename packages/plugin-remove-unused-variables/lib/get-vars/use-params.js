@@ -18,7 +18,7 @@ module.exports.usePropertiesBeforeRest = ({use}) => ({path, params}) => {
 
 function traverseProperties(use, path, properties) {
     const {length} = properties;
-    const last = properties[length - 1];
+    const last = properties.at(-1);
     
     if (!isRestElement(last))
         return;

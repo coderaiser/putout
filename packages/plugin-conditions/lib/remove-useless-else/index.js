@@ -14,8 +14,7 @@ module.exports.match = () => ({
         if (!isBlockStatement(__b))
             return isReturnLike(__b);
         
-        const {length} = __b.body;
-        const latest = __b.body[length - 1];
+        const latest = __b.body.at(-1);
         
         return isReturnLike(latest);
     },
