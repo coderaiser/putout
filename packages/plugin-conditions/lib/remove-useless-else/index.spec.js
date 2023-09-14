@@ -30,6 +30,16 @@ test('plugin-remove-useless-else: transform: return', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-else: transform: continue', (t) => {
+    t.transform('continue');
+    t.end();
+});
+
+test('plugin-remove-useless-else: transform: break', (t) => {
+    t.transform('break');
+    t.end();
+});
+
 test('plugin-remove-useless-else: no transform: no-return', (t) => {
     t.noTransform('no-return');
     t.end();

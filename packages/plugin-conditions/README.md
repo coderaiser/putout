@@ -248,6 +248,12 @@ if (a > b && b < c) {
 >
 > (c) [no else return](https://www.samanthaming.com/tidbits/23-no-else-return/)
 
+Remove useless `else` before:
+
+- `return`;
+- `continue`;
+- `break`;
+
 ### ❌ Example of incorrect code
 
 ```js

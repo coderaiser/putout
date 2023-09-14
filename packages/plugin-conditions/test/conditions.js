@@ -59,4 +59,3 @@ test('plugin-conditions: transform: merge-if-statements', (t) => {
     t.transform('merge-if-statements');
     t.end();
 });
-

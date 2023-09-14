@@ -3,6 +3,8 @@
 const {
     isReturnStatement,
     isBlockStatement,
+    isContinueStatement,
+    isBreakStatement,
 } = require('putout').types;
 
 module.exports.report = () => `Avoid useless 'else'`;
@@ -10,12 +12,12 @@ module.exports.report = () => `Avoid useless 'else'`;
 module.exports.match = () => ({
     'if (__a) __b; else __c': ({__b}) => {
         if (!isBlockStatement(__b))
-            return isReturnStatement(__b);
+            return isReturnLike(__b);
         
         const {length} = __b.body;
         const latest = __b.body[length - 1];
         
-        return isReturnStatement(latest);
+        return isReturnLike(latest);
     },
 });
 
@@ -25,3 +27,13 @@ module.exports.replace = () => ({
         __c;
     }`,
 });
+
+function isReturnLike(node) {
+    if (isReturnStatement(node))
+        return true;
+    
+    if (isContinueStatement(node))
+        return true;
+    
+    return isBreakStatement(node);
+}
