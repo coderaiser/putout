@@ -1,3 +1,27 @@
+2023.09.14, v32.0.0
+
+feature:
+- 78a406e89 package: @putout/plugin-apply-at v2.0.0
+- 4cd4cae9c package: @putout/plugin-conditions v3.0.0
+- 820f4c04d @putout/plugin-apply-at: drop support of 🐊 < 32
+- 7e47a25a5 @putout/plugin-appy-at: improve support
+- 8cf8b8ce7 @putout/plugin-conditions: remove-useless-else: add support of BreakStatement, ContinueStatement
+- 72b01c702 @putout/plugin-conditions: drop support of 🐊 < 32
+- 24aef49ec @putout/plugin-conditions: merge remove-useless-else
+- 4de6c9253 @putout/plugin-conditions: merge merge-if-statements
+- b3b9bdb6e package: estree-to-babel v7.0.0
+- 189571edb @putout/plugin-github: install-bun: exist with different version
+- 42db11d3b @putout/plugin-minify: merge-variables: exclude AwaitExpression (coderaiser/minify#111)
+- 8f51638a0 @putout/plugin-github: install-bun: improve support of named step
+- f9e00ca31 eslint-plugin-putout: config: autodetect ESM/CommonJS (eslint-community/eslint-plugin-n#105)
+- f639ebeec @putout/plugin-eslint-plugin: convert-context-to-source: getNodeByRangeIndex
+- d997bfe7f package: unified v11.0.3
+- d96fc2828 package: file-entry-cache v7.0.0
+- 61566995b package: find-cache-dir v5.0.0
+- d6f4b7c3e eslint-plugin-putout: putout: sync: ESM (#182)
+- d265df273 @putout/test: eslint: putout (#182)
+- 23d296d26 @putout/engine-loader: loadPlugins: sync: ESM: add more descriptive error message (#182)
+
 2023.09.07, v31.8.5
 
 fix:
