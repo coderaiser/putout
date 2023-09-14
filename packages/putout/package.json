@@ -110,7 +110,6 @@
     "@putout/plugin-merge-destructuring-properties": "^8.0.0",
     "@putout/plugin-merge-duplicate-functions": "^1.0.0",
     "@putout/plugin-merge-duplicate-imports": "^9.0.0",
-    "@putout/plugin-merge-if-statements": "^3.0.0",
     "@putout/plugin-montag": "^2.0.0",
     "@putout/plugin-new": "^2.0.0",
     "@putout/plugin-nodejs": "^7.0.0",

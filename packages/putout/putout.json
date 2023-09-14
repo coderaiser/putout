@@ -213,7 +213,6 @@
         "merge-destructuring-properties",
         "merge-duplicate-imports",
         "merge-duplicate-functions",
-        "merge-if-statements",
         "declare-imports-first",
         "declare-before-reference",
         "declare",

@@ -23,7 +23,8 @@ npm i @putout/plugin-conditions -D
         "conditions/evaluate": "on",
         "conditions/remove-boolean": "on",
         "conditions/remove-constant": "on",
-        "conditions/remove-zero": "on"
+        "conditions/remove-zero": "on",
+        "conditions/merge-if-statements": "on"
     }
 }
 ```
@@ -195,7 +196,7 @@ if (b) {}
 
 ## simplify
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 if (zone?.tooltipCallback) {
@@ -208,13 +209,38 @@ else
     alert('hello');
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 zone?.tooltipCallback(e);
 
 alert('hello');
 ```
+
+## merge-if-statements
+
+> The `if` statement executes a statement `if` a specified condition is truthy.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+
+### ❌ Example of incorrect code
+
+```js
+if (a > b) {
+    if (b < c) {
+        console.log('hello');
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```js
+if (a > b && b < c) {
+    console.log('hello');
+}
+```
+
 
 ## License
 

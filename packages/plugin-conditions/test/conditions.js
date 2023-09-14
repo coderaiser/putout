@@ -49,3 +49,8 @@ test('plugin-conditions: transform: simplify', (t) => {
     t.transform('simplify');
     t.end();
 });
+
+test('plugin-conditions: transform: merge-if-statements', (t) => {
+    t.transform('merge-if-statements');
+    t.end();
+});

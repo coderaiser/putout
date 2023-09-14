@@ -5,7 +5,7 @@ const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {LogicalExpression} = types;
 
-module.exports.report = () => `If statements should be merged`;
+module.exports.report = () => `Merge 'if' statements`;
 
 module.exports.fix = ({path, consequentPath}) => {
     const testPath = path.get('test');
