@@ -10,7 +10,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-apply-shorthand-properties: report', (t) => {
-    t.report('object', 'Shorthand properties should be used');
+    t.report('object', 'Use shorthand properties');
     t.end();
 });
 

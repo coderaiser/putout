@@ -2,7 +2,7 @@ import {operator} from 'putout';
 
 const {findBinding, rename} = operator;
 
-export const report = () => `Shorthand properties should be used`;
+export const report = () => `Use shorthand properties`;
 
 export const fix = ({path, from, to}) => {
     rename(path, from, to);
