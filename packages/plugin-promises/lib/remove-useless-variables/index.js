@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {remove} = operator;
+const {remove, rename} = operator;
 
 module.exports.report = () => `'Promise.resolve()' has no sense in async function`;
 
@@ -13,7 +13,7 @@ module.exports.fix = (path) => {
     const newArg = declarationPath.node.id;
     
     declaratorPath.node.argument = oldArg;
-    path.scope.rename(newArg.name, oldArg.name);
+    rename(path, newArg.name, oldArg.name);
     remove(declarationPath);
 };
 

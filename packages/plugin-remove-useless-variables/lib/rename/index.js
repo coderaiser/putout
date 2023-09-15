@@ -2,13 +2,13 @@
 
 const {operator, types} = require('putout');
 
-const {remove} = operator;
+const {remove, rename} = operator;
 const {isIdentifier} = types;
 
 module.exports.report = ({idName}) => `Useless variable declaration with name "${idName}"`;
 
 module.exports.fix = ({path, bindingPath, initName, idName}) => {
-    bindingPath.scope.rename(initName, idName);
+    rename(bindingPath, initName, idName);
     remove(path);
 };
 

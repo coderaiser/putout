@@ -1,7 +1,11 @@
 'use strict';
 
 const {operator} = require('putout');
-const {compare, remove} = operator;
+const {
+    compare,
+    remove,
+    rename,
+} = operator;
 
 const {entries, keys} = Object;
 
@@ -11,7 +15,7 @@ module.exports.fix = ({path, duplicatePath}) => {
     const {name} = path.get('id').node;
     const {name: duplicateName} = duplicatePath.get('id').node;
     
-    path.scope.rename(duplicateName, name);
+    rename(path, duplicateName, name);
     remove(duplicatePath);
 };
 

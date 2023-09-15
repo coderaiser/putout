@@ -1,5 +1,7 @@
 'use strict';
 
+const {operator} = require('putout');
+const {rename} = operator;
 const {assign} = Object;
 
 module.exports.report = () => `Use 'createTest' instead of 'putoutTest'`;
@@ -18,5 +20,5 @@ module.exports.fix = (path) => {
         imported: first.local,
     });
     
-    path.scope.rename('putoutTest', 'createTest');
+    rename(path, 'putoutTest', 'createTest');
 };

@@ -20,6 +20,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-processors-destructuring": "on",
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
+        "putout/apply-rename": "on",
         "putout/apply-remove": "on",
         "putout/apply-insert-before": "on",
         "putout/apply-insert-after": "on",
@@ -74,6 +75,31 @@ test('', async (t) => {
 test('', async ({process}) => {
     await process({});
 });
+```
+
+## apply-rename
+
+Better use [`rename(path, from, to)`](https://github.com/coderaiser/putout/tree/master/packages/operate#rename) method of `operator`.
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/22716f61af86351331fc92260b7ed8e6/1435f31954764c119813e03654caa36e6a2a666b).
+
+### ❌ Example of incorrect code
+
+```js
+export const fix = ({path, from, to}) => {
+    path.scope.rename(from, to);
+};
+```
+
+### ✅ Example of correct code
+
+```js
+import {operator} from 'putout';
+
+const {rename} = operator;
+
+export const fix = ({path, from, to}) => {
+    rename(path, from, to);
+};
 ```
 
 ## apply-remove

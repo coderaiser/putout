@@ -1,9 +1,12 @@
 'use strict';
 
+const {operator} = require('putout');
+const {rename} = operator;
+
 module.exports.report = () => `Use '<FormProvider/>' instead of '<FormContext/>'`;
 
 module.exports.fix = (path) => {
-    path.scope.rename('FormContext', 'FormProvider');
+    rename(path, 'FormContext', 'FormProvider');
 };
 
 module.exports.include = () => [

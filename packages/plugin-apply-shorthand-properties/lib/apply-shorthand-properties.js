@@ -1,11 +1,11 @@
 import {operator} from 'putout';
 
-const {findBinding} = operator;
+const {findBinding, rename} = operator;
 
 export const report = () => `Shorthand properties should be used`;
 
 export const fix = ({path, from, to}) => {
-    path.scope.rename(from, to);
+    rename(path, from, to);
     path.node.shorthand = true;
 };
 

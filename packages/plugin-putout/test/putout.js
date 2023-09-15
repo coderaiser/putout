@@ -189,3 +189,8 @@ test('plugin-putout: transform: add-index-to-import', (t) => {
     t.transform('add-index-to-import');
     t.end();
 });
+
+test('plugin-putout: transform: apply-rename', (t) => {
+    t.transform('apply-rename');
+    t.end();
+});
