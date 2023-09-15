@@ -9,8 +9,8 @@ module.exports.rename = (path, from, to) => {
     if (!bindingCurrent)
         return;
     
-    const bindingPath = bindings[from].path;
+    const bindingPath = bindingCurrent.path;
     
-    bindingPath.scope.rename(from, to);
     renameProperty(bindingPath, from, to);
+    bindingPath.scope.rename(from, to);
 };

@@ -1003,7 +1003,7 @@ test('putout: operate: isSimple', (t) => {
 });
 
 test('putout: operate: renameProperty', (t) => {
-    const ast = parse('const {a, hello: world} = c;');
+    const ast = parse('const {a, hello} = c;');
     
     traverse(ast, {
         VariableDeclaration(path) {
