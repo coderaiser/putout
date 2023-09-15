@@ -65,7 +65,7 @@
     "@putout/formatter-progress": "^4.0.0",
     "@putout/formatter-progress-bar": "^3.0.0",
     "@putout/formatter-stream": "^4.0.0",
-    "@putout/operate": "^10.0.0",
+    "@putout/operate": "^11.0.0",
     "@putout/operator-add-args": "^6.0.0",
     "@putout/operator-declare": "^7.0.0",
     "@putout/operator-regexp": "^1.0.0",
