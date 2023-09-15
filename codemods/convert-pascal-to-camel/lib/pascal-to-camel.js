@@ -1,3 +1,7 @@
+import {operator} from 'putout';
+
+const {rename} = operator;
+
 export const report = (path) => {
     return `Should be used camelCase instead of PascalCase in functions ${path.node.name}`;
 };
@@ -7,7 +11,7 @@ export const fix = (path) => {
     const camel = toCamel(name);
     
     path.node.name = camel;
-    path.scope.rename(name, toCamel(name));
+    rename(path, name, toCamel(name));
 };
 
 export const traverse = ({push}) => ({
