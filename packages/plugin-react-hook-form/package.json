@@ -33,7 +33,7 @@
     "react-hook-form"
   ],
   "peerDependencies": {
-    "putout": ">=29"
+    "putout": ">=32"
   },
   "devDependencies": {
     "@putout/test": "^7.0.0",
