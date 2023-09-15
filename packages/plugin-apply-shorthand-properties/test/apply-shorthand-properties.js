@@ -71,9 +71,8 @@ test('plugin-apply-shorthand-properties: no transform: import declaration', (t) 
     t.end();
 });
 
-test('plugin-apply-shorthand-properties: no transform: assign', (t) => {
-    // scope.rename doesn't handle AssignmentPattern
-    t.noTransform('assign', {
+test('plugin-apply-shorthand-properties: transform: assign', (t) => {
+    t.transform('assign', {
         'rm-unused-vars': removeUnusedVariables,
     });
     t.end();

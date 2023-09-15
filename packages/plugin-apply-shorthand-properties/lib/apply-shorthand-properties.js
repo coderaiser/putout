@@ -43,9 +43,10 @@ export const traverse = ({push, options}) => ({
             const {references, path} = bindingFrom;
             
             // scope.rename doesn't handle AssignmentPattern
-            if (path.isAssignmentPattern())
-                continue;
-            
+            //if (path.isAssignmentPattern())
+            // scope.rename doesn't handle AssignmentPattern
+            //if (path.isAssignmentPattern())
+            //    continue;
             if (path.isImportDefaultSpecifier() || path.isImportSpecifier() || path.isObjectPattern() || path.get('id').isObjectPattern())
                 continue;
             
