@@ -1,3 +1,10 @@
+2023.09.15, v32.0.2
+
+feature:
+- 5f2dd1b08 package: @putout/plugin-putout v15.0.0
+- 5b9a872e6 @putout/plugin-putout: drop support of ☘🐊 < 32
+- a7ec11eda @putout/plugin-putout: apply-rename: add
+
 2023.09.14, v32.0.1
 
 feature:
