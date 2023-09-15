@@ -1,3 +1,25 @@
+2023.09.15, v32.0.3
+
+feature:
+- 70aba9f6c package: @putout/traverse v9.0.0
+- 763614b4d package: @putout/compare v13.0.0
+- ee6433864 package: @putout/operator-add-args v7.0.0
+- 16e1c8403 @putout/opererator-add-args: drop support of 🐊 < 32
+- 761b509c1 package: @putout/compare v13.0.0
+- f84e4c65c package: @putout/engine-runner v19.0.0
+- d784a789a package: @putout/compare v13.0.0
+- 26578f39f package: @putout/operator-declare v8.0.0
+- 5bba76385 package: @putout/operator-declare v8.0.0
+- b33d04e20 @putout/operator-declare: drop support of 🐊 < 32
+- 134b32ac4 package: @putout/operate v11.0.0
+- 547f07e54 package: @putout/compare v13.0.0
+- f2e102531 package: @putout/operate v11.0.0
+- a9e1fc5a4 package: @putout/operate v11.0.0
+- 730917a6d @putout/operate: rename: handle assignment
+- ac66238b2 @putout/plugin-appy-shorthand-properties: handle assignment
+- 195862df1 @putout/plugin-apply-shorthand-properties: drop support of 🐊 < 32
+- de059bb4a @putout/plugin-apply-shorthand-properties: report
+
 2023.09.15, v32.0.2
 
 feature:
