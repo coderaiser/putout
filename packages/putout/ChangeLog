@@ -1,3 +1,9 @@
+2023.09.18, v32.0.6
+
+feature:
+- 23d26e71c package: @putout/engine-processor v10.0.0
+- 9426d0f7a package: @putout/engine-loader v12.0.0
+
 2023.09.18, v32.0.5
 
 fix:
