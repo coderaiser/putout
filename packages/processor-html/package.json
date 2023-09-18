@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@putout/processor-css": "^7.0.0",
-    "svelte": "^3.29.7"
+    "svelte": "^4.2.0"
   },
   "keywords": [
     "putout",
