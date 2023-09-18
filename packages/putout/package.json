@@ -52,7 +52,7 @@
     "@putout/cli-validate-args": "^1.0.0",
     "@putout/compare": "^13.0.0",
     "@putout/engine-loader": "^11.3.0",
-    "@putout/engine-parser": "^8.0.0",
+    "@putout/engine-parser": "^9.0.0",
     "@putout/engine-processor": "^9.0.0",
     "@putout/engine-runner": "^19.0.0",
     "@putout/eslint": "^2.0.0",
