@@ -27,7 +27,7 @@
     "@putout/babel": "^1.0.5",
     "@putout/compare": "^13.0.0",
     "@putout/engine-parser": "^8.0.1",
-    "@putout/operate": "^10.0.2",
+    "@putout/operate": "^11.0.0",
     "@putout/operator-declare": "^8.0.0",
     "debug": "^4.1.1",
     "jessy": "^3.0.0",
