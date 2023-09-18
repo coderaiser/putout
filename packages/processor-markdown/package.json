@@ -31,7 +31,7 @@
   "dependencies": {
     "@putout/processor-json": "^7.0.1",
     "once": "^1.4.0",
-    "remark-parse": "^10.0.0",
+    "remark-parse": "^11.0.0",
     "remark-preset-lint-consistent": "^5.0.0",
     "remark-stringify": "^10.0.0",
     "unified": "^11.0.3",
