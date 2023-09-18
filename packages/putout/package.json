@@ -205,7 +205,7 @@
     "escover": "^3.2.2",
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^16.0.0",
-    "eslint-plugin-putout": "^19.0.0",
+    "eslint-plugin-putout": "^20.0.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^6.0.1",
     "madrun": "^9.0.0",
