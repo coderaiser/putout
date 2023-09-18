@@ -4,14 +4,14 @@ export const initParseStore = () => {
     
     const fn = function needContext(a) {
         parse.call(this, a);
-        const {Parser} = this;
+        const {parser} = this;
         
-        this.Parser = function(...a) {
+        this.parser = function(...a) {
             if (cache) {
                 return cache;
             }
             
-            cache = Parser(...a);
+            cache = parser(...a);
             
             return cache;
         };
