@@ -1,3 +1,23 @@
+2023.09.18, v32.0.5
+
+fix:
+- d2188e54e @putout/plugin-apply-shorthand-properties: drop comment
+
+feature:
+- 0974239b3 package: eslint-plugin-putout v20.0.0
+- f348498a0 package: @putout/engine-parser v9.0.0
+- 0f39e458f package: @putout/engine-parser v9.0.0
+- 1d7afb1a7 eslint-plugin-putout: drop support of 🐊 < 32
+- b12c792fc package: @putout/engine-parser v9.0.0
+- 2c5993c15 package: @putout/engine-loader v12.0.0
+- 7f705bf74 package: @putout/engine-parser v9.0.0
+- 5716fbefa package: @putout/engine-parser v9.0.0
+- 4a7f21174 package: @putout/engine-parser v9.0.0
+- 93d93e00f package: @putout/compare v13.0.0
+- 01aafde71 package: @putout/engine-parser v9.0.0
+- 6ab072f47 package: @putout/operate v11.0.0
+- 5ed32438f package: @putout/printer v5.0.0
+
 2023.09.15, v32.0.4
 
 feature:
