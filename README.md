@@ -16,7 +16,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊**Putout** is JavaScript Linter, pluggable and configurable code transformer based on **Babel** with built-in **ESLint**. It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
+🐊**Putout** is JavaScript Linter, pluggable and configurable code transformer based on **Babel** with built-in **ESLint** and [formatter](https://github.com/putoutjs/printer#readme). It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
 The main target is **JavaScript**, but:
 
 - ✅ JSX;
