@@ -22,6 +22,7 @@ const fixture = readFixtures([
     'debugger-fix',
     'decorator',
     'decorator-legacy',
+    'decorator-auto-accessors',
     'duplicate',
     'throw',
     'flow',
@@ -484,5 +485,14 @@ test('putout: parser: putout: directive: comment', (t) => {
     const expected = fixture.directiveComment;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: parser: putout: decoratorAutoAccessors', (t) => {
+    const {code} = putout(fixture.decoratorAutoAccessors, {
+        printer: 'putout',
+    });
+    
+    t.equal(code, fixture.decoratorAutoAccessors);
     t.end();
 });
