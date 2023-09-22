@@ -1,6 +1,9 @@
 'use strict';
 
 const test = require('supertape');
+const montag = require('montag');
+const tryCatch = require('try-catch');
+
 const parse = require('./parse');
 const generate = require('./generate');
 const babel = require('./parsers/babel');
@@ -21,6 +24,26 @@ test('putout: engina-parser: tuple', (t) => {
     const code = print(ast);
     
     t.equal(code, source);
+    t.end();
+});
+
+test('putout: engina-parser: babel: decoratorAutoAccessors', (t) => {
+    const source = montag`
+        class SomeClass {
+            @setMetadata
+            foo = 123;
+            
+            @setMetadata
+            accessor bar = "hello!";
+            
+            @setMetadata
+            baz() { }
+        }
+    `;
+    
+    const [error] = tryCatch(parse, source);
+    
+    t.notOk(error);
     t.end();
 });
 

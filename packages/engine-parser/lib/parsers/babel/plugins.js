@@ -9,6 +9,7 @@ module.exports = [
     'bigInt',
     'classProperties',
     'decorators-legacy',
+    'decoratorAutoAccessors',
     'destructuringPrivate',
     'exportDefaultFrom',
     'throwExpressions',
