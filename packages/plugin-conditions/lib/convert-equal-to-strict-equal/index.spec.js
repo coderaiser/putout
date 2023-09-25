@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-conditions: convert-equal-to-strict-equal: report', (t) => {
-    t.report('equal', 'Strict equal should be used instead of equal');
+    t.report('equal', `Use strict equal ('===') instead of equal ('==')`);
     t.end();
 });
 
