@@ -1,3 +1,22 @@
+2023.09.26, v32.0.7
+
+fix:
+- ce4cb9011 @putout/plugin-conditions: report: convert-equal-to-strict-equal
+- 3405fe5fc @putout/processor-markdown: cache
+
+feature:
+- 071d77f61 package: @putout/plugin-strict-mode v9.0.0
+- 9250e82ff @putout/plugin-strict-mode: drop support of 🐊 < 32
+- 832ad34dd @putout/plugin-strict-mode: add-missing: report
+- cac1fde26 @putout/engine-parser: babel: decoratorAutoAccessors
+- db48ec61f @putout/processor-html: drop support of 🐊 < 32
+- c50eb7d95 @putout/processor-typescript: drop support of 🐊 < 32
+- 4706a33d0 @putout/processor-wasm: drop support of 🐊 < 32
+- e8dc8a70c package: ts-morph v19.0.0
+- 77ef88fe7 package: svelte v4.2.0
+- e8e5f732a package: remark-stringify v11.0.0
+- f1c2ea5d4 package: remark-parse v11.0.0
+
 2023.09.18, v32.0.6
 
 feature:
