@@ -2,9 +2,7 @@ import {operator} from 'putout';
 
 const {rename} = operator;
 
-export const report = (path) => {
-    return `Should be used camelCase instead of PascalCase in functions ${path.node.name}`;
-};
+export const report = (path) => `Use camelCase instead of PascalCase in functions ${path.node.name}`;
 
 export const fix = (path) => {
     const {name} = path.node;

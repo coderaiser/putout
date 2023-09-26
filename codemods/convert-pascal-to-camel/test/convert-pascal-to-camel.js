@@ -19,7 +19,7 @@ test('plugin-convert-pascal-to-camel: transform: class', (t) => {
 });
 
 test('plugin-convert-pascal-to-camel: class', (t) => {
-    t.report('class', `Should be used camelCase instead of PascalCase in functions HowCome`);
+    t.report('class', `Use camelCase instead of PascalCase in functions HowCome`);
     t.end();
 });
 
