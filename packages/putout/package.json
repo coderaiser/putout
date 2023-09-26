@@ -154,7 +154,7 @@
     "@putout/plugin-simplify-ternary": "^6.0.0",
     "@putout/plugin-split-nested-destructuring": "^3.0.0",
     "@putout/plugin-split-variable-declarations": "^3.0.0",
-    "@putout/plugin-strict-mode": "^8.0.0",
+    "@putout/plugin-strict-mode": "^9.0.0",
     "@putout/plugin-tape": "^11.0.0",
     "@putout/plugin-try-catch": "^3.0.0",
     "@putout/plugin-types": "^3.0.0",
