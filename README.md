@@ -285,8 +285,8 @@ So, if you want to convert it to [`ESM`](https://developer.mozilla.org/en-US/doc
 ```sh
  1:4   error   'unused' is defined but never used                        remove-unused-variables
  7:23  error   'a' is defined but never used                             remove-unused-variables
- 3:0   error   Arrow functions should be used                            convert-to-arrow-function
- 1:0   error   'use strict' directive should be on top of commonjs file  strict-mode/add-missing
+ 3:0   error   Use arrow function                                        convert-to-arrow-function
+ 1:0   error   Add missing 'use strict' directive on top of CommonJS     mode/add-missing
  8:4   error   Reject is useless in async functions, use throw instead   promises/convert-reject-to-throw
  4:11  error   Async functions should be called using 'await'            promises/add-missing-await
  7:0   error   Avoid useless async                                       promises/remove-useless-async
