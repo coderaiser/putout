@@ -58,6 +58,17 @@ test('putout: engina-parser: babel: sourcePhaseImports', (t) => {
     t.end();
 });
 
+test('putout: engina-parser: babel: deferredImportEvaluation', (t) => {
+    const source = montag`
+        import defer * as myMod from "./mod";
+    `;
+    
+    const [error] = tryCatch(parse, source);
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('putout: engina-parser: parse + generate = sourcemap', (t) => {
     const source = `const hello = 'world';`;
     

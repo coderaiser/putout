@@ -17,5 +17,6 @@ module.exports = [
         syntaxType: 'hash',
     }],
     'explicitResourceManagement',
+    'deferredImportEvaluation',
     'sourcePhaseImports',
 ];
