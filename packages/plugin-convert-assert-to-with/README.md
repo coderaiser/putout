@@ -33,9 +33,9 @@ import json from './foo.json' with { type: 'json' };
 
 import('foo.json', {
     assert: {
-    type: 'json',
+        type: 'json',
     },
-    });
+});
 ```
 
 ## ✅ Example of correct code
@@ -45,9 +45,9 @@ import json from './foo.json' with { type: 'json' };
 
 import('foo.json', {
     with: {
-    type: 'json',
+        type: 'json',
     },
-    });
+});
 ```
 
 ## License
