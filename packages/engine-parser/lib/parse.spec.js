@@ -69,6 +69,17 @@ test('putout: engina-parser: babel: deferredImportEvaluation', (t) => {
     t.end();
 });
 
+test('putout: engina-parser: babel: optionalChainingAssign', (t) => {
+    const source = montag`
+        maybeAnObj?.prop = theValue;
+    `;
+    
+    const [error] = tryCatch(parse, source);
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('putout: engina-parser: parse + generate = sourcemap', (t) => {
     const source = `const hello = 'world';`;
     

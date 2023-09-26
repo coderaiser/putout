@@ -19,4 +19,7 @@ module.exports = [
     'explicitResourceManagement',
     'deferredImportEvaluation',
     'sourcePhaseImports',
+    ['optionalChainingAssign', {
+        version: '2023-07',
+    }],
 ];
