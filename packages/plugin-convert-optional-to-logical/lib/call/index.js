@@ -1,27 +1,29 @@
-import {
-    template,
-    operator,
-} from 'putout';
+'use strict';
 
-export const report = () => `Use Logical Expression instead of Optional Chaining`;
+const {template, operator} = require('putout');
+
+module.exports.report = () => `Use Logical Expression instead of Optional Chaining`;
 
 const {replaceWith} = operator;
 
-export const fix = (path) => {
+module.exports.fix = (path) => {
     const logical = getLogical(path);
     replaceWith(path, template.ast(logical));
 };
 
-export const include = () => [
+module.exports.include = () => [
     'OptionalMemberExpression',
     'OptionalCallExpression',
 ];
 
-export const filter = (path) => {
-    if (path.parentPath.isOptionalMemberExpression())
+module.exports.filter = ({parentPath}) => {
+    if (parentPath.isOptionalMemberExpression())
         return false;
     
-    return !path.parentPath.isOptionalCallExpression();
+    if (parentPath.isAssignmentExpression())
+        return false;
+    
+    return !parentPath.isOptionalCallExpression();
 };
 
 function getLogical(path) {

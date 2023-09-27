@@ -1,6 +1,7 @@
 {
     "printer": "putout",
     "rules": {
-        "apply-optional-chaining": "off"
+        "apply-optional-chaining": "off",
+        "convert-optional-to-logical": "off"
     }
 }

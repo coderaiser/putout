@@ -1,7 +1,9 @@
-import {createTest} from '@putout/test';
-import * as plugin from '../lib/convert-optional-to-logical.js';
+'use strict';
 
-const test = createTest(import.meta.url, {
+const {createTest} = require('@putout/test');
+const plugin = require('..');
+
+const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
         ['convert-optional-to-logical', plugin],
@@ -20,5 +22,10 @@ test('plugin-for-of: transform: convert-optional-to-logical', (t) => {
 
 test('plugin-for-of: transform: convert-optional-to-logical: squire', (t) => {
     t.transform('squire');
+    t.end();
+});
+
+test('plugin-convert-optional-to-logical: transform: assign', (t) => {
+    t.transform('assign');
     t.end();
 });
