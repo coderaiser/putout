@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('packages: assign: report', (t) => {
-    t.report('assign', `Use 'if condition' instead of 'ternary expression'`);
+    t.report('assign', `Use optional expression ('a?.b = c') instead of 'condition' ('a && a.b = c')`);
     t.end();
 });
 

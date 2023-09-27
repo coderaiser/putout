@@ -60,7 +60,7 @@ if (a?.(1, 2))
 
 
 
-Disabled by default. Checkout out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/74bde454f909b7f9d13e80da10e12a15/13f536c7f0bbeb73ccdce38ce7b83cc937fc3290).
+Disabled by default. Checkout out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/74bde454f909b7f9d13e80da10e12a15/d31bd20ca18fefe474bb8ab73f963e47dffb89e7).
 
 ### ❌ Example of incorrect code
 
