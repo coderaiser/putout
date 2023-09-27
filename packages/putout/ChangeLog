@@ -1,3 +1,13 @@
+2023.09.27, v32.1.0
+
+feature:
+- 7c50a12e7 putout: bundle @putout/plugin-convert-optional-to-logical: assign
+- f2eb83bec @putout/plugin: convert-optional-to-logical: assign
+- 03b8e3201 @putout/plugin-convert-optional-to-logical: drop support of 🐊 < 32
+- 9a5b4e40d @putout/engine-parser: optionalChainingAssign
+- f11f520f7 @putout/engine-parser: deferredImportEvaluation
+- eb74bf5a4 @putout/engine-parser: enable sourcePhaseImports
+
 2023.09.26, v32.0.7
 
 fix:
