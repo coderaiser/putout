@@ -58,8 +58,6 @@ if (a?.(1, 2))
 >
 > (c) [Proposal of Optional Chaining Assignment](https://github.com/tc39/proposal-optional-chaining-assignment)
 
-
-
 Disabled by default. Checkout out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/74bde454f909b7f9d13e80da10e12a15/d31bd20ca18fefe474bb8ab73f963e47dffb89e7).
 
 ### ❌ Example of incorrect code
@@ -80,7 +78,6 @@ a && (a.b = 5);
 ```js
 a?.b = 5;
 ```
-
 
 ## License
 
