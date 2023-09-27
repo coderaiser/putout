@@ -1,0 +1,1 @@
+maybeAnObj && (maybeAnObj.prop = theValue);

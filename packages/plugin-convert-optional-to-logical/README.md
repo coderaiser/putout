@@ -17,8 +17,8 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert **Optioncal Chaining** to **Logical Expression** (*Not bundled*).
-Like [`apply-optional-chaining`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-optional-chaining#readme) but backwards. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e0a4ccb41708ad37e34d527a978ebb88/482f15c954cdaa35e37da7a1dddb82338d7e93a2).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert **Optioncal Chaining** to **Logical Expression**.
+Like [`apply-optional-chaining`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-optional-chaining#readme) but backwards.
 
 ## Install
 
@@ -31,18 +31,40 @@ npm i @putout/plugin-convert-optional-to-logical
 ```json
 {
     "rules": {
-        "convert-optional-to-logical": "on"
+        "convert-optional-to-logical/assign": "on",
+        "convert-optional-to-logical/call": "on"
     }
 }
 ```
 
-## ❌ Example of incorrect code
+## assign
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e0a4ccb41708ad37e34d527a978ebb88/482f15c954cdaa35e37da7a1dddb82338d7e93a2).
+
+### ❌ Example of incorrect code
+
+```js
+maybeAnObj?.prop = theValue;
+```
+
+### ✅ Example of correct code
+
+```js
+maybeAnObj && (maybeAnObj.prop = theValue);
+```
+
+## call
+
+Disabled by default.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e0a4ccb41708ad37e34d527a978ebb88/482f15c954cdaa35e37da7a1dddb82338d7e93a2).
+
+### ❌ Example of incorrect code
 
 ```js
 hello?.world?.();
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 hello && hello.world && hello.world();
