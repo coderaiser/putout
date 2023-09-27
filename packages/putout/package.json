@@ -73,7 +73,7 @@
     "@putout/plugin-apply-destructuring": "^7.0.0",
     "@putout/plugin-apply-early-return": "^3.0.0",
     "@putout/plugin-apply-flat-map": "^2.0.0",
-    "@putout/plugin-apply-optional-chaining": "^4.0.0",
+    "@putout/plugin-apply-optional-chaining": "^5.0.0",
     "@putout/plugin-apply-starts-with": "^1.0.0",
     "@putout/plugin-apply-template-literals": "^2.0.0",
     "@putout/plugin-browserlist": "^1.0.0",

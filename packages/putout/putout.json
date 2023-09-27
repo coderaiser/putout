@@ -131,6 +131,7 @@
         "typescript": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
+        "apply-optional-chaining/assign": "off",
         "convert-optional-to-logical/call": "off",
         "nodejs/convert-top-level-return": "off",
         "putout": "off",
