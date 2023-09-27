@@ -2,7 +2,8 @@
     "printer": "putout",
     "match": {
         "*.md": {
-            "apply-optional-chaining": "off"
+            "apply-optional-chaining": "off",
+            "convert-optional-to-logical": "off"
         }
     }
 }

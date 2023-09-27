@@ -64,3 +64,8 @@ test('plugin-apply-optional-chaining: transform: call-expression', (t) => {
     t.transform('call-expression');
     t.end();
 });
+
+test('plugin-apply-optional-chaining: transform: assign', (t) => {
+    t.transform('assign');
+    t.end();
+});
