@@ -1,6 +1,7 @@
 'use strict';
 
 const {template, operator} = require('putout');
+const {getLogical} = require('../get-logical');
 
 module.exports.report = () => `Use Logical Expression instead of Optional Chaining`;
 
@@ -25,31 +26,3 @@ module.exports.filter = ({parentPath}) => {
     
     return !parentPath.isOptionalCallExpression();
 };
-
-function getLogical(path) {
-    const list = path
-        .toString()
-        .split('?.');
-    
-    const n = list.length;
-    let [member] = list;
-    let i = 0;
-    
-    const logical = [member];
-    
-    while (++i < n) {
-        member += compute(member, list[i]);
-        logical.push(member);
-    }
-    
-    return logical.join(' && ');
-}
-
-function compute(member, current) {
-    const [first] = current;
-    
-    if (first === '(' || first === '[')
-        return current;
-    
-    return `.${current}`;
-}

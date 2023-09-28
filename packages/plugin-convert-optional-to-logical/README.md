@@ -43,7 +43,7 @@ npm i @putout/plugin-convert-optional-to-logical
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Invalid_assignment_left-hand_side)
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e0a4ccb41708ad37e34d527a978ebb88/482f15c954cdaa35e37da7a1dddb82338d7e93a2).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/29c00f1b02b592a3dcd7b7e185dfd354/50a1a416da21b02df3a76954b4d7a1ff7dac1eaf).
 
 ### ❌ Example of incorrect code
 

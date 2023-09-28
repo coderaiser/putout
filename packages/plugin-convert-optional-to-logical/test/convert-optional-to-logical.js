@@ -10,17 +10,17 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-for-of: transform: convert-optional-to-logical: report', (t) => {
+test('plugin-convert-optional-to-logical: report', (t) => {
     t.report('convert-optional-to-logical', 'Use Logical Expression instead of Optional Chaining');
     t.end();
 });
 
-test('plugin-for-of: transform: convert-optional-to-logical', (t) => {
+test('plugin-convert-optional-to-logical: transform', (t) => {
     t.transform('convert-optional-to-logical');
     t.end();
 });
 
-test('plugin-for-of: transform: convert-optional-to-logical: squire', (t) => {
+test('plugin-convert-optional-to-logical: transform: squire', (t) => {
     t.transform('squire');
     t.end();
 });
