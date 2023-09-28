@@ -10,12 +10,13 @@ const superFind = require('./super-find');
 const include = require('./include');
 const replace = require('./replace');
 const declare = require('./declare');
+const template = require('./template');
 
 const {getPath, getPosition} = require('./get-position');
 
 const isRemoved = (a) => a?.removed;
 
-module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, template = require('./template')}) => {
+module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins}) => {
     let places = [];
     
     const merge = once(mergeVisitors);
