@@ -15,7 +15,6 @@ const parseOptions = require('putout/parse-options');
 const {parseError} = require('../parse-error');
 
 const cwd = process.cwd();
-
 const EMPTY_VISITORS = {};
 
 module.exports = ({context, options}) => {
@@ -78,7 +77,6 @@ module.exports = ({context, options}) => {
 
 const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
     const includeComments = true;
-    
     const lastToken = source.getLastToken(node, {
         includeComments,
     });
@@ -86,7 +84,6 @@ const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
     transform(ast, text, resultOptions);
     
     const [, last] = lastToken.range;
-    
     const code = print(ast);
     
     return fixer.replaceTextRange([0, last], code);
