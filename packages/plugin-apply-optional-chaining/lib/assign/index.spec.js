@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('packages: assign: report', (t) => {
+test('apply-optional-chaining: assign: report', (t) => {
     t.report('assign', `Use optional expression ('a?.b = c') instead of 'condition' ('a && a.b = c')`);
     t.end();
 });
 
-test('packages: assign: transform', (t) => {
+test('apply-optional-chaining: assign: transform', (t) => {
     t.transform('assign');
     t.end();
 });
