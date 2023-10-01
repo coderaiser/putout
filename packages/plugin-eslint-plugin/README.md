@@ -27,41 +27,85 @@ npm i @putout/plugin-eslint-plugin -D
 
 ## convert-context-to-source
 
-According to [v8.40](https://eslint.org/blog/2023/05/eslint-v8.40.0-released/):
+> When **ESLint** v9.0.0 is released, it will ship with several breaking changes for rule authors.
+> These changes are necessary as part of the work to implement language plugins, which gives **ESLint** first-class support for linting languages other than JavaScript.
+>
+> (c) [eslint.org](https://eslint.org/blog/2023/09/preparing-custom-rules-eslint-v9/)
 
-- `context.getSourceCode()` is deprecated in favour of `context.sourceCode`;
-- `context.getFilename()` is deprecated in favour of `context.filename`;
-- etc;
-
-So is better to replace deprecated API of ESLint v8 to equalent future proof API for v9.
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d9dda4953b53340d4f54483ee3bbf2d5/d7182394c3b1a2b52e4c489b60da7365a9c94e09).
 
 ### ❌ Example of incorrect code
 
 ```js
-context.getSourceCode();
 context.parserServices;
+sourceCode.parserServices;
 context.getAncestors(node);
 context.getDeclaredVariables(node);
 context.getScope();
 context.getCwd();
+context.getSourceCode();
 context.markVariableAsUsed(name);
 context.getFilename();
 context.getPhysicalFilename();
+const nextNode = context.getNodeByRangeIndex(node.range[1] + 2);
+
+context.getSource();
+context.getSourceLines();
+context.getAllComments();
+context.getComments();
+context.getCommentsBefore();
+context.getCommentsAfter();
+context.getCommentsInside();
+context.getJSDocComment();
+context.getFirstToken();
+context.getFirstTokens();
+context.getLastToken();
+context.getLastTokens();
+context.getTokenAfter();
+context.getTokenBefore();
+context.getTokenByRangeStart();
+context.getTokens();
+context.getTokensAfter();
+context.getTokensBefore();
+context.getTokensBetween();
+context.parserServices;
 ```
 
 ### ✅ Example of correct code
 
 ```js
 sourceCode.parserServices;
+sourceCode.parserServices;
 sourceCode.getAncestors(node);
 sourceCode.getDeclaredVariables(node);
 sourceCode.getScope();
-sourceCode.markVariableAsUsed(name);
 context.cwd;
 context.sourceCode;
+sourceCode.markVariableAsUsed(name);
 context.filename;
 context.physicalFilename;
+const nextNode = sourceCode.getNodeByRangeIndex(node.range[1] + 2);
+
+sourceCode.getText();
+sourceCode.getLines();
+sourceCode.getAllComments();
+sourceCode.getComments();
+sourceCode.getCommentsBefore();
+sourceCode.getCommentsAfter();
+sourceCode.getCommentsInside();
+sourceCode.getJSDocComment();
+sourceCode.getFirstToken();
+sourceCode.getFirstTokens();
+sourceCode.getLastToken();
+sourceCode.getLastTokens();
+sourceCode.getTokenAfter();
+sourceCode.getTokenBefore();
+sourceCode.getTokenByRangeStart();
+sourceCode.getTokens();
+sourceCode.getTokensAfter();
+sourceCode.getTokensBefore();
+sourceCode.getTokensBetween();
+sourceCode.parserServices;
 ```
 
 ## License
