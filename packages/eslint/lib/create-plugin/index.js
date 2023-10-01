@@ -3,12 +3,12 @@
 const prepare = (plugin, context, options) => (node) => {
     const {filter, report} = plugin;
     
-    const source = context.sourceCode;
-    const {filename} = context;
-    const getText = source.getText.bind(source);
-    const getCommentsBefore = source.getCommentsBefore.bind(source);
-    const getCommentsAfter = source.getCommentsAfter.bind(source);
-    const getCommentsInside = source.getCommentsInside.bind(source);
+    const {sourceCode, filename} = context;
+    
+    const getText = sourceCode.getText.bind(sourceCode);
+    const getCommentsBefore = sourceCode.getCommentsBefore.bind(sourceCode);
+    const getCommentsAfter = sourceCode.getCommentsAfter.bind(sourceCode);
+    const getCommentsInside = sourceCode.getCommentsInside.bind(sourceCode);
     
     const getSpacesBeforeNode = createGetSpacesBeforeNode({
         getText,
