@@ -1,5 +1,4 @@
 sourceCode.parserServices;
-sourceCode.parserServices;
 sourceCode.getAncestors(node);
 sourceCode.getDeclaredVariables(node);
 sourceCode.getScope();
