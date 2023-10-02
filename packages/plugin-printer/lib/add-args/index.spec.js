@@ -34,3 +34,8 @@ test('rule: add-args: transform: semantics', (t) => {
     t.transform('semantics');
     t.end();
 });
+
+test('rule: add-args: no transform: three-args-no-object', (t) => {
+    t.noTransform('three-args-no-object');
+    t.end();
+});

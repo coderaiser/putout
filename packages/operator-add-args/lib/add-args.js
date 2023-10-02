@@ -79,6 +79,7 @@ const traverse = (args) => ({push, options}) => {
                     continue;
                 
                 const {params} = block;
+                
                 const [index, lastParam] = getObjectPattern(params);
                 
                 if (isObjectPattern(lastParam)) {
@@ -92,6 +93,9 @@ const traverse = (args) => ({push, options}) => {
                     });
                     return;
                 }
+                
+                if (params.length >= 3)
+                    return;
                 
                 push({
                     name,

@@ -635,3 +635,25 @@ test('putout: operator: add-args: three args', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: add-args: three args: no object', (t) => {
+    const args = {
+        maybe: ['{maybe}', 'module.exports.__a = (__args) => __body'],
+    };
+    
+    const source = montag`
+        module.exports.VariableDeclaration = (path, printer, semantics) => {
+            maybe.indent(is);
+        };\n
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    t.equal(code, source);
+    t.end();
+});
