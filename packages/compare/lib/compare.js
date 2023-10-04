@@ -129,6 +129,7 @@ const ignore = [
     'leadingComments',
     'innerComments',
     'parent',
+    'phase',
     'range',
     'trailingComments',
     'importKind',

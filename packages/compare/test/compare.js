@@ -658,6 +658,15 @@ test('compare: innerComments', (t) => {
     t.end();
 });
 
+test('compare: import: ignore phase', (t) => {
+    const node = template.ast.fresh(`import tryCatch from 'try-catch'`);
+    delete node.phase;
+    const result = compare(node, `import tryCatch from 'try-catch'`);
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: ts: importKind', (t) => {
     const result = compare('const a:any = 5', 'const __a: any = __b');
     
