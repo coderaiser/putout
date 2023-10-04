@@ -10,32 +10,32 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('remove duplicate-interface-keys: report', (t) => {
+test('plugin-typescript: remove duplicate-interface-keys: report', (t) => {
     t.report('duplicate', `Avoid duplicate interface keys`);
     t.end();
 });
 
-test('remove duplicate-interface-keys: transform: duplicate', (t) => {
+test('plugin-typescript: remove duplicate-interface-keys: transform: duplicate', (t) => {
     t.transform('duplicate-literal');
     t.end();
 });
 
-test('remove duplicate-interface-keys: transform: break code with additional ";"', (t) => {
+test('plugin-typescript: remove duplicate-interface-keys: transform: break code with additional ";"', (t) => {
     t.transform('additional-semicolon');
     t.end();
 });
 
-test('remove duplicate-interface-keys: transform: alot', (t) => {
+test('plugin-typescript: remove duplicate-interface-keys: transform: alot', (t) => {
     t.transform('alot');
     t.end();
 });
 
-test('remove duplicate-interface-keys: no transform: index signature', (t) => {
+test('plugin-typescript: remove duplicate-interface-keys: no transform: index signature', (t) => {
     t.noTransform('index-signature');
     t.end();
 });
 
-test('remove duplicate-interface-keys: no transform: method', (t) => {
+test('plugin-typescript: remove duplicate-interface-keys: no transform: method', (t) => {
     t.noTransform('method');
     t.end();
 });

@@ -1,4 +1,4 @@
-interface LabelledContainer {
+interface LabelledContainer<T> {
     label: string;
     content: T;
     option?: boolean;
