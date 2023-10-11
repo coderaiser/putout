@@ -1,0 +1,1 @@
+typeof a.b !== 'undefined';

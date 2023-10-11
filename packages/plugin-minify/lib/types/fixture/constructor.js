@@ -1,3 +1,5 @@
+const x = null;
+
 Boolean('hello');
 new Boolean('hello');
 String(5);

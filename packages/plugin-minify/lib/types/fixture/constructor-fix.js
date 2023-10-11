@@ -1,3 +1,5 @@
+const x = null;
+
 !!'hello';
 new Boolean('hello');
 '' + 5;

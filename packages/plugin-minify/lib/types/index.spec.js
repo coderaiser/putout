@@ -35,3 +35,13 @@ test('plugin-minify: types: transform: binary-expressions', (t) => {
     });
     t.end();
 });
+
+test('plugin-minify: types: no transform: not-defined', (t) => {
+    t.noTransform('not-defined');
+    t.end();
+});
+
+test('plugin-minify: types: transform: not-identifier', (t) => {
+    t.transform('not-identifier');
+    t.end();
+});
