@@ -1,3 +1,25 @@
+2023.10.11, v32.2.1
+
+fix:
+- 25ee3c992 @putout/engine-runner: get rid of dynamic load of template, improve compatibility with Bun preload
+- 7f07ce346 @putout/plugin-apply-optional-chaining: report
+
+feature:
+- 0e321a667 package: @putout/plugin-remove-useless-spread v9.0.0
+- 45a79362c @putout/plugin-remove-useless-spread: drop support of 🐊 < 32
+- a0caa167a @putout/plugin-putout: declare: getBinding, getBindingPath
+- f4a10e133 @putout/plugin-minify: drop support of 🐊 < 32
+- 88f210f37 @putout/plugin-minify: types: no transform when not declared (coderaiser/minify#114)
+- 0e09eaf01 @putout/compare: phase: ignore
+- 4278dd829 @putout/printer: drop support of 🐊 < 32
+- cb44dab3b @putout/operator-add-args: avoid adding arg when params more then 3
+- 70a7a7058 @putout/eslint: create-plugin: source -> sourceCode
+- 4bdedf52e @putout/plugin-eslint-plugin: drop support of 🐊 < 32
+- 16e1f108c @putout/plugin-eslint-plugin: convert-context-to-source: get more methods
+- ee940f43a package: ts-morph v20.0.0
+- 9a5c045cf package: hermes-parser v0.16.0
+- 6ea289705 @putout/plugin-convert-to-logical: assign: improve
+
 2023.09.27, v32.2.0
 
 feature:
