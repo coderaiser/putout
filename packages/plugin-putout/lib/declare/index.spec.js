@@ -240,3 +240,23 @@ test('plugin-putout: declare: transform: getRule', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: getBinding', (t) => {
+    t.transformCode(`getBinding('hello');`, montag`
+        import {operator} from 'putout';
+        
+        const {getBinding} = operator;
+        getBinding('hello');\n
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: getBindingPath', (t) => {
+    t.transformCode(`getBindingPath('hello');`, montag`
+        import {operator} from 'putout';
+        
+        const {getBindingPath} = operator;
+        getBindingPath('hello');\n
+    `);
+    t.end();
+});

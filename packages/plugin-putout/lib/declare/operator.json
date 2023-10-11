@@ -10,6 +10,8 @@
     "renameProperty": "const {renameProperty} = operator",
     "extract": "const {extract} = operator",
     "getPathAfterImports": "const {getPathAfterImports} = operator",
+    "getBinding": "const {getBinding} = operator",
+    "getBindingPath": "const {getBindingPath} = operator",
     "traverse": "const {traverse} = operator",
     "isSimpleRegExp": "const {isSimpleRegExp} = operator",
     "getTemplateValues": "const {getTemplateValues} = operator",
