@@ -1,3 +1,10 @@
+2023.10.12, v32.2.2
+
+feature:
+- 0a7bc5a6d package: @putout/plugin-nodejs v8.0.0
+- 0cbd7db34 @putout/plugin-nodejs: drop support of 🐊 < 32
+- 641dbb2af @putout/plugin-nodejs: convert-buffer-to-buffer-alloc: encoding
+
 2023.10.11, v32.2.1
 
 fix:
