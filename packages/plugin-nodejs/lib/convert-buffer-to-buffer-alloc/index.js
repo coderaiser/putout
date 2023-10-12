@@ -1,10 +1,9 @@
 'use strict';
 
 const {operator} = require('putout');
+const {compute} = operator;
 
 const isNumber = (a) => typeof a === 'number';
-
-const {compute} = operator;
 
 module.exports.report = () => `Use 'Buffer.alloc()' or 'Buffer.from()' instead of 'Buffer()' and 'new Buffer()'`;
 
@@ -19,14 +18,18 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     'new Buffer(__a)': transform,
+    'new Buffer(__a, __b)': transform,
     'Buffer(__a)': transform,
 });
 
-function transform(vars, path) {
+function transform({__b}, path) {
     const [, value] = compute(path.get('arguments.0'));
     
     if (isNumber(value))
         return 'Buffer.alloc(__a)';
+    
+    if (__b)
+        return 'Buffer.from(__a, __b)';
     
     return 'Buffer.from(__a)';
 }

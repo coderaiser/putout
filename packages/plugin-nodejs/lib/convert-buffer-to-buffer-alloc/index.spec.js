@@ -19,3 +19,8 @@ test('nodejs: convert-buffer-to-buffer-alloc: transform', (t) => {
     t.transform('convert-buffer-to-buffer-alloc');
     t.end();
 });
+
+test('nodejs: convert-buffer-to-buffer-alloc: transform: couple-args', (t) => {
+    t.transform('couple-args');
+    t.end();
+});
