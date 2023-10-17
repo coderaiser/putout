@@ -11,7 +11,18 @@ const notSupportedError = (a) => Error(`☝️ Rule format not supported ${a}: $
 const rulesUsedInsteadOfMatchError = (a) => Error(`☝️ Looks like you need to change "rules" to "match" for ${stringify(a)}`);
 const stateOptionError = ({rule, value}) => Error(`☝️ ${rule}: state option can be "on" or "off" only, when used as string, received: "${value}"`);
 const defaultOptions = () => Object.create(null);
-const parseState = (rule, value) => validateState(rule, value) && value === 'on' || value !== 'off';
+
+const parseState = (rule, value) => {
+    validateState(rule, value);
+    
+    if (value === 'on')
+        return true;
+    
+    if (value === 'off')
+        return false;
+    
+    return value;
+};
 
 module.exports.parseRules = (rules) => {
     rules = parseSubrules(rules);

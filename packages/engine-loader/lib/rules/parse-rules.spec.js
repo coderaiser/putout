@@ -16,12 +16,21 @@ test('putout: loader: parse rules: not on/off', (t) => {
     t.end();
 });
 
-test('putout: loader: parse rules: two elements array', (t) => {
+test('putout: loader: parse rules: tuple: two: array', (t) => {
     const [error] = tryCatch(parseRules, {
         hello: ['on', {}],
     });
     
     t.notOk(error);
+    t.end();
+});
+
+test('putout: loader: parse rules: tuple: two: boolean', (t) => {
+    const [{state}] = parseRules({
+        hello: [false, {}],
+    });
+    
+    t.notOk(state);
     t.end();
 });
 
