@@ -1,3 +1,12 @@
+2023.10.18, v32.3.0
+
+feature:
+- 3ea09d3e4 package: @putout/plugin-github v9.0.0
+- e3f59eb58 @putout/plugin-github: add support of node v21 (https://nodejs.org/en/blog/release/v21.0.0)
+- b42197212 @putout/plugin-github: drop support of 🐊 < 27
+- b72e8bb06 package: estree-to-babel v8.0.0
+- ef3a2da61 @putout/engine-loader: parse-ruels: tuple of two elements: boolean (coderaiser/minify#114)
+
 2023.10.12, v32.2.2
 
 feature:
