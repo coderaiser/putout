@@ -27,6 +27,7 @@ npm i putout @putout/plugin-madrun -D
         "madrun/add-cut-env": "on",
         "madrun/call-run": "on",
         "madrun/convert-run-argument": "on",
+        "madrun/convert-args-to-scripts": "on",
         "madrun/convert-run-to-cut-env": "on",
         "madrun/convert-cut-env-to-run": "on",
         "madrun/rename-series-to-run": "on",
@@ -138,6 +139,28 @@ module.exports = {
 ```js
 module.exports = {
     hello: () => run('a'),
+};
+```
+
+## convert-args-to-scripts
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bc9afe77c9853716392f812b5000fbbb/e290c6d41f8a31c81ce4b81e1c1ccec78a319e27).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    build: () => 'tsup',
+    wisdom: () => run('build', 'test', 'test:dts'),
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    build: () => 'tsup',
+    wisdom: () => run(['build', 'test', 'test:dts']),
 };
 ```
 

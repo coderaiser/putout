@@ -18,6 +18,7 @@ const convertCutEnvToRun = require('./convert-cut-env-to-run');
 const setReportLcov = require('./set-report-lcov');
 const removeCheckDuplicatesFromTest = require('./remove-check-duplicates-from-test');
 const declare = require('./declare');
+const convertArgsToScripts = require('./convert-args-to-scripts');
 
 module.exports.rules = {
     'add-function': addFunction,
@@ -38,4 +39,5 @@ module.exports.rules = {
     'set-report-lcov': setReportLcov,
     'remove-check-duplicates-from-test': removeCheckDuplicatesFromTest,
     declare,
+    'convert-args-to-scripts': convertArgsToScripts,
 };

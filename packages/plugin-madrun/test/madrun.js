@@ -59,3 +59,8 @@ test('plugin-madrun: transform: add cut-env', (t) => {
     t.transform('add-cut-env');
     t.end();
 });
+
+test('plugin-madrun: transform: convert-args-to-scripts', (t) => {
+    t.transform('convert-args-to-scripts');
+    t.end();
+});
