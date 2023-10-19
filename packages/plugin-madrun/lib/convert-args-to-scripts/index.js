@@ -13,7 +13,7 @@ module.exports.report = () => `Pass an array when you want to run a list of scri
 
 module.exports.match = () => ({
     'run(__args)': ({__args}, path) => {
-        const [main, ...names] = __args;
+        const [, ...names] = __args;
         
         if (!names.length)
             return false;
@@ -21,7 +21,7 @@ module.exports.match = () => ({
         if (hasDash(names))
             return false;
         
-        return hasScript(main, path);
+        return hasScript(__args, path);
     },
 });
 
@@ -41,17 +41,26 @@ function hasDash(names) {
     return false;
 }
 
-function hasScript(main, path) {
-    const value = extract(main);
+function hasScript(names, path) {
     const object = path.find(isObjectExpression);
     const properties = object.get('properties');
     
-    for (const prop of properties) {
-        const propValue = extract(prop.node.key);
+    for (const name of names) {
+        const value = extract(name);
+        let is = false;
         
-        if (propValue === value)
-            return true;
+        for (const prop of properties) {
+            const propValue = extract(prop.node.key);
+            
+            if (propValue === value) {
+                is = true;
+                break;
+            }
+        }
+        
+        if (!is)
+            return false;
     }
     
-    return false;
+    return true;
 }

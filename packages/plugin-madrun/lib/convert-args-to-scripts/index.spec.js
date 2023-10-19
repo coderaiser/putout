@@ -30,6 +30,11 @@ test('packages: convert-args-to-scripts: no report: object', (t) => {
     t.end();
 });
 
+test('packages: convert-args-to-scripts: no report: no-dash', (t) => {
+    t.noReport('no-dash');
+    t.end();
+});
+
 test('packages: convert-args-to-scripts: transform', (t) => {
     t.transform('convert-args-to-scripts');
     t.end();
