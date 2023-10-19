@@ -11,12 +11,17 @@ export const filter = (path) => !path.scope.__putout_minify;
 export const fix = ({scope}, options) => {
     const {mangleClassNames} = options;
     const names = entries(scope.bindings);
+    const programPath = scope.getProgramParent().path;
+    const allStore = programPath.__putout_minify_mangle = programPath.__putout_minify_mangle || {};
     
     for (const [index, [name, binding]] of names.entries()) {
         if (!mangleClassNames && binding.path.isClassDeclaration())
             continue;
         
-        const all = scope.getAllBindings();
+        const all = {
+            ...allStore,
+            ...scope.getAllBindings(),
+        };
         
         if (name.length === 1)
             continue;
@@ -28,6 +33,7 @@ export const fix = ({scope}, options) => {
         });
         
         scope.rename(name, newName);
+        allStore[newName] = true;
     }
     
     scope.__putout_minify = true;

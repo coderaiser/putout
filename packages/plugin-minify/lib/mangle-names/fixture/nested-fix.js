@@ -25,14 +25,14 @@ async function b() {
     if (/^(-v|--version)$/.test(In))
         return log(`v${Version}`);
     
-    const {readOptions: A} = await import('../lib/read-options.mjs');
-    const [_, c] = await tryToCatch(A);
+    const {readOptions: C} = await import('../lib/read-options.mjs');
+    const [_b, _c] = await tryToCatch(C);
     
-    if (_)
-        return log.error(_.message);
+    if (_b)
+        return log.error(_b.message);
     
     if (a)
-        return a(processStream, c);
+        return a(processStream, _c);
     
-    await uglifyFiles(files, c);
+    await uglifyFiles(files, _c);
 }

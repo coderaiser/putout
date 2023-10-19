@@ -43,6 +43,11 @@ test('plugin-minify: mangle-names: transform: overlap', (t) => {
     t.end();
 });
 
+test('plugin-minify: mangle-names: transform: nested-overlap', (t) => {
+    t.transform('nested-overlap');
+    t.end();
+});
+
 test('plugin-minify: mangle-names: transform: mangleClassNames', (t) => {
     t.transformWithOptions('mangle-class-names', {
         mangleClassNames: false,
