@@ -38,6 +38,7 @@ const TS = {
 };
 
 const readFixture = (name) => {
+    const {readFileSync} = global.__putout_test_fs;
     const [e, data] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
     
     if (!e)
@@ -278,10 +279,9 @@ const toObject = (array) => {
 const transform = currify((dir, options, t, name, transformed = null, addons = {}) => {
     const {plugins} = options;
     const full = join(dir, name);
-    const [input, isTS] = readFixture(full);
     const isStr = isString(transformed);
     
-    const [output] = isStr ? [transformed] : readFixture(`${full}-fix`);
+    const [input, isTS] = readFixture(full);
     
     if (!isStr)
         addons = transformed;
@@ -304,9 +304,10 @@ const transform = currify((dir, options, t, name, transformed = null, addons = {
             code,
             isTS,
         });
-        
         return t.pass('fixed fixture updated');
     }
+    
+    const [output] = isStr ? [transformed] : readFixture(`${full}-fix`);
     
     return t.equal(code, output);
 });

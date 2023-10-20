@@ -1,7 +1,9 @@
 'use strict';
 
-const {stub} = require('supertape');
+const {join} = require('path');
 const fs = require('fs');
+
+const {stub} = require('supertape');
 const {reRequire} = require('mock-require');
 
 const {createUpdate} = require('./update');
@@ -47,6 +49,28 @@ test('transform: with UPDATE env variable', (t) => {
     global.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.ok(writeFileSyncStub.called, 'should write fixture');
+    t.end();
+}, NO_CHECK_ASSERTIONS_COUNT);
+
+test('transform: with UPDATE env variable: no read', (t) => {
+    update(1);
+    
+    const {writeFileSync, readFileSync} = global.__putout_test_fs;
+    const writeFileSyncStub = stub();
+    const readFileSyncStub = stub().returns('const a = 5');
+    
+    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    global.__putout_test_fs.readFileSync = readFileSyncStub;
+    
+    t.transform('typescript');
+    
+    update();
+    global.__putout_test_fs.writeFileSync = writeFileSync;
+    global.__putout_test_fs.readFileSync = readFileSync;
+    
+    const path = join(__dirname, 'fixture/typescript.ts');
+    
+    t.calledWith(readFileSyncStub, [path, 'utf8'], 'should not read fixture fix');
     t.end();
 }, NO_CHECK_ASSERTIONS_COUNT);
 
