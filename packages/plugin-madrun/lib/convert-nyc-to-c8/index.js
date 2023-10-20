@@ -5,7 +5,7 @@ const {template, operator} = require('putout');
 const {replaceWith, getProperty} = operator;
 
 module.exports.report = () => {
-    return `coverage should use "c8" instead of "nyc"`;
+    return `Use 'c8' instead of 'nyc' to get code coverage`;
 };
 
 module.exports.fix = ({path, line}) => {

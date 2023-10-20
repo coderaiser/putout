@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('madrun: convert-nyc-to-c8: report', (t) => {
-    t.report('coverage', 'coverage should use "c8" instead of "nyc"');
+    t.report('coverage', `Use 'c8' instead of 'nyc' to get code coverage`);
     t.end();
 });
 
