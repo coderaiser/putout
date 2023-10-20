@@ -9,7 +9,7 @@ const {
     isStringLiteral,
 } = types;
 
-module.exports.report = () => 'Async functions should be used';
+module.exports.report = () => 'Use async function';
 
 module.exports.exclude = () => [
     'await run(__args)',

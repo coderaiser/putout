@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('madrun: convert to async: report', (t) => {
-    t.report('run', 'Async functions should be used');
+    t.report('run', 'Use async function');
     t.end();
 });
 
