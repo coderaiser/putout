@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('madrun: set lint dot: report', (t) => {
-    t.report('lint', `Check current drectory using 'lint'`);
+    t.report('lint', `Use 'lint' to check current drectory`);
     t.end();
 });
 

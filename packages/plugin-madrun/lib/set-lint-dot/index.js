@@ -16,7 +16,7 @@ const {
 const dotLine = 'putout .';
 const isDot = (a) => a.includes(dotLine);
 
-module.exports.report = () => `Check current drectory using 'lint'`;
+module.exports.report = () => `Use 'lint' to check current drectory`;
 
 module.exports.fix = ({lintPath}) => {
     const {node} = lintPath;
