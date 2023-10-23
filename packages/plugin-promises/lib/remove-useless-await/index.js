@@ -29,6 +29,9 @@ module.exports.filter = (path) => {
     if (argumentPath.isLogicalExpression())
         return false;
     
+    if (argumentPath.isMemberExpression())
+        return false;
+    
     if (!argumentPath.isCallExpression())
         return true;
     

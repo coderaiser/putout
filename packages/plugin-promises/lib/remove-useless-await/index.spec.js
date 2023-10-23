@@ -75,6 +75,11 @@ test('plugin-promises: remove-useless-await: no transform: new', (t) => {
     t.end();
 });
 
+test('plugin-promises: remove-useless-await: no transform: expression', (t) => {
+    t.noTransform('expression');
+    t.end();
+});
+
 test('plugin-promises: remove-useless-await: no transform: member-expression', (t) => {
     t.noTransform('member-expression');
     t.end();

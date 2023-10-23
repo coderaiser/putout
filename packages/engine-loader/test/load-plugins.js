@@ -273,7 +273,7 @@ test('putout: loader: disabled part of rule', (t) => {
     });
     
     const expected = [{
-        message: `Check current drectory using 'lint'`,
+        message: `"Use 'lint' to check current drectory"`,
         position: {
             column: 17,
             line: 3,
