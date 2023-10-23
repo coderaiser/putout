@@ -1,3 +1,15 @@
+2023.10.23, v32.5.0
+
+feature:
+- fb1dc3bd1 @putout/plugin-apply-dot-notation: check for valid identifier
+- 6bd28ffe5 @putout/plugin-apply-dot-notation: add
+- f85c08671 @putout/plugin-promises: remove-useless-await: exclude MemberExpression
+- a2fa4a265 @putout/plugin-madrun: set-lint-dot: report
+- f49a2cc40 @putout/plugin-madrun: convert-to-async: report
+- d87133ddf @putout/plugin-madrun: convert-nyc-to-c8: report
+- 85069c288 @putout/plugin-minify: mangle: nested-overlap (putoutjs/minify#5)
+- 693246921 @putout/plugin-madrun: convert-args-to-scripts: false positive
+
 2023.10.18, v32.4.0
 
 feature:
