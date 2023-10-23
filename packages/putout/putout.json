@@ -150,6 +150,7 @@
     },
     "plugins": [
         "apply-at",
+        "apply-dot-notation",
         "apply-early-return",
         "apply-flat-map",
         "apply-destructuring",

@@ -1289,6 +1289,15 @@ function world(a) {
 
 </details>
 
+<details><summary>apply dot notation</summary>
+
+```diff
+-a['hello']['world'] = 5;
++a.hello.world = 5;
+```
+
+</details>
+
 <details><summary>apply <code>.startsWith()</code></summary>
 
 ```diff
@@ -1894,6 +1903,7 @@ It has a lot plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-apply-at`](/packages/plugin-apply-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-at) |
+| [`@putout/plugin-apply-dot-notation`](/packages/plugin-apply-dot-notation#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-dot-notation.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-dot-notation) |
 | [`@putout/plugin-apply-starts-with`](/packages/plugin-apply-starts-with#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-starts-with.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-starts-with) |
 | [`@putout/plugin-apply-flat-map`](/packages/plugin-apply-flat-map#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-flat-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-flat-map) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
