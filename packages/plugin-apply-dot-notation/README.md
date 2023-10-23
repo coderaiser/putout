@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-dot-notation.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-dot-notation "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply dot notation. Checkout out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d0702a7f5765c0f26788be18296eefca/bd75112a03af26946e8e493f8a0e75281be3e7d8).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply dot notation. Checkout out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d0702a7f5765c0f26788be18296eefca/a33f4501ce1e6018e6bb1b52ae0f554cb4483a05).
 
 > Property accessors provide access to an object's properties by using the dot notation or the bracket notation.
 >
@@ -35,6 +35,7 @@ a.hello.world;
 
 ```js
 a.hello.world;
+a[1];
 ```
 
 ## Comparison
