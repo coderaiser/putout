@@ -16,6 +16,8 @@ That is **unused variables**. Most likely it is a leftovers due to incomplete tr
 
 ☝️*Remember, when you [writing a transform](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) you can skip all parts related to **removing unused variables** and just reuse current **plugin** it will make your code simpler and less error prone.*
 
+☝️*No, you cannot just look at [`referenced` and `constant` fields](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#user-content-bindings) to determine if you can remove variable and [here is why](https://putout.cloudcmd.io/#/gist/4277392f74b56b74911b779c9624af8d/cfec476f857dfb4f4c7a6247bdcc6b521fed8e70) one of the biggest plugins exists*.
+
 ## Install
 
 ```
