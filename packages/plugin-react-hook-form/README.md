@@ -109,7 +109,9 @@ const a = (
 ```jsx
 const a = (
     <Controller
-        render={({onChange, onBlur, value}) => <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value}/>}
+        render={({onChange, onBlur, value}) => (
+            <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value}/>
+        )}
         control={control}
         name="test"
     />
@@ -126,7 +128,9 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/ff41e995b958c
 ```jsx
 import {FormContext} from 'react-hook-form';
 
-export default () => <FormContext></FormContext>;
+export default () => (
+    <FormContext></FormContext>
+);
 ```
 
 ### ✅ Example of correct code
@@ -134,7 +138,9 @@ export default () => <FormContext></FormContext>;
 ```jsx
 import {FormProvider} from 'react-hook-form';
 
-export default () => <FormProvider></FormProvider>;
+export default () => (
+    <FormProvider></FormProvider>
+);
 ```
 
 ## v6-convert-trigger-validation-to-trigger

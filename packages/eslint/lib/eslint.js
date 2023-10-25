@@ -71,8 +71,7 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
     }
     
     !putout && disablePutout(finalConfig);
-    // that's right, we disabled "putout" rules in "config"
-    // and now it located in eslint's cache
+    // that's right, we disabled "putout" rules in "config"    // and now it located in eslint's cache
     
     const results = await eslint.lintText(code, {
         filePath: name,

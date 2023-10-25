@@ -13,9 +13,7 @@ module.exports.fix = ({text}) => {
         .replace(', }', '}');
 };
 
-// can't use because of an error
-// ':has(ArrowFunctionExpression, FunctionExpression, FunctionDeclaration) > .params[type=ObjectPattern]'
-// Error: Unknown node type JSXElement
+// can't use because of an error// ':has(ArrowFunctionExpression, FunctionExpression, FunctionDeclaration) > .params[type=ObjectPattern]'// Error: Unknown node type JSXElement
 module.exports.include = () => [
     'ArrowFunctionExpression > .params[type=ObjectPattern]',
     'FunctionExpression > .params[type=ObjectPattern]',

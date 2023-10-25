@@ -52,13 +52,7 @@ const {PUTOUT_YARN_PNP = 'putout'} = process.env;
 const createCustomRequire = once(() => createRequire(require.resolve(PUTOUT_YARN_PNP)));
 const createPutoutRequire = once(() => createRequire(require.resolve('putout')));
 
-// That's all for Yarn P'n'P
-//
-// We need to create a couple version of require for plugins, formatters and processors:
-// - declared in 🐊Putout package.json;
-// - declared in module that want to extend 🐊Putout;
-//
-// https://yarnpkg.com/advanced/rulebook#modules-shouldnt-hardcode-node_modules-paths-to-access-other-modules
+// That's all for Yarn P'n'P//// We need to create a couple version of require for plugins, formatters and processors:// - declared in 🐊Putout package.json;// - declared in module that want to extend 🐊Putout;//// https://yarnpkg.com/advanced/rulebook#modules-shouldnt-hardcode-node_modules-paths-to-access-other-modules
 function getModulePath(name) {
     let path;
     
