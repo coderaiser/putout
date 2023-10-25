@@ -252,7 +252,7 @@ test('putout: operate: insertAfter: trailingComments', (t) => {
         // hello
         export function x() {
             return isNumber(a);
-        }\n\n
+        }\n
     `;
     
     t.equal(code, expected);

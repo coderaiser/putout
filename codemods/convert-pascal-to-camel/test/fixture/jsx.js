@@ -1,3 +1,5 @@
 const React = require('react');
 
-const HelloWorld = () => <div/>;
+const HelloWorld = () => (
+    <div/>
+);

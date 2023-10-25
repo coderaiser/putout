@@ -40,4 +40,3 @@ export function jsonFormatter({name, source, places, index, count, filesCount, e
     
     return null;
 }
-

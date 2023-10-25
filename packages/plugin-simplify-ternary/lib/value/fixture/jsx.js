@@ -3,4 +3,3 @@ export function App(props) {
         <h1 x={a ? a : b}>Hello React.</h1>
     );
 }
-

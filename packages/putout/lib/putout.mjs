@@ -5,4 +5,3 @@ export * from './putout.js';
 export default function(...a) {
     return putout(...a);
 }
-

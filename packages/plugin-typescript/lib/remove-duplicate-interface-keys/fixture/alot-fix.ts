@@ -2,7 +2,7 @@ interface LabelledContainer<T> {
     label: string;
     content: T;
     option?: boolean;
-    x: number;
+    readonly x: number;
     [index: number]: string;
     [propName: string]: any;
     [index: number]: string;

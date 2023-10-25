@@ -30,4 +30,3 @@ export async function ruler(places, {disable, disableAll, enable, enableAll, rea
     
     await writeFile(name, stringify(updated, null, 4));
 }
-

@@ -950,7 +950,7 @@ test('putout: operator: declare: comment', (t) => {
         // hello world
         export function x() {
             return isNumber(a);
-        }\n\n
+        }\n
     `;
     
     t.equal(code, expected);

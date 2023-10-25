@@ -75,4 +75,3 @@ export async function runMatch({pattern, cwd, readFile, writeFile}) {
     
     return SUCCESS;
 }
-

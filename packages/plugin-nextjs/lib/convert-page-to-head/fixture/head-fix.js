@@ -3,4 +3,3 @@ export default function Head() {
         <><title>My page title</title></>
     );
 }
-
