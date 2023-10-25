@@ -14,7 +14,7 @@ test('test: options', (t) => {
 });
 
 test('test: options: no transform', (t) => {
-    t.noTransformWithOptions('transform-options', {
+    t.noTransformWithOptions('no-transform-options', {
         ignore: [
             'hello',
             'world',
