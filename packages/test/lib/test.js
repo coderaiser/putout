@@ -222,7 +222,7 @@ const formatManySave = currify((dir, options, t) => async (formatter, names, for
     if (!isUpdate())
         return await runFormat(formatter, names, formatterOptions);
     
-    const {existsSync, writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = global.__putout_test_fs;
     
     if (!isArray(names))
         throw Error(`☝️ Looks like 'formatMany()' received 'names' with type: '${typeof names}', expected: 'array'`);
@@ -230,10 +230,7 @@ const formatManySave = currify((dir, options, t) => async (formatter, names, for
     const name = `${names.join('-')}-format.js`;
     const outputName = join(dir, name);
     
-    if (!existsSync(outputName))
-        writeFileSync(outputName, '');
-    
-    const {result} = await runFormat(formatter, names, options);
+    const {result} = await runFormat(formatter, names, formatterOptions);
     
     writeFileSync(outputName, result);
     
@@ -246,15 +243,12 @@ const formatSave = currify((dir, options, t) => async (formatter, name, formatte
     if (!isUpdate())
         return await runFormat(formatter, name, formatterOptions);
     
-    const {existsSync, writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = global.__putout_test_fs;
     
     const full = join(dir, name);
     const outputName = `${full}-format.js`;
     
-    if (!existsSync(outputName))
-        writeFileSync(outputName, '');
-    
-    const {result} = await runFormat(formatter, name, options);
+    const {result} = await runFormat(formatter, name, formatterOptions);
     
     writeFileSync(outputName, result);
     

@@ -137,32 +137,6 @@ testUpdate('test: formatMany: with UPDATE env variable', async ({ok, formatMany}
     ok(writeFileSyncStub.called);
 }, NO_CHECK_ASSERTIONS_COUNT);
 
-testUpdate('test: formatSave: exists', async ({ok, format}) => {
-    before();
-    existsSyncStub.returns(true);
-    
-    update(1);
-    await format(formatter, 'var');
-    update(0);
-    after();
-    
-    ok(writeFileSyncStub.called);
-}, NO_CHECK_ASSERTIONS_COUNT);
-
-testUpdate('test: formatManySave: exists', async ({ok, formatMany}) => {
-    before();
-    
-    existsSyncStub.returns(true);
-    
-    update(1);
-    await formatMany(formatter, ['var', 'var']);
-    update();
-    
-    after();
-    
-    ok(writeFileSyncStub.called);
-}, NO_CHECK_ASSERTIONS_COUNT);
-
 after();
 
 function before() {
