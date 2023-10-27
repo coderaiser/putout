@@ -3,56 +3,44 @@
 const {rules} = require('@putout/eslint-config');
 const jsx = require('./jsx');
 
+const reEnable = (rule) => ({
+    [`@stylistic/ts/${rule}`]: 'error',
+});
+
 const warnOnUnsupportedTypeScriptVersion = false;
 
 const extensionRules = {
     'no-undef': 'off',
     'no-var': 'off',
-    '@typescript-eslint/brace-style': 'off', // putout/object-property-newline instead
-    'comma-dangle': 'off',
-    '@typescript-eslint/comma-dangle': rules['comma-dangle'],
     
-    'comma-spacing': 'off',
-    '@typescript-eslint/comma-spacing': 'error',
-    '@typescript-eslint/dot-notation': 'off', // requires type information
-    'func-call-spacing': 'off',
-    '@typescript-eslint/func-call-spacing': 'error',
-    '@typescript-eslint/indent': 'off', // broken
-    '@typescript-eslint/lines-between-class-members': 'off',
+    '@stylistic/ts/comma-spacing': 'error',
+    
+    '@stylistic/ts/indent': 'off', // broken
+    '@stylistic/brace-style': 'off', // putout/object-property-newline instead
+    '@stylistic/ts/lines-between-class-members': 'off',
+    
+    '@stylistic/js/padding-line-between-statements': 'off',
+    '@stylistic/ts/padding-line-between-statements': convertPaddingLines(rules['@stylistic/js/padding-line-between-statements']),
+    
+    '@stylistic/js/semi': 'off',
+    '@stylistic/ts/semi': rules['@stylistic/js/semi'],
+    
+    '@stylistic/js/space-before-function-paren': 'off',
+    '@stylistic/ts/space-before-function-paren': rules['@stylistic/js/space-before-function-paren'],
+    
+    ...reEnable('object-curly-spacing'),
+    ...reEnable('func-call-spacing'),
     '@typescript-eslint/no-array-constructor': 'off',
-    
-    'no-extra-parens': 'off',
+    '@typescript-eslint/dot-notation': 'off', // requires type information
     '@typescript-eslint/no-extra-parens': 'error',
-    
-    'no-extra-semi': 'off',
-    '@typescript-eslint/no-extra-semi': 'error',
-    
     '@typescript-eslint/no-implied-eval': 'off',
     
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     
-    'object-curly-spacing': 'off',
-    '@typescript-eslint/object-curly-spacing': 'error',
-    
-    'padding-line-between-statements': 'off',
-    '@typescript-eslint/padding-line-between-statements': convertPaddingLines(rules['padding-line-between-statements']),
-    
-    'quotes': 'off',
-    '@typescript-eslint/quotes': rules.quotes,
-    
     '@typescript-eslint/require-await': 'off',
     
-    'semi': 'off',
-    '@typescript-eslint/semi': rules.semi,
-    
-    'space-before-function-paren': 'off',
-    '@typescript-eslint/space-before-function-paren': rules['space-before-function-paren'],
-    
-    'space-infix-ops': 'off',
-    '@typescript-eslint/space-infix-ops': rules['space-infix-ops'],
-    
-    'no-redecalre': 'off',
+    'no-redeclare': 'off',
     '@typescript-eslint/no-redeclare': 'error',
 };
 
@@ -65,7 +53,7 @@ const ts = {
             jsx: false,
         },
     },
-    plugins: ['@typescript-eslint'],
+    plugins: ['@typescript-eslint', '@stylistic/ts'],
     extends: ['plugin:@typescript-eslint/recommended'],
     rules: {
         ...extensionRules,

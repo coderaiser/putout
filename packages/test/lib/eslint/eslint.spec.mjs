@@ -93,14 +93,14 @@ test('test: eslint: comparePlaces', async ({comparePlaces}) => {
             column: 1,
             line: 2,
         },
-        rule: 'operator-linebreak (eslint)',
+        rule: '@stylistic/js/operator-linebreak (eslint)',
     }]);
 });
 
 test('test: eslint: comparePlaces: overrides', async ({comparePlaces}) => {
     const overrides = {
         rules: {
-            'operator-linebreak': 'off',
+            '@stylistic/js/operator-linebreak': 'off',
         },
     };
     
@@ -134,7 +134,7 @@ test('test: eslint: comparePlaces: overrides: ESM', async ({comparePlaces}) => {
 test('test: eslint: noProcess: overrides', async ({noProcess}) => {
     const overrides = {
         rules: {
-            'operator-linebreak': 'off',
+            '@stylistic/js/operator-linebreak': 'off',
         },
     };
     

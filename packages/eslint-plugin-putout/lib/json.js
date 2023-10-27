@@ -6,31 +6,31 @@ module.exports = [{
         '*{json}',
     ],
     rules: {
-        'quotes': [
+        'no-undef': 'off',
+        '@stylistic/js/quotes': [
             'error',
             'double',
         ],
-        'quote-props': [
+        '@stylistic/js/quote-props': [
             'error',
             'always',
         ],
-        'comma-dangle': [
+        '@stylistic/js/comma-dangle': [
             'error',
             'never',
         ],
-        'comma-spacing': 'off',
-        'function-paren-newline': 'off',
-        'no-undef': 'off',
-        'eol-last': [
+        '@stylistic/js/comma-spacing': 'off',
+        '@stylistic/js/function-paren-newline': 'off',
+        '@stylistic/js/eol-last': [
             'error',
             'always',
         ],
-        'no-multi-spaces': 'off',
+        '@stylistic/js/no-multi-spaces': 'off',
     },
 }, {
     files: 'package.json',
     rules: {
-        indent: [
+        '@stylistic/js/indent': [
             'error',
             2,
         ],
@@ -38,11 +38,11 @@ module.exports = [{
 }, {
     files: '*ignore{json}',
     rules: {
-        'comma-dangle': 'off',
+        '@stylistic/js/comma-dangle': 'off',
     },
 }, {
     files: '*.yml{json}',
     rules: {
-        indent: 'off',
+        '@stylistic/js/indent': 'off',
     },
 }];

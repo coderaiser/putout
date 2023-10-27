@@ -6,12 +6,12 @@ const [ts, tsx] = require('./ts');
 const {jsx} = require('./jsx');
 
 const commonRules = {
-    'no-undef': 'off',
-    'no-empty': 'off',
-    'eol-last': [
+    '@stylistic/js/eol-last': [
         'error',
         'never',
     ],
+    'no-undef': 'off',
+    'no-empty': 'off',
     'no-unreachable': 'off',
     'no-constant-condition': 'off',
     'n/no-extraneous-require': 'off',
@@ -82,7 +82,7 @@ module.exports = [{
 }, {
     files: '*.md{json}',
     rules: {
-        'eol-last': [
+        '@stylistic/js/eol-last': [
             'error',
             'never',
         ],

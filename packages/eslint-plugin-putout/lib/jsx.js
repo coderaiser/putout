@@ -2,7 +2,7 @@
 
 const jsx = {
     rules: {
-        'no-extra-parens': 'off',
+        '@stylistic/js/no-extra-parens': 'off',
         'react/jsx-indent': 'error',
         'react/jsx-wrap-multilines': ['error', {
             arrow: 'parens-new-line',

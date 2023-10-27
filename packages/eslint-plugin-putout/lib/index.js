@@ -51,6 +51,7 @@ module.exports.rules = {
     ...getRule('remove-empty-newline-after-import'),
     ...getRule('remove-empty-newline-between-declarations'),
 };
+
 const config = require('@putout/eslint-config');
 const {rules} = config;
 
