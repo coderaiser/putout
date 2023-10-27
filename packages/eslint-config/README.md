@@ -46,7 +46,6 @@ export default {
 ```sh
 $ npm run lint
 $ npm run fix:lint
-
 ```
 
 ## License

@@ -24,7 +24,8 @@
     "prepublishOnly": "madrun prepublishOnly"
   },
   "dependencies": {
-    "@eslint/js": "^8.35.0"
+    "@eslint/js": "^8.35.0",
+    "@stylistic/eslint-plugin": "^0.1.1"
   },
   "peerDependencies": {
     "eslint": ">=8.0.0"

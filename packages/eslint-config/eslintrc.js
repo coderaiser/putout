@@ -15,45 +15,18 @@ module.exports = {
             globalReturn: true,
         },
     },
+    plugins: [
+        '@stylistic',
+        '@stylistic/js',
+    ],
     rules: {
         ...js.configs.recommended.rules,
-        'array-bracket-spacing': 'error',
         'arrow-parens': [
             'error',
             'always',
         ],
-        'arrow-spacing': 'error',
-        'brace-style': 'error',
-        'comma-dangle': ['error', 'always-multiline'],
-        'comma-spacing': 'error',
         'dot-notation': 'error',
-        'eol-last': [
-            'error',
-            'always',
-        ],
-        'func-call-spacing': 'error',
-        'operator-linebreak': ['error', 'after', {
-            overrides: {
-                '=': 'none',
-                '|': 'before',
-                '||': 'before',
-                ':': 'before',
-                '?': 'before',
-            },
-        }],
-        'function-paren-newline': ['error', 'multiline-arguments'],
-        'key-spacing': 'error',
-        'newline-per-chained-call': 'error',
-        'space-infix-ops': ['error', {
-            int32Hint: false,
-        }],
-        'space-in-parens': 'error',
-        'space-before-blocks': 'error',
-        'space-before-function-paren': ['error', {
-            anonymous: 'never',
-            named: 'never',
-            asyncArrow: 'always',
-        }],
+        'object-shorthand': 'error',
         'prefer-arrow-callback': 'error',
         'prefer-const': ['error', {
             destructuring: 'all',
@@ -64,18 +37,14 @@ module.exports = {
                 object: false,
             },
         }],
-        'indent': [
-            'error',
-            4,
-        ],
-        'implicit-arrow-linebreak': 'error',
-        'quotes': ['error', 'single', {
-            allowTemplateLiterals: true,
+        'no-else-return': ['error', {
+            allowElseIf: false,
         }],
-        'quote-props': ['error', 'consistent-as-needed'],
-        'semi': 'error',
-        'object-shorthand': 'error',
-        'object-curly-spacing': 'error',
+        'no-var': 'error',
+        'no-unneeded-ternary': ['error', {
+            defaultAssignment: false,
+        }],
+        'no-useless-return': 'error',
         'no-implicit-coercion': ['error', {
             allow: ['~'],
         }],
@@ -87,38 +56,74 @@ module.exports = {
         'no-useless-rename': 'error',
         'no-use-before-define': 'off',
         'no-process-exit': 'off',
-        'no-var': 'error',
-        'no-extra-parens': 'error',
-        'no-multi-spaces': 'error',
-        'no-else-return': ['error', {
-            allowElseIf: false,
-        }],
-        'no-trailing-spaces': ['error', {
-            skipBlankLines: true,
-        }],
-        'no-multiple-empty-lines': ['error', {
-            max: 1,
-            maxBOF: 0,
-        }],
-        'no-unneeded-ternary': ['error', {
-            defaultAssignment: false,
-        }],
-        'no-useless-return': 'error',
         'nonblock-statement-body-position': [
             'error',
             'below',
         ],
         'lines-around-directive': 'error',
-        'lines-between-class-members': 'off',
-        'linebreak-style': [
+        '@stylistic/js/array-bracket-spacing': 'error',
+        '@stylistic/js/arrow-spacing': 'error',
+        '@stylistic/js/brace-style': 'error',
+        '@stylistic/js/comma-dangle': ['error', 'always-multiline'],
+        '@stylistic/js/comma-spacing': 'error',
+        '@stylistic/js/eol-last': [
+            'error',
+            'always',
+        ],
+        '@stylistic/js/func-call-spacing': 'error',
+        '@stylistic/js/operator-linebreak': ['error', 'after', {
+            overrides: {
+                '=': 'none',
+                '|': 'before',
+                '||': 'before',
+                ':': 'before',
+                '?': 'before',
+            },
+        }],
+        '@stylistic/js/function-paren-newline': ['error', 'multiline-arguments'],
+        '@stylistic/js/key-spacing': 'error',
+        '@stylistic/js/newline-per-chained-call': 'error',
+        '@stylistic/js/space-infix-ops': ['error', {
+            int32Hint: false,
+        }],
+        '@stylistic/js/indent': [
+            'error',
+            4,
+        ],
+        '@stylistic/js/space-in-parens': 'error',
+        '@stylistic/js/space-before-blocks': 'error',
+        '@stylistic/js/space-before-function-paren': ['error', {
+            anonymous: 'never',
+            named: 'never',
+            asyncArrow: 'always',
+        }],
+        '@stylistic/js/implicit-arrow-linebreak': 'error',
+        '@stylistic/js/quotes': ['error', 'single', {
+            allowTemplateLiterals: true,
+        }],
+        '@stylistic/js/quote-props': ['error', 'consistent-as-needed'],
+        '@stylistic/js/semi': 'error',
+        '@stylistic/js/no-extra-semi': 'error',
+        '@stylistic/js/object-curly-spacing': 'error',
+        '@stylistic/js/no-extra-parens': 'error',
+        '@stylistic/js/no-multi-spaces': 'error',
+        '@stylistic/js/no-trailing-spaces': ['error', {
+            skipBlankLines: true,
+        }],
+        '@stylistic/js/no-multiple-empty-lines': ['error', {
+            max: 1,
+            maxBOF: 0,
+        }],
+        '@stylistic/js/lines-between-class-members': 'off',
+        '@stylistic/js/linebreak-style': [
             'error',
             'unix',
         ],
-        'padded-blocks': [
+        '@stylistic/js/padded-blocks': [
             'error',
             'never',
         ],
-        'padding-line-between-statements': [
+        '@stylistic/js/padding-line-between-statements': [
             'error',
             ...getPaddingExport(),
             ...getPaddingCjsExport(),
