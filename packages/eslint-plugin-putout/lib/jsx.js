@@ -3,14 +3,14 @@
 const jsx = {
     rules: {
         '@stylistic/js/no-extra-parens': 'off',
-        'react/jsx-indent': 'error',
-        'react/jsx-wrap-multilines': ['error', {
+        '@stylistic/jsx/jsx-indent': 'error',
+        '@stylistic/jsx/jsx-wrap-multilines': ['error', {
             arrow: 'parens-new-line',
             return: 'parens-new-line',
             declaration: 'parens-new-line',
         }],
     },
-    plugins: ['react'],
+    plugins: ['react', '@stylistic/jsx'],
     settings: {
         react: {
             version: 'latest',
