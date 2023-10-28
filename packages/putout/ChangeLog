@@ -1,3 +1,22 @@
+2023.10.28, v32.6.0
+
+fix:
+- 87b010708 @putou/eslint-config: drop @stylistic
+- fa74ea3af @putout/eslint-config: @stylistic
+- 6683113da @putout/test: format with UPDATE: wrong options
+
+feature:
+- 1d4d5a7a0 package: @putout/plugin-regexp v8.0.0
+- 715060684 @putout/plugin-regexp: drop support of 🐊 < 32
+- f804763dc package: @putout/printer v6.0.0
+- e8a190841 package: @stylistic/eslint-plugin-jsx v0.1.1
+- 295e2b0b0 package: eslint-plugin-putout v21.0.0
+- 52f114390 eslint-plugin-putout: @putout/eslint-config v8
+- fc0e9d6cf @putout/eslint-config: use @stylistic (https://eslint.org/blog/2023/10/deprecating-formatting-rules/)
+- 0ed5144c1 package: hermes-parser v0.17.0
+- 15a88dfaf package: hermes-parser v0.17.0
+- 160b5341e @putout/plugin-printer: remove-args: maybe.write.breakline()
+
 2023.10.23, v32.5.0
 
 feature:
