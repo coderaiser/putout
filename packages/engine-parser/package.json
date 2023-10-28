@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@putout/babel": "^1.0.4",
-    "@putout/printer": "^5.0.0",
+    "@putout/printer": "^6.0.0",
     "@putout/recast": "^1.12.1",
     "estree-to-babel": "^8.0.0",
     "nano-memoize": "^3.0.11",
