@@ -27,6 +27,7 @@ const PRINT_OPTIONS = {
             newline: '',
             indent: '',
             splitter: ' ',
+            endOfFile: '',
         },
     }],
 };
