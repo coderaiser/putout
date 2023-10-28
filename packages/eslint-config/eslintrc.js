@@ -16,7 +16,6 @@ module.exports = {
         },
     },
     plugins: [
-        '@stylistic',
         '@stylistic/js',
     ],
     rules: {
