@@ -1,3 +1,9 @@
+2023.10.28, v32.8.0
+
+feature:
+- f23dbbe95 putout: printer: improve support of JSON
+- 61e6bedef putout: printer: improve support of JSON and JSON in Markdown without ESLint
+
 2023.10.28, v32.7.0
 
 feature:
