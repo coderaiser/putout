@@ -15,6 +15,21 @@ test('putout: cli: printer: md{json}', (t) => {
         format: {
             endOfFile: '',
         },
+        semantics: {
+            trailingComma: false,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: printer: json', (t) => {
+    const result = configurePrinter('hello.json');
+    const expected = ['putout', {
+        semantics: {
+            trailingComma: false,
+        },
     }];
     
     t.deepEqual(result, expected);
