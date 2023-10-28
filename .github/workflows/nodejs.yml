@@ -13,7 +13,7 @@ jobs:
           - 16.x
           - 18.x
           - 20.x
-          - 21.x
+          - 21.0
     steps:
       - uses: actions/checkout@v3
       - uses: oven-sh/setup-bun@v1
