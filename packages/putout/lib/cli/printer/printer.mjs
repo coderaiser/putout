@@ -8,6 +8,9 @@ const DefaultMarkdown = {
 };
 
 const JSON = {
+    format: {
+        quote: '"',
+    },
     semantics: {
         trailingComma: false,
     },
@@ -27,8 +30,14 @@ export const configurePrinter = (name, printerOptions) => {
     
     if (ext === 'md{json}')
         return [printer, {
-            ...DefaultMarkdown,
-            ...JSON,
+            format: {
+                ...DefaultMarkdown.format,
+                ...JSON.format,
+            },
+            semantics: {
+                ...DefaultMarkdown.semantics,
+                ...JSON.semantics,
+            },
         }];
     
     if (ext === 'md{js}')

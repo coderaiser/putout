@@ -14,6 +14,7 @@ test('putout: cli: printer: md{json}', (t) => {
     const expected = ['putout', {
         format: {
             endOfFile: '',
+            quote: '"',
         },
         semantics: {
             trailingComma: false,
@@ -27,6 +28,9 @@ test('putout: cli: printer: md{json}', (t) => {
 test('putout: cli: printer: json', (t) => {
     const result = configurePrinter('hello.json');
     const expected = ['putout', {
+        format: {
+            quote: '"',
+        },
         semantics: {
             trailingComma: false,
         },
