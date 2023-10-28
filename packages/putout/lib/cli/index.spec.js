@@ -134,7 +134,7 @@ test('putout: cli: async: env: PUTOUT_PRINTER', async (t) => {
     const [, options] = arg;
     const {printer} = options;
     
-    t.equal(printer, 'putout');
+    t.deepEqual(printer, ['putout', {}]);
     t.end();
 });
 

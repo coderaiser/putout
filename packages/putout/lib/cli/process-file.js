@@ -17,6 +17,7 @@ const getMatchedOptions = (name, options) => {
 };
 
 module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({name, source, startLine, options}) => {
+    const {configurePrinter} = await import('./printer/printer.mjs');
     const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
     const matchedOptions = getMatchedOptions(name, options);
     
@@ -25,8 +26,8 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({na
         fixCount,
         isTS,
         isFlow,
-        printer,
         ...matchedOptions,
+        printer: configurePrinter(name, printer),
     });
     
     if (e) {
