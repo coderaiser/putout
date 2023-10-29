@@ -28,6 +28,7 @@
     "lint": "madrun lint",
     "lint:mark": "madrun lint:mark",
     "memory": "madrun memory",
+    "time": "madrun time",
     "fix:lint": "madrun fix:lint",
     "fix:lint:fresh": "madrun fix:lint:fresh",
     "fix:lint:cache": "madrun fix:lint:cache",

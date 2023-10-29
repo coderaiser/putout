@@ -2080,6 +2080,7 @@ The built-in formatter options are:
 - `progress-bar`
 - `frame` (`codeframe` + `progress`)
 - `memory`
+- `time`
 
 | Package | Version |
 |---------|---------|
@@ -2093,6 +2094,7 @@ The built-in formatter options are:
 | [`@putout/formatter-frame`](/packages/formatter-frame#readme) | [![npm](https://img.shields.io/npm/v/@putout/formatter-frame.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/formatter-frame) |
 | [`@putout/formatter-eslint`](/packages/formatter-eslint#readme) | [![npm](https://img.shields.io/npm/v/@putout/formatter-eslint.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/formatter-eslint) |
 | [`@putout/formatter-memory`](/packages/formatter-memory#readme) | [![npm](https://img.shields.io/npm/v/@putout/formatter-memory.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/formatter-memory) |
+| [`@putout/formatter-time`](/packages/formatter-time#readme) | [![npm](https://img.shields.io/npm/v/@putout/formatter-time.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/formatter-time) |
 
 ### Custom Formatter
 
