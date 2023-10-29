@@ -64,3 +64,8 @@ test('plugin-madrun: transform: convert-args-to-scripts', (t) => {
     t.transform('convert-args-to-scripts');
     t.end();
 });
+
+test('plugin-madrun: transform: remove-useless-array-in-run', (t) => {
+    t.transform('remove-useless-array-in-run');
+    t.end();
+});

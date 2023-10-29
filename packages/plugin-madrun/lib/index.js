@@ -19,6 +19,7 @@ const setReportLcov = require('./set-report-lcov');
 const removeCheckDuplicatesFromTest = require('./remove-check-duplicates-from-test');
 const declare = require('./declare');
 const convertArgsToScripts = require('./convert-args-to-scripts');
+const removeUselessArrayInRun = require('./remove-useless-array-in-run');
 
 module.exports.rules = {
     'add-function': addFunction,
@@ -40,4 +41,5 @@ module.exports.rules = {
     'remove-check-duplicates-from-test': removeCheckDuplicatesFromTest,
     declare,
     'convert-args-to-scripts': convertArgsToScripts,
+    'remove-useless-array-in-run': removeUselessArrayInRun,
 };

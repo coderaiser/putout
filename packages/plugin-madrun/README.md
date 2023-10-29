@@ -36,7 +36,8 @@ npm i putout @putout/plugin-madrun -D
         "madrun/convert-to-async": "on",
         "madrun/convert-nyc-to-c8": "on",
         "madrun/set-report-lcov": "on",
-        "madrun/remove-check-duplicates-from-test": "on"
+        "madrun/remove-check-duplicates-from-test": "on",
+        "madrun/remove-useless-array-in-run": "on"
     }
 }
 ```
@@ -319,6 +320,26 @@ export default {
 ```js
 export default {
     test: () => 'tape *.js',
+};
+```
+
+## remove-useless-array-in-run
+
+Checkout in [🐊**Putout Editor**](https://putout.cloudcmd.io/#/gist/84c7838a6099a281a370809e51997212/356cbf9050bee7205eb670aa807b336fc28340f7).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    time: async () => await run(['lint:fresh', '-f time']),
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    time: async () => await run('lint:fresh', '-f time'),
 };
 ```
 
