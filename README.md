@@ -16,7 +16,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊**Putout** is JavaScript Linter, pluggable and configurable code transformer based on **Babel** with built-in **ESLint** and [formatter](https://github.com/putoutjs/printer#readme). It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
+🐊**Putout** is a JavaScript Linter, pluggable and configurable code transformer based on **Babel** with built-in **ESLint** and [formatter](https://github.com/putoutjs/printer#readme). It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
 The main target is **JavaScript**, but:
 
 - ✅ JSX;
@@ -376,17 +376,17 @@ And here is a CLI scheme:
 
 ![Ashvattha](https://github.com/coderaiser/putout/blob/master/images/ashvattha.jpeg)
 
-On the bottom level of 🐊**Putout** layes down **Syntax Tree**. This is data structure that makes possible to do [crazy transformations in a simplest possible way](https://dev.to/viveknayyar/revealing-the-magic-of-ast-by-writing-babel-plugins-1h01). It used mostly in compilers development.
+On the bottom level of 🐊**Putout** layes down **Syntax Tree**. This is data structure that makes it possible to do [crazy transformations in a simplest possible way](https://dev.to/viveknayyar/revealing-the-magic-of-ast-by-writing-babel-plugins-1h01). It is used mostly in compilers development.
 
-You can read about it in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md). To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
+You can read about it in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md). To understand how things work from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
 
 > **Preoccupied with a single leaf, you won't see the tree.
 > Preoccupied with a single tree, you'll miss the entire forest.
-> When you look at a tree, se it for its leafs, its branches, its trunk and the roots, then and only then will you see the tree.**
+> When you look at a tree, see it for its leaves, its branches, its trunk and the roots, then and only then will you see the tree.**
 >
 > **(c) Takuan Soho, "The Unfettered Mind: Writings of the Zen Master to the Sword Master"**
 
-Consider next peace of code:
+Consider next piece of code:
 
 ```js
 hello = 'world';
@@ -413,7 +413,7 @@ It looks this way in [**ESTree**](https://github.com/estree/estree) **JavaScript
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
-🐊**Putout** based on [**Babel AST**](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md#readme). It has a couple differences from **ESTree** which are perfectly handled by [`estree-to-babel`](https://github.com/coderaiser/estree-to-babel).
+🐊**Putout** based on [**Babel AST**](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md#readme). It has a couple of differences from **ESTree** which are perfectly handled by [`estree-to-babel`](https://github.com/coderaiser/estree-to-babel).
 
 ☝️ *You can get more information about **AST** in [The Book of AST](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#the-book-of-ast).*
 
@@ -2489,7 +2489,7 @@ This way you can keep rules specific for your project and run them on each lint.
 >
 > (c) [eslint.org](https://eslint.org/)
 
-If you see that 🐊**Putout** brokes formatting of your code, use **ESLint** plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#eslint-plugin-putout--).
+If you see that 🐊**Putout** breaks formatting of your code, use **ESLint** plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#eslint-plugin-putout--).
 
 Install `eslint-plugin-putout` with:
 
@@ -2542,7 +2542,7 @@ Applies 🐊**Putout** transformations for you :).
 
 ### ESLint API
 
-**ESLint** begins his work as a formatter when 🐊**Putout** done his transformations. That's why it used a lot in different parts of application, for testing purpose and using **API** in a simplest possible way. You can access it using [`@putout/eslint`](https://github.com/coderaiser/putout/tree/master/packages/eslint#readme):
+**ESLint** begins his work as a formatter when 🐊**Putout** done his transformations. That's why it is used a lot in different parts of application, for testing purpose and using **API** in a simplest possible way. You can access it using [`@putout/eslint`](https://github.com/coderaiser/putout/tree/master/packages/eslint#readme):
 
 ```js
 import eslint from '@putout/eslint';
@@ -2558,7 +2558,7 @@ const [source, places] = await eslint({
 });
 ```
 
-Isn't it looks similar to 🐊**Putout** way? It definitely is! But... It has a couple differences you should remember:
+Doesn't it look similar to 🐊**Putout** way? It definitely is! But... It has a couple of differences you should remember:
 
 - ☝️ *[🐊**Putout** returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
 - ☝️ ***ESLint** has a `name` property that is used to calculate configuration file.*
