@@ -12,7 +12,7 @@ jobs:
           - 16.x
           - 18.x
           - 20.x
-          - 21.x
+          - 21.0
     steps:
       - uses: actions/checkout@v3
       - uses: oven-sh/setup-bun@v1
@@ -25,7 +25,7 @@ jobs:
       - name: Install Redrun
         run: bun install redrun -g --no-save
       - name: Install
-        run: bun install --no-save
+        run: yarn --no-lockfile
       - name: Lint
         run: redrun lint
       - name: Install Rust
