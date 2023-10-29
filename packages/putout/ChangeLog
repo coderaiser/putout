@@ -1,3 +1,8 @@
+2023.10.29, v32.9.0
+
+feature:
+- ac81b0d52 package: @putout/formatter-time v1.0.1
+
 2023.10.28, v32.8.0
 
 feature:
