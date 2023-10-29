@@ -34,7 +34,7 @@ export default ({name, options, places, index, count, filesCount, errorsCount}) 
     start();
     
     const {
-        color = '#40e0d0',
+        color = '#91e0d5',
         minCount = 0,
         clock = CLOCK,
     } = options;
