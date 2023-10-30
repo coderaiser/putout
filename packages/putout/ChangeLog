@@ -1,3 +1,10 @@
+2023.10.30, v32.10.1
+
+feature:
+- 8768be856 putout: @putout/plugin-putout-config v4.0.0
+- f94be2d97 @putout/plugin-putout-config: convert-boolean-to-string: report
+- 73877cca7 @putout/plugin-putout-config: drop support of 🐊 < 32
+
 2023.10.30, v32.10.0
 
 fix:
