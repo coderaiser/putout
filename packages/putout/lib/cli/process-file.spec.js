@@ -262,3 +262,58 @@ test('putout: cli: process-file: ruler', async (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: cli: process-file: configurePrinter', async (t) => {
+    const putoutAsync = stub().returns({
+        code: '',
+        places: [],
+    });
+    
+    const source = 'log123("hello")';
+    const fix = false;
+    
+    const log = stub();
+    const write = stub();
+    
+    mockRequire('../putout.js', {
+        putoutAsync,
+    });
+    
+    const options = {
+        dir: '.',
+    };
+    
+    const processFile = reRequire('./process-file');
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    await fn({
+        name: 'example.md{js}',
+        source,
+        index: 0,
+        length: 1,
+        options,
+    });
+    
+    stopAll();
+    
+    const expected = ['log123("hello")', {
+        dir: '.',
+        fix: false,
+        fixCount: undefined,
+        isFlow: undefined,
+        isTS: false,
+        printer: ['putout', {
+            format: {
+                endOfFile: '',
+            },
+        }],
+    }];
+    
+    t.calledWith(putoutAsync, expected, 'should call configurePrinter');
+    t.end();
+});
