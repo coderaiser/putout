@@ -1,3 +1,17 @@
+2023.10.30, v32.10.0
+
+fix:
+- 38cdac940 @putout/formatter-time: color: more clear
+
+feature:
+- b5ae16bcd package: @putout/cli-keypress v2.0.0
+- 69050e756 package: ci-info v4.0.0
+- 68ad000eb @putout/cli-keypress: drop support of node < 16
+- cb59e6428 package: ci-info v4.0.0
+- 2f88af0a2 package: picomatch v3.0.1
+- 6ef1bc387 @putout/plugin-madrun: remove-useless-array-in-run: not string
+- 18ab7efbf @putout/plugin-madrun: add remove-useless-array-in-run
+
 2023.10.29, v32.9.0
 
 feature:
