@@ -566,7 +566,7 @@ test('putout: engine-processor: md: json: options', async (t) => {
     });
     
     const expected = [{
-        message: 'String should be used instead of Boolean',
+        message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
         position: {
             column: 18,
             line: 4,

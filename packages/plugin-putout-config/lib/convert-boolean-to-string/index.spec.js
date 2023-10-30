@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-putout-config: convert-boolean-to-string: report', (t) => {
-    t.report('bool', 'String should be used instead of Boolean');
+    t.report('bool', `Use 'String (on/off)' instead of 'Boolean (true/false)'`);
     t.end();
 });
 

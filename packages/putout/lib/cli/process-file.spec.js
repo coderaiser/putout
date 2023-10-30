@@ -172,7 +172,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
     stopAll();
     
     const expected = [{
-        message: 'String should be used instead of Boolean',
+        message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
         position: {
             column: 50,
             line: 2,
@@ -244,7 +244,7 @@ test('putout: cli: process-file: ruler', async (t) => {
     stopAll();
     
     const expected = [{
-        message: 'String should be used instead of Boolean',
+        message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
         position: {
             column: 50,
             line: 2,

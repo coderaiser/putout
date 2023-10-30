@@ -5,7 +5,7 @@ const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {StringLiteral} = types;
 
-module.exports.report = () => 'String should be used instead of Boolean';
+module.exports.report = () => `Use 'String (on/off)' instead of 'Boolean (true/false)'`;
 
 module.exports.fix = (path) => {
     const {value} = path.node;
