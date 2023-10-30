@@ -19,3 +19,8 @@ test('packages: remove-useless-array-in-run: transform', (t) => {
     t.transform('remove-useless-array-in-run');
     t.end();
 });
+
+test('packages: remove-useless-array-in-run: no transform: not-string', (t) => {
+    t.noTransform('not-string');
+    t.end();
+});
