@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "ci-info": "^3.1.1",
+    "ci-info": "^4.0.0",
     "fullstore": "^3.0.0"
   },
   "keywords": [
