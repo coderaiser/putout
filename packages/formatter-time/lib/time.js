@@ -38,6 +38,7 @@ export default ({name, options, places, index, count, filesCount, errorsCount}) 
         minCount = 0,
         clock = CLOCK,
     } = options;
+    
     const memory = process.memoryUsage();
     
     const rss = format.size(memory.rss);
@@ -102,6 +103,7 @@ const createProgress = once(({count, color, rss}) => {
     const timer = new Timer({
         label: 'putout-timer',
     });
+    
     const bar = new cliProgress.SingleBar({
         format: `${colorFn('{bar}')} {percentage}% | {errorsCount} | {value}/{total} | {time} | {rss}`,
         barCompleteChar: '\u2588',
