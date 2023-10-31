@@ -1,3 +1,8 @@
+2023.10.31, v32.11.0
+
+feature:
+- 2b1600e6b putout: -i: add support of interactive configuration of linting
+
 2023.10.30, v32.10.1
 
 feature:
