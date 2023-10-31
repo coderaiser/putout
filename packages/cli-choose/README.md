@@ -22,6 +22,7 @@ choose('hello?', [
     'three',
     'four',
 ]);
+
 // returns
 'one';
 ```
