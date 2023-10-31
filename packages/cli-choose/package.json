@@ -1,6 +1,6 @@
 {
   "name": "@putout/cli-choose",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "show select to choose one item from list",
