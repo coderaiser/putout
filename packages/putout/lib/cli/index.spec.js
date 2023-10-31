@@ -226,6 +226,7 @@ test('putout: cli: -i', async (t) => {
         '--no-config',
         '-i',
     ];
+    
     const process = stub().returns({
         places: [{
             rule: 'remove-unused-variables',

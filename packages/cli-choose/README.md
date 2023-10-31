@@ -16,7 +16,12 @@ npm i @putout/cli-choose
 ```js
 import {choose} from './lib/choose.js';
 
-choose('hello?', ['one', 'two', 'three', 'four']);
+choose('hello?', [
+    'one',
+    'two',
+    'three',
+    'four',
+]);
 // returns
 'one';
 ```
