@@ -44,7 +44,7 @@ const {
 } = require('./exit-codes');
 
 const {isSupported} = supportedFiles;
-const getFormatter = nanomemoize(require('./formatter').getFormatter);
+const getFormatter = nanomemoize(require('./formatter/formatter').getFormatter);
 
 const cwd = process.cwd();
 const {PUTOUT_FILES = '', PUTOUT_PRINTER} = process.env;
@@ -83,6 +83,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             'flow',
             'config',
             'staged',
+            'interactive',
         ],
         number: ['fix-count'],
         string: [
@@ -100,6 +101,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             format: 'f',
             staged: 's',
             transform: 't',
+            interactive: 'i',
         },
         default: {
             ci: true,
@@ -168,6 +170,13 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         return exit();
     }
     
+    let newFormatter;
+    
+    if (args.interactive) {
+        const {chooseFormatter} = await simpleImport('./formatter/choose-formatter.mjs');
+        [, newFormatter] = await chooseFormatter();
+    }
+    
     if (args.help) {
         const help = require('./help');
         log(help());
@@ -221,7 +230,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         processors = defaultProcessors,
     } = config;
     
-    const [currentFormat, formatterOptions] = await getFormatter(format || formatter, exit);
+    const [currentFormat, formatterOptions] = await getFormatter(newFormatter || format || formatter, exit);
     const [error, processorRunners] = await tryToCatch(getProcessorRunners, processors, simpleImport);
     
     if (error)

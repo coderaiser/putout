@@ -2,12 +2,12 @@
 
 const tryToCatch = require('try-to-catch');
 const {createAsyncLoader} = require('@putout/engine-loader');
-const {simpleImport} = require('./simple-import');
+const {simpleImport} = require('../simple-import');
 
 const {
     NO_FORMATTER,
     CANNOT_LOAD_FORMATTER,
-} = require('./exit-codes');
+} = require('../exit-codes');
 
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a, {}];

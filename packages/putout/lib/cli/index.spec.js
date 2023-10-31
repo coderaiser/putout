@@ -198,7 +198,7 @@ test('putout: cli: --format: ci', async (t) => {
     const report = stub().returns(stub);
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {
+    mockRequire('./formatter/formatter', {
         getFormatter,
     });
     mockRequire('./report', report);
@@ -218,6 +218,59 @@ test('putout: cli: --format: ci', async (t) => {
     stopAll();
     
     t.calledWith(getFormatter, ['stream', stub()]);
+    t.end();
+});
+
+test('putout: cli: -i', async (t) => {
+    const argv = [
+        '--no-config',
+        '-i',
+    ];
+    const process = stub().returns({
+        places: [{
+            rule: 'remove-unused-variables',
+            message: 'hello',
+            position: {
+                line: 1,
+                column: 1,
+            },
+        }],
+        code: '',
+    });
+    
+    const processFile = stub().returns(process);
+    const getFormatter = stub().returns(['dump', {}]);
+    const report = stub().returns(stub);
+    
+    mockRequire('./process-file', processFile);
+    mockRequire('./formatter/formatter', {
+        getFormatter,
+    });
+    mockRequire('./report', report);
+    
+    const chooseFormatter = stub().resolves([null, 'hello']);
+    
+    mockRequire('./simple-import', {
+        simpleImport: async (path) => {
+            if (path === './formatter/choose-formatter.mjs')
+                return {
+                    chooseFormatter,
+                };
+            
+            return await simpleImport(path);
+        },
+    });
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    
+    t.calledWith(getFormatter, ['hello', stub()]);
     t.end();
 });
 
@@ -245,7 +298,7 @@ test('putout: cli: --format: specified twice', async (t) => {
     const report = stub().returns(stub);
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {
+    mockRequire('./formatter/formatter', {
         getFormatter,
     });
     mockRequire('./report', report);
@@ -300,7 +353,7 @@ test('putout: cli: no ide', async (t) => {
     });
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {
+    mockRequire('./formatter/formatter', {
         getFormatter,
     });
     mockRequire('./report', stub().returns(report));
@@ -382,7 +435,7 @@ test('putout: cli: ide: web storm', async (t) => {
     });
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {
+    mockRequire('./formatter/formatter', {
         getFormatter,
     });
     mockRequire('./report', stub().returns(report));
@@ -467,7 +520,7 @@ test('putout: cli: ide: vs code', async (t) => {
     });
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {
+    mockRequire('./formatter/formatter', {
         getFormatter,
     });
     mockRequire('./report', stub().returns(report));
@@ -538,7 +591,7 @@ test('putout: cli: ide: vs code: cache', async (t) => {
     });
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {
+    mockRequire('./formatter/formatter', {
         getFormatter,
     });
     mockRequire('./report', stub().returns(report));
@@ -609,7 +662,7 @@ test('putout: cli: no ide: cache', async (t) => {
     });
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {
+    mockRequire('./formatter/formatter', {
         getFormatter,
     });
     mockRequire('./report', stub().returns(report));
