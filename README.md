@@ -232,7 +232,7 @@ When you need to change [configuration](#-configuration) file use **Ruler** inst
 
 ## ✂️ How **Ruler** can help me?
 
-You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) to [`ESM`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/de/blog/release/v12.17.0/).
+You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) to [`ESM`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/en/blog/release/v12.17.0).
 
 ### 🚁 Convert `CommonJS` to `ESM`
 
