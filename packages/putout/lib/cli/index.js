@@ -25,6 +25,7 @@ const getOptions = require('./get-options');
 
 const getFiles = require('./get-files');
 const {version, dependencies} = require('../../package.json');
+const {formatter: defaultFormatter} = require('../../putout.json');
 const {simpleImport} = require('./simple-import');
 const {run} = require('./runner/runner.js');
 
@@ -44,6 +45,7 @@ const {
     INTERACTIVE_CANCELED,
 } = require('./exit-codes');
 
+const {keys} = Object;
 const {isSupported} = supportedFiles;
 const getFormatter = nanomemoize(require('./formatter/formatter').getFormatter);
 
@@ -174,9 +176,9 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     let newFormatter;
     
     if (args.interactive) {
-        const {chooseFormatter} = await simpleImport('./formatter/choose-formatter/index.mjs');
+        const {chooseFormatter} = await simpleImport('@putout/cli-choose-formatter');
         
-        newFormatter = await chooseFormatter(dependencies);
+        newFormatter = await chooseFormatter(defaultFormatter, keys(dependencies));
         
         if (!newFormatter)
             return exit(INTERACTIVE_CANCELED);

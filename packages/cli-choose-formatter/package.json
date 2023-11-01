@@ -1,0 +1,54 @@
+{
+  "name": "@putout/cli-choose-formatter",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "Choose formatter from the list",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-choose-formatter#readme",
+  "main": "lib/index.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {
+    "@putout/cli-choose": "^1.1.0",
+    "find-up": "^6.3.0"
+  },
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "gitignore"
+  ],
+  "devDependencies": {
+    "c8": "^8.0.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-putout": "^21.0.0",
+    "lerna": "^6.0.1",
+    "madrun": "^9.0.0",
+    "nodemon": "^3.0.1",
+    "putout": "*",
+    "supertape": "^8.0.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

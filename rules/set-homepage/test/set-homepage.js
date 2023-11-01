@@ -18,6 +18,11 @@ test('rules: set-hompeage: transform', (t) => {
     t.end();
 });
 
+test('rules: set-hompeage: transform: different', (t) => {
+    t.transform('different');
+    t.end();
+});
+
 test('rules: set-hompeage: no report', (t) => {
     t.noReport('no-name-homepage');
     t.end();

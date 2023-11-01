@@ -45,7 +45,7 @@
   "dependencies": {
     "@putout/babel": "^1.0.0",
     "@putout/cli-cache": "^2.0.1",
-    "@putout/cli-choose": "^1.0.0",
+    "@putout/cli-choose-formatter": "^1.0.0",
     "@putout/cli-keypress": "^2.0.0",
     "@putout/cli-match": "^2.0.0",
     "@putout/cli-ruler": "^3.0.0",

@@ -1,6 +1,9 @@
 import {operator} from 'putout';
 
-const {getProperties} = operator;
+const {
+    getProperties,
+    setLiteralValue,
+} = operator;
 const parseName = (a) => a.value.replace('@putout/', '');
 
 export const report = () => 'Set homepage';
@@ -41,5 +44,6 @@ export const traverse = ({push}) => ({
 
 export const fix = ({name, homepage}) => {
     const dir = parseName(name);
-    homepage.value = `https://github.com/coderaiser/putout/tree/master/packages/${dir}`;
+    
+    setLiteralValue(homepage, `https://github.com/coderaiser/putout/tree/master/packages/${dir}`);
 };

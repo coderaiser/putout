@@ -14,7 +14,7 @@ npm i @putout/cli-choose
 ## Examples
 
 ```js
-import {choose} from './lib/choose.js';
+import {choose} from '@putout/cli-choose';
 
 choose('hello?', [
     'one',

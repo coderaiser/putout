@@ -1,23 +1,7 @@
 const {stringify, parse} = JSON;
 
-async function getPath(name, {up, findUp}) {
-    let path;
-    
-    if (up)
-        path = await findUp(name);
-    
-    if (!path)
-        path = new URL(`../../../../${name}`, import.meta.url).pathname;
-    
-    return path;
-}
-
-export async function readJSON(name, {up, readFile, findUp}) {
-    const path = await getPath(name, {
-        up,
-        findUp,
-    });
-    
+export async function readJSON(name, {readFile, findUp}) {
+    const path = await findUp(name);
     const json = await readFile(path, 'utf8');
     
     return parse(json);

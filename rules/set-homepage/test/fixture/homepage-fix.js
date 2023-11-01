@@ -1,6 +1,6 @@
 __putout_processor_json({
     "name": "@putout/processor-markdown",
-    "homepage": "http://github.com"
+    "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-markdown"
 });
 
 __putout_processor_json({

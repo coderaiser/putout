@@ -254,7 +254,7 @@ test('putout: cli: -i', async (t) => {
     
     mockRequire('./simple-import', {
         simpleImport: async (path) => {
-            if (path === './formatter/choose-formatter/index.mjs')
+            if (path === '@putout/cli-choose-formatter')
                 return {
                     chooseFormatter,
                 };
@@ -308,7 +308,7 @@ test('putout: cli: -i: cancel', async (t) => {
     
     mockRequire('./simple-import', {
         simpleImport: async (path) => {
-            if (path === './formatter/choose-formatter/index.mjs')
+            if (path === '@putout/cli-choose-formatter')
                 return {
                     chooseFormatter,
                 };
