@@ -280,10 +280,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e537d4ec63
 ### ❌ Example of incorrect code
 
 ```js
-import {operator} from 'putout';
-
-const {remove} = operator;
-
 for (const [i, el] of entries(elements)) {
     if (el !== path)
         continue;
@@ -303,10 +299,6 @@ for (const [i, el] of entries(elements)) {
 ### ✅ Example of correct code
 
 ```js
-import {operator} from 'putout';
-
-const {remove} = operator;
-
 for (const [i, el] of entries(elements)) {
     if (el !== path)
         continue;

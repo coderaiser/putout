@@ -2,7 +2,8 @@
     "printer": "putout",
     "match": {
         "*.md{js}": {
-            "conditions": "off"
+            "conditions": "off",
+            "putout": "off"
         }
     }
 }
