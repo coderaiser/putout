@@ -7,7 +7,7 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `break`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `break`. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b993e0e96fec0fba1a9228ddeac5551a/5d0db5af60f87fcb0476de2f0d4efe78421aa68a).
 
 ## Install
 
