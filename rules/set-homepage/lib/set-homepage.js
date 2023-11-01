@@ -4,6 +4,7 @@ const {
     getProperties,
     setLiteralValue,
 } = operator;
+
 const parseName = (a) => a.value.replace('@putout/', '');
 
 export const report = () => 'Set homepage';

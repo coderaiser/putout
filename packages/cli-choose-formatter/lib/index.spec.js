@@ -104,7 +104,7 @@ test('putout: cli: choose-formatter: getFormatters: formatter', async (t) => {
     t.end();
 });
 
-test('putout: cli: choose-formatter: nothign chosen', async (t) => {
+test('putout: cli: choose-formatter: nothing chosen', async (t) => {
     const dependencies = [
         '@putout/formatter-dump',
         '@putout/formatter-progress-bar',
@@ -127,7 +127,7 @@ test('putout: cli: choose-formatter: nothign chosen', async (t) => {
     t.end();
 });
 
-test('putout: cli: choose-formatter: nothign chosen: not found', async (t) => {
+test('putout: cli: choose-formatter: nothing chosen: not found', async (t) => {
     const findUp = stub();
     const writeFile = stub();
     const dependencies = [
