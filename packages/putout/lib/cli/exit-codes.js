@@ -16,4 +16,5 @@ module.exports = {
     INVALID_CONFIG: 12,
     UNHANDLED: 13,
     CANNOT_LINT_STAGED: 14,
+    INTERACTIVE_CANCELED: 15,
 };

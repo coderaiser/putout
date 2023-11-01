@@ -13,3 +13,4 @@ export const RULLER_NO_FILES = 11;
 export const INVALID_CONFIG = 12;
 export const UNHANDLED = 13;
 export const CANNOT_LINT_STAGED = 14;
+export const INTERACTIVE_CANCELED = 15;

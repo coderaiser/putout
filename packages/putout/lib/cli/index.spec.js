@@ -30,6 +30,7 @@ const {
     RULLER_WITH_FIX,
     INVALID_CONFIG,
     CANNOT_LINT_STAGED,
+    INTERACTIVE_CANCELED,
 } = require('./exit-codes');
 
 const {env} = process;
@@ -272,6 +273,62 @@ test('putout: cli: -i', async (t) => {
     stopAll();
     
     t.calledWith(getFormatter, ['hello', stub()]);
+    t.end();
+});
+
+test('putout: cli: -i: cancel', async (t) => {
+    const argv = [
+        '--no-config',
+        '-i',
+    ];
+    
+    const process = stub().returns({
+        places: [{
+            rule: 'remove-unused-variables',
+            message: 'hello',
+            position: {
+                line: 1,
+                column: 1,
+            },
+        }],
+        code: '',
+    });
+    
+    const processFile = stub().returns(process);
+    const getFormatter = stub().returns(['dump', {}]);
+    const report = stub().returns(stub);
+    
+    mockRequire('./process-file', processFile);
+    mockRequire('./formatter/formatter', {
+        getFormatter,
+    });
+    mockRequire('./report', report);
+    
+    const chooseFormatter = stub().resolves('');
+    
+    mockRequire('./simple-import', {
+        simpleImport: async (path) => {
+            if (path === './formatter/choose-formatter.mjs')
+                return {
+                    chooseFormatter,
+                };
+            
+            return await simpleImport(path);
+        },
+    });
+    
+    const halt = stub();
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+    });
+    
+    stopAll();
+    
+    t.calledWith(halt, [INTERACTIVE_CANCELED]);
     t.end();
 });
 

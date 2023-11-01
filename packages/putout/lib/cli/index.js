@@ -41,6 +41,7 @@ const {
     RULLER_NO_FILES,
     INVALID_CONFIG,
     CANNOT_LINT_STAGED,
+    INTERACTIVE_CANCELED,
 } = require('./exit-codes');
 
 const {isSupported} = supportedFiles;
@@ -174,7 +175,11 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (args.interactive) {
         const {chooseFormatter} = await simpleImport('./formatter/choose-formatter.mjs');
+        
         newFormatter = await chooseFormatter();
+        
+        if (!newFormatter)
+            return exit(INTERACTIVE_CANCELED);
     }
     
     if (args.help) {
