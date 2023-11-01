@@ -16,18 +16,13 @@ const maybeFirst = (a) => isArray(a) ? a[0] : a;
 
 const PREFIX = '@putout/formatter-';
 
-export const chooseFormatter = async ({
+export const chooseFormatter = async (dependencies, {
     readFile = customReadFile,
     writeFile = customWriteFile,
     choose = customChoose,
     findUp = customFindUp,
 } = {}) => {
-    const packageJson = await readJSON('package.json', {
-        readFile,
-        findUp,
-    });
-    
-    const formatters = getFormatters(packageJson);
+    const formatters = getFormatters(dependencies);
     
     const defaultConfig = await readJSON('putout.json', {
         readFile,
@@ -61,7 +56,7 @@ export const chooseFormatter = async ({
     return chosenFormatter;
 };
 
-function getFormatters({dependencies}) {
+function getFormatters(dependencies) {
     const formatters = [];
     
     for (const name of keys(dependencies)) {

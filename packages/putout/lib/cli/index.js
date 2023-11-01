@@ -24,7 +24,7 @@ const supportedFiles = require('./supported-files');
 const getOptions = require('./get-options');
 
 const getFiles = require('./get-files');
-const {version} = require('../../package.json');
+const {version, dependencies} = require('../../package.json');
 const {simpleImport} = require('./simple-import');
 const {run} = require('./runner/runner.js');
 
@@ -176,7 +176,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (args.interactive) {
         const {chooseFormatter} = await simpleImport('./formatter/choose-formatter/index.mjs');
         
-        newFormatter = await chooseFormatter();
+        newFormatter = await chooseFormatter(dependencies);
         
         if (!newFormatter)
             return exit(INTERACTIVE_CANCELED);

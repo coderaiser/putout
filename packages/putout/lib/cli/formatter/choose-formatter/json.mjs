@@ -23,7 +23,7 @@ export async function readJSON(name, {up, readFile, findUp}) {
     return parse(json);
 }
 
-export async function writeJSON({formatter, currentFormatter, chosenFormatter, readFile, writeFile, findUp}) {
+export async function writeJSON({formatter, chosenFormatter, readFile, writeFile, findUp}) {
     if (!chosenFormatter)
         return;
     
@@ -39,6 +39,5 @@ export async function writeJSON({formatter, currentFormatter, chosenFormatter, r
     if (formatter === chosenFormatter)
         delete config.formatter;
     
-    await writeFile('1.txt', `${formatter}, -- ${currentFormatter} -- ${chosenFormatter}`);
     await writeFile(path, stringify(config, null, 4) + '\n');
 }
