@@ -281,6 +281,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e537d4ec63
 
 ```js
 import {operator} from 'putout';
+
 const {remove} = operator;
 
 for (const [i, el] of entries(elements)) {
@@ -303,6 +304,7 @@ for (const [i, el] of entries(elements)) {
 
 ```js
 import {operator} from 'putout';
+
 const {remove} = operator;
 
 for (const [i, el] of entries(elements)) {
