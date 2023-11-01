@@ -19,3 +19,8 @@ test('plugin-maybe: declare: transform', (t) => {
     t.transform('declare');
     t.end();
 });
+
+test('plugin-maybe: declare: transform: maybeFirst', (t) => {
+    t.transform('maybe-first');
+    t.end();
+});

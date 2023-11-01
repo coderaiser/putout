@@ -92,6 +92,8 @@ const fn = fn || noop;
 
 ### ❌ Example of incorrect code
 
+When you not sure is `f` a function, but you want to use it as function anyways:
+
 ```js
 const fn = maybeFn(f);
 ```
@@ -102,7 +104,23 @@ const fn = maybeFn(f);
 const isFn = (a) => typeof a === 'function';
 const noop = () => {};
 const maybeFn = isFn(a) ? a : noop;
+
 const fn = maybeFn(f);
+```
+
+When you not sure is `a` is an array or not, but you want to get first element of it.
+
+```js
+const b = maybeFirst(a);
+```
+
+### ✅ Example of correct code
+
+```js
+const {isArray} = Array;
+const maybeFirst = (a) => isArray(a) ? a[0] : a;
+
+const b = maybeFirst(a);
 ```
 
 ## License
