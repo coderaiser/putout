@@ -249,7 +249,7 @@ test('putout: cli: -i', async (t) => {
     });
     mockRequire('./report', report);
     
-    const chooseFormatter = stub().resolves([null, 'hello']);
+    const chooseFormatter = stub().resolves('hello');
     
     mockRequire('./simple-import', {
         simpleImport: async (path) => {

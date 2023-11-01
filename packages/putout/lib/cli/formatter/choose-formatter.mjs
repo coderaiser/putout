@@ -1,6 +1,5 @@
 import {choose as customChoose} from '@putout/cli-choose';
 import {readFile as customReadFile} from 'node:fs/promises';
-import tryCatch from 'try-catch';
 
 const {keys} = Object;
 const {parse} = JSON;
@@ -10,14 +9,11 @@ const infoPath = new URL('../../../package.json', import.meta.url).pathname;
 
 export const chooseFormatter = async ({readFile = customReadFile, choose = customChoose} = {}) => {
     const data = await readFile(infoPath, 'utf8');
-    const [error, parsed] = tryCatch(parse, data);
-    
-    if (error)
-        return [error];
+    const parsed = parse(data);
     
     const formatters = getFormatters(parsed);
     
-    return [null, await choose('Choose formatter', formatters)];
+    return await choose('Choose formatter', formatters);
 };
 
 function getFormatters({dependencies}) {

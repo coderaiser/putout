@@ -14,7 +14,7 @@ test('putout: cli: choose-formatter', async (t) => {
     }));
     
     const choose = stub().returns('dump');
-    const [, result] = await chooseFormatter({
+    const result = await chooseFormatter({
         readFile,
         choose,
     });
@@ -42,22 +42,5 @@ test('putout: cli: choose-formatter: getFormatters', async (t) => {
     const expected = ['Choose formatter', ['dump']];
     
     t.calledWith(choose, expected);
-    t.end();
-});
-
-test('putout: cli: choose-formatter: error', async (t) => {
-    const readFile = stub().returns(stringify({
-        dependencies: {
-            'formatter-dump': '^7.0.0',
-        },
-    }).replace(`"`, '*'));
-    
-    const choose = stub().returns('dump');
-    const [error] = await chooseFormatter({
-        readFile,
-        choose,
-    });
-    
-    t.ok(error);
     t.end();
 });
