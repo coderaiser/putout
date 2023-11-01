@@ -179,7 +179,6 @@
         "remove-useless-constructor",
         "remove-useless-array-constructor",
         "remove-useless-continue",
-        "remove-useless-break",
         "remove-useless-operand",
         "remove-useless-arguments",
         "remove-useless-escape",

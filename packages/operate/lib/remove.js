@@ -28,6 +28,7 @@ module.exports.remove = (path) => {
         }
         
         path.remove();
+        break;
     }
 };
 
