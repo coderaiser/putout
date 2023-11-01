@@ -27,10 +27,8 @@ module.exports.remove = (path) => {
             break;
         }
         
-        if (el === path) {
-            path.remove();
-            break;
-        }
+        path.remove();
+        break;
     }
 };
 

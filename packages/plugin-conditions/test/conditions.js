@@ -59,3 +59,8 @@ test('plugin-conditions: transform: merge-if-statements', (t) => {
     t.transform('merge-if-statements');
     t.end();
 });
+
+test('plugin-conditions: transform: remove-same-values-condition', (t) => {
+    t.transform('remove-same-values-condition');
+    t.end();
+});

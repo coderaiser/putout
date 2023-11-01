@@ -3,7 +3,7 @@ import {run} from 'madrun';
 export default {
     'wisdom': () => run(['lint', 'coverage']),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
-    'watch:test': async () => `nodemon -w lib -x ${await run('test')}`,
+    'watch:test': async () => `nodemon -w lib -w test -x ${await run('test')}`,
     'lint': () => `putout .`,
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),

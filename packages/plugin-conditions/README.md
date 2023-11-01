@@ -25,6 +25,7 @@ npm i @putout/plugin-conditions -D
         "conditions/remove-constant": "on",
         "conditions/remove-zero": "on",
         "conditions/remove-useless-else": "on",
+        "conditions/remove-same-values-condition": "on",
         "conditions/merge-if-statements": "on"
     }
 }
@@ -270,6 +271,51 @@ if (x)
     return;
 
 console.log();
+```
+
+## remove-same-values-condition"
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e537d4ec636d4a9b849063a8326b70ae/661041b3fbb1e3678bf7f828e4c8bf6ca723f89d).
+
+### ❌ Example of incorrect code
+
+```js
+import {operator} from 'putout';
+const {remove} = operator;
+
+for (const [i, el] of entries(elements)) {
+    if (el !== path)
+        continue;
+    
+    if (!Number(i) && n) {
+        path.parentPath.node.elements[i] = null;
+        break;
+    }
+    
+    if (el === path) {
+        remove(path);
+        break;
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```js
+import {operator} from 'putout';
+const {remove} = operator;
+
+for (const [i, el] of entries(elements)) {
+    if (el !== path)
+        continue;
+    
+    if (!Number(i) && n) {
+        path.parentPath.node.elements[i] = null;
+        break;
+    }
+    
+    remove(path);
+}
 ```
 
 ### Comparison

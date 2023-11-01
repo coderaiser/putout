@@ -10,6 +10,7 @@ const removeBoolean = require('./remove-boolean');
 const removeZero = require('./remove-zero');
 const removeUselessElse = require('./remove-useless-else');
 const simplify = require('./simplify');
+const removeSameValuesCondition = require('./remove-same-values-condition');
 
 module.exports.rules = {
     'apply-comparison-order': applyComparisonOrder,
@@ -22,4 +23,5 @@ module.exports.rules = {
     'remove-zero': removeZero,
     'remove-useless-else': removeUselessElse,
     simplify,
+    'remove-same-values-condition': removeSameValuesCondition,
 };
