@@ -2671,8 +2671,8 @@ You can also transform input files using `Babel`. For example if you need to tra
 | 11   | `RULLER_NO_FILES`       | ruller used without files     | `🐊 'path' is missing for ruler toggler ('--enable-all', '--disable-all')` |
 | 12   | `INVALID_CONFIG`        | config has invalid properties | `🐊 .putout.json: exclude: must NOT have additional properties`            |
 | 13   | `UNHANDLED`             | unhandled exception           | `<unhandled exception>`                                                    |
-| 14   | `CANNOT_LINT_STAGED`    | cannot lint staged            | 🐊 --staged: not git repository`                                           |
-| 15   | `INTERACTIVE_CANCELED`  | interactive canceled          | `<empty>`                                                                  |
+| 14   | `CANNOT_LINT_STAGED`    | cannot lint staged            | 🐊 --staged: not git repository`                                          |
+| 15   |`INTERACTIVE_CANCELED` | interactive canceled          |`<empty>`                                                                  |
 
 Example of providing invalid option:
 
