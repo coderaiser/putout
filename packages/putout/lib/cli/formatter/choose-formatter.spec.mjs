@@ -7,6 +7,7 @@ import {chooseFormatter} from './choose-formatter.mjs';
 const {stringify} = JSON;
 
 test('putout: cli: choose-formatter', async (t) => {
+    const writeFile = stub();
     const readFile = stub().returns(stringify({
         dependencies: {
             'formatter-dump': '^7.0.0',
@@ -14,8 +15,10 @@ test('putout: cli: choose-formatter', async (t) => {
     }));
     
     const choose = stub().returns('dump');
+    
     const result = await chooseFormatter({
         readFile,
+        writeFile,
         choose,
     });
     
@@ -26,6 +29,7 @@ test('putout: cli: choose-formatter', async (t) => {
 });
 
 test('putout: cli: choose-formatter: getFormatters', async (t) => {
+    const writeFile = stub();
     const readFile = stub().returns(stringify({
         dependencies: {
             '@putout/formatter-dump': '^7.0.0',
@@ -38,6 +42,7 @@ test('putout: cli: choose-formatter: getFormatters', async (t) => {
     await chooseFormatter({
         autofocus,
         readFile,
+        writeFile,
         choose,
     });
     
@@ -50,6 +55,7 @@ test('putout: cli: choose-formatter: getFormatters', async (t) => {
 });
 
 test('putout: cli: choose-formatter: getFormatters: autofocus', async (t) => {
+    const writeFile = stub();
     const readFile = stub().returns(stringify({
         formatter: ['progress-bar', {}],
         dependencies: {
@@ -62,6 +68,7 @@ test('putout: cli: choose-formatter: getFormatters: autofocus', async (t) => {
     
     await chooseFormatter({
         readFile,
+        writeFile,
         choose,
     });
     
@@ -74,6 +81,7 @@ test('putout: cli: choose-formatter: getFormatters: autofocus', async (t) => {
 });
 
 test('putout: cli: choose-formatter: getFormatters: formatter', async (t) => {
+    const writeFile = stub();
     const readFile = stub().returns(stringify({
         formatter: 'progress-bar',
         dependencies: {
@@ -86,6 +94,7 @@ test('putout: cli: choose-formatter: getFormatters: formatter', async (t) => {
     
     await chooseFormatter({
         readFile,
+        writeFile,
         choose,
     });
     
@@ -94,5 +103,51 @@ test('putout: cli: choose-formatter: getFormatters: formatter', async (t) => {
     }];
     
     t.calledWith(choose, expected);
+    t.end();
+});
+
+test('putout: cli: choose-formatter: nothign chosen', async (t) => {
+    const writeFile = stub();
+    const readFile = stub().returns(stringify({
+        formatter: 'progress-bar',
+        dependencies: {
+            '@putout/formatter-dump': '^7.0.0',
+            '@putout/formatter-progress-bar': '^7.0.0',
+        },
+    }));
+    
+    const choose = stub();
+    
+    await chooseFormatter({
+        readFile,
+        writeFile,
+        choose,
+    });
+    
+    t.notCalled(writeFile);
+    t.end();
+});
+
+test('putout: cli: choose-formatter: nothign chosen: not found', async (t) => {
+    const findUp = stub();
+    const writeFile = stub();
+    const readFile = stub().returns(stringify({
+        formatter: 'progress-bar',
+        dependencies: {
+            '@putout/formatter-dump': '^7.0.0',
+            '@putout/formatter-progress-bar': '^7.0.0',
+        },
+    }));
+    
+    const choose = stub().returns('dump');
+    
+    await chooseFormatter({
+        readFile,
+        writeFile,
+        findUp,
+        choose,
+    });
+    
+    t.notCalled(writeFile);
     t.end();
 });
