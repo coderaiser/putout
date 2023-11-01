@@ -1,3 +1,11 @@
+2023.11.01, v32.12.0
+
+fix:
+- 2a2fe438c putout: chooseFormatter: drop erro handling
+
+feature:
+- 9637661a8 putout: exit codes: INTERACTIVE_CANCELED: add
+
 2023.10.31, v32.11.0
 
 feature:
