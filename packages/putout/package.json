@@ -110,7 +110,7 @@
     "@putout/plugin-logical-expressions": "^5.0.0",
     "@putout/plugin-madrun": "^17.0.0",
     "@putout/plugin-math": "^2.0.0",
-    "@putout/plugin-maybe": "^1.0.0",
+    "@putout/plugin-maybe": "^2.0.0",
     "@putout/plugin-merge-destructuring-properties": "^8.0.0",
     "@putout/plugin-merge-duplicate-functions": "^2.0.0",
     "@putout/plugin-merge-duplicate-imports": "^9.0.0",
