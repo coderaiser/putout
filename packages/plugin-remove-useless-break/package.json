@@ -1,10 +1,10 @@
 {
   "name": "@putout/plugin-remove-useless-break",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to remove useless 'break'",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-break#readme",
+  "homepage": "https://github.com/coderaiser/putout/tree/6b1390e81c418801abe83b6f174b3fa000d9939e/packages/plugin-remove-useless-break#readme",
   "main": "lib/remove-useless-break.js",
   "release": false,
   "tag": false,
