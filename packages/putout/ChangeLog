@@ -1,3 +1,12 @@
+2023.11.01, v32.13.0
+
+feature:
+- 83768c43b @putout/cli-choose: autofocus
+- 7acbdc575 putout: cli: read userland config to search currently used formatter
+- 60f5f2a0f putout: @putout/plugin-maybe v2.0.0
+- 3d45543a5 @putout/plugin-maybe: drop support of 🐊 < 32
+- 1ff35031d @putout/plugin-maybe: maybeFirst
+
 2023.11.01, v32.12.0
 
 fix:
