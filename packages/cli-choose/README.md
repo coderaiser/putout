@@ -27,6 +27,25 @@ choose('hello?', [
 'one';
 ```
 
+When you need to set focus use `autofocus`:
+
+```js
+import {choose} from './lib/choose.js';
+
+const choises = [
+    'one',
+    'two',
+    'three',
+    'four',
+];
+
+choose('hello?', items, {
+    autofocus: 3,
+});
+
+// show ui with focus on item 'three'.
+```
+
 ## License
 
 MIT

@@ -10,10 +10,11 @@ actions.keys = {
     ...vim,
 };
 
-export const choose = async (message, choices, {Select = CustomSelect} = {}) => {
+export const choose = async (message, choices, {autofocus, Select = CustomSelect} = {}) => {
     const prompt = new Select({
         message,
         choices,
+        autofocus,
     });
     
     const [, answer] = await tryToCatch(prompt.run.bind(prompt));
