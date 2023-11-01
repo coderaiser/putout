@@ -4,12 +4,15 @@ import {
 } from 'node:fs/promises';
 import {findUp as customFindUp} from 'find-up';
 import {choose as customChoose} from '@putout/cli-choose';
+import {
+    readJSON,
+    writeJSON,
+} from './json.mjs';
 
 const {isArray} = Array;
 const {keys} = Object;
 
 const maybeFirst = (a) => isArray(a) ? a[0] : a;
-const {parse, stringify} = JSON;
 
 const PREFIX = '@putout/formatter-';
 
@@ -71,6 +74,7 @@ function getFormatters({dependencies}) {
     
     return formatters;
 }
+<<<<<<< HEAD:packages/putout/lib/cli/formatter/choose-formatter.mjs
 
 async function getPath(name, {up, findUp}) {
     let path;
@@ -84,19 +88,12 @@ async function getPath(name, {up, findUp}) {
     return path;
 }
 
-<<<<<<< HEAD
-async function readJSON(name, {up, readFile}) {
-    const path = await getPath(name, {
-        up,
-    });
-=======
 async function readJSON(name, {up, readFile, findUp}) {
     const path = await getPath(name, {
         up,
         findUp,
     });
     
->>>>>>> 99854c83e (feature: putout: cli: choose-formatter: add ability to edit formatter in .putout.json)
     const json = await readFile(path, 'utf8');
     
     return parse(json);

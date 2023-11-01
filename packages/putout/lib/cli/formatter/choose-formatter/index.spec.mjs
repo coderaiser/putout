@@ -2,7 +2,7 @@ import {
     test,
     stub,
 } from 'supertape';
-import {chooseFormatter} from './choose-formatter.mjs';
+import {chooseFormatter} from './index.mjs';
 
 const {stringify} = JSON;
 

@@ -174,7 +174,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     let newFormatter;
     
     if (args.interactive) {
-        const {chooseFormatter} = await simpleImport('./formatter/choose-formatter.mjs');
+        const {chooseFormatter} = await simpleImport('./formatter/choose-formatter/index.mjs');
         
         newFormatter = await chooseFormatter();
         
