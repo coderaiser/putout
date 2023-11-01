@@ -32,7 +32,7 @@ When you need to set focus use `autofocus`:
 ```js
 import {choose} from './lib/choose.js';
 
-const choises = [
+const choices = [
     'one',
     'two',
     'three',

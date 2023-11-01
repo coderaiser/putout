@@ -1,5 +1,4 @@
 import {readFile as customReadFile} from 'node:fs/promises';
-
 import {findUp} from 'find-up';
 import {choose as customChoose} from '@putout/cli-choose';
 
@@ -60,7 +59,9 @@ async function getPath(name, {up}) {
 }
 
 async function readJSON(name, {up, readFile}) {
-    const path = await getPath(name, {up});
+    const path = await getPath(name, {
+        up,
+    });
     const json = await readFile(path, 'utf8');
     
     return parse(json);
