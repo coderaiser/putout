@@ -6,7 +6,6 @@ const {
     insertAfter,
     remove,
     getProperties,
-    getProperty,
 } = operator;
 
 module.exports.report = () => `Move 'formatter' up`;
@@ -14,15 +13,25 @@ module.exports.report = () => `Move 'formatter' up`;
 module.exports.match = () => ({
     '__putout_processor_json(__object)': (vars, path) => {
         const objectPath = path.get('arguments.0');
-        const formatterPath = getProperty(objectPath, 'formatter');
+        const {
+            formatterPath,
+            parserPath,
+            printerPath,
+        } = getProperties(objectPath, ['formatter', 'parser', 'printer']);
         
         if (!formatterPath)
             return false;
         
-        const next = formatterPath.getNextSibling().node;
-        const prev = formatterPath.getPrevSibling().node;
+        const next = formatterPath.getNextSibling();
+        const prev = formatterPath.getPrevSibling();
         
-        return !next && prev;
+        if (prev === parserPath)
+            return false;
+        
+        if (prev === printerPath)
+            return false;
+        
+        return !next.node && prev.node;
     },
 });
 

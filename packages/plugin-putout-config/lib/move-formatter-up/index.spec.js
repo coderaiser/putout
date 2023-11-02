@@ -19,3 +19,8 @@ test('packages: move-formatter-up: transform', (t) => {
     t.transform('move-formatter-up');
     t.end();
 });
+
+test('packages: move-formatter-up: no report: printer', (t) => {
+    t.noReport('printer');
+    t.end();
+});
