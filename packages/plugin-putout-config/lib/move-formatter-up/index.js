@@ -28,15 +28,21 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     '__putout_processor_json(__object)': (vars, path) => {
         const objectPath = path.get('arguments.0');
-        const {formatterPath, parserPath} = getProperties(objectPath, ['formatter', 'parser']);
+        const {
+            formatterPath,
+            parserPath,
+            printerPath,
+        } = getProperties(objectPath, ['formatter', 'parser', 'printer']);
         
         const {node} = formatterPath;
         
         remove(formatterPath);
         
-        if (!parserPath)
+        if (!parserPath && !printerPath)
             objectPath.node.properties.unshift(node);
-        else if (!parserPath.getPrevSibling().node)
+        else if (printerPath && !printerPath.getPrevSibling().node)
+            insertAfter(printerPath, node);
+        else if (parserPath && !parserPath.getPrevSibling().node)
             insertAfter(parserPath, node);
         
         return path;

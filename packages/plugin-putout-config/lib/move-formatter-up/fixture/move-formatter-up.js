@@ -22,3 +22,11 @@ __putout_processor_json({
         "remove-unused-variables": "off"
     },
 });
+
+__putout_processor_json({
+    "printer": "putout",
+    "rules": {
+        "remove-unused-variables": "off"
+    },
+    "formatter": "progress-bar"
+});
