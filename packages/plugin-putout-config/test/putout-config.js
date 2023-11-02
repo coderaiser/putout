@@ -19,3 +19,8 @@ test('plugin-putout-config: transform: remove-empty', (t) => {
     t.transform('remove-empty');
     t.end();
 });
+
+test('plugin-putout-config: transform: move-formatter-up', (t) => {
+    t.transform('move-formatter-up');
+    t.end();
+});

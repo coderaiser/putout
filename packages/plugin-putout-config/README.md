@@ -17,6 +17,7 @@ npm i @putout/plugin-putout-config -D
 {
     "rules": {
         "putout-config/convert-boolean-to-string": "on",
+        "putout-config/move-formatter-up": "on",
         "putout-config/remove-empty": "on"
     }
 }
@@ -42,6 +43,34 @@ npm i @putout/plugin-putout-config -D
     "rules": {
         "remove-unused-variables": "on",
         "remove-debugger": "off"
+    }
+}
+```
+
+## move-formatter-up
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/48ce05b358a9118250acdc0b35df0fc8/50aeb680193ab4cd5d247e098ff90be8d4092111).
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "parser": "babel",
+    "rules": {
+        "remove-unused-variables": "off"
+    },
+    "formatter": "progress-bar"
+}
+```
+
+### ✅ Example of correct code
+
+```json
+{
+    "parser": "babel",
+    "formatter": "progress-bar",
+    "rules": {
+        "remove-unused-variables": "off"
     }
 }
 ```
