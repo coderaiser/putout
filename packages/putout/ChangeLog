@@ -1,3 +1,18 @@
+2023.11.03, v32.15.0
+
+fix:
+- bdb3d1344 @putout/plugin-config: move-formatter-up: processor
+
+feature:
+- 6e4c6d1d1 @putout/plugin-putout-config: move-formatter-up: printer
+- e5e75a070 @putout/cli-choose-formatter: lint putout config
+- 36b4dccbe @putout/plugin-putout-config: move-formatter-up: newline
+- 80227e2d4 putout: lintJSON: add
+- 6c8baa9ca @putout/plugin-putout-config: move-formatter-up
+- 6a7940d8a @putout/plugin-putout-config: move-formatter-up: add
+- 661011ec7 @putout/plugin-conditions: remove-same-values-condition: add reverse
+- 0644445d7 @putout/plugin-conditions: remove-same-values-condition: exclude conditions without ContinueStatment
+
 2023.11.02, v32.14.0
 
 feature:
