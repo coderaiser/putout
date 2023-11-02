@@ -11,7 +11,6 @@ __putout_processor_json({
 
 __putout_processor_json({
     "parser": "babel",
-    
     "formatter": "progress-bar",
     "rules": {
         "remove-unused-variables": "off"
