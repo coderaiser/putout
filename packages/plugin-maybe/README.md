@@ -110,6 +110,8 @@ const fn = maybeFn(f);
 
 When you not sure is `a` is an array or not, but you want to get first element of it.
 
+### ❌ Example of incorrect code
+
 ```js
 const b = maybeFirst(a);
 ```
