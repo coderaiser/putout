@@ -18,7 +18,8 @@
     "./cli": "./lib/cli/index.js",
     "./cli/run": "./lib/cli/runner/work",
     "./loader": "./lib/loader.mjs",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./lint/json": "./lib/lint/json.mjs"
   },
   "bin": {
     "putout": "bin/putout.mjs"
