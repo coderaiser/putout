@@ -5,6 +5,7 @@ const {
     replaceWith,
     getTemplateValues,
     compare,
+    traverse,
 } = operator;
 
 module.exports.report = () => `Avoid condition with the same value`;
@@ -23,6 +24,9 @@ module.exports.match = () => ({
             if (!compare(__b, values.__b))
                 continue;
             
+            if (!hasContinue(prev))
+                continue;
+            
             return true;
         }
         
@@ -37,3 +41,16 @@ module.exports.replace = () => ({
         return path;
     },
 });
+
+function hasContinue(path) {
+    let is = false;
+    
+    traverse(path, {
+        ContinueStatement(path) {
+            is = true;
+            path.stop();
+        },
+    });
+    
+    return is;
+}

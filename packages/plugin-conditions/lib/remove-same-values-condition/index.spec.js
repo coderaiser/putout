@@ -29,3 +29,8 @@ test('packages: remove-same-values-condition: no transform: different', (t) => {
     t.noTransform('different');
     t.end();
 });
+
+test('packages: remove-same-values-condition: no transform: no-continue', (t) => {
+    t.noTransform('no-continue');
+    t.end();
+});
