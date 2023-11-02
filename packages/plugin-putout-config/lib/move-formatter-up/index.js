@@ -11,7 +11,7 @@ const {
 module.exports.report = () => `Move 'formatter' up`;
 
 module.exports.match = () => ({
-    '__putout_processor(__object)': (vars, path) => {
+    '__putout_processor_json(__object)': (vars, path) => {
         const objectPath = path.get('arguments.0');
         const formatterPath = getProperty(objectPath, 'formatter');
         
@@ -26,7 +26,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '__putout_processor(__object)': (vars, path) => {
+    '__putout_processor_json(__object)': (vars, path) => {
         const objectPath = path.get('arguments.0');
         const {formatterPath, parserPath} = getProperties(objectPath, ['formatter', 'parser']);
         
