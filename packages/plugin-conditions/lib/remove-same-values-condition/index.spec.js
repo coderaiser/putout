@@ -20,6 +20,11 @@ test('packages: remove-same-values-condition: transform', (t) => {
     t.end();
 });
 
+test('packages: remove-same-values-condition: transform: reverse', (t) => {
+    t.transform('reverse');
+    t.end();
+});
+
 test('packages: remove-same-values-condition: no transform: infinite-loop', (t) => {
     t.noTransform('infinite-loop');
     t.end();
