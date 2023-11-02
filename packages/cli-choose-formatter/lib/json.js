@@ -1,3 +1,5 @@
+import {lintJSON} from 'putout/lint/json';
+
 const {stringify, parse} = JSON;
 
 export async function readJSON(name, {readFile, findUp}) {
@@ -23,5 +25,11 @@ export async function writeJSON({formatter, chosenFormatter, readFile, writeFile
     if (formatter === chosenFormatter)
         delete config.formatter;
     
-    await writeFile(path, stringify(config, null, 4) + '\n');
+    const fixedConfig = lintJSON(stringify(config, null, 4), {
+        plugins: [
+            'putout-config',
+        ],
+    });
+    
+    await writeFile(path, fixedConfig);
 }
