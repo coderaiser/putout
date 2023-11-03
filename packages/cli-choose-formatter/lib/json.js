@@ -1,4 +1,5 @@
 import {lintJSON} from 'putout/lint/json';
+import {updateConfig} from './update-config.js';
 
 const {stringify, parse} = JSON;
 
@@ -20,10 +21,11 @@ export async function writeJSON({formatter, chosenFormatter, readFile, writeFile
     
     const config = parse(await readFile(path, 'utf8'));
     
-    config.formatter = chosenFormatter;
-    
-    if (formatter === chosenFormatter)
-        delete config.formatter;
+    updateConfig({
+        formatter,
+        chosenFormatter,
+        config,
+    });
     
     const fixedConfig = lintJSON(stringify(config, null, 4), {
         plugins: [

@@ -25,7 +25,6 @@ export const chooseFormatter = async (formatter, dependencies, {
     const formatters = getFormatters(dependencies);
     
     const {formatter: userFormatter} = await readJSON('.putout.json', {
-        up: true,
         readFile,
         findUp,
     });

@@ -151,3 +151,32 @@ test('putout: cli: choose-formatter: nothing chosen: not found', async (t) => {
     t.notCalled(writeFile);
     t.end();
 });
+
+test('putout: cli: choose-formatter: user formatter', async (t) => {
+    const findUp = stub().returns('x');
+    const writeFile = stub();
+    const dependencies = [
+        '@putout/formatter-dump',
+        '@putout/formatter-progress-bar',
+    ];
+    
+    const readFile = stub().returns('{}');
+    const choose = stub().returns('dump');
+    
+    await chooseFormatter(FORMATTER, dependencies, {
+        readFile,
+        writeFile,
+        findUp,
+        choose,
+    });
+    
+    const expected = [
+        'x',
+        stringify({
+            formatter: 'dump',
+        }, null, 4) + '\n',
+    ];
+    
+    t.calledWith(writeFile, expected);
+    t.end();
+});
