@@ -5,6 +5,10 @@ const {stringify, parse} = JSON;
 
 export async function readJSON(name, {readFile, findUp}) {
     const path = await findUp(name);
+    
+    if (!path)
+        return {};
+    
     const json = await readFile(path, 'utf8');
     
     return parse(json);
