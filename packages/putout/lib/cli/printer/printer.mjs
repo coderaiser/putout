@@ -1,3 +1,5 @@
+import deepMerge from 'deepmerge';
+
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 
@@ -25,11 +27,17 @@ export const configurePrinter = (name, printerOptions) => {
     if (printer !== 'putout')
         return printerOptions;
     
+    const mergedOptions = deepMerge(parseOptions(ext), options);
+    
+    return [printer, mergedOptions];
+};
+
+function parseOptions(ext) {
     if (ext === 'json')
-        return [printer, JSON];
+        return JSON;
     
     if (ext === 'md{json}')
-        return [printer, {
+        return {
             format: {
                 ...DefaultMarkdown.format,
                 ...JSON.format,
@@ -38,13 +46,13 @@ export const configurePrinter = (name, printerOptions) => {
                 ...DefaultMarkdown.semantics,
                 ...JSON.semantics,
             },
-        }];
+        };
     
     if (ext === 'md{js}')
-        return [printer, DefaultMarkdown];
+        return DefaultMarkdown;
     
     if (ext === 'md{ts}')
-        return [printer, DefaultMarkdown];
+        return DefaultMarkdown;
     
-    return [printer, options];
-};
+    return {};
+}

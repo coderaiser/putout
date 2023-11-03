@@ -65,3 +65,24 @@ test('putout: cli: printer: printer: md{ts}', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: cli: printer: printer: overrides', (t) => {
+    const result = configurePrinter('hello.json', ['putout', {
+        format: {
+            endOfFile: 'xx',
+        },
+    }]);
+    
+    const expected = ['putout', {
+        format: {
+            endOfFile: 'xx',
+            quote: '"',
+        },
+        semantics: {
+            trailingComma: false,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
