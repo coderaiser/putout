@@ -1,3 +1,9 @@
+2023.11.03, v32.15.1
+
+feature:
+- d28e4a8eb putout: printer: yaml
+- 6c262ec18 putout: printer: use deep merge
+
 2023.11.03, v32.15.0
 
 fix:
