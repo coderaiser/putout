@@ -30,3 +30,4 @@ test('putout: lint: json', (t) => {
     t.equal(code, expected);
     t.end();
 });
+

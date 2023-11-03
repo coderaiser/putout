@@ -36,6 +36,9 @@ function parseOptions(ext) {
     if (ext === 'json')
         return JSON;
     
+    if (ext === 'yml{json}')
+        return JSON;
+    
     if (ext === 'md{json}')
         return {
             format: {

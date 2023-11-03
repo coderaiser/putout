@@ -67,7 +67,7 @@ test('putout: cli: printer: printer: md{ts}', (t) => {
 });
 
 test('putout: cli: printer: printer: overrides', (t) => {
-    const result = configurePrinter('hello.json', ['putout', {
+    const result = configurePrinter('hello.yml{json}', ['putout', {
         format: {
             endOfFile: 'xx',
         },
