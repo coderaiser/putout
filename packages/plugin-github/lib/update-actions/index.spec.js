@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-github: update-actions: report', (t) => {
-    t.report('set-coveralls-version', `Update action 'actions/setup-node' to latest version`);
+    t.report('set-coveralls-version', `Update action 'actions/checkout' to latest version`);
     t.end();
 });
 
