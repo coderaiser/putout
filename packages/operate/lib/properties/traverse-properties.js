@@ -2,8 +2,9 @@
 
 const {traverse} = require('@putout/babel');
 
-module.exports.traverseProperties = (node, name) => {
+module.exports.traverseProperties = (path, name) => {
     const collector = [];
+    const node = path.node || path;
     
     traverse(node, {
         noScope: true,
