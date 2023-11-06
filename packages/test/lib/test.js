@@ -568,7 +568,7 @@ function preTest(test, plugin) {
     
     if (!declare)
         test(`${name}: report: is function`, (t) => {
-            t.equal(typeof report, 'function', 'should export "report" function');
+            t.equal(typeof report, 'function', `should export 'report' function`);
             t.end();
         }, options);
     
@@ -589,7 +589,7 @@ function preTest(test, plugin) {
             declare,
         });
         
-        t.ok(result, 'should export "replace", "find", "traverse", "include", "exclude", or "declare" function');
+        t.ok(result, `should export 'replace', 'find', 'traverse', 'include', 'exclude', or 'declare' function`);
         t.end();
     }, options);
 }
