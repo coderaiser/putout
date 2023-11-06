@@ -21,6 +21,7 @@ const isObject = (a) => typeof a === 'object';
 const {isArray} = Array;
 
 const {keys, entries} = Object;
+const maybeEntries = (a) => isArray(a) ? a : entries(a).pop();
 
 global.__putout_test_fs = {
     readFileSync,
@@ -82,6 +83,7 @@ const rmFixture = (name) => {
 
 module.exports = createTest;
 module.exports.createTest = createTest;
+module.exports._maybeEntries = maybeEntries;
 
 const parsePlugin = (plugins) => {
     if (isArray(plugins))
@@ -543,7 +545,7 @@ function preTest(test, plugin) {
         filter,
         match,
         declare,
-    }] = entries(plugin).pop();
+    }] = maybeEntries(plugin);
     
     const options = {
         checkDuplicates: false,
