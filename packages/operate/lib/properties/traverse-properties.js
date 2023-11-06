@@ -1,10 +1,24 @@
 'use strict';
 
-const {traverse} = require('@putout/babel');
+const {traverse, types} = require('@putout/babel');
+const {isObjectExpression} = types;
+
+function getNode(path) {
+    if (!isObjectExpression(path))
+        return path.node || path;
+    
+    if (path.parentPath)
+        return path.parentPath.node;
+    
+    return {
+        type: 'ExpressionStatement',
+        expression: path,
+    };
+}
 
 module.exports.traverseProperties = (path, name) => {
     const collector = [];
-    const node = path.node || path;
+    const node = getNode(path);
     
     traverse(node, {
         noScope: true,

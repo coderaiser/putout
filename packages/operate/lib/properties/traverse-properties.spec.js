@@ -30,3 +30,31 @@ test('operate: traverse-properties: traverse', (t) => {
     t.equal(propertyPath.node.key.value, 'a');
     t.end();
 });
+
+test('operate: traverse-properties: traverse: ObjectExpression: path', (t) => {
+    const source = '({"a": "b"})';
+    let propertyPath;
+    
+    traverse(parse(source), {
+        ObjectExpression(path) {
+            [propertyPath] = traverseProperties(path, 'a');
+        },
+    });
+    
+    t.equal(propertyPath.node.key.value, 'a');
+    t.end();
+});
+
+test('operate: traverse-properties: traverse: ObjectExpression: node', (t) => {
+    const source = '({"a": "b"})';
+    let propertyPath;
+    
+    traverse(parse(source), {
+        ObjectExpression(path) {
+            [propertyPath] = traverseProperties(path.node, 'a');
+        },
+    });
+    
+    t.equal(propertyPath.node.key.value, 'a');
+    t.end();
+});
