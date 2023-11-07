@@ -22,6 +22,7 @@ const {
     print,
     operator,
 } = require('putout');
+
 const {filesystem} = operator;
 
 const ast = parse(montag`
