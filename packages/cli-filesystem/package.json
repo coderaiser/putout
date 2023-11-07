@@ -1,0 +1,46 @@
+{
+  "name": "@putout/cli-filesystem",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "API to help lint filesystem",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-filesystem#readme",
+  "main": "lib/filesystem.js",
+  "type": "commonjs",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": ["putout", "cli"],
+  "devDependencies": {
+    "c8": "^8.0.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-putout": "^21.0.0",
+    "lerna": "^6.0.1",
+    "madrun": "^9.0.0",
+    "nodemon": "^3.0.1",
+    "putout": "*",
+    "supertape": "^8.0.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
