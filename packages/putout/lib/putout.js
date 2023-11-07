@@ -234,6 +234,7 @@ module.exports.operator = {
     ...require('@putout/operator-declare'),
     ...require('@putout/operator-regexp'),
     ...require('@putout/operator-add-args'),
+    ...require('@putout/operator-filesystem'),
 };
 
 module.exports.ignores = require('./ignores');
