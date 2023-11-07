@@ -1,3 +1,8 @@
+import filesystemCLI from '@putout/cli-filesystem';
+import filesystem from '@putout/operator-filesystem';
+
+filesystem.init(filesystemCLI);
+
 const prefix = `__putout_processor_filesystem(`;
 const sufix = ');\n';
 
