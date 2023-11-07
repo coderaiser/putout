@@ -1,8 +1,6 @@
 import filesystemCLI from '@putout/cli-filesystem';
 import filesystem from '@putout/operator-filesystem';
 
-filesystem.init(filesystemCLI);
-
 const prefix = `__putout_processor_filesystem(`;
 const sufix = ');\n';
 
@@ -11,6 +9,8 @@ export const files = [
 ];
 
 export const branch = (rawSource) => {
+    filesystem.init(filesystemCLI);
+    
     const source = toJS(rawSource);
     
     return [{
@@ -20,7 +20,10 @@ export const branch = (rawSource) => {
 };
 
 export const merge = (rawSource, list) => {
+    filesystem.deinit(filesystemCLI);
+    
     const [source] = list;
+    
     return fromJS(source) + '\n';
 };
 
