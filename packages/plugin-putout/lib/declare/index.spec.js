@@ -260,3 +260,23 @@ test('plugin-putout: declare: transform: getBindingPath', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: renameFile', (t) => {
+    t.transformCode(`renameFile(filePath, 'hello.js');`, montag`
+        import {operator} from 'putout';
+        
+        const {renameFile} = operator;
+        renameFile(filePath, 'hello.js');\n
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: findFiles', (t) => {
+    t.transformCode(`findFiles(path, 'hello.js');`, montag`
+        import {operator} from 'putout';
+        
+        const {findFiles} = operator;
+        findFiles(path, 'hello.js');\n
+    `);
+    t.end();
+});
