@@ -26,7 +26,7 @@ npm i @putout/plugin-filesystem -D
 
 ## rename-file
 
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0614c2da35a1864b59ac284f18656328/8236b446363ec7f23f90b8fadd053e57cca7e37d).
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0614c2da35a1864b59ac284f18656328/66daa5b325666a0d5befa586965c56e9636a5db4).
 
 ### ❌ Example of incorrect code
 
