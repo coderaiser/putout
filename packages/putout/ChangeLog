@@ -1,3 +1,31 @@
+2023.11.07, v32.16.0
+
+fix:
+- 47a7dea06 @putout/processor-filesystem: init
+- 52274ed96 @putout/operate: traverseProperties: path
+- 0e1855807 @putout/cli-choose-formatter: no .putout.json
+
+feature:
+- 8eb0ac092 @putout/plugin-putout: declare: findFiles, renameFile
+- 127c173f0 putout: @putout/operator-filesystem v1.0.1
+- e87678d74 putout: @putout/plugin-filesystem: add
+- e33a6cf10 @putout/processor-filesystem: @putout/cli-filesystem v1.0.0
+- e2f6e8075 putout: @putout/processor-filesystem v1.0.0
+- bfec7f7c1 putout: @putout/plugin-filesystem v1.0.0
+- 32456ff4d @putout/processor-filesystem: init
+- 2e0098939 putout: @putout/operator-filesystem: add
+- 4e45f05e5 @putout/plugin-filesystem: add
+- c020b1077 eslint-plugin-putout: @stylistic/eslint-plugin-ts v1.0.0
+- aa5808cb2 eslint-plugin-putout: @stylistic/eslint-plugin-jsx v1.0.0
+- e22c2d267 @putout/eslint-config: @stylistic/eslint-plugin-js v1.0.0
+- a21c7e8ad @putout/cli-filesystem: add
+- c6e5581cf @putout/processor-filesystem: add
+- 0f9ba929b @putout/operator-filesystem: add
+- 3eca2e295 @putout/test: preTest: 1 -> name of a plugin
+- 9d9a53a35 @putout/operate: traverseProperties: improve
+- 88b5e0899 @putout/plugin-github: update-actions: actions/checkout, actions/setup-node v4
+- 48c2fde76 @putout/cli-choose-formatter: preserve formatter options
+
 2023.11.03, v32.15.1
 
 feature:
