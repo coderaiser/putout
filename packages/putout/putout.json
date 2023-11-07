@@ -10,7 +10,8 @@
         "markdown",
         "ignore",
         "yaml",
-        "css"
+        "css",
+        "filesystem"
     ],
     "match": {
         "*.{mjs,ts,tsx,mts}": {
@@ -239,6 +240,7 @@
         "logical-expressions",
         "types",
         "conditions",
-        "for-of"
+        "for-of",
+        "filesystem"
     ]
 }
