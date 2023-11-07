@@ -450,6 +450,7 @@ Here is a list of built-int processors:
 | [`@putout/processor-ignore`](/packages/processor-ignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-ignore) |
 | [`@putout/processor-yaml`](/packages/processor-yaml#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-yaml.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-yaml) |
 | [`@putout/processor-css`](/packages/processor-css#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-css) |
+| [`@putout/processor-filesystem`](/packages/processor-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-filesystem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-filesystem) |
 
 You can disable any of them with:
 

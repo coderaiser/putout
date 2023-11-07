@@ -1,11 +1,5 @@
 {
     "printer": "putout",
-    "processors": [
-        "filesystem"
-    ],
-    "plugins": [
-        "filesystem"
-    ],
     "match": {
         "**/codemods": {
             "putout": "on"
