@@ -13,6 +13,15 @@ npm i putout @putout/operator-filesystem
 
 ## API
 
+## findFiles(path: Path, name: string)
+
+```js
+const {operator} = require('putout');
+const {finedFiles} = operator;
+
+const [filePath] = findFiles(ast, 'hello');
+```
+
 ### renameFile(filePath: Path, name: string)
 
 ```js
@@ -23,7 +32,7 @@ const {
     operator,
 } = require('putout');
 
-const {filesystem} = operator;
+const {renameFile} = operator;
 
 const ast = parse(montag`
     putout_processor_filesystem({
