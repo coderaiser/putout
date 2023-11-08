@@ -4,6 +4,7 @@ const {operator} = require('putout');
 const declare = require('@putout/plugin-declare');
 const tape = require('@putout/plugin-tape');
 const {createTest} = require('@putout/test');
+const convertEsmToCommonjs = require('@putout/plugin-nodejs/convert-esm-to-commonjs');
 
 const mergeDebugger = require('..');
 
@@ -79,6 +80,14 @@ test('merge duplicate imports: transform: nested', (t) => {
                 'import __imports from "react"': () => '',
             }),
         },
+    });
+    t.end();
+});
+
+test('merge duplicate imports: transform: convert-esm-to-commonjs', (t) => {
+    t.transform('convert-esm-to-commonjs', {
+        'tape/declare': tape.rules.declare,
+        'nodejs/convert-esm-to-commonjs': convertEsmToCommonjs,
     });
     t.end();
 });

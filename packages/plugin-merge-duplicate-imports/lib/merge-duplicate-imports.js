@@ -8,6 +8,7 @@ const {values} = Object;
 const {
     isImportDefaultSpecifier,
     isImportNamespaceSpecifier,
+    isImportDeclaration,
 } = types;
 
 module.exports.report = () => `Avoid duplicate imports`;
@@ -39,7 +40,8 @@ module.exports.traverse = ({push, pathStore}) => ({
     },
     Program: {
         exit: () => {
-            processImports(push, pathStore());
+            const imports = pathStore().filter(isImportDeclaration);
+            processImports(push, imports);
         },
     },
 });
