@@ -1,10 +1,4 @@
 {
-    "overrides": [{
-        "files": "lib/load.js",
-        "rules": {
-            "node/no-unpublished-require": "off"
-        }
-    }],
     "extends": [
         "plugin:n/recommended",
         "plugin:putout/recommended"

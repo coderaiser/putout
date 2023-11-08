@@ -1,5 +1,5 @@
-import {readFile} from 'node:fs/promises';
-import {join} from 'node:path';
+const {join: join} = require('node:path');
+const {readFile: readFile} = require('node:fs/promises');
 
-new URL('../../package.json', import.meta.url).pathname;
-new URL('../../package.json', import.meta.url).pathname;
+join(__dirname, '../../package.json');
+join(__dirname, '../../package.json');

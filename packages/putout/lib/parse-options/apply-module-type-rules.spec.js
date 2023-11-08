@@ -15,7 +15,7 @@ test('putout: parse-options: apply module type rules: module', (t) => {
     const expected = {
         match: {
             '*.js': {
-                'convert-commonjs-to-esm': 'on',
+                'nodejs/convert-commonjs-to-esm': 'on',
                 'strict-mode/add-missing': 'off',
             },
             '.eslintrc.json': {
@@ -41,7 +41,7 @@ test('putout: parse-options: apply module type rules: commonjs', (t) => {
     const expected = {
         match: {
             '*.js': {
-                'convert-esm-to-commonjs': 'on',
+                'nodejs/convert-esm-to-commonjs': 'on',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
@@ -63,7 +63,7 @@ test('putout: parse-options: apply module type rules: no type', (t) => {
     const expected = {
         match: {
             '*.js': {
-                'convert-esm-to-commonjs': 'on',
+                'nodejs/convert-esm-to-commonjs': 'on',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
@@ -92,7 +92,7 @@ test('putout: parse-options: apply module type rules: match exists', (t) => {
     const expected = {
         match: {
             '*.js': {
-                'convert-esm-to-commonjs': 'on',
+                'nodejs/convert-esm-to-commonjs': 'on',
                 'remove-unused-variables': 'off',
             },
             '.eslintrc.json': {

@@ -141,6 +141,9 @@ test('eslint-plugin-putout: strict-mode', async ({process}) => {
             'putout/putout': ['error', {
                 ignore: ['!**/fixture'],
                 rules: {
+                    'merge-duplicate-imports': 'off',
+                    'tape': 'on',
+                    'nodejs/convert-esm-to-commonjs': 'on',
                     'remove-unused-expressions': 'on',
                 },
             }],
@@ -154,7 +157,8 @@ test('eslint-plugin-putout: esm-to-cjs', async ({process}) => {
             'putout/putout': ['error', {
                 ignore: ['!**/fixture'],
                 rules: {
-                    'convert-esm-to-commonjs': 'on',
+                    'nodejs/convert-esm-to-commonjs': 'on',
+                    'nodejs/convert-commonjs-to-esm': 'off',
                 },
             }],
         },

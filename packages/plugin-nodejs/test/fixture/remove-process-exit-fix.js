@@ -1,5 +1,4 @@
-import process from 'node:process';
-
+const process = require('node:process');
 process[0]();
 
 process().exit();

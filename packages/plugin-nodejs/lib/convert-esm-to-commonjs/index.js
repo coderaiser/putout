@@ -1,7 +1,6 @@
 'use strict';
 
 const {types, template} = require('putout');
-
 const {isImportDefaultSpecifier} = types;
 
 module.exports.report = () => `Use 'CommonJS' instead of 'ESM'`;

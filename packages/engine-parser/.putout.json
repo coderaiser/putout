@@ -1,11 +1,7 @@
 {
     "printer": "putout",
-    "match": {
-        "*.js": {
-            "convert-esm-to-commonjs": "on"
-        }
-    },
     "rules": {
-        "eslint/remove-no-unpublished-require": "off"
+        "eslint/remove-no-unpublished-require": "off",
+        "nodejs/convert-commonjs-to-esm": "off"
     }
 }

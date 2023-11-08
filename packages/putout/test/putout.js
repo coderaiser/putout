@@ -147,6 +147,9 @@ test('putout: fix count', (t) => {
 
 test('putout: comment', (t) => {
     const result = putout(fixture.comment, {
+        rules: {
+            'nodejs/convert-esm-to-commonjs': 'off',
+        },
         plugins: ['nodejs'],
     });
     
@@ -493,6 +496,9 @@ test('putout: transform', (t) => {
     const ast = putout.parse(fixture.comment);
     
     putout.transform(ast, fixture.comment, {
+        rules: {
+            'nodejs/convert-esm-to-commonjs': 'off',
+        },
         plugins: ['nodejs'],
     });
     

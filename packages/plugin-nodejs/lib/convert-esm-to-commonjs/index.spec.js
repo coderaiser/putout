@@ -1,14 +1,14 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const convert = require('..');
+const convert = require('.');
 
-const nodejsDeclare = require('@putout/plugin-nodejs').rules.declare;
+const nodejsDeclare = require('..').rules.declare;
 
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['convert-esm-to-commonjs', convert],
+        ['nodejs/convert-esm-to-commonjs', convert],
     ],
 });
 

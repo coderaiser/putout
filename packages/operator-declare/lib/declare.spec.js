@@ -715,9 +715,14 @@ test('putout: operator: declare: merge', (t) => {
     
     const {code} = putout(source, {
         fixCount: 15,
+        rules: {
+            'nodejs/add-node-prefix': 'off',
+            'nodejs/convert-commonjs-to-esm': 'off',
+            'nodejs/convert-esm-to-commonjs': 'on',
+        },
         plugins: [
+            'nodejs',
             'merge-destructuring-properties',
-            'convert-esm-to-commonjs',
             ['declare', declare(declarations)],
         ],
     });
@@ -900,9 +905,13 @@ test('putout: operator: declare: export type: get while find', (t) => {
     `;
     
     const {code} = putout(source, {
+        rules: {
+            'nodejs/convert-commonjs-to-esm': 'off',
+            'nodejs/convert-esm-to-commonjs': 'on',
+        },
         plugins: [
             ['declare', declare(declarations)],
-            'convert-esm-to-commonjs',
+            'nodejs',
             'tape',
         ],
     });

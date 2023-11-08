@@ -5,7 +5,7 @@
             "remove-debugger": "off"
         },
         "*.js": {
-            "convert-esm-to-commonjs": "on"
+            "nodejs/convert-esm-to-commonjs": "on"
         }
     },
     "rules": {

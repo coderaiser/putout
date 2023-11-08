@@ -86,6 +86,10 @@
                 }]
             }]
         },
+        "fixCount": {
+            "description": "Choose count of fixes",
+            "type": "number"
+        },
         "formatter": {
             "description": "Choose the way to show information about errors found",
             "type": [

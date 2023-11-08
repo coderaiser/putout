@@ -465,8 +465,12 @@ test('putout: runner: replace: watermark: when function used', (t) => {
     
     const {code} = putout(source, {
         runPlugins,
+        rules: {
+            'nodejs/convert-esm-to-commonjs': 'on',
+            'nodejs/convert-commonjs-to-esm': 'off',
+        },
         plugins: [
-            'convert-esm-to-commonjs',
+            'nodejs',
             'declare',
             'putout',
         ],
@@ -563,6 +567,10 @@ test('putout: runner: replace: fix: crawl: block', (t) => {
     
     const {code} = putout(source, {
         runPlugins,
+        rules: {
+            'nodejs/convert-commonjs-to-esm': 'on',
+            'nodejs/convert-esm-to-commonjs': 'off',
+        },
         plugins: ['nodejs'],
     });
     

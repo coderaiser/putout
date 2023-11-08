@@ -1,12 +1,18 @@
 'use strict';
 
-const parse = (rule) => {
+const parseSlashes = (rule) => {
     if (rule.includes('/'))
         return rule
             .split('/')
             .shift();
     
     return rule;
+};
+
+const parsePluginName = (a) => {
+    return a
+        .replace('import:@putout/plugin-', '')
+        .replace('@putout/plugin-', '');
 };
 
 module.exports.validateRules = ({items, rules}) => {
@@ -17,8 +23,10 @@ module.exports.validateRules = ({items, rules}) => {
         let isWithSlash = false;
         
         for (const [pluginName, plugin = {}] of items) {
-            isName = pluginName === rule;
-            isWithSlash = pluginName === parse(rule);
+            const parsedPluginName = parsePluginName(pluginName);
+            
+            isName = parsedPluginName === rule;
+            isWithSlash = parsedPluginName === parseSlashes(rule);
             
             if (isName && plugin.rules)
                 throw Error(`Rule "${rule}" cannot be applied to nested plugin "${pluginName}"`);

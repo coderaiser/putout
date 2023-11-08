@@ -1,3 +1,3 @@
-import x from 'xx';
-import fs from 'node:fs';
-import os from 'node:os';
+const x = require('xx');
+const fs = require('node:fs');
+const os = require('node:os');

@@ -1,7 +1,6 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
 const {compare, remove} = operator;
 
 const {

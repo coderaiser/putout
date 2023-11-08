@@ -878,7 +878,7 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
     const expected = {
         match: {
             '*.js': {
-                'convert-esm-to-commonjs': 'on',
+                'nodejs/convert-esm-to-commonjs': 'on',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
@@ -890,7 +890,7 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
         },
         rules: {
             'remove-only': 'on',
-            'convert-esm-to-commonjs': 'on',
+            'nodejs/convert-esm-to-commonjs': 'on',
         },
     };
     
@@ -929,7 +929,7 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
     const expected = {
         match: {
             '*.js': {
-                'convert-commonjs-to-esm': 'on',
+                'nodejs/convert-commonjs-to-esm': 'on',
                 'strict-mode/add-missing': 'off',
             },
             '.eslintrc.json': {
@@ -938,7 +938,7 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
             },
         },
         rules: {
-            'convert-commonjs-to-esm': 'on',
+            'nodejs/convert-commonjs-to-esm': 'on',
             'strict-mode/add-missing': 'off',
         },
     };

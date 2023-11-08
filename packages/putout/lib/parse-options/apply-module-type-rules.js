@@ -12,7 +12,7 @@ function commonjs() {
     return {
         match: {
             '*.js': {
-                'convert-esm-to-commonjs': 'on',
+                'nodejs/convert-esm-to-commonjs': 'on',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
@@ -26,7 +26,7 @@ function esm() {
     return {
         match: {
             '*.js': {
-                'convert-commonjs-to-esm': 'on',
+                'nodejs/convert-commonjs-to-esm': 'on',
                 'strict-mode/add-missing': 'off',
             },
             '.eslintrc.json': {

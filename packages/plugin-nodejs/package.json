@@ -6,6 +6,11 @@
   "description": "🐊Putout plugin adds ability to transform code to new API of Node.js",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs#readme",
   "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./convert-esm-to-commonjs": "./lib/convert-esm-to-commonjs/index.js",
+    "./convert-commonjs-to-esm": "./lib/convert-commonjs-to-esm.js"
+  },
   "release": false,
   "tag": false,
   "changelog": false,
@@ -33,7 +38,6 @@
     "nodejs"
   ],
   "devDependencies": {
-    "@putout/plugin-convert-esm-to-commonjs": "*",
     "@putout/plugin-putout": "*",
     "@putout/test": "^7.0.0",
     "c8": "^8.0.0",

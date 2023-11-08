@@ -4,8 +4,8 @@ const {operator} = require('putout');
 const {createTest} = require('@putout/test');
 
 const declare = require('../declare/index.js');
-const convertEsmToCommonjs = require('@putout/plugin-convert-esm-to-commonjs');
-const convertCommonjsToEsm = require('..');
+const convertEsmToCommonjs = require('../convert-esm-to-commonjs');
+const convertCommonjsToEsm = require('../convert-commonjs-to-esm');
 const putout = require('@putout/plugin-putout');
 const plugin = require('.');
 

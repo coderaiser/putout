@@ -22,6 +22,7 @@ npm i putout @putout/plugin-nodejs -D
     "rules": {
         "nodejs/add-node-prefix": "on",
         "nodejs/convert-commonjs-to-esm": "on",
+        "nodejs/convert-esm-to-commonjs": "on",
         "nodejs/convert-buffer-to-buffer-alloc": "on",
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
@@ -272,6 +273,8 @@ const name = 'hello.txt';
 
 ### convert-commonjs-to-esm
 
+Convert **CommonJS** **EcmaScript Modules**.
+
 > **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
 >
 > **EcmaScript module** syntax is the standard way to import and export values between files in **JavaScript**. The `import` statement can be used to reference a value exposed by the `export` statement in another file.
@@ -334,6 +337,32 @@ import {fileURLToPath} from 'url';
 const __filename = fileURLToPath(import.meta.url);
 await readFile(__filename);
 ```
+
+### convert-esm-to-commonjs
+
+> **EcmaScript module** syntax is the standard way to import and export values between files in **JavaScript**. The `import` statement can be used to reference a value exposed by the `export` statement in another file.
+>
+> **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
+>
+> (c) [parceljs](https://parceljs.org/languages/javascript/)
+
+Convert **EcmaScript Modules** to **CommonJS**.
+
+## ❌ Example of incorrect code
+
+```js
+import hello from 'world';
+```
+
+## ✅ Example of correct code
+
+```js
+const hello = require('world');
+```
+
+## License
+
+MIT
 
 ## License
 

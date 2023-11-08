@@ -17,7 +17,6 @@ const {
 } = require('./rules');
 
 const {filterEnabledPlugins} = require('./plugins/filter-enabled-plugins');
-
 const {check, checkRule} = require('./check');
 
 module.exports.loadPluginsAsync = loadPluginsAsync;
@@ -74,6 +73,12 @@ function splitRule(rule) {
     return [rule, 'putout'];
 }
 
+function parseRule(rule) {
+    return rule
+        .replace('import:@putout/plugin-', '')
+        .replace('@putout/plugin-', '');
+}
+
 function loadPlugins({items, loadedRules}) {
     const plugins = [];
     
@@ -82,6 +87,7 @@ function loadPlugins({items, loadedRules}) {
             continue;
         
         checkRule(rule);
+        const parsedRule = parseRule(rule);
         
         const [name, namespace] = splitRule(rule);
         const plugin = itemPlugin || loadPlugin({
@@ -97,11 +103,11 @@ function loadPlugins({items, loadedRules}) {
         const {rules} = plugin;
         
         if (rules) {
-            plugins.push(...extendRules(rule, rules));
+            plugins.push(...extendRules(parsedRule, rules));
             continue;
         }
         
-        plugins.push([rule, plugin]);
+        plugins.push([parsedRule, plugin]);
     }
     
     return plugins;

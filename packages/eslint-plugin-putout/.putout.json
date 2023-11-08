@@ -6,7 +6,7 @@
     "plugins": ["eslint-plugin"],
     "match": {
         "*.js": {
-            "convert-esm-to-commonjs": "on"
+            "nodejs/convert-esm-to-commonjs": "on"
         },
         "eslint-fixture": {
             "apply-template-literals": "off",

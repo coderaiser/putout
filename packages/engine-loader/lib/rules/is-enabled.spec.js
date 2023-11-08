@@ -50,3 +50,31 @@ test('putout: get-plugins: is-enabled: rule names cross', (t) => {
     t.ok(result, 'should be enabled');
     t.end();
 });
+
+test('putout: get-plugins: is-enabled: slash', (t) => {
+    const name = 'nodejs/convert-commonjs-to-esm-require';
+    
+    const rules = parseRules({
+        'nodejs': true,
+        'nodejs/convert-commonjs-to-esm': false,
+    });
+    
+    const result = isEnabled(name, rules);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('putout: get-plugins: is-enabled: off', (t) => {
+    const name = 'nodejs/convert-commonjs-to-esm-require';
+    
+    const rules = parseRules({
+        'nodejs': false,
+        'nodejs/declare': false,
+    });
+    
+    const result = isEnabled(name, rules);
+    
+    t.notOk(result);
+    t.end();
+});

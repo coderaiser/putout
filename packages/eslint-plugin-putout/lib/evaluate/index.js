@@ -32,10 +32,10 @@ function evaluate({value, filename}) {
         rules: {
             'nodejs/convert-top-level-return': 'off',
             'nodejs/convert-commonjs-to-esm': 'off',
+            'nodejs/convert-esm-to-commonjs': 'on',
         },
         plugins: [
             'nodejs',
-            'convert-esm-to-commonjs',
             'declare',
         ],
     });

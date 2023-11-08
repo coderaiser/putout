@@ -101,7 +101,7 @@
             "convert-mock-require-to-mock-import": "on"
         },
         "*.cjs": {
-            "convert-esm-to-commonjs": "on"
+            "nodejs/convert-esm-to-commonjs": "on"
         },
         "*.{ts,tsx,mts,cts,md{ts},md{tsx}}": {
             "typescript": "on"
@@ -131,7 +131,7 @@
     ],
     "rules": {
         "typescript": "off",
-        "convert-esm-to-commonjs": "off",
+        "nodejs/convert-esm-to-commonjs": "off",
         "nodejs/convert-commonjs-to-esm": "off",
         "apply-optional-chaining/assign": "off",
         "convert-optional-to-logical/call": "off",
@@ -199,7 +199,6 @@
         "simplify-boolean-return",
         "simplify-ternary",
         "convert-const-to-let",
-        "convert-esm-to-commonjs",
         "convert-apply-to-spread",
         "convert-concat-to-flat",
         "convert-arguments-to-rest",

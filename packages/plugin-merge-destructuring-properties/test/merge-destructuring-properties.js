@@ -3,7 +3,7 @@
 const {createTest} = require('@putout/test');
 const {declare} = require('@putout/plugin-putout').rules;
 const tape = require('@putout/plugin-tape');
-const convert = require('@putout/plugin-nodejs');
+const convert = require('@putout/plugin-nodejs/convert-commonjs-to-esm');
 
 const mergeDestructuringProperties = require('..');
 
