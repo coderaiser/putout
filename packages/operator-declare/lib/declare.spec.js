@@ -908,6 +908,7 @@ test('putout: operator: declare: export type: get while find', (t) => {
         rules: {
             'nodejs/convert-commonjs-to-esm': 'off',
             'nodejs/convert-esm-to-commonjs': 'on',
+            'tape/convert-mock-require-to-mock-import': 'off',
         },
         plugins: [
             ['declare', declare(declarations)],

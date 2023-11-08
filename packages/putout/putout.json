@@ -98,7 +98,7 @@
         },
         "*.mjs": {
             "nodejs/convert-commonjs-to-esm": "on",
-            "convert-mock-require-to-mock-import": "on"
+            "tape/convert-mock-require-to-mock-import": "on"
         },
         "*.cjs": {
             "nodejs/convert-esm-to-commonjs": "on"
@@ -147,7 +147,7 @@
         "github": "off",
         "tape": "off",
         "strict-mode": "off",
-        "convert-mock-require-to-mock-import": "off"
+        "tape/convert-mock-require-to-mock-import": "off"
     },
     "plugins": [
         "apply-at",
@@ -208,7 +208,6 @@
         "convert-array-copy-to-slice",
         "convert-template-to-string",
         "convert-index-of-to-includes",
-        "convert-mock-require-to-mock-import",
         "convert-assignment-to-arrow-function",
         "convert-assignment-to-comparison",
         "convert-quotes-to-backticks",

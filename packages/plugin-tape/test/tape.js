@@ -190,3 +190,8 @@ test('plugin-tape: transform: jest', (t) => {
     t.transform('jest');
     t.end();
 });
+
+test('plugin-tape: transform: convert-mock-require-to-mock-import', (t) => {
+    t.transform('convert-mock-require-to-mock-import');
+    t.end();
+});

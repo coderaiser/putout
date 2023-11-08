@@ -91,7 +91,6 @@
     "@putout/plugin-convert-concat-to-flat": "^1.0.0",
     "@putout/plugin-convert-const-to-let": "^1.0.0",
     "@putout/plugin-convert-index-of-to-includes": "^2.0.0",
-    "@putout/plugin-convert-mock-require-to-mock-import": "^4.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^6.0.0",
     "@putout/plugin-convert-object-entries-to-array-entries": "^3.0.0",
     "@putout/plugin-convert-optional-to-logical": "^3.0.0",

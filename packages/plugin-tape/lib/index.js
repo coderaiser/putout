@@ -21,6 +21,7 @@ const convertEqualToDeepEqual = require('./convert-equal-to-deep-equal');
 const convertEqualToOk = require('./convert-equal-to-ok');
 const convertEqualToCalledOnce = require('./convert-equal-to-called-once');
 const convertDeepEqualToEqual = require('./convert-deep-equal-to-equal');
+const convertMockRequireToMockImport = require('./convert-mock-require-to-mock-import');
 const addArgs = require('./add-args');
 const declare = require('./declare');
 const removeDefaultMessages = require('./remove-default-messages');
@@ -56,6 +57,7 @@ module.exports.rules = {
     'convert-equal-to-ok': convertEqualToOk,
     'convert-equal-to-called-once': convertEqualToCalledOnce,
     'convert-deep-equal-to-equal': convertDeepEqualToEqual,
+    'convert-mock-require-to-mock-import': convertMockRequireToMockImport,
     'add-args': addArgs,
     declare,
     'remove-default-messages': removeDefaultMessages,

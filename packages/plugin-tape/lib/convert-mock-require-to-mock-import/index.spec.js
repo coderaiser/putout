@@ -1,8 +1,8 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const convertMockRequireToMockImport = require('..');
-const tape = require('@putout/plugin-tape');
+const convertMockRequireToMockImport = require('.');
+const tape = require('..');
 
 const test = createTest(__dirname, {
     printer: 'putout',

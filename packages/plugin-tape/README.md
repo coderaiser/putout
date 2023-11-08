@@ -44,6 +44,7 @@ npm i @putout/plugin-tape -D
         "tape/convert-ok-to-match": "on",
         "tape/convert-ok-to-called-with": "on",
         "tape/convert-match-regexp-to-string": "on",
+        "tape/convert-mock-require-to-mock-import": "on",
         "tape/add-args": "on",
         "tape/declare": "on",
         "tape/remove-default-messages": "on",
@@ -809,6 +810,54 @@ test('some test', (t) => {
 
 ```js
 test('some test', (t) => {
+    t.end();
+});
+```
+
+## convert-mock-import-to-require
+
+Convert [mockRequire](https://github.com/boblauer/mock-require) to [mockImport](https://github.com/coderaiser/mock-import).
+
+### ❌ Example of incorrect code
+
+```js
+const mockRequire = require('mock-require');
+
+const {reRequire, stopAll} = mockRequire;
+
+test('', (t) => {
+    mockRequire('fs/promises', {
+        unlink: stub(),
+    });
+    
+    const fn = reRequire('..');
+    fn();
+    
+    stopAll();
+    t.end();
+});
+```
+
+### ✅ Example of correct code
+
+```js
+import {createMockImport} from 'mock-import';
+
+const {
+    mockImport,
+    reImport,
+    stopAll,
+} = createMockImport(import.meta.url);
+
+test('', async (t) => {
+    mockImport('fs/promises', {
+        unlink: stub(),
+    });
+    
+    const fn = await reImport('..');
+    fn();
+    
+    stopAll();
     t.end();
 });
 ```
