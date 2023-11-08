@@ -31,6 +31,7 @@ function evaluate({value, filename}) {
         fix: true,
         rules: {
             'nodejs/convert-top-level-return': 'off',
+            'nodejs/convert-commonjs-to-esm': 'off',
         },
         plugins: [
             'nodejs',

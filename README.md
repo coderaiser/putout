@@ -308,7 +308,7 @@ It will create config file `.putout.json`:
 }
 ```
 
-Then running `putout index.js --enable convert-commonjs-to-esm` will update config with:
+Then running `putout index.js --enable nodejs/convert-commonjs-to-esm` will update config with:
 
 ```diff
 {
@@ -320,7 +320,7 @@ Then running `putout index.js --enable convert-commonjs-to-esm` will update conf
         "promises/add-missing-await": "off",
 -       "promises/remove-useless-async": "off"
 +       "promises/remove-useless-async": "off",
-+       "convert-commonjs-to-esm": "on"
++       "nodejs/convert-commonjs-to-esm": "on"
     }
 }
 ```
@@ -342,7 +342,7 @@ async function promise(a) {
 So in case of `src` directory, it will look like:
 
 ```sh
-putout src --disable-all && putout src --enable convert-commonjs-to-esm && putout src --fix
+putout src --disable-all && putout src --enable nodejs/convert-commonjs-to-esm && putout src --fix
 ```
 
 This command will **disable all rules** that 🐊**Putout** can find right now and **enable** a single rule. All built-in rules made for good and highly suggested to be used, all of them are enabled in all my repositories, since they have auto fix.
@@ -1937,7 +1937,6 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-convert-quotes-to-backticks`](/packages/plugin-convert-quotes-to-backticks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-quotes-to-backticks) |
 | [`@putout/plugin-convert-concat-to-flat`](/packages/plugin-convert-concat-to-flat#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-concat-to-flat.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-concat-to-flat) |
 | [`@putout/plugin-convert-esm-to-commonjs`](/packages/plugin-convert-esm-to-commonjs#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-esm-to-commonjs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-esm-to-commonjs) |
-| [`@putout/plugin-convert-commonjs-to-esm`](/packages/plugin-convert-commonjs-to-esm#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-commonjs-to-esm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-commonjs-to-esm) |
 | [`@putout/plugin-convert-array-copy-to-slice`](/packages/plugin-convert-array-copy-to-slice#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-array-copy-to-slice.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-array-copy-to-slice) |
 | [`@putout/plugin-convert-template-to-string`](/packages/plugin-convert-template-to-string#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-template-to-string.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-template-to-string) |
 | [`@putout/plugin-convert-index-of-to-includes`](/packages/plugin-convert-index-of-to-includes#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-index-of-to-includes.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-index-of-to-includes) |

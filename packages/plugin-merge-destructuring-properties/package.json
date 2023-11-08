@@ -31,8 +31,8 @@
     "destructuring"
   ],
   "devDependencies": {
-    "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/plugin-convert-mock-require-to-mock-import": "*",
+    "@putout/plugin-nodejs": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-tape": "*",
     "@putout/test": "^7.0.0",
@@ -42,6 +42,7 @@
     "eslint-plugin-putout": "^21.0.0",
     "lerna": "^6.0.1",
     "madrun": "^9.0.0",
+    "nodejs": "*",
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {

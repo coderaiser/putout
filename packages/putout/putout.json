@@ -97,7 +97,7 @@
             "tape": "on"
         },
         "*.mjs": {
-            "convert-commonjs-to-esm": "on",
+            "nodejs/convert-commonjs-to-esm": "on",
             "convert-mock-require-to-mock-import": "on"
         },
         "*.cjs": {
@@ -132,7 +132,7 @@
     "rules": {
         "typescript": "off",
         "convert-esm-to-commonjs": "off",
-        "convert-commonjs-to-esm": "off",
+        "nodejs/convert-commonjs-to-esm": "off",
         "apply-optional-chaining/assign": "off",
         "convert-optional-to-logical/call": "off",
         "nodejs/convert-top-level-return": "off",
@@ -200,7 +200,6 @@
         "simplify-ternary",
         "convert-const-to-let",
         "convert-esm-to-commonjs",
-        "convert-commonjs-to-esm",
         "convert-apply-to-spread",
         "convert-concat-to-flat",
         "convert-arguments-to-rest",

@@ -3,7 +3,7 @@
 const {createTest} = require('@putout/test');
 const {declare} = require('@putout/plugin-putout').rules;
 const tape = require('@putout/plugin-tape');
-const convert = require('@putout/plugin-convert-commonjs-to-esm');
+const convert = require('@putout/plugin-nodejs');
 
 const mergeDestructuringProperties = require('..');
 
@@ -62,14 +62,14 @@ test('plugin-merge-destructuring-properties: transform: tape', (t) => {
 
 test('plugin-merge-destructuring-properties: no transform: exports', (t) => {
     t.transform('exports', {
-        'convert-commonjs-to-esm': convert,
+        'node/convert-commonjs-to-esm': convert,
     });
     t.end();
 });
 
 test('plugin-merge-destructuring-properties: no transform: removed variable', (t) => {
     t.transform('mock-require', {
-        'convert-commonjs-to-esm': convert,
+        'node/convert-commonjs-to-esm': convert,
         'convert-mock-require-to-mock-import': require('@putout/plugin-convert-mock-require-to-mock-import'),
     });
     t.end();

@@ -240,10 +240,10 @@ test('putout: loader: enable part of rule', (t) => {
     const {code} = putout(source, {
         fix: true,
         rules: {
-            'convert-commonjs-to-esm': 'off',
-            'convert-commonjs-to-esm/require': 'on',
+            'nodejs/convert-commonjs-to-esm': 'off',
+            'nodejs/convert-commonjs-to-esm-require': 'on',
         },
-        plugins: ['convert-commonjs-to-esm'],
+        plugins: ['nodejs'],
     });
     
     const expected = `import {run} from 'madrun';\n`;
@@ -342,7 +342,7 @@ test('putout: loader: namespace', (t) => {
     
     const {code} = putout(source, {
         fix: true,
-        plugins: ['@putout/plugin-convert-commonjs-to-esm'],
+        plugins: ['@putout/plugin-nodejs'],
     });
     
     const expected = `import {run} from 'madrun';\n`;
@@ -369,7 +369,7 @@ test('putout: loader: wrong plugin name', (t) => {
 test('putout: loader: async: import', async (t) => {
     const source = `const {run} = require('madrun');`;
     const {code} = await putoutAsync(source, {
-        plugins: ['import:@putout/plugin-convert-commonjs-to-esm'],
+        plugins: ['import:@putout/plugin-nodejs'],
     });
     
     const expected = `import {run} from 'madrun';\n`;
@@ -381,7 +381,7 @@ test('putout: loader: async: import', async (t) => {
 test('putout: loader: sync: import', (t) => {
     const source = `const {run} = require('madrun');`;
     const {code} = putout(source, {
-        plugins: ['import:@putout/plugin-convert-commonjs-to-esm'],
+        plugins: ['import:@putout/plugin-nodejs'],
     });
     
     const expected = `import {run} from 'madrun';\n`;
@@ -394,23 +394,23 @@ test('putout: loader: sync: import: shorten', async (t) => {
     const source = `const {run} = require('madrun');`;
     const {places} = await putoutAsync(source, {
         fix: false,
-        plugins: ['import:@putout/plugin-convert-commonjs-to-esm'],
+        plugins: ['import:@putout/plugin-nodejs'],
     });
     
     const expected = [{
+        message: '"__filename", "__dirname" and "require" should be declared in ESM',
+        position: {
+            column: 14,
+            line: 1,
+        },
+        rule: 'nodejs/convert-commonjs-to-esm-common',
+    }, {
         message: `Use 'ESM' instead of 'CommonJS'`,
         position: {
             column: 0,
             line: 1,
         },
-        rule: 'convert-commonjs-to-esm/require',
-    }, {
-        message: `"__filename", "__dirname" and "require" should be declared in ESM`,
-        position: {
-            column: 14,
-            line: 1,
-        },
-        rule: 'convert-commonjs-to-esm/commons',
+        rule: 'nodejs/convert-commonjs-to-esm-require',
     }];
     
     t.deepEqual(places, expected);

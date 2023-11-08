@@ -88,7 +88,6 @@
     "@putout/plugin-convert-array-copy-to-slice": "^3.0.0",
     "@putout/plugin-convert-assignment-to-arrow-function": "^1.0.0",
     "@putout/plugin-convert-assignment-to-comparison": "^2.0.0",
-    "@putout/plugin-convert-commonjs-to-esm": "^10.0.0",
     "@putout/plugin-convert-concat-to-flat": "^1.0.0",
     "@putout/plugin-convert-const-to-let": "^1.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^6.0.0",

@@ -47,7 +47,17 @@ test('plugin-strict-mode: add: no transform: top-level-await', (t) => {
     t.end();
 });
 
-test('plugin-strict-mode: add: nodejs', (t) => {
+const testNodejs = createTest(__dirname, {
+    printer: 'putout',
+    rules: {
+        'nodejs/convert-commonjs-to-esm': 'off',
+    },
+    plugins: [
+        ['strict-mode/add', add],
+    ],
+});
+
+testNodejs('plugin-strict-mode: add: nodejs', (t) => {
     t.transform('nodejs', {
         nodejs,
         declare,

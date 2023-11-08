@@ -21,6 +21,7 @@ npm i putout @putout/plugin-nodejs -D
 {
     "rules": {
         "nodejs/add-node-prefix": "on",
+        "nodejs/convert-commonjs-to-esm": "on",
         "nodejs/convert-buffer-to-buffer-alloc": "on",
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
@@ -267,6 +268,71 @@ const {readFile} = require('fs/promises');
 ```js
 const {readFile} = require('fs/promises');
 const name = 'hello.txt';
+```
+
+### convert-commonjs-to-esm
+
+> **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
+>
+> **EcmaScript module** syntax is the standard way to import and export values between files in **JavaScript**. The `import` statement can be used to reference a value exposed by the `export` statement in another file.
+>
+> (c) [parceljs](https://parceljs.org/languages/javascript/)
+
+#### require
+
+##### ❌ Example of incorrect code
+
+```js
+const {join} = require('path');
+
+const args = require('minimist')({
+    string: ['a', 'b'],
+});
+```
+
+##### ✅ Example of correct code
+
+```js
+import {join} from 'path';
+import minimist from 'minimist';
+
+const args = minimist({
+    string: ['a', 'b'],
+});
+```
+
+#### exports
+
+##### ❌ Example of incorrect code
+
+```js
+module.exports = () => {};
+```
+
+##### ✅ Example of correct code
+
+```js
+export default () => {};
+```
+
+#### Commons
+
+##### ❌ Example of incorrect code
+
+```js
+const {readFile} = require('fs/promises');
+
+await readFile(__filename);
+```
+
+##### ✅ Example of correct code
+
+```js
+import {readFile} from 'fs/promises';
+import {fileURLToPath} from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+await readFile(__filename);
 ```
 
 ## License

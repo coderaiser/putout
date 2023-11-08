@@ -23,7 +23,9 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {},
+  "dependencies": {
+    "just-camel-case": "^6.2.0"
+  },
   "keywords": [
     "putout",
     "putout-plugin",
@@ -31,7 +33,6 @@
     "nodejs"
   ],
   "devDependencies": {
-    "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/plugin-convert-esm-to-commonjs": "*",
     "@putout/plugin-putout": "*",
     "@putout/test": "^7.0.0",

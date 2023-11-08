@@ -5,7 +5,7 @@ const {createTest} = require('@putout/test');
 
 const declare = require('../declare/index.js');
 const convertEsmToCommonjs = require('@putout/plugin-convert-esm-to-commonjs');
-const convertCommonjsToEsm = require('@putout/plugin-convert-commonjs-to-esm');
+const convertCommonjsToEsm = require('..');
 const putout = require('@putout/plugin-putout');
 const plugin = require('.');
 
