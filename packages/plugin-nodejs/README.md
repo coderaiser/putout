@@ -21,8 +21,8 @@ npm i putout @putout/plugin-nodejs -D
 {
     "rules": {
         "nodejs/add-node-prefix": "on",
-        "nodejs/convert-commonjs-to-esm": "on",
-        "nodejs/convert-esm-to-commonjs": "on",
+        "nodejs/convert-commonjs-to-esm": "off",
+        "nodejs/convert-esm-to-commonjs": "off",
         "nodejs/convert-buffer-to-buffer-alloc": "on",
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
