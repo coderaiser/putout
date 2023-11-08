@@ -25,6 +25,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
         "nodejs/convert-dirname-to-url": "on",
+        "nodejs/convert-exportst-to-module-exports": "on",
         "nodejs/convert-url-to-dirname": "on",
         "nodejs/convert-top-level-return": "on",
         "nodejs/declare": "on",
@@ -169,6 +170,23 @@ In most cases `process.exit()` is called from `bin` directory, if not - disable 
 
 ```diff
 -process.exit();
+```
+
+### convert-exports-to-module-exports
+
+Since `exports = 5` wan't make any export, just change value of variable.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8b2af2c4ad005ed1c77cde41377caaad/dfdccc794037d7f67bde1e7d7244bf5f14abebce).
+
+#### ❌ Example of incorrect code
+
+```js
+exports.x = 5;
+```
+
+#### ✅ Example of correct code
+
+```js
+module.exports.x = 5;
 ```
 
 ### convert-top-level-return

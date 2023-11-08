@@ -64,3 +64,8 @@ test('plugin-nodejs: transform: add-node-prefix', (t) => {
     t.transform('add-node-prefix');
     t.end();
 });
+
+test('plugin-nodejs: transform: convert-exports-to-module-exports', (t) => {
+    t.transform('convert-exports-to-module-exports');
+    t.end();
+});
