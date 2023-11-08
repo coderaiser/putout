@@ -1,7 +1,8 @@
 import filesystemCLI from '@putout/cli-filesystem';
 import filesystem from '@putout/operator-filesystem';
+import {name} from './name.cjs';
 
-const prefix = `__putout_processor_filesystem(`;
+const prefix = `${name}(`;
 const sufix = ');\n';
 
 export const files = [
