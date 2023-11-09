@@ -57,6 +57,7 @@ test('putout: processor: filesystem: merge: a couple items in list', (t) => {
             "files": []
         });\n
     `;
+    
     const rawSource = montag`
         __putout_processor_filesystem({
             "filename": "/",
@@ -75,4 +76,3 @@ test('putout: processor: filesystem: merge: a couple items in list', (t) => {
     t.equal(result, expected);
     t.end();
 });
-

@@ -36,7 +36,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0614c2da35
 +readme.md
 ```
 
-
 ## remove-vim-swap-file
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a495c6782ed8b512f37e757bafd02b08/5d0dc03f6be2653639bb22ea00c3ce91e8454940).
