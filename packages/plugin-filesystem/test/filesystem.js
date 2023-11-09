@@ -14,3 +14,8 @@ test('plugin-filesystem: no report: rename-file', (t) => {
     t.noReport('rename-file');
     t.end();
 });
+
+test('plugin-filesystem: transform: remove-vim-swap-file', (t) => {
+    t.transform('remove-vim-swap-file');
+    t.end();
+});
