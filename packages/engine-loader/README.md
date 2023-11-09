@@ -47,9 +47,7 @@ So when someone using your plugin, he needs to enable it:
     "rules": {
         "nested/remove-unused-variables": "on"
     },
-    "plugins": [
-        "nested"
-    ]
+    "plugins": ["nested"]
 }
 ```
 
