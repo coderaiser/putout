@@ -271,12 +271,22 @@ test('plugin-putout: declare: transform: renameFile', (t) => {
     t.end();
 });
 
-test('plugin-putout: declare: transform: findFiles', (t) => {
-    t.transformCode(`findFiles(path, 'hello.js');`, montag`
+test('plugin-putout: declare: transform: removeFile', (t) => {
+    t.transformCode(`removeFile(filePath, 'hello.js');`, montag`
         import {operator} from 'putout';
         
-        const {findFiles} = operator;
-        findFiles(path, 'hello.js');\n
+        const {removeFile} = operator;
+        removeFile(filePath, 'hello.js');\n
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: findFile', (t) => {
+    t.transformCode(`findFile(path, 'hello.js');`, montag`
+        import {operator} from 'putout';
+        
+        const {findFile} = operator;
+        findFile(path, 'hello.js');\n
     `);
     t.end();
 });

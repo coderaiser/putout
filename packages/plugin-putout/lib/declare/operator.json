@@ -9,7 +9,6 @@
     "rename": "const {rename} = operator",
     "renameProperty": "const {renameProperty} = operator",
     "extract": "const {extract} = operator",
-    "findFiles": "const {findFiles} = operator",
     "getPathAfterImports": "const {getPathAfterImports} = operator",
     "getBinding": "const {getBinding} = operator",
     "getBindingPath": "const {getBindingPath} = operator",
@@ -19,7 +18,6 @@
     "addArgs": "const {addArgs} = operator",
     "insertBefore": "const {insertBefore} = operator",
     "insertAfter": "const {insertAfter} = operator",
-    "renameFile": "const {renameFile} = operator",
     "replaceWith": "const {replaceWith} = operator",
     "replaceWithMultiple": "const {replaceWithMultiple} = operator",
     "remove": "const {remove} = operator",
@@ -28,5 +26,9 @@
     "getProperties": "const {getProperties} = operator",
     "traverseProperties": "const {traverseProperties} = operator",
     "isSimple": "const {isSimple} = operator",
-    "setLiteralValue": "const {setLiteralValue} = operator"
+    "setLiteralValue": "const {setLiteralValue} = operator",
+    
+    "findFile": "const {findFile} = operator",
+    "renameFile": "const {renameFile} = operator",
+    "removeFile": "const {removeFile} = operator"
 }
