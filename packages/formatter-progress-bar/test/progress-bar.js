@@ -1,5 +1,6 @@
 import {createTest} from '@putout/test';
 import rmVars from '@putout/plugin-remove-unused-variables';
+import process from 'node:process';
 import progress from '../lib/progress-bar.js';
 
 const createFreshImport = (count = 0) => (name) => import(`${name}?count=${++count}`);

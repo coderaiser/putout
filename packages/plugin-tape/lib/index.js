@@ -36,6 +36,8 @@ const removeOnly = require('./remove-only');
 const removeSkip = require('./remove-skip');
 
 module.exports.rules = {
+    'convert-mock-require-to-mock-import': ['off', convertMockRequireToMockImport],
+    
     'apply-stub': applyStub,
     'apply-destructuring': applyDestructuring,
     'apply-with-name': applyWithName,
@@ -57,7 +59,6 @@ module.exports.rules = {
     'convert-equal-to-ok': convertEqualToOk,
     'convert-equal-to-called-once': convertEqualToCalledOnce,
     'convert-deep-equal-to-equal': convertDeepEqualToEqual,
-    'convert-mock-require-to-mock-import': convertMockRequireToMockImport,
     'add-args': addArgs,
     declare,
     'remove-default-messages': removeDefaultMessages,

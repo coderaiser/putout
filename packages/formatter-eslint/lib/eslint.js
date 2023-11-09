@@ -1,4 +1,5 @@
 import {jsonFormatter} from '@putout/formatter-json';
+import process from 'node:process';
 
 export default async ({name, source, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({

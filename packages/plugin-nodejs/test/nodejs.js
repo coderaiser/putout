@@ -6,7 +6,7 @@ const nodejs = require('..');
 const test = createTest(__dirname, {
     printer: 'putout',
     rules: {
-        'nodejs/convert-commonjs-to-esm': 'off',
+        //'nodejs/convert-commonjs-to-esm': 'off',
     },
     plugins: [
         ['nodejs', nodejs],

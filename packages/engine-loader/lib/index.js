@@ -18,6 +18,7 @@ const {
 
 const {filterEnabledPlugins} = require('./plugins/filter-enabled-plugins');
 const {check, checkRule} = require('./check');
+const {isArray} = Array;
 
 module.exports.loadPluginsAsync = loadPluginsAsync;
 module.exports.loadProcessorsAsync = nanomemoize(async (options, load) => {
@@ -79,6 +80,8 @@ function parseRule(rule) {
         .replace('@putout/plugin-', '');
 }
 
+const maybeFromTuple = (a) => isArray(a) ? a[1] : a;
+
 function loadPlugins({items, loadedRules}) {
     const plugins = [];
     
@@ -90,7 +93,7 @@ function loadPlugins({items, loadedRules}) {
         const parsedRule = parseRule(rule);
         
         const [name, namespace] = splitRule(rule);
-        const plugin = itemPlugin || loadPlugin({
+        const plugin = maybeFromTuple(itemPlugin) || loadPlugin({
             name,
             namespace,
         });

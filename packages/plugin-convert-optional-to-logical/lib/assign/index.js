@@ -1,8 +1,9 @@
 'use strict';
 
 const {template, operator} = require('putout');
-const {replaceWith} = operator;
+
 const {getLogical} = require('../get-logical');
+const {replaceWith} = operator;
 
 module.exports.report = () => `Use Logical Expression ('a && a.b = c') instead of Optional Chaining ('a?.b = c')`;
 

@@ -20,9 +20,9 @@ npm i putout @putout/plugin-nodejs -D
 ```json
 {
     "rules": {
-        "nodejs/add-node-prefix": "on",
         "nodejs/convert-commonjs-to-esm": "off",
         "nodejs/convert-esm-to-commonjs": "off",
+        "nodejs/add-node-prefix": "on",
         "nodejs/convert-buffer-to-buffer-alloc": "on",
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",

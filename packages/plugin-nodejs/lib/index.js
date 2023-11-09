@@ -13,7 +13,10 @@ const addNodePrefix = require('./add-node-prefix');
 const convertExportsToModuleExports = require('./convert-exports-to-module-exports');
 
 const convertEsmToCommonjs = require('./convert-esm-to-commonjs');
-const convertCommonjsToEsm = require('./convert-commonjs-to-esm');
+
+const convertCommonjsToEsmExports = require('./convert-commonjs-to-esm-exports');
+const convertCommonjsToEsmCommons = require('./convert-commonjs-to-esm-commons');
+const convertCommonjsToEsmRequire = require('./convert-commonjs-to-esm-require');
 
 module.exports.rules = {
     'convert-buffer-to-buffer-alloc': convertBufferToBufferAlloc,
@@ -27,6 +30,9 @@ module.exports.rules = {
     'remove-process-exit': removeProcessExit,
     'add-node-prefix': addNodePrefix,
     'convert-exports-to-module-exports': convertExportsToModuleExports,
-    'convert-esm-to-commonjs': convertEsmToCommonjs,
-    ...convertCommonjsToEsm.rules,
+    
+    'convert-esm-to-commonjs': ['off', convertEsmToCommonjs],
+    'convert-commonjs-to-esm-exports': ['off', convertCommonjsToEsmExports],
+    'convert-commonjs-to-esm-common': ['off', convertCommonjsToEsmCommons],
+    'convert-commonjs-to-esm-require': ['off', convertCommonjsToEsmRequire],
 };

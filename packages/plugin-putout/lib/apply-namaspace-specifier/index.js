@@ -1,8 +1,9 @@
 'use strict';
 
 const {types} = require('putout');
-const {isImportDeclaration} = types;
+
 const {parseImportSpecifiers} = require('parse-import-specifiers');
+const {isImportDeclaration} = types;
 const noop = () => {};
 
 module.exports.report = () => `Use 'import * as plugin' instead of 'import plugin'`;

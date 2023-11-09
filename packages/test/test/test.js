@@ -2,7 +2,7 @@
 
 const putout = require('@putout/plugin-putout');
 
-const {createTest, _maybeEntries} = require('..');
+const {createTest} = require('..');
 const removeConsole = require('./fixture/remove-console');
 
 const test = createTest(__dirname, {
@@ -79,25 +79,5 @@ test('test: transform: rule of a plugin: remove-unused-variables', (t) => {
         'remove': require('@putout/plugin-remove-unused-variables'),
         'putout/convert-replace-with': putout.rules['convert-replace-with'],
     });
-    t.end();
-});
-
-test('test: maybeEntries: array', (t) => {
-    const plugin = ['a', 1];
-    const result = _maybeEntries(plugin);
-    
-    t.equal(result, plugin);
-    t.end();
-});
-
-test('test: maybeEntries: object', (t) => {
-    const plugin = {
-        a: 1,
-    };
-    
-    const result = _maybeEntries(plugin);
-    const expected = ['a', 1];
-    
-    t.deepEqual(result, expected);
     t.end();
 });

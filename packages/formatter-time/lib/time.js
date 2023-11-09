@@ -1,5 +1,5 @@
-import {Writable} from 'stream';
-import {hrtime} from 'process';
+import {Writable} from 'node:stream';
+import process, {hrtime} from 'node:process';
 import dump from '@putout/formatter-dump';
 import cliProgress from 'cli-progress';
 import chalk from 'chalk';

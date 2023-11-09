@@ -43,6 +43,7 @@
     "@putout/formatter-progress": "*",
     "@putout/plugin-apply-nullish-coalescing": "*",
     "@putout/plugin-convert-commonjs-to-esm": "*",
+    "@putout/plugin-nodejs": "*",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/processor-javascript": "*",
     "@putout/processor-markdown": "*",

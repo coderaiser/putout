@@ -343,7 +343,7 @@ test('putout: loader: namespace', (t) => {
     const {code} = putout(source, {
         fix: true,
         rules: {
-            'nodejs/convert-esm-to-commonjs': 'off',
+            'nodejs/convert-commonjs-to-esm': 'on',
         },
         plugins: ['@putout/plugin-nodejs'],
     });
@@ -373,7 +373,7 @@ test('putout: loader: async: import', async (t) => {
     const source = `const {run} = require('madrun');`;
     const {code} = await putoutAsync(source, {
         rules: {
-            'nodejs/convert-esm-to-commonjs': 'off',
+            'nodejs/convert-commonjs-to-esm': 'on',
         },
         plugins: ['import:@putout/plugin-nodejs'],
     });
@@ -389,7 +389,7 @@ test('putout: loader: sync: import', (t) => {
     
     const {code} = putout(source, {
         rules: {
-            'nodejs/convert-esm-to-commonjs': 'off',
+            'nodejs/convert-commonjs-to-esm': 'on',
         },
         plugins: ['import:@putout/plugin-nodejs'],
     });
@@ -404,6 +404,9 @@ test('putout: loader: sync: import: shorten', async (t) => {
     const source = `const {run} = require('madrun');`;
     const {places} = await putoutAsync(source, {
         fix: false,
+        rules: {
+            'nodejs/convert-commonjs-to-esm': 'on',
+        },
         plugins: ['import:@putout/plugin-nodejs'],
     });
     
@@ -454,5 +457,51 @@ test('putout: loader: sync: load ESM: name', (t) => {
     });
     
     t.equal(error.name, 'apply-nullish-coalescing');
+    t.end();
+});
+
+test('putout: loader: disabled rules in plugin', (t) => {
+    const source = `const {run} = require('madrun');\n`;
+    const {code} = putout(source, {
+        plugins: ['nodejs'],
+    });
+    
+    t.equal(code, source);
+    t.end();
+});
+
+test('putout: loader: disabled rules in plugin: enable', (t) => {
+    const source = `const {run} = require('madrun');\n`;
+    const {code} = putout(source, {
+        rules: {
+            'nodejs/convert-commonjs-to-esm-require': 'on',
+        },
+        plugins: ['nodejs'],
+    });
+    
+    const expected = `import {run} from 'madrun';\n`;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: loader: disabled rules in plugin: load', (t) => {
+    const source = `const {run} = require('madrun');\n`;
+    const convert = require('@putout/plugin-nodejs/convert-commonjs-to-esm');
+    const {code} = putout(source, {
+        rules: {
+            'nodejs/convert-commonjs-to-esm-require': 'on',
+        },
+        plugins: [
+            [
+                'nodejs',
+                ['on', convert],
+            ],
+        ],
+    });
+    
+    const expected = `import {run} from 'madrun';\n`;
+    
+    t.equal(code, expected);
     t.end();
 });

@@ -5,9 +5,7 @@
             "putout": "on"
         },
         "**/packages/{formatter-*,plugin-*,processor-*,test,eslint-config,engine-processor}": {
-            "putout": "on",
-            "nodejs": "off",
-            "nodejs/convert-esm-to-commonjs": "on"
+            "putout": "on"
         },
         "**/rules": {
             "putout": "on",

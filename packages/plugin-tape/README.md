@@ -20,6 +20,7 @@ npm i @putout/plugin-tape -D
 ```json
 {
     "rules": {
+        "tape/convert-mock-require-to-mock-import": "off",
         "tape/jest": "on",
         "tape/apply-stub": "on",
         "tape/apply-destructuring": "on",
@@ -44,7 +45,6 @@ npm i @putout/plugin-tape -D
         "tape/convert-ok-to-match": "on",
         "tape/convert-ok-to-called-with": "on",
         "tape/convert-match-regexp-to-string": "on",
-        "tape/convert-mock-require-to-mock-import": "on",
         "tape/add-args": "on",
         "tape/declare": "on",
         "tape/remove-default-messages": "on",

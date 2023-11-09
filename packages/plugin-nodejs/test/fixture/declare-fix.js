@@ -1,2 +1,3 @@
-const {freemem: freemem} = require('node:os');
+import {freemem} from 'node:os';
+
 freemem();

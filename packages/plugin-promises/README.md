@@ -184,7 +184,7 @@ Applies [top-level-await](https://v8.dev/features/top-level-await).
 ### ❌ Example of incorrect code
 
 ```js
-import {readFile} from 'fs/promises';
+import {readFile} from 'node:fs/promises';
 
 (async () => {
     await readFile('./README.md', 'utf8');
@@ -194,7 +194,7 @@ import {readFile} from 'fs/promises';
 ### ✅ Example of correct code
 
 ```js
-import {readFile} from 'fs/promises';
+import {readFile} from 'node:fs/promises';
 
 await readFile('./README.md', 'utf8');
 ```

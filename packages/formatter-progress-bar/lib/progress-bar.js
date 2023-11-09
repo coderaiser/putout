@@ -1,9 +1,10 @@
-import {sep} from 'path';
-import {Writable} from 'stream';
+import {sep} from 'node:path';
+import {Writable} from 'node:stream';
 import dump from '@putout/formatter-dump';
 import cliProgress from 'cli-progress';
 import chalk from 'chalk';
 import once from 'once';
+import process from 'node:process';
 
 const OK = '👌';
 const BLUE = '#6fbdf1';

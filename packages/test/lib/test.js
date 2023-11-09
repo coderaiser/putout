@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('node:process');
 const {join} = require('path');
 
 const {
@@ -14,14 +15,12 @@ const test = require('supertape');
 const putout = require('putout');
 const currify = require('currify');
 
-const isCorrectPlugin = require('./is-correct-plugin');
-
+const {preTest} = require('./pre-test');
+const {isArray} = Array;
 const isString = (a) => typeof a === 'string';
 const isObject = (a) => typeof a === 'object';
-const {isArray} = Array;
 
-const {keys, entries} = Object;
-const maybeEntries = (a) => isArray(a) ? a : entries(a).pop();
+const {keys} = Object;
 
 global.__putout_test_fs = {
     readFileSync,
@@ -83,7 +82,6 @@ const rmFixture = (name) => {
 
 module.exports = createTest;
 module.exports.createTest = createTest;
-module.exports._maybeEntries = maybeEntries;
 
 const parsePlugin = (plugins) => {
     if (isArray(plugins))
@@ -530,68 +528,4 @@ function parseOptions(plugin) {
         };
     
     return plugin;
-}
-
-function preTest(test, plugin) {
-    const [name, {
-        report,
-        find,
-        traverse,
-        include,
-        exclude,
-        fix,
-        rules,
-        replace,
-        filter,
-        match,
-        declare,
-    }] = maybeEntries(plugin);
-    
-    const options = {
-        checkDuplicates: false,
-    };
-    
-    if (rules) {
-        test(`${name}: rules is an object`, (t) => {
-            t.equal(typeof rules, 'object', 'should export "rules" object');
-            t.end();
-        }, options);
-        
-        const entries = Object.entries(rules);
-        
-        for (const [entryName, plugin] of entries) {
-            preTest(test, {
-                [`${name}/${entryName}`]: plugin,
-            });
-        }
-        
-        return;
-    }
-    
-    if (!declare)
-        test(`${name}: report: is function`, (t) => {
-            t.equal(typeof report, 'function', `should export 'report' function`);
-            t.end();
-        }, options);
-    
-    test(`${name}: plugins should be of type: replace, template, traverse or find`, (t) => {
-        const result = isCorrectPlugin({
-            find,
-            fix,
-            
-            traverse,
-            
-            include,
-            exclude,
-            
-            filter,
-            match,
-            replace,
-            
-            declare,
-        });
-        
-        t.ok(result, `should export 'replace', 'find', 'traverse', 'include', 'exclude', or 'declare' function`);
-        t.end();
-    }, options);
 }

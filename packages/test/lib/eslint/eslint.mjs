@@ -1,19 +1,20 @@
-import {readFile} from 'fs/promises';
+import {readFile} from 'node:fs/promises';
 import {
     readFileSync,
     writeFileSync,
     unlinkSync,
-} from 'fs';
+} from 'node:fs';
 import {
     join,
     extname,
     basename,
-} from 'path';
+} from 'node:path';
 import eslint from '@putout/eslint';
 import tryToCatch from 'try-to-catch';
 import {extend} from 'supertape';
 import {lint} from '@putout/eslint/lint';
 import tryCatch from 'try-catch';
+import process from 'node:process';
 
 const {keys} = Object;
 const {isArray} = Array;

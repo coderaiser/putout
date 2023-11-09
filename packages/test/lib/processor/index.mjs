@@ -1,5 +1,5 @@
-import {dirname} from 'path';
-import {fileURLToPath} from 'url';
+import {dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import * as processor from './index.js';
 
 export const createTest = (url, plugins) => {

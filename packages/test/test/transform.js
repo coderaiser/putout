@@ -1,6 +1,7 @@
 'use strict';
 
-const {join} = require('path');
+const {join} = require('node:path');
+const process = require('node:process');
 const fs = require('fs');
 
 const {stub} = require('supertape');
