@@ -1,3 +1,21 @@
+2023.11.09, v33.0.0
+
+feature:
+- d28219c92 @putout/engine-loader: rm unused isExluded
+- 6b2721dc1 putout: add ability to provide disabled plugins
+- dea784378 @putout/processor-filesystem: is-filesystem
+- 5cfd75e0f putout: @putout/plugin-nodejs v9.0.0
+- 729e93cc8 putout: @putout/plugin-tape v12.0.0
+- 29c77ff0f @putout/plugin-tape: drop support of 🐊 < 33
+- 54f56992e putout: @putout/plugin-nodejs v8.1.0
+- 71a3e482a putout: @putout/plugin-merge-duplicate-imports v10.0.0
+- 67b22c688 @putout/plugin-nodejs: drop support of 🐊 < 33
+- 67f1dde3a @putout/plugin-merge-duplicate-imports: drop support of 🐊 < 33
+- fa96049c3 @putout/plugin-merge-duplicate-imports: improve support of tape/declare, nodejs/convert-esm-to-commonjs
+- 4befa6ead @putout/plugin-nodejs: merge convert-esm-to-commonjs
+- fbae70329 @putout/plugin-nodejs: merge convert-commonjs-to-esm
+- d36d198f8 @putout/plugin-nodejs: convert-exports-to-module-exports: add (#191)
+
 2023.11.07, v32.16.0
 
 fix:
