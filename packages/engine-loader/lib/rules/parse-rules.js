@@ -117,13 +117,12 @@ function validateState(rule, value) {
 }
 
 const cut = (a) => a.split('/')[0];
-const isExclude = (a) => a.includes('babel');
 
 function parseSubrules(rules) {
     const newRules = {};
     
     for (const [rule, value] of entries(rules)) {
-        if (!isExclude(rule) && rule.includes('/') && parseState(rule, value))
+        if (rule.includes('/') && parseState(rule, value))
             newRules[cut(rule)] = 'on';
         
         newRules[rule] = value;
