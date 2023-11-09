@@ -27,7 +27,6 @@
     "traverseProperties": "const {traverseProperties} = operator",
     "isSimple": "const {isSimple} = operator",
     "setLiteralValue": "const {setLiteralValue} = operator",
-    
     "findFile": "const {findFile} = operator",
     "renameFile": "const {renameFile} = operator",
     "removeFile": "const {removeFile} = operator"
