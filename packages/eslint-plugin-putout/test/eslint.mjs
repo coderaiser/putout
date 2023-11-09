@@ -141,7 +141,6 @@ test('eslint-plugin-putout: strict-mode', async ({process}) => {
             'putout/putout': ['error', {
                 ignore: ['!**/fixture'],
                 rules: {
-                    'merge-duplicate-imports': 'off',
                     'tape': 'on',
                     'nodejs/convert-esm-to-commonjs': 'on',
                     'remove-unused-expressions': 'on',
