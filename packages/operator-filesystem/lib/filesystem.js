@@ -8,7 +8,7 @@ const {
 
 const maybeFS = require('./maybe-fs');
 
-module.exports.findFiles = (node, name) => {
+module.exports.findFile = (node, name) => {
     const filePaths = [];
     
     for (const filenamePath of traverseProperties(node, 'filename')) {
@@ -22,11 +22,22 @@ module.exports.findFiles = (node, name) => {
     return filePaths;
 };
 
-module.exports.renameFile = (filePath, name) => {
+function getFilenamePath(filePath) {
     const filenamePath = getProperty(filePath, 'filename');
-    const valuePath = filenamePath.get('value');
-    const {value: oldName} = filenamePath.node.value;
     
+    return filenamePath.get('value');
+}
+
+function getFilename(filePath) {
+    const {value} = getFilenamePath(filePath).node;
+    return value;
+}
+
+module.exports.getFilename = getFilename;
+
+module.exports.renameFile = (filePath, name) => {
+    const oldName = getFilename(filePath);
+    const valuePath = getFilenamePath(filePath);
     const baseName = oldName
         .split('/')
         .pop();
@@ -35,6 +46,13 @@ module.exports.renameFile = (filePath, name) => {
     
     setLiteralValue(valuePath, newName);
     maybeFS.renameFile(oldName, newName);
+};
+
+module.exports.removeFile = (filePath) => {
+    const filename = getFilename(filePath);
+    
+    filePath.remove();
+    maybeFS.removeFile(filename);
 };
 
 module.exports.init = maybeFS.init;

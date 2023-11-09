@@ -13,16 +13,34 @@ npm i putout @putout/operator-filesystem
 
 ## API
 
-## findFiles(path: Path, name: string)
+## `findFile(path: Path, name: string)`
 
 ```js
 const {operator} = require('putout');
 const {finedFiles} = operator;
 
-const [filePath] = findFiles(ast, 'hello');
+const [filePath] = findFile(ast, 'hello');
 ```
 
-### renameFile(filePath: Path, name: string)
+### `getFilename(path: Path)`
+
+```js
+const {operator} = require('putout');
+const {getFilename} = operator;
+
+const name = getFilename(filePath);
+```
+
+### `removeFile(filePath: Path)`
+
+```js
+const {operator} = require('putout');
+const {removeFile} = operator;
+
+removeFile(filePath);
+```
+
+### `renameFile(filePath: Path, name: string)`
 
 ```js
 const montag = require('montag');
@@ -42,7 +60,7 @@ const ast = parse(montag`
     });
 `);
 
-const [filePath] = findFiles(ast, 'hello');
+const [filePath] = findFile(ast, 'hello');
 
 renameFile(filePath, 'world');
 

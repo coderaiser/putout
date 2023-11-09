@@ -10,7 +10,9 @@ const {
 
 const {
     renameFile,
-    findFiles,
+    removeFile,
+    findFile,
+    getFilename,
     init,
     deinit,
 } = require('./filesystem');
@@ -67,7 +69,7 @@ test('putout: operator: filesystem: findFile', (t) => {
         });
     `);
     
-    const [filePath] = findFiles(ast, '/hello');
+    const [filePath] = findFile(ast, '/hello');
     renameFile(filePath, 'world');
     
     const result = print(ast, {
@@ -95,7 +97,7 @@ test('putout: operator: filesystem: findFile: /', (t) => {
         });
     `);
     
-    const [filePath] = findFiles(ast, 'abc');
+    const [filePath] = findFile(ast, 'abc');
     renameFile(filePath, 'hello');
     
     const result = print(ast, {
@@ -129,7 +131,7 @@ test('putout: operator: filesystem: rename: maybeFS', (t) => {
     
     init(maybeFS);
     
-    const [filePath] = findFiles(ast, 'abc');
+    const [filePath] = findFile(ast, 'abc');
     renameFile(filePath, 'hello');
     
     deinit();
@@ -140,5 +142,47 @@ test('putout: operator: filesystem: rename: maybeFS', (t) => {
     ];
     
     t.calledWith(maybeFS.renameFile, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: removeFile', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/lib/lint/json.js",
+            "files": []
+        });
+    `);
+    
+    const [filePath] = findFile(ast, 'json.js');
+    removeFile(filePath);
+    
+    const result = print(ast, {
+        printer: PRINTER,
+    });
+    
+    const expected = montag`
+        ${FS}();
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: getFilename', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/hello/world/abc",
+            "files": []
+        });
+    `);
+    
+    const [filePath] = findFile(ast, 'abc');
+    const name = getFilename(filePath);
+    
+    const expected = '/hello/world/abc';
+    
+    t.equal(name, expected);
     t.end();
 });
