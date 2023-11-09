@@ -49,3 +49,30 @@ test('putout: processor: filesystem: branch', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: processor: filesystem: merge: a couple items in list', (t) => {
+    const jsonSource = montag`
+        __putout_processor_json({
+            "filename": "/",
+            "files": []
+        });\n
+    `;
+    const rawSource = montag`
+        __putout_processor_filesystem({
+            "filename": "/",
+            "files": []
+        });\n
+    `;
+    
+    const list = [jsonSource, rawSource];
+    const result = merge(rawSource, list);
+    
+    const expected = stringify({
+        filename: '/',
+        files: [],
+    }, null, 4) + '\n';
+    
+    t.equal(result, expected);
+    t.end();
+});
+

@@ -23,7 +23,7 @@ export const branch = (rawSource) => {
 export const merge = (rawSource, list) => {
     filesystem.deinit(filesystemCLI);
     
-    const [source] = list;
+    const source = list.pop();
     
     return fromJS(source) + '\n';
 };
