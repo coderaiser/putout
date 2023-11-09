@@ -11,6 +11,20 @@ API to lint filesystem.
 npm i @putout/cli-filesystem
 ```
 
+## API
+
+### `renameFile(from: string, to: string)`
+
+```js
+renameFile('/hello/world.txt', '/hello/hello.txt');
+```
+
+### `removeFile(filename: string)`
+
+```js
+removeFile('/hello/world.txt');
+```
+
 ## License
 
 MIT
