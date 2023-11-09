@@ -88,6 +88,30 @@ test('putout: operator: filesystem: findFile', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: findFile: glob', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/hello.swp",
+            "files": []
+        });
+    `);
+    
+    const [filePath] = findFile(ast, '*.swp');
+    removeFile(filePath);
+    
+    const result = print(ast, {
+        printer: PRINTER,
+    });
+    
+    const expected = montag`
+        ${FS}();
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: findFile: /', (t) => {
     const ast = parse(montag`
         ${FS}({

@@ -8,13 +8,22 @@ const {
 
 const maybeFS = require('./maybe-fs');
 
+const getRegExp = (wildcard) => {
+    const escaped = wildcard
+        .replace(/\./g, '\\.')
+        .replace(/\*/g, '.*')
+        .replace('?', '.?');
+    
+    return RegExp(`${escaped}$`);
+};
+
 module.exports.findFile = (node, name) => {
     const filePaths = [];
     
     for (const filenamePath of traverseProperties(node, 'filename')) {
         const {value} = filenamePath.node.value;
         
-        if (value === name || value.endsWith(`/${name}`)) {
+        if (value === name || getRegExp(name).test(value)) {
             filePaths.push(filenamePath.parentPath);
         }
     }
