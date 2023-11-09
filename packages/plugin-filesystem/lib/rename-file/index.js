@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {renameFile, findFiles} = operator;
+const {renameFile, findFile} = operator;
 
 const FS = '__putout_processor_filesystem(__object)';
 
@@ -19,7 +19,7 @@ module.exports.traverse = ({push, options}) => {
     
     return {
         [FS](path) {
-            const files = findFiles(path, from);
+            const files = findFile(path, from);
             
             for (const file of files) {
                 push({
