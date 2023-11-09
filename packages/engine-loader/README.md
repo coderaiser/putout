@@ -32,6 +32,27 @@ module.exports.rules = {
 };
 ```
 
+When you want to make it disabled by default, use:
+
+```js
+module.exports.rules = {
+    'remove-unused-variables': ['off', require('@putout/plugin-remove-unused-variables')],
+};
+```
+
+So when someone using your plugin, he needs to enable it:
+
+```json
+{
+    "rules": {
+        "nested/remove-unused-variables": "on"
+    },
+    "plugins": [
+        "nested"
+    ]
+}
+```
+
 ## Env Variables
 
 When you need to get things working with Yarn PnP, and using custom `plugins` `formatters` or `processors`, add env variable
