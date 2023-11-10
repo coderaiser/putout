@@ -76,3 +76,29 @@ test('putout: processor: filesystem: merge: a couple items in list', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: processor: filesystem: merge: a couple items in list: not last', (t) => {
+    const jsonSource = montag`
+        __putout_processor_json({
+            "filename": "/",
+            "files": []
+        });\n
+    `;
+    const rawSource = montag`
+        __putout_processor_filesystem({
+            "filename": "/",
+            "files": []
+        });\n
+    `;
+    
+    const list = [jsonSource, rawSource, jsonSource];
+    const result = merge(rawSource, list);
+    
+    const expected = stringify({
+        filename: '/',
+        files: [],
+    }, null, 4) + '\n';
+    
+    t.equal(result, expected);
+    t.end();
+});

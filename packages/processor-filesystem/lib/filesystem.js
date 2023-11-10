@@ -1,6 +1,7 @@
 import filesystemCLI from '@putout/cli-filesystem';
 import filesystem from '@putout/operator-filesystem';
 import {name} from './name.cjs';
+import {isFilesystem} from './is-filesystem.cjs';
 
 const prefix = `${name}(`;
 const sufix = ');\n';
@@ -23,7 +24,7 @@ export const branch = (rawSource) => {
 export const merge = (rawSource, list) => {
     filesystem.deinit(filesystemCLI);
     
-    const source = list.pop();
+    const [source] = list.filter(isFilesystem);
     
     return fromJS(source) + '\n';
 };
