@@ -84,6 +84,7 @@ test('putout: processor: filesystem: merge: a couple items in list: not last', (
             "files": []
         });\n
     `;
+    
     const rawSource = montag`
         __putout_processor_filesystem({
             "filename": "/",
@@ -91,7 +92,11 @@ test('putout: processor: filesystem: merge: a couple items in list: not last', (
         });\n
     `;
     
-    const list = [jsonSource, rawSource, jsonSource];
+    const list = [
+        jsonSource,
+        rawSource,
+        jsonSource,
+    ];
     const result = merge(rawSource, list);
     
     const expected = stringify({
