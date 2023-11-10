@@ -32,7 +32,7 @@
     "nextjs"
   ],
   "peerDependencies": {
-    "putout": ">=28"
+    "putout": ">=33"
   },
   "devDependencies": {
     "@putout/test": "^7.0.0",
