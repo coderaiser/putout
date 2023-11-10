@@ -19,3 +19,8 @@ test('packages: add-node-prefix: transform', (t) => {
     t.transform('add-node-prefix');
     t.end();
 });
+
+test('packages: add-node-prefix: transform: stream-promises', (t) => {
+    t.transform('stream-promises');
+    t.end();
+});

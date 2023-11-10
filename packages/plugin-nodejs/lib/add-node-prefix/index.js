@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {isBuiltIn} = require('./is-built-in');
+const {isBuiltin} = require('module');
 const {setLiteralValue} = operator;
 
 module.exports.report = () => `Add 'node:' prefix`;
@@ -20,7 +20,7 @@ module.exports.traverse = ({push}) => ({
         if (value.startsWith('node:'))
             return;
         
-        if (!isBuiltIn(value))
+        if (!isBuiltin(value))
             return;
         
         push(path);
