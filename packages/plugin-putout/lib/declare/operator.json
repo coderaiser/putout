@@ -29,5 +29,6 @@
     "setLiteralValue": "const {setLiteralValue} = operator",
     "findFile": "const {findFile} = operator",
     "renameFile": "const {renameFile} = operator",
-    "removeFile": "const {removeFile} = operator"
+    "removeFile": "const {removeFile} = operator",
+    "moveFile": "const {moveFile} = operator"
 }

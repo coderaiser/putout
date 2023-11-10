@@ -290,3 +290,13 @@ test('plugin-putout: declare: transform: findFile', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: moveFile', (t) => {
+    t.transformCode(`moveFile(path, 'hello.js');`, montag`
+        import {operator} from 'putout';
+        
+        const {moveFile} = operator;
+        moveFile(path, 'hello.js');\n
+    `);
+    t.end();
+});
