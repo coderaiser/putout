@@ -1,7 +1,8 @@
 'use strict';
 
 const montag = require('montag');
-const {test, stub} = require('supertape');
+const {stub} = require('supertape');
+
 const {
     parse,
     print,
@@ -18,7 +19,13 @@ const {
     deinit,
 } = require('./filesystem');
 
-const {stringify} = JSON;
+const {
+    test,
+    printFilesystem,
+    parseFilesystem,
+    formatFilesystem,
+} = require('./extend.spec');
+
 const {traverseProperties} = operator;
 
 const FS = '__putout_processor_filesystem';
@@ -213,37 +220,6 @@ test('putout: operator: filesystem: getFilename', (t) => {
     t.end();
 });
 
-function wrapFilesystem(fs) {
-    return `${FS}(${stringify(fs, null, 4)});`;
-}
-
-function unwrapFilesystem(source) {
-    return source
-        .replace(`${FS}(`, '')
-        .replace(');', '');
-}
-
-function parseFilesystem(fs) {
-    const source = wrapFilesystem(fs);
-    return parse(source);
-}
-
-function printFilesystem(ast) {
-    const source = print(ast, {
-        printer: PRINTER,
-    });
-    
-    return unwrapFilesystem(source);
-}
-
-function formatFilesystem(fs) {
-    const source = print(parseFilesystem(fs), {
-        printer: PRINTER,
-    });
-    
-    return unwrapFilesystem(source);
-}
-
 test('putout: operator: filesystem: moveFile', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
@@ -278,5 +254,41 @@ test('putout: operator: filesystem: moveFile', (t) => {
     });
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: moveFile: operator (extend)', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world/abc',
+        files: [{
+            type: 'directory',
+            filename: '/hello/world/abc/xyz',
+            files: [{
+                type: 'file',
+                filename: '/hello/world/abc/xyz/README.md',
+            }],
+        }],
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    const [dirPath] = findFile(ast, 'abc');
+    
+    moveFile(filePath, dirPath);
+    
+    const expected = {
+        type: 'directory',
+        filename: '/hello/world/abc',
+        files: [{
+            type: 'directory',
+            filename: '/hello/world/abc/xyz',
+            files: [],
+        }, {
+            type: 'file',
+            filename: '/hello/world/abc/xyz/README.md',
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
     t.end();
 });
