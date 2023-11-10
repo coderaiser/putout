@@ -97,6 +97,7 @@ test('putout: processor: filesystem: merge: a couple items in list: not last', (
         rawSource,
         jsonSource,
     ];
+    
     const result = merge(rawSource, list);
     
     const expected = stringify({
