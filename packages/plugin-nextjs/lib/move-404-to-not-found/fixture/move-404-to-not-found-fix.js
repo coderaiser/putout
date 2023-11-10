@@ -1,0 +1,16 @@
+__putout_processor_filesystem({
+    "type": "directory",
+    "filename": "/app",
+    "files": [{
+        "type": "directory",
+        "filename": "/app/pages",
+        "files": [{
+            "type": "derectory",
+            "filename": "",
+            "files": []
+        }]
+    }, {
+        "type": "file",
+        "filename": "/app/pages/not-found.js"
+    }]
+});

@@ -27,7 +27,8 @@ Here is list of rules:
 {
     "rules": {
         "nextjs/remove-a-from-link": "on",
-        "nextjs/convert-page-to-head": "on"
+        "nextjs/convert-page-to-head": "on",
+        "nextjs/move-404-to-not-found": "on"
     }
 }
 ```
@@ -100,6 +101,19 @@ export default function Head() {
         </>
     );
 }
+```
+
+## move-404-to-not-found
+
+> `pages/404.js` has been replaced with the `not-found.js` file.
+>
+> (c) [nextjs.org](https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration)
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/9ac3f7f910bc13e48097c7a5411908b9/5e81896d24186364302f8967637e998df7e8b755).
+
+```diff
+-app/pages/404.js
++app/not-found.js
 ```
 
 ## License
