@@ -5,7 +5,7 @@ __putout_processor_filesystem({
         "type": "directory",
         "filename": "/app/pages",
         "files": [{
-            "type": "derectory",
+            "type": "directory",
             "filename": "",
             "files": [{
                 "type": "file",
