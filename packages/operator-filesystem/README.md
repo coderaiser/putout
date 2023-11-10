@@ -40,6 +40,15 @@ const {removeFile} = operator;
 removeFile(filePath);
 ```
 
+### `moveFile(filePath: Path, dirPath: Path)`
+
+```js
+const {operator} = require('putout');
+const {moveFile} = operator;
+
+moveFile(filePath, dirPath);
+```
+
 ### `renameFile(filePath: Path, name: string)`
 
 ```js

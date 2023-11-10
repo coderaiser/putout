@@ -33,7 +33,6 @@ module.exports.findFile = (node, name) => {
 
 function getFilenamePath(filePath) {
     const filenamePath = getProperty(filePath, 'filename');
-    
     return filenamePath.get('value');
 }
 
@@ -62,6 +61,21 @@ module.exports.removeFile = (filePath) => {
     
     filePath.remove();
     maybeFS.removeFile(filename);
+};
+
+module.exports.moveFile = (filePath, dirPath) => {
+    const dirname = getFilename(dirPath);
+    const filename = getFilename(filePath);
+    const dirPathFiles = getProperty(dirPath, 'files');
+    
+    dirPathFiles.node.value.elements.push(filePath.node);
+    filePath.remove();
+    
+    const basename = filename
+        .split('/')
+        .pop();
+    
+    maybeFS.renameFile(filename, `${dirname}/${basename}`);
 };
 
 module.exports.init = maybeFS.init;
