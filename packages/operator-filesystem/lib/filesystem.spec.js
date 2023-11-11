@@ -249,7 +249,7 @@ test('putout: operator: filesystem: moveFile', (t) => {
             files: [],
         }, {
             type: 'file',
-            filename: '/hello/world/abc/xyz/README.md',
+            filename: '/hello/world/abc/README.md',
         }],
     });
     
@@ -257,7 +257,7 @@ test('putout: operator: filesystem: moveFile', (t) => {
     t.end();
 });
 
-test('putout: operator: filesystem: moveFile: operator (extend)', (t) => {
+test('putout: operator: filesystem: moveFile: update filename', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
         filename: '/hello/world/abc',
@@ -285,7 +285,7 @@ test('putout: operator: filesystem: moveFile: operator (extend)', (t) => {
             files: [],
         }, {
             type: 'file',
-            filename: '/hello/world/abc/xyz/README.md',
+            filename: '/hello/world/abc/README.md',
         }],
     };
     

@@ -67,15 +67,19 @@ module.exports.moveFile = (filePath, dirPath) => {
     const dirname = getFilename(dirPath);
     const filename = getFilename(filePath);
     const dirPathFiles = getProperty(dirPath, 'files');
-    
-    dirPathFiles.node.value.elements.push(filePath.node);
-    filePath.remove();
+    const filenamePath = getProperty(filePath, 'filename');
     
     const basename = filename
         .split('/')
         .pop();
     
-    maybeFS.renameFile(filename, `${dirname}/${basename}`);
+    const newname = `${dirname}/${basename}`;
+    
+    setLiteralValue(filenamePath.get('value'), newname);
+    dirPathFiles.node.value.elements.push(filePath.node);
+    filePath.remove();
+    
+    maybeFS.renameFile(filename, newname);
 };
 
 module.exports.init = maybeFS.init;
