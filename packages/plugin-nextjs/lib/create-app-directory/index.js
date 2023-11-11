@@ -6,6 +6,7 @@ const {
     getParentDirectory,
     createDirectory,
 } = operator;
+
 const FS = '__putout_processor_filesystem(__object)';
 
 module.exports.report = () => `Rename 'README.md' to 'readme.md'`;
