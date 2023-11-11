@@ -11,6 +11,6 @@ __putout_processor_filesystem({
         }]
     }, {
         "type": "file",
-        "filename": "/app/pages/not-found.js"
+        "filename": "/app/not-found.js"
     }]
 });
