@@ -16,6 +16,7 @@ const {
     findFile,
     getFilename,
     createDirectory,
+    getParentDirectory,
     init,
     deinit,
 } = require('./filesystem');
@@ -352,5 +353,37 @@ test('putout: operator: filesystem: createDirectory: maybeFileSystem', (t) => {
     deinit();
     
     t.calledWith(maybeFS.createDirectory, ['/hello/world/xyz']);
+    t.end();
+});
+
+test('putout: operator: filesystem: getParentDirectory: no parent', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [],
+    });
+    
+    const [dirPath] = findFile(ast, 'world');
+    const result = getParentDirectory(dirPath, 'xyz');
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('putout: operator: filesystem: getParentDirectory', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+        }],
+    });
+    
+    const [dirPath] = findFile(ast, 'README.md');
+    const parentdirPath = getParentDirectory(dirPath, 'xyz');
+    const filename = getFilename(parentdirPath);
+    
+    t.equal(filename, '/hello/world');
     t.end();
 });

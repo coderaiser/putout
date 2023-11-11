@@ -14,6 +14,7 @@ const {
     ArrayExpression,
     StringLiteral,
     ObjectProperty,
+    isProgram,
 } = types;
 
 const getRegExp = (wildcard) => {
@@ -23,6 +24,15 @@ const getRegExp = (wildcard) => {
         .replace('?', '.?');
     
     return RegExp(`${escaped}$`);
+};
+
+module.exports.getParentDirectory = (filePath) => {
+    const {parentPath} = filePath.parentPath.parentPath;
+    
+    if (isProgram(parentPath))
+        return null;
+    
+    return parentPath;
 };
 
 module.exports.findFile = (node, name) => {

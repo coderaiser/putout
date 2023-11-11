@@ -17,7 +17,10 @@ npm i putout @putout/operator-filesystem
 
 ```js
 const {operator} = require('putout');
-const {createDirectory} = operator;
+const {
+    createDirectory,
+    findFile,
+} = operator;
 
 const [dirPath] = findFile(ast, 'hello');
 createDirectory(dirPath, 'world'); // returns directoryPath
@@ -27,7 +30,7 @@ createDirectory(dirPath, 'world'); // returns directoryPath
 
 ```js
 const {operator} = require('putout');
-const {finedFiles} = operator;
+const {finedFiles, findFile} = operator;
 
 const [filePath] = findFile(ast, 'hello');
 ```
@@ -69,7 +72,7 @@ const {
     operator,
 } = require('putout');
 
-const {renameFile} = operator;
+const {renameFile, findFile} = operator;
 
 const ast = parse(montag`
     putout_processor_filesystem({
