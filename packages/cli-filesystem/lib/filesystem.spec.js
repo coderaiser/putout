@@ -1,7 +1,11 @@
 'use strict';
 
 const {test, stub} = require('supertape');
-const {renameFile, removeFile} = require('./filesystem');
+const {
+    renameFile,
+    removeFile,
+    createDirectory,
+} = require('./filesystem');
 
 test('putout: cli: filesystem: renameFile', (t) => {
     const renameSync = stub();
@@ -31,5 +35,20 @@ test('putout: cli: filesystem: removeFile', (t) => {
     ];
     
     t.calledWith(rmSync, expected);
+    t.end();
+});
+
+test('putout: cli: filesystem: createDirectory', (t) => {
+    const mkdirSync = stub();
+    
+    createDirectory('/hello/world', {
+        mkdirSync,
+    });
+    
+    const expected = [
+        '/hello/world',
+    ];
+    
+    t.calledWith(mkdirSync, expected);
     t.end();
 });

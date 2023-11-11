@@ -25,6 +25,12 @@ renameFile('/hello/world.txt', '/hello/hello.txt');
 removeFile('/hello/world.txt');
 ```
 
+### `createDirectory(name: string)`
+
+```js
+createDirectory('/hello/world');
+```
+
 ## License
 
 MIT
