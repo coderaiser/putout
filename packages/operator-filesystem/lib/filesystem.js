@@ -1,5 +1,6 @@
 'use strict';
 
+const {types} = require('putout');
 const {
     setLiteralValue,
     getProperty,
@@ -7,6 +8,13 @@ const {
 } = require('@putout/operate');
 
 const maybeFS = require('./maybe-fs');
+
+const {
+    ObjectExpression,
+    ArrayExpression,
+    StringLiteral,
+    ObjectProperty,
+} = types;
 
 const getRegExp = (wildcard) => {
     const escaped = wildcard
@@ -80,6 +88,32 @@ module.exports.moveFile = (filePath, dirPath) => {
     filePath.remove();
     
     maybeFS.renameFile(filename, newname);
+};
+
+const createType = (type) => ObjectProperty(StringLiteral('type'), StringLiteral(type));
+const createFiles = (files) => ObjectProperty(StringLiteral('files'), ArrayExpression(files));
+const createFilename = (filename) => ObjectProperty(StringLiteral('filename'), StringLiteral(filename));
+
+module.exports.createDirectory = (dirPath, name) => {
+    const dirPathFiles = getProperty(dirPath, 'files');
+    const parentFilename = getFilename(dirPath);
+    const filename = `${parentFilename}/${name}`;
+    
+    const typeProperty = createType('directory');
+    const filesProperty = createFiles([]);
+    const filenameProperty = createFilename(filename);
+    
+    dirPathFiles.node.value.elements.push(ObjectExpression([
+        typeProperty,
+        filenameProperty,
+        filesProperty,
+    ]));
+    
+    maybeFS.createDirectory(filename);
+    
+    return dirPathFiles
+        .get('value.elements')
+        .at(-1);
 };
 
 module.exports.init = maybeFS.init;

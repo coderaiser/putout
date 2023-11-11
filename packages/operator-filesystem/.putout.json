@@ -1,5 +1,8 @@
 {
     "printer": "putout",
+    "rules": {
+        "putout/apply-remove": "off"
+    },
     "match": {
         "*.md": {
             "declare": "off"

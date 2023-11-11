@@ -15,6 +15,7 @@ const {
     moveFile,
     findFile,
     getFilename,
+    createDirectory,
     init,
     deinit,
 } = require('./filesystem');
@@ -290,5 +291,66 @@ test('putout: operator: filesystem: moveFile: update filename', (t) => {
     };
     
     t.equalFilesystems(ast, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: createDirectory', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [],
+    });
+    
+    const [dirPath] = findFile(ast, 'world');
+    createDirectory(dirPath, 'xyz');
+    
+    const expected = {
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'directory',
+            filename: '/hello/world/xyz',
+            files: [],
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: createDirectory: returns', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [],
+    });
+    
+    const [dirPath] = findFile(ast, 'world');
+    const newdirPath = createDirectory(dirPath, 'xyz');
+    const filename = getFilename(newdirPath);
+    
+    t.equal(filename, '/hello/world/xyz');
+    t.end();
+});
+
+test('putout: operator: filesystem: createDirectory: maybeFileSystem', (t) => {
+    const maybeFS = {
+        createDirectory: stub(),
+    };
+    
+    init(maybeFS);
+    
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [],
+    });
+    
+    const [dirPath] = findFile(ast, 'world');
+    
+    createDirectory(dirPath, 'xyz');
+    deinit();
+    
+    t.calledWith(maybeFS.createDirectory, ['/hello/world/xyz']);
     t.end();
 });
