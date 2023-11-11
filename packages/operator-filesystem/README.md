@@ -23,6 +23,7 @@ const {
 } = operator;
 
 const [dirPath] = findFile(ast, 'hello');
+
 createDirectory(dirPath, 'world'); // returns directoryPath
 ```
 
