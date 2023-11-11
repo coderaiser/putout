@@ -300,3 +300,23 @@ test('plugin-putout: declare: transform: moveFile', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: createDirectory', (t) => {
+    t.transformCode(`createDirectory(path, 'hello');`, montag`
+        import {operator} from 'putout';
+        
+        const {createDirectory} = operator;
+        createDirectory(path, 'hello');\n
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: getParentDirectory', (t) => {
+    t.transformCode(`getParentDirectory(path);`, montag`
+        import {operator} from 'putout';
+        
+        const {getParentDirectory} = operator;
+        getParentDirectory(path);\n
+    `);
+    t.end();
+});
