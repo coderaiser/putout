@@ -1,3 +1,14 @@
+2023.11.12, v33.1.1
+
+fix:
+- 4b4cfb639 @putout/plugin-remove-empty: drop support of 🐊 < 33
+- e62f498b7 @putout/plugin-nextjs: create-app-directory: report
+
+feature:
+- b3c8f32e2 putout: @putout/plugin-remove-empty v11.0.0
+- 845380f3c putout: @putout/plugin-new v3.0.1
+- 35f362c51 @putout/plugin-new: drop suport of 🐊 < 33
+
 2023.11.12, v33.1.0
 
 fix:
