@@ -1,5 +1,8 @@
 {
     "printer": "putout",
+    "formatter": ["time", {
+        "color": "green"
+    }],
     "match": {
         "example.js": {
             "remove-unused-expressions": "off"

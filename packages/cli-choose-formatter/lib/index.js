@@ -3,7 +3,6 @@ import {
     readFile as customReadFile,
     writeFile as customWriteFile,
 } from 'node:fs/promises';
-
 import {choose as customChoose} from '@putout/cli-choose';
 import {
     readJSON,
@@ -11,6 +10,7 @@ import {
 } from './json.js';
 
 const {isArray} = Array;
+const maybeArray = (a) => isArray(a) ? a : [a];
 const maybeFirst = (a) => isArray(a) ? a[0] : a;
 const PREFIX = '@putout/formatter-';
 
@@ -28,7 +28,7 @@ export const chooseFormatter = async (formatter, dependencies, {
         findUp,
     });
     
-    const currentFormatter = maybeFirst(userFormatter || formatter);
+    const [currentFormatter, options] = maybeArray(userFormatter || formatter);
     const index = formatters.indexOf(currentFormatter);
     
     const chosenFormatter = await choose('Choose formatter', formatters, {
@@ -44,7 +44,7 @@ export const chooseFormatter = async (formatter, dependencies, {
         findUp,
     });
     
-    return chosenFormatter;
+    return [chosenFormatter, options];
 };
 
 function getFormatters(dependencies) {

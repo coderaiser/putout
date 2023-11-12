@@ -21,9 +21,35 @@ test('putout: cli: choose-formatter', async (t) => {
         choose,
     });
     
-    const expected = 'dump';
+    const expected = ['dump', {
+        color: 'green',
+    }];
     
-    t.equal(result, expected);
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: choose-formatter: tuple', async (t) => {
+    const writeFile = stub();
+    const dependencies = [
+        'formatter-dump',
+    ];
+    
+    const choose = stub().returns('dump');
+    
+    const formatter = [FORMATTER, {
+        color: 'red',
+    }];
+    const result = await chooseFormatter(formatter, dependencies, {
+        writeFile,
+        choose,
+    });
+    
+    const expected = ['dump', {
+        color: 'green',
+    }];
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 
