@@ -5,7 +5,7 @@
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to find and remove blocks with empty body",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-empty#readme",
-  "main": "lib/remove-empty.js",
+  "main": "lib/index.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -44,7 +44,7 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=29"
+    "putout": ">=33"
   },
   "license": "MIT",
   "engines": {
