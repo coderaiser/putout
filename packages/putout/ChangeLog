@@ -1,3 +1,31 @@
+2023.11.12, v33.1.0
+
+fix:
+- 885441dce featur: @putout/plugin-nodejs: add-node-preuse module
+- f191e04f3 @putout/processor-filesystem: merge: a couple sources in list
+- 7bea61cd5 @putout/plugin-filesystem: findFile
+
+feature:
+- bb557e59e putout: @putout/cli-choose-formatter v2.0.0
+- c58ad0323 @putout/cli-choose-formatter: drop support of 🐊 < 33
+- 2f1b58124 @putout/cli-choose-formatter: keep options
+- 561d3745e @putout/plugin-nextjs: create-app-directory: add
+- 8bb263dc2 @putout/plugin-putout: declare: createDirectory, getParentDirectory
+- a2699b836 @putout/operator-filesystem: getParentDirectory: add
+- 79802be86 @putout/cli-filesystem: createDirectory: add
+- e2cf800c9 @putout/operator-filesystem: createDirectory: add
+- c7241c036 @putout/operator-filesystem: moveFile: improve
+- 80f20ab2e @putout/plugin-nextjs: drop support of 🐊 < 33
+- 8b4d71b3e @putout/plugin-nextjs: move-404-to-not-found: add
+- d88cd8dd3 @putout/plugin-putout: declare: operator: moveFile
+- 4fa2201fc @putout/operator-filesystem: moveFile: add
+- a07f64a6c @putout/processor-filesystem: merge: filter "__putout_processor_filesystem" first
+- 40f296267 @putout/plugin-filesystem: remove-vim-swap-file: add
+- 3b27bd74d @putout/operator-filesystem: findFile: add support of glob
+- ddc15035d @putout/cli-filesystem: removeFile
+- 8db4748ea @putout/plugin-putout: declare: removeFile
+- c35802c66 @putout/operator-filesystem: removeFile: add
+
 2023.11.09, v33.0.0
 
 feature:
