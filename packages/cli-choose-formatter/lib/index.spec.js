@@ -10,6 +10,12 @@ const FORMATTER = 'progress-bar';
 
 test('putout: cli: choose-formatter', async (t) => {
     const writeFile = stub();
+    const readFile = stub().returns(`{
+        "formatter": ["time", {
+            "color": "green"
+        }]
+    }`);
+    
     const dependencies = [
         'formatter-dump',
     ];
@@ -18,6 +24,7 @@ test('putout: cli: choose-formatter', async (t) => {
     
     const result = await chooseFormatter(FORMATTER, dependencies, {
         writeFile,
+        readFile,
         choose,
     });
     
@@ -31,6 +38,12 @@ test('putout: cli: choose-formatter', async (t) => {
 
 test('putout: cli: choose-formatter: tuple', async (t) => {
     const writeFile = stub();
+    const readFile = stub().returns(`{
+        "formatter": ["time", {
+            "color": "green"
+        }]
+    }`);
+    
     const dependencies = [
         'formatter-dump',
     ];
@@ -43,6 +56,7 @@ test('putout: cli: choose-formatter: tuple', async (t) => {
     
     const result = await chooseFormatter(formatter, dependencies, {
         writeFile,
+        readFile,
         choose,
     });
     

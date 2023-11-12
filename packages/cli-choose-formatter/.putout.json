@@ -1,7 +1,7 @@
 {
     "printer": "putout",
     "formatter": ["time", {
-        "color": "green"
+        "color": "red"
     }],
     "match": {
         "example.js": {
