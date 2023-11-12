@@ -1,8 +1,9 @@
+import {findUp as customFindUp} from 'find-up';
 import {
     readFile as customReadFile,
     writeFile as customWriteFile,
 } from 'node:fs/promises';
-import {findUp as customFindUp} from 'find-up';
+
 import {choose as customChoose} from '@putout/cli-choose';
 import {
     readJSON,
@@ -10,9 +11,7 @@ import {
 } from './json.js';
 
 const {isArray} = Array;
-
 const maybeFirst = (a) => isArray(a) ? a[0] : a;
-
 const PREFIX = '@putout/formatter-';
 
 export const chooseFormatter = async (formatter, dependencies, {
