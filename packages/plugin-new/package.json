@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-new",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to remove useless and add missing operator 'new'",
@@ -41,7 +41,7 @@
     "madrun": "^9.0.0"
   },
   "peerDependencies": {
-    "putout": ">=32"
+    "putout": ">=33"
   },
   "license": "MIT",
   "engines": {
