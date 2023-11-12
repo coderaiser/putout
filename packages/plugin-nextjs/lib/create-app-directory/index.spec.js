@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('packages: create-app-directory: report', (t) => {
-    t.report('create-app-directory', `Rename 'README.md' to 'readme.md'`);
+    t.report('create-app-directory', `Create 'app' directory`);
     t.end();
 });
 

@@ -110,7 +110,7 @@ export default function Head() {
 >
 > (c) [nextjs.org](https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration)
 
-Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/fe8ac935f041f836191cb90aa861d8ac/d9c9d0d9b657897f71145bef729a2399b7e19438)
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/fe8ac935f041f836191cb90aa861d8ac/2f80e09719302e98b661b8c1594b07b039e86863).
 
 ```diff
 +app/

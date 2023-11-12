@@ -9,7 +9,7 @@ const {
 
 const FS = '__putout_processor_filesystem(__object)';
 
-module.exports.report = () => `Rename 'README.md' to 'readme.md'`;
+module.exports.report = () => `Create 'app' directory`;
 
 module.exports.fix = (filePath) => {
     createDirectory(getParentDirectory(filePath, 'app'), 'app');
