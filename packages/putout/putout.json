@@ -31,10 +31,11 @@
             "remove-empty/import": "off"
         },
         "*.md": {
-            "apply-consistent-blocks": "off",
+            "conditions/apply-consistent-blocks": "off",
+            "conditions/convert-comparison-to-boolean": "off",
+            "conditions/remove-constant": "off",
             "maybe": "off",
             "convert-quotes-to-backticks": "off",
-            "conditions/convert-comparison-to-boolean": "off",
             "remove-unused-expressions": "off",
             "remove-unused-variables": "off",
             "remove-useless-escape": "off",
@@ -42,7 +43,6 @@
             "remove-useless-return": "off",
             "remove-empty": "off",
             "for-of/remove-unused-variables": "off",
-            "conditions/remove-constant": "off",
             "remove-console": "off",
             "remove-unreachable-code": "off",
             "declare": "off",
@@ -151,7 +151,6 @@
         "tape/convert-mock-require-to-mock-import": "off"
     },
     "plugins": [
-        "apply-consistent-blocks",
         "apply-at",
         "apply-dot-notation",
         "apply-early-return",

@@ -1,9 +1,6 @@
 {
-    if (x) {
+    if (x)
         return 5;
-    }
     
-    {
-        console.log();
-    }
+    console.log();
 }

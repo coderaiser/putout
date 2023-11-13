@@ -1,5 +1,6 @@
 'use strict';
 
+const applyConsistentBlocks = require('./apply-consistent-blocks');
 const applyComparisonOrder = require('./apply-comparison-order');
 const applyIf = require('./apply-if');
 const evaluate = require('./evaluate');
@@ -14,6 +15,7 @@ const removeSameValuesCondition = require('./remove-same-values-condition');
 
 module.exports.rules = {
     'apply-comparison-order': applyComparisonOrder,
+    'apply-consistent-blocks': applyConsistentBlocks,
     'apply-if': applyIf,
     evaluate,
     'convert-comparison-to-boolean': convertComparisonToBoolean,

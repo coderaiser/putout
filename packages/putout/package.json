@@ -74,7 +74,6 @@
     "@putout/operator-filesystem": "^1.0.1",
     "@putout/operator-regexp": "^1.0.0",
     "@putout/plugin-apply-at": "^2.0.0",
-    "@putout/plugin-apply-consistent-blocks": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^7.0.0",
     "@putout/plugin-apply-dot-notation": "^1.0.0",
     "@putout/plugin-apply-early-return": "^3.0.0",

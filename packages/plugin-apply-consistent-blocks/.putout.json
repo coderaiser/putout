@@ -1,8 +1,0 @@
-{
-    "printer": "putout",
-    "match": {
-        "README.md": {
-            "apply-at": "off"
-        }
-    }
-}

@@ -7,7 +7,6 @@ const {keys} = Object;
 
 test('putout: config: ignore: .yarn', (t) => {
     const {ignore} = putoutConfig;
-    
     const result = ignore.includes('**/.yarn');
     
     t.ok(result);
@@ -16,7 +15,6 @@ test('putout: config: ignore: .yarn', (t) => {
 
 test('putout: config: ignore: .pnp.*', (t) => {
     const {ignore} = putoutConfig;
-    
     const result = ignore.includes('**/.pnp.*');
     
     t.ok(result);
@@ -84,10 +82,11 @@ test('putout: config: markdown', (t) => {
     const result = match['*.md'];
     
     const expected = {
-        'apply-consistent-blocks': 'off',
+        'conditions/apply-consistent-blocks': 'off',
+        'conditions/convert-comparison-to-boolean': 'off',
+        'conditions/remove-constant': 'off',
         'maybe': 'off',
         'convert-quotes-to-backticks': 'off',
-        'conditions/convert-comparison-to-boolean': 'off',
         'remove-unused-expressions': 'off',
         'remove-unused-variables': 'off',
         'remove-useless-escape': 'off',
@@ -95,7 +94,6 @@ test('putout: config: markdown', (t) => {
         'remove-useless-return': 'off',
         'remove-empty': 'off',
         'for-of/remove-unused-variables': 'off',
-        'conditions/remove-constant': 'off',
         'remove-console': 'off',
         'remove-unreachable-code': 'off',
         'declare': 'off',

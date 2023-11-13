@@ -15,6 +15,11 @@ test('plugin-conditions: transform: apply-comparison-order', (t) => {
     t.end();
 });
 
+test('plugin-conditions: transform: apply-consistent-blocks', (t) => {
+    t.transform('apply-consistent-blocks');
+    t.end();
+});
+
 test('plugin-conditions: transform: apply-if', (t) => {
     t.transform('apply-if');
     t.end();
