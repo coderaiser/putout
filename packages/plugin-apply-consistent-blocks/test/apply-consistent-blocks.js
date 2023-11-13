@@ -19,3 +19,13 @@ test('putout: apply-consistent-blocks: transform', (t) => {
     t.transform('apply-consistent-blocks');
     t.end();
 });
+
+test('putout: apply-consistent-blocks: transform: nested', (t) => {
+    t.transform('nested');
+    t.end();
+});
+
+test('putout: apply-consistent-blocks: no report after transform', (t) => {
+    t.noReportAfterTransform('nested');
+    t.end();
+});

@@ -14,6 +14,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
+    'if (__a) {if (__b) {__c}}': 'if (__a) if (__b) __c',
     'if (__a) {__b}': 'if (__a) __b',
     'if (__a) {__b} else {__c}': () => 'if (__a) __b; else __c',
     'if (__a) __b; else __body': 'if (__a) {__b} else __body',
