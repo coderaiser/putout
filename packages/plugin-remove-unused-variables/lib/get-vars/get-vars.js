@@ -106,57 +106,58 @@ module.exports = ({use, declare, addParams}) => {
             if (isIdentifier(node.id)) {
                 declare(path, node.id.name);
                 isForIn && use(path, node.id.name);
-            } else if (isObjectPattern(node.id)) {
-                idPath.traverse({
-                    ObjectProperty(propPath) {
-                        if (isAssignmentPattern(propPath.node.value)) {
-                            traverseAssign(propPath.get('value'));
+            } else {
+                if (isObjectPattern(node.id))
+                    idPath.traverse({
+                        ObjectProperty(propPath) {
+                            if (isAssignmentPattern(propPath.node.value))
+                                traverseAssign(propPath.get('value'));
+                            
+                            if (propPath.node.computed && isIdentifier(propPath.node.key))
+                                use(propPath.get('key'), propPath.node.key.name);
+                            
+                            if (!isIdentifier(propPath.node.value))
+                                return;
+                            
+                            const {properties} = node.id;
+                            const isOne = properties.length === 1;
+                            const nodePath = isOne ? path : propPath;
+                            const {name} = propPath.node.value;
+                            
+                            declare(nodePath, name);
+                            
+                            if (isRestElement(propPath.parentPath.node.properties.at(-1)))
+                                use(nodePath, name);
+                        },
+                    });
+                else if (idPath.isArrayPattern()) {
+                    const elements = idPath.get('elements');
+                    
+                    for (const elPath of elements) {
+                        if (elPath.isObjectPattern()) {
+                            processObj(elPath.get('properties'));
+                            continue;
                         }
                         
-                        if (propPath.node.computed && isIdentifier(propPath.node.key))
-                            use(propPath.get('key'), propPath.node.key.name);
+                        if (elPath.isAssignmentPattern()) {
+                            const leftPath = elPath.get('left');
+                            const rightPath = elPath.get('right');
+                            
+                            declare(leftPath, elPath.node.left.name);
+                            use(rightPath, elPath.node.right.name);
+                            
+                            assign(leftPath, {
+                                remove: removeArrayPatternElement(elPath),
+                            });
+                        }
                         
-                        if (!isIdentifier(propPath.node.value))
-                            return;
-                        
-                        const {properties} = node.id;
-                        const isOne = properties.length === 1;
-                        const nodePath = isOne ? path : propPath;
-                        const {name} = propPath.node.value;
-                        
-                        declare(nodePath, name);
-                        
-                        if (isRestElement(propPath.parentPath.node.properties.at(-1)))
-                            use(nodePath, name);
-                    },
-                });
-            } else if (idPath.isArrayPattern()) {
-                const elements = idPath.get('elements');
-                
-                for (const elPath of elements) {
-                    if (elPath.isObjectPattern()) {
-                        processObj(elPath.get('properties'));
-                        continue;
-                    }
-                    
-                    if (elPath.isAssignmentPattern()) {
-                        const leftPath = elPath.get('left');
-                        const rightPath = elPath.get('right');
-                        
-                        declare(leftPath, elPath.node.left.name);
-                        use(rightPath, elPath.node.right.name);
-                        
-                        assign(leftPath, {
-                            remove: removeArrayPatternElement(elPath),
-                        });
-                    }
-                    
-                    if (elPath.isIdentifier()) {
-                        assign(elPath, {
-                            remove: removeArrayPatternElement(elPath),
-                        });
-                        
-                        declare(elPath, elPath.node.name);
+                        if (elPath.isIdentifier()) {
+                            assign(elPath, {
+                                remove: removeArrayPatternElement(elPath),
+                            });
+                            
+                            declare(elPath, elPath.node.name);
+                        }
                     }
                 }
             }
@@ -298,9 +299,8 @@ module.exports = ({use, declare, addParams}) => {
             
             if (calleePath.isIdentifier())
                 use(path, node.callee.name);
-            else if (calleePath.isFunction()) {
+            else if (calleePath.isFunction())
                 use(calleePath, calleePath.node.id.name);
-            }
             
             const argPaths = path.get('arguments');
             
@@ -516,9 +516,8 @@ module.exports = ({use, declare, addParams}) => {
             if (declarationPath.isTSInterfaceDeclaration())
                 return use(path, declaration.id.name);
             
-            if (declarationPath.isTSTypeAliasDeclaration()) {
+            if (declarationPath.isTSTypeAliasDeclaration())
                 return use(path, declaration.id.name);
-            }
             
             // flow
             if (declarationPath.isInterfaceDeclaration())

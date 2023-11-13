@@ -24,9 +24,8 @@ module.exports.match = () => ({
         if (!binding.path.get('id').isIdentifier())
             return false;
         
-        if (!isTakesOneLine(binding)) {
+        if (!isTakesOneLine(binding))
             return false;
-        }
         
         const next = binding.path.parentPath.getNextSibling();
         const [ref] = binding.referencePaths;

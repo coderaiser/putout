@@ -17,9 +17,8 @@ if (type === '--nested')
 
 const [error] = await tryToCatch(copySimplePlugin, from, to);
 
-if (!error) {
+if (!error)
     exit();
-}
 
 await copyNestedPlugin(from, to);
 

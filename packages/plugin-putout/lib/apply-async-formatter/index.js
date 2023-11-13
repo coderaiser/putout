@@ -35,9 +35,8 @@ const create = (name) => (vars, path) => {
         ]),
     ];
     
-    if (compare(body[n], 't.end()')) {
+    if (compare(body[n], 't.end()'))
         body.pop();
-    }
     
     return `await ${name}(__args)`;
 };

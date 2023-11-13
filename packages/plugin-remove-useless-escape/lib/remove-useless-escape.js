@@ -48,9 +48,8 @@ module.exports.traverse = ({push}) => ({
     'RegExpLiteral'(path) {
         const {raw} = path.node;
         
-        if (isEscapedRegExp(raw)) {
+        if (isEscapedRegExp(raw))
             push(path);
-        }
     },
     '"__"'(path) {
         const {raw} = path.node;

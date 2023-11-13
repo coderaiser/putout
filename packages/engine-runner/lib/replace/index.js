@@ -149,9 +149,8 @@ const getFilter = (match = stubMatch, options) => (path) => {
     for (const [from, matchProperty] of all) {
         const nodeFrom = template.ast(from);
         
-        if (!compare(path.node, nodeFrom)) {
+        if (!compare(path.node, nodeFrom))
             continue;
-        }
         
         const waysFrom = findVarsWays(nodeFrom);
         const {node} = path;

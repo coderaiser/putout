@@ -67,9 +67,8 @@ function isReferenced({scope}, path) {
         return !current || current.referenced;
     }
     
-    if (path.isObjectPattern()) {
+    if (path.isObjectPattern())
         return true;
-    }
     
     const {node} = path;
     

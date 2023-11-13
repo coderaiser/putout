@@ -25,9 +25,8 @@ module.exports.filter = (path, {options}) => {
     if (ignore.includes(value))
         return false;
     
-    if (specifiers.length) {
+    if (specifiers.length)
         return false;
-    }
     
     if (isCSS(value))
         return false;

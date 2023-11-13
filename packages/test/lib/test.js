@@ -259,9 +259,8 @@ const toObject = (array) => {
     const result = {};
     const first = parsePlugin(array);
     
-    if (isObject(first) && !isArray(first)) {
+    if (isObject(first) && !isArray(first))
         return first;
-    }
     
     for (const [name, value] of array) {
         result[name] = value;

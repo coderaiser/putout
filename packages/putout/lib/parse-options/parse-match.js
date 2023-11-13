@@ -23,9 +23,8 @@ module.exports = (name, match) => {
             dot: true,
         });
         
-        if (isMatch(name)) {
+        if (isMatch(name))
             assign(rules, match[glob]);
-        }
     }
     
     return {

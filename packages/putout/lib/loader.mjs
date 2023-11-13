@@ -32,11 +32,10 @@ export const transformSource = (source, context) => {
         name,
     });
     
-    if (ignores(cwd, name, options)) {
+    if (ignores(cwd, name, options))
         return {
             source,
         };
-    }
     
     const {code} = putout(source, {
         printer: 'putout',

@@ -17,9 +17,8 @@ module.exports.traverse = traverse;
 
 const isPath = (path) => Boolean(path.node);
 const createTraverse = (path) => {
-    if (isPath(path)) {
+    if (isPath(path))
         return path.traverse.bind(path);
-    }
     
     const noScope = !isFile(path) && !isProgram(path);
     
@@ -69,9 +68,8 @@ function traverse(basePath, visitor) {
 }
 
 const getVisit = ({fn, node, tmpl}) => (path) => {
-    if (!compare(path, node)) {
+    if (!compare(path, node))
         return;
-    }
     
     fn(path, getTemplateValues(path.node, tmpl));
 };

@@ -18,9 +18,8 @@ module.exports = (plugins) => {
         if (isArray(plugin)) {
             const [pluginName, fn] = plugin;
             
-            if (isOff(fn)) {
+            if (isOff(fn))
                 continue;
-            }
             
             if (isOn(fn)) {
                 result.push([pluginName]);

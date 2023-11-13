@@ -126,9 +126,8 @@ if (a === b) {}
 const a = [];
 const c = a;
 
-if (a) {
+if (a)
     console.log(a);
-}
 ```
 
 ### ✅ Example of correct code
@@ -201,9 +200,8 @@ if (b) {}
 ### ❌ Example of incorrect code
 
 ```js
-if (zone?.tooltipCallback) {
+if (zone?.tooltipCallback)
     zone.tooltipCallback(e);
-}
 
 if (a)
     alert('hello');
@@ -228,19 +226,16 @@ alert('hello');
 ### ❌ Example of incorrect code
 
 ```js
-if (a > b) {
-    if (b < c) {
+if (a > b)
+    if (b < c)
         console.log('hello');
-    }
-}
 ```
 
 ### ✅ Example of correct code
 
 ```js
-if (a > b && b < c) {
+if (a > b && b < c)
     console.log('hello');
-}
 ```
 
 ## remove-useless-else

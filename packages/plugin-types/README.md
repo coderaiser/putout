@@ -117,17 +117,15 @@ const a = [1].includes(1);
 #### ❌ Example of incorrect code
 
 ```js
-if (!!a) {
+if (!!a)
     console.log('hi');
-}
 ```
 
 #### ✅ Example of correct code
 
 ```js
-if (a) {
+if (a)
     console.log('hi');
-}
 ```
 
 ### remove-useless-typeof

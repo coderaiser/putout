@@ -62,9 +62,8 @@ const createImportVisitor = ({push, names, pathStore = noop}) => ({
         
         const {defaults, imports} = parseImportSpecifiers(specifiers);
         
-        if (defaults.length && imports.length) {
+        if (defaults.length && imports.length)
             return;
-        }
         
         for (const name of names) {
             if (value === name || name === 'any') {

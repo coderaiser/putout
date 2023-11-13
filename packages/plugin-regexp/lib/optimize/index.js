@@ -35,13 +35,12 @@ module.exports.traverse = ({push}) => ({
         
         const to = cutSlashes(result._string);
         
-        if (pattern !== to && pattern.length !== to.length) {
+        if (pattern !== to && pattern.length !== to.length)
             push({
                 path,
                 flags,
                 pattern,
                 to,
             });
-        }
     },
 });

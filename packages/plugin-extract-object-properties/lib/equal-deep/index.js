@@ -51,9 +51,8 @@ module.exports.traverse = ({uplist, push}) => ({
         const initPath = fullPath.get('declarations.0.init');
         const {uid} = initPath.scope;
         
-        if (findBinding(fullPath, __b.name)) {
+        if (findBinding(fullPath, __b.name))
             return;
-        }
         
         if (isIdentifier(__a) || isCallExpression(__a)) {
             const {code} = generate(__a);

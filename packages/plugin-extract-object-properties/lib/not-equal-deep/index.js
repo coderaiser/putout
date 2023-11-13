@@ -63,13 +63,12 @@ const exit = ({push, listStore}) => () => {
             if (expandPath.scope.uid !== initPath.scope.uid)
                 continue;
             
-            if (compare(object, current)) {
+            if (compare(object, current))
                 push({
                     expandPath,
                     path: initPath,
                     property,
                 });
-            }
         }
     }
 };

@@ -7,9 +7,8 @@ export const initParseStore = () => {
         const {parser} = this;
         
         this.parser = function(...a) {
-            if (cache) {
+            if (cache)
                 return cache;
-            }
             
             cache = parser(...a);
             

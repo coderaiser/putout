@@ -16,8 +16,7 @@ module.exports.traverse = ({push}) => ({
             return;
         }
         
-        if (path.node.key.value === 'node/no-missing-import') {
+        if (path.node.key.value === 'node/no-missing-import')
             push(path);
-        }
     },
 });

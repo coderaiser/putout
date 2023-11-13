@@ -27,9 +27,8 @@ module.exports.match = () => ({
             if (isRestElement(property))
                 continue;
             
-            if (property.key.name === 'errors') {
+            if (property.key.name === 'errors')
                 return true;
-            }
         }
         
         return false;

@@ -81,9 +81,8 @@ function isExtractable(path) {
     if (!path.isIdentifier() && !path.isLiteral())
         return false;
     
-    if (parentPath.isObjectProperty({computed})) {
+    if (parentPath.isObjectProperty({computed}))
         return !usedInAssignment(path);
-    }
     
     return false;
 }

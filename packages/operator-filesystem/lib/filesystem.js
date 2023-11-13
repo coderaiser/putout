@@ -41,9 +41,8 @@ module.exports.findFile = (node, name) => {
     for (const filenamePath of traverseProperties(node, 'filename')) {
         const {value} = filenamePath.node.value;
         
-        if (value === name || getRegExp(name).test(value)) {
+        if (value === name || getRegExp(name).test(value))
             filePaths.push(filenamePath.parentPath);
-        }
     }
     
     return filePaths;

@@ -32,9 +32,8 @@ test('putout: loader: user plugin', (t) => {
         if (!name.indexOf(`@putout/plugin-${rmVars}`))
             return false;
         
-        if (name === `putout-plugin-${rmVars}`) {
+        if (name === `putout-plugin-${rmVars}`)
             return name;
-        }
         
         return _findPath(name, paths);
     });

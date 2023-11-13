@@ -48,9 +48,8 @@ module.exports.filter = ({node, text, getText, getCommentsInside}) => {
 };
 
 module.exports.fix = ({text, node, getText}) => {
-    if (isImportDeclaration(node)) {
+    if (isImportDeclaration(node))
         return text.replace(NewLinesReg, '');
-    }
     
     const {id} = node;
     const idText = getText(id);

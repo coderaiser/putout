@@ -67,9 +67,8 @@ for (const name of names) {
 
 ```js
 for (const item in object) {
-    if (object.hasOwnProperty(item)) {
+    if (object.hasOwnProperty(item))
         log(item);
-    }
 }
 
 for (const item in object) {

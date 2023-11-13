@@ -23,9 +23,8 @@ module.exports.fix = (path) => {
 module.exports.filter = (path) => {
     const {extra} = path.node;
     
-    if (path.isImportDeclaration()) {
+    if (path.isImportDeclaration())
         return extra?.deprecatedAssertSyntax;
-    }
     
     return true;
 };

@@ -146,9 +146,8 @@ function isLastNodeInBody(node) {
         const {length} = node.parent.body;
         const n = length - 1;
         
-        if (node === node.parent?.body?.[n]) {
+        if (node === node.parent?.body?.[n])
             return true;
-        }
     }
     
     return false;

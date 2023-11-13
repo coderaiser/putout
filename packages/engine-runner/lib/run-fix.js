@@ -20,9 +20,8 @@ const tryToFix = (fix, {path, position, options}) => {
             .getProgramParent()
             .crawl();
     
-    if (!e) {
+    if (!e)
         return;
-    }
     
     e.loc = e.loc || position;
     

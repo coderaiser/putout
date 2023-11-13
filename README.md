@@ -1254,28 +1254,26 @@ function world(a) {
 
 </details>
 
-<details><summary>convert <code>esm</code> to <code>commonjs</code> (disabled)</summary>
-
-```diff
--import hello from 'world';
-+const hello = require('world');
-```
-
-</details>
-<details><summary>convert <code>commonjs</code> to <code>esm</code> (disabled)</summary>
-
-```diff
--const hello = require('world');
-+import hello from 'world';
-```
-
-</details>
-
 <details><summary>convert <code>replace</code> to <code>replaceAll</code> (<a href=https://github.com/tc39/proposal-string-replaceall>stage-4</a>)</summary>
 
 ```diff
 -'hello'.replace(/hello/g, 'world');
 +'hello'.replaceAll('hello', 'world');
+```
+
+</details>
+
+<details><summary>apply consistent-blocks</summary>
+
+```diff
+-if (a)
++if (a) {
+    b();
++} else {
+-else {
+    c();
+    d();
+}
 ```
 
 </details>
@@ -1739,6 +1737,24 @@ async () => {
 </details>
 
 ### Node.js
+
+<details><summary>convert <code>esm</code> to <code>commonjs</code> (disabled)</summary>
+
+```diff
+-import hello from 'world';
++const hello = require('world');
+```
+
+</details>
+
+<details><summary>convert <code>commonjs</code> to <code>esm</code> (disabled)</summary>
+
+```diff
+-const hello = require('world');
++import hello from 'world';
+```
+
+</details>
 
 <details><summary>convert <code>fs.promises</code> to <code>fs/promises</code> for <a href=https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api>node.js</a></summary>
 

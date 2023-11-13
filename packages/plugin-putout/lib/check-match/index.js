@@ -45,9 +45,8 @@ module.exports.match = () => ({
         });
         
         for (const name of namesMatch) {
-            if (!namesReplace.includes(name)) {
+            if (!namesReplace.includes(name))
                 return true;
-            }
         }
         
         return false;

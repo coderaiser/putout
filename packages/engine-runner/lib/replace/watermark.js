@@ -41,9 +41,8 @@ function create(from, to, path) {
 
 module.exports.init = init;
 function init({path, program}) {
-    if (path.node) {
+    if (path.node)
         path.node[name] = path.node[name] || new Set();
-    }
     
     program.node[name] = program.node[name] || new Set();
 }

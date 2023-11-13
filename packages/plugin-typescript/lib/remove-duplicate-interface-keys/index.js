@@ -32,9 +32,8 @@ module.exports.traverse = ({push}) => ({
             if (computed)
                 continue;
             
-            if (props[current]) {
+            if (props[current])
                 push(props[current]);
-            }
             
             props[current] = prop;
         }
@@ -45,9 +44,8 @@ function getCurrent(path) {
     const keyPath = path.get('key');
     const {node} = keyPath;
     
-    if (keyPath.isIdentifier()) {
+    if (keyPath.isIdentifier())
         return node.name;
-    }
     
     return node.value;
 }
