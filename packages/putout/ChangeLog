@@ -1,3 +1,9 @@
+2023.11.13, v33.2.0
+
+feature:
+- 5a7a26ff5 @putout/plugin-apply-consistent-blocks: add
+- afd7ab908 @putout/compare: __body: improve: no node check
+
 2023.11.12, v33.1.1
 
 fix:
