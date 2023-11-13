@@ -505,6 +505,16 @@ test('compare: __body', (t) => {
     t.end();
 });
 
+test('compare: __body: if', (t) => {
+    const a = 'if (a) {x = 3;}';
+    const b = 'if (__a) __b; else __body';
+    
+    const result = compare(a, b);
+    
+    t.notOk(result);
+    t.end();
+});
+
 test('compare: __body: only', (t) => {
     const a = '{}';
     const b = '__body';

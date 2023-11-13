@@ -238,6 +238,9 @@ module.exports.isEqualAnyObject = (node, templateNode) => {
 };
 
 module.exports.isEqualBody = (node, templateNode) => {
+    if (!node)
+        return false;
+    
     if (!isBody(templateNode))
         return false;
     
