@@ -82,7 +82,7 @@
     "@putout/plugin-apply-starts-with": "^1.0.0",
     "@putout/plugin-apply-template-literals": "^2.0.0",
     "@putout/plugin-browserlist": "^1.0.0",
-    "@putout/plugin-conditions": "^3.0.0",
+    "@putout/plugin-conditions": "^4.0.0",
     "@putout/plugin-convert-apply-to-spread": "^4.0.0",
     "@putout/plugin-convert-arguments-to-rest": "^2.0.0",
     "@putout/plugin-convert-array-copy-to-slice": "^3.0.0",
