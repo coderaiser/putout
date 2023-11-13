@@ -1,3 +1,13 @@
+2023.11.13, v33.3.0
+
+feature:
+- 2e5080fd2 putout: @putout/plugin-conditions v4.0.0
+- 5e4c149d8 @putout/plugin-conditions: drop support of 🐊 < 33
+- afda2e338 @putout/plugin-conditions: merge apply-consistent-blocks
+- 78b127500 @putout/plugin-apply-consistent-blocks: exclude if inside else
+- e286615e3 @putout/plugin-apply-consistent-blocks: add one more levels of nesting
+- b36ba4b97 @putout/plugin-apply-consistent-blocks: add
+
 2023.11.13, v33.2.0
 
 feature:
