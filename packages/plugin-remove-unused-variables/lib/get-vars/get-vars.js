@@ -109,9 +109,8 @@ module.exports = ({use, declare, addParams}) => {
             } else if (isObjectPattern(node.id)) {
                 idPath.traverse({
                     ObjectProperty(propPath) {
-                        if (isAssignmentPattern(propPath.node.value)) {
+                        if (isAssignmentPattern(propPath.node.value))
                             traverseAssign(propPath.get('value'));
-                        }
                         
                         if (propPath.node.computed && isIdentifier(propPath.node.key))
                             use(propPath.get('key'), propPath.node.key.name);
@@ -516,9 +515,8 @@ module.exports = ({use, declare, addParams}) => {
             if (declarationPath.isTSInterfaceDeclaration())
                 return use(path, declaration.id.name);
             
-            if (declarationPath.isTSTypeAliasDeclaration()) {
+            if (declarationPath.isTSTypeAliasDeclaration())
                 return use(path, declaration.id.name);
-            }
             
             // flow
             if (declarationPath.isInterfaceDeclaration())

@@ -40,9 +40,8 @@ const getComments = (path) => {
     
     const {parentPath} = path;
     
-    if (path.isVariableDeclarator() && isOneDeclaration(parentPath)) {
+    if (path.isVariableDeclarator() && isOneDeclaration(parentPath))
         return parentPath.node.comments;
-    }
     
     return [];
 };

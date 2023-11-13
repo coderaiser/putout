@@ -7,8 +7,7 @@ export const fix = (path) => {
 
 export const traverse = ({push}) => ({
     Instr(path) {
-        if (path.node.id === 'set_local') {
+        if (path.node.id === 'set_local')
             push(path);
-        }
     },
 });

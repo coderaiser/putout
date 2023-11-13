@@ -28,12 +28,11 @@ module.exports.traverse = ({push}) => ({
         
         const [confident, value] = compute(path);
         
-        if (confident) {
+        if (confident)
             return push({
                 path,
                 value,
             });
-        }
         
         if (sameIdentifiers(left, right))
             return push({

@@ -40,11 +40,10 @@ function traverseProperties({properties, push}) {
     for (const propPath of properties) {
         const {node} = propPath;
         
-        if (isLiteral(node.value) || isCallExpression(node.value)) {
+        if (isLiteral(node.value) || isCallExpression(node.value))
             push({
                 name: extract(node.key),
                 path: propPath.get('value'),
             });
-        }
     }
 }

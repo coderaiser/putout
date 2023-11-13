@@ -31,6 +31,7 @@
             "remove-empty/import": "off"
         },
         "*.md": {
+            "apply-consistent-blocks": "off",
             "maybe": "off",
             "convert-quotes-to-backticks": "off",
             "conditions/convert-comparison-to-boolean": "off",
@@ -150,6 +151,7 @@
         "tape/convert-mock-require-to-mock-import": "off"
     },
     "plugins": [
+        "apply-consistent-blocks",
         "apply-at",
         "apply-dot-notation",
         "apply-early-return",

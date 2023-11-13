@@ -29,9 +29,8 @@ module.exports.find = (ast, {traverse}) => {
             for (const propPath of propertiesPaths) {
                 const {node} = propPath;
                 
-                if (isIdentifier(node.key, {name: 'Component'})) {
+                if (isIdentifier(node.key, {name: 'Component'}))
                     places.push(propPath);
-                }
             }
         },
     });

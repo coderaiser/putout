@@ -73,9 +73,8 @@ module.exports.runComparators = (node, template, {add, templateStore}) => {
     while (++i < n) {
         const compare = comparators[i];
         
-        if (compare(node, template, {add, templateStore})) {
+        if (compare(node, template, {add, templateStore}))
             return true;
-        }
     }
     
     return false;

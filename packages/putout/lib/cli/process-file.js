@@ -30,9 +30,8 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({na
         printer: configurePrinter(name, printer),
     });
     
-    if (e) {
+    if (e)
         raw && logError(e);
-    }
     
     const {code = source} = result || {};
     const allPlaces = result ? result.places : parseError(e);

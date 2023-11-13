@@ -23,9 +23,8 @@ module.exports.match = () => ({
             return false;
         
         for (const propertyPath of __aPath.get('properties')) {
-            if (isPush(propertyPath) || isBlock(propertyPath)) {
+            if (isPush(propertyPath) || isBlock(propertyPath))
                 return true;
-            }
         }
         
         return false;

@@ -20,9 +20,8 @@ module.exports.report = () => `Use 'render' instead of 'as' in '<Control/>' elem
 module.exports.match = () => ({
     '<Controller __jsx_attributes/>': ({__jsx_attributes}) => {
         for (const attr of __jsx_attributes) {
-            if (isJSXSpreadAttribute(attr)) {
+            if (isJSXSpreadAttribute(attr))
                 continue;
-            }
             
             if (attr.name.name === 'as')
                 return true;

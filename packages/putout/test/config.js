@@ -84,6 +84,7 @@ test('putout: config: markdown', (t) => {
     const result = match['*.md'];
     
     const expected = {
+        'apply-consistent-blocks': 'off',
         'maybe': 'off',
         'convert-quotes-to-backticks': 'off',
         'conditions/convert-comparison-to-boolean': 'off',

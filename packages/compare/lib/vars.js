@@ -102,9 +102,8 @@ function getValues({waysFrom, node}) {
             else if (isArgsStr(name) || isJSXChildrenStr(name) || isJSXAttributesStr(name))
                 way = way.replace(/\.0$/, '');
             
-            if (!isJSXElement(node)) {
+            if (!isJSXElement(node))
                 way = way.replace(/\.expression$/, '');
-            }
             
             result[name] = result[name] || parseExpression(jessy(way, node));
         }

@@ -50,9 +50,8 @@ const processObjectPattern = ({use, declare}) => (propertiesPaths) => {
             computed,
         } = path.node;
         
-        if (computed && isIdentifier(key)) {
+        if (computed && isIdentifier(key))
             use(path, key.name);
-        }
         
         if (isIdentifier(value)) {
             declare(path, value.name);
@@ -102,9 +101,8 @@ const traverseObjectExpression = (use) => {
                 computed,
             } = node;
             
-            if (computed && isIdentifier(key)) {
+            if (computed && isIdentifier(key))
                 use(path, key.name);
-            }
             
             if (isIdentifier(value)) {
                 use(path, value.name);

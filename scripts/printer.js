@@ -7,7 +7,6 @@ import {
 import tryCatch from 'try-catch';
 
 const {stringify, parse} = JSON;
-
 const [, rawConfig = '{}'] = tryCatch(readFileSync, './.putout.json', 'utf8');
 
 const putoutConfig = parse(rawConfig);
@@ -28,9 +27,8 @@ const result = {
     ...putoutConfig,
 };
 
-if (putoutConfig.rules?.['putout/create-test']) {
+if (putoutConfig.rules?.['putout/create-test'])
     delete result.rules;
-}
 
 writeFileSync('./.putout.json', stringify(result, null, 4));
 console.log(result);

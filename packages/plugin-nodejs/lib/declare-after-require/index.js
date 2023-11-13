@@ -81,13 +81,12 @@ module.exports.traverse = ({push, pathStore}) => ({
                 const {loc} = path.node;
                 const line = !loc ? 0 : loc.start.line;
                 
-                if (line < lastRequireLine && lastRequireLine < getReferenceLine(path)) {
+                if (line < lastRequireLine && lastRequireLine < getReferenceLine(path))
                     push({
                         path,
                         firstRequire,
                         lastRequire,
                     });
-                }
             }
         },
     },

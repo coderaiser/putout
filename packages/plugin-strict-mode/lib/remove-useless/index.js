@@ -26,19 +26,17 @@ module.exports.traverse = ({push, store}) => ({
             const [strictPath, ...paths] = path.get('body');
             
             for (const path of paths) {
-                if (path.isExpressionStatement() && path.node.expression.value === 'use strict') {
+                if (path.isExpressionStatement() && path.node.expression.value === 'use strict')
                     push(path);
-                }
             }
             
             const directives = path.get('directives');
             
-            if (directives.length) {
+            if (directives.length)
                 directives
                     .slice(1)
                     .filter(isStrictMode)
                     .forEach(push);
-            }
             
             if (!store('is-module'))
                 return;

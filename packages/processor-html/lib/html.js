@@ -88,9 +88,8 @@ export const branch = async (rawSource) => {
     
     await svelte.preprocess(rawSource, {
         async script({content}) {
-            if (!content) {
+            if (!content)
                 return;
-            }
             
             const source = removePrefixSpaces(content);
             const index = rawSource.indexOf(content);

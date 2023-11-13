@@ -29,21 +29,18 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     'async () => __a': ({__a}) => {
-        if (isUnaryExpression(__a, {operator: 'throw'})) {
+        if (isUnaryExpression(__a, {operator: 'throw'}))
             return REJECTS({
                 A: __a.argument,
             });
-        }
         
-        if (isBlockStatement(__a) && !__a.body.length) {
+        if (isBlockStatement(__a) && !__a.body.length)
             return 'stub().resolves()';
-        }
         
-        if (isBlockStatement(__a) && isThrowStatement(__a.body[0])) {
+        if (isBlockStatement(__a) && isThrowStatement(__a.body[0]))
             return REJECTS({
                 A: __a.body[0].argument,
             });
-        }
         
         return 'stub().resolves(__a)';
     },

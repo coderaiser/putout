@@ -175,9 +175,8 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fc3b90ac0
 ### ❌ Example of incorrect code
 
 ```js
-if (x) {
+if (x)
     return;
-}
 
 const hello = () => {
     return 'world';

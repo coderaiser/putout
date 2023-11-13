@@ -1254,28 +1254,26 @@ function world(a) {
 
 </details>
 
-<details><summary>convert <code>esm</code> to <code>commonjs</code> (disabled)</summary>
-
-```diff
--import hello from 'world';
-+const hello = require('world');
-```
-
-</details>
-<details><summary>convert <code>commonjs</code> to <code>esm</code> (disabled)</summary>
-
-```diff
--const hello = require('world');
-+import hello from 'world';
-```
-
-</details>
-
 <details><summary>convert <code>replace</code> to <code>replaceAll</code> (<a href=https://github.com/tc39/proposal-string-replaceall>stage-4</a>)</summary>
 
 ```diff
 -'hello'.replace(/hello/g, 'world');
 +'hello'.replaceAll('hello', 'world');
+```
+
+</details>
+
+<details><summary>apply consistent-blocks</summary>
+
+```diff
+-if (a)
++if (a) {
+    b();
++} else {
+-else {
+    c();
+    d();
+}
 ```
 
 </details>
@@ -1740,6 +1738,24 @@ async () => {
 
 ### Node.js
 
+<details><summary>convert <code>esm</code> to <code>commonjs</code> (disabled)</summary>
+
+```diff
+-import hello from 'world';
++const hello = require('world');
+```
+
+</details>
+
+<details><summary>convert <code>commonjs</code> to <code>esm</code> (disabled)</summary>
+
+```diff
+-const hello = require('world');
++import hello from 'world';
+```
+
+</details>
+
 <details><summary>convert <code>fs.promises</code> to <code>fs/promises</code> for <a href=https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api>node.js</a></summary>
 
 ```diff
@@ -1904,6 +1920,7 @@ It has a lot plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-apply-consistent-blocks`](/packages/plugin-apply-consistent-blocks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-consistent-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-consistent-blocks) |
 | [`@putout/plugin-apply-at`](/packages/plugin-apply-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-at) |
 | [`@putout/plugin-apply-dot-notation`](/packages/plugin-apply-dot-notation#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-dot-notation.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-dot-notation) |
 | [`@putout/plugin-apply-starts-with`](/packages/plugin-apply-starts-with#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-starts-with.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-starts-with) |

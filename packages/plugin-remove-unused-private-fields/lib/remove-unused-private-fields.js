@@ -31,15 +31,13 @@ module.exports.find = (ast) => {
                 return;
             }
             
-            if (!parentPath.isVariableDeclarator()) {
+            if (!parentPath.isVariableDeclarator())
                 return;
-            }
             
             const idPath = parentPath.get('id');
             
-            if (!idPath.isObjectPattern()) {
+            if (!idPath.isObjectPattern())
                 return;
-            }
             
             for (const propertyPath of idPath.get('properties')) {
                 const keyPath = propertyPath.get('key');

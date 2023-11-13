@@ -10,9 +10,8 @@ module.exports.filter = (path) => {
     if (parentPath.isAssignmentExpression())
         return false;
     
-    if (compare(path, '__a[length - __b]')) {
+    if (compare(path, '__a[length - __b]'))
         return compare(path.parentPath.parentPath.getPrevSibling(), 'const {length} = __a');
-    }
     
     return true;
 };

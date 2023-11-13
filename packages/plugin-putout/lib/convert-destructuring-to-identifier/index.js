@@ -16,9 +16,8 @@ module.exports.replace = () => ({
 
 function findUp(path, str) {
     while (!path.isProgram()) {
-        if (path.isAssignmentExpression()) {
+        if (path.isAssignmentExpression())
             return compare(path, str);
-        }
         
         path = path.parentPath;
     }

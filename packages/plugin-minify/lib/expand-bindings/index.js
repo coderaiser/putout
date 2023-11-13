@@ -12,13 +12,12 @@ export const report = () => `Expand bindings`;
 export const fix = ({path, ref, parentPath}) => {
     const bindingInit = path.get('init');
     
-    if (bindingInit.isArrowFunctionExpression()) {
+    if (bindingInit.isArrowFunctionExpression())
         assign(bindingInit.node, {
             extra: {
                 parenthesized: true,
             },
         });
-    }
     
     if (parentPath.isVariableDeclarator()) {
         const refInit = ref.parentPath.get('init');

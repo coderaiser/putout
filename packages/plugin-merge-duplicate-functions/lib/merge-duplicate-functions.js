@@ -60,12 +60,11 @@ module.exports.traverse = ({push}) => ({
                 if (initPath1.node.body?.body?.length !== initPath2.node.body?.body?.length)
                     continue;
                 
-                if (compare(initPath1, initPath2)) {
+                if (compare(initPath1, initPath2))
                     bodies.push({
                         path: fnPath1,
                         duplicatePath: fnPath2,
                     });
-                }
             }
         }
         

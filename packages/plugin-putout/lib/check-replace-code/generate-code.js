@@ -67,13 +67,11 @@ module.exports = (rootPath, key) => {
                             return replaceWith(path, ArrayPattern([]));
                     }
                     
-                    if (name === '__object') {
+                    if (name === '__object')
                         return objectify(path);
-                    }
                     
-                    if (name === '__body') {
+                    if (name === '__body')
                         replaceWith(path, BlockStatement([]));
-                    }
                 },
             }],
         ],

@@ -114,9 +114,8 @@ const hash = (a) => murmur(a).result()
     .toString(36);
 
 const createGetOptionsCache = ({version}) => (options) => {
-    if (!optionsHashCache.has(options)) {
+    if (!optionsHashCache.has(options))
         optionsHashCache.set(options, hash(`${version}_${nodeVersion}_${stringify(options)}`));
-    }
     
     return optionsHashCache.get(options);
 };

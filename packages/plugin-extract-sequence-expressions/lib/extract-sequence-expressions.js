@@ -87,9 +87,8 @@ module.exports.traverse = ({push}) => ({
             return;
         }
         
-        if (isIfTest(path)) {
+        if (isIfTest(path))
             push(path);
-        }
     },
 });
 
