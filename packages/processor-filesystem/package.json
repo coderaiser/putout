@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-filesystem",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout processor adds ability to lint filesystem",
@@ -56,7 +56,6 @@
   "dependencies": {
     "@putout/cli-filesystem": "^1.0.0",
     "@putout/operator-filesystem": "^2.0.0",
-    "@putout/operator-json": "^1.0.1",
-    "remove-blank-lines": "^1.4.1"
+    "@putout/operator-json": "^1.0.1"
   }
 }
