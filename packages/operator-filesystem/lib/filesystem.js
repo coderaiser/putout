@@ -60,6 +60,7 @@ function getFilename(filePath) {
 
 function getFileContent(filePath) {
     const content = getProperty(filePath, 'content');
+    
     return [
         Boolean(content),
         content?.node.value.value,
