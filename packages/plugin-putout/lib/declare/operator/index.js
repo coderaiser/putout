@@ -1,9 +1,11 @@
 'use strict';
 
 const filesystem = require('./filesystem');
+const json = require('./json');
 
 module.exports = {
     ...filesystem,
+    ...json,
     operator: `import {operator} from 'putout'`,
     compare: 'const {compare} = operator',
     compareAll: 'const {compareAll} = operator',

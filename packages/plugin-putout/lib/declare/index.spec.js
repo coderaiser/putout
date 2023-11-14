@@ -340,3 +340,9 @@ test('plugin-putout: declare: transform: writeFileContent', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: operator-json', (t) => {
+    t.transform('operator-json');
+    t.end();
+});
+
