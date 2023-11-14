@@ -320,3 +320,23 @@ test('plugin-putout: declare: transform: getParentDirectory', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: readFileContent', (t) => {
+    t.transformCode(`readFileContent(filePath);`, montag`
+        import {operator} from 'putout';
+        
+        const {readFileContent} = operator;
+        readFileContent(filePath);\n
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: writeFileContent', (t) => {
+    t.transformCode(`writeFileContent(filePath, 'hello');`, montag`
+        import {operator} from 'putout';
+        
+        const {writeFileContent} = operator;
+        writeFileContent(filePath, 'hello');\n
+    `);
+    t.end();
+});

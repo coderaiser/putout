@@ -7,4 +7,6 @@ module.exports = {
     moveFile: 'const {moveFile} = operator',
     createDirectory: 'const {createDirectory} = operator',
     getParentDirectory: 'const {getParentDirectory} = operator',
+    readFileContent: 'const {readFileContent} = operator',
+    writeFileContent: 'const {writeFileContent} = operator',
 };
