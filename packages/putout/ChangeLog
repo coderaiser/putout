@@ -1,3 +1,18 @@
+2023.11.14, v33.4.0
+
+fix:
+- e73bed76f @putout/plugin-nodejs: add-node-preget back native module
+- aad6a94dc @putout/plugin-nodejs: add-node-preadd is-builtin-module to get esm.sh working
+- d97ebfc58 @putout/plugin-nodejs: add-node-preprefix
+- f3a4f5e5b @putout/plugin-conditions: repository url
+
+feature:
+- 6cfce4c4c putout: @putout/plugin-remove-useless-return v6.0.0
+- 59c459244 @putout/plugin-remove-useless-return: drop support of 🐊 < 33
+- 984982c23 @putout/plugin-remove-useless-return: exclude complex params
+- 09f3abf4f @putout/cli-filesystem: readFileContent, writeFileContent
+- 17a34ada8 @putout/operator-filesystem: readFileContent, writeFileContent
+
 2023.11.13, v33.3.0
 
 feature:
