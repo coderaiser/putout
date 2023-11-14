@@ -84,3 +84,8 @@ test('plugin-remove-useless-return: no transform: comment', (t) => {
     t.noTransform('comment');
     t.end();
 });
+
+test('plugin-remove-useless-return: no transform: long', (t) => {
+    t.noTransform('long');
+    t.end();
+});

@@ -1,10 +1,12 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
 const {replaceWith} = operator;
-
-const {isIdentifier, isLiteral} = types;
+const {
+    isIdentifier,
+    isLiteral,
+    isAssignmentPattern,
+} = types;
 
 module.exports.report = () => `Avoid useless 'return'`;
 
@@ -23,6 +25,9 @@ module.exports.filter = (path) => {
     const bodyPath = path.get('body');
     
     if (!bodyPath.isBlockStatement())
+        return false;
+    
+    if (hasComplexParams(path))
         return false;
     
     const first = bodyPath.get('body.0');
@@ -90,4 +95,13 @@ const isSimpleArgs = (path) => {
 function hasComments(path) {
     const {leadingComments} = path.node;
     return leadingComments?.length;
+}
+
+function hasComplexParams(path) {
+    for (const param of path.get('params')) {
+        if (isAssignmentPattern(param))
+            return true;
+    }
+    
+    return false;
 }
