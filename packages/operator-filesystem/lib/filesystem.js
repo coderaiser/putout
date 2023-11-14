@@ -58,6 +58,14 @@ function getFilename(filePath) {
     return value;
 }
 
+function getFileContent(filePath) {
+    const content = getProperty(filePath, 'content');
+    return [
+        Boolean(content),
+        content?.node.value.value,
+    ];
+}
+
 module.exports.getFilename = getFilename;
 
 module.exports.renameFile = (filePath, name) => {
@@ -123,6 +131,28 @@ module.exports.createDirectory = (dirPath, name) => {
     return dirPathFiles
         .get('value.elements')
         .at(-1);
+};
+
+module.exports.readFileContent = (filePath) => {
+    const [hasContent, content] = getFileContent(filePath);
+    
+    if (hasContent)
+        return content;
+    
+    const filename = getFilename(filePath);
+    const fileContent = maybeFS.readFileContent(filename);
+    
+    filePath.node.properties.push(ObjectProperty(StringLiteral('content'), StringLiteral(fileContent)));
+    
+    return fileContent;
+};
+
+module.exports.writeFileContent = (filePath, content) => {
+    const filename = getFilename(filePath);
+    
+    maybeFS.writeFileContent(filename, content);
+    
+    filePath.node.properties.push(ObjectProperty(StringLiteral('content'), StringLiteral(content)));
 };
 
 module.exports.init = maybeFS.init;

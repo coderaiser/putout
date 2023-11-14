@@ -17,6 +17,8 @@ const {
     getFilename,
     createDirectory,
     getParentDirectory,
+    readFileContent,
+    writeFileContent,
     init,
     deinit,
 } = require('./filesystem');
@@ -385,5 +387,58 @@ test('putout: operator: filesystem: getParentDirectory', (t) => {
     const filename = getFilename(parentdirPath);
     
     t.equal(filename, '/hello/world');
+    t.end();
+});
+
+test('putout: operator: filesystem: readFileContent', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+            content: 'hello',
+        }],
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    const content = readFileContent(filePath);
+    
+    t.equal(content, 'hello');
+    t.end();
+});
+
+test('putout: operator: filesystem: readFileContent: no content', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+        }],
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    const content = readFileContent(filePath);
+    
+    t.equal(content, '');
+    t.end();
+});
+
+test('putout: operator: filesystem: writeFileContent', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+        }],
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    writeFileContent(filePath, 'hello');
+    const content = readFileContent(filePath);
+    
+    t.equal(content, 'hello');
     t.end();
 });

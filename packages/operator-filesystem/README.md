@@ -63,6 +63,29 @@ const {moveFile} = operator;
 moveFile(filePath, dirPath);
 ```
 
+### `readFileContent(filePath: Path)`
+
+```js
+const {operator} = require('putout');
+const {readFileContent} = operator;
+
+readFileContent(filePath);
+// returns
+'hello';
+```
+
+### `writeFileContent(filePath: Path, content: string)`
+
+```js
+const {operator} = require('putout');
+const {writeFileContent} = operator;
+
+writeFileContent(filePath, 'hello');
+readFileContent(filePath);
+// returns
+'hello';
+```
+
 ### `renameFile(filePath: Path, name: string)`
 
 ```js
