@@ -11,7 +11,7 @@
   "changelog": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/conditions.git"
+    "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
     "wisdom": "madrun wisdom",
