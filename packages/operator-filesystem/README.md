@@ -78,7 +78,10 @@ readFileContent(filePath);
 
 ```js
 const {operator} = require('putout');
-const {writeFileContent} = operator;
+const {
+    writeFileContent,
+    readFileContent,
+} = operator;
 
 writeFileContent(filePath, 'hello');
 readFileContent(filePath);
