@@ -29,7 +29,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/processor-json": "^7.0.1",
+    "@putout/operator-json": "^1.0.1",
     "once": "^1.4.0",
     "remark-parse": "^11.0.0",
     "remark-preset-lint-consistent": "^5.0.0",

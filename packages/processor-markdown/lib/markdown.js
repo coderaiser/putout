@@ -1,7 +1,7 @@
 import {
     toJS,
     fromJS,
-} from '@putout/processor-json';
+} from '@putout/operator-json';
 import stringify from 'remark-stringify';
 import preset from 'remark-preset-lint-consistent';
 import removeDependenciesStatusBadge from './rules/remove-dependencies-status-badge.js';

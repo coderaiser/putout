@@ -1,15 +1,11 @@
 {
-  "name": "@putout/processor-filesystem",
-  "version": "1.4.0",
-  "type": "module",
+  "name": "@putout/operator-json",
+  "version": "1.0.1",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout processor adds ability to lint filesystem",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-filesystem#readme",
-  "main": "lib/filesystem.js",
-  "exports": {
-    ".": "./lib/filesystem.js",
-    "./is-filesystem": "./lib/is-filesystem.cjs"
-  },
+  "description": "🐊Putout operator adds ability to json referenced variables that was not defined",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-json#readme",
+  "main": "lib/json.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -29,11 +25,11 @@
   },
   "keywords": [
     "putout",
-    "putout-processor",
-    "filesystem"
+    "putout-operator",
+    "operator",
+    "json"
   ],
   "devDependencies": {
-    "@putout/engine-processor": "*",
     "@putout/test": "^7.0.0",
     "c8": "^8.0.0",
     "eslint": "^8.0.1",
@@ -43,8 +39,11 @@
     "madrun": "^9.0.0",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
-    "putout": "*",
-    "supertape": "^8.5.0"
+    "supertape": "^8.0.0",
+    "try-catch": "^3.0.0"
+  },
+  "peerDependencies": {
+    "putout": ">=33"
   },
   "license": "MIT",
   "engines": {
@@ -54,9 +53,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@putout/cli-filesystem": "^1.0.0",
-    "@putout/operator-filesystem": "^1.0.0",
-    "@putout/operator-json": "^1.0.1",
     "remove-blank-lines": "^1.4.1"
   }
 }

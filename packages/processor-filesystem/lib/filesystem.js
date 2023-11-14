@@ -1,10 +1,12 @@
 import filesystemCLI from '@putout/cli-filesystem';
 import filesystem from '@putout/operator-filesystem';
-import {name} from './name.cjs';
-import {isFilesystem} from './is-filesystem.cjs';
+import {
+    fromJS,
+    toJS,
+    __filesystem,
+} from '@putout/operator-json';
 
-const prefix = `${name}(`;
-const sufix = ');\n';
+import {isFilesystem} from './is-filesystem.cjs';
 
 export const files = [
     '.filesystem.json',
@@ -13,7 +15,7 @@ export const files = [
 export const branch = (rawSource) => {
     filesystem.init(filesystemCLI);
     
-    const source = toJS(rawSource);
+    const source = toJS(rawSource, __filesystem);
     
     return [{
         source,
@@ -25,13 +27,5 @@ export const merge = (rawSource, list) => {
     
     const [source] = list.filter(isFilesystem);
     
-    return fromJS(source) + '\n';
-};
-
-const toJS = (source) => `${prefix}${source}${sufix}`;
-
-const fromJS = (source) => {
-    const length = source.length - sufix.length;
-    
-    return source.slice(prefix.length, length);
+    return fromJS(source, __filesystem);
 };

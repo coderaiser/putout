@@ -1,5 +1,5 @@
 'use strict';
 
-const {name} = require('./name.cjs');
+const {__json} = require('@putout/operator-json');
 
-module.exports.isJSON = (source) => !source.indexOf(name);
+module.exports.isJSON = (source) => !source.indexOf(__json);

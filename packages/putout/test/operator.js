@@ -3,7 +3,7 @@
 const montag = require('montag');
 const test = require('supertape');
 const putout = require('..');
-
+const {stringify} = JSON;
 const {operator} = putout;
 
 test('putout: operator: compare', (t) => {
@@ -78,5 +78,17 @@ test('putout: operator: addArgs', (t) => {
     `;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operator: toJS', (t) => {
+    const source = stringify({
+        hello: 'world',
+    }) + '\n';
+    
+    const js = operator.toJS(source);
+    const result = operator.fromJS(js);
+    
+    t.equal(result, source);
     t.end();
 });

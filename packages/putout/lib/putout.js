@@ -231,6 +231,7 @@ module.exports.operator = {
     ...require('@putout/operate'),
     ...require('@putout/compare'),
     ...require('@putout/traverse'),
+    ...require('@putout/operator-json'),
     ...require('@putout/operator-declare'),
     ...require('@putout/operator-regexp'),
     ...require('@putout/operator-add-args'),
