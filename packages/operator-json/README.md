@@ -16,6 +16,10 @@ npm i putout @putout/operator-json
 ### `__json`
 
 ```js
+import {operator} from 'putout';
+
+const {__json} = operator;
+
 export const traverse = ({push}) => ({
     [__json]: push,
 });
@@ -24,6 +28,10 @@ export const traverse = ({push}) => ({
 ### `__filesystem`
 
 ```js
+import {operator} from 'putout';
+
+const {__filesystem} = operator;
+
 export const traverse = ({push}) => ({
     [__filesystem]: (path) => {
         push(path);
@@ -34,6 +42,9 @@ export const traverse = ({push}) => ({
 ### `toJS(source: string, name?: string)`;
 
 ```js
+import {operator} from 'putout';
+
+const {__filesystem, toJS} = operator;
 toJS('{"hello": "world"}');
 // returns
 `__putout_processor_json('{"hello": "world"});`;
@@ -46,6 +57,9 @@ toJS('{"hello": "world"}', __filesystem);
 ### `fromJS(source: string, name?: string)`;
 
 ```js
+import {operator} from 'putout';
+
+const {fromJS} = operator;
 fromJS(`__putout_processor_json('{"hello": "world"}'`);
 // returns
 `{"hello": "world"}`;

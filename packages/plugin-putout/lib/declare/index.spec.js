@@ -345,4 +345,3 @@ test('plugin-putout: declare: transform: operator-json', (t) => {
     t.transform('operator-json');
     t.end();
 });
-
