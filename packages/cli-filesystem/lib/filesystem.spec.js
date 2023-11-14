@@ -5,6 +5,8 @@ const {
     renameFile,
     removeFile,
     createDirectory,
+    readFileContent,
+    writeFileContent,
 } = require('./filesystem');
 
 test('putout: cli: filesystem: renameFile', (t) => {
@@ -50,5 +52,48 @@ test('putout: cli: filesystem: createDirectory', (t) => {
     ];
     
     t.calledWith(mkdirSync, expected);
+    t.end();
+});
+
+test('putout: cli: filesystem: readFileContent', (t) => {
+    const readFileSync = stub();
+    
+    readFileContent('/hello/world', {
+        readFileSync,
+    });
+    
+    const expected = [
+        '/hello/world',
+        'utf8',
+    ];
+    
+    t.calledWith(readFileSync, expected);
+    t.end();
+});
+
+test('putout: cli: filesystem: readFileContent: returns', (t) => {
+    const readFileSync = stub().returns('hello');
+    
+    const result = readFileContent('/hello/world', {
+        readFileSync,
+    });
+    
+    t.equal(result, 'hello');
+    t.end();
+});
+
+test('putout: cli: filesystem: writeFileContent', (t) => {
+    const writeFileSync = stub();
+    
+    writeFileContent('/hello/world', 'hello', {
+        writeFileSync,
+    });
+    
+    const expected = [
+        '/hello/world',
+        'hello',
+    ];
+    
+    t.calledWith(writeFileSync, expected);
     t.end();
 });

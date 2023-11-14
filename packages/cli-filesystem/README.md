@@ -31,6 +31,23 @@ removeFile('/hello/world.txt');
 createDirectory('/hello/world');
 ```
 
+### `readFileContent(name: string)`
+
+```js
+readFileContent('/hello/world');
+// returns
+'hello';
+```
+
+### `writeFileContent(name: string, content: string)`
+
+```js
+writeFileContent('/hello/world', 'hello');
+readFileContent('/hello/world');
+// returns
+'hello';
+```
+
 ## License
 
 MIT
