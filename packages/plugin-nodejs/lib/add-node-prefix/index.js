@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {isBuiltin} = require('node:module');
+const isBuiltin = require('is-builtin-module');
 const {setLiteralValue} = operator;
 
 module.exports.report = () => `Add 'node:' prefix`;

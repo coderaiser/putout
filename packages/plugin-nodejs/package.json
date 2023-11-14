@@ -29,6 +29,7 @@
     "report": "madrun report"
   },
   "dependencies": {
+    "is-builtin-module": "^3.2.1",
     "just-camel-case": "^6.2.0"
   },
   "keywords": [
