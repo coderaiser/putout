@@ -1,3 +1,18 @@
+2023.11.14, v33.5.0
+
+feature:
+- 17555f4cd @putout/declare: operator-json: toJS, fromJS, __json, __filesystem
+- d0e7670bf putout: @putout/processor-filesystem v2.0.0
+- 616286ce9 @putout/processor-filesystem: @putout/operator-filesystem v2.0.0
+- a9a39c1b5 putout: @putout/processor-json v8.0.0
+- 39cc05358 putout: @putout/processor-markdown v11.0.0
+- 4f9483162 putout: @putout/operator-filesystem v2.0.0
+- ed4b5db53 @putout/operator-filesystem: drop support of 🐊 < 33
+- d88b24cd6 @putout/operator-json: add
+- 77a0c1bd4 @putout/processor-ignore: simplify
+- 95143f13a @putout/procesor-filesystem: simplify
+- 438fefa7d @putout/processor-json: simplify
+
 2023.11.14, v33.4.1
 
 feature:
