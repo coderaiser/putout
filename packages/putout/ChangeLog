@@ -1,3 +1,10 @@
+2023.11.14, v33.4.1
+
+feature:
+- 7fc18d0d1 putout: @putout/plugin-putout v16.0.0
+- 3d4b1c229 @putout/plugin-putout: drop support of 🐊 < 33
+- 1126d0be3 @putout/plugin-putout: declare: readFileContent, writeFileContent
+
 2023.11.14, v33.4.0
 
 fix:
