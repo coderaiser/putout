@@ -5,7 +5,6 @@ import {
     toJS,
     __filesystem,
 } from '@putout/operator-json';
-
 import {isFilesystem} from './is-filesystem.cjs';
 
 export const files = [
