@@ -19,7 +19,6 @@ export const branch = (rawSource) => {
     const source = `${prefix}${array}${sufix}`;
     
     return [{
-        startLine: 0,
         source,
         extension: 'json',
     }];
