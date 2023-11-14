@@ -42,7 +42,6 @@ test('putout: processor: filesystem: branch', (t) => {
     `;
     
     const expected = [{
-        startLine: 0,
         source,
     }];
     

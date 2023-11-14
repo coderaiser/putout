@@ -16,7 +16,6 @@ export const branch = (rawSource) => {
     const source = toJS(rawSource);
     
     return [{
-        startLine: 0,
         source,
     }];
 };
