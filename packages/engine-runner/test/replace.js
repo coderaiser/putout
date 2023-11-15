@@ -327,7 +327,7 @@ test('putout: runner: replace: same function: should produce same result', (t) =
         ],
     });
     
-    const expected = `__putout_processor_ignore(['hello']);\n`;
+    const expected = `__putout_processor_ignore(["hello"]);\n`;
     
     t.equal(code, expected);
     t.end();
