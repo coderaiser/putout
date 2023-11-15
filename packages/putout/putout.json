@@ -148,7 +148,8 @@
         "github": "off",
         "tape": "off",
         "strict-mode": "off",
-        "tape/convert-mock-require-to-mock-import": "off"
+        "tape/convert-mock-require-to-mock-import": "off",
+        "browserlist": "off"
     },
     "plugins": [
         "apply-at",
