@@ -27,14 +27,14 @@ const fix = ({full, path}) => {
 };
 
 const traverse = (actions) => ({push, options}) => ({
-    '__putout_processor_json(__a)'(path) {
+    '__putout_processor_yaml(__a)'(path) {
         const {actions: optionsActions} = options;
         const allActions = {
             ...actions,
             ...optionsActions,
         };
         
-        const {__a} = getTemplateValues(path, '__putout_processor_json(__a)');
+        const {__a} = getTemplateValues(path, '__putout_processor_yaml(__a)');
         
         for (const propertyPath of traverseProperties(__a, 'uses')) {
             const valuePath = propertyPath.get('value');

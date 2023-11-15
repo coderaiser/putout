@@ -21,8 +21,8 @@ module.exports.fix = (path) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '__putout_processor_json(__a)'(path) {
-        const {__a} = getTemplateValues(path, '__putout_processor_json(__a)');
+    '__putout_processor_yaml(__a)'(path) {
+        const {__a} = getTemplateValues(path, '__putout_processor_yaml(__a)');
         
         for (const run of traverseProperties(__a, 'run')) {
             const valuePath = run.get('value');

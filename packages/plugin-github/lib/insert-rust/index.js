@@ -23,8 +23,8 @@ module.exports.fix = ({path, index, stepsPathValue}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '__putout_processor_json(__a)'(path) {
-        const {__a} = getTemplateValues(path, '__putout_processor_json(__a)');
+    '__putout_processor_yaml(__a)'(path) {
+        const {__a} = getTemplateValues(path, '__putout_processor_yaml(__a)');
         const [stepsPath] = traverseProperties(__a, 'steps');
         
         if (!stepsPath)

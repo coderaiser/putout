@@ -30,8 +30,8 @@ const fix = (property, value) => (path) => {
 };
 
 const traverse = (name, property) => ({push}) => ({
-    '__putout_processor_json(__a)'(path) {
-        const {__a} = getTemplateValues(path, '__putout_processor_json(__a)');
+    '__putout_processor_yaml(__a)'(path) {
+        const {__a} = getTemplateValues(path, '__putout_processor_yaml(__a)');
         
         for (const propertyPath of traverseProperties(__a, 'uses')) {
             const valuePath = propertyPath.get('value');

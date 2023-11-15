@@ -1,4 +1,4 @@
-__putout_processor_json({
+__putout_processor_yaml({
    "jobs": {
       "build": {
          "runs-on": "ubuntu-latest",

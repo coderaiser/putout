@@ -28,9 +28,9 @@ module.exports.fix = (path, {options}) => {
 };
 
 module.exports.traverse = ({push, options}) => ({
-    '__putout_processor_json(__a)'(path) {
+    '__putout_processor_yaml(__a)'(path) {
         const {versions: nodeVersions = defaultVersions} = options;
-        const {__a} = getTemplateValues(path, '__putout_processor_json(__a)');
+        const {__a} = getTemplateValues(path, '__putout_processor_yaml(__a)');
         
         for (const nodeVersionPath of traverseProperties(__a, 'node-version')) {
             const valueStr = nodeVersionPath

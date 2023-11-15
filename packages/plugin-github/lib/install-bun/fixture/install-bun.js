@@ -1,4 +1,4 @@
-__putout_processor_json({
+__putout_processor_yaml({
    "name": "Node CI",
    "on": [
       "push",
@@ -33,7 +33,7 @@ __putout_processor_json({
    }
 });
 
-__putout_processor_json({
+__putout_processor_yaml({
    "name": "Node CI",
    "on": [
       "push",
