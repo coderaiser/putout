@@ -1,3 +1,3 @@
 __putout_processor_ignore([
-    'maintained node versions',
+    "maintained node versions"
 ]);

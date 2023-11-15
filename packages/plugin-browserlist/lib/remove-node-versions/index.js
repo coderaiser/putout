@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {remove} = operator;
+const {__ignore, remove} = operator;
 const getValue = ({value}) => value;
 
 module.exports.report = () => 'remove node from .browserlist';
@@ -9,8 +9,8 @@ module.exports.report = () => 'remove node from .browserlist';
 const LINE = 'maintained node versions';
 
 module.exports.match = () => ({
-    '__putout_processor_ignore(__a)': ({__a}) => {
-        const list = __a.elements.map(getValue);
+    [__ignore]: ({__array}) => {
+        const list = __array.elements.map(getValue);
         
         let isBrowser = false;
         
@@ -29,7 +29,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '__putout_processor_ignore(__a)': (vars, path) => {
+    [__ignore]: (vars, path) => {
         const elementsPath = path.get('arguments.0.elements');
         
         for (const elementPath of elementsPath) {
