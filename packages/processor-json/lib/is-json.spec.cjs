@@ -2,7 +2,7 @@
 
 const test = require('supertape');
 const montag = require('montag');
-const {isJSON} = require('@putout/processor-json/is-json');
+const {isJSON} = require('./is-json.cjs');
 
 test('putout: processor-json: is-json', (t) => {
     const result = isJSON(montag`

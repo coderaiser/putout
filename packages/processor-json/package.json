@@ -7,8 +7,7 @@
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-json#readme",
   "main": "lib/json.js",
   "exports": {
-    ".": "./lib/json.js",
-    "./is-json": "./lib/is-json.cjs"
+    ".": "./lib/json.js"
   },
   "release": false,
   "tag": false,

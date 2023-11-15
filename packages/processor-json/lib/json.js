@@ -3,6 +3,8 @@ import {
     fromJS,
 } from '@putout/operator-json';
 
+import {isJSON} from './is-json.cjs';
+
 export const files = ['*.json'];
 
 export const branch = (rawSource) => {
@@ -14,6 +16,6 @@ export const branch = (rawSource) => {
 };
 
 export const merge = (rawSource, list) => {
-    const [source] = list;
+    const [source] = list.filter(isJSON);
     return fromJS(source);
 };

@@ -15,22 +15,6 @@
 npm i @putout/processor-json -D
 ```
 
-## API
-
-Check if `source` has prefix used by `@putout/processor-json`.
-
-ESM:
-
-```js
-import {isJSON} from '@putout/processor-json/is-json';
-```
-
-CommonJS:
-
-```js
-const {isJSON} = require('@putout/processor-json/is-json');
-```
-
 ## Usage
 
 ```json
