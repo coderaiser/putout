@@ -12,6 +12,8 @@ const __yaml = '__putout_processor_yaml(__object)';
 const __filesystem = '__putout_processor_filesystem(__object)';
 const __ignore = '__putout_processor_ignore(__array)';
 
+const TYPES = [__json, __yaml, __filesystem, __ignore].map(cut);
+
 module.exports.__json = __json;
 module.exports.__yaml = __yaml;
 module.exports.__filesystem = __filesystem;
@@ -31,4 +33,13 @@ module.exports.fromJS = (source, name = __json) => {
     const sliced = source.slice(prefix.length, length);
     
     return maybeNewline(removeBlankLines(sliced));
+};
+
+module.exports.isJSON = (source) => {
+    for (const type of TYPES) {
+        if (!source.indexOf(type))
+            return true;
+    }
+    
+    return false;
 };

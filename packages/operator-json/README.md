@@ -63,6 +63,18 @@ export const traverse = ({push}) => ({
 });
 ```
 
+### `isJSON(source: string)`
+
+```js
+isJSON(`__putout_processor_json({"hello": "world"});`);
+// returns
+true;
+
+isJSON(`hello({"hello": "world"});`);
+// returns
+false;
+```
+
 ### `toJS(source: string, name?: string)`;
 
 ```js
