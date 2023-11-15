@@ -1,4 +1,4 @@
-__putout_processor_json({
+__putout_processor_yaml({
     "language": "node_js",
     "node_js": [
         14,

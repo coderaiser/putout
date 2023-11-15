@@ -1,6 +1,10 @@
-import {types} from 'putout';
+import {
+    types,
+    operator,
+} from 'putout';
 import deepEqual from 'fast-deep-equal';
 
+const {__yaml} = operator;
 const {NumericLiteral} = types;
 
 const isNodeJS = (property) => property.key.value === 'node_js';
@@ -15,8 +19,8 @@ const defaultVersions = [
 export const report = () => 'Latest version of node is missing';
 
 export const match = () => ({
-    '__putout_processor_json(__a)'({__a}) {
-        const nodeJS = __a.properties.find(isNodeJS);
+    [__yaml]({__object}) {
+        const nodeJS = __object.properties.find(isNodeJS);
         
         if (!nodeJS)
             return false;
@@ -29,11 +33,12 @@ export const match = () => ({
 });
 
 export const replace = () => ({
-    '__putout_processor_json(__a)'({__a}, path) {
-        const nodeJS = __a.properties.find(isNodeJS);
+    [__yaml]({__object}, path) {
+        const nodeJS = __object.properties.find(isNodeJS);
         
         nodeJS.value.elements = defaultVersions.map(one(NumericLiteral));
         
         return path;
     },
 });
+

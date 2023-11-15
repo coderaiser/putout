@@ -1,5 +1,9 @@
-import {types} from 'putout';
+import {
+    types,
+    operator,
+} from 'putout';
 
+const {__yaml} = operator;
 const {
     BooleanLiteral,
     StringLiteral,
@@ -11,16 +15,17 @@ const isCache = (property) => property.key.value === 'cache';
 export const report = () => '"cache" field should exist in travis';
 
 export const match = () => ({
-    '__putout_processor_json(__a)'({__a}) {
-        return !__a.properties.find(isCache);
+    [__yaml]({__object}) {
+        return !__object.properties.find(isCache);
     },
 });
 
 export const replace = () => ({
-    '__putout_processor_json(__a)'({__a}, path) {
+    [__yaml]({__object}, path) {
         const property = ObjectProperty(StringLiteral('cache'), BooleanLiteral(false));
-        __a.properties.push(property);
+        __object.properties.push(property);
         
         return path;
     },
 });
+
