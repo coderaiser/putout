@@ -4,11 +4,13 @@ const {test} = require('supertape');
 const {
     toJS,
     fromJS,
+    isJSON,
     __yaml,
     __json,
+    __json_name,
     __filesystem,
     __ignore,
-    isJSON,
+    __ignore_name,
 } = require('../lib/json.js');
 
 test('putout: processor: json: toJS: filesystem', ({equal}) => {
@@ -59,6 +61,14 @@ test('putout: processor: json: fromJS: __ignore', ({equal}) => {
     equal(result, expected);
 });
 
+test('putout: processor: json: fromJS: __ignore_name', ({equal}) => {
+    const source = `__putout_processor_ignore([1, 2]);\n`;
+    const result = fromJS(source, __ignore_name);
+    const expected = '[1, 2]\n';
+    
+    equal(result, expected);
+});
+
 test('putout: processor: json: isJSON', ({ok}) => {
     const source = `__putout_processor_ignore([1, 2]);\n`;
     const result = isJSON(source);
@@ -71,4 +81,8 @@ test('putout: processor: json: isJSON: false', ({notOk}) => {
     const result = isJSON(source);
     
     notOk(result);
+});
+
+test('putout: processor: json: __json_name', ({equal}) => {
+    equal(__json_name, '__putout_processor_json');
 });
