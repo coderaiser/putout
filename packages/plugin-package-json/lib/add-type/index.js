@@ -4,12 +4,16 @@ const {operator, types} = require('putout');
 
 const {ObjectProperty, StringLiteral} = types;
 
-const {getProperties, insertAfter} = operator;
+const {
+    getProperties,
+    insertAfter,
+    __json,
+} = operator;
 
 module.exports.report = () => `Add 'type' of module to 'package.json'`;
 
 module.exports.traverse = ({push}) => ({
-    '__putout_processor_json(__a)': (path) => {
+    [__json]: (path) => {
         const __aPath = path.get('arguments.0');
         const {versionPath, typePath} = getProperties(__aPath, ['version', 'type']);
         

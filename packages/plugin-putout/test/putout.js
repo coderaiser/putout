@@ -194,3 +194,8 @@ test('plugin-putout: transform: apply-rename', (t) => {
     t.transform('apply-rename');
     t.end();
 });
+
+test('plugin-putout: transform: apply-short-processors', (t) => {
+    t.transform('apply-short-processors');
+    t.end();
+});

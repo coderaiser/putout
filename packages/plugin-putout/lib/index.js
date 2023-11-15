@@ -42,6 +42,7 @@ const applyNamaspaceSpecifier = require('./apply-namaspace-specifier');
 const convertGetRuleToRequire = require('./convert-get-rule-to-require');
 const addIndexToImport = require('./add-index-to-import');
 const applyRename = require('./apply-rename');
+const applyShortProcessors = require('./apply-short-processors');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -86,4 +87,5 @@ module.exports.rules = {
     'convert-get-rule-to-require': convertGetRuleToRequire,
     'add-index-to-import': addIndexToImport,
     'apply-rename': applyRename,
+    'apply-short-processors': applyShortProcessors,
 };

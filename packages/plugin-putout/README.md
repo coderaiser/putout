@@ -24,6 +24,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-remove": "on",
         "putout/apply-insert-before": "on",
         "putout/apply-insert-after": "on",
+        "putout/apply-short-processors": "on",
         "putout/apply-namaspace-specifier": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
@@ -74,6 +75,36 @@ test('', async (t) => {
 ```js
 test('', async ({process}) => {
     await process({});
+});
+```
+
+## apply-short-processors
+
+Apply short names of processors, for example `__json` instead of `__putout_processor_json` . Checkout out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/908151edd3ee8d6a07d589df1e863883/1bd1eeadadea40915a2079f33a3845fa4fedda8e).
+
+### ❌ Example of incorrect code
+
+```js
+export const match = () => ({
+    '__putout_processor_ignore(__a)': ({__a}) => {
+        const list = __a.elements.map(getValue);
+    },
+    '__putout_processor_filesystem(__a)': ({__a}) => {
+        const list = __a.elements.map(getValue);
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const match = () => ({
+    [__ignore]: ({__array}) => {
+        const list = __array.elements.map(getValue);
+    },
+    [__filesystem]: ({__object}) => {
+        const list = __object.elements.map(getValue);
+    },
 });
 ```
 

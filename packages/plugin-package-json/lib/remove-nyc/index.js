@@ -1,7 +1,11 @@
 'use strict';
 
 const {operator} = require('putout');
-const {remove, getProperties} = operator;
+const {
+    remove,
+    getProperties,
+    __json,
+} = operator;
 
 module.exports.report = () => `Remove 'nyc' section of 'package.json', use file '.nycrc.json' instead`;
 
@@ -10,7 +14,7 @@ module.exports.fix = (path) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '__putout_processor_json(__a)': (path) => {
+    [__json]: (path) => {
         const __aPath = path.get('arguments.0');
         const {nycPath} = getProperties(__aPath, ['nyc']);
         
