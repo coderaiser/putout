@@ -1,6 +1,6 @@
 __putout_processor_ignore([
-    'test',
-    '.*',
-    'yarn-error.log',
-    'coverage',
+    "test",
+    ".*",
+    "yarn-error.log",
+    "coverage"
 ]);

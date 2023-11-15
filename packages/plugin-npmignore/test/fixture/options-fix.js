@@ -1,1 +1,1 @@
-__putout_processor_ignore(['test', '.*', 'yarn-error.log']);
+__putout_processor_ignore(["test", ".*", "yarn-error.log"]);
