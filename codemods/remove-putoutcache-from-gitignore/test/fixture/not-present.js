@@ -1,1 +1,1 @@
-__putout_processor_ignore(['node_modules']);
+__putout_processor_ignore(["node_modules"]);
