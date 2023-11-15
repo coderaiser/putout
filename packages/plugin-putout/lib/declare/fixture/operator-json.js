@@ -1,1 +1,3 @@
-toJS(source, __json);fromJS(source, __filesystem)
+toJS(source, __json);
+toJS(source, __yaml);
+fromJS(source, __filesystem)
