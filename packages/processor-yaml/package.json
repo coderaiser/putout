@@ -24,6 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
+    "@putout/operator-json": "^1.3.0",
     "@putout/processor-json": "^7.0.1",
     "just-kebab-case": "^4.0.2",
     "try-catch": "^3.0.0",
@@ -42,6 +43,7 @@
     "eslint-plugin-putout": "^21.0.0",
     "lerna": "^6.0.1",
     "madrun": "^9.0.0",
+    "montag": "^1.2.1",
     "nodemon": "^3.0.1",
     "putout": "*"
   },

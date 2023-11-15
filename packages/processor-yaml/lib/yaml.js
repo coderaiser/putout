@@ -1,8 +1,14 @@
 import tryCatch from 'try-catch';
 import justKebabCase from 'just-kebab-case';
 import yaml from 'yaml';
-import * as jsonProcessor from '@putout/processor-json';
+import {
+    __yaml,
+    __yaml_name,
+    toJS,
+    fromJS,
+} from '@putout/operator-json';
 
+const isYaml = (a) => !a.indexOf(__yaml_name);
 const parseRule = (a) => justKebabCase(a.replace('YAML', 'Yaml'));
 const {stringify, parse} = JSON;
 
@@ -19,7 +25,7 @@ export const branch = (rawSource) => {
         return [];
     
     const stringified = stringify(value, null, 2);
-    const [{source}] = jsonProcessor.branch(stringified, null, 2);
+    const source = toJS(stringified, __yaml);
     
     list.push({
         source,
@@ -40,7 +46,9 @@ export const find = (rawSource) => {
 };
 
 export const merge = (rawSource, list) => {
-    const source = jsonProcessor.merge(rawSource, list);
+    const [first] = list.filter(isYaml);
+    
+    const source = fromJS(first, __yaml);
     
     return yaml.stringify(parse(source));
 };
@@ -55,7 +63,6 @@ function parsePlaces({error}) {
         return [];
     
     const {message, linePos} = error;
-    
     const [rule] = String(error).split(':');
     
     const place = {

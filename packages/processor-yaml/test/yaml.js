@@ -1,4 +1,6 @@
 import {createTest} from '@putout/test/processor';
+import montag from 'montag';
+import {merge} from '../lib/yaml.js';
 
 const test = createTest(import.meta.url, {
     processors: ['yaml'],
@@ -29,4 +31,36 @@ test('putout: processor: yaml: no startLine', async ({comparePlaces}) => {
 
 test('putout: processor: yaml: duplicate: file content', async ({noProcess}) => {
     await noProcess('duplicate.yml');
+});
+
+test('putout: processor: yaml: merge: a couple items in list: not last', (t) => {
+    const rawSource = montag`
+        __putout_processor_yaml({
+            "filename": "/hello",
+            "files": []
+        });\n
+    `;
+    
+    const filesystem = montag`
+        __putout_processor_filesystem({
+            "filename": "/",
+            "files": []
+        });\n
+    `;
+    
+    const list = [
+        filesystem,
+        rawSource,
+        filesystem,
+    ];
+    
+    const result = merge(rawSource, list);
+    
+    const expected = montag`
+        filename: /hello
+        files: []
+    ` + '\n';
+    
+    t.equal(result, expected);
+    t.end();
 });
