@@ -106,7 +106,7 @@
     "@putout/plugin-extract-sequence-expressions": "^3.0.0",
     "@putout/plugin-filesystem": "^1.0.0",
     "@putout/plugin-for-of": "^3.0.0",
-    "@putout/plugin-github": "^9.0.0",
+    "@putout/plugin-github": "^10.0.0",
     "@putout/plugin-gitignore": "^4.0.0",
     "@putout/plugin-logical-expressions": "^5.0.0",
     "@putout/plugin-madrun": "^17.0.0",
