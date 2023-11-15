@@ -5,6 +5,7 @@ const {
     traverseProperties,
     setLiteralValue,
     getTemplateValues,
+    __yaml,
 } = operator;
 
 module.exports.report = () => 'Convert npm to bun';
@@ -21,10 +22,10 @@ module.exports.fix = (path) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '__putout_processor_yaml(__a)'(path) {
-        const {__a} = getTemplateValues(path, '__putout_processor_yaml(__a)');
+    [__yaml](path) {
+        const {__object} = getTemplateValues(path, __yaml);
         
-        for (const run of traverseProperties(__a, 'run')) {
+        for (const run of traverseProperties(__object, 'run')) {
             const valuePath = run.get('value');
             const valueStr = valuePath.node.value;
             
@@ -35,3 +36,4 @@ module.exports.traverse = ({push}) => ({
         }
     },
 });
+

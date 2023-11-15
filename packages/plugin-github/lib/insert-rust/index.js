@@ -6,6 +6,7 @@ const {
     traverseProperties,
     getTemplateValues,
     remove,
+    __yaml,
 } = operator;
 
 const RUST = template.ast(`({
@@ -23,9 +24,9 @@ module.exports.fix = ({path, index, stepsPathValue}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '__putout_processor_yaml(__a)'(path) {
-        const {__a} = getTemplateValues(path, '__putout_processor_yaml(__a)');
-        const [stepsPath] = traverseProperties(__a, 'steps');
+    [__yaml](path) {
+        const {__object} = getTemplateValues(path, __yaml);
+        const [stepsPath] = traverseProperties(__object, 'steps');
         
         if (!stepsPath)
             return;
@@ -56,3 +57,4 @@ module.exports.traverse = ({push}) => ({
         }
     },
 });
+

@@ -5,6 +5,7 @@ const {
     replaceWith,
     getTemplateValues,
     traverseProperties,
+    __yaml,
 } = operator;
 
 const {entries} = Object;
@@ -27,16 +28,16 @@ const fix = ({full, path}) => {
 };
 
 const traverse = (actions) => ({push, options}) => ({
-    '__putout_processor_yaml(__a)'(path) {
+    [__yaml](path) {
         const {actions: optionsActions} = options;
         const allActions = {
             ...actions,
             ...optionsActions,
         };
         
-        const {__a} = getTemplateValues(path, '__putout_processor_yaml(__a)');
+        const {__object} = getTemplateValues(path, __yaml);
         
-        for (const propertyPath of traverseProperties(__a, 'uses')) {
+        for (const propertyPath of traverseProperties(__object, 'uses')) {
             const valuePath = propertyPath.get('value');
             const {value} = valuePath.node;
             
@@ -63,3 +64,4 @@ const traverse = (actions) => ({push, options}) => ({
         }
     },
 });
+

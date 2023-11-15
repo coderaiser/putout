@@ -4,6 +4,7 @@ const {operator, template} = require('putout');
 const {
     traverseProperties,
     getTemplateValues,
+    __yaml,
 } = operator;
 
 const BUN_USES = 'oven-sh/setup-bun@v1';
@@ -24,9 +25,9 @@ module.exports.fix = ({index, stepsPathValue}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '__putout_processor_yaml(__a)'(path) {
-        const {__a} = getTemplateValues(path, '__putout_processor_yaml(__a)');
-        const [stepsPath] = traverseProperties(__a, 'steps');
+    [__yaml](path) {
+        const {__object} = getTemplateValues(path, __yaml);
+        const [stepsPath] = traverseProperties(__object, 'steps');
         
         if (!stepsPath)
             return;
@@ -69,3 +70,4 @@ function parseUses(step) {
     
     return '';
 }
+

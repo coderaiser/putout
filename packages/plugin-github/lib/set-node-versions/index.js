@@ -7,6 +7,7 @@ const {
     replaceWith,
     getTemplateValues,
     traverseProperties,
+    __yaml,
 } = operator;
 
 const defaultVersions = [
@@ -28,11 +29,11 @@ module.exports.fix = (path, {options}) => {
 };
 
 module.exports.traverse = ({push, options}) => ({
-    '__putout_processor_yaml(__a)'(path) {
+    [__yaml](path) {
         const {versions: nodeVersions = defaultVersions} = options;
-        const {__a} = getTemplateValues(path, '__putout_processor_yaml(__a)');
+        const {__object} = getTemplateValues(path, __yaml);
         
-        for (const nodeVersionPath of traverseProperties(__a, 'node-version')) {
+        for (const nodeVersionPath of traverseProperties(__object, 'node-version')) {
             const valueStr = nodeVersionPath
                 .get('value')
                 .toString();
@@ -49,3 +50,4 @@ module.exports.traverse = ({push, options}) => ({
         }
     },
 });
+
