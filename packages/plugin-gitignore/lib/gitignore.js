@@ -1,6 +1,7 @@
 'use strict';
 
-const {types} = require('putout');
+const {types, operator} = require('putout');
+const {__ignore} = operator;
 const {StringLiteral} = types;
 const getValue = ({value}) => value;
 
@@ -18,8 +19,8 @@ module.exports.match = ({options}) => {
     const newNames = filterNames(names, dismiss);
     
     return {
-        '__putout_processor_ignore(__a)': ({__a}) => {
-            const list = __a.elements.map(getValue);
+        [__ignore]: ({__array}) => {
+            const list = __array.elements.map(getValue);
             
             for (const name of newNames) {
                 if (!list.includes(name))
@@ -36,12 +37,12 @@ module.exports.replace = ({options}) => {
     const newNames = filterNames(names, dismiss);
     
     return {
-        '__putout_processor_ignore(__a)': ({__a}, path) => {
-            const list = __a.elements.map(getValue);
+        [__ignore]: ({__array}, path) => {
+            const list = __array.elements.map(getValue);
             
             for (const name of newNames) {
                 if (!list.includes(name))
-                    __a.elements.push(StringLiteral(name));
+                    __array.elements.push(StringLiteral(name));
             }
             
             return path;
