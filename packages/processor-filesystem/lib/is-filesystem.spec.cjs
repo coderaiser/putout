@@ -2,7 +2,7 @@
 
 const test = require('supertape');
 const montag = require('montag');
-const {isFilesystem} = require('@putout/processor-filesystem/is-filesystem');
+const {isFilesystem} = require('./is-filesystem.cjs');
 
 test('putout: processor-filesystem: is-filesystem', (t) => {
     const result = isFilesystem(montag`

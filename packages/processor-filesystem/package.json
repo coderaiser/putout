@@ -7,8 +7,7 @@
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-filesystem#readme",
   "main": "lib/filesystem.js",
   "exports": {
-    ".": "./lib/filesystem.js",
-    "./is-filesystem": "./lib/is-filesystem.cjs"
+    ".": "./lib/filesystem.js"
   },
   "release": false,
   "tag": false,
