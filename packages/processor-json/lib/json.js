@@ -2,7 +2,6 @@ import {
     toJS,
     fromJS,
 } from '@putout/operator-json';
-
 import {isJSON} from './is-json.cjs';
 
 export const files = ['*.json'];
