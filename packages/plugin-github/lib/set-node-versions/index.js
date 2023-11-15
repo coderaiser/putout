@@ -50,4 +50,3 @@ module.exports.traverse = ({push, options}) => ({
         }
     },
 });
-

@@ -52,4 +52,3 @@ const traverse = (name, property) => ({push}) => ({
         }
     },
 });
-
