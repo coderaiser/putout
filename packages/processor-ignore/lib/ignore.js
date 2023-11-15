@@ -1,8 +1,11 @@
+import {
+    __ignore,
+    toJS,
+    fromJS,
+} from '@putout/operator-json';
+
 const {stringify} = JSON;
 const rmLast = (a) => !a.endsWith('\n') ? a : a.slice(0, -1);
-
-const prefix = '__putout_processor_ignore(';
-const sufix = ');\n';
 
 const parse = (a) => {
     const fn = Function(`return ${a}`);
@@ -16,7 +19,7 @@ export const files = [
 
 export const branch = (rawSource) => {
     const array = convertToArray(rawSource);
-    const source = `${prefix}${array}${sufix}`;
+    const source = toJS(array, __ignore);
     
     return [{
         source,
@@ -26,8 +29,7 @@ export const branch = (rawSource) => {
 
 export const merge = (rawSource, list) => {
     const [source] = list;
-    const length = source.length - sufix.length;
-    const str = source.slice(prefix.length, length);
+    const str = fromJS(source, __ignore);
     const array = parse(str);
     
     return array.join('\n') + '\n';

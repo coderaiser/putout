@@ -23,7 +23,9 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@putout/operator-json": "^1.0.1"
+  },
   "keywords": [
     "putout",
     "putout-processor",
