@@ -107,7 +107,7 @@
     "@putout/plugin-filesystem": "^1.0.0",
     "@putout/plugin-for-of": "^3.0.0",
     "@putout/plugin-github": "^9.0.0",
-    "@putout/plugin-gitignore": "^3.0.0",
+    "@putout/plugin-gitignore": "^4.0.0",
     "@putout/plugin-logical-expressions": "^5.0.0",
     "@putout/plugin-madrun": "^17.0.0",
     "@putout/plugin-math": "^2.0.0",
