@@ -12,7 +12,12 @@ const __yaml = '__putout_processor_yaml(__object)';
 const __filesystem = '__putout_processor_filesystem(__object)';
 const __ignore = '__putout_processor_ignore(__array)';
 
-const TYPES = [__json, __yaml, __filesystem, __ignore].map(cut);
+const TYPES = [
+    __json,
+    __yaml,
+    __filesystem,
+    __ignore,
+].map(cut);
 
 module.exports.__json = __json;
 module.exports.__yaml = __yaml;
