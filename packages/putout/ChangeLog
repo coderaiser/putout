@@ -1,3 +1,36 @@
+2023.11.15, v33.6.0
+
+fix:
+- 6333cf383 @putout/operator-json: drop peer dependency
+- f8ca7ae14 @putout/processor-filesystem: drop export isJSON
+
+feature:
+- 13a176492 putout: @putout/plugin-browserlist v2.0.0
+- e0d08155d @putout/plugin-browserlist: drop support of node < 16
+- 2f1caac15 putout: disable browserlist for all files except .browserlistrc
+- 73575facd putout: @putout/plugin-npmignore v3.0.0
+- 2652f7c12 @putout/plugin-npmignore: drop support of node < 16
+- 2489f243f @putotu/plugin-npmignore: use __array
+- 32402a01e @putout/plugin-travis: drop support of 🐊 < 33
+- 82d76f506 @putout/plugin-travis: use __yaml
+- 6f3ac9782 putout: @putout/processor-yaml v7.0.0
+- 36121ad89 putout: @putout/plugin-github v10.0.0
+- 31bdcb37f @putout/plugin-github: use __yaml
+- ecf96039c @putout/plugin-github: drop support of a🐊 < 33
+- 7fcd972d5 @putout/processor-yaml: json -> yaml
+- 51d293601 @putout/plugin-gitub: json -> yaml
+- 8179fd083 @putout/processor-json: is-json
+- 3bb33ecdf @putout/operator-json: export names
+- bf21d1bea @putout/operator-json: add isJSON
+- 3335cb91e putout: @putout/processor-ignore v5.0.0
+- 6c7cf6091 @putout/processor-ignore: use @putout/operator-json
+- e44e0e92c @putout/operator-json: __yaml, __ignore
+- 1d176923a putout: @putout/plugin-gitignore v4.0.0
+- 58b913421 @putout/plugin-gitignore: drop support of node < 16
+- 718439571 @putout/plugin-gitignore: use __ignore
+- c83b663a1 @putout/plugin-putout: declare: __ignore
+- bfcf68252 @putout/plugin-putout: declare: __yaml
+
 2023.11.14, v33.5.0
 
 feature:
