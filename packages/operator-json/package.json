@@ -42,9 +42,6 @@
     "supertape": "^8.0.0",
     "try-catch": "^3.0.0"
   },
-  "peerDependencies": {
-    "putout": ">=33"
-  },
   "license": "MIT",
   "engines": {
     "node": ">=16"
