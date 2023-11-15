@@ -25,6 +25,30 @@ export const traverse = ({push}) => ({
 });
 ```
 
+### `__yaml`
+
+```js
+import {operator} from 'putout';
+
+const {__yaml} = operator;
+
+export const traverse = ({push}) => ({
+    [__yaml]: push,
+});
+```
+
+### `__ignore`
+
+```js
+import {operator} from 'putout';
+
+const {__ignore} = operator;
+
+export const traverse = ({push}) => ({
+    [__ignore]: push,
+});
+```
+
 ### `__filesystem`
 
 ```js

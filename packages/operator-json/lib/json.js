@@ -2,15 +2,20 @@
 
 const removeBlankLines = require('remove-blank-lines');
 
-const maybeNewline = (a) => a.at(-1) === '\n' ? a : `${a}\n`;
-const createPrefix = (name) => `${name}(`;
+const cut = (a) => a.slice(0, a.indexOf('('));
+const createPrefix = (name) => `${cut(name)}(`;
 const createSuffix = () => ');\n';
+const maybeNewline = (a) => a.at(-1) === '\n' ? a : `${a}\n`;
 
-const __json = '__putout_processor_json';
-const __filesystem = '__putout_processor_filesystem';
+const __json = '__putout_processor_json(__object)';
+const __yaml = '__putout_processor_yaml(__object)';
+const __filesystem = '__putout_processor_filesystem(__object)';
+const __ignore = '__putout_processor_ignore(__array)';
 
 module.exports.__json = __json;
+module.exports.__yaml = __yaml;
 module.exports.__filesystem = __filesystem;
+module.exports.__ignore = __ignore;
 
 module.exports.toJS = (source, name = __json) => {
     const prefix = createPrefix(name);
