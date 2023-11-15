@@ -1,3 +1,10 @@
+2023.11.15, v33.6.1
+
+feature:
+- efeb16707 putout: @putout/plugin-package-json v6.0.0
+- 0830df2ef @putout/plugin-package-json: drop support of 🐊 < 33
+- a5822f182 @putout/plugin-putout: apply-short-processors: add
+
 2023.11.15, v33.6.0
 
 fix:
