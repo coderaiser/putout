@@ -153,6 +153,13 @@ module.exports.writeFileContent = (filePath, content) => {
     
     maybeFS.writeFileContent(filename, content);
     
+    const contentPath = getProperty(filePath, 'content');
+    
+    if (contentPath) {
+        contentPath.node.value.value = content;
+        return;
+    }
+    
     filePath.node.properties.push(ObjectProperty(StringLiteral('content'), StringLiteral(content)));
 };
 
