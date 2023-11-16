@@ -1,3 +1,15 @@
+2023.11.16, v33.6.2
+
+fix:
+- eae45513d @putout/operator-filesystem: writeFileContent: base64
+
+feature:
+- 70959a20b putout: @putout/plugin-eslint v6.0.0
+- 9841829ab @putout/plugin-eslint: drop support of 🐊 < 33
+- 6b06a327e @putout/operate: setLiteralValue: empty double quotes in raw
+- 7a5dfa11b @putout/operator-filesystem: use base64 inside readFileContent/writeFileContent
+- ad1a02449 @putotu/operator-filesystem: writeFileContent: field exists
+
 2023.11.15, v33.6.1
 
 feature:
