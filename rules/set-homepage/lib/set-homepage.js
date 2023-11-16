@@ -3,6 +3,7 @@ import {operator} from 'putout';
 const {
     getProperties,
     setLiteralValue,
+    __json,
 } = operator;
 
 const parseName = (a) => a.value.replace('@putout/', '');
@@ -10,7 +11,7 @@ const parseName = (a) => a.value.replace('@putout/', '');
 export const report = () => 'Set homepage';
 
 export const traverse = ({push}) => ({
-    '__putout_processor_json(__a)': (path) => {
+    [__json]: (path) => {
         const __aPath = path.get('arguments.0');
         
         const {namePath, homepagePath} = getProperties(__aPath, ['name', 'homepage']);

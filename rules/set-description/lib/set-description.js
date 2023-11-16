@@ -1,11 +1,11 @@
 import {operator} from 'putout';
 
-const {getProperties} = operator;
+const {getProperties, __json} = operator;
 
 export const report = () => 'Set 🐊 in description';
 
 export const traverse = ({push}) => ({
-    '__putout_processor_json(__a)': (path) => {
+    [__json]: (path) => {
         const __aPath = path.get('arguments.0');
         
         const {descriptionPath} = getProperties(__aPath, ['description']);

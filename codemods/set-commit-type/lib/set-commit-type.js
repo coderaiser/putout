@@ -5,12 +5,16 @@ import {
 
 const {StringLiteral, ObjectProperty} = types;
 
-const {getProperties, insertAfter} = operator;
+const {
+    getProperties,
+    insertAfter,
+    __json,
+} = operator;
 
 export const report = () => `Set 'commitType'`;
 
 export const traverse = ({push}) => ({
-    '__putout_processor_json(__a)': (path) => {
+    [__json]: (path) => {
         const __aPath = path.get('arguments.0');
         
         const {commitTypePath, mainPath} = getProperties(__aPath, ['commitType', 'main']);

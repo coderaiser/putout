@@ -1,6 +1,6 @@
 import {operator} from 'putout';
 
-const {getProperties} = operator;
+const {getProperties, __json} = operator;
 
 export const report = () => `Add anchor '#readme' to 'homepage' in package.json`;
 
@@ -12,10 +12,10 @@ export const fix = ({homepage}) => {
 };
 
 export const traverse = ({push}) => ({
-    '__putout_processor_json(__a)': (path) => {
-        const __a = path.get('arguments.0');
+    [__json]: (path) => {
+        const __object = path.get('arguments.0');
         
-        const {homepagePath} = getProperties(__a, ['homepage']);
+        const {homepagePath} = getProperties(__object, ['homepage']);
         
         if (!homepagePath)
             return false;
