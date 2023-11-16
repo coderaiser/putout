@@ -408,6 +408,24 @@ test('putout: operator: filesystem: readFileContent', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: readFileContent: encoded', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+            content: btoa('hello'),
+        }],
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    const content = readFileContent(filePath);
+    
+    t.equal(content, 'hello');
+    t.end();
+});
+
 test('putout: operator: filesystem: readFileContent: no content', (t) => {
     const ast = parseFilesystem({
         type: 'directory',

@@ -24,7 +24,8 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/operate": "^11.0.0"
+    "@putout/operate": "^11.0.0",
+    "try-catch": "^3.0.1"
   },
   "keywords": [
     "putout",
@@ -42,8 +43,7 @@
     "madrun": "^9.0.0",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
-    "supertape": "^8.0.0",
-    "try-catch": "^3.0.0"
+    "supertape": "^8.0.0"
   },
   "peerDependencies": {
     "putout": ">=33"

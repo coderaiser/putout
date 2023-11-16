@@ -1,6 +1,8 @@
 'use strict';
 
+const tryCatch = require('try-catch');
 const {types} = require('putout');
+
 const {
     setLiteralValue,
     getProperty,
@@ -134,16 +136,26 @@ module.exports.createDirectory = (dirPath, name) => {
         .at(-1);
 };
 
+const createContentProperty = (content) => {
+    const contentKey = StringLiteral('content');
+    const contentValue = StringLiteral(btoa(content));
+    
+    return ObjectProperty(contentKey, contentValue);
+};
+
 module.exports.readFileContent = (filePath) => {
     const [hasContent, content] = getFileContent(filePath);
     
-    if (hasContent)
-        return content;
+    if (hasContent) {
+        const [, decoded] = tryCatch(atob, content);
+        return decoded || content;
+    }
     
     const filename = getFilename(filePath);
     const fileContent = maybeFS.readFileContent(filename);
+    const property = createContentProperty(fileContent);
     
-    filePath.node.properties.push(ObjectProperty(StringLiteral('content'), StringLiteral(fileContent)));
+    filePath.node.properties.push(property);
     
     return fileContent;
 };
@@ -160,7 +172,8 @@ module.exports.writeFileContent = (filePath, content) => {
         return;
     }
     
-    filePath.node.properties.push(ObjectProperty(StringLiteral('content'), StringLiteral(content)));
+    const property = createContentProperty(content);
+    filePath.node.properties.push(property);
 };
 
 module.exports.init = maybeFS.init;
