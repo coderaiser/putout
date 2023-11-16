@@ -10,6 +10,11 @@ module.exports.setLiteralValue = (path, newValue) => {
     
     node.value = value.replace(value, newValue);
     
+    if (raw === '""') {
+        node.raw = raw.replace(raw, `"${newValue}"`);
+        return;
+    }
+    
     if (raw) {
         node.raw = raw.replace(value, newValue);
         return;

@@ -68,3 +68,24 @@ test('operate: setLiteralValue: no raw', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('operate: setLiteralValue: empty double quotes in raw', (t) => {
+    const ast = parse(`({"hello": ""})`);
+    
+    traverse(ast, {
+        StringLiteral: (path) => {
+            setLiteralValue(path, 'hello');
+        },
+    });
+    
+    const result = print(ast);
+    
+    const expected = montag`
+        ({
+            'hello': 'hello',
+        });\n
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
