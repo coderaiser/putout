@@ -168,7 +168,7 @@ module.exports.writeFileContent = (filePath, content) => {
     const contentPath = getProperty(filePath, 'content');
     
     if (contentPath) {
-        contentPath.node.value.value = content;
+        setLiteralValue(contentPath.node.value, btoa(content));
         return;
     }
     

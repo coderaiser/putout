@@ -479,3 +479,31 @@ test('putout: operator: filesystem: writeFileContent: field exists', (t) => {
     t.equal(content, 'hello');
     t.end();
 });
+
+test('putout: operator: filesystem: writeFileContent: field exists: base64', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+            content: '',
+        }],
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    writeFileContent(filePath, 'hello');
+    
+    const expected = {
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+            content: 'aGVsbG8=',
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
