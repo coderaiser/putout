@@ -30,6 +30,7 @@ Here is list of rules:
         "nextjs/remove-a-from-link": "on",
         "nextjs/convert-page-to-head": "on",
         "nextjs/move-404-to-not-found": "on",
+        "nextjs/update-tsconfig": "off",
         "nextjs/update-tsconfig-file": "on"
     }
 }
@@ -130,7 +131,7 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/9ac3f7f910bc1
 +app/not-found.js
 ```
 
-## update-tsconfig-file
+## update-tsconfig
 
 > If you're using **TypeScript**, you need to update your `tsconfig.json` file with the following changes to make it compatible with Next.js.
 >
@@ -138,8 +139,7 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/9ac3f7f910bc1
 
 Add `./dist/types/**/*.ts` and `./next-env.d.ts` to the include array.
 
-Run [`redlint`](https://github.com/putoutjs/redlint#readme) to generate `.filesystem.json` and then lint.
-Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/9ee63542b7a7d70fce8e0739524e5301/74139f2bd98e29dea40c99708f509976201ffb4f).
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/a55a6e3dbcd082a5fdddf8591bb605dc/13ae7aa178edc7ff7b792e6ad717af16de9da83a).
 
 `tsconfig.json`:
 
@@ -149,6 +149,26 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/9ee63542b7a7d
 +    "includes": ["./dist/types/**/*.ts", "./next-env.d.ts"]
 }
 ```
+
+The rule disabled by default. To enable use [`update-tsconfig-file`](#update-tsconfig-file) or update `.putout.json` with:
+
+```json
+{
+    "match": {
+        "tsconfig.json": {
+            "nexts/update-ts-config": "on"
+        }
+    },
+    "plugins": ["nextjs"]
+}
+```
+
+## update-tsconfig-file
+
+Enables `update-tsconfig` for `tsconfig.json` without using `match`.
+
+Run [`redlint`](https://github.com/putoutjs/redlint#readme) to generate `.filesystem.json` and then lint.
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/9ee63542b7a7d70fce8e0739524e5301/74139f2bd98e29dea40c99708f509976201ffb4f).
 
 ## License
 

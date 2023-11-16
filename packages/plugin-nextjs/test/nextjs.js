@@ -24,3 +24,8 @@ test('plugin-nextjs: transform: update-tsconfig-file', (t) => {
     t.transform('update-tsconfig-file');
     t.end();
 });
+
+test('plugin-nextjs: transform: update-tsconfig', (t) => {
+    t.transform('update-tsconfig');
+    t.end();
+});
