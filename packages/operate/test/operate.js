@@ -414,6 +414,19 @@ test('putout: operate: remove: comment: if', (t) => {
     t.end();
 });
 
+test('putout: operate: remove: comment: after remove', (t) => {
+    const {code} = putout(fixture.commentAfterRemove, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.commentAfterRemoveFix;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: operate: replaceWithMultiple: parent comment', (t) => {
     const {code} = putout(fixture.parentComment, {
         plugins: [
