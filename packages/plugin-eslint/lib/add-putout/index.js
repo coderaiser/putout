@@ -1,6 +1,7 @@
 'use strict';
 
-const {types} = require('putout');
+const {types, operator} = require('putout');
+
 const {
     getExtends,
     getPlugins,
@@ -8,16 +9,17 @@ const {
     isPlugins,
 } = require('../get');
 
+const {__json} = operator;
 const {StringLiteral} = types;
 
 module.exports.report = () => `Add 'putout' to 'plugins' and 'extends'`;
 
 module.exports.match = () => ({
-    '__putout_processor_json(__a)': ({__a}) => {
-        if (!isExtends(__a) || !isPlugins(__a))
+    [__json]: ({__object}) => {
+        if (!isExtends(__object) || !isPlugins(__object))
             return false;
         
-        for (const {value} of getPlugins(__a)) {
+        for (const {value} of getPlugins(__object)) {
             if (value === 'putout')
                 return false;
         }
@@ -27,9 +29,9 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '__putout_processor_json(__a)': ({__a}, path) => {
-        getExtends(__a).push(StringLiteral('putout:plugin/safe+align'));
-        getPlugins(__a).push(StringLiteral('putout'));
+    [__json]: ({__object}, path) => {
+        getExtends(__object).push(StringLiteral('putout:plugin/safe+align'));
+        getPlugins(__object).push(StringLiteral('putout'));
         
         return path;
     },

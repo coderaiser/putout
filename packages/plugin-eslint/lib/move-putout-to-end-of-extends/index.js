@@ -1,12 +1,14 @@
 'use strict';
 
+const {operator} = require('putout');
 const {getExtends} = require('../get');
+const {__json} = operator;
 
 module.exports.report = () => '"putout" should be in the end of the "extends" list';
 
 module.exports.match = () => ({
-    '__putout_processor_json(__a)': ({__a}) => {
-        const elements = getExtends(__a);
+    [__json]: ({__object}) => {
+        const elements = getExtends(__object);
         
         if (!elements.length)
             return false;
@@ -24,8 +26,8 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '__putout_processor_json(__a)': ({__a}, path) => {
-        const elements = getExtends(__a);
+    [__json]: ({__object}, path) => {
+        const elements = getExtends(__object);
         
         const first = elements.shift();
         elements.push(first);

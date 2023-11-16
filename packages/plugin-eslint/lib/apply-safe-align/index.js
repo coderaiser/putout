@@ -3,13 +3,13 @@
 const {operator} = require('putout');
 
 const {getRules, getExtends} = require('../get');
-const {remove} = operator;
+const {remove, __json} = operator;
 
 module.exports.report = () => 'Use "putout/safe+align" instead of "putout/safe"';
 
 module.exports.match = () => ({
-    '__putout_processor_json(__a)': ({__a}) => {
-        const elements = getExtends(__a);
+    [__json]: ({__object}) => {
+        const elements = getExtends(__object);
         
         for (const {value} of elements) {
             if (value.includes('putout/safe+align'))
@@ -32,9 +32,9 @@ function isRules(path) {
 }
 
 module.exports.replace = () => ({
-    '__putout_processor_json(__a)': ({__a}, path) => {
-        const elements = getExtends(__a);
-        const rules = getRules(__a);
+    [__json]: ({__object}, path) => {
+        const elements = getExtends(__object);
+        const rules = getRules(__object);
         
         for (const element of elements) {
             const {value} = element;

@@ -1,15 +1,17 @@
 'use strict';
 
-const {getExtends, getPlugins} = require('../get');
+const {operator} = require('putout');
 
+const {getExtends, getPlugins} = require('../get');
+const {__json} = operator;
 const {assign} = Object;
 
 module.exports.report = () => `Use 'n' instead of 'node'`;
 
 module.exports.match = () => ({
-    '__putout_processor_json(__a)': ({__a}) => {
-        const elements = getExtends(__a);
-        const plugins = getPlugins(__a);
+    [__json]: ({__object}) => {
+        const elements = getExtends(__object);
+        const plugins = getPlugins(__object);
         
         for (const {value} of elements) {
             if (value.includes('node/recommended'))
@@ -26,9 +28,9 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '__putout_processor_json(__a)': ({__a}, path) => {
-        const elements = getExtends(__a);
-        const plugins = getPlugins(__a);
+    [__json]: ({__object}, path) => {
+        const elements = getExtends(__object);
+        const plugins = getPlugins(__object);
         
         for (const element of elements) {
             const {value} = element;
