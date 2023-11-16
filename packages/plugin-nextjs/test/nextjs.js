@@ -19,3 +19,8 @@ test('plugin-nextjs: transform: convert-page-to-head', (t) => {
     t.transform('convert-page-to-head');
     t.end();
 });
+
+test('plugin-nextjs: transform: update-tsconfig-file', (t) => {
+    t.transform('update-tsconfig-file');
+    t.end();
+});

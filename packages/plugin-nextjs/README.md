@@ -29,7 +29,8 @@ Here is list of rules:
         "nextjs/create-app-directory": "on",
         "nextjs/remove-a-from-link": "on",
         "nextjs/convert-page-to-head": "on",
-        "nextjs/move-404-to-not-found": "on"
+        "nextjs/move-404-to-not-found": "on",
+        "nextjs/update-tsconfig-file": "on"
     }
 }
 ```
@@ -127,6 +128,26 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/9ac3f7f910bc1
 ```diff
 -app/pages/404.js
 +app/not-found.js
+```
+
+## update-tsconfig-file
+
+> If you're using **TypeScript**, you need to update your `tsconfig.json` file with the following changes to make it compatible with Next.js.
+>
+> (c) [nextjs.org](https://nextjs.org/docs/app/building-your-application/upgrading/from-vite)
+
+Add `./dist/types/**/*.ts` and `./next-env.d.ts` to the include array.
+
+Run [`redlint`](https://github.com/putoutjs/redlint#readme) to generate `.filesystem.json` and then lint.
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/9ee63542b7a7d70fce8e0739524e5301/74139f2bd98e29dea40c99708f509976201ffb4f).
+
+`tsconfig.json`:
+
+```diff
+{
+-    "includes": []
++    "includes": ["./dist/types/**/*.ts", "./next-env.d.ts"]
+}
 ```
 
 ## License
