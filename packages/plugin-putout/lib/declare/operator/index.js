@@ -34,4 +34,5 @@ module.exports = {
     traverseProperties: 'const {traverseProperties} = operator',
     isSimple: 'const {isSimple} = operator',
     setLiteralValue: 'const {setLiteralValue} = operator',
+    matchFiles: 'const {matchFiles} = operator',
 };

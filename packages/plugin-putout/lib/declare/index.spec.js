@@ -341,6 +341,16 @@ test('plugin-putout: declare: transform: writeFileContent', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: matchFiles', (t) => {
+    t.transformCode(`matchFiles();`, montag`
+        import {operator} from 'putout';
+        
+        const {matchFiles} = operator;
+        matchFiles();\n
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: operator-json', (t) => {
     t.transform('operator-json');
     t.end();
