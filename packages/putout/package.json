@@ -19,7 +19,9 @@
     "./cli/run": "./lib/cli/runner/work",
     "./loader": "./lib/loader.mjs",
     "./package.json": "./package.json",
-    "./lint/json": "./lib/lint/json.mjs"
+    "./lint/json": "./lib/lint/json.mjs",
+    "./transform": "./lib/transform.js",
+    "./find-places": "./lib/find-places.js"
   },
   "bin": {
     "putout": "bin/putout.mjs"

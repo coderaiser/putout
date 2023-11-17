@@ -1,10 +1,6 @@
 'use strict';
 
 const {traverse, types} = require('@putout/babel');
-
-const loader = require('@putout/engine-loader');
-const runner = require('@putout/engine-runner');
-
 const {
     parse,
     print,
@@ -13,35 +9,18 @@ const {
 } = require('@putout/engine-parser');
 
 const {cutShebang, mergeShebang} = require('./shebang');
+const {defaultOptions} = require('./default-options');
+const {transform, transformAsync} = require('./transform');
+const {
+    findPlaces,
+    findPlacesAsync,
+} = require('./find-places');
 
 const isString = (a) => typeof a === 'string';
 
-const defaultOpts = (opts = {}) => {
-    const {
-        parser = 'babel',
-        printer = opts.printer || 'putout',
-        fix = true,
-        fixCount = 2,
-        loadPlugins = loader.loadPlugins,
-        loadPluginsAsync = loader.loadPluginsAsync,
-        runPlugins = runner.runPlugins,
-    } = opts;
-    
-    return {
-        ...opts,
-        parser,
-        printer,
-        fix,
-        fixCount,
-        loadPlugins,
-        loadPluginsAsync,
-        runPlugins,
-    };
-};
-
 module.exports = (source, opts) => {
     check(source);
-    opts = defaultOpts(opts);
+    opts = defaultOptions(opts);
     
     const {
         parser,
@@ -87,7 +66,7 @@ module.exports = (source, opts) => {
 
 module.exports.putoutAsync = async (source, opts) => {
     check(source);
-    opts = defaultOpts(opts);
+    opts = defaultOptions(opts);
     
     const {
         parser,
@@ -131,93 +110,11 @@ module.exports.putoutAsync = async (source, opts) => {
     };
 };
 
-module.exports.transformAsync = transformAsync;
-module.exports.findPlaces = (ast, source, opts) => {
-    return transform(ast, source, {
-        ...opts,
-        fix: false,
-    });
-};
-module.exports.findPlacesAsync = async (ast, source, opts) => {
-    return await transformAsync(ast, source, {
-        ...opts,
-        fix: false,
-    });
-};
-
-async function transformAsync(ast, source, opts) {
-    opts = defaultOpts(opts);
-    
-    const {
-        plugins: pluginNames,
-        cache,
-        rules,
-        fix,
-        fixCount,
-        loadPluginsAsync,
-        runPlugins,
-    } = opts;
-    
-    const [, shebang] = cutShebang(source);
-    
-    const plugins = await loadPluginsAsync({
-        pluginNames,
-        cache,
-        rules,
-    });
-    
-    const places = runPlugins({
-        ast,
-        shebang,
-        fix,
-        fixCount,
-        plugins,
-    });
-    
-    return places;
-}
-
-// why we pass 'source' to 'transform()'?
-// because we need to calculate position in a right way
-// and determine is shebang is exists
-//
-// 25     return {¬
-// 26         line: shebang ? line + 1 : line,¬
-// 27         column,¬
-// 28     };¬
-//
 module.exports.transform = transform;
-function transform(ast, source, opts) {
-    opts = defaultOpts(opts);
-    
-    const {
-        plugins: pluginNames,
-        cache,
-        rules,
-        fix,
-        fixCount,
-        loadPlugins,
-        runPlugins,
-    } = opts;
-    
-    const [, shebang] = cutShebang(source);
-    
-    const plugins = loadPlugins({
-        pluginNames,
-        cache,
-        rules,
-    });
-    
-    const places = runPlugins({
-        ast,
-        shebang,
-        fix,
-        fixCount,
-        plugins,
-    });
-    
-    return places;
-}
+module.exports.transformAsync = transformAsync;
+
+module.exports.findPlaces = findPlaces;
+module.exports.findPlacesAsync = findPlacesAsync;
 
 module.exports.parse = parse;
 module.exports.print = print;
