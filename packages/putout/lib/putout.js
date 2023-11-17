@@ -133,6 +133,7 @@ module.exports.operator = {
     ...require('@putout/operator-regexp'),
     ...require('@putout/operator-add-args'),
     ...require('@putout/operator-filesystem'),
+    ...require('@putout/operator-match-files'),
 };
 
 module.exports.ignores = require('./ignores');

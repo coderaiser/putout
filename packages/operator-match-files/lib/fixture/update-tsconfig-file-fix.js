@@ -4,7 +4,7 @@ __putout_processor_filesystem({
     "files": [{
         "type": "file",
         "filename": "/tsconfig.json",
-        "content": "ewogICAgImluY2x1ZGUiOiBbIi4vZGlzdC90eXBlcy8qKi8qLnRzIiwgIi4vbmV4dC1lbnYuZC50cyJdCn0K"
+        "content": "ewogICAgImluY2x1ZGUiOiBbXQp9Cg=="
     }]
 });
 
@@ -14,6 +14,6 @@ __putout_processor_filesystem({
     "files": [{
         "type": "file",
         "filename": "/tsconfig.json",
-        "content": "ewogICAgImluY2x1ZGUiOiBbIi4vZGlzdC90eXBlcy8qKi8qLnRzIiwgIi4vbmV4dC1lbnYuZC50cyJdCn0K"
+        "content": "ewogICAgImluY2x1ZGUiOiBbXQp9Cg=="
     }]
 });

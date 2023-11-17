@@ -3,6 +3,7 @@
 const montag = require('montag');
 const test = require('supertape');
 const putout = require('..');
+const {keys} = Object;
 const {stringify} = JSON;
 const {operator} = putout;
 
@@ -90,5 +91,25 @@ test('putout: operator: toJS', (t) => {
     const result = operator.fromJS(js);
     
     t.equal(result, source);
+    t.end();
+});
+
+test('putout: operator: matchFiles', (t) => {
+    const plugin = operator.matchFiles({
+        hello: {
+            replace: () => ({
+                __a: '__b',
+            }),
+        },
+    });
+    
+    const result = keys(plugin);
+    const expected = [
+        'fix',
+        'traverse',
+        'report',
+    ];
+    
+    t.deepEqual(result, expected);
     t.end();
 });
