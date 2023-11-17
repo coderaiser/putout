@@ -11,6 +11,7 @@ const {
 const {cutShebang, mergeShebang} = require('./shebang');
 const {defaultOptions} = require('./default-options');
 const {transform, transformAsync} = require('./transform');
+
 const {
     findPlaces,
     findPlacesAsync,
