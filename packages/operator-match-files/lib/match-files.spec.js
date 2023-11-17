@@ -119,3 +119,28 @@ test('putout: operator: match-files: transform', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: match-files: no files found', (t) => {
+    const plugin = {};
+    
+    const source = stringify({
+        type: 'directory',
+        filename: '/',
+        files: [],
+    });
+    
+    const jsSource = toJS(source, __filesystem);
+    
+    const files = {
+        'tsconfig.json': plugin,
+    };
+    
+    const {places} = putout(jsSource, {
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    t.notOk(places.length);
+    t.end();
+});

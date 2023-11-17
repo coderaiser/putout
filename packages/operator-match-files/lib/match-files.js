@@ -45,6 +45,10 @@ const createTraverse = (files) => ({push}) => ({
     [__filesystem]: (path) => {
         for (const [filename, plugin] of entries(files)) {
             const [filePath] = findFile(path, filename);
+            
+            if (!filePath)
+                return;
+            
             const fileContent = readFileContent(filePath) || '{}';
             
             const matchedJS = toJS(fileContent);
