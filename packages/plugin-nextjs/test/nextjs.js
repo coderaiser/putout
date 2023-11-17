@@ -25,7 +25,7 @@ test('plugin-nextjs: transform: update-tsconfig-file', (t) => {
     t.end();
 });
 
-test('plugin-nextjs: transform: update-tsconfig', (t) => {
-    t.transform('update-tsconfig');
+test('plugin-nextjs: no transform: update-tsconfig: disabled', (t) => {
+    t.noTransform('update-tsconfig-disabled');
     t.end();
 });

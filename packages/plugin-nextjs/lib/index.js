@@ -9,5 +9,5 @@ module.exports.rules = {
     'remove-a-from-link': removeAFromLink,
     'convert-page-to-head': convertPageToHead,
     'update-tsconfig-file': updateTsconfigFile,
-    'update-tsconfig': updateTsconfig,
+    'update-tsconfig': ['off', updateTsconfig],
 };
