@@ -61,7 +61,7 @@ export default {
     'fresh': async () => await run(['lint:time', 'coverage']),
     'fresh:only:putout': async () => await run(['lint:only:putout', 'coverage']),
     'fresh:only:eslint': async () => await run(['lint:only:eslint', 'coverage']),
-    'lint': () => `putout . --raw --rulesdir rules`,
+    'lint': () => `redlint && putout . --raw --rulesdir rules`,
     'lint:mark': () => 'putout **/*.md',
     'memory': async () => await run('lint:fresh', '-f memory'),
     'time': async () => await run('lint:fresh', '-f time'),
