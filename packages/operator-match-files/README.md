@@ -20,7 +20,7 @@ const {operator} = require('putout');
 const {matchFiles} = operator;
 const updateTSConfig = require('../update-tsconfig');
 
-module.exports = match - files({
+module.exports = matchFiles({
     'tsconfig.json': updateTSConfig,
 });
 ```
