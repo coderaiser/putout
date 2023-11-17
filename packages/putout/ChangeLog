@@ -1,3 +1,16 @@
+2023.11.17, v33.7.0
+
+fix:
+- 0650c3c03 @putout/plugin-nextjs: update-tsconfig: disabled by default
+
+feature:
+- cd981e88c @putout/plugin-putout: declare: matchFiles: add
+- 3b577c59d @putout/operator-match-files: add
+- 2dff879d0 putout: exports: transform, findPlaces
+- c8be4d2d0 @putout/plugin-nextjs: update-tsconfig-file: reuse update-tsconfig-file
+- 80cd0b2a7 @putout/plugin-nextjs: update-tsconfig: add
+- f48b53485 @putout/plugin-nextjs: update-tsconfig-file: add
+
 2023.11.16, v33.6.2
 
 fix:
