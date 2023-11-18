@@ -3,6 +3,7 @@
 const test = require('supertape');
 const putout = require('putout');
 const {types} = require('@putout/babel');
+const convertEsmToCommonjs = require('@putout/plugin-nodejs/convert-esm-to-commonjs');
 
 const {
     __json,
@@ -17,7 +18,7 @@ const {
 
 const {matchFiles} = require('./match-files.js');
 const {ObjectProperty, StringLiteral} = types;
-const {parse} = putout;
+const {parse, transform} = putout;
 const {stringify} = JSON;
 const noop = () => {};
 
@@ -142,5 +143,39 @@ test('putout: operator: match-files: no files found', (t) => {
     });
     
     t.notOk(places.length);
+    t.end();
+});
+
+test('putout: operator: match-files: js', (t) => {
+    const content = `export const hello = 'world'`;
+    const source = stringify({
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'file',
+            filename: 'index.cjs',
+            content,
+        }],
+    });
+    
+    const jsSource = toJS(source, __filesystem);
+    
+    const files = {
+        '*.cjs': convertEsmToCommonjs,
+    };
+    
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const [filePath] = findFile(ast, 'index.cjs');
+    const result = readFileContent(filePath);
+    const expected = `module.exports.hello = 'world';\n`;
+    
+    t.equal(result, expected);
     t.end();
 });

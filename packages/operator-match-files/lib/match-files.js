@@ -1,7 +1,6 @@
 'use strict';
 
-const {parse} = require('@putout/babel');
-const {print} = require('@putout/printer');
+const {parse, print} = require('@putout/engine-parser');
 const {transform} = require('putout/transform');
 const {findPlaces} = require('putout/find-places');
 
@@ -30,13 +29,12 @@ module.exports.matchFiles = (files) => {
     };
 };
 
-function fix({path, matchedJS, matchedAST, plugins}) {
+function fix({filename, path, matchedJS, matchedAST, plugins}) {
     transform(matchedAST, matchedJS, {
         plugins,
     });
     
-    const updatedMatchedJS = print(matchedAST);
-    const matchedJSON = fromJS(updatedMatchedJS);
+    const matchedJSON = magicPrint(filename, matchedAST);
     
     writeFileContent(path, matchedJSON);
 }
@@ -50,9 +48,7 @@ const createTraverse = (files) => ({push}) => ({
                 return;
             
             const fileContent = readFileContent(filePath) || '{}';
-            
-            const matchedJS = toJS(fileContent);
-            const matchedAST = parse(matchedJS);
+            const [matchedJS, matchedAST] = magicParse(filename, fileContent);
             
             const plugins = [
                 [`match-file/${filename}`, plugin],
@@ -68,6 +64,7 @@ const createTraverse = (files) => ({push}) => ({
             const {message} = places[0];
             
             push({
+                filename,
                 message,
                 plugins,
                 path: filePath,
@@ -77,3 +74,24 @@ const createTraverse = (files) => ({push}) => ({
         }
     },
 });
+
+function magicParse(name, content) {
+    if (/\.json$/.test(name)) {
+        const js = toJS(content);
+        const ast = parse(js);
+        
+        return [js, ast];
+    }
+    
+    return [content, parse(content)];
+}
+
+function magicPrint(name, ast) {
+    if (/\.json$/.test(name)) {
+        const js = print(ast);
+        
+        return fromJS(js);
+    }
+    
+    return print(ast);
+}
