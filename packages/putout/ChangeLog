@@ -1,3 +1,15 @@
+2023.11.18, v33.8.0
+
+fix:
+- d79f6a49e putout: loader: use putoutAsync
+
+feature:
+- be92475be putout: enable nodejs filesystem rules
+- a8e501db1 @putout/plugin-nodejs: mjs-file: add
+- f85820fca @putout/plugin-nodejs: cjs-file: add
+- 4e80a6f73 @putout/operator-match-files: add additional check of provided files
+- be49cc530 @putout/operator-match-files: autodetect json/js
+
 2023.11.17, v33.7.0
 
 fix:
