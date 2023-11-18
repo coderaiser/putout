@@ -7,28 +7,27 @@ import {
     transformSource,
 } from './loader.mjs';
 
-test('putout: loader: transformSource', (t) => {
+test('putout: loader: transformSource', async (t) => {
     const context = {
         url: `file://hello.js`,
     };
     
     const code = 'const a = 5;';
-    const {source} = transformSource(code, context);
+    const {source} = await transformSource(code, context);
     const expected = `'use strict';\n`;
     
     t.equal(source, expected);
     t.end();
 });
 
-test('putout: loader: transformSource: ignore: no mock', (t) => {
-    const url = new URL('../test/fixture/debugger.js', import.meta.url).href;
-    
+test('putout: loader: transformSource: ignore: no mock', async (t) => {
+    const url = new URL('./fixture/debugger.js', import.meta.url).href;
     const context = {
         url,
     };
     
     const code = 'const a = 5;';
-    const {source} = transformSource(code, context);
+    const {source} = await transformSource(code, context);
     
     t.equal(source, code);
     t.end();
