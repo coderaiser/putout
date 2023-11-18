@@ -30,6 +30,10 @@
         "setupTests.*": {
             "remove-empty/import": "off"
         },
+        ".filesystem.json": {
+            "nodejs/cjs-file": "on",
+            "nodejs/mjs-file": "on"
+        },
         "*.md": {
             "conditions/apply-consistent-blocks": "off",
             "conditions/convert-comparison-to-boolean": "off",

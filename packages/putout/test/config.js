@@ -104,3 +104,16 @@ test('putout: config: markdown', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: config: filesystem', (t) => {
+    const {match} = putoutConfig;
+    const result = match['.filesystem.json'];
+    
+    const expected = {
+        'nodejs/cjs-file': 'on',
+        'nodejs/mjs-file': 'on',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
