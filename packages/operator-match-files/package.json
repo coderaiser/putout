@@ -28,7 +28,6 @@
     "@putout/engine-parser": "^9.0.0",
     "@putout/operator-filesystem": "^2.1.1",
     "@putout/operator-json": "^1.3.0",
-    "@putout/printer": "^6.4.1",
     "putout": "^33.6.2"
   },
   "keywords": [
