@@ -363,6 +363,12 @@ Run [convert-esm-to-commonjs](#convert-esm-to-commonjs) for all `*.cjs` files wi
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af59afc2d3da082088fd4c/d0b85b07c6aaf2b902a1c7eb7ae121dbcd181033).
 
+### mjs-file
+
+Run [convert-commonjs-to-esm](#convert-commonjs-to-esm) for all `*.cjs` files with help of [redlint](https://github.com/putoutjs/redlint).
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af59afc2d3da082088fd4c/d0b85b07c6aaf2b902a1c7eb7ae121dbcd181033).
+
 ## License
 
 MIT
