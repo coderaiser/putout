@@ -2,8 +2,10 @@
 
 const {normalize} = require('path');
 const picomatch = require('picomatch');
+const fullstore = require('fullstore');
 
-let isMatch = Boolean;
+const isMatchStore = fullstore();
+
 let patterns = [];
 
 const rmDuplicates = (a) => Array.from(new Set(a));
@@ -11,13 +13,18 @@ const rmDuplicates = (a) => Array.from(new Set(a));
 module.exports.add = (array) => {
     patterns = rmDuplicates(patterns.concat(array));
     
-    isMatch = picomatch(patterns, {
+    const isMatch = picomatch(patterns, {
         dot: true,
         matchBase: true,
     });
+    
+    isMatchStore(isMatch);
 };
 
-module.exports.isSupported = (name) => isMatch(name);
+module.exports.isSupported = (name) => {
+    const isMatch = isMatchStore();
+    return isMatch(name);
+};
 
 module.exports.getSupportedGlob = (file) => normalize(`${file}/**/{${patterns.join(',')}}`);
 
