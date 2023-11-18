@@ -5,9 +5,6 @@ const nodejs = require('..');
 
 const test = createTest(__dirname, {
     printer: 'putout',
-    rules: {
-        //'nodejs/convert-commonjs-to-esm': 'off',
-    },
     plugins: [
         ['nodejs', nodejs],
     ],
@@ -70,5 +67,10 @@ test('plugin-nodejs: transform: add-node-prefix', (t) => {
 
 test('plugin-nodejs: transform: convert-exports-to-module-exports', (t) => {
     t.transform('convert-exports-to-module-exports');
+    t.end();
+});
+
+test('plugin-nodejs: no transform: cjs-file', (t) => {
+    t.noTransform('cjs-file-disabled');
     t.end();
 });

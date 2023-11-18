@@ -17,6 +17,7 @@ const convertEsmToCommonjs = require('./convert-esm-to-commonjs');
 const convertCommonjsToEsmExports = require('./convert-commonjs-to-esm-exports');
 const convertCommonjsToEsmCommons = require('./convert-commonjs-to-esm-commons');
 const convertCommonjsToEsmRequire = require('./convert-commonjs-to-esm-require');
+const cjsFile = require('./cjs-file');
 
 module.exports.rules = {
     'convert-buffer-to-buffer-alloc': convertBufferToBufferAlloc,
@@ -35,4 +36,5 @@ module.exports.rules = {
     'convert-commonjs-to-esm-exports': ['off', convertCommonjsToEsmExports],
     'convert-commonjs-to-esm-common': ['off', convertCommonjsToEsmCommons],
     'convert-commonjs-to-esm-require': ['off', convertCommonjsToEsmRequire],
+    'cjs-file': ['off', cjsFile],
 };

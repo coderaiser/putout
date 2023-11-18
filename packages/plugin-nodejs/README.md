@@ -32,7 +32,8 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/convert-top-level-return": "on",
         "nodejs/declare": "on",
         "nodejs/declare-after-require": "on",
-        "nodejs/remove-process-exit": "on"
+        "nodejs/remove-process-exit": "on",
+        "nodejs/cjs-file": "off"
     }
 }
 ```
@@ -275,8 +276,6 @@ const name = 'hello.txt';
 
 Convert **CommonJS** **EcmaScript Modules**.
 
-> **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
->
 > **EcmaScript module** syntax is the standard way to import and export values between files in **JavaScript**. The `import` statement can be used to reference a value exposed by the `export` statement in another file.
 >
 > (c) [parceljs](https://parceljs.org/languages/javascript/)
@@ -340,8 +339,6 @@ await readFile(__filename);
 
 ### convert-esm-to-commonjs
 
-> **EcmaScript module** syntax is the standard way to import and export values between files in **JavaScript**. The `import` statement can be used to reference a value exposed by the `export` statement in another file.
->
 > **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
 >
 > (c) [parceljs](https://parceljs.org/languages/javascript/)
@@ -360,9 +357,11 @@ import hello from 'world';
 const hello = require('world');
 ```
 
-## License
+### cjs-file
 
-MIT
+Run [convert-esm-to-commonjs](#convert-esm-to-commonjs) for all `*.cjs` files with help of [redlint](https://github.com/putoutjs/redlint).
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af59afc2d3da082088fd4c/d0b85b07c6aaf2b902a1c7eb7ae121dbcd181033).
 
 ## License
 

@@ -108,9 +108,7 @@ test('plugin-declare-after-require: transform: removed', (t) => {
         remove: {
             report: noop,
             include: () => ['const a = 5'],
-            fix: (path) => {
-                remove(path);
-            },
+            fix: remove,
         },
     });
     t.end();
