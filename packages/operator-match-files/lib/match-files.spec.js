@@ -1,5 +1,6 @@
 'use strict';
 
+const tryCatch = require('try-catch');
 const test = require('supertape');
 const putout = require('putout');
 const {types} = require('@putout/babel');
@@ -123,7 +124,6 @@ test('putout: operator: match-files: transform', (t) => {
 
 test('putout: operator: match-files: no files found', (t) => {
     const plugin = {};
-    
     const source = stringify({
         type: 'directory',
         filename: '/',
@@ -146,6 +146,18 @@ test('putout: operator: match-files: no files found', (t) => {
     t.end();
 });
 
+test('putout: operator: match-files: no plugin', (t) => {
+    const plugin = '';
+    const files = {
+        'tsconfig.json': plugin,
+    };
+    
+    const [error] = tryCatch(matchFiles, files);
+    
+    t.equal(error?.message, `☝️ Looks like provided to 'matchFiles()' typeof of plugin is not an 'object' but 'string'`);
+    t.end();
+});
+
 test('putout: operator: match-files: js', (t) => {
     const content = `export const hello = 'world'`;
     const source = stringify({
@@ -159,7 +171,6 @@ test('putout: operator: match-files: js', (t) => {
     });
     
     const jsSource = toJS(source, __filesystem);
-    
     const files = {
         '*.cjs': convertEsmToCommonjs,
     };

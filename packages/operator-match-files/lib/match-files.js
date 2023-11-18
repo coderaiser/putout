@@ -16,10 +16,12 @@ const {
     writeFileContent,
 } = require('@putout/operator-filesystem');
 
+const isObject = (a) => a && typeof a === 'object';
 const {entries} = Object;
 const report = ({message}) => message;
 
 module.exports.matchFiles = (files) => {
+    check(files);
     const traverse = createTraverse(files);
     
     return {
@@ -94,4 +96,11 @@ function magicPrint(name, ast) {
     }
     
     return print(ast);
+}
+
+function check(files) {
+    for (const [, plugin] of entries(files)) {
+        if (!isObject(plugin))
+            throw Error(`☝️ Looks like provided to 'matchFiles()' typeof of plugin is not an 'object' but '${typeof plugin}'`);
+    }
 }
