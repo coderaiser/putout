@@ -1,3 +1,8 @@
+2023.11.18, v33.8.1
+
+feature:
+- 970b3b33b putout: supported-files: fullstore
+
 2023.11.18, v33.8.0
 
 fix:
