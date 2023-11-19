@@ -1,9 +1,7 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
 const {traverse} = operator;
-
 const {
     ObjectProperty,
     ObjectPattern,
@@ -38,6 +36,18 @@ const checkArgs = (push) => (path) => {
         return;
     
     traverse(path, {
+        ReferencedIdentifier(path) {
+            if (path.node.name !== 'push')
+                return;
+            
+            if (isCalleePush(path))
+                return;
+            
+            push({
+                path,
+                fn,
+            });
+        },
         'push(__)': (currentPath) => {
             if (currentPath.scope.getAllBindings().push)
                 return;
@@ -55,4 +65,12 @@ function parseFn(path) {
         return path.get('right').node;
     
     return path.get('declaration.declarations.0.init').node;
+}
+
+function isCalleePush({parentPath}) {
+    return parentPath
+        .get('callee')
+        .isIdentifier({
+            name: 'push',
+        });
 }
