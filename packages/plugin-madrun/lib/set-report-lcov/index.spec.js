@@ -15,7 +15,7 @@ test('madrun: set-report-lcov: report', (t) => {
     t.end();
 });
 
-test('madrun: set-report-lcov: transform: report', (t) => {
+test('madrun: set-report-lcov: transform: transform', (t) => {
     t.transform('report');
     t.end();
 });

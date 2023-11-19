@@ -30,7 +30,7 @@ test('plugin-putout: add-push: no report: exists', (t) => {
     t.end();
 });
 
-test('plugin-putout: add-push: no report: couple', (t) => {
+test('plugin-putout: add-push: transform: couple', (t) => {
     t.transform('couple');
     t.end();
 });

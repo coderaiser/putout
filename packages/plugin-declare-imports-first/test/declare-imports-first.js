@@ -34,7 +34,7 @@ test('plugin-declaration-imports-first: no report: no-vars', (t) => {
     t.end();
 });
 
-test('plugin-declaration-imports-first: no report: export-star', (t) => {
+test('plugin-declaration-imports-first: transform: export-star', (t) => {
     t.transform('export-star');
     t.end();
 });

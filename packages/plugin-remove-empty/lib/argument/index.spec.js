@@ -15,17 +15,17 @@ test('plugin-remove-empty: argument: report', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: no report: argument: object', (t) => {
+test('plugin-remove-empty: transform: argument: object', (t) => {
     t.transform('arg');
     t.end();
 });
 
-test('plugin-remove-empty: no report: argument: array', (t) => {
+test('plugin-remove-empty: transform: argument: array', (t) => {
     t.transform('array');
     t.end();
 });
 
-test('plugin-remove-empty: no report: argument: object-method', (t) => {
+test('plugin-remove-empty: transform: argument: object-method', (t) => {
     t.transform('object-method');
     t.end();
 });

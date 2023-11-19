@@ -34,3 +34,8 @@ test('plugin-putout: replace-test-message: transform: nested', (t) => {
     t.transform('nested');
     t.end();
 });
+
+test('plugin-putout: replace-test-message: transform: transform-instead-of-transform', (t) => {
+    t.transform('report-instead-of-transform');
+    t.end();
+});
