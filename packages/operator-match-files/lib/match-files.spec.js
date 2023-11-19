@@ -170,11 +170,11 @@ test('putout: operator: match-files: js', (t) => {
         }],
     });
     
-    const jsSource = toJS(source, __filesystem);
     const files = {
         '*.cjs': convertEsmToCommonjs,
     };
     
+    const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
     transform(ast, jsSource, {
