@@ -112,7 +112,7 @@ Since `basename` is used.
 >
 > (c) [nodejs.org](https://nodejs.org/api/path.html#pathbasenamepath-suffix)
 
-To move file use [`moveFile(file: FilePath, directory: FilePath)`](#movefilefilepath-filepath-dirpath-filepath);
+To move file use [`moveFile()`](#movefilefilepath-filepath-dirpath-filepath).
 
 ## Example
 
