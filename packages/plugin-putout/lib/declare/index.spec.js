@@ -355,3 +355,8 @@ test('plugin-putout: declare: transform: operator-json', (t) => {
     t.transform('operator-json');
     t.end();
 });
+
+test('plugin-putout: declare: transform: operator-filesystem', (t) => {
+    t.transform('operator-filesystem');
+    t.end();
+});

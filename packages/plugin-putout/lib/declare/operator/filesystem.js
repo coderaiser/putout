@@ -9,4 +9,5 @@ module.exports = {
     getParentDirectory: 'const {getParentDirectory} = operator',
     readFileContent: 'const {readFileContent} = operator',
     writeFileContent: 'const {writeFileContent} = operator',
+    getFilename: 'const {getFilename} = operator',
 };
