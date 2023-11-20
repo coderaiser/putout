@@ -41,6 +41,20 @@ Update `.putout.json` to enable rule:
 }
 ```
 
+For more sophisticated example, use `mask`:
+
+```json
+{
+    "rules": {
+        "filesystem/rename-file": ["on", {
+            "mask": "*.test.*",
+            "from": "test",
+            "to": "spec"
+        }]
+    }
+}
+```
+
 ### ❌ Example of incorrect code
 
 ```diff

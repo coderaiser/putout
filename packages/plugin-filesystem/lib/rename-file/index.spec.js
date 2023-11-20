@@ -30,3 +30,12 @@ test('packages: rename-file: transform', (t) => {
     });
     t.end();
 });
+
+test('packages: rename-file: transform: mask', (t) => {
+    t.transformWithOptions('mask', {
+        find: '*.test.*',
+        from: 'test',
+        to: 'spec',
+    });
+    t.end();
+});
