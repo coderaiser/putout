@@ -24,7 +24,7 @@ const {
 
 const [dirPath] = findFile(ast, 'hello');
 
-const newDiretoryPath = createDirectory(dirPath, 'world');
+const newDirectoryPath = createDirectory(dirPath, 'world');
 ```
 
 ## `findFile(path: Path, name: string): FilePath[]`

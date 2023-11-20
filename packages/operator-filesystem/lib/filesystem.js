@@ -81,6 +81,7 @@ module.exports.renameFile = (filePath, name) => {
     const newName = name
         .split('/')
         .pop();
+    
     const newFilename = oldName.replace(baseName, newName);
     
     setLiteralValue(valuePath, newFilename);
