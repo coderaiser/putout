@@ -41,6 +41,13 @@ Update `.putout.json` to enable rule:
 }
 ```
 
+It will make next modifications to filesystem:
+
+```diff
+-README.md
++readme.md
+```
+
 For more sophisticated example, use `mask`:
 
 ```json
@@ -55,18 +62,16 @@ For more sophisticated example, use `mask`:
 }
 ```
 
-### ❌ Example of incorrect code
+It will rename 'test' to 'spec' in `*.test.*` files:
 
 ```diff
--README.md
-+readme.md
+-index.test.js
++index.spec.js
 ```
 
 ## remove-vim-swap-file
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a495c6782ed8b512f37e757bafd02b08/5d0dc03f6be2653639bb22ea00c3ce91e8454940).
-
-### ❌ Example of incorrect code
 
 ```diff
 -readme.md.swap
@@ -76,8 +81,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a495c6782e
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ab52a74195eeb2f689e7284a1c987a03/d3a0e2ffac0bb33cc243004975d242d07d6d0bff).
 
-### ❌ Example of incorrect code
-
 ```diff
 -index.spec.js
 +index.test.js
@@ -86,8 +89,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ab52a74195
 ## rename-test-to-spec
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/28e4d3a847f0968401da67fff04fb784/1e3bfd4ddb241dd0de6c2402f49252af0806b719).
-
-### ❌ Example of incorrect code
 
 ```diff
 -index.test.js

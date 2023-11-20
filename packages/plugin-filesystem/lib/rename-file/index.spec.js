@@ -33,7 +33,7 @@ test('packages: rename-file: transform', (t) => {
 
 test('packages: rename-file: transform: mask', (t) => {
     t.transformWithOptions('mask', {
-        find: '*.test.*',
+        mask: '*.test.*',
         from: 'test',
         to: 'spec',
     });
