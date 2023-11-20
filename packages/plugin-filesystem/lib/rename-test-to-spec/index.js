@@ -2,13 +2,13 @@
 
 const {operator} = require('putout');
 const {
-    findFile,
     __filesystem,
+    findFile,
     renameFile,
     getFilename,
 } = operator;
 
-module.exports.report = () => `Rename '*.spec.*' to '.test.*'`;
+module.exports.report = () => `Rename '*.test.*' to '.spec.*'`;
 
 module.exports.fix = (path) => {
     const filename = getFilename(path);
