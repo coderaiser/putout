@@ -1,8 +1,3 @@
 {
-    "printer": "putout",
-    "match": {
-        "*.md{js}": {
-            "math": "off"
-        }
-    }
+    "printer": "putout"
 }

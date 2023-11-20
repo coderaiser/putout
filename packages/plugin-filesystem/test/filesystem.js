@@ -10,12 +10,17 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-filesystem: no report: rename-file', (t) => {
-    t.noReport('rename-file');
+test('plugin-filesystem: no report: rename-file: disabled', (t) => {
+    t.noReport('rename-file-disabled');
     t.end();
 });
 
 test('plugin-filesystem: transform: remove-vim-swap-file', (t) => {
     t.transform('remove-vim-swap-file');
+    t.end();
+});
+
+test('plugin-filesystem: no transform: rename-spec-to-test: disabled', (t) => {
+    t.noTransform('rename-spec-to-test-disabled');
     t.end();
 });
