@@ -18,7 +18,8 @@ npm i @putout/plugin-filesystem -D
     "rules": {
         "filesystem/remove-vim-swap-file": "on",
         "filesystem/rename-file": "off",
-        "filesystem/rename-spec-to-test": "off"
+        "filesystem/rename-spec-to-test": "off",
+        "filesystem/rename-test-to-spec": "off"
     }
 }
 ```
@@ -66,6 +67,17 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ab52a74195
 ```diff
 -index.spec.js
 +index.test.js
+```
+
+## rename-test-to-spec
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/28e4d3a847f0968401da67fff04fb784/1e3bfd4ddb241dd0de6c2402f49252af0806b719).
+
+### ❌ Example of incorrect code
+
+```diff
+-index.test.js
++index.spec.js
 ```
 
 ## License

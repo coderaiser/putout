@@ -24,3 +24,8 @@ test('plugin-filesystem: no transform: rename-spec-to-test: disabled', (t) => {
     t.noTransform('rename-spec-to-test-disabled');
     t.end();
 });
+
+test('plugin-filesystem: no transform: rename-test-to-spec: disabled', (t) => {
+    t.noTransform('rename-test-to-spec-disabled');
+    t.end();
+});
