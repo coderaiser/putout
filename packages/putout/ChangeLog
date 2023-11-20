@@ -1,3 +1,17 @@
+2023.11.20, v33.9.0
+
+fix:
+- fc9f6ca66 @putout/plugin-filesystem: rename-test-to-spec: report
+- 3c62be182 @putout/operator-match-files: rm useless @putout/printer
+
+feature:
+- 9eff5bae8 @putout/plugin-filesystem: rename-test-to-spec: add
+- 4a3638d02 putout: filesystem: enable only for '.filesystem.json'
+- 7f1805247 @putout/plugin-filesystem: rename-spec-to-test: add
+- 55e5a2740 @putout/plugin-putout: declare: getFilename: add
+- 18a153ff1 @putout/plugin-putout: add-push: referenced
+- 1d9f638b2 @putout/plugin-putout: replace-test-message: transform: add support of no replace
+
 2023.11.18, v33.8.1
 
 feature:
