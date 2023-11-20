@@ -31,6 +31,7 @@
             "remove-empty/import": "off"
         },
         ".filesystem.json": {
+            "filesystem": "on",
             "nodejs/cjs-file": "on",
             "nodejs/mjs-file": "on"
         },
@@ -153,7 +154,8 @@
         "tape": "off",
         "strict-mode": "off",
         "tape/convert-mock-require-to-mock-import": "off",
-        "browserlist": "off"
+        "browserlist": "off",
+        "filesystem": "off"
     },
     "plugins": [
         "apply-at",

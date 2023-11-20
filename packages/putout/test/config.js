@@ -112,6 +112,7 @@ test('putout: config: filesystem', (t) => {
     const expected = {
         'nodejs/cjs-file': 'on',
         'nodejs/mjs-file': 'on',
+        'filesystem': 'on',
     };
     
     t.deepEqual(result, expected);
