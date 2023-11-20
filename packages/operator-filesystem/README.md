@@ -13,7 +13,7 @@ npm i putout @putout/operator-filesystem
 
 ## API
 
-## `createDirectory(directoryPath: Path, name: string)`
+## `createDirectory(directoryPath: FilePath, name: string): FilePath`
 
 ```js
 const {operator} = require('putout');
@@ -24,10 +24,10 @@ const {
 
 const [dirPath] = findFile(ast, 'hello');
 
-createDirectory(dirPath, 'world'); // returns directoryPath
+const newDiretoryPath = createDirectory(dirPath, 'world');
 ```
 
-## `findFile(path: Path, name: string)`
+## `findFile(path: Path, name: string): FilePath[]`
 
 ```js
 const {operator} = require('putout');
@@ -36,7 +36,7 @@ const {finedFiles, findFile} = operator;
 const [filePath] = findFile(ast, 'hello');
 ```
 
-### `getFilename(path: Path)`
+### `getFilename(path: FilePath)`
 
 ```js
 const {operator} = require('putout');
@@ -54,7 +54,7 @@ const {removeFile} = operator;
 removeFile(filePath);
 ```
 
-### `moveFile(filePath: Path, dirPath: Path)`
+### `moveFile(filePath: FilePath, dirPath: FilePath)`
 
 ```js
 const {operator} = require('putout');
@@ -63,7 +63,7 @@ const {moveFile} = operator;
 moveFile(filePath, dirPath);
 ```
 
-### `readFileContent(filePath: Path)`
+### `readFileContent(filePath: FilePath)`
 
 ```js
 const {operator} = require('putout');
@@ -74,7 +74,7 @@ readFileContent(filePath);
 'hello';
 ```
 
-### `writeFileContent(filePath: Path, content: string)`
+### `writeFileContent(filePath: FilePath, content: string)`
 
 ```js
 const {operator} = require('putout');
@@ -89,7 +89,32 @@ readFileContent(filePath);
 'hello';
 ```
 
-### `renameFile(filePath: Path, name: string)`
+### `renameFile(filePath: FilePath, name: string)`
+
+```js
+const {operator} = require('putout');
+const {renameFile, findFile} = operator;
+
+const [filePath] = findFile(path, 'README.md');
+
+renameFile(filePath, 'readme.md');
+```
+
+this is the same as:
+
+```
+renameFile(filePath, '/any/path/here/readme.md');
+```
+
+Since `basename` is used.
+
+> The `path.basename()` method returns the last portion of a path, similar to the Unix basename command. Trailing directory separators are ignored.
+>
+> (c) [nodejs.org](https://nodejs.org/api/path.html#pathbasenamepath-suffix)
+
+To move file use [`moveFile(file: FilePath, directory: FilePath)`](#movefilefilepath-filepath-dirpath-filepath);
+
+## Example
 
 ```js
 const montag = require('montag');

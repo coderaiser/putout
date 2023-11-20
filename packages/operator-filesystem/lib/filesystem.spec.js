@@ -2,6 +2,7 @@
 
 const montag = require('montag');
 const {stub} = require('supertape');
+const {__filesystem_name} = require('@putout/operator-json');
 
 const {
     parse,
@@ -56,6 +57,36 @@ test('putout: operator: filesystem: renameFile', (t) => {
     const filePath = filenamePath.parentPath;
     
     renameFile(filePath, 'hello.js');
+    
+    const result = print(ast, {
+        printer: PRINTER,
+    });
+    
+    const expected = montag`
+        ${__filesystem_name}({
+            "type": "directory",
+            "filename": "/lib/lint/hello.js",
+            "files": []
+        });
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: renameFile: slash', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/lib/lint/json.js",
+            "files": []
+        });
+    `);
+    
+    const [filenamePath] = traverseProperties(ast, 'filename');
+    const filePath = filenamePath.parentPath;
+    
+    renameFile(filePath, '/hello/world/abc/hello.js');
     
     const result = print(ast, {
         printer: PRINTER,

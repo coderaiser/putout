@@ -78,10 +78,13 @@ module.exports.renameFile = (filePath, name) => {
         .split('/')
         .pop();
     
-    const newName = oldName.replace(baseName, name);
+    const newName = name
+        .split('/')
+        .pop();
+    const newFilename = oldName.replace(baseName, newName);
     
-    setLiteralValue(valuePath, newName);
-    maybeFS.renameFile(oldName, newName);
+    setLiteralValue(valuePath, newFilename);
+    maybeFS.renameFile(oldName, newFilename);
 };
 
 module.exports.removeFile = (filePath) => {
