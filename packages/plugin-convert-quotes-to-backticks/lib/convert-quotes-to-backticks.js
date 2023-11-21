@@ -29,6 +29,9 @@ module.exports.traverse = ({push}) => ({
     StringLiteral(path) {
         const {value} = path.node;
         
+        if (value.includes('${'))
+            return;
+        
         if (value.includes(`'`))
             push(path);
     },
