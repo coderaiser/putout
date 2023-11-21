@@ -38,9 +38,7 @@ npm i putout @putout/plugin-nodejs -D
 }
 ```
 
-## Rules
-
-### add-node-prefix
+## add-node-prefix
 
 > `Deno` supports using Node.js built-in modules such as `fs`, `path`, `process`, and many more via `node`: specifiers.
 >
@@ -48,19 +46,19 @@ npm i putout @putout/plugin-nodejs -D
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/534093e0bf0a4407796c08d62bcbcb92/766a1d608f155920b21aa1f53a8e33280a664309).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 import fs from 'fs';
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 import fs from 'node:fs';
 ```
 
-### convert-buffer-to-buffer-alloc
+## convert-buffer-to-buffer-alloc
 
 > The `Buffer()` function and `new Buffer()` constructor are **deprecated** due to API usability issues that can lead to accidental security issues.
 >
@@ -68,7 +66,7 @@ import fs from 'node:fs';
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/5379bcdfa3d76f7b7121c9671ae48375/2fc2c7f96fc8284788c00914a9b29bfeea8b13d4).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const n = 100;
@@ -82,7 +80,7 @@ new Buffer([]);
 new Buffer(buf);
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const n = 100;
@@ -96,42 +94,42 @@ Buffer.from([]);
 Buffer.from(buf);
 ```
 
-### convert-fs-promises
+## convert-fs-promises
 
 Convert [fs.promises](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api) into form that will be simpler to use and convert to and from **ESM**.
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const {readFile} = require('fs').promises;
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const {readFile} = require('fs/promises');
 ```
 
-### convert-promisify-to-fs-promises
+## convert-promisify-to-fs-promises
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const fs = require('fs');
 const readFile = promisify(fs.readFile);
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const {readFile} = require('fs/promises');
 ```
 
-### convert-dirname-to-url
+## convert-dirname-to-url
 
 Only for **ESM**.
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const {join} = require('path');
@@ -141,25 +139,25 @@ const file1 = join(__dirname, '../../package.json');
 const file2 = path.join(__dirname, '../../package.json');
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const file1 = new URL('../../package.json', import.meta.url);
 const file2 = new URL('../../package.json', import.meta.url);
 ```
 
-### convert-url-to-dirname
+## convert-url-to-dirname
 
 Only for **CommonJS**.
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const {readFile} = require('fs/promises');
 const file = new URL('../../package.json', import.meta.url);
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const {readFile} = require('fs/promises');
@@ -167,7 +165,7 @@ const {join} = require('path');
 const file = join(__dirname, '../../package.json');
 ```
 
-### remove-process-exit
+## remove-process-exit
 
 In most cases `process.exit()` is called from `bin` directory, if not - disable this rule using `match`.
 
@@ -175,38 +173,38 @@ In most cases `process.exit()` is called from `bin` directory, if not - disable 
 -process.exit();
 ```
 
-### convert-exports-to-module-exports
+## convert-exports-to-module-exports
 
 Since `exports = 5` wan't make any export, just change value of variable.
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8b2af2c4ad005ed1c77cde41377caaad/dfdccc794037d7f67bde1e7d7244bf5f14abebce).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 exports.x = 5;
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 module.exports.x = 5;
 ```
 
-### convert-top-level-return
+## convert-top-level-return
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 return;
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 process.exit();
 ```
 
-### declare
+## declare
 
 Add declarations to built-in node.js modules:
 
@@ -224,13 +222,13 @@ Add declarations to built-in node.js modules:
 
 Based on [`@putout/operator-declare`](https://github.com/coderaiser/putout/tree/master/packages/operator-declare#putoutoperator-declare-).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 await readFile('hello.txt', 'utf8');
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 import {readFile} from 'fs/promises';
@@ -250,7 +248,7 @@ When you want to skip some declaration use `dismiss`:
 }
 ```
 
-### declare-after-require
+## declare-after-require
 
 > **Node.js** follows the **CommonJS** module system, and the builtin `require` function is the easiest way to include modules that exist in separate files. The basic functionality of `require` is that it reads a JavaScript file, executes the file, and then proceeds to return the `exports` object.
 >
@@ -258,21 +256,21 @@ When you want to skip some declaration use `dismiss`:
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/https://putout.cloudcmd.io/#/gist/ddf5731ae829beec4d3018d4d9ac2150/342738b63337bfa9b4fc08c5b301483ea2b5ba9c).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const name = 'hello.txt';
 const {readFile} = require('fs/promises');
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const {readFile} = require('fs/promises');
 const name = 'hello.txt';
 ```
 
-### convert-commonjs-to-esm
+## convert-commonjs-to-esm
 
 Convert **CommonJS** **EcmaScript Modules**.
 
@@ -280,9 +278,9 @@ Convert **CommonJS** **EcmaScript Modules**.
 >
 > (c) [parceljs](https://parceljs.org/languages/javascript/)
 
-#### require
+### require
 
-##### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const {join} = require('path');
@@ -292,7 +290,7 @@ const args = require('minimist')({
 });
 ```
 
-##### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 import {join} from 'path';
@@ -303,23 +301,23 @@ const args = minimist({
 });
 ```
 
-#### exports
+### exports
 
-##### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 module.exports = () => {};
 ```
 
-##### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 export default () => {};
 ```
 
-#### Commons
+### Commons
 
-##### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const {readFile} = require('fs/promises');
@@ -327,7 +325,7 @@ const {readFile} = require('fs/promises');
 await readFile(__filename);
 ```
 
-##### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 import {readFile} from 'fs/promises';
@@ -337,7 +335,7 @@ const __filename = fileURLToPath(import.meta.url);
 await readFile(__filename);
 ```
 
-### convert-esm-to-commonjs
+## convert-esm-to-commonjs
 
 > **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
 >
@@ -345,25 +343,25 @@ await readFile(__filename);
 
 Convert **EcmaScript Modules** to **CommonJS**.
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 import hello from 'world';
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const hello = require('world');
 ```
 
-### cjs-file
+## cjs-file
 
 Run [convert-esm-to-commonjs](#convert-esm-to-commonjs) for all `*.cjs` files with help of [redlint](https://github.com/putoutjs/redlint).
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af59afc2d3da082088fd4c/d0b85b07c6aaf2b902a1c7eb7ae121dbcd181033).
 
-### mjs-file
+## mjs-file
 
 Run [convert-commonjs-to-esm](#convert-commonjs-to-esm) for all `*.cjs` files with help of [redlint](https://github.com/putoutjs/redlint).
 
