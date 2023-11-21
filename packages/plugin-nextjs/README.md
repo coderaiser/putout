@@ -165,7 +165,7 @@ The rule disabled by default. To enable use [`update-tsconfig-file`](#update-tsc
 
 ## update-tsconfig-file
 
-Enables `update-tsconfig` for `tsconfig.json` without using `match`.
+Enables [`update-tsconfig`](#update-tsconfig) for [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) without using [`match`](https://github.com/coderaiser/putout/tree/v33.9.2#match).
 
 Run [`redlint`](https://github.com/putoutjs/redlint#readme) to generate `.filesystem.json` and then lint.
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/9ee63542b7a7d70fce8e0739524e5301/74139f2bd98e29dea40c99708f509976201ffb4f).
