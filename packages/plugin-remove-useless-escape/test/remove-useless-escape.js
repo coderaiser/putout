@@ -105,6 +105,11 @@ test('plugin-remove-useless-escape: transform: coma', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: transform: dollar', (t) => {
+    t.transform('dollar');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: no transform: no raw', (t) => {
     t.transform('no-raw', {
         addFixLint,
