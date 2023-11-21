@@ -98,7 +98,7 @@
     "@putout/plugin-convert-object-assign-to-merge-spread": "^6.0.0",
     "@putout/plugin-convert-object-entries-to-array-entries": "^3.0.0",
     "@putout/plugin-convert-optional-to-logical": "^3.0.0",
-    "@putout/plugin-convert-quotes-to-backticks": "^2.0.0",
+    "@putout/plugin-convert-quotes-to-backticks": "^3.0.0",
     "@putout/plugin-convert-template-to-string": "^1.0.0",
     "@putout/plugin-convert-to-arrow-function": "^4.0.0",
     "@putout/plugin-declare": "^2.0.0",
