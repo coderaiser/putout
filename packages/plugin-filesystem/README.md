@@ -19,7 +19,8 @@ npm i @putout/plugin-filesystem -D
         "filesystem/remove-vim-swap-file": "on",
         "filesystem/rename-file": "off",
         "filesystem/rename-spec-to-test": "off",
-        "filesystem/rename-test-to-spec": "off"
+        "filesystem/rename-test-to-spec": "off",
+        "filesystem/rename-referenced-file": "off"
     }
 }
 ```
@@ -93,6 +94,52 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/28e4d3a847
 ```diff
 -index.test.js
 +index.spec.js
+```
+
+## rename-referenced-file
+
+Update `.putout.json` to enable rule:
+
+```json
+{
+    "rules": {
+        "filesystem/rename-referenced-file": ["on", {
+            "from": "hello.js",
+            "to": "world.js"
+        }]
+    }
+}
+```
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/688ef036984ed06a6b2ba349fdb84409/5597aa2b224d572b9204288f986ed06226a7c541).
+
+Before:
+
+```js
+// hello.spec.js
+import hello from './hello.js';
+```
+
+```js
+// hello.js
+export const hello = 'world';
+```
+
+After:
+
+```diff
+-hello.js
++world.js
+```
+
+```js
+// hello.spec.js
+import hello from './world.js';
+```
+
+```js
+// world.js
+export const hello = 'world';
 ```
 
 ## License
