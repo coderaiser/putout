@@ -13,7 +13,7 @@ npm i @putout/processor-filesystem -D
 
 ## Usage
 
-```filesystem
+```json
 {
     "processors": ["filesystem"]
 }
