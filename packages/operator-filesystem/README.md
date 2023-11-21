@@ -45,7 +45,7 @@ const {findFile} = operator;
 const coupleFiles = findFile(ast, ['*.js', '*.ts']);
 ```
 
-### `getFilename(path: FilePath)`
+### `getFilename(path: FilePath): string`
 
 ```js
 const {operator} = require('putout');
@@ -72,7 +72,7 @@ const {moveFile} = operator;
 moveFile(filePath, dirPath);
 ```
 
-### `readFileContent(filePath: FilePath)`
+### `readFileContent(filePath: FilePath): string`
 
 ```js
 const {operator} = require('putout');
