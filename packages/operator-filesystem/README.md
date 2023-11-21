@@ -27,13 +27,22 @@ const [dirPath] = findFile(ast, 'hello');
 const newDirectoryPath = createDirectory(dirPath, 'world');
 ```
 
-## `findFile(path: Path, name: string): FilePath[]`
+## `findFile(path: Path, name: string | string[]): FilePath[]`
 
 ```js
 const {operator} = require('putout');
 const {finedFiles, findFile} = operator;
 
 const [filePath] = findFile(ast, 'hello');
+```
+
+You can also pass array of file masks:
+
+```js
+import {operator} from 'putout';
+
+const {findFile} = operator;
+const coupleFiles = findFile(ast, ['*.js', '*.ts']);
 ```
 
 ### `getFilename(path: FilePath)`

@@ -10,6 +10,8 @@ const {
 } = require('@putout/operate');
 
 const maybeFS = require('./maybe-fs');
+const {isArray} = Array;
+const maybeArray = (a) => isArray(a) ? a : [a];
 
 const {
     ObjectExpression,
@@ -39,12 +41,15 @@ module.exports.getParentDirectory = (filePath) => {
 
 module.exports.findFile = (node, name) => {
     const filePaths = [];
+    const names = maybeArray(name);
     
     for (const filenamePath of traverseProperties(node, 'filename')) {
         const {value} = filenamePath.node.value;
         
-        if (value === name || getRegExp(name).test(value))
-            filePaths.push(filenamePath.parentPath);
+        for (const name of names) {
+            if (value === name || getRegExp(name).test(value))
+                filePaths.push(filenamePath.parentPath);
+        }
     }
     
     return filePaths;

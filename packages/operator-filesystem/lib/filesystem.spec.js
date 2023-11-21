@@ -538,3 +538,24 @@ test('putout: operator: filesystem: writeFileContent: field exists: base64', (t)
     t.equalFilesystems(ast, expected);
     t.end();
 });
+
+test('putout: operator: filesystem: getFile: couple', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/index.ts',
+            content: '',
+        }, {
+            type: 'file',
+            filename: '/hello/world/index.js',
+            content: '',
+        }],
+    });
+    
+    const files = findFile(ast, ['*.js', '*.ts']);
+    
+    t.equal(files.length, 2);
+    t.end();
+});
