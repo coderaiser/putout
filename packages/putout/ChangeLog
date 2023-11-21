@@ -1,3 +1,14 @@
+2023.11.21, v33.9.1
+
+feature:
+- a9bd7f13b putout: @putout/plugin-convert-quotes-to-backticks v3.0.0
+- a66edf428 @putout/plugin-convert-quotes-to-backtics: drop support of 🐊 < 33
+- 1ea125b4c @putout/plugin-convert-quotes-to-backticks: exclude template variables
+- 290d901fc @putout/operator-filesystem: findFile: couple masks
+- d56d88fe1 @putout/plugin-filesystem: move out renameFileByMask
+- 5ec1f7a73 @putout/plugin-filesystem: rename-file: add mask
+- 60ac0ac18 @putout/operator-filesystem: renameFile: handle slashes
+
 2023.11.20, v33.9.0
 
 fix:
