@@ -1,3 +1,10 @@
+2023.11.21, v33.9.2
+
+feature:
+- 3421c4a80 putout: @putout/plugin-remove-useless-escape v4.0.0
+- 6ac8df500 @putout/plugin-remove-useless-escape: drop support of 🐊 < 33
+- 975b22a09 @putout/plugin-remove-useless-escape: $, {
+
 2023.11.21, v33.9.1
 
 feature:
