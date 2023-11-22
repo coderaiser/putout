@@ -142,7 +142,7 @@ module.exports.copyFile = (filePath, dirPath) => {
     
     const newFilename = `${dirname}/${basename}`;
     
-    const copyiedFile = ObjectExpression([
+    const copiedFile = ObjectExpression([
         createType('file'),
         createFilename(newFilename),
     ]);
@@ -150,7 +150,7 @@ module.exports.copyFile = (filePath, dirPath) => {
     const [is] = getFile(dirPathFiles, newFilename);
     
     if (!is)
-        dirPathFiles.node.value.elements.push(copyiedFile);
+        dirPathFiles.node.value.elements.push(copiedFile);
     
     maybeFS.copyFile(filename, newFilename);
 };
