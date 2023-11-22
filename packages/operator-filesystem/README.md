@@ -13,7 +13,7 @@ npm i putout @putout/operator-filesystem
 
 ## API
 
-## `createDirectory(directoryPath: FilePath, name: string): FilePath`
+### `createDirectory(directoryPath: FilePath, name: string): FilePath`
 
 ```js
 const {operator} = require('putout');
@@ -27,7 +27,7 @@ const [dirPath] = findFile(ast, 'hello');
 const newDirectoryPath = createDirectory(dirPath, 'world');
 ```
 
-## `findFile(path: Path, name: string | string[]): FilePath[]`
+### `findFile(path: Path, name: string | string[]): FilePath[]`
 
 ```js
 const {operator} = require('putout');
@@ -70,6 +70,15 @@ const {operator} = require('putout');
 const {removeFile} = operator;
 
 removeFile(filePath);
+```
+
+### `copyFile(filePath: FilePath, dirPath: FilePath)`
+
+```js
+const {operator} = require('putout');
+const {moveFile} = operator;
+
+copyFile(filePath, dirPath);
 ```
 
 ### `moveFile(filePath: FilePath, dirPath: FilePath)`

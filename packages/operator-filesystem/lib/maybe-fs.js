@@ -10,6 +10,7 @@ const defaultFS = {
     createDirectory: noop,
     readFileContent: returns(''),
     writeFileContent: noop,
+    copyFile: noop,
 };
 
 const maybeFS = assign({}, defaultFS);
@@ -20,6 +21,10 @@ module.exports.renameFile = (oldName, newName) => {
 
 module.exports.removeFile = (name) => {
     maybeFS.removeFile(name);
+};
+
+module.exports.copyFile = (from, to) => {
+    maybeFS.copyFile(from, to);
 };
 
 module.exports.createDirectory = (name) => {

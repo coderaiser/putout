@@ -119,6 +119,27 @@ module.exports.moveFile = (filePath, dirPath) => {
     maybeFS.renameFile(filename, newname);
 };
 
+module.exports.copyFile = (filePath, dirPath) => {
+    const dirname = getFilename(dirPath);
+    const filename = getFilename(filePath);
+    const dirPathFiles = getProperty(dirPath, 'files');
+    
+    const basename = filename
+        .split('/')
+        .pop();
+    
+    const newname = `${dirname}/${basename}`;
+    
+    const copyiedFile = ObjectExpression([
+        createType('file'),
+        createFilename(newname),
+    ]);
+    
+    dirPathFiles.node.value.elements.push(copyiedFile);
+    
+    maybeFS.copyFile(filename, newname);
+};
+
 const createType = (type) => ObjectProperty(StringLiteral('type'), StringLiteral(type));
 const createFiles = (files) => ObjectProperty(StringLiteral('files'), ArrayExpression(files));
 const createFilename = (filename) => ObjectProperty(StringLiteral('filename'), StringLiteral(filename));

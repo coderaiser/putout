@@ -13,6 +13,7 @@ const {
 const {
     renameFile,
     removeFile,
+    copyFile,
     moveFile,
     findFile,
     getFilename,
@@ -282,6 +283,46 @@ test('putout: operator: filesystem: moveFile', (t) => {
             type: 'directory',
             filename: '/hello/world/abc/xyz',
             files: [],
+        }, {
+            type: 'file',
+            filename: '/hello/world/abc/README.md',
+        }],
+    });
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: copyFile', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world/abc',
+        files: [{
+            type: 'directory',
+            filename: '/hello/world/abc/xyz',
+            files: [{
+                type: 'file',
+                filename: '/hello/world/abc/xyz/README.md',
+            }],
+        }],
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    const [dirPath] = findFile(ast, 'abc');
+    
+    copyFile(filePath, dirPath);
+    
+    const result = printFilesystem(ast);
+    const expected = formatFilesystem({
+        type: 'directory',
+        filename: '/hello/world/abc',
+        files: [{
+            type: 'directory',
+            filename: '/hello/world/abc/xyz',
+            files: [{
+                type: 'file',
+                filename: '/hello/world/abc/xyz/README.md',
+            }],
         }, {
             type: 'file',
             filename: '/hello/world/abc/README.md',
