@@ -19,7 +19,9 @@ const {
 
 module.exports.report = ({from, to}) => `Rename '${from}' to '${to}'`;
 
-module.exports.fix = ({from, to, path, ast, content}) => {
+module.exports.fix = ({from, to, path, ast, content, mainFile}) => {
+    renameFile(mainFile, to);
+    
     transform(ast, content, {
         rules: {
             'get-imports': ['on', {
@@ -45,8 +47,6 @@ module.exports.traverse = ({push}) => ({
         if (!mainFile)
             return;
         
-        renameFile(mainFile, to);
-        
         for (const file of findFile(path, '*.js')) {
             if (file === mainFile)
                 continue;
@@ -55,6 +55,7 @@ module.exports.traverse = ({push}) => ({
             const ast = parse(content);
             
             push({
+                mainFile,
                 from,
                 to,
                 path: file,
