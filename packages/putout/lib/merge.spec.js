@@ -22,3 +22,39 @@ test('putout: merge', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: merge: ignore', (t) => {
+    const defaultConfig = {
+        plugins: ['remove-unused-variables'],
+    };
+    
+    const result = merge(defaultConfig, {
+        ignore: [
+            '**/coverage',
+            '!**/coverage',
+        ],
+    });
+    
+    const expected = {
+        plugins: ['remove-unused-variables'],
+        ignore: [],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: merge: rules', (t) => {
+    const options = {
+        rules: {
+            'filesystem/remove-files': ['on', {
+                names: ['*.md'],
+            }],
+        },
+    };
+    
+    const result = merge({}, options);
+    
+    t.deepEqual(result, options);
+    t.end();
+});
