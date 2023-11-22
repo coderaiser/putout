@@ -20,7 +20,8 @@ npm i @putout/plugin-filesystem -D
         "filesystem/rename-file": "off",
         "filesystem/rename-spec-to-test": "off",
         "filesystem/rename-test-to-spec": "off",
-        "filesystem/rename-referenced-file": "off"
+        "filesystem/rename-referenced-file": "off",
+        "filesystem/move-referenced-file": "off"
     }
 }
 ```
@@ -139,6 +140,70 @@ import hello from './world.js';
 
 ```js
 // world.js
+export const hello = 'world';
+```
+
+## move-referenced-file
+
+Update `.putout.json` to enable rule:
+
+```json
+{
+    "rules": {
+        "filesystem/move-referenced-file": ["on", {
+            "name": "hello.js",
+            "directory": "lib"
+        }]
+    }
+}
+```
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/02d0fefd171f6552c611dc6c11d0bbec/2b530c289e16e3fae375d44ce69ab3f8143e092e).
+
+Before:
+
+```
+/
+|-- test/
+|  `-- hello.spec.js
+|-- src/
+|   `-- hello.js
+`-- lib/
+```
+
+```js
+// test/hello.spec.js
+import hello from '../src/hello.js';
+```
+
+```js
+// src/hello.js
+export const hello = 'world';
+```
+
+After:
+
+```
+/
+|-- test/
+|   `-- hello.spec.js
+|-- src/
+`-- lib/
+    `-- hello.js
+```
+
+```diff
+-src/hello.js
++lib/hello.js
+```
+
+```js
+// test/hello.spec.js
+import hello from '../lib/hello.js';
+```
+
+```js
+// lib/hello.js
 export const hello = 'world';
 ```
 
