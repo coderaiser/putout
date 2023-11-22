@@ -45,6 +45,15 @@ const {findFile} = operator;
 const coupleFiles = findFile(ast, ['*.js', '*.ts']);
 ```
 
+And even search for a directory:
+
+```js
+import {operator} from 'putout';
+
+const {findFile} = operator;
+const coupleFiles = findFile(ast, ['/home/coderaiser', '/home/coderaiser/putout']);
+```
+
 ### `getFilename(path: FilePath): string`
 
 ```js

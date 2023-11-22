@@ -559,3 +559,23 @@ test('putout: operator: filesystem: getFile: couple', (t) => {
     t.equal(files.length, 2);
     t.end();
 });
+
+test('putout: operator: filesystem: findFile: directory', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello',
+        files: [{
+            type: 'directory',
+            filename: '/hello/world',
+            files: [],
+        }, {
+            type: 'file',
+            filename: '/hello/world.txt',
+        }],
+    });
+    
+    const files = findFile(ast, ['/hello', '/hello/world']);
+    
+    t.equal(files.length, 2);
+    t.end();
+});
