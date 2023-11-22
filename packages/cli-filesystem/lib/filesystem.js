@@ -13,7 +13,9 @@ module.exports.renameFile = (from, to, {renameSync = renameSyncOriginal} = {}) =
 };
 
 module.exports.removeFile = (filename, {rmSync = rmSyncOriginal} = {}) => {
-    rmSync(filename);
+    rmSync(filename, {
+        recursive: true,
+    });
 };
 
 module.exports.createDirectory = (name, {mkdirSync = mkdirSyncOriginal} = {}) => {
