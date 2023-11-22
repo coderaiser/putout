@@ -1,3 +1,17 @@
+2023.11.22, v33.10.0
+
+fix:
+- 86be2a3bb @putout/plugin-filesystem: options
+
+feature:
+- 8a4ddc626 @putout/cli-filesystem: removeFile: recursive
+- 4a83bb83f putout: ignore: add ability to merge negated (kaelzhang/node-ignore#107)
+- 340736186 @putout/plugin-filesystem: remove-files: add
+- 725f8517e @putout/plugin-filesystem: move-referenced-file: add
+- fb3cd2399 @putout/plugin-putout: replace-test-message: improve report/noTransform handling
+- 1d5a722ab @putout/plugin-filesystem: rename-referenced-file: move renameFile to fix
+- a322f2582 @putout/plugin-filesystem: rename-referenced-file: add
+
 2023.11.21, v33.9.2
 
 feature:
