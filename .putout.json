@@ -29,10 +29,14 @@
         "github/convert-npm-to-bun": "off",
         "remove-useless-spread/object": ["on", {
             "exclude": "module.exports.rules = __"
+        }],
+        "filesystem/remove-files": ["on", {
+            "names": ["coverage"]
         }]
     },
     "ignore": [
         "docs",
-        ".husky"
+        ".husky",
+        "!**/coverage"
     ]
 }
