@@ -76,7 +76,7 @@ removeFile(filePath);
 
 ```js
 const {operator} = require('putout');
-const {moveFile} = operator;
+const {moveFile, copyFile} = operator;
 
 copyFile(filePath, dirPath);
 ```
