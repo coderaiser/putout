@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-promises: transform: report', (t) => {
+test('plugin-promises: report', (t) => {
     t.report('await', `Call async functions using 'await'`);
     t.end();
 });

@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-flat-map: transform: report', (t) => {
+test('plugin-apply-flat-map: report', (t) => {
     t.report('map', `Use '.flatMap()' instead of '.map().flat()'`);
     t.end();
 });

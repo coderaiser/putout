@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-commonjs-to-esm: exports: transform: report', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: report', (t) => {
     t.report('exports', `Use 'ESM' instead of 'CommonJS'`);
     t.end();
 });

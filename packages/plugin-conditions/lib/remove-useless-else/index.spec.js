@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-else: transform: report', (t) => {
+test('plugin-remove-useless-else: report', (t) => {
     t.report('else', `Avoid useless 'else'`);
     t.end();
 });

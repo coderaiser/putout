@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-conditions: apply-comparison-order: transform: report', (t) => {
+test('plugin-conditions: apply-comparison-order: report', (t) => {
     t.report('order', `Swap '[]' with 'a'`);
     t.end();
 });

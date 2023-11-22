@@ -35,7 +35,7 @@ test('plugin-putout: check-replace-code: report: computed: not found', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: no report: computed invalid', (t) => {
+test('plugin-putout: check-replace-code: report: computed invalid', (t) => {
     t.report('computed-invalid', `Replace key cannot be computed: 'NOT_OBJECT_EXPRESSION.boolean'`);
     t.end();
 });

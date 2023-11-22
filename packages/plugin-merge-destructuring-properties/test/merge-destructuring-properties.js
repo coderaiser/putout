@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
     'merge-destructuring-properties': mergeDestructuringProperties,
 });
 
-test('plugin-merge-destructuring-properties: transform: report', (t) => {
+test('plugin-merge-destructuring-properties: report', (t) => {
     t.report('object', 'Object properties should be merged when destructuring');
     t.end();
 });

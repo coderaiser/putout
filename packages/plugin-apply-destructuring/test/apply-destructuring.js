@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-destructuring: transform: report', (t) => {
+test('plugin-apply-destructuring: report: object', (t) => {
     t.report('object', 'Use object destructuring');
     t.end();
 });

@@ -19,6 +19,6 @@ test('plugin-putout: rename-operate-to-operator: no report: operator exist', (t)
 });
 
 test('plugin-putout: rename-operate-to-operator: report: operator exist', (t) => {
-    t.report('operator');
+    t.report('operator', 'x');
     t.end();
 });

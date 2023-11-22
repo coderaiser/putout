@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('rule: remove-args: transform', (t) => {
+test('rule: remove-args: report', (t) => {
     t.report('remove-args', 'Remove useless argument');
     t.end();
 });

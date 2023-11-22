@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-apply-filter-boolean: transform: report', (t) => {
+test('plugin-apply-filter-boolean: report', (t) => {
     t.report('array', 'Use Boolean constructor');
     t.end();
 });

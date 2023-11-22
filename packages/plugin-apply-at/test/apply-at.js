@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-at: transform: report', (t) => {
+test('plugin-apply-at: report', (t) => {
     t.report('array', `Use 'Array.at()'`);
     t.end();
 });

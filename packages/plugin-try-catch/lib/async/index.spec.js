@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-try-catch: try-to-catch: transform: report', (t) => {
+test('plugin-apply-try-catch: try-to-catch: report', (t) => {
     t.report('try-to-catch', `Use 'await tryToCatch()' instead of 'await' in 'try-catch' block`);
     t.end();
 });

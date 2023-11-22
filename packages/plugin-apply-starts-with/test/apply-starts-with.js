@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-starts-with: transform: report', (t) => {
+test('plugin-apply-starts-with: report', (t) => {
     t.report('apply-starts-with', `Use '.startsWith()' instead of '.indexOf()'`);
     t.end();
 });

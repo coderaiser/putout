@@ -7,7 +7,7 @@ const test = createTest(__dirname, {
     'merge-if-statements': mergeIfStatements,
 });
 
-test('plugin-merge-if-statements: transform: report', (t) => {
+test('plugin-merge-if-statements: report', (t) => {
     t.report('if', `Merge 'if' statements`);
     t.end();
 });

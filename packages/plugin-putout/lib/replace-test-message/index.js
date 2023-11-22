@@ -16,17 +16,17 @@ module.exports.fix = ({path, incorrect, correct}) => {
 module.exports.traverse = ({push}) => ({
     't.transform(__a)': convert({
         push,
-        incorrect: /: (no transform|(no )?report)/,
+        incorrect: /: (no transform|report|no report)/,
         correct: ': transform',
     }),
     't.noTransform(__a)': convert({
         push,
-        incorrect: /: transform/,
+        incorrect: /: (transform|report|no report)/,
         correct: ': no transform',
     }),
-    't.report(__a)': convert({
+    't.report(__a, __b)': convert({
         push,
-        incorrect: /: no report/,
+        incorrect: /: (no report|transform|no transform)/,
         correct: ': report',
     }),
     't.noReport(__a)': convert({

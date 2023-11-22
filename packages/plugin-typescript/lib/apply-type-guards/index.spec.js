@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-guards: transform: report', (t) => {
+test('plugin-apply-guards: report', (t) => {
     t.report('apply-type-guards', `Use 'type guards'`);
     t.end();
 });

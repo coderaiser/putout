@@ -40,7 +40,7 @@ test('madrun: add function: transform: export-default', (t) => {
     t.end();
 });
 
-test('madrun: add function: transform: identifier', (t) => {
+test('madrun: add function: report: identifier', (t) => {
     t.report('identifier', 'function should be used instead of string in script "build');
     t.end();
 });

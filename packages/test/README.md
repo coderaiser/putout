@@ -398,7 +398,7 @@ test('test: eslint: transform', (t) => {
 ### `report(filename, message | []messages)`
 
 ```js
-test('test: eslint: transform', (t) => {
+test('test: eslint: report', (t) => {
     t.report('remove-debugger', `Avoid 'debugger' statement`);
     t.end();
 });

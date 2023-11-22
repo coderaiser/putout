@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-utility-types: transform: report: mapped-types', (t) => {
+test('plugin-apply-utility-types: report: mapped-types', (t) => {
     t.report('mapped-types', 'Utility types should be applied');
     t.end();
 });

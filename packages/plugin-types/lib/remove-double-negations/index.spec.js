@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-types: remove-double-negations: transform: report', (t) => {
+test('plugin-types: remove-double-negations: report: if', (t) => {
     t.report('if', `Avoid double negations in conditions`);
     t.end();
 });

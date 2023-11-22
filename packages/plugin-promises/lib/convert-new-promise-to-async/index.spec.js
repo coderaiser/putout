@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-promises: convert-new-promise-to-async: exports: transform: report', (t) => {
+test('plugin-promises: convert-new-promise-to-async: exports: report', (t) => {
     t.report('new-promise', `Async functions should be used instead of 'new Promise()'`);
     t.end();
 });

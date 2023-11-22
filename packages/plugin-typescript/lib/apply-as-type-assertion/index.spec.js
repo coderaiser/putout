@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-as-type-assertiong: transform: report', (t) => {
+test('plugin-apply-as-type-assertiong: report', (t) => {
     t.report('assertion', '"as" should be used for type assertions');
     t.end();
 });

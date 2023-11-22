@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-is-array: transform: report', (t) => {
+test('plugin-apply-is-array: report: instanceof', (t) => {
     t.report('instanceof', `Use 'Array.isArray()' instead of 'instanceof'`);
     t.end();
 });

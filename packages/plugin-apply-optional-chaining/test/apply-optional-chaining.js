@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-optional-chaining: transform: report', (t) => {
+test('plugin-apply-optional-chaining: report', (t) => {
     t.report('chain', 'Use optional chaining');
     t.end();
 });

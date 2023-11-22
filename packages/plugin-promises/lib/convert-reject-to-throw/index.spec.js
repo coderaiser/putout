@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-promises: convert-reject-to-throw: transform: report', (t) => {
+test('plugin-promises: convert-reject-to-throw: report', (t) => {
     t.report('reject', 'Reject is useless in async functions, use throw instead');
     t.end();
 });

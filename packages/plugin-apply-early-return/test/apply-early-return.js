@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-early-return: transform: report', (t) => {
+test('plugin-apply-early-return: report', (t) => {
     t.report('else', 'Apply early return');
     t.end();
 });

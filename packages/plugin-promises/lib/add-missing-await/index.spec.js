@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-add-missing-await: exports: transform: report', (t) => {
+test('plugin-add-missing-await: exports: report', (t) => {
     t.report('async', `Call async functions using 'await'`);
     t.end();
 });

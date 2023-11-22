@@ -35,6 +35,16 @@ test('plugin-putout: replace-test-message: transform: nested', (t) => {
     t.end();
 });
 
+test('plugin-putout: replace-test-message: transform: no-transform', (t) => {
+    t.transform('no-transform');
+    t.end();
+});
+
+test('plugin-putout: replace-test-message: transform: apply-report', (t) => {
+    t.transform('apply-report');
+    t.end();
+});
+
 test('plugin-putout: replace-test-message: transform: transform-instead-of-transform', (t) => {
     t.transform('report-instead-of-transform');
     t.end();

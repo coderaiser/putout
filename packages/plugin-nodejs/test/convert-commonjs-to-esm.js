@@ -16,7 +16,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-nodejs: convert-commonjs-to-esm: transform: report', (t) => {
+test('plugin-nodejs: convert-commonjs-to-esm: report', (t) => {
     t.report('convert-commonjs-to-esm-exports', `Use 'ESM' instead of 'CommonJS'`);
     t.end();
 });

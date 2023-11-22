@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-montag: transform: report', (t) => {
+test('plugin-apply-montag: report', (t) => {
     t.report('montag', `Apply 'montag' instead of [''].join()`);
     t.end();
 });

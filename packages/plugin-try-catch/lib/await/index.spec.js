@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-await: await: transform: report', (t) => {
+test('plugin-apply-await: await: report', (t) => {
     t.report('await', `Use await with 'tryToCatch'`);
     t.end();
 });

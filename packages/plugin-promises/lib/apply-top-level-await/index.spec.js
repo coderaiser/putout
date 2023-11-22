@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-promises: apply-top-level-await: transform: report', (t) => {
+test('plugin-promises: apply-top-level-await: report', (t) => {
     t.report('esm', `Use top level 'await'`);
     t.end();
 });

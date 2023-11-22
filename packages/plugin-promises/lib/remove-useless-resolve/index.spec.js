@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-resolve: exports: transform: report', (t) => {
+test('plugin-remove-useless-resolve: exports: report', (t) => {
     t.report('resolve', `'resolve()' is useless in 'async' functions, use 'return' instead`);
     t.end();
 });

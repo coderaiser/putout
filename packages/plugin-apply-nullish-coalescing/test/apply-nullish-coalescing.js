@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-apply-nullish-coalescing: transform: report', (t) => {
+test('plugin-apply-nullish-coalescing: report', (t) => {
     t.report('null', 'Nullish coalescing should be used');
     t.end();
 });
