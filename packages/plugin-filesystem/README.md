@@ -97,12 +97,12 @@ Update `.putout.json` to enable rule:
 It will make next modifications to filesystem:
 
 ```diff
-/
-|-- test/
-|   `-- hello.spec.js
+ /
+ |-- test/
+ |   `-- hello.spec.js
 -|-- coverage/
-`-- lib/
-    `-- hello.js
+ `-- lib/
+     `-- hello.js
 ```
 
 ## rename-spec-to-test
