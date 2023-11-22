@@ -2016,6 +2016,7 @@ It has a lot plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-filesystem`](/packages/plugin-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-filesystem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-filesystem) |
 | [`@putout/plugin-for-of`](/packages/plugin-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-for-of) |
 | [`@putout/plugin-conditions`](/packages/plugin-conditions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-conditions) |
 | [`@putout/plugin-types`](/packages/plugin-types#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-types) |
