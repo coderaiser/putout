@@ -39,3 +39,8 @@ test('plugin-filesystem: no transform: move-referenced-file: disabled', (t) => {
     t.noTransform('move-referenced-file-disabled');
     t.end();
 });
+
+test('plugin-filesystem: no transform: remove-files: disabled', (t) => {
+    t.noTransform('remove-files-disabled');
+    t.end();
+});

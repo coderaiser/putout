@@ -18,6 +18,7 @@ npm i @putout/plugin-filesystem -D
     "rules": {
         "filesystem/remove-vim-swap-file": "on",
         "filesystem/rename-file": "off",
+        "filesystem/remove-files": "off",
         "filesystem/rename-spec-to-test": "off",
         "filesystem/rename-test-to-spec": "off",
         "filesystem/rename-referenced-file": "off",
@@ -77,6 +78,31 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a495c6782e
 
 ```diff
 -readme.md.swap
+```
+
+## remove-files
+
+Update `.putout.json` to enable rule:
+
+```json
+{
+    "rules": {
+        "filesystem/remove-files": ["on", {
+            "names": ["coverage"]
+        }]
+    }
+}
+```
+
+It will make next modifications to filesystem:
+
+```diff
+/
+|-- test/
+|   `-- hello.spec.js
+-|-- coverage/
+`-- lib/
+    `-- hello.js
 ```
 
 ## rename-spec-to-test
