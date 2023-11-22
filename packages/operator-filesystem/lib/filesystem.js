@@ -100,6 +100,15 @@ module.exports.removeFile = (filePath) => {
     maybeFS.removeFile(filename);
 };
 
+function getFile(dirPathFiles, name) {
+    for (const file of dirPathFiles.get('value.elements')) {
+        if (name === getFilename(file))
+            return [true, file];
+    }
+    
+    return [false];
+}
+
 module.exports.moveFile = (filePath, dirPath) => {
     const dirname = getFilename(dirPath);
     const filename = getFilename(filePath);
@@ -111,10 +120,13 @@ module.exports.moveFile = (filePath, dirPath) => {
         .pop();
     
     const newname = `${dirname}/${basename}`;
+    const [is] = getFile(dirPathFiles, newname);
     
-    setLiteralValue(filenamePath.get('value'), newname);
-    dirPathFiles.node.value.elements.push(filePath.node);
-    filePath.remove();
+    if (!is) {
+        setLiteralValue(filenamePath.get('value'), newname);
+        dirPathFiles.node.value.elements.push(filePath.node);
+        filePath.remove();
+    }
     
     maybeFS.renameFile(filename, newname);
 };
@@ -128,16 +140,19 @@ module.exports.copyFile = (filePath, dirPath) => {
         .split('/')
         .pop();
     
-    const newname = `${dirname}/${basename}`;
+    const newFilename = `${dirname}/${basename}`;
     
     const copyiedFile = ObjectExpression([
         createType('file'),
-        createFilename(newname),
+        createFilename(newFilename),
     ]);
     
-    dirPathFiles.node.value.elements.push(copyiedFile);
+    const [is] = getFile(dirPathFiles, newFilename);
     
-    maybeFS.copyFile(filename, newname);
+    if (!is)
+        dirPathFiles.node.value.elements.push(copyiedFile);
+    
+    maybeFS.copyFile(filename, newFilename);
 };
 
 const createType = (type) => ObjectProperty(StringLiteral('type'), StringLiteral(type));
