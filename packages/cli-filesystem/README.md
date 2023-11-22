@@ -25,6 +25,12 @@ renameFile('/hello/world.txt', '/hello/hello.txt');
 removeFile('/hello/world.txt');
 ```
 
+### `copyFile(from: string, to: string)`
+
+```js
+copyFile('/hello/world.txt', '/hello/hello.txt');
+```
+
 ### `createDirectory(name: string)`
 
 ```js

@@ -6,10 +6,18 @@ const {
     rmSync: rmSyncOriginal,
     readFileSync: readFileSyncOriginal,
     writeFileSync: writeFileSyncOriginal,
+    copyFileSync: copyFileSyncOriginal,
+    constants,
 } = require('fs');
+
+const {COPYFILE_FICLONE} = constants;
 
 module.exports.renameFile = (from, to, {renameSync = renameSyncOriginal} = {}) => {
     renameSync(from, to);
+};
+
+module.exports.copyFile = (from, to, {copyFileSync = copyFileSyncOriginal} = {}) => {
+    copyFileSync(from, to, COPYFILE_FICLONE);
 };
 
 module.exports.removeFile = (filename, {rmSync = rmSyncOriginal} = {}) => {

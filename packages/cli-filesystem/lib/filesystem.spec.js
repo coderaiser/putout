@@ -1,5 +1,6 @@
 'use strict';
 
+const {constants} = require('fs');
 const {test, stub} = require('supertape');
 const {
     renameFile,
@@ -7,7 +8,10 @@ const {
     createDirectory,
     readFileContent,
     writeFileContent,
+    copyFile,
 } = require('./filesystem');
+
+const {COPYFILE_FICLONE} = constants;
 
 test('putout: cli: filesystem: renameFile', (t) => {
     const renameSync = stub();
@@ -22,6 +26,23 @@ test('putout: cli: filesystem: renameFile', (t) => {
     ];
     
     t.calledWith(renameSync, expected);
+    t.end();
+});
+
+test('putout: cli: filesystem: copyFile', (t) => {
+    const copyFileSync = stub();
+    
+    copyFile('/hello/world', '/hello/hello', {
+        copyFileSync,
+    });
+    
+    const expected = [
+        '/hello/world',
+        '/hello/hello',
+        COPYFILE_FICLONE,
+    ];
+    
+    t.calledWith(copyFileSync, expected);
     t.end();
 });
 
