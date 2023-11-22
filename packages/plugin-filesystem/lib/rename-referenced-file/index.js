@@ -38,10 +38,13 @@ module.exports.fix = ({from, to, path, ast, content, mainFile}) => {
     writeFileContent(path, code);
 };
 
-module.exports.traverse = ({push}) => ({
+module.exports.traverse = ({push, options}) => ({
     [__filesystem]: (path) => {
-        const from = 'hello.js';
-        const to = 'world.js';
+        const {from, to} = options;
+        
+        if (!from || !to)
+            return;
+        
         const [mainFile] = findFile(path, from);
         
         if (!mainFile)

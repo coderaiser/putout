@@ -10,12 +10,23 @@ const test = createTest(__dirname, {
     ],
 });
 
+test('packages: rename-referenced-file: no report: no options', (t) => {
+    t.noReport('rename-referenced-file-no-options');
+    t.end();
+});
+
 test('packages: rename-referenced-file: report', (t) => {
-    t.report('rename-referenced-file', `Rename 'hello.js' to 'world.js'`);
+    t.reportWithOptions('rename-referenced-file', `Rename 'hello.js' to 'world.js'`, {
+        from: 'hello.js',
+        to: 'world.js',
+    });
     t.end();
 });
 
 test('packages: rename-referenced-file: transform', (t) => {
-    t.transform('rename-referenced-file');
+    t.transformWithOptions('rename-referenced-file', {
+        from: 'hello.js',
+        to: 'world.js',
+    });
     t.end();
 });
