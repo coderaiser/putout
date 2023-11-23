@@ -306,6 +306,7 @@ test('putout: operator: filesystem: moveFile: overwrite', (t) => {
             files: [{
                 type: 'file',
                 filename: '/hello/world/abc/xyz/README.md',
+                content: 'hello world',
             }],
         }],
     });
@@ -320,15 +321,13 @@ test('putout: operator: filesystem: moveFile: overwrite', (t) => {
         type: 'directory',
         filename: '/hello/world/abc',
         files: [{
-            type: 'file',
-            filename: '/hello/world/abc/README.md',
-        }, {
             type: 'directory',
             filename: '/hello/world/abc/xyz',
-            files: [{
-                type: 'file',
-                filename: '/hello/world/abc/xyz/README.md',
-            }],
+            files: [],
+        }, {
+            type: 'file',
+            filename: '/hello/world/abc/README.md',
+            content: 'hello world',
         }],
     });
     
@@ -346,6 +345,7 @@ test('putout: operator: filesystem: copyFile', (t) => {
             files: [{
                 type: 'file',
                 filename: '/hello/world/abc/xyz/README.md',
+                content: 'hello world',
             }],
         }],
     });
@@ -365,10 +365,12 @@ test('putout: operator: filesystem: copyFile', (t) => {
             files: [{
                 type: 'file',
                 filename: '/hello/world/abc/xyz/README.md',
+                content: 'hello world',
             }],
         }, {
             type: 'file',
             filename: '/hello/world/abc/README.md',
+            content: 'hello world',
         }],
     });
     
@@ -386,10 +388,12 @@ test('putout: operator: filesystem: copyFile: overwrite', (t) => {
             files: [{
                 type: 'file',
                 filename: '/hello/world/abc/xyz/README.md',
+                content: 'hello world',
             }],
         }, {
             type: 'file',
             filename: '/hello/world/abc/README.md',
+            content: 'hello world',
         }],
     });
     
@@ -408,10 +412,12 @@ test('putout: operator: filesystem: copyFile: overwrite', (t) => {
             files: [{
                 type: 'file',
                 filename: '/hello/world/abc/xyz/README.md',
+                content: 'hello world',
             }],
         }, {
             type: 'file',
             filename: '/hello/world/abc/README.md',
+            content: 'hello world',
         }],
     });
     

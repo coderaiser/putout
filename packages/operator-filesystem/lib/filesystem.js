@@ -120,13 +120,14 @@ module.exports.moveFile = (filePath, dirPath) => {
         .pop();
     
     const newname = `${dirname}/${basename}`;
-    const [is] = getFile(dirPathFiles, newname);
+    const [is, fileToOverwrite] = getFile(dirPathFiles, newname);
     
-    if (!is) {
-        setLiteralValue(filenamePath.get('value'), newname);
-        dirPathFiles.node.value.elements.push(filePath.node);
-        filePath.remove();
-    }
+    if (is)
+        fileToOverwrite.remove();
+    
+    setLiteralValue(filenamePath.get('value'), newname);
+    dirPathFiles.node.value.elements.push(filePath.node);
+    filePath.remove();
     
     maybeFS.renameFile(filename, newname);
 };
@@ -141,16 +142,20 @@ module.exports.copyFile = (filePath, dirPath) => {
         .pop();
     
     const newFilename = `${dirname}/${basename}`;
+    const [hasContent, content] = getFileContent(filePath);
     
     const copiedFile = ObjectExpression([
         createType('file'),
         createFilename(newFilename),
-    ]);
+        hasContent && createContent(content),
+    ].filter(Boolean));
     
-    const [is] = getFile(dirPathFiles, newFilename);
+    const [is, fileToOverwrite] = getFile(dirPathFiles, newFilename);
     
-    if (!is)
-        dirPathFiles.node.value.elements.push(copiedFile);
+    if (is)
+        fileToOverwrite.remove();
+    
+    dirPathFiles.node.value.elements.push(copiedFile);
     
     maybeFS.copyFile(filename, newFilename);
 };
@@ -158,6 +163,7 @@ module.exports.copyFile = (filePath, dirPath) => {
 const createType = (type) => ObjectProperty(StringLiteral('type'), StringLiteral(type));
 const createFiles = (files) => ObjectProperty(StringLiteral('files'), ArrayExpression(files));
 const createFilename = (filename) => ObjectProperty(StringLiteral('filename'), StringLiteral(filename));
+const createContent = (content) => ObjectProperty(StringLiteral('content'), StringLiteral(content));
 
 module.exports.createDirectory = (dirPath, name) => {
     const dirPathFiles = getProperty(dirPath, 'files');
