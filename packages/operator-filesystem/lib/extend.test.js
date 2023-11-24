@@ -8,6 +8,8 @@ const {
     __filesystem,
 } = require('@putout/operator-json');
 
+const {parseSimpleFilesystem} = require('./parse-simple-filesystem.test');
+const {isArray} = Array;
 const {stringify} = JSON;
 
 const PRINTER = ['putout', {
@@ -32,7 +34,11 @@ module.exports.printFilesystem = printFilesystem;
 module.exports.formatFilesystem = formatFilesystem;
 
 function parseFilesystem(fs) {
+    if (isArray(fs))
+        fs = parseSimpleFilesystem(fs);
+    
     const source = toJS(stringify(fs, null, 4), __filesystem);
+    
     return parse(source);
 }
 

@@ -626,14 +626,10 @@ test('putout: operator: filesystem: writeFileContent', (t) => {
 });
 
 test('putout: operator: filesystem: writeFileContent: emoji', (t) => {
-    const ast = parseFilesystem({
-        type: 'directory',
-        filename: '/hello/world',
-        files: [{
-            type: 'file',
-            filename: '/hello/world/README.md',
-        }],
-    });
+    const ast = parseFilesystem([
+        '/hello/world/',
+        '/hello/world/README.md',
+    ]);
     
     const [filePath] = findFile(ast, 'README.md');
     writeFileContent(filePath, 'hello 🐊');
