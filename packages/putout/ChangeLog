@@ -1,3 +1,19 @@
+2023.11.24, v33.11.0
+
+fix:
+- cd7b4035d @putout/plugin-filesystem: move-referenced-file: report
+
+feature:
+- ea0761c0f @putout/operator-filesystem: readFileContent/writeFileContent: emoji support
+- a5004685f @putout/plugin-nodejs: rename-file-mjs-to-js: add
+- a3653b742 @putout/plugin-nodejs: rename-file-cjs-to-js: add
+- f957fe6a8 @putout/test: noReportAfterTransformWithOptions: add
+- fe6cdf4c5 @putout/operator-filesystem: copyFile/moveFile: overwrite
+- b59b533f2 @putout/plugin-putout: declare: copyFile: add
+- 4712fb82e @putout/cli-filesystem: copyFile: add
+- 528b36c9b @putout/operator-filesystem: copyFile/moveFile: overwrite
+- 95d2fe901 @putout/operator-filesystem: copyFile: add
+
 2023.11.22, v33.10.0
 
 fix:
