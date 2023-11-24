@@ -11,6 +11,7 @@ const {
     join,
     dirname,
     relative,
+    basename,
 } = require('path');
 
 const {
@@ -21,6 +22,7 @@ const {
     writeFileContent,
     moveFile,
     setLiteralValue,
+    getParentDirectory,
 } = operator;
 
 const getImportsPlugin = {
@@ -51,7 +53,7 @@ const getImportsPlugin = {
     }),
 };
 
-module.exports.report = ({mainFilename, nextName}) => `Rename '${mainFilename}' to '${nextName}'`;
+module.exports.report = ({mainFilename, nextName}) => `Move '${mainFilename}' to '${nextName}'`;
 
 module.exports.fix = ({cwd, nextName, mainFile, mainDirectory, mainFilename, path, ast, content}) => {
     moveFile(mainFile, mainDirectory);
@@ -73,17 +75,29 @@ module.exports.fix = ({cwd, nextName, mainFile, mainDirectory, mainFilename, pat
     writeFileContent(path, code);
 };
 
-module.exports.traverse = ({push}) => ({
+module.exports.traverse = ({push, options}) => ({
     [__filesystem]: (path) => {
-        const name = 'hello.js';
-        const directory = 'lib';
+        const {name, directory} = options;
+        
+        if (!name || !directory)
+            return;
+        
         const [mainFile] = findFile(path, name);
         const [mainDirectory] = findFile(path, directory);
+        
+        if (!mainFile)
+            return;
         
         const mainFilename = getFilename(mainFile);
         const mainDirectoryName = getFilename(mainDirectory);
         
-        const nextName = join(mainDirectoryName, name);
+        const parentDirectoryPath = getParentDirectory(mainFile);
+        const parentDirectoryName = getFilename(parentDirectoryPath);
+        
+        if (directory === basename(parentDirectoryName))
+            return;
+        
+        const nextName = join(mainDirectoryName, basename(name));
         
         for (const file of findFile(path, '*.js')) {
             if (file === mainFile)
