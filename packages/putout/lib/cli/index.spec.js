@@ -1834,6 +1834,107 @@ test('putout: cli: exit code: PLACE', async (t) => {
     t.end();
 });
 
+test('putout: cli: readFile: ENOENT', async (t) => {
+    const argv = [
+        __filename,
+        '--no-config',
+        '--no-ci',
+        '--no-cache',
+    ];
+    
+    const halt = stub();
+    
+    const getOptions = stub().returns({
+        dir: __dirname,
+        formatter: 'dump',
+    });
+    
+    const error = Error('No file found');
+    
+    error.code = 'ENOENT';
+    const readFileStub = stub().throws(error);
+    
+    mockRequire('./get-options', getOptions);
+    
+    reRequire('./runner/worker.js');
+    reRequire('./runner/runner.js');
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+        readFile: readFileStub,
+    });
+    
+    stopAll();
+    
+    t.calledWith(halt, [OK]);
+    t.end();
+});
+
+test('putout: cli: readFile: EACCESS', async (t) => {
+    const argv = [
+        __filename,
+        '--no-config',
+        '--no-ci',
+        '--no-cache',
+        '-f',
+        'json-lines',
+    ];
+    
+    const halt = stub();
+    
+    const getOptions = stub().returns({
+        dir: __dirname,
+        formatter: 'dump',
+    });
+    
+    const write = stub();
+    const error = Error('Access Denied');
+    
+    error.code = 'EACCESS';
+    const readFileStub = stub().throws(error);
+    
+    mockRequire('./get-options', getOptions);
+    
+    reRequire('./runner/worker.js');
+    reRequire('./runner/runner.js');
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+        readFile: readFileStub,
+        write,
+    });
+    
+    stopAll();
+    
+    const expected = {
+        name: __filename,
+        places: [{
+            rule: 'system',
+            message: 'Access Denied',
+            position: {
+                line: 1,
+                column: 0,
+            },
+        }],
+        index: 0,
+        count: 1,
+        filesCount: 1,
+        errorsCount: 1,
+    };
+    
+    const [arg] = write.args[0];
+    const result = parse(arg);
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: cli: get files: called with ignore option', async (t) => {
     const argv = [__filename, '--no-ci', '--no-cache'];
     

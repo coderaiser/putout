@@ -21,7 +21,27 @@ module.exports.lint = async ({raw, log, dir, resolvedName, options, readFile, fi
             processedSource,
         };
     
-    rawSource = await readFile(resolvedName, 'utf8');
+    let readError;
+    
+    [readError, rawSource] = await tryToCatch(readFile, resolvedName, 'utf8');
+    
+    if (readError && readError.code !== 'ENOENT')
+        places.push({
+            rule: 'system',
+            message: readError.message,
+            position: {
+                line: 1,
+                column: 0,
+            },
+        });
+    
+    if (readError)
+        return {
+            isProcessed,
+            places,
+            rawSource,
+            processedSource,
+        };
     
     const [error, result] = await tryToCatch(runProcessors, {
         name: resolvedName,
