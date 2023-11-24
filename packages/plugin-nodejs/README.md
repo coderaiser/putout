@@ -371,7 +371,7 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af5
 
 ## rename-file-cjs-to-js
 
-Rename `*.cjs` files when `module != "module"`:
+Rename `*.cjs` files when `module !== "module"`:
 
 ```diff
  /
@@ -382,6 +382,20 @@ Rename `*.cjs` files when `module != "module"`:
 ```
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8d8f3cd6662b70abbd5e4a2e4835077f/e43319fd63291ec3a5028b30a83f3c91fe90325e).
+
+## rename-file-mjs-to-js
+
+Rename `*.mjs` files when `module === "module"`:
+
+```diff
+ /
+ |-- package.json
+ `-- lib/
+-     `-- hello.mjs
++     `-- hello.js
+```
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/94fb3298b210e703b01db9a6826942bc/dfe2462451c6b3d4d47da7fd8d39dc8e53bb16eb).
 
 ## License
 

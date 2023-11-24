@@ -112,6 +112,8 @@ test('putout: config: filesystem', (t) => {
     const expected = {
         'nodejs/cjs-file': 'on',
         'nodejs/mjs-file': 'on',
+        'nodejs/rename-file-cjs-to-js': 'on',
+        'nodejs/rename-file-mjs-to-js': 'on',
         'filesystem': 'on',
     };
     

@@ -3,13 +3,13 @@ __putout_processor_filesystem({
     "filename": "/",
     "files": [{
         "type": "file",
-        "filename": "/package.json"
+        "filename": "/package.json",
     }, {
         "type": "directory",
         "filename": "/lib",
         "files": [{
             "type": "file",
-            "filename": "/lib/hello.cjs",
+            "filename": "/lib/hello.mjs",
             "content": "import hello from '../src/hello.js'"
         }]
     }]
@@ -22,13 +22,13 @@ __putout_processor_filesystem({
     "files": [{
         "type": "file",
         "filename": "/package.json",
-        "content": "eyJ0eXBlIjoibW9kdWxlIn0"
+        "content": "eyJ0eXBlIjoibW9kdWxlIn0",
     }, {
         "type": "directory",
         "filename": "/lib",
         "files": [{
             "type": "file",
-            "filename": "/lib/hello.cjs",
+            "filename": "/lib/hello.mjs",
             "content": "import hello from '../src/hello.js'"
         }]
     }]
@@ -41,13 +41,13 @@ __putout_processor_filesystem({
     "files": [{
         "type": "file",
         "filename": "/package.json",
-        "content": "eyJ0eXBlIjoiY29tbW9uanMifQ=="
+        "content": "eyJ0eXBlIjoiY29tbW9uanMifQ==",
     }, {
         "type": "directory",
         "filename": "/lib",
         "files": [{
             "type": "file",
-            "filename": "/lib/hello.cjs",
+            "filename": "/lib/hello.mjs",
             "content": "import hello from '../src/hello.js'"
         }]
     }]

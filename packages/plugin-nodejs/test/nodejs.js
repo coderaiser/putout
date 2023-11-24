@@ -70,17 +70,22 @@ test('plugin-nodejs: transform: convert-exports-to-module-exports', (t) => {
     t.end();
 });
 
-test('plugin-nodejs: no transform: cjs-file', (t) => {
+test('plugin-nodejs: no transform: cjs-file: disabled', (t) => {
     t.noTransform('cjs-file-disabled');
     t.end();
 });
 
-test('plugin-nodejs: no transform: mjs-file', (t) => {
+test('plugin-nodejs: no transform: mjs-file: disabled', (t) => {
     t.noTransform('mjs-file-disabled');
     t.end();
 });
 
-test('plugin-nodejs: transform: rename-file-cjs-to-js: disabled', (t) => {
-    t.transform('rename-file-cjs-to-js-disabled');
+test('plugin-nodejs: no transform: rename-file-cjs-to-js: disabled', (t) => {
+    t.noTransform('rename-file-cjs-to-js-disabled');
+    t.end();
+});
+
+test('plugin-nodejs: no transform: rename-file-mjs-to-js: disabled', (t) => {
+    t.noTransform('rename-file-mjs-to-js-disabled');
     t.end();
 });

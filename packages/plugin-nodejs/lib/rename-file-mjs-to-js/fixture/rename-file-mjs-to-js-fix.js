@@ -3,13 +3,14 @@ __putout_processor_filesystem({
     "filename": "/",
     "files": [{
         "type": "file",
-        "filename": "/package.json"
+        "filename": "/package.json",
+        "content": ""
     }, {
         "type": "directory",
         "filename": "/lib",
         "files": [{
             "type": "file",
-            "filename": "/lib/hello.cjs",
+            "filename": "/lib/hello.mjs",
             "content": "import hello from '../src/hello.js'"
         }]
     }]
@@ -28,7 +29,7 @@ __putout_processor_filesystem({
         "filename": "/lib",
         "files": [{
             "type": "file",
-            "filename": "/lib/hello.cjs",
+            "filename": "/lib/hello.js",
             "content": "import hello from '../src/hello.js'"
         }]
     }]
@@ -47,7 +48,7 @@ __putout_processor_filesystem({
         "filename": "/lib",
         "files": [{
             "type": "file",
-            "filename": "/lib/hello.cjs",
+            "filename": "/lib/hello.mjs",
             "content": "import hello from '../src/hello.js'"
         }]
     }]

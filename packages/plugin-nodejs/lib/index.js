@@ -22,6 +22,7 @@ const cjsFile = require('./cjs-file');
 const mjsFile = require('./mjs-file');
 
 const renameFileCjsToJs = require('./rename-file-cjs-to-js');
+const renameFileMjsToJs = require('./rename-file-mjs-to-js');
 
 module.exports.rules = {
     'convert-buffer-to-buffer-alloc': convertBufferToBufferAlloc,
@@ -43,4 +44,5 @@ module.exports.rules = {
     'cjs-file': ['off', cjsFile],
     'mjs-file': ['off', mjsFile],
     'rename-file-cjs-to-js': ['off', renameFileCjsToJs],
+    'rename-file-mjs-to-js': renameFileMjsToJs,
 };
