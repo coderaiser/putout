@@ -36,6 +36,7 @@ module.exports.parseSimpleFilesystem = (list) => {
     const filenames = list
         .map(parseFirst)
         .map(noTrailingSlash);
+    
     const [rootName] = filenames;
     
     for (const filename of filenames) {
