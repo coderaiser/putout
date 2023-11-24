@@ -30,3 +30,35 @@ test('putout: operator: filesystem: parseFileSystem', (t) => {
     t.filesystem(result, expected);
     t.end();
 });
+
+test('putout: operator: filesystem: parseFileSystem: content', (t) => {
+    const result = parseSimpleFilesystem([
+        '/hello/world/abc/',
+        '/hello/world/abc/xyz/',
+        [
+            '/hello/world/abc/xyz/README.md',
+            'hello world',
+        ],
+        '/hello/world/abc/README.md',
+    ]);
+    
+    const expected = {
+        filename: '/hello/world/abc',
+        files: [{
+            filename: '/hello/world/abc/xyz',
+            files: [{
+                filename: '/hello/world/abc/xyz/README.md',
+                type: 'file',
+                content: 'hello world',
+            }],
+            type: 'directory',
+        }, {
+            filename: '/hello/world/abc/README.md',
+            type: 'file',
+        }],
+        type: 'directory',
+    };
+    
+    t.filesystem(result, expected);
+    t.end();
+});
