@@ -79,3 +79,8 @@ test('plugin-nodejs: no transform: mjs-file', (t) => {
     t.noTransform('mjs-file-disabled');
     t.end();
 });
+
+test('plugin-nodejs: transform: rename-file-cjs-to-js: disabled', (t) => {
+    t.transform('rename-file-cjs-to-js-disabled');
+    t.end();
+});

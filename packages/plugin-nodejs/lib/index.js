@@ -21,6 +21,8 @@ const convertCommonjsToEsmRequire = require('./convert-commonjs-to-esm-require')
 const cjsFile = require('./cjs-file');
 const mjsFile = require('./mjs-file');
 
+const renameFileCjsToJs = require('./rename-file-cjs-to-js');
+
 module.exports.rules = {
     'convert-buffer-to-buffer-alloc': convertBufferToBufferAlloc,
     'convert-fs-promises': convertFsPromises,
@@ -40,4 +42,5 @@ module.exports.rules = {
     'convert-commonjs-to-esm-require': ['off', convertCommonjsToEsmRequire],
     'cjs-file': ['off', cjsFile],
     'mjs-file': ['off', mjsFile],
+    'rename-file-cjs-to-js': ['off', renameFileCjsToJs],
 };

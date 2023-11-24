@@ -22,6 +22,9 @@ npm i putout @putout/plugin-nodejs -D
     "rules": {
         "nodejs/convert-commonjs-to-esm": "off",
         "nodejs/convert-esm-to-commonjs": "off",
+        "nodejs/cjs-file": "off",
+        "nodejs/mjs-file": "off",
+        "nodejs/rename-file-cjs-to-js": "off",
         "nodejs/add-node-prefix": "on",
         "nodejs/convert-buffer-to-buffer-alloc": "on",
         "nodejs/convert-fs-promises": "on",
@@ -32,8 +35,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/convert-top-level-return": "on",
         "nodejs/declare": "on",
         "nodejs/declare-after-require": "on",
-        "nodejs/remove-process-exit": "on",
-        "nodejs/cjs-file": "off"
+        "nodejs/remove-process-exit": "on"
     }
 }
 ```
@@ -366,6 +368,20 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af5
 Run [convert-commonjs-to-esm](#convert-commonjs-to-esm) for all `*.cjs` files with help of [redlint](https://github.com/putoutjs/redlint).
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af59afc2d3da082088fd4c/d0b85b07c6aaf2b902a1c7eb7ae121dbcd181033).
+
+## rename-file-cjs-to-js
+
+Rename `*.cjs` files when `module != "module"`:
+
+```diff
+ /
+ |-- package.json
+ `-- lib/
+-     `-- hello.cjs
++     `-- hello.js
+```
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8d8f3cd6662b70abbd5e4a2e4835077f/e43319fd63291ec3a5028b30a83f3c91fe90325e).
 
 ## License
 
