@@ -1,3 +1,10 @@
+2023.11.24, v33.12.0
+
+feature:
+- 135e39656 putout: add ability to ignore missing files
+- f23f62af6 @putout/operator-filesystem: readFileContent/writeFileContent: emoji support
+- b3202c486 @putout/plugin-nodejs: rename-file-mjs-to-js: add
+
 2023.11.24, v33.11.0
 
 fix:
