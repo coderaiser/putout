@@ -189,7 +189,7 @@ module.exports.createDirectory = (dirPath, name) => {
 
 const createContentProperty = (content) => {
     const contentKey = StringLiteral('content');
-    const contentValue = StringLiteral(btoa(content));
+    const contentValue = StringLiteral(btoa(encodeURI(content)));
     
     return ObjectProperty(contentKey, contentValue);
 };
@@ -198,8 +198,12 @@ module.exports.readFileContent = (filePath) => {
     const [hasContent, content] = getFileContent(filePath);
     
     if (hasContent) {
-        const [, decoded] = tryCatch(atob, content);
-        return decoded || content;
+        const [e, decoded] = tryCatch(atob, content);
+        
+        if (!e)
+            return decodeURI(decoded);
+        
+        return content;
     }
     
     const filename = getFilename(filePath);
