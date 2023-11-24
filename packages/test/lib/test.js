@@ -110,6 +110,7 @@ function createTest(dir, maybeOptions) {
         report: report(dir, options),
         noReport: noReport(dir, options),
         noReportAfterTransform: noReportAfterTransform(dir, options),
+        noReportAfterTransformWithOptions: noReportAfterTransformWithOptions(dir, options),
         reportWithOptions: reportWithOptions(dir, options),
         noReportWithOptions: noReportWithOptions(dir, options),
         reportCode: reportCode(options),
@@ -451,6 +452,27 @@ const noReportAfterTransform = currify((dir, options, t, name) => {
 });
 
 module.exports._createNoReportAfterTransform = noReportAfterTransform;
+
+const noReportAfterTransformWithOptions = currify((dir, options, t, name, ruleOptions) => {
+    const full = join(dir, name);
+    const [source, isTS] = readFixture(full);
+    const rule = parseRule(options);
+    
+    const rules = {
+        [rule]: ['on', ruleOptions],
+    };
+    
+    return noReportCodeAfterTransform({
+        isTS,
+        ...options,
+        rules: {
+            ...options.rules,
+            ...rules,
+        },
+    }, t, source);
+});
+
+module.exports._createNoReportAfterTransformWithOptions = noReportAfterTransformWithOptions;
 
 const reportWithOptions = currify((dir, options, t, name, message, ruleOptions) => {
     const full = join(dir, name);

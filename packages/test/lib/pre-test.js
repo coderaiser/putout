@@ -8,6 +8,7 @@ const maybeTuple = (a) => isArray(a) ? a : ['on', a];
 const maybeEntries = (a) => isArray(a) ? a : entries(a).pop();
 
 module.exports._maybeEntries = maybeEntries;
+module.exports._maybeTuple = maybeTuple;
 
 module.exports.preTest = function preTest(test, plugin) {
     const [name, {

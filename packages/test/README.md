@@ -209,6 +209,18 @@ test('test: no report after transform', (t) => {
 });
 ```
 
+
+### `noReportAfterTransformWithOptions(filename)`
+
+Check error message of a plugin not produced with provided options:
+
+```js
+test('test: no report', (t) => {
+    t.noReportAfterTransformWithOptions('file');
+    t.end();
+});
+```
+
 ### `noTransform(filename)`
 
 Check transform of `filename.js` produce nothing

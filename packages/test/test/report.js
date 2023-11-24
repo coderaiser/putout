@@ -8,6 +8,7 @@ const {template} = require('putout');
 const {
     _createNoReport,
     _createNoReportAfterTransform,
+    _createNoReportAfterTransformWithOptions,
 } = require('..');
 
 const test = require('..')(__dirname, {
@@ -136,6 +137,64 @@ test('putout: test: noReportAfterTransform: internal', (t) => {
     
     const place = {
         message: 'hello',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'declare',
+    };
+    
+    const message = 'should not report after transform';
+    
+    const expected = [
+        [place],
+        [],
+        message,
+    ];
+    
+    t.calledWith(deepEqual, expected);
+    t.end();
+});
+
+test('putout: test: noReportAfterTransformWithOptions: internal', (t) => {
+    const dir = join(__dirname, 'fixture');
+    const plugins = [
+        ['declare', {
+            report: ({message}) => message,
+            fix: ({path}) => {
+                const programPath = path.scope.getProgramParent().path;
+                programPath.node.body.unshift(template.ast('import {join} from "path"'));
+            },
+            traverse: ({push, options}) => ({
+                'join(__a, __b)': (path) => {
+                    const {message} = options;
+                    
+                    push({
+                        path,
+                        message,
+                    });
+                },
+            }),
+        }],
+    ];
+    
+    const options = {
+        plugins,
+    };
+    
+    const noReportAfterTransformWithOptions = _createNoReportAfterTransformWithOptions(dir, options);
+    const deepEqual = stub();
+    
+    const mockTest = {
+        deepEqual,
+    };
+    
+    noReportAfterTransformWithOptions(mockTest, 'no-report-after-transform', {
+        message: 'world',
+    });
+    
+    const place = {
+        message: 'world',
         position: {
             column: 0,
             line: 1,
