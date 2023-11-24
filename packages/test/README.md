@@ -209,7 +209,6 @@ test('test: no report after transform', (t) => {
 });
 ```
 
-
 ### `noReportAfterTransformWithOptions(filename)`
 
 Check error message of a plugin not produced with provided options:
