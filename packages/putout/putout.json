@@ -34,7 +34,8 @@
             "filesystem": "on",
             "nodejs/cjs-file": "on",
             "nodejs/mjs-file": "on",
-            "nodejs/rename-file-cjs-to-js": "on"
+            "nodejs/rename-file-cjs-to-js": "on",
+            "nodejs/rename-file-mjs-to-js": "on"
         },
         "*.md": {
             "conditions/apply-consistent-blocks": "off",
