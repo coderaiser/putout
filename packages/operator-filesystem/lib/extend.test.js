@@ -2,6 +2,11 @@
 
 const {extend} = require('supertape');
 const {parse, print} = require('putout');
+const {
+    toJS,
+    fromJS,
+    __filesystem,
+} = require('@putout/operator-json');
 
 const {stringify} = JSON;
 
@@ -19,26 +24,15 @@ module.exports.test = extend({
     equalFilesystems: ({equal}) => (a, b) => {
         return equal(printFilesystem(a), formatFilesystem(b));
     },
+    filesystem: ({deepEqual}) => (a, b) => deepEqual(a, b),
 });
 
 module.exports.parseFilesystem = parseFilesystem;
 module.exports.printFilesystem = printFilesystem;
 module.exports.formatFilesystem = formatFilesystem;
 
-const FS = '__putout_processor_filesystem';
-
-function wrapFilesystem(fs) {
-    return `${FS}(${stringify(fs, null, 4)});`;
-}
-
-function unwrapFilesystem(source) {
-    return source
-        .replace(`${FS}(`, '')
-        .replace(');', '');
-}
-
 function parseFilesystem(fs) {
-    const source = wrapFilesystem(fs);
+    const source = toJS(stringify(fs, null, 4), __filesystem);
     return parse(source);
 }
 
@@ -47,7 +41,7 @@ function printFilesystem(ast) {
         printer: PRINTER,
     });
     
-    return unwrapFilesystem(source);
+    return fromJS(source, __filesystem);
 }
 
 function formatFilesystem(fs) {
@@ -55,5 +49,5 @@ function formatFilesystem(fs) {
         printer: PRINTER,
     });
     
-    return unwrapFilesystem(source);
+    return fromJS(source, __filesystem);
 }

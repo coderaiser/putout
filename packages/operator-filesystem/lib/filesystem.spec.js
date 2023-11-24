@@ -30,7 +30,7 @@ const {
     printFilesystem,
     parseFilesystem,
     formatFilesystem,
-} = require('./extend.spec');
+} = require('./extend.test');
 
 const {traverseProperties} = operator;
 
