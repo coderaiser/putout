@@ -102,15 +102,6 @@ module.exports.removeFile = (filePath) => {
     maybeFS.removeFile(filename);
 };
 
-function getFile(dirPathFiles, name) {
-    for (const file of dirPathFiles.get('value.elements')) {
-        if (name === getFilename(file))
-            return file;
-    }
-    
-    return null;
-}
-
 module.exports.moveFile = (filePath, dirPath) => {
     const dirname = getFilename(dirPath);
     const filename = getFilename(filePath);
@@ -159,8 +150,7 @@ module.exports.copyFile = (filePath, dirPath) => {
 
 function maybeRemoveFile(dirPath, filename) {
     const dirPathFiles = getProperty(dirPath, 'files');
-    
-    const fileToOverwrite = getFile(dirPathFiles, filename);
+    const [fileToOverwrite] = findFile(dirPathFiles, filename);
     
     if (!fileToOverwrite)
         return;

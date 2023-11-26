@@ -644,6 +644,30 @@ test('putout: operator: filesystem: createFile: no content', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: createFile: ast', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+        }],
+    });
+    
+    const expected = {
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+            content: 'aGVsbG8=',
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: writeFileContent', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
