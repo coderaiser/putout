@@ -163,7 +163,7 @@ const createFiles = (files) => ObjectProperty(StringLiteral('files'), ArrayExpre
 const createFilename = (filename) => ObjectProperty(StringLiteral('filename'), StringLiteral(filename));
 const createContent = (content) => ObjectProperty(StringLiteral('content'), StringLiteral(content));
 
-module.exports.createFile = (dirPath, name, content) => {
+module.exports.createFile = (dirPath, name, content = '') => {
     maybeRemoveFile(dirPath, name);
     
     const dirPathFiles = getFiles(dirPath);
@@ -173,14 +173,13 @@ module.exports.createFile = (dirPath, name, content) => {
     const typeProperty = createType('file');
     const filenameProperty = createFilename(filename);
     
-    dirPathFiles.node.value.elements.push(ObjectExpression([typeProperty, filenameProperty]));
+    dirPathFiles.node.value.elements.push(ObjectExpression([typeProperty, filenameProperty, createContent(content)]));
     
     const filePath = dirPathFiles
         .get('value.elements')
         .at(-1);
     
-    if (content)
-        writeFileContent(filePath, content);
+    writeFileContent(filePath, content);
     
     return filePath;
 };

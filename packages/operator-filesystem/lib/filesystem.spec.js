@@ -654,13 +654,16 @@ test('putout: operator: filesystem: createFile: ast', (t) => {
         }],
     });
     
+    const [dirPath] = findFile(ast, '/hello/world');
+    createFile(dirPath, 'README.md', '');
+    
     const expected = {
         type: 'directory',
         filename: '/hello/world',
         files: [{
             type: 'file',
             filename: '/hello/world/README.md',
-            content: 'aGVsbG8=',
+            content: '',
         }],
     };
     
