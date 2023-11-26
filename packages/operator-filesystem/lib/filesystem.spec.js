@@ -17,6 +17,7 @@ const {
     moveFile,
     findFile,
     getFilename,
+    createFile,
     createDirectory,
     getParentDirectory,
     readFileContent,
@@ -601,6 +602,42 @@ test('putout: operator: filesystem: readFileContent: no content', (t) => {
     });
     
     const [filePath] = findFile(ast, 'README.md');
+    const content = readFileContent(filePath);
+    
+    t.equal(content, '');
+    t.end();
+});
+
+test('putout: operator: filesystem: createFile', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+        }],
+    });
+    
+    const [dirPath] = findFile(ast, '/hello/world');
+    const filePath = createFile(dirPath, 'README.md', 'hello');
+    const content = readFileContent(filePath);
+    
+    t.equal(content, 'hello');
+    t.end();
+});
+
+test('putout: operator: filesystem: createFile: no content', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+        }],
+    });
+    
+    const [dirPath] = findFile(ast, '/hello/world');
+    const filePath = createFile(dirPath, 'README.md', '');
     const content = readFileContent(filePath);
     
     t.equal(content, '');

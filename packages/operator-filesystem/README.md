@@ -13,6 +13,31 @@ npm i putout @putout/operator-filesystem
 
 ## API
 
+### `creatFile(directoryPath: DirectoryPath, name: string, content?: string): FilePath`
+
+```js
+const {operator} = require('putout');
+const {
+    createDirectory,
+    findFile,
+} = operator;
+
+const [dirPath] = findFile(ast, 'hello');
+const filePath = createFile(dirPath, 'world.txt', 'hello world');
+```
+
+```js
+const {operator} = require('putout');
+const {
+    createDirectory,
+    findFile,
+} = operator;
+
+const [dirPath] = findFile(ast, 'hello');
+
+const newDirectoryPath = createDirectory(dirPath, 'world');
+```
+
 ### `createDirectory(directoryPath: FilePath, name: string): FilePath`
 
 ```js

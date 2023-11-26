@@ -39,7 +39,9 @@ module.exports.getParentDirectory = (filePath) => {
     return parentPath;
 };
 
-module.exports.findFile = (node, name) => {
+module.exports.findFile = findFile;
+
+function findFile(node, name) {
     const filePaths = [];
     const names = maybeArray(name);
     
@@ -53,7 +55,7 @@ module.exports.findFile = (node, name) => {
     }
     
     return filePaths;
-};
+}
 
 function getFilenamePath(filePath) {
     const filenamePath = getProperty(filePath, 'filename');
@@ -103,10 +105,10 @@ module.exports.removeFile = (filePath) => {
 function getFile(dirPathFiles, name) {
     for (const file of dirPathFiles.get('value.elements')) {
         if (name === getFilename(file))
-            return [true, file];
+            return file;
     }
     
-    return [false];
+    return null;
 }
 
 module.exports.moveFile = (filePath, dirPath) => {
@@ -119,23 +121,20 @@ module.exports.moveFile = (filePath, dirPath) => {
         .split('/')
         .pop();
     
-    const newname = `${dirname}/${basename}`;
-    const [is, fileToOverwrite] = getFile(dirPathFiles, newname);
+    const newFilename = `${dirname}/${basename}`;
     
-    if (is)
-        fileToOverwrite.remove();
+    maybeRemoveFile(dirPath, newFilename);
     
-    setLiteralValue(filenamePath.get('value'), newname);
+    setLiteralValue(filenamePath.get('value'), newFilename);
     dirPathFiles.node.value.elements.push(filePath.node);
     filePath.remove();
     
-    maybeFS.renameFile(filename, newname);
+    maybeFS.renameFile(filename, newFilename);
 };
 
 module.exports.copyFile = (filePath, dirPath) => {
     const dirname = getFilename(dirPath);
     const filename = getFilename(filePath);
-    const dirPathFiles = getProperty(dirPath, 'files');
     
     const basename = filename
         .split('/')
@@ -150,23 +149,58 @@ module.exports.copyFile = (filePath, dirPath) => {
         hasContent && createContent(content),
     ].filter(Boolean));
     
-    const [is, fileToOverwrite] = getFile(dirPathFiles, newFilename);
+    maybeRemoveFile(dirPath, newFilename);
     
-    if (is)
-        fileToOverwrite.remove();
-    
+    const dirPathFiles = getFiles(dirPath);
     dirPathFiles.node.value.elements.push(copiedFile);
     
     maybeFS.copyFile(filename, newFilename);
 };
+
+function maybeRemoveFile(dirPath, filename) {
+    const dirPathFiles = getProperty(dirPath, 'files');
+    
+    const fileToOverwrite = getFile(dirPathFiles, filename);
+    
+    if (!fileToOverwrite)
+        return;
+    
+    fileToOverwrite.remove();
+}
 
 const createType = (type) => ObjectProperty(StringLiteral('type'), StringLiteral(type));
 const createFiles = (files) => ObjectProperty(StringLiteral('files'), ArrayExpression(files));
 const createFilename = (filename) => ObjectProperty(StringLiteral('filename'), StringLiteral(filename));
 const createContent = (content) => ObjectProperty(StringLiteral('content'), StringLiteral(content));
 
+module.exports.createFile = (dirPath, name, content) => {
+    maybeRemoveFile(dirPath, name);
+    
+    const dirPathFiles = getFiles(dirPath);
+    const parentFilename = getFilename(dirPath);
+    const filename = `${parentFilename}/${name}`;
+    
+    const typeProperty = createType('file');
+    const filenameProperty = createFilename(filename);
+    
+    dirPathFiles.node.value.elements.push(ObjectExpression([typeProperty, filenameProperty]));
+    
+    const filePath = dirPathFiles
+        .get('value.elements')
+        .at(-1);
+    
+    if (content)
+        writeFileContent(filePath, content);
+    
+    return filePath;
+};
+
+function getFiles(dirPath) {
+    return getProperty(dirPath, 'files');
+}
+
 module.exports.createDirectory = (dirPath, name) => {
-    const dirPathFiles = getProperty(dirPath, 'files');
+    const dirPathFiles = getFiles(dirPath);
     const parentFilename = getFilename(dirPath);
     const filename = `${parentFilename}/${name}`;
     
@@ -215,7 +249,9 @@ module.exports.readFileContent = (filePath) => {
     return fileContent;
 };
 
-module.exports.writeFileContent = (filePath, content) => {
+module.exports.writeFileContent = writeFileContent;
+
+function writeFileContent(filePath, content) {
     const filename = getFilename(filePath);
     
     maybeFS.writeFileContent(filename, content);
@@ -229,7 +265,5 @@ module.exports.writeFileContent = (filePath, content) => {
     
     const property = createContentProperty(content);
     filePath.node.properties.push(property);
-};
-
-module.exports.init = maybeFS.init;
+}module.exports.init = maybeFS.init;
 module.exports.deinit = maybeFS.deinit;
