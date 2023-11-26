@@ -265,5 +265,7 @@ function writeFileContent(filePath, content) {
     
     const property = createContentProperty(content);
     filePath.node.properties.push(property);
-}module.exports.init = maybeFS.init;
+}
+
+module.exports.init = maybeFS.init;
 module.exports.deinit = maybeFS.deinit;
