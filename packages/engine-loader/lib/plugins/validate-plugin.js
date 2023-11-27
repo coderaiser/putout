@@ -8,6 +8,7 @@ const supportedKeys = [
     'exclude',
     'rules',
     'declare',
+    'scan',
 ];
 
 module.exports = ({plugin, rule}) => {
