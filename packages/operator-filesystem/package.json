@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-filesystem",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds ability to filesystem referenced variables that was not defined",
