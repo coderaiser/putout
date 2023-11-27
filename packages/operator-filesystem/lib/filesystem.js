@@ -169,7 +169,7 @@ module.exports.createFile = (dirPath, name, content = '') => {
     
     const dirPathFiles = getFiles(dirPath);
     const parentFilename = getFilename(dirPath);
-    const filename = `${parentFilename}/${name}`;
+    const filename = join(parentFilename, name);
     
     const typeProperty = createType('file');
     const filenameProperty = createFilename(filename);
@@ -192,7 +192,7 @@ function getFiles(dirPath) {
 module.exports.createDirectory = (dirPath, name) => {
     const dirPathFiles = getFiles(dirPath);
     const parentFilename = getFilename(dirPath);
-    const filename = `${parentFilename}/${name}`;
+    const filename = join(parentFilename, name);
     
     const typeProperty = createType('directory');
     const filesProperty = createFiles([]);
