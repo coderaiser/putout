@@ -1,6 +1,6 @@
 'use strict';
 
-const getPath = (item) => item.path || item;
+const getPath = (item) => item.path || item[0] || item;
 
 module.exports.getPath = getPath;
 module.exports.getPosition = (path, shebang) => {

@@ -102,9 +102,9 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
     const uplist = upListStore();
     const paths = pathStore();
     
-    const push = (path) => {
+    const push = (path, pathOptions) => {
         const position = getPosition(path, shebang);
-        const message = msg || plugin.report(path);
+        const message = msg || plugin.report(path, pathOptions);
         
         placesStore({
             message,
@@ -113,6 +113,7 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
         
         runFix(fix, plugin.fix, {
             path,
+            pathOptions,
             rule,
             position,
             options,

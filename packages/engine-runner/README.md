@@ -19,6 +19,7 @@ There is a couple plugin types available in 🐊**Putout**:
 - ✅ [**Replacer**](#replacer)
 - ✅ [**Includer**](#includer)
 - ✅ [**Traverser**](#traverser)
+- ✅ [**Scanner**](#filer)
 - ✅ [**Finder**](#finder)
 
 All of them supports subset of **JavaScript** 🦎[**PutoutScript**](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) described in [`@putout/compare`](https://github.com/coderaiser/putout/tree/master/packages/compare#readme).
@@ -200,6 +201,27 @@ module.exports.traverse = ({push}) => ({
         push(path);
     },
 });
+```
+
+### Scanner
+
+**Scanner** gives you all ability to work with files.
+
+```js
+module.exports.report = () => 'Create file hello.txt';
+
+module.exports.fix = (rootPath) => {
+    createFile(rootPath, 'hello.txt', 'hello world');
+};
+
+module.exports.scan = (rootPath) => {
+    const [filePath] = findFile(rootPath, 'hello.txt');
+    
+    if (filePath)
+        return null;
+    
+    return rootPath;
+};
 ```
 
 ### Finder

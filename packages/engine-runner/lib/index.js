@@ -10,6 +10,7 @@ const superFind = require('./super-find');
 const include = require('./include');
 const replace = require('./replace');
 const declare = require('./declare');
+const scanner = require('./scanner');
 const template = require('./template');
 
 const {getPath, getPosition} = require('./get-position');
@@ -170,6 +171,11 @@ function splitPlugins(plugins) {
         
         if (plugin.include) {
             pluginsTraverse.push(include(item));
+            continue;
+        }
+        
+        if (plugin.scan) {
+            pluginsTraverse.push(scanner(item));
             continue;
         }
     }

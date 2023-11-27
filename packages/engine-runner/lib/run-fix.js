@@ -8,10 +8,25 @@ const {stringify} = JSON;
 const isFn = (a) => typeof a === 'function';
 const getPath = (path) => path.path || path;
 
-const tryToFix = (fix, {path, position, options}) => {
-    const [e] = tryCatch(fix, path, {
+const chooseFixArgs = ({path, pathOptions, options}) => {
+    if (pathOptions)
+        return [
+            path,
+            pathOptions, {
+                options,
+            }];
+    
+    return [path, {
         options,
-    });
+    }];
+};
+
+const tryToFix = (fix, {path, pathOptions, position, options}) => {
+    const [e] = tryCatch(fix, ...chooseFixArgs({
+        path,
+        pathOptions,
+        options,
+    }));
     
     const {scope} = path.path || path;
     
@@ -28,7 +43,7 @@ const tryToFix = (fix, {path, position, options}) => {
     throw e;
 };
 
-module.exports = (is, fix, {path, rule, position, options}) => {
+module.exports = (is, fix, {path, pathOptions, rule, position, options}) => {
     if (!is)
         return;
     
@@ -39,6 +54,7 @@ module.exports = (is, fix, {path, rule, position, options}) => {
     
     tryToFix(fix, {
         path,
+        pathOptions,
         position,
         options,
     });
