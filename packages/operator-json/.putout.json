@@ -8,7 +8,5 @@
             "putout/declare": "on"
         }
     },
-    "plugins": [
-        "putout"
-    ]
+    "plugins": ["putout"]
 }
