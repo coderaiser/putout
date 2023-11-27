@@ -199,3 +199,8 @@ test('plugin-putout: transform: apply-short-processors', (t) => {
     t.transform('apply-short-processors');
     t.end();
 });
+
+test('plugin-putout: transform: convert-traverse-to-scan', (t) => {
+    t.transform('convert-traverse-to-scan');
+    t.end();
+});

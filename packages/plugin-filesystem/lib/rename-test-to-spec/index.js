@@ -2,7 +2,6 @@
 
 const {operator} = require('putout');
 const {
-    __filesystem,
     findFile,
     renameFile,
     getFilename,
@@ -17,8 +16,6 @@ module.exports.fix = (path) => {
     renameFile(path, newFilename);
 };
 
-module.exports.traverse = ({push}) => ({
-    [__filesystem]: (path) => {
-        findFile(path, '*.test.*').map(push);
-    },
-});
+module.exports.scan = (path, {push}) => {
+    findFile(path, '*.test.*').map(push);
+};

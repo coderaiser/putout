@@ -43,6 +43,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-node-to-path-in-get-template-values": "on",
         "putout/convert-traverse-to-include": "on",
         "putout/convert-traverse-to-replace": "on",
+        "putout/convert-traverse-to-scan": "on",
         "putout/convert-process-to-find": "on",
         "putout/convert-method-to-property": "on",
         "putout/convert-add-argument-to-add-args": "on",
@@ -581,6 +582,49 @@ module.exports.traverse = () => ({
 module.exports.replace = () => ({
     'async (__a) => __b': 'async ({process}) => __b',
 });
+```
+
+## convert-traverse-to-scan
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/afe988c8e53ae70e50bf26512672f3cd/a6677d53b996e85880a4af18250c00e849322bbe).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.traverse = ({push, options}) => ({
+    [__filesystem](path) {
+        const {names} = options;
+        
+        for (const name of names) {
+            const files = findFile(path, name);
+            
+            for (const file of files) {
+                push({
+                    name,
+                    path: file,
+                });
+            }
+        }
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports.scan = (path, {push, options}) => {
+    const {names} = options;
+    
+    for (const name of names) {
+        const files = findFile(path, name);
+        
+        for (const file of files) {
+            push(file, {
+                name,
+            });
+        }
+    }
+};
 ```
 
 ## convert-process-to-find

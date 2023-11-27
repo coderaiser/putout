@@ -1,11 +1,12 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
-const {findFile, removeFile} = operator;
+const {findFile} = operator;
+const {__filesystem} = operator;
+const {removeFile} = operator;
 
 module.exports.report = (file, {name}) => `Remove '${name}'`;
 
-module.exports.fix = (file) => {
+module.exports.fix = (file, {}) => {
     removeFile(file);
 };
 

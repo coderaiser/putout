@@ -1,13 +1,14 @@
 {
     "printer": "putout",
-    "rules": {
-        "putout/apply-remove": "off",
-        "putout/declare": "on"
-    },
     "match": {
         "*.md": {
-            "declare": "off"
+            "declare": "off",
+            "putout/convert-traverse-to-scan": "off",
+            "putout/apply-remove": "off",
+            "putout/declare": "on"
         }
     },
-    "plugins": ["putout"]
+    "plugins": [
+        "putout"
+    ]
 }

@@ -9,51 +9,46 @@ const {
     getFilename,
     readFileContent,
     findFile,
-    __filesystem,
     renameFile,
 } = operator;
 
-module.exports.report = ({cjs, js}) => `Rename '${cjs}' to '${js}'`;
+module.exports.report = (file, {cjs, js}) => `Rename '${cjs}' to '${js}'`;
 
-module.exports.fix = ({path, js}) => {
-    renameFile(path, js);
+module.exports.fix = (file, {js}) => {
+    renameFile(file, js);
 };
 
-module.exports.traverse = ({push}) => ({
-    [__filesystem]: (path) => {
-        for (const file of findFile(path, '*.cjs')) {
-            const packagePath = findUpPackage(file);
-            
-            const cjs = getFilename(file);
-            const js = cjs.replace(/cjs$/, 'js');
-            
-            if (!packagePath) {
-                push({
-                    path: file,
-                    cjs,
-                    js,
-                });
-                continue;
-            }
-            
-            const packageContent = readFileContent(packagePath);
-            
-            if (!packageContent)
-                continue;
-            
-            const {type} = parse(packageContent);
-            
-            if (type === 'module')
-                continue;
-            
-            push({
-                path: file,
+module.exports.scan = (path, {push}) => {
+    for (const file of findFile(path, '*.cjs')) {
+        const packagePath = findUpPackage(file);
+        
+        const cjs = getFilename(file);
+        const js = cjs.replace(/cjs$/, 'js');
+        
+        if (!packagePath) {
+            push(file, {
                 cjs,
                 js,
             });
+            continue;
         }
-    },
-});
+        
+        const packageContent = readFileContent(packagePath);
+        
+        if (!packageContent)
+            continue;
+        
+        const {type} = parse(packageContent);
+        
+        if (type === 'module')
+            continue;
+        
+        push(file, {
+            cjs,
+            js,
+        });
+    }
+};
 
 function findUpPackage(file) {
     let packageJSON;

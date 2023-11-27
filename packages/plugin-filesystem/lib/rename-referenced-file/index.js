@@ -10,16 +10,15 @@ const {
 const getImportsPlugin = require('./get-imports');
 
 const {
-    __filesystem,
     readFileContent,
     renameFile,
     findFile,
     writeFileContent,
 } = operator;
 
-module.exports.report = ({from, to}) => `Rename '${from}' to '${to}'`;
+module.exports.report = (file, {from, to}) => `Rename '${from}' to '${to}'`;
 
-module.exports.fix = ({from, to, path, ast, content, mainFile}) => {
+module.exports.fix = (file, {from, to, ast, content, mainFile}) => {
     renameFile(mainFile, to);
     
     transform(ast, content, {
@@ -35,36 +34,34 @@ module.exports.fix = ({from, to, path, ast, content, mainFile}) => {
     });
     
     const code = print(ast);
-    writeFileContent(path, code);
+    writeFileContent(file, code);
 };
 
-module.exports.traverse = ({push, options}) => ({
-    [__filesystem]: (path) => {
-        const {from, to} = options;
+module.exports.scan = (path, {push, options}) => {
+    const {from, to} = options;
+    
+    if (!from || !to)
+        return;
+    
+    const [mainFile] = findFile(path, from);
+    
+    if (!mainFile)
+        return;
+    
+    for (const file of findFile(path, '*.js')) {
+        if (file === mainFile)
+            continue;
         
-        if (!from || !to)
-            return;
+        const content = readFileContent(file);
+        const ast = parse(content);
         
-        const [mainFile] = findFile(path, from);
-        
-        if (!mainFile)
-            return;
-        
-        for (const file of findFile(path, '*.js')) {
-            if (file === mainFile)
-                continue;
+        push(file, {
+            mainFile,
+            from,
+            to,
             
-            const content = readFileContent(file);
-            const ast = parse(content);
-            
-            push({
-                mainFile,
-                from,
-                to,
-                path: file,
-                ast,
-                content,
-            });
-        }
-    },
-});
+            ast,
+            content,
+        });
+    }
+};

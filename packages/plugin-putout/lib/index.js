@@ -22,6 +22,7 @@ const convertBabelTypes = require('./convert-babel-types');
 const convertNodeToPathInGetTemplateValues = require('./convert-node-to-path-in-get-template-values');
 const convertTraverseToInclude = require('./convert-traverse-to-include');
 const convertTraverseToReplace = require('./convert-traverse-to-replace');
+const convertTraverseToScan = require('./convert-traverse-to-scan');
 const convertProcessToFind = require('./convert-process-to-find');
 const convertMethodToProperty = require('./convert-method-to-property');
 const convertAddArgumentToAddArgs = require('./convert-add-argument-to-add-args');
@@ -88,4 +89,5 @@ module.exports.rules = {
     'add-index-to-import': addIndexToImport,
     'apply-rename': applyRename,
     'apply-short-processors': applyShortProcessors,
+    'convert-traverse-to-scan': convertTraverseToScan,
 };

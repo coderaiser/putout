@@ -1,29 +1,3 @@
-'use strict';
-
-const {
-    operator,
-    parse,
-    transform,
-    print,
-} = require('putout');
-
-const {
-    join,
-    dirname,
-    relative,
-    basename,
-} = require('path');
-
-const {
-    readFileContent,
-    getFilename,
-    findFile,
-    writeFileContent,
-    moveFile,
-    setLiteralValue,
-    getParentDirectory,
-} = operator;
-
 const getImportsPlugin = {
     report: ({value}) => value,
     fix: ({path, relativeNextName}) => {
@@ -44,17 +18,16 @@ const getImportsPlugin = {
             if (value !== relativeMainFilename)
                 return;
             
-            push({
-                path,
+            push(path, {
                 relativeNextName,
             });
         },
     }),
 };
 
-module.exports.report = (file, {mainFilename, nextName}) => `Move '${mainFilename}' to '${nextName}'`;
+module.exports.report = (file, path, {mainFilename, nextName}) => `Move '${mainFilename}' to '${nextName}'`;
 
-module.exports.fix = (file, {cwd, nextName, mainFile, mainDirectory, mainFilename, ast, content}) => {
+module.exports.fix = (file, path, {cwd, nextName, mainFile, mainDirectory, mainFilename, ast, content}) => {
     moveFile(mainFile, mainDirectory);
     
     transform(ast, content, {
@@ -71,32 +44,10 @@ module.exports.fix = (file, {cwd, nextName, mainFile, mainDirectory, mainFilenam
     });
     
     const code = print(ast);
-    writeFileContent(file, code);
+    writeFileContent(path, code);
 };
 
 module.exports.scan = (path, {push, options}) => {
-    const {name, directory} = options;
-    
-    if (!name || !directory)
-        return;
-    
-    const [mainFile] = findFile(path, name);
-    const [mainDirectory] = findFile(path, directory);
-    
-    if (!mainFile)
-        return;
-    
-    const mainFilename = getFilename(mainFile);
-    const mainDirectoryName = getFilename(mainDirectory);
-    
-    const parentDirectoryPath = getParentDirectory(mainFile);
-    const parentDirectoryName = getFilename(parentDirectoryPath);
-    
-    if (directory === basename(parentDirectoryName))
-        return;
-    
-    const nextName = join(mainDirectoryName, basename(name));
-    
     for (const file of findFile(path, '*.js')) {
         if (file === mainFile)
             continue;

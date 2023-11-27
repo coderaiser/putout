@@ -1,11 +1,6 @@
-'use strict';
+module.exports.report = (file, {name}) => `Remove '${file.node.name}'`;
 
-const {operator} = require('putout');
-const {findFile, removeFile} = operator;
-
-module.exports.report = (file, {name}) => `Remove '${name}'`;
-
-module.exports.fix = (file) => {
+module.exports.fix = (file, {}) => {
     removeFile(file);
 };
 
