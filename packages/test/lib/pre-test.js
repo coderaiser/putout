@@ -1,6 +1,10 @@
 'use strict';
 
-const isCorrectPlugin = require('./is-correct-plugin');
+const {
+    isCorrectPlugin,
+    getIsCorrectPluginMessage,
+} = require('./is-correct-plugin');
+
 const {entries} = Object;
 const {isArray} = Array;
 
@@ -23,6 +27,7 @@ module.exports.preTest = function preTest(test, plugin) {
         filter,
         match,
         declare,
+        scan,
     }] = maybeEntries(plugin);
     
     const options = {
@@ -54,7 +59,7 @@ module.exports.preTest = function preTest(test, plugin) {
             t.end();
         }, options);
     
-    test(`${name}: plugins should be of type: replace, template, traverse or find`, (t) => {
+    test(`${name}: plugins should be of type: Replacer, Includer, Traverser, Scanner, Declarator or Finder`, (t) => {
         const result = isCorrectPlugin({
             find,
             fix,
@@ -69,9 +74,10 @@ module.exports.preTest = function preTest(test, plugin) {
             replace,
             
             declare,
+            scan,
         });
         
-        t.ok(result, `should export 'replace', 'find', 'traverse', 'include', 'exclude', or 'declare' function`);
+        t.ok(result, getIsCorrectPluginMessage());
         t.end();
     }, options);
 };

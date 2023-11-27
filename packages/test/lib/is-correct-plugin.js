@@ -2,7 +2,9 @@
 
 const isFn = (a) => typeof a === 'function';
 
-module.exports = (plugin) => {
+module.exports.getIsCorrectPluginMessage = () => `should export 'replace', 'find', 'traverse', 'include', 'exclude', 'declare' or 'scan' function`;
+
+module.exports.isCorrectPlugin = (plugin) => {
     const {
         find,
         fix,
@@ -11,6 +13,7 @@ module.exports = (plugin) => {
         exclude,
         replace,
         declare,
+        scan,
     } = plugin;
     
     const isFix = isFn(fix);
@@ -24,6 +27,9 @@ module.exports = (plugin) => {
     
     if (!isFix)
         return false;
+    
+    if (isFn(scan))
+        return true;
     
     const isFind = isFn(find);
     const isTraverse = isFn(traverse);

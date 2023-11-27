@@ -1,7 +1,8 @@
 'use strict';
 
 const {test, stub} = require('supertape');
-const isCorrectPlugin = require('./is-correct-plugin');
+const {isCorrectPlugin} = require('./is-correct-plugin');
+const noop = () => {};
 
 test('test: isCorrectPlugin: not', (t) => {
     const result = isCorrectPlugin({});
@@ -84,6 +85,18 @@ test('test: isCorrectPlugin: declare', (t) => {
         declare: () => ({
             isString: `const isString = (a) => typeof a === 'string'`,
         }),
+    });
+    
+    t.ok(result);
+    t.end();
+});
+
+test('test: isCorrectPlugin: scan', (t) => {
+    const result = isCorrectPlugin({
+        fix: noop,
+        scan: (rootPath, {push}) => {
+            push(rootPath);
+        },
     });
     
     t.ok(result);
