@@ -1,5 +1,6 @@
 'use strict';
 
+const {join} = require('node:path');
 const tryCatch = require('try-catch');
 const {types} = require('putout');
 
@@ -112,7 +113,7 @@ module.exports.moveFile = (filePath, dirPath) => {
         .split('/')
         .pop();
     
-    const newFilename = `${dirname}/${basename}`;
+    const newFilename = join(dirname, basename);
     
     maybeRemoveFile(dirPath, newFilename);
     
@@ -131,7 +132,7 @@ module.exports.copyFile = (filePath, dirPath) => {
         .split('/')
         .pop();
     
-    const newFilename = `${dirname}/${basename}`;
+    const newFilename = join(dirname, basename);
     const [hasContent, content] = getFileContent(filePath);
     
     const copiedFile = ObjectExpression([
