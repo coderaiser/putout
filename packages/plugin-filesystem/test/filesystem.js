@@ -45,12 +45,12 @@ test('plugin-filesystem: no transform: remove-files: disabled', (t) => {
     t.end();
 });
 
-test('plugin-filesystem: transform: convert-simple-filesystem-to-filesystem', (t) => {
-    t.transform('convert-simple-filesystem-to-filesystem');
+test('plugin-filesystem: no transform: convert-simple-filesystem-to-filesystem: disabled', (t) => {
+    t.noTransform('convert-simple-filesystem-to-filesystem-disabled');
     t.end();
 });
 
-test('plugin-filesystem: transform: convert-filesystem-to-simple-filesystem', (t) => {
-    t.transform('convert-filesystem-to-simple-filesystem');
+test('plugin-filesystem: no transform: convert-filesystem-to-simple-filesystem: disabled', (t) => {
+    t.noTransform('convert-filesystem-to-simple-filesystem-disabled');
     t.end();
 });

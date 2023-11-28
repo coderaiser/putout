@@ -5,5 +5,5 @@ __putout_processor_filesystem([
         "/world.txt",
         "hello world"
     ],
-    "/world.txt"
+    "/abc/"
 ]);

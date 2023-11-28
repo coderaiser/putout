@@ -9,6 +9,7 @@ const {
     findFile,
     __filesystem_name,
 } = operator;
+
 const {
     ObjectExpression,
     isArrayExpression,
