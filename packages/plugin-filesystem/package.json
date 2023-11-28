@@ -6,6 +6,11 @@
   "description": "🐊Putout plugin operates with filesystem",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-filesystem#readme",
   "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./to-simple": "./lib/convert-filesystem-to-simple-filesystem/index.js",
+    "./from-simple": "./lib/convert-simple-filesystem-to-filesystem/index.js"
+  },
   "release": false,
   "tag": false,
   "changelog": false,
@@ -23,7 +28,12 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@putout/babel": "^1.5.5",
+    "@putout/operate": "^11.3.0",
+    "@putout/operator-filesystem": "^2.10.0",
+    "@putout/operator-json": "^1.3.0"
+  },
   "keywords": [
     "putout",
     "putout-plugin",
@@ -40,7 +50,8 @@
     "eslint-plugin-putout": "^21.0.0",
     "lerna": "^6.0.1",
     "madrun": "^9.0.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "supertape": "^8.7.0"
   },
   "peerDependencies": {
     "putout": ">=32"

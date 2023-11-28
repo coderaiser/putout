@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('packages: convert-filesystem-to-simple-filesystem: report', (t) => {
-    t.report('convert-filesystem-to-simple-filesystem', `Use 'if condition' instead of 'ternary expression'`);
+    t.report('convert-filesystem-to-simple-filesystem', 'Convert Filesystem to Simple Filesystem');
     t.end();
 });
 

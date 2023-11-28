@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('packages: convert-simple-filesystem-to-filesystem: report', (t) => {
-    t.report('convert-simple-filesystem-to-filesystem', `Use object instead of array in __filesystem`);
+    t.report('convert-simple-filesystem-to-filesystem', `Convert Simple Filesystem to Filesystem`);
     t.end();
 });
 

@@ -1,14 +1,12 @@
 'use strict';
 
-const {types, operator} = require('putout');
-
+const {types} = require('@putout/babel');
 const {dirname} = require('path');
-const {
-    replaceWith,
-    moveFile,
-    findFile,
-    __filesystem_name,
-} = operator;
+const {moveFile, findFile} = require('@putout/operator-filesystem');
+
+const {__filesystem_name} = require('@putout/operator-json');
+
+const {replaceWith} = require('@putout/operate');
 
 const {
     ObjectExpression,
@@ -18,7 +16,7 @@ const {
     ObjectProperty,
 } = types;
 
-module.exports.report = () => `Use object instead of array in __filesystem`;
+module.exports.report = () => `Convert Simple Filesystem to Filesystem`;
 
 const isDirectory = (a) => a.endsWith('/');
 const getType = (a) => {

@@ -1,13 +1,9 @@
 'use strict';
 
-const {operator, types} = require('putout');
+const {types} = require('@putout/babel');
+const {replaceWith, getProperty} = require('@putout/operate');
 
-const {
-    findFile,
-    replaceWith,
-    getProperty,
-    getFilename,
-} = operator;
+const {findFile, getFilename} = require('@putout/operator-filesystem');
 
 const {
     StringLiteral,
@@ -16,7 +12,7 @@ const {
 
 const {isArray} = Array;
 
-module.exports.report = () => `Use 'if condition' instead of 'ternary expression'`;
+module.exports.report = () => `Convert Filesystem to Simple Filesystem`;
 
 module.exports.fix = (root, {files}) => {
     const names = [];
