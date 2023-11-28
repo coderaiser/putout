@@ -1,3 +1,27 @@
+2023.11.28, v33.13.0
+
+fix:
+- da125278b @putout/operator-filesystem: parse-simple-filesystem: trailing shash
+- 8cbedc657 @putout/operator-filesystem: moveFile: same
+- 585bb59b3 @putout/operator-filesystem: createFile: join
+- e87464158 @putout/operator-filesystem: createFile: join
+
+feature:
+- 676a2687e putout: @putout/plugin-putout v17.0.0
+- 68fae6973 @putout/plugin-putout: declare: getRule: change signature
+- 4a910e608 @putout/plugin-putout: convert-get-rule-to-require: add off
+- b79b2bf8b @putout/plugin-filesystem: convert-filesystem-to-simple-filesystem
+- 86e1d810d @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem
+- 9fcd8f295 @putout/plugin-putout: convert-traverse-to-scan: add
+- 8f34dc802 @putout/test: add support of Scanner
+- 0c8bf2340 @putout/engine-loader: Scanner
+- 2fa621c7d @putout/engine-runner: Scanner
+- b361e7483 @putout/operator-filesystem: createFile: improve
+- 9e0da1f5f @putout/operator-file-system: getFile -> findFile
+- 8d18ffc52 @putout/operator-filesystem: createFile: add
+- e0e96aae5 @putout/operator-filesystem: simplify testing drastically
+- e5e08eea5 @putout/operator-filesystem: parseSimpleFilesystem
+
 2023.11.24, v33.12.0
 
 feature:
