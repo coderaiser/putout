@@ -8,6 +8,7 @@ const renameTestToSpec = require('./rename-test-to-spec');
 const renameReferencedFile = require('./rename-referenced-file');
 const moveReferencedFile = require('./move-referenced-file');
 const convertSimpleFilesystemToFilesystem = require('./convert-simple-filesystem-to-filesystem');
+const convertFilesystemToSimpleFilesystem = require('./convert-filesystem-to-simple-filesystem');
 
 module.exports.rules = {
     'remove-vim-swap-file': removeVimSwapFile,
@@ -18,4 +19,5 @@ module.exports.rules = {
     'rename-referenced-file': ['off', renameReferencedFile],
     'move-referenced-file': ['off', moveReferencedFile],
     'convert-simple-filesystem-to-filesystem': ['off', convertSimpleFilesystemToFilesystem],
+    'convert-filesystem-to-simple-filesystem': ['off', convertFilesystemToSimpleFilesystem],
 };

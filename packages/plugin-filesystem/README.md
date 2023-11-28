@@ -273,6 +273,45 @@ __putout_processor_filesystem({
 });
 ```
 
+## convert-filesystem-to-simple-filesystem
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/79ce3ebdd5878d9fdcf80b762ceb8e76/52c9a16861c541abd601b83ad1c2ae988f97b28f).
+
+## ❌ Example of incorrect code
+
+```js
+__putout_processor_filesystem({
+    type: 'directory',
+    filename: '/',
+    files: [{
+        type: 'file',
+        filename: '/hello.txt',
+    }, {
+        type: 'file',
+        filename: '/world.txt',
+        content: 'hello world',
+    }, {
+        type: 'directory',
+        filename: '/abc',
+        files: [],
+    }],
+});
+```
+
+## ✅ Example of correct code
+
+```js
+__putout_processor_filesystem([
+    '/',
+    '/hello.txt',
+    [
+        '/world.txt',
+        'hello world',
+    ],
+    '/abc/',
+]);
+```
+
 ## License
 
 MIT

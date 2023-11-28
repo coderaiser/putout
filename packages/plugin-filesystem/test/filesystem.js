@@ -49,3 +49,8 @@ test('plugin-filesystem: transform: convert-simple-filesystem-to-filesystem', (t
     t.transform('convert-simple-filesystem-to-filesystem');
     t.end();
 });
+
+test('plugin-filesystem: transform: convert-filesystem-to-simple-filesystem', (t) => {
+    t.transform('convert-filesystem-to-simple-filesystem');
+    t.end();
+});
