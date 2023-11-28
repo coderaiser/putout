@@ -2,10 +2,7 @@
 
 const types = require('./types');
 const operator = require('./operator');
-
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const {getRule} = require('./get-rule');
 
 module.exports.declare = () => ({
     template: `import {template} from 'putout'`,

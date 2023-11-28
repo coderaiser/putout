@@ -3,9 +3,14 @@ const remove = require('./remove');
 const zzz = require('./zzz');
 const xxx = require('./xxx');
 const abcd = require('./abcd');
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const getRule = (name, options) => {
+    const plugin = require(`./${name}`);
+    const pluginWithOptions = !options ? plugin : [options, plugin];
+    
+    return {
+        [name]: pluginWithOptions,
+    };
+};
 
 module.exports.rules = {
     'add': add,

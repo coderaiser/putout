@@ -222,7 +222,7 @@ test('plugin-putout: declare: transform: traverseProperties', (t) => {
 });
 
 test('plugin-putout: declare: transform: getRule', (t) => {
-    const a = '`./${a}`';
+    const name = '`./${name}`';
     const source = montag`
         module.exports.rules = {
             ...getRule('remove-unused-variables'),
@@ -230,9 +230,14 @@ test('plugin-putout: declare: transform: getRule', (t) => {
     `;
     
     t.transformCode(source, montag`
-        const getRule = (a) => ({
-            [a]: require(${a}),
-        });
+        const getRule = (name, options) => {
+            const plugin = require(${name});
+            const pluginWithOptions = !options ? plugin : [options, plugin];
+            
+            return {
+                [name]: pluginWithOptions,
+            };
+        };
         
         module.exports.rules = {
             ...getRule('remove-unused-variables'),
