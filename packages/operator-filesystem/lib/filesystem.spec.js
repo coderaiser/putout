@@ -3,6 +3,7 @@
 const montag = require('montag');
 const {stub} = require('supertape');
 const {__filesystem_name} = require('@putout/operator-json');
+const maybeFS = require('./maybe-fs');
 
 const {
     parse,
@@ -24,6 +25,8 @@ const {
     writeFileContent,
     init,
     deinit,
+    start,
+    pause,
 } = require('./filesystem');
 
 const {
@@ -830,5 +833,15 @@ test('putout: operator: filesystem: moveFile: sameDirectory', (t) => {
     const result = findFile(ast, '/');
     
     t.ok(result);
+    t.end();
+});
+
+test('putout: operator: filesystem: start', (t) => {
+    t.equal(start, maybeFS.start);
+    t.end();
+});
+
+test('putout: operator: filesystem: pause', (t) => {
+    t.equal(pause, maybeFS.pause);
     t.end();
 });

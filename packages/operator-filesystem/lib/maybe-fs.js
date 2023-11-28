@@ -1,5 +1,8 @@
 'use strict';
 
+const fullstore = require('fullstore');
+const driverStore = fullstore();
+
 const {assign} = Object;
 const noop = () => {};
 const returns = (a) => () => a;
@@ -39,10 +42,23 @@ module.exports.writeFileContent = (name) => {
     maybeFS.writeFileContent(name);
 };
 
-module.exports.init = (fsDriver) => {
+module.exports.init = init;
+
+function init(fsDriver) {
     assign(maybeFS, fsDriver);
+}
+
+module.exports.pause = () => {
+    driverStore(maybeFS);
+    deinit();
 };
 
-module.exports.deinit = () => {
-    assign(maybeFS, defaultFS);
+module.exports.start = () => {
+    init(driverStore());
 };
+
+module.exports.deinit = deinit;
+
+function deinit() {
+    assign(maybeFS, defaultFS);
+}

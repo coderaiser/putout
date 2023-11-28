@@ -262,3 +262,6 @@ function writeFileContent(filePath, content) {
 
 module.exports.init = maybeFS.init;
 module.exports.deinit = maybeFS.deinit;
+
+module.exports.pause = maybeFS.pause;
+module.exports.start = maybeFS.start;
