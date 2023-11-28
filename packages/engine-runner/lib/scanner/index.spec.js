@@ -156,3 +156,43 @@ test('putout: runner: scanner: pathOptions', (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: runner: scanner: simple', (t) => {
+    const addFile = {
+        report: () => 'Add file',
+        fix: (rootPath) => {
+            createFile(rootPath, 'hello', 'world');
+        },
+        scan: (rootPath, {push}) => {
+            const files = findFile(rootPath, 'hello');
+            
+            if (files.length)
+                return;
+            
+            push(rootPath);
+        },
+    };
+    
+    const source = montag`
+        ${__filesystem_name}([
+            "/"
+        ]);
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [{
+            'add-file': addFile,
+        }],
+    });
+    
+    const expected = montag`
+        ${__filesystem_name}(["/", [
+            "/hello",
+            "d29ybGQ="
+        ]]);\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

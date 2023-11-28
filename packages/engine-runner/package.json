@@ -29,8 +29,11 @@
     "@putout/engine-parser": "^9.0.0",
     "@putout/operate": "^11.0.0",
     "@putout/operator-declare": "^8.0.0",
+    "@putout/operator-filesystem": "^2.10.0",
     "@putout/operator-json": "^1.3.0",
+    "@putout/plugin-filesystem": "^2.0.0",
     "debug": "^4.1.1",
+    "fullstore": "^3.0.0",
     "jessy": "^3.0.0",
     "nessy": "^4.0.0",
     "once": "^1.4.0",
@@ -42,7 +45,6 @@
     "putout-engine"
   ],
   "devDependencies": {
-    "@putout/operator-filesystem": "^2.9.2",
     "@putout/plugin-minify": "*",
     "c8": "^8.0.0",
     "eslint": "^8.0.1",
