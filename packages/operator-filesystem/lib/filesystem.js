@@ -104,6 +104,9 @@ module.exports.removeFile = (filePath) => {
 };
 
 module.exports.moveFile = (filePath, dirPath) => {
+    if (filePath === dirPath)
+        return;
+    
     const dirname = getFilename(dirPath);
     const filename = getFilename(filePath);
     const dirPathFiles = getProperty(dirPath, 'files');

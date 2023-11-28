@@ -815,9 +815,20 @@ test('putout: operator: filesystem: getFile: couple', (t) => {
 
 test('putout: operator: filesystem: findFile: directory', (t) => {
     const ast = parseFilesystem(['/hello/', '/hello/world/', '/hello/world.txt']);
-    
     const files = findFile(ast, ['/hello', '/hello/world']);
     
     t.equal(files.length, 2);
+    t.end();
+});
+
+test('putout: operator: filesystem: moveFile: sameDirectory', (t) => {
+    const ast = parseFilesystem(['/', '/hello/', '/hello/world.txt']);
+    const [dirPath] = findFile(ast, '/');
+    
+    moveFile(dirPath, dirPath);
+    
+    const result = findFile(ast, '/');
+    
+    t.deepEqual(result, []);
     t.end();
 });
