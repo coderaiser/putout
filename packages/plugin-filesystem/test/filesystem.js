@@ -44,3 +44,8 @@ test('plugin-filesystem: no transform: remove-files: disabled', (t) => {
     t.noTransform('remove-files-disabled');
     t.end();
 });
+
+test('plugin-filesystem: transform: convert-simple-filesystem-to-filesystem', (t) => {
+    t.transform('convert-simple-filesystem-to-filesystem');
+    t.end();
+});

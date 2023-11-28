@@ -22,7 +22,8 @@ npm i @putout/plugin-filesystem -D
         "filesystem/rename-spec-to-test": "off",
         "filesystem/rename-test-to-spec": "off",
         "filesystem/rename-referenced-file": "off",
-        "filesystem/move-referenced-file": "off"
+        "filesystem/move-referenced-file": "off",
+        "filesystem/convert-simple-filesystem-to-filesystem": "off"
     }
 }
 ```
@@ -231,6 +232,45 @@ import hello from '../lib/hello.js';
 ```js
 // lib/hello.js
 export const hello = 'world';
+```
+
+## convert-simple-filesystem-to-filesystem
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e15d077626f832dd0b98458b1b8ff284/e2d9d2767c9bfab3e4d337f149069666d2aafe79).
+
+## ❌ Example of incorrect code
+
+```js
+__putout_processor_filesystem([
+    '/',
+    '/hello.txt',
+    [
+        '/world.txt',
+        'hello world',
+    ],
+    '/abc/',
+]);
+```
+
+## ✅ Example of correct code
+
+```js
+__putout_processor_filesystem({
+    type: 'directory',
+    filename: '/',
+    files: [{
+        type: 'file',
+        filename: '/hello.txt',
+    }, {
+        type: 'file',
+        filename: '/world.txt',
+        content: 'hello world',
+    }, {
+        type: 'directory',
+        filename: '/abc',
+        files: [],
+    }],
+});
 ```
 
 ## License
