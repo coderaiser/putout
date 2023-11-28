@@ -24,6 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
+    "@putout/babel": "^1.5.5",
     "@putout/operate": "^11.0.0",
     "try-catch": "^3.0.1"
   },

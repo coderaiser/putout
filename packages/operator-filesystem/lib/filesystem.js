@@ -2,7 +2,7 @@
 
 const {join} = require('node:path');
 const tryCatch = require('try-catch');
-const {types} = require('putout');
+const {types} = require('@putout/babel');
 
 const {
     setLiteralValue,
