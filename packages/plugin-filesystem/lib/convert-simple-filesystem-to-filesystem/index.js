@@ -73,18 +73,9 @@ module.exports.fix = (path) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    CallExpression(path) {
-        const {name} = path.get('callee').node;
-        
-        if (name !== __filesystem_name)
-            return;
-        
-        const argPath = path.get('arguments.0');
-        
-        if (!argPath.isArrayExpression())
-            return;
-        
-        push(argPath);
+    [`${__filesystem_name}(__array)`]: (path) => {
+        const root = path.get('arguments.0');
+        push(root);
     },
 });
 

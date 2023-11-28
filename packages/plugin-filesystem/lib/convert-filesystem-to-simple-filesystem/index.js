@@ -2,7 +2,7 @@
 
 const {types} = require('@putout/babel');
 const {replaceWith, getProperty} = require('@putout/operate');
-
+const {__filesystem_name} = require('@putout/operator-json');
 const {findFile, getFilename} = require('@putout/operator-filesystem');
 
 const {
@@ -22,8 +22,10 @@ module.exports.fix = (root, {files}) => {
         const contentPath = getProperty(file, 'content');
         const content = contentPath?.node?.value?.value;
         
-        if (content)
+        if (content) {
             names.push([filename, content]);
+            continue;
+        }
         
         names.push(filename);
     }
@@ -45,10 +47,13 @@ module.exports.fix = (root, {files}) => {
     replaceWith(root, ArrayExpression(list));
 };
 
-module.exports.scan = (root, {push}) => {
-    const files = findFile(root, '*');
-    
-    push(root, {
-        files,
-    });
-};
+module.exports.traverse = ({push}) => ({
+    [`${__filesystem_name}(__object)`]: (path) => {
+        const root = path.get('arguments.0');
+        const files = findFile(root, '*');
+        
+        push(root, {
+            files,
+        });
+    },
+});
