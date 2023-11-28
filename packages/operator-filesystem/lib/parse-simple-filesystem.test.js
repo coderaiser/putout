@@ -7,7 +7,13 @@ const {toJS, fromJS} = require('@putout/operator-json');
 const {moveFile, findFile} = require('./filesystem');
 const {isArray} = Array;
 const {stringify} = JSON;
-const noTrailingSlash = (a) => a.endsWith('/') ? a.slice(0, -1) : a;
+
+const noTrailingSlash = (a) => {
+    if (a === '/')
+        return a;
+    
+    return a.endsWith('/') ? a.slice(0, -1) : a;
+};
 
 const createFile = (filename) => ({
     type: 'file',
@@ -68,7 +74,7 @@ function createFlatFiles(list) {
         }
         
         if (file.endsWith('/')) {
-            result.push(createDirectory(file.slice(0, -1)));
+            result.push(createDirectory(noTrailingSlash(file)));
             continue;
         }
         

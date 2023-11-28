@@ -62,3 +62,16 @@ test('putout: operator: filesystem: parseFileSystem: content', (t) => {
     t.filesystem(result, expected);
     t.end();
 });
+
+test('putout: operator: filesystem: parseFileSystem: slash', (t) => {
+    const result = parseSimpleFilesystem(['/']);
+    
+    const expected = {
+        filename: '/',
+        type: 'directory',
+        files: [],
+    };
+    
+    t.filesystem(result, expected);
+    t.end();
+});
