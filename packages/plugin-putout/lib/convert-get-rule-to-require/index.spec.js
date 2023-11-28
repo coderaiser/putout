@@ -30,6 +30,11 @@ test('packages: convert-get-rule-to-require: transform: hulf', (t) => {
     t.end();
 });
 
+test('packages: convert-get-rule-to-require: transform: off', (t) => {
+    t.transform('off');
+    t.end();
+});
+
 test('packages: convert-get-rule-to-require: no transform: no-spread', (t) => {
     t.noTransform('no-spread');
     t.end();
