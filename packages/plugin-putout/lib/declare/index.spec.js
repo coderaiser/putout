@@ -230,14 +230,9 @@ test('plugin-putout: declare: transform: getRule', (t) => {
     `;
     
     t.transformCode(source, montag`
-        const getRule = (name, options) => {
-            const plugin = require(${name});
-            const pluginWithOptions = !options ? plugin : [options, plugin];
-            
-            return {
-                [name]: pluginWithOptions,
-            };
-        };
+        const getRule = (name, options = 'on') => ({
+            [name]: [options, require(${name})],
+        });
         
         module.exports.rules = {
             ...getRule('remove-unused-variables'),

@@ -6,8 +6,9 @@ const index = require('.');
 
 test('putout: plugin-putout: declare: getRule', (t) => {
     const rule = getRule('index');
+    const expected = ['on', index];
     
-    t.equal(rule.index, index);
+    t.deepEqual(rule.index, expected);
     t.end();
 });
 
