@@ -10,5 +10,6 @@ module.exports = {
     readFileContent: 'const {readFileContent} = operator',
     writeFileContent: 'const {writeFileContent} = operator',
     getFilename: 'const {getFilename} = operator',
+    getFileType: 'const {getFileType} = operator',
     copyFile: 'const {copyFile} = operator',
 };
