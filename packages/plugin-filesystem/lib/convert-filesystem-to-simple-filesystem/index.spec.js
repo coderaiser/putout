@@ -19,3 +19,8 @@ test('packages: convert-filesystem-to-simple-filesystem: transform', (t) => {
     t.transform('convert-filesystem-to-simple-filesystem');
     t.end();
 });
+
+test('packages: convert-filesystem-to-simple-filesystem: transform: trailing-slash', (t) => {
+    t.transform('trailing-slash');
+    t.end();
+});

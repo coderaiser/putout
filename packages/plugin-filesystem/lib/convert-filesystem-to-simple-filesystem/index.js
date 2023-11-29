@@ -3,7 +3,11 @@
 const {types} = require('@putout/babel');
 const {replaceWith, getProperty} = require('@putout/operate');
 const {__filesystem_name} = require('@putout/operator-json');
-const {findFile, getFilename} = require('@putout/operator-filesystem');
+const {
+    findFile,
+    getFilename,
+    getFileType,
+} = require('@putout/operator-filesystem');
 
 const {
     StringLiteral,
@@ -12,6 +16,8 @@ const {
 
 const {isArray} = Array;
 
+const maybeAddSlash = (a) => a === '/' ? a : `${a}/`;
+
 module.exports.report = () => `Convert Filesystem to Simple Filesystem`;
 
 module.exports.fix = (root, {files}) => {
@@ -19,11 +25,17 @@ module.exports.fix = (root, {files}) => {
     
     for (const file of files) {
         const filename = getFilename(file);
+        const type = getFileType(file);
         const contentPath = getProperty(file, 'content');
         const content = contentPath?.node?.value?.value;
         
         if (content) {
             names.push([filename, content]);
+            continue;
+        }
+        
+        if (type === 'directory') {
+            names.push(maybeAddSlash(filename));
             continue;
         }
         

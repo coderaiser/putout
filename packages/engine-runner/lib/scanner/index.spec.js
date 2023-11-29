@@ -196,3 +196,58 @@ test('putout: runner: scanner: simple', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: runner: scanner: trailing slash', (t) => {
+    const addFile = {
+        report: () => 'Add file',
+        fix: (rootPath) => {
+            createFile(rootPath, 'hello', 'world');
+        },
+        scan: (rootPath, {push}) => {
+            const files = findFile(rootPath, 'hello');
+            
+            if (files.length)
+                return;
+            
+            push(rootPath);
+        },
+    };
+    
+    const source = montag`
+        ${__filesystem_name}([
+            '/',
+            '/hello.txt',
+            [
+                '/world.txt',
+                'hello world',
+            ],
+            '/abc/',
+        ]);
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [{
+            'add-file': addFile,
+        }],
+    });
+    
+    const expected = montag`
+        ${__filesystem_name}([
+            "/",
+            "/hello.txt",
+            [
+                "/world.txt",
+                "hello world"
+            ],
+            "/abc/",
+            [
+                "/hello",
+                "d29ybGQ="
+            ]
+        ]);\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
