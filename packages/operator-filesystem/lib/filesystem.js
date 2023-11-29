@@ -68,6 +68,11 @@ function getFilename(filePath) {
     return value;
 }
 
+module.exports.getFileType = (filePath) => {
+    const typePath = getProperty(filePath, 'type');
+    return typePath.node.value.value;
+};
+
 function getFileContent(filePath) {
     const content = getProperty(filePath, 'content');
     

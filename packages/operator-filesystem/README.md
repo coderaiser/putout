@@ -88,6 +88,17 @@ const {getFilename} = operator;
 const name = getFilename(filePath);
 ```
 
+### `getFileType(path: FilePath): string`
+
+```js
+const {operator} = require('putout');
+const {getFilename} = operator;
+
+getFileType(filePath);
+// returns
+'file';
+```
+
 ### `removeFile(filePath: Path)`
 
 ```js

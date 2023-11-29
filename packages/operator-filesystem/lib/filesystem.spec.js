@@ -18,6 +18,7 @@ const {
     moveFile,
     findFile,
     getFilename,
+    getFileType,
     createFile,
     createDirectory,
     getParentDirectory,
@@ -257,6 +258,24 @@ test('putout: operator: filesystem: getFilename', (t) => {
     const expected = '/hello/world/abc';
     
     t.equal(name, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: getFileType', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/hello/world/abc",
+            "files": []
+        });
+    `);
+    
+    const [filePath] = findFile(ast, 'abc');
+    const type = getFileType(filePath);
+    
+    const expected = 'directory';
+    
+    t.equal(type, expected);
     t.end();
 });
 
