@@ -92,7 +92,7 @@ const name = getFilename(filePath);
 
 ```js
 const {operator} = require('putout');
-const {getFilename} = operator;
+const {getFilename, getFileType} = operator;
 
 getFileType(filePath);
 // returns
