@@ -1,10 +1,11 @@
 'use strict';
 
+const {types} = require('@putout/babel');
 const {
     isIdentifier,
     isLiteral,
     isMemberExpression,
-} = require('@babel/types');
+} = types;
 
 module.exports.report = () => `Avoid 'console' call`;
 
