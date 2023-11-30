@@ -13,7 +13,6 @@ function commonjs() {
         match: {
             '*.js': {
                 'nodejs/convert-esm-to-commonjs': 'on',
-                'tape/convert-mock-require-to-mock-import': 'off',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
@@ -29,6 +28,8 @@ function esm() {
             '*.js': {
                 'nodejs/convert-commonjs-to-esm': 'on',
                 'strict-mode/add-missing': 'off',
+            },
+            '{test,*.spec.js}': {
                 'tape/convert-mock-require-to-mock-import': 'on',
             },
             '.eslintrc.json': {

@@ -879,7 +879,6 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
         match: {
             '*.js': {
                 'nodejs/convert-esm-to-commonjs': 'on',
-                'tape/convert-mock-require-to-mock-import': 'off',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
@@ -892,7 +891,6 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
         rules: {
             'remove-only': 'on',
             'nodejs/convert-esm-to-commonjs': 'on',
-            'tape/convert-mock-require-to-mock-import': 'off',
         },
     };
     
@@ -933,11 +931,13 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
             '*.js': {
                 'nodejs/convert-commonjs-to-esm': 'on',
                 'strict-mode/add-missing': 'off',
-                'tape/convert-mock-require-to-mock-import': 'on',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
                 'eslint/convert-require-to-import': 'on',
+            },
+            '{test,*.spec.js}': {
+                'tape/convert-mock-require-to-mock-import': 'on',
             },
         },
         rules: {
