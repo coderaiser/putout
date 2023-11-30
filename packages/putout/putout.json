@@ -155,7 +155,6 @@
         "github": "off",
         "tape": "off",
         "strict-mode": "off",
-        "tape/convert-mock-require-to-mock-import": "off",
         "browserlist": "off",
         "filesystem": "off"
     },
