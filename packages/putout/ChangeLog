@@ -1,3 +1,10 @@
+2023.11.30, v33.13.3
+
+feature:
+- e7cce35ad putout: @putout/plugin-madrun v18.0.0
+- 7fad0bf2e @putout/plugin-madrun: drop support of 🐊 < 33
+- da236e291 @putout/plugin-madrun: remove-useless-string-conversion
+
 2023.11.30, v33.13.2
 
 fix:
