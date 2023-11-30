@@ -1,3 +1,21 @@
+2023.11.30, v33.13.1
+
+fix:
+- 9ca8632f4 putout: config: drop useless: tape/convert-mock-require-to-mock-import: already disabled
+- 56ed4c7da @putout/plugin-filesystem: convert-filesystem-to-simple-filesystem: trailing slash
+
+feature:
+- 0411f1fbc @putout/plugin-putout: declare: get-rule: simplify
+- 204f7f249 @putout/plugin-putout: declare: getFileType: add
+- 7b5875357 @putout/operator-filesystem: getFileType: add
+- 154a21204 @putout/engine-runner: Scanner: Simple Filesystem
+- dfad2a2ae @putout/operator-filesystem: pause/start
+- 27c932d6a @putout/operator-filesystem: putout -> babel
+- b40e5e9fc @putout/plugin-filesystem: simple-filesystem: simplify
+- 1f4bb7b18 putout: @putout/plugin-filesystem v2.0.0
+- 6731eda00 @putout/plugin-filesystem: drop support of 🐊 < 33
+- 5776b3819 @putout/plugin-filesystem: toSimple, fromSimple: add
+
 2023.11.28, v33.13.0
 
 fix:
