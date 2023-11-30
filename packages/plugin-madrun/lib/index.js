@@ -20,6 +20,7 @@ const removeCheckDuplicatesFromTest = require('./remove-check-duplicates-from-te
 const declare = require('./declare');
 const convertArgsToScripts = require('./convert-args-to-scripts');
 const removeUselessArrayInRun = require('./remove-useless-array-in-run');
+const removeUselessStringConversion = require('./remove-useless-string-conversion');
 
 module.exports.rules = {
     'add-function': addFunction,
@@ -42,4 +43,5 @@ module.exports.rules = {
     declare,
     'convert-args-to-scripts': convertArgsToScripts,
     'remove-useless-array-in-run': removeUselessArrayInRun,
+    'remove-useless-string-conversion': removeUselessStringConversion,
 };

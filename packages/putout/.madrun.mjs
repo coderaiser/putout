@@ -10,7 +10,7 @@ const testEnv = {
 
 export default {
     'wisdom': () => run(['lint', 'coverage']),
-    'test': async () => [testEnv, String(await cutEnv('test:raw'))],
+    'test': async () => [testEnv, await cutEnv('test:raw')],
     'test:raw': () => [testEnv, `tape 'test/*.{js,mjs}' '{bin,lib}/**/*.spec.{js,mjs}'`],
     'watch:test': async () => [testEnv, `nodemon -w bin -w lib -w test -x "${await cutEnv('test')} -f tap"`],
     'lint': () => `bin/putout.mjs .`,

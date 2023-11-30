@@ -37,7 +37,8 @@ npm i putout @putout/plugin-madrun -D
         "madrun/convert-nyc-to-c8": "on",
         "madrun/set-report-lcov": "on",
         "madrun/remove-check-duplicates-from-test": "on",
-        "madrun/remove-useless-array-in-run": "on"
+        "madrun/remove-useless-array-in-run": "on",
+        "madrun/remove-useless-string-conversion": "on"
     }
 }
 ```
@@ -340,6 +341,26 @@ export default {
 ```js
 export default {
     time: async () => await run('lint:fresh', '-f time'),
+};
+```
+
+## remove-useless-string-conversion
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6fd51ff9244bda07919ddacfb07d32d2/4c4ed5336c1bbef6fba47ff61f3558a87435443c).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    time: async () => [testEnv, String(await cutEnv('test:raw'))],
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    time: async () => [testEnv, await cutEnv('test:raw')],
 };
 ```
 
