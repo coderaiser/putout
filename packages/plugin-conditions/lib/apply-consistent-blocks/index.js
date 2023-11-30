@@ -16,6 +16,14 @@ module.exports.match = () => ({
     'if (__a) __body; else __b': ({__b}) => !isIfStatement(__b),
     'if (__a) {__b}': (vars, path) => {
         const {parentPath} = path;
+        const __bPath = path.get('consequent.body.0');
+        const {
+            leadingComments,
+            trailingComments,
+        } = __bPath.node;
+        
+        if (leadingComments || trailingComments)
+            return false;
         
         if (!parentPath.isIfStatement())
             return true;
