@@ -1,3 +1,8 @@
+2023.11.30, v33.13.2
+
+fix:
+- 0bf206ec4 putout: parse-options: apply-module-type-rules: tape
+
 2023.11.30, v33.13.1
 
 fix:
