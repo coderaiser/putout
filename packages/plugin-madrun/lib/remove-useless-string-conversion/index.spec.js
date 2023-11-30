@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('packages: remove-useless-string-conversion: report', (t) => {
-    t.report('remove-useless-string-conversion', `Remove useless String convertion`);
+    t.report('remove-useless-string-conversion', `Remove useless String conversion`);
     t.end();
 });
 
