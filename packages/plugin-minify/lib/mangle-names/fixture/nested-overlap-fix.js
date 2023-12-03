@@ -1,8 +1,8 @@
-function b() {
-    const a = document.getElementById('themeSwitcher');
+function a() {
+    const A = document.getElementById('themeSwitcher');
 }
 
-function B() {
+function b() {
     if (!Cookies.get('theme')) {
         if (window.matchMedia('(prefers-color-scheme: dark)')) {
             Cookies.set('theme', 'dark');
@@ -11,21 +11,21 @@ function B() {
         }
     }
     
-    const A = [];
+    const _ = [];
     
-    b();
+    a();
 }
 
 function c() {
-    const _ = Cookies.get('theme') ?? 'dark';
+    const B = Cookies.get('theme') ?? 'dark';
     
-    if (_ === 'dark') {
+    if (B === 'dark') {
         Cookies.set('theme', 'light');
-        B();
-    } else if (_ === 'light') {
+        b();
+    } else if (B === 'light') {
         Cookies.set('theme', 'dark');
-        B();
+        b();
     }
 }
 
-B();
+b();

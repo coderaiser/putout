@@ -4,11 +4,40 @@ const {entries} = Object;
 
 export const report = () => `Mangle name`;
 
-export const include = () => ['Statement'];
+export const traverse = ({push, pathStore, store}) => ({
+    BlockStatement(path) {
+        pathStore(path);
+    },
+    ReferencedIdentifier(path) {
+        const {name} = path.node;
+        
+        pathStore(path);
+        
+        store(name, {
+            path,
+        });
+    },
+    Program: {
+        exit(path) {
+            const referenced = Object.fromEntries(store.entries());
+            
+            push({
+                path,
+                referenced,
+            });
+            
+            for (const path of pathStore()) {
+                push({
+                    path,
+                    referenced,
+                });
+            }
+        },
+    },
+});
 
-export const filter = (path) => !path.scope.__putout_minify;
-
-export const fix = ({scope}, options) => {
+export const fix = ({path, referenced}, options) => {
+    const {scope} = path;
     const {mangleClassNames} = options;
     const names = entries(scope.bindings);
     const programPath = scope.getProgramParent().path;
@@ -21,6 +50,7 @@ export const fix = ({scope}, options) => {
         const all = {
             ...allStore,
             ...scope.getAllBindings(),
+            ...referenced,
         };
         
         if (name.length === 1)

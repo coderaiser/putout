@@ -1,8 +1,8 @@
-function hello() {
+function A() {
     var a = 5, b = 7, c = 8, d = 'hello', f = 55;
     
 function e() {
-        return hello;
+        return A;
     }
 
     return a;

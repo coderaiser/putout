@@ -1,7 +1,7 @@
 if (x)
     return;
 
-var x = () => m, y = () => m(), m = function a() {
+var x = () => m, y = () => m(), m = function A() {
         return hello;
     };
 

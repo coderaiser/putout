@@ -1,11 +1,11 @@
-async function onChange(a) {
-    var b = a.target, f = document.getElementById(b.dataset.resultElement);
+async function a(A) {
+    var b = A.target, e = document.getElementById(b.dataset.resultElement);
     
-    let d = b.value;
+    let c = b.value;
     
-    type == 'email' && (d = d.split('@')[1]);
+    type == 'email' && (c = c.split('@')[1]);
     
-    var e = await checkDomain(d);
+    var d = await checkDomain(c);
     
-    f.innerHTML = `Result: ${e.data}`;
+    e.innerHTML = `Result: ${d.data}`;
 }
