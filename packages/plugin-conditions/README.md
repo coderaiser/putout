@@ -19,6 +19,7 @@ npm i @putout/plugin-conditions -D
         "conditions/apply-consistent-blocks": "on",
         "conditions/apply-comparison-order": "on",
         "conditions/apply-if": "on",
+        "conditions/add-return": "on",
         "conditions/convert-comparison-to-boolean": "on",
         "conditions/convert-equal-to-strict-equal": "on",
         "conditions/evaluate": "on",
@@ -125,6 +126,24 @@ alert();
 ```js
 if (2 > 3)
     alert();
+```
+
+## add-return
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b1c12a29951659bb54b283310027d6ef/b32270ca22a36728c67edf0dc0f0519876b78f16).
+
+### ❌ Example of incorrect code
+
+```js
+if (a)
+    false;
+```
+
+### ✅ Example of correct code
+
+```js
+if (a)
+    return false;
 ```
 
 ## convert-comparison-to-boolean

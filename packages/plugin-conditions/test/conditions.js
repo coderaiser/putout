@@ -69,3 +69,8 @@ test('plugin-conditions: transform: remove-same-values-condition', (t) => {
     t.transform('remove-same-values-condition');
     t.end();
 });
+
+test('plugin-conditions: transform: add-return', (t) => {
+    t.transform('add-return');
+    t.end();
+});
