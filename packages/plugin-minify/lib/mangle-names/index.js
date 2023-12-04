@@ -11,11 +11,12 @@ export const traverse = ({push, pathStore, store}) => ({
     'Identifier|ReferencedIdentifier'(path) {
         const {name} = path.node;
         
+        if (!path.scope.bindings[name])
+            return;
+        
         pathStore(path);
         
-        store(name, {
-            path,
-        });
+        store(name, {});
     },
     Program: {
         exit(path) {
