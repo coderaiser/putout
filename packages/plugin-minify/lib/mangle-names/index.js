@@ -4,6 +4,8 @@ const {entries} = Object;
 
 export const report = () => `Mangle name`;
 
+const hasScope = ({scope}) => scope.__putout_minify;
+
 export const traverse = ({push, pathStore, store}) => ({
     BlockStatement(path) {
         pathStore(path);
@@ -15,7 +17,6 @@ export const traverse = ({push, pathStore, store}) => ({
             return;
         
         pathStore(path);
-        
         store(name, {});
     },
     Program: {
@@ -28,6 +29,9 @@ export const traverse = ({push, pathStore, store}) => ({
             });
             
             for (const path of pathStore()) {
+                if (hasScope(path))
+                    continue;
+                
                 push({
                     path,
                     referenced,
