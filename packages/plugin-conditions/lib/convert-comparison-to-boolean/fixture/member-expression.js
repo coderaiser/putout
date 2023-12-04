@@ -5,4 +5,3 @@ const a = {
 
 if (a.b > a.c)
     return;
-

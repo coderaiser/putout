@@ -322,7 +322,8 @@ Remove useless `else` before:
 
 ```js
 if (x)
-    return;else
+    return;
+else
     console.log();
 ```
 
