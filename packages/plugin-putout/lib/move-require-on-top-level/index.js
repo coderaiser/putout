@@ -58,7 +58,10 @@ module.exports.replace = () => ({
 const buildRequire = template(`const NAME = REQUIRE`);
 
 function declareRequire({__a, __b}, path) {
-    const shortName = __a.value || __a.name.split('/').pop();
+    const shortName = __a.value || __a
+        .name
+        .split('/')
+        .pop();
     
     const name = justCamelCase(shortName);
     

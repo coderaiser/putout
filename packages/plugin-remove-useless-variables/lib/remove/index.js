@@ -4,7 +4,9 @@ const {operator} = require('putout');
 const {remove, compare} = operator;
 
 const isNestedMemberExpression = (path) => {
-    return path.isMemberExpression() && path.get('object').isMemberExpression();
+    return path.isMemberExpression() && path
+        .get('object')
+        .isMemberExpression();
 };
 
 module.exports.report = ({idName}) => `Useless variable declaration with name "${idName}"`;
