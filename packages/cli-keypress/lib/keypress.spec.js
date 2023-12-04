@@ -124,7 +124,7 @@ test('putout: cli: on halt: onKeyPress: not Ctrl+C', (t) => {
     
     fn(str, key);
     
-    t.notOk(isStop.called, 'should not call isStop');
+    t.notCalled(isStop, 'should not call isStop');
     t.end();
 });
 

@@ -447,7 +447,7 @@ test('putout: engine: runner: template: log', (t) => {
     _log();
     stopAll();
     
-    t.notOk(debug.called, 'should call debug');
+    t.notCalled(debug, 'should call debug');
     t.end();
 });
 

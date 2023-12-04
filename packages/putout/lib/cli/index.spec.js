@@ -858,7 +858,7 @@ test('putout: cli: no files', async (t) => {
         argv,
     });
     
-    t.notOk(log.called, 'should not call log');
+    t.notCalled(log, 'should not call log');
     t.end();
 });
 
@@ -1689,7 +1689,7 @@ test('putout: cli: not fixable', async (t) => {
     
     stopAll();
     
-    t.notOk(setInfo.called, 'should not call fileCache.setInfo');
+    t.notCalled(setInfo, 'should not call fileCache.setInfo');
     t.end();
 });
 
@@ -1744,7 +1744,7 @@ test('putout: cli: setInfo: crash', async (t) => {
     
     stopAll();
     
-    t.notOk(setInfo.called, 'should not call fileCache.setInfo');
+    t.notCalled(setInfo, 'should not call fileCache.setInfo');
     t.end();
 });
 

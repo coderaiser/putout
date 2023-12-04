@@ -11,11 +11,16 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-tape: apply-stub-operator: report', (t) => {
-    t.report('called-with', 'Stub operator should be used');
+    t.report('called-with', 'Use Stub operator');
     t.end();
 });
 
 test('plugin-tape: apply-stub-operator', (t) => {
     t.transform('called-with');
+    t.end();
+});
+
+test('plugin-tape: apply-stub-operator: called-with-no-args', (t) => {
+    t.transform('called-with-no-args');
     t.end();
 });

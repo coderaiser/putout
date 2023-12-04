@@ -135,6 +135,6 @@ test('fix: is: false', (t) => {
         position,
     });
     
-    t.notOk(fn.called, 'should not call fn');
+    t.notCalled(fn, 'should not call fn');
     t.end();
 });

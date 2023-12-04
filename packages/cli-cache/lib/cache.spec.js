@@ -161,7 +161,7 @@ test('putout: cli: cache: setInfo: definition not found', async (t) => {
     });
     stopAll();
     
-    t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
+    t.notCalled(getFileDescriptor, 'should not call getFileDescriptor');
     t.end();
 });
 
@@ -205,7 +205,7 @@ test('putout: cli: cache: setInfo: eslint parser error', async (t) => {
     });
     stopAll();
     
-    t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
+    t.notCalled(getFileDescriptor, 'should not call getFileDescriptor');
     t.end();
 });
 
@@ -250,7 +250,7 @@ test('putout: cli: cache: enabled: setInfo: not set', async (t) => {
     });
     stopAll();
     
-    t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
+    t.notCalled(getFileDescriptor, 'should not call getFileDescriptor');
     t.end();
 });
 
