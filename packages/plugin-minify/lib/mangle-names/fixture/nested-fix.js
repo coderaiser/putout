@@ -26,13 +26,13 @@ async function b() {
         return log(`v${Version}`);
     
     const {readOptions: D} = await import('../lib/read-options.mjs');
-    const [E, bJ] = await tryToCatch(D);
+    const [E, cB] = await tryToCatch(D);
     
     if (E)
         return log.error(E.message);
     
     if (a)
-        return A(processStream, bJ);
+        return A(processStream, cB);
     
-    await uglifyFiles(files, bJ);
+    await uglifyFiles(files, cB);
 }

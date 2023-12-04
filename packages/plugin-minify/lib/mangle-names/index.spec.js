@@ -53,6 +53,11 @@ test('plugin-minify: mangle-names: transform: one-char', (t) => {
     t.end();
 });
 
+test('plugin-minify: mangle-names: transform: two-arguments', (t) => {
+    t.transform('two-arguments');
+    t.end();
+});
+
 test('plugin-minify: mangle-names: transform: mangleClassNames', (t) => {
     t.transformWithOptions('mangle-class-names', {
         mangleClassNames: false,

@@ -8,7 +8,7 @@ export const traverse = ({push, pathStore, store}) => ({
     BlockStatement(path) {
         pathStore(path);
     },
-    ReferencedIdentifier(path) {
+    'Identifier|ReferencedIdentifier'(path) {
         const {name} = path.node;
         
         pathStore(path);
