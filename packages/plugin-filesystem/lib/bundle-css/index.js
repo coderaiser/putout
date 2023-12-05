@@ -12,6 +12,7 @@ const {
     createFile,
     readFileContent,
 } = operator;
+
 const maybeArray = (a) => isArray(a) ? a : [a];
 
 const {entries} = Object;
