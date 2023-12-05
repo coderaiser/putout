@@ -1,0 +1,139 @@
+__putout_processor_filesystem({
+    "type": "directory",
+    "filename": "/Users/coderaiser/cloudcmd",
+    "files": [{
+        "type": "directory",
+        "filename": "/Users/coderaiser/cloudcmd/css",
+        "files": [{
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/terminal.css",
+            "content": ""
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/nojs.css",
+            "content": ""
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/reset.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/config.css",
+            "content": ""
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/main.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/query.css",
+            "content": "html{display:none}"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/style.css",
+            "content": "head{display:none}"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/urls.css",
+            "content": ""
+        }, {
+            "type": "directory",
+            "filename": "/Users/coderaiser/cloudcmd/css/columns",
+            "files": [{
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/css/columns/name-size.css",
+                "content": ""
+            }, {
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/css/columns/name-size-date.css",
+                "content": ""
+            }]
+        }]
+    }, {
+        "type": "file",
+        "filename": "/Users/coderaiser/cloudcmd/css/help.css",
+        "content": ""
+    }, {
+        "type": "file",
+        "filename": "/Users/coderaiser/cloudcmd/css/icons.css",
+        "content": ""
+    }, {
+        "type": "file",
+        "filename": "/Users/coderaiser/cloudcmd/css/supports.css",
+        "content": ""
+    }, {
+        "type": "file",
+        "filename": "/Users/coderaiser/cloudcmd/css/view.css",
+        "content": ""
+    }, {
+        "type": "file",
+        "filename": "/Users/coderaiser/cloudcmd/css/user-menu.css",
+        "content": ""
+    }, {
+        "type": "directory",
+        "filename": "/Users/coderaiser/cloudcmd/dist",
+        "files": [{
+            "type": "directory",
+            "filename": "/Users/coderaiser/cloudcmd/dist/modules",
+            "files": [{
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/dist/modules/modules/terminal.css",
+                "content": ""
+            }]
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/dist/nojs.css",
+            "content": ""
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/dist/main.css",
+            "content": "aHRtbHtkaXNwbGF5Om5vbmV9aGVhZHtkaXNwbGF5Om5vbmV9"
+        }, {
+            "type": "directory",
+            "filename": "/Users/coderaiser/cloudcmd/dist/modules",
+            "files": [{
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/dist/modules/modules/config.css",
+                "content": ""
+            }]
+        }, {
+            "type": "directory",
+            "filename": "/Users/coderaiser/cloudcmd/dist/columns",
+            "files": [{
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/dist/columns/columns/name-size.css",
+                "content": ""
+            }]
+        }, {
+            "type": "directory",
+            "filename": "/Users/coderaiser/cloudcmd/dist/columns",
+            "files": [{
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/dist/columns/columns/name-size-date.css",
+                "content": ""
+            }]
+        }, {
+            "type": "directory",
+            "filename": "/Users/coderaiser/cloudcmd/dist/modules",
+            "files": [{
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/dist/modules/modules/help.css",
+                "content": ""
+            }]
+        }, {
+            "type": "directory",
+            "filename": "/Users/coderaiser/cloudcmd/dist/modules",
+            "files": [{
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/dist/modules/modules/view.css",
+                "content": ""
+            }]
+        }, {
+            "type": "directory",
+            "filename": "/Users/coderaiser/cloudcmd/dist/modules",
+            "files": [{
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/dist/modules/modules/user-menu.css",
+                "content": ""
+            }]
+        }]
+    }]
+});

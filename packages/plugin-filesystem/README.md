@@ -17,6 +17,7 @@ npm i @putout/plugin-filesystem -D
 {
     "rules": {
         "filesystem/remove-vim-swap-file": "on",
+        "filesystem/bundle-css": "off",
         "filesystem/rename-file": "off",
         "filesystem/remove-files": "off",
         "filesystem/rename-spec-to-test": "off",
@@ -310,6 +311,163 @@ __putout_processor_filesystem([
     ],
     '/abc/',
 ]);
+```
+
+## bundle-css
+
+Bundle and minify `css` files.
+
+```json
+{
+    "rules": {
+        "filesystem/bundle-css": ["on", {
+            "groups": [
+                ["__:columns/__", [
+                    "name-size-date.css",
+                    "name-size.css"
+                ]],
+                ["main.css", [
+                    "hello.css",
+                    "world.css"
+                ]],
+                "1:1"
+            ]
+        }]
+    }
+}
+```
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/547738d2faf984e50f12a1379c221c83/3f77d711f8acc4da50899d6ef0ebe5e7c0df1479).
+
+Before:
+
+```
+/
+|-- css/
+|  `-- hello.css
+|  `-- world.css
+```
+
+After:
+
+```
+/
+|-- css/
+|  `-- hello.css
+|  `-- world.css
+|-- dist/
+|   `-- main.css
+```
+
+Just minify styles:
+
+```json
+{
+    "rules": {
+        "filesystem/bundle-css": ["on", {
+            "groups": ["1:1"]
+        }]
+    }
+}
+```
+
+```
+/
+|-- css/
+|  `-- hello.css
+|  `-- world.css
+```
+
+After:
+
+```
+/
+|-- css/
+|  `-- hello.css
+|  `-- world.css
+|-- dist/
+|   `-- hello.css
+|   `-- world.css
+```
+
+Create subdirectory:
+
+```json
+{
+    "rules": {
+        "filesystem/bundle-css": ["on", {
+            "groups": [
+                ["__:columns/__", [
+                    "name-size-date.css",
+                    "name-size.css"
+                ]]
+            ]
+        }]
+    }
+}
+```
+
+```
+/
+|-- css/
+|  `-- hello.css
+|  `-- world.css
+```
+
+After:
+
+```
+/
+|-- css/
+|  `-- hello.css
+|  `-- world.css
+|-- dist/
+|   `-- columns
+|       `-- hello.css
+|       `-- world.css
+```
+
+Filter css files by mask:
+
+```json
+{
+    "rules": {
+        "filesystem/bundle-css": ["on", {
+            "mask": "*.good.css",
+            "groups": ["1:1"]
+        }]
+    }
+}
+```
+
+```
+/
+|-- css/
+|  `-- hello.css
+|  `-- world.good.css
+```
+
+After:
+
+```
+/
+|-- css/
+|  `-- hello.css
+|  `-- world.css
+|-- dist/
+|   `-- world.good.css
+```
+
+You can even override `transform` with your own `config`:
+
+```ts
+putout(filesystem, {
+    rules: {
+        'filesystem/bundle-css': ['on', {
+            transform: (source: string | string[], config) => string,
+        }],
+    },
+});
 ```
 
 ## License

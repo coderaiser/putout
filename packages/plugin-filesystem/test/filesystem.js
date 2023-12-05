@@ -54,3 +54,8 @@ test('plugin-filesystem: no transform: convert-filesystem-to-simple-filesystem: 
     t.noTransform('convert-filesystem-to-simple-filesystem-disabled');
     t.end();
 });
+
+test('plugin-filesystem: no transform: bundle-css-disabled', (t) => {
+    t.noTransform('bundle-css-disabled');
+    t.end();
+});

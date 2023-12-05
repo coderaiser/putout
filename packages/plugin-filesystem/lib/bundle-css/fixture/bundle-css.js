@@ -1,0 +1,60 @@
+__putout_processor_filesystem({
+    "type": "directory",
+    "filename": "/Users/coderaiser/cloudcmd",
+    "files": [{
+        "type": "directory",
+        "filename": "/Users/coderaiser/cloudcmd/css",
+        "files": [{
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/terminal.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/nojs.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/reset.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/config.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/main.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/query.css",
+            "content": "html{display:none}"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/style.css",
+            "content": "head{display:none}"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/urls.css"
+        }, {
+            "type": "directory",
+            "filename": "/Users/coderaiser/cloudcmd/css/columns",
+            "files": [{
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/css/columns/name-size.css"
+            }, {
+                "type": "file",
+                "filename": "/Users/coderaiser/cloudcmd/css/columns/name-size-date.css"
+            }]
+        }]
+    }, {
+        "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/help.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/icons.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/supports.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/view.css"
+        }, {
+            "type": "file",
+            "filename": "/Users/coderaiser/cloudcmd/css/user-menu.css"
+        }]
+});
