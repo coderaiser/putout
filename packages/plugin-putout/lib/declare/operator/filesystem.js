@@ -5,6 +5,7 @@ module.exports = {
     renameFile: 'const {renameFile} = operator',
     removeFile: 'const {removeFile} = operator',
     moveFile: 'const {moveFile} = operator',
+    createFile: 'const {createFile} = operator',
     createDirectory: 'const {createDirectory} = operator',
     getParentDirectory: 'const {getParentDirectory} = operator',
     readFileContent: 'const {readFileContent} = operator',
