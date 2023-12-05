@@ -53,7 +53,7 @@ test('transform: with UPDATE env variable', (t) => {
     t.end();
 }, NO_CHECK_ASSERTIONS_COUNT);
 
-test('transform: with UPDATE env variable: no read', (t) => {
+test('transform: withOptions: with UPDATE env variable: no read', (t) => {
     update(1);
     
     const {writeFileSync, readFileSync} = global.__putout_test_fs;
@@ -63,7 +63,7 @@ test('transform: with UPDATE env variable: no read', (t) => {
     global.__putout_test_fs.writeFileSync = writeFileSyncStub;
     global.__putout_test_fs.readFileSync = readFileSyncStub;
     
-    t.transform('typescript');
+    t.transformWithOptions('typescript', {});
     
     update();
     global.__putout_test_fs.writeFileSync = writeFileSync;

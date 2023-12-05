@@ -311,7 +311,6 @@ const transformWithOptions = currify((dir, options, t, name, additionalOptions) 
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     
-    const [output] = readFixture(`${full}-fix`);
     const rule = parseRule(options);
     
     const rules = {
@@ -329,6 +328,8 @@ const transformWithOptions = currify((dir, options, t, name, additionalOptions) 
         writeFileSync(`${full}-fix.js`, code);
         return t.pass('fixed fixture updated');
     }
+    
+    const [output] = readFixture(`${full}-fix`);
     
     return t.equal(code, output);
 });
