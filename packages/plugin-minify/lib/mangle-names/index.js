@@ -10,11 +10,17 @@ export const traverse = ({push, pathStore, store}) => ({
     BlockStatement(path) {
         pathStore(path);
     },
-    'Identifier|ReferencedIdentifier'(path) {
+    'Identifier'(path) {
         const {name} = path.node;
         
         if (!path.scope.bindings[name])
             return;
+        
+        pathStore(path);
+        store(name, {});
+    },
+    'ReferencedIdentifier'(path) {
+        const {name} = path.node;
         
         pathStore(path);
         store(name, {});
