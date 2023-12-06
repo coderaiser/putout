@@ -62,6 +62,11 @@ test('plugin-strict-mode: add: require', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: add: await', (t) => {
+    t.transform('await');
+    t.end();
+});
+
 const testNodejs = createTest(__dirname, {
     printer: 'putout',
     rules: {
