@@ -27,7 +27,9 @@ module.exports.removeFile = (filename, {rmSync = rmSyncOriginal} = {}) => {
 };
 
 module.exports.createDirectory = (name, {mkdirSync = mkdirSyncOriginal} = {}) => {
-    mkdirSync(name);
+    mkdirSync(name, {
+        recursive: true,
+    });
 };
 
 module.exports.readFileContent = (name, {readFileSync = readFileSyncOriginal} = {}) => {

@@ -68,9 +68,9 @@ test('putout: cli: filesystem: createDirectory', (t) => {
         mkdirSync,
     });
     
-    const expected = [
-        '/hello/world',
-    ];
+    const expected = ['/hello/world', {
+        recursive: true,
+    }];
     
     t.calledWith(mkdirSync, expected);
     t.end();
