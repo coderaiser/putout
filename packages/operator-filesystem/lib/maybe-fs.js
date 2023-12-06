@@ -38,8 +38,8 @@ module.exports.readFileContent = (name) => {
     return maybeFS.readFileContent(name);
 };
 
-module.exports.writeFileContent = (name) => {
-    maybeFS.writeFileContent(name);
+module.exports.writeFileContent = (name, content) => {
+    maybeFS.writeFileContent(name, content);
 };
 
 module.exports.init = init;
