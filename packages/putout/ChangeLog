@@ -1,3 +1,28 @@
+2023.12.07, v33.13.4
+
+fix:
+- 24080a56c @putout/plugin-strict-mode: add-missing: await
+- e481fa3d3 @putout/operator-filesystem: writeFileContent: content
+- 2186a8e32 @putout/plugin-filesystem: bundle-css: minify -> t
+
+feature:
+- 2d2545386 putout: @putout/plugin-strict-mode v10.0.0
+- 4aa6a89f8 @putout/plugin-strict-mode: drop support of 🐊 < 33
+- 75bb838a1 @putout/plugin-strict-mode: add-missing: improve support of CommonJS
+- 6de5d62ba @putout/plugin-filesystem: bundle-css: concreate-files: add
+- 92b5d048d @putout/plugin-filesystem: bundle-css: add
+- 46e2ad15d @putout/test: transformWithOptions: UPDATE
+- 48eead652 @putout/plugin-putout: declare: operator-filesystem: createFile
+- ee78d2dd7 @putout/plugin-minify: mangle-names: undeclared (putoutjs/minify#6)
+- 392cd022d @putout/plugin-minify: mange-names: speed up
+- 01f597f6e @putout/plugin-minify: mangle-names: simplify
+- 8a4c54910 @putout/plugin-minify: mangle-names: couple args overlap (putoutjs/minify#6)
+- 3e3fdf42c @putout/plugin-tape: apply-stub-operator: called with no args
+- 0dc5b75ee @putout/plugin-conditions: add-return: add
+- 61a7a3501 @putout/plugin-minify: drop support of 🐊 < 33
+- bdfbeb9cb @putout/plugin-minify: mangle-names: closure (putoutjs/minify#6)
+- 134b67a77 @putout/plugin-conditions: apply-consistent-blocks: add comments support
+
 2023.11.30, v33.13.3
 
 feature:
