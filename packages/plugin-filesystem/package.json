@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-filesystem",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin operates with filesystem",
