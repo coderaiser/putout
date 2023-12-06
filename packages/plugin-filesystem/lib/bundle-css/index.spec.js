@@ -89,3 +89,14 @@ test('packages: bundle-css: single', (t) => {
     });
     t.end();
 });
+
+test('packages: bundle-css: nested', (t) => {
+    t.transformWithOptions('nested', {
+        groups: [
+            ['__:columns/__', [
+                'name-size.css',
+            ]],
+        ],
+    });
+    t.end();
+});

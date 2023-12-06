@@ -75,7 +75,7 @@ __putout_processor_filesystem({
             "filename": "/Users/coderaiser/cloudcmd/dist/modules",
             "files": [{
                 "type": "file",
-                "filename": "/Users/coderaiser/cloudcmd/dist/modules/modules/terminal.css",
+                "filename": "/Users/coderaiser/cloudcmd/dist/modules/terminal.css",
                 "content": ""
             }]
         }, {
@@ -91,7 +91,7 @@ __putout_processor_filesystem({
             "filename": "/Users/coderaiser/cloudcmd/dist/modules",
             "files": [{
                 "type": "file",
-                "filename": "/Users/coderaiser/cloudcmd/dist/modules/modules/config.css",
+                "filename": "/Users/coderaiser/cloudcmd/dist/modules/config.css",
                 "content": ""
             }]
         }, {
@@ -99,7 +99,7 @@ __putout_processor_filesystem({
             "filename": "/Users/coderaiser/cloudcmd/dist/columns",
             "files": [{
                 "type": "file",
-                "filename": "/Users/coderaiser/cloudcmd/dist/columns/columns/name-size.css",
+                "filename": "/Users/coderaiser/cloudcmd/dist/columns/name-size.css",
                 "content": ""
             }]
         }, {
@@ -107,7 +107,7 @@ __putout_processor_filesystem({
             "filename": "/Users/coderaiser/cloudcmd/dist/columns",
             "files": [{
                 "type": "file",
-                "filename": "/Users/coderaiser/cloudcmd/dist/columns/columns/name-size-date.css",
+                "filename": "/Users/coderaiser/cloudcmd/dist/columns/name-size-date.css",
                 "content": ""
             }]
         }, {
@@ -115,7 +115,7 @@ __putout_processor_filesystem({
             "filename": "/Users/coderaiser/cloudcmd/dist/modules",
             "files": [{
                 "type": "file",
-                "filename": "/Users/coderaiser/cloudcmd/dist/modules/modules/help.css",
+                "filename": "/Users/coderaiser/cloudcmd/dist/modules/help.css",
                 "content": ""
             }]
         }, {
@@ -123,7 +123,7 @@ __putout_processor_filesystem({
             "filename": "/Users/coderaiser/cloudcmd/dist/modules",
             "files": [{
                 "type": "file",
-                "filename": "/Users/coderaiser/cloudcmd/dist/modules/modules/view.css",
+                "filename": "/Users/coderaiser/cloudcmd/dist/modules/view.css",
                 "content": ""
             }]
         }, {
@@ -131,7 +131,7 @@ __putout_processor_filesystem({
             "filename": "/Users/coderaiser/cloudcmd/dist/modules",
             "files": [{
                 "type": "file",
-                "filename": "/Users/coderaiser/cloudcmd/dist/modules/modules/user-menu.css",
+                "filename": "/Users/coderaiser/cloudcmd/dist/modules/user-menu.css",
                 "content": ""
             }]
         }]

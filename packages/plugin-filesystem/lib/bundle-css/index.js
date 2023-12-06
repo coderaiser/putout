@@ -38,9 +38,9 @@ module.exports.fix = (rootPath, {dist, transform, fileGroups, config}) => {
             continue;
         }
         
-        const [dir] = name.split('/');
+        const [dir, newName] = name.split('/');
         const newDir = createDirectory(distDirectory, dir);
-        const newFile = createFile(newDir, name);
+        const newFile = createFile(newDir, newName);
         const data = readFileContent(file);
         
         writeFileContent(newFile, transform(data, config));
