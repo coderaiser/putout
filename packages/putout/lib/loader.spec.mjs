@@ -14,7 +14,7 @@ test('putout: loader: transformSource', async (t) => {
     
     const code = 'const a = 5;';
     const {source} = await transformSource(code, context);
-    const expected = `'use strict';\n`;
+    const expected = `\n`;
     
     t.equal(source, expected);
     t.end();
@@ -63,7 +63,7 @@ test('putout: loader: load: source', async (t) => {
     
     const expected = {
         format: 'module',
-        source: `'use strict';\n`,
+        source: `\n`,
     };
     
     t.deepEqual(result, expected);

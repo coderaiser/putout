@@ -17,11 +17,22 @@ module.exports.traverse = ({push, store}) => ({
     'await __a(__args)'({scope}) {
         const {block} = scope;
         
-        if (isProgram(block))
-            store('is-module', true);
+        if (!isProgram(block))
+            return;
+        
+        store('is-module', true);
     },
     'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|TypeAlias'() {
         store('is-module', true);
+    },
+    'module.exports = __a'() {
+        store('is-common', true);
+    },
+    'module.exports.__a = __b'() {
+        store('is-common', true);
+    },
+    'require(__a)'() {
+        store('is-common', true);
     },
     Program: {
         exit(path) {
@@ -33,6 +44,9 @@ module.exports.traverse = ({push, store}) => ({
                 return;
             
             if (path.node.directives.length)
+                return;
+            
+            if (!store('is-common'))
                 return;
             
             push(path);

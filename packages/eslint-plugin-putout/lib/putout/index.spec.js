@@ -45,17 +45,17 @@ ruleTester.run('putout', rule, {
             message: `'m' is defined but never used (remove-unused-variables)`,
         }],
     }, {
-        code: `const t = 'hi'`,
+        code: `const t = 'hi'; module.exports = t`,
         options: [{
             rules: {
                 'strict-mode': 'on',
             },
         }],
-        output: `'use strict';\n`,
+        output: `'use strict';\n\nmodule.exports = 'hi';\n`,
         errors: [{
             message: `Add missing 'use strict' directive on top of CommonJS (strict-mode/add-missing)`,
         }, {
-            message: `'t' is defined but never used (remove-unused-variables)`,
+            message: 'Useless variable declaration with name "t" (remove-useless-variables/remove)',
         }],
     }, {
         options: [{

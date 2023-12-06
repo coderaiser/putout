@@ -342,13 +342,13 @@ test('putout: eslint: enable putout', async (t) => {
     
     const [source] = await eslint({
         name: 'hello.js',
-        code: `var a = 1`,
+        code: `var a = 1; module.exports = a;`,
         fix: true,
         putout: true,
         config,
     });
     
-    t.equal(source, `'use strict';\n\nconst a = 1;\n\n`);
+    t.equal(source, `'use strict';\n\nmodule.exports = 1;\n\n`);
     t.end();
 });
 

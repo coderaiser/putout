@@ -317,11 +317,13 @@ test('putout: parseOptions: read rules: putout-plugin', (t) => {
     const plugin = stub();
     mockRequire(join(process.cwd(), 'putout-plugin-hello'), plugin);
     
-    mockRequire('fs', {
-        readdirSync: stub().returns(['putout-plugin-hello']),
-    });
+    const {readdirSync} = fs;
+    
+    fs.readdirSync = stub().returns(['putout-plugin-hello']);
     
     const parseOptions = reRequire('.');
+    
+    fs.readdirSync = readdirSync;
     
     const options = {
         rules: {
@@ -344,6 +346,7 @@ test('putout: parseOptions: read rules: putout-plugin', (t) => {
     });
     
     stopAll();
+    reRequire('.');
     
     const expected = {
         dir: __dirname,
@@ -1003,6 +1006,7 @@ test('putout: parseOptions: rules dir: no once', (t) => {
     
     stopAll();
     fs.readdirSync = readdirSync;
+    reRequire('.');
     
     t.calledTwice(readdirSyncStub);
     t.end();

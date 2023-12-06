@@ -23,6 +23,6 @@ test('formatter: codeframe: many', async ({formatMany}) => {
     await formatMany(codeframe, ['var', 'var']);
 });
 
-testStrict('formatter: zero', async ({format}) => {
+testStrict('formatter: codeframe: zero', async ({format}) => {
     await format(codeframe, 'strict');
 });

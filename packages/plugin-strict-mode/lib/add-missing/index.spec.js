@@ -47,6 +47,21 @@ test('plugin-strict-mode: add: no transform: top-level-await', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: add: no report: no-export', (t) => {
+    t.noReport('no-export');
+    t.end();
+});
+
+test('plugin-strict-mode: add: module-exports', (t) => {
+    t.transform('module-exports');
+    t.end();
+});
+
+test('plugin-strict-mode: add: require', (t) => {
+    t.transform('require');
+    t.end();
+});
+
 const testNodejs = createTest(__dirname, {
     printer: 'putout',
     rules: {
