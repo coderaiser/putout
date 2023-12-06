@@ -82,3 +82,10 @@ test('packages: bundle-css: no report: no-groups', (t) => {
     t.noReport('no-group', 'no-groups');
     t.end();
 });
+
+test('packages: bundle-css: single', (t) => {
+    t.transformWithOptions('single', {
+        groups: ['main.css'],
+    });
+    t.end();
+});

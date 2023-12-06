@@ -79,7 +79,7 @@ module.exports.scan = (rootPath, {push, options}) => {
             const filename = getFilename(file);
             const base = basename(filename);
             
-            if (main === base) {
+            if (main === base && list) {
                 fileGroups[main] = [];
                 mark(file);
                 continue;
@@ -88,6 +88,12 @@ module.exports.scan = (rootPath, {push, options}) => {
             if (main === '1:1') {
                 fileGroups[base] = file;
                 mark(file);
+                continue;
+            }
+            
+            if (!list) {
+                mark(file);
+                fileGroups[base] = file;
                 continue;
             }
             

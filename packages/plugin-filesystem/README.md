@@ -470,6 +470,36 @@ putout(filesystem, {
 });
 ```
 
+Concreate files:
+
+```json
+{
+    "rules": {
+        "filesystem/bundle-css": ["on", {
+            "groups": ["hello.css"]
+        }]
+    }
+}
+```
+
+```
+/
+|-- css/
+|  `-- hello.css
+|  `-- world.css
+```
+
+After:
+
+```
+/
+|-- css/
+|  `-- hello.css
+|  `-- world.css
+|-- dist/
+|   `-- hello.css
+```
+
 ## License
 
 MIT
