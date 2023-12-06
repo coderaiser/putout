@@ -85,19 +85,19 @@ module.exports.scan = (rootPath, {push, options}) => {
                 continue;
             }
             
+            if (main === base && !list) {
+                mark(file);
+                fileGroups[base] = file;
+                continue;
+            }
+            
             if (main === '1:1') {
                 fileGroups[base] = file;
                 mark(file);
                 continue;
             }
             
-            if (!list) {
-                mark(file);
-                fileGroups[base] = file;
-                continue;
-            }
-            
-            if (main.includes(':') && list.includes(base)) {
+            if (main.includes(':') && list?.includes(base)) {
                 const [, after] = main.split(':');
                 
                 fileGroups[after.replace('__', base)] = file;
@@ -105,7 +105,7 @@ module.exports.scan = (rootPath, {push, options}) => {
                 continue;
             }
             
-            if (list.includes(base)) {
+            if (list?.includes(base)) {
                 fileGroups[main] = fileGroups[main] || [];
                 fileGroups[main].push(file);
                 mark(file);
