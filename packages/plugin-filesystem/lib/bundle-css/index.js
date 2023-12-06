@@ -3,7 +3,7 @@
 const {basename} = require('path');
 const {operator} = require('putout');
 
-const {minify: defaultMinify} = require('./minify-css');
+const {minify} = require('./minify');
 const {
     getFilename,
     findFile,
@@ -19,13 +19,13 @@ const {entries} = Object;
 const {isArray} = Array;
 
 module.exports.report = () => `Minify css`;
-module.exports.fix = (rootPath, {dist, minify, fileGroups, config}) => {
+module.exports.fix = (rootPath, {dist, transform, fileGroups, config}) => {
     const distDirectory = createDirectory(rootPath, dist);
     
     for (const [name, file] of entries(fileGroups)) {
         if (isArray(file)) {
             const result = file.map(readFileContent);
-            createFile(distDirectory, name, minify(result.join('\n'), config));
+            createFile(distDirectory, name, transform(result.join('\n'), config));
             
             continue;
         }
@@ -34,7 +34,7 @@ module.exports.fix = (rootPath, {dist, minify, fileGroups, config}) => {
             const newFile = createFile(distDirectory, name);
             const data = readFileContent(file);
             
-            writeFileContent(newFile, minify(data, config));
+            writeFileContent(newFile, transform(data, config));
             continue;
         }
         
@@ -43,7 +43,7 @@ module.exports.fix = (rootPath, {dist, minify, fileGroups, config}) => {
         const newFile = createFile(newDir, name);
         const data = readFileContent(file);
         
-        writeFileContent(newFile, minify(data, config));
+        writeFileContent(newFile, transform(data, config));
     }
 };
 
@@ -52,7 +52,7 @@ const isMarked = (a) => a.__putout_filesystem_processed;
 
 module.exports.scan = (rootPath, {push, options}) => {
     const {
-        minify = defaultMinify,
+        transform = minify,
         groups = [],
         dist = 'dist',
         mask = '*.css',
@@ -111,7 +111,7 @@ module.exports.scan = (rootPath, {push, options}) => {
     push(rootPath, {
         fileGroups,
         dist,
-        minify,
+        transform,
         config,
     });
 };
