@@ -3,16 +3,18 @@
 const {traverse, types} = require('@putout/babel');
 const {isObjectExpression} = types;
 
+const nodeOrPath = (path) => path.node || path;
+
 function getNode(path) {
     if (!isObjectExpression(path))
-        return path.node || path;
+        return nodeOrPath(path);
     
     if (path.parentPath)
         return path.parentPath.node;
     
     return {
         type: 'ExpressionStatement',
-        expression: path,
+        expression: nodeOrPath(path),
     };
 }
 
