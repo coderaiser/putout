@@ -19,36 +19,32 @@ const {entries} = Object;
 const {isArray} = Array;
 
 module.exports.report = () => `Minify css`;
-module.exports.fix = (rootPath, {dist, transform, fileGroups, config}) => {
+module.exports.fix = (rootPath, {dist, fileGroups}) => {
     const distDirectory = createDirectory(rootPath, dist);
     
-    for (const [name, file] of entries(fileGroups)) {
-        if (isArray(file)) {
-            const result = file.map(readFileContent);
-            createFile(distDirectory, name, transform(result.join('\n'), config));
-            
+    for (const [name, content] of entries(fileGroups)) {
+        if (isArray(content)) {
+            createFile(distDirectory, name, content.join('\n'));
             continue;
         }
         
         if (!name.includes('/')) {
             const newFile = createFile(distDirectory, name);
-            const data = readFileContent(file);
-            
-            writeFileContent(newFile, transform(data, config));
+            writeFileContent(newFile, content);
             continue;
         }
         
         const [dir, newName] = name.split('/');
         const newDir = createDirectory(distDirectory, dir);
         const newFile = createFile(newDir, newName);
-        const data = readFileContent(file);
         
-        writeFileContent(newFile, transform(data, config));
+        writeFileContent(newFile, content);
     }
 };
 
 const mark = (a) => a.__putout_filesystem_processed = true;
 const isMarked = (a) => a.__putout_filesystem_processed;
+const process = (file, transform, config) => transform(readFileContent(file), config);
 
 module.exports.scan = (rootPath, {push, options}) => {
     const {
@@ -87,12 +83,12 @@ module.exports.scan = (rootPath, {push, options}) => {
             
             if (main === base && !list) {
                 mark(file);
-                fileGroups[base] = file;
+                fileGroups[base] = process(file, transform, config);
                 continue;
             }
             
             if (main === '1:1') {
-                fileGroups[base] = file;
+                fileGroups[base] = process(file, transform, config);
                 mark(file);
                 continue;
             }
@@ -100,14 +96,14 @@ module.exports.scan = (rootPath, {push, options}) => {
             if (main.includes(':') && list?.includes(base)) {
                 const [, after] = main.split(':');
                 
-                fileGroups[after.replace('__', base)] = file;
+                fileGroups[after.replace('__', base)] = process(file, transform, config);
                 mark(file);
                 continue;
             }
             
             if (list?.includes(base)) {
                 fileGroups[main] = fileGroups[main] || [];
-                fileGroups[main].push(file);
+                fileGroups[main].push(process(file, transform, config));
                 mark(file);
                 continue;
             }

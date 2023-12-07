@@ -1,5 +1,6 @@
 'use strict';
 
+const tryCatch = require('try-catch');
 const {createTest} = require('@putout/test');
 const plugin = require('.');
 
@@ -99,4 +100,36 @@ test('packages: bundle-css: nested', (t) => {
         ],
     });
     t.end();
+});
+
+test('packages: bundle-css: warning', (t) => {
+    const message = `Invalid character(s) '@import url("./urls.css")' at 1:0. Ignoring.`;
+    const [error] = tryCatch(t.reportWithOptions, 'warning', message, {
+        groups: [
+            ['__:columns/__', [
+                'name-size.css',
+            ]],
+        ],
+    });
+    
+    t.equal(error.message, message);
+    t.end();
+}, {
+    checkAssertionsCount: false,
+});
+
+test('packages: bundle-css: error', (t) => {
+    const message = `Ignoring local @import of "urls.css" as resource is missing.`;
+    const [error] = tryCatch(t.reportWithOptions, 'error', message, {
+        groups: [
+            ['__:columns/__', [
+                'name-size.css',
+            ]],
+        ],
+    });
+    
+    t.equal(error.message, message);
+    t.end();
+}, {
+    checkAssertionsCount: false,
 });

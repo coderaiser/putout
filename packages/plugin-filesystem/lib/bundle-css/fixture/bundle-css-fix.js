@@ -14,7 +14,8 @@ __putout_processor_filesystem({
             "content": ""
         }, {
             "type": "file",
-            "filename": "/Users/coderaiser/cloudcmd/css/reset.css"
+            "filename": "/Users/coderaiser/cloudcmd/css/reset.css",
+            "content": ""
         }, {
             "type": "file",
             "filename": "/Users/coderaiser/cloudcmd/css/config.css",
@@ -85,7 +86,7 @@ __putout_processor_filesystem({
         }, {
             "type": "file",
             "filename": "/Users/coderaiser/cloudcmd/dist/main.css",
-            "content": "aHRtbHtkaXNwbGF5Om5vbmV9aGVhZHtkaXNwbGF5Om5vbmV9"
+            "content": "aHRtbHtkaXNwbGF5Om5vbmV9CmhlYWR7ZGlzcGxheTpub25lfQoKCg=="
         }, {
             "type": "directory",
             "filename": "/Users/coderaiser/cloudcmd/dist/modules",
