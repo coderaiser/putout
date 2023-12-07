@@ -8,6 +8,7 @@ module.exports.minify = (data, config) => {
         errors,
         warnings,
     } = new Clean(config).minify(data);
+    
     const [error] = errors;
     const [warning] = warnings;
     
