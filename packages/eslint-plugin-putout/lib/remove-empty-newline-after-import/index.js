@@ -1,8 +1,8 @@
 'use strict';
 
-const {isBuiltIn} = require('./is-built-in');
+const {isBuiltin} = require('node:module');
 const isLocal = (a) => /^\./.test(a.source.value);
-const isNode = (a) => isBuiltIn(a.source.value);
+const isNode = (a) => isBuiltin(a.source.value);
 
 const isSameGroup = (a, b) => {
     if (isLocal(a) && isLocal(b))

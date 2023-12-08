@@ -131,6 +131,10 @@ test('eslint-plugin-putout: remove-empty-newline-after-import', async ({process}
     await process('remove-empty-newline-after-import');
 });
 
+test('eslint-plugin-putout: remove-empty-newline-after-import: one', async ({noProcess}) => {
+    await noProcess('remove-empty-newline-after-import-one');
+});
+
 test('eslint-plugin-putout: nonblock-statement-body-newline', async ({process}) => {
     await process('nonblock-statement-body-newline');
 });
