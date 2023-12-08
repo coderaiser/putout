@@ -8,23 +8,22 @@ const loadConfig = createConfigLoader({
 
 export const files = ['*.css'];
 
-export const lint = async (code, {fix}) => {
+export const lint = async (source, {fix}) => {
     const config = await loadConfig();
-    
-    const {output, results} = await stylelint.lint({
+    const {report, code} = await stylelint.lint({
         fix,
-        code,
+        code: source,
         config,
     });
     
-    const {warnings} = results[0];
+    const {warnings} = JSON.parse(report)[0];
     const places = warnings.map(toPlace);
     const [first] = places;
     
     if (/CssSyntaxError/.test(first?.rule))
         return [code, places];
     
-    return [output, places];
+    return [code, places];
 };
 
 function toPlace({line, column, rule, text}) {
