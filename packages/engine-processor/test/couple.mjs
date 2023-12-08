@@ -37,11 +37,18 @@ test('putout: engine: processor: couple', async ({comparePlaces}) => {
         },
         rule: 'selector-type-no-unknown (stylelint)',
     }, {
-        message: 'Expected indentation of 4 spaces (indentation)',
+        message: 'Insert "····" (prettier/prettier)',
         position: {
             column: 1,
             line: 2,
         },
-        rule: 'indentation (stylelint)',
+        rule: 'prettier/prettier (stylelint)',
+    }, {
+        message: 'Delete "⏎" (prettier/prettier)',
+        position: {
+            column: 1,
+            line: 4,
+        },
+        rule: 'prettier/prettier (stylelint)',
     }]);
 });
