@@ -239,7 +239,7 @@ export const hello = 'world';
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e15d077626f832dd0b98458b1b8ff284/e2d9d2767c9bfab3e4d337f149069666d2aafe79).
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 __putout_processor_filesystem([
@@ -253,7 +253,7 @@ __putout_processor_filesystem([
 ]);
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 __putout_processor_filesystem({
@@ -278,7 +278,7 @@ __putout_processor_filesystem({
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/79ce3ebdd5878d9fdcf80b762ceb8e76/52c9a16861c541abd601b83ad1c2ae988f97b28f).
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 __putout_processor_filesystem({
@@ -299,7 +299,7 @@ __putout_processor_filesystem({
 });
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 __putout_processor_filesystem([
