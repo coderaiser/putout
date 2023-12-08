@@ -118,6 +118,8 @@ const safeRules = {
     'remove-unused-expressions': 'off',
     'remove-unreachable-code': 'off',
     'remove-useless-arguments': 'off',
+    'remove-useless-variables': 'off',
+    'remove-useless-variables/declaration': 'off',
     'remove-useless-variables/rename': 'off',
     'remove-useless-return': 'off',
     'remove-useless-spread': 'off',
@@ -131,6 +133,8 @@ const safeRules = {
     'for-of/remove-useless': 'off',
     'maybe/noop': 'off',
 };
+
+module.exports.safeRules = safeRules;
 
 const safe = {
     ...recommended,

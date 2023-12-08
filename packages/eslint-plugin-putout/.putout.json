@@ -18,6 +18,7 @@
             "remove-unused-expressions": "off",
             "remove-useless-arguments": "off",
             "remove-useless-variables/rename": "off",
+            "remove-useless-variables/declaration": "off",
             "remove-useless-spread": "off",
             "remove-useless-return": "off",
             "remove-unreferenced-variables": "off",

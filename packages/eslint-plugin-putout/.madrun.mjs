@@ -10,7 +10,7 @@ const env = {
 
 export default {
     'wisdom': () => run(['lint:all', 'coverage']),
-    'test': () => 'tape test/*.mjs "lib/config/*.spec.*"',
+    'test': () => `tape 'test/**/*.mjs' 'lib/config/*.spec.*'`,
     'test:all': () => [env, `mocha 'test/**/*.mjs' 'lib/**/*.spec.js'`],
     'watch:test': async () => `nodemon -w rules -x ${await run('test')}`,
     'lint': () => 'putout .',

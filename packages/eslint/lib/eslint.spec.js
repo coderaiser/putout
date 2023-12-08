@@ -348,7 +348,7 @@ test('putout: eslint: enable putout', async (t) => {
         config,
     });
     
-    t.equal(source, `'use strict';\n\nmodule.exports = 1;\n\n`);
+    t.equal(source, `'use strict';\n\nconst a = 1;\n\nmodule.exports = a;\n\n`);
     t.end();
 });
 

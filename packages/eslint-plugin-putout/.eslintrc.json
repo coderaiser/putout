@@ -26,8 +26,8 @@
         "plugin:putout/safe+align"
     ],
     "plugins": [
-        "eslint-plugin",
         "n",
+        "eslint-plugin",
         "putout"
     ]
 }
