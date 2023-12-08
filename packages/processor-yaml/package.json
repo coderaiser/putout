@@ -25,7 +25,6 @@
   },
   "dependencies": {
     "@putout/operator-json": "^1.3.0",
-    "@putout/processor-json": "^7.0.1",
     "just-kebab-case": "^4.0.2",
     "try-catch": "^3.0.0",
     "yaml": "^2.2.2"
