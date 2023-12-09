@@ -16,14 +16,9 @@ export const fix = async (rawSource) => {
         async style({content}) {
             const source = removePrefixSpaces(content);
             
-            const [currentSource, places] = await lint(source, {
+            const [currentSource] = await lint(source, {
                 fix: true,
             });
-            
-            if (/CssSyntaxError/.test(places[0]?.rule))
-                return {
-                    code: content,
-                };
             
             const code = addPrefixSpaces({
                 currentSource: currentSource.slice(0, -1),

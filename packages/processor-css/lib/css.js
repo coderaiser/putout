@@ -8,9 +8,9 @@ const loadConfig = createConfigLoader({
 
 export const files = ['*.css'];
 
-export const lint = async (source, {fix}) => {
+export const lint = async (source, {fix} = {}) => {
     const config = await loadConfig();
-    const {report, code} = await stylelint.lint({
+    const {report, code = ''} = await stylelint.lint({
         fix,
         code: source,
         config,
