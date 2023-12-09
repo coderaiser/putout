@@ -19,7 +19,7 @@ There is a couple plugin types available in 🐊**Putout**:
 - ✅ [**Replacer**](#replacer)
 - ✅ [**Includer**](#includer)
 - ✅ [**Traverser**](#traverser)
-- ✅ [**Scanner**](#filer)
+- ✅ [**Scanner**](#scanner)
 - ✅ [**Finder**](#finder)
 
 All of them supports subset of **JavaScript** 🦎[**PutoutScript**](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) described in [`@putout/compare`](https://github.com/coderaiser/putout/tree/master/packages/compare#readme).
