@@ -1,3 +1,31 @@
+2023.12.09, v34.0.0
+
+fix:
+- a022aac56 @putout/operate: traverseProperties: no parentPath
+- b582686dd @putout/plugin-filesystem: bundle-css: nested
+- d2330890f @putout/plugin-filesystem: bundle-css: no 1:1
+
+feature:
+- 949aebe7f putout: @putout/plugin-github v11.0.0
+- 141513a35 @putout/plugin-github: drop support of node < 18
+- 39b09238b putout: drop support of node < 18
+- e4cba8ca2 putout: @putout/plugin-nodejs v10.0.0
+- 398a7705d @putout/plugin-nodejs: drop support of node < 18
+- 90bce30f5 @putout/processor-css: return empty code when errors
+- 607373140 @putout/plugin-nodejs: merge strict-mode
+- 1de36b776 putout: @putout/processor-css v8.0.0
+- d990d9f9f @putout/processor: config:
+- d93b07a63 @putout/processor-css: drop support of node < 18
+- 835847d6f @putout/engine-parser: hermes-parser v0.18.0
+- 5976bcafb @putout/processor-css: cosmiconfig v9.0.0
+- ab83bf20f @putout/processor-css: stylelint-config-standard v35.0.0
+- 4efe55568 @putout/processor-css: stylelint v16.0.1
+- 72b0b1b7b @putout/processor-yaml: remove useless @putout/processor-json
+- f2ceb7f58 eslint-plugin-putout: safe: disable remove-useless-variables: declaration
+- af37d387f eslint-plugin-putout: remove-empty-newline-after-import: is-ubuiltin
+- b5a80dddf @putout/plugin-filesystem: bundle-css: errors
+- 76f7f80fa @putout/cli-filesystem: createDirectory: recursive
+
 2023.12.07, v33.13.4
 
 fix:
