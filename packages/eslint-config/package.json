@@ -40,7 +40,7 @@
     "@putout/test": "^7.0.0",
     "c8": "^8.0.0",
     "eslint-plugin-n": "^16.0.0",
-    "madrun": "^9.0.0",
+    "madrun": "^10.0.0",
     "putout": "*"
   },
   "license": "MIT",

@@ -58,7 +58,7 @@
     "hermes-parser": "^0.18.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^6.0.1",
-    "madrun": "^9.0.0",
+    "madrun": "^10.0.0",
     "mock-require": "^3.0.3",
     "montag": "^1.0.0",
     "nodemon": "^3.0.1",
