@@ -5,7 +5,6 @@ __putout_processor_yaml({
             "strategy": {
                 "matrix": {
                     "node-version": [
-                        "16.x",
                         "18.x",
                         "20.x",
                         "21.x"

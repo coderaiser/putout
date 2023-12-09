@@ -1838,7 +1838,6 @@ const fs = require('fs');
 
 </details>
 
-
 <details><summary>convert <code>esm</code> to <code>commonjs</code> (disabled)</summary>
 
 ```diff
