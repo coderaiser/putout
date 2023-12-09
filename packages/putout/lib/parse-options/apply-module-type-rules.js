@@ -27,7 +27,7 @@ function esm() {
         match: {
             '*.js': {
                 'nodejs/convert-commonjs-to-esm': 'on',
-                'strict-mode/add-missing': 'off',
+                'nodejs/add-strict-mode': 'off',
             },
             '{test,*.spec.js}': {
                 'tape/convert-mock-require-to-mock-import': 'on',

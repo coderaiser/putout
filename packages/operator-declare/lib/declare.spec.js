@@ -728,6 +728,8 @@ test('putout: operator: declare: merge', (t) => {
     });
     
     const expected = montag`
+       'use strict';
+       
        const {join, dirname: dirname} = require('path');
        join(dirname('/package.json', 'node_modules'));\n
     `;
@@ -918,6 +920,8 @@ test('putout: operator: declare: export type: get while find', (t) => {
     });
     
     const expected = montag`
+        'use strict';
+        
         const {test: test} = require('supertape');
         const mockRequire = require('mock-require');
         const {stopAll} = mockRequire;

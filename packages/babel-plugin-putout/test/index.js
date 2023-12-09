@@ -29,7 +29,7 @@ for (const caseName of fs.readdirSync(fixturesDir)) {
             plugins: [
                 createConfigItemSync([plugin, {
                     rules: {
-                        'strict-mode': 'on',
+                        'nodejs/add-strict-mode': 'on',
                     },
                 }]),
             ],

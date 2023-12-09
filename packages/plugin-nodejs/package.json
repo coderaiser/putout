@@ -8,6 +8,7 @@
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
+    "./strict-mode": "./lib/strict-mode/index.js",
     "./convert-esm-to-commonjs": "./lib/convert-esm-to-commonjs/index.js",
     "./convert-commonjs-to-esm": "./lib/convert-commonjs-to-esm.js"
   },
@@ -38,7 +39,9 @@
     "nodejs"
   ],
   "devDependencies": {
+    "@putout/plugin-declare": "*",
     "@putout/plugin-putout": "*",
+    "@putout/plugin-typescript": "*",
     "@putout/test": "^7.0.0",
     "c8": "^8.0.0",
     "eslint": "^8.0.1",

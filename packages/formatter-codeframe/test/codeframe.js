@@ -1,4 +1,4 @@
-import strictMode from '@putout/plugin-strict-mode';
+import strictMode from '@putout/plugin-nodejs/strict-mode';
 import rmUnused from '@putout/plugin-remove-unused-variables';
 import codeframe from '../lib/codeframe.js';
 import {createTest} from '@putout/test';

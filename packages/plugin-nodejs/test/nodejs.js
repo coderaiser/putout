@@ -89,3 +89,13 @@ test('plugin-nodejs: no transform: rename-file-mjs-to-js: disabled', (t) => {
     t.noTransform('rename-file-mjs-to-js-disabled');
     t.end();
 });
+
+test('plugin-nodejs: transform: add-missing-strict-mode', (t) => {
+    t.transform('add-missing-strict-mode');
+    t.end();
+});
+
+test('plugin-nodejs: transform: remove-useless-strict-mode', (t) => {
+    t.transform('remove-useless-strict-mode');
+    t.end();
+});

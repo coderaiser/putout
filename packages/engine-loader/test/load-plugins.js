@@ -423,6 +423,13 @@ test('putout: loader: sync: import: shorten', async (t) => {
             line: 1,
         },
         rule: 'nodejs/convert-commonjs-to-esm-require',
+    }, {
+        message: `Add missing 'use strict' directive on top of CommonJS`,
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'nodejs/add-strict-mode',
     }];
     
     t.deepEqual(places, expected);
@@ -460,7 +467,7 @@ test('putout: loader: sync: load ESM: name', (t) => {
 });
 
 test('putout: loader: disabled rules in plugin', (t) => {
-    const source = `const {run} = require('madrun');\n`;
+    const source = `'use strict';\n\nconst {run} = require('madrun');\n`;
     const {code} = putout(source, {
         plugins: ['nodejs'],
     });

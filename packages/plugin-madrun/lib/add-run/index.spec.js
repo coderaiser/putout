@@ -3,7 +3,7 @@
 const {createTest} = require('@putout/test');
 const addRun = require('.');
 
-const strictMode = require('@putout/plugin-strict-mode');
+const strictMode = require('@putout/plugin-nodejs/strict-mode');
 const removeUnusedExpressions = require('@putout/plugin-remove-unused-expressions');
 
 const test = createTest(__dirname, {

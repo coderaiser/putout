@@ -10,7 +10,7 @@
         },
         "eslint-fixture": {
             "apply-template-literals": "off",
-            "strict-mode": "off",
+            "nodejs/strict-mode": "off",
             "remove-empty": "off",
             "nodejs/remove-process-exit": "off",
             "typescript/remove-unused-types": "off",

@@ -24,6 +24,8 @@ const mjsFile = require('./mjs-file');
 const renameFileCjsToJs = require('./rename-file-cjs-to-js');
 const renameFileMjsToJs = require('./rename-file-mjs-to-js');
 
+const strictMode = require('./strict-mode');
+
 module.exports.rules = {
     'convert-buffer-to-buffer-alloc': convertBufferToBufferAlloc,
     'convert-fs-promises': convertFsPromises,
@@ -41,8 +43,13 @@ module.exports.rules = {
     'convert-commonjs-to-esm-exports': ['off', convertCommonjsToEsmExports],
     'convert-commonjs-to-esm-common': ['off', convertCommonjsToEsmCommons],
     'convert-commonjs-to-esm-require': ['off', convertCommonjsToEsmRequire],
+    
     'cjs-file': ['off', cjsFile],
     'mjs-file': ['off', mjsFile],
+    
     'rename-file-cjs-to-js': ['off', renameFileCjsToJs],
     'rename-file-mjs-to-js': renameFileMjsToJs,
+    
+    'add-strict-mode': strictMode.rules['add-missing'],
+    'remove-strict-mode': strictMode.rules['remove-useless'],
 };

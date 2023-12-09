@@ -300,7 +300,7 @@ It will create config file `.putout.json`:
     "rules": {
         "remove-unused-variables": "off",
         "convert-to-arrow-function": "off",
-        "strict-mode/add-missing": "off",
+        "nodejs/strict-mode-add-missing": "off",
         "promises/convert-reject-to-throw": "off",
         "promises/add-missing-await": "off",
         "promises/remove-useless-async": "off"
@@ -315,7 +315,7 @@ Then running `putout index.js --enable nodejs/convert-commonjs-to-esm` will upda
     "rules": {
         "remove-unused-variables": "off",
         "convert-to-arrow-function": "off",
-        "strict-mode/add-missing": "off",
+        "nodejs/strict-mode-add-missing": "off",
         "promises/convert-reject-to-throw": "off",
         "promises/add-missing-await": "off",
 -       "promises/remove-useless-async": "off"
@@ -1212,26 +1212,6 @@ function isA(a, b) {
 
 </details>
 
-<details><summary>remove <code>strict mode</code> directive from esm</summary>
-
-```diff
--'use strict';
--
-import * from fs;
-```
-
-</details>
-
-<details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
-
-```diff
-+'use strict';
-+
-const fs = require('fs');
-```
-
-</details>
-
 <details><summary>remove <code>constant conditions</code></summary>
 
 ```diff
@@ -1738,6 +1718,127 @@ async () => {
 
 ### Node.js
 
+<details><summary>remove <code>strict mode</code> directive from esm</summary>
+
+```diff
+-'use strict';
+-
+import * from fs;
+```
+
+</details>
+
+<details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
+
+```diff
++'use strict';
++
+const fs = require('fs');
+```
+
+</details>
+
+<details><summary>remove <code>strict mode</code> directive from esm</summary>
+
+```diff
+-'use strict';
+-
+import * from fs;
+```
+
+</details>
+
+<details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
+
+```diff
++'use strict';
++
+const fs = require('fs');
+```
+
+</details>
+
+<details><summary>remove <code>strict mode</code> directive from esm</summary>
+
+```diff
+-'use strict';
+-
+import * from fs;
+```
+
+</details>
+
+<details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
+
+```diff
++'use strict';
++
+const fs = require('fs');
+```
+
+</details>
+
+<details><summary>remove <code>strict mode</code> directive from esm</summary>
+
+```diff
+-'use strict';
+-
+import * from fs;
+```
+
+</details>
+
+<details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
+
+```diff
++'use strict';
++
+const fs = require('fs');
+```
+
+</details>
+
+<details><summary>remove <code>strict mode</code> directive from esm</summary>
+
+```diff
+-'use strict';
+-
+import * from fs;
+```
+
+</details>
+
+<details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
+
+```diff
++'use strict';
++
+const fs = require('fs');
+```
+
+</details>
+
+<details><summary>remove <code>strict mode</code> directive from esm</summary>
+
+```diff
+-'use strict';
+-
+import * from fs;
+```
+
+</details>
+
+<details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
+
+```diff
++'use strict';
++
+const fs = require('fs');
+```
+
+</details>
+
+
 <details><summary>convert <code>esm</code> to <code>commonjs</code> (disabled)</summary>
 
 ```diff
@@ -2022,7 +2123,6 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-types`](/packages/plugin-types#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-types) |
 | [`@putout/plugin-math`](/packages/plugin-math#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-math.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-math) |
 | [`@putout/plugin-madrun`](/packages/plugin-madrun#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-madrun.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-madrun) |
-| [`@putout/plugin-strict-mode`](/packages/plugin-strict-mode#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-strict-mode.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-strict-mode) |
 | [`@putout/plugin-putout`](/packages/plugin-putout#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) |
 | [`@putout/plugin-putout-config`](/packages/plugin-putout-config#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout-config.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout-config) |
 | [`@putout/plugin-tape`](/packages/plugin-tape#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-tape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-tape) |

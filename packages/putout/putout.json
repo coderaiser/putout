@@ -15,11 +15,12 @@
     ],
     "match": {
         "*.{mjs,ts,tsx,mts}": {
-            "strict-mode/remove-useless": "on",
-            "strict-mode/add-missing": "off"
+            "nodejs/remove-strict-mode": "on",
+            "nodejs/add-strict-mode": "off"
         },
         "*.{jsx,js,cjs}": {
-            "strict-mode": "on"
+            "nodejs/add-strict-mode": "on",
+            "nodejs/remove-strict-mode": "on"
         },
         "{.,}putout.json": {
             "putout-config": "on"
@@ -154,7 +155,8 @@
         "npmignore": "off",
         "github": "off",
         "tape": "off",
-        "strict-mode": "off",
+        "nodejs/add-strict-mode": "off",
+        "nodejs/remove-strict-mode": "off",
         "browserlist": "off",
         "filesystem": "off"
     },
@@ -227,7 +229,6 @@
         "declare-imports-first",
         "declare-before-reference",
         "declare",
-        "strict-mode",
         "math",
         "putout",
         "putout-config",

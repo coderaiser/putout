@@ -36,8 +36,8 @@
     "codeframe"
   ],
   "devDependencies": {
+    "@putout/plugin-nodejs": "*",
     "@putout/plugin-remove-unused-variables": "*",
-    "@putout/plugin-strict-mode": "*",
     "@putout/test": "^7.0.0",
     "c8": "^8.0.0",
     "eslint": "^8.0.1",

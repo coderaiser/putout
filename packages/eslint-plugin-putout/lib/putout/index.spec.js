@@ -48,19 +48,19 @@ ruleTester.run('putout', rule, {
         code: `const t = 'hi'; module.exports = t`,
         options: [{
             rules: {
-                'strict-mode': 'on',
+                'nodejs/add-strict-mode': 'on',
             },
         }],
         output: `'use strict';\n\nmodule.exports = 'hi';\n`,
         errors: [{
-            message: `Add missing 'use strict' directive on top of CommonJS (strict-mode/add-missing)`,
+            message: `Add missing 'use strict' directive on top of CommonJS (nodejs/add-strict-mode)`,
         }, {
             message: 'Useless variable declaration with name "t" (remove-useless-variables/remove)',
         }],
     }, {
         options: [{
             rules: {
-                'strict-mode': 'off',
+                'nodejs/add-strict-mode': 'off',
             },
         }],
         code: montag`

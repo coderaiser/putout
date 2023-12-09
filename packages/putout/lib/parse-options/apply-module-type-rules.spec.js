@@ -16,7 +16,7 @@ test('putout: parse-options: apply module type rules: module', (t) => {
         match: {
             '*.js': {
                 'nodejs/convert-commonjs-to-esm': 'on',
-                'strict-mode/add-missing': 'off',
+                'nodejs/add-strict-mode': 'off',
             },
             '.eslintrc.json': {
                 'eslint': 'on',

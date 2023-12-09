@@ -477,6 +477,8 @@ test('putout: runner: replace: watermark: when function used', (t) => {
     });
     
     const expected = montag`
+       'use strict';
+       
        const {types: types} = require('putout');
        const {template: template} = require('putout');
        const {NumericLiteral} = types;

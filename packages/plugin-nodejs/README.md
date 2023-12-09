@@ -35,7 +35,8 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/convert-top-level-return": "on",
         "nodejs/declare": "on",
         "nodejs/declare-after-require": "on",
-        "nodejs/remove-process-exit": "on"
+        "nodejs/remove-process-exit": "on",
+        "nodejs/strict-mode": "on"
     }
 }
 ```
@@ -396,6 +397,50 @@ Rename `*.mjs` files when `module === "module"`:
 ```
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/94fb3298b210e703b01db9a6826942bc/dfe2462451c6b3d4d47da7fd8d39dc8e53bb16eb).
+
+## strict-mode
+
+> **Strict mode** makes several changes to normal **JavaScript** semantics:
+>
+> - Eliminates some **JavaScript** silent errors by changing them to throw errors.
+> - Fixes mistakes that make it difficult for **JavaScript** engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode.
+> - Prohibits some syntax likely to be defined in future versions of **ECMAScript**.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+
+Add **strict mode** to **CommonJS**, and remove from **ESM**, where it enabled by default.
+
+### ❌ Example of incorrect code
+
+ESM:
+
+```js
+'strict mode';
+
+import a from 'b';
+```
+
+CommonJS:
+
+```js
+const a = require('b');
+```
+
+### ✅ Example of correct code
+
+ESM:
+
+```js
+import a from 'b';
+```
+
+CommonJS:
+
+```js
+'strict mode';
+
+const a = require('b');
+```
 
 ## License
 

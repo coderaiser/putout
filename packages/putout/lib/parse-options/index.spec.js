@@ -933,7 +933,7 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
         match: {
             '*.js': {
                 'nodejs/convert-commonjs-to-esm': 'on',
-                'strict-mode/add-missing': 'off',
+                'nodejs/add-strict-mode': 'off',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
@@ -945,7 +945,7 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
         },
         rules: {
             'nodejs/convert-commonjs-to-esm': 'on',
-            'strict-mode/add-missing': 'off',
+            'nodejs/add-strict-mode': 'off',
             'tape/convert-mock-require-to-mock-import': 'on',
         },
     };
