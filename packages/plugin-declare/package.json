@@ -42,7 +42,7 @@
     "madrun": "^10.0.0",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
-    "supertape": "^8.0.0"
+    "supertape": "^9.0.0"
   },
   "peerDependencies": {
     "putout": ">=31"

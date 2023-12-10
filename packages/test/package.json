@@ -43,7 +43,7 @@
     "@putout/eslint": "^2.0.0",
     "currify": "^4.0.0",
     "putout": "*",
-    "supertape": "^8.0.0",
+    "supertape": "^9.0.0",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.0"
   },
@@ -73,7 +73,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public"
