@@ -71,11 +71,11 @@
     "supertape": "^8.0.0"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "peerDependencies": {
     "eslint": ">=8.0.0",
-    "putout": ">=32"
+    "putout": ">=34"
   },
   "license": "MIT",
   "publishConfig": {
