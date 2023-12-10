@@ -47,7 +47,7 @@
     "husky": "^6.0.0",
     "lerna": "^6.0.1",
     "madrun": "^10.0.0",
-    "redlint": "^1.0.6",
+    "redlint": "^2.0.0",
     "supertape": "^8.0.0"
   },
   "engines": {
