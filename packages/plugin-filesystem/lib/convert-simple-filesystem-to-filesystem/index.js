@@ -87,9 +87,9 @@ const noTrailingSlash = (a) => {
 };
 
 function buildTree(ast, filenames) {
-    const [rootName] = filenames;
+    const [rootName, ...otherNames] = filenames;
     
-    for (const filename of filenames) {
+    for (const filename of otherNames) {
         const [filePath] = findFile(ast, filename);
         const dir = dirname(filename);
         const [dirPath] = findFile(ast, dir);

@@ -20,6 +20,11 @@ test('packages: convert-simple-filesystem-to-filesystem: transform', (t) => {
     t.end();
 });
 
+test('packages: convert-simple-filesystem-to-filesystem: transform: no-root', (t) => {
+    t.transform('no-root');
+    t.end();
+});
+
 test('packages: convert-simple-filesystem-to-filesystem: no transform: not-filesystem', (t) => {
     t.noTransform('not-filesystem');
     t.end();
