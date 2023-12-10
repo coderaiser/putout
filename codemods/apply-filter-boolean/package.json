@@ -1,7 +1,7 @@
 {
   "name": "@putout/codemod-apply-filter-boolean",
   "private": true,
-  "version": "1.1.1",
+  "version": "2.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to apply filter(Boolean)",
@@ -42,11 +42,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=31"
+    "putout": ">=34"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public"
