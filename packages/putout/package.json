@@ -72,7 +72,7 @@
     "@putout/formatter-time": "^1.0.1",
     "@putout/operate": "^11.0.0",
     "@putout/operator-add-args": "^7.0.0",
-    "@putout/operator-declare": "^8.0.0",
+    "@putout/operator-declare": "^9.0.0",
     "@putout/operator-filesystem": "^3.0.0",
     "@putout/operator-json": "^1.0.1",
     "@putout/operator-match-files": "^2.0.0",
