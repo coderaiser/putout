@@ -3,7 +3,7 @@ import {
     cutEnv,
 } from 'madrun';
 
-const SUPERTAPE_LOAD_LOOP_TIMEOUT = 50;
+const SUPERTAPE_LOAD_LOOP_TIMEOUT = 70;
 const env = {
     SUPERTAPE_LOAD_LOOP_TIMEOUT,
 };
