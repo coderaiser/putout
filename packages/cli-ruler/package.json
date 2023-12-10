@@ -26,9 +26,7 @@
   "dependencies": {
     "try-to-catch": "^3.0.0"
   },
-  "keywords": [
-    "putout"
-  ],
+  "keywords": ["putout"],
   "devDependencies": {
     "c8": "^8.0.0",
     "eslint": "^8.0.1",
