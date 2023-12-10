@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@putout/cli-filesystem": "^1.0.0",
-    "@putout/operator-filesystem": "^2.0.0",
+    "@putout/operator-filesystem": "^3.0.0",
     "@putout/operator-json": "^1.0.1"
   }
 }
