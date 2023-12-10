@@ -1,3 +1,57 @@
+2023.12.10, v34.0.1
+
+feature:
+- f7e47b98c @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: no root
+- db826f521 root: supertape v9.0.0
+- 5d701db17 @putout/engine-runner: @putout/plugin-filesystem v3.0.0
+- c2565294b @putout/operator-match-files: @putout/operator-filesystem v3.0.0
+- cb0f7c440 putout: @putout/processor-filesystem v3.0.0
+- 7dce3aca7 @putout/processor-filesystem: drop support of node < 18
+- ba8151007 @putout/processor-filesystem: @putout/operator-filesystem v3.0.0
+- 18de89088 putout: @putout/plugin-filesystem v3.0.0
+- 4000aefb7 @putout/plugin-filesystem: drop support of node < 18
+- 503ddaa8e root: redlint v2.0.0
+- 855e32271 putout: @putout/engine-processor v11.0.0
+- c7cda4be7 @putout/engine-processor: @putout/engine-loader v13.0.0
+- 4e59d193b @putout/engine-runner: @putout/operator-filesystem v3.0.0
+- 2427fbc6c @putout/engine-runner: @putout/operator-declare v9.0.0
+- 7a4b94335 @putout/processor-typescript: drop support of node < 18
+- 452aab285 @putout/test v9
+- 4974fa08f supertape v9
+- 6ed9a72c7 @putout/processor-typescript: ts-morph v21.0.1
+- 1bc93231f putout: @putout/traverse v10.0.0
+- a53f71372 @putout/traverse: @putout/compare v14.0.0
+- fada9498c putout: @putout/operator-add-args v8.0.0
+- a3bc047c0 @putout/operator-add-args: @putout/engine-parser v10.0.2
+- 79bd83024 @putout/operator-add-args: @putout/compare v14.0.0
+- 119e1aea4 putout: @putout/operator-declare v9.0.0
+- aae106ce5 @putout/operator-declare: @putout/compare v14.0.0
+- 531cd0ee0 @putout/operator-declare: @putout/engine-parser v10.0.2
+- 895195844 putout: @putout/operator-filesystem v3.0.0
+- 749eccec5 @putout/operator-filesystem: drop supprot of node < 18
+- a44a2b2e7 @putout/operator-filesystem: @putout/engine-parser v10.0.2
+- d2a858a81 putout: @putout/operator-match-files v2.0.0
+- d228ab9f6 @putout/operator-match-files: drop support of node < 18
+- 01c9f1bb0 @putout/operator-match-files: @putout/engine-parser v10.0.2
+- 690d79b59 root: eslint-plugin-putout v22.0.0
+- f6e174fa8 @putout/engine-parser: @putout/printer v7.0.0
+- b7dc22537 eslint-plugin-putout: @putout/engine-parser v10.0.0
+- 7e5e6484f eslint-plugin-putout: drop support of node < 18
+- 289484295 putout: @putout/engine-runner v20.0.1
+- b07ce3330 @putout/engine-runner: @putout/compare v14.0.0
+- 8fc516c98 @putout/engine-runner: drop support of node < 18
+- 70c64d288 @putout/engine-runner: @putout/engine-parser v10.0.0
+- db59abcee putout: @putout/engine-loader v13.0.0
+- 250d4065f @putout/engine-loader: @putout/engine-parser v10.0.0
+- 6cc48341a @putout/engine-loader: drop support of node < 18
+- 0b137fc45 putout: @putout/compare v14.0.0
+- bf7c384be putout: @putout/engine-parser v10.0.0
+- a660029ee @putout/compare: @putout/engine-parser v10.0.0
+- dc4e2e959 @putout/compare: drop support of node < 18
+- 9b9eb15e9 @putout/engine-parser: drop support of node < 18
+- 1a8c94d7f @putout/engine-parser: @putout/printer v6.17.0
+- 01159751b root: madrun v10.0.0
+
 2023.12.09, v34.0.0
 
 fix:
