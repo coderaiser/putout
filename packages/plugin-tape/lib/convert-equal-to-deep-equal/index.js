@@ -1,6 +1,7 @@
 'use strict';
 
-const {types} = require('putout');
+const {types, operator} = require('putout');
+const {compare} = operator;
 const {
     isArrayExpression,
     isIdentifier,
@@ -38,6 +39,9 @@ function check({__b}, path) {
     
     if (!isIdentifier(id, {name: 'expected'}))
         return false;
+    
+    if (compare(init, 'Buffer.from(__a)'))
+        return true;
     
     return isObjectExpression(init) || isArrayExpression(init);
 }

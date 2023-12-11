@@ -19,3 +19,8 @@ test('plugin-tape: convert-equal-to-deep-equal: transform', (t) => {
     t.transform('equal');
     t.end();
 });
+
+test('plugin-tape: convert-equal-to-deep-equal: transform: buffer', (t) => {
+    t.transform('buffer');
+    t.end();
+});
