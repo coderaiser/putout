@@ -449,7 +449,6 @@ test('putout: cli: no ide', async (t) => {
         index: 0,
         name,
         places: [],
-        report: stub(),
         source: '',
     }];
     
@@ -534,7 +533,6 @@ test('putout: cli: ide: web storm', async (t) => {
         index: 0,
         name: join(process.cwd(), name),
         places: [],
-        report: stub(),
         source: '',
     }];
     
@@ -605,7 +603,6 @@ test('putout: cli: ide: vs code', async (t) => {
         index: 0,
         name: join(process.cwd(), name),
         places: [],
-        report: stub(),
         source: '',
     }];
     
@@ -676,7 +673,6 @@ test('putout: cli: ide: vs code: cache', async (t) => {
         index: 0,
         name: join(process.cwd(), name),
         places: [],
-        report: stub(),
         source: '',
     }];
     
@@ -747,7 +743,6 @@ test('putout: cli: no ide: cache', async (t) => {
         index: 0,
         name,
         places: [],
-        report: stub(),
         source: '',
     }];
     

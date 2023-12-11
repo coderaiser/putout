@@ -78,7 +78,6 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
     });
     
     const line = await report(currentFormat, {
-        report,
         formatterOptions,
         name: chooseName(name, resolvedName),
         source: rawSource,
@@ -114,7 +113,6 @@ async function runCache({fileCache, report, write, formatterOptions, currentForm
     
     const places = fileCache.getPlaces(name);
     const formatterProxy = createFormatterProxy({
-        report,
         formatterOptions,
         name: chooseName(name, resolvedName),
         places,
