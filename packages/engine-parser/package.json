@@ -33,7 +33,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/babel": "^1.0.4",
+    "@putout/babel": "^2.0.0",
     "@putout/printer": "^7.0.0",
     "@putout/recast": "^1.12.1",
     "estree-to-babel": "^8.0.0",

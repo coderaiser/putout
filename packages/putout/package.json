@@ -47,7 +47,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/babel": "^1.0.0",
+    "@putout/babel": "^2.0.0",
     "@putout/cli-cache": "^2.0.1",
     "@putout/cli-choose-formatter": "^2.0.0",
     "@putout/cli-keypress": "^2.0.0",
