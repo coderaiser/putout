@@ -1,3 +1,20 @@
+2023.12.11, v34.0.7
+
+fix:
+- 4f577843a @putout/plugin-nodejs: ImportExpression
+
+feature:
+- c104af997 putout: @putout/plugin-remove-unused-variables v8.0.0
+- 23615c14d @putout/plugin-remove-unused-variables: drop support of node < 18
+- e064b4056 @putout/plugin-remove-unused-variables: ImportExpression
+- 55af3c51e @putout/plugin-nodejs: remove-strict-mode: top-level-await
+- 60dc7090a putout: @putout/plugin-promises v14.0.0
+- 70feedd63 @putout/plugin-promises: drop support of node < 18
+- 4cf3feef6 @putout/plugin-promises: remove-useless-await: ImportExpressions
+- 8fb758559 @putout/plugin-convert-assert-to-with: drop support of 🐊 < 34
+- a8b89d3c8 @putout/plugin-nodejs: ImportExpression
+- 549cc81da @putout/engine-parser: estree-to-babel v9.0.0
+
 2023.12.11, v34.0.6
 
 feature:
