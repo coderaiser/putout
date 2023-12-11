@@ -1,3 +1,17 @@
+2023.12.11, v34.0.6
+
+feature:
+- bb643d679 @putout/engine-runner: @putout/operate v12.0.0
+- c2178f703 @putout/compare: @putout/operate v12.0.0
+- 3928fadf3 @putout/operator-declare: @putout/operate v12.0.0
+- c10e380ba @putout/plugin-filesystem: @putout/operate v12.0.0
+- 6cfaefbe7 @putout/operator-filesystem: @putout/operate v12.0.0
+- 592612232 putout: @putout/operate v12.0.0
+- 38b607c05 @putout/operate: drop support of node < 18
+- 67b676130 putout: @putout/formatter-codeframe v6.0.0
+- 860e1075c @putout/codeframe: drop support of node < 18
+- 0f7cebf5a putout: @putout/babel v2
+
 2023.12.11, v34.0.5
 
 feature:
