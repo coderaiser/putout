@@ -13,7 +13,7 @@ module.exports.fix = ({node}) => {
 };
 
 module.exports.traverse = ({push, store}) => ({
-    'ImportExpression|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|TypeAlias'() {
+    'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|TypeAlias'() {
         store('is-module', true);
     },
     'module.exports = __a'() {
