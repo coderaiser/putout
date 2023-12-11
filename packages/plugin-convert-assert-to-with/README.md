@@ -31,11 +31,7 @@ npm i @putout/plugin-convert-assert-to-with -D
 ```js
 import json from './foo.json' with { type: 'json' };
 
-import('foo.json', {
-    assert: {
-        type: 'json',
-    },
-});
+import('foo.json');
 ```
 
 ## ✅ Example of correct code
@@ -43,11 +39,7 @@ import('foo.json', {
 ```js
 import json from './foo.json' with { type: 'json' };
 
-import('foo.json', {
-    with: {
-        type: 'json',
-    },
-});
+import('foo.json');
 ```
 
 ## License
