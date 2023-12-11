@@ -12,12 +12,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-strict-mode: add: report', (t) => {
+test('plugin-nodejs: strict-mode: add: report', (t) => {
     t.report('commonjs', `Add missing 'use strict' directive on top of CommonJS`);
     t.end();
 });
 
-test('plugin-strict-mode: add: commonjs', (t) => {
+test('plugin-nodejs: strict-mode: add: commonjs', (t) => {
     t.transform('commonjs');
     t.end();
 });

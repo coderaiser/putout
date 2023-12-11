@@ -1,9 +1,7 @@
 'use strict';
 
-const {operator, types} = require('putout');
-
+const {operator} = require('putout');
 const {remove} = operator;
-const {isProgram} = types;
 
 const isStrictMode = (a) => a.node.value.value === 'use strict';
 
@@ -12,13 +10,7 @@ module.exports.report = () => `Avoid 'use strict' in ESM`;
 module.exports.fix = (path) => remove(path);
 
 module.exports.traverse = ({push, store}) => ({
-    'await __a(__args)'({scope}) {
-        const {block} = scope;
-        
-        if (isProgram(block))
-            store('is-module', true);
-    },
-    'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration'() {
+    'ImportExpression|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration'() {
         store('is-module', true);
     },
     Program: {

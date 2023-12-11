@@ -12,12 +12,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-strict-mode: remove: report', (t) => {
+test('plugin-nodejs: strict-mode: remove: report', (t) => {
     t.report('esm', `Avoid 'use strict' in ESM`);
     t.end();
 });
 
-test('plugin-strict-mode: remove: transform: esm', (t) => {
+test('plugin-nodejs: strict-mode: remove: transform: esm', (t) => {
     t.transform('esm');
     t.end();
 });

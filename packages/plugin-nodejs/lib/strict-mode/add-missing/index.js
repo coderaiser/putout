@@ -4,7 +4,6 @@ const {
     isExpressionStatement,
     StringLiteral,
     ExpressionStatement,
-    isProgram,
 } = require('putout').types;
 
 module.exports.report = () => `Add missing 'use strict' directive on top of CommonJS`;
@@ -14,15 +13,7 @@ module.exports.fix = ({node}) => {
 };
 
 module.exports.traverse = ({push, store}) => ({
-    'await __a(__args)'({scope}) {
-        const {block} = scope;
-        
-        if (!isProgram(block))
-            return;
-        
-        store('is-module', true);
-    },
-    'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|TypeAlias'() {
+    'ImportExpression|ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|TypeAlias'() {
         store('is-module', true);
     },
     'module.exports = __a'() {
