@@ -53,7 +53,6 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         merge,
         fileList,
         options,
-        rawSource,
         processFile,
         processedSource,
     }));
@@ -70,7 +69,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     };
 };
 
-async function iterate({name, rawSource, fileList, merge, processFile, processedSource, options}) {
+async function iterate({name, fileList, merge, processFile, processedSource, options}) {
     let codeChanged = false;
     
     const allPlaces = [];
@@ -82,7 +81,6 @@ async function iterate({name, rawSource, fileList, merge, processFile, processed
         const {code, places} = await processFile({
             name: processedName,
             source,
-            rawSource,
             options,
             startLine,
         });

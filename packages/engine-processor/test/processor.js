@@ -50,7 +50,6 @@ test('putout: engine-processor: javascript', async (t) => {
     const expected = {
         name,
         options,
-        rawSource,
         source: rawSource,
         startLine: 0,
     };
@@ -107,7 +106,6 @@ test('putout: engine-processor: markdown: javascript', async (t) => {
     const expected = {
         name: `${name}{js}`,
         options,
-        rawSource,
         source: 'const a = 5;',
         startLine: 1,
     };
