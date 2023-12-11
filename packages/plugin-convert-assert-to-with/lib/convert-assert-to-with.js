@@ -1,7 +1,7 @@
 'use strict';
 
 const setImportType = (path, type) => {
-    path.node.arguments[1].properties[0].key.name = type;
+    path.node.options.properties[0].key.name = type;
 };
 
 module.exports.report = () => `Use 'with' instead of 'assert'`;
