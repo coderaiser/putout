@@ -32,7 +32,6 @@
     "format-io": "^2.0.0",
     "montag": "^1.1.0",
     "once": "^1.4.0",
-    "time-node": "^0.0.1",
     "timer-node": "^5.0.7"
   },
   "keywords": [
@@ -52,11 +51,11 @@
     "mock-require": "^3.0.3"
   },
   "peerDependencies": {
-    "putout": ">=32"
+    "putout": ">=34"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public"
