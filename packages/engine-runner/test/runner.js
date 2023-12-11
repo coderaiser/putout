@@ -2,19 +2,15 @@
 
 const process = require('process');
 const montag = require('montag');
-
 const tryCatch = require('try-catch');
-
 const {test, stub} = require('supertape');
-
 const putout = require('putout');
 const mockRequire = require('mock-require');
-const {readFixtures} = require('./fixture');
 
+const {readFixtures} = require('./fixture');
 const {runPlugins} = require('..');
 
 const {reRequire, stopAll} = mockRequire;
-
 const fixture = readFixtures([
     'import',
     'no-parent',
