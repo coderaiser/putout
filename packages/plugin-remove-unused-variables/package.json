@@ -45,11 +45,11 @@
     "try-catch": "^3.0.0"
   },
   "peerDependencies": {
-    "putout": ">=32"
+    "putout": ">=34"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public"
