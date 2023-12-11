@@ -113,7 +113,6 @@ async function runCache({fileCache, report, write, formatterOptions, currentForm
         return false;
     
     const places = fileCache.getPlaces(name);
-    
     const formatterProxy = createFormatterProxy({
         report,
         formatterOptions,
