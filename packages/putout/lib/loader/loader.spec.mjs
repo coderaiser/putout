@@ -9,7 +9,7 @@ import {
 
 test('putout: esm: load', async (t) => {
     const nextLoad = stub().returns({
-        source: 'const a = 5; module.exports = a;',
+        source: Buffer.from('const a = 5; module.exports = a;'),
         format: 'module',
     });
     

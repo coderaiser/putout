@@ -34,7 +34,7 @@ export const transformSource = async (source, context) => {
             source,
         };
     
-    const {code} = await putoutAsync(source, {
+    const {code} = await putoutAsync(String(source), {
         printer: 'putout',
         ...options,
     });
