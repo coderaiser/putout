@@ -1,6 +1,6 @@
 {
   "name": "@putout/formatter-time",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout formatter shows time",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-time#readme",
