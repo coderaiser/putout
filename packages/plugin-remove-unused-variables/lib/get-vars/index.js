@@ -19,7 +19,6 @@ module.exports = (ast, opts) => {
     const allParams = [];
     
     const {setPath, traverse} = opts;
-    
     const use = useVariable({
         vars,
     });

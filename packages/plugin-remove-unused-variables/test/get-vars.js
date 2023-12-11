@@ -57,6 +57,7 @@ const fixture = readFixtures([
     'import',
     'no-vars',
     'no-root-vars',
+    'import-expression',
     'logical-expression',
     'member-expression',
     'new-expression',
@@ -133,6 +134,20 @@ test('remove-unused-variables: get-vars: no', (t) => {
     const ast = parse(fixture.noVars);
     const result = getVars(ast);
     const expected = [];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: import expression', (t) => {
+    const ast = parse(fixture.importExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        module: _u,
+    }, {
+        url: du,
+    }];
     
     t.deepEqual(result, expected);
     t.end();

@@ -473,6 +473,14 @@ module.exports = ({use, declare, addParams}) => {
                 use(path, right.name);
         },
         
+        ImportExpression(path) {
+            const {source} = path.node;
+            const {name} = source;
+            
+            if (isIdentifier(source, {name}))
+                use(path, name);
+        },
+        
         ImportDeclaration(path) {
             const specifierPaths = path.get('specifiers');
             
