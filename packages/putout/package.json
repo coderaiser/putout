@@ -163,7 +163,7 @@
     "@putout/plugin-simplify-ternary": "^6.0.0",
     "@putout/plugin-split-nested-destructuring": "^3.0.0",
     "@putout/plugin-split-variable-declarations": "^3.0.0",
-    "@putout/plugin-tape": "^12.0.0",
+    "@putout/plugin-tape": "^13.0.0",
     "@putout/plugin-try-catch": "^3.0.0",
     "@putout/plugin-types": "^3.0.0",
     "@putout/plugin-typescript": "^5.0.0",
