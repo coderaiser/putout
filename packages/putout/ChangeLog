@@ -1,3 +1,9 @@
+2023.12.11, v34.0.5
+
+feature:
+- e2d6f36b0 putout: @putout/formatter-time v2.0.0
+- 527548a88 @putout/formatter-time: drop support of node < 18
+
 2023.12.11, v34.0.4
 
 feature:
