@@ -2,12 +2,11 @@
 
 const {types, operator} = require('putout');
 
+const {replaceWith} = operator;
 const {
     isFunction,
     AwaitExpression,
 } = types;
-
-const {replaceWith} = operator;
 
 module.exports.report = () => `Use 'await' near 'import' call`;
 

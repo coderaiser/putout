@@ -90,6 +90,11 @@ test('plugin-promises: remove-useless-await: no transform: logical', (t) => {
     t.end();
 });
 
+test('plugin-promises: remove-useless-await: no transform: import-expression', (t) => {
+    t.noTransform('import-expression');
+    t.end();
+});
+
 test('plugin-promises: remove-useless-await: no transform: optional-chaining', (t) => {
     t.noTransform('optional-chaining');
     t.end();
