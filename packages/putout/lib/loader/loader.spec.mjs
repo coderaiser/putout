@@ -7,6 +7,23 @@ import {
     transformSource,
 } from './loader.mjs';
 
+test('putout: esm: load', async (t) => {
+    const nextLoad = stub().returns({
+        source: 'const a = 5; module.exports = a;',
+        format: 'module',
+    });
+    
+    const url = 'file://hello.js';
+    
+    const context = {};
+    
+    const {source} = await load(url, context, nextLoad);
+    const expected = Buffer.from(`'use strict';\n\nmodule.exports = 5;\n`);
+    
+    t.deepEqual(source, expected);
+    t.end();
+});
+
 test('putout: loader: transformSource', async (t) => {
     const context = {
         url: `file://hello.js`,
@@ -14,9 +31,9 @@ test('putout: loader: transformSource', async (t) => {
     
     const code = 'const a = 5;';
     const {source} = await transformSource(code, context);
-    const expected = `\n`;
+    const expected = Buffer.from(`\n`);
     
-    t.equal(source, expected);
+    t.deepEqual(source, expected);
     t.end();
 });
 
@@ -33,15 +50,15 @@ test('putout: loader: transformSource: ignore: no mock', async (t) => {
     t.end();
 });
 
-test('putout: loader: load: no source', async (t) => {
+test('putout: loader: load: commonjs', async (t) => {
     const url = `file://hello.js`;
     const context = {};
     
-    const defaultLoad = stub().returns({
-        source: '',
+    const nextLoad = stub().returns({
+        format: 'commonjs',
     });
     
-    const result = await load(url, context, defaultLoad);
+    const result = await load(url, context, nextLoad);
     
     const expected = {
         format: 'commonjs',
@@ -55,15 +72,16 @@ test('putout: loader: load: source', async (t) => {
     const url = `file://hello.js`;
     const context = {};
     
-    const defaultLoad = stub().returns({
+    const nextLoad = stub().returns({
+        format: 'module',
         source: 'hello',
     });
     
-    const result = await load(url, context, defaultLoad);
+    const result = await load(url, context, nextLoad);
     
     const expected = {
         format: 'module',
-        source: `\n`,
+        source: Buffer.from(`\n`),
     };
     
     t.deepEqual(result, expected);

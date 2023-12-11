@@ -6,6 +6,7 @@
         "**/fixture",
         "test",
         "coverage",
+        "**/register.mjs",
         ".*.*"
     ],
     "branches": 100,

@@ -1,25 +1,23 @@
 import process from 'node:process';
-import {putoutAsync} from './putout.js';
-import ignores from './ignores.js';
-import parseOptions from './parse-options/index.js';
+import {putoutAsync} from '../putout.js';
+import ignores from '../ignores.js';
+import parseOptions from '../parse-options/index.js';
 
 const cwd = process.cwd();
 
-const toLoad = (transformSource) => async (url, context, defaultLoad) => {
-    const {source: rawSource} = await defaultLoad(url, context);
+const toLoad = (transformSource) => async (url, context, nextLoad) => {
+    const {format, source: rawSource} = await nextLoad(url, context);
     
-    if (!rawSource)
-        return {
-            format: 'commonjs',
-        };
+    if (format !== 'module')
+        return nextLoad(url);
     
     const {source} = await transformSource(rawSource, {
         url,
     });
     
     return {
-        source,
         format: 'module',
+        source,
     };
 };
 
@@ -42,7 +40,7 @@ export const transformSource = async (source, context) => {
     });
     
     return {
-        source: code,
+        source: Buffer.from(code),
     };
 };
 

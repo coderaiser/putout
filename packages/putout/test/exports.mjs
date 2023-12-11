@@ -32,3 +32,11 @@ test('putout: exports: putout/find-places', async (t) => {
     t.equal(external, findPlaces);
     t.end();
 });
+
+test('putout: exports: putout/register', async (t) => {
+    const register = await import('putout/register');
+    const internal = await import('../lib/loader/register.mjs');
+    
+    t.equal(register, internal);
+    t.end();
+});
