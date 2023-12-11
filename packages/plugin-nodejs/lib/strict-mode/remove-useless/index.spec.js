@@ -47,6 +47,11 @@ test('plugin-strict-mode: remove: no transform: use-client', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: remove: no transform: import-expression', (t) => {
+    t.noTransform('import-expression');
+    t.end();
+});
+
 test('plugin-strict-mode: remove: transform: typescript', (t) => {
     t.transform('typescript', {
         typescript,
