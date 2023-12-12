@@ -29,6 +29,8 @@ const parserOptions = {
     requireConfigFile: false,
     babelOptions: {
         sourceType: 'module',
+        babelrc: false,
+        configFile: false,
         parserOpts: {
             ...parserOpts,
             plugins: [
