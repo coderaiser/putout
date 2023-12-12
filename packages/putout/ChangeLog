@@ -1,3 +1,8 @@
+2023.12.12, v34.0.9
+
+fix:
+- fe888d8b0 putout: merge: nested
+
 2023.12.12, v34.0.8
 
 fix:
