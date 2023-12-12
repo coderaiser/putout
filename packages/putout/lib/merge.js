@@ -3,8 +3,15 @@
 const deepmerge = require('deepmerge');
 
 const isString = (a) => typeof a === 'string';
-const arrayUnion = (...a) => {
-    const flatten = a.flat();
+const arrayUnion = (a, b) => {
+    if (/^(on|off)$/.test(a[0]))
+        return a;
+    
+    const flatten = [
+        ...a,
+        ...b,
+    ].flat();
+    
     return mergeIgnore(Array.from(new Set(flatten)));
 };
 

@@ -58,3 +58,48 @@ test('putout: merge: rules', (t) => {
     t.deepEqual(result, options);
     t.end();
 });
+
+test('putout: merge: override', (t) => {
+    const defaultConfig = {
+        rules: {
+            'github/set-node-versions': ['on', {
+                versions: [
+                    '18.x',
+                    '20.x',
+                    '21.x',
+                ],
+            }],
+        },
+        plugins: ['remove-unused-variables'],
+    };
+    
+    const result = merge(defaultConfig, {
+        rules: {
+            'github/set-node-versions': ['on', {
+                versions: [
+                    '18.x',
+                    '20.x',
+                ],
+            }],
+        },
+        plugins: ['extract-sequence-expressions'],
+    });
+    
+    const expected = {
+        rules: {
+            'github/set-node-versions': ['on', {
+                versions: [
+                    '18.x',
+                    '20.x',
+                ],
+            }],
+        },
+        plugins: [
+            'extract-sequence-expressions',
+            'remove-unused-variables',
+        ],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
