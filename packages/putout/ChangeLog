@@ -1,3 +1,11 @@
+2023.12.12, v34.0.8
+
+fix:
+- 55153c19d putout: merge: rules options
+
+feature:
+- 7c645f911 eslint-plugin-putout: markdown: disable config override
+
 2023.12.11, v34.0.7
 
 fix:
