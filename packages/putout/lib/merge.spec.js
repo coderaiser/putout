@@ -59,7 +59,7 @@ test('putout: merge: rules', (t) => {
     t.end();
 });
 
-test('putout: merge: override', (t) => {
+test('putout: merge: override: rules', (t) => {
     const defaultConfig = {
         rules: {
             'github/set-node-versions': ['on', {
@@ -97,6 +97,25 @@ test('putout: merge: override', (t) => {
         plugins: [
             'extract-sequence-expressions',
             'remove-unused-variables',
+        ],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: merge: override: plugins', (t) => {
+    const defaultConfig = {
+        plugins: [
+            ['throw', {}],
+        ],
+    };
+    
+    const result = merge(defaultConfig, {});
+    
+    const expected = {
+        plugins: [
+            ['throw', {}],
         ],
     };
     

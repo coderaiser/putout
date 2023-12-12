@@ -1,10 +1,15 @@
 'use strict';
 
 const deepmerge = require('deepmerge');
+const {isArray} = Array;
+const isNested = (a) => isArray(a[0]) && a[0].length > 1;
 
 const isString = (a) => typeof a === 'string';
 const arrayUnion = (a, b) => {
     if (/^(on|off)$/.test(a[0]))
+        return a;
+    
+    if (isNested(a))
         return a;
     
     const flatten = [
