@@ -4,8 +4,9 @@ const {test, stub} = require('supertape');
 
 const putout = require('putout');
 const montag = require('montag');
-const operate = require('..');
+
 const {readFixtures} = require('./fixture');
+const operate = require('..');
 
 const RECAST = {
     printer: 'recast',
