@@ -20,6 +20,11 @@ test('packages: apply-short-processors: report: json', (t) => {
     t.end();
 });
 
+test('packages: apply-short-processors: no report: number', (t) => {
+    t.noReport('number');
+    t.end();
+});
+
 test('packages: apply-short-processors: transform', (t) => {
     t.transform('apply-short-processors');
     t.end();

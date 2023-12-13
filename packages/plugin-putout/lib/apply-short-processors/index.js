@@ -3,8 +3,9 @@
 const {types, operator} = require('putout');
 
 const {compute, rename} = operator;
-
 const {Identifier} = types;
+
+const isString = (a) => typeof a === 'string';
 const chooseType = (a) => a === '__ignore' ? '__array' : '__object';
 
 const getShortName = (a) => {
@@ -31,6 +32,9 @@ module.exports.traverse = ({push}) => ({
         const [is, value] = compute(path.get('key'));
         
         if (!is)
+            return;
+        
+        if (!isString(value))
             return;
         
         if (!value.includes('__putout_processor'))
