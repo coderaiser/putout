@@ -1,3 +1,10 @@
+2023.12.13, v34.0.10
+
+feature:
+- 20debfa7a putout: @putout/plugin-putout v18.0.0
+- f6508a0dc @putout/plugin-putout: drop support of 🐊 < 34
+- ea81da134 @putout/plugin-putout: apply-short-processors: number used as ObjectProperty value
+
 2023.12.12, v34.0.9
 
 fix:
