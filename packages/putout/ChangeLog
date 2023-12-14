@@ -1,3 +1,19 @@
+2023.12.15, v34.1.0
+
+fix:
+- 33a899efb @putout/plugin-nodejs: disable convert-mjs-to-js
+
+feature:
+- 071e46a10 putout: @putout/plugin-remove-duplicate-keys v4.0.0
+- 71c7f5296 putout: add progress
+- d1dbf802c @putout/plugin-remove-duplicate-keys: drop support of node < 18
+- 447da2448 @putout/plugin-remove-duplicate-keys: improve support
+- 2205df2da @putout/operate: traverseProperties: extract
+- 09f3035d6 @putout/operate: traverseProperties: exclude SpreadElement
+- 18ad54613 @putout/operate: traverseProperties: firstLevel
+- 1f31aca61 @putout/operate: getProperties: SpreadElement
+- c24c98f0b @putout/engine-runner: progress
+
 2023.12.13, v34.0.10
 
 feature:
