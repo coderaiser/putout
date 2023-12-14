@@ -7,7 +7,6 @@ const id = (a) => a;
 const returns = (a) => () => a;
 
 const defaultProcessors = ['javascript'];
-
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
 
 module.exports.defaultProcessors = defaultProcessors;
