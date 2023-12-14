@@ -42,6 +42,9 @@ module.exports.traverseProperties = (path, name, {firstLevel = false} = {}) => {
 
 const collect = ({name, collector}) => (path) => {
     for (const propertyPath of path.get('properties')) {
+        if (propertyPath.isSpreadElement())
+            continue;
+        
         const {value} = propertyPath.get('key').node;
         
         if (name === value)
