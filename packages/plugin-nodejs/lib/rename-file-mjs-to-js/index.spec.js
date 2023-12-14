@@ -15,6 +15,11 @@ test('packages: rename-file-mjs-to-js: report', (t) => {
     t.end();
 });
 
+test('packages: rename-file-mjs-to-js: no report: no-mjs', (t) => {
+    t.noReport('no-mjs');
+    t.end();
+});
+
 test('packages: rename-file-mjs-to-js: transform', (t) => {
     t.transform('rename-file-mjs-to-js');
     t.end();
