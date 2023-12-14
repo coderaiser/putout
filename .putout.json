@@ -23,15 +23,17 @@
             "promises/convert-reject-to-throw": "off",
             "promises/add-missing-await": "off",
             "promises/remove-useless-async": "off"
+        },
+        ".filesystem.json": {
+            "filesystem/remove-files": ["on", {
+                "names": ["coverage"]
+            }]
         }
     },
     "rules": {
         "github/convert-npm-to-bun": "off",
         "remove-useless-spread/object": ["on", {
             "exclude": "module.exports.rules = __"
-        }],
-        "filesystem/remove-files": ["on", {
-            "names": ["coverage"]
         }]
     },
     "ignore": [
