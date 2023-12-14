@@ -22,7 +22,8 @@
     "./lint/json": "./lib/lint/json.mjs",
     "./transform": "./lib/transform.js",
     "./find-places": "./lib/find-places.js",
-    "./register": "./lib/loader/register.mjs"
+    "./register": "./lib/loader/register.mjs",
+    "./ignores": "./lib/ignores.js"
   },
   "bin": {
     "putout": "bin/putout.mjs"

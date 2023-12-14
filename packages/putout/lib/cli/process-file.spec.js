@@ -1,11 +1,9 @@
 'use strict';
 
 const {test, stub} = require('supertape');
-
 const mockRequire = require('mock-require');
 
 const {reRequire, stopAll} = mockRequire;
-
 const {stringify} = JSON;
 
 test('putout: cli: process-file: eslint', async (t) => {
@@ -292,11 +290,13 @@ test('putout: cli: process-file: configurePrinter', async (t) => {
     });
     
     await fn({
+        options,
         name: 'example.md{js}',
-        source,
+        
         index: 0,
         length: 1,
-        options,
+        
+        source,
     });
     
     stopAll();

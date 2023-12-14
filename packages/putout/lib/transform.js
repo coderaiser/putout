@@ -23,6 +23,7 @@ module.exports.transform = (ast, source, opts) => {
         fixCount,
         loadPlugins,
         runPlugins,
+        progress,
     } = opts;
     
     const [, shebang] = cutShebang(source);
@@ -39,6 +40,7 @@ module.exports.transform = (ast, source, opts) => {
         fix,
         fixCount,
         plugins,
+        progress,
     });
     
     return places;
@@ -55,6 +57,7 @@ module.exports.transformAsync = async (ast, source, opts) => {
         fixCount,
         loadPluginsAsync,
         runPlugins,
+        progress,
     } = opts;
     
     const [, shebang] = cutShebang(source);
@@ -71,6 +74,7 @@ module.exports.transformAsync = async (ast, source, opts) => {
         fix,
         fixCount,
         plugins,
+        progress,
     });
     
     return places;

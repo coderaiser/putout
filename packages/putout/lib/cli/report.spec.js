@@ -21,6 +21,7 @@ test('putout: report: no places', async (t) => {
         places: [],
         source: '',
         formatterOptions,
+        rule: 'filesystem/remove-file',
     });
     
     const expected = {
@@ -32,6 +33,7 @@ test('putout: report: no places', async (t) => {
         name: 'hello',
         places: [],
         source: '',
+        rule: 'filesystem/remove-file',
     };
     
     t.calledWith(reporter, [expected], 'should call reporter');
@@ -57,7 +59,6 @@ test('putout: report: dump', async (t) => {
     }];
     
     const formatter = await simpleImport('@putout/formatter-dump');
-    
     const report = initReport();
     
     const formatted = await report(formatter, {

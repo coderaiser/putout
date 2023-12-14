@@ -1,8 +1,10 @@
 'use strict';
 
+const {once} = require('events');
 const montag = require('montag');
 const {test, stub} = require('supertape');
 const tryCatch = require('try-catch');
+const {createProgress} = require('@putout/engine-runner/progress');
 
 const putout = require('..');
 const {readFixtures} = require('./fixture');
@@ -797,5 +799,30 @@ test('putout: printer: putout: options', (t) => {
     const expected = fixture.printerPutoutOptionsFix;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: progress', async (t) => {
+    const progress = createProgress();
+    const source = montag`
+        __putout_processor_filesystem([
+            '/coverage/'
+        ]);
+    `;
+    
+    const [[{pluginsIndex, pluginsCount}]] = await Promise.all([
+        once(progress, 'push'),
+        putout(source, {
+            progress,
+            rules: {
+                'filesystem/remove-files': ['on', {
+                    names: ['coverage'],
+                }],
+            },
+            plugins: ['filesystem'],
+        }),
+    ]);
+    
+    t.equal(pluginsCount, 1);
     t.end();
 });

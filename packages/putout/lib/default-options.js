@@ -2,6 +2,7 @@
 
 const loader = require('@putout/engine-loader');
 const runner = require('@putout/engine-runner');
+const {createProgress} = require('@putout/engine-runner/progress');
 
 module.exports.defaultOptions = (opts = {}) => {
     const {
@@ -12,6 +13,7 @@ module.exports.defaultOptions = (opts = {}) => {
         loadPlugins = loader.loadPlugins,
         loadPluginsAsync = loader.loadPluginsAsync,
         runPlugins = runner.runPlugins,
+        progress = createProgress(),
     } = opts;
     
     return {
@@ -23,5 +25,6 @@ module.exports.defaultOptions = (opts = {}) => {
         loadPlugins,
         loadPluginsAsync,
         runPlugins,
+        progress,
     };
 };

@@ -7,6 +7,7 @@ module.exports = () => {
     return async (formatter, options) => {
         const {
             name,
+            rule,
             source,
             places,
             index = 0,
@@ -20,6 +21,7 @@ module.exports = () => {
         errorsCount += places.length;
         
         return await formatter({
+            rule,
             name,
             options: formatterOptions,
             source,
