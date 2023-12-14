@@ -88,3 +88,24 @@ test('operate: properties: traverse-properties', (t) => {
     t.equal(propertyPath.node.key.value, 'a');
     t.end();
 });
+
+test('operate: properties: getProperties: SpreadElement', (t) => {
+    const ast = parse(`({hello: 'world', ...x})`);
+    
+    traverse(ast, {
+        ObjectExpression: (path) => {
+            const {helloPath} = getProperties(path, ['hello']);
+            
+            if (!helloPath)
+                return;
+            
+            helloPath.remove();
+        },
+    });
+    
+    const result = print(ast);
+    const expected = '({...x});\n';
+    
+    t.equal(result, expected);
+    t.end();
+});

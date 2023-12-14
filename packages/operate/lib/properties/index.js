@@ -9,6 +9,9 @@ module.exports.getProperties = (path, names) => {
     const result = {};
     
     for (const propertyPath of path.get('properties')) {
+        if (propertyPath.isSpreadElement())
+            continue;
+        
         const keyPath = propertyPath.get('key');
         const currentName = extract(keyPath);
         
