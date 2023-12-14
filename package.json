@@ -18,6 +18,7 @@
     "lint:fresh:only:putout": "madrun lint:fresh:only:putout",
     "lint:fresh:only:eslint": "madrun lint:fresh:only:eslint",
     "lint:memory": "madrun lint:memory",
+    "lint:time": "madrun lint:time",
     "lint:only:putout": "madrun lint:only:putout",
     "lint:only:eslint": "madrun lint:only:eslint",
     "fresh:lint": "madrun fresh:lint",
