@@ -229,7 +229,7 @@ Get properties from `ObjectExpression` path and add a `Path` suffix to each resu
 const {homepagePath} = getProperties(__aPath, ['homepage']);
 ```
 
-### `traverseProperties(path: Path | Node, name: string)`
+### `traverseProperties(path: Path | Node, name: string, {firstLevel?: false})`
 
 Traverse list of properties from `ObjectExpression`.
 

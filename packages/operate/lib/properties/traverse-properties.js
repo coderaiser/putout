@@ -18,19 +18,29 @@ function getNode(path) {
     };
 }
 
-module.exports.traverseProperties = (path, name) => {
+module.exports.traverseProperties = (path, name, {firstLevel = false} = {}) => {
     const collector = [];
     const node = getNode(path);
     
+    const fn = collect({
+        name,
+        collector,
+    });
+    
+    if (firstLevel) {
+        fn(path);
+        return collector;
+    }
+    
     traverse(node, {
         noScope: true,
-        ObjectExpression: collect(name, collector),
+        ObjectExpression: fn,
     });
     
     return collector;
 };
 
-const collect = (name, collector) => (path) => {
+const collect = ({name, collector}) => (path) => {
     for (const propertyPath of path.get('properties')) {
         const {value} = propertyPath.get('key').node;
         

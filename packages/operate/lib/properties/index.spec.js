@@ -109,3 +109,20 @@ test('operate: properties: getProperties: SpreadElement', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('operate: properties: getProperty: SpreadElement', (t) => {
+    const ast = parse(`({"hello": 'world', ...x})`);
+    
+    traverse(ast, {
+        ObjectExpression: (path) => {
+            const helloPath = getProperty(path, 'hello');
+            helloPath.remove();
+        },
+    });
+    
+    const result = print(ast);
+    const expected = '({...x});\n';
+    
+    t.equal(result, expected);
+    t.end();
+});

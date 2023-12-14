@@ -73,3 +73,20 @@ test('operate: traverse-properties: traverse: ObjectExpression: node', (t) => {
     t.equal(propertyPath.node.key.value, 'a');
     t.end();
 });
+
+test('operate: traverse-properties: traverse: ObjectExpression: firstLevel', (t) => {
+    const source = '({"a": "b", "x": {"a": 5}})';
+    let list = [];
+    
+    traverse(parse(source), {
+        ObjectExpression(path) {
+            list = traverseProperties(path, 'a', {
+                firstLevel: true,
+            });
+            path.stop();
+        },
+    });
+    
+    t.equal(list.length, 1);
+    t.end();
+});
