@@ -30,6 +30,11 @@ test('remove duplicate-keys: transform: couple', (t) => {
     t.end();
 });
 
+test('remove duplicate-keys: transform: a-lot', (t) => {
+    t.transform('a-lot');
+    t.end();
+});
+
 test('remove duplicate-keys: no transform: no duplicate', (t) => {
     t.noTransform('no-duplicate');
     t.end();

@@ -1,6 +1,6 @@
 'use strict';
 
-const {types} = require('putout');
+const {types, operator} = require('putout');
 const fullstore = require('fullstore');
 
 const {
@@ -9,6 +9,8 @@ const {
     isObjectProperty,
     isStringLiteral,
 } = types;
+
+const {traverseProperties} = operator;
 
 const isSpreadId = (name) => (a) => isSpreadElement(a) && isIdentifier(a.argument, {
     name,
@@ -38,7 +40,7 @@ module.exports.replace = () => ({
 });
 
 module.exports.match = () => ({
-    __object: ({__object}) => {
+    __object: ({__object}, path) => {
         let is = false;
         const newProperties = [];
         const {properties} = __object;
@@ -62,16 +64,19 @@ module.exports.match = () => ({
                 const {computed} = prop;
                 const {name} = prop.key;
                 
-                if (name !== prop.value.name)
-                    continue;
-                
-                const isFirst = checkIfFirst(properties, newProperties, isObjectPropertyId, name, {
-                    computed,
+                const props = traverseProperties(path, name, {
+                    firstLevel: true,
                 });
                 
-                if (!isFirst) {
-                    is = true;
-                    continue;
+                if (props.length > 1) {
+                    const isFirst = checkIfFirst(properties, newProperties, isObjectPropertyId, name, {
+                        computed,
+                    });
+                    
+                    if (!isFirst) {
+                        is = true;
+                        continue;
+                    }
                 }
             }
             
