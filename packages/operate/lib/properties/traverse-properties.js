@@ -1,8 +1,9 @@
 'use strict';
 
 const {traverse, types} = require('@putout/babel');
-const {isObjectExpression} = types;
 
+const {extract} = require('../extract');
+const {isObjectExpression} = types;
 const nodeOrPath = (path) => path.node || path;
 
 function getNode(path) {
@@ -45,9 +46,10 @@ const collect = ({name, collector}) => (path) => {
         if (propertyPath.isSpreadElement())
             continue;
         
-        const {value} = propertyPath.get('key').node;
+        const keyPath = propertyPath.get('key');
+        const currentName = extract(keyPath);
         
-        if (name === value)
+        if (name === currentName)
             collector.push(propertyPath);
     }
 };
