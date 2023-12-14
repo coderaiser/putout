@@ -224,6 +224,12 @@ module.exports.scan = (rootPath) => {
 };
 ```
 
+You can also subscribe to `progress` events:
+
+- `start`;
+- `end`;
+- `push`;
+
 ### Finder
 
 **Finder** gives you all the control over traversing, but it's the slowest format.

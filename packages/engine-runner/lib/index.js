@@ -12,20 +12,22 @@ const replace = require('./replace');
 const declare = require('./declare');
 const scanner = require('./scanner');
 const template = require('./template');
+const {createProgress} = require('./progress');
 
 const {getPath, getPosition} = require('./get-position');
 
 const isRemoved = (a) => a?.removed;
 
-module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins}) => {
+module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, progress = createProgress()}) => {
     let places = [];
     
     const merge = once(mergeVisitors);
-    
     const {
         pluginsFind,
         pluginsTraverse,
-    } = splitPlugins(plugins);
+    } = splitPlugins(plugins, {
+        progress,
+    });
     
     for (let i = 0; i < fixCount; i++) {
         places = run({
@@ -37,6 +39,8 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins}) => {
             merge,
             template,
         });
+        
+        progress.reset();
         
         if (!fix || !places.length)
             return places;
@@ -142,7 +146,7 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
     return places;
 }
 
-function splitPlugins(plugins) {
+function splitPlugins(plugins, {progress}) {
     const pluginsFind = [];
     const pluginsTraverse = [];
     
@@ -175,7 +179,9 @@ function splitPlugins(plugins) {
         }
         
         if (plugin.scan) {
-            pluginsTraverse.push(scanner(item));
+            pluginsTraverse.push(scanner(item, {
+                progress,
+            }));
             continue;
         }
     }

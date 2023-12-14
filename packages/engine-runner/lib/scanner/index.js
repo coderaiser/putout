@@ -9,16 +9,19 @@ const log = require('debug')('putout:runner:scanner');
 const fromSimple = require('@putout/plugin-filesystem/from-simple');
 const toSimple = require('@putout/plugin-filesystem/to-simple');
 
-module.exports = ({rule, plugin, msg, options}) => {
+module.exports = ({rule, plugin, msg, options}, {progress}) => {
     const {
         scan,
         report,
         fix,
     } = plugin;
     
+    progress.inc();
+    
     const traverse = getTraverse({
         scan,
         rule,
+        progress,
     });
     
     return {
@@ -33,9 +36,15 @@ module.exports = ({rule, plugin, msg, options}) => {
     };
 };
 
-const getTraverse = ({scan, rule}) => ({push, options}) => ({
+const watchPush = ({push, rule, progress}) => (...a) => {
+    progress.push(rule);
+    push(...a);
+};
+
+const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
     ['__putout_processor_filesystem(__)'](path) {
         log(rule);
+        progress.start(rule);
         
         const rootPath = path.get('arguments.0');
         const isSimple = fullstore(false);
@@ -47,7 +56,11 @@ const getTraverse = ({scan, rule}) => ({push, options}) => ({
         });
         
         scan(rootPath, {
-            push,
+            push: watchPush({
+                push,
+                rule,
+                progress,
+            }),
             options,
         });
         
@@ -57,6 +70,8 @@ const getTraverse = ({scan, rule}) => ({push, options}) => ({
             rootPath,
             isSimple,
         });
+        
+        progress.end(rule);
     },
 });
 
