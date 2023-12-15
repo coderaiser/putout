@@ -31,7 +31,7 @@ test('putout: runner: progress: start', async (t) => {
         }),
     ]);
     
-    t.equal(pluginsCount, 1);
+    t.equal(pluginsCount, 2);
     t.end();
 });
 
@@ -56,7 +56,7 @@ test('putout: runner: progress: end', async (t) => {
         }),
     ]);
     
-    t.equal(pluginsCount, 1);
+    t.equal(pluginsCount, 2);
     t.end();
 });
 
@@ -82,6 +82,6 @@ test('putout: runner: progress: push', async (t) => {
         }),
     ]);
     
-    t.equal(pluginsCount, 1);
+    t.equal(pluginsCount, 2);
     t.end();
 });
