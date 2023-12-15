@@ -1,3 +1,8 @@
+2023.12.15, v34.1.1
+
+fix:
+- 33880ca44 ignores: rm unused export
+
 2023.12.15, v34.1.0
 
 fix:
