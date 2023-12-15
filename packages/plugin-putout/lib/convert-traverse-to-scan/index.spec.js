@@ -64,3 +64,8 @@ test('packages: convert-traverse-to-scan: transform: push-inside-scan', (t) => {
     t.transform('push-inside-scan');
     t.end();
 });
+
+test('packages: convert-traverse-to-scan: transform: map', (t) => {
+    t.transform('map');
+    t.end();
+});

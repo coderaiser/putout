@@ -84,6 +84,7 @@ module.exports.traverse = ({push}) => ({
             path,
         });
     },
+    '__.map(push)'() {},
     'push(__a)'(path) {
         const __aPath = path.get('arguments.0');
         
@@ -121,7 +122,7 @@ function isFilesystemPath(path) {
     if (!computed)
         return false;
     
-    if (path.node.key.name !== '__filesystem')
+    if (path.node.key.name !== '__filesystem' && path.node.key.name !== 'FS')
         return false;
     
     return !path.parentPath.parentPath.isReturnStatement();
