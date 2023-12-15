@@ -7,6 +7,7 @@ const {
     isSpreadElement,
     isIdentifier,
     isObjectProperty,
+    isObjectPattern,
     isStringLiteral,
 } = types;
 
@@ -44,6 +45,9 @@ module.exports.match = () => ({
         let is = false;
         const newProperties = [];
         const {properties} = __object;
+        
+        if (isObjectPattern(__object))
+            return false;
         
         const reversed = properties
             .slice()

@@ -35,6 +35,11 @@ test('remove duplicate-keys: transform: a-lot', (t) => {
     t.end();
 });
 
+test('remove duplicate-keys: no transform: extract', (t) => {
+    t.noTransform('extract');
+    t.end();
+});
+
 test('remove duplicate-keys: no transform: no duplicate', (t) => {
     t.noTransform('no-duplicate');
     t.end();
