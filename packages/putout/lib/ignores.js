@@ -16,8 +16,6 @@ module.exports = (dirOpt, resolvedName, options = {}) => {
     return dirOpt && ignorer.ignores(relativeName);
 };
 
-module.exports.mergeIgnores = mergeIgnores;
-
 function mergeIgnores(ignores) {
     for (const [i, str] of ignores.entries()) {
         const positiveIndex = ignores.indexOf(positive(str));
