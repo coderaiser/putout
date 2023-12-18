@@ -11,6 +11,7 @@ const {
 } = require('@putout/operate');
 
 const maybeFS = require('./maybe-fs');
+const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 
@@ -43,6 +44,8 @@ module.exports.getParentDirectory = (filePath) => {
 module.exports.findFile = findFile;
 
 function findFile(node, name) {
+    checkName(name);
+    
     const filePaths = [];
     const names = maybeArray(name);
     
@@ -56,6 +59,11 @@ function findFile(node, name) {
     }
     
     return filePaths;
+}
+
+function checkName(name) {
+    if (!isString(name) && !isArray(name))
+        throw Error(`☝️ Looks like you forget to pass the 'name' of a file to 'findFile(filePath: Path|FilePath, name: string | string[]): FilePath'`);
 }
 
 function getFilenamePath(filePath) {

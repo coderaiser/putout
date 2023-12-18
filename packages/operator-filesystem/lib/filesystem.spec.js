@@ -1,5 +1,6 @@
 'use strict';
 
+const tryCatch = require('try-catch');
 const montag = require('montag');
 const {stub} = require('supertape');
 const {__filesystem_name} = require('@putout/operator-json');
@@ -135,6 +136,21 @@ test('putout: operator: filesystem: findFile', (t) => {
     `;
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: findFile: no names', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/hello",
+            "files": []
+        });
+    `);
+    
+    const [error] = tryCatch(findFile, ast);
+    
+    t.equal(error.message, `☝️ Looks like you forget to pass the 'name' of a file to 'findFile(filePath: Path|FilePath, name: string | string[]): FilePath'`);
     t.end();
 });
 

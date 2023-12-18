@@ -53,7 +53,7 @@ const [dirPath] = findFile(ast, 'hello');
 const newDirectoryPath = createDirectory(dirPath, 'world');
 ```
 
-### `findFile(path: Path, name: string | string[]): FilePath[]`
+### `findFile(filePath: Path|FilePath, name: string | string[]): FilePath[]`
 
 ```js
 const {operator} = require('putout');
