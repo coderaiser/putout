@@ -1,2 +1,3 @@
-const s1 = `hello \"world\"`;
-const s = `hello \'world\'`;
+const a = `hello \"world\"`;
+const b = `hello \'world\'`;
+const c = `\"`;
