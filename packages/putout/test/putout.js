@@ -823,6 +823,6 @@ test('putout: progress', async (t) => {
         }),
     ]);
     
-    t.equal(pluginsCount, 1);
+    t.equal(pluginsCount, 2);
     t.end();
 });
