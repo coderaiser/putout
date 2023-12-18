@@ -1,3 +1,18 @@
+2023.12.18, v34.2.0
+
+fix:
+- 679e5055c @putout/plugin-remove-duplicate-keys: exclude ObjectPattern
+
+feature:
+- 6fe121997 putout: @putout/plugin-remove-useless-escape v5.0.0
+- 2d104e9cc @putout/plugin-remove-useless-escape: drop support of node < 18
+- eee4e215e @putout/plugin-remove-useless-escape: `\"` -> `"`
+- 33b8a39aa @putout/operator-filesystem: findFile: handle case when no file passed
+- cfa7c3f90 @putout/plugin-filesystem: replace-cwd: add
+- afaf038a9 @putout/plugin-nextjs: drop support of node < 18
+- 79ebcd60e @putout/plugin-next: Traverser -> Scanner
+- d7c811abc @putout/plugin-putout: convert-traverse-to-scan: add support of FS
+
 2023.12.15, v34.1.1
 
 fix:
