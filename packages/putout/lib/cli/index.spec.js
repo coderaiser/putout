@@ -1394,6 +1394,7 @@ test('putout: cli: d.ts', async (t) => {
     
     const argv = [name];
     const parseOptions = require('../parse-options');
+    
     const options = parseOptions({
         name,
     });
