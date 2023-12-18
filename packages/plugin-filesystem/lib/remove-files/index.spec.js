@@ -16,7 +16,7 @@ test('packages: remove-files: no report: no options', (t) => {
 });
 
 test('packages: remove-files: report', (t) => {
-    t.reportWithOptions('remove-files', `Remove '*.swp'`, {
+    t.reportWithOptions('remove-files', `Remove file '*.swp': '/home/coderaiser/putout/lib/putout.js.swp'`, {
         names: ['*.swp'],
     });
     t.end();
