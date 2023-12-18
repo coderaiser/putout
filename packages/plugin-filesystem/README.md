@@ -24,7 +24,11 @@ npm i @putout/plugin-filesystem -D
         "filesystem/rename-test-to-spec": "off",
         "filesystem/rename-referenced-file": "off",
         "filesystem/move-referenced-file": "off",
-        "filesystem/convert-simple-filesystem-to-filesystem": "off"
+        "filesystem/convert-simple-filesystem-to-filesystem": "off",
+        "filesystem/replace-cwd": ["off", {
+            "from": "/home/coderaiser/putout",
+            "to": "/"
+        }]
     }
 }
 ```
@@ -498,6 +502,38 @@ After:
 |  `-- world.css
 |-- dist/
 |   `-- hello.css
+```
+
+## replace-cwd
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/97a4cb9bc9f79abc9585bf5b47392450/b6b9de0a407258643bfa469453d967e089648a59).
+
+When `from=/home/coderaiser/putout` and `to=/`:
+
+```json
+{
+    "rules": {
+        "filesystem/replace-cwd": ["on", {
+            "from": "/home/coderaiser/putout",
+            "to": "/"
+        }]
+    }
+}
+```
+
+### ❌ Example of incorrect code
+
+```js
+__putout_processor_filesystem(['/home/coderaiser/putout/', '/home/coderaiser/putout/README.md']);
+```
+
+### ✅ Example of correct code
+
+```js
+__putout_processor_filesystem([
+    '/',
+    '/README.md',
+]);
 ```
 
 ## License

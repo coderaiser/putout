@@ -10,6 +10,7 @@ const moveReferencedFile = require('./move-referenced-file');
 const convertSimpleFilesystemToFilesystem = require('./convert-simple-filesystem-to-filesystem');
 const convertFilesystemToSimpleFilesystem = require('./convert-filesystem-to-simple-filesystem');
 const bundleCss = require('./bundle-css');
+const replaceCwd = require('./replace-cwd');
 
 module.exports.rules = {
     'remove-vim-swap-file': removeVimSwapFile,
@@ -22,4 +23,5 @@ module.exports.rules = {
     'convert-simple-filesystem-to-filesystem': ['off', convertSimpleFilesystemToFilesystem],
     'convert-filesystem-to-simple-filesystem': ['off', convertFilesystemToSimpleFilesystem],
     'bundle-css': ['off', bundleCss],
+    'replace-cwd': ['off', replaceCwd],
 };

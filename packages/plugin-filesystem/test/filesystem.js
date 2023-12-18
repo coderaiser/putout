@@ -59,3 +59,8 @@ test('plugin-filesystem: no transform: bundle-css-disabled', (t) => {
     t.noTransform('bundle-css-disabled');
     t.end();
 });
+
+test('plugin-filesystem: no transform: replace-cwd: disabled', (t) => {
+    t.noTransform('replace-cwd-disabled');
+    t.end();
+});
