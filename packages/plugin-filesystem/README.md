@@ -530,10 +530,7 @@ __putout_processor_filesystem(['/home/coderaiser/putout/', '/home/coderaiser/put
 ### ✅ Example of correct code
 
 ```js
-__putout_processor_filesystem([
-    '/',
-    '/README.md',
-]);
+__putout_processor_filesystem(['/', '/README.md']);
 ```
 
 ## License
