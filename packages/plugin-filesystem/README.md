@@ -543,19 +543,16 @@ When `from=/home/coderaiser/putout` and `to=/`:
 ### ❌ Example of incorrect code
 
 ```json
-[
-    "/",
-    "/hello.xyz"
-]
+["/", "/hello.xyz"]
 ```
 
 ### ✅ Example of correct code
 
 ```json
-[
-    "/",
-    ["/hello.xyz", "hello world"]
-]
+["/", [
+    "/hello.xyz",
+    "hello world"
+]]
 ```
 
 ## License
