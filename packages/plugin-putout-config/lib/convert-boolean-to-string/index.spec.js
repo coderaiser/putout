@@ -20,6 +20,11 @@ test('plugin-putout-config: convert-boolean-to-string: transform: bool', (t) => 
     t.end();
 });
 
+test('plugin-putout-config: convert-boolean-to-string: transform: bool: first', (t) => {
+    t.transform('bool-first');
+    t.end();
+});
+
 test('plugin-putout-config: convert-boolean-to-string: transform: match', (t) => {
     t.transform('match');
     t.end();
