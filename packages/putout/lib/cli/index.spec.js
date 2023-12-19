@@ -2359,7 +2359,6 @@ test('putout: processor: invalid config', async (t) => {
 
 test('putout: processor: invalid config: message', async (t) => {
     const argv = [__filename, '-f', 'dump'];
-    
     const logError = stub();
     
     mockRequire('../../putout.json', {

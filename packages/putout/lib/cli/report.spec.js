@@ -1,14 +1,34 @@
 'use strict';
 
+const tryToCatch = require('try-to-catch');
 const montag = require('montag');
-
 const {test, stub} = require('supertape');
 
 const {simpleImport} = require('./simple-import');
-
 const {initReport} = require('../putout');
 
 test('putout: report: no places', async (t) => {
+    const reporter = stub();
+    const report = initReport();
+    
+    const formatterOptions = {
+        hello: 'world',
+    };
+    
+    const [error] = await tryToCatch(report, reporter, {
+        name: 'hello',
+        source: '',
+        formatterOptions,
+        rule: 'filesystem/remove-file',
+    });
+    
+    const expected = `☝️ Looks like for 'places: Places[]' you passed the wrong type: 'undefined'`;
+    
+    t.equal(error.message, expected);
+    t.end();
+});
+
+test('putout: report: places not array', async (t) => {
     const reporter = stub();
     const report = initReport();
     
