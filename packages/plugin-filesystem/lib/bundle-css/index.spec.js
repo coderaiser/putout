@@ -133,3 +133,8 @@ test('packages: bundle-css: error', (t) => {
 }, {
     checkAssertionsCount: false,
 });
+
+test('packages: bundle-css: no report: no-group', (t) => {
+    t.noReport('no-group');
+    t.end();
+});
