@@ -563,7 +563,10 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2dda6b0598
 ### ❌ Example of incorrect code
 
 ```json
-["/", ["/hello.xyz", "hello world"]]
+["/", [
+    "/hello.xyz",
+    "hello world"
+]]
 ```
 
 ## License
