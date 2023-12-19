@@ -265,6 +265,11 @@ module.exports.readFileContent = (filePath) => {
 module.exports.writeFileContent = writeFileContent;
 
 function writeFileContent(filePath, content) {
+    const fileType = getFileType(filePath);
+    
+    if (fileType === 'directory')
+        return;
+    
     const filename = getFilename(filePath);
     
     maybeFS.writeFileContent(filename, content);

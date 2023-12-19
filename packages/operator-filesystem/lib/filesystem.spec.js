@@ -792,6 +792,27 @@ test('putout: operator: filesystem: writeFileContent', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: writeFileContent: directory', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/',
+        files: [],
+    });
+    
+    const [filePath] = findFile(ast, '/');
+    
+    writeFileContent(filePath, 'hello');
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: writeFileContent: emoji', (t) => {
     const ast = parseFilesystem(['/hello/world/', '/hello/world/README.md']);
     
