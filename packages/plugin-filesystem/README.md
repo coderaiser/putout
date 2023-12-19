@@ -19,6 +19,7 @@ npm i @putout/plugin-filesystem -D
         "filesystem/remove-vim-swap-file": "on",
         "filesystem/bundle-css": "off",
         "filesystem/read-all-files": "off",
+        "filesystem/write-all-files": "off",
         "filesystem/rename-file": "off",
         "filesystem/remove-files": "off",
         "filesystem/rename-spec-to-test": "off",
@@ -538,8 +539,6 @@ __putout_processor_filesystem(['/', '/README.md']);
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fb221770d2f35e89faf19d70eb945a1c/c857e8c2bf0511157f30a36f167266da3ea31647).
 
-When `from=/home/coderaiser/putout` and `to=/`:
-
 ### ❌ Example of incorrect code
 
 ```json
@@ -553,6 +552,18 @@ When `from=/home/coderaiser/putout` and `to=/`:
     "/hello.xyz",
     "hello world"
 ]]
+```
+
+## write-all-files
+
+Write all files that was read before to Filesystem.
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2dda6b05987bbf91a1b18d7032489c05/286d2f04eb0e002cef14d102fa3e59bdf17bda47).
+
+### ❌ Example of incorrect code
+
+```json
+["/", ["/hello.xyz", "hello world"]]
 ```
 
 ## License
