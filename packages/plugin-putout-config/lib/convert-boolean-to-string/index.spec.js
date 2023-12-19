@@ -25,8 +25,8 @@ test('plugin-putout-config: convert-boolean-to-string: transform: match', (t) =>
     t.end();
 });
 
-test('plugin-putout-config: convert-boolean-to-string: transform: tuple', (t) => {
-    t.transform('tuple');
+test('plugin-putout-config: convert-boolean-to-string: no transform: tuple', (t) => {
+    t.noTransform('tuple');
     t.end();
 });
 

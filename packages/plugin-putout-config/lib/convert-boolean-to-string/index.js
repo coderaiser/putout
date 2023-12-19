@@ -15,7 +15,7 @@ module.exports.fix = (path) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '__putout_processor_json(__a)'(path) {
+    '__putout_processor_json(__object)'(path) {
         const objectPath = path.get('arguments.0');
         
         const propPaths = [
