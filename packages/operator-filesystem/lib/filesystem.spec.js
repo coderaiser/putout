@@ -593,7 +593,7 @@ test('putout: operator: filesystem: getParentDirectory', (t) => {
     t.end();
 });
 
-test('putout: operator: filesystem: readFileContent', (t) => {
+test('putout: operator: filesystem: readFileContent: directory', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
         filename: '/hello/world',
@@ -608,6 +608,26 @@ test('putout: operator: filesystem: readFileContent', (t) => {
     const content = readFileContent(filePath);
     
     t.equal(content, 'hello');
+    t.end();
+});
+
+test('putout: operator: filesystem: readFileContent', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [],
+    });
+    
+    const [filePath] = findFile(ast, '/hello/world');
+    readFileContent(filePath);
+    
+    const expected = {
+        type: 'directory',
+        filename: '/hello/world',
+        files: [],
+    };
+    
+    t.equalFilesystems(ast, expected);
     t.end();
 });
 

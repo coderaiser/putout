@@ -76,10 +76,12 @@ function getFilename(filePath) {
     return value;
 }
 
-module.exports.getFileType = (filePath) => {
+module.exports.getFileType = getFileType;
+
+function getFileType(filePath) {
     const typePath = getProperty(filePath, 'type');
     return typePath.node.value.value;
-};
+}
 
 function getFileContent(filePath) {
     const content = getProperty(filePath, 'content');
@@ -235,6 +237,11 @@ const createContentProperty = (content) => {
 };
 
 module.exports.readFileContent = (filePath) => {
+    const fileType = getFileType(filePath);
+    
+    if (fileType === 'directory')
+        return '';
+    
     const [hasContent, content] = getFileContent(filePath);
     
     if (hasContent) {
