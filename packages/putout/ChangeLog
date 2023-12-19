@@ -1,3 +1,16 @@
+2023.12.19, v34.2.1
+
+feature:
+- 3c57c56ee putout: cli: report: handle case when no places passed
+- fffa6857e root: redlint v3.1.2
+- d36abc4e5 putout: @putout/plugin-putout-config v5.0.0
+- 131463cba @putout/plugin-filesystem: read-all-files: add
+- 125690c2d @putout/plugin-putout-config: drop support of node < 18
+- 264d4b3e2 @putout/plugin-putout-config: convert-boolean-to-string: exclude arrays
+- 2cfb08ca7 @putout/plugin-filesystem: convert-filesystem-to-simple-filesystem: empty content
+- 95beb62a9 @putout/operator-filesystem: readFileContent: directory
+- d8f1799ff @putout/plugin-filesystem: report: improve
+
 2023.12.18, v34.2.0
 
 fix:
