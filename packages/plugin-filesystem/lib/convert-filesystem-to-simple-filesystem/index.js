@@ -28,10 +28,10 @@ module.exports.fix = (root, {files}) => {
         const filename = getFilename(file);
         const type = getFileType(file);
         const contentPath = getProperty(file, 'content');
-        const content = contentPath?.node?.value?.value;
+        const content = contentPath?.node?.value;
         
         if (content) {
-            names.push([filename, content]);
+            names.push([filename, content.value]);
             continue;
         }
         

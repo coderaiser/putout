@@ -24,3 +24,8 @@ test('packages: convert-filesystem-to-simple-filesystem: transform: trailing-sla
     t.transform('trailing-slash');
     t.end();
 });
+
+test('packages: convert-filesystem-to-simple-filesystem: transform: content', (t) => {
+    t.transform('content');
+    t.end();
+});
