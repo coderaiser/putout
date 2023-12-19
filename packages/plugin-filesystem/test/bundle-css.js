@@ -6,7 +6,9 @@ const filesystem = require('..');
 const test = createTest(__dirname, {
     printer: 'putout',
     rules: {
-        'filesystem/bundle-css': ['on', {}],
+        'filesystem/bundle-css': ['on', {
+            groups: ['1:1'],
+        }],
     },
     plugins: [
         ['filesystem', filesystem],

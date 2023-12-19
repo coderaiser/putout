@@ -64,3 +64,8 @@ test('plugin-filesystem: no transform: replace-cwd: disabled', (t) => {
     t.noTransform('replace-cwd-disabled');
     t.end();
 });
+
+test('plugin-filesystem: transform: read-all-files', (t) => {
+    t.transform('read-all-files');
+    t.end();
+});

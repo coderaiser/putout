@@ -3,6 +3,7 @@ __putout_processor_filesystem({
     "filename": "/",
     "files": [{
         "type": "file",
-        "filename": "hello.spec.js"
+        "filename": "hello.spec.js",
+        "content": ""
     }]
 });

@@ -11,6 +11,7 @@ const convertSimpleFilesystemToFilesystem = require('./convert-simple-filesystem
 const convertFilesystemToSimpleFilesystem = require('./convert-filesystem-to-simple-filesystem');
 const bundleCss = require('./bundle-css');
 const replaceCwd = require('./replace-cwd');
+const readAllFiles = require('./read-all-files');
 
 module.exports.rules = {
     'remove-vim-swap-file': removeVimSwapFile,
@@ -24,4 +25,5 @@ module.exports.rules = {
     'convert-filesystem-to-simple-filesystem': ['off', convertFilesystemToSimpleFilesystem],
     'bundle-css': ['off', bundleCss],
     'replace-cwd': ['off', replaceCwd],
+    'read-all-files': ['off', readAllFiles],
 };
