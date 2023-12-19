@@ -612,7 +612,6 @@ test('putout: cli: ide: vs code', async (t) => {
 
 test('putout: cli: ide: vs code: cache', async (t) => {
     const name = basename(__filename);
-    
     const argv = [name, '--cache'];
     
     const {TERM_PROGRAM} = process.env;
@@ -625,7 +624,6 @@ test('putout: cli: ide: vs code: cache', async (t) => {
     }));
     
     const getFormatter = stub().returns(['dump', {}]);
-    
     const report = stub();
     
     const getFiles = stub().returns([
@@ -682,9 +680,7 @@ test('putout: cli: ide: vs code: cache', async (t) => {
 
 test('putout: cli: no ide: cache', async (t) => {
     const name = basename(__filename);
-    
     const argv = [name, '--cache'];
-    
     const {TERMINAL_EMULATOR} = process.env;
     
     process.env.TERMINAL_EMULATOR = 'none';
