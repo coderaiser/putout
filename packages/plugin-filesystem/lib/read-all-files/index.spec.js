@@ -19,3 +19,11 @@ test('packages: read-all-files: transform', (t) => {
     t.transform('read-all-files');
     t.end();
 });
+
+test('packages: read-all-files: progress', async ({progress}) => {
+    await progress('read-all-files', {
+        i: 0,
+        n: 2,
+        rule: 'read-all-files',
+    });
+});
