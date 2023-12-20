@@ -13,6 +13,7 @@ const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
     'arguments-nested',
+    'arguments-array-destructuring',
     'array-expression',
     'array-pattern',
     'arrow-function-expression',
@@ -180,9 +181,26 @@ test('remove-unused-variables: get-vars: arguments nested', (t) => {
     const expected = [{
         add: d_,
     }, {
-        state: d_,
+        state: du,
         a: du,
         b: du,
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: arguments: array destructuring', (t) => {
+    const ast = parse(fixture.argumentsArrayDestructuring);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        __filesystem: '_u',
+        fromJS: '_u',
+        merge: 'd_',
+    }, {
+        raw: du,
+        source: _u,
     }];
     
     t.deepEqual(result, expected);
@@ -1082,7 +1100,7 @@ test('remove-unused-variables: get-vars: fn args vars', (t) => {
         f3: du,
         fs: _u,
     }, {
-        a: d_,
+        a: du,
         b: d_,
     }, {
         one: du,

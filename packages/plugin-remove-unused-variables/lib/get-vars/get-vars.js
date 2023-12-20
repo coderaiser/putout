@@ -567,11 +567,17 @@ module.exports = ({use, declare, addParams}) => {
                     use(path, node.id.name);
             }
             
-            for (const paramPath of paramsPaths) {
+            const paramsCount = paramsPaths.length;
+            
+            for (const [i, paramPath] of paramsPaths.entries()) {
                 const {node} = paramPath;
                 
                 if (isIdentifier(node)) {
                     declare(paramPath, node.name);
+                    
+                    if (!i && paramsCount > 1)
+                        use(paramPath, node.name);
+                    
                     continue;
                 }
                 
