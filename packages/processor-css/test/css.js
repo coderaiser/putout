@@ -13,8 +13,8 @@ test('putout: processor: css: places', async ({comparePlaces}) => {
     await comparePlaces('style', [{
         message: 'Insert "····" (prettier/prettier)',
         position: {
-            column: 1,
-            line: 2,
+            column: 5,
+            line: 3,
         },
         rule: 'prettier/prettier (stylelint)',
     }]);

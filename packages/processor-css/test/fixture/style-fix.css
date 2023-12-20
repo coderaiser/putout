@@ -1,3 +1,9 @@
-html {
-    height: 94%;
+media only screen and (width >= 1600px) {
+    html {
+        height: 94%;
+    }
+    
+    body {
+        color: red;
+    }
 }

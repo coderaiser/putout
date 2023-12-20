@@ -24,6 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
+    "align-spaces": "^1.0.4",
     "cosmiconfig": "^9.0.0",
     "deepmerge": "^4.2.2",
     "prettier": "^3.1.0",

@@ -1,5 +1,7 @@
 import stylelint from 'stylelint';
 import {cosmiconfig} from 'cosmiconfig';
+import alignSpaces from 'align-spaces';
+
 import {createConfigLoader} from './config-loader.js';
 
 const loadConfig = createConfigLoader({
@@ -23,7 +25,7 @@ export const lint = async (source, {fix} = {}) => {
     if (/CssSyntaxError/.test(first?.rule))
         return [code, places];
     
-    return [code, places];
+    return [alignSpaces(code), places];
 };
 
 function toPlace({line, column, rule, text}) {
