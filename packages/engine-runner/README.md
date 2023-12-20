@@ -254,8 +254,6 @@ export const scan = (rootPath) => {
 };
 ```
 
-
-
 ### Finder
 
 **Finder** gives you all the control over traversing, but it's the slowest format.
