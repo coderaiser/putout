@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-css",
-  "version": "8.0.1",
+  "version": "8.1.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout processor adds ability to parse css files",
