@@ -231,6 +231,20 @@ test('plugin-apply-numeric-separators: no transform: hex', (t) => {
 });
 ```
 
+### `progress(filename, expected)`
+
+Check progress of `filename.js`;
+
+```js
+test('remove usless variables: for-of', async ({progress}) => {
+    await progress('progress', {
+        i: 0,
+        n: 2,
+        rule: 'read-all-files',
+    });
+});
+```
+
 ## Formatters API
 
 First you need to create test with:

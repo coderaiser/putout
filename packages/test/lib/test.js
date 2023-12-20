@@ -1,19 +1,21 @@
 'use strict';
 
 const process = require('node:process');
-const {join} = require('path');
+const {join} = require('node:path');
+const {once} = require('node:events');
 
 const {
     readFileSync,
     writeFileSync,
     existsSync,
     unlinkSync,
-} = require('fs');
+} = require('node:fs');
 
 const tryCatch = require('try-catch');
 const test = require('supertape');
 const putout = require('putout');
 const currify = require('currify');
+const {createProgress} = require('@putout/engine-runner/progress');
 
 const {preTest} = require('./pre-test');
 const {isArray} = Array;
@@ -103,6 +105,8 @@ function createTest(dir, maybeOptions) {
         noTransform: noTransform(dir, options),
         transformCode: transformCode(options),
         noTransformCode: noTransformCode(options),
+        
+        progress: progress(dir, options),
         
         transformWithOptions: transformWithOptions(dir, options),
         noTransformWithOptions: noTransformWithOptions(dir, options),
@@ -268,6 +272,24 @@ const toObject = (array) => {
     }
     
     return result;
+};
+
+const progress = (dir, options) => (t) => async (name, expected) => {
+    const full = join(dir, name);
+    const [input, isTS] = readFixture(full);
+    
+    const progress = createProgress();
+    const [[result]] = await Promise.all([
+        once(progress, 'file'),
+        putout(input, {
+            progress,
+            printer: getPrinter(),
+            isTS,
+            ...options,
+        }),
+    ]);
+    
+    return t.deepEqual(result, expected);
 };
 
 const transform = currify((dir, options, t, name, transformed = null, addons = {}) => {
