@@ -41,6 +41,14 @@ const watchPush = ({push, rule, progress}) => (...a) => {
     push(...a);
 };
 
+const createFileProgress = ({rule, progress}) => ({i, n}) => {
+    progress.file({
+        i,
+        n,
+        rule,
+    });
+};
+
 const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
     ['__putout_processor_filesystem(__)'](path) {
         log(rule);
@@ -58,6 +66,10 @@ const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
         scan(rootPath, {
             push: watchPush({
                 push,
+                rule,
+                progress,
+            }),
+            progress: createFileProgress({
                 rule,
                 progress,
             }),

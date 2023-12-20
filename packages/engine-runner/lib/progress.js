@@ -13,6 +13,14 @@ module.exports.createProgress = () => {
         pluginsCount = 0;
     };
     
+    progress.file = ({i, n, rule}) => {
+        progress.emit('file', {
+            i,
+            n,
+            rule,
+        });
+    };
+    
     progress.inc = () => {
         ++pluginsCount;
     };

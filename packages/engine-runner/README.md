@@ -214,13 +214,13 @@ module.exports.fix = (rootPath) => {
     createFile(rootPath, 'hello.txt', 'hello world');
 };
 
-module.exports.scan = (rootPath) => {
+module.exports.scan = (rootPath, {push}) => {
     const [filePath] = findFile(rootPath, 'hello.txt');
     
     if (filePath)
         return null;
     
-    return rootPath;
+    push(rootPath);
 };
 ```
 
@@ -229,6 +229,32 @@ You can also subscribe to `progress` events:
 - `start`;
 - `end`;
 - `push`;
+
+And one more: `file` if your plugin uses `progress` function:
+
+```js
+export const report = () => 'Create file hello.txt';
+
+export const fix = (rootPath) => {
+    createFile(rootPath, 'hello.txt', 'hello world');
+};
+
+export const scan = (rootPath) => {
+    const [filePath] = findFile(rootPath, 'hello.txt');
+    
+    if (filePath)
+        return null;
+    
+    progress({
+        i: 0,
+        n: 1,
+    });
+    
+    push(filePath);
+};
+```
+
+
 
 ### Finder
 

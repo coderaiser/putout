@@ -1,8 +1,11 @@
 'use strict';
 
+const {once} = require('events');
+
 const test = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
+const {createProgress} = require('../progress');
 
 const {__filesystem_name} = require('@putout/operator-json');
 const {findFile, createFile} = require('@putout/operator-filesystem');
@@ -194,6 +197,56 @@ test('putout: runner: scanner: simple', (t) => {
     `;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: runner: scanner: progress', async (t) => {
+    const addFile = {
+        report: () => 'Add file',
+        fix: (rootPath) => {
+            createFile(rootPath, 'hello', 'world');
+        },
+        scan: (rootPath, {push, progress}) => {
+            const files = findFile(rootPath, 'hello');
+            
+            if (files.length)
+                return;
+            
+            progress({
+                i: 0,
+                n: 1,
+            });
+            
+            push(rootPath);
+        },
+    };
+    
+    const source = montag`
+        ${__filesystem_name}([
+            "/"
+        ]);
+    `;
+    
+    const progress = createProgress();
+    
+    const [[result]] = await Promise.all([
+        once(progress, 'file'),
+        putout(source, {
+            runPlugins,
+            progress,
+            plugins: [{
+                'add-file': addFile,
+            }],
+        }),
+    ]);
+    
+    const expected = {
+        i: 0,
+        n: 1,
+        rule: 'add-file',
+    };
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 
