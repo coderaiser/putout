@@ -18,9 +18,7 @@ const {PUTOUT_PROGRESS_BAR = '1'} = process.env;
 
 export default ({name, options, places, index, count, filesCount, errorsCount}) => {
     const {color = BLUE, minCount = 0} = options;
-    
     const naturalIndex = index + 1;
-    
     const result = dump({
         name,
         places,
