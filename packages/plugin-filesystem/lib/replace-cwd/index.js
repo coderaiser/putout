@@ -1,5 +1,11 @@
 'use strict';
 
+const {
+    basename,
+    dirname,
+    join,
+} = require('node:path');
+
 const {operator} = require('putout');
 const {
     setLiteralValue,
@@ -10,17 +16,28 @@ const {
 module.exports.report = (path, {from, to}) => `Replace '${from}' to '${to}'`;
 module.exports.fix = (file, {from, to}) => {
     const {filenamePath} = getProperties(file, ['filename']);
-    const {value} = filenamePath.node.value;
-    const name = maybeCutSlash(value.replace(from, to));
+    const value = maybeCutSlash(filenamePath.node.value.value);
+    
+    if (value === from) {
+        setLiteralValue(filenamePath.get('value'), to);
+        return;
+    }
+    
+    const base = basename(value);
+    const dir = dirname(value);
+    const name = join(dir.replace(from, to), base);
     
     setLiteralValue(filenamePath.get('value'), name);
 };
 
 module.exports.scan = (path, {push, progress, options}) => {
-    const {from, to} = options;
+    let {from, to} = options;
     
     if (!from || !to)
         return;
+    
+    from = maybeCutSlash(from);
+    to = maybeCutSlash(to);
     
     const files = findFile(path, '*');
     const n = files.length;

@@ -5,6 +5,7 @@ const plugin = require('.');
 
 const test = createTest(__dirname, {
     printer: 'putout',
+    fixCount: 1,
     plugins: [
         ['replace-cwd', plugin],
     ],
@@ -34,6 +35,14 @@ test('filesystem: replace-cwd: transform', (t) => {
 test('filesystem: replace-cwd: transform: home', (t) => {
     t.transformWithOptions('home', {
         from: '/home/coderaiser/putout',
+        to: '/home',
+    });
+    t.end();
+});
+
+test('filesystem: replace-cwd: transform: from-root', (t) => {
+    t.transformWithOptions('from-root', {
+        from: '/',
         to: '/home',
     });
     t.end();
