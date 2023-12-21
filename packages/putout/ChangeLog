@@ -1,3 +1,29 @@
+2023.12.21, v34.3.0
+
+feature:
+- 343bf7d8b putout: @putout/cli-choose-formatter v3.0.0
+- 12f580372 @putout/cli-choose-formatter: drop support of node < 18
+- a0e6215fe putout: @putout/cli-cache v3.0.0
+- 026ecf2bd @putout/cli-cache: drop support of node < 18
+- 845dba5b0 putout: @putout/eslint v3.0.0
+- 4a4f269b2 eslint-plugin-putout: @putout/eslint v3.0.0
+- 15c333e64 @putout/test: @putout/eslint v2.4.0
+- 89d1b752c @putout/eslint: drop support of node < 18
+- bd0884317 @putout/processor-css: stylelint-prettier v5.0.0
+- d9467ffe0 @putout/eslint: find-up v7.0.0
+- 215816655 @putout/cli-choose-formatter: find-up v7.0.0
+- 9b0eb42c0 @putout/cli-cache: find-up v7.0.0
+- b2dee82e0 putout: find-up v7.0.0
+- 433114dc0 @putout/engine-runner: scanner: progress: add percent
+- 12908419f @putout/processor-css: align spaces on empty lines
+- 3117a145e @putout/test: progress
+- ef4908d1f @putout/plugin-filesystem: exports: read-all-files
+- 849f1cfcd @putout/plugin-filesystem: read-all-files: progress
+- e916cdf6c @putout/engine-runner: Scanner: progress: file
+- 0f992b4da @putout/plugin-remove-unused-variables: first argument should be always declared and used when arguments count > 1
+- f09f4e316 @putout/plugin-filesystem: wriate-all-files: add
+- 9c2c1fd78 @putout/operator-filesystem: writeFileContent: directory
+
 2023.12.19, v34.2.1
 
 feature:
