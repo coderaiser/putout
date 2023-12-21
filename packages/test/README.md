@@ -245,6 +245,25 @@ test('remove usless variables: for-of', async ({progress}) => {
 });
 ```
 
+### `progressWithOptions(filename, options, expected)`
+
+Check progress of `filename.js`;
+
+```js
+test('remove usless variables: for-of', async ({progressWithOptions}) => {
+    const options = {
+        from: '/home/coderaiser',
+        to: '/',
+    };
+    
+    await progressWithOptions('progress', options, {
+        i: 0,
+        n: 2,
+        rule: 'read-all-files',
+    });
+});
+```
+
 ## Formatters API
 
 First you need to create test with:

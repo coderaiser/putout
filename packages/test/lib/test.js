@@ -107,6 +107,7 @@ function createTest(dir, maybeOptions) {
         noTransformCode: noTransformCode(options),
         
         progress: progress(dir, options),
+        progressWithOptions: progressWithOptions(dir, options),
         
         transformWithOptions: transformWithOptions(dir, options),
         noTransformWithOptions: noTransformWithOptions(dir, options),
@@ -292,6 +293,31 @@ const progress = (dir, options) => (t) => async (name, expected) => {
     return t.deepEqual(result, expected);
 };
 
+const progressWithOptions = (dir, options) => (t) => async (name, pluginOptions, expected) => {
+    const full = join(dir, name);
+    const [input, isTS] = readFixture(full);
+    
+    const rule = parseRule(options);
+    const rules = {
+        [rule]: ['on', pluginOptions],
+    };
+    
+    const progress = createProgress();
+    
+    const [[result]] = await Promise.all([
+        once(progress, 'file'),
+        putout(input, {
+            rules,
+            progress,
+            printer: getPrinter(),
+            isTS,
+            ...options,
+        }),
+    ]);
+    
+    return t.deepEqual(result, expected);
+};
+
 const transform = currify((dir, options, t, name, transformed = null, addons = {}) => {
     const {plugins} = options;
     const full = join(dir, name);
@@ -328,7 +354,7 @@ const transform = currify((dir, options, t, name, transformed = null, addons = {
     return t.equal(code, output);
 });
 
-const transformWithOptions = currify((dir, options, t, name, additionalOptions) => {
+const transformWithOptions = currify((dir, options, t, name, pluginOptions) => {
     const {writeFileSync} = global.__putout_test_fs;
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
@@ -336,7 +362,7 @@ const transformWithOptions = currify((dir, options, t, name, additionalOptions) 
     const rule = parseRule(options);
     
     const rules = {
-        [rule]: ['on', additionalOptions],
+        [rule]: ['on', pluginOptions],
     };
     
     const {code} = putout(input, {
