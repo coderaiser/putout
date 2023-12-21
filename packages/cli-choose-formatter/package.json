@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@putout/cli-choose": "^1.1.0",
-    "find-up": "^6.3.0"
+    "find-up": "^7.0.0"
   },
   "keywords": [
     "putout",
