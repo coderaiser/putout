@@ -8,8 +8,9 @@ const test = require('..')(__dirname, {
 
 test('@putout/test: progress', async ({progress}) => {
     await progress('progress', {
-        i: 0,
+        i: 1,
         n: 1,
+        percent: '100%',
         rule: 'read-all-files',
     });
 });

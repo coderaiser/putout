@@ -42,9 +42,13 @@ const watchPush = ({push, rule, progress}) => (...a) => {
 };
 
 const createFileProgress = ({rule, progress}) => ({i, n}) => {
+    ++i;
+    const percent = `${Math.round(i / n * 100)}%`;
+    
     progress.file({
         i,
         n,
+        percent,
         rule,
     });
 };

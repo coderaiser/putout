@@ -22,8 +22,9 @@ test('packages: read-all-files: transform', (t) => {
 
 test('packages: read-all-files: progress', async ({progress}) => {
     await progress('read-all-files', {
-        i: 0,
+        i: 1,
         n: 2,
+        percent: '50%',
         rule: 'read-all-files',
     });
 });

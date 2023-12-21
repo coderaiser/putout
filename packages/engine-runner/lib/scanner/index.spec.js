@@ -241,8 +241,9 @@ test('putout: runner: scanner: progress', async (t) => {
     ]);
     
     const expected = {
-        i: 0,
+        i: 1,
         n: 1,
+        percent: '100%',
         rule: 'add-file',
     };
     
