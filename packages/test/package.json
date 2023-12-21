@@ -41,7 +41,7 @@
   "dependencies": {
     "@putout/engine-processor": "*",
     "@putout/engine-runner": "*",
-    "@putout/eslint": "^2.0.0",
+    "@putout/eslint": "^2.4.0",
     "@putout/plugin-filesystem": "*",
     "currify": "^4.0.0",
     "putout": "*",
