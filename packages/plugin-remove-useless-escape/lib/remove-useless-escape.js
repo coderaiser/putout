@@ -68,7 +68,7 @@ module.exports.traverse = ({push}) => ({
             if (hasQuote(raw))
                 return push(path);
             
-            if (raw.includes('\\"'))
+            if (raw.includes('\\"') && !raw.includes(`\\\\"`))
                 return push(path);
             
             if (raw.includes(`\\'`) && !raw.includes(`\\\\'`))
