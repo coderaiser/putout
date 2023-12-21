@@ -29,7 +29,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "find-up": "^6.3.0",
+    "find-up": "^7.0.0",
     "try-to-catch": "^3.0.1"
   },
   "keywords": [
