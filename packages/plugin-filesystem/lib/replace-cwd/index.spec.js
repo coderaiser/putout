@@ -38,3 +38,17 @@ test('filesystem: replace-cwd: transform: home', (t) => {
     });
     t.end();
 });
+
+test('filesystem: replace-cwd: progress', async ({progressWithOptions}) => {
+    const options = {
+        from: '/home/coderaiser/putout',
+        to: '/home',
+    };
+    
+    await progressWithOptions('home', options, {
+        i: 1,
+        n: 2,
+        percent: '50%',
+        rule: 'replace-cwd',
+    });
+});

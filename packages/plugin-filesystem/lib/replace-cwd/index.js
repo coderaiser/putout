@@ -16,16 +16,24 @@ module.exports.fix = (file, {from, to}) => {
     setLiteralValue(filenamePath.get('value'), name);
 };
 
-module.exports.scan = (path, {push, options}) => {
+module.exports.scan = (path, {push, progress, options}) => {
     const {from, to} = options;
     
     if (!from || !to)
         return;
     
-    for (const file of findFile(path, '*')) {
+    const files = findFile(path, '*');
+    const n = files.length;
+    
+    for (const [i, file] of files.entries()) {
         push(file, {
             from,
             to,
+        });
+        
+        progress({
+            i,
+            n,
         });
     }
 };
