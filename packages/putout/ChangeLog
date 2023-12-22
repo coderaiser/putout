@@ -1,3 +1,22 @@
+2023.12.22, v34.4.0
+
+feature:
+- 9ad60e41c putout: -i: improve
+- 658e59103 @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: simplify
+- bac19321a @putout/operator-filesystem: createFile
+- 991448520 @putout/operator-filesystem: createFile with no content
+- 5bdb9288f @putout/operator-filesystem: getFileContent: add
+- 3dc73e9b6 @putout/operator-filesystem: writeFileContent: emoji
+- b7d9c9028 @putout/plugin-filesystem: replace-cwd: from is root
+- c6ddc7fc9 @putout/pluginf-filesystem: export replace-cwd
+- c325ed4e9 @putout/plugin-react-hooks: drop support of node < 18
+- 4f8af0c0b @putout/plugin-react-hooks: declare: useMemo
+- eaa9871c6 @putout/plugin-remove-useless-escape: double quotes inside template
+- 9ab30399d @putout/plugin-filesystem: write-all-files: progress: add
+- f07474267 @putout/plugin-filesystem: replace-cwd: from root
+- 49fa0ab73 @putout/plugin-filesystem: replace-cwd: add progress
+- 313803316 @putout/test: progressWithOptions
+
 2023.12.21, v34.3.0
 
 feature:
