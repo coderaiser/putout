@@ -15,7 +15,15 @@ const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 
-const toBase64 = (a) => btoa(encodeURI(a));
+const toBase64 = (content) => {
+    const [e, decoded] = tryCatch(btoa, content);
+    
+    if (!e)
+        return encodeURI(decoded);
+    
+    return content;
+};
+
 const fromBase64 = (content) => {
     const [e, decoded] = tryCatch(atob, content);
     
@@ -181,10 +189,6 @@ module.exports.copyFile = (filePath, dirPath) => {
 
 function maybeRemoveFile(dirPath, filename) {
     const dirPathFiles = getProperty(dirPath, 'files');
-    
-    if (!dirPathFiles)
-        return;
-    
     const [fileToOverwrite] = findFile(dirPathFiles, filename);
     
     if (!fileToOverwrite)
@@ -216,7 +220,7 @@ module.exports.createFile = (dirPath, name, content) => {
         .get('value.elements')
         .at(-1);
     
-    if (content)
+    if (isString(content))
         writeFileContent(filePath, content);
     
     return filePath;

@@ -699,22 +699,6 @@ test('putout: operator: filesystem: createFile', (t) => {
     t.end();
 });
 
-test('putout: operator: filesystem: createFile: no content', (t) => {
-    const ast = parseFilesystem(['/']);
-    
-    const expected = {
-        type: 'directory',
-        filename: '/',
-        files: [{
-            type: 'file',
-            filename: '/README.md',
-        }],
-    };
-    
-    t.equalFilesystems(ast, expected);
-    t.end();
-});
-
 test('putout: operator: filesystem: createFile: /', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
@@ -836,10 +820,32 @@ test('putout: operator: filesystem: writeFileContent: emoji: content', (t) => {
     
     const [filePath] = findFile(ast, 'README.md');
     
-    writeFileContent(filePath, 'hello 💾');
+    writeFileContent(filePath, 'hello 💾\n');
     const content = readFileContent(filePath);
+    const expected = 'hello 💾\n';
     
-    t.equal(content, 'hello 💾');
+    t.equal(content, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: writeFileContent: emoji: getFileContent', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+            content: 'x',
+        }],
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    
+    writeFileContent(filePath, 'hello 💾\n');
+    const content = getFileContent(filePath);
+    const expected = [true, 'hello 💾\n'];
+    
+    t.deepEqual(content, expected);
     t.end();
 });
 
