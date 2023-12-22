@@ -32,7 +32,7 @@
     "react-hooks"
   ],
   "peerDependencies": {
-    "putout": ">=29"
+    "putout": ">=34"
   },
   "devDependencies": {
     "@putout/plugin-remove-unused-variables": "*",
@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public"
