@@ -18,8 +18,8 @@ const env = {
     FORCE_COLOR: 3,
     TEST: 1,
     CI: 1,
-    SUPERTAPE_PROGRESS_BAR: 1,
-    SUPERTAPE_PROGRESS_BAR_STACK: 0,
+    SUPERTAPE_TIME: 1,
+    SUPERTAPE_TIME_STACK: 0,
     SUPERTAPE_LOAD_LOOP_TIMEOUT: 70,
     KEYPRESS: 1,
 };
@@ -38,7 +38,7 @@ const putoutOffEnv = {
 };
 
 export default {
-    'test': () => [env, `tape '${dirs}/*/test/*.*' '${dirs}/*/{bin,lib,rules}/**/*.spec.*'`],
+    'test': () => [env, `tape -f time '${dirs}/*/test/*.*' '${dirs}/*/{bin,lib,rules}/**/*.spec.*'`],
     'test:update': () => [envUpdate, `tape 'packages/{test,plugin,processor,engine}-*/test/*.*' 'packages/{test,plugin,processor,engine}-*/lib/**/*.spec.*'`],
     'test:inspect': () => [env, `node --inspect-brk --inspect=0.0.0.0 node_modules/.bin/${cutEnv('test')}`],
     'test:fail': async () => await run('test', '-f fail'),

@@ -22,7 +22,6 @@ const {
 } = chalk;
 
 const formatErrorsCount = (a) => a ? red(a) : OK;
-
 const {stderr} = process;
 
 const {

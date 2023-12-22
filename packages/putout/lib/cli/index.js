@@ -178,7 +178,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (args.interactive) {
         const {chooseFormatter} = await simpleImport('@putout/cli-choose-formatter');
         
-        newFormatter = await chooseFormatter(defaultFormatter, keys(dependencies));
+        [newFormatter] = await chooseFormatter(defaultFormatter, keys(dependencies));
         
         if (!newFormatter)
             return exit(INTERACTIVE_CANCELED);
