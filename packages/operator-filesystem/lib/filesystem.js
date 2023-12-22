@@ -93,6 +93,8 @@ function getFileType(filePath) {
     return typePath.node.value.value;
 }
 
+module.exports.getFileContent = getFileContent;
+
 function getFileContent(filePath) {
     const content = getProperty(filePath, 'content');
     
@@ -147,8 +149,8 @@ module.exports.moveFile = (filePath, dirPath) => {
     
     setLiteralValue(filenamePath.get('value'), newFilename);
     dirPathFiles.node.value.elements.push(filePath.node);
-    filePath.remove();
     
+    filePath.remove();
     maybeFS.renameFile(filename, newFilename);
 };
 

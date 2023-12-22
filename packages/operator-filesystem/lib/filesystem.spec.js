@@ -20,6 +20,7 @@ const {
     findFile,
     getFilename,
     getFileType,
+    getFileContent,
     createFile,
     createDirectory,
     getParentDirectory,
@@ -292,6 +293,20 @@ test('putout: operator: filesystem: getFileType', (t) => {
     const expected = 'directory';
     
     t.equal(type, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: getFileContent', (t) => {
+    const ast = parseFilesystem(['/', [
+        '/hello.txt',
+        'hello world',
+    ]]);
+    
+    const [filePath] = findFile(ast, 'hello.txt');
+    const content = getFileContent(filePath);
+    const expected = [true, 'hello world'];
+    
+    t.deepEqual(content, expected);
     t.end();
 });
 

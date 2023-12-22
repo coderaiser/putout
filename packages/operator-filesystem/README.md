@@ -100,6 +100,19 @@ getFileType(filePath);
 'file';
 ```
 
+### `getFileContent(path: FilePath): [is: boolean, content: string]`
+
+Get `content` property if it exists, use [`readFileContent`](#read-file-content) to read file from **Filesystem**.
+
+```js
+const {operator} = require('putout');
+const {getFileContent} = operator;
+
+getFileContent(filePath);
+// returns
+[true, 'hello world'];
+```
+
 ### `removeFile(filePath: Path)`
 
 ```js
