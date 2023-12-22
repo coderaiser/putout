@@ -25,6 +25,14 @@ module.exports.fix = (file, {from, to}) => {
     
     const base = basename(value);
     const dir = dirname(value);
+    
+    if (from === '/') {
+        const name = join(dir.replace(from, `${to}/`), base);
+        setLiteralValue(filenamePath.get('value'), name);
+        
+        return;
+    }
+    
     const name = join(dir.replace(from, to), base);
     
     setLiteralValue(filenamePath.get('value'), name);
