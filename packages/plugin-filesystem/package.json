@@ -10,7 +10,9 @@
     ".": "./lib/index.js",
     "./to-simple": "./lib/convert-filesystem-to-simple-filesystem/index.js",
     "./from-simple": "./lib/convert-simple-filesystem-to-filesystem/index.js",
-    "./read-all-files": "./lib/read-all-files/index.js"
+    "./read-all-files": "./lib/read-all-files/index.js",
+    "./write-all-files": "./lib/write-all-files/index.js",
+    "./replace-cwd": "./lib/replace-cwd/index.js"
   },
   "release": false,
   "tag": false,
