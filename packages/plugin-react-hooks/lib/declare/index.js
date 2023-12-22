@@ -6,4 +6,5 @@ module.exports.declare = () => ({
     useContext: 'import {useContext} from "react"',
     useReducer: 'import {useReducer} from "react"',
     useCallback: 'import {useCallback} from "react"',
+    useMemo: 'import {useMemo} from "react"',
 });

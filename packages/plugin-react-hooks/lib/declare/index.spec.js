@@ -39,3 +39,8 @@ test('plugin-react-hooks: declare: transform: use-callback', (t) => {
     t.transform('use-callback');
     t.end();
 });
+
+test('plugin-react-hooks: declare: transform: use-memo', (t) => {
+    t.transform('use-memo');
+    t.end();
+});
