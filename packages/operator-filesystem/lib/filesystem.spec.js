@@ -42,6 +42,7 @@ const {
 const {traverseProperties} = operator;
 
 const FS = '__putout_processor_filesystem';
+
 const PRINTER = ['putout', {
     format: {
         quote: '"',
