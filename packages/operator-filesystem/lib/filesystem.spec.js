@@ -699,6 +699,22 @@ test('putout: operator: filesystem: createFile', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: createFile: no content', (t) => {
+    const ast = parseFilesystem(['/']);
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'file',
+            filename: '/README.md',
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: createFile: /', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
