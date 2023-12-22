@@ -15,6 +15,16 @@ const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 
+const toBase64 = (a) => btoa(encodeURI(a));
+const fromBase64 = (content) => {
+    const [e, decoded] = tryCatch(atob, content);
+    
+    if (!e)
+        return decodeURI(decoded);
+    
+    return content;
+};
+
 const {
     ObjectExpression,
     ArrayExpression,
@@ -231,7 +241,7 @@ module.exports.createDirectory = (dirPath, name) => {
 
 const createContentProperty = (content) => {
     const contentKey = StringLiteral('content');
-    const contentValue = StringLiteral(btoa(encodeURI(content)));
+    const contentValue = StringLiteral(toBase64(content));
     
     return ObjectProperty(contentKey, contentValue);
 };
@@ -244,14 +254,8 @@ module.exports.readFileContent = (filePath) => {
     
     const [hasContent, content] = getFileContent(filePath);
     
-    if (hasContent) {
-        const [e, decoded] = tryCatch(atob, content);
-        
-        if (!e)
-            return decodeURI(decoded);
-        
-        return content;
-    }
+    if (hasContent)
+        return fromBase64(content);
     
     const filename = getFilename(filePath);
     const fileContent = maybeFS.readFileContent(filename);
@@ -277,7 +281,7 @@ function writeFileContent(filePath, content) {
     const contentPath = getProperty(filePath, 'content');
     
     if (contentPath) {
-        setLiteralValue(contentPath.node.value, btoa(content));
+        setLiteralValue(contentPath.node.value, toBase64(content));
         return;
     }
     
