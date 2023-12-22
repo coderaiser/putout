@@ -729,7 +729,7 @@ test('putout: operator: filesystem: createFile: no content', (t) => {
     });
     
     const [dirPath] = findFile(ast, '/hello/world');
-    const filePath = createFile(dirPath, 'README.md', '');
+    const filePath = createFile(dirPath, 'README.md');
     const content = readFileContent(filePath);
     
     t.equal(content, '');

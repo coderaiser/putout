@@ -226,7 +226,7 @@ module.exports.createFile = (dirPath, name, content) => {
     const properties = [
         typeProperty,
         filenameProperty,
-        createContentProperty(content),
+        content && createContentProperty(content),
     ].filter(Boolean);
     
     dirPathFiles.node.value.elements.push(ObjectExpression(properties));

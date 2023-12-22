@@ -16,7 +16,6 @@ const {
 } = types;
 
 const {isArray} = Array;
-
 const maybeAddSlash = (a) => a === '/' ? a : `${a}/`;
 
 module.exports.report = () => `Convert Filesystem to Simple Filesystem`;

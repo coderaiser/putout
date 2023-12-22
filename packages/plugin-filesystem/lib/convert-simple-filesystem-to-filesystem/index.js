@@ -1,12 +1,16 @@
 'use strict';
 
 const {types} = require('@putout/babel');
-const {dirname} = require('path');
-const {moveFile, findFile} = require('@putout/operator-filesystem');
+const {basename, dirname} = require('path');
+const {
+    createDirectory,
+    getFileType,
+    getFilename,
+    findFile,
+} = require('@putout/operator-filesystem');
 
 const {__filesystem_name} = require('@putout/operator-json');
-
-const {replaceWith} = require('@putout/operate');
+const {replaceWith, getProperty} = require('@putout/operate');
 
 const {
     ObjectExpression,
@@ -25,7 +29,7 @@ const getType = (a) => {
     return ObjectProperty(StringLiteral('type'), StringLiteral(type));
 };
 
-const getFilename = (filename) => {
+const createFilename = (filename) => {
     return ObjectProperty(StringLiteral('filename'), StringLiteral(filename));
 };
 
@@ -41,7 +45,7 @@ const getContent = (a) => {
 };
 
 module.exports.fix = (path) => {
-    const filenames = [];
+    const array = ArrayExpression([]);
     
     for (const element of path.get('elements')) {
         if (isArrayExpression(element)) {
@@ -49,27 +53,24 @@ module.exports.fix = (path) => {
             const {value} = nodeValue;
             const content = nodeContent.value;
             
-            filenames.push(value);
-            
-            replaceWith(element, ObjectExpression([
+            array.elements.push(ObjectExpression([
                 getType(value),
-                getFilename(value),
+                createFilename(value),
                 getContent(content),
             ]));
             continue;
         }
         
         const {value} = element.node;
-        filenames.push(noTrailingSlash(value));
         
-        replaceWith(element, ObjectExpression([
+        array.elements.push(ObjectExpression([
             getType(value),
-            getFilename(noTrailingSlash(value)),
+            createFilename(noTrailingSlash(value)),
             getFiles(value),
         ].filter(Boolean)));
     }
     
-    buildTree(path, filenames);
+    buildTree(path, array);
 };
 
 module.exports.traverse = ({push}) => ({
@@ -86,18 +87,24 @@ const noTrailingSlash = (a) => {
     return a.endsWith('/') ? a.slice(0, -1) : a;
 };
 
-function buildTree(ast, filenames) {
-    const [rootName, ...otherNames] = filenames;
+function buildTree(path, list) {
+    const [root, ...files] = findFile(list, '*');
     
-    for (const filename of otherNames) {
-        const [filePath] = findFile(ast, filename);
+    for (const filePath of files) {
+        const filename = getFilename(filePath);
+        const type = getFileType(filePath);
         const dir = dirname(filename);
-        const [dirPath] = findFile(ast, dir);
+        const name = basename(filename);
+        const [dirPath] = findFile(root, dir);
         
-        moveFile(filePath, dirPath);
+        if (type === 'directory') {
+            createDirectory(dirPath, name);
+            continue;
+        }
+        
+        const filesProperty = getProperty(dirPath, 'files');
+        filesProperty.node.value.elements.push(filePath.node);
     }
     
-    const [rootPath] = findFile(ast, rootName);
-    
-    replaceWith(rootPath.parentPath, rootPath);
+    replaceWith(path, root);
 }
