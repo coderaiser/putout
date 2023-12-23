@@ -105,9 +105,11 @@ test('putout: cli: filesystem: readFileContent: returns', (t) => {
 
 test('putout: cli: filesystem: writeFileContent', (t) => {
     const writeFileSync = stub();
+    const mkdirSync = stub();
     
     writeFileContent('/hello/world', 'hello', {
         writeFileSync,
+        mkdirSync,
     });
     
     const expected = [
@@ -116,5 +118,22 @@ test('putout: cli: filesystem: writeFileContent', (t) => {
     ];
     
     t.calledWith(writeFileSync, expected);
+    t.end();
+});
+
+test('putout: cli: filesystem: writeFileContent: mkdirSync', (t) => {
+    const writeFileSync = stub();
+    const mkdirSync = stub();
+    
+    writeFileContent('/hello/world', 'hello', {
+        writeFileSync,
+        mkdirSync,
+    });
+    
+    const expected = ['/hello', {
+        recursive: true,
+    }];
+    
+    t.calledWith(mkdirSync, expected);
     t.end();
 });

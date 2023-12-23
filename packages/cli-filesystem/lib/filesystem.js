@@ -1,5 +1,6 @@
 'use strict';
 
+const {dirname} = require('path');
 const {
     mkdirSync: mkdirSyncOriginal,
     renameSync: renameSyncOriginal,
@@ -26,16 +27,19 @@ module.exports.removeFile = (filename, {rmSync = rmSyncOriginal} = {}) => {
     });
 };
 
-module.exports.createDirectory = (name, {mkdirSync = mkdirSyncOriginal} = {}) => {
+module.exports.createDirectory = createDirectory;
+function createDirectory(name, {mkdirSync = mkdirSyncOriginal} = {}) {
     mkdirSync(name, {
         recursive: true,
     });
-};
-
-module.exports.readFileContent = (name, {readFileSync = readFileSyncOriginal} = {}) => {
+}module.exports.readFileContent = (name, {readFileSync = readFileSyncOriginal} = {}) => {
     return readFileSync(name, 'utf8');
 };
 
-module.exports.writeFileContent = (name, content, {writeFileSync = writeFileSyncOriginal} = {}) => {
+module.exports.writeFileContent = (name, content, {writeFileSync = writeFileSyncOriginal, mkdirSync = mkdirSyncOriginal} = {}) => {
+    createDirectory(dirname(name), {
+        mkdirSync,
+    });
+    
     writeFileSync(name, content);
 };
