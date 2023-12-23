@@ -32,7 +32,9 @@ function createDirectory(name, {mkdirSync = mkdirSyncOriginal} = {}) {
     mkdirSync(name, {
         recursive: true,
     });
-}module.exports.readFileContent = (name, {readFileSync = readFileSyncOriginal} = {}) => {
+}
+
+module.exports.readFileContent = (name, {readFileSync = readFileSyncOriginal} = {}) => {
     return readFileSync(name, 'utf8');
 };
 

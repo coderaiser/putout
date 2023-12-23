@@ -17,10 +17,7 @@ npm i putout @putout/operator-filesystem
 
 ```js
 const {operator} = require('putout');
-const {
-    findFile,
-    createFile,
-} = operator;
+const {findFile, createFile} = operator;
 
 const [dirPath] = findFile(ast, 'hello');
 const filePath = createFile(dirPath, 'world.txt', 'hello world');
