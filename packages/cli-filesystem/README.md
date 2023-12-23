@@ -47,6 +47,8 @@ readFileContent('/hello/world');
 
 ### `writeFileContent(name: string, content: string)`
 
+If parent directory not exists - creates it.
+
 ```js
 writeFileContent('/hello/world', 'hello');
 readFileContent('/hello/world');
