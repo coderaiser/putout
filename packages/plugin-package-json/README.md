@@ -100,7 +100,8 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c
 
 ## find-file
 
-Find `package.json` inside of `.filesystem.json` and applies all other `package-json` rules:
+Find `package.json` inside of `.filesystem.json` and applies all other `package-json` rules.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/325233d19fde0acacadbcf1f42dd3bb2/124a50fe0e92c6c3cab24f8b87c33b202dc3e540).
 
 ```diff
 {
