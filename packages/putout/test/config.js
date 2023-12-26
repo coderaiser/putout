@@ -115,6 +115,7 @@ test('putout: config: filesystem', (t) => {
         'nodejs/rename-file-cjs-to-js': 'on',
         'nodejs/rename-file-mjs-to-js': 'on',
         'filesystem': 'on',
+        'package-json/find-file': 'on',
     };
     
     t.deepEqual(result, expected);
