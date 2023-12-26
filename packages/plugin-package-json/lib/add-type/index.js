@@ -3,7 +3,6 @@
 const {operator, types} = require('putout');
 
 const {ObjectProperty, StringLiteral} = types;
-
 const {
     getProperties,
     insertAfter,

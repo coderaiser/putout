@@ -18,7 +18,8 @@ npm i @putout/plugin-package-json -D
     "rules": {
         "package-json/add-type": "on",
         "package-json/remove-nyc": "on",
-        "package-json/remove-commit-type": "on"
+        "package-json/remove-commit-type": "on",
+        "package-json/find-file": "off"
     }
 }
 ```
@@ -94,6 +95,18 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c
     "name": "hello",
     "version": "1.0.0",
     "commitType": "colon"
+}
+```
+
+## find-file
+
+Find `package.json` inside of `.filesystem.json` and applies all other `package-json` rules:
+
+```diff
+{
+    "name": "hello",
+    "version": "1.0.0",
++   "type": "commonjs"
 }
 ```
 

@@ -29,3 +29,8 @@ test('putout: plugin-package-json: remove-nyc: remove-commit-type', (t) => {
     t.transform('remove-commit-type');
     t.end();
 });
+
+test('plugin-package-json: no transform: find-file: disabled', (t) => {
+    t.noTransform('find-file-disabled');
+    t.end();
+});
