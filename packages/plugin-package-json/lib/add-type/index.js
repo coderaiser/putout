@@ -1,6 +1,7 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {
+    operator,
+    types,
+} from 'putout';
 
 const {ObjectProperty, StringLiteral} = types;
 const {
@@ -9,9 +10,9 @@ const {
     __json,
 } = operator;
 
-module.exports.report = () => `Add 'type' of module to 'package.json'`;
+export const report = () => `Add 'type' of module to 'package.json'`;
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [__json]: (path) => {
         const __aPath = path.get('arguments.0');
         const {versionPath, typePath} = getProperties(__aPath, ['version', 'type']);
@@ -26,7 +27,7 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const node = ObjectProperty(StringLiteral('type'), StringLiteral('commonjs'));
     insertAfter(path, node);
 };

@@ -1,19 +1,18 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     remove,
     getProperties,
     __json,
 } = operator;
 
-module.exports.report = () => `Remove 'nyc' section of 'package.json', use file '.nycrc.json' instead`;
+export const report = () => `Remove 'nyc' section of 'package.json', use file '.nycrc.json' instead`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [__json]: (path) => {
         const __aPath = path.get('arguments.0');
         const {nycPath} = getProperties(__aPath, ['nyc']);

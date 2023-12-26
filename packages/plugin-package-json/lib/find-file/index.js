@@ -1,15 +1,10 @@
-'use strict';
-
-const {
+import {
     operator,
     parse,
     print,
     transform,
-} = require('putout');
-
-const addType = require('../add-type');
-const removeNyc = require('../remove-nyc');
-const removeCommitType = require('../remove-commit-type');
+} from 'putout';
+import rules from '../package-json.js';
 
 const {
     findFile,
@@ -19,21 +14,19 @@ const {
     fromJS,
 } = operator;
 
-module.exports.report = () => `Find 'package.json'`;
+const plugins = Object.entries(rules);
 
-module.exports.fix = (file, {ast, content}) => {
+export const report = () => `Find 'package.json'`;
+
+export const fix = (file, {ast, content}) => {
     transform(ast, content, {
-        plugins: [
-            ['add-type', addType],
-            ['remove-nyc', removeNyc],
-            ['remove-commit-type', removeCommitType],
-        ],
+        plugins,
     });
     
     writeFileContent(file, fromJS(print(ast)));
 };
 
-module.exports.scan = (root, {push, progress}) => {
+export const scan = (root, {push, progress}) => {
     const files = findFile(root, 'package.json');
     const n = files.length;
     
@@ -42,11 +35,7 @@ module.exports.scan = (root, {push, progress}) => {
         const ast = parse(content);
         const places = transform(ast, content, {
             fix: false,
-            plugins: [
-                ['add-type', addType],
-                ['remove-nyc', removeNyc],
-                ['remove-commit-type', removeCommitType],
-            ],
+            plugins,
         });
         
         if (!places.length)

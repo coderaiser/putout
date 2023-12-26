@@ -1,19 +1,18 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     getProperties,
     remove,
     __json,
 } = operator;
 
-module.exports.report = () => `Remove 'commitType=colon' field of 'package.json', it is 'colon' by default`;
+export const report = () => `Remove 'commitType=colon' field of 'package.json', it is 'colon' by default`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [__json]: (path) => {
         const __aPath = path.get('arguments.0');
         const {commitTypePath} = getProperties(__aPath, ['commitType']);

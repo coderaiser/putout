@@ -1,10 +1,9 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as packageJson from '../lib/index.js';
 
-const {createTest} = require('@putout/test');
-const packageJson = require('..');
 const [, findFile] = packageJson.rules['find-file'];
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     rules: {
         'package-json/find-file': 'on',

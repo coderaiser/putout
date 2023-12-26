@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-package-json",
   "version": "6.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin for package.json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-package-json#readme",
@@ -41,11 +41,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=33"
+    "putout": ">=34"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public"
