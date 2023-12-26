@@ -1,3 +1,14 @@
+2023.12.26, v34.5.0
+
+feature:
+- 6cfd715c6 putout: package-json/find-file: enable for .filesystem.json
+- 0c27b18a4 putout: @putout/plugin-package-json v7.0.0
+- 8524b913b @putout/plugin-package-json: convert to ESM
+- 1b29127ab @putout/plugin-package-json: add find-file
+- b5ee6504f @putout/processor-filesystem: @putout/cli-filesystem v2.0.1
+- 1d0057e6e @putout/cli-filesystem: drop support of node < 18
+- 9bec49801 @putout/cli-filesystem: writeFileContent: create directory
+
 2023.12.22, v34.4.0
 
 feature:
