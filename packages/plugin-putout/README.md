@@ -588,7 +588,10 @@ module.exports.replace = () => ({
 
 ## convert-traverse-to-scan
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/afe988c8e53ae70e50bf26512672f3cd/a6677d53b996e85880a4af18250c00e849322bbe).
+Checkout in 🐊**Putout Editor**:
+
+- [`Traverser`](https://putout.cloudcmd.io/#/gist/afe988c8e53ae70e50bf26512672f3cd/a6677d53b996e85880a4af18250c00e849322bbe);
+- [`Replacer`](https://putout.cloudcmd.io/#/gist/2e89f498c88f3208beeb85dd01a9178e/ed975281c57f451fc1c3aaf187425a33499af71d);
 
 ### ❌ Example of incorrect code
 

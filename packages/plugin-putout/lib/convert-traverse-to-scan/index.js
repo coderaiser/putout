@@ -33,7 +33,12 @@ module.exports.fix = ({path, pathProperty}) => {
         replaceWith(path.parentPath, path.get('value.body'));
         path.parentPath.parentPath.node.params.unshift(Identifier('path'));
         
-        const {left} = path.parentPath.parentPath.parentPath.node;
+        const assignmentPath = path.parentPath.parentPath.parentPath;
+        
+        if (!assignmentPath.isAssignmentExpression())
+            return;
+        
+        const {left} = assignmentPath.node;
         
         left.property.name = 'scan';
         return;
@@ -84,7 +89,6 @@ module.exports.traverse = ({push}) => ({
             path,
         });
     },
-    '__.map(push)'() {},
     'push(__a)'(path) {
         const __aPath = path.get('arguments.0');
         

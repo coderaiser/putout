@@ -210,7 +210,7 @@ test('plugin-putout: transform: add-track-file', (t) => {
     t.end();
 });
 
-test('plugin-putout: transform: convert-progress-to-track', (t) => {
-    t.transform('convert-progress-to-track');
+test('plugin-putout: transform: convert-progress-to-track-file', (t) => {
+    t.transform('convert-progress-to-track-file');
     t.end();
 });

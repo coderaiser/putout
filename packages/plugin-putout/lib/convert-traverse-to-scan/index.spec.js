@@ -69,3 +69,8 @@ test('packages: convert-traverse-to-scan: transform: map', (t) => {
     t.transform('map');
     t.end();
 });
+
+test('packages: convert-traverse-to-scan: transform: create-traverse', (t) => {
+    t.transform('create-traverse');
+    t.end();
+});

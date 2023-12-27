@@ -27,7 +27,12 @@ module.exports.traverse = ({push}) => ({
         const statement = path.find(isForOfStatement);
         
         if (!statement)
-            return false;
+            return;
+        
+        const forOfCount = statement.parentPath.get('body').filter(isForOfStatement).length;
+        
+        if (forOfCount > 1)
+            return;
         
         push({
             path,
