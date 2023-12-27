@@ -10,6 +10,7 @@ const {
     __json,
     __filesystem,
     toJS,
+    fromJS,
 } = require('@putout/operator-json');
 
 const {
@@ -19,7 +20,13 @@ const {
 
 const {matchFiles} = require('./match-files.js');
 const {ObjectProperty, StringLiteral} = types;
-const {parse, transform} = putout;
+
+const {
+    parse,
+    transform,
+    print,
+} = putout;
+
 const {stringify} = JSON;
 const noop = () => {};
 
@@ -188,5 +195,37 @@ test('putout: operator: match-files: js', (t) => {
     const expected = `module.exports.hello = 'world';\n`;
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: match-files: couple', (t) => {
+    const content = `export const hello = 'world'`;
+    const source = stringify([
+        '/',
+        ['/index.cjs', content],
+        ['/.madrun.cjs', content],
+    ]);
+    
+    const files = {
+        '*.cjs': convertEsmToCommonjs,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = ['/', ['/index.cjs', 'bW9kdWxlLmV4cG9ydHMuaGVsbG8gPSAnd29ybGQnOwo='], ['/.madrun.cjs', 'bW9kdWxlLmV4cG9ydHMuaGVsbG8gPSAnd29ybGQnOwo=']];
+    
+    t.deepEqual(result, expected);
     t.end();
 });

@@ -19,3 +19,8 @@ test('packages: mjs-file: transform', (t) => {
     t.transform('mjs-file');
     t.end();
 });
+
+test('packages: mjs-file: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});

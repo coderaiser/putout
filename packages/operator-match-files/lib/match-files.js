@@ -4,11 +4,7 @@ const {parse, print} = require('@putout/engine-parser');
 const {transform} = require('putout/transform');
 const {findPlaces} = require('putout/find-places');
 
-const {
-    __filesystem,
-    toJS,
-    fromJS,
-} = require('@putout/operator-json');
+const {toJS, fromJS} = require('@putout/operator-json');
 
 const {
     readFileContent,
@@ -18,20 +14,20 @@ const {
 
 const isObject = (a) => a && typeof a === 'object';
 const {entries} = Object;
-const report = ({message}) => message;
+const report = (path, {message}) => message;
 
 module.exports.matchFiles = (files) => {
     check(files);
-    const traverse = createTraverse(files);
+    const scan = createScan(files);
     
     return {
         fix,
-        traverse,
+        scan,
         report,
     };
 };
 
-function fix({filename, path, matchedJS, matchedAST, plugins}) {
+function fix(path, {filename, matchedJS, matchedAST, plugins}) {
     transform(matchedAST, matchedJS, {
         plugins,
     });
@@ -41,41 +37,58 @@ function fix({filename, path, matchedJS, matchedAST, plugins}) {
     writeFileContent(path, matchedJSON);
 }
 
-const createTraverse = (files) => ({push}) => ({
-    [__filesystem]: (path) => {
-        for (const [filename, plugin] of entries(files)) {
-            const [filePath] = findFile(path, filename);
-            
-            if (!filePath)
-                return;
-            
-            const fileContent = readFileContent(filePath) || '{}';
-            const [matchedJS, matchedAST] = magicParse(filename, fileContent);
-            
-            const plugins = [
-                [`match-file/${filename}`, plugin],
-            ];
-            
-            const places = findPlaces(matchedAST, matchedJS, {
-                plugins,
-            });
-            
-            if (!places.length)
-                continue;
-            
-            const {message} = places[0];
-            
-            push({
+const createScan = (files) => (path, {push, progress}) => {
+    const allFiles = [];
+    
+    for (const [filename, plugin] of entries(files)) {
+        const files = findFile(path, filename);
+        
+        for (const file of files) {
+            allFiles.push({
+                plugin,
+                file,
                 filename,
-                message,
-                plugins,
-                path: filePath,
-                matchedAST,
-                matchedJS,
             });
         }
-    },
-});
+    }
+    
+    const n = allFiles.length;
+    
+    for (const [i, {file, filename, plugin}] of allFiles.entries()) {
+        progress({
+            i,
+            n,
+        });
+        
+        const fileContent = readFileContent(file) || '{}';
+        const [matchedJS, matchedAST] = magicParse(filename, fileContent);
+        
+        const plugins = [
+            [
+                `match-file/${filename}`,
+                plugin,
+            ],
+        ];
+        
+        const places = findPlaces(matchedAST, matchedJS, {
+            plugins,
+        });
+        
+        if (!places.length)
+            continue;
+        
+        const {message} = places[0];
+        
+        push(file, {
+            filename,
+            message,
+            plugins,
+            
+            matchedAST,
+            matchedJS,
+        });
+    }
+};
 
 function magicParse(name, content) {
     if (/\.json$/.test(name)) {
