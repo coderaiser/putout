@@ -6,12 +6,23 @@ const {isImportDefaultSpecifier} = types;
 module.exports.report = () => `Use 'CommonJS' instead of 'ESM'`;
 
 module.exports.replace = () => ({
+    'export {__exports}': ({__exports}) => {
+        let result = 'module.exports = {\n';
+        
+        for (const {local} of __exports) {
+            result += local.name;
+        }
+        
+        result += '};';
+        
+        return result;
+    },
+    
     'export default __a': 'module.exports = __a',
     'export class __a {}': 'module.exports.__a = class __a {}',
     'export function __a(__args) {}': replaceFn,
     'export async function __a(__args) {}': replaceFn,
     'export const __a = __b': 'module.exports.__a = __b',
-    
     'import "__a"': 'require("__a")',
     'import * as __a from "__b"': 'const __a = require("__b")',
     'import __imports from "__a"': ({__imports, __a}) => {

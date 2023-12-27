@@ -77,6 +77,11 @@ test('plugin-convert-esm-to-commonjs: transform: export function', (t) => {
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: transform: export: multiple', (t) => {
+    t.transform('export-multiple');
+    t.end();
+});
+
 test('plugin-convert-esm-to-commonjs: transform: declare', (t) => {
     t.transform('declare', {
         'nodejs/declare': nodejsDeclare,
