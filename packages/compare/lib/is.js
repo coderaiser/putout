@@ -10,6 +10,7 @@ const {
     isTemplateElement,
     isFunction,
     isImportDefaultSpecifier,
+    isExportSpecifier,
     isRegExpLiteral,
     isTSTypeParameter,
     isJSXText,
@@ -24,6 +25,7 @@ const ANY_OBJECT = '__object';
 const ANY_ARRAY = '__array';
 const ARGS = '__args';
 const IMPORTS = '__imports';
+const EXPORTS = '__exports';
 const BODY = '__body';
 const JSX_CHILDREN = '__jsx_children';
 const JSX_ATTRIBUTES = '__jsx_attributes';
@@ -45,6 +47,7 @@ const ALL = [
     JSX_CHILDREN,
     JSX_ATTRIBUTES,
     IMPORTS,
+    EXPORTS,
     BODY,
     ANY,
     ID,
@@ -74,6 +77,7 @@ function check(str, item) {
 
 module.exports.isNameStr = (a) => LINKED_NODE.test(a);
 module.exports.isImportsStr = (a) => a === IMPORTS;
+module.exports.isExportsStr = (a) => a === EXPORTS;
 module.exports.isArgsStr = (a) => a === ARGS || LINKED_ARGS.test(a);
 module.exports.isJSXChildrenStr = (a) => a === JSX_CHILDREN;
 module.exports.isJSXAttributesStr = (a) => a === JSX_ATTRIBUTES;
@@ -213,6 +217,17 @@ module.exports.isImports = (a) => {
     
     return isIdentifier(b.local, {
         name: IMPORTS,
+    });
+};
+
+module.exports.isExports = (a) => {
+    const b = !isArray(a) ? a : a[0];
+    
+    if (!isExportSpecifier(b))
+        return false;
+    
+    return isIdentifier(b.local, {
+        name: EXPORTS,
     });
 };
 

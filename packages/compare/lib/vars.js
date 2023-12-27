@@ -13,6 +13,7 @@ const {
     isJSXChildrenStr,
     isJSXAttributesStr,
     isImportsStr,
+    isExportsStr,
     isInsideTypeReference,
 } = require('./is');
 
@@ -97,7 +98,7 @@ function getValues({waysFrom, node}) {
     
     for (const [name, ways] of entries(waysFrom)) {
         for (let way of ways) {
-            if (isImportsStr(name))
+            if (isImportsStr(name) || isExportsStr(name))
                 way = way.replace(/\.0.local$/, '');
             else if (isArgsStr(name) || isJSXChildrenStr(name) || isJSXAttributesStr(name))
                 way = way.replace(/\.0$/, '');

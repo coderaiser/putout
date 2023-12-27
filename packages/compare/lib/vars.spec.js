@@ -202,7 +202,42 @@ test('putout: compare: vars: vars: __imports', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: vars: identifier', (t) => {
+test('putout: compare: vars: __exports', (t) => {
+    const applyToSpread = {
+        report: () => '',
+        replace: () => ({
+            'export {__exports}': ({__exports}) => {
+                let result = 'module.exports = {\n';
+                
+                for (const {local} of __exports) {
+                    result += `${local.name},`;
+                }
+                
+                result += `\n}`;
+                
+                return result;
+            },
+        }),
+    };
+    
+    const {code} = putout('export {hello, world}', {
+        plugins: [{
+            'convert-esm-to-commonjs': applyToSpread,
+        }],
+    });
+    
+    const expected = montag`
+        module.exports = {
+            hello,
+            world,
+        };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: compare: vars: identifier', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({

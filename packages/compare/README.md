@@ -119,10 +119,22 @@ false;
 
 ##### __imports
 
-Any count of `imports`:
+Any count of `import specifiers`:
 
 ```js
 compare('import React, {Component} from "react"', 'import __imports from "react"');
+// returns
+true;
+```
+
+##### __exports
+
+Any count of `export specifiers`:
+
+```js
+compare('export {scan, fix, report}', 'export {__exports}');
+// returns
+true;
 ```
 
 ##### "__"

@@ -485,6 +485,16 @@ test('compare: linked node: __imports', (t) => {
     t.end();
 });
 
+test('compare: linked node: __exports', (t) => {
+    const a = 'export {scan, fix}';
+    const b = 'export {__exports}';
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: expressions', (t) => {
     const a = template.ast('if (a) a()');
     const b = template.ast('if (__a) __a()');
