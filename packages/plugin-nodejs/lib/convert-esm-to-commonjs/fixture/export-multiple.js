@@ -1,5 +1,7 @@
 export {
-    scan
+    scan,
+    fix,
+    report,
 }
 
 function scan() {}
