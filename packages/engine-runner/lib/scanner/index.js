@@ -3,11 +3,13 @@
 const fullstore = require('fullstore');
 const {compare} = require('@putout/compare');
 const {__filesystem_name} = require('@putout/operator-json');
+
 const {
     findFile,
     pause,
     start,
 } = require('@putout/operator-filesystem');
+
 const log = require('debug')('putout:runner:scanner');
 
 const fromSimple = require('@putout/plugin-filesystem/from-simple');
