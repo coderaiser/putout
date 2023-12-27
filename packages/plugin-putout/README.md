@@ -52,6 +52,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-url-to-dirname": "on",
         "putout/convert-report-to-function": "on",
         "putout/convert-get-rule-to-require": "on",
+        "putout/convert-progress-to-track-file": "on",
         "putout/create-test": "on",
         "putout/shorten-imports": "on",
         "putout/declare": "on",
@@ -894,6 +895,37 @@ module.exports.report = `'report' should be a 'function'`;
 
 ```js
 module.exports.report = () => `'report' should be a 'function'`;
+```
+
+## convert-progress-to-track
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8736a0cf838a3660b0927e161e4fb06c/9f5c9f810babd4450898069d3d8dc28aceee1e2d).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.scan = (root, {push, progress}) => {
+    const files = findFile(root, ['*']);
+    const n = files.length;
+    
+    for (const [i, file] of files.entries()) {
+        push(file);
+        progress({
+            i,
+            n,
+        });
+    }
+};
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports.scan = (root, {push, trackFile}) => {
+    for (const file of trackFile(root, ['*'])) {
+        push(file);
+    }
+};
 ```
 
 ## convert-get-rule-to-require

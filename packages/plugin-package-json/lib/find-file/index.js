@@ -7,7 +7,6 @@ import {
 import rules from '../package-json.js';
 
 const {
-    findFile,
     readFileContent,
     writeFileContent,
     toJS,
@@ -26,11 +25,8 @@ export const fix = (file, {ast, content}) => {
     writeFileContent(file, fromJS(print(ast)));
 };
 
-export const scan = (root, {push, progress}) => {
-    const files = findFile(root, 'package.json');
-    const n = files.length;
-    
-    for (const [i, file] of files.entries()) {
+export const scan = (root, {push, trackFile}) => {
+    for (const file of trackFile(root, 'package.json')) {
         const content = toJS(readFileContent(file));
         const ast = parse(content);
         const places = transform(ast, content, {
@@ -44,11 +40,6 @@ export const scan = (root, {push, progress}) => {
         push(file, {
             content,
             ast,
-        });
-        
-        progress({
-            i,
-            n,
         });
     }
 };

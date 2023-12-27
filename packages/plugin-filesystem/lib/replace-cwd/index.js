@@ -10,7 +10,6 @@ const {operator} = require('putout');
 const {
     setLiteralValue,
     getProperties,
-    findFile,
 } = operator;
 
 module.exports.report = (path, {from, to}) => `Replace '${from}' to '${to}'`;
@@ -38,7 +37,7 @@ module.exports.fix = (file, {from, to}) => {
     setLiteralValue(filenamePath.get('value'), name);
 };
 
-module.exports.scan = (path, {push, progress, options}) => {
+module.exports.scan = (path, {push, options, trackFile}) => {
     let {from, to} = options;
     
     if (!from || !to)
@@ -47,18 +46,10 @@ module.exports.scan = (path, {push, progress, options}) => {
     from = maybeCutSlash(from);
     to = maybeCutSlash(to);
     
-    const files = findFile(path, '*');
-    const n = files.length;
-    
-    for (const [i, file] of files.entries()) {
+    for (const file of trackFile(path, '*')) {
         push(file, {
             from,
             to,
-        });
-        
-        progress({
-            i,
-            n,
         });
     }
 };

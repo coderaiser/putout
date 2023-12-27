@@ -2,7 +2,6 @@
 
 const {operator} = require('putout');
 const {
-    findFile,
     writeFileContent,
     readFileContent,
 } = operator;
@@ -14,15 +13,8 @@ module.exports.fix = (file) => {
     writeFileContent(file, content);
 };
 
-module.exports.scan = (root, {push, progress}) => {
-    const files = findFile(root, ['*']);
-    const n = files.length;
-    
-    for (const [i, file] of files.entries()) {
+module.exports.scan = (root, {push, trackFile}) => {
+    for (const file of trackFile(root, ['*'])) {
         push(file);
-        progress({
-            i,
-            n,
-        });
     }
 };

@@ -1,10 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {
-    findFile,
-    readFileContent,
-} = operator;
+const {readFileContent} = operator;
 
 module.exports.report = () => `Read all files`;
 
@@ -12,15 +9,8 @@ module.exports.fix = (file) => {
     readFileContent(file);
 };
 
-module.exports.scan = (root, {push, progress}) => {
-    const files = findFile(root, ['*']);
-    const n = files.length;
-    
-    for (const [i, file] of files.entries()) {
+module.exports.scan = (root, {push, trackFile}) => {
+    for (const file of trackFile(root, ['*'])) {
         push(file);
-        progress({
-            i,
-            n,
-        });
     }
 };
