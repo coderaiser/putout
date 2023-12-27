@@ -254,6 +254,21 @@ export const scan = (rootPath) => {
 };
 ```
 
+Or better `trackFile`:
+
+```js
+export const report = () => 'Add file';
+export const fix = (file) => {
+    writeFileContent(file, 'hello');
+};
+
+export const scan = (rootPath, {push, trackFile}) => {
+    for (const file of trackFile(rootPath, 'hello.txt')) {
+        push(file);
+    }
+};
+```
+
 ### Finder
 
 **Finder** gives you all the control over traversing, but it's the slowest format.

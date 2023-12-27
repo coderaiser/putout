@@ -8,7 +8,11 @@ const putout = require('putout');
 const {createProgress} = require('../progress');
 
 const {__filesystem_name} = require('@putout/operator-json');
-const {findFile, createFile} = require('@putout/operator-filesystem');
+const {
+    findFile,
+    createFile,
+    writeFileContent,
+} = require('@putout/operator-filesystem');
 
 const {runPlugins} = require('..');
 
@@ -224,6 +228,50 @@ test('putout: runner: scanner: progress', async (t) => {
     const source = montag`
         ${__filesystem_name}([
             "/"
+        ]);
+    `;
+    
+    const progress = createProgress();
+    
+    const [[result]] = await Promise.all([
+        once(progress, 'file'),
+        putout(source, {
+            runPlugins,
+            progress,
+            plugins: [{
+                'add-file': addFile,
+            }],
+        }),
+    ]);
+    
+    const expected = {
+        i: 1,
+        n: 1,
+        percent: '100%',
+        rule: 'add-file',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: runner: scanner: trackFile', async (t) => {
+    const addFile = {
+        report: () => 'Add file',
+        fix: (file) => {
+            writeFileContent(file, 'hello');
+        },
+        scan: (rootPath, {push, trackFile}) => {
+            for (const file of trackFile(rootPath, 'hello.txt')) {
+                push(file);
+            }
+        },
+    };
+    
+    const source = montag`
+        ${__filesystem_name}([
+            "/",
+            "/hello.txt"
         ]);
     `;
     

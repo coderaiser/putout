@@ -3,7 +3,11 @@
 const fullstore = require('fullstore');
 const {compare} = require('@putout/compare');
 const {__filesystem_name} = require('@putout/operator-json');
-const {pause, start} = require('@putout/operator-filesystem');
+const {
+    findFile,
+    pause,
+    start,
+} = require('@putout/operator-filesystem');
 const log = require('debug')('putout:runner:scanner');
 
 const fromSimple = require('@putout/plugin-filesystem/from-simple');
@@ -53,6 +57,19 @@ const createFileProgress = ({rule, progress}) => ({i, n}) => {
     });
 };
 
+const createTrackFile = (fileProgress) => function*(...a) {
+    const files = findFile(...a);
+    const n = files.length;
+    
+    for (const [i, file] of files.entries()) {
+        fileProgress({
+            i,
+            n,
+        });
+        yield file;
+    }
+};
+
 const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
     ['__putout_processor_filesystem(__)'](path) {
         log(rule);
@@ -60,6 +77,13 @@ const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
         
         const rootPath = path.get('arguments.0');
         const isSimple = fullstore(false);
+        
+        const fileProgress = createFileProgress({
+            rule,
+            progress,
+        });
+        
+        const trackFile = createTrackFile(fileProgress);
         
         runSimple(fromSimple, {
             path,
@@ -73,10 +97,8 @@ const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
                 rule,
                 progress,
             }),
-            progress: createFileProgress({
-                rule,
-                progress,
-            }),
+            progress: fileProgress,
+            trackFile,
             options,
         });
         
