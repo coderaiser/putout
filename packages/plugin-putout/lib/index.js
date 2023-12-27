@@ -44,6 +44,7 @@ const convertGetRuleToRequire = require('./convert-get-rule-to-require');
 const addIndexToImport = require('./add-index-to-import');
 const applyRename = require('./apply-rename');
 const applyShortProcessors = require('./apply-short-processors');
+const addTrackFile = require('./add-track-file');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -90,4 +91,5 @@ module.exports.rules = {
     'apply-rename': applyRename,
     'apply-short-processors': applyShortProcessors,
     'convert-traverse-to-scan': convertTraverseToScan,
+    'add-track-file': addTrackFile,
 };

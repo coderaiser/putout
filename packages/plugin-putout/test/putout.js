@@ -204,3 +204,8 @@ test('plugin-putout: transform: convert-traverse-to-scan', (t) => {
     t.transform('convert-traverse-to-scan');
     t.end();
 });
+
+test('plugin-putout: transform: add-track-file', (t) => {
+    t.transform('add-track-file');
+    t.end();
+});

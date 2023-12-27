@@ -28,6 +28,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-namaspace-specifier": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
+        "putout/add-track-file": "on",
         "putout/add-index-to-import": "on",
         "putout/check-match": "on",
         "putout/check-replace-code": "on",
@@ -761,6 +762,26 @@ module.exports.traverse = ({push}) => ({
         push(path);
     },
 });
+```
+
+## add-track-file
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/faaba1ce41e6fd274bc82a8875a52bfa/b34a22fdf9080e6b2f06703760f629d83d69ff3d).
+
+### ❌ Example of incorrect code
+
+```js
+export const scan = (root, {push, progress}) => {
+    trackFile();
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export const scan = (root, {push, progress, trackFile}) => {
+    trackFile();
+};
 ```
 
 ## add-index-to-import
