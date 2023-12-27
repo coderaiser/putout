@@ -9,7 +9,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('packages: find-file: report', (t) => {
-    t.report('find-file', `Find 'package.json'`);
+    t.report('find-file', `Add 'type' of module to 'package.json'`);
     t.end();
 });
 
