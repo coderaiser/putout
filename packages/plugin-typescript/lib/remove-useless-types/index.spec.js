@@ -10,37 +10,37 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('remove useless types: report', (t) => {
+test('typescript: remove useless types: report', (t) => {
     t.report('types', 'Avoid useless type declaration');
     t.end();
 });
 
-test('remove useless types: transform', (t) => {
+test('typescript: remove useless types: transform', (t) => {
     t.transform('types');
     t.end();
 });
 
-test('remove useless types: transform: return', (t) => {
+test('typescript: remove useless types: transform: return', (t) => {
     t.transform('return');
     t.end();
 });
 
-test('remove useless types: transform: array', (t) => {
+test('typescript: remove useless types: transform: array', (t) => {
     t.transform('array');
     t.end();
 });
 
-test('remove useless types: no transform: generic', (t) => {
+test('typescript: remove useless types: no transform: generic', (t) => {
     t.noTransform('generic');
     t.end();
 });
 
-test('remove useless types: no transform: export', (t) => {
+test('typescript: remove useless types: no transform: export', (t) => {
     t.noTransform('export');
     t.end();
 });
 
-test('remove useless types: no transform: qualified name', (t) => {
+test('typescript: remove useless types: no transform: qualified name', (t) => {
     t.noTransform('qualified-name');
     t.end();
 });
