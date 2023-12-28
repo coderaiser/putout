@@ -1,7 +1,7 @@
 {
     "printer": "putout",
     "rules": {
-        "putout/apply-namaspace-specifier": "off",
+        "putout/apply-namespace-specifier": "off",
         "putout/add-index-to-import": "off"
     }
 }
