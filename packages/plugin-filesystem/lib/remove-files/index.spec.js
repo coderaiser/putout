@@ -28,3 +28,16 @@ test('packages: remove-files: transform', (t) => {
     });
     t.end();
 });
+
+test('packages: remove-files: progress', async ({progressWithOptions}) => {
+    const options = {
+        names: ['*.swp'],
+    };
+    
+    await progressWithOptions('remove-files', options, {
+        i: 1,
+        n: 1,
+        percent: '100%',
+        rule: 'remove-files',
+    });
+});
