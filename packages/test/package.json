@@ -44,6 +44,7 @@
     "@putout/eslint": "^3.0.0",
     "@putout/plugin-filesystem": "*",
     "currify": "^4.0.0",
+    "montag": "^1.2.1",
     "putout": "*",
     "supertape": "^9.0.0",
     "try-catch": "^3.0.0",
