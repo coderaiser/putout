@@ -229,3 +229,46 @@ test('putout: operator: match-files: couple', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: match-files: typescript', (t) => {
+    const content = 'const x: number = 5';
+    const source = stringify([
+        '/',
+        ['/index.ts', content],
+        ['/index.cts', content],
+        ['/index.mts', content],
+        ['/index.tsx', content],
+    ]);
+    
+    const files = {
+        '*.ts': convertEsmToCommonjs,
+        '*.cts': convertEsmToCommonjs,
+        '*.mts': convertEsmToCommonjs,
+        '*.tsx': convertEsmToCommonjs,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = [
+        '/',
+        ['/index.ts', content],
+        ['/index.cts', content],
+        ['/index.mts', content],
+        ['/index.tsx', content],
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
