@@ -188,6 +188,13 @@ module.exports.copyFile = (filePath, dirPath) => {
 };
 
 function maybeRemoveFile(dirPath, filename) {
+    const type = getFileType(dirPath);
+    
+    if (type !== 'directory') {
+        const filename = getFilename(dirPath);
+        throw Error(`☝️ Looks like '${filename}' is not a directory, but: '${type}'. Rename to '${filename}/'`);
+    }
+    
     const dirPathFiles = getProperty(dirPath, 'files');
     const [fileToOverwrite] = findFile(dirPathFiles, filename);
     

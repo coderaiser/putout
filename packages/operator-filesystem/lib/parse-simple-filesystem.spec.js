@@ -1,5 +1,6 @@
 'use strict';
 
+const tryCatch = require('try-catch');
 const {test} = require('./extend.test');
 const {parseSimpleFilesystem} = require('./parse-simple-filesystem.test');
 
@@ -73,5 +74,14 @@ test('putout: operator: filesystem: parseFileSystem: slash', (t) => {
     };
     
     t.filesystem(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: parseFileSystem: no slash', (t) => {
+    const [error] = tryCatch(parseSimpleFilesystem, ['/', '/fixture', '/fixture/hello.txt']);
+    
+    const expected = `☝️ Looks like '/fixture' is not a directory, but: 'file'. Rename to '/fixture/'`;
+    
+    t.equal(error.message, expected);
     t.end();
 });
