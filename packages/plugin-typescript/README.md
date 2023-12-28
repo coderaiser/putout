@@ -31,7 +31,9 @@ npm i putout @putout/plugin-typescript -D
         "typescript/remove-useless-parens": "on",
         "typescript/remove-useless-promise": "on",
         "typescript/remove-useless-mapped-types": "on",
-        "typescript/find-file": "off"
+        "typescript/find-file": ["off", {
+            "ignore": []
+        }]
     }
 }
 ```

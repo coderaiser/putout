@@ -80,7 +80,7 @@ test('putout: plugin: typescript: transform: remove-useless-promise', (t) => {
     t.end();
 });
 
-test('plugin-typescript: transform: find-file', (t) => {
-    t.transform('find-file');
+test('plugin-typescript: no transform: find-file: off', (t) => {
+    t.noTransform('find-file-off');
     t.end();
 });
