@@ -29,6 +29,7 @@ npm i @putout/plugin-putout -D
         "putout/add-args": "on",
         "putout/add-push": "on",
         "putout/add-track-file": "on",
+        "putout/add-await-to-progress": "on",
         "putout/add-index-to-import": "on",
         "putout/check-match": "on",
         "putout/check-replace-code": "on",
@@ -765,6 +766,26 @@ module.exports.traverse = ({push}) => ({
     '__a.replace(/__b/g, __c)': (path) => {
         push(path);
     },
+});
+```
+
+## add-await-to-progress
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/978d70945edfa369390ea059654ff04d/89225c04039b9c0e9057aad34852c9428264f119).
+
+### ❌ Example of incorrect code
+
+```js
+test('', ({progress}) => {
+    progress();
+});
+```
+
+### ✅ Example of correct code
+
+```js
+test('', async ({progress}) => {
+    await progress();
 });
 ```
 

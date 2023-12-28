@@ -46,6 +46,7 @@ const applyRename = require('./apply-rename');
 const applyShortProcessors = require('./apply-short-processors');
 const addTrackFile = require('./add-track-file');
 const convertProgressToTrackFile = require('./convert-progress-to-track-file');
+const addAwaitToProgress = require('./add-await-to-progress');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -94,4 +95,5 @@ module.exports.rules = {
     'convert-traverse-to-scan': convertTraverseToScan,
     'add-track-file': addTrackFile,
     'convert-progress-to-track-file': convertProgressToTrackFile,
+    'add-await-to-progress': addAwaitToProgress,
 };

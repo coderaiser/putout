@@ -214,3 +214,8 @@ test('plugin-putout: transform: convert-progress-to-track-file', (t) => {
     t.transform('convert-progress-to-track-file');
     t.end();
 });
+
+test('plugin-putout: transform: add-await-to-progress', (t) => {
+    t.transform('add-await-to-progress');
+    t.end();
+});
