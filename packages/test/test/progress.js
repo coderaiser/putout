@@ -20,7 +20,7 @@ testProgress('@putout/test: progress', async ({progress}) => {
     });
 });
 
-testProgress('@putout/test: progress', async ({progress, match}) => {
+testProgress('@putout/test: progress: no name', async ({progress, match}) => {
     const [error] = await tryToCatch(progress, {
         i: 1,
         n: 1,
