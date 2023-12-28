@@ -8,12 +8,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('packages: find-file: report', (t) => {
+test('putout: plugin-package-json: find-file: report', (t) => {
     t.report('find-file', `Add 'type' of module to 'package.json'`);
     t.end();
 });
 
-test('packages: find-file: transform', (t) => {
+test('putout: plugin-package-json: find-file: transform', (t) => {
     t.transform('find-file');
     t.end();
 });

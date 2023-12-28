@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('packages: find-file: report', (t) => {
+test('putout: plugin-typescript: find-file: report', (t) => {
     t.report('find-file', `Remove useless type when declaring constant with primitive value`);
     t.end();
 });
 
-test('packages: find-file: transform', (t) => {
+test('putout: plugin-typescript: find-file: transform', (t) => {
     t.transform('find-file');
     t.end();
 });
