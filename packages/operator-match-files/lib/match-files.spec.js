@@ -272,3 +272,46 @@ test('putout: operator: match-files: typescript', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: match-files: ignore', (t) => {
+    const content = 'export const x = 5';
+    const source = stringify([
+        '/',
+        '/hello/',
+        '/hello/fixture/',
+        ['/hello/fixture/index.ts', content],
+    ]);
+    
+    const files = {
+        '*.ts': convertEsmToCommonjs,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'match-files': ['on', {
+                ignore: ['**/fixture'],
+            }],
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = [
+        '/',
+        '/hello/',
+        '/hello/fixture/',
+        ['/hello/fixture/index.ts', content],
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

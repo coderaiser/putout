@@ -3,6 +3,7 @@
 const {parse, print} = require('@putout/engine-parser');
 const {transform} = require('putout/transform');
 const {findPlaces} = require('putout/find-places');
+const ignores = require('putout/ignores');
 
 const {toJS, fromJS} = require('@putout/operator-json');
 
@@ -10,6 +11,7 @@ const {
     readFileContent,
     findFile,
     writeFileContent,
+    getFilename,
 } = require('@putout/operator-filesystem');
 
 const isObject = (a) => a && typeof a === 'object';
@@ -37,13 +39,19 @@ function fix(path, {filename, matchedJS, matchedAST, plugins}) {
     writeFileContent(path, matchedJSON);
 }
 
-const createScan = (files) => (path, {push, progress}) => {
+const createScan = (files) => (path, {push, progress, options}) => {
     const allFiles = [];
+    const cwd = getFilename(path);
     
     for (const [filename, plugin] of entries(files)) {
         const files = findFile(path, filename);
         
         for (const file of files) {
+            const filename = getFilename(file);
+            
+            if (ignores(cwd, filename, options))
+                continue;
+            
             allFiles.push({
                 plugin,
                 file,

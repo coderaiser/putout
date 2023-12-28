@@ -48,6 +48,21 @@ And you want to help users avoid updating `.putout.json` config with:
 }
 ```
 
+If you want to pass options use:
+
+```json
+{
+    "match": {
+        "tsconfig.json": {
+            "nextjs/update-tsconfig": ["on", {
+                "ignore": []
+            }]
+        }
+    },
+    "plugins": ["nextjs"]
+}
+```
+
 Instead of this, [`redlint`](https://github.com/putoutjs/redlint) can be used, it will generate `.filesystem.json` which can be processed by 🐊**Putout**.
 
 ## License
