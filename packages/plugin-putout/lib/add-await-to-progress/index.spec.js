@@ -25,3 +25,8 @@ test('packages: add-await-to-progress: transform: tape', (t) => {
     t.transform('tape');
     t.end();
 });
+
+test('packages: add-await-to-progress: no transform: not test', (t) => {
+    t.noTransform('not-test');
+    t.end();
+});

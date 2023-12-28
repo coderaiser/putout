@@ -8,8 +8,14 @@ const {
 } = types;
 
 const {remove, compare} = operator;
+const isInsideTest = ({parentPath}) => compare(parentPath, 'test(__a, __b)');
 
-const checkAwait = (vars, path) => !path.parentPath.isAwaitExpression();
+const checkAwait = (vars, path) => {
+    if (!path.find(isInsideTest))
+        return false;
+    
+    return !path.parentPath.isAwaitExpression();
+};
 
 module.exports.report = () => `Add 'await' to operator 'progress()'`;
 
