@@ -1,6 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+const tape = require('@putout/plugin-tape');
 const putout = require('..');
 
 const test = createTest(__dirname, {
@@ -216,6 +217,8 @@ test('plugin-putout: transform: convert-progress-to-track-file', (t) => {
 });
 
 test('plugin-putout: transform: add-await-to-progress', (t) => {
-    t.transform('add-await-to-progress');
+    t.transform('add-await-to-progress', {
+        tape,
+    });
     t.end();
 });
