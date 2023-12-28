@@ -1,3 +1,25 @@
+2023.12.29, v34.6.0
+
+feature:
+- dbc793d3f putout: @putout/plugin-typescript v6.0.0
+- dd1994388 @putout/plugin-typescript: find-file: ignore
+- 519967dd5 @putout/operator-match-files: add ignore
+- c33b54fd7 @putout/operator-filesystem: parse-simple-filesystem: handle case when directory has no slash at the end
+- 219b52fd4 @putout/plugin-typescript: drop support of node < 18
+- 5b1b22682 @putout/plugin-typescript: find-file: add
+- 3ab3da846 @putout/operator-match-files: add TS support
+- 8d7674458 @putout/plugin-filesystem: remove-vim-swap-file: add progress
+- fe1ff24a0 @putout/plugin-putout: apply-for-of-to-track-file: add
+- dbab77a47 @putout/plugin-filesystem: remove-files: add progress
+- 3e5df8d56 @putout/test: progress: handle the case when no expected passed
+- 87302a420 @putout/plugin-putout: add-await-to-progress: exclude other then tests useages
+- 98c863783 @putout/plugin-nodejs: rename-file-cjs-to-js, rename-file-mjs-to-js: add progress
+- be9586eac @putout/plugin-putout: add-await-to-progress: tape
+- 12ccbf3ad @putout/plugin-tape: add putout test
+- 1ae10e0dc @putout/plugin-tape: add-t-end: do not add when there is async operator
+- aa245567d @putout/plugin-putout: add-await-to-progress: add
+- f4aa0f96e @putout/plugin-putout: add-args: add progress()
+
 2023.12.28, v34.5.1
 
 fix:
