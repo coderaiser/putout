@@ -39,7 +39,7 @@ const addPush = require('./add-push');
 const moveRequireOnTopLevel = require('./move-require-on-top-level');
 const includer = require('./includer');
 const createTest = require('./create-test');
-const applyNamaspaceSpecifier = require('./apply-namaspace-specifier');
+const applyNamespaceSpecifier = require('./apply-namespace-specifier');
 const convertGetRuleToRequire = require('./convert-get-rule-to-require');
 const addIndexToImport = require('./add-index-to-import');
 const applyRename = require('./apply-rename');
@@ -47,6 +47,7 @@ const applyShortProcessors = require('./apply-short-processors');
 const addTrackFile = require('./add-track-file');
 const convertProgressToTrackFile = require('./convert-progress-to-track-file');
 const addAwaitToProgress = require('./add-await-to-progress');
+const applyForOfToTrackFile = require('./apply-for-of-to-track-file');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -87,7 +88,7 @@ module.exports.rules = {
     'move-require-on-top-level': moveRequireOnTopLevel,
     includer,
     'create-test': createTest,
-    'apply-namaspace-specifier': applyNamaspaceSpecifier,
+    'apply-namespace-specifier': applyNamespaceSpecifier,
     'convert-get-rule-to-require': convertGetRuleToRequire,
     'add-index-to-import': addIndexToImport,
     'apply-rename': applyRename,
@@ -96,4 +97,5 @@ module.exports.rules = {
     'add-track-file': addTrackFile,
     'convert-progress-to-track-file': convertProgressToTrackFile,
     'add-await-to-progress': addAwaitToProgress,
+    'apply-for-of-to-track-file': applyForOfToTrackFile,
 };

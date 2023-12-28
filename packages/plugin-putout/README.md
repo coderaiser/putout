@@ -25,7 +25,8 @@ npm i @putout/plugin-putout -D
         "putout/apply-insert-before": "on",
         "putout/apply-insert-after": "on",
         "putout/apply-short-processors": "on",
-        "putout/apply-namaspace-specifier": "on",
+        "putout/apply-namespace-specifier": "on",
+        "putout/apply-for-of-to-track-file": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
         "putout/add-track-file": "on",
@@ -276,22 +277,32 @@ const test = createTest({
 });
 ```
 
-## apply-namaspace-specifier
+## apply-for-of-to-track-file
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c8ccc07044299e463807773705aec583/71722e57f2b0b03eb8300ab6fe268251dc696629).
+> The **Generator** object is returned by a `generator function` and it conforms to both the iterable protocol and the `iterator` protocol.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+
+`trackFile` is generator function used to count progress that can be used in [**Scanner**](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#scanner).
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5ec6c384aa6e4471aab17efb86e185f3/e749c7d649ef2da76410a5964e7c875d10538789)
 
 ### ❌ Example of incorrect code
 
 ```js
-import a from './index.js';
-import b from '../lib/index.js';
+module.exports.scan = (path, {push, trackFile}) => {
+    trackFile(path, '*.swp').map(push);
+};
 ```
 
 ### ✅ Example of correct code
 
 ```js
-import * as a from './index.js';
-import * as b from '../lib/index.js';
+module.exports.scan = (path, {push, trackFile}) => {
+    for (const file of trackFile(path, '*.swp')) {
+        push(file);
+    }
+};
 ```
 
 ## create-test

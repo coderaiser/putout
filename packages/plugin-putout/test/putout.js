@@ -222,3 +222,8 @@ test('plugin-putout: transform: add-await-to-progress', (t) => {
     });
     t.end();
 });
+
+test('plugin-putout: transform: apply-for-of-to-track-file', (t) => {
+    t.transform('apply-for-of-to-track-file');
+    t.end();
+});
