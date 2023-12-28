@@ -254,7 +254,7 @@ export const scan = (rootPath) => {
 };
 ```
 
-Or better `trackFile`:
+Or better `trackFile`, which does the same, but also count `progress`:
 
 ```js
 export const report = () => 'Add file';
