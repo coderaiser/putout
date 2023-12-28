@@ -40,7 +40,7 @@
   "dependencies": {
     "@babel/core": "^8.0.0-alpha.1",
     "@babel/eslint-parser": "^8.0.0-alpha.1",
-    "@eslint/eslintrc": "^2.0.2",
+    "@eslint/eslintrc": "^3.0.0",
     "@putout/engine-parser": "^10.0.0",
     "@putout/eslint": "^3.0.0",
     "@putout/eslint-config": "^8.0.0",
