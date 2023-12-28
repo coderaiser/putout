@@ -15,8 +15,6 @@
 npm i putout @putout/plugin-typescript -D
 ```
 
-## Options
-
 ```json
 {
     "rules": {
@@ -32,32 +30,31 @@ npm i putout @putout/plugin-typescript -D
         "typescript/remove-useless-types": "on",
         "typescript/remove-useless-parens": "on",
         "typescript/remove-useless-promise": "on",
-        "typescript/remove-useless-mapped-types": "on"
+        "typescript/remove-useless-mapped-types": "on",
+        "typescript/find-file": "off"
     }
 }
 ```
 
-## Rules
-
-### apply-as-type-assertion
+## apply-as-type-assertion
 
 According to [best practise](https://stackoverflow.com/questions/36842158/arraytype-vs-type-in-typescript/36843084#36843084).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 const boundaryElement = <HTMLElement>e.target;
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 const boundaryElement1 = e.target as HTMLElement;
 ```
 
-### apply-utility-types
+## apply-utility-types
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 type SuperType1 = {
@@ -65,13 +62,13 @@ type SuperType1 = {
 };
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 type SuperType1 = Partial<Type>;
 ```
 
-### apply-type-guards
+## apply-type-guards
 
 > It just so happens that TypeScript has something called a `type guard`.
 > A `type guard` is some expression that performs a runtime check that guarantees the type in some scope.
@@ -80,19 +77,19 @@ type SuperType1 = Partial<Type>;
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5ac4459242197c4820b331f19d3681eb/4b66175c486ee8e865aee9645bf4e5fffc664e01).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 const isNumber = (a) => typeof a === 'number';
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 const isNumber = (a): a is number => typeof a === 'number';
 ```
 
-### convert-generic-to-shorthand
+## convert-generic-to-shorthand
 
 > There is no difference at all. `Type[]` is the shorthand syntax for an `array` of `Type`. `Array<Type>` is the generic syntax. They are completely equivalent.
 >
@@ -100,7 +97,7 @@ const isNumber = (a): a is number => typeof a === 'number';
 
 Convert `generic` to `shorthand`.
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 interface A {
@@ -109,7 +106,7 @@ interface A {
 }
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 interface A {
@@ -118,16 +115,16 @@ interface A {
 }
 ```
 
-#### Comparison
+### Comparison
 
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout** | [`typescript/convert-generic-to-shorthand`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-generic-to-shorthand) | ✅
 ⏣ **ESLint** | [`@typescript-eslint/array-type`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/array-type.md#array-type) | ✅
 
-### remove-duplicates-from-union
+## remove-duplicates-from-union
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 type x = boolean[]
@@ -138,7 +135,7 @@ type x = boolean[]
     | boolean[];
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 type x = boolean[]
@@ -147,13 +144,13 @@ type x = boolean[]
     | string[];
 ```
 
-### remove-duplicates-exports
+## remove-duplicates-exports
 
 In **JavaScript** duplicate exports leads to [`SyntaxError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError), anyways **TypeScript** parses such code and reports [`Duplicates Identifier`](https://github.com/Microsoft/TypeScript/blob/v1.8.5/src/compiler/diagnosticMessages.json#L826-L829) diagnostic.
 
 It gives us ability to automate fixing of such code 😏. Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e8d02b3d1c91b4b3b6b9636e22dd03ed/8be7b4c8d0f6c28440f36d03341a1153c18549a7).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 export {
@@ -190,9 +187,9 @@ const x: any = 5;
 const x = 5;
 ```
 
-### remove-unused-types
+## remove-unused-types
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 type n = number;
@@ -201,7 +198,7 @@ type s = string;
 const x: n = 5;
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 type n = number;
@@ -209,9 +206,9 @@ type n = number;
 const x: n = 5;
 ```
 
-### remove-useless-types
+## remove-useless-types
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 type oldType = {
@@ -226,7 +223,7 @@ const x: newType = {
 };
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 type oldType = {
@@ -240,11 +237,11 @@ const x: oldType = {
 };
 ```
 
-### remove-useless-parens
+## remove-useless-parens
 
 Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6c8717114f7285639a5f24b5a6fdb9dc/583e438a61aae156c79b66dbf418e1e5f251bf87).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 const m: X[] = [];
@@ -252,7 +249,7 @@ const z: (X | Y) = 5;
 const f: X = 5;
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 const x: X[] | Y[] = [];
@@ -261,11 +258,11 @@ const z: X | Y = 5;
 const f: X = 5;
 ```
 
-### remove-useless-promise
+## remove-useless-promise
 
 Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5fd13c0510571b45884dfddbc8b83bb4/5ca97c4021b197822ef73418796513fe6d891239).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 function doStuff(): Promise<string> {
@@ -273,7 +270,7 @@ function doStuff(): Promise<string> {
 }
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 function doStuff(): string {
@@ -281,11 +278,11 @@ function doStuff(): string {
 }
 ```
 
-### remove-useless-mapped-types
+## remove-useless-mapped-types
 
 Remove useless [mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 type SuperType = {
@@ -293,17 +290,17 @@ type SuperType = {
 };
 ```
 
-##### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 type SuperType = Type;
 ```
 
-### remove-useless-mapping-modifiers
+## remove-useless-mapping-modifiers
 
 Remove useless [mapping modifiers](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 type SuperType = {
@@ -311,7 +308,7 @@ type SuperType = {
 };
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 type SuperType = {
@@ -319,9 +316,9 @@ type SuperType = {
 };
 ```
 
-### remove-duplicate-interface-keys
+## remove-duplicate-interface-keys
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 interface Hello {
@@ -330,12 +327,34 @@ interface Hello {
 }
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 interface Hello {
     'hello': string;
 }
+```
+
+## find-file
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/1026c5e9562248e7f07f9e2c7b698650/8c701bba5ba52f4cac258ecf5dcb5bee1f197236).
+
+### ❌ Example of incorrect code
+
+```ts
+__putout_processor_filesystem(['/', [
+    '/hello.ts',
+    'const a: number = 5;',
+]]);
+```
+
+### ✅ Example of correct code
+
+```ts
+__putout_processor_filesystem(['/', [
+    '/hello.ts',
+    'const a = 5;',
+]]);
 ```
 
 ## License

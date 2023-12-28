@@ -79,3 +79,8 @@ test('putout: plugin: typescript: transform: remove-useless-promise', (t) => {
     t.transform('remove-useless-promise');
     t.end();
 });
+
+test('plugin-typescript: transform: find-file', (t) => {
+    t.transform('find-file');
+    t.end();
+});

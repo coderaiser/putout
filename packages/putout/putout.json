@@ -37,7 +37,8 @@
             "nodejs/mjs-file": "on",
             "nodejs/rename-file-cjs-to-js": "on",
             "nodejs/rename-file-mjs-to-js": "on",
-            "package-json/find-file": "on"
+            "package-json/find-file": "on",
+            "typescript/find-file": "on"
         },
         "*.md": {
             "conditions/apply-consistent-blocks": "off",
