@@ -1,3 +1,26 @@
+2023.12.28, v34.5.1
+
+fix:
+- 659aa492a @putout/plugin-nodejs: convert-esm-to-commonjs: multiple exports
+
+feature:
+- 9ea716c95 @putout/engine-processor: picomatch v3.0.1
+- a7117084e putout: @putout/formatter-frame v5.0.0
+- ee268e84b eslint-plugin-putout: @eslint/eslintrc v3.0.0
+- c3855a1e7 @putout/formatter-frame: drop suport of node < 18
+- 436183cc3 @putout/formatter-frame: @putout/formatter-codeframe v6.0.0
+- 32a51b3d2 @putout/test: @putout/eslint v3.0.0
+- 0b21b5713 @putout/cli-cache: file-entry-cache v8.0.0
+- b87b93a50 @putout/processor-css: stylelint-config-standard v36.0.0
+- fddbfb959 @putout/plugin-nodejs/convert-esm-to-commonjs: export multiple
+- f6d820a76 @putout/compare: __exports: add
+- a1ceaca1d @putout/plugin-package-json: find-file: use matchFiles instead
+- 54711e9d0 @putout/operator-match-file: Traverser -> Scanner
+- 9a506bc00 @putout/plugin-putout: convert-progress-to-track-file: couple for-of statements
+- 1e99f872b @putout/plugin-putout: convert-progress-to-track: add
+- d375819c1 @putout/plugin-putout: add-track-file: add
+- ab291e0fd @putout/engine-runner: scanner: trackFile
+
 2023.12.26, v34.5.0
 
 feature:
