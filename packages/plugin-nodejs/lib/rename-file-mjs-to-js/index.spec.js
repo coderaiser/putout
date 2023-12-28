@@ -24,3 +24,12 @@ test('packages: rename-file-mjs-to-js: transform', (t) => {
     t.transform('rename-file-mjs-to-js');
     t.end();
 });
+
+test('packages: rename-file-mjs-to-js: progress', async ({progress}) => {
+    await progress('rename-file-mjs-to-js', {
+        i: 1,
+        n: 1,
+        percent: '100%',
+        rule: 'rename-file-mjs-to-js',
+    });
+});

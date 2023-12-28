@@ -18,8 +18,8 @@ module.exports.fix = (file, {js}) => {
     renameFile(file, js);
 };
 
-module.exports.scan = (path, {push}) => {
-    for (const file of findFile(path, '*.cjs')) {
+module.exports.scan = (path, {push, trackFile}) => {
+    for (const file of trackFile(path, '*.cjs')) {
         const packagePath = findUpPackage(file);
         
         const cjs = getFilename(file);
