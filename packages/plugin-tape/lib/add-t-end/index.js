@@ -37,8 +37,13 @@ function match({__body}, path) {
     let found = false;
     
     traverse(path, {
-        't.end()': () => {
+        'await t.__(__args)': () => {
             found = true;
+            path.stop();
+        },
+        't.end()': (path) => {
+            found = true;
+            path.stop();
         },
     });
     

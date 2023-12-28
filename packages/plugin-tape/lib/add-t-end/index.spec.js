@@ -30,6 +30,11 @@ test('plugin-tape: add-t-end: transform: async', (t) => {
     t.end();
 });
 
+test('plugin-tape: add-t-end: no transform: async-operator', (t) => {
+    t.noTransform('async-operator');
+    t.end();
+});
+
 test('plugin-tape: add-t-end: no transform: contains', (t) => {
     t.noTransform('contains');
     t.end();
