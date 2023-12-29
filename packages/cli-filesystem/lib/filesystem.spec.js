@@ -7,6 +7,7 @@ const {
     removeFile,
     createDirectory,
     readFileContent,
+    readFileOptions,
     writeFileContent,
     copyFile,
 } = require('./filesystem');
@@ -135,5 +136,22 @@ test('putout: cli: filesystem: writeFileContent: mkdirSync', (t) => {
     }];
     
     t.calledWith(mkdirSync, expected);
+    t.end();
+});
+
+test('putout: cli: filesystem: readFileOptions', (t) => {
+    const parseOptions = stub();
+    const options = {};
+    
+    readFileOptions('/hello.js', options, {
+        parseOptions,
+    });
+    
+    const expected = [{
+        name: '/hello.js',
+        options: {},
+    }];
+    
+    t.calledWith(parseOptions, expected);
     t.end();
 });

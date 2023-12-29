@@ -11,6 +11,8 @@ const {
     constants,
 } = require('fs');
 
+const parseOptionsOriginal = require('putout/parse-options');
+
 const {COPYFILE_FICLONE} = constants;
 
 module.exports.renameFile = (from, to, {renameSync = renameSyncOriginal} = {}) => {
@@ -36,6 +38,13 @@ function createDirectory(name, {mkdirSync = mkdirSyncOriginal} = {}) {
 
 module.exports.readFileContent = (name, {readFileSync = readFileSyncOriginal} = {}) => {
     return readFileSync(name, 'utf8');
+};
+
+module.exports.readFileOptions = (name, options = {}, {parseOptions = parseOptionsOriginal} = {}) => {
+    return parseOptions({
+        name,
+        options,
+    });
 };
 
 module.exports.writeFileContent = (name, content, {writeFileSync = writeFileSyncOriginal, mkdirSync = mkdirSyncOriginal} = {}) => {

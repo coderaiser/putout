@@ -45,6 +45,16 @@ readFileContent('/hello/world');
 'hello';
 ```
 
+### `readFileOptions(name: string, options?: PutoutConfig): PutoutConfig)`
+
+```js
+readFileOptions('/hello/world');
+// returns
+({
+    rules: {},
+});
+```
+
 ### `writeFileContent(name: string, content: string)`
 
 If parent directory not exists - creates it.
