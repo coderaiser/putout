@@ -124,6 +124,19 @@ const {moveFile} = operator;
 moveFile(filePath, dirPath);
 ```
 
+### `readFileOptions(filePath: FilePath, options?: PutoutConfig): PutoutConfig`
+
+```js
+const {operator} = require('putout');
+const {readFileOptions} = operator;
+
+readFileOptions(filePath);
+// returns
+({
+    ignore: [],
+});
+```
+
 ### `readFileContent(filePath: FilePath): string`
 
 ```js

@@ -12,6 +12,7 @@ const defaultFS = {
     removeFile: noop,
     createDirectory: noop,
     readFileContent: returns(''),
+    readFileOptions: (filename, options = {}) => options,
     writeFileContent: noop,
     copyFile: noop,
 };
@@ -36,6 +37,10 @@ module.exports.createDirectory = (name) => {
 
 module.exports.readFileContent = (name) => {
     return maybeFS.readFileContent(name);
+};
+
+module.exports.readFileOptions = (name, options) => {
+    return maybeFS.readFileOptions(name, options);
 };
 
 module.exports.writeFileContent = (name, content) => {

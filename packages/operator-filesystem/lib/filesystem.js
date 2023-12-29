@@ -274,6 +274,17 @@ module.exports.createDirectory = (dirPath, name) => {
         .at(-1);
 };
 
+module.exports.readFileOptions = (filePath, options) => {
+    if (filePath.__putout_file_options)
+        return filePath.__putout_file_options;
+    
+    const filename = getFilename(filePath);
+    
+    filePath.__putout_file_options = maybeFS.readFileOptions(filename, options);
+    
+    return filePath.__putout_file_options;
+};
+
 module.exports.readFileContent = (filePath) => {
     const fileType = getFileType(filePath);
     

@@ -25,6 +25,7 @@ const {
     createDirectory,
     getParentDirectory,
     readFileContent,
+    readFileOptions,
     writeFileContent,
     init,
     deinit,
@@ -679,6 +680,44 @@ test('putout: operator: filesystem: readFileContent: no content', (t) => {
     const content = readFileContent(filePath);
     
     t.equal(content, '');
+    t.end();
+});
+
+test('putout: operator: filesystem: readFileOptions', (t) => {
+    const ast = parseFilesystem(['/', '/hello.js']);
+    const [filePath] = findFile(ast, '/hello.js');
+    const options = readFileOptions(filePath);
+    const {__putout_file_options} = filePath;
+    
+    t.deepEqual(options, __putout_file_options);
+    t.end();
+});
+
+test('putout: operator: filesystem: readFileOptions: options exists', (t) => {
+    const ast = parseFilesystem(['/', '/hello.js']);
+    const [filePath] = findFile(ast, '/hello.js');
+    
+    readFileOptions(filePath);
+    const options = readFileOptions(filePath);
+    const {__putout_file_options} = filePath;
+    
+    t.deepEqual(options, __putout_file_options);
+    t.end();
+});
+
+test('putout: operator: filesystem: readFileOptions: overrides', (t) => {
+    const ast = parseFilesystem(['/', '/hello.js']);
+    
+    const [filePath] = findFile(ast, '/hello.js');
+    const options = readFileOptions(filePath, {
+        ignore: [],
+    });
+    
+    const expected = {
+        ignore: [],
+    };
+    
+    t.deepEqual(options, expected);
     t.end();
 });
 
