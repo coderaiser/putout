@@ -15,6 +15,11 @@ test('packages: turn-off-schema: report', (t) => {
     t.end();
 });
 
+test('packages: turn-off-schema: no report', (t) => {
+    t.noReport('bool');
+    t.end();
+});
+
 test('packages: turn-off-schema: transform', (t) => {
     t.transform('turn-off-schema');
     t.end();

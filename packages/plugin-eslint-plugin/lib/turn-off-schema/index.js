@@ -1,7 +1,6 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
 const {traverseProperties} = operator;
 const {BooleanLiteral} = types;
 
@@ -13,6 +12,12 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => ({
     ObjectExpression(path) {
-        traverseProperties(path, 'schema').map(push);
+        const [schema] = traverseProperties(path, 'schema');
+        
+        if (!schema)
+            return;
+        
+        if (!schema.get('value').isBooleanLiteral())
+            push(schema);
     },
 });
