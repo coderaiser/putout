@@ -7,11 +7,13 @@ const {createPlugin} = require('@putout/eslint/create-plugin');
 const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
-    parser: require.resolve('@babel/eslint-parser/experimental-worker'),
-    parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-            plugins: ['@babel/plugin-syntax-typescript'],
+    languageOptions: {
+        parser: require('@babel/eslint-parser/experimental-worker'),
+        parserOptions: {
+            requireConfigFile: false,
+            babelOptions: {
+                plugins: ['@babel/plugin-syntax-typescript'],
+            },
         },
     },
 });

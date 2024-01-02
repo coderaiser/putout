@@ -11,9 +11,11 @@ const {createPlugin} = require('@putout/eslint/create-plugin');
 const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
-    parserOptions: {
-        ecmaVersion: 2022,
-        sourceType: 'module',
+    languageOptions: {
+        parserOptions: {
+            ecmaVersion: 2022,
+            sourceType: 'module',
+        },
     },
 });
 

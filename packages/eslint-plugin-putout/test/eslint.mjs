@@ -112,17 +112,17 @@ test('eslint-plugin-putout: ts: disabled', async ({comparePlaces}) => {
     await comparePlaces('ts-disabled', []);
 });
 
-test('eslint-plugin-putout: ts: duplicate', async ({comparePlaces}) => {
-    await comparePlaces('ts-duplicate', [{
-        message: `'Stub' is already defined.`,
-        position: {
-            column: 9,
-            line: 2,
-        },
-        rule: '@typescript-eslint/no-redeclare (eslint)',
-    }]);
-});
-
+// https://github.com/typescript-eslint/typescript-eslint/pull/8171
+// test('eslint-plugin-putout: ts: duplicate', async ({comparePlaces}) => {
+//     await comparePlaces('ts-duplicate', [{
+//         message: `'Stub' is already defined.`,
+//         position: {
+//             column: 9,
+//             line: 2,
+//         },
+//         rule: '@typescript-eslint/no-redeclare (eslint)',
+//     }]);
+// });
 test('eslint-plugin-putout: remove-empty-specifiers', async ({process}) => {
     await process('remove-empty-specifiers');
 });

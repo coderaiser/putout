@@ -13,9 +13,11 @@ const rule = createPlugin(require('.'));
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
 
 const ruleTester = new RuleTester({
-    parserOptions: {
-        ecmaVersion: 2022,
-        sourceType: 'module',
+    languageOptions: {
+        parserOptions: {
+            ecmaVersion: 2022,
+            sourceType: 'module',
+        },
     },
 });
 

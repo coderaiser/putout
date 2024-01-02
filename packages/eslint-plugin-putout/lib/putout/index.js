@@ -13,7 +13,7 @@ module.exports = {
             category: 'putout',
             recommended: true,
         },
-        schema: {},
+        schema: false,
         fixable: 'code',
     },
     

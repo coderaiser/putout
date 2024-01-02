@@ -8,9 +8,11 @@ const {createPlugin} = require('@putout/eslint/create-plugin');
 const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
-    parserOptions: {
-        ecmaVersion: 2022,
-        sourceType: 'module',
+    languageOptions: {
+        parserOptions: {
+            ecmaVersion: 2022,
+            sourceType: 'module',
+        },
     },
 });
 
@@ -52,19 +54,23 @@ ruleTester.run('object-property-newline', rule, {
 });
 
 const babelParserTester = new RuleTester({
-    parser: require.resolve('@babel/eslint-parser/experimental-worker'),
-    parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-            plugins: ['@babel/plugin-syntax-typescript'],
+    languageOptions: {
+        parser: require('@babel/eslint-parser/experimental-worker'),
+        parserOptions: {
+            requireConfigFile: false,
+            babelOptions: {
+                plugins: ['@babel/plugin-syntax-typescript'],
+            },
         },
     },
 });
 
 const tsParserTester = new RuleTester({
-    parser: require.resolve('@typescript-eslint/parser'),
-    parserOptions: {
-        warnOnUnsupportedTypeScriptVersion: false,
+    languageOptions: {
+        parser: require('@typescript-eslint/parser'),
+        parserOptions: {
+            warnOnUnsupportedTypeScriptVersion: false,
+        },
     },
 });
 

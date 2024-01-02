@@ -38,12 +38,11 @@ const extensionRules = {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     
-    '@typescript-eslint/require-await': 'off',
-    
-    // disabled while https://github.com/typescript-eslint/typescript-eslint/pull/8171 merged
-    
+    '@typescript-eslint/require-await': 'off', // disabled while https://github.com/typescript-eslint/typescript-eslint/pull/8171 merged
     // 'no-redeclare': 'off',
     // '@typescript-eslint/no-redeclare': 'error',
+    // same
+    '@typescript-eslint/no-unsafe-declaration-merging': 'off',
 };
 
 const ts = {

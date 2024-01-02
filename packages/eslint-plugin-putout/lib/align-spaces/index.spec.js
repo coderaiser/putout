@@ -5,8 +5,10 @@ const {RuleTester} = require('eslint');
 const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
-    parserOptions: {
-        ecmaVersion: 2019,
+    languageOptions: {
+        parserOptions: {
+            ecmaVersion: 2019,
+        },
     },
 });
 

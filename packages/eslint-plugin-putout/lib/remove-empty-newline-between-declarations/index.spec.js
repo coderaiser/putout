@@ -6,9 +6,11 @@ const montag = require('montag');
 const rule = require('.');
 
 const ruleTester = new RuleTester({
-    parserOptions: {
-        ecmaVersion: 2022,
-        sourceType: 'module',
+    languageOptions: {
+        parserOptions: {
+            ecmaVersion: 2022,
+            sourceType: 'module',
+        },
     },
 });
 

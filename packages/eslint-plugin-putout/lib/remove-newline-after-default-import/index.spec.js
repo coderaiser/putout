@@ -7,9 +7,11 @@ const {createPlugin} = require('@putout/eslint/create-plugin');
 const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
-    parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: 'module',
+    languageOptions: {
+        parserOptions: {
+            ecmaVersion: 2020,
+            sourceType: 'module',
+        },
     },
 });
 

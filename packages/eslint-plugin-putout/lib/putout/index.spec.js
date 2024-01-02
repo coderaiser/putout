@@ -7,11 +7,10 @@ const {RuleTester} = require('eslint');
 const montag = require('montag');
 
 const rule = require('./index');
-
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), 'utf8');
 
 const ruleTester = new RuleTester({
-    parserOptions: {
+    languageOptions: {
         ecmaVersion: 2023,
     },
 });
@@ -83,19 +82,23 @@ ruleTester.run('putout', rule, {
 });
 
 const parserTester = new RuleTester({
-    parser: require.resolve('@babel/eslint-parser/experimental-worker'),
-    parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-            plugins: ['@babel/plugin-syntax-typescript'],
+    languageOptions: {
+        parser: require('@babel/eslint-parser/experimental-worker'),
+        parserOptions: {
+            requireConfigFile: false,
+            babelOptions: {
+                plugins: ['@babel/plugin-syntax-typescript'],
+            },
         },
     },
 });
 
 const tsParserTester = new RuleTester({
-    parser: require.resolve('@typescript-eslint/parser'),
-    parserOptions: {
-        warnOnUnsupportedTypeScriptVersion: false,
+    languageOptions: {
+        parser: require('@typescript-eslint/parser'),
+        parserOptions: {
+            warnOnUnsupportedTypeScriptVersion: false,
+        },
     },
 });
 

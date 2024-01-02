@@ -7,7 +7,9 @@ const putoutPlugin = require('..');
 const getPutoutConfig = (name) => compat.config(putoutPlugin.configs[name]);
 
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
+    languageOptions: {
+        baseDirectory: __dirname,
+    },
 });
 
 const n = nPlugin.configs['flat/mixed-esm-and-cjs'];
