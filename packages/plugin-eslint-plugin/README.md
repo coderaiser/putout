@@ -20,7 +20,8 @@ npm i @putout/plugin-eslint-plugin -D
 ```json
 {
     "rules": {
-        "eslint/convert-context-to-source": "on"
+        "eslint-plugin/convert-context-to-source": "on",
+        "eslint-plugin/apply-flat-config-to-rule-tester": "on"
     }
 }
 ```
@@ -106,6 +107,36 @@ sourceCode.getTokensAfter();
 sourceCode.getTokensBefore();
 sourceCode.getTokensBetween();
 sourceCode.parserServices;
+```
+
+## apply-flat-config-to-rule-tester
+
+### ❌ Example of incorrect code
+
+```js
+const parserTester = new RuleTester({
+    parser: require.resolve('@babel/eslint-parser/experimental-worker'),
+    parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+            plugins: ['@babel/plugin-syntax-typescript'],
+        },
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+const parserTester = new RuleTester({
+    parser: require.resolve('@babel/eslint-parser/experimental-worker'),
+    parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+            plugins: ['@babel/plugin-syntax-typescript'],
+        },
+    },
+});
 ```
 
 ## License

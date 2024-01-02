@@ -24,3 +24,8 @@ test('plugin-eslint-plugin: transform: convert-context-to-source', (t) => {
     t.transform('convert-context-to-source');
     t.end();
 });
+
+test('plugin-eslint-plugin: transform: apply-flat-config-to-rule-tester', (t) => {
+    t.transform('apply-flat-config-to-rule-tester');
+    t.end();
+});
