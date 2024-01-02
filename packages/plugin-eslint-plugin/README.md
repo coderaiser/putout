@@ -21,7 +21,8 @@ npm i @putout/plugin-eslint-plugin -D
 {
     "rules": {
         "eslint-plugin/convert-context-to-source": "on",
-        "eslint-plugin/apply-flat-config-to-rule-tester": "on"
+        "eslint-plugin/apply-flat-config-to-rule-tester": "on",
+        "eslint-plugin/convert-require-resolve-to-require": "on"
     }
 }
 ```
@@ -111,6 +112,8 @@ sourceCode.parserServices;
 
 ## apply-flat-config-to-rule-tester
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/51bc804a64700c235746915f082a926d/d5f3c107eedf8c3ccec62550c1b4a0a6ea1db4ac).
+
 ### ❌ Example of incorrect code
 
 ```js
@@ -139,6 +142,89 @@ const parserTester = new RuleTester({
 });
 ```
 
+## convert-require-resolve-to-require
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b064422ac6ef61e7d31b8c076c74e2d5/6f5f66668767f5e13ea08373d58bac3efb24452b).
+
+### ❌ Example of incorrect code
+
+```js
+const test = new RuleTester({
+    languageOptions: {
+        parser: require.resolve('@babel/eslint-parser/experimental-worker'),
+        parserOptions: {
+            requireConfigFile: false,
+            babelOptions: {
+                plugins: ['@babel/plugin-syntax-typescript'],
+            },
+        },
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+const test = new RuleTester({
+    languageOptions: {
+        parser: require('@babel/eslint-parser/experimental-worker'),
+        parserOptions: {
+            requireConfigFile: false,
+            babelOptions: {
+                plugins: ['@babel/plugin-syntax-typescript'],
+            },
+        },
+    },
+});
+```
+
+## turn-off-schema
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5044f09074f6d4772dc637962c49d73d/8001647bc1e3cd51a646b03761f3276aab4ba963).
+
+### ❌ Example of incorrect code
+
+```js
+function getMeta(plugin) {
+    const {
+        type = 'layout',
+        recommended = true,
+        fixable = 'whitespace',
+    } = plugin;
+    
+    return {
+        type,
+        docs: {
+            recommended,
+        },
+        schema: {},
+        fixable,
+    };
+}
+```
+
+### ✅ Example of correct code
+
+```js
+function getMeta(plugin) {
+    const {
+        type = 'layout',
+        recommended = true,
+        fixable = 'whitespace',
+    } = plugin;
+    
+    return {
+        type,
+        docs: {
+            recommended,
+        },
+        schema: false,
+        fixable,
+    };
+}
+```
+
+>>>>>>> e0ca0724e (xx)
 ## License
 
 MIT

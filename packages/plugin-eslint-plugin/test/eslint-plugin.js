@@ -29,3 +29,8 @@ test('plugin-eslint-plugin: transform: apply-flat-config-to-rule-tester', (t) =>
     t.transform('apply-flat-config-to-rule-tester');
     t.end();
 });
+
+test('plugin-eslint-plugin: transform: convert-require-resolve-to-require', (t) => {
+    t.transform('convert-require-resolve-to-require');
+    t.end();
+});

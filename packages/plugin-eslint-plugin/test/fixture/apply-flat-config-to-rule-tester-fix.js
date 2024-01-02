@@ -1,6 +1,6 @@
 const parserTester = new RuleTester({
     languageOptions: {
-        parser: require.resolve('@babel/eslint-parser/experimental-worker'),
+        parser: require('@babel/eslint-parser/experimental-worker'),
         parserOptions: {
             requireConfigFile: false,
             babelOptions: {
@@ -12,7 +12,7 @@ const parserTester = new RuleTester({
 
 const test = new RuleTester({
     languageOptions: {
-        parser: require.resolve('@babel/eslint-parser/experimental-worker'),
+        parser: require('@babel/eslint-parser/experimental-worker'),
         parserOptions: {
             requireConfigFile: false,
             babelOptions: {
