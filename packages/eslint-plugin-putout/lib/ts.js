@@ -40,8 +40,10 @@ const extensionRules = {
     
     '@typescript-eslint/require-await': 'off',
     
-    'no-redeclare': 'off',
-    '@typescript-eslint/no-redeclare': 'error',
+    // disabled while https://github.com/typescript-eslint/typescript-eslint/pull/8171 merged
+    
+    // 'no-redeclare': 'off',
+    // '@typescript-eslint/no-redeclare': 'error',
 };
 
 const ts = {
