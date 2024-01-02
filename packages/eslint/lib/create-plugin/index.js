@@ -2,7 +2,6 @@
 
 const prepare = (plugin, context, options) => (node) => {
     const {filter, report} = plugin;
-    
     const {sourceCode, filename} = context;
     
     const getText = sourceCode.getText.bind(sourceCode);
@@ -19,7 +18,6 @@ const prepare = (plugin, context, options) => (node) => {
     });
     
     const text = getText(node);
-    
     const path = {
         text,
         node,
@@ -95,7 +93,7 @@ function getMeta(plugin) {
         docs: {
             recommended,
         },
-        schema: {},
+        schema: false,
         fixable,
     };
 }
