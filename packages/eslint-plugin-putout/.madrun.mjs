@@ -9,6 +9,10 @@ const env = {
     ESLINT_MOCHA_TIMEOUT: 20_000,
 };
 
+const lintEnv = {
+    ESLINT_USE_FLAT_CONFIG: false,
+};
+
 export default {
     'wisdom': () => run(['lint:all', 'coverage']),
     'test': () => `tape 'test/**/*.mjs' 'lib/config/*.spec.*'`,
@@ -16,7 +20,7 @@ export default {
     'watch:test': async () => `nodemon -w rules -x ${await run('test')}`,
     'lint': () => 'putout .',
     'lint:all': () => run(['lint', 'lint:safe']),
-    'lint:safe': () => 'eslint -c .eslintrc-safe.json eslint-fixture',
+    'lint:safe': () => [lintEnv, 'eslint -c .eslintrc-safe.json eslint-fixture'],
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
