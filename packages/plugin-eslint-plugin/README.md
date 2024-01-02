@@ -22,7 +22,8 @@ npm i @putout/plugin-eslint-plugin -D
     "rules": {
         "eslint-plugin/convert-context-to-source": "on",
         "eslint-plugin/apply-flat-config-to-rule-tester": "on",
-        "eslint-plugin/convert-require-resolve-to-require": "on"
+        "eslint-plugin/convert-require-resolve-to-require": "on",
+        "eslint-plugin/turn-off-schema": "on"
     }
 }
 ```
@@ -180,7 +181,7 @@ const test = new RuleTester({
 
 ## turn-off-schema
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5044f09074f6d4772dc637962c49d73d/8001647bc1e3cd51a646b03761f3276aab4ba963).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5044f09074f6d4772dc637962c49d73d/dde068d6773f3bc7bf6c47892487e155a5ef3cc4).
 
 ### ❌ Example of incorrect code
 
@@ -224,7 +225,6 @@ function getMeta(plugin) {
 }
 ```
 
->>>>>>> e0ca0724e (xx)
 ## License
 
 MIT

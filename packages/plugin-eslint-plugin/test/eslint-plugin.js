@@ -34,3 +34,8 @@ test('plugin-eslint-plugin: transform: convert-require-resolve-to-require', (t) 
     t.transform('convert-require-resolve-to-require');
     t.end();
 });
+
+test('plugin-eslint-plugin: transform: turn-off-schema', (t) => {
+    t.transform('turn-off-schema');
+    t.end();
+});
