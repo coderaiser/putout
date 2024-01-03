@@ -64,6 +64,25 @@ const {findFile} = operator;
 const coupleFiles = findFile(ast, ['/home/coderaiser', '/home/coderaiser/putout']);
 ```
 
+### `getParentDirectory(filePath: FilePath): FilePath|null`
+
+```js
+const {operator} = require('putout');
+const {
+    createDirectory,
+    findFile,
+    getParentDirectory,
+} = operator;
+
+const [dirPath] = findFile(ast, 'hello');
+
+const newDirectoryPath = createDirectory(dirPath, 'world');
+
+dirPath === getParentDirectory(newDirectoryPath);
+// returns
+true;
+```
+
 ### `getFilename(path: FilePath): string`
 
 ```js

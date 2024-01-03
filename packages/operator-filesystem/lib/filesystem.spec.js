@@ -585,7 +585,7 @@ test('putout: operator: filesystem: getParentDirectory: no parent', (t) => {
     });
     
     const [dirPath] = findFile(ast, 'world');
-    const result = getParentDirectory(dirPath, 'xyz');
+    const result = getParentDirectory(dirPath);
     
     t.notOk(result);
     t.end();
@@ -602,7 +602,7 @@ test('putout: operator: filesystem: getParentDirectory', (t) => {
     });
     
     const [dirPath] = findFile(ast, 'README.md');
-    const parentdirPath = getParentDirectory(dirPath, 'xyz');
+    const parentdirPath = getParentDirectory(dirPath);
     const filename = getFilename(parentdirPath);
     
     t.equal(filename, '/hello/world');
