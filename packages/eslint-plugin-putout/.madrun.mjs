@@ -10,7 +10,7 @@ const env = {
 };
 
 const lintEnv = {
-    ESLINT_USE_FLAT_CONFIG: false,
+    ESLINT_CONFIG_FILE: '.eslintrc-safe.json',
 };
 
 export default {
@@ -20,7 +20,7 @@ export default {
     'watch:test': async () => `nodemon -w rules -x ${await run('test')}`,
     'lint': () => 'putout .',
     'lint:all': () => run(['lint', 'lint:safe']),
-    'lint:safe': () => [lintEnv, 'eslint -c .eslintrc-safe.json eslint-fixture'],
+    'lint:safe': () => [lintEnv, 'putout eslint-fixture'],
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
