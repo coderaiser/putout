@@ -10,6 +10,7 @@ const removeNoUnpublishedRequire = require('./remove-no-unpublished-require');
 const removeNoUnsupportedFeatures = require('./remove-no-unsupported-features');
 const removeOverridesWithEmptyRules = require('./remove-overrides-with-empty-rules');
 const removeNoMissing = require('./remove-no-missing');
+const convertRcToFlat = require('./convert-rc-to-flat');
 
 module.exports.rules = {
     'add-putout': addPutout,
@@ -22,4 +23,5 @@ module.exports.rules = {
     'remove-no-unsupported-features': removeNoUnsupportedFeatures,
     'remove-overrides-with-empty-rules': removeOverridesWithEmptyRules,
     'remove-no-missing': removeNoMissing,
+    'convert-rc-to-flat': ['off', convertRcToFlat],
 };

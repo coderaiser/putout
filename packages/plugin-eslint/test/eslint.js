@@ -64,3 +64,8 @@ test('putout: plugin-eslint: transform: convert-node-to-n', (t) => {
     t.transform('convert-node-to-n');
     t.end();
 });
+
+test('plugin-eslint: transform: convert-rc-to-flat', (t) => {
+    t.transform('convert-rc-to-flat');
+    t.end();
+});

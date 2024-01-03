@@ -29,7 +29,8 @@ npm i @putout/plugin-eslint -D
         "eslint/remove-no-missing": "on",
         "eslint/remove-no-unpublished-require": "on",
         "eslint/remove-no-unsupported-features": "on",
-        "eslint/remove-overrides-with-empty-rules": "on"
+        "eslint/remove-overrides-with-empty-rules": "on",
+        "eslint/convert-rc-to-flat": "off"
     }
 }
 ```
@@ -313,6 +314,103 @@ and already disabled by [`eslint-plugin-putout`](https://github.com/coderaiser/p
         "node"
     ]
 };
+```
+
+## convert-rc-to-flat
+
+Checkout in 🐊**Putout Editor**:
+
+- [Scanner](https://putout.cloudcmd.io/#/gist/f2abf46afeb67b23de1c06e8e6d0f9bb/73b87d76149c4d680ca66a1358586865eb9f9361);
+- [Traverser](https://putout.cloudcmd.io/#/gist/337c36d3867018ba4c50c705d35620d3/1ed97063d746f03263b497ced2aef1c9d92907fc);
+
+Converts `.eslintrc.json`:
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "node": true
+    },
+    "extends": ["eslint:recommended"],
+    "plugins": ["@nx"],
+    "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "error"
+    },
+    "overrides": [{
+        "files": ["*.json"],
+        "parser": "jsonc-eslint-parser"
+    }, {
+        "files": [
+            "*.ts",
+            "*.tsx",
+            "*.js",
+            "*.jsx"
+        ],
+        "rules": {
+            "@nx/enforce-module-boundaries": ["error", {
+                "enforceBuildableLibDependency": true,
+                "allow": [],
+                "depConstraints": [{
+                    "sourceTag": "*",
+                    "onlyDependOnLibsWithTags": ["*"]
+                }]
+            }]
+        }
+    }]
+}
+```
+
+To `.eslint.config.js`:
+
+```js
+const nxPlugin = require('@nx/eslint-plugin');
+const js = require('@eslint/js');
+const globals = require('globals');
+const jsoncParser = require('jsonc-eslint-parser');
+const tsParser = require('@typescript-eslint/parser');
+
+module.exports = [
+    js.configs.recommended, {
+        plugins: {
+            '@nx': nxPlugin,
+        },
+    }, {
+        languageOptions: {
+            parser: tsParser,
+            globals: {
+                ...globals.node,
+            },
+        },
+        rules: {
+            '@typescript-eslint/explicit-module-boundary-types': ['error'],
+        },
+    }, {
+        files: ['*.json'],
+        languageOptions: {
+            parser: jsoncParser,
+        },
+        rules: {},
+    }, {
+        files: [
+            '*.ts',
+            '*.tsx',
+            '*.js',
+            '*.jsx',
+        ],
+        rules: {
+            '@nx/enforce-module-boundaries': ['error', {
+                enforceBuildableLibDependency: true,
+                allow: [],
+                depConstraints: [{
+                    sourceTag: '*',
+                    onlyDependOnLibsWithTags: ['*'],
+                }],
+            }],
+        },
+    }];
 ```
 
 ## License
