@@ -36,4 +36,6 @@ test('packages: convert-simple-filesystem-to-filesystem: no transform: no-direct
     
     t.equal(error.message, `☝️ Looks like directory path is missing: 'hello.txt'`);
     t.end();
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
