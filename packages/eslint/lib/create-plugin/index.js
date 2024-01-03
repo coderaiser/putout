@@ -18,6 +18,7 @@ const prepare = (plugin, context, options) => (node) => {
     });
     
     const text = getText(node);
+    
     const path = {
         text,
         node,
