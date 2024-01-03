@@ -274,12 +274,14 @@ test('putout: operator: match-files: typescript', (t) => {
 });
 
 test('putout: operator: match-files: ignore', (t) => {
-    const content = 'export const x = 5';
     const source = stringify([
         '/',
         '/hello/',
         '/hello/fixture/',
-        ['/hello/fixture/index.ts', content],
+        [
+            '/hello/fixture/index.ts',
+            'bW9kdWxlLmV4cG9ydHMueCA9IDU7Cg==',
+        ],
     ]);
     
     const files = {
@@ -309,7 +311,87 @@ test('putout: operator: match-files: ignore', (t) => {
         '/',
         '/hello/',
         '/hello/fixture/',
-        ['/hello/fixture/index.ts', content],
+        [
+            '/hello/fixture/index.ts',
+            'bW9kdWxlLmV4cG9ydHMueCA9IDU7Cg==',
+        ],
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: match-files: save to other file', (t) => {
+    const content = 'export const x = 5';
+    const source = stringify([
+        '/',
+        ['/index.ts', content],
+    ]);
+    
+    const files = {
+        'index.ts -> hello.ts': convertEsmToCommonjs,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'match-files': 'on',
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = [
+        '/',
+        ['/index.ts', content],
+        ['/hello.ts', 'bW9kdWxlLmV4cG9ydHMueCA9IDU7Cg=='],
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: match-files: save to other file: exists', (t) => {
+    const content = 'export const x = 5';
+    const source = stringify([
+        '/',
+        ['/index.ts', content],
+        '/hello.ts',
+    ]);
+    
+    const files = {
+        'index.ts -> hello.ts': convertEsmToCommonjs,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'match-files': 'on',
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = [
+        '/',
+        ['/index.ts', content],
+        ['/hello.ts', 'bW9kdWxlLmV4cG9ydHMueCA9IDU7Cg=='],
     ];
     
     t.deepEqual(result, expected);

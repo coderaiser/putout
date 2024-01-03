@@ -65,6 +65,18 @@ If you want to pass options use:
 
 Instead of this, [`redlint`](https://github.com/putoutjs/redlint) can be used, it will generate `.filesystem.json` which can be processed by 🐊**Putout**.
 
+If you want to save with other name use `->`:
+
+```js
+const {operator} = require('putout');
+const {matchFiles} = operator;
+const updateTSConfig = require('../update-tsconfig');
+
+module.exports = matchFiles({
+    'tsconfig.json -> hello.json': updateTSConfig,
+});
+```
+
 ## License
 
 MIT

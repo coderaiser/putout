@@ -12,6 +12,8 @@ const {
     findFile,
     writeFileContent,
     getFilename,
+    createFile,
+    getParentDirectory,
 } = require('@putout/operator-filesystem');
 
 const isObject = (a) => a && typeof a === 'object';
@@ -29,12 +31,12 @@ module.exports.matchFiles = (files) => {
     };
 };
 
-function fix(path, {filename, matchedJS, matchedAST, plugins}) {
+function fix(path, {outputFilename, matchedJS, matchedAST, plugins}) {
     transform(matchedAST, matchedJS, {
         plugins,
     });
     
-    const matchedJSON = magicPrint(filename, matchedAST);
+    const matchedJSON = magicPrint(outputFilename, matchedAST);
     
     writeFileContent(path, matchedJSON);
 }
@@ -44,36 +46,46 @@ const createScan = (files) => (path, {push, progress, options}) => {
     const cwd = getFilename(path);
     
     for (const [filename, plugin] of entries(files)) {
-        const files = findFile(path, filename);
+        const [matchInputFilename, outputFilename = matchInputFilename] = filename.split(' -> ');
+        const inputFiles = findFile(path, matchInputFilename);
         
-        for (const file of files) {
-            const filename = getFilename(file);
+        for (const inputFile of inputFiles) {
+            const dirPath = getParentDirectory(inputFile);
+            const inputFilename = getFilename(inputFile);
+            const outputFile = getOutputFile(path, {
+                dirPath,
+                matchInputFilename,
+                outputFilename,
+                inputFile,
+            });
             
-            if (ignores(cwd, filename, options))
+            if (ignores(cwd, inputFilename, options))
                 continue;
             
             allFiles.push({
                 plugin,
-                file,
-                filename,
+                inputFile,
+                outputFile,
+                inputFilename,
+                outputFilename,
             });
         }
     }
     
     const n = allFiles.length;
     
-    for (const [i, {file, filename, plugin}] of allFiles.entries()) {
+    for (const [i, {inputFile, outputFile, inputFilename, outputFilename, plugin}] of allFiles.entries()) {
         progress({
             i,
             n,
         });
         
-        const fileContent = readFileContent(file) || '{}';
-        const [matchedJS, matchedAST] = magicParse(filename, fileContent);
+        const fileContent = readFileContent(inputFile) || '{}';
+        const [matchedJS, matchedAST] = magicParse(inputFilename, fileContent);
         
         const plugins = [
             [
-                `match-file/${filename}`,
+                `match-file/${inputFilename}`,
                 plugin,
             ],
         ];
@@ -87,8 +99,8 @@ const createScan = (files) => (path, {push, progress, options}) => {
         
         const {message} = places[0];
         
-        push(file, {
-            filename,
+        push(outputFile, {
+            outputFilename,
             message,
             plugins,
             
@@ -132,4 +144,16 @@ function check(files) {
         if (!isObject(plugin))
             throw Error(`☝️ Looks like provided to 'matchFiles()' typeof of plugin is not an 'object' but '${typeof plugin}'`);
     }
+}
+
+function getOutputFile(path, {dirPath, matchInputFilename, outputFilename, inputFile}) {
+    if (matchInputFilename === outputFilename)
+        return inputFile;
+    
+    const [outputFile] = findFile(dirPath, outputFilename);
+    
+    if (outputFile)
+        return outputFile;
+    
+    return createFile(dirPath, outputFilename);
 }
