@@ -1,7 +1,8 @@
 {
     "printer": "putout",
     "rules": {
-        "putout/convert-babel-types": "off"
+        "putout/convert-babel-types": "off",
+        "eslint-plugin/apply-flat-config-to-rule-tester": "off"
     },
     "plugins": ["eslint-plugin"]
 }
