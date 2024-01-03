@@ -1,5 +1,6 @@
 'use strict';
 
+const tryCatch = require('try-catch');
 const {createTest} = require('@putout/test');
 const plugin = require('.');
 
@@ -29,3 +30,10 @@ test('packages: convert-simple-filesystem-to-filesystem: no transform: not-files
     t.noTransform('not-filesystem');
     t.end();
 });
+
+test('packages: convert-simple-filesystem-to-filesystem: no transform: no-directory', (t) => {
+    const [error] = tryCatch(t.noTransform, 'no-directory');
+    
+    t.equal(error.message, `☝️ Looks like directory path is missing: 'hello.txt'`);
+    t.end();
+}, {checkAssertionsCount: false});

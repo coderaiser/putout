@@ -92,6 +92,9 @@ function buildTree(path, list) {
     
     for (const filePath of files) {
         const filename = getFilename(filePath);
+        
+        check(filename);
+        
         const type = getFileType(filePath);
         const dir = dirname(filename);
         const name = basename(filename);
@@ -107,4 +110,9 @@ function buildTree(path, list) {
     }
     
     replaceWith(path, root);
+}
+
+function check(filename) {
+    if (!filename.includes('/'))
+        throw Error(`☝️ Looks like directory path is missing: '${filename}'`);
 }
