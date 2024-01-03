@@ -1,3 +1,20 @@
+2024.01.03, v34.7.0
+
+feature:
+- 9d1a9829d putout: @putout/plugin-eslint v7.0.0
+- 05c4ea635 @putout/plugin-eslint: drop support of node < 18
+- f6b256120 @putout/plugin-eslint: convert-rc-to-flat: add
+- c6a6c525e @putout/operator-match-files: add ability to save to other file
+- 76ba68031 @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: add aditional check of filename
+- c97fdd009 @putout/eslint: createPlugin: add support of ESLint v9
+- 9f18cc9f4 @putout/plugin-eslint-plugin: drop support of node < 18
+- d81fe5444 @putout/plugin-eslint-plugin: turn-off-schema: add
+- f5f7b1375 eslint-plugin-putout: add support of ESLint v9
+- 22b13700a @putout/plugin-eslint-plugin: convert-require-resolve-to-require: add
+- a0e5c520b @putout/plugin-eslint-plugin: apply-flat-config-to-rule-tester: add
+- d9608d60d eslint-plugin-putout: typescript: disable redeclere: ESLint v9 (typescript-eslint/typescript-eslint#8171)
+- d2783df9f root: eslint v9.0.0-alpha.0
+
 2023.12.29, v34.6.0
 
 feature:
