@@ -74,3 +74,8 @@ test('plugin-filesystem: no transform: write-all-files: disabled', (t) => {
     t.noTransform('write-all-files-disabled');
     t.end();
 });
+
+test('plugin-filesystem: no transform: convert-json-to-js: disabled', (t) => {
+    t.noTransform('convert-json-to-js-disabled');
+    t.end();
+});

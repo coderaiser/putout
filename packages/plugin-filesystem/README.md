@@ -30,6 +30,9 @@ npm i @putout/plugin-filesystem -D
         "filesystem/replace-cwd": ["off", {
             "from": "/home/coderaiser/putout",
             "to": "/"
+        }],
+        "filesystem/convert-json-to-js": ["off", {
+            "name": "package.json"
         }]
     }
 }
@@ -560,13 +563,36 @@ Write all files that was read before to Filesystem.
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2dda6b05987bbf91a1b18d7032489c05/286d2f04eb0e002cef14d102fa3e59bdf17bda47).
 
-### ❌ Example of incorrect code
-
 ```json
 ["/", [
     "/hello.xyz",
     "hello world"
 ]]
+```
+
+## convert-json-to-js
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f0b2fc640398820c5c25c13bcbfe8ae4/170eff778a433dc809e75158a6d8a9a0578c9cfd).
+
+Filesystem:
+
+```diff
+-["/", "/.eslintrc.json"]
++["/", "/eslint.config.js"]
+```
+
+### ❌ Example of incorrect code
+
+```json
+{}
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    plugins: '',
+};
 ```
 
 ## License
