@@ -28,7 +28,8 @@
     "try-to-catch": "^3.0.0"
   },
   "keywords": [
-    "putout"
+    "putout",
+    "cli"
   ],
   "devDependencies": {
     "c8": "^9.0.0",
