@@ -25,6 +25,7 @@ module.exports.replace = () => ({
             'parser',
             'rules',
         ]);
+        
         let nextExtends = '';
         let nextPlugins = '';
         let languageOptions = '';
