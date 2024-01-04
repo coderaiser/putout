@@ -33,7 +33,7 @@
     "putout-traverse"
   ],
   "devDependencies": {
-    "c8": "^8.0.0",
+    "c8": "^9.0.0",
     "eslint": "^9.0.0-alpha.0",
     "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-putout": "^22.0.0",
