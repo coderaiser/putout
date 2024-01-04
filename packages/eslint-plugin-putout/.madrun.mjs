@@ -4,9 +4,9 @@ import {
 } from 'madrun';
 
 const SUPERTAPE_LOAD_LOOP_TIMEOUT = 70;
+const MOCHA_TIMEOUT = 20_000;
 const env = {
     SUPERTAPE_LOAD_LOOP_TIMEOUT,
-    ESLINT_MOCHA_TIMEOUT: 20_000,
 };
 
 const lintEnv = {
@@ -16,7 +16,7 @@ const lintEnv = {
 export default {
     'wisdom': () => run(['lint:all', 'coverage']),
     'test': () => `tape 'test/**/*.mjs' 'lib/config/*.spec.*'`,
-    'test:all': () => [env, `mocha 'test/**/*.mjs'  'lib/putout/*.spec.js' 'lib/**/*.spec.js'`],
+    'test:all': () => [env, `mocha --timeout ${MOCHA_TIMEOUT} 'test/**/*.mjs'  'lib/putout/*.spec.js' 'lib/**/*.spec.js'`],
     'watch:test': async () => `nodemon -w rules -x ${await run('test')}`,
     'lint': () => 'putout .',
     'lint:all': () => run(['lint', 'lint:safe']),
