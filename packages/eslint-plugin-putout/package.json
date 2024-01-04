@@ -52,7 +52,7 @@
     "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-react": "^7.32.2",
     "parse-import-specifiers": "^1.0.1",
-    "synckit": "^0.8.5",
+    "synckit": "^0.9.0",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.1",
     "typescript": "^5.0.4"
