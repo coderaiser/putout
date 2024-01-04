@@ -321,7 +321,7 @@ and already disabled by [`eslint-plugin-putout`](https://github.com/coderaiser/p
 Checkout in 🐊**Putout Editor**:
 
 - [Scanner](https://putout.cloudcmd.io/#/gist/f2abf46afeb67b23de1c06e8e6d0f9bb/73b87d76149c4d680ca66a1358586865eb9f9361);
-- [Traverser](https://putout.cloudcmd.io/#/gist/337c36d3867018ba4c50c705d35620d3/1ed97063d746f03263b497ced2aef1c9d92907fc);
+- [Traverser](https://putout.cloudcmd.io/#/gist/fcacf6f0b9f9e368568c108999882f33/dafdbca579d27e1a8ab0be7316eb1a9848d4037c);
 
 Converts `.eslintrc.json`:
 
