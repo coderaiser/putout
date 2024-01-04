@@ -46,7 +46,7 @@ const createScan = (files) => (path, {push, progress, options}) => {
     const cwd = getFilename(path);
     
     for (const [filename, plugin] of entries(files)) {
-        const [matchInputFilename, outputFilename = matchInputFilename] = filename.split(' -> ');
+        const [matchInputFilename, outputFilename = matchInputFilename] = parseMatcher(filename, options);
         const inputFiles = findFile(path, matchInputFilename);
         
         for (const inputFile of inputFiles) {
@@ -156,4 +156,17 @@ function getOutputFile(path, {dirPath, matchInputFilename, outputFilename, input
         return outputFile;
     
     return createFile(dirPath, outputFilename);
+}
+
+function parseMatcher(matcher, options) {
+    for (const [name, value] of entries(options)) {
+        if (name === 'filename') {
+            const [name, ext] = value.split('.');
+            
+            matcher = matcher.replaceAll(`__name`, name);
+            matcher = matcher.replaceAll(`__ext`, ext);
+        }
+    }
+    
+    return matcher.split(' -> ');
 }

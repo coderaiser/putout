@@ -397,3 +397,41 @@ test('putout: operator: match-files: save to other file: exists', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: match-files: __name', (t) => {
+    const source = stringify(['/', [
+        '/package.json',
+        '{}',
+    ]]);
+    
+    const files = {
+        '__name.json -> __name.js': convertEsmToCommonjs,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'match-files': ['on', {
+                filename: 'package.json',
+            }],
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = ['/', [
+        '/package.json',
+        '{}',
+    ], '/package.js'];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
