@@ -2,6 +2,9 @@
 
 const {join} = require('path');
 
+const strip = require('strip-ansi');
+const montag = require('montag');
+const tryCatch = require('try-catch');
 const {stub} = require('supertape');
 const {template} = require('putout');
 
@@ -71,7 +74,6 @@ test('putout: test: noReport', (t) => {
     };
     
     const noReport = _createNoReport(dir, options);
-    
     const deepEqual = stub();
     
     const mockTest = {
@@ -126,7 +128,6 @@ test('putout: test: noReportAfterTransform: internal', (t) => {
     };
     
     const noReportAfterTransform = _createNoReportAfterTransform(dir, options);
-    
     const deepEqual = stub();
     
     const mockTest = {
@@ -212,4 +213,25 @@ test('putout: test: noReportAfterTransformWithOptions: internal', (t) => {
     
     t.calledWith(deepEqual, expected);
     t.end();
+});
+
+test('putout: test: report: with one argument', (t) => {
+    const cache = new Map();
+    cache.set('x', 'y');
+    
+    const [error] = tryCatch(t.report, 'remove-import');
+    const expected = '\n' + montag`
+          > 1 | report(name: string, message: string): Operator
+              | ^ ☝️ Looks like you forget to pass the 'message' for 'report()' operator
+              ╔══
+              ║    name = "remove-import"
+              ║    message = undefined
+              ╚══
+      ` +
+        '\n';
+    
+    t.equal(strip(error.message), expected);
+    t.end();
+}, {
+    checkAssertionsCount: false,
 });

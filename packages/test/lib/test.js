@@ -11,15 +11,15 @@ const {
     unlinkSync,
 } = require('node:fs');
 
-const montag = require('montag');
 const tryCatch = require('try-catch');
 const test = require('supertape');
 const putout = require('putout');
 const currify = require('currify');
 const {createProgress} = require('@putout/engine-runner/progress');
 
+const {createError} = require('./create-error');
 const {preTest} = require('./pre-test');
-const {stringify} = JSON;
+
 const {isArray} = Array;
 const isString = (a) => typeof a === 'string';
 const isObject = (a) => typeof a === 'object';
@@ -278,18 +278,7 @@ const toObject = (array) => {
 };
 
 const progress = (dir, options) => (t) => async (name, expected) => {
-    if (!isString(name))
-        throw Error(montag`
-            ☝️ Looks like you forget to pass the 'name' of a fixture for 'progress()' operator.
-            
-            Here is signature:
-                await progress(name: string, expected: ExpectedProgress): Operator
-            
-            You passed:
-                name: ${typeof name} = ${stringify(name)}
-                expected: ${typeof expected} = ${stringify(expected) || typeof expected}
-        
-        `);
+    checkProgress(name, expected);
     
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
@@ -481,7 +470,9 @@ const noTransformCode = currify((options, t, input) => {
 
 const getMessage = ({message}) => message;
 
-const report = currify((dir, options, t, name, message) => {
+const report = (dir, options) => (t) => (name, message) => {
+    checkReport(name, message);
+    
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
@@ -489,7 +480,7 @@ const report = currify((dir, options, t, name, message) => {
         isTS,
         ...options,
     }, t, source, message);
-});
+};
 
 const noReport = currify((dir, options, t, name) => {
     const full = join(dir, name);
@@ -613,4 +604,30 @@ function parseOptions(plugin) {
         };
     
     return plugin;
+}
+
+function checkReport(name, message) {
+    if (!message) {
+        const help = `☝️ Looks like you forget to pass the 'message' for 'report()' operator`;
+        const source = `report(name: string, message: string): Operator`;
+        const values = {
+            name,
+            message,
+        };
+        
+        throw Error(createError(help, source, values));
+    }
+}
+
+function checkProgress(name, expected) {
+    if (!isString(name)) {
+        const message = `☝️ Looks like you forget to pass the 'name' of a fixture for 'progress()' operator.`;
+        const signature = 'await progress(name: string, expected: ExpectedProgress): Operator';
+        const values = {
+            name,
+            expected,
+        };
+        
+        throw Error(message, signature, values);
+    }
 }
