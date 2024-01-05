@@ -32,7 +32,10 @@ npm i @putout/plugin-filesystem -D
             "to": "/"
         }],
         "filesystem/convert-json-to-js": ["off", {
-            "name": "package.json"
+            "filename": "package.json"
+        }],
+        "filesystem/convert-js-to-json": ["off", {
+            "filename": "package.js"
         }]
     }
 }
@@ -577,8 +580,36 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f0b2fc6403
 Filesystem:
 
 ```diff
--["/", "/.eslintrc.json"]
-+["/", "/eslint.config.js"]
+-["/", "/package.json"]
++["/", "/package.js"]
+```
+
+### ❌ Example of incorrect code
+
+```json
+{}
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    plugins: '',
+};
+```
+
+## convert-js-to-json
+
+Checkout in 🐊**Putout Editor**:
+
+- [**Replacer**](https://putout.cloudcmd.io/#/gist/1d24f6b52a49cfecbfe104982d292244/a469d79ca6bc296eeb94af0712e5841d79aac237);
+- [**Scanner**](https://putout.cloudcmd.io/#/gist/f0f290d79b06d718d13252d05ee739e7/3f063d9b62fe20fd26579792549a7deb32cd987a);
+
+Filesystem:
+
+```diff
+-["/", "/package.js"]
++["/", "/package.json"]
 ```
 
 ### ❌ Example of incorrect code

@@ -14,6 +14,7 @@ const bundleCss = require('./bundle-css');
 const replaceCwd = require('./replace-cwd');
 const readAllFiles = require('./read-all-files');
 const writeAllFiles = require('./write-all-files');
+const convertJsToJson = require('./convert-js-to-json');
 
 module.exports.rules = {
     'remove-vim-swap-file': removeVimSwapFile,
@@ -30,4 +31,5 @@ module.exports.rules = {
     'replace-cwd': ['off', replaceCwd],
     'read-all-files': ['off', readAllFiles],
     'write-all-files': ['off', writeAllFiles],
+    'convert-js-to-json': ['off', convertJsToJson],
 };

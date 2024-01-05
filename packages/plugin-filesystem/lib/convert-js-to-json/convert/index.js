@@ -3,8 +3,8 @@
 const {operator} = require('putout');
 const {__json} = operator;
 
-module.exports.report = () => `Convert '*.json' to '*.js'`;
+module.exports.report = () => `Convert '*.js' to '*.json'`;
 
 module.exports.replace = () => ({
-    [__json]: 'export default __object',
+    'export default __object': __json,
 });

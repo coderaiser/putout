@@ -79,3 +79,8 @@ test('plugin-filesystem: no transform: convert-json-to-js: disabled', (t) => {
     t.noTransform('convert-json-to-js-disabled');
     t.end();
 });
+
+test('plugin-filesystem: no transform: convert-js-to-json', (t) => {
+    t.noTransform('convert-js-to-json-disabled');
+    t.end();
+});
