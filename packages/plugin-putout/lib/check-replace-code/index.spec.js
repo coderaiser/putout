@@ -129,3 +129,13 @@ test('plugin-putout: check-replace-code: report: mismatch', (t) => {
     t.report('mismatch', 'transform mismatch: "if (__a = __b) __body" -> "if (__a === "__b") __body" !== "if (_temp === _temp2) {}"');
     t.end();
 });
+
+test('plugin-putout: check-replace-code: no report: json: object', (t) => {
+    t.noReport('json-object');
+    t.end();
+});
+
+test('plugin-putout: check-replace-code: report: __json', (t) => {
+    t.report('json', 'transform mismatch: "export default __array" -> "__json" !== "export default __array;"');
+    t.end();
+});

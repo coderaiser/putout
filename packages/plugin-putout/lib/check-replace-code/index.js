@@ -9,6 +9,7 @@ const {
     compare,
     extract,
     compute,
+    __json,
 } = operator;
 
 const name = '__putout_plugin_check_replace_code';
@@ -45,10 +46,11 @@ module.exports.traverse = ({push}) => ({
             return;
         
         for (const propertyPath of path.get('right.body.properties')) {
-            if (!propertyPath.get('value').isStringLiteral())
+            const template = extractValue(propertyPath);
+            
+            if (!template)
                 continue;
             
-            const {node} = propertyPath;
             const [parseError, key] = parseKey(propertyPath);
             
             if (parseError) {
@@ -61,7 +63,6 @@ module.exports.traverse = ({push}) => ({
                 return;
             }
             
-            const template = extract(node.value);
             const [generateError, keyCode] = generateCode(path, key);
             
             if (generateError) {
@@ -132,4 +133,16 @@ function hasMatch(path) {
     }
     
     return false;
+}
+
+function extractValue(path) {
+    const valuePath = path.get('value');
+    
+    if (valuePath.isIdentifier({name: '__json'}))
+        return __json;
+    
+    if (valuePath.isStringLiteral())
+        return valuePath.node.value;
+    
+    return null;
 }

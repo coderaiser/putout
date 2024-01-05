@@ -9,7 +9,6 @@ const {replaceWith} = operator;
 
 const {
     ArrayPattern,
-    ObjectPattern,
     BlockStatement,
     ObjectExpression,
 } = types;
@@ -54,16 +53,10 @@ module.exports = (rootPath, key) => {
                     }
                     
                     if (name === '__array') {
-                        if (path.parentPath.isVariableDeclarator())
-                            return replaceWith(path, ArrayPattern([]));
-                        
                         if (path.parentPath.isCallExpression())
                             return replaceWith(path, ArrayPattern([]));
                         
                         if (path.parentPath.isFunction())
-                            return replaceWith(path, ArrayPattern([]));
-                        
-                        if (path.parentPath.isAssignmentExpression())
                             return replaceWith(path, ArrayPattern([]));
                     }
                     
@@ -98,11 +91,11 @@ function createVarStore(path) {
 
 function objectify(path) {
     const {parentPath} = path;
-    const isVar = parentPath.isVariableDeclarator();
+    
     const isAssign = parentPath.isAssignmentExpression();
     
-    if (isVar && parentPath.get('id') === path)
-        return replaceWith(path, ObjectPattern([]));
+    if (path.parentPath.isExportDeclaration())
+        return replaceWith(path, ObjectExpression([]));
     
     if (isAssign && parentPath.get('right') === path)
         return replaceWith(path, ObjectExpression([]));
