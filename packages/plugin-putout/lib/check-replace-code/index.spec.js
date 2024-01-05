@@ -139,3 +139,13 @@ test('plugin-putout: check-replace-code: report: __json', (t) => {
     t.report('json', 'transform mismatch: "export default __array" -> "__json" !== "export default __array;"');
     t.end();
 });
+
+test('plugin-putout: check-replace-code: report: __json: left', (t) => {
+    t.report('json-left', '☝️ Looks like template values not linked: ["__object"] -> ["__array"]');
+    t.end();
+});
+
+test('plugin-putout: check-replace-code: no report: json-left: object', (t) => {
+    t.noReport('json-left-object');
+    t.end();
+});

@@ -114,6 +114,10 @@ module.exports.traverse = ({push}) => ({
 
 function parseKey(propertyPath) {
     const keyPath = propertyPath.get('key');
+    
+    if (keyPath.isIdentifier({name: '__json'}))
+        return [null, __json];
+    
     const [isComputed, key] = compute(keyPath);
     
     if (!isComputed)

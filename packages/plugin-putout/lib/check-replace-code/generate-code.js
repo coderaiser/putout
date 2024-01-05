@@ -97,6 +97,9 @@ function objectify(path) {
     if (path.parentPath.isExportDeclaration())
         return replaceWith(path, ObjectExpression([]));
     
+    if (path.parentPath.isCallExpression())
+        return replaceWith(path, ObjectExpression([]));
+    
     if (isAssign && parentPath.get('right') === path)
         return replaceWith(path, ObjectExpression([]));
 }
