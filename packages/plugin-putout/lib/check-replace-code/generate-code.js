@@ -11,6 +11,7 @@ const {
     ArrayPattern,
     BlockStatement,
     ObjectExpression,
+    ObjectPattern,
 } = types;
 
 module.exports = (rootPath, key) => {
@@ -91,8 +92,8 @@ function createVarStore(path) {
 
 function objectify(path) {
     const {parentPath} = path;
-    
     const isAssign = parentPath.isAssignmentExpression();
+    const isVar = parentPath.isVariableDeclarator();
     
     if (path.parentPath.isExportDeclaration())
         return replaceWith(path, ObjectExpression([]));
@@ -102,4 +103,7 @@ function objectify(path) {
     
     if (isAssign && parentPath.get('right') === path)
         return replaceWith(path, ObjectExpression([]));
+    
+    if (isVar && parentPath.get('id') === path)
+        return replaceWith(path, ObjectPattern([]));
 }

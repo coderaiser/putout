@@ -149,3 +149,8 @@ test('plugin-putout: check-replace-code: no report: json-left: object', (t) => {
     t.noReport('json-left-object');
     t.end();
 });
+
+test('plugin-putout: check-replace-code: no report: object pattern', (t) => {
+    t.noReport('object-pattern');
+    t.end();
+});
