@@ -56,7 +56,7 @@ const test = createTest(import.meta.url, {
 });
 ```
 
-### `report(filename, message | []messages)`
+### `report(filename, message: string | string[])`
 
 Check error message (or messages) of a plugin:
 
