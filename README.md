@@ -1738,36 +1738,6 @@ const fs = require('fs');
 
 </details>
 
-<details><summary>remove <code>strict mode</code> directive from esm</summary>
-
-```diff
--'use strict';
--
-import * from fs;
-```
-
-</details>
-
-<details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
-
-```diff
-+'use strict';
-+
-const fs = require('fs');
-```
-
-</details>
-
-<details><summary>remove <code>strict mode</code> directive from esm</summary>
-
-```diff
--'use strict';
--
-import * from fs;
-```
-
-</details>
-
 <details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
 
 ```diff
