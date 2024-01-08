@@ -1,3 +1,18 @@
+2024.01.09, v34.8.0
+
+fix:
+- 2f66f5f35 @putout/plugin-minify: merge-loops: add
+- fd73cb65c @putout/plugin-remove-debugger: description
+
+feature:
+- e7b749180 @putout/plugin-minify: merge-loops: add
+- 3d618625b @putout/plugin-convert-label-to-object: exclude empty BlockStatements
+- ef61a3b8e putout: @putout/plugin-convert-label-to-object v1.0.0
+- 4a63f5f2e @putout/plugin-convert-label-to-object: exlude functions without LabeledStatement
+- d57c488c2 @putout/plugin-convert-label-to-object: add
+- b68b9dba6 putout: @putout/plugin-remove-debugger v6.0.0
+- 660c8d55d @putout/plugin-remove-debugger: drop support of node < 18
+
 2024.01.08, v34.7.3
 
 fix:
