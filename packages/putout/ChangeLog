@@ -1,3 +1,11 @@
+2024.01.08, v34.7.2
+
+feature:
+- 9ee71ef05 putout: @putout/plugin-simplify-ternary v7.0.0
+- 925775466 @putout/plugin-simplify-ternary: drop support of node < 18
+- 068f8acd5 @putout/plugin-minify: drop support of node < 18
+- d7a80bcc6 @putout/plugin-minify: inlinde: exlucde UpdateExpression (putoutjs/minify#8)
+
 2024.01.08, v34.7.1
 
 feature:
