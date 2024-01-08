@@ -19,10 +19,7 @@ module.exports.fix = ({path, propertyInclude}) => {
         path.node.properties.push(propertyInclude);
     }
     
-    propertyInclude.value.elements.push(...[
-        StringLiteral('./dist/types/**/*.ts'),
-        StringLiteral('./next-env.d.ts'),
-    ]);
+    propertyInclude.value.elements.push(StringLiteral('./dist/types/**/*.ts'), StringLiteral('./next-env.d.ts'));
 };
 
 module.exports.traverse = ({push}) => ({

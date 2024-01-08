@@ -65,7 +65,7 @@ module.exports.replace = () => ({
                 const onChangeAttribute = JSXAttribute(JSXIdentifier('onChange'), JSXExpressionContainer(Identifier('onChange')));
                 const nameAttribute = JSXAttribute(JSXIdentifier('name'), JSXExpressionContainer(Identifier('name')));
                 
-                expression.openingElement.attributes.unshift(...[nameAttribute, onChangeAttribute]);
+                expression.openingElement.attributes.unshift(nameAttribute, onChangeAttribute);
                 
                 attr.value.expression = ARROW({
                     expression,

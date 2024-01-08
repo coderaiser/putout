@@ -52,19 +52,9 @@ module.exports = (info = {}) => {
         options,
     );
     
-    const mergedMatch = merge(...[
-        customOptions,
-        options,
-        parseMatch(name, options.match),
-    ]);
+    const mergedMatch = merge(customOptions, options, parseMatch(name, options.match));
     
-    const resultOptions = merge(...[
-        readCodeMods(),
-        readRules('./', rulesdir),
-        mergedOptions,
-        mergedDefaultsMatch,
-        mergedMatch,
-    ]);
+    const resultOptions = merge(readCodeMods(), readRules('./', rulesdir), mergedOptions, mergedDefaultsMatch, mergedMatch);
     
     validateOptions(resultOptions);
     
