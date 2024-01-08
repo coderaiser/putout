@@ -1,0 +1,6 @@
+.*
+test
+yarn-error.log
+
+coverage
+eslint.config.*
