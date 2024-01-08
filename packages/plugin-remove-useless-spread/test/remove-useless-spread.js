@@ -24,3 +24,8 @@ test('plugin-remove-useless-spread: transform: object', (t) => {
     t.transform('object');
     t.end();
 });
+
+test('plugin-remove-useless-spread: transform: nested', (t) => {
+    t.transform('nested');
+    t.end();
+});

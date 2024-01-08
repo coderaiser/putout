@@ -21,7 +21,8 @@ npm i @putout/plugin-remove-useless-spread
 {
     "rules": {
         "remove-useless-spread/array": "on",
-        "remove-useless-spread/object": "on"
+        "remove-useless-spread/object": "on",
+        "remove-useless-spread/nested": "on"
     }
 }
 ```
@@ -69,6 +70,32 @@ const a = {
 
 ```js
 const a = fn();
+```
+
+## nested
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/60e5a99112affb8a629347e5bf04aedf/38b33f3b5b133897b346a018462c431824e64bb8).
+
+### ❌ Example of incorrect code
+
+```js
+[
+    ...[
+        ...a,
+        ...b,
+    ],
+    ...x,
+];
+```
+
+### ✅ Example of correct code
+
+```js
+[
+    ...a,
+    ...b,
+    ...x,
+];
 ```
 
 ## License
