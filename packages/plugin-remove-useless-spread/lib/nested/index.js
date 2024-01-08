@@ -16,7 +16,11 @@ module.exports.fix = ({path, argPath}) => {
 
 module.exports.traverse = ({push}) => ({
     SpreadElement(path) {
+        const {parentPath} = path;
         const argPath = path.get('argument');
+        
+        if (parentPath.isCallExpression())
+            return;
         
         if (!argPath.isArrayExpression())
             return;

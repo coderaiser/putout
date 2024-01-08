@@ -19,3 +19,8 @@ test('@putout/plugin-remove-useless-spread: nested: transform', (t) => {
     t.transform('nested');
     t.end();
 });
+
+test('@putout/plugin-remove-useless-spread: nested: no transform: call', (t) => {
+    t.noTransform('call');
+    t.end();
+});
