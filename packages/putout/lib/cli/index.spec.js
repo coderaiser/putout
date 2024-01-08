@@ -390,6 +390,7 @@ test('putout: cli: no ide', async (t) => {
     
     const getFormatter = stub().returns(['dump', {}]);
     const report = stub();
+    
     const getFiles = stub().returns([
         null,
         [name],
