@@ -69,12 +69,11 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     process.env.PUTOUT_FILES = 'xx';
     
     const logError = stub();
-    
     const argv = ['--raw'];
-    
     const error = Error('No files matching the pattern "xx" were found');
     
     mockRequire('./get-files', stub().returns([error]));
+    reRequire('./runner/lint.js');
     
     const cli = reRequire('.');
     
@@ -152,6 +151,7 @@ test('putout: cli: --raw: parse error', async (t) => {
         '--no-cache',
     ];
     
+    reRequire('./runner/lint.js');
     reRequire('./get-files');
     reRequire('./process-file');
     const cli = reRequire('.');
@@ -381,7 +381,6 @@ test('putout: cli: --format: specified twice', async (t) => {
 
 test('putout: cli: no ide', async (t) => {
     const name = basename(__filename);
-    
     const argv = [name, '--fresh'];
     
     const processFile = stub().returns(stub().returns({
@@ -390,9 +389,7 @@ test('putout: cli: no ide', async (t) => {
     }));
     
     const getFormatter = stub().returns(['dump', {}]);
-    
     const report = stub();
-    
     const getFiles = stub().returns([
         null,
         [name],
@@ -429,6 +426,7 @@ test('putout: cli: no ide', async (t) => {
     delete env.TERMINAL_EMULATOR;
     delete env.TERM_PROGRAM;
     
+    reRequire('./runner/lint.js');
     reRequire('./runner/worker.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');

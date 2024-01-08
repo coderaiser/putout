@@ -6,7 +6,6 @@ import {
 const testEnv = {
     TERM_PROGRAM: 0,
     TERMINAL_EMULATOR: 0,
-    SUPERTAPE_LOAD_LOOP_TIMEOUT: 70,
 };
 
 export default {

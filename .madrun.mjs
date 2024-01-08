@@ -20,7 +20,6 @@ const env = {
     CI: 1,
     SUPERTAPE_TIME: 1,
     SUPERTAPE_TIME_STACK: 0,
-    SUPERTAPE_LOAD_LOOP_TIMEOUT: 70,
     KEYPRESS: 1,
 };
 
