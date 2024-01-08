@@ -1,18 +1,19 @@
-# @putout/plugin-remove-debugger [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/plugin-convert-label-to-object [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-debugger.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-debugger "npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-label-to-object.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-label-to-object "npm"
 
-> The `debugger` statement invokes any available debugging functionality, such as setting a **breakpoint**. If no debugging functionality is available, this statement has no effect.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger)
+> A **labeled statement** is any `statement` that is prefixed with an `identifier`. You can jump to this label using a `break` or `continue` statement nested within the labeled statement.
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove `debugger` statement.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and convert `label` to `object`.
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/86e2915cc2cffb6c26dd3bc2f2379a71/605562cf1fdf77a7918792955601e6767a805050).
 
 ## Install
 
 ```
-npm i @putout/plugin-remove-debugger
+npm i @putout/plugin-convert-label-to-object
 ```
 
 ## Rule
@@ -20,7 +21,7 @@ npm i @putout/plugin-remove-debugger
 ```json
 {
     "rules": {
-        "remove-debugger": "on"
+        "convert-label-to-object": "on"
     }
 }
 ```
@@ -28,23 +29,20 @@ npm i @putout/plugin-remove-debugger
 ## ❌ Example of incorrect code
 
 ```js
-debugger;
-console.log('hello');
+const a = () => {
+    hello: 'world';
+    x: 'm';
+};
 ```
 
 ## ✅ Example of correct code
 
 ```js
-console.log('hello');
+const a = () => ({
+    hello: 'world',
+    x: 'm',
+});
 ```
-
-## Comparison
-
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`remove-debugger`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger#readme) | ✅
-⏣ **ESLint** | [`no-debugger`](https://eslint.org/docs/rules/no-debugger) | ❌
-🦀 **RSLint** | [`no-debugger`](https://rslint.org/rules/errors/no-debugger.html) | ❌
 
 ## License
 

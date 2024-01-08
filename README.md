@@ -1045,6 +1045,19 @@ const putout = require('putout');
 
 </details>
 
+<details><summary>convert <code>label</code> to <code>object</code></summary>
+
+```diff
+-const a = () => {
+-    hello: 'world'
+-}
++const a = () => ({
++    hello: 'world'
++})
+```
+
+</details>
+
 <details><summary>remove useless <code>Array.from()</code></summary>
 
 ```diff
@@ -2033,6 +2046,7 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-convert-assignment-to-comparison`](/packages/plugin-convert-assignment-to-comparison#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-comparison.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-assignment-to-comparison) |
 | [`@putout/plugin-convert-const-to-let`](/packages/plugin-convert-const-to-let#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-const-to-let.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-const-to-let) |
 | [`@putout/plugin-convert-object-entries-to-array-entries`](/packages/plugin-convert-object-entries-to-array-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-entries-to-array-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-entries-to-array-entries) |
+| [`@putout/plugin-convert-label-to-object`](/packages/plugin-convert-label-to-object#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-label-to-object.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-label-to-object) |
 
 ### Removers
 
