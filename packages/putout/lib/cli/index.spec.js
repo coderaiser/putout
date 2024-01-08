@@ -114,6 +114,7 @@ test('putout: cli: async: env: PUTOUT_PRINTER', async (t) => {
     });
     
     reRequire('./process-file');
+    reRequire('./runner/lint.js');
     reRequire('./runner/runner.js');
     
     const cli = reRequire('.');
