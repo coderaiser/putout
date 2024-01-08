@@ -1,3 +1,20 @@
+2024.01.08, v34.7.1
+
+feature:
+- d7f98af0f putout: @putout/plugin-for-of v4.0.0
+- f1bfc6fe7 @putout/plugin-for-of: drop support of node < 18
+- 7f6663f46 @putout/plugin-for-of: for-each: exclude SequenceExpressions (#196)
+- 5e29fba1b @putout/plugin-putout: check-replace-code: VariableDeclarator
+- ab01a71c3 @putout/plugin-filesystem: convert-js-to-json: add
+- ae9418107 @putout/plugin-putout: check-replace-code: __json on the left
+- 610a2ddcf @putout/plugin-putout: check-replace-code: add support of __json
+- 8ada02c25 @putout/test: report: add check for message
+- cd144553a @putout/plugin-filesystem: convert-json-to-js: add
+- b3a580827 @putout/operator-match-files: matchers
+- a182931cc root: c8 v9.0.0
+- de6095769 eslint-plugin-putout: synckit v0.9.0
+- 12c3b439e @putout/plugin-eslint: convert-rc-to-flat: add support of rules, parser
+
 2024.01.03, v34.7.0
 
 feature:
