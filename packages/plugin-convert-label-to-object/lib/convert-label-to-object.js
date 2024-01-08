@@ -5,9 +5,21 @@ const {replaceWith} = operator;
 const {
     ObjectExpression,
     ObjectProperty,
+    isLabeledStatement,
 } = types;
 
-module.exports.report = () => `Convert label to object`;
+module.exports.report = () => `Convert 'label' to 'object'`;
+
+module.exports.match = () => ({
+    '(__args) => __body': ({__body}) => {
+        for (const statement of __body.body) {
+            if (!isLabeledStatement(statement))
+                return false;
+        }
+        
+        return true;
+    },
+});
 
 module.exports.replace = () => ({
     '(__args) => __body': ({__body}, path) => {
