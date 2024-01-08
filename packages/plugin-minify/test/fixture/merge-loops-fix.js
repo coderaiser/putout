@@ -1,9 +1,7 @@
-(a.forEach((A) => d.push(A)), b.forEach((_) => d.push(_)));
+for (const _ of [...a, ...b])
+    d.push(_);
 
-b.forEach((B) => d.push(B));
+b.forEach((c) => d.push(c));
 
-for (const c of a)
-    d.push(c);
-
-for (const C of b)
+for (const C of [...a, ...b])
     d.push(C);

@@ -7,6 +7,7 @@ import * as extractBody from './extract-body/index.js';
 import * as expandBindings from './expand-bindings/index.js';
 import * as mangleNames from './mangle-names/index.js';
 import * as mergeVariables from './merge-variables/index.js';
+import * as mergeLoops from './merge-loops/index.js';
 import * as shortenNames from './shorten-names/index.js';
 import * as removeVarUndefined from './remove-var-undefined/index.js';
 import * as removeReturnUndefined from './remove-return-undefined/index.js';
@@ -24,6 +25,7 @@ export const rules = {
     'expand-bindings': expandBindings,
     'mangle-names': mangleNames,
     'merge-variables': mergeVariables,
+    'merge-loops': mergeLoops,
     'shorten-names': shortenNames,
     'remove-var-undefined': removeVarUndefined,
     'remove-return-undefined': removeReturnUndefined,

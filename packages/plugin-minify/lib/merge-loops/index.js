@@ -24,6 +24,7 @@ export const replace = () => ({
         
         if (compare(next, FOR)) {
             const {__b: __z} = getTemplateValues(next, FOR);
+            
             remove(next);
             
             return createLoop({
