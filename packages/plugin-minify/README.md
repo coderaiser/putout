@@ -28,6 +28,7 @@ npm i @putout/plugin-putout -D
             "mangleClassNames": true
         }],
         "minify/merge-variables": "on",
+        "minify/merge-loops": "on",
         "minify/remove-var-undefined": "on",
         "minify/remove-return-undefined": "on",
         "minify/simplify-floor": "on",
@@ -327,6 +328,27 @@ var a, b;
 ```js
 var a;
 var b;
+```
+
+## merge-loops
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c9b77f37202389d30924135c2db3db9e/345edfc73c65b6cdf53c9b5e68bf689e4128291f).
+
+### ❌ Example of incorrect code
+
+```js
+for (const aa of a)
+    d.push(aa);
+
+for (const bb of b)
+    d.push(bb);
+```
+
+### ✅ Example of correct code
+
+```js
+for (const aa of [...a, ...b])
+    d.push(aa);
 ```
 
 ## simplify-floor

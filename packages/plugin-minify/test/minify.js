@@ -97,3 +97,8 @@ test('plugin-minify: transform: if', (t) => {
     t.transform('if');
     t.end();
 });
+
+test('plugin-minify: transform: merge-loops', (t) => {
+    t.transform('merge-loops');
+    t.end();
+});
