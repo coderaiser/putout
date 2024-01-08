@@ -114,6 +114,11 @@ test('plugin-for-of: transform: body-expression', (t) => {
     t.end();
 });
 
+test('plugin-for-of: no transform: couple', (t) => {
+    t.noTransform('couple');
+    t.end();
+});
+
 test('plugin-for-of: transform: end-return', (t) => {
     t.transform('end-return', {
         'remove-useless-continue': removeUselessContinue,
