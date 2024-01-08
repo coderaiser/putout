@@ -21,6 +21,9 @@ export const traverse = ({push}) => ({
             if (!unaryParent?.isUpdateExpression())
                 return;
             
+            if (statement?.parentPath.isUpdateExpression())
+                return;
+            
             if (!statementParent?.isStatement())
                 return;
             

@@ -92,3 +92,8 @@ test('plugin-minify: transform: mutation', (t) => {
     t.transform('mutation');
     t.end();
 });
+
+test('plugin-minify: transform: if', (t) => {
+    t.transform('if');
+    t.end();
+});

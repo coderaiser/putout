@@ -18,6 +18,11 @@ test('plugin-minify: inline: transform', (t) => {
     t.end();
 });
 
+test('plugin-minify: inline: no transform: inc', (t) => {
+    t.noTransform('inc');
+    t.end();
+});
+
 test('plugin-minify: inline: no transform: both-expressions', (t) => {
     t.noTransform('both-expressions');
     t.end();
