@@ -119,6 +119,11 @@ test('plugin-for-of: no transform: couple', (t) => {
     t.end();
 });
 
+test('plugin-for-of: no report: assign', (t) => {
+    t.noReport('assign');
+    t.end();
+});
+
 test('plugin-for-of: transform: end-return', (t) => {
     t.transform('end-return', {
         'remove-useless-continue': removeUselessContinue,

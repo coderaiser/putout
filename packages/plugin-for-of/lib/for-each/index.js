@@ -78,7 +78,12 @@ module.exports.replace = () => ({
 
 module.exports.match = () => ({
     '__.forEach(__args)': (vars, path) => {
-        if (path.parentPath.isSequenceExpression())
+        const {parentPath} = path;
+        
+        if (parentPath.isSequenceExpression())
+            return false;
+        
+        if (parentPath.isVariableDeclarator())
             return false;
         
         const objectPath = path.get('callee.object');
