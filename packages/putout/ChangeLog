@@ -1,3 +1,13 @@
+2024.01.08, v34.7.3
+
+fix:
+- 5218db9ec @putout/plugin-remove-useless-spread: exclude CallExpression
+
+feature:
+- 3b3bb29f1 putout: @putout/plugin-remove-useless-spread v10.0.0
+- b608016bc @putout/plugin-remove-useless-spread: drop suport of node < 18
+- f5524559b @putout/plugin-remove-useless-spread: nested: add
+
 2024.01.08, v34.7.2
 
 feature:
