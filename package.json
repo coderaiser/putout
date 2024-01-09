@@ -43,7 +43,7 @@
     "c8": "^9.0.0",
     "eslint": "^9.0.0-alpha.0",
     "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-n": "^17.0.0-0",
     "eslint-plugin-putout": "^22.0.0",
     "husky": "^6.0.0",
     "lerna": "^6.0.1",
