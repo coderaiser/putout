@@ -1,3 +1,13 @@
+2024.01.09, v34.9.1
+
+fix:
+- aaa62dc27 putout: esm: simplify
+
+feature:
+- 7bf62e83d putout: @putout/plugin-merge-duplicate-imports v11.0.0
+- 2e3683246 @putout/plugin-merge-duplicate-imports: drop support of node < 18
+- b3f9373b4 @putout/plugin-merge-duplicate-imports: rename: add
+
 2024.01.09, v34.9.0
 
 feature:
