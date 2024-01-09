@@ -9,3 +9,10 @@ test('putout: esm', (t) => {
     t.equal(code, '\n');
     t.end();
 });
+
+test('putout: methods', (t) => {
+    const ast = putout.parse('const a = 5');
+    
+    t.ok(ast);
+    t.end();
+});
