@@ -1,3 +1,9 @@
+2024.01.09, v34.9.0
+
+feature:
+- f690349f2 putout: ESM: add ability to use methods
+- bb24a0751 @putout/engine-parser: @putout/printer v8.0.0
+
 2024.01.09, v34.8.1
 
 feature:
