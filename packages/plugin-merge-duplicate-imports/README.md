@@ -24,7 +24,6 @@ npm i @putout/plugin-merge-duplicate-imports
 }
 ```
 
-
 ## join
 
 ### ❌ Example of incorrect code
