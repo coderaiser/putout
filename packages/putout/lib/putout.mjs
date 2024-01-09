@@ -1,5 +1,4 @@
 import putout from './putout.js';
-import all from './putout.js';
 
 export * from './putout.js';
 
@@ -9,6 +8,6 @@ function esmPutout(...a) {
     return putout(...a);
 }
 
-assign(esmPutout, all);
+assign(esmPutout, putout);
 
 export default esmPutout;
