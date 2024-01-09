@@ -68,3 +68,8 @@ test('remove unused expression: no transform: assign', (t) => {
     t.noTransform('assign');
     t.end();
 });
+
+test('remove unused expression: no report: iife', (t) => {
+    t.noReport('iife');
+    t.end();
+});

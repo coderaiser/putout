@@ -37,10 +37,21 @@ module.exports.traverse = ({push}) => ({
         if (isNotDirectiveLiteral(expressionPath))
             return push(expressionPath);
         
-        if (expressionPath.isUnaryExpression({operator: '!'}))
+        if (expressionPath.isUnaryExpression({operator: '!'}) && !isIIFE(expressionPath))
             return push(expressionPath);
     },
 });
+
+function isIIFE(path) {
+    const argPath = path.get('argument');
+    
+    if (!argPath.isCallExpression())
+        return false;
+    
+    const calleePath = argPath.get('callee');
+    
+    return calleePath.isFunction();
+}
 
 function isNotDirectiveLiteral(path) {
     if (!path.isLiteral())
