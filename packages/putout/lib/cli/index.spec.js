@@ -114,7 +114,9 @@ test('putout: cli: async: env: PUTOUT_PRINTER', async (t) => {
     });
     
     reRequire('./process-file');
+    
     reRequire('./runner/lint.js');
+    reRequire('./runner/worker.js');
     reRequire('./runner/runner.js');
     
     const cli = reRequire('.');
@@ -153,6 +155,8 @@ test('putout: cli: --raw: parse error', async (t) => {
     ];
     
     reRequire('./runner/lint.js');
+    reRequire('./runner/worker.js');
+    
     reRequire('./get-files');
     reRequire('./process-file');
     const cli = reRequire('.');
