@@ -15,27 +15,53 @@
 npm i @putout/plugin-merge-duplicate-imports
 ```
 
-## Rule
-
 ```json
 {
     "rules": {
-        "merge-duplicate-imports": "on"
+        "merge-duplicate-imports/join": "on",
+        "merge-duplicate-imports/rename": "on"
     }
 }
 ```
 
-## ❌ Example of incorrect code
+
+## join
+
+### ❌ Example of incorrect code
 
 ```js
 import test from 'supertape';
 import {stub} from 'supertape';
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 import test, {stub} from 'supertape';
+```
+
+## rename
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6604936dec6b1eed8ce0d143f2962f15/17b310a6e4d85b0b8615a8b91d0e27414e8af291).
+
+### ❌ Example of incorrect code
+
+```js
+import putout from './putout.js';
+import all from './putout.js';
+import x from './putout.js';
+
+console.log(all);
+console.log(x);
+```
+
+### ✅ Example of correct code
+
+```js
+import putout from './putout.js';
+
+console.log(putout);
+console.log(putout);
 ```
 
 ## License

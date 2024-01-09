@@ -6,7 +6,7 @@ const tape = require('@putout/plugin-tape');
 const {createTest} = require('@putout/test');
 const convertEsmToCommonjs = require('@putout/plugin-nodejs/convert-esm-to-commonjs');
 
-const mergeDebugger = require('..');
+const merge = require('.');
 
 const {remove} = operator;
 const noop = () => {};
@@ -14,50 +14,50 @@ const noop = () => {};
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['merge-duplicate-imports', mergeDebugger],
+        ['merge-duplicate-imports', merge],
     ],
 });
 
-test('merge duplicate imports: report', (t) => {
+test('plugin-merge-duplicate-imports: join: report', (t) => {
     t.report('duplicate', 'Avoid duplicate imports');
     t.end();
 });
 
-test('merge duplicate imports: transform', (t) => {
+test('plugin-merge-duplicate-imports: join: transform', (t) => {
     t.transform('duplicate');
     t.end();
 });
 
-test('merge duplicate imports: transform: couple-defaults', (t) => {
+test('plugin-merge-duplicate-imports: join: transform: couple-defaults', (t) => {
     t.transform('couple-defaults');
     t.end();
 });
 
-test('merge duplicate imports: transform: tape: declare', (t) => {
+test('plugin-merge-duplicate-imports: join: transform: tape: declare', (t) => {
     t.transform('tape', {
         'tape/declare': tape.rules.declare,
     });
     t.end();
 });
 
-test('merge duplicate imports: no transform: a couple defaultImportSpecifiers', (t) => {
+test('plugin-merge-duplicate-imports: join: no transform: a couple defaultImportSpecifiers', (t) => {
     t.noTransform('couple-same-defaults');
     t.end();
 });
 
-test('merge duplicate imports: no transform: namespace', (t) => {
+test('plugin-merge-duplicate-imports: join: no transform: namespace', (t) => {
     t.noTransform('namespace');
     t.end();
 });
 
-test('merge duplicate imports: transform: declare', (t) => {
+test('plugin-merge-duplicate-imports: join: transform: declare', (t) => {
     t.transform('declare', {
         declare,
     });
     t.end();
 });
 
-test('merge duplicate imports: transform: remove', (t) => {
+test('plugin-merge-duplicate-imports: join: transform: remove', (t) => {
     t.transform('remove', {
         remove: {
             report: noop,
@@ -68,7 +68,7 @@ test('merge duplicate imports: transform: remove', (t) => {
     t.end();
 });
 
-test('merge duplicate imports: transform: nested', (t) => {
+test('plugin-merge-duplicate-imports: join: transform: nested', (t) => {
     t.transform('remove-replace', {
         remove: {
             report: noop,
@@ -84,7 +84,7 @@ test('merge duplicate imports: transform: nested', (t) => {
     t.end();
 });
 
-test('merge duplicate imports: transform: convert-esm-to-commonjs', (t) => {
+test('plugin-merge-duplicate-imports: join: transform: convert-esm-to-commonjs', (t) => {
     t.transform('convert-esm-to-commonjs', {
         'tape/declare': tape.rules.declare,
         'nodejs/convert-esm-to-commonjs': convertEsmToCommonjs,
@@ -92,7 +92,3 @@ test('merge duplicate imports: transform: convert-esm-to-commonjs', (t) => {
     t.end();
 });
 
-test('plugin-merge-duplicate-imports: transform: rename', (t) => {
-    t.transform('rename');
-    t.end();
-});
