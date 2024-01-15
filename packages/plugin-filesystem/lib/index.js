@@ -26,10 +26,10 @@ module.exports.rules = {
     'move-referenced-file': ['off', moveReferencedFile],
     'convert-simple-filesystem-to-filesystem': ['off', convertSimpleFilesystemToFilesystem],
     'convert-filesystem-to-simple-filesystem': ['off', convertFilesystemToSimpleFilesystem],
-    'convert-json-to-js': ['off', convertJsonToJs],
     'bundle-css': ['off', bundleCss],
     'replace-cwd': ['off', replaceCwd],
     'read-all-files': ['off', readAllFiles],
     'write-all-files': ['off', writeAllFiles],
     'convert-js-to-json': ['off', convertJsToJson],
+    'convert-json-to-js': ['off', convertJsonToJs],
 };
