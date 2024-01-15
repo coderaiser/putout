@@ -16,12 +16,12 @@ const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 
 const toBase64 = (content) => {
-    const [e, decoded] = tryCatch(btoa, content);
+    const [e, result] = tryCatch(btoa, content);
     
-    if (!e)
-        return encodeURI(decoded);
+    if (e)
+        return btoa(encodeURI(content));
     
-    return content;
+    return result;
 };
 
 const fromBase64 = (content) => {

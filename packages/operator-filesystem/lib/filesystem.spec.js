@@ -715,6 +715,39 @@ test('putout: operator: filesystem: readFileContent: no content: should create',
     t.end();
 });
 
+test('putout: operator: filesystem: readFileContent: no content: should create: emoji', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+        }],
+    });
+    
+    init({
+        readFileContent: stub().returns('🐸'),
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    readFileContent(filePath);
+    
+    deinit();
+    
+    const expected = {
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+            content: 'JUYwJTlGJTkwJUI4',
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: createFile', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
@@ -877,7 +910,7 @@ test('putout: operator: filesystem: writeFileContent: emoji: getFileContent', (t
     
     writeFileContent(filePath, 'hello 💾\n');
     const content = getFileContent(filePath);
-    const expected = [true, 'hello 💾\n'];
+    const expected = [true, 'aGVsbG8lMjAlRjAlOUYlOTIlQkUlMEE='];
     
     t.deepEqual(content, expected);
     t.end();
@@ -946,6 +979,7 @@ test('putout: operator: filesystem: writeFileContent: field exists: base64', (t)
     });
     
     const [filePath] = findFile(ast, 'README.md');
+    
     writeFileContent(filePath, 'hello');
     
     const expected = {
