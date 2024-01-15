@@ -682,6 +682,39 @@ test('putout: operator: filesystem: readFileContent: no content', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: readFileContent: no content: should create', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+        }],
+    });
+    
+    init({
+        readFileContent: stub().returns('hello'),
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    readFileContent(filePath);
+    
+    deinit();
+    
+    const expected = {
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+            content: 'aGVsbG8=',
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: createFile', (t) => {
     const ast = parseFilesystem({
         type: 'directory',

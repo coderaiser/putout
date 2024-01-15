@@ -287,7 +287,8 @@ module.exports.readFileContent = (filePath) => {
     
     const filename = getFilename(filePath);
     const fileContent = maybeFS.readFileContent(filename);
-    const property = createContentProperty(fileContent);
+    
+    const property = createContentProperty(toBase64(fileContent));
     
     filePath.node.properties.push(property);
     
