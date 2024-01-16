@@ -1,3 +1,31 @@
+2024.01.16, v34.10.0
+
+fix:
+- 689e986ac @putout/operator-filesystem: readFileContent: emoji
+- d5bef6440 @putout/operator-filesystem: convert to base64 afte read
+
+feature:
+- 8c36c77e3 putout: @putout/processor-yaml v8.0.0
+- 779e85997 @putout/processor-yaml: drop support of node < 18
+- 4198df596 @putout/processor-yaml: @putout/operator-json v2.0.0
+- 4bdcd9494 putout: @putout/processor-markdown v12.0.0
+- f65d5538e @putout/processor-markdown: @putout/operator-json v2.0.0
+- b3d4a195e @putout/processor-markdown: drop support of node < 18
+- 71ebf7b17 putout: @putout/processor-json v8.0.1
+- 2c70a57a2 @putout/processor-json: drop support of node < 18
+- 5e464f57b @putout/processor-json: @putout/operator-json v2.0.0
+- 84268609b @putout/plugin-filesystem: @putout/operator-json v2.0.0
+- c0de3441e @putout/operator-match-files: @putout/operator-json v2.0.0
+- fec0e73f4 @putout/operator-filesystem: @putout/operator-json v2.0.0
+- b0bbe2d63 @putout/engine-runner: @putout/operator-json v2.0.0
+- de728d73c @putout/processor-ignore: @putout/operator-json v2.0.0
+- 24cb464df putout: @putout/processor-ignore v6.0.0
+- fe125757c @putout/processor-ignore: drop suppoort of node < 18
+- 535400cef putout: @putout/operator-json v2.0.0
+- 700d3fae6 @putout/processor-filesystem: @putout/operator-json v2.0.0
+- 52579a7f5 @putout/operator-json: drop support of node < 18
+- e40275667 @putout/processor-filesystem: rm duplicate name declaration
+
 2024.01.09, v34.9.1
 
 fix:
