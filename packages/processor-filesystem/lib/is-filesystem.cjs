@@ -1,5 +1,5 @@
 'use strict';
 
-const {name} = require('./name.cjs');
+const {__filesystem_name} = require('@putout/operator-json');
 
-module.exports.isFilesystem = (source) => !source.indexOf(name);
+module.exports.isFilesystem = (source) => !source.indexOf(__filesystem_name);
