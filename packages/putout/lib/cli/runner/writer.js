@@ -58,6 +58,7 @@ module.exports.runWriter = async ({readFile, report, writeFile, exit, raw, write
         };
     
     const {dir} = options;
+    
     const {
         places,
         isProcessed,
