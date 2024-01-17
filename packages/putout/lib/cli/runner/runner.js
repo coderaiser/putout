@@ -1,6 +1,6 @@
 'use strict';
 
-const runWorker = require('./worker.js');
+const {runWriter} = require('./writer.js');
 const initProcessFile = require('../process-file.js');
 const Report = require('../report.js');
 
@@ -19,7 +19,7 @@ module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, 
         const currentIndex = isStop() ? length - 1 : index;
         const name = names[index];
         
-        const {exited, places: currentPlaces = []} = await runWorker({
+        const {exited, places: currentPlaces = []} = await runWriter({
             readFile,
             writeFile,
             exit,

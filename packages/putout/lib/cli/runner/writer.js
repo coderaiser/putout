@@ -7,7 +7,7 @@ const {readFileSync} = require('fs');
 const tryCatch = require('try-catch');
 const getOptions = require('../get-options.js');
 const {INVALID_CONFIG, NO_PROCESSORS} = require('../exit-codes.js');
-const {lint} = require('./lint.js');
+const {runReader} = require('./reader.js');
 
 const isParser = (rule) => rule.startsWith('parser');
 const isParsingError = ({rule}) => isParser(rule);
@@ -26,7 +26,7 @@ const createFormatterProxy = (options) => {
     });
 };
 
-module.exports = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, name, count}) => {
+module.exports.runWriter = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, name, count}) => {
     const resolvedName = resolve(name).replace(/^\./, cwd);
     const [configError, options] = tryCatch(getOptions, {
         name: resolvedName,
@@ -38,8 +38,6 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
     
     if (configError)
         return exit(INVALID_CONFIG, configError);
-    
-    const {dir} = options;
     
     const success = await runCache({
         options,
@@ -59,12 +57,13 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
             success,
         };
     
+    const {dir} = options;
     const {
         places,
         isProcessed,
         rawSource,
         processedSource,
-    } = await lint({
+    } = await runReader({
         raw,
         dir,
         fix,

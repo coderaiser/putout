@@ -1,13 +1,9 @@
 'use strict';
 
 const tryToCatch = require('try-to-catch');
-
 const mockRequire = require('mock-require');
-
 const {test, stub} = require('supertape');
-
 const {join} = require('path');
-
 const {simpleImport} = require('../simple-import');
 
 const {reRequire, stopAll} = mockRequire;

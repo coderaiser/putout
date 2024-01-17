@@ -7,7 +7,7 @@ const parseError = require('../parse-error.js');
 const {simpleImport} = require('../simple-import');
 const ignores = require('../../ignores.js');
 
-module.exports.lint = async ({raw, log, dir, resolvedName, options, readFile, fix, processFile, processorRunners}) => {
+module.exports.runReader = async ({raw, log, dir, resolvedName, options, readFile, fix, processFile, processorRunners}) => {
     let isProcessed = true;
     let places = [];
     let rawSource = '';
