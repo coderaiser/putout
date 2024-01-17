@@ -27,7 +27,7 @@ const createFormatterProxy = (options) => {
 };
 
 module.exports = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, name, count}) => {
-    const resolvedName = resolve(name).replace(/^\./, cwd); 
+    const resolvedName = resolve(name).replace(/^\./, cwd);
     const [configError, options] = tryCatch(getOptions, {
         name: resolvedName,
         rulesdir,
