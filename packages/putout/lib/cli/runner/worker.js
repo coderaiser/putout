@@ -40,8 +40,7 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
     if (configError)
         return exit(INVALID_CONFIG, configError);
     
-    const {dir} = options;
-    
+    const {dir} = options;  
     const success = await runCache({
         options,
         fileCache,
