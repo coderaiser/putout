@@ -5,6 +5,7 @@ const {
     replaceWith,
     traverse,
     remove,
+    compare,
 } = operator;
 
 const {
@@ -23,6 +24,16 @@ module.exports.match = () => ({
     'return new Promise(__a)': (vars, path) => {
         const {scope} = path.get('argument.arguments.0');
         const {resolve, reject} = scope.bindings;
+        
+        let is = false;
+        traverse(path, {
+            'reject(__)': ({parentPath}) => {
+                is = compare(parentPath.parentPath, '__a.on(__b, __c);');
+            },
+        });
+        
+        if (is)
+            return;
         
         if (resolve?.references) {
             const [referencePath] = resolve.referencePaths;

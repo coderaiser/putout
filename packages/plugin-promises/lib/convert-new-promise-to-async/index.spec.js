@@ -54,3 +54,8 @@ test('plugin-promises: convert-new-promise-to-async: no report: resolve-passed',
     t.noReport('resolve-passed');
     t.end();
 });
+
+test('plugin-promises: convert-new-promise-to-async: no report: resolve-not-called', (t) => {
+    t.noReport('resolve-not-called');
+    t.end();
+});
