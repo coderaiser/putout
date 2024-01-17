@@ -16,6 +16,7 @@ module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, 
             break;
         
         wasStop(isStop());
+        
         const currentIndex = isStop() ? length - 1 : index;
         const name = names[index];
         
