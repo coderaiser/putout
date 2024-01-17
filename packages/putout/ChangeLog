@@ -1,3 +1,9 @@
+2024.01.17, v34.11.0
+
+feature:
+- 27b2f7bda putout: add trace support
+- 286e90e7b @putout/plugin-promise: convert-new-promise-to-async: exclude resolve inside event listener'
+
 2024.01.16, v34.10.0
 
 fix:
