@@ -20,7 +20,7 @@ test('putout: cli: runner: processor throw: raw', async (t) => {
         ],
     }));
     
-    const {places} = await runWorker({
+    const {places} = await runWriter({
         name,
         currentFormat: 'json-lines',
         formatterOptions: {},
@@ -46,9 +46,9 @@ test('putout: cli: runner: getOptions: resolve called', async (t) => {
     const getOptions = stub().throws(Error('getOptions error'));
     
     mockRequire('../get-options', getOptions);
-    const runWorker = reRequire('./worker.js');
+    const {runWriter} = reRequire('./writer.js');
     
-    await tryToCatch(runWorker, {
+    await tryToCatch(runWriter, {
         name: '1.js',
         currentFormat: 'json-lines',
         formatterOptions: {},
@@ -69,7 +69,7 @@ test('putout: cli: runner: ignores', async (t) => {
         ignore: ['fixture'],
     }));
     
-    const {places} = await runWorker({
+    const {places} = await runWriter({
         name: 'fixture/1.js',
         currentFormat: 'json-lines',
         formatterOptions: {},
@@ -103,9 +103,9 @@ test('putout: cli: runner: processor: load', async (t) => {
         runProcessors,
     });
     
-    reRequire('./lint');
+    reRequire('./reader');
     
-    await runWorker({
+    await runWriter({
         name,
         currentFormat: 'json-lines',
         formatterOptions: {},
@@ -120,7 +120,7 @@ test('putout: cli: runner: processor: load', async (t) => {
     t.end();
 });
 
-async function runWorker(options) {
+async function runWriter(options) {
     const {
         raw = false,
         rulesdir = '',
@@ -145,9 +145,9 @@ async function runWorker(options) {
         fileCache = getFileCache(),
     } = options;
     
-    const run = reRequire('./worker.js');
+    const {runWriter} = reRequire('./writer.js');
     
-    return await run({
+    return await runWriter({
         exit,
         raw,
         write,

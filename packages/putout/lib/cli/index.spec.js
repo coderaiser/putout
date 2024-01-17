@@ -73,7 +73,7 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     const error = Error('No files matching the pattern "xx" were found');
     
     mockRequire('./get-files', stub().returns([error]));
-    reRequire('./runner/lint.js');
+    reRequire('./runner/reader.js');
     
     const cli = reRequire('.');
     
@@ -115,8 +115,8 @@ test('putout: cli: async: env: PUTOUT_PRINTER', async (t) => {
     
     reRequire('./process-file');
     
-    reRequire('./runner/lint.js');
-    reRequire('./runner/worker.js');
+    reRequire('./runner/reader.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     
     const cli = reRequire('.');
@@ -154,8 +154,8 @@ test('putout: cli: --raw: parse error', async (t) => {
         '--no-cache',
     ];
     
-    reRequire('./runner/lint.js');
-    reRequire('./runner/worker.js');
+    reRequire('./runner/reader.js');
+    reRequire('./runner/writer.js');
     
     reRequire('./get-files');
     reRequire('./process-file');
@@ -212,7 +212,7 @@ test('putout: cli: --format: ci', async (t) => {
         isCI: true,
     });
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -366,7 +366,7 @@ test('putout: cli: --format: specified twice', async (t) => {
     });
     mockRequire('./report', report);
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -432,8 +432,8 @@ test('putout: cli: no ide', async (t) => {
     delete env.TERMINAL_EMULATOR;
     delete env.TERM_PROGRAM;
     
-    reRequire('./runner/lint.js');
-    reRequire('./runner/worker.js');
+    reRequire('./runner/reader.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -519,7 +519,7 @@ test('putout: cli: ide: web storm', async (t) => {
         simpleImport,
     });
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -589,7 +589,7 @@ test('putout: cli: ide: vs code', async (t) => {
         createCache,
     });
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -657,7 +657,7 @@ test('putout: cli: ide: vs code: cache', async (t) => {
         createCache,
     });
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -725,7 +725,7 @@ test('putout: cli: no ide: cache', async (t) => {
         createCache,
     });
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -1444,7 +1444,7 @@ test('putout: cli: --transform', async (t) => {
     mockRequire('@putout/eslint', eslint);
     
     reRequire('./process-file');
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     
     const cli = reRequire('.');
@@ -1504,7 +1504,7 @@ test('putout: cli: --plugins', async (t) => {
     mockRequire('./eslint', eslint);
     
     reRequire('./process-file');
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -1575,7 +1575,7 @@ test('putout: cli: fix', async (t) => {
     mockRequire('./get-options', getOptions);
     mockRequire('./process-file', processFile);
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -1616,7 +1616,7 @@ test('putout: cli: no processors', async (t) => {
     mockRequire('./get-options', getOptions);
     mockRequire('./process-file', processFile);
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -1772,7 +1772,7 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
         createCache,
     });
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -1811,7 +1811,7 @@ test('putout: cli: exit code: PLACE', async (t) => {
     
     mockRequire('./get-options', getOptions);
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -1850,7 +1850,7 @@ test('putout: cli: readFile: ENOENT', async (t) => {
     
     mockRequire('./get-options', getOptions);
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -1892,7 +1892,7 @@ test('putout: cli: readFile: EACCESS', async (t) => {
     
     mockRequire('./get-options', getOptions);
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -1993,7 +1993,7 @@ test('putout: cli: get files: was stop', async (t) => {
     mockRequire('./get-files', getFiles);
     mockRequire('@putout/cli-keypress', keypress);
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -2036,7 +2036,7 @@ test('putout: cli: get files: was stop: no', async (t) => {
     mockRequire('./get-files', getFiles);
     mockRequire('./on-halt', onHalt);
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
     
@@ -2262,7 +2262,7 @@ test('putout: processor throw', async (t) => {
     
     mockRequire('./get-options', getOptions);
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     
     const cli = reRequire('.');
@@ -2308,7 +2308,7 @@ test('putout: processor throw: raw', async (t) => {
     reRequire('@putout/engine-processor');
     mockRequire('./get-options', getOptions);
     
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     
     const cli = reRequire('.');
@@ -2382,7 +2382,7 @@ test('putout: processor: invalid config: message', async (t) => {
     });
     
     reRequire('@putout/engine-processor');
-    reRequire('./runner/worker.js');
+    reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     
     const cli = reRequire('.');
