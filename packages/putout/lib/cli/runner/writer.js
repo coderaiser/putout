@@ -26,7 +26,7 @@ const createFormatterProxy = (options) => {
     });
 };
 
-module.exports.runWriter = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, name, count}) => {
+module.exports.runWriter = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, name, count, trace}) => {
     const resolvedName = resolve(name).replace(/^\./, cwd);
     const [configError, options] = tryCatch(getOptions, {
         name: resolvedName,
@@ -40,6 +40,7 @@ module.exports.runWriter = async ({readFile, report, writeFile, exit, raw, write
         return exit(INVALID_CONFIG, configError);
     
     const success = await runCache({
+        trace,
         options,
         fileCache,
         report,
@@ -83,6 +84,7 @@ module.exports.runWriter = async ({readFile, report, writeFile, exit, raw, write
         places,
         index,
         count,
+        trace,
     });
     
     write(line || '');
@@ -106,7 +108,7 @@ module.exports.runWriter = async ({readFile, report, writeFile, exit, raw, write
     };
 };
 
-async function runCache({fileCache, report, write, formatterOptions, currentFormat, name, resolvedName, index, count, options}) {
+async function runCache({fileCache, report, write, formatterOptions, currentFormat, name, resolvedName, index, count, options, trace}) {
     if (!fileCache.canUseCache(name, options))
         return false;
     
@@ -117,6 +119,7 @@ async function runCache({fileCache, report, write, formatterOptions, currentForm
         places,
         index,
         count,
+        trace,
     });
     
     const line = await report(currentFormat, formatterProxy);

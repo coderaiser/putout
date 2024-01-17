@@ -26,7 +26,8 @@
     "./ignores": "./lib/ignores.js"
   },
   "bin": {
-    "putout": "bin/putout.mjs"
+    "putout": "bin/putout.mjs",
+    "trace": "bin/tracer.mjs"
   },
   "repository": {
     "type": "git",
@@ -34,16 +35,16 @@
   },
   "scripts": {
     "wisdom": "madrun wisdom",
-    "test:raw": "madrun test:raw",
     "test": "madrun test",
+    "test:raw": "madrun test:raw",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
+    "trace": "madrun trace",
     "fresh:lint": "madrun fresh:lint",
     "fix:lint": "madrun fix:lint",
     "fix:lint:fresh": "madrun fix:lint:fresh",
     "lint:progress": "madrun lint:progress",
     "lint:fresh": "madrun lint:fresh",
-    "coverage:raw": "madrun coverage:raw",
     "coverage": "madrun coverage",
     "report": "madrun report"
   },

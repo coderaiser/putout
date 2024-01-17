@@ -6,7 +6,7 @@ const Report = require('../report.js');
 
 const report = Report();
 
-module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, exit, isStop, wasStop, names, write, log, rulesdir, fix, processorRunners, fileCache, currentFormat, formatterOptions, options, raw}) => {
+module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, exit, isStop, wasStop, names, write, log, rulesdir, fix, processorRunners, fileCache, currentFormat, formatterOptions, options, raw, trace}) => {
     const processFile = initProcessFile(options);
     const {length} = names;
     const places = [];
@@ -41,6 +41,7 @@ module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, 
             noConfig,
             plugins,
             transform,
+            trace,
         });
         
         places.push(...currentPlaces);

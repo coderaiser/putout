@@ -45,6 +45,7 @@ const {
     INTERACTIVE_CANCELED,
 } = require('./exit-codes');
 
+const noop = () => {};
 const {keys} = Object;
 const {isSupported} = supportedFiles;
 const getFormatter = nanomemoize(require('./formatter/formatter').getFormatter);
@@ -60,7 +61,9 @@ const getExitCode = (wasStop) => wasStop() ? WAS_STOP : OK;
 const isStr = (a) => typeof a === 'string';
 const {isArray} = Array;
 
-module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
+module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, trace = noop}) => {
+    trace('start');
+    
     const {isStop} = keyPress();
     const wasStop = fullstore();
     
@@ -193,7 +196,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (isStr(args.match)) {
         const {match} = await simpleImport('@putout/cli-match');
-        
         const {code, message} = await match({
             pattern: args.match,
             cwd,
@@ -312,6 +314,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     };
     
     const {places, exited} = await run({
+        trace,
         fix,
         exit,
         readFile,

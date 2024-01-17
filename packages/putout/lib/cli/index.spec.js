@@ -33,6 +33,7 @@ const {
     INTERACTIVE_CANCELED,
 } = require('./exit-codes');
 
+const noop = () => {};
 const {env} = process;
 const {assign} = Object;
 const {parse} = JSON;
@@ -454,6 +455,7 @@ test('putout: cli: no ide', async (t) => {
         name,
         places: [],
         source: '',
+        trace: noop,
     }];
     
     t.calledWith(report, expected);
@@ -538,6 +540,7 @@ test('putout: cli: ide: web storm', async (t) => {
         name: join(process.cwd(), name),
         places: [],
         source: '',
+        trace: noop,
     }];
     
     t.calledWith(report, expected);
@@ -608,6 +611,7 @@ test('putout: cli: ide: vs code', async (t) => {
         name: join(process.cwd(), name),
         places: [],
         source: '',
+        trace: noop,
     }];
     
     t.calledWith(report, expected);
@@ -676,6 +680,7 @@ test('putout: cli: ide: vs code: cache', async (t) => {
         name: join(process.cwd(), name),
         places: [],
         source: '',
+        trace: noop,
     }];
     
     t.calledWith(report, expected);
@@ -695,7 +700,6 @@ test('putout: cli: no ide: cache', async (t) => {
     }));
     
     const getFormatter = stub().returns(['dump', {}]);
-    
     const report = stub();
     
     const getFiles = stub().returns([
@@ -727,6 +731,7 @@ test('putout: cli: no ide: cache', async (t) => {
     
     reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
+    
     const cli = reRequire('.');
     
     await runCli({
@@ -744,6 +749,7 @@ test('putout: cli: no ide: cache', async (t) => {
         name,
         places: [],
         source: '',
+        trace: noop,
     }];
     
     t.calledWith(report, expected);

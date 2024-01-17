@@ -1,6 +1,6 @@
 {
     "printer": "putout",
-    "formatter": "progress",
+    "formatter": "progress-bar",
     "rules": {
         "maybe/noop": "off"
     },
