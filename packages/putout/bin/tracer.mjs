@@ -9,9 +9,7 @@ import {createReport} from './report.mjs';
 const {cwd, exit} = process;
 const args = parseArgs(process.argv.slice(2));
 
-const {raw} = args;
-
-if (raw) {
+if (!args.worker) {
     await import('./putout.mjs');
     exit();
 }

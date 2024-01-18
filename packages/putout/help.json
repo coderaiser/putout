@@ -18,5 +18,6 @@
     "--fresh                    ": "generate a fresh cache",
     "--no-config                ": "avoid reading '.putout.json'",
     "--no-ci                    ": "disable the CI detection",
-    "--no-cache                 ": "disable the cache"
+    "--no-cache                 ": "disable the cache",
+    "--no-worker                ": "disable worker thread"
 }

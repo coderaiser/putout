@@ -22,6 +22,7 @@ const argvConfig = {
         'fix',
         'fresh',
         'raw',
+        'worker',
         'enable-all',
         'disable-all',
         'flow',
@@ -58,6 +59,7 @@ const argvConfig = {
         disable: '',
         disableAll: false,
         enableAll: false,
+        worker: true,
         plugins: [],
     },
 };

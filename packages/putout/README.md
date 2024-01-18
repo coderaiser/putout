@@ -182,6 +182,7 @@ Options:
    --no-config                 avoid reading '.putout.json'
    --no-ci                     disable the CI detection
    --no-cache                  disable the cache
+   --no-worker                 disable worker thread
 ```
 
 To find errors:
