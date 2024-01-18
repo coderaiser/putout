@@ -9,7 +9,8 @@
         "**/register.mjs",
         ".*.*",
         "bin/tracer.mjs",
-        "bin/report.mjs"
+        "bin/report.mjs",
+        "bin/subscribe.mjs"
     ],
     "branches": 100,
     "lines": 100,
