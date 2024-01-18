@@ -48,7 +48,7 @@ const {
 const noop = () => {};
 const {keys} = Object;
 const {isSupported} = supportedFiles;
-const getFormatter = nanomemoize(require('./formatter/formatter').getFormatter);
+const getFormatter = nanomemoize(require('@putout/engine-reporter/formatter').getFormatter);
 
 const cwd = process.cwd();
 const {PUTOUT_FILES = '', PUTOUT_PRINTER} = process.env;

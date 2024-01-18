@@ -11,7 +11,7 @@ import {createWrite} from './write.mjs';
 import cli from '../lib/cli/index.js';
 import {parseArgs} from '../lib/cli/parse-args.js';
 import {createCommunication} from './communication.mjs';
-import {subscribe} from './subscribe.mjs';
+import {subscribe} from '@putout/engine-reporter/subscribe';
 
 const logError = console.error;
 const {

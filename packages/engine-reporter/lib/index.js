@@ -1,18 +1,18 @@
 import module from 'node:module';
 import tryCatch from 'try-catch';
-import {getFormatter} from '../lib/cli/formatter/formatter.js';
-import getOptions from '../lib/cli/get-options.js';
-import Report from '../lib/cli/report.js';
+import getOptions from 'putout/cli/get-options';
 import {
     INTERACTIVE_CANCELED,
     INVALID_CONFIG,
-} from '../lib/cli/exit-codes.mjs';
+} from 'putout/exit-codes';
+
+import {getFormatter} from './formatter/formatter.cjs';
+import Report from './report.cjs';
 
 const {createRequire} = module;
 const require = createRequire(import.meta.url);
-
-const {formatter: defaultFormatter} = require('../putout.json');
-const {dependencies} = require('../package.json');
+const {formatter: defaultFormatter} = require('putout/putout.json');
+const {dependencies} = require('putout/package.json');
 
 const {keys} = Object;
 

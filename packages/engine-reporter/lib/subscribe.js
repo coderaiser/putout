@@ -1,6 +1,6 @@
 import process from 'node:process';
 import keyPress from '@putout/cli-keypress';
-import {createReport} from './report.mjs';
+import {createReport} from './index.js';
 
 export const subscribe = async ({cwd, args, worker, exit}) => {
     const {isStop} = keyPress();

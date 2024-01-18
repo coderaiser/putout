@@ -12,6 +12,7 @@
         "packages/*/bin",
         "packages/*/test",
         "packages/plugin-putout/lib/declare/index.js",
+        "packages/engine-reporter",
         "coverage",
         "**/eslint.config.js",
         "**/load-plugins-async.js",

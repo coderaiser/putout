@@ -6,10 +6,10 @@
         "**/fixture",
         "test",
         "coverage",
-        "**/register.mjs",
         ".*.*",
-        "bin/tracer.mjs",
-        "bin/communication.mjs"
+        "**/index.js",
+        "**/subscribe.js",
+        "**/simple-import.*js"
     ],
     "branches": 100,
     "lines": 100,
