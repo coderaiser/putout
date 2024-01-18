@@ -20,7 +20,7 @@ const trace = createTrace(parentPort);
 const isStop = createIsStop(parentPort);
 const write = createWrite(parentPort);
 
-export default await cli({
+await cli({
     write,
     halt: process.exit,
     argv: [

@@ -24,9 +24,6 @@
             "promises/add-missing-await": "off",
             "promises/remove-useless-async": "off"
         },
-        ".madrun.mjs": {
-            "madrun/set-lint-dot": "off"
-        },
         ".filesystem.json": {
             "filesystem/remove-files": ["on", {
                 "names": ["coverage"]

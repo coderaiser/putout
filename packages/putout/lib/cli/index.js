@@ -3,7 +3,6 @@
 const process = require('process');
 const tryToCatch = require('try-to-catch');
 
-const yargsParser = require('yargs-parser');
 const {isCI} = require('ci-info');
 const {nanomemoize} = require('nano-memoize');
 const tryCatch = require('try-catch');
@@ -22,6 +21,7 @@ const keyPress = require('@putout/cli-keypress');
 
 const supportedFiles = require('./supported-files');
 const getOptions = require('./get-options');
+const {argvConfig, parseArgs} = require('./parse-args');
 
 const getFiles = require('./get-files');
 const {version, dependencies} = require('../../package.json');
@@ -54,12 +54,10 @@ const cwd = process.cwd();
 const {PUTOUT_FILES = '', PUTOUT_PRINTER} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
-const maybeFirst = (a) => isArray(a) ? a.pop() : a;
-const maybeArray = (a) => isArray(a) ? a : a.split(',');
 const getExitCode = (wasStop) => wasStop() ? WAS_STOP : OK;
 
 const isStr = (a) => typeof a === 'string';
-const {isArray} = Array;
+
 const isNoop = (a) => String(a) === String(noop);
 
 const parseIsStop = (passedIsStop) => {
@@ -76,65 +74,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
     trace('start');
     
     const wasStop = fullstore();
-    
-    const argvConfig = {
-        configuration: {
-            'strip-aliased': true,
-            'strip-dashed': true,
-        },
-        coerce: {
-            format: maybeFirst,
-            plugins: maybeArray,
-        },
-        boolean: [
-            'ci',
-            'cache',
-            'version',
-            'help',
-            'fix',
-            'fresh',
-            'raw',
-            'enable-all',
-            'disable-all',
-            'flow',
-            'config',
-            'staged',
-            'interactive',
-        ],
-        number: ['fix-count'],
-        string: [
-            'format',
-            'disable',
-            'enable',
-            'rulesdir',
-            'transform',
-            'plugins',
-            'match',
-        ],
-        alias: {
-            version: 'v',
-            help: 'h',
-            format: 'f',
-            staged: 's',
-            transform: 't',
-            interactive: 'i',
-        },
-        default: {
-            ci: true,
-            fix: false,
-            fixCount: 10,
-            config: true,
-            cache: true,
-            fresh: false,
-            enable: '',
-            disable: '',
-            disableAll: false,
-            enableAll: false,
-            plugins: [],
-        },
-    };
-    
-    const args = yargsParser(argv, argvConfig);
+    const args = parseArgs(argv);
     
     if (args.ci && isCI) {
         args.format = 'stream';

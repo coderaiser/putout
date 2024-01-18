@@ -1,4 +1,10 @@
 {
+    "overrides": [{
+        "files": "bin/putout.mjs",
+        "rules": {
+            "n/shebang": "off"
+        }
+    }],
     "extends": [
         "plugin:n/recommended",
         "plugin:putout/safe+align"

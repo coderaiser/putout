@@ -26,8 +26,7 @@
     "./ignores": "./lib/ignores.js"
   },
   "bin": {
-    "putout": "bin/putout.mjs",
-    "trace": "bin/tracer.mjs"
+    "putout": "bin/tracer.mjs"
   },
   "repository": {
     "type": "git",
