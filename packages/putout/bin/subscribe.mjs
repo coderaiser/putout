@@ -10,6 +10,7 @@ export const subscribe = async ({cwd, args, worker, exit}) => {
         exit,
     });
     
+    worker.on('exit', exit);
     worker.on('message', async ([event, data]) => {
         if (event !== 'progress')
             return;
@@ -22,6 +23,4 @@ export const subscribe = async ({cwd, args, worker, exit}) => {
         if (isStop())
             worker.postMessage(['stop']);
     });
-    
-    worker.on('exit', exit);
 };
