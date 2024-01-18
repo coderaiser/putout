@@ -5,7 +5,6 @@ import {
     INTERACTIVE_CANCELED,
     INVALID_CONFIG,
 } from 'putout/exit-codes';
-
 import {getFormatter} from './formatter/formatter.cjs';
 import Report from './report.cjs';
 
