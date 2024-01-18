@@ -60,11 +60,21 @@ const getExitCode = (wasStop) => wasStop() ? WAS_STOP : OK;
 
 const isStr = (a) => typeof a === 'string';
 const {isArray} = Array;
+const isNoop = (a) => String(a) === String(noop);
 
-module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, trace = noop}) => {
-    trace('start');
+const parseIsStop = (passedIsStop) => {
+    if (!isNoop(passedIsStop))
+        return passedIsStop;
     
     const {isStop} = keyPress();
+    
+    return isStop;
+};
+
+module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, trace = noop, isStop = noop}) => {
+    isStop = parseIsStop(isStop);
+    trace('start');
+    
     const wasStop = fullstore();
     
     const argvConfig = {

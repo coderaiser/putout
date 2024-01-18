@@ -9,11 +9,17 @@
         },
         "**/rules": {
             "putout": "on",
-            "putout/create-test": ["on", {
-                "add": [
-                    ["printer", "putout"]
-                ]
-            }]
+            "putout/create-test": [
+                "on",
+                {
+                    "add": [
+                        [
+                            "printer",
+                            "putout"
+                        ]
+                    ]
+                }
+            ]
         },
         "**/packages/plugin-*/*.md{json}": {
             "putout-config": "on"
@@ -24,22 +30,36 @@
             "promises/add-missing-await": "off",
             "promises/remove-useless-async": "off"
         },
+        ".madrun.mjs": {
+            "madrun/set-lint-dot": "off"
+        },
         ".filesystem.json": {
-            "filesystem/remove-files": ["on", {
-                "names": ["coverage"]
-            }],
-            "typescript/find-file": ["on", {
-                "ignore": [
-                    "eslint-fixture"
-                ]
-            }]
+            "filesystem/remove-files": [
+                "on",
+                {
+                    "names": [
+                        "coverage"
+                    ]
+                }
+            ],
+            "typescript/find-file": [
+                "on",
+                {
+                    "ignore": [
+                        "eslint-fixture"
+                    ]
+                }
+            ]
         }
     },
     "rules": {
         "github/convert-npm-to-bun": "off",
-        "remove-useless-spread/object": ["on", {
-            "exclude": "module.exports.rules = __"
-        }]
+        "remove-useless-spread/object": [
+            "off",
+            {
+                "exclude": "module.exports.rules = __"
+            }
+        ]
     },
     "ignore": [
         "docs",

@@ -10,13 +10,15 @@ import {
     writeFile,
 } from 'node:fs/promises';
 import {createTrace} from './trace.mjs';
+import {createIsStop} from './is-stop.mjs';
+import {createWrite} from './write.mjs';
 import cli from '../lib/cli/index.js';
 
-const {stdout} = process;
-const write = stdout.write.bind(stdout);
 const logError = console.error;
 
 const trace = createTrace(parentPort);
+const isStop = createIsStop(parentPort);
+const write = createWrite(parentPort);
 
 export default await cli({
     write,
@@ -30,4 +32,5 @@ export default await cli({
     readFile,
     writeFile,
     trace,
+    isStop,
 });

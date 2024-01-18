@@ -2058,6 +2058,50 @@ test('putout: cli: get files: was stop: no', async (t) => {
     t.end();
 });
 
+test('putout: cli: get files: was stop: isStop passed', async (t) => {
+    const argv = [__filename, '--no-cache', '--no-config'];
+    
+    const ignore = ['xxx'];
+    
+    const getOptions = stub().returns({
+        dir: __dirname,
+        formatter: 'dump',
+        ignore,
+    });
+    
+    const getFiles = stub().returns([
+        null,
+        [__filename],
+    ]);
+    
+    const halt = stub();
+    const isStop = stub().returns(false);
+    
+    const onHalt = stub().returns({
+        isStop,
+    });
+    
+    mockRequire('./get-options', getOptions);
+    mockRequire('./get-files', getFiles);
+    mockRequire('./on-halt', onHalt);
+    
+    reRequire('./runner/writer.js');
+    reRequire('./runner/runner.js');
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+        isStop,
+    });
+    
+    stopAll();
+    
+    t.calledWith(halt, [OK], 'should set OK status');
+    t.end();
+});
+
 test('putout: cli: invalid option', async (t) => {
     const argv = [
         '--hello-world',
@@ -2416,6 +2460,7 @@ test('putout: processor: invalid config: message', async (t) => {
 
 async function runCli(options) {
     const {
+        isStop,
         halt = stub(),
         log = stub(),
         logError = stub(),
@@ -2434,5 +2479,6 @@ async function runCli(options) {
         argv,
         readFile,
         writeFile,
+        isStop,
     });
 }
