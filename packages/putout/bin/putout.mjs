@@ -29,6 +29,7 @@ const {
     cwd,
     stdout,
 } = process;
+
 const args = parseArgs(workerData.slice(2));
 
 if (worker)
