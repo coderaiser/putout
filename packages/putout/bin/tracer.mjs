@@ -5,8 +5,14 @@ import {Worker} from 'node:worker_threads';
 import {parseArgs} from '../lib/cli/parse-args.js';
 import {subscribe} from '@putout/engine-reporter/subscribe';
 
-const {cwd, exit} = process;
+const {
+    cwd,
+    exit,
+    stdout,
+} = process;
+
 const args = parseArgs(process.argv.slice(2));
+const write = stdout.write.bind(stdout);
 
 if (!args.worker) {
     await import('./putout.mjs');
@@ -25,6 +31,7 @@ subscribe({
     worker,
     exit,
     cwd,
+    write,
 });
 
 function dropInteractive(argv) {

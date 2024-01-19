@@ -1,8 +1,7 @@
-import process from 'node:process';
 import keyPress from '@putout/cli-keypress';
 import {createReport} from './index.js';
 
-export const subscribe = async ({cwd, args, worker, exit}) => {
+export const subscribe = async ({write, cwd, args, worker, exit}) => {
     const {isStop} = keyPress();
     const report = await createReport({
         args,
@@ -15,10 +14,11 @@ export const subscribe = async ({cwd, args, worker, exit}) => {
         if (event !== 'progress')
             return;
         
-        if (isStop())
-            data.index = data.count - 1;
+        //if (isStop())
+        //    data.index = data.count - 1;
+        const line = await report(data);
         
-        process.stdout.write(await report(data));
+        write(line || '');
         
         if (isStop())
             worker.postMessage(['stop']);

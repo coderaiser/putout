@@ -5,13 +5,13 @@ import {
     readFile,
     writeFile,
 } from 'node:fs/promises';
+import {subscribe} from '@putout/engine-reporter/subscribe';
 import {createTrace} from './trace.mjs';
 import {createIsStop} from './is-stop.mjs';
 import {createWrite} from './write.mjs';
+import {createCommunication} from './communication.mjs';
 import cli from '../lib/cli/index.js';
 import {parseArgs} from '../lib/cli/parse-args.js';
-import {createCommunication} from './communication.mjs';
-import {subscribe} from '@putout/engine-reporter/subscribe';
 
 const logError = console.error;
 const {
@@ -24,8 +24,11 @@ const trace = createTrace(parentPort);
 const isStop = createIsStop(parentPort);
 const write = createWrite(parentPort);
 
-const {exit, cwd} = process;
-
+const {
+    exit,
+    cwd,
+    stdout,
+} = process;
 const args = parseArgs(workerData.slice(2));
 
 if (worker)
@@ -34,6 +37,7 @@ if (worker)
         worker,
         exit,
         cwd,
+        write: stdout.write.bind(stdout),
     });
 
 workerData.push(...[
