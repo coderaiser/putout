@@ -36,9 +36,8 @@ const extensionRules = {
     '@typescript-eslint/no-implied-eval': 'off',
     
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
-    
-    '@typescript-eslint/require-await': 'off', // disabled while https://github.com/typescript-eslint/typescript-eslint/pull/8171 merged
+    '@typescript-eslint/no-unused-vars': 'off', // disabled while ESLint v9 supported
+    '@typescript-eslint/require-await': 'off', // disabled while while ESLint v9 supported
     // 'no-redeclare': 'off',
     // '@typescript-eslint/no-redeclare': 'error',
     // same
