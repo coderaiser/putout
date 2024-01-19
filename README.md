@@ -436,6 +436,7 @@ It looks this way in [**ESTree**](https://github.com/estree/estree) **JavaScript
 | [`@putout/engine-loader`](/packages/engine-loader#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-loader.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-loader) |
 | [`@putout/engine-runner`](/packages/engine-runner#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-runner.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-runner) |
 | [`@putout/engine-processor`](/packages/engine-processor#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-processor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-processor) |
+| [`@putout/engine-reporter`](/packages/engine-reporter#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-reporter.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-reporter) |
 
 ### 🧪 Processors
 
