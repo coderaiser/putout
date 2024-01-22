@@ -2,8 +2,8 @@
 
 import process from 'node:process';
 import {Worker} from 'node:worker_threads';
-import {parseArgs} from '../lib/cli/parse-args.js';
 import {subscribe} from '@putout/engine-reporter/subscribe';
+import {parseArgs} from '../lib/cli/parse-args.js';
 
 const {
     cwd,
