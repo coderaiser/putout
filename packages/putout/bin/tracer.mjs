@@ -20,7 +20,6 @@ if (!args.worker) {
 }
 
 const slave = new URL('./putout.mjs', import.meta.url);
-
 const worker = new Worker(slave, {
     workerData: dropInteractive(process.argv),
     stdin: true,
