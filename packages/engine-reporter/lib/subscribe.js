@@ -14,8 +14,6 @@ export const subscribe = async ({write, cwd, args, worker, exit}) => {
         if (event !== 'progress')
             return;
         
-        //if (isStop())
-        //    data.index = data.count - 1;
         const line = await report(data);
         
         write(line || '');
