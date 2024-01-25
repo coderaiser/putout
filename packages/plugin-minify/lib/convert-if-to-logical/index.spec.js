@@ -37,3 +37,8 @@ test('plugin-minify: convert-if-to-logical: transform: yield', (t) => {
     t.transform('yield');
     t.end();
 });
+
+test('plugin-minify: convert-if-to-logical: transform: nested', (t) => {
+    t.transform('nested');
+    t.end();
+});

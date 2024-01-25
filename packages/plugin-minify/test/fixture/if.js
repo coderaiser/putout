@@ -5,3 +5,9 @@ if (Math.random() > 0.5)
 else
     a--;
 
+if (a)
+    if (b)
+        log('a and b are truthy');
+    else
+        log('a is truthy, b is falsy');
+

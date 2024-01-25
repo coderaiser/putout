@@ -8,6 +8,7 @@ const {
     isYieldExpression,
     ConditionalExpression,
     UnaryExpression,
+    isConditionalExpression,
 } = types;
 
 const parseExpressions = ({body}) => body.map(getExpression).filter(Boolean);
@@ -55,6 +56,9 @@ export const match = () => ({
 
 export const replace = () => ({
     'if (__a) __b': ({__a, __b}) => {
+        if (isConditionalExpression(__b))
+            return '__a && (__b)';
+        
         if (!isBlockStatement(__b))
             return '__a && __b';
         
