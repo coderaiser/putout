@@ -55,7 +55,7 @@
     "lerna": "^6.0.1",
     "madrun": "^10.0.0",
     "nodemon": "^3.0.1",
-    "supertape": "^9.0.0",
+    "supertape": "^10.0.0",
     "try-catch": "^3.0.1"
   },
   "peerDependencies": {

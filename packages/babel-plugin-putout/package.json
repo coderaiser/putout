@@ -18,7 +18,7 @@
     "eslint-plugin-putout": "^22.0.0",
     "madrun": "^10.0.0",
     "mocha": "^10.0.0",
-    "supertape": "^9.0.0"
+    "supertape": "^10.0.0"
   },
   "scripts": {
     "test": "madrun test",

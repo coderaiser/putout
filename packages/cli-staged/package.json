@@ -45,7 +45,7 @@
     "mock-require": "^3.0.3",
     "nodemon": "^3.0.1",
     "putout": "*",
-    "supertape": "^9.0.0"
+    "supertape": "^10.0.0"
   },
   "license": "MIT",
   "engines": {
