@@ -1,3 +1,15 @@
+2024.01.29, v35.0.1
+
+fix:
+- d60069e1c eslint-plugin-putout: @typescript-eslint/no-un: disabled while ESLint v9 supported
+
+feature:
+- 54413dae8 @putout/test: strip-ansi v7.1.0
+- e97fb0e7d putout: @putout/processor-json v9.0.0
+- 49ca01f7c root: supertape v10.0.0
+- 52a060979 @putout/plugin-minify: drop support of 🐊 < 35
+- c4438f7fd @putout/plugin-minify: convert-if-to-logical: ConditionalExpression inside IfStatement (coderaiser/minify#118)
+
 2024.01.19, v35.0.0
 
 feature:
