@@ -2,7 +2,6 @@
 
 const {join} = require('path');
 
-const strip = require('strip-ansi');
 const montag = require('montag');
 const tryCatch = require('try-catch');
 const {stub} = require('supertape');
@@ -215,8 +214,10 @@ test('putout: test: noReportAfterTransformWithOptions: internal', (t) => {
     t.end();
 });
 
-test('putout: test: report: with one argument', (t) => {
+test('putout: test: report: with one argument', async (t) => {
+    const {default: strip} = await import('strip-ansi');
     const cache = new Map();
+    
     cache.set('x', 'y');
     
     const [error] = tryCatch(t.report, 'remove-import');
