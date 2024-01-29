@@ -53,7 +53,7 @@
     "eslint": "^9.0.0-alpha.0",
     "eslint-plugin-n": "^17.0.0-0",
     "eslint-plugin-putout": "^22.0.0",
-    "espree": "^9.0.0",
+    "espree": "^10.0.0",
     "esprima": "^4.0.1",
     "hermes-parser": "^0.18.0",
     "just-camel-case": "^4.0.2",
