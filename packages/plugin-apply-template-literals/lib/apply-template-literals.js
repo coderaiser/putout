@@ -9,7 +9,19 @@ const {
 module.exports.report = () => `Use template literals instead of binary expressions`;
 
 module.exports.filter = ({parentPath}) => {
-    return !isBinaryExpression(parentPath) && !isTemplateLiteral(parentPath.parentPath);
+    if (isBinaryExpression(parentPath) || isTemplateLiteral(parentPath.parentPath))
+        return false;
+    
+    let is = true;
+    
+    parentPath.traverse({
+        StringLiteral(path) {
+            if (path.node.value.includes('\r'))
+                is = false;
+        },
+    });
+    
+    return is;
 };
 
 module.exports.replace = () => ({

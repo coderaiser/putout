@@ -39,3 +39,8 @@ test('plugin-apply-template-literals: no transform: binary-template', (t) => {
     t.noTransform('binary-template');
     t.end();
 });
+
+test('plugin-apply-template-literals: no transform: newline', (t) => {
+    t.noTransform('newline');
+    t.end();
+});
