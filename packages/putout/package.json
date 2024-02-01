@@ -173,7 +173,7 @@
     "@putout/plugin-types": "^3.0.0",
     "@putout/plugin-typescript": "^6.0.0",
     "@putout/plugin-webpack": "^3.0.0",
-    "@putout/processor-css": "^8.0.0",
+    "@putout/processor-css": "^9.0.0",
     "@putout/processor-filesystem": "^3.0.0",
     "@putout/processor-ignore": "^6.0.0",
     "@putout/processor-javascript": "^5.0.0",
