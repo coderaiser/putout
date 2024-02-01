@@ -71,9 +71,9 @@ Use options:
 }
 ```
 
-# `assign`
+## `assign`
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const hello = 'world';
@@ -84,7 +84,7 @@ assign(object, {
 });
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const hello = 'world';
@@ -96,9 +96,9 @@ assign(object, {
 });
 ```
 
-# `keys`
+## `keys`
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const hello = 'world';
@@ -107,7 +107,7 @@ const object = {};
 const allKeys = keys(object);
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const hello = 'world';
@@ -117,9 +117,9 @@ const {keys} = Object;
 const allKeys = keys(object);
 ```
 
-# `values`
+## `values`
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const object = {};
@@ -135,48 +135,39 @@ const object = {};
 const allValues = values(object);
 ```
 
-# `isArray`
+## `isArray`
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 isArray(array);
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const {isArray} = Array;
 isArray(array);
 ```
 
-# `noop`
+## `noop`
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 noop();
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const noop = () => {};
 noop();
 ```
 
-# Types
+## Types
 
-## ❌ Example of incorrect code
-
-```js
-const isFn = (a) => typeof a === 'function';
-
-if (isFn(fn))
-    fn();
-```
-
-## ✅ Example of correct code
+### ❌ Example of incorrect code
 
 ```js
 const isFn = (a) => typeof a === 'function';
@@ -185,15 +176,24 @@ if (isFn(fn))
     fn();
 ```
 
-# Maybe
+### ✅ Example of correct code
 
-## ❌ Example of incorrect code
+```js
+const isFn = (a) => typeof a === 'function';
+
+if (isFn(fn))
+    fn();
+```
+
+## Maybe
+
+### ❌ Example of incorrect code
 
 ```js
 const a = [...maybeArray(b)];
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const {isArray} = Array;
@@ -202,15 +202,15 @@ const maybeArray = (a) => isArray(a) ? a : [a];
 const a = [...maybeArray(b)];
 ```
 
-# `entries`
+## `entries`
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 entries([1, 2, 3]);
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const {isArray} = Array;
