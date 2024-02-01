@@ -1,3 +1,12 @@
+2024.02.01, v35.0.2
+
+feature:
+- 08e9ef8c5 putout: @putout/plugin-apply-template-literals v3.0.0
+- 9d5175d22 @putout/plugin-apply-template-literals: drop support of node < 18
+- 792400820 @putout/plugin-apply-template-literals: exclude newline
+- a0a54c369 @putout/plugin-remove-useless-escape: add support of "./"
+- e1d50e619 @putout/engine-parser: espree v10.0.0
+
 2024.01.29, v35.0.1
 
 fix:
