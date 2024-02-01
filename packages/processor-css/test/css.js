@@ -20,6 +20,10 @@ test('putout: processor: css: places', async ({comparePlaces}) => {
     }]);
 });
 
+test('putout: processor: css: align: no warnings for align', async ({comparePlaces}) => {
+    await comparePlaces('align', []);
+});
+
 test('putout: processor: css: selector-class-pattern', async ({comparePlaces}) => {
     await comparePlaces('selector-class-pattern', []);
 });
