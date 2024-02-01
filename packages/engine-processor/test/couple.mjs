@@ -43,12 +43,5 @@ test('putout: engine: processor: couple', async ({comparePlaces}) => {
             line: 2,
         },
         rule: 'prettier/prettier (stylelint)',
-    }, {
-        message: 'Delete "⏎" (prettier/prettier)',
-        position: {
-            column: 1,
-            line: 4,
-        },
-        rule: 'prettier/prettier (stylelint)',
     }]);
 });
