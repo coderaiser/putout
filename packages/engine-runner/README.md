@@ -239,7 +239,7 @@ export const fix = (rootPath) => {
     createFile(rootPath, 'hello.txt', 'hello world');
 };
 
-export const scan = (rootPath) => {
+export const scan = (rootPath, {progress}) => {
     const [filePath] = findFile(rootPath, 'hello.txt');
     
     if (filePath)
