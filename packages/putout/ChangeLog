@@ -1,3 +1,9 @@
+2024.02.01, v35.0.4
+
+feature:
+- 4c522446e putout: @putout/plugin-declare v3.0.0
+- 4792e1a9b @putout/plugin-declare: drop support of node < 18
+
 2024.02.01, v35.0.3
 
 feature:
