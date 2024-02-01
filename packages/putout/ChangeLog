@@ -1,3 +1,10 @@
+2024.02.01, v35.0.3
+
+feature:
+- 2dce8613e putout: @putout/processor-css v9.0.0
+- 073af93ba @putout/processor-css: drop support of 🐊 < 35
+- 0da8506b9 @putout/processor-css: do not emit align warnings
+
 2024.02.01, v35.0.2
 
 feature:
