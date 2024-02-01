@@ -110,6 +110,11 @@ test('plugin-remove-useless-escape: transform: dollar', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: transform: dot', (t) => {
+    t.transform('dot');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: no transform: no raw', (t) => {
     t.transform('no-raw', {
         addFixLint,
