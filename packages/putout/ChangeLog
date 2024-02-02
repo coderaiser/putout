@@ -1,3 +1,21 @@
+2024.02.02, v35.0.7
+
+feature:
+- 2565b6a40 putout: @putout/operator-match-files v3.0.0
+- 40baccf79 @putout/operator-match-files: @putout/operator-filesystem v4.0.0
+- 86345a7b4 @putout/operator-match-files: drop support of 🐊 < 35
+- 55d5963b0 @putout/plugin-filesystem: @putout/operator-filesystem v4.0.0
+- 3cbdbcaf5 putout: @putout/processor-filesystem v4.0.0
+- 8c657206c @putout/processor-filesystem: @putout/operator-filesystem v4.0.0
+- 106278280 putout: @putout/engine-runner v21.0.0
+- 88cd865f6 @putout/engine-runner: @putout/operator-filesystem v4.0.0
+- 2c8f7cfc9 putout: @putout/operator-filesystem v4.0.0
+- 12f700527 @putout/operator-filesystem: drop support of 🐊 < 35
+- 83c1aca7a @putout/operator-filesystem: findFile: find by basename, not part of name
+- b45b892ac putout: @putout/plugin-filesystem v4.0.0
+- 2b20e5613 @putout/plugin-filesystem: drop support of 🐊 < 35
+- edb7342be @putout/plugin-filesystem: convert-js-to-json: add support of CommonJS
+
 2024.02.02, v35.0.6
 
 feature:
