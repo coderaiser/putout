@@ -26,7 +26,14 @@ test('@putout/plugin-filesystem: convert-js-to-json: transform', (t) => {
 
 test('@putout/plugin-filesystem: convert-js-to-json: transform: cjs', (t) => {
     t.transformWithOptions('cjs', {
-        filename: 'package.cjs',
+        filename: 'package.js',
+    });
+    t.end();
+});
+
+test('@putout/plugin-filesystem: convert-js-to-json: transform: strict', (t) => {
+    t.transformWithOptions('strict', {
+        filename: 'package.js',
     });
     t.end();
 });

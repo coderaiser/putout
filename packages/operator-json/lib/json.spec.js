@@ -37,6 +37,14 @@ test('putout: processor: json: fromJS', ({equal}) => {
     equal(result, expected);
 });
 
+test('putout: processor: json: fromJS: strict mode', ({equal}) => {
+    const source = `'use strict'; __putout_processor_filesystem({"hello": "world"});\n`;
+    const result = fromJS(source, __filesystem);
+    const expected = '{"hello": "world"}\n';
+    
+    equal(result, expected);
+});
+
 test('putout: processor: json: toJS: __yaml', ({equal}) => {
     const source = '{"hello": "world"}';
     const result = toJS(source, __yaml);

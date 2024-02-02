@@ -48,6 +48,10 @@ module.exports.toJS = (source, name = __json) => {
 };
 
 module.exports.fromJS = (source, name = __json) => {
+    const shortName = cut(name);
+    
+    source = source.slice(source.indexOf(shortName));
+    
     const prefix = createPrefix(name);
     const suffix = createSuffix();
     const length = source.length - suffix.length;
