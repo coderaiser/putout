@@ -1,3 +1,10 @@
+2024.02.02, v35.0.5
+
+feature:
+- 63b5807f5 putout: @putout/plugin-filesystem v4.0.0
+- d511e220e @putout/plugin-filesystem: drop support of 🐊 < 35
+- de574f7a4 @putout/plugin-convert-js-to-json: add support of CommonJS
+
 2024.02.01, v35.0.4
 
 feature:
