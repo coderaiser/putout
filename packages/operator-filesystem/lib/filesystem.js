@@ -69,9 +69,10 @@ function findFile(node, name) {
     
     for (const filenamePath of traverseProperties(node, 'filename')) {
         const {value} = filenamePath.node.value;
+        const base = basename(value);
         
         for (const name of names) {
-            if (value === name || getRegExp(name).test(basename(value)))
+            if (value === name || getRegExp(name).test(base))
                 filePaths.push(filenamePath.parentPath);
         }
     }
