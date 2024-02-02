@@ -7,4 +7,5 @@ module.exports.report = () => `Convert '*.js' to '*.json'`;
 
 module.exports.replace = () => ({
     'export default __object': __json,
+    'module.exports = __object': __json,
 });
