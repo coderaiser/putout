@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-json",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds ability to json referenced variables that was not defined",
