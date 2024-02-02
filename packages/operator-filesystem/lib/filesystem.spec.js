@@ -141,6 +141,16 @@ test('putout: operator: filesystem: findFile', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: findFile: match', (t) => {
+    const ast = parseFilesystem(['/', '/package.json', '/e.json']);
+    
+    const [filePath] = findFile(ast, 'e.json');
+    const name = getFilename(filePath);
+    
+    t.equal(name, '/e.json');
+    t.end();
+});
+
 test('putout: operator: filesystem: findFile: no names', (t) => {
     const ast = parse(montag`
         ${FS}({

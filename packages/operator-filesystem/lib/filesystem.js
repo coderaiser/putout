@@ -1,6 +1,6 @@
 'use strict';
 
-const {join} = require('node:path');
+const {join, basename} = require('node:path');
 const tryCatch = require('try-catch');
 const {types} = require('@putout/babel');
 
@@ -47,7 +47,7 @@ const getRegExp = (wildcard) => {
         .replace(/\*/g, '.*')
         .replace('?', '.?');
     
-    return RegExp(`${escaped}$`);
+    return RegExp(`^${escaped}$`);
 };
 
 module.exports.getParentDirectory = (filePath) => {
@@ -71,7 +71,7 @@ function findFile(node, name) {
         const {value} = filenamePath.node.value;
         
         for (const name of names) {
-            if (value === name || getRegExp(name).test(value))
+            if (value === name || getRegExp(name).test(basename(value)))
                 filePaths.push(filenamePath.parentPath);
         }
     }
