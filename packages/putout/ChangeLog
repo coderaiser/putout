@@ -1,3 +1,18 @@
+2024.02.02, v35.0.6
+
+feature:
+- fafc822f6 putout: @putout/operator-filesystem v4.0.0
+- 09ce52553 @putout/operator-filesystem: drop support of 🐊 < 35
+- 704a96906 @putout/operator-filesystem: findFile: find by basename, not part of name
+- 2436c523f putout: @putout/plugin-filesystem v4.0.0
+- 8df7d8408 @putout/plugin-filesystem: drop support of 🐊 < 35
+- a4b20e59a @putout/plugin-filesystem: convert-js-to-json: add support of CommonJS
+- 240bbc111 putout: @putout/plugin-declare v3.0.0
+- 659d60224 @putout/plugin-declare: drop support of node < 18
+- 486364e15 putout: @putout/processor-css v9.0.0
+- baa8a7ba4 @putout/processor-css: drop support of 🐊 < 35
+- fb9a25b7d @putout/processor-css: do not emit align warnings
+
 2024.02.02, v35.0.5
 
 feature:
