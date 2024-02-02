@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-match-files",
-  "version": "2.4.1",
+  "version": "3.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds ability to match files to plugins",
