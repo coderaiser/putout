@@ -9,7 +9,7 @@
 - [maybe](https://github.com/coderaiser/putout/tree/master/packages/plugin-maybe#readme): `maybeArray`, `maybeFn`, `maybeEmptyArray`;
 - wrap: `not`,`id`, `returns`;
 - fresh-import: `freshImport`, `freshImportDefault`;
-- `fixtures`: `readFixture(name)`;
+- `fixtures`: `readFixture`;
 - properties of `Object`;
 - [wraptile](https://github.com/coderaiser/wraptile);
 - [fullstore](https://github.com/coderaiser/fullstore);
