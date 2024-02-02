@@ -83,11 +83,9 @@ const createScan = (files) => (path, {push, progress, options}) => {
         const fileContent = readFileContent(inputFile) || '{}';
         const [matchedJS, matchedAST] = magicParse(inputFilename, fileContent);
         
+        const name = `match-file: ${inputFilename}`;
         const plugins = [
-            [
-                `match-file/${inputFilename}`,
-                plugin,
-            ],
+            [name, plugin],
         ];
         
         const places = findPlaces(matchedAST, matchedJS, {
