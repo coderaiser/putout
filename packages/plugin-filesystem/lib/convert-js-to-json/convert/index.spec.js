@@ -19,3 +19,8 @@ test('filesystem: convert: transform', (t) => {
     t.transform('convert');
     t.end();
 });
+
+test('filesystem: convert: transform: cjs', (t) => {
+    t.transform('cjs');
+    t.end();
+});
