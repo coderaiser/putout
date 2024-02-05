@@ -16,11 +16,9 @@ module.exports.fix = (path) => {
         .replaceAll('\\', '\\\\')
         .replaceAll('\n', '\\n');
     
-    replaceWith(path, TemplateLiteral([
-        TemplateElement({
-            raw: value,
-        }),
-    ], []));
+    replaceWith(path, TemplateLiteral([TemplateElement({
+        raw: value,
+    })], []));
 };
 
 const {replaceWith} = operator;

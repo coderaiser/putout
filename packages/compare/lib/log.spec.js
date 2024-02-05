@@ -46,9 +46,7 @@ test('putout: compare: run-plugins: template: log: array', (t) => {
     
     const log = reRequire('./log');
     
-    log([Identifier('hello')], [
-        Identifier('world'),
-    ]);
+    log([Identifier('hello')], [Identifier('world')]);
     const expected = `Identifier: ["hello"] = Identifier: ["world"]`;
     
     stopAll();
