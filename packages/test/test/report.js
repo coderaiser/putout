@@ -236,3 +236,37 @@ test('putout: test: report: with one argument', async (t) => {
 }, {
     checkAssertionsCount: false,
 });
+
+const testEmptyReport = require('..')(__dirname, {
+    'remove-imports': {
+        report: () => '',
+        match: ({options}) => ({
+            'import __imports from "__a"'({__a}) {
+                const {cache} = options;
+                
+                if (!cache)
+                    return true;
+                
+                const {value} = __a;
+                
+                return cache.has(value);
+            },
+        }),
+        replace: () => ({
+            'import __imports from "__a"': '',
+        }),
+    },
+});
+
+testEmptyReport('putout: test: report: with message empty string', (t) => {
+    const cache = new Map();
+    
+    cache.set('x', 'y');
+    
+    const [error] = tryCatch(t.report, 'remove-import', '');
+    
+    t.notOk(error);
+    t.end();
+}, {
+    checkAssertionsCount: false,
+});

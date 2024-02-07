@@ -607,7 +607,7 @@ function parseOptions(plugin) {
 }
 
 function checkReport(name, message) {
-    if (!message) {
+    if (!isString(message) && !message) {
         const help = `☝️ Looks like you forget to pass the 'message' for 'report()' operator`;
         const source = `report(name: string, message: string): Operator`;
         const values = {
