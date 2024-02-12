@@ -224,7 +224,11 @@ test('putout: operator: match-files: couple', (t) => {
         __filesystem,
     ));
     
-    const expected = ['/', ['/index.cjs', 'bW9kdWxlLmV4cG9ydHMuaGVsbG8gPSAnd29ybGQnOwo='], ['/.madrun.cjs', 'bW9kdWxlLmV4cG9ydHMuaGVsbG8gPSAnd29ybGQnOwo=']];
+    const expected = [
+        '/',
+        ['/index.cjs', 'bW9kdWxlLmV4cG9ydHMuaGVsbG8gPSAnd29ybGQnOwo='],
+        ['/.madrun.cjs', 'bW9kdWxlLmV4cG9ydHMuaGVsbG8gPSAnd29ybGQnOwo='],
+    ];
     
     t.deepEqual(result, expected);
     t.end();
@@ -427,10 +431,14 @@ test('putout: operator: match-files: __name', (t) => {
         __filesystem,
     ));
     
-    const expected = ['/', [
-        '/package.json',
-        '{}',
-    ], '/package.js'];
+    const expected = [
+        '/',
+        [
+            '/package.json',
+            '{}',
+        ],
+        '/package.js',
+    ];
     
     t.deepEqual(result, expected);
     t.end();
