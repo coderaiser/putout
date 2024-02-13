@@ -122,3 +122,15 @@ test('putout: config: filesystem', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: config: .*ignore', (t) => {
+    const {match} = putoutConfig;
+    const result = match['.*ignore'];
+    
+    const expected = {
+        'convert-quotes-to-backticks': 'off',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

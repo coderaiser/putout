@@ -84,6 +84,9 @@
         ".npmignore": {
             "npmignore": "on"
         },
+        ".*ignore": {
+            "convert-quotes-to-backticks": "off"
+        },
         "webpack.config.js": {
             "webpack": "on"
         },
