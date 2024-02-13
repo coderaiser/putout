@@ -1,6 +1,6 @@
 {
   "name": "@putout/engine-processor",
-  "version": "11.1.1",
+  "version": "11.2.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout engine processor runner",
