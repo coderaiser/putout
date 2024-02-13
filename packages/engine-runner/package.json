@@ -35,7 +35,7 @@
     "@putout/operator-declare": "^9.0.0",
     "@putout/operator-filesystem": "^4.0.0",
     "@putout/operator-json": "^2.0.0",
-    "@putout/plugin-filesystem": "^3.0.0",
+    "@putout/plugin-filesystem": "^4.0.1",
     "debug": "^4.1.1",
     "fullstore": "^3.0.0",
     "jessy": "^3.0.0",
