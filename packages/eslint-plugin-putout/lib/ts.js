@@ -36,12 +36,13 @@ const extensionRules = {
     '@typescript-eslint/no-implied-eval': 'off',
     
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'off', // disabled while ESLint v9 supported
-    '@typescript-eslint/require-await': 'off', // disabled while while ESLint v9 supported
-    // 'no-redeclare': 'off',
-    // '@typescript-eslint/no-redeclare': 'error',
-    // same
-    '@typescript-eslint/no-unsafe-declaration-merging': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
+    
+    '@typescript-eslint/require-await': 'off', // needs project information
+    'no-redeclare': 'off',
+    '@typescript-eslint/no-redeclare': 'error',
+    
+    '@typescript-eslint/no-unsafe-declaration-merging': 'error',
 };
 
 const ts = {
