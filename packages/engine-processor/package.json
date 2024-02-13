@@ -26,7 +26,7 @@
   "dependencies": {
     "@putout/engine-loader": "^13.0.0",
     "once": "^1.4.0",
-    "picomatch": "^3.0.1",
+    "picomatch": "^4.0.1",
     "try-to-catch": "^3.0.1"
   },
   "keywords": [
