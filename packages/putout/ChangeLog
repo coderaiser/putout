@@ -1,3 +1,8 @@
+2024.02.13, v35.2.0
+
+feature:
+- 1d543f69f putout: config: .*ignore: convert-quotes-to-backticks: disable
+
 2024.02.13, v35.1.0
 
 fix:
