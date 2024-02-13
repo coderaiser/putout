@@ -1,3 +1,22 @@
+2024.02.13, v35.1.0
+
+fix:
+- 3d78bb266 @putout/test: report: empty string
+- 7d7c567a8 @putout/operator-filesystem: move out basename from inner loop
+
+feature:
+- 3d8068b9f eslint-plugin-putout: ts: enable disabled rules
+- a00ff011f @putout/engine-processor: picomatch v4.0.1
+- 9599034cd putout: picomatch v4.0.1
+- 572aae69f @putout/processor-markdown: madcut v2.0.0
+- afcb7b442 @putout/engine-parser: hermes-parser v0.19.1
+- 56f4224a8 eslint-plugin-putout: @typescript-eslint/parser v7.0.1
+- 1fb00d669 eslint-plugin-putout: @typescript-eslint/eslint-plugin v7.0.1
+- 7ac1f2d39 @putout/engine-runner: @putout/plugin-filesystem v4.0.1
+- 94c618383 root: @putout/test v9.0.0
+- 795e24b36 @putout/operator-match-files: name of a plugin
+- a4e368945 @putout/operator-json: fromJS: add ability to cut strict mode
+
 2024.02.02, v35.0.7
 
 feature:
