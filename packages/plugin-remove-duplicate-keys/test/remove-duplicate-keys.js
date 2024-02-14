@@ -54,3 +54,8 @@ test('remove duplicate-keys: transform: member', (t) => {
     t.transform('member');
     t.end();
 });
+
+test('remove duplicate-keys: transform: array', (t) => {
+    t.transform('array');
+    t.end();
+});
