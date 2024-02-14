@@ -1,3 +1,11 @@
+2024.02.14, v35.3.0
+
+feature:
+- 196d7fa02 putout: @putout/plugin-remove-duplicate-keys v5.0.0
+- 3603637f7 @putout/operate: extract: add support of MemberExpression
+- 74b14c076 @putout/plugin-remove-duplicate-keys: drop support of 🐊 < 35
+- 92be466f1 @putout/plugin-remove-duplicate-keys: add support of MemberExpression
+
 2024.02.13, v35.2.0
 
 feature:
