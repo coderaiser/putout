@@ -27,6 +27,9 @@ export const traverse = ({push, uplist}) => ({
         if (path.get('init').isNewExpression())
             return;
         
+        if (path.parentPath.parentPath.isSwitchCase())
+            return;
+        
         uplist(path.scope.uid, path);
     },
     Program: {
