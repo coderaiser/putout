@@ -829,6 +829,15 @@ switch (x) {
 
 </details>
 
+<details><summary>remove useless <code>array</code></summary>
+
+```diff
+-A[[B]];
++A[B];
+```
+
+</details>
+
 <details><summary>remove useless <code>array constructor</code></summary>
 
 ```diff
@@ -2068,6 +2077,7 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-remove-useless-return`](/packages/plugin-remove-useless-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-return) |
 | [`@putout/plugin-remove-useless-continue`](/packages/plugin-remove-useless-continue#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-continue.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-continue) |
 | [`@putout/plugin-remove-useless-operand`](/packages/plugin-remove-useless-operand#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-operand.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-operand) |
+| [`@putout/plugin-remove-useless-array`](/packages/plugin-remove-useless-array#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array) |
 | [`@putout/plugin-remove-useless-array-constructor`](/packages/plugin-remove-useless-array-constructor#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-constructor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-constructor) |
 | [`@putout/plugin-remove-useless-functions`](/packages/plugin-remove-useless-functions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-functions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-functions) |
 | [`@putout/plugin-remove-useless-spread`](/packages/plugin-remove-useless-spread#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-spread) |
