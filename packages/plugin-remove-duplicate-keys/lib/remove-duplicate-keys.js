@@ -6,12 +6,16 @@ const fullstore = require('fullstore');
 const {
     isSpreadElement,
     isIdentifier,
+    isMemberExpression,
     isObjectProperty,
     isObjectPattern,
     isStringLiteral,
 } = types;
 
-const {traverseProperties} = operator;
+const {
+    traverseProperties,
+    extract,
+} = operator;
 
 const isSpreadId = (name) => (a) => isSpreadElement(a) && isIdentifier(a.argument, {
     name,
@@ -22,6 +26,10 @@ const isObjectPropertyId = (name, computed) => (a) => isObjectProperty(a, {
 }) && isIdentifier(a.key, {
     name,
 });
+
+const isMemberExpressionId = (name, computed) => (a) => isObjectProperty(a, {
+    computed,
+}) && name === extract(a.key);
 
 const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStringLiteral(a.key, {
     value,
@@ -91,6 +99,26 @@ module.exports.match = () => ({
                 if (!isFirst) {
                     is = true;
                     continue;
+                }
+            }
+            
+            if (isObjectProperty(prop) && isMemberExpression(prop.key)) {
+                const {computed} = prop;
+                const name = extract(prop.key);
+                
+                const props = traverseProperties(path, name, {
+                    firstLevel: true,
+                });
+                
+                if (props.length > 1) {
+                    const isFirst = checkIfFirst(properties, newProperties, isMemberExpressionId, name, {
+                        computed,
+                    });
+                    
+                    if (!isFirst) {
+                        is = true;
+                        continue;
+                    }
                 }
             }
             

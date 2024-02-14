@@ -49,3 +49,8 @@ test('remove duplicate-keys: no transform: rename', (t) => {
     t.noTransform('rename');
     t.end();
 });
+
+test('remove duplicate-keys: transform: member', (t) => {
+    t.transform('member');
+    t.end();
+});
