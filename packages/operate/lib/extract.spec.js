@@ -137,6 +137,26 @@ test('operate: extract: ClassMethod: Literal', (t) => {
     t.end();
 });
 
+test('operate: extract: MemberExpression', (t) => {
+    const value = 'hello.world';
+    const node = {
+        type: 'MemberExpression',
+        object: {
+            type: 'Identifier',
+            name: 'hello',
+        },
+        property: {
+            type: 'Identifier',
+            name: 'world',
+        },
+    };
+    
+    const result = extract(node);
+    
+    t.equal(result, value);
+    t.end();
+});
+
 test('operate: extract: TSTypeReference', (t) => {
     const value = 'hello';
     const node = {
@@ -177,7 +197,7 @@ test('operate: extract: unknown', (t) => {
     };
     
     const [error] = tryCatch(extract, node);
-    const expected = '"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, JSXAttribute, JSXText and TSTypeReference🤷, found: UnknownStatement';
+    const expected = '"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, MemberExpression, JSXAttribute, JSXText and TSTypeReference🤷, found: UnknownStatement';
     
     t.equal(error.message, expected);
     t.end();
