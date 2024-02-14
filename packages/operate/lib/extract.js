@@ -2,6 +2,7 @@
 
 const {types} = require('@putout/babel');
 const {
+    isArrayExpression,
     isLiteral,
     isIdentifier,
     isMemberExpression,
@@ -37,6 +38,9 @@ function extract(node) {
     if (isMemberExpression(node))
         return `${extract(node.object)}.${extract(node.property)}`;
     
+    if (isArrayExpression(node))
+        return extractArrayExpression(node);
+    
     if (isJSXText(node))
         return node.value;
     
@@ -49,5 +53,18 @@ function extract(node) {
     if (isTSTypeReference(node))
         return extract(node.typeName);
     
-    throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, MemberExpression, JSXAttribute, JSXText and TSTypeReference🤷, found: ${node.type}`);
+    throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, ArrayExpression, MemberExpression, JSXAttribute, JSXText and TSTypeReference🤷, found: ${node.type}`);
+}
+
+function extractArrayExpression(node, collector = []) {
+    for (const el of node.elements) {
+        if (isArrayExpression(el)) {
+            extractArrayExpression(el, collector);
+            continue;
+        }
+        
+        collector.push(extract(el));
+    }
+    
+    return collector.join(',');
 }
