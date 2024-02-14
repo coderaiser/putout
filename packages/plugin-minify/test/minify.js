@@ -102,3 +102,8 @@ test('plugin-minify: transform: merge-loops', (t) => {
     t.transform('merge-loops');
     t.end();
 });
+
+test('plugin-minify: transform: class', (t) => {
+    t.transform('class');
+    t.end();
+});

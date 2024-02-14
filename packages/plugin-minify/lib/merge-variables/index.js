@@ -24,6 +24,9 @@ export const traverse = ({push, uplist}) => ({
         if (path.get('init').isAwaitExpression())
             return;
         
+        if (path.get('init').isNewExpression())
+            return;
+        
         uplist(path.scope.uid, path);
     },
     Program: {
