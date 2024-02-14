@@ -1,3 +1,10 @@
+2024.02.14, v35.4.0
+
+feature:
+- bbe15dd4f @putout/plugin-remove-useless-array: add
+- d4bd0385f @putout/plugin-remove-duplicate-keys: add support of ArrayExpression
+- ca6331e6d @putout/operate: extract: add support of ArrayExpression
+
 2024.02.14, v35.3.0
 
 feature:
