@@ -460,9 +460,7 @@ test('putout: cli: no ide', async (t) => {
 
 test('putout: cli: ide: web storm', async (t) => {
     const name = basename(__filename);
-    
     const argv = [name, '--fresh'];
-    
     const {TERMINAL_EMULATOR} = process.env;
     
     process.env.TERMINAL_EMULATOR = 'JetBrains-JediTerm';
@@ -473,7 +471,6 @@ test('putout: cli: ide: web storm', async (t) => {
     }));
     
     const getFormatter = stub().returns(['dump', {}]);
-    
     const report = stub();
     
     const getFiles = stub().returns([
