@@ -9,8 +9,10 @@ module.exports.fix = (file) => {
     readFileContent(file);
 };
 
-module.exports.scan = (root, {push, trackFile}) => {
-    for (const file of trackFile(root, ['*'])) {
+module.exports.scan = (root, {push, options, trackFile}) => {
+    const {mask = '*'} = options;
+    
+    for (const file of trackFile(root, mask)) {
         push(file);
     }
 };

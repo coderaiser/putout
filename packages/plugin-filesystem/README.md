@@ -18,7 +18,9 @@ npm i @putout/plugin-filesystem -D
     "rules": {
         "filesystem/remove-vim-swap-file": "on",
         "filesystem/bundle-css": "off",
-        "filesystem/read-all-files": "off",
+        "filesystem/read-all-files": ["off", {
+            "mask": "*"
+        }],
         "filesystem/write-all-files": "off",
         "filesystem/rename-file": "off",
         "filesystem/remove-files": "off",
