@@ -100,6 +100,9 @@ function buildTree(path, list) {
         const name = basename(filename);
         const [dirPath] = findFile(root, dir);
         
+        if (!dirPath)
+            throw Error(`☝️ Looks like directory '${dir}/' is missing`);
+        
         if (type === 'directory') {
             createDirectory(dirPath, name);
             continue;

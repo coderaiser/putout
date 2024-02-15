@@ -26,6 +26,15 @@ test('packages: convert-simple-filesystem-to-filesystem: transform: no-root', (t
     t.end();
 });
 
+test('packages: convert-simple-filesystem-to-filesystem: no transform: no-dir', (t) => {
+    const [error] = tryCatch(t.noTransform, 'no-parent-directory');
+    
+    t.equal(error.message, `☝️ Looks like directory '/example/' is missing`);
+    t.end();
+}, {
+    checkAssertionsCount: false,
+});
+
 test('packages: convert-simple-filesystem-to-filesystem: no transform: not-filesystem', (t) => {
     t.noTransform('not-filesystem');
     t.end();
