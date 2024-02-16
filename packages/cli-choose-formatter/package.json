@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/cli-choose": "^1.1.0",
+    "@putout/cli-choose": "^2.0.0",
     "find-up": "^7.0.0"
   },
   "keywords": [
