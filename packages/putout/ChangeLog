@@ -1,3 +1,20 @@
+2024.02.16, v35.4.1
+
+fix:
+- 50c100fb5 @putout/cli-choose: vim: drop h, l
+
+feature:
+- d823a41e3 putout: @putout/cli-choose-formatter v4.0.0
+- e0c1a85ce @putout/engine-reporter: @putout/cli-choose-formatter v4.0.0
+- f0d7e599e @putout/cli-choose-formatter: @putout/cli-choose v2.0.0
+- 04022b1ae @putout/cli-choose-formatter: drop support of 🐊 < 35
+- 9a1d41da7 @putout/cli-choose: drop support of node < 18
+- 03c48befd @putotu/plugin-filesystem: convert-simple-filesystem-to-filesystem: add ability to handle absense of directory
+- bea56d25c @putout/plugin-filesystem: read-all-files: add mask
+- cb0501571 @putout/plugin-minify: merge-variables: exclude SwitchCase (coderaiser/minify#119)
+- 7d902eb50 @putout/plugin-minify: merge-variables: exclude NewExpression (coderaiser/minify#119)
+- 9290bef1d @putout/plugin-remove-useless-array: Traverser -> Replacer
+
 2024.02.14, v35.4.0
 
 feature:
