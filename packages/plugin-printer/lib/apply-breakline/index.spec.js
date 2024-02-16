@@ -10,22 +10,22 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('rule: apply-breakline: report', (t) => {
+test('plugin-printer: apply-breakline: report', (t) => {
     t.report('apply-breakline', `breakline = newline + indent`);
     t.end();
 });
 
-test('rule: apply-breakline: transform', (t) => {
+test('plugin-printer: apply-breakline: transform', (t) => {
     t.transform('apply-breakline');
     t.end();
 });
 
-test('rule: apply-breakline: transform: indent', (t) => {
+test('plugin-printer: apply-breakline: transform: indent', (t) => {
     t.transform('indent');
     t.end();
 });
 
-test('rule: apply-breakline: transform: write', (t) => {
+test('plugin-printer: apply-breakline: transform: write', (t) => {
     t.transform('write');
     t.end();
 });

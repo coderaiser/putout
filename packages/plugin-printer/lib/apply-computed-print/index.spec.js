@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('rule: apply-computed-print: report', (t) => {
+test('plugin-printer: apply-computed-print: report', (t) => {
     t.report('apply-computed-print', `Use print('__path') instead of path.get(__path)`);
     t.end();
 });
 
-test('rule: apply-computed-print: transform', (t) => {
+test('plugin-printer: apply-computed-print: transform', (t) => {
     t.transform('apply-computed-print');
     t.end();
 });

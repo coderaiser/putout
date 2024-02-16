@@ -10,22 +10,22 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('rule: apply-linebreak: report', (t) => {
+test('plugin-printer: apply-linebreak: report', (t) => {
     t.report('apply-linebreak', `linebreak = indent + newline`);
     t.end();
 });
 
-test('rule: apply-linebreak: transform', (t) => {
+test('plugin-printer: apply-linebreak: transform', (t) => {
     t.transform('apply-linebreak');
     t.end();
 });
 
-test('rule: apply-linebreak: transform: indent', (t) => {
+test('plugin-printer: apply-linebreak: transform: indent', (t) => {
     t.transform('indent');
     t.end();
 });
 
-test('rule: apply-linebreak: transform: write', (t) => {
+test('plugin-printer: apply-linebreak: transform: write', (t) => {
     t.transform('write');
     t.end();
 });
