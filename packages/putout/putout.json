@@ -15,12 +15,12 @@
     ],
     "match": {
         "*.{mjs,ts,tsx,mts}": {
-            "nodejs/remove-strict-mode": "on",
-            "nodejs/add-strict-mode": "off"
+            "nodejs/remove-useless-strict-mode": "on",
+            "nodejs/add-missing-strict-mode": "off"
         },
         "*.{jsx,js,cjs}": {
-            "nodejs/add-strict-mode": "on",
-            "nodejs/remove-strict-mode": "on"
+            "nodejs/add-missing-strict-mode": "on",
+            "nodejs/remove-useless-strict-mode": "on"
         },
         "{.,}putout.json": {
             "putout-config": "on"
@@ -159,8 +159,8 @@
         "npmignore": "off",
         "github": "off",
         "tape": "off",
-        "nodejs/add-strict-mode": "off",
-        "nodejs/remove-strict-mode": "off",
+        "nodejs/add-missing-strict-mode": "off",
+        "nodejs/remove-useless-strict-mode": "off",
         "browserlist": "off",
         "filesystem": "off"
     },

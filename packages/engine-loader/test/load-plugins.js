@@ -429,7 +429,7 @@ test('putout: loader: sync: import: shorten', async (t) => {
             column: 0,
             line: 1,
         },
-        rule: 'nodejs/add-strict-mode',
+        rule: 'nodejs/add-missing-strict-mode',
     }];
     
     t.deepEqual(places, expected);

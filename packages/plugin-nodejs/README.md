@@ -36,7 +36,8 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/declare": "on",
         "nodejs/declare-after-require": "on",
         "nodejs/remove-process-exit": "on",
-        "nodejs/strict-mode": "on"
+        "nodejs/add-missing-strict-mode": "on",
+        "nodejs/remove-useless-strict-mode": "on"
     }
 }
 ```
@@ -398,7 +399,7 @@ Rename `*.mjs` files when `module === "module"`:
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/94fb3298b210e703b01db9a6826942bc/dfe2462451c6b3d4d47da7fd8d39dc8e53bb16eb).
 
-## strict-mode
+## add-missing-strict-mode
 
 > **Strict mode** makes several changes to normal **JavaScript** semantics:
 >
@@ -408,19 +409,9 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/94fb3298b210e
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 
-Add **strict mode** to **CommonJS**, and remove from **ESM**, where it enabled by default.
+Add **strict mode** to **CommonJS**:
 
 ### ❌ Example of incorrect code
-
-ESM:
-
-```js
-'strict mode';
-
-import a from 'b';
-```
-
-CommonJS:
 
 ```js
 const a = require('b');
@@ -428,18 +419,30 @@ const a = require('b');
 
 ### ✅ Example of correct code
 
-ESM:
-
-```js
-import a from 'b';
-```
-
-CommonJS:
-
 ```js
 'strict mode';
 
 const a = require('b');
+```
+
+### ✅ Example of correct code
+
+## remove-useless-strict-mode
+
+Remove `'use strict'` from **ESM**.
+
+### ❌ Example of incorrect code
+
+```js
+'strict mode';
+
+import a from 'b';
+```
+
+### ✅ Example of correct code
+
+```js
+import a from 'b';
 ```
 
 ## License
