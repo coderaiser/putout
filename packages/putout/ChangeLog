@@ -1,3 +1,12 @@
+2024.02.17, v35.4.2
+
+fix:
+- ef84e4a85 @putout/plugin-nodejs: strict-mode
+
+feature:
+- 001606b26 putout: @putout/plugin-nodejs v11.0.0
+- 66877eb41 @putout/plugin-nodejs: drop support of 🐊 < 35
+
 2024.02.16, v35.4.1
 
 fix:
