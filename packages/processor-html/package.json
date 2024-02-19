@@ -21,7 +21,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@putout/processor-css": "^8.0.0",
+    "@putout/processor-css": "^9.0.0",
     "svelte": "^4.2.0"
   },
   "keywords": [
