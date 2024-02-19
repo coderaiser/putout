@@ -2818,6 +2818,7 @@ import {OK} from 'putout/exit-codes';
 - [**Minify**](https://github.com/coderaiser/minify): a minifier of js, css, html and img files.
 - [**RedPut**](https://github.com/putoutjs/redput) - CLI tool to download source of a rule and fixtures from 🐊**Putout Editor** and generate tests from it.
 - [**RedLint**](https://github.com/putoutjs/redlint) - Linter for your Filesystem 😏💾.
+- [**Bundler**](https://github.com/putoutjs/bundler#) - Simplest possible bundler.
 
 Are you also use 🐊**Putout** in your application? Please open a Pull Request to include it here. We would love to have it in our list.
 
