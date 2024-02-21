@@ -65,7 +65,7 @@
     "@putout/engine-reporter": "^1.0.0",
     "@putout/engine-runner": "^21.0.0",
     "@putout/eslint": "^3.0.0",
-    "@putout/formatter-codeframe": "^6.0.0",
+    "@putout/formatter-codeframe": "^7.0.0",
     "@putout/formatter-dump": "^5.0.0",
     "@putout/formatter-frame": "^5.0.0",
     "@putout/formatter-json": "^2.0.0",
