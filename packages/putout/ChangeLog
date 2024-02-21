@@ -1,3 +1,10 @@
+2024.02.21, v35.5.1
+
+feature:
+- 1a8f96edc putout: @putout/formatter-progress-bar v4.0.0
+- 596ade5f7 @putout/formatter-progress-bar: drop support of node < 18
+- a82b81f16 @putout/formatter-progress-bar: chalk v5.3.0
+
 2024.02.21, v35.5.0
 
 feature:
