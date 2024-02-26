@@ -21,10 +21,15 @@ export const traverse = ({push, uplist}) => ({
         if (path.parentPath.node.kind === 'let')
             return;
         
-        if (path.get('init').isAwaitExpression())
+        const initPath = path.get('init');
+        
+        if (initPath.isAwaitExpression())
             return;
         
-        if (path.get('init').isNewExpression())
+        if (initPath.isNewExpression())
+            return;
+        
+        if (initPath.isTemplateLiteral())
             return;
         
         if (path.parentPath.parentPath.isSwitchCase())
