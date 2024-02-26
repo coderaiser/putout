@@ -19,10 +19,10 @@
   "author": "",
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "devDependencies": {
-    "madrun": "^9.3.1"
+    "madrun": "^10.0.1"
   },
   "dependencies": {
     "montag": "^1.2.1",

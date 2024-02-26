@@ -4,6 +4,11 @@
         "rules": {
             "n/shebang": "off"
         }
+    }, {
+        "files": "register.mjs",
+        "rules": {
+            "n/no-unsupported-features/node-builtins": "off"
+        }
     }],
     "extends": [
         "plugin:n/recommended",

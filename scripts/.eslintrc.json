@@ -1,5 +1,6 @@
 {
     "rules": {
-        "n/shebang": "off"
+        "n/shebang": "off",
+        "n/no-unsupported-features/node-builtins": "off"
     }
 }
