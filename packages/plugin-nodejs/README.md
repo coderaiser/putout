@@ -62,6 +62,14 @@ import fs from 'fs';
 import fs from 'node:fs';
 ```
 
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`apply-node-prefix`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs/apply-node-prefix#readme) | ✅
+⏣ **ESLint** | [`prefer-node-protocol`](https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-node-protocol.md#readme)  | ✅
+
+
 ## convert-buffer-to-buffer-alloc
 
 > The `Buffer()` function and `new Buffer()` constructor are **deprecated** due to API usability issues that can lead to accidental security issues.
