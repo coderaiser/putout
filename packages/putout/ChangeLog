@@ -1,3 +1,16 @@
+2024.02.29, v35.5.2
+
+feature:
+- 7b3906815 putout: @putout/formatter-frame v6.0.0
+- 442062870 @putout/formatter-frame: @putout/formatter-codeframe v7.0.0
+- 41b929826 @putout/formatter-frame: drop support of 🐊 < 35
+- 1334e3f65 putout: @putout/formatter-progress v5.0.0
+- 178206c56 @putout/formatter-progress: @putout/formatter-dump v5.0.0
+- 762708001 @putout/formatter-progress: drop support of node < 18
+- b7f644f14 @putout/formatter-progress-bar: @putout/formatter-dump v5.0.0
+- f5988d418 @putout/formatter-memory: @putout/formatter-dump v5.0.0
+- 9790242ff @putout/plugin-minify: merge-variables: exclude template literals (coderaiser/minify#120)
+
 2024.02.21, v35.5.1
 
 feature:
