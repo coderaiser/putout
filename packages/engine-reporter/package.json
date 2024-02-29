@@ -42,7 +42,7 @@
     "putout-engine"
   ],
   "devDependencies": {
-    "@putout/formatter-progress": "^4.0.0",
+    "@putout/formatter-progress": "^5.0.0",
     "c8": "^9.0.0",
     "eslint": "^9.0.0-alpha.0",
     "eslint-plugin-n": "^17.0.0-0",
