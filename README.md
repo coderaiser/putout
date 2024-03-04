@@ -1312,6 +1312,21 @@ const {a = ''} = b;
 
 </details>
 
+<details><summary>sort imports by specifiers</summary>
+
+```diff
++import a1 from 'a1';
+import {
+    a,
+    b,
+    c,
+    d,
+} from 'd';
+-import a1 from 'a1';
+```
+
+</details>
+
 <details><summary>apply <code>template literals</code></summary>
 
 ```diff
@@ -2023,6 +2038,12 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
 | [`@putout/plugin-apply-early-return`](/packages/plugin-apply-early-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-early-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-early-return) |
 | [`@putout/plugin-apply-template-literals`](/packages/plugin-apply-template-literals#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-template-literals.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-template-literals) |
+
+### Sorters
+
+| Package | Version |
+|--------|-------|
+| [`@putout/plugin-sort-imports-by-specifiers`](/packages/plugin-sort-imports-by-specifiers#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-sort-imports-by-specifiers.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-sort-imports-by-specifiers) |
 
 ### Splitters
 

@@ -214,6 +214,7 @@
         "simplify-assignment",
         "simplify-boolean-return",
         "simplify-ternary",
+        "sort-imports-by-specifiers",
         "convert-const-to-let",
         "convert-apply-to-spread",
         "convert-concat-to-flat",
