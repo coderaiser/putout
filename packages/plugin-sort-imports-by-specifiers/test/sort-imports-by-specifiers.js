@@ -29,4 +29,3 @@ test('putout: sort-imports-by-specifiers: transform', (t) => {
     t.transform('sort-imports-by-specifiers');
     t.end();
 });
-
