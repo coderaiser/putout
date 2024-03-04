@@ -3,7 +3,7 @@
   "version": "6.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds ability to find and 'debugger'",
+  "description": "🐊Putout plugin adds ability to find and remove 'debugger' statement",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger#readme",
   "main": "lib/remove-debugger.js",
   "release": false,
