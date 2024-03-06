@@ -42,6 +42,7 @@ async function getOldESLint({fix, config, overrideConfigFile, loadESLintOverride
     const ESLint = await loadESLintOverride({
         useFlatConfig: false,
     });
+    
     const eslint = new ESLint({
         fix,
         overrideConfig: {
@@ -61,6 +62,7 @@ async function getFlatESLint({fix, config, overrideConfigFile, loadESLintOverrid
     const FlatESLint = await loadESLintOverride({
         useFlatConfig: true,
     });
+    
     const eslint = new FlatESLint({
         fix,
         overrideConfig: {

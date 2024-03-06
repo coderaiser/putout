@@ -1,10 +1,5 @@
-#!/usr/bin/env node
-
 import process from 'node:process';
-import {
-    readFile,
-    writeFile,
-} from 'node:fs/promises';
+import {readFile, writeFile} from 'node:fs/promises';
 import {subscribe} from '@putout/engine-reporter/subscribe';
 import {createTrace} from './trace.mjs';
 import {createIsStop} from './is-stop.mjs';

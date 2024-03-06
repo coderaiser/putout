@@ -1,8 +1,5 @@
 import {createRequire} from 'node:module';
-import {
-    run,
-    cutEnv,
-} from 'madrun';
+import {run, cutEnv} from 'madrun';
 
 const require = createRequire(import.meta.url);
 const {workspaces} = require('./package.json');

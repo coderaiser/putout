@@ -41,6 +41,7 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         return noChanges;
     
     const {getESLint} = ESLint;
+    
     const [eslintError, eslint] = await tryToCatch(getESLint, {
         name,
         fix,

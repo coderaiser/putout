@@ -14,10 +14,7 @@ npm i @putout/cli-staged
 ## Examples
 
 ```js
-import {
-    get,
-    set,
-} from '@putout/cli-staged';
+import {get, set} from '@putout/cli-staged';
 import {findUp} from 'find-up';
 import tryToCatch from 'try-to-catch';
 

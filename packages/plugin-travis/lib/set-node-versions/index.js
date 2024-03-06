@@ -1,7 +1,4 @@
-import {
-    types,
-    operator,
-} from 'putout';
+import {types, operator} from 'putout';
 import deepEqual from 'fast-deep-equal';
 
 const {__yaml} = operator;

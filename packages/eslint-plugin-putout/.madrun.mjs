@@ -1,7 +1,4 @@
-import {
-    run,
-    cutEnv,
-} from 'madrun';
+import {run, cutEnv} from 'madrun';
 
 const SUPERTAPE_LOAD_LOOP_TIMEOUT = 70;
 const MOCHA_TIMEOUT = 20_000;

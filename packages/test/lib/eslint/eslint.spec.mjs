@@ -1,7 +1,4 @@
-import {
-    dirname,
-    join,
-} from 'node:path';
+import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {stub} from 'supertape';
 import {createTest} from './eslint.mjs';

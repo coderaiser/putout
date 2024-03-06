@@ -1,7 +1,4 @@
-import {
-    existsSync,
-    writeFileSync,
-} from 'node:fs';
+import {existsSync, writeFileSync} from 'node:fs';
 import {stub} from 'supertape';
 import tryToCatch from 'try-to-catch';
 import removeConsole from '@putout/plugin-remove-console';

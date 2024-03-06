@@ -1,7 +1,4 @@
-import {
-    test,
-    stub,
-} from 'supertape';
+import {test, stub} from 'supertape';
 import tryCatch from 'try-catch';
 import {createTrace} from './trace.mjs';
 

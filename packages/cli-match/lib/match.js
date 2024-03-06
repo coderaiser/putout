@@ -1,8 +1,5 @@
 import {join} from 'node:path';
-import {
-    readFile as _readFile,
-    writeFile as _writeFile,
-} from 'node:fs/promises';
+import {readFile as _readFile, writeFile as _writeFile} from 'node:fs/promises';
 import tryCatch from 'try-catch';
 import tryToCatch from 'try-to-catch';
 import matchErrors, {

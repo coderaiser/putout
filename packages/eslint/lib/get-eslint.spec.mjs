@@ -64,6 +64,7 @@ test('putout: eslint: get-eslint: no config found', async (t) => {
     });
     
     const loadESLintOverride = stub().resolves(ESLintOverride);
+    
     const eslint = await getESLint({
         name: 'index.js',
         loadESLintOverride,
@@ -87,6 +88,7 @@ test('putout: eslint: get-eslint: flat', async (t) => {
     });
     
     const loadESLintOverride = stub().resolves(ESLintOverride);
+    
     const eslint = await getESLint({
         name: 'index.js',
         loadESLintOverride,

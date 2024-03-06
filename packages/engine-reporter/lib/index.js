@@ -1,10 +1,7 @@
 import module from 'node:module';
 import tryCatch from 'try-catch';
 import getOptions from 'putout/cli/get-options';
-import {
-    INTERACTIVE_CANCELED,
-    INVALID_CONFIG,
-} from 'putout/exit-codes';
+import {INTERACTIVE_CANCELED, INVALID_CONFIG} from 'putout/exit-codes';
 import {getFormatter} from './formatter/formatter.cjs';
 import Report from './report.cjs';
 

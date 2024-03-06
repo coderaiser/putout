@@ -1,7 +1,4 @@
-import {
-    operator,
-    types,
-} from 'putout';
+import {operator, types} from 'putout';
 
 const {assign} = Object;
 const {isIdentifier} = types;

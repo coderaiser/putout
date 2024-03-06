@@ -1,9 +1,6 @@
 import {test} from 'supertape';
 import montag from 'montag';
-import {
-    merge,
-    branch,
-} from '../lib/filesystem.js';
+import {merge, branch} from '../lib/filesystem.js';
 
 const {stringify} = JSON;
 

@@ -1,9 +1,4 @@
-#!/usr/bin/env node
-
-import {
-    writeFileSync,
-    readFileSync,
-} from 'node:fs';
+import {writeFileSync, readFileSync} from 'node:fs';
 import tryCatch from 'try-catch';
 
 const {stringify, parse} = JSON;

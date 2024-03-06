@@ -1,7 +1,4 @@
-import {
-    types,
-    operator,
-} from 'putout';
+import {types, operator} from 'putout';
 
 const {replaceWith} = operator;
 const {RegExpLiteral} = types;

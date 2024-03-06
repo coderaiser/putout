@@ -1,7 +1,4 @@
-import {
-    test,
-    stub,
-} from 'supertape';
+import {test, stub} from 'supertape';
 import {createIsStop} from './is-stop.mjs';
 
 test('putout: bin: isStop: parentPort', (t) => {

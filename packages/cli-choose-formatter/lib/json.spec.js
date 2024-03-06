@@ -1,7 +1,4 @@
-import {
-    test,
-    stub,
-} from 'supertape';
+import {test, stub} from 'supertape';
 import {readJSON} from './json.js';
 
 test('putout: cli-choose-formatter', async (t) => {

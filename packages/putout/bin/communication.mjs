@@ -1,9 +1,6 @@
 import process from 'node:process';
 import {EventEmitter} from 'node:events';
-import {
-    parentPort,
-    workerData,
-} from 'node:worker_threads';
+import {parentPort, workerData} from 'node:worker_threads';
 
 const {assign} = Object;
 

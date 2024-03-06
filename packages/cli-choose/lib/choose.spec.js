@@ -1,7 +1,4 @@
-import {
-    test,
-    stub,
-} from 'supertape';
+import {test, stub} from 'supertape';
 import {choose} from './choose.js';
 
 test('putout: cli: choose', async (t) => {

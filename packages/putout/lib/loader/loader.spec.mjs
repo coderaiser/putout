@@ -1,11 +1,5 @@
-import {
-    test,
-    stub,
-} from 'supertape';
-import {
-    load,
-    transformSource,
-} from './loader.mjs';
+import {test, stub} from 'supertape';
+import {load, transformSource} from './loader.mjs';
 
 test('putout: esm: load', async (t) => {
     const nextLoad = stub().returns({

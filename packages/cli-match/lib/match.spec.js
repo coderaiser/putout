@@ -1,7 +1,4 @@
-import {
-    stub,
-    test,
-} from 'supertape';
+import {stub, test} from 'supertape';
 import {
     NO_PATTERN,
     READ_ERROR,
@@ -9,10 +6,7 @@ import {
     WRITE_ERROR,
     NO_RULES,
 } from './codes.js';
-import {
-    match,
-    runMatch,
-} from './match.js';
+import {match, runMatch} from './match.js';
 
 const {stringify} = JSON;
 

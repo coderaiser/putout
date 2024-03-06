@@ -27,10 +27,7 @@ npm i @putout/cli-match
 
 ```js
 import {cwd} from 'node:process';
-import {
-    readFile,
-    writeFile,
-} from 'node:fs/promises';
+import {readFile, writeFile} from 'node:fs/promises';
 import match from '@putout/cli-match';
 
 const {code, message} = await match({

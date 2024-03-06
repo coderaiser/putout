@@ -1,7 +1,4 @@
-import {
-    test,
-    stub,
-} from 'supertape';
+import {test, stub} from 'supertape';
 import {chooseFormatter} from './index.js';
 
 const {stringify} = JSON;

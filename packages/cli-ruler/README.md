@@ -19,10 +19,7 @@ To create new file `.putout.json` and disable all rules defined by `places` use:
 
 ```js
 import {rule} from '@putout/cli-ruler';
-import {
-    readFile,
-    writeFile,
-} from 'node:fs/promises';
+import {readFile, writeFile} from 'node:fs/promises';
 
 const places = [{
     rule: 'remove-unused-variables',
@@ -60,10 +57,7 @@ To enable one rule with a name `remove-unused-variables` use:
 
 ```js
 import ruler from '@putout/cli-ruler';
-import {
-    readFile,
-    writeFile,
-} from 'node:fs/promises';
+import {readFile, writeFile} from 'node:fs/promises';
 
 const places = [];
 

@@ -1,7 +1,4 @@
-import {
-    operator,
-    template,
-} from 'putout';
+import {operator, template} from 'putout';
 
 const {
     remove,

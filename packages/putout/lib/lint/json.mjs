@@ -1,7 +1,4 @@
-import {
-    branch,
-    merge,
-} from '@putout/processor-json';
+import {branch, merge} from '@putout/processor-json';
 import putout from '../putout.js';
 
 export const lintJSON = (rawSource, options) => {

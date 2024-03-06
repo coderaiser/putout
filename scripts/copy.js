@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import {cp} from 'node:fs/promises';
 import tryToCatch from 'try-to-catch';
 import process from 'node:process';

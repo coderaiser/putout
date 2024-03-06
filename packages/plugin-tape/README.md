@@ -519,10 +519,7 @@ test('xxx', (t) => {
 #### ✅ Example of correct code
 
 ```js
-import {
-    test,
-    stub,
-} from 'supertape';
+import {test, stub} from 'supertape';
 
 test('xxx', (t) => {
     const a = stub();

@@ -1,5 +1,3 @@
-#!/usr/bin/env deno run --allow-read
-
 import {readdir} from 'node:fs/promises';
 import process from 'node:process';
 import montag from 'montag';

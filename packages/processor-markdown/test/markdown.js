@@ -1,9 +1,6 @@
 import {createTest} from '@putout/test/processor';
 import montag from 'montag';
-import {
-    find,
-    branch,
-} from '../lib/markdown.js';
+import {find, branch} from '../lib/markdown.js';
 
 const test = createTest(import.meta.url, {
     extension: 'md',
