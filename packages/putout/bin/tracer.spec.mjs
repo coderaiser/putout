@@ -3,9 +3,9 @@ import {spawnSync} from 'node:child_process';
 import {test} from 'supertape';
 
 const require = createRequire(import.meta.url);
-const cliPath = new URL('putout.mjs', import.meta.url).pathname;
+const cliPath = new URL('tracer.mjs', import.meta.url).pathname;
 
-test('putout: bin: cli: -v', (t) => {
+test('putout: bin: cli: tracer -v', (t) => {
     const {version} = require('../package.json');
     const {stdout} = spawnSync(cliPath, ['-v'], {
         encoding: 'utf8',
@@ -15,7 +15,7 @@ test('putout: bin: cli: -v', (t) => {
     t.end();
 });
 
-test('putout: bin: cli: -h', (t) => {
+test('putout: bin: cli: tracer: -h', (t) => {
     const help = require('../lib/cli/help');
     const {stdout} = spawnSync(cliPath, ['-h'], {
         encoding: 'utf8',

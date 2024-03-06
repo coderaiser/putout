@@ -2,7 +2,8 @@
     "printer": "putout",
     "formatter": "memory",
     "rules": {
-        "maybe/noop": "off"
+        "maybe/noop": "off",
+        "remove-console": "on"
     },
     "match": {
         ".madrun.*": {

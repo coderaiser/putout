@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import process from 'node:process';
 import {readFile, writeFile} from 'node:fs/promises';
 import {subscribe} from '@putout/engine-reporter/subscribe';
@@ -9,6 +11,8 @@ import cli from '../lib/cli/index.js';
 import {parseArgs} from '../lib/cli/parse-args.js';
 
 const logError = console.error;
+const {log} = console;
+
 const {
     worker,
     workerData,
@@ -45,7 +49,7 @@ await cli({
     write,
     halt: process.exit,
     argv: workerData.slice(2),
-    log: console.log,
+    log,
     logError,
     readFile,
     writeFile,
