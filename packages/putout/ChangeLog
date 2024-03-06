@@ -1,3 +1,15 @@
+2024.03.06, v35.7.0
+
+fix:
+- 4b7638a38 eslint-plugin-putout: multiple-properties-destructuring: imports
+
+feature:
+- 77414beb9 putout: @putout/plugin-remove-unused-variables v9.0.0
+- 17b708c7e @putout/plugin-remove-unused-variables: drop support of 🐊 < 35
+- b2e4f1d43 @putout/plugin-remove-unused-variables: improve support of fn args with last AssignmentPattern
+- b7301719d @putout/plugin-sort-imports-by-specifiers: imporove specifiers count
+- ddcbf60ed @putout/eslint: use loadESLint (https://eslint.org/docs/latest/integrate/nodejs-api#loadeslint)
+
 2024.03.04, v35.6.0
 
 feature:
