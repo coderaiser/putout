@@ -49,6 +49,7 @@ const fixture = readFixtures([
     'fn-as-element',
     'fn-vars',
     'fn-args-vars',
+    'fn-arg-not-last',
     'fn-destr-args-vars',
     'fn-hoisted-vars',
     'for-of-statement',
@@ -1112,6 +1113,24 @@ test('remove-unused-variables: get-vars: fn args vars', (t) => {
     }, {
         name: du,
         fn: du,
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: fn arg not last', (t) => {
+    const ast = parse(fixture.fnArgNotLast);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        createImportExpression: 'd_',
+    }, {
+        path: 'du',
+        print: 'du',
+        printer: 'du',
+        semantics: 'du',
+        source: 'du',
     }];
     
     t.deepEqual(result, expected);

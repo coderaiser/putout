@@ -6,6 +6,7 @@ const getVars = require('./get-vars');
 
 const {
     useParamsBeforeLastUsed,
+    useParamsBeforeAssign,
     usePropertiesBeforeRest,
 } = require('./use-params');
 
@@ -47,6 +48,10 @@ module.exports = (ast, opts) => {
         }))
         .map(usePropertiesBeforeRest({
             use,
+        }))
+        .map(useParamsBeforeAssign({
+            use,
+            isUsed,
         }));
     
     return Object.values(vars);

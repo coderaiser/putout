@@ -5,6 +5,7 @@ const {
     isIdentifier,
     isObjectPattern,
     isRestElement,
+    isAssignmentPattern,
 } = types;
 
 module.exports.usePropertiesBeforeRest = ({use}) => ({path, params}) => {
@@ -14,6 +15,29 @@ module.exports.usePropertiesBeforeRest = ({use}) => ({path, params}) => {
         
         traverseProperties(use, path, param.properties);
     }
+    
+    return {
+        path,
+        params,
+    };
+};
+
+module.exports.useParamsBeforeAssign = ({use}) => ({path, params}) => {
+    const last = params.at(-1);
+    const usedParams = params.slice(0, -1);
+    
+    if (!isAssignmentPattern(last))
+        return;
+    
+    for (const param of usedParams) {
+        if (isIdentifier(param))
+            use(path, param.name);
+    }
+    
+    return {
+        path,
+        params,
+    };
 };
 
 function traverseProperties(use, path, properties) {

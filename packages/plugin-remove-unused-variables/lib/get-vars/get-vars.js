@@ -551,7 +551,6 @@ module.exports = ({use, declare, addParams}) => {
         
         Function(path) {
             const {node, parentPath} = path;
-            
             const {
                 id,
                 body,
