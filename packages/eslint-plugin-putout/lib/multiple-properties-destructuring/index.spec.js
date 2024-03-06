@@ -19,6 +19,7 @@ const message = 'Keep each property on separate lines when using multiple destru
 ruleTester.run('multiple-properties-destructuring', rule, {
     valid: [
         `import test, {stub} from 'supertape';`,
+        `import x, {m, z} from 'y';`,
         `const {
             a,
             b,
@@ -92,8 +93,8 @@ ruleTester.run('multiple-properties-destructuring', rule, {
             type: 'ImportDeclaration',
         }],
     }, {
-        code: `import x, {m as b, z} from 'y';`,
-        output: `import x,\n {\nm as b,\n z\n} from 'y';`,
+        code: `import x, {m as b, z, d} from 'y';`,
+        output: `import x,\n {\nm as b,\n z,\n d\n} from 'y';`,
         errors: [{
             message,
             type: 'ImportDeclaration',

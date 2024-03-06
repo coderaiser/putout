@@ -24,7 +24,7 @@ module.exports.include = ({options}) => {
     
     return [
         `VariableDeclarator[id.type="ObjectPattern"][id.properties.length>${minProperties}]`,
-        `ImportDeclaration[specifiers.length>=${minProperties}]`,
+        `ImportDeclaration[specifiers.length>${minProperties}]`,
     ];
 };
 
@@ -41,7 +41,7 @@ module.exports.filter = ({node}, options) => {
     if (isImportDeclaration(node)) {
         const {defaults, imports} = parseImportSpecifiers(node.specifiers);
         
-        if (defaults.length === 1 && imports.length < minProperties)
+        if (defaults.length === 1 && imports.length <= minProperties)
             return false;
         
         return !isCorrectImportLoc(line, specifiers);
