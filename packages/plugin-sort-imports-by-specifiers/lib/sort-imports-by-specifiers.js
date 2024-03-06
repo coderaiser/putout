@@ -1,5 +1,6 @@
 'use strict';
 
+const {parseImportSpecifiers} = require('parse-import-specifiers');
 const {operator} = require('putout');
 const {insertBefore, remove} = operator;
 
@@ -13,9 +14,11 @@ module.exports.fix = ({path, nextPath}) => {
 
 module.exports.traverse = ({push}) => ({
     ImportDeclaration(path) {
-        const {source, specifiers} = path.node;
+        const {node} = path;
+        const {source, specifiers} = node;
+        const {imports} = parseImportSpecifiers(specifiers);
         
-        if (specifiers.length < 4)
+        if (imports.length < 4)
             return;
         
         const nextPath = path.getNextSibling();
