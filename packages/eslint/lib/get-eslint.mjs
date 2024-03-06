@@ -1,15 +1,13 @@
-import eslint from 'eslint/use-at-your-own-risk';
-import {findUpSync} from 'find-up';
+import {loadESLint} from 'eslint';
+import {findUp} from 'find-up';
 
-const {FlatESLint, LegacyESLint} = eslint;
-
-export const getESLint = ({name, fix, config, overrideConfigFile, ESLintOverride, find = findUpSync}) => {
-    const eslint = chooseESLint({
+export const getESLint = async ({name, fix, config, overrideConfigFile, loadESLintOverride, find = findUp}) => {
+    const eslint = await chooseESLint({
         fix,
         name,
         config,
         overrideConfigFile,
-        ESLintOverride,
+        loadESLintOverride,
         find,
     });
     
@@ -19,29 +17,32 @@ export const getESLint = ({name, fix, config, overrideConfigFile, ESLintOverride
     };
 };
 
-function chooseESLint({name, config, fix, overrideConfigFile, ESLintOverride, find}) {
-    const flatConfigPath = find('eslint.config.js');
+async function chooseESLint({name, config, fix, overrideConfigFile, loadESLintOverride, find}) {
+    const flatConfigPath = await find('eslint.config.js');
     
     if (flatConfigPath)
-        return getFlatESLint({
-            ESLintOverride,
+        return await getFlatESLint({
+            loadESLintOverride,
             name,
             config,
             overrideConfigFile: overrideConfigFile || flatConfigPath,
             fix,
         });
     
-    return getOldESLint({
+    return await getOldESLint({
         name,
         config,
-        ESLintOverride,
+        loadESLintOverride,
         overrideConfigFile,
         fix,
     });
 }
 
-function getOldESLint({fix, config, overrideConfigFile, ESLintOverride = LegacyESLint}) {
-    const eslint = new ESLintOverride({
+async function getOldESLint({fix, config, overrideConfigFile, loadESLintOverride = loadESLint}) {
+    const ESLint = await loadESLintOverride({
+        useFlatConfig: false,
+    });
+    const eslint = new ESLint({
         fix,
         overrideConfig: {
             ignorePatterns: ['!.*'],
@@ -56,8 +57,11 @@ function getOldESLint({fix, config, overrideConfigFile, ESLintOverride = LegacyE
     return eslint;
 }
 
-function getFlatESLint({fix, config, overrideConfigFile, ESLintOverride = FlatESLint}) {
-    const eslint = new ESLintOverride({
+async function getFlatESLint({fix, config, overrideConfigFile, loadESLintOverride = loadESLint}) {
+    const FlatESLint = await loadESLintOverride({
+        useFlatConfig: true,
+    });
+    const eslint = new FlatESLint({
         fix,
         overrideConfig: {
             ignores: ['!.*'],

@@ -1,11 +1,8 @@
-import {
-    test,
-    stub,
-} from 'supertape';
+import {test, stub} from 'supertape';
 import tryToCatch from 'try-to-catch';
 import {getESLint} from './get-eslint.mjs';
 
-test('putout: eslint: get-eslint: config: putout', (t) => {
+test('putout: eslint: get-eslint: config: putout', async (t) => {
     const calculateConfigForFile = stub().resolves({
         rules: {
             'putout/remove-unused-variabls': 'error',
@@ -13,16 +10,17 @@ test('putout: eslint: get-eslint: config: putout', (t) => {
     });
     
     const lintText = stub().returns([]);
-    
     const ESLintOverride = stub().returns({
         calculateConfigForFile,
         lintText,
     });
     
-    getESLint({
+    const loadESLintOverride = stub().resolves(ESLintOverride);
+    
+    await getESLint({
         name: 'index.js',
         fix: false,
-        ESLintOverride,
+        loadESLintOverride,
     });
     
     const expected = [{
@@ -36,19 +34,19 @@ test('putout: eslint: get-eslint: config: putout', (t) => {
     t.end();
 });
 
-test('putout: eslint: get-eslint: config: putout: new', (t) => {
+test('putout: eslint: get-eslint: config: putout: new', async (t) => {
     const calculateConfigForFile = stub().resolves({});
-    
     const lintText = stub().returns([]);
-    
     const ESLintOverride = stub().returns({
         calculateConfigForFile,
         lintText,
     });
     
-    getESLint({
+    const loadESLintOverride = stub().resolves(ESLintOverride);
+    
+    await getESLint({
         name: 'index.js',
-        ESLintOverride,
+        loadESLintOverride,
     });
     
     t.calledWithNew(ESLintOverride);
@@ -65,9 +63,10 @@ test('putout: eslint: get-eslint: no config found', async (t) => {
         lintText,
     });
     
-    const eslint = getESLint({
+    const loadESLintOverride = stub().resolves(ESLintOverride);
+    const eslint = await getESLint({
         name: 'index.js',
-        ESLintOverride,
+        loadESLintOverride,
     });
     
     const [configError] = await tryToCatch(eslint.calculateConfigForFile, 'hello');
@@ -87,9 +86,10 @@ test('putout: eslint: get-eslint: flat', async (t) => {
         lintText,
     });
     
-    const eslint = getESLint({
+    const loadESLintOverride = stub().resolves(ESLintOverride);
+    const eslint = await getESLint({
         name: 'index.js',
-        ESLintOverride,
+        loadESLintOverride,
         find,
     });
     
@@ -99,7 +99,7 @@ test('putout: eslint: get-eslint: flat', async (t) => {
     t.end();
 });
 
-test('putout: eslint: get-eslint: flat: overrideConfigFile', (t) => {
+test('putout: eslint: get-eslint: flat: overrideConfigFile', async (t) => {
     const lintText = stub();
     const error = Error('hello');
     const calculateConfigForFile = stub().rejects(error);
@@ -109,11 +109,12 @@ test('putout: eslint: get-eslint: flat: overrideConfigFile', (t) => {
         lintText,
     });
     
+    const loadESLintOverride = stub().resolves(ESLintOverride);
     const find = stub().returns('/eslint.config.js');
     
-    getESLint({
+    await getESLint({
         name: 'index.js',
-        ESLintOverride,
+        loadESLintOverride,
         find,
         fix: false,
         overrideConfigFile: 'other.config.js',
