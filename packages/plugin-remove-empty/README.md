@@ -117,6 +117,7 @@ const a = {
 
 ```js
 const create = () => 'hello';
+
 module.exports = ({rule, plugin, msg, options}) => {};
 
 const a = {
