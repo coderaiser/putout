@@ -5,6 +5,7 @@ const {
     isObjectPattern,
     isArrayPattern,
 } = types;
+
 const {remove} = operator;
 
 module.exports.report = () => 'Avoid empty destructuring argument';
