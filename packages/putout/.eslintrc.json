@@ -2,7 +2,7 @@
     "overrides": [{
         "files": "bin/putout.mjs",
         "rules": {
-            "n/shebang": "off"
+            "n/hashbang": "off"
         }
     }, {
         "files": "register.mjs",
