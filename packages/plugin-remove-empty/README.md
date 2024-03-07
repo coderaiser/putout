@@ -104,6 +104,8 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2e19524f26
 ### ❌ Example of incorrect code
 
 ```js
+const create = ({} = {}) => 'hello';
+
 module.exports = ({rule, plugin, msg, options}, {}) => {};
 
 const a = {
@@ -114,6 +116,7 @@ const a = {
 ### ✅ Example of correct code
 
 ```js
+const create = () => 'hello';
 module.exports = ({rule, plugin, msg, options}) => {};
 
 const a = {

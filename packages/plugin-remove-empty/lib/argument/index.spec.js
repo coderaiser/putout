@@ -29,3 +29,8 @@ test('plugin-remove-empty: transform: argument: object-method', (t) => {
     t.transform('object-method');
     t.end();
 });
+
+test('plugin-remove-empty: transform: argument: assign', (t) => {
+    t.transform('assign');
+    t.end();
+});

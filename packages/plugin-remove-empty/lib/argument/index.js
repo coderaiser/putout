@@ -1,6 +1,7 @@
 'use strict';
 
-const {operator} = require('putout');
+const {operator, types} = require('putout');
+const {isObjectPattern} = types;
 const {remove} = operator;
 
 module.exports.report = () => 'Avoid empty destructuring argument';
@@ -10,10 +11,7 @@ module.exports.fix = (path) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '(__args) => __a': search({
-        push,
-    }),
-    'ObjectMethod': search({
+    Function: search({
         push,
     }),
 });
@@ -25,11 +23,26 @@ const search = ({push}) => (path) => {
     if (!length)
         return;
     
-    const lastPath = params[length - 1];
+    const lastPath = params.at(-1);
     
     if (lastPath.isObjectPattern() && !lastPath.node.properties.length)
         push(lastPath);
     
     if (lastPath.isArrayPattern() && !lastPath.node.elements.length)
         push(lastPath);
+    
+    if (isEmptyAssign(lastPath))
+        push(lastPath);
 };
+
+function isEmptyAssign(path) {
+    if (!path.isAssignmentPattern())
+        return false;
+    
+    const {left} = path.node;
+    
+    if (!isObjectPattern(left))
+        return false;
+    
+    return !left.properties.length;
+}
