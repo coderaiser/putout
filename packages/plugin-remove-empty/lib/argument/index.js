@@ -1,7 +1,10 @@
 'use strict';
 
 const {operator, types} = require('putout');
-const {isObjectPattern} = types;
+const {
+    isObjectPattern,
+    isArrayPattern,
+} = types;
 const {remove} = operator;
 
 module.exports.report = () => 'Avoid empty destructuring argument';
@@ -41,8 +44,11 @@ function isEmptyAssign(path) {
     
     const {left} = path.node;
     
-    if (!isObjectPattern(left))
-        return false;
+    if (isObjectPattern(left))
+        return !left.properties.length;
     
-    return !left.properties.length;
+    if (isArrayPattern(left))
+        return !left.elements.length;
+    
+    return false;
 }

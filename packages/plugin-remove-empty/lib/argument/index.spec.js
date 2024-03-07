@@ -34,3 +34,8 @@ test('plugin-remove-empty: transform: argument: assign', (t) => {
     t.transform('assign');
     t.end();
 });
+
+test('plugin-remove-empty: transform: argument: assign-array', (t) => {
+    t.transform('assign-array');
+    t.end();
+});
