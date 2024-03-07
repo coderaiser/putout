@@ -1,3 +1,10 @@
+2024.03.07, v35.7.1
+
+feature:
+- fdcf08f49 putout: @putout/plugin-remove-empty v12.0.0
+- e993d6246 @putout/plugin-remove-empty: drop support of node < 18
+- 8525c285a @putout/plugin-remove-empty: argument: add support of AssignmentPattern
+
 2024.03.06, v35.7.0
 
 fix:
