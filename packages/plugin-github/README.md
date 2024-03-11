@@ -131,6 +131,14 @@ You can override versions with:
 +      - uses: actions/checkout@v3
 ```
 
+`actions/cache`:
+
+```diff
+  steps:
+-      - uses: actions/cache@v3
++      - uses: actions/checkout@v4
+```
+
 `actions/setup-node`:
 
 ```diff

@@ -25,6 +25,11 @@ test('plugin-github: update-actions: transform: docker-login', (t) => {
     t.end();
 });
 
+test('plugin-github: update-actions: transform: cache', (t) => {
+    t.transform('cache');
+    t.end();
+});
+
 test('plugin-github: update-actions: transform: options', (t) => {
     t.transformWithOptions('options', {
         actions: {

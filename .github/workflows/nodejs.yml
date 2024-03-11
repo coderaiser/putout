@@ -30,7 +30,7 @@ jobs:
         run: redrun fix:lint
       - name: Install Rust
         run: rustup update
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/bin/

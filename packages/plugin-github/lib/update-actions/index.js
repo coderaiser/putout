@@ -4,6 +4,7 @@ const {updateActions} = require('./update-actions');
 
 module.exports = updateActions({
     'actions/checkout': 'v4',
+    'actions/cache': 'v4',
     'actions/setup-node': 'v4',
     'docker/setup-buildx-action': 'v2',
     'docker/build-push-action': 'v4',
