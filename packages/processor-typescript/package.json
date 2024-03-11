@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-typescript",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout processor adds ability to typecheck typescript",
@@ -43,7 +43,7 @@
     "putout": "*"
   },
   "peerDependencies": {
-    "putout": ">=34"
+    "putout": ">=35"
   },
   "license": "MIT",
   "engines": {
