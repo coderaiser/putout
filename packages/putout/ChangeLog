@@ -1,3 +1,13 @@
+2024.03.11, v35.7.2
+
+feature:
+- 08537160e putout: @putout/plugin-github v12.0.0
+- 85a304409 @putout/plugin-github: update-actions: actions/cache: 3 -> 4
+- 5fb9aff95 @putout/plugin-github: drop support of 🐊 < 35
+- abcaee206 @putout/processor-typescript: drop support of 🐊 < 35
+- bf5745894 @putout/processor-typescript: ts-morph v22.0.0
+- 90acc7820 @putout/plugin-remove-empty: argument: AssignmentPattern: ArrayExpression
+
 2024.03.07, v35.7.1
 
 feature:
