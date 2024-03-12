@@ -1,3 +1,14 @@
+2024.03.12, v35.7.3
+
+fix:
+- 0d2d08e1e @putout/plugin-github: convert to ESM
+
+feature:
+- 6d01fd68b putout: @putout/plugin-eslint v8.0.0
+- a88fc7c00 @putout/plugin-eslint: drop support of 🐊 < 35
+- 2cc0587ec @putout/plugin-eslint: convert to ESM
+- fcf32dee7 @putout/plugin-github: fast-deep-equal -> isDeepStrictEqual
+
 2024.03.11, v35.7.2
 
 feature:
