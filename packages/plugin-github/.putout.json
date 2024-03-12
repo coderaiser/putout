@@ -1,8 +1,6 @@
 {
     "printer": "putout",
-    "match": {
-        "lib/index.js": {
-            "remove-useless-spread/object": "off"
-        }
+    "rules": {
+        "putout/apply-namespace-specifier": "off"
     }
 }

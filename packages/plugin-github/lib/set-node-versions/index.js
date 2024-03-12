@@ -1,7 +1,5 @@
-'use strict';
-
-const {operator, template} = require('putout');
-const deepEqual = require('fast-deep-equal');
+import {operator, template} from 'putout';
+import deepEqual from 'fast-deep-equal';
 
 const {
     replaceWith,
@@ -18,16 +16,16 @@ const defaultVersions = [
 
 const {parse, stringify} = JSON;
 
-module.exports.report = () => 'Latest version of node is missing';
+export const report = () => 'Latest version of node is missing';
 
-module.exports.fix = (path, {options}) => {
+export const fix = (path, {options}) => {
     const {versions = defaultVersions} = options;
     const nodeVersionsNode = template.ast(stringify(versions));
     
     replaceWith(path, nodeVersionsNode);
 };
 
-module.exports.traverse = ({push, options}) => ({
+export const traverse = ({push, options}) => ({
     [__yaml](path) {
         const {versions: nodeVersions = defaultVersions} = options;
         const {__object} = getTemplateValues(path, __yaml);

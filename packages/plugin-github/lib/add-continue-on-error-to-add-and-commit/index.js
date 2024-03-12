@@ -1,5 +1,3 @@
-'use strict';
+import {addProperty} from '../add-property.js';
 
-const {addProperty} = require('../add-property');
-
-module.exports = addProperty('EndBug/add-and-commit', 'continue-on-error', true);
+export default addProperty('EndBug/add-and-commit', 'continue-on-error', true);

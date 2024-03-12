@@ -1,21 +1,19 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as plugin from './index.js';
 
-const {createTest} = require('@putout/test');
-const plugin = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['insert-rust', plugin],
     ],
 });
 
-test('packages: insert-rust: report', (t) => {
+test('putout: plugin-github: insert-rust: report', (t) => {
     t.report('insert-rust', `Install Rust`);
     t.end();
 });
 
-test('packages: insert-rust: transform', (t) => {
+test('putout: plugin-github: insert-rust: transform', (t) => {
     t.transform('insert-rust');
     t.end();
 });

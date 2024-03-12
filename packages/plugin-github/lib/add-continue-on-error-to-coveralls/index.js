@@ -1,5 +1,3 @@
-'use strict';
+import {addProperty} from '../add-property.js';
 
-const {addProperty} = require('../add-property');
-
-module.exports = addProperty('coverallsapp/github-action', 'continue-on-error', true);
+export default addProperty('coverallsapp/github-action', 'continue-on-error', true);

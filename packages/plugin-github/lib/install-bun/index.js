@@ -1,6 +1,5 @@
-'use strict';
+import {operator, template} from 'putout';
 
-const {operator, template} = require('putout');
 const {
     traverseProperties,
     getTemplateValues,
@@ -18,13 +17,13 @@ const BUN = template.ast(`({
 
 delete BUN.extra;
 
-module.exports.report = () => 'Install Bun';
+export const report = () => 'Install Bun';
 
-module.exports.fix = ({index, stepsPathValue}) => {
+export const fix = ({index, stepsPathValue}) => {
     stepsPathValue.node.elements.splice(index + 1, 0, BUN);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [__yaml](path) {
         const {__object} = getTemplateValues(path, __yaml);
         const [stepsPath] = traverseProperties(__object, 'steps');

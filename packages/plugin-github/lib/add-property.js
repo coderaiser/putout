@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     getTemplateValues,
     getProperties,
@@ -14,7 +13,7 @@ const {
     BooleanLiteral,
 } = types;
 
-module.exports.addProperty = (name, property, value) => ({
+export const addProperty = (name, property, value) => ({
     traverse: traverse(name, property),
     fix: fix(property, value),
     report: report(name, property),
