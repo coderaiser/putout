@@ -1,5 +1,5 @@
+import {isDeepStrictEqual} from 'node:util';
 import {operator, template} from 'putout';
-import deepEqual from 'fast-deep-equal';
 
 const {
     replaceWith,
@@ -40,7 +40,7 @@ export const traverse = ({push, options}) => ({
             if (versions === '${{ matrix.node-version }}')
                 continue;
             
-            if (deepEqual(versions, nodeVersions))
+            if (isDeepStrictEqual(versions, nodeVersions))
                 continue;
             
             push(nodeVersionPath.get('value'));
