@@ -1,7 +1,4 @@
-'use strict';
-
-const {operator, types} = require('putout');
-const putout = require('putout');
+import putout, {operator, types} from 'putout';
 
 const {getProperties, __json} = operator;
 const {
@@ -9,9 +6,9 @@ const {
     ObjectProperty,
 } = types;
 
-module.exports.report = () => 'Use FlatConfig instead of ESLintRC';
+export const report = () => 'Use FlatConfig instead of ESLintRC';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [__json]: (__json, path) => {
         const __jsonPath = path.get('arguments.0');
         const {

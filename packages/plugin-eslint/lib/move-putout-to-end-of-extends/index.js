@@ -1,12 +1,11 @@
-'use strict';
+import {operator} from 'putout';
+import {getExtends} from '../get.js';
 
-const {operator} = require('putout');
-const {getExtends} = require('../get');
 const {__json} = operator;
 
-module.exports.report = () => '"putout" should be in the end of the "extends" list';
+export const report = () => '"putout" should be in the end of the "extends" list';
 
-module.exports.match = () => ({
+export const match = () => ({
     [__json]: ({__object}) => {
         const elements = getExtends(__object);
         
@@ -25,7 +24,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [__json]: ({__object}, path) => {
         const elements = getExtends(__object);
         

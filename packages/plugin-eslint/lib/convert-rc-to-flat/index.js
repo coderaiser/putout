@@ -1,8 +1,8 @@
-'use strict';
+import {operator} from 'putout';
+import * as rcToFlat from './rc-to-flat/index.js';
 
-const {matchFiles} = require('putout').operator;
-const rcToFlat = require('./rc-to-flat');
+const {matchFiles} = operator;
 
-module.exports = matchFiles({
+export default matchFiles({
     '.eslintrc.json -> eslint.config.js': rcToFlat,
 });

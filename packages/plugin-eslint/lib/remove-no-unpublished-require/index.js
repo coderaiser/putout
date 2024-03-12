@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => `Remove 'node/no-unpublished-require'`;
+export const report = () => `Remove 'node/no-unpublished-require'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ObjectProperty(path) {
         if (path.node.key.value === 'node/no-unpublished-require')
             push(path);

@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertIdeToSafe from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertIdeToSafe = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     'eslint/convert-ide-to-safe': convertIdeToSafe,
 });
 

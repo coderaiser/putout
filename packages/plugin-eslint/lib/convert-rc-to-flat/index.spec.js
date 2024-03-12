@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import plugin from './index.js';
 
-const {createTest} = require('@putout/test');
-const plugin = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['convert-rc-to-flat', plugin],
