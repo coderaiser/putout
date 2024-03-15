@@ -1,3 +1,11 @@
+2024.03.15, v35.7.4
+
+feature:
+- 7b1733e28 putout: @putout/plugin-gitignore v5.0.0
+- a2ff4823e putout: @putout/plugin-npmignore v4.0.0
+- 45f4c4de3 @putout/plugin-npmignore: drop support of 🐊 < 35
+- a0c5408d5 @putout/plugin-gitignore: drop support of 🐊 < 35
+
 2024.03.12, v35.7.3
 
 fix:
