@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as gitignore from '../lib/gitignore.js';
 
-const {createTest} = require('@putout/test');
-const gitignore = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['gitignore', gitignore],
