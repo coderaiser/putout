@@ -127,7 +127,7 @@
     "@putout/plugin-montag": "^2.0.0",
     "@putout/plugin-new": "^3.0.1",
     "@putout/plugin-nodejs": "^11.0.0",
-    "@putout/plugin-npmignore": "^3.0.0",
+    "@putout/plugin-npmignore": "^4.0.0",
     "@putout/plugin-package-json": "^7.0.0",
     "@putout/plugin-promises": "^14.0.0",
     "@putout/plugin-putout": "^18.0.0",
