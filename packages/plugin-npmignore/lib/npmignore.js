@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {__ignore} = operator;
 const {StringLiteral} = types;
 const getValue = ({value}) => value;
@@ -11,9 +10,9 @@ const names = [
     'coverage',
 ];
 
-module.exports.report = () => `Dot files should be added to .npmignore`;
+export const report = () => `Dot files should be added to .npmignore`;
 
-module.exports.match = ({options}) => {
+export const match = ({options}) => {
     const {dismiss = []} = options;
     const newNames = filterNames(names, dismiss);
     
@@ -31,7 +30,7 @@ module.exports.match = ({options}) => {
     };
 };
 
-module.exports.replace = ({options}) => {
+export const replace = ({options}) => {
     const {dismiss = []} = options;
     const newNames = filterNames(names, dismiss);
     

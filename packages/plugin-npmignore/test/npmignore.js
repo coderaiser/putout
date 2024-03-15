@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as npmignore from '../lib/npmignore.js';
 
-const {createTest} = require('@putout/test');
-const npmignore = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['npmignore', npmignore],
