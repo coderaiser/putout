@@ -1,12 +1,17 @@
 'use strict';
 
-const {readFile, writeFile} = require('fs/promises');
+const tryToCatch = require('try-to-catch');
+const {
+    readFile,
+    writeFile,
+    unlink,
+} = require('node:fs/promises');
 
 const {
     join,
     extname,
     basename,
-} = require('path');
+} = require('node:path');
 
 const test = require('supertape');
 const processFile = require('putout/process-file');
@@ -18,6 +23,17 @@ const isUpdate = () => Number(global.process.env.UPDATE);
 const update = async (a, b) => {
     const write = global.writeFile || writeFile;
     await write(a, b);
+};
+
+const remove = async (a) => {
+    const remove = global.unlink || unlink;
+    await tryToCatch(remove, a);
+};
+
+const read = async (a, b) => {
+    const read = global.readFile || readFile;
+    
+    return await read(a, b);
 };
 
 const buildOptions = ({options, plugins, processors}) => ({
@@ -105,9 +121,7 @@ async function process(filename, dir, {printer, processors, plugins, extension, 
     const inputName = join(dir, 'fixture', `${filename}${extension}`);
     const outputName = join(dir, 'fixture', `${filename}-fix${extension}`);
     
-    const rawSource = await readFile(inputName, 'utf8');
-    const output = !fix || noChange ? '' : await readFile(outputName, 'utf8');
-    
+    const rawSource = await read(inputName, 'utf8');
     const options = {
         dir,
         processors,
@@ -129,8 +143,13 @@ async function process(filename, dir, {printer, processors, plugins, extension, 
         processorRunners,
     });
     
-    if (isUpdate() && !noChange && fix)
-        await update(outputName, processedSource);
+    if (isUpdate())
+        if (!noChange && fix)
+            await update(outputName, processedSource);
+        else if (noChange)
+            await remove(outputName);
+    
+    const output = !fix || noChange ? '' : await read(outputName, 'utf8');
     
     return {
         processedSource,

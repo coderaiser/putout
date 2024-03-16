@@ -1,6 +1,13 @@
 'use strict';
 
-const {join} = require('path');
+const tryToCatch = require('try-to-catch');
+const {join} = require('node:path');
+const {
+    stat,
+    unlink,
+    readFile,
+} = require('node:fs/promises');
+
 const {stub} = require('supertape');
 
 const {
@@ -33,10 +40,33 @@ test('putout: test: processor: no process', async ({noProcess}) => {
     await noProcess('empty-script.html', null, ['html']);
 });
 
+test('putout: test: processor: no process: UPDATE', async ({noProcess, calledWith}) => {
+    const unlink = stub();
+    
+    update(1);
+    global.unlink = unlink;
+    await noProcess('empty-script.html', null, ['html']);
+    delete global.unlink;
+    update(0);
+    
+    const name = join(__dirname, 'fixture/empty-script-fix.html');
+    calledWith(unlink, [name]);
+}, CHECK_ASSERTIONS_COUNT);
+
+test('putout: test: processor: no process: UPDATE: not clean', async ({noProcess, ok}) => {
+    update(1);
+    await noProcess('empty-script.html', null, ['html']);
+    update(0);
+    
+    const name = join(__dirname, 'fixture/empty-script-fix.html');
+    const [error] = await tryToCatch(stat, name);
+    
+    ok(error, 'should remove file');
+}, CHECK_ASSERTIONS_COUNT);
+
 test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
     update(1);
     
-    const {readFile} = require('fs/promises');
     const writeFile = stub();
     
     global.writeFile = writeFile;
@@ -50,6 +80,22 @@ test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
     const data = await readFile(name, 'utf8');
     
     calledWith(writeFile, [name, data]);
+}, CHECK_ASSERTIONS_COUNT);
+
+test('putout: test: processor: UPDATE: no fixture', async ({process, ok}) => {
+    update(1);
+    
+    await process('no-fixture');
+    
+    update();
+    
+    const nameOutput = join(__dirname, 'fixture/no-fixture-fix.json');
+    
+    const result = stat(nameOutput);
+    
+    await unlink(nameOutput);
+    
+    ok(result, 'should create output file');
 }, CHECK_ASSERTIONS_COUNT);
 
 test('putout: test: processor: UPDATE: no global', async ({process}) => {
