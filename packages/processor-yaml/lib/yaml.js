@@ -50,7 +50,9 @@ export const merge = (rawSource, list) => {
     
     const source = fromJS(first, __yaml);
     
-    return yaml.stringify(parse(source));
+    return yaml.stringify(parse(source), null, {
+        indent: 2,
+    });
 };
 
 function parseMessage(message) {
