@@ -40,6 +40,7 @@ npm i @putout/plugin-tape -D
         "tape/convert-called-with-no-args-to-called-with": "on",
         "tape/convert-equal-to-called-once": "on",
         "tape/convert-equal-to-deep-equal": "on",
+        "tape/convert-equals-to-equal": "on",
         "tape/convert-deep-equal-to-equal": "on",
         "tape/convert-emitter-to-promise": "on",
         "tape/convert-ok-to-match": "on",
@@ -707,6 +708,20 @@ const expected = {
 
 t.deepEqual(error, expected);
 t.end();
+```
+
+## convert-equals-to-equal
+
+### ❌ Example of incorrect code
+
+```js
+t.equals(e.message, 'token should be a string!', 'should throw');
+```
+
+### ✅ Example of correct code
+
+```js
+t.equal(e.message, 'token should be a string!', 'should throw');
 ```
 
 ## convert-match-regexp-to-string

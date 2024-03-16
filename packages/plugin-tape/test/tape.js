@@ -195,3 +195,8 @@ test('plugin-tape: transform: convert-mock-require-to-mock-import', (t) => {
     t.transform('convert-mock-require-to-mock-import');
     t.end();
 });
+
+test('plugin-tape: transform: convert-equals-to-equal', (t) => {
+    t.transform('convert-equals-to-equal');
+    t.end();
+});

@@ -34,6 +34,7 @@ const removeStopAll = require('./remove-stop-all');
 const removeUselessTEnd = require('./remove-useless-t-end');
 const removeOnly = require('./remove-only');
 const removeSkip = require('./remove-skip');
+const convertEqualsToEqual = require('./convert-equals-to-equal');
 
 module.exports.rules = {
     'convert-mock-require-to-mock-import': ['off', convertMockRequireToMockImport],
@@ -58,6 +59,7 @@ module.exports.rules = {
     'convert-equal-to-deep-equal': convertEqualToDeepEqual,
     'convert-equal-to-ok': convertEqualToOk,
     'convert-equal-to-called-once': convertEqualToCalledOnce,
+    'convert-equals-to-equal': convertEqualsToEqual,
     'convert-deep-equal-to-equal': convertDeepEqualToEqual,
     'add-args': addArgs,
     declare,

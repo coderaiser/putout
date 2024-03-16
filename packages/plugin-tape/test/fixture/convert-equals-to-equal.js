@@ -1,0 +1,1 @@
+t.equals(e.message, 'token should be a string!', 'should throw');
