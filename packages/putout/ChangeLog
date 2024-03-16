@@ -1,3 +1,12 @@
+2024.03.16, v35.7.5
+
+feature:
+- c7ce13419 putout: @putout/plugin-tape v14.0.0
+- 5df37530b @putout/plugin-tape: drop support of 🐊 < 35
+- 75d801c03 @putout/plugin-tape: convert-equals-to-equal: add
+- 4d562936d @putout/processor-yaml: indent
+- b8b38bf18 @putout/test: processor: UPDATE: create/remove output fixture file
+
 2024.03.15, v35.7.4
 
 feature:
