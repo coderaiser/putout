@@ -712,6 +712,8 @@ t.end();
 
 ## convert-equals-to-equal
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9a428ce99c5ec8966363a7a6da5bbba8/7441cbf7c8429b265259e7d67125fa138d7db19b).
+
 ### ❌ Example of incorrect code
 
 ```js
