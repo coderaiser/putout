@@ -103,24 +103,24 @@ You can override versions with:
 
 ```diff
       - name: Login to Docker Hub
--       uses: docker/login-action@v1
-+       uses: docker/login-action@v2
+-       uses: docker/login-action@v2
++       uses: docker/login-action@v3
 ```
 
 `docker/build-push`:
 
 ```diff
       - name: Build and push alpine-image
--       uses: docker/build-push-action@v2
-+       uses: docker/build-push-action@v4
+-       uses: docker/build-push-action@v4
++       uses: docker/build-push-action@v5
 ```
 
 `docker/setup-buildx`:
 
 ```diff
       - name: Set up Docker Buildx
--       uses: docker/setup-buildx-action@v1
-+       uses: docker/setup-buildx-action@v2
+-       uses: docker/setup-buildx-action@v2
++       uses: docker/setup-buildx-action@v3
 ```
 
 `actions/checkout`:
@@ -152,8 +152,8 @@ You can override versions with:
 ```diff
   steps:
         - name: Set up QEMU
--         uses: docker/setup-qemu-action@v1
-+         uses: docker/setup-qemu-action@v2
+-         uses: docker/setup-qemu-action@v2
++         uses: docker/setup-qemu-action@v3
 ```
 
 `EndBug/add-and-commit`:

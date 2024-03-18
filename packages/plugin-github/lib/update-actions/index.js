@@ -5,7 +5,7 @@ export default updateActions({
     'actions/cache': 'v4',
     'actions/setup-node': 'v4',
     'docker/setup-buildx-action': 'v3',
-    'docker/build-push-action': 'v4',
+    'docker/build-push-action': 'v5',
     'docker/login-action': 'v3',
     'docker/setup-qemu-action': 'v3',
     'coverallsapp/github-action': 'v2',
