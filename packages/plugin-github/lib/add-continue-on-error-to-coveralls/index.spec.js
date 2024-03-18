@@ -1,7 +1,9 @@
-import {createTest} from '@putout/test';
-import plugin from './index.js';
+'use strict';
 
-const test = createTest(import.meta.url, {
+const plugin = require('./index.js');
+const {createTest} = require('@putout/test');
+
+const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
         ['github/add-continue-on-error-to-coveralls', plugin],

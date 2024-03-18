@@ -1,6 +1,8 @@
-import {updateActions} from './update-actions.js';
+'use strict';
 
-export default updateActions({
+const {updateActions} = require('./update-actions.js');
+
+module.exports = updateActions({
     'actions/checkout': 'v4',
     'actions/cache': 'v4',
     'actions/setup-node': 'v4',

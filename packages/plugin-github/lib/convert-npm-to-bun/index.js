@@ -1,5 +1,6 @@
-import {operator} from 'putout';
+'use strict';
 
+const {operator} = require('putout');
 const {
     traverseProperties,
     setLiteralValue,
@@ -7,9 +8,9 @@ const {
     __yaml,
 } = operator;
 
-export const report = () => 'Convert npm to bun';
+module.exports.report = () => 'Convert npm to bun';
 
-export const fix = (path) => {
+module.exports.fix = (path) => {
     const {value} = path.node;
     const bun = value
         .replace('npm', 'bun')
@@ -20,7 +21,7 @@ export const fix = (path) => {
     setLiteralValue(path, newValue);
 };
 
-export const traverse = ({push}) => ({
+module.exports.traverse = ({push}) => ({
     [__yaml](path) {
         const {__object} = getTemplateValues(path, __yaml);
         

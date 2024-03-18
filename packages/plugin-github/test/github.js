@@ -1,7 +1,9 @@
-import {createTest} from '@putout/test';
-import * as github from '../lib/index.js';
+'use strict';
 
-const test = createTest(import.meta.url, {
+const github = require('../lib/index.js');
+const {createTest} = require('@putout/test');
+
+const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
         ['github', github],

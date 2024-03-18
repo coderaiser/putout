@@ -1,4 +1,6 @@
-import {types, operator} from 'putout';
+'use strict';
+
+const {types, operator} = require('putout');
 
 const {
     replaceWith,
@@ -13,7 +15,7 @@ const {StringLiteral} = types;
 const cutV = (a) => Number(a.slice(1));
 const cutMaster = (a) => a.replace('master', 'v0');
 
-export const updateActions = (actions) => ({
+module.exports.updateActions = (actions) => ({
     traverse: traverse(actions),
     fix,
     report,

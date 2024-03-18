@@ -1,7 +1,9 @@
-import {createTest} from '@putout/test';
-import * as setNodeVersion from './index.js';
+'use strict';
 
-const test = createTest(import.meta.url, {
+const setNodeVersion = require('./index.js');
+const {createTest} = require('@putout/test');
+
+const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
         ['github/set-node-version', setNodeVersion],

@@ -1,4 +1,6 @@
-import {operator, template} from 'putout';
+'use strict';
+
+const {operator, template} = require('putout');
 
 const {
     compare,
@@ -15,14 +17,14 @@ const RUST = template.ast(`({
 
 delete RUST.extra;
 
-export const report = () => 'Install Rust';
+module.exports.report = () => 'Install Rust';
 
-export const fix = ({path, index, stepsPathValue}) => {
+module.exports.fix = ({path, index, stepsPathValue}) => {
     stepsPathValue.node.elements.splice(index + 1, 0, RUST);
     remove(path);
 };
 
-export const traverse = ({push}) => ({
+module.exports.traverse = ({push}) => ({
     [__yaml](path) {
         const {__object} = getTemplateValues(path, __yaml);
         const [stepsPath] = traverseProperties(__object, 'steps');
