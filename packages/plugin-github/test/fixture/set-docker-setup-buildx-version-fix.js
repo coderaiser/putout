@@ -19,7 +19,7 @@ __putout_processor_yaml({
                 }
             }, {
                 "name": "Set up Docker Buildx",
-                "uses": "docker/setup-buildx-action@v2"
+                "uses": "docker/setup-buildx-action@v3"
             }]
         }
     }
