@@ -164,3 +164,8 @@ test('plugin-convert-commonjs-to-esm: require: transform: dot-dot', (t) => {
     t.transform('dot-dot');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: require: transform: mjs', (t) => {
+    t.transform('mjs');
+    t.end();
+});

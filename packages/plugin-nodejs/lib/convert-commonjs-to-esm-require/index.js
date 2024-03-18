@@ -77,7 +77,7 @@ module.exports.replace = () => ({
             .get(__B)
             .evaluate();
         
-        if (value.includes('./') && !/\.js(on)?$/.test(value) && !value.endsWith('..'))
+        if (value.includes('./') && !/\.m?js(on)?$/.test(value) && !value.endsWith('..'))
             value += '.js';
         
         const fnPath = path.findParent(isFunction);
