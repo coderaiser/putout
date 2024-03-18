@@ -37,7 +37,8 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/declare-after-require": "on",
         "nodejs/remove-process-exit": "on",
         "nodejs/add-missing-strict-mode": "on",
-        "nodejs/remove-useless-strict-mode": "on"
+        "nodejs/remove-useless-strict-mode": "on",
+        "nodejs/remove-useless-promisify": "on"
     }
 }
 ```
@@ -450,6 +451,26 @@ import a from 'b';
 
 ```js
 import a from 'b';
+```
+
+## remove-useless-promisify
+
+> Takes a function following the common error-first callback style, i.e. taking an (err, value) => ... callback as the last argument, and returns a version that returns promises.
+>
+> (c) [nodejs.org](https://nodejs.org/dist/latest-v21.x/docs/api/util.html#utilpromisifyoriginal)
+
+Remove useless [`promisify()`](https://nodejs.org/dist/latest-v21.x/docs/api/util.html#utilpromisifyoriginal). Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31000391865a36dfec2f8db5c2e98601/ce8867f83a84ecbe073637b9ceae58a443817187).
+
+### ❌ Example of incorrect code
+
+```js
+export const readSize = promisify(async (dir, options, callback) => {});
+```
+
+### ✅ Example of correct code
+
+```js
+export const readSize = async (dir, options, callback) => {};
 ```
 
 ## License

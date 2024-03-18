@@ -99,3 +99,8 @@ test('plugin-nodejs: transform: remove-useless-strict-mode', (t) => {
     t.transform('remove-useless-strict-mode');
     t.end();
 });
+
+test('plugin-nodejs: transform: remove-useless-promisify', (t) => {
+    t.transform('remove-useless-promisify');
+    t.end();
+});

@@ -25,6 +25,7 @@ const renameFileCjsToJs = require('./rename-file-cjs-to-js');
 const renameFileMjsToJs = require('./rename-file-mjs-to-js');
 
 const strictMode = require('./strict-mode');
+const removeUselessPromisify = require('./remove-useless-promisify');
 
 module.exports.rules = {
     'convert-buffer-to-buffer-alloc': convertBufferToBufferAlloc,
@@ -52,4 +53,5 @@ module.exports.rules = {
     
     'add-missing-strict-mode': strictMode.rules['add-missing'],
     'remove-useless-strict-mode': strictMode.rules['remove-useless'],
+    'remove-useless-promisify': removeUselessPromisify,
 };
