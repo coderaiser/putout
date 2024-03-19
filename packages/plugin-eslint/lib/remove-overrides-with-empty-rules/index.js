@@ -1,14 +1,15 @@
-import {operator} from 'putout';
+'use strict';
 
+const {operator} = require('putout');
 const {remove} = operator;
 
-export const report = () => `Avoid 'overrides' with empty 'rules'`;
+module.exports.report = () => `Avoid 'overrides' with empty 'rules'`;
 
-export const fix = (path) => {
+module.exports.fix = (path) => {
     remove(path);
 };
 
-export const traverse = ({push}) => ({
+module.exports.traverse = ({push}) => ({
     ObjectProperty(path) {
         const {key, value} = path.node;
         

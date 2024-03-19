@@ -1,17 +1,20 @@
-import {types, operator} from 'putout';
-import {
+'use strict';
+
+const {
     getExtends,
     getPlugins,
     isExtends,
     isPlugins,
-} from '../get.js';
+} = require('../get.js');
+
+const {types, operator} = require('putout');
 
 const {__json} = operator;
 const {StringLiteral} = types;
 
-export const report = () => `Add 'putout' to 'plugins' and 'extends'`;
+module.exports.report = () => `Add 'putout' to 'plugins' and 'extends'`;
 
-export const match = () => ({
+module.exports.match = () => ({
     [__json]: ({__object}) => {
         if (!isExtends(__object) || !isPlugins(__object))
             return false;
@@ -25,7 +28,7 @@ export const match = () => ({
     },
 });
 
-export const replace = () => ({
+module.exports.replace = () => ({
     [__json]: ({__object}, path) => {
         getExtends(__object).push(StringLiteral('putout:plugin/safe+align'));
         getPlugins(__object).push(StringLiteral('putout'));

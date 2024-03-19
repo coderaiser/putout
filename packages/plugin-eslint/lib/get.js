@@ -1,17 +1,18 @@
-import {types} from 'putout';
+'use strict';
 
+const {types} = require('putout');
 const {
     isStringLiteral,
     isArrayExpression,
 } = types;
 
-export const isPlugins = (node) => node.properties.find(is('plugins'));
-export const isExtends = (node) => node.properties.find(is('extends'));
+module.exports.isPlugins = (node) => node.properties.find(is('plugins'));
+module.exports.isExtends = (node) => node.properties.find(is('extends'));
 
-export const getPlugins = get('plugins');
-export const getExtends = get('extends');
+module.exports.getPlugins = get('plugins');
+module.exports.getExtends = get('extends');
 
-export const getRules = (node) => {
+module.exports.getRules = (node) => {
     const x = node.properties.find(is('rules'));
     
     if (!x)

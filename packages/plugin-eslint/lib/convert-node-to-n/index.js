@@ -1,12 +1,13 @@
-import {operator} from 'putout';
-import {getExtends, getPlugins} from '../get.js';
+'use strict';
 
+const {getExtends, getPlugins} = require('../get.js');
+const {operator} = require('putout');
 const {__json} = operator;
 const {assign} = Object;
 
-export const report = () => `Use 'n' instead of 'node'`;
+module.exports.report = () => `Use 'n' instead of 'node'`;
 
-export const match = () => ({
+module.exports.match = () => ({
     [__json]: ({__object}) => {
         const elements = getExtends(__object);
         const plugins = getPlugins(__object);
@@ -25,7 +26,7 @@ export const match = () => ({
     },
 });
 
-export const replace = () => ({
+module.exports.replace = () => ({
     [__json]: ({__object}, path) => {
         const elements = getExtends(__object);
         const plugins = getPlugins(__object);

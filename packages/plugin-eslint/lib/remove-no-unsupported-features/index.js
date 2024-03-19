@@ -1,14 +1,15 @@
-import {operator} from 'putout';
+'use strict';
 
+const {operator} = require('putout');
 const {remove} = operator;
 
-export const report = () => `Remove 'node/no-unsupported-features'`;
+module.exports.report = () => `Remove 'node/no-unsupported-features'`;
 
-export const fix = (path) => {
+module.exports.fix = (path) => {
     remove(path);
 };
 
-export const traverse = ({push}) => ({
+module.exports.traverse = ({push}) => ({
     ObjectProperty(path) {
         if (path.node.key.value === 'node/no-unsupported-features/es-syntax')
             push(path);

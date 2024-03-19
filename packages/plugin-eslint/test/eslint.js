@@ -1,7 +1,9 @@
-import {createTest} from '@putout/test';
-import * as eslint from '../lib/index.js';
+'use strict';
 
-const test = createTest(import.meta.url, {
+const eslint = require('../lib/index.js');
+const {createTest} = require('@putout/test');
+
+const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
         ['eslint', eslint],

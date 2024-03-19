@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-eslint",
   "version": "8.0.0",
-  "type": "module",
+  "type": "common",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin for eslint config",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-eslint#readme",

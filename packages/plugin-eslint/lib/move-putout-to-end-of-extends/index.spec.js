@@ -1,7 +1,9 @@
-import {createTest} from '@putout/test';
-import * as movePutoutToEndOfExtends from './index.js';
+'use strict';
 
-const test = createTest(import.meta.url, {
+const movePutoutToEndOfExtends = require('./index.js');
+const {createTest} = require('@putout/test');
+
+const test = createTest(__dirname, {
     'eslint/move-putout-to-end-of-extends': movePutoutToEndOfExtends,
 });
 
