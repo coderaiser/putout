@@ -8,7 +8,8 @@ const {
     isProgram,
 } = types;
 
-const regExp = /^\n( +)?\n( +)?$/;
+//const regExp = /^\n( +)?\n( +)?$/;
+const regExp = /^\n(\s+)?\n(\s+)?((\n(\s+)+)?)$/;
 
 module.exports.report = () => 'Add newline before expression';
 

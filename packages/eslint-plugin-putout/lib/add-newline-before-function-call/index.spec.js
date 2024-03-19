@@ -12,7 +12,7 @@ const rule = createPlugin(require('.'));
 const ruleTester = new RuleTester({
     languageOptions: {
         parserOptions: {
-            ecmaVersion: 2023,
+            ecmaVersion: 2024,
             sourceType: 'module',
         },
     },

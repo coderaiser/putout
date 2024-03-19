@@ -72,6 +72,10 @@ test('eslint-plugin-putout: add-newline-before-function-call', async ({process})
     await process('add-newline-before-function-call');
 });
 
+test('eslint-plugin-putout: add-newline-before-function-call-multiple', async ({process}) => {
+    await process('add-newline-before-function-call-multiple');
+});
+
 test('eslint-plugin-putout: add-newline-after-function-call', async ({process}) => {
     await process('add-newline-after-function-call');
 });
