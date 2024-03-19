@@ -59,3 +59,8 @@ test('plugin-convert-commonjs-to-esm: exports: no transform: sequance', (t) => {
     t.noTransform('sequence');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: exports: transform: overlap', (t) => {
+    t.transform('overlap');
+    t.end();
+});
