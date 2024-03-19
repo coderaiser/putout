@@ -27,7 +27,6 @@ const declare = require('./declare');
 const removeDefaultMessages = require('./remove-default-messages');
 const removeUselessNotCalledArgs = require('./remove-useless-not-called-args');
 const switchExpectedWithResult = require('./switch-expected-with-result');
-const applyStubOperator = require('./apply-stub-operator');
 const addTEnd = require('./add-t-end');
 const addStopAll = require('./add-stop-all');
 const removeStopAll = require('./remove-stop-all');
@@ -66,7 +65,6 @@ module.exports.rules = {
     'remove-default-messages': removeDefaultMessages,
     'remove-useless-not-called-args': removeUselessNotCalledArgs,
     'switch-expected-with-result': switchExpectedWithResult,
-    'apply-stub-operator': applyStubOperator,
     'add-t-end': addTEnd,
     'add-stop-all': addStopAll,
     'remove-stop-all': removeStopAll,

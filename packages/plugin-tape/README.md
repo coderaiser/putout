@@ -24,7 +24,6 @@ npm i @putout/plugin-tape -D
         "tape/jest": "on",
         "tape/apply-stub": "on",
         "tape/apply-destructuring": "on",
-        "tape/apply-stub-operator": "on",
         "tape/apply-with-name": "on",
         "tape/add-t-end": "on",
         "tape/add-stop-all": "on",
@@ -401,26 +400,6 @@ const a = stub().resolves(true);
 const b = stub().resolves();
 const c = stub().rejects(Error('hello'));
 const d = stub().rejects(Error('hello'));
-```
-
-## apply-stub-operator
-
-### ❌ Example of incorrect code
-
-```js
-test('some message', (t) => {
-    t.ok(fn.calledWith(a));
-    t.end();
-});
-```
-
-### ✅ Example of correct code
-
-```js
-test('some message', (t) => {
-    t.calledWith(fn, [a]);
-    t.end();
-});
 ```
 
 ## apply-with-name

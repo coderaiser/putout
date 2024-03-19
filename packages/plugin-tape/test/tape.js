@@ -36,7 +36,7 @@ test('plugin-tape: transform: does-not-throw', (t) => {
     t.end();
 });
 
-test('plugin-tape: transform: apply stub operator', (t) => {
+test('plugin-tape: transform: called-with', (t) => {
     t.transform('called-with');
     t.end();
 });
@@ -88,11 +88,6 @@ test('plugin-tape: transform: convert-equal-to-ok', (t) => {
 
 test('plugin-tape: transform: convert-match-regexp-to-string', (t) => {
     t.transform('convert-match-regexp-to-string');
-    t.end();
-});
-
-test('plugin-tape: transform: convert-ok-to-called-with', (t) => {
-    t.transform('convert-ok-to-called-with');
     t.end();
 });
 
