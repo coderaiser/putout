@@ -6,6 +6,8 @@ const {replaceWith} = operator;
 const {
     isIdentifier,
     ExportNamedDeclaration,
+    isImportSpecifier,
+    ExportSpecifier,
 } = types;
 
 module.exports.report = () => `Use 'ESM' instead of 'CommonJS'`;
@@ -16,8 +18,12 @@ module.exports.match = () => ({
     'module.exports.__a = __b': ({__a, __b}, path) => {
         const {name} = __a;
         
-        if (isIdentifier(__b) && !path.scope.bindings[__b.name])
-            return false;
+        if (isIdentifier(__b)) {
+            const binding = path.scope.bindings[__b.name];
+            
+            if (!binding)
+                return false;
+        }
         
         if (isIdentifier(__b, {name}))
             return true;
@@ -42,6 +48,12 @@ function addExportToBinding(name, path) {
     const {scope} = path;
     const binding = scope.bindings[name];
     const bindingPath = parseBindingPath(binding.path);
+    
+    if (isImportSpecifier(bindingPath)) {
+        const {imported} = bindingPath.node;
+        
+        return ExportNamedDeclaration(null, [ExportSpecifier(imported, imported)]);
+    }
     
     const exportNode = ExportNamedDeclaration(bindingPath.node);
     

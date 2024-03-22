@@ -65,6 +65,11 @@ test('plugin-convert-commonjs-to-esm: exports: transform: overlap', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: exports: transform: import-specifier', (t) => {
+    t.transform('import-specifier');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: exports: no transform: not-declared', (t) => {
     t.noTransform('not-declared');
     t.end();
