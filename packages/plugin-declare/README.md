@@ -16,6 +16,7 @@
 - [currify](https://github.com/coderaiser/currify);
 - [pipe-io](https://github.com/coderaiser/pipe-io);
 - [pullout](https://github.com/coderaiser/pullout);
+- [wait](https://github.com/iocmd/wait);
 - [simport](https://github.com/coderaiser/simport);
 - [chalk](https://www.npmjs.com/package/chalk);
 - [table](https://www.npmjs.com/package/table);

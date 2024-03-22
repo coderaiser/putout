@@ -199,3 +199,11 @@ test('putout: plugin: declare: fullstore', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare: wait', (t) => {
+    t.transformCode(`wait(console.log, 'hello');`, montag`
+        import wait from '@iocmd/wait';\n
+        wait(console.log, 'hello');\n
+    `);
+    t.end();
+});

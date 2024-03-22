@@ -27,6 +27,7 @@ module.exports.declare = () => ({
     pullout: `import pullout from 'pullout'`,
     chalk: `import chalk from 'chalk'`,
     table: `import table from 'table'`,
+    wait: `import wait from '@iocmd/wait'`,
     
     createSimport: `import {createSimport} from 'simport'`,
     simport: {
