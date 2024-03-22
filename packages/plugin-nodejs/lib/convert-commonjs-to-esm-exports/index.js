@@ -16,6 +16,9 @@ module.exports.match = () => ({
     'module.exports.__a = __b': ({__a, __b}, path) => {
         const {name} = __a;
         
+        if (isIdentifier(__b) && !path.scope.bindings[__b.name])
+            return false;
+        
         if (isIdentifier(__b, {name}))
             return true;
         
