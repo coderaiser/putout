@@ -74,3 +74,8 @@ test('plugin-convert-commonjs-to-esm: exports: no transform: not-declared', (t) 
     t.noTransform('not-declared');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: exports: no transform: reserved', (t) => {
+    t.noTransform('reserved');
+    t.end();
+});

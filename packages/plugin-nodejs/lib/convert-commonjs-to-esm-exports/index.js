@@ -18,8 +18,12 @@ module.exports.match = () => ({
     'module.exports.__a = __b': ({__a, __b}, path) => {
         const {name} = __a;
         
+        if (isIdentifier(__a) && /^import|export$/.test(__a.name))
+            return false;
+        
         if (isIdentifier(__b)) {
-            const binding = path.scope.bindings[__b.name];
+            const {name} = __b;
+            const binding = path.scope.bindings[name];
             
             if (!binding)
                 return false;
