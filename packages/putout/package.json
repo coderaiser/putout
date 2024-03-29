@@ -160,7 +160,7 @@
     "@putout/plugin-remove-useless-operand": "^2.0.0",
     "@putout/plugin-remove-useless-replace": "^1.0.1",
     "@putout/plugin-remove-useless-return": "^6.0.0",
-    "@putout/plugin-remove-useless-spread": "^10.0.0",
+    "@putout/plugin-remove-useless-spread": "^11.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^2.0.0",
     "@putout/plugin-remove-useless-variables": "^10.0.0",
     "@putout/plugin-reuse-duplicate-init": "^5.0.0",
