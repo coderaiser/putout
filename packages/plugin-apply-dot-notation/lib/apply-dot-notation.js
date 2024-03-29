@@ -8,7 +8,7 @@ const {
 } = types;
 
 module.exports.report = ({value}) => {
-    return `Use dot notation: '[${value}]' -> '.${value}'`;
+    return `Use dot notation: '["${value}"]' -> '.${value}'`;
 };
 
 module.exports.fix = ({value, path}) => {

@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: apply-dot-notation: report', (t) => {
-    t.report('apply-dot-notation', `Use dot notation: '[c]' -> '.c'`);
+    t.report('apply-dot-notation', `Use dot notation: '["c"]' -> '.c'`);
     t.end();
 });
 
