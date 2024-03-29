@@ -1,3 +1,30 @@
+2024.03.29, v35.7.6
+
+fix:
+- 72a79038e @putout/plugin-eslint: get back CommonJS
+- ca2115fd9 @putout/plugin-github: get back to CommonJS
+
+feature:
+- cc22a484d putout: @putout/plugin-apply-dot-notation v2.0.0
+- 26168a480 putout: @putout/plugin-remove-useless-spread v11.0.0
+- 63a3dab48 @putout/plugin-apply-dot-notation: drop support of node < 18
+- 45d46b07d @putout/plugin-apply-dot-notation: report
+- 636dd8ed0 @putout/plugin-remove-useless-spread: drop support of 🐊 < 35
+- 261aa7573 @putout/plugin-remove-useless-spread: object: add support of ReturnStatement
+- 67865af08 @putout/plugin-nodejs: convert-commonjs-to-esm: exports: ImportSpecifier
+- 8ec8b0ba1 @putout/plugin-nodejs: convert-commonjs-to-esm: exports: not declared
+- 6a095026a @putout/plugin-declare: add @iocmd/wait
+- b451c12da @putout/plugin-nodejs: convert-commonjs-to-esm: exports: overlap
+- 866c4e176 @putout/plugin-tape: convert-ok-to-called-with: merge apply-stub-operator
+- 948aefb62 eslint-plugin-putout: add-newline-before-function-call: multiple
+- 6fd415890 @putout/plugin-nodejs: convert-commonjs-to-esm: require: mjs
+- c053e80a5 @putout/plugin-nodejs: remove-useless-promisify: add
+- b52b03f32 @putout/plugin-github: update-actions: docker/build-push-action: v5
+- 2f73bdec7 @putout/plugin-github: update-actions: docker/login-action: v3
+- f1de0c82b @putout/plugin-github: update-actions: docker/setup-buildx-action: v3
+- 18c79ef91 @putout/plugin-github: update-actions: docker/setup-qemu-action: v3
+- 30b43ad1d @putout/plugin-tape: convert-ok-to-called-with: add support of: spread, message
+
 2024.03.16, v35.7.5
 
 feature:
