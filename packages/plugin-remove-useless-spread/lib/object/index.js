@@ -1,7 +1,10 @@
 'use strict';
 
 const {types} = require('putout');
-const {isCallExpression} = types;
+const {
+    isCallExpression,
+    isReturnStatement,
+} = types;
 
 module.exports.report = () => `Avoid useless spread '...'`;
 
@@ -13,13 +16,16 @@ module.exports.filter = (path) => {
         trailingComments,
     } = first;
     
-    if (!isCallExpression(first.argument))
-        return false;
-    
     if (comments?.length)
         return false;
     
-    return !trailingComments?.length;
+    if (trailingComments?.length)
+        return false;
+    
+    if (isCallExpression(first.argument))
+        return true;
+    
+    return isReturnStatement(path.parentPath);
 };
 
 module.exports.exclude = () => [
