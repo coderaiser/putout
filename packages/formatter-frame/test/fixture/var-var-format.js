@@ -1,14 +1,14 @@
 50%100%var:1:6
-[0m[31m[1m>[22m[39m[90m 1 |[39m [36mconst[39m t [33m=[39m [32m'hello'[39m[33m;[39m[0m
-[0m [90m   |[39m      [31m[1m^[22m[39m [31m[1m't' is defined but never used [90m(remove-unused-variables)[39m[31m[22m[39m[0m
-[0m [90m 2 |[39m[0m
-[0m [90m 3 |[39m[0m
+[0m[31m[1m>[22m[39m[90m 1 |[39m [36mconst[39m t [33m=[39m [32m'hello'[39m[33m;[39m
+ [90m   |[39m      [31m[1m^[22m[39m [31m[1m't' is defined but never used [90m(remove-unused-variables)[31m[22m[39m
+ [90m 2 |[39m
+ [90m 3 |[39m[0m
 
 var:1:6
-[0m[31m[1m>[22m[39m[90m 1 |[39m [36mconst[39m t [33m=[39m [32m'hello'[39m[33m;[39m[0m
-[0m [90m   |[39m      [31m[1m^[22m[39m [31m[1m't' is defined but never used [90m(remove-unused-variables)[39m[31m[22m[39m[0m
-[0m [90m 2 |[39m[0m
-[0m [90m 3 |[39m[0m
+[0m[31m[1m>[22m[39m[90m 1 |[39m [36mconst[39m t [33m=[39m [32m'hello'[39m[33m;[39m
+ [90m   |[39m      [31m[1m^[22m[39m [31m[1m't' is defined but never used [90m(remove-unused-variables)[31m[22m[39m
+ [90m 2 |[39m
+ [90m 3 |[39m[0m
 
 [1m[91m✖ 2 errors in 2 files[39m[22m
 [1m[91m  fixable with the `--fix` option[39m[22m
