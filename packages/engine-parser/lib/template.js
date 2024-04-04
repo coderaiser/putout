@@ -1,6 +1,6 @@
 'use strict';
 
-const {template} = require('@putout/babel');
+const {types, template} = require('@putout/babel');
 const {nanomemoize} = require('nano-memoize');
 const plugins = require('./parsers/babel/plugins');
 const options = require('./parsers/babel/options');
@@ -14,6 +14,9 @@ const defaults = {
     ],
 };
 
+const {isExpressionStatement} = types;
+const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
+
 module.exports = nanomemoize((value, options) => {
     const fn = template(value, {
         ...defaults,
@@ -22,7 +25,7 @@ module.exports = nanomemoize((value, options) => {
     
     return (...a) => {
         const result = fn(...a);
-        return result.expression || result;
+        return extractExpression(result);
     };
 });
 
@@ -32,7 +35,7 @@ module.exports.ast = nanomemoize((value, options) => {
         ...options,
     });
     
-    return result.expression || result;
+    return extractExpression(result);
 });
 
 module.exports.program = nanomemoize((value, options) => {
@@ -59,5 +62,5 @@ module.exports.ast.fresh = (value, options) => {
         ...options,
     });
     
-    return result.expression || result;
+    return extractExpression(result);
 };

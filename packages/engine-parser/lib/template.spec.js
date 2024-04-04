@@ -62,6 +62,13 @@ test('parser: template: ast: jsx', (t) => {
     t.end();
 });
 
+test('parser: template: TSExportAssignment', (t) => {
+    const {type} = template.ast('export = a');
+    
+    t.equal(type, 'TSExportAssignment');
+    t.end();
+});
+
 test('parser: template: import in block', (t) => {
     const [error] = tryCatch(template.ast, `
     {
