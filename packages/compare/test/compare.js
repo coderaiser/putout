@@ -969,6 +969,13 @@ test('compare: template literal: __a', (t) => {
     t.end();
 });
 
+test('compare: TSExportAssignment', (t) => {
+    const result = compare('export = 5', 'export = __a');
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
