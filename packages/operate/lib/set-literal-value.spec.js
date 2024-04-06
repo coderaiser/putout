@@ -69,6 +69,24 @@ test('operate: setLiteralValue: no raw', (t) => {
     t.end();
 });
 
+test('operate: setLiteralValue: raw: escape', (t) => {
+    const node = {
+        type: 'StringLiteral',
+        raw: `"export default 5;\\n import a from 'a';"`,
+        value: `export default 5;\n import a from 'a';`,
+    };
+    
+    setLiteralValue(node, 'hello');
+    
+    const result = print(node);
+    const expected = montag`
+        'hello';\n
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('operate: setLiteralValue: empty double quotes in raw', (t) => {
     const ast = parse(`({"hello": ""})`);
     
