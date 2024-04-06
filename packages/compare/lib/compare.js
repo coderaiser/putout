@@ -1,7 +1,6 @@
 'use strict';
 
 const {template} = require('@putout/engine-parser');
-const {types} = require('@putout/babel');
 
 const {
     findVarsWays,
@@ -21,7 +20,7 @@ const {
     parseTemplate,
 } = require('./is');
 
-const {isExpressionStatement} = types;
+const {extractExpression} = template;
 
 const {keys} = Object;
 const {isArray} = Array;
@@ -29,7 +28,6 @@ const noop = () => {};
 const isEmptyArray = (a) => isArray(a) && !a.length;
 
 const compareType = (type) => (path) => path.type === type;
-const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
 const superPush = (array) => (a, b) => array.push([a, b]);
 const maybeArray = (a) => isArray(a) ? a : [a];
 

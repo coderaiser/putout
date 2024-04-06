@@ -749,3 +749,30 @@ test('putout: compare: vars: getTemplateValues: TSTypeReference 2', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: compare: vars: putout: TSExportAssignment', (t) => {
+    const convert = {
+        report: noop,
+        replace: () => ({
+            'export default __a': 'export = __a',
+        }),
+    };
+    
+    const source = montag`
+        export default 'hello';
+    `;
+    
+    const {code} = putout(source, {
+        printer: 'putout',
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+        export = 'hello';\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

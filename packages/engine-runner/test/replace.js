@@ -920,3 +920,32 @@ test('putout: runner: replace: parens', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: runner: replace: TSExportAssignment', (t) => {
+    const convert = {
+        report: noop,
+        replace: () => ({
+            'export default __a': 'export = __a',
+        }),
+    };
+    
+    const source = montag`
+        export default 'hello';
+    `;
+    
+    const {code} = putout(source, {
+        printer: 'putout',
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+        export = 'hello';
+    
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

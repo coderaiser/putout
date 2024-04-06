@@ -26,10 +26,11 @@ const {
     TemplateElement,
 } = types;
 
+const {extractExpression} = template;
+
 const {entries} = Object;
 const isNumber = (a) => typeof a === 'number';
 const isString = (a) => typeof a === 'string';
-const parseExpression = (a) => a?.expression || a;
 
 const parseNode = (a) => a.node || a;
 
@@ -106,7 +107,7 @@ function getValues({waysFrom, node}) {
             if (!isJSXElement(node))
                 way = way.replace(/\.expression$/, '');
             
-            result[name] = result[name] || parseExpression(jessy(way, node));
+            result[name] = result[name] || extractExpression(jessy(way, node));
         }
     }
     
@@ -118,7 +119,7 @@ const makeRaw = (a) => a.replace('`', '\\`');
 module.exports.setValues = setValues;
 
 function setValues({waysTo, values, path}) {
-    const node = parseExpression(path.node);
+    const node = extractExpression(path.node);
     
     for (const [name, ways] of entries(waysTo)) {
         for (let way of ways) {
