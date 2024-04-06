@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-template-to-string: report', (t) => {
-    t.report('template', 'Template string with only one expression should not be used');
+    t.report('template', 'Avoid using Template string with only one expression');
     t.end();
 });
 
@@ -22,5 +22,10 @@ test('plugin-template-to-string: transform', (t) => {
 
 test('plugin-template-to-string: no transform: couple', (t) => {
     t.noTransform('couple');
+    t.end();
+});
+
+test('plugin-template-to-string: no transform: tag', (t) => {
+    t.noTransform('tag');
     t.end();
 });
