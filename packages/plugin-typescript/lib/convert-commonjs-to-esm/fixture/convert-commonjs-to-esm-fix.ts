@@ -1,3 +1,3 @@
 export default 'hello';
 
-import foo from require('foo');
+import foo from 'foo';

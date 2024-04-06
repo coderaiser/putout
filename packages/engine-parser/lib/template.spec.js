@@ -143,3 +143,17 @@ test('parser: template: extractExpression', (t) => {
     t.equal(result, expression);
     t.end();
 });
+
+test('parser: template: extractExpression: TSExternalModuleReference', (t) => {
+    const expression = {
+        type: 'StringLiteral',
+    };
+    
+    const result = template.extractExpression({
+        type: 'TSExternalModuleReference',
+        expression,
+    });
+    
+    t.equal(result, expression);
+    t.end();
+});

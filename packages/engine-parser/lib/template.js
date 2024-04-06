@@ -14,8 +14,20 @@ const defaults = {
     ],
 };
 
-const {isExpressionStatement} = types;
-const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
+const {
+    isExpressionStatement,
+    isTSExternalModuleReference,
+} = types;
+
+const extractExpression = (a) => {
+    if (isExpressionStatement(a))
+        return a.expression;
+    
+    if (isTSExternalModuleReference(a))
+        return a.expression;
+    
+    return a;
+};
 
 module.exports = nanomemoize((value, options) => {
     const fn = template(value, {
