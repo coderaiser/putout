@@ -48,7 +48,7 @@
     "@putout/processor-javascript": "*",
     "@putout/processor-markdown": "*",
     "c8": "^9.0.0",
-    "eslint": "^9.0.0-alpha.0",
+    "eslint": "^9.0.0",
     "eslint-plugin-n": "^17.0.0-0",
     "eslint-plugin-putout": "^22.0.0",
     "estrace": "*",
