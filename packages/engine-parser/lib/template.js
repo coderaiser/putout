@@ -64,3 +64,5 @@ module.exports.ast.fresh = (value, options) => {
     
     return extractExpression(result);
 };
+
+module.exports.extractExpression = extractExpression;

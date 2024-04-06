@@ -57,17 +57,21 @@ Print code from `ast`
 
 You can add `default options` for custom `parser` you use.
 
-### parse.fresh(code)
+### template.fresh(code)
 
 `parse` without `memoization`.
 
-### parse.ast(template)
+### template.ast(code)
 
 create node using `memoization`.
 
-### parse.ast.fresh(template)
+### template.ast.fresh(code)
 
 create node without `memoization`.
+
+### template.extractExpression(code)
+
+Extract `expression` node from `ExpressionStatement`.
 
 ### Sourcemaps
 

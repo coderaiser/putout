@@ -129,3 +129,17 @@ test('parser: template: expression', (t) => {
     t.equal(ast.type, 'ArrowFunctionExpression');
     t.end();
 });
+
+test('parser: template: extractExpression', (t) => {
+    const expression = {
+        type: 'AssignmentExpression',
+    };
+    
+    const result = template.extractExpression({
+        type: 'ExpressionStatement',
+        expression,
+    });
+    
+    t.equal(result, expression);
+    t.end();
+});
