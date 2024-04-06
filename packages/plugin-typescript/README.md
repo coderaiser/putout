@@ -23,6 +23,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/apply-type-guards": "on",
         "typescript/convert-generic-to-shorthand": "on",
         "typescript/convert-commonjs-to-esm": "off",
+        "typescript/convert-esm-to-commonjs": "off",
         "typescript/remove-duplicates-from-union": "on",
         "typescript/remove-duplicates-interface-keys": "on",
         "typescript/remove-duplicates-exports": "on",
@@ -140,8 +141,25 @@ export = 5;
 
 ```ts
 import foo from 'foo';
-
 export default 5;
+```
+
+## convert-commonjs-to-esm
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7f77665246b03d9eddc8ee35713c415b/f874630569fa856e62c8a1564c31115ac82f182e).
+
+### ❌ Example of incorrect code
+
+```ts
+import foo from 'foo';
+export default 5;
+```
+
+### ✅ Example of correct code
+
+```ts
+import foo = require('foo');
+export = 5;
 ```
 
 ## remove-duplicates-from-union
