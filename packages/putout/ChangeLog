@@ -1,3 +1,16 @@
+2024.04.06, v35.8.0
+
+feature:
+- eb897c63c putout: @putout/plugin-typescript v7.0.0
+- 015a0635b root: eslint v9.0.0
+- c50ec7743 @putout/compare: @putout/engine-parser v10.3.0
+- 23390f25e @putout/compare: use extractExpression from @putout/engine-runner
+- b83ffa8ad @putout/engine-parser: template: add extractExpression
+- a757b015c @putout/plugin-typescript: convert-commonjs-to-esm: add
+- d355c4bdc @putout/plugin-typescript: drop support of 🐊 < 35
+- 4f43d943a @putout/engine-parser: template: add support of TSExportAssignment
+- 705238354 @putout/plugin-nodejs: convert-commonjs-to-esm: exports: exclude import/export
+
 2024.03.29, v35.7.6
 
 fix:
