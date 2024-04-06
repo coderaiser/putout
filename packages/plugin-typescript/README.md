@@ -141,6 +141,7 @@ export = 5;
 
 ```ts
 import foo from 'foo';
+
 export default 5;
 ```
 
@@ -152,6 +153,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7f77665246
 
 ```ts
 import foo from 'foo';
+
 export default 5;
 ```
 
