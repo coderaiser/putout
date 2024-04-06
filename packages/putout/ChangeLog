@@ -1,3 +1,13 @@
+2024.04.06, v35.8.1
+
+feature:
+- bcaec6bcb putout: @putout/plugin-convert-template-to-string v2.0.0
+- 199832c0a @putout/operate: setLiteralValue: improve generate of raw
+- 99fe7082a @putout/plugin-convert-template-to-string: drop support of node < 18
+- 189245f9d @putout/plugin-convert-template-to-string: exclude: TaggedTemplateExpression
+- 028f7c93c @putout/engine-parser: template: extractExpression: add support of TSExternalModuleReference
+- d84c40b94 @putout/plugin-typescript: convert-esm-to-commonjs: add
+
 2024.04.06, v35.8.0
 
 feature:
