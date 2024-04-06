@@ -22,6 +22,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/apply-utility-types": "on",
         "typescript/apply-type-guards": "on",
         "typescript/convert-generic-to-shorthand": "on",
+        "typescript/convert-commonjs-to-esm": "off",
         "typescript/remove-duplicates-from-union": "on",
         "typescript/remove-duplicates-interface-keys": "on",
         "typescript/remove-duplicates-exports": "on",
@@ -123,6 +124,25 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout** | [`typescript/convert-generic-to-shorthand`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-generic-to-shorthand) | ✅
 ⏣ **ESLint** | [`@typescript-eslint/array-type`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/array-type.md#array-type) | ✅
+
+## convert-commonjs-to-esm
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bb90e1d40107f2e76f528053ef576bd2/d10cd8374c7a792d3ff1225ca5ac639c71da7207).
+
+### ❌ Example of incorrect code
+
+```ts
+import foo = require('foo');
+export = 5;
+```
+
+### ✅ Example of correct code
+
+```ts
+import foo from 'foo';
+
+export default 5;
+```
 
 ## remove-duplicates-from-union
 

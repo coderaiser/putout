@@ -4,6 +4,7 @@ const applyAsTypeAssertion = require('./apply-as-type-assertion');
 const applyTypeGuards = require('./apply-type-guards');
 const applyUtilityTypes = require('./apply-utility-types');
 const convertGenericToShorthand = require('./convert-generic-to-shorthand');
+const convertCommonjsToEsm = require('./convert-commonjs-to-esm');
 const removeDuplicatesFromUnion = require('./remove-duplicates-from-union');
 const removeDuplicateInterfaceKeys = require('./remove-duplicate-interface-keys');
 const removeDuplicateExports = require('./remove-duplicate-exports');
@@ -30,4 +31,5 @@ module.exports = {
     'remove-useless-mapping-modifiers': removeUselessMappingModifiers,
     'remove-useless-parens': removeUselessParens,
     'remove-useless-promise': removeUselessPromise,
+    'convert-commonjs-to-esm': ['off', convertCommonjsToEsm],
 };

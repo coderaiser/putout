@@ -84,3 +84,8 @@ test('plugin-typescript: no transform: find-file: off', (t) => {
     t.noTransform('find-file-off');
     t.end();
 });
+
+test('plugin-typescript: no transform: convert-commonjs-to-esm', (t) => {
+    t.noTransform('convert-commonjs-to-esm');
+    t.end();
+});
