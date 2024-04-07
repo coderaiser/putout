@@ -4,6 +4,6 @@ __putout_processor_filesystem({
     "files": [{
         "type": "file",
         "filename": "/index.cts",
-        "content": "export default 5;\n import a from 'a';"
-    }]
+        "content": "export default 5;\n import a from 'a';",
+    }],
 });

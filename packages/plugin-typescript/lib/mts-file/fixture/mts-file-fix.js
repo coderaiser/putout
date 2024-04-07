@@ -3,7 +3,7 @@ __putout_processor_filesystem({
     "filename": "/",
     "files": [{
         "type": "file",
-        "filename": "/index.cts",
-        "content": "export default 5;\n import a from 'a';"
+        "filename": "/index.mts",
+        "content": "ZXhwb3J0IGRlZmF1bHQgJ2hlbGxvJzsKCmltcG9ydCBmb28gZnJvbSAnZm9vJzsK"
     }]
 });

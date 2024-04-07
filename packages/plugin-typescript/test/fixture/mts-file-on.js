@@ -3,7 +3,7 @@ __putout_processor_filesystem({
     "filename": "/",
     "files": [{
         "type": "file",
-        "filename": "/index.cts",
-        "content": "ZXhwb3J0ID0gNTsKaW1wb3J0IGZvbyA9IHJlcXVpcmUoJ2ZvbycpOwo="
-    }]
+        "filename": "/index.mts",
+        "content": "export = 'hello';\nimport foo = require('foo');",
+    }],
 });
