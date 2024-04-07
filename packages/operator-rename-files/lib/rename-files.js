@@ -1,16 +1,16 @@
 'use strict';
 
-const {operator} = require('putout');
 const {join} = require('path');
 
-const {parse} = JSON;
 const {
     getParentDirectory,
     getFilename,
     readFileContent,
     findFile,
     renameFile,
-} = operator;
+} = require('@putout/operator-filesystem');
+
+const {parse} = JSON;
 
 module.exports.renameFiles = ({type, mask, rename}) => ({
     report,

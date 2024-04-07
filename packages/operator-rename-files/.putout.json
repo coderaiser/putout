@@ -1,0 +1,11 @@
+{
+    "printer": "putout",
+    "match": {
+        "*.md": {
+            "declare": "off"
+        }
+    },
+    "rules": {
+        "putout": "on"
+    }
+}

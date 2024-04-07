@@ -1,6 +1,7 @@
 'use strict';
 
-const {renameFiles} = require('../rename-files');
+const {operator} = require('putout');
+const {renameFiles} = operator;
 
 module.exports = renameFiles({
     type: 'module',
