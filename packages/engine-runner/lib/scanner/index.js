@@ -73,7 +73,7 @@ const createTrackFile = (fileProgress) => function*(...a) {
 };
 
 const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
-    ['__putout_processor_filesystem(__)'](path) {
+    [`${__filesystem_name}(__)`](path) {
         log(rule);
         progress.start(rule);
         
