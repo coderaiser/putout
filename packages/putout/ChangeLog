@@ -1,3 +1,8 @@
+2024.04.07, v35.9.1
+
+feature:
+- 7bb17b143 putout: config: *.mts, *.cts: add support
+
 2024.04.07, v35.9.0
 
 feature:
