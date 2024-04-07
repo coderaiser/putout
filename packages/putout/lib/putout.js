@@ -135,6 +135,7 @@ module.exports.operator = {
     ...require('@putout/operator-add-args'),
     ...require('@putout/operator-filesystem'),
     ...require('@putout/operator-match-files'),
+    ...require('@putout/operator-rename-files'),
 };
 
 module.exports.ignores = require('./ignores');
