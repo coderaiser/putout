@@ -1,3 +1,12 @@
+2024.04.07, v35.10.0
+
+feature:
+- d144bdf3b putout: @putout/plugin-putout v19.0.0
+- 632c648ac putout: @putout/operator-rename-files: add
+- 11cf7700e @putout/plugin-putout: drop support of 🐊 < 35
+- 77a895c9f @putout/plugin-putout: declare: renameFiles: add
+- cec3a34f3 @putout/operator-rename-files: add
+
 2024.04.07, v35.9.2
 
 fix:
