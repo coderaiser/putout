@@ -1,3 +1,10 @@
+2024.04.07, v35.9.0
+
+feature:
+- 5b9814c1f putout: filesystem: typescript: cts-file + mts-file
+- 5759cd4d6 @putout/plugin-typescript: mts-file: add
+- 900c655bf @putout/plugin-typescript: cts-file: add
+
 2024.04.06, v35.8.1
 
 feature:
