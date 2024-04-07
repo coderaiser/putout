@@ -136,3 +136,52 @@ test('putout: config: .*ignore', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: config: cjs', (t) => {
+    const {match} = putoutConfig;
+    const result = match['*.cjs'];
+    
+    const expected = {
+        'nodejs/convert-esm-to-commonjs': 'on',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: config: cts', (t) => {
+    const {match} = putoutConfig;
+    const result = match['*.cts'];
+    
+    const expected = {
+        'typescript/convert-esm-to-commonjs': 'on',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: config: mjs', (t) => {
+    const {match} = putoutConfig;
+    const result = match['*.mjs'];
+    
+    const expected = {
+        'nodejs/convert-commonjs-to-esm': 'on',
+        'tape/convert-mock-require-to-mock-import': 'on',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: config: mts', (t) => {
+    const {match} = putoutConfig;
+    const result = match['*.mts'];
+    
+    const expected = {
+        'typescript/convert-commonjs-to-esm': 'on',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
