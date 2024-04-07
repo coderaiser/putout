@@ -1,3 +1,11 @@
+2024.04.07, v35.9.2
+
+fix:
+- 7793e40ea putout: config: typescript: cjs, mjs -> cts, mts
+
+feature:
+- a0219dc13 @putout/plugin-nodejs: move out renameFiles
+
 2024.04.07, v35.9.1
 
 feature:
