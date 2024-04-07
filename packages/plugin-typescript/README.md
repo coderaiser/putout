@@ -33,6 +33,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/remove-useless-parens": "on",
         "typescript/remove-useless-promise": "on",
         "typescript/remove-useless-mapped-types": "on",
+        "typescript/cts-file": ["off"],
         "typescript/find-file": ["off", {
             "ignore": []
         }]
@@ -376,6 +377,12 @@ interface Hello {
     'hello': string;
 }
 ```
+
+## cts-file
+
+Run [convert-esm-to-commonjs](#convert-esm-to-commonjs) for all `*.cts` files with help of [redlint](https://github.com/putoutjs/redlint).
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/0beac7eb211cf57be282f6744fc54410/f4217bf6e392e33871152318adce4e3ef6db2dd6).
 
 ## find-file
 

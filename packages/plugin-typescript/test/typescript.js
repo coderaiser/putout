@@ -94,3 +94,8 @@ test('plugin-typescript: no transform: convert-esm-to-commonjs', (t) => {
     t.noTransform('convert-esm-to-commonjs');
     t.end();
 });
+
+test('plugin-typescript: transform: cts-file', (t) => {
+    t.transform('cts-file');
+    t.end();
+});
