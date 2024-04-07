@@ -3,6 +3,7 @@
 module.exports = {
     findFile: 'const {findFile} = operator',
     renameFile: 'const {renameFile} = operator',
+    renameFiles: 'const {renameFiles} = operator',
     removeFile: 'const {removeFile} = operator',
     moveFile: 'const {moveFile} = operator',
     createFile: 'const {createFile} = operator',
