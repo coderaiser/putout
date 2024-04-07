@@ -113,3 +113,16 @@ test('putout: operator: matchFiles', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: renameFiles', (t) => {
+    const {scan} = operator.renameFiles({
+        type: 'module',
+        mask: '*.mjs',
+        rename(name) {
+            return name.replace(/mjs$/, 'js');
+        },
+    });
+    
+    t.ok(scan);
+    t.end();
+});
