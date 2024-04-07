@@ -117,6 +117,8 @@ test('putout: config: filesystem', (t) => {
         'filesystem': 'on',
         'package-json/find-file': 'on',
         'typescript/find-file': 'on',
+        'typescript/cjs-file': 'on',
+        'typescript/mjs-file': 'on',
     };
     
     t.deepEqual(result, expected);
