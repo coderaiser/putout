@@ -68,3 +68,22 @@ __putout_processor_filesystem({
         }]
     }]
 });
+
+// no type
+__putout_processor_filesystem({
+    "type": "directory",
+    "filename": "/",
+    "files": [{
+        "type": "file",
+        "filename": "/package.json",
+        "content": "{}"
+    }, {
+        "type": "directory",
+        "filename": "/lib",
+        "files": [{
+            "type": "file",
+            "filename": "/lib/hello.js",
+            "content": "import hello from '../src/hello.js'"
+        }]
+    }]
+});
