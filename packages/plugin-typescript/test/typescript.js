@@ -109,3 +109,8 @@ test('plugin-typescript: no transform: rename-file-cts-to-ts', (t) => {
     t.noTransform('rename-file-cts-to-ts');
     t.end();
 });
+
+test('plugin-typescript: no transform: rename-file-mts-to-ts', (t) => {
+    t.noTransform('rename-file-mts-to-ts');
+    t.end();
+});

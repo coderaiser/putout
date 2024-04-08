@@ -36,6 +36,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/cts-file": "off",
         "typescript/mts-file": "off",
         "typescript/rename-file-cts-to-ts": "off",
+        "typescript/rename-file-mts-to-ts": "off",
         "typescript/find-file": ["off", {
             "ignore": []
         }]
@@ -416,13 +417,27 @@ __putout_processor_filesystem(['/', [
 
 ## rename-file-cts-to-ts
 
-Rename `*.cts` files when `type !== "module"`:
+Rename `*.cts` files when `type === "commonjs"`:
 
 ```diff
  /
  |-- package.json
  `-- lib/
 -     `-- hello.cts
++     `-- hello.ts
+```
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8d8f3cd6662b70abbd5e4a2e4835077f/e43319fd63291ec3a5028b30a83f3c91fe90325e).
+
+## rename-file-mts-to-ts
+
+Rename `*.mts` files when `type === "module"`:
+
+```diff
+ /
+ |-- package.json
+ `-- lib/
+-     `-- hello.mts
 +     `-- hello.ts
 ```
 
