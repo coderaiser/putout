@@ -1,3 +1,13 @@
+2024.04.08, v35.11.0
+
+feature:
+- 3f5724549 putout: filesystem: rename-file-cts-to-ts, rename-file-mts-to-ts: add
+- d90272d96 @putout/plugin-typescript: rename-file-mts-to-ts: add
+- 542ac08d5 root: eslint-plugin-n v17.0.0
+- 1eb14539f @putout/engine-runner: scanner: use __filesystem_name
+- 3bccecf7a putout: @putout/plugin-putout v19.0.0
+- 9d4e34f5c putout: @putout/operator-rename-files: add
+
 2024.04.07, v35.10.0
 
 feature:
