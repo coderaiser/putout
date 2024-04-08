@@ -119,6 +119,8 @@ test('putout: config: filesystem', (t) => {
         'typescript/find-file': 'on',
         'typescript/cts-file': 'on',
         'typescript/mts-file': 'on',
+        'typescript/rename-file-cts-to-ts': 'on',
+        'typescript/rename-file-mts-to-ts': 'on',
     };
     
     t.deepEqual(result, expected);
