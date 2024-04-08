@@ -25,6 +25,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/cjs-file": "off",
         "nodejs/mjs-file": "off",
         "nodejs/rename-file-cjs-to-js": "off",
+        "nodejs/rename-file-mjs-to-js": "off",
         "nodejs/add-node-prefix": "on",
         "nodejs/convert-buffer-to-buffer-alloc": "on",
         "nodejs/convert-fs-promises": "on",
