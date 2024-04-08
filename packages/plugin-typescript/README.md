@@ -33,8 +33,9 @@ npm i putout @putout/plugin-typescript -D
         "typescript/remove-useless-parens": "on",
         "typescript/remove-useless-promise": "on",
         "typescript/remove-useless-mapped-types": "on",
-        "typescript/cts-file": ["off"],
-        "typescript/mts-file": ["off"],
+        "typescript/cts-file": "off",
+        "typescript/mts-file": "off",
+        "typescript/rename-file-cts-to-ts": "off",
         "typescript/find-file": ["off", {
             "ignore": []
         }]
@@ -412,6 +413,20 @@ __putout_processor_filesystem(['/', [
     'const a = 5;',
 ]]);
 ```
+
+## rename-file-cts-to-ts
+
+Rename `*.cts` files when `type !== "module"`:
+
+```diff
+ /
+ |-- package.json
+ `-- lib/
+-     `-- hello.cts
++     `-- hello.ts
+```
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8d8f3cd6662b70abbd5e4a2e4835077f/e43319fd63291ec3a5028b30a83f3c91fe90325e).
 
 ## License
 

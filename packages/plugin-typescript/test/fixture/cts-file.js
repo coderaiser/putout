@@ -3,7 +3,7 @@ __putout_processor_filesystem({
     "filename": "/",
     "files": [{
         "type": "file",
-        "filename": "/index.cts",
+        "filename": "/index.ts",
         "content": "export default 5;\n import a from 'a';"
     }]
 });
