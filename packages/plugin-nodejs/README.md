@@ -382,7 +382,7 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af5
 
 ## rename-file-cjs-to-js
 
-Rename `*.cjs` files when `module !== "module"`:
+Rename `*.cjs` files when `type === "commonjs"`:
 
 ```diff
  /
@@ -396,7 +396,7 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8d8f3cd6662b7
 
 ## rename-file-mjs-to-js
 
-Rename `*.mjs` files when `module === "module"`:
+Rename `*.mjs` files when `type === "module"`:
 
 ```diff
  /
