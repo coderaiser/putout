@@ -327,6 +327,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2962264f25
 
 ```js
 export default x.slice();
+
 module.exports = x.slice();
 ```
 
@@ -334,6 +335,7 @@ module.exports = x.slice();
 
 ```js
 export default x;
+
 module.exports = x;
 ```
 
