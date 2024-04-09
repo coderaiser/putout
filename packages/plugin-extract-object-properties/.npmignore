@@ -6,3 +6,4 @@ fixture
 *.spec.js
 
 coverage
+*.config.*

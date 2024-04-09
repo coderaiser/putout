@@ -6,3 +6,4 @@ fixture
 
 
 coverage
+*.config.*

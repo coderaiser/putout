@@ -7,3 +7,4 @@ coverage
 fixture
 fixture.js
 rules
+*.config.*

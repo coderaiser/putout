@@ -6,3 +6,4 @@ fixture
 yarn-error.log
 
 coverage
+*.config.*
