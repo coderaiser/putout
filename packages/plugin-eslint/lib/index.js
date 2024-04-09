@@ -11,6 +11,7 @@ const convertIdeToSafe = require('./convert-ide-to-safe/index.js');
 const movePutoutToEndOfExtends = require('./move-putout-to-end-of-extends/index.js');
 const applySafeAlign = require('./apply-safe-align/index.js');
 const addPutout = require('./add-putout/index.js');
+const removeUselessSlice = require('./remove-useless-slice');
 
 module.exports.rules = {
     'add-putout': addPutout,
@@ -24,4 +25,5 @@ module.exports.rules = {
     'remove-overrides-with-empty-rules': removeOverridesWithEmptyRules,
     'remove-no-missing': removeNoMissing,
     'convert-rc-to-flat': ['off', convertRcToFlat],
+    'remove-useless-slice': removeUselessSlice,
 };

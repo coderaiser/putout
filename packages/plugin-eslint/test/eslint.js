@@ -69,3 +69,8 @@ test('plugin-eslint: transform: convert-rc-to-flat', (t) => {
     t.transform('convert-rc-to-flat');
     t.end();
 });
+
+test('plugin-eslint: transform: remove-useless-slice', (t) => {
+    t.transform('remove-useless-slice');
+    t.end();
+});

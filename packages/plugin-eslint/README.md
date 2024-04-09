@@ -30,6 +30,7 @@ npm i @putout/plugin-eslint -D
         "eslint/remove-no-unpublished-require": "on",
         "eslint/remove-no-unsupported-features": "on",
         "eslint/remove-overrides-with-empty-rules": "on",
+        "eslint/remove-useless-slice": "on",
         "eslint/convert-rc-to-flat": "off"
     }
 }
@@ -314,6 +315,26 @@ and already disabled by [`eslint-plugin-putout`](https://github.com/coderaiser/p
         "node"
     ]
 };
+```
+
+## remove-useless-slice
+
+Fixes code after [`convert-array-copy-to-slice`](http://github.com/coderaiser/putout/tree/master/packages/plugin-convert-array-copy-to-slice#readme).
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2962264f25b2a9764977b53eba1baf3d/c095282c78574a57418a5a4385b28ff79a62c2a5).
+
+### ❌ Example of incorrect code
+
+```js
+export default x.slice();
+module.exports = x.slice();
+```
+
+## ✅ Example of correct code
+
+```js
+export default x;
+module.exports = x;
 ```
 
 ## convert-rc-to-flat
