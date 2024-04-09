@@ -1,3 +1,10 @@
+2024.04.09, v35.12.0
+
+feature:
+- 6a0c0b3ba @putout/engine-runner: @putout/plugin-filesystem v5.0.0
+- 415104d73 putout: @putout/plugin-filesystem v5.0.0
+- b12b3e2f5 @putout/plugin-filesystem: bundle-css -> bundle
+
 2024.04.08, v35.11.0
 
 feature:
