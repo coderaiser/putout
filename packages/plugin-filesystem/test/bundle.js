@@ -6,7 +6,7 @@ const filesystem = require('..');
 const test = createTest(__dirname, {
     printer: 'putout',
     rules: {
-        'filesystem/bundle-css': ['on', {
+        'filesystem/bundle': ['on', {
             groups: ['1:1'],
         }],
     },
@@ -15,7 +15,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-filesystem: transform: bundle-css', (t) => {
-    t.transform('bundle-css');
+test('plugin-filesystem: transform: bundle', (t) => {
+    t.transform('bundle');
     t.end();
 });

@@ -17,7 +17,7 @@ npm i @putout/plugin-filesystem -D
 {
     "rules": {
         "filesystem/remove-vim-swap-file": "on",
-        "filesystem/bundle-css": "off",
+        "filesystem/bundle": "off",
         "filesystem/read-all-files": ["off", {
             "mask": "*"
         }],
@@ -327,14 +327,14 @@ __putout_processor_filesystem([
 ]);
 ```
 
-## bundle-css
+## bundle
 
 Bundle and minify `css` files.
 
 ```json
 {
     "rules": {
-        "filesystem/bundle-css": ["on", {
+        "filesystem/bundle": ["on", {
             "groups": [
                 ["__:columns/__", [
                     "name-size-date.css",
@@ -378,12 +378,14 @@ Just minify styles:
 ```json
 {
     "rules": {
-        "filesystem/bundle-css": ["on", {
+        "filesystem/bundle": ["on", {
             "groups": ["1:1"]
         }]
     }
 }
 ```
+
+Before:
 
 ```
 /
@@ -409,7 +411,7 @@ Create subdirectory:
 ```json
 {
     "rules": {
-        "filesystem/bundle-css": ["on", {
+        "filesystem/bundle": ["on", {
             "groups": [
                 ["__:columns/__", [
                     "name-size-date.css",
@@ -420,6 +422,8 @@ Create subdirectory:
     }
 }
 ```
+
+Before:
 
 ```
 /
@@ -446,13 +450,15 @@ Filter css files by mask:
 ```json
 {
     "rules": {
-        "filesystem/bundle-css": ["on", {
+        "filesystem/bundle": ["on", {
             "mask": "*.good.css",
             "groups": ["1:1"]
         }]
     }
 }
 ```
+
+Before:
 
 ```
 /
@@ -477,7 +483,7 @@ You can even override `transform` with your own `config`:
 ```ts
 putout(filesystem, {
     rules: {
-        'filesystem/bundle-css': ['on', {
+        'filesystem/bundle': ['on', {
             transform: (source: string | string[], config) => string,
         }],
     },
@@ -489,12 +495,14 @@ Concreate files:
 ```json
 {
     "rules": {
-        "filesystem/bundle-css": ["on", {
+        "filesystem/bundle": ["on", {
             "groups": ["hello.css"]
         }]
     }
 }
 ```
+
+Before:
 
 ```
 /
@@ -589,14 +597,16 @@ Filesystem:
 ### ❌ Example of incorrect code
 
 ```json
-{}
+{
+    "plugins": []
+}
 ```
 
 ### ✅ Example of correct code
 
 ```js
 export default {
-    plugins: '',
+    plugins: [],
 };
 ```
 
@@ -617,14 +627,16 @@ Filesystem:
 ### ❌ Example of incorrect code
 
 ```json
-{}
+{
+    "plugins": []
+}
 ```
 
 ### ✅ Example of correct code
 
 ```js
 export default {
-    plugins: '',
+    plugins: [],
 };
 ```
 

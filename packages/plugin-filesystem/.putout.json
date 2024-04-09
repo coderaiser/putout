@@ -1,3 +1,7 @@
 {
-    "printer": "putout"
+    "match": {
+        "*.md": {
+            "putout-config/remove-empty": "off"
+        }
+    }
 }

@@ -2,6 +2,8 @@
 
 const tryCatch = require('try-catch');
 const {createTest} = require('@putout/test');
+
+const {minify} = require('./minify.spec');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
@@ -13,6 +15,7 @@ const test = createTest(__dirname, {
 
 test('packages: bundle-css: report', (t) => {
     t.reportWithOptions('bundle-css', `Minify css`, {
+        transform: minify,
         groups: [
             ['__:columns/__', [
                 'name-size-date.css',
@@ -52,6 +55,7 @@ test('packages: bundle-css: no report: has-dist', (t) => {
 
 test('packages: bundle-css: transform', (t) => {
     t.transformWithOptions('bundle-css', {
+        transform: minify,
         groups: [
             ['__:columns/__', [
                 'name-size-date.css',
@@ -86,6 +90,7 @@ test('packages: bundle-css: no report: no-groups', (t) => {
 
 test('packages: bundle-css: single', (t) => {
     t.transformWithOptions('single', {
+        transform: minify,
         groups: ['main.css'],
     });
     t.end();
@@ -93,6 +98,7 @@ test('packages: bundle-css: single', (t) => {
 
 test('packages: bundle-css: nested', (t) => {
     t.transformWithOptions('nested', {
+        transform: minify,
         groups: [
             ['__:columns/__', [
                 'name-size.css',
@@ -105,6 +111,7 @@ test('packages: bundle-css: nested', (t) => {
 test('packages: bundle-css: warning', (t) => {
     const message = `Invalid character(s) '@import url("./urls.css")' at 1:0. Ignoring.`;
     const [error] = tryCatch(t.reportWithOptions, 'warning', message, {
+        transform: minify,
         groups: [
             ['__:columns/__', [
                 'name-size.css',
@@ -121,6 +128,7 @@ test('packages: bundle-css: warning', (t) => {
 test('packages: bundle-css: error', (t) => {
     const message = `Ignoring local @import of "urls.css" as resource is missing.`;
     const [error] = tryCatch(t.reportWithOptions, 'error', message, {
+        transform: minify,
         groups: [
             ['__:columns/__', [
                 'name-size.css',

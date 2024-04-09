@@ -10,7 +10,7 @@ const moveReferencedFile = require('./move-referenced-file');
 const convertSimpleFilesystemToFilesystem = require('./convert-simple-filesystem-to-filesystem');
 const convertFilesystemToSimpleFilesystem = require('./convert-filesystem-to-simple-filesystem');
 const convertJsonToJs = require('./convert-json-to-js');
-const bundleCss = require('./bundle-css');
+const bundle = require('./bundle');
 const replaceCwd = require('./replace-cwd');
 const readAllFiles = require('./read-all-files');
 const writeAllFiles = require('./write-all-files');
@@ -26,7 +26,7 @@ module.exports.rules = {
     'move-referenced-file': ['off', moveReferencedFile],
     'convert-simple-filesystem-to-filesystem': ['off', convertSimpleFilesystemToFilesystem],
     'convert-filesystem-to-simple-filesystem': ['off', convertFilesystemToSimpleFilesystem],
-    'bundle-css': ['off', bundleCss],
+    'bundle': ['off', bundle],
     'replace-cwd': ['off', replaceCwd],
     'read-all-files': ['off', readAllFiles],
     'write-all-files': ['off', writeAllFiles],

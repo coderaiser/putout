@@ -2,8 +2,8 @@
 
 const {basename} = require('path');
 const {operator} = require('putout');
+const id = (a) => a;
 
-const {minify} = require('./minify');
 const {
     getFilename,
     findFile,
@@ -48,7 +48,7 @@ const process = (file, transform, config) => transform(readFileContent(file), co
 
 module.exports.scan = (rootPath, {push, options}) => {
     const {
-        transform = minify,
+        transform = id,
         groups = [],
         dist = 'dist',
         mask = '*.css',
