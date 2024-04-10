@@ -5,3 +5,4 @@ test
 yarn-error.log
 
 coverage
+*.config.*

@@ -13,6 +13,11 @@ test('plugin-npmignore: transform', (t) => {
     t.end();
 });
 
+test('plugin-npmignore: transform: config', (t) => {
+    t.transform('config');
+    t.end();
+});
+
 test('plugin-npmignore: transform: options', (t) => {
     t.transformWithOptions('options', {
         dismiss: ['coverage'],

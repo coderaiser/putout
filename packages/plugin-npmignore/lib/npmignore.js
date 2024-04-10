@@ -8,6 +8,7 @@ const names = [
     '.*',
     'yarn-error.log',
     'coverage',
+    '*.config.*',
 ];
 
 export const report = () => `Dot files should be added to .npmignore`;

@@ -21,7 +21,8 @@ npm i @putout/plugin-npmignore -D
                 ".nyc_output",
                 ".putoutcache",
                 "*.swp",
-                "coverage"
+                "coverage",
+                "*.config.*"
             ]
         }]
     }
