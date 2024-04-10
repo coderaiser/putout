@@ -1,4 +1,7 @@
-import {operator, types as t} from 'putout';
+import {
+    operator,
+    types as t,
+} from 'putout';
 
 const {rename} = operator;
 
