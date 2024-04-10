@@ -19,19 +19,22 @@ module.exports.fix = ({path, value}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    [__json](path) {
-        const filesList = traverseProperties(path, 'files');
-        
-        for (const files of filesList) {
-            const {value} = files.node;
-            
-            if (isArrayExpression(value))
-                continue;
-            
-            push({
-                path: files,
-                value,
-            });
-        }
-    },
+    __object: traverseFiles(push),
+    [__json]: traverseFiles(push),
 });
+
+const traverseFiles = (push) => (path) => {
+    const filesList = traverseProperties(path, 'files');
+    
+    for (const files of filesList) {
+        const {value} = files.node;
+        
+        if (isArrayExpression(value))
+            continue;
+        
+        push({
+            path: files,
+            value,
+        });
+    }
+};

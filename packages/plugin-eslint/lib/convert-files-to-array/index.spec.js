@@ -19,3 +19,8 @@ test('eslint: convert-files-to-array: transform', (t) => {
     t.transform('convert-files-to-array');
     t.end();
 });
+
+test('eslint: convert-files-to-array: transform: flat', (t) => {
+    t.transform('flat');
+    t.end();
+});
