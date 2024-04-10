@@ -15,6 +15,11 @@ test('eslint: convert-files-to-array: report', (t) => {
     t.end();
 });
 
+test('eslint: convert-files-to-array: report: flat', (t) => {
+    t.report('flat', `Convert 'files' to an array, this is the only type support by FlatConfig`);
+    t.end();
+});
+
 test('eslint: convert-files-to-array: transform', (t) => {
     t.transform('convert-files-to-array');
     t.end();

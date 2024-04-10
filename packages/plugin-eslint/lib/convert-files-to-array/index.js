@@ -5,6 +5,7 @@ const {types, operator} = require('putout');
 const {
     isArrayExpression,
     ArrayExpression,
+    isObjectExpression,
 } = types;
 
 const {
@@ -12,7 +13,14 @@ const {
     __json,
 } = operator;
 
-module.exports.report = () => `Convert 'files' to an array to simplify migrating to FlatConfig`;
+module.exports.report = ({main}) => {
+    const message = `Convert 'files' to an array`;
+    
+    if (isObjectExpression(main))
+        return `${message}, this is the only type support by FlatConfig`;
+    
+    return `${message} to simplify migrating to FlatConfig`;
+};
 
 module.exports.fix = ({path, value}) => {
     path.node.value = ArrayExpression([value]);
@@ -35,6 +43,7 @@ const traverseFiles = (push) => (path) => {
         push({
             path: files,
             value,
+            main: path,
         });
     }
 };
