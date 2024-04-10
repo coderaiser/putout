@@ -1,11 +1,11 @@
 {
     "overrides": [{
-        "files": "eslint-fixture/**/*.js",
+        "files": ["eslint-fixture/**/*.js"],
         "rules": {
             "no-unreachable": "off"
         }
     }, {
-        "files": "eslint-fixture/**/*.*",
+        "files": ["eslint-fixture/**/*.*"],
         "rules": {
             "@typescript-eslint/no-unused-vars": "off",
             "@typescript-eslint/no-namespace": "off",

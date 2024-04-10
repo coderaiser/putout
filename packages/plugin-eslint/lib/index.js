@@ -12,6 +12,7 @@ const movePutoutToEndOfExtends = require('./move-putout-to-end-of-extends/index.
 const applySafeAlign = require('./apply-safe-align/index.js');
 const addPutout = require('./add-putout/index.js');
 const removeUselessSlice = require('./remove-useless-slice');
+const convertFilesToArray = require('./convert-files-to-array');
 
 module.exports.rules = {
     'add-putout': addPutout,
@@ -26,4 +27,5 @@ module.exports.rules = {
     'remove-no-missing': removeNoMissing,
     'convert-rc-to-flat': ['off', convertRcToFlat],
     'remove-useless-slice': removeUselessSlice,
+    'convert-files-to-array': convertFilesToArray,
 };

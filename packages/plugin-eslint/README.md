@@ -23,6 +23,7 @@ npm i @putout/plugin-eslint -D
         "eslint/add-putout": "on",
         "eslint/apply-safe-align": "on",
         "eslint/move-putout-to-end-of-extends": "on",
+        "eslint/convert-files-to-array": "on",
         "eslint/convert-ide-to-safe": "on",
         "eslint/convert-require-to-import": "on",
         "eslint/convert-node-to-n": "on",
@@ -132,6 +133,22 @@ npm i @putout/plugin-eslint -D
         "node"
     ]
 }
+```
+
+## convert-files-to-array
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1acad4ce8d999ff9311126c1ed69f/68f98adff1c9b650d51e816e72142b2f86deeb87).
+
+```diff
+{
+    "overrides": [{
+-        "files": "test/*.js",
++        "files": ["test/*.js"],
+         "rules": {
+           "node/no-missing-require": "off"
+        }
+    }],
+};
 ```
 
 ## convert-require-to-import

@@ -1,6 +1,6 @@
 {
     "overrides": [{
-        "files": "*.md{js}",
+        "files": ["*.md{js}"],
         "rules": {
             "putout/array-element-newline": "off"
         }

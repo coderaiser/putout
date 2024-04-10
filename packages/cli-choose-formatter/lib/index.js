@@ -1,8 +1,5 @@
 import {findUp as customFindUp} from 'find-up';
-import {
-    readFile as customReadFile,
-    writeFile as customWriteFile,
-} from 'node:fs/promises';
+import {readFile as customReadFile, writeFile as customWriteFile} from 'node:fs/promises';
 import {choose as customChoose} from '@putout/cli-choose';
 import {readJSON, writeJSON} from './json.js';
 

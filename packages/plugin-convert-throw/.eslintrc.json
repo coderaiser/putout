@@ -1,6 +1,6 @@
 {
     "overrides": [{
-        "files": "*.md{js}",
+        "files": ["*.md{js}"],
         "parser": "@babel/eslint-parser",
         "rules": {
             "brace-style": "off"

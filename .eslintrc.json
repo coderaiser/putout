@@ -1,6 +1,6 @@
 {
     "overrides": [{
-        "files": "*.js",
+        "files": ["*.js"],
         "rules": {
             "import/no-extraneous-dependencies": "error"
         }

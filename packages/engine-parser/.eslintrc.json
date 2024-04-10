@@ -1,6 +1,6 @@
 {
     "overrides": [{
-        "files": "lib/parsers/*",
+        "files": ["lib/parsers/*"],
         "rules": {
             "n/no-unpublished-require": "off"
         }

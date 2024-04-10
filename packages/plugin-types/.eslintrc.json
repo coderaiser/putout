@@ -3,7 +3,7 @@
         "no-useless-return": "off"
     },
     "overrides": [{
-        "files": "*.md{js}",
+        "files": ["*.md{js}"],
         "rules": {
             "n/no-deprecated-api": "off",
             "no-implicit-coercion": "off",

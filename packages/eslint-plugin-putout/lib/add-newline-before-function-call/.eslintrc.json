@@ -1,6 +1,6 @@
 {
     "overrides": [{
-        "files": "*.md{js}",
+        "files": ["*.md{js}"],
         "rules": {
             "putout/add-newline-before-function-call": "off"
         }

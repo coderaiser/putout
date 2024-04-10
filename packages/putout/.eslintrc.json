@@ -1,11 +1,11 @@
 {
     "overrides": [{
-        "files": "bin/putout.mjs",
+        "files": ["bin/putout.mjs"],
         "rules": {
             "n/hashbang": "off"
         }
     }, {
-        "files": "register.mjs",
+        "files": ["register.mjs"],
         "rules": {
             "n/no-unsupported-features/node-builtins": "off"
         }

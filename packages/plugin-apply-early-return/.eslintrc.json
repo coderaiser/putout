@@ -1,6 +1,6 @@
 {
     "overrides": [{
-        "files": "*.md{js}",
+        "files": ["*.md{js}"],
         "rules": {
             "no-useless-return": "off",
             "no-else-return": "off"

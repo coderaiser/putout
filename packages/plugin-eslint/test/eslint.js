@@ -74,3 +74,8 @@ test('plugin-eslint: transform: remove-useless-slice', (t) => {
     t.transform('remove-useless-slice');
     t.end();
 });
+
+test('plugin-eslint: transform: convert-files-to-array', (t) => {
+    t.transform('convert-files-to-array');
+    t.end();
+});
