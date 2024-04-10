@@ -1,3 +1,16 @@
+2024.04.10, v35.13.0
+
+fix:
+- e79864d67 eslint-plugin-putout: ts: plugins
+
+feature:
+- eb0e9cb9c putout: match: add support of ESLint FlatConfig
+- 4ff66674b @putout/plugin-eslint: convert-files-to-array: add support of FlatConfig
+- 809df0ec7 @putout/plugin-eslint: convert-files-to-array: add
+- 83c56c805 putout: migrate to ESLint FlatConfig
+- e61697166 @putout/plugin-eslint: remove-useless-slice: add
+- 8114b3429 @putout/plugin-npmignore: add "*.config.*"
+
 2024.04.09, v35.12.0
 
 feature:
