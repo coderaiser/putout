@@ -13,6 +13,4 @@ module.exports = [
         rules: {
             'n/no-unsupported-features/node-builtins': 'off',
         },
-    },
-];
-
+    }];

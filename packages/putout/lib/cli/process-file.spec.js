@@ -104,6 +104,7 @@ test('putout: cli: process-file: tsx from preProcessor', async (t) => {
     };
     
     const processFile = reRequire('./process-file');
+    
     const fn = processFile({
         fix,
         log,
