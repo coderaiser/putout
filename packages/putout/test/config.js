@@ -77,6 +77,17 @@ test('putout: config: eslint', (t) => {
     t.end();
 });
 
+test('putout: config: eslint: FlatConfig', (t) => {
+    const {match} = putoutConfig;
+    const result = match['eslint.config.*'];
+    const expected = {
+        eslint: 'on',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: config: markdown', (t) => {
     const {match} = putoutConfig;
     const result = match['*.md'];

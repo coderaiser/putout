@@ -101,6 +101,9 @@
             "eslint": "on",
             "eslint/convert-require-to-import": "off"
         },
+        "eslint.config.*": {
+            "eslint": "on"
+        },
         "package.json": {
             "package-json": "on"
         },
