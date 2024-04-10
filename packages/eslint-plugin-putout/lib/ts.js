@@ -1,7 +1,7 @@
 'use strict';
 
 const {rules} = require('@putout/eslint-config');
-const jsx = require('./jsx');
+const {jsx} = require('./jsx');
 
 const reEnable = (rule) => ({
     [`@stylistic/ts/${rule}`]: 'error',
@@ -68,7 +68,11 @@ const ts = {
 
 module.exports = [ts, {
     ...ts,
-    ...jsx.jsx,
+    ...jsx,
+    plugins: [
+        ...ts.plugins,
+        ...jsx.plugins,
+    ],
     files: '*.tsx',
     parserOptions: {
         warnOnUnsupportedTypeScriptVersion,
