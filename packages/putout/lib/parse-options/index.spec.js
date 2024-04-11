@@ -69,11 +69,13 @@ test('putout: parse-options: options rules overrides default match', (t) => {
 test('putout: parseOptions: readHomeOptions: __dirname', (t) => {
     const readCodeMods = stub().returns([__dirname, {}]);
     
-    const readOptions = stub().returns([__dirname, {
-        rules: {
-            'remove-console': 'off',
+    const readOptions = stub().returns([
+        __dirname, {
+            rules: {
+                'remove-console': 'off',
+            },
         },
-    }]);
+    ]);
     
     const readHomeOptions = stub().returns({
         rules: {

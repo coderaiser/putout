@@ -14,10 +14,12 @@ module.exports = (line) => {
         [from]: to,
     });
     
-    const plugin = [name, {
-        report,
-        replace,
-    }];
+    const plugin = [
+        name, {
+            report,
+            replace,
+        },
+    ];
     
     return [plugin];
 };

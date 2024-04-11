@@ -47,9 +47,11 @@ test('putout: cli: choose-formatter: tuple', async (t) => {
     
     const choose = stub().returns('dump');
     
-    const formatter = [FORMATTER, {
-        color: 'red',
-    }];
+    const formatter = [
+        FORMATTER, {
+            color: 'red',
+        },
+    ];
     
     const result = await chooseFormatter(formatter, dependencies, {
         writeFile,

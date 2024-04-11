@@ -66,21 +66,23 @@ const ts = {
     },
 };
 
-module.exports = [ts, {
-    ...ts,
-    ...jsx,
-    plugins: [
-        ...ts.plugins,
-        ...jsx.plugins,
-    ],
-    files: '*.tsx',
-    parserOptions: {
-        warnOnUnsupportedTypeScriptVersion,
-        ecmaFeatures: {
-            jsx: true,
+module.exports = [
+    ts, {
+        ...ts,
+        ...jsx,
+        plugins: [
+            ...ts.plugins,
+            ...jsx.plugins,
+        ],
+        files: '*.tsx',
+        parserOptions: {
+            warnOnUnsupportedTypeScriptVersion,
+            ecmaFeatures: {
+                jsx: true,
+            },
         },
     },
-}];
+];
 
 function convertPaddingLines([state, ...lines]) {
     const newLines = [];

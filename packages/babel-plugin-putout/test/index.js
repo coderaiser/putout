@@ -27,11 +27,13 @@ for (const caseName of fs.readdirSync(fixturesDir)) {
         const {code} = transformFileSync(actualPath, {
             code: true,
             plugins: [
-                createConfigItemSync([plugin, {
-                    rules: {
-                        'nodejs/add-missing-strict-mode': 'on',
+                createConfigItemSync([
+                    plugin, {
+                        rules: {
+                            'nodejs/add-missing-strict-mode': 'on',
+                        },
                     },
-                }]),
+                ]),
             ],
         });
         

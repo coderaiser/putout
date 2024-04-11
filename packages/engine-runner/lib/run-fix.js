@@ -16,9 +16,11 @@ const chooseFixArgs = ({path, pathOptions, options}) => {
                 options,
             }];
     
-    return [path, {
-        options,
-    }];
+    return [
+        path, {
+            options,
+        },
+    ];
 };
 
 const tryToFix = (fix, {path, pathOptions, position, options}) => {
