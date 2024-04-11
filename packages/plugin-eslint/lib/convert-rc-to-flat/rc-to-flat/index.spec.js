@@ -19,4 +19,3 @@ test('eslint: convert-rc-to-flat: rc-to-flat: transform', (t) => {
     t.transform('convert-eslintrc-to-flat');
     t.end();
 });
-
