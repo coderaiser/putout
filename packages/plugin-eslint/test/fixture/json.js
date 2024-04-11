@@ -1,10 +1,10 @@
 __putout_processor_json({
     "extends": [
         "plugin:putout/recommended",
-        "plugin:node/recommended"
+        "plugin:n/recommended"
     ],
     "plugins": [
         "putout",
-        "node"
+        "n"
     ]
 });

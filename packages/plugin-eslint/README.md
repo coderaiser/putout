@@ -27,6 +27,7 @@ npm i @putout/plugin-eslint -D
         "eslint/convert-ide-to-safe": "on",
         "eslint/convert-require-to-import": "on",
         "eslint/convert-node-to-n": "on",
+        "eslint/declare": "on",
         "eslint/remove-no-missing": "on",
         "eslint/remove-no-unpublished-require": "on",
         "eslint/remove-no-unsupported-features": "on",
@@ -355,6 +356,12 @@ export default x;
 
 module.exports = x;
 ```
+
+## declare
+
+Declare:
+
+- [`safeAlign`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#flat);
 
 ## convert-rc-to-flat
 

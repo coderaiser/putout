@@ -79,3 +79,8 @@ test('plugin-eslint: transform: convert-files-to-array', (t) => {
     t.transform('convert-files-to-array');
     t.end();
 });
+
+test('putout: plugin-eslint: transform: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});
