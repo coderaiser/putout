@@ -1,13 +1,22 @@
 'use strict';
 
-const putout = require('putout');
-const {operator, types} = putout;
+const {replaceWith} = require('putout').operator;
+const {
+    operator,
+    types,
+    template,
+} = require('putout');
+
 const {getProperties, __json} = operator;
 
 const {
+    ArrayExpression,
     ObjectExpression,
     ObjectProperty,
+    Identifier,
 } = types;
+
+const createFlatConfig = template(`export default %%flatConfig%%`);
 
 module.exports.report = () => 'Use FlatConfig instead of ESLintRC';
 
@@ -16,61 +25,40 @@ module.exports.replace = () => ({
         const __jsonPath = path.get('arguments.0');
         const {
             extendsPath,
-            pluginsPath,
+            overridesPath,
             parserPath,
             rulesPath,
         } = getProperties(__jsonPath, [
             'extends',
-            'plugins',
             'parser',
             'rules',
+            'overrides',
         ]);
         
-        let nextExtends = '';
-        let nextPlugins = '';
-        let languageOptions = '';
-        let rules = '';
+        const flatConfig = ArrayExpression([]);
         
         if (extendsPath)
-            nextExtends = 'js.configs.recommended';
+            flatConfig.elements.push(Identifier('safeAlign'));
         
-        if (parserPath)
-            languageOptions = `
-                languageOptions: {
-                    ${parserPath},
-                },
-            `;
-        
-        if (rulesPath)
-            rules = `
-                ${rulesPath},
-            `;
-        
-        if (pluginsPath) {
-            const elements = pluginsPath.get('value.elements');
-            const properties = [];
+        if (parserPath || rulesPath) {
+            const config = ObjectExpression([]);
             
-            for (const {node} of elements) {
-                properties.push(ObjectProperty(node, node, true, false));
-            }
+            if (parserPath)
+                config.properties.push(ObjectProperty(Identifier('languageOptions'), ObjectExpression([parserPath.node])));
             
-            const plugins = putout
-                .print(ObjectExpression(properties))
-                .slice(1, -3);
+            if (rulesPath)
+                config.properties.push(rulesPath.node);
             
-            nextPlugins = `
-                plugins: ${plugins}
-            `;
+            flatConfig.elements.push(config);
         }
         
-        return `
-            export default [
-              ${nextExtends}, {
-                  ${languageOptions}
-                  ${rules}
-                  ${nextPlugins}
-              }
-          ]
-        `;
+        if (overridesPath)
+            flatConfig.elements.push(...overridesPath.node.value.elements);
+        
+        replaceWith(path, createFlatConfig({
+            flatConfig,
+        }));
+        
+        return path;
     },
 });
