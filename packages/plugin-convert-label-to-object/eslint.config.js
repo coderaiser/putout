@@ -7,4 +7,5 @@ module.exports = [
         rules: {
             'no-unused-labels': 'off',
         },
-    }];
+    },
+];
