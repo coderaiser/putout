@@ -14,6 +14,7 @@ const {
     ObjectExpression,
     ObjectProperty,
     Identifier,
+    SpreadElement,
 } = types;
 
 const createFlatConfig = template(`export default %%flatConfig%%`);
@@ -38,7 +39,7 @@ module.exports.replace = () => ({
         const flatConfig = ArrayExpression([]);
         
         if (extendsPath)
-            flatConfig.elements.push(Identifier('safeAlign'));
+            flatConfig.elements.push(SpreadElement(Identifier('safeAlign')));
         
         if (parserPath || rulesPath) {
             const config = ObjectExpression([]);

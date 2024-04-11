@@ -12,5 +12,5 @@ __putout_processor_filesystem([
 
 __putout_processor_filesystem([
     '/',
-    '/.eslintrc.json',
+    ['/.eslintrc.json', '{"extends": {}}'],
 ]);

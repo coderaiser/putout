@@ -1,5 +1,5 @@
 export default [
-    safeAlign, {
+    ...safeAlign, {
         languageOptions: {
             'parser': '@typescript-eslint/parser',
         },

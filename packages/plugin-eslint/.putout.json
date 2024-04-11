@@ -1,6 +1,6 @@
 {
-    "printer": "putout",
     "rules": {
-        "putout/apply-namespace-specifier": "off"
+        "putout/apply-namespace-specifier": "off",
+        "eslint": "off"
     }
 }
