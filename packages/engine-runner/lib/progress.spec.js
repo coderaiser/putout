@@ -1,9 +1,7 @@
 'use strict';
 
 const {once} = require('events');
-
 const montag = require('montag');
-
 const {test} = require('supertape');
 const putout = require('putout');
 
