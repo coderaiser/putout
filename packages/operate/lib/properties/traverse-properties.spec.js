@@ -1,13 +1,17 @@
 'use strict';
 
+const {once} = require('events');
+const putout = require('putout');
+const montag = require('montag');
 const test = require('supertape');
+const {createProgress} = require('@putout/engine-runner/progress');
+
+const {traverseProperties} = require('./traverse-properties');
 const {
     parse,
     template,
     traverse,
-} = require('putout');
-
-const {traverseProperties} = require('./traverse-properties');
+} = putout;
 
 test('operate: traverse-properties', (t) => {
     const object = template.ast('x({"a": "b"})');
@@ -122,5 +126,63 @@ test('operate: traverse-properties: traverse: Identifier', (t) => {
     });
     
     t.equal(list.length, 1);
+    t.end();
+});
+
+test('operate: traverse-properties: object inside array', (t) => {
+    const source = `
+        __putout_processor_json({
+            "type": "directory",
+            "name": "/",
+            "files": [{
+                "name": "/abc",
+                "type": "directory",
+                "files": []
+            }, {
+                "name": "/hello",
+                "type": "directory",
+                "files": []
+            }, {
+                "name": "/world.txt",
+                "type": "file",
+            }]
+        });
+    `;
+    
+    let propertyPath;
+    
+    traverse(parse(source), {
+        CallExpression(path) {
+            const helloPath = path.get('arguments.0.properties.2.value.elements.1');
+            [propertyPath] = traverseProperties(helloPath, 'name');
+        },
+    });
+    
+    t.equal(propertyPath.node.value.value, '/hello');
+    t.end();
+});
+
+test('operate: traverse-properties: filesystem', async (t) => {
+    const progress = createProgress();
+    const source = montag`
+        __putout_processor_filesystem([
+            '/coverage/'
+        ]);
+    `;
+    
+    const [[{pluginsIndex, pluginsCount}]] = await Promise.all([
+        once(progress, 'push'),
+        putout(source, {
+            progress,
+            rules: {
+                'filesystem/remove-files': ['on', {
+                    names: ['coverage'],
+                }],
+            },
+            plugins: ['filesystem'],
+        }),
+    ]);
+    
+    t.equal(pluginsCount, 2);
     t.end();
 });

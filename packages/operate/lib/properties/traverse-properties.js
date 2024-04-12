@@ -1,16 +1,19 @@
 'use strict';
 
 const {traverse, types} = require('@putout/babel');
-
 const {extract} = require('../extract');
-const {isObjectExpression} = types;
+
+const {
+    isObjectExpression,
+    isCallExpression,
+} = types;
 const nodeOrPath = (path) => path.node || path;
 
 function getNode(path) {
     if (!isObjectExpression(path))
         return nodeOrPath(path);
     
-    if (path.parentPath)
+    if (isCallExpression(path.parentPath))
         return path.parentPath.node;
     
     return {
