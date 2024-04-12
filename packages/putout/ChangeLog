@@ -1,3 +1,19 @@
+2024.04.12, v35.14.0
+
+fix:
+- fee14bbd2 @putout/plugin-npmignore: message
+
+feature:
+- 7311d3b1b @putout/operator-ignore: add
+- 383404e74 @putout/operator-json: fromJS: no newline
+- 8ad2a38a9 @putout/plugin-putout: remove-unused-get-properties-argument: add
+- efc02772d @putout/plugin-eslint: convert-rc-to-flat: safeAlign always first
+- 088a4b2fd @putout/operate: traverseProperties: path.parentPath -> path.isCallExpression
+- 77230e28c @putout/plugin-eslint: convert-rc-to-flat: improve support of safeAlign
+- 43a051b58 @putout/plugin-eslint: declare: add
+- 16fdfe713 @putout/plugin-eslint: convert-rc-to-flat: improve
+- 3fed45ab7 @putout/plugin-eslint: convert-files-to-array: report: improve message for FlatConfig
+
 2024.04.10, v35.13.0
 
 fix:
