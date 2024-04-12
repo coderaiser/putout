@@ -351,6 +351,16 @@ test('plugin-putout: declare: transform: matchFiles', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: ignore', (t) => {
+    t.transformCode(`ignore();`, montag`
+        import {operator} from 'putout';
+        
+        const {ignore} = operator;
+        ignore();\n
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: operator-json', (t) => {
     t.transform('operator-json');
     t.end();

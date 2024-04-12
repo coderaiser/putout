@@ -35,4 +35,5 @@ module.exports = {
     isSimple: 'const {isSimple} = operator',
     setLiteralValue: 'const {setLiteralValue} = operator',
     matchFiles: 'const {matchFiles} = operator',
+    ignore: 'const {ignore} = operator',
 };
