@@ -25,21 +25,17 @@ module.exports.replace = () => ({
     [__json]: (__json, path) => {
         const __jsonPath = path.get('arguments.0');
         const {
-            extendsPath,
             overridesPath,
             parserPath,
             rulesPath,
         } = getProperties(__jsonPath, [
-            'extends',
             'parser',
             'rules',
             'overrides',
         ]);
         
-        const flatConfig = ArrayExpression([]);
-        
-        if (extendsPath)
-            flatConfig.elements.push(SpreadElement(Identifier('safeAlign')));
+        const safeAlign = SpreadElement(Identifier('safeAlign'));
+        const flatConfig = ArrayExpression([safeAlign]);
         
         if (parserPath || rulesPath) {
             const config = ObjectExpression([]);
