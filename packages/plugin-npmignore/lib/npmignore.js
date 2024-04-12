@@ -11,7 +11,7 @@ const names = [
     '*.config.*',
 ];
 
-export const report = () => `Add dot files should be added to '.npmignore'`;
+export const report = () => `Add dot files to '.npmignore'`;
 export const match = ({options}) => {
     const {dismiss = []} = options;
     const newNames = filterNames(names, dismiss);
