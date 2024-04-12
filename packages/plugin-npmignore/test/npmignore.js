@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-npmignore: report', (t) => {
-    t.report('npmignore', `Add dot files to '.npmignore'`);
+    t.report('npmignore', `Add dotfiles to '.npmignore'`);
     t.end();
 });
 
