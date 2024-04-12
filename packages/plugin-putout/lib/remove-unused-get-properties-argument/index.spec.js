@@ -15,7 +15,13 @@ test('putout: remove-unused-get-properties-argument: report', (t) => {
     t.end();
 });
 
+test('putout: remove-unused-get-properties-argument: no report', (t) => {
+    t.noReport('computed');
+    t.end();
+});
+
 test('putout: remove-unused-get-properties-argument: transform', (t) => {
     t.transform('remove-unused-get-properties-argument');
     t.end();
 });
+

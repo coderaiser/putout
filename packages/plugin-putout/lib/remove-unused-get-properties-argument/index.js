@@ -21,6 +21,10 @@ module.exports.traverse = ({push}) => ({
         
         for (const nameProp of __cPath.get('elements')) {
             let used = false;
+            
+            if (!nameProp.isStringLiteral())
+                break;
+            
             const {value} = nameProp.node;
             
             for (const prop of __a.properties) {
