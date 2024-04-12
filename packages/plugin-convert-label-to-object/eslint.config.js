@@ -1,11 +1,11 @@
 'use strict';
 
-const {recommended} = require('eslint-plugin-putout/config');
+const {safeAlign} = require('eslint-plugin-putout/config');
 
 module.exports = [
-    ...recommended, {
+    ...safeAlign, {
         rules: {
-            'no-unused-labels': 'off',
+            'no-useless-return': 'off',
         },
     },
 ];
