@@ -48,6 +48,7 @@ module.exports.toJS = (source, name = __json) => {
 };
 
 module.exports.fromJS = (source, name = __json) => {
+    source = maybeNewline(source);
     const shortName = cut(name);
     
     source = source.slice(source.indexOf(shortName));
