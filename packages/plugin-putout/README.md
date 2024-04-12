@@ -1130,11 +1130,7 @@ const {
     overridesPath,
     parserPath,
     rulesPath,
-} = getProperties(__jsonPath, [
-    'parser',
-    'rules',
-    'extends',
-]);
+} = getProperties(__jsonPath, ['parser', 'rules', 'extends']);
 ```
 
 ## License

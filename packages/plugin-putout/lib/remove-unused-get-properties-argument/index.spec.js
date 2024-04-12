@@ -24,4 +24,3 @@ test('putout: remove-unused-get-properties-argument: transform', (t) => {
     t.transform('remove-unused-get-properties-argument');
     t.end();
 });
-
