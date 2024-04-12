@@ -28,11 +28,7 @@ module.exports.replace = () => ({
             overridesPath,
             parserPath,
             rulesPath,
-        } = getProperties(__jsonPath, [
-            'parser',
-            'rules',
-            'overrides',
-        ]);
+        } = getProperties(__jsonPath, ['parser', 'rules', 'overrides']);
         
         const safeAlign = SpreadElement(Identifier('safeAlign'));
         const flatConfig = ArrayExpression([safeAlign]);

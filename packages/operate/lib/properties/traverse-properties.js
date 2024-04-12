@@ -7,6 +7,7 @@ const {
     isObjectExpression,
     isCallExpression,
 } = types;
+
 const nodeOrPath = (path) => path.node || path;
 
 function getNode(path) {
