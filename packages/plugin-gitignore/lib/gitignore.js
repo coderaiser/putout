@@ -1,63 +1,22 @@
-import {types, operator} from 'putout';
+import {operator} from 'putout';
 
-const {__ignore} = operator;
-const {StringLiteral} = types;
-const getValue = ({value}) => value;
+const {ignore, __ignore} = operator;
+const {
+    match,
+    replace,
+    report,
+} = ignore(__ignore, {
+    name: '.gitignore',
+    list: [
+        '.idea',
+        '*.swp',
+        'yarn-error.log',
+        'coverage',
+    ],
+});
 
-const names = [
-    '.idea',
-    '*.swp',
-    'yarn-error.log',
-    'coverage',
-];
-
-export const report = () => `Dot files should be added to .gitignore`;
-
-export const match = ({options}) => {
-    const {dismiss = []} = options;
-    const newNames = filterNames(names, dismiss);
-    
-    return {
-        [__ignore]: ({__array}) => {
-            const list = __array.elements.map(getValue);
-            
-            for (const name of newNames) {
-                if (!list.includes(name))
-                    return true;
-            }
-            
-            return false;
-        },
-    };
+export {
+    match,
+    replace,
+    report,
 };
-
-export const replace = ({options}) => {
-    const {dismiss = []} = options;
-    const newNames = filterNames(names, dismiss);
-    
-    return {
-        [__ignore]: ({__array}, path) => {
-            const list = __array.elements.map(getValue);
-            
-            for (const name of newNames) {
-                if (!list.includes(name))
-                    __array.elements.push(StringLiteral(name));
-            }
-            
-            return path;
-        },
-    };
-};
-
-function filterNames(names, dismiss) {
-    const newNames = [];
-    
-    for (const name of names) {
-        if (dismiss.includes(name))
-            continue;
-        
-        newNames.push(name);
-    }
-    
-    return newNames;
-}

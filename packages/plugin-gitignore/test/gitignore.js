@@ -9,7 +9,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-gitignore: report', (t) => {
-    t.report('gitignore', 'Dot files should be added to .gitignore');
+    t.report('gitignore', `Add dotfiles to '.gitignore'`);
     t.end();
 });
 
