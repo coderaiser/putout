@@ -44,7 +44,7 @@ const traverse = (name, property) => ({push}) => ({
             
             const {parentPath} = propertyPath;
             
-            const {[`${property}Path`]: current} = getProperties(parentPath, [property]);
+            const {[`${property}Path`]: current} = getProperties(parentPath, []);
             
             if (current)
                 return;
