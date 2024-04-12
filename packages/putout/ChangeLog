@@ -1,3 +1,11 @@
+2024.04.12, v35.14.1
+
+feature:
+- d9c1cf78f putout: @putout/plugin-gitignore v6.0.0
+- 8f360cfd3 putout: @putout/plugin-npmignore v5.0.0
+- 314190495 @putout/plugin-gitignore: use ignore
+- 577a53f79 @putout/plugin-putout: declare: ignore: add
+
 2024.04.12, v35.14.0
 
 fix:
