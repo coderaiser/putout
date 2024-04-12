@@ -60,7 +60,8 @@ npm i @putout/plugin-putout -D
         "putout/declare": "on",
         "putout/includer": "on",
         "putout/move-require-on-top-level": "on",
-        "putout/replace-test-message": "on"
+        "putout/replace-test-message": "on",
+        "putout/remove-unused-get-properties-argument": "on"
     }
 }
 ```
@@ -1101,6 +1102,39 @@ test('plugin-putout: rename-operate-to-operator: no report: operator exist', (t)
     t.noReport('operator');
     t.end();
 });
+```
+
+## remove-unused-get-properties-argument
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fc32ff87e91fd28f26a03f55eba0663e/3423926ba0a80d30beafe2ac66c70c517df173e1).
+
+### ❌ Example of incorrect code
+
+```js
+const {
+    overridesPath,
+    parserPath,
+    rulesPath,
+} = getProperties(__jsonPath, [
+    'parser',
+    'rules',
+    'overrides',
+    'extends',
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+const {
+    overridesPath,
+    parserPath,
+    rulesPath,
+} = getProperties(__jsonPath, [
+    'parser',
+    'rules',
+    'extends',
+]);
 ```
 
 ## License

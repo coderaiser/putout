@@ -48,6 +48,7 @@ const addTrackFile = require('./add-track-file');
 const convertProgressToTrackFile = require('./convert-progress-to-track-file');
 const addAwaitToProgress = require('./add-await-to-progress');
 const applyForOfToTrackFile = require('./apply-for-of-to-track-file');
+const removeUnusedGetPropertiesArgument = require('./remove-unused-get-properties-argument');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -98,4 +99,5 @@ module.exports.rules = {
     'convert-progress-to-track-file': convertProgressToTrackFile,
     'add-await-to-progress': addAwaitToProgress,
     'apply-for-of-to-track-file': applyForOfToTrackFile,
+    'remove-unused-get-properties-argument': removeUnusedGetPropertiesArgument,
 };

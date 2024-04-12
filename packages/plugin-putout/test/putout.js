@@ -227,3 +227,8 @@ test('plugin-putout: transform: apply-for-of-to-track-file', (t) => {
     t.transform('apply-for-of-to-track-file');
     t.end();
 });
+
+test('plugin-putout: transform: remove-unused-get-properties-argument', (t) => {
+    t.transform('remove-unused-get-properties-argument');
+    t.end();
+});
