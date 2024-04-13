@@ -1,0 +1,53 @@
+{
+  "name": "@putout/plugin-coverage",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "🐊Putout plugin helps with coverage configs",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-coverage#readme",
+  "main": "lib/coverage.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "coverage"
+  ],
+  "devDependencies": {
+    "@putout/test": "^9.0.0",
+    "c8": "^9.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-n": "^17.0.0",
+    "eslint-plugin-putout": "^22.0.0",
+    "lerna": "^6.0.1",
+    "madrun": "^10.0.0",
+    "nodemon": "^3.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=35"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
