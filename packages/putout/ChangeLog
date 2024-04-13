@@ -1,3 +1,20 @@
+2024.04.13, v35.15.0
+
+fix:
+- 9e5cc8f10 @putout/operator-ignore: __json: property
+- 0b32f4415 @putout/plugin-putout: remove-unused-get-properties-argument: exclude not StringLiteral
+- 0855fa787 @putout/plugin-npmignore: message
+
+feature:
+- 09ae16147 putout: add @putout/plugin-coverage
+- 228414483 @putout/plugin-coverage: add
+- a961d86ce putout: @putout/plugin-gitignore v6.0.0
+- fea9d47f9 putout: @putout/plugin-npmignore v5.0.0
+- 95af1575f @putout/plugin-gitignore: use ignore
+- 59361fac9 @putout/plugin-putout: declare: ignore: add
+- 0e78b78b3 @putout/operator-ignore: add
+- 3eb9a5b45 @putout/operator-json: fromJS: no newline
+
 2024.04.12, v35.14.1
 
 feature:
