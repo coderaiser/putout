@@ -38,6 +38,9 @@ const createMatch = ({type, property, collector, list}) => ({options}) => {
                 collector,
             });
             
+            if (!elements)
+                return false;
+            
             const list = elements.map(getValue);
             
             for (const name of newNames) {
@@ -93,6 +96,9 @@ function parseElements(vars, {property, collector}) {
         return node.elements;
     
     const [prop] = traverseProperties(node, property);
+    
+    if (!prop)
+        return null;
     
     return prop.node.value.elements;
 }

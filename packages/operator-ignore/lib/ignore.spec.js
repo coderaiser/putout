@@ -202,3 +202,36 @@ test('putout: operator: ignore: __json: transform', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: ignore: __json: no property', (t) => {
+    const npmignore = ignore(__json, {
+        name: '.npmignore',
+        property: 'exclude',
+        list: [
+            '.*',
+            'yarn-error.log',
+            'coverage',
+            '*.config.*',
+        ],
+    });
+    
+    const source = stringify({
+        hello: [
+            '**/*.spec.*',
+        ],
+    });
+    
+    const jsSource = toJS(source);
+    
+    const {places} = putout(jsSource, {
+        fix: false,
+        plugins: [
+            ['npmignore', npmignore],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
