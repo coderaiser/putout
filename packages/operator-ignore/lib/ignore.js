@@ -18,6 +18,7 @@ module.exports.ignore = (type, {name, property, list}) => {
         }),
         replace: createReplace({
             type,
+            property,
             collector,
             list,
         }),
@@ -49,24 +50,14 @@ const createMatch = ({type, property, collector, list}) => ({options}) => {
     };
 };
 
-function parseElements(vars, {property, collector}) {
-    const node = vars[collector];
-    
-    if (!property)
-        return node.elements;
-    
-    const [prop] = traverseProperties(node, property);
-    
-    return prop.node.value.elements;
-}
-
-const createReplace = ({type, collector, list}) => ({options}) => {
+const createReplace = ({type, property, collector, list}) => ({options}) => {
     const {dismiss = []} = options;
     const newNames = filterNames(list, dismiss);
     
     return {
         [type]: (vars, path) => {
             const elements = parseElements(vars, {
+                property,
                 collector,
             });
             
@@ -93,4 +84,15 @@ function filterNames(names, dismiss) {
     }
     
     return newNames;
+}
+
+function parseElements(vars, {property, collector}) {
+    const node = vars[collector];
+    
+    if (!property)
+        return node.elements;
+    
+    const [prop] = traverseProperties(node, property);
+    
+    return prop.node.value.elements;
 }

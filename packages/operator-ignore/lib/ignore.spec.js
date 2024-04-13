@@ -160,3 +160,45 @@ test('putout: operator: ignore: __ignore: transform', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: ignore: __json: transform', (t) => {
+    const npmignore = ignore(__json, {
+        name: '.npmignore',
+        property: 'exclude',
+        list: [
+            '.*',
+            'yarn-error.log',
+            'coverage',
+            '*.config.*',
+        ],
+    });
+    
+    const source = stringify({
+        exclude: [
+            '**/*.spec.*',
+        ],
+    });
+    
+    const jsSource = toJS(source);
+    
+    const {code} = putout(jsSource, {
+        plugins: [
+            ['npmignore', npmignore],
+        ],
+    });
+    
+    const result = parse(fromJS(code));
+    
+    const expected = {
+        exclude: [
+            '**/*.spec.*',
+            '.*',
+            'yarn-error.log',
+            'coverage',
+            '*.config.*',
+        ],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
