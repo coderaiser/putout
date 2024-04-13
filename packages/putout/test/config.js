@@ -198,3 +198,15 @@ test('putout: config: mts', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: config: coverage', (t) => {
+    const {match} = putoutConfig;
+    const result = match['.{nyc,c8}rc.json'];
+    
+    const expected = {
+        coverage: 'on',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

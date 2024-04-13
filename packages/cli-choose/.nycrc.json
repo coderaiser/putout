@@ -6,7 +6,8 @@
         "**/fixture",
         "test",
         ".*.*",
-        "example.js"
+        "example.js",
+        "**/*.config.*"
     ],
     "branches": 100,
     "lines": 100,

@@ -109,6 +109,7 @@
     "@putout/plugin-convert-quotes-to-backticks": "^3.0.0",
     "@putout/plugin-convert-template-to-string": "^2.0.0",
     "@putout/plugin-convert-to-arrow-function": "^4.0.0",
+    "@putout/plugin-coverage": "^1.0.0",
     "@putout/plugin-declare": "^3.0.0",
     "@putout/plugin-declare-before-reference": "^3.0.0",
     "@putout/plugin-declare-imports-first": "^2.0.0",

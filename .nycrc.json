@@ -16,7 +16,8 @@
         "coverage",
         "**/eslint.config.js",
         "**/load-plugins-async.js",
-        "**/putout-async.js"
+        "**/putout-async.js",
+        "**/*.config.*"
     ],
     "branches": 100,
     "lines": 100,

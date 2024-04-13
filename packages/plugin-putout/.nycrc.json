@@ -6,7 +6,8 @@
         "**/fixture",
         "**/lib/declare/index.js",
         "test",
-        ".*.*"
+        ".*.*",
+        "**/*.config.*"
     ],
     "branches": 100,
     "lines": 100,

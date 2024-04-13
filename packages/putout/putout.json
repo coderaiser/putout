@@ -88,6 +88,9 @@
         ".npmignore": {
             "npmignore": "on"
         },
+        ".{nyc,c8}rc.json": {
+            "coverage": "on"
+        },
         ".*ignore": {
             "convert-quotes-to-backticks": "off"
         },
@@ -156,6 +159,7 @@
         "**/.git"
     ],
     "rules": {
+        "coverage": "off",
         "typescript": "off",
         "nodejs/convert-esm-to-commonjs": "off",
         "nodejs/convert-commonjs-to-esm": "off",
@@ -254,6 +258,7 @@
         "putout-config",
         "promises",
         "typescript",
+        "coverage",
         "gitignore",
         "npmignore",
         "browserlist",

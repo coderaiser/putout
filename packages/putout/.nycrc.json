@@ -9,7 +9,8 @@
         "**/register.mjs",
         ".*.*",
         "bin/tracer.mjs",
-        "bin/communication.mjs"
+        "bin/communication.mjs",
+        "**/*.config.*"
     ],
     "branches": 100,
     "lines": 100,

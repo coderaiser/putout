@@ -9,7 +9,8 @@
         ".*.*",
         "**/index.js",
         "**/subscribe.js",
-        "**/simple-import.*js"
+        "**/simple-import.*js",
+        "**/*.config.*"
     ],
     "branches": 100,
     "lines": 100,

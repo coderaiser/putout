@@ -2148,6 +2148,7 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-promises`](/packages/plugin-promises#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-promises.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-promises) |
 | [`@putout/plugin-gitignore`](/packages/plugin-gitignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-gitignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-gitignore) |
 | [`@putout/plugin-npmignore`](/packages/plugin-npmignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-npmignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-npmignore) |
+| [`@putout/plugin-coverage`](/packages/plugin-coverage#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-coverage.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-coverage) |
 | [`@putout/plugin-browserlist`](/packages/plugin-browserlist#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-browserlist.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-browserlist) |
 | [`@putout/plugin-github`](/packages/plugin-github#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-github.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-github) |
 | [`@putout/plugin-regexp`](/packages/plugin-regexp#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-regexp.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-regexp) |
