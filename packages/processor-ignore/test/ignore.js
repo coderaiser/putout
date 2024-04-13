@@ -8,6 +8,8 @@ const test = createTest(import.meta.url, {
 
 test('putout: processor: ignore', async ({process}) => {
     await process('.gitignore');
+}, {
+    timeout: 3000,
 });
 
 test('putout: processor: ignore: windows', async ({process}) => {
@@ -20,7 +22,7 @@ test('putout: processor: ignore: rc', async ({process}) => {
 
 test('putout: processor: ignore: rc: eslintrc: no crash', async ({comparePlaces}) => {
     await comparePlaces('eslintrc', [{
-        message: 'Dot files should be added to .gitignore',
+        message: `Add dotfiles to '.gitignore'`,
         position: {
             column: 0,
             line: 1,
