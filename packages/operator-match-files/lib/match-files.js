@@ -1,5 +1,6 @@
 'use strict';
 
+const {join} = require('node:path');
 const {parse, print} = require('@putout/engine-parser');
 const {transform} = require('putout/transform');
 const {findPlaces} = require('putout/find-places');
@@ -153,7 +154,8 @@ function getOutputFile(path, {dirPath, matchInputFilename, outputFilename, input
     if (matchInputFilename === outputFilename)
         return inputFile;
     
-    const [outputFile] = findFile(dirPath, outputFilename);
+    const name = join(getFilename(dirPath), outputFilename);
+    const [outputFile] = findFile(dirPath, name);
     
     if (outputFile)
         return outputFile;

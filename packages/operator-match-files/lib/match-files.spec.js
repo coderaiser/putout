@@ -359,6 +359,89 @@ test('putout: operator: match-files: save to other file', (t) => {
     t.end();
 });
 
+test('putout: operator: match-files: search outputfile in current directory only', (t) => {
+    const content = 'export const x = 5';
+    const source = stringify([
+        '/',
+        '/hello/',
+        '/hello/hello.ts',
+        ['/index.ts', content],
+    ]);
+    
+    const files = {
+        'index.ts -> hello.ts': convertEsmToCommonjs,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'match-files': 'on',
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = [
+        '/',
+        '/hello/',
+        '/hello/hello.ts',
+        ['/hello.ts', 'bW9kdWxlLmV4cG9ydHMueCA9IDU7Cg=='],
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: match-files: search outputfile in current directory only: overwrite', (t) => {
+    const content = 'export const x = 5';
+    const source = stringify([
+        '/',
+        '/hello/',
+        '/hello/hello.ts',
+        '/hello.ts',
+        ['/index.ts', content],
+    ]);
+    
+    const files = {
+        'index.ts -> hello.ts': convertEsmToCommonjs,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'match-files': 'on',
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = [
+        '/',
+        '/hello/',
+        '/hello/hello.ts',
+        ['/hello.ts', 'bW9kdWxlLmV4cG9ydHMueCA9IDU7Cg=='],
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: operator: match-files: save to other file: exists', (t) => {
     const content = 'export const x = 5';
     const source = stringify([
