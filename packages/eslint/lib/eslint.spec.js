@@ -4,7 +4,6 @@ const process = require('process');
 const mockRequire = require('mock-require');
 
 const {test, stub} = require('supertape');
-
 const eslint = require('./eslint.js');
 
 const {reRequire, stopAll} = mockRequire;

@@ -1,14 +1,16 @@
+import {dirname} from 'node:path';
 import {loadESLint} from 'eslint';
 import {findUp} from 'find-up';
 
-export const getESLint = async ({name, fix, config, overrideConfigFile, loadESLintOverride, find = findUp}) => {
+export const getESLint = async ({name, fix, config, overrideConfigFile, loadESLintOverride, find = findUp, findFlat = find, findRC = find}) => {
     const eslint = await chooseESLint({
         fix,
         name,
         config,
         overrideConfigFile,
         loadESLintOverride,
-        find,
+        findFlat,
+        findRC,
     });
     
     return {
@@ -17,22 +19,17 @@ export const getESLint = async ({name, fix, config, overrideConfigFile, loadESLi
     };
 };
 
-async function chooseESLint({name, config, fix, overrideConfigFile, loadESLintOverride, find}) {
-    const flatConfigPath = await find('eslint.config.js');
+async function chooseESLint({name, config, fix, overrideConfigFile, loadESLintOverride, findFlat, findRC}) {
+    const runESLint = await getESLintRunner(name, {
+        overrideConfigFile,
+        findFlat,
+        findRC,
+    });
     
-    if (flatConfigPath)
-        return await getFlatESLint({
-            loadESLintOverride,
-            name,
-            config,
-            overrideConfigFile: overrideConfigFile || flatConfigPath,
-            fix,
-        });
-    
-    return await getOldESLint({
+    return await runESLint({
+        loadESLintOverride,
         name,
         config,
-        loadESLintOverride,
         overrideConfigFile,
         fix,
     });
@@ -75,4 +72,26 @@ async function getFlatESLint({fix, config, overrideConfigFile, loadESLintOverrid
     });
     
     return eslint;
+}
+
+const isFlat = (a) => a?.includes('config');
+
+async function getESLintRunner(name, {findFlat, findRC, overrideConfigFile}) {
+    if (overrideConfigFile)
+        return isFlat(overrideConfigFile) ? getFlatESLint : getOldESLint;
+    
+    const cwd = dirname(name);
+    const [rcConfig = '', flatConfig = ''] = await Promise.all([
+        findRC(['.eslintrc.json', '.eslintrc.js'], {
+            cwd,
+        }),
+        findFlat('eslint.config.js', 'eslint.config.mjs', 'eslint.config.cjs', {
+            cwd,
+        }),
+    ]);
+    
+    if (rcConfig.length > flatConfig.length)
+        return getOldESLint;
+    
+    return getFlatESLint;
 }

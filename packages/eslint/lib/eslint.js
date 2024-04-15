@@ -19,6 +19,9 @@ const noConfigFound = (config, configError) => {
     if (configError)
         return false;
     
+    if (!config)
+        return true;
+    
     return !keys(config.rules).length;
 };
 
