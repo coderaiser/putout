@@ -197,7 +197,8 @@ function maybeRemoveFile(dirPath, filename) {
     }
     
     const dirPathFiles = getProperty(dirPath, 'files');
-    const [fileToOverwrite] = findFile(dirPathFiles, filename);
+    const name = join(getFilename(dirPath), basename(filename));
+    const [fileToOverwrite] = findFile(dirPathFiles, name);
     
     if (!fileToOverwrite)
         return;

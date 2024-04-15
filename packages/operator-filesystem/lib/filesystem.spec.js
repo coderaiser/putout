@@ -866,6 +866,33 @@ test('putout: operator: filesystem: createFile: ast: /', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: createFile: overwrite', (t) => {
+    const ast = parseFilesystem(['/', '/doc/', '/doc/README.md']);
+    
+    const [dirPath] = findFile(ast, '/');
+    createFile(dirPath, 'README.md', 'hello');
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/doc',
+            files: [{
+                type: 'file',
+                filename: '/doc/README.md',
+            }],
+        }, {
+            type: 'file',
+            filename: '/README.md',
+            content: 'aGVsbG8=',
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: writeFileContent', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
