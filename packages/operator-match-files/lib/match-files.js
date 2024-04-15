@@ -13,6 +13,7 @@ const {
     writeFileContent,
     getFilename,
     createFile,
+    removeFile,
     getParentDirectory,
 } = require('@putout/operator-filesystem');
 
@@ -31,7 +32,7 @@ module.exports.matchFiles = (files) => {
     };
 };
 
-function fix(path, {outputFilename, matchedJS, matchedAST, plugins}) {
+function fix(path, {inputFile, outputFilename, matchedJS, matchedAST, plugins}) {
     transform(matchedAST, matchedJS, {
         plugins,
     });
@@ -39,6 +40,9 @@ function fix(path, {outputFilename, matchedJS, matchedAST, plugins}) {
     const matchedJSON = magicPrint(outputFilename, matchedAST);
     
     writeFileContent(path, matchedJSON);
+    
+    if (path !== inputFile)
+        removeFile(inputFile);
 }
 
 const createScan = (files) => (path, {push, progress, options}) => {
@@ -98,6 +102,7 @@ const createScan = (files) => (path, {push, progress, options}) => {
         const {message} = places[0];
         
         push(outputFile, {
+            inputFile,
             outputFilename,
             message,
             plugins,

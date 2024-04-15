@@ -353,11 +353,7 @@ test('putout: operator: match-files: save to other file', (t) => {
         __filesystem,
     ));
     
-    const expected = [
-        '/',
-        ['/index.ts', content],
-        ['/hello.ts', 'bW9kdWxlLmV4cG9ydHMueCA9IDU7Cg=='],
-    ];
+    const expected = ['/', ['/hello.ts', 'bW9kdWxlLmV4cG9ydHMueCA9IDU7Cg==']];
     
     t.deepEqual(result, expected);
     t.end();
@@ -392,11 +388,7 @@ test('putout: operator: match-files: save to other file: exists', (t) => {
         __filesystem,
     ));
     
-    const expected = [
-        '/',
-        ['/index.ts', content],
-        ['/hello.ts', 'bW9kdWxlLmV4cG9ydHMueCA9IDU7Cg=='],
-    ];
+    const expected = ['/', ['/hello.ts', 'bW9kdWxlLmV4cG9ydHMueCA9IDU7Cg==']];
     
     t.deepEqual(result, expected);
     t.end();
