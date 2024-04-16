@@ -1,6 +1,10 @@
 'use strict';
 
-const {join} = require('node:path');
+const {
+    join,
+    basename,
+    extname,
+} = require('node:path');
 const {parse, print} = require('@putout/engine-parser');
 const {transform} = require('putout/transform');
 const {findPlaces} = require('putout/find-places');
@@ -166,7 +170,8 @@ function getOutputFile(path, {dirPath, matchInputFilename, outputFilename, input
 function parseMatcher(matcher, options) {
     for (const [name, value] of entries(options)) {
         if (name === 'filename') {
-            const [name, ext] = value.split('.');
+            const name = basename(value);
+            const ext = extname(value);
             
             matcher = matcher.replaceAll(`__name`, name);
             matcher = matcher.replaceAll(`__ext`, ext);

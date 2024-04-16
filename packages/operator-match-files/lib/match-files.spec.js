@@ -479,6 +479,44 @@ test('putout: operator: match-files: save to other file: exists', (t) => {
 
 test('putout: operator: match-files: __name', (t) => {
     const source = stringify(['/', [
+        '/.eslintrc.js',
+        '{}',
+    ]]);
+    
+    const files = {
+        '__name.js -> __name.json': convertEsmToCommonjs,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'match-files': ['on', {
+                filename: '.eslintrc.js',
+            }],
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = ['/', [
+        '/.eslintrc.js',
+        '{}',
+    ]];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: match-files: __name: dot', (t) => {
+    const source = stringify(['/', [
         '/package.json',
         '{}',
     ]]);
@@ -506,14 +544,10 @@ test('putout: operator: match-files: __name', (t) => {
         __filesystem,
     ));
     
-    const expected = [
-        '/',
-        [
-            '/package.json',
-            '{}',
-        ],
-        '/package.js',
-    ];
+    const expected = ['/', [
+        '/package.json',
+        '{}',
+    ]];
     
     t.deepEqual(result, expected);
     t.end();
