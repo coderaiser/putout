@@ -506,10 +506,14 @@ test('putout: operator: match-files: __name', (t) => {
         __filesystem,
     ));
     
-    const expected = ['/', [
-        '/.eslintrc.js',
-        '{}',
-    ]];
+    const expected = [
+        '/',
+        [
+            '/.eslintrc.js',
+            '{}',
+        ],
+        '/.eslintrc.json',
+    ];
     
     t.deepEqual(result, expected);
     t.end();
@@ -544,10 +548,14 @@ test('putout: operator: match-files: __name: dot', (t) => {
         __filesystem,
     ));
     
-    const expected = ['/', [
-        '/package.json',
-        '{}',
-    ]];
+    const expected = [
+        '/',
+        [
+            '/package.json',
+            '{}',
+        ],
+        '/package.js',
+    ];
     
     t.deepEqual(result, expected);
     t.end();

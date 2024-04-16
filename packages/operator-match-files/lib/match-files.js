@@ -171,8 +171,8 @@ function getOutputFile(path, {dirPath, matchInputFilename, outputFilename, input
 function parseMatcher(matcher, options) {
     for (const [name, value] of entries(options)) {
         if (name === 'filename') {
-            const name = basename(value);
             const ext = extname(value);
+            const name = value.replace(ext, '');
             
             matcher = matcher.replaceAll(`__name`, name);
             matcher = matcher.replaceAll(`__ext`, ext);
