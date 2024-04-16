@@ -1,11 +1,15 @@
 import {dirname} from 'node:path';
 import {loadESLint} from 'eslint';
 import {findUp} from 'find-up';
+import process from 'node:process';
+
+const CWD = process.cwd();
 
 export const getESLint = async ({name, fix, config, overrideConfigFile, loadESLintOverride, find = findUp, findFlat = find, findRC = find}) => {
+    const cwd = dirname(name).replace(/^\./, CWD);
     const eslint = await chooseESLint({
         fix,
-        name,
+        cwd,
         config,
         overrideConfigFile,
         loadESLintOverride,
@@ -19,8 +23,9 @@ export const getESLint = async ({name, fix, config, overrideConfigFile, loadESLi
     };
 };
 
-async function chooseESLint({name, config, fix, overrideConfigFile, loadESLintOverride, findFlat, findRC}) {
-    const runESLint = await getESLintRunner(name, {
+async function chooseESLint({cwd, config, fix, overrideConfigFile, loadESLintOverride, findFlat, findRC}) {
+    const runESLint = await getESLintRunner({
+        cwd,
         overrideConfigFile,
         findFlat,
         findRC,
@@ -28,19 +33,20 @@ async function chooseESLint({name, config, fix, overrideConfigFile, loadESLintOv
     
     return await runESLint({
         loadESLintOverride,
-        name,
+        cwd,
         config,
         overrideConfigFile,
         fix,
     });
 }
 
-async function getOldESLint({fix, config, overrideConfigFile, loadESLintOverride = loadESLint}) {
+async function getOldESLint({cwd, fix, config, overrideConfigFile, loadESLintOverride = loadESLint}) {
     const ESLint = await loadESLintOverride({
         useFlatConfig: false,
     });
     
     const eslint = new ESLint({
+        cwd,
         fix,
         overrideConfig: {
             ignorePatterns: ['!.*'],
@@ -55,12 +61,13 @@ async function getOldESLint({fix, config, overrideConfigFile, loadESLintOverride
     return eslint;
 }
 
-async function getFlatESLint({fix, config, overrideConfigFile, loadESLintOverride = loadESLint}) {
+async function getFlatESLint({cwd, fix, config, overrideConfigFile, loadESLintOverride = loadESLint}) {
     const FlatESLint = await loadESLintOverride({
         useFlatConfig: true,
     });
     
     const eslint = new FlatESLint({
+        cwd,
         fix,
         overrideConfig: {
             ignores: ['!.*'],
@@ -76,11 +83,10 @@ async function getFlatESLint({fix, config, overrideConfigFile, loadESLintOverrid
 
 const isFlat = (a) => a?.includes('config');
 
-async function getESLintRunner(name, {findFlat, findRC, overrideConfigFile}) {
+async function getESLintRunner({cwd, findFlat, findRC, overrideConfigFile}) {
     if (overrideConfigFile)
         return isFlat(overrideConfigFile) ? getFlatESLint : getOldESLint;
     
-    const cwd = dirname(name);
     const [rcConfig = '', flatConfig = ''] = await Promise.all([
         findRC(['.eslintrc.json', '.eslintrc.js'], {
             cwd,

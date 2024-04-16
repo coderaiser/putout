@@ -1,6 +1,9 @@
 import {test, stub} from 'supertape';
 import tryToCatch from 'try-to-catch';
+import process from 'node:process';
 import {getESLint} from './get-eslint.mjs';
+
+const CWD = process.cwd();
 
 test('putout: eslint: get-eslint: config: putout', async (t) => {
     const calculateConfigForFile = stub().resolves({
@@ -24,6 +27,7 @@ test('putout: eslint: get-eslint: config: putout', async (t) => {
     });
     
     const expected = [{
+        cwd: CWD,
         fix: false,
         overrideConfig: {
             ignorePatterns: ['!.*'],
@@ -123,6 +127,7 @@ test('putout: eslint: get-eslint: flat: overrideConfigFile', async (t) => {
     });
     
     const expected = [{
+        cwd: CWD,
         fix: false,
         overrideConfig: {
             ignores: ['!.*'],
@@ -155,6 +160,7 @@ test('putout: eslint: get-eslint: flat: no overrides', async (t) => {
     });
     
     const expected = [{
+        cwd: CWD,
         fix: false,
         overrideConfig: {
             ignores: ['!.*'],
@@ -188,6 +194,7 @@ test('putout: eslint: get-eslint: flat: no overrides: rc', async (t) => {
     });
     
     const expected = [{
+        cwd: CWD,
         fix: false,
         overrideConfig: {
             ignorePatterns: ['!.*'],
@@ -222,6 +229,7 @@ test('putout: eslint: get-eslint: overrideConfigFile: rc', async (t) => {
     });
     
     const expected = [{
+        cwd: CWD,
         fix: false,
         overrideConfig: {
             ignorePatterns: ['!.*'],
