@@ -1,6 +1,10 @@
 import tryToCatch from 'try-to-catch';
 import chalk from 'chalk';
-import {Command, Option, CommanderError} from 'commander';
+import {
+    Command,
+    Option,
+    CommanderError,
+} from 'commander';
 
 const program = new Command();
 

@@ -443,7 +443,11 @@ test('putout: runner: replace: empty', (t) => {
     };
     
     const source = montag`
-        import {parse, compare, transform} from 'putout';\n
+        import {
+            parse,
+            compare,
+            transform,
+        } from 'putout';\n
     `;
     
     const {code} = putout(source, {
