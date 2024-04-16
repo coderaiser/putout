@@ -1,10 +1,6 @@
 'use strict';
 
-const {
-    join,
-    basename,
-    extname,
-} = require('node:path');
+const {join, extname} = require('node:path');
 
 const {parse, print} = require('@putout/engine-parser');
 const {transform} = require('putout/transform');
