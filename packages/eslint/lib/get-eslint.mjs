@@ -85,7 +85,7 @@ async function getESLintRunner(name, {findFlat, findRC, overrideConfigFile}) {
         findRC(['.eslintrc.json', '.eslintrc.js'], {
             cwd,
         }),
-        findFlat('eslint.config.js', 'eslint.config.mjs', 'eslint.config.cjs', {
+        findFlat(['eslint.config.js', 'eslint.config.mjs', 'eslint.config.cjs'], {
             cwd,
         }),
     ]);
