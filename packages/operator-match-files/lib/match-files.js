@@ -34,44 +34,46 @@ module.exports.matchFiles = (files) => {
     };
 };
 
-function fix(path, {inputFile, outputFilename, matchedJS, matchedAST, plugins}) {
+function fix(inputFile, {dirPath, mainPath, matchInputFilename, outputFilename, matchedJS, matchedAST, plugins}) {
     transform(matchedAST, matchedJS, {
         plugins,
     });
     
     const matchedJSON = magicPrint(outputFilename, matchedAST);
+    const outputFile = getOutputFile(mainPath, {
+        dirPath,
+        matchInputFilename,
+        outputFilename,
+        inputFile,
+    });
     
-    writeFileContent(path, matchedJSON);
+    writeFileContent(outputFile, matchedJSON);
     
-    if (path !== inputFile)
+    if (inputFile !== outputFile)
         removeFile(inputFile);
 }
 
-const createScan = (files) => (path, {push, progress, options}) => {
+const createScan = (files) => (mainPath, {push, progress, options}) => {
     const allFiles = [];
-    const cwd = getFilename(path);
+    const cwd = getFilename(mainPath);
     
     for (const [filename, plugin] of entries(files)) {
         const [matchInputFilename, outputFilename = matchInputFilename] = parseMatcher(filename, options);
-        const inputFiles = findFile(path, matchInputFilename);
+        const inputFiles = findFile(mainPath, matchInputFilename);
         
         for (const inputFile of inputFiles) {
             const dirPath = getParentDirectory(inputFile);
             const inputFilename = getFilename(inputFile);
-            const outputFile = getOutputFile(path, {
-                dirPath,
-                matchInputFilename,
-                outputFilename,
-                inputFile,
-            });
             
             if (ignores(cwd, inputFilename, options))
                 continue;
             
             allFiles.push({
+                mainPath,
+                dirPath,
+                matchInputFilename,
                 plugin,
                 inputFile,
-                outputFile,
                 inputFilename,
                 outputFilename,
             });
@@ -80,7 +82,17 @@ const createScan = (files) => (path, {push, progress, options}) => {
     
     const n = allFiles.length;
     
-    for (const [i, {inputFile, outputFile, inputFilename, outputFilename, plugin}] of allFiles.entries()) {
+    for (const [i, current] of allFiles.entries()) {
+        const {
+            dirPath,
+            matchInputFilename,
+            inputFile,
+            inputFilename,
+            outputFilename,
+            plugin,
+            mainPath,
+        } = current;
+        
         progress({
             i,
             n,
@@ -103,8 +115,11 @@ const createScan = (files) => (path, {push, progress, options}) => {
         
         const {message} = places[0];
         
-        push(outputFile, {
-            inputFile,
+        push(inputFile, {
+            dirPath,
+            mainPath,
+            matchInputFilename,
+            
             outputFilename,
             message,
             plugins,
@@ -165,15 +180,16 @@ function getOutputFile(path, {dirPath, matchInputFilename, outputFilename, input
 }
 
 function parseMatcher(matcher, options) {
-    for (const [name, value] of entries(options)) {
-        if (name === 'filename') {
-            const ext = extname(value);
-            const name = value.replace(ext, '');
-            
-            matcher = matcher.replaceAll(`__name`, name);
-            matcher = matcher.replaceAll(`__ext`, ext);
-        }
-    }
+    const {filename} = options;
+    
+    if (!filename)
+        return matcher.split(' -> ');
+    
+    const ext = extname(filename);
+    const shortName = filename.replace(ext, '');
+    
+    matcher = matcher.replaceAll(`__name`, shortName);
+    matcher = matcher.replaceAll(`__ext`, ext);
     
     return matcher.split(' -> ');
 }

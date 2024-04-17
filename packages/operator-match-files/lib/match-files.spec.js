@@ -506,14 +506,10 @@ test('putout: operator: match-files: __name', (t) => {
         __filesystem,
     ));
     
-    const expected = [
-        '/',
-        [
-            '/.eslintrc.js',
-            '{}',
-        ],
-        '/.eslintrc.json',
-    ];
+    const expected = ['/', [
+        '/.eslintrc.js',
+        '{}',
+    ]];
     
     t.deepEqual(result, expected);
     t.end();
@@ -521,12 +517,12 @@ test('putout: operator: match-files: __name', (t) => {
 
 test('putout: operator: match-files: __name: dot', (t) => {
     const source = stringify(['/', [
-        '/package.json',
-        '{}',
+        '/index.mjs',
+        'export default {}',
     ]]);
     
     const files = {
-        '__name.json -> __name.js': convertEsmToCommonjs,
+        '__name.mjs -> __name.cjs': convertEsmToCommonjs,
     };
     
     const jsSource = toJS(source, __filesystem);
@@ -535,7 +531,7 @@ test('putout: operator: match-files: __name: dot', (t) => {
     transform(ast, jsSource, {
         rules: {
             'match-files': ['on', {
-                filename: 'package.json',
+                filename: 'index.mjs',
             }],
         },
         plugins: [
@@ -548,14 +544,7 @@ test('putout: operator: match-files: __name: dot', (t) => {
         __filesystem,
     ));
     
-    const expected = [
-        '/',
-        [
-            '/package.json',
-            '{}',
-        ],
-        '/package.js',
-    ];
+    const expected = ['/', ['/index.cjs', 'bW9kdWxlLmV4cG9ydHMgPSB7fTsK']];
     
     t.deepEqual(result, expected);
     t.end();
