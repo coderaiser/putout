@@ -1,8 +1,12 @@
+import {dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {test, stub} from 'supertape';
 import tryToCatch from 'try-to-catch';
 import process from 'node:process';
 import {getESLint} from './get-eslint.mjs';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const CWD = process.cwd();
 
 test('putout: eslint: get-eslint: config: putout', async (t) => {
@@ -21,13 +25,13 @@ test('putout: eslint: get-eslint: config: putout', async (t) => {
     const loadESLintOverride = stub().resolves(ESLintOverride);
     
     await getESLint({
-        name: 'index.js',
+        name: new URL('index.js', import.meta.url).pathname,
         fix: false,
         loadESLintOverride,
     });
     
     const expected = [{
-        cwd: CWD,
+        cwd: __dirname,
         fix: false,
         overrideConfig: {
             ignorePatterns: ['!.*'],

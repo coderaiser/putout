@@ -589,7 +589,6 @@ test('putout: engine-processor: md: json: options', async (t) => {
 
 test('putout: engine-processor: lint + js', async (t) => {
     const options = {};
-    
     const processorRunners = [{
         files: '*.md',
         fix: () => 'hello',
@@ -601,12 +600,11 @@ test('putout: engine-processor: lint + js', async (t) => {
     }];
     
     const rawSource = 'hello world';
-    
     const fix = true;
     
     const {processedSource} = await runProcessors({
         fix,
-        name: 'hello.md',
+        name: join(__dirname, 'hello.md'),
         processFile: processFile({
             fix,
         }),
@@ -621,7 +619,6 @@ test('putout: engine-processor: lint + js', async (t) => {
 
 test('putout: engine-processor: no fix', async (t) => {
     const options = {};
-    
     const processorRunners = [{
         files: '*.md',
         branch: () => [{
@@ -637,7 +634,7 @@ test('putout: engine-processor: no fix', async (t) => {
     
     const {processedSource} = await runProcessors({
         fix,
-        name: 'hello.md',
+        name: join(__dirname, 'hello.md'),
         processFile: processFile({
             fix,
         }),

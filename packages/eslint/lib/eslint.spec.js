@@ -1,5 +1,6 @@
 'use strict';
 
+const {join} = require('node:path');
 const process = require('process');
 const mockRequire = require('mock-require');
 
@@ -10,7 +11,7 @@ const {reRequire, stopAll} = mockRequire;
 
 test('putout: eslint: places', async (t) => {
     const [, result] = await eslint({
-        name: 'hello.js',
+        name: join(__dirname, 'hello.js'),
         code: `const t = 'hi'\n`,
         fix: false,
     });
@@ -30,7 +31,7 @@ test('putout: eslint: places', async (t) => {
 
 test('putout: eslint: places: success', async (t) => {
     const [, result] = await eslint({
-        name: '<input>',
+        name: join(__dirname, '<input>'),
         code: `const t = 'hi';\n`,
         fix: false,
     });
@@ -66,7 +67,7 @@ test('putout: eslint: no eslint', async (t) => {
 
 test('putout: eslint: fix', async (t) => {
     const [result] = await eslint({
-        name: 'hello.js',
+        name: join(__dirname, 'hello.js'),
         code: `const t = 'hi'\n`,
         fix: true,
     });
@@ -92,7 +93,7 @@ test('putout: eslint: fix: same', async (t) => {
 
 test('putout: eslint: fix: cache', async (t) => {
     const [result] = await eslint({
-        name: 'hello.js',
+        name: join(__dirname, 'hello.js'),
         code: `const t = 'hi'\n`,
         fix: true,
     });
@@ -340,14 +341,14 @@ test('putout: eslint: enable putout', async (t) => {
     };
     
     const [source] = await eslint({
-        name: 'hello.js',
-        code: `var a = 1; module.exports = a;`,
+        name: join(__dirname, 'hello.js'),
+        code: `var a = 1; module.exports = a`,
         fix: true,
         putout: true,
         config,
     });
     
-    t.equal(source, `'use strict';\n\nconst a = 1;\n\nmodule.exports = a;\n\n`);
+    t.equal(source, `'use strict';\n\nmodule.exports = 1;\n\n`);
     t.end();
 });
 
