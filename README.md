@@ -16,7 +16,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊**Putout** is a JavaScript Linter, pluggable and configurable code transformer based on **Babel** with built-in **ESLint** and [code printer](https://github.com/putoutjs/printer#readme). It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
+🐊**Putout** is a JavaScript Linter, pluggable and configurable code transformer, drop-in **ESLint** replacement with built-in [code printer](https://github.com/putoutjs/printer#readme). It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
 The main target is **JavaScript**, but:
 
 - ✅ JSX;
@@ -84,6 +84,11 @@ module.exports.replace = () => ({
 ```
 
 *Choose wisely, competitors cannot even fix…* 🤫
+
+### Drpo-in ESLint replacement
+
+🐊**Putout** in addition to own format [`.putout.json`](#-configuration) supports both `eslint.config.js` and `.eslintrc.json`, it has ability to autodect format you use.
+Also it works good with monorepository, since it uses `eslint.config.js` that is closer to linting file, instead of `cwd` of ESLint run.
 
 ## 🙏 Whom should I thank for this project exist?
 
