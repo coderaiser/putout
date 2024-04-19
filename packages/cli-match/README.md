@@ -36,10 +36,10 @@ const {code, message} = await match({
     readFile, // optional
     writeFile, // optional
 });
-```
 
 console.log(message);
 process.exit(code);
+```
 
 ## License
 
