@@ -49,3 +49,22 @@ test('eslint-flat: matchToFlatDir: require', (t) => {
     t.ok(error);
     t.end();
 });
+
+test('eslint-flat: matchToFlatDir: no match', (t) => {
+    const result = matchToFlatDir('./hello', [{
+        files: ['world'],
+        rules: {
+            semi: 'off',
+        },
+    }]);
+    
+    const expected = [{
+        files: ['**/hello/world'],
+        rules: {
+            semi: 'off',
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
