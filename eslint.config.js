@@ -1,8 +1,8 @@
 'use strict';
 
 const {safeAlign} = require('eslint-plugin-putout/config');
-
 const importPlugin = require('eslint-plugin-import');
+const {matchToFlatDir} = require('./packages/eslint-flat');
 
 module.exports = [
     ...safeAlign, {
@@ -15,4 +15,5 @@ module.exports = [
             import: importPlugin,
         },
     },
+    ...matchToFlatDir('./packages/putout'),
 ];
