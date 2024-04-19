@@ -11,7 +11,6 @@ const namesStore = fullstore([]);
 
 const findGit = once(async ({findUp}) => {
     const type = 'directory';
-    
     const gitDir = await findUp('.git', {
         type,
     });
@@ -65,5 +64,8 @@ module.exports.set = async function set({findUp}) {
 };
 
 function add(names) {
-    spawnSync('git', ['add', ...names]);
+    spawnSync('git', [
+        'add',
+        ...names,
+    ]);
 }
