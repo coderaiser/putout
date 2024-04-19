@@ -14,15 +14,15 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊Putout is a JavaScript Linter, pluggable and configurable code transformer, drop-in ESLint replacement with built-in code printer. It has a lot of transformations that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices. The main target is JavaScript, but:
+🐊**Putout** is a JavaScript Linter, pluggable and configurable code transformer, drop-in **ESLint** replacement with built-in [code printer](https://github.com/putoutjs/printer). It has a lot of transformations that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices. The main target is JavaScript, but:
 
-✅ JSX;
-✅ TypeScript;
-✅ Flow;
-✅ Yaml;
-✅ Markdown;
-✅ JSON;
-✅ Ignore;
+- ✅ JSX;
+- ✅ TypeScript;
+- ✅ Flow;
+- ✅ Yaml;
+- ✅ Markdown;
+- ✅ JSON;
+- ✅ Ignore;
 
 are also supported. Here is how it looks like:
 
