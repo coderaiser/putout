@@ -1,19 +1,7 @@
 'use strict';
 
-const {matchToFlatDir} = require('./match-flat-to-dir');
-const {entries} = Object;
+const {matchToFlatDir} = require('./match-to-flat-dir');
+const {matchToFlat} = require('./match-to-flat');
 
 module.exports.matchToFlatDir = matchToFlatDir;
-
-module.exports.matchToFlat = (config) => {
-    const result = [];
-    
-    for (const [name, rules] of entries(config)) {
-        result.push({
-            files: [name],
-            rules,
-        });
-    }
-    
-    return result;
-};
+module.exports.matchToFlat = matchToFlat;
