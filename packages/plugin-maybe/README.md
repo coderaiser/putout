@@ -30,12 +30,14 @@ npm i @putout/plugin-maybe -D
 ### ❌ Example of incorrect code
 
 ```js
+const {isArray} = Array;
 const array = isArray(a) ? a : [a];
 ```
 
 ### ✅ Example of correct code
 
 ```js
+const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 const array = maybeArray(a);
 ```
