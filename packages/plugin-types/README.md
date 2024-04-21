@@ -43,6 +43,8 @@ Supported assertions:
 - `isSymbol`;
 - `isNull`;
 - `isBigInt`;
+- `isArray`;
+- `isEmptyArray`;
 
 #### ❌ Example of incorrect code
 

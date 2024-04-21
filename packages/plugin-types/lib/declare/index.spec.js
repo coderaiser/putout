@@ -39,3 +39,13 @@ test('putout: plugin: types: declare: is-symbol', (t) => {
     t.transform('is-symbol');
     t.end();
 });
+
+test('putout: plugin: types: declare: is-array', (t) => {
+    t.transform('is-array');
+    t.end();
+});
+
+test('putout: plugin: types: declare: is-empty-array', (t) => {
+    t.transform('is-empty-array');
+    t.end();
+});

@@ -11,4 +11,6 @@ module.exports.declare = () => ({
     isSymbol: `const isSymbol = (a) => typeof a === 'symbol'`,
     isBigInt: `const isBigInt = (a) => typeof a === 'bigint'`,
     isNull: `const isNull = (a) => !a && typeof a === 'object'`,
+    isArray: 'const {isArray} = Array',
+    isEmptyArray: 'const isEmptyArray = (a) => isArray(a) && !a.length',
 });

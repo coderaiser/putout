@@ -1,0 +1,1 @@
+isEmptyArray(x);
