@@ -1,3 +1,27 @@
+2024.04.21, v35.16.0
+
+fix:
+- c4ad97e8b @putout/operator-match-files: rename
+- e5dbaca94 @putout/operator-match-files: dot
+- 0c02ccf22 eslint: cwd
+
+feature:
+- 463d2646f putout: @putout/plugin-types v4.0.0
+- 7f971e8ba putout: @putout/plugin-declare v4.0.0
+- 3b043c38f @putout/plugin-declare: isArray: move out to @putout/plugin-types
+- 844e20dbb @putout/plugin-types: drop support of node < 18
+- bd2e91935 @putout/plugin-types: declare: isArray, isEmptyArray: add
+- 5fa1a1cd5 @putout/eslint-flat: move out matchToFlat
+- 8c8705b95 @putout/eslint-flat: add support of FlatConfig
+- baf9706c6 @putout/eslint-flat: add
+- 1ba8ae649 @putout/operator-match-files: improve rename
+- ed0d47673 @putout/eslint: get-eslint: Flat Config
+- 65aaa5a93 @putout/eslint: improve support of FlatConfig
+- d4b426a3c @putout/operator-match-file: find existing
+- 405300d88 @putout/operator-filesystem: maybeRemoveFile: search in current directory only
+- f561bfd03 @putout/operator-match-files: copy -> rename
+- 812886108 @putout/operator-ignore: __json: no property found
+
 2024.04.13, v35.15.0
 
 fix:
