@@ -85,7 +85,7 @@ module.exports.replace = () => ({
 
 *Choose wisely, competitors cannot even fix…* 🤫
 
-### Drpo-in ESLint replacement
+### Drop-in ESLint replacement
 
 🐊**Putout** in addition to own format [`.putout.json`](#-configuration) supports both `eslint.config.js` and `.eslintrc.json`, it has ability to autodect format you use.
 Also it works good with monorepository, since it uses `eslint.config.js` that is closer to linting file, instead of `cwd` of ESLint run.
