@@ -10,8 +10,6 @@ module.exports.declare = () => ({
     ...wrap,
     ...freshImport,
     ...fixtures,
-    isArray: 'const {isArray} = Array',
-    
     parse: 'const {parse} = JSON',
     stringify: 'const {stringify} = JSON',
     

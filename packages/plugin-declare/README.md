@@ -5,7 +5,6 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to declare variable that was not defined before, including:
 
-- is types: `isFn`, `isString`, `isNumber`, `isObject`, `isBool`, `isUndefined`, `isSymbol` and `isNull`;
 - [maybe](https://github.com/coderaiser/putout/tree/master/packages/plugin-maybe#readme): `maybeArray`, `maybeFn`, `maybeEmptyArray`;
 - wrap: `not`,`id`, `returns`;
 - fresh-import: `freshImport`, `freshImportDefault`;
@@ -57,7 +56,6 @@ Use options:
                 "parse",
                 "stringify",
                 "defineProperty",
-                "isArray",
                 "noop",
                 "join",
                 "keys",
@@ -134,21 +132,6 @@ const {values} = Object;
 
 const object = {};
 const allValues = values(object);
-```
-
-## `isArray`
-
-### ❌ Example of incorrect code
-
-```js
-isArray(array);
-```
-
-### ✅ Example of correct code
-
-```js
-const {isArray} = Array;
-isArray(array);
 ```
 
 ## `noop`

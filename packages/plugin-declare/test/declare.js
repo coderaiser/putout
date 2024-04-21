@@ -22,11 +22,6 @@ test('putout: plugin: declare: transform: assign', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare: transform: is-array', (t) => {
-    t.transform('is-array');
-    t.end();
-});
-
 test('putout: plugin: declare: transform: keys', (t) => {
     t.transform('keys');
     t.end();
