@@ -13,7 +13,5 @@ export const match = {
 export default [
     ...safeAlign,
     ...matchToFlat(match), {
-        ignores: [
-            '**/fixture',
-        ],
+        ignores: ['**/fixture'],
     }];

@@ -42,4 +42,3 @@ const readDirectory = ({readdir = _readdir, readESLintConfig = _readESLintConfig
     
     return importPackages;
 };
-
