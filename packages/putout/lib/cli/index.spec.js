@@ -1369,7 +1369,7 @@ test('putout: cli: tsx', async (t) => {
         processors: ['javascript'],
     });
     
-    mockRequire('./eslint', eslint);
+    mockRequire('@putout/eslint', eslint);
     mockRequire('./get-options', getOptions);
     
     reRequire('./process-file');
@@ -1500,7 +1500,7 @@ test('putout: cli: --plugins', async (t) => {
         '--no-cache',
     ];
     
-    mockRequire('./eslint', eslint);
+    mockRequire('@putout/eslint', eslint);
     
     reRequire('./process-file');
     reRequire('./runner/writer.js');
