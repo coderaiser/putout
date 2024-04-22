@@ -1,7 +1,6 @@
 'use strict';
 
 const {test} = require('supertape');
-const tryCatch = require('try-catch');
 
 const {matchToFlat, matchToFlatDir} = require('./flat');
 
@@ -23,8 +22,8 @@ test('eslint-flat: matchToFlat', (t) => {
     t.end();
 });
 
-test('eslint-flat: matchToFlatDir', (t) => {
-    const result = matchToFlatDir('./hello', {
+test('eslint-flat: matchToFlatDir', async (t) => {
+    const result = await matchToFlatDir('./hello', {
         match: {
             world: {
                 semi: 'off',
@@ -43,15 +42,15 @@ test('eslint-flat: matchToFlatDir', (t) => {
     t.end();
 });
 
-test('eslint-flat: matchToFlatDir: require', (t) => {
-    const [error] = tryCatch(matchToFlatDir, './hello');
+test('eslint-flat: matchToFlatDir: not found', async (t) => {
+    const config = await matchToFlatDir('./hello');
     
-    t.ok(error);
+    t.deepEqual(config, []);
     t.end();
 });
 
-test('eslint-flat: matchToFlatDir: no match', (t) => {
-    const result = matchToFlatDir('./hello', [{
+test('eslint-flat: matchToFlatDir: no match', async (t) => {
+    const result = await matchToFlatDir('./hello', [{
         files: ['world'],
         rules: {
             semi: 'off',

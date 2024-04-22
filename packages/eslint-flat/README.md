@@ -58,9 +58,9 @@ module.exports.match = match;
 
 This also gives you ability to use new configs in monorepo:
 
-### matchToFlatDir(path)
+### `matchToFlatDir(path)`
 
-If yourc `eslint.config.js` exports `match`, you can use `matchToFlatDir` to build correct `files` arrays:
+If your `eslint.config.js` exports `match`, you can use `matchToFlatDir` to build correct `files` arrays:
 
 ```js
 const {safeAlign} = require('eslint-plugin-putout/config');
@@ -87,6 +87,22 @@ module.exports = [
             'n/no-unsupported-features/node-builtins': 'off',
         },
     },
+];
+```
+
+### `mergeESLintConfigs(directories)`
+
+When you have monorepo with lots of packages in `./packages` directory:
+
+```js
+const {safeAlign} = require('eslint-plugin-putout/config');
+const {mergeESLintConfigs} = require('@putout/eslint-flat');
+
+const config = await mergeESlintConfigs(['./packages']);
+
+module.exports = [
+    ...safeAlign,
+    ...config,
 ];
 ```
 

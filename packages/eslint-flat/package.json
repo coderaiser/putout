@@ -25,6 +25,7 @@
     "report": "madrun report"
   },
   "dependencies": {
+    "@eslint/eslintrc": "^3.0.2",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.0"
   },
