@@ -2,7 +2,11 @@
 
 const {test} = require('supertape');
 
-const {matchToFlat, matchToFlatDir} = require('./flat');
+const {
+    matchToFlat,
+    matchToFlatDir,
+    createESLintConfig,
+} = require('./flat');
 
 test('eslint-flat: matchToFlat', (t) => {
     const result = matchToFlat({
@@ -63,6 +67,39 @@ test('eslint-flat: matchToFlatDir: no match', async (t) => {
             semi: 'off',
         },
     }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('eslint-flat: createESLintConfig', (t) => {
+    const configA = [{
+        files: ['world'],
+        rules: {
+            semi: 'off',
+        },
+    }, {
+        files: ['world'],
+        rules: {
+            semi: 'off',
+        },
+    }];
+    
+    const configB = [{
+        files: ['world'],
+        rules: {
+            semi: 'off',
+        },
+    }, {
+        files: ['world'],
+        rules: {
+            semi: 'off',
+        },
+    }];
+    
+    const result = createESLintConfig([configA, configB]);
+    
+    const expected = [configA, configB].flat();
     
     t.deepEqual(result, expected);
     t.end();

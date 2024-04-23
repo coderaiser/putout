@@ -1,4 +1,4 @@
-import {matchToFlat} from '../eslint-flat/lib/flat.js';
+import {matchToFlat, createESLintConfig} from '@putout/eslint-flat';
 import {safeAlign} from 'eslint-plugin-putout/config';
 
 export const match = {
@@ -10,8 +10,9 @@ export const match = {
     },
 };
 
-export default [
-    ...safeAlign,
-    ...matchToFlat(match), {
+export default createESLintConfig([
+    safeAlign,
+    matchToFlat(match), {
         ignores: ['**/fixture'],
-    }];
+    },
+]);

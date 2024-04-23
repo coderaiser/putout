@@ -1,6 +1,5 @@
 {
   "name": "@putout/eslint-flat",
-  "private": true,
   "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",

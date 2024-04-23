@@ -106,6 +106,14 @@ module.exports = [
 ];
 ```
 
+### `createESLintConfig(configs)`
+
+Gives ability to avoid lots of spreads:
+
+```js
+module.exports = createESLintConfig([safeAlign, config]);
+```
+
 ## License
 
 MIT
