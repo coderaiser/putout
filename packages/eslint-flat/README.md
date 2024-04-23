@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/eslint-flat.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/eslint-flat "npm"
 
-Read `.putout.json` and convert `rules`  into `match`.
+Helps deal with **ESLint** FlatConfig.
 
 ## Install
 
