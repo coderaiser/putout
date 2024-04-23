@@ -10,9 +10,6 @@ export const match = {
     },
 };
 
-export default createESLintConfig([
-    safeAlign,
-    matchToFlat(match), {
-        ignores: ['**/fixture'],
-    },
-]);
+export default createESLintConfig([safeAlign, matchToFlat(match), {
+    ignores: ['**/fixture'],
+}]);
