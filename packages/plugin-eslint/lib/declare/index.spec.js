@@ -14,7 +14,12 @@ test('plugin-eslint: declare: report', (t) => {
     t.end();
 });
 
-test('plugin-eslint: declare: transform: compare', (t) => {
+test('plugin-eslint: declare: transform: safe-align', (t) => {
     t.transform('safe-align');
+    t.end();
+});
+
+test('plugin-eslint: declare: transform: eslint-flat', (t) => {
+    t.transform('eslint-flat');
     t.end();
 });
