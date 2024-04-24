@@ -95,8 +95,8 @@ module.exports = [
 When you have monorepo with lots of packages in `./packages` directory:
 
 ```js
-const {safeAlign} = require('eslint-plugin-putout/config');
-const {mergeESLintConfigs} = require('@putout/eslint-flat');
+import {safeAlign} from 'eslint-plugin-putout/config';
+import {mergeESLintConfigs} from '@putout/eslint-flat';
 
 const config = await mergeESlintConfigs(['./packages']);
 
@@ -111,7 +111,7 @@ module.exports = [
 Gives ability to avoid lots of spreads:
 
 ```js
-module.exports = createESLintConfig([safeAlign, config]);
+export default createESLintConfig([safeAlign, config]);
 ```
 
 ## License
