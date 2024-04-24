@@ -1,6 +1,7 @@
 'use strict';
 
-const {operator} = require('putout');
+const {operator, types} = require('putout');
+const {isObjectPattern} = types;
 const {
     getTemplateValues,
     remove,
@@ -17,6 +18,10 @@ module.exports.fix = ({path}) => {
 module.exports.traverse = ({push}) => ({
     [GET_PROPERTIES]: (path) => {
         const {__a} = getTemplateValues(path, GET_PROPERTIES);
+        
+        if (!isObjectPattern(__a))
+            return;
+        
         const __cPath = path.get('declarations.0.init.arguments.1');
         
         for (const nameProp of __cPath.get('elements')) {

@@ -20,6 +20,11 @@ test('putout: remove-unused-get-properties-argument: no report', (t) => {
     t.end();
 });
 
+test('putout: remove-unused-get-properties-argument: no destructuring', (t) => {
+    t.noReport('no-destructuring');
+    t.end();
+});
+
 test('putout: remove-unused-get-properties-argument: transform', (t) => {
     t.transform('remove-unused-get-properties-argument');
     t.end();
