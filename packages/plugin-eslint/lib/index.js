@@ -14,6 +14,7 @@ const applySafeAlign = require('./apply-safe-align/index.js');
 const addPutout = require('./add-putout/index.js');
 const removeUselessSlice = require('./remove-useless-slice');
 const convertFilesToArray = require('./convert-files-to-array');
+const applyMatchToFlat = require('./apply-match-to-flat');
 
 module.exports.rules = {
     'add-putout': addPutout,
@@ -30,4 +31,5 @@ module.exports.rules = {
     'remove-no-missing': removeNoMissing,
     'remove-useless-slice': removeUselessSlice,
     'convert-files-to-array': convertFilesToArray,
+    'apply-match-to-flat': applyMatchToFlat,
 };

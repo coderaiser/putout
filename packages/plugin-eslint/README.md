@@ -22,6 +22,7 @@ npm i @putout/plugin-eslint -D
     "rules": {
         "eslint/add-putout": "on",
         "eslint/apply-safe-align": "on",
+        "eslint/apply-match-to-flat": "on",
         "eslint/move-putout-to-end-of-extends": "on",
         "eslint/convert-files-to-array": "on",
         "eslint/convert-ide-to-safe": "on",
@@ -70,6 +71,50 @@ npm i @putout/plugin-eslint -D
         "node"
     ]
 }
+```
+
+## apply-match-to-flat
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/805d120cbee5d216b91473d5a71f8d78/1f5b440ef7b63b56a4a12cdfcafe419764a62889).
+
+### ❌ Example of incorrect code
+
+```js
+import {safeAlign} from 'eslint-plugin-putout/config';
+
+export default [
+    ...safeAlign, {
+        files: ['*.d.ts'],
+        rules: {
+            'no-var': 'off',
+        },
+    }, {
+        files: ['*.spec.*'],
+        rules: {
+            'node/no-extraneous-import': 'off',
+        },
+    },
+];
+```
+
+### ✅ Example of correct code
+
+```js
+import {safeAlign} from 'eslint-plugin-putout/config';
+
+const config = matchToFlat({
+    '*.d.ts': {
+        'no-var': 'off',
+    },
+    '*.spec.*': {
+        'node/no-extraneous-import': 'off',
+    },
+});
+
+export default [
+    ...safeAlign,
+    ...config,
+];
 ```
 
 ## move-putout-to-end-of-extends
