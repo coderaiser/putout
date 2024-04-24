@@ -100,7 +100,7 @@ import {mergeESLintConfigs} from '@putout/eslint-flat';
 
 const config = await mergeESlintConfigs(['./packages']);
 
-module.exports = [
+export default [
     ...safeAlign,
     ...config,
 ];
