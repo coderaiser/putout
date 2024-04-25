@@ -29,3 +29,8 @@ test('eslint: apply-match-to-flat: no report: match', (t) => {
     t.noReport('match');
     t.end();
 });
+
+test('eslint: apply-match-to-flat: no report: no-files', (t) => {
+    t.noReport('no-files');
+    t.end();
+});

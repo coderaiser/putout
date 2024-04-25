@@ -60,6 +60,11 @@ module.exports.traverse = ({push, pathStore, store}) => ({
         if (!path.parentPath.isArrayExpression())
             return;
         
+        const {filesPath, rulesPath} = getProperties(path, ['files', 'rules']);
+        
+        if (!filesPath || !rulesPath)
+            return;
+        
         pathStore(path);
     },
     'export const match = __'() {
