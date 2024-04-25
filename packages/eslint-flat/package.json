@@ -1,6 +1,6 @@
 {
   "name": "@putout/eslint-flat",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Helps dial with ESLint Flat Configs",
