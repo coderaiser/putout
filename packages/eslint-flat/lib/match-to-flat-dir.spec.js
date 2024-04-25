@@ -35,3 +35,19 @@ test('eslint-flat: matchToFlatDir: files: fn', async (t) => {
     t.deepEqual(result, config);
     t.end();
 });
+
+test('eslint-flat: matchToFlatDir: ignores', async (t) => {
+    const result = await matchToFlatDir('./hello', [{
+        ignores: ['**/fixture'],
+    }]);
+    
+    const expected = [{
+        files: ['**/hello'],
+        ignores: [
+            '**/hello/**/fixture',
+        ],
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

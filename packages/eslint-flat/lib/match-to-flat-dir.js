@@ -4,7 +4,7 @@ const process = require('node:process');
 const {join} = require('node:path');
 const {readESLintConfig: _readESLintConfig} = require('./read-eslint-config');
 const isFn = (a) => typeof a === 'function';
-const {entries} = Object;
+const {assign, entries} = Object;
 const CWD = process.cwd();
 
 module.exports.matchToFlatDir = matchToFlatDir;
@@ -24,7 +24,10 @@ function parseFlatConfig(path, flatConfig) {
     const result = [];
     
     for (const currentConfig of flatConfig) {
-        const {files} = currentConfig;
+        const {files, ignores: ignoresRaw = []} = currentConfig;
+        const ignores = ignoresRaw.map(parseIgnores(path));
+        
+        maybeAssignIgnores(currentConfig, ignores);
         
         if (!files) {
             result.push({
@@ -49,6 +52,17 @@ function parseFlatConfig(path, flatConfig) {
     
     return result;
 }
+
+const parseIgnores = (path) => (name) => '**/' + join(path, name);
+
+const maybeAssignIgnores = (config, ignores) => {
+    if (!ignores.length)
+        return;
+    
+    assign(config, {
+        ignores,
+    });
+};
 
 function parseMatch(path, match) {
     const result = [];

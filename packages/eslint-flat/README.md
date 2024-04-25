@@ -86,6 +86,9 @@ module.exports = [
         rules: {
             'n/no-unsupported-features/node-builtins': 'off',
         },
+        ignores: [
+            ['**/packages/putout/**/fixture'],
+        ],
     },
 ];
 ```
