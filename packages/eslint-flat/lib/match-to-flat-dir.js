@@ -53,7 +53,12 @@ function parseFlatConfig(path, flatConfig) {
     return result;
 }
 
-const parseIgnores = (path) => (name) => '**/' + join(path, name);
+const parseIgnores = (path) => (name) => {
+    if (isFn(name))
+        return name;
+    
+    return '**/' + join(path, name);
+};
 
 const maybeAssignIgnores = (config, ignores) => {
     if (!ignores.length)

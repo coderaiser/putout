@@ -1,6 +1,6 @@
 'use strict';
 
-const {test} = require('supertape');
+const {test, stub} = require('supertape');
 const {matchToFlatDir} = require('./match-to-flat-dir');
 const noop = () => {};
 
@@ -45,6 +45,22 @@ test('eslint-flat: matchToFlatDir: ignores', async (t) => {
         files: ['**/hello'],
         ignores: [
             '**/hello/**/fixture',
+        ],
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('eslint-flat: matchToFlatDir: ignores: fn', async (t) => {
+    const result = await matchToFlatDir('./hello', [{
+        ignores: [stub()],
+    }]);
+    
+    const expected = [{
+        files: ['**/hello'],
+        ignores: [
+            stub(),
         ],
     }];
     
