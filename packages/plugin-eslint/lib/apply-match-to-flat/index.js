@@ -55,15 +55,21 @@ module.exports.fix = ({objects}) => {
     }));
 };
 
-module.exports.traverse = ({push, pathStore}) => ({
+module.exports.traverse = ({push, pathStore, store}) => ({
     ObjectExpression(path) {
         if (!path.parentPath.isArrayExpression())
             return;
         
         pathStore(path);
     },
+    'export const match = __'() {
+        store('match', true);
+    },
     Program: {
         exit(path) {
+            if (store('match'))
+                return;
+            
             const objects = pathStore();
             
             if (!objects.length)

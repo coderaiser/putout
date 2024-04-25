@@ -24,3 +24,8 @@ test('eslint: apply-match-to-flat: no report: json', (t) => {
     t.noReport('json');
     t.end();
 });
+
+test('eslint: apply-match-to-flat: no report: match', (t) => {
+    t.noReport('match');
+    t.end();
+});
