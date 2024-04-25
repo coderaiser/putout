@@ -210,3 +210,24 @@ test('putout: config: coverage', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: config: .github/**/*.yml', (t) => {
+    const {match} = putoutConfig;
+    const result = match['.github/**/*.yml'];
+    
+    const expected = {
+        'github': 'on',
+        'github/set-node-versions': ['on', {
+            versions: [
+                '18.x',
+                '20.x',
+                '21.x',
+                '22.x',
+            ],
+        }],
+        'remove-useless-escape': 'off',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
