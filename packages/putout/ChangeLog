@@ -1,3 +1,19 @@
+2024.04.25, v35.16.1
+
+fix:
+- ec9c33c76 @putout/plugin-eslint: apply-match-to-flat: match declared
+- 5daeef38d @putout/eslint-flat: match-to-flat-dir: ignores: fn
+
+feature:
+- d0daabdb9 @putout/plugin-github: set-node-version: node v22 (https://nodejs.org/en/blog/announcements/v22-release-announce)
+- 90b33aee6 @putout/eslint-flat: match-to-flat-dir: ignores
+- c68f66b2f @putout/plugin-eslint: apply-match-to-flat: export match
+- 79c3afc15 @putout/plugin-eslint: apply-match-to-flat: add
+- ab03dc406 @putout/remove-unused-get-properties-argument: exclude not ObjectPattern
+- d7c28b381 @putout/plugin-eslint: declare: add support of @putout/eslint-flat
+- 6bef4fcdd @putout/eslint-flat: add
+- bbef3c8d2 eslint-flat: mergeESLintConfigs: add
+
 2024.04.21, v35.16.0
 
 fix:
