@@ -1,15 +1,14 @@
 import x from 'x';
 
-const config = matchToFlat({
+export const match = {
     '*.d.ts': {
         'no-var': 'off',
     },
     '*.spec.*': {
         'node/no-extraneous-import': 'off',
     },
-});
-
+};
 export default [
     ...safeAlign,
-    ...config,
+    ...matchToFlat(match),
 ];

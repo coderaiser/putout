@@ -20,11 +20,12 @@ const {
     ObjectProperty,
     ObjectExpression,
     isStatement,
+    CallExpression,
 } = types;
 
 module.exports.report = () => `Apply 'matchToFlat()'`;
 
-const createMatchToFlat = template('const config = matchToFlat(%%match%%)');
+const createMatchToFlat = template('export const match = %%match%%');
 
 module.exports.exclude = () => [__json];
 
@@ -41,7 +42,9 @@ module.exports.fix = ({objects}) => {
         
         if (!added) {
             added = true;
-            object.parentPath.node.elements.push(SpreadElement(Identifier('config')));
+            const node = SpreadElement(CallExpression(Identifier('matchToFlat'), [Identifier('match')]));
+            
+            object.parentPath.node.elements.push(node);
         }
         
         remove(object);
