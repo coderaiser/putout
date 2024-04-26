@@ -221,7 +221,6 @@ test('putout: config: .github/**/*.yml', (t) => {
             versions: [
                 '18.x',
                 '20.x',
-                '21.x',
                 '22.x',
             ],
         }],

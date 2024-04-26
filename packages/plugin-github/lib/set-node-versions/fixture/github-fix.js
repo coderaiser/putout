@@ -7,7 +7,6 @@ __putout_processor_yaml({
                     "node-version": [
                         "18.x",
                         "20.x",
-                        "21.x",
                         "22.x"
                     ]
                 }
