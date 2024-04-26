@@ -1,3 +1,10 @@
+2024.04.26, v35.16.2
+
+feature:
+- 7a30d7c7f @putout/plugin-github: set-node-version: drop node v21 EOL
+- 2079a3481 @putout/plugin-eslint: apply-match-to-flat: exclude not two properties
+- 924f9b1fc @putout/plugin-eslint: apply-match-to-files: exclude objects whith no rules or files
+
 2024.04.25, v35.16.1
 
 fix:
