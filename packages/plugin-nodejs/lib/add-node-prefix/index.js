@@ -10,7 +10,6 @@ const {
 const {isCallExpression} = types;
 
 const REQUIRE = 'require("__a")';
-const IMPORT = 'import("__a")';
 
 module.exports.report = ({value}) => {
     return `Use 'node:${value}' instead of '${value}'`;
@@ -29,16 +28,6 @@ module.exports.fix = ({path, value}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    [IMPORT](path) {
-        const {__a} = getTemplateValues(path, IMPORT);
-        const {value} = __a;
-        
-        if (check(value))
-            push({
-                path,
-                value,
-            });
-    },
     [REQUIRE](path) {
         const {__a} = getTemplateValues(path, REQUIRE);
         const {value} = __a;
@@ -49,7 +38,7 @@ module.exports.traverse = ({push}) => ({
                 value,
             });
     },
-    ImportDeclaration(path) {
+    'ImportDeclaration|ImportExpression'(path) {
         const {value} = path.node.source;
         
         if (check(value))
