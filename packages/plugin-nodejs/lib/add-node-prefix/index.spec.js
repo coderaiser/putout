@@ -29,3 +29,8 @@ test('packages: add-node-prefix: transform: commonjs', (t) => {
     t.transform('commonjs');
     t.end();
 });
+
+test('packages: add-node-prefix: transform: dynamic', (t) => {
+    t.transform('dynamic');
+    t.end();
+});
