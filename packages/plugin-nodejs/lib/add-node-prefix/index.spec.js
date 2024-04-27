@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('packages: add-node-prefix: report', (t) => {
-    t.report('add-node-prefix', `Add 'node:' prefix`);
+    t.report('add-node-prefix', `Use 'node:fs' instead of 'fs'`);
     t.end();
 });
 

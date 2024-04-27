@@ -4,11 +4,12 @@ const {operator} = require('putout');
 const {isBuiltin} = require('module');
 const {setLiteralValue} = operator;
 
-module.exports.report = () => `Add 'node:' prefix`;
+module.exports.report = ({value}) => {
+    return `Use 'node:${value}' instead of '${value}'`;
+};
 
-module.exports.fix = (path) => {
+module.exports.fix = ({path, value}) => {
     const {source} = path.node;
-    const {value} = source;
     
     setLiteralValue(source, `node:${value}`);
 };
@@ -23,6 +24,9 @@ module.exports.traverse = ({push}) => ({
         if (!isBuiltin(value))
             return;
         
-        push(path);
+        push({
+            path,
+            value,
+        });
     },
 });
