@@ -56,12 +56,14 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/534093e0bf0a4
 
 ```js
 import fs from 'fs';
+const path = require('path');
 ```
 
 ### ✅ Example of correct code
 
 ```js
 import fs from 'node:fs';
+const path = require('node:path');
 ```
 
 ### Comparison

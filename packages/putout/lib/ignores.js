@@ -1,6 +1,6 @@
 'use strict';
 
-const {relative} = require('path');
+const {relative} = require('node:path');
 const ignore = require('ignore');
 
 const isNegative = (a) => !a.indexOf('!');

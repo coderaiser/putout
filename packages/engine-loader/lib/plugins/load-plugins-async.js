@@ -1,6 +1,6 @@
 'use strict';
 
-const {basename} = require('path');
+const {basename} = require('node:path');
 
 const {
     parseRules,

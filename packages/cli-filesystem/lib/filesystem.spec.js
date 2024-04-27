@@ -1,6 +1,6 @@
 'use strict';
 
-const {constants} = require('fs');
+const {constants} = require('node:fs');
 const {test, stub} = require('supertape');
 const {
     renameFile,

@@ -2,8 +2,8 @@
 
 const tryToCatch = require('try-to-catch');
 
-const {readFile} = require('fs/promises');
-const {join} = require('path');
+const {readFile} = require('node:fs/promises');
+const {join} = require('node:path');
 
 const {test, stub} = require('supertape');
 const processFile = require('putout/process-file');

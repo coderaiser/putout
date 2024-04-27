@@ -1,7 +1,7 @@
 'use strict';
 
-const process = require('process');
-const {join, dirname} = require('path');
+const process = require('node:process');
+const {join, dirname} = require('node:path');
 
 const buildPlugins = require('./build-plugins');
 const parseOptions = require('../parse-options');

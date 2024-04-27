@@ -1,7 +1,7 @@
 'use strict';
 
-const {readFileSync} = require('fs');
-const {join} = require('path');
+const {readFileSync} = require('node:fs');
+const {join} = require('node:path');
 
 const test = require('supertape');
 const montag = require('montag');

@@ -1,6 +1,6 @@
 'use strict';
 
-const Module = require('module');
+const Module = require('node:module');
 
 const {test, stub} = require('supertape');
 const tryCatch = require('try-catch');

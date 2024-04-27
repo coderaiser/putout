@@ -1,6 +1,6 @@
 'use strict';
 
-const process = require('process');
+const process = require('node:process');
 const tryToCatch = require('try-to-catch');
 
 const {isCI} = require('ci-info');

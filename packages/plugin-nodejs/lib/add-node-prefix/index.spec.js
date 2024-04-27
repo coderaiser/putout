@@ -24,3 +24,8 @@ test('packages: add-node-prefix: transform: stream-promises', (t) => {
     t.transform('stream-promises');
     t.end();
 });
+
+test('packages: add-node-prefix: transform: commonjs', (t) => {
+    t.transform('commonjs');
+    t.end();
+});

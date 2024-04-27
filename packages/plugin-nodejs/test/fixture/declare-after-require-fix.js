@@ -2,7 +2,7 @@
 
 'use strict';
 
-const fs = require('fs');
+const fs = require('node:fs');
 
 const m = require('m');
 const abc = 'b';

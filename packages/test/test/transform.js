@@ -2,7 +2,7 @@
 
 const {join} = require('node:path');
 const process = require('node:process');
-const fs = require('fs');
+const fs = require('node:fs');
 
 const {stub} = require('supertape');
 const {reRequire} = require('mock-require');

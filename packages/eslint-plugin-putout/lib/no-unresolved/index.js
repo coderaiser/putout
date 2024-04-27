@@ -1,15 +1,15 @@
 'use strict';
 
-const process = require('process');
+const process = require('node:process');
 const tryCatch = require('try-catch');
 
-const {accessSync} = require('fs');
+const {accessSync} = require('node:fs');
 
 const {
     extname,
     dirname,
     join,
-} = require('path');
+} = require('node:path');
 
 const cwd = process.cwd();
 

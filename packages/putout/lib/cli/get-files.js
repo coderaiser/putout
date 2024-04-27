@@ -1,7 +1,7 @@
 'use strict';
 
-const {normalize} = require('path');
-const {lstat} = require('fs/promises');
+const {normalize} = require('node:path');
+const {lstat} = require('node:fs/promises');
 
 const fastGlob = require('fast-glob');
 const tryToCatch = require('try-to-catch');

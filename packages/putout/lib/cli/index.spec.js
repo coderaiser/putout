@@ -1,12 +1,12 @@
 'use strict';
 
-const process = require('process');
+const process = require('node:process');
 
 process.env.CI = process.env.CI || 'true';
 
-const {join, basename} = require('path');
-const {readFile} = require('fs/promises');
-const {EventEmitter} = require('events');
+const {join, basename} = require('node:path');
+const {readFile} = require('node:fs/promises');
+const {EventEmitter} = require('node:events');
 
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');

@@ -349,7 +349,7 @@ test('copymitter', (t) => {
 ### ✅ Example of correct code
 
 ```js
-const {once} = require('events');
+const {once} = require('node:events');
 
 test('copymitter', async (t) => {
     const cp = copymitter(from, to, ['1']);

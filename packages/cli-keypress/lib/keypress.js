@@ -1,8 +1,8 @@
 'use strict';
 
-const process = require('process');
+const process = require('node:process');
+const readline = require('node:readline');
 const fullstore = require('fullstore');
-const readline = require('readline');
 const {isCI} = require('ci-info');
 
 const isStop = fullstore(false);

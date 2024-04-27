@@ -1,8 +1,8 @@
 'use strict';
 
-const {join} = require('path');
+const {join} = require('node:path');
 
-const {readFileSync} = require('fs');
+const {readFileSync} = require('node:fs');
 
 const {RuleTester} = require('eslint');
 const montag = require('montag');

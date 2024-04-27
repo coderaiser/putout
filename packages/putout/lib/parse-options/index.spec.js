@@ -1,9 +1,9 @@
 'use strict';
 
-const process = require('process');
-const fs = require('fs');
-const os = require('os');
-const {join} = require('path');
+const process = require('node:process');
+const fs = require('node:fs');
+const os = require('node:os');
+const {join} = require('node:path');
 
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
@@ -264,7 +264,7 @@ test('putout: parseOptions: code mods directory: .putout: exclude node_modules',
     const readHomeOptions = stub().returns(empty);
     
     mockRequire('../../putout.json', empty);
-    mockRequire('fs', {
+    mockRequire('node:fs', {
         readdirSync: stub().returns(['node_modules']),
     });
     
@@ -375,7 +375,7 @@ test('putout: parseOptions: read rules', (t) => {
     const readCodeMods = stub().returns(empty);
     
     mockRequire('../../putout.json', empty);
-    mockRequire('fs', {
+    mockRequire('node:fs', {
         readdirSync: stub().returns(['hello']),
     });
     
@@ -431,7 +431,7 @@ test('putout: parseOptions: read rules: not-rule-', (t) => {
     const readCodeMods = stub().returns(empty);
     
     mockRequire('../../putout.json', empty);
-    mockRequire('fs', {
+    mockRequire('node:fs', {
         readdirSync: stub().returns(['not-rule-world', 'hello']),
     });
     
@@ -487,7 +487,7 @@ test('putout: parseOptions: read rules: .', (t) => {
     const readCodeMods = stub().returns(empty);
     
     mockRequire('../../putout.json', empty);
-    mockRequire('fs', {
+    mockRequire('node:fs', {
         readdirSync: stub().returns(['.rule-world', 'hello']),
     });
     
@@ -546,7 +546,7 @@ test('putout: parseOptions: read rules: error', (t) => {
     
     const {readdirSync} = fs;
     
-    mockRequire('fs', {
+    mockRequire('node:fs', {
         readdirSync: stub().throws('error'),
     });
     
@@ -774,7 +774,7 @@ test('putout: parseOptions: readHomeOptions: .', (t) => {
         homedir: stub().returns('/'),
     });
     
-    mockRequire('fs', {
+    mockRequire('node:fs', {
         readdirSync: stub().throws('error'),
     });
     

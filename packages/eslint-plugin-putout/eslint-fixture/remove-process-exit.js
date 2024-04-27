@@ -1,4 +1,4 @@
 'use strict';
 
-const process = require('process');
+const process = require('node:process');
 process.exit();

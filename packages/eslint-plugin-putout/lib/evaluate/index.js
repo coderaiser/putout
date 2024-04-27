@@ -1,6 +1,6 @@
 'use strict';
 
-const {dirname} = require('path');
+const {dirname} = require('node:path');
 const putout = require('putout');
 
 module.exports.category = 'evaluate';

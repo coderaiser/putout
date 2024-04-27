@@ -1,6 +1,6 @@
 'use strict';
 
-const {normalize} = require('path');
+const {normalize} = require('node:path');
 const picomatch = require('picomatch');
 const fullstore = require('fullstore');
 

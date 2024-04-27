@@ -62,7 +62,7 @@ function hi({a, b}) {}
 ### ❌ Example of incorrect code
 
 ```js
-const child_process = require('child_process');
+const child_process = require('node:child_process');
 
 const {exec, spawn} = child_process;
 ```
@@ -70,7 +70,7 @@ const {exec, spawn} = child_process;
 ### ✅ Example of correct code
 
 ```js
-const {exec, spawn} = require('child_process');
+const {exec, spawn} = require('node:child_process');
 ```
 
 ### remove

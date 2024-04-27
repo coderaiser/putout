@@ -1,7 +1,7 @@
 'use strict';
 
 const {replaceWith} = require('putout').operator;
-const {dirname} = require('path');
+const {dirname} = require('node:path');
 const {parse, print} = require('@putout/engine-parser');
 const {toJS, fromJS} = require('@putout/operator-json');
 const {moveFile, findFile} = require('./filesystem');

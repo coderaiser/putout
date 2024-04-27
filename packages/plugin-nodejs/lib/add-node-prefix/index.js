@@ -1,32 +1,57 @@
 'use strict';
 
-const {operator} = require('putout');
-const {isBuiltin} = require('module');
-const {setLiteralValue} = operator;
+const {types, operator} = require('putout');
+const {isBuiltin} = require('node:module');
+const {
+    setLiteralValue,
+    getTemplateValues,
+} = operator;
+
+const {isImportDeclaration} = types;
+
+const REQUIRE = 'require("__a")';
 
 module.exports.report = ({value}) => {
     return `Use 'node:${value}' instead of '${value}'`;
 };
 
 module.exports.fix = ({path, value}) => {
-    const {source} = path.node;
+    if (isImportDeclaration(path)) {
+        const {source} = path.node;
+        setLiteralValue(source, `node:${value}`);
+        
+        return;
+    }
     
-    setLiteralValue(source, `node:${value}`);
+    const arg = path.get('arguments.0');
+    setLiteralValue(arg, `node:${value}`);
 };
 
 module.exports.traverse = ({push}) => ({
+    [REQUIRE](path) {
+        const {__a} = getTemplateValues(path, REQUIRE);
+        const {value} = __a;
+        
+        if (check(value))
+            push({
+                path,
+                value,
+            });
+    },
     ImportDeclaration(path) {
         const {value} = path.node.source;
         
-        if (value.startsWith('node:'))
-            return;
-        
-        if (!isBuiltin(value))
-            return;
-        
-        push({
-            path,
-            value,
-        });
+        if (check(value))
+            push({
+                path,
+                value,
+            });
     },
 });
+
+function check(value) {
+    if (value.startsWith('node:'))
+        return false;
+    
+    return isBuiltin(value);
+}

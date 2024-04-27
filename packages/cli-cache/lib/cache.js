@@ -1,7 +1,7 @@
 'use strict';
 
-const process = require('process');
-const {unlink} = require('fs/promises');
+const process = require('node:process');
+const {unlink} = require('node:fs/promises');
 
 const fileEntryCache = require('file-entry-cache');
 const murmur = require('imurmurhash');

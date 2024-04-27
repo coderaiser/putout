@@ -1,6 +1,6 @@
 'use strict';
 
-const {dirname} = require('path');
+const {dirname} = require('node:path');
 const escalade = require('escalade/sync');
 
 const merge = require('../merge');

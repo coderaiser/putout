@@ -1,7 +1,7 @@
 'use strict';
 
-const {join} = require('path');
-const {spawnSync} = require('child_process');
+const {join} = require('node:path');
+const {spawnSync} = require('node:child_process');
 
 const porcelain = require('@putout/git-status-porcelain');
 const once = require('once');

@@ -1,6 +1,6 @@
 'use strict';
 
-const {join} = require('path');
+const {join} = require('node:path');
 
 const {stub, test} = require('supertape');
 const tryCatch = require('try-catch');

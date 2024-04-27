@@ -1,6 +1,6 @@
 'use strict';
 
-const process = require('process');
+const process = require('node:process');
 const montag = require('montag');
 const tryCatch = require('try-catch');
 const {test, stub} = require('supertape');

@@ -1,6 +1,6 @@
 'use strict';
 
-const {platform} = require('process');
+const {platform} = require('node:process');
 
 module.exports = (a) => {
     a = wild(a);

@@ -1,7 +1,7 @@
 'use strict';
 
-const process = require('process');
-const {join} = require('path');
+const process = require('node:process');
+const {join} = require('node:path');
 
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');

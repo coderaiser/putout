@@ -1,6 +1,6 @@
 'use strict';
 
-const {basename} = require('path');
+const {basename} = require('node:path');
 const {operator} = require('putout');
 const id = (a) => a;
 

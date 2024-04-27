@@ -179,7 +179,7 @@ test('putout: cli: staged: add', async (t) => {
     
     const spawnSync = stub();
     
-    mockRequire('child_process', {
+    mockRequire('node:child_process', {
         spawnSync,
     });
     mockRequire('@putout/git-status-porcelain', porcelain);
@@ -228,7 +228,7 @@ test('putout: cli: staged: no files', async (t) => {
     const spawnSync = stub();
     const isSupported = stub().returns(false);
     
-    mockRequire('child_process', {
+    mockRequire('node:child_process', {
         spawnSync,
     });
     mockRequire('@putout/git-status-porcelain', porcelain);

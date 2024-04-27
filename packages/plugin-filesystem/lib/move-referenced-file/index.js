@@ -12,7 +12,7 @@ const {
     dirname,
     relative,
     basename,
-} = require('path');
+} = require('node:path');
 
 const {
     readFileContent,

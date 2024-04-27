@@ -1,3 +1,3 @@
 'use strict';
 
-const {readFile} = require('fs');
+const {readFile} = require('node:fs/promises');

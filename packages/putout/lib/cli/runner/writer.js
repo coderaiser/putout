@@ -1,8 +1,8 @@
 'use strict';
 
-const {resolve} = require('path');
-const {cwd, env} = require('process');
-const {readFileSync} = require('fs');
+const {resolve} = require('node:path');
+const {cwd, env} = require('node:process');
+const {readFileSync} = require('node:fs');
 
 const tryCatch = require('try-catch');
 const getOptions = require('../get-options.js');

@@ -2,7 +2,7 @@
 
 const {types, operator} = require('putout');
 
-const {runInNewContext} = require('vm');
+const {runInNewContext} = require('node:vm');
 
 const {
     replaceWith,

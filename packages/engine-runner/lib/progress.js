@@ -1,6 +1,6 @@
 'use strict';
 
-const {EventEmitter} = require('events');
+const {EventEmitter} = require('node:events');
 
 module.exports.createProgress = () => {
     let pluginsCount = 0;

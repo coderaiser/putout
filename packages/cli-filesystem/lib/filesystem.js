@@ -1,6 +1,6 @@
 'use strict';
 
-const {dirname} = require('path');
+const {dirname} = require('node:path');
 const {
     mkdirSync: mkdirSyncOriginal,
     renameSync: renameSyncOriginal,
@@ -9,7 +9,7 @@ const {
     writeFileSync: writeFileSyncOriginal,
     copyFileSync: copyFileSyncOriginal,
     constants,
-} = require('fs');
+} = require('node:fs');
 
 const {COPYFILE_FICLONE} = constants;
 

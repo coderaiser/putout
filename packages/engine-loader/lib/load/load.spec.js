@@ -1,6 +1,6 @@
 'use strict';
 
-const process = require('process');
+const process = require('node:process');
 const tryCatch = require('try-catch');
 const mockRequire = require('mock-require');
 const {test, stub} = require('supertape');
@@ -18,7 +18,7 @@ test('putout: engine-loader: load: yarn PnP support', (t) => {
     
     const createRequire = stub().returns(customRequire);
     
-    mockRequire('module', {
+    mockRequire('node:module', {
         createRequire,
     });
     
@@ -76,7 +76,7 @@ test('putout: engine-loader: load: createRequire', (t) => {
     
     const createRequire = stub().returns(customRequire);
     
-    mockRequire('module', {
+    mockRequire('node:module', {
         createRequire,
     });
     

@@ -1,8 +1,8 @@
 'use strict';
 
-const {join} = require('path');
+const {join} = require('node:path');
 
-const {readFileSync, readdirSync} = require('fs');
+const {readFileSync, readdirSync} = require('node:fs');
 
 const tryCatch = require('try-catch');
 const camelCase = require('just-camel-case');

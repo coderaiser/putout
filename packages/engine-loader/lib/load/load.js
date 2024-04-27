@@ -1,7 +1,7 @@
 'use strict';
 
-const process = require('process');
-const {createRequire} = require('module');
+const process = require('node:process');
+const {createRequire} = require('node:module');
 
 const tryCatch = require('try-catch');
 const once = require('once');

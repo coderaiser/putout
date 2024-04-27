@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs/promises');
+const fs = require('node:fs/promises');
 
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
@@ -25,7 +25,7 @@ test('putout: cli: cache: disabled: fileCache', async (t) => {
 test('putout: cli: cache: fileCache: fresh', async (t) => {
     const unlink = stub();
     
-    mockRequire('fs/promises', {
+    mockRequire('node:fs/promises', {
         ...fs,
         unlink,
     });
@@ -53,7 +53,7 @@ test('putout: cli: cache: fileCache: fresh', async (t) => {
 test(`putout: cli: cache: find up can't find`, async (t) => {
     const unlink = stub();
     
-    mockRequire('fs/promises', {
+    mockRequire('node:fs/promises', {
         ...fs,
         unlink,
     });

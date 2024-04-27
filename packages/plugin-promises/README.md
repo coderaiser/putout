@@ -50,13 +50,13 @@ add forgotten **await** to [**dynamic `import()`**](https://developer.mozilla.or
 ### ❌ Example of incorrect code
 
 ```js
-const {readFile} = import('fs/promises');
+const {readFile} = import('node:fs/promises');
 ```
 
 ### ✅ Example of correct code
 
 ```js
-const {readFile} = await import('fs/promises');
+const {readFile} = await import('node:fs/promises');
 ```
 
 ## remove-useless-resolve

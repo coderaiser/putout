@@ -1,10 +1,10 @@
 'use strict';
 
-const process = require('process');
-const {homedir} = require('os');
-const {readdirSync} = require('fs');
+const process = require('node:process');
+const {homedir} = require('node:os');
+const {readdirSync} = require('node:fs');
 
-const {dirname, join} = require('path');
+const {dirname, join} = require('node:path');
 
 const once = require('once');
 const tryCatch = require('try-catch');
