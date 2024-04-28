@@ -96,7 +96,10 @@ async function getESLintRunner({cwd, findFlat, findRC, overrideConfigFile}) {
         }),
     ]);
     
-    if (rcConfig.length > flatConfig.length)
+    const noConfigFound = !rcConfig && !flatConfig;
+    const foundRConfig = rcConfig.length > flatConfig.length;
+    
+    if (noConfigFound || foundRConfig)
         return getOldESLint;
     
     return getFlatESLint;

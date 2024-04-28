@@ -245,3 +245,33 @@ test('putout: eslint: get-eslint: overrideConfigFile: rc', async (t) => {
     t.calledWith(ESLintOverride, expected);
     t.end();
 });
+
+test('putout: eslint: get-eslint: no RC, no FlatConfig', async (t) => {
+    const lintText = stub();
+    const error = Error('hello');
+    const calculateConfigForFile = stub().rejects(error);
+    
+    const ESLintOverride = stub().returns({
+        calculateConfigForFile,
+        lintText,
+    });
+    
+    const loadESLintOverride = stub().resolves(ESLintOverride);
+    const findFlat = stub().returns('');
+    const findRC = stub().returns('');
+    
+    await getESLint({
+        name: 'index.js',
+        loadESLintOverride,
+        findRC,
+        findFlat,
+        fix: false,
+    });
+    
+    const expected = [{
+        useFlatConfig: false,
+    }];
+    
+    t.calledWith(loadESLintOverride, expected);
+    t.end();
+});
