@@ -1,3 +1,17 @@
+2024.04.28, v35.17.0
+
+fix:
+- a87e7e06c @putout/plugin-nodejs: add-node-predynamic: Identifier
+- ca542fb12 @putout/eslint: no config found: Flat Config error -> RC error
+
+feature:
+- 9f76b2a51 putout: @putout/quick-lint v1.0.0
+- 8ad6cd673 @putout/eslint: add ability to hande no FlatConfig found error
+- 949e898c9 @putout/plugin-nodejs: add-node-prefix: simplify
+- 1551e9f04 @putout/plugin-nodejs: add-node-prefix: dynamic import
+- 08acf9555 @putout/plugin-nodejs: add-node-prefix: add require
+- 6744c616f @putout/plugin-nodejs: add-node-prefix: report
+
 2024.04.26, v35.16.2
 
 feature:
