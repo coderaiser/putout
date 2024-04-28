@@ -1,2 +1,1 @@
-export const
-    SCOPE_TOP = 1;
+export const SCOPE_TOP = 1;
