@@ -558,3 +558,36 @@ test('putout: eslint: NO_ESLINT', async (t) => {
     t.notOk(places.length);
     t.end();
 });
+
+test('putout: eslint: config: no FlatConfig found', async (t) => {
+    const calculateConfigForFile = stub().rejects(Error('Could not find config file.'));
+    const lintText = stub().resolves([]);
+    
+    const ESLint = {
+        calculateConfigForFile,
+        lintText,
+    };
+    
+    const getESLint = stub().returns(ESLint);
+    
+    mockRequire('./simple-import.js', {
+        simpleImport: stub().returns({
+            getESLint,
+        }),
+    });
+    
+    const eslint = reRequire('./eslint');
+    
+    const [, places] = await eslint({
+        name: 'hello.js',
+        code: `const t = 5`,
+        fix: false,
+    });
+    
+    const expected = [];
+    
+    stopAll();
+    
+    t.deepEqual(places, expected);
+    t.end();
+});

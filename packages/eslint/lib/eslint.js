@@ -9,11 +9,15 @@ const eslintId = ' (eslint)';
 const overrideConfigFile = process.env.ESLINT_CONFIG_FILE;
 const noESLint = process.env.NO_ESLINT;
 const noESLintWarnings = process.env.NO_ESLINT_WARNINGS;
+const NO_FLAT_CONFIG_FOUND = 'Could not find config file.';
 
 const WARNING = 1;
 
 const noConfigFound = (config, configError) => {
     if (configError && configError.messageTemplate === 'no-config-found')
+        return true;
+    
+    if (configError?.message === NO_FLAT_CONFIG_FOUND)
         return true;
     
     if (configError)
