@@ -360,4 +360,3 @@ test('putout: cli: process-file: quick-lint', async (t) => {
     t.calledWith(quickLint, expected, 'should call @putout/quick-lint');
     t.end();
 });
-
