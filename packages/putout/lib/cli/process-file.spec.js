@@ -317,3 +317,47 @@ test('putout: cli: process-file: configurePrinter', async (t) => {
     t.calledWith(putoutAsync, expected, 'should call configurePrinter');
     t.end();
 });
+
+test('putout: cli: process-file: quick-lint', async (t) => {
+    const quickLint = stub().returns([]);
+    const source = '() => await x';
+    const fix = false;
+    
+    const log = stub();
+    const write = stub();
+    
+    mockRequire('@putout/quick-lint', quickLint);
+    
+    const options = {
+        dir: '.',
+    };
+    
+    const processFile = reRequire('./process-file');
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    await fn({
+        name: 'example.js',
+        source,
+        index: 0,
+        length: 1,
+        options,
+    });
+    
+    stopAll();
+    
+    const expected = [
+        source, {
+            isJSX: true,
+            isTS: false,
+        },
+    ];
+    
+    t.calledWith(quickLint, expected, 'should call @putout/quick-lint');
+    t.end();
+});
+

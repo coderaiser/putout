@@ -1,12 +1,13 @@
 'use strict';
 
 const tryToCatch = require('try-to-catch');
+const eslint = require('@putout/eslint');
+const quickLint = require('@putout/quick-lint');
 
 const {putoutAsync} = require('../..');
 const merge = require('../merge');
 const parseMatch = require('../parse-options/parse-match');
 
-const eslint = require('@putout/eslint');
 const parseError = require('./parse-error');
 
 const getMatchedOptions = (name, options) => {
@@ -30,8 +31,19 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({na
         printer: configurePrinter(name, printer),
     });
     
-    if (e)
+    if (e) {
         raw && logError(e);
+        const quickLintPlaces = await quickLint(source, {
+            isTS,
+            isJSX: true,
+        });
+        
+        if (quickLintPlaces.length)
+            return {
+                places: quickLintPlaces,
+                code: source,
+            };
+    }
     
     const {code = source} = result || {};
     const allPlaces = result ? result.places : parseError(e);
