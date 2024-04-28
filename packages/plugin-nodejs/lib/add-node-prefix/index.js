@@ -50,6 +50,9 @@ module.exports.traverse = ({push}) => ({
 });
 
 function check(value) {
+    if (!value)
+        return false;
+    
     if (value.startsWith('node:'))
         return false;
     
