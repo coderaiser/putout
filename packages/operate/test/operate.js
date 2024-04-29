@@ -212,6 +212,27 @@ test('putout: operate: insertAfter', (t) => {
     t.end();
 });
 
+test('putout: operate: insertAfter: not ExpressionStatement', (t) => {
+    const node = {
+        type: 'MemberExpression',
+    };
+    
+    const insertAfter = stub();
+    
+    const path = {
+        type: 'ClassDeclaration',
+        node: {},
+        insertAfter,
+    };
+    
+    operate.insertAfter(path, node);
+    const {args} = insertAfter;
+    const [[result]] = args;
+    
+    t.equal(result.type, 'ExpressionStatement');
+    t.end();
+});
+
 test('putout: operate: insertBefore', (t) => {
     const node = {};
     const insertBefore = stub();

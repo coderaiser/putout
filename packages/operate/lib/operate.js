@@ -114,7 +114,11 @@ module.exports.insertAfter = (path, node) => {
     if (node.trailingComments)
         delete node.trailingComments;
     
-    path.insertAfter(node);
+    if (isStatement(path) && !isStatement(node))
+        path.insertAfter(ExpressionStatement(node));
+    else
+        path.insertAfter(node);
+    
     path.node.comments = comments;
 };
 
