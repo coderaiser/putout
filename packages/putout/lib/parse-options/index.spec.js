@@ -479,6 +479,61 @@ test('putout: parseOptions: read rules: not-rule-', (t) => {
     t.end();
 });
 
+test('putout: parseOptions: read rules: *.md', (t) => {
+    const empty = {};
+    
+    const readOptions = stub().returns([__dirname, empty]);
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    
+    mockRequire('../../putout.json', empty);
+    mockRequire('node:fs', {
+        readdirSync: stub().returns(['README.md', 'hello']),
+    });
+    
+    const plugin = stub();
+    mockRequire(join(process.cwd(), 'hello'), plugin);
+    
+    const parseOptions = reRequire('.');
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: '.',
+    });
+    
+    const expected = {
+        dir: __dirname,
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-only': 'on',
+        },
+        plugins: [`import:${CWD}/hello`],
+    };
+    
+    stopAll();
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: parseOptions: read rules: .', (t) => {
     const empty = {};
     
@@ -915,11 +970,11 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
     mockRequire('../../package.json', {
         type: 'module',
     });
+    
     mockRequire('../../putout.json', empty);
     mockRequire('./recursive-read', read);
     
     const parseOptions = reRequire('.');
-    
     const options = {};
     
     const result = parseOptions({
@@ -976,7 +1031,6 @@ test('putout: parseOptions: rules dir: no once', (t) => {
     mockRequire(join(__dirname, 'hello'), hello);
     
     const parseOptions = reRequire('.');
-    
     const options = {
         rules: {
             'remove-only': 'off',

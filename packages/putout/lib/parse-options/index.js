@@ -2,7 +2,7 @@
 
 const process = require('node:process');
 const {homedir} = require('node:os');
-const {readdirSync} = require('node:fs');
+const {readdirSync: _readdirSync} = require('node:fs');
 
 const {dirname, join} = require('node:path');
 
@@ -16,10 +16,11 @@ const merge = require('../merge');
 const recursiveRead = require('./recursive-read');
 const applyModuleTypeRules = require('./apply-module-type-rules');
 const {validateOptions} = require('./validate-options');
+const {readRules} = require('./read-rules');
 
 const home = homedir();
 
-module.exports = (info = {}) => {
+module.exports = (info = {}, overrides = {}) => {
     const {
         rulesdir,
         name = '',
@@ -28,6 +29,8 @@ module.exports = (info = {}) => {
         readHomeOptions = _readHomeOptions,
         readCodeMods = _readCodeMods,
     } = info;
+    
+    const {cwd = process.cwd(), readdirSync = _readdirSync} = overrides;
     
     const [dir, customOptions] = readOptions(name);
     const homeOptions = readHomeOptions();
@@ -54,12 +57,26 @@ module.exports = (info = {}) => {
     
     const mergedMatch = merge(customOptions, options, parseMatch(name, options.match));
     
-    const resultOptions = merge(readCodeMods(), readRules('./', rulesdir), mergedOptions, mergedDefaultsMatch, mergedMatch);
+    const resultOptionsList = [
+        readCodeMods({
+            cwd,
+            readdirSync,
+        }),
+        readRules('./', rulesdir, {
+            cwd,
+            readdirSync,
+        }),
+        mergedOptions,
+        mergedDefaultsMatch,
+        mergedMatch,
+    ];
     
-    validateOptions(resultOptions);
+    const finalMergedOptions = merge(...resultOptionsList);
+    
+    validateOptions(finalMergedOptions);
     
     return {
-        ...resultOptions,
+        ...finalMergedOptions,
         dir,
     };
 };
@@ -86,35 +103,6 @@ function _readOptions(name) {
     return ['', {}];
 }
 
-const isInclude = (a) => a[0] !== '.' && !/(^not-rule-.*|^node_modules$)/.test(a);
-
-function readRules(dirOpt, rulesDir) {
-    if (!rulesDir)
-        return {};
-    
-    let dir = join(dirOpt, rulesDir);
-    
-    if (!dir.startsWith('/'))
-        dir = join(process.cwd(), rulesDir);
-    
-    const [e, names] = tryCatch(readdirSync, dir);
-    
-    if (e)
-        return {};
-    
-    const plugins = [];
-    
-    for (const name of names.filter(isInclude)) {
-        const full = join(dir, name);
-        
-        plugins.push(`import:${full}`);
-    }
-    
-    return {
-        plugins,
-    };
-}
-
 const _readHomeOptions = once(() => {
     const name = join(home, '.putout.json');
     const [, data = {}] = tryCatch(require, name);
@@ -122,4 +110,7 @@ const _readHomeOptions = once(() => {
     return data;
 });
 
-const _readCodeMods = once(() => readRules(home, '.putout'));
+const _readCodeMods = once(({cwd, readdirSync}) => readRules(home, '.putout', {
+    cwd,
+    readdirSync,
+}));
