@@ -1,3 +1,9 @@
+2024.04.29, v35.18.0
+
+feature:
+- 94b8e8908 putout: parse-options: rulesdir: exclude *.md
+- 2a817e8a5 @putout/operate: insertAfter: wrap ExpressionStatement when current path is Statement and node not
+
 2024.04.28, v35.17.0
 
 fix:
