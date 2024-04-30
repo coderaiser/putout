@@ -2,7 +2,10 @@
 
 const {operate} = require('putout');
 
-const {insertAfter, replaceWithMultiple} = operate;
+const {
+    insertAfter,
+    replaceWithMultiple,
+} = operate;
 
 module.exports.fix = ({name, path, rightPath}) => {
     const {parentPath} = path;

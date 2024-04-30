@@ -1,6 +1,9 @@
 'use strict';
 
-const {replaceWith, replaceWithMultiple} = require('putout').operate;
+const {
+    replaceWith,
+    replaceWithMultiple,
+} = require('putout').operate;
 
 module.exports.fix = ({name, path, rightPath}) => {
     const {parentPath} = path;
