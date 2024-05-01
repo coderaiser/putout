@@ -14,7 +14,9 @@ const dir = process.cwd();
 const formatErrorsCount = (a) => a ? red(a) : OK;
 
 const {stderr} = process;
-const {PUTOUT_PROGRESS_BAR = '1'} = process.env;
+const {
+    PUTOUT_PROGRESS_BAR = '1',
+} = process.env;
 
 export default ({name, options, places, index, count, filesCount, errorsCount}) => {
     const {color = BLUE, minCount = 0} = options;

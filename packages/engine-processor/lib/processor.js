@@ -47,7 +47,10 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         processorRunners,
     }));
     
-    ({processedSource, allPlaces} = await iterate({
+    ({
+        processedSource,
+        allPlaces,
+    } = await iterate({
         name,
         merge,
         fileList,
