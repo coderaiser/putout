@@ -81,6 +81,9 @@ function isCorrectPropertiesLength(properties, {maxLength}) {
 
 function isCorrectSpecifiersLength(specifiers, {maxLength}) {
     for (const {imported} of specifiers) {
+        if (!imported)
+            continue;
+        
         const {name} = imported;
         
         if (name.length >= maxLength)

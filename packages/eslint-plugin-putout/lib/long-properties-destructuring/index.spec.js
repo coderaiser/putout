@@ -41,7 +41,8 @@ ruleTester.run('long-properties-destructuring', rule, {
             options: [{
                 maxLength: 30,
             }],
-        }],
+        }, `import process, {hrtime} from 'node:process';`,
+    ],
     
     invalid: [{
         code: `const {isValidIdentifier, a} = world;`,
