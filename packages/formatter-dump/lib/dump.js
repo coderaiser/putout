@@ -1,4 +1,7 @@
-import {table, getBorderCharacters} from 'table';
+import {
+    table,
+    getBorderCharacters,
+} from 'table';
 import chalk from 'chalk';
 import {jsonFormatter} from '@putout/formatter-json';
 

@@ -1,7 +1,4 @@
 {
-    "rules": {
-        "n/no-unsupported-features/node-builtins": "off"
-    },
     "overrides": [{
         "files": ["*.md{js}"],
         "rules": {

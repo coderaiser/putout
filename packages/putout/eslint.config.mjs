@@ -1,4 +1,7 @@
-import {matchToFlat, createESLintConfig} from '@putout/eslint-flat';
+import {
+    matchToFlat,
+    createESLintConfig,
+} from '@putout/eslint-flat';
 import {safeAlign} from 'eslint-plugin-putout/config';
 
 export const match = {
