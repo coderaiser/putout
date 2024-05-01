@@ -116,17 +116,17 @@ test('eslint-plugin-putout: ts: disabled', async ({comparePlaces}) => {
     await comparePlaces('ts-disabled', []);
 });
 
-// https://github.com/typescript-eslint/typescript-eslint/pull/8171
-// test('eslint-plugin-putout: ts: duplicate', async ({comparePlaces}) => {
-//     await comparePlaces('ts-duplicate', [{
-//         message: `'Stub' is already defined.`,
-//         position: {
-//             column: 9,
-//             line: 2,
-//         },
-//         rule: '@typescript-eslint/no-redeclare (eslint)',
-//     }]);
-// });
+test('eslint-plugin-putout: ts: duplicate', async ({comparePlaces}) => {
+    await comparePlaces('ts-duplicate', [{
+        message: `'Stub' is already defined.`,
+        position: {
+            column: 9,
+            line: 2,
+        },
+        rule: '@typescript-eslint/no-redeclare (eslint)',
+    }]);
+});
+
 test('eslint-plugin-putout: remove-empty-specifiers', async ({process}) => {
     await process('remove-empty-specifiers');
 });
@@ -238,4 +238,8 @@ test('eslint-plugin-putout: putout: sync: ESM', async ({comparePlaces}) => {
         },
         rule: 'putout/putout (eslint)',
     }], override);
+});
+
+test('eslint-plugin-putout: long-properties-destructuring', async ({process}) => {
+    await process('long-properties-destructuring');
 });

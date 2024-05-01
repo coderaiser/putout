@@ -7,13 +7,24 @@ Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/mas
 ## ❌ Example of incorrect code
 
 ```js
-const {isIdentifier} = user;
+import {getIsCorrectPluginName, pluginName} from './plugin.js';
+const {getIsCorrectPluginMessage, pluginMessage} = plugin;
 ```
 
 ## ✅ Example of correct code
 
 ```js
+import {
+    getIsCorrectPluginName,
+    pluginName,
+} from './plugin.js';
+
 const {
-    isIdentifier,
-} = user;
+    getIsCorrectPluginMessage,
+    pluginMessage,
+} = plugin;
 ```
+
+## Options
+
+`maxLength` - maximum properties length, defaults: `15`.

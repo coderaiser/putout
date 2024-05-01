@@ -34,8 +34,14 @@ ruleTester.run('long-properties-destructuring', rule, {
         `,
         `
         const {a, b, c, d} = e;
-        `,
-    ],
+        `, {
+            code: montag`
+                import {isCorrectPlugin, getIsCorrectPluginMessage} from './is-correct-plugin.js';
+            `,
+            options: [{
+                maxLength: 30,
+            }],
+        }],
     
     invalid: [{
         code: `const {isValidIdentifier, a} = world;`,
@@ -84,6 +90,20 @@ ruleTester.run('long-properties-destructuring', rule, {
         errors: [{
             message,
             type: 'VariableDeclarator',
+        }],
+    }, {
+        code: montag`
+            import {isCorrectPlugin, getIsCorrectPluginMessage} from './is-correct-plugin.js';
+        `,
+        output: montag`
+            import {
+                isCorrectPlugin,
+                getIsCorrectPluginMessage
+            } from './is-correct-plugin.js';
+        `,
+        errors: [{
+            message,
+            type: 'ImportDeclaration',
         }],
     }],
 });
