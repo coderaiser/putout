@@ -1317,6 +1317,15 @@ const {a = ''} = b;
 
 </details>
 
+<details><summary>apply <code>overrides</code></summary>
+
+```diff
+-export const readRules = (dirOpt, rulesDir, {cwd, readdirSync}) => {}
++export const readRules = (dirOpt, rulesDir, overrides) => {
+    const {cwd, readdirSync} = overrides;
++}
+```
+
 <details><summary>sort imports by specifiers</summary>
 
 ```diff
@@ -2043,6 +2052,7 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
 | [`@putout/plugin-apply-early-return`](/packages/plugin-apply-early-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-early-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-early-return) |
 | [`@putout/plugin-apply-template-literals`](/packages/plugin-apply-template-literals#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-template-literals.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-template-literals) |
+| [`@putout/plugin-apply-overrides`](/packages/plugin-apply-overrides#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-overrides.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-overrides) |
 
 ### Sorters
 

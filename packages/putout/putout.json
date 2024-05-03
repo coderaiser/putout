@@ -190,6 +190,7 @@
         "apply-optional-chaining",
         "apply-starts-with",
         "apply-template-literals",
+        "apply-overrides",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",

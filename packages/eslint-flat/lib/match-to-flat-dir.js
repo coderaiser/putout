@@ -9,9 +9,10 @@ const CWD = process.cwd();
 
 module.exports.matchToFlatDir = matchToFlatDir;
 
-async function matchToFlatDir(path, config, {
-    readESLintConfig = _readESLintConfig,
-} = {}) {
+async function matchToFlatDir(path, config, overrides = {}) {
+    const {
+        readESLintConfig = _readESLintConfig,
+    } = overrides;
     const dir = join(CWD, path);
     const flatConfig = config || await readESLintConfig(dir);
     const {match} = flatConfig;

@@ -13,11 +13,17 @@ const {
 
 const {COPYFILE_FICLONE} = constants;
 
-module.exports.renameFile = (from, to, {renameSync = renameSyncOriginal} = {}) => {
+module.exports.renameFile = (from, to, overrides = {}) => {
+    const {
+        renameSync = renameSyncOriginal,
+    } = overrides;
     renameSync(from, to);
 };
 
-module.exports.copyFile = (from, to, {copyFileSync = copyFileSyncOriginal} = {}) => {
+module.exports.copyFile = (from, to, overrides = {}) => {
+    const {
+        copyFileSync = copyFileSyncOriginal,
+    } = overrides;
     copyFileSync(from, to, COPYFILE_FICLONE);
 };
 
@@ -38,7 +44,12 @@ module.exports.readFileContent = (name, {readFileSync = readFileSyncOriginal} = 
     return readFileSync(name, 'utf8');
 };
 
-module.exports.writeFileContent = (name, content, {writeFileSync = writeFileSyncOriginal, mkdirSync = mkdirSyncOriginal} = {}) => {
+module.exports.writeFileContent = (name, content, overrides = {}) => {
+    const {
+        writeFileSync = writeFileSyncOriginal,
+        mkdirSync = mkdirSyncOriginal,
+    } = overrides;
+    
     createDirectory(dirname(name), {
         mkdirSync,
     });

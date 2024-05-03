@@ -10,7 +10,12 @@ actions.keys = {
     ...vim,
 };
 
-export const choose = async (message, choices, {autofocus, Select = CustomSelect} = {}) => {
+export const choose = async (message, choices, overrides = {}) => {
+    const {
+        autofocus,
+        Select = CustomSelect,
+    } = overrides;
+    
     const prompt = new Select({
         message,
         choices,

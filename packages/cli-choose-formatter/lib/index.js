@@ -11,12 +11,14 @@ const maybeArray = (a) => isArray(a) ? a : [a];
 const maybeFirst = (a) => isArray(a) ? a[0] : a;
 const PREFIX = '@putout/formatter-';
 
-export const chooseFormatter = async (formatter, dependencies, {
-    readFile = customReadFile,
-    writeFile = customWriteFile,
-    choose = customChoose,
-    findUp = customFindUp,
-} = {}) => {
+export const chooseFormatter = async (formatter, dependencies, overrides = {}) => {
+    const {
+        readFile = customReadFile,
+        writeFile = customWriteFile,
+        choose = customChoose,
+        findUp = customFindUp,
+    } = overrides;
+    
     formatter = maybeFirst(formatter);
     const formatters = getFormatters(dependencies);
     

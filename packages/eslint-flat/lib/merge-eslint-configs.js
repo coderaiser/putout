@@ -10,10 +10,7 @@ const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 const CWD = process.cwd();
 
-module.exports.mergeESLintConfigs = async (directories, {
-    readdir,
-    readESLintConfig,
-} = {}) => {
+module.exports.mergeESLintConfigs = async (directories, {readdir, readESLintConfig} = {}) => {
     const readers = maybeArray(directories).map(readDirectory({
         readdir,
         readESLintConfig,
