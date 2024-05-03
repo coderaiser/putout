@@ -36,7 +36,9 @@ module.exports.replace = () => ({
 
 function match({__body}) {
     for (const codeLine of __body.body) {
-        const {expression = codeLine} = codeLine;
+        const {
+            expression = codeLine,
+        } = codeLine;
         
         if (compare(expression, ON_END))
             return true;
@@ -64,7 +66,9 @@ function replace({__a}, path) {
     for (let i = 0; i < n; i++) {
         let nodes = [];
         const current = body[i];
-        const {expression = current} = current;
+        const {
+            expression = current,
+        } = current;
         
         if (compare(expression, ON_ERROR))
             nodes = getErrorNodes(expression);

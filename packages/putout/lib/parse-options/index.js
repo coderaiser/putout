@@ -30,7 +30,10 @@ module.exports = (info = {}, overrides = {}) => {
         readCodeMods = _readCodeMods,
     } = info;
     
-    const {cwd = process.cwd(), readdirSync = _readdirSync} = overrides;
+    const {
+        cwd = process.cwd(),
+        readdirSync = _readdirSync,
+    } = overrides;
     
     const [dir, customOptions] = readOptions(name);
     const homeOptions = readHomeOptions();

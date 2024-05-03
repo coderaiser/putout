@@ -21,7 +21,9 @@ const {parse, stringify} = JSON;
 module.exports.report = () => 'Latest version of node is missing';
 
 module.exports.fix = (path, {options}) => {
-    const {versions = defaultVersions} = options;
+    const {
+        versions = defaultVersions,
+    } = options;
     const nodeVersionsNode = template.ast(stringify(versions));
     
     replaceWith(path, nodeVersionsNode);
@@ -29,7 +31,9 @@ module.exports.fix = (path, {options}) => {
 
 module.exports.traverse = ({push, options}) => ({
     [__yaml](path) {
-        const {versions: nodeVersions = defaultVersions} = options;
+        const {
+            versions: nodeVersions = defaultVersions,
+        } = options;
         const {__object} = getTemplateValues(path, __yaml);
         
         for (const nodeVersionPath of traverseProperties(__object, 'node-version')) {

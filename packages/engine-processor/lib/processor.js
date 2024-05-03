@@ -22,7 +22,9 @@ module.exports.getFilePatterns = (processors) => {
 };
 
 module.exports.runProcessors = async ({name, fix, processFile, options, rawSource, processorRunners, load}) => {
-    const {processors = defaultProcessors} = options;
+    const {
+        processors = defaultProcessors,
+    } = options;
     
     processorRunners = processorRunners || await getProcessorRunners(processors, load);
     processorRunners = processorRunners.map(addGlobs);

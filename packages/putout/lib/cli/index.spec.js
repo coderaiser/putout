@@ -1956,7 +1956,8 @@ test('putout: cli: get files: called with ignore option', async (t) => {
     const expected = [
         [__filename], {
             ignore,
-        }];
+        },
+    ];
     
     t.calledWith(getFiles, expected);
     t.end();

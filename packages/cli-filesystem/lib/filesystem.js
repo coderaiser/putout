@@ -17,6 +17,7 @@ module.exports.renameFile = (from, to, overrides = {}) => {
     const {
         renameSync = renameSyncOriginal,
     } = overrides;
+    
     renameSync(from, to);
 };
 
@@ -24,6 +25,7 @@ module.exports.copyFile = (from, to, overrides = {}) => {
     const {
         copyFileSync = copyFileSyncOriginal,
     } = overrides;
+    
     copyFileSync(from, to, COPYFILE_FICLONE);
 };
 

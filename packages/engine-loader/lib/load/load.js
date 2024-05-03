@@ -47,9 +47,7 @@ function getPath(namespace, type, name) {
     return [path, customRequire];
 }
 
-const {
-    PUTOUT_YARN_PNP = 'putout',
-} = process.env;
+const {PUTOUT_YARN_PNP = 'putout'} = process.env;
 
 const createCustomRequire = once(() => createRequire(require.resolve(PUTOUT_YARN_PNP)));
 const createPutoutRequire = once(() => createRequire(require.resolve('putout')));

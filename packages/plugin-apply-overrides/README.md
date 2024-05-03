@@ -14,7 +14,10 @@ of dependency injection:
 import {readDirSync as _readdirSync} from 'node:fs/promises';
 
 export const readRules = (dirOpt, rulesDir, overrides = {}) => {
-    const {cwd, readdirSync = _readdirSync} = overrides;
+    const {
+        cwd,
+        readdirSync = _readdirSync,
+    } = overrides;
 };
 ```
 
