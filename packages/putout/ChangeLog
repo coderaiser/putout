@@ -1,3 +1,12 @@
+2024.05.03, v35.19.0
+
+fix:
+- b47fc0082 eslint-plugin-putout: long-properties-destructuring: ImportDeclaration: no imported
+
+feature:
+- 06c23903c putout: @putout/plugin-apply-overrides v1.0.0
+- 78a37907a eslint-plugin-putout: long-properties-destructuring: add support of ImportDeclaration (align with @putout/printer maxPropertiesLengthInOneLine)
+
 2024.04.29, v35.18.0
 
 feature:
