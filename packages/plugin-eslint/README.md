@@ -17,6 +17,24 @@ npm i @putout/plugin-eslint -D
 
 ## Rules
 
+- ✅ [add-putout](#add-putout)
+- ✅ [apply-match-to-flat](#apply-match-to-flat)
+- ✅ [apply-safe-align](#apply-safe-align)
+- ✅ [convert-files-to-array](#convert-files-to-array)
+- ✅ [convert-ide-to-safe](#convert-ide-to-safe)
+- ✅ [convert-node-to-n](#convert-node-to-n)
+- ✅ [convert-rc-to-flat](#convert-rc-to-flat)
+- ✅ [convert-require-to-import](#convert-require-to-import)
+- ✅ [declare](#declare)
+- ✅ [move-putout-to-end-of-extends](#move-putout-to-end-of-extends)
+- ✅ [remove-no-missing](#remove-no-missing)
+- ✅ [remove-no-unpublished-require](#remove-no-unpublished-require)
+- ✅ [remove-no-unsupported-features](#remove-no-unsupported-features)
+- ✅ [remove-overrides-with-empty-rules](#remove-overrides-with-empty-rules)
+- ✅ [remove-useless-slice](#remove-useless-slice)
+
+## Config
+
 ```json
 {
     "rules": {
