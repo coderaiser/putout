@@ -39,3 +39,8 @@ test('plugin-eslint-plugin: transform: turn-off-schema', (t) => {
     t.transform('turn-off-schema');
     t.end();
 });
+
+test('plugin-eslint-plugin: transform: update-ecma-version', (t) => {
+    t.transform('update-ecma-version');
+    t.end();
+});

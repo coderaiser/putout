@@ -17,13 +17,24 @@ npm i @putout/plugin-eslint-plugin -D
 
 ## Rules
 
+- ✅ [apply-flat-config-to-rule-tester](#apply-flat-config-to-rule-tester);
+- ✅ [convert-context-to-source](#convert-context-to-source);
+- ✅ [convert-require-resolve-to-require](#convert-require-resolve-to-require);
+- ✅ [turn-off-schema](#turn-off-schema);
+- ✅ [update-ecma-version](#update-ecma-version);
+
+## Config
+
 ```json
 {
     "rules": {
         "eslint-plugin/convert-context-to-source": "on",
         "eslint-plugin/apply-flat-config-to-rule-tester": "on",
         "eslint-plugin/convert-require-resolve-to-require": "on",
-        "eslint-plugin/turn-off-schema": "on"
+        "eslint-plugin/turn-off-schema": "on",
+        "eslint-plugin/update-ecma-version": ["on", {
+            "ecmaVersion": 2024
+        }]
     }
 }
 ```
@@ -223,6 +234,36 @@ function getMeta(plugin) {
         fixable,
     };
 }
+```
+
+## update-ecma-version
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/42748dc7b02e9476b51ab68dc4695ba1/81bc39b3429c470fb989c4d5241e61c305e66971).
+
+### ❌ Example of incorrect code
+
+```js
+const ruleTester = new RuleTester({
+    languageOptions: {
+        parserOptions: {
+            ecmaVersion: 2022,
+            sourceType: 'module',
+        },
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+const ruleTester = new RuleTester({
+    languageOptions: {
+        parserOptions: {
+            ecmaVersion: 2024,
+            sourceType: 'module',
+        },
+    },
+});
 ```
 
 ## License
