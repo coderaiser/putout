@@ -19,21 +19,11 @@ const createOverrides = template('const %%overrides%% = overrides');
 module.exports.report = () => `Use variable 'overrides' instead of destructuring function argument`;
 module.exports.fix = (path) => {
     const {node} = path;
+    const {right} = node;
     
-    if (path.isAssignmentPattern()) {
-        const {right} = node;
-        
-        replaceWith(path, AssignmentPattern(Identifier('overrides'), right));
-        path.parentPath.node.body.body.unshift(createOverrides({
-            overrides: node.left,
-        }));
-        
-        return;
-    }
-    
-    replaceWith(path, Identifier('overrides'));
+    replaceWith(path, AssignmentPattern(Identifier('overrides'), right));
     path.parentPath.node.body.body.unshift(createOverrides({
-        overrides: node,
+        overrides: node.left,
     }));
 };
 module.exports.traverse = ({push}) => ({
@@ -48,9 +38,6 @@ module.exports.traverse = ({push}) => ({
             return;
         
         const lastArg = params.at(-1);
-        
-        if (checkObjectPattern(lastArg))
-            return push(lastArg);
         
         if (!lastArg.isAssignmentPattern())
             return;

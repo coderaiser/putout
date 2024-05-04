@@ -58,13 +58,7 @@ npm i @putout/plugin-apply-overrides
 ## ❌ Example of incorrect code
 
 ```js
-async function matchToFlatDir(path, config, overrides = {}) {
-    const {
-        readESLintConfig = _readESLintConfig,
-    } = overrides;
-}
-
-export const readRules = (dirOpt, rulesDir, {cwd, readdirSync}) => {};
+async function matchToFlatDir(path, config, {readESLintConfig = _readESLintConfig} = {}) {}
 ```
 
 ## ✅ Example of correct code
@@ -75,10 +69,6 @@ async function matchToFlatDir(path, config, overrides = {}) {
         readESLintConfig = _readESLintConfig,
     } = overrides;
 }
-
-export const readRules = (dirOpt, rulesDir, overrides) => {
-    const {cwd, readdirSync} = overrides;
-};
 ```
 
 ## License

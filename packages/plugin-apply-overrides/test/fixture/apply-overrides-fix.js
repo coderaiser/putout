@@ -1,5 +1,6 @@
 async function matchToFlatDir(path, config, overrides = {}) {
     const {
+        cwd,
         readESLintConfig = _readESLintConfig,
     } = overrides;
 }
