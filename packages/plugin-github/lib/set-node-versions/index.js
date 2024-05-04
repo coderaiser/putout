@@ -24,6 +24,7 @@ module.exports.fix = (path, {options}) => {
     const {
         versions = defaultVersions,
     } = options;
+    
     const nodeVersionsNode = template.ast(stringify(versions));
     
     replaceWith(path, nodeVersionsNode);
@@ -34,6 +35,7 @@ module.exports.traverse = ({push, options}) => ({
         const {
             versions: nodeVersions = defaultVersions,
         } = options;
+        
         const {__object} = getTemplateValues(path, __yaml);
         
         for (const nodeVersionPath of traverseProperties(__object, 'node-version')) {

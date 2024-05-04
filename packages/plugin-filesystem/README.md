@@ -20,7 +20,7 @@ npm i @putout/plugin-filesystem -D
 - ✅ [convert-simple-filesystem-to-filesystem](#convert-simple-filesystem-to-filesystem);
 - ✅ [move-referenced-file](#move-referenced-file);
 - ✅ [read-all-files](#read-all-files)
- [rename-file](#rename-file);
+  [rename-file](#rename-file);
 - ✅ [remove-vim-swap-file](#remove-vim-swap-file);
 - ✅ [remove-files](#remove-files);
 - ✅ [rename-referenced-file](#rename-referenced-file);
