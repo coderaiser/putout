@@ -12,7 +12,7 @@ module.exports.isEnabled = (name, rules) => {
     }
     
     for (const {rule, state} of rules) {
-        if (RegExp(`^${rule}`).test(name))
+        if (RegExp(`^${rule}/`).test(name))
             return state;
     }
     

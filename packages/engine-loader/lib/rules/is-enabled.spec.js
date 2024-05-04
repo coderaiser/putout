@@ -78,3 +78,20 @@ test('putout: get-plugins: is-enabled: off', (t) => {
     t.notOk(result);
     t.end();
 });
+
+test('putout: get-plugins: is-enabled: similar names: on', (t) => {
+    const name = 'eslint-plugin/convert-context-to-source';
+    
+    const rules = [{
+        rule: 'eslint',
+        state: false,
+    }, {
+        rule: 'eslint-plugin',
+        state: true,
+    }];
+    
+    const result = isEnabled(name, rules);
+    
+    t.ok(result);
+    t.end();
+});
