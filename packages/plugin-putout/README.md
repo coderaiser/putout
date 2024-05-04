@@ -13,6 +13,58 @@ npm i @putout/plugin-putout -D
 
 ## Rules
 
+- ✅ [add-args](#add-args);
+- ✅ [add-await-to-progress](#add-await-to-progress);
+- ✅ [add-index-to-import](#add-index-to-import);
+- ✅ [add-push](#add-push);
+- ✅ [add-track-file](#add-track-file);
+- ✅ [apply-async-formatter](#apply-async-formatter);
+- ✅ [apply-create-test](#apply-create-test);
+- ✅ [apply-declare](#apply-declare);
+- ✅ [apply-for-of-to-track-file](#apply-for-of-to-track-file);
+- ✅ [apply-insert-after](#apply-insert-after);
+- ✅ [apply-insert-before](#apply-insert-before);
+- ✅ [apply-namespace-specifier](#apply-namespace-specifier);
+- ✅ [apply-processors-destructuring](#apply-processors-destructuring);
+- ✅ [apply-remove](#apply-remove);
+- ✅ [apply-rename](#apply-rename);
+- ✅ [apply-short-processors](#apply-short-processors);
+- ✅ [check-match](#check-match);
+- ✅ [check-replace-code](#check-replace-code);
+- ✅ [convert-add-argument-to-add-args](#convert-add-argument-to-add-args);
+- ✅ [convert-babel-types](#convert-babel-types);
+- ✅ [convert-destructuring-to-identifier](#convert-destructuring-to-identifier);
+- ✅ [convert-dirname-to-url](#convert-dirname-to-url);
+- ✅ [convert-find-to-traverse](#convert-find-to-traverse);
+- ✅ [convert-get-rule-to-require](#convert-get-rule-to-require);
+- ✅ [convert-match-to-function](#convert-match-to-function);
+- ✅ [convert-method-to-property](#convert-method-to-property);
+- ✅ [convert-node-to-path-in-get-template-values](#convert-node-to-path-in-get-template-values);
+- ✅ [convert-number-to-numeric](#convert-number-to-numeric);
+- ✅ [convert-process-to-find](#convert-process-to-find);
+- ✅ [convert-progress-to-track-file](#convert-progress-to-track-file);
+- ✅ [convert-putout-test-to-create-test](#convert-putout-test-to-create-test);
+- ✅ [convert-replace-to-function](#convert-replace-to-function);
+- ✅ [convert-replace-with](#convert-replace-with);
+- ✅ [convert-replace-with-multiple](#convert-replace-with-multiple);
+- ✅ [convert-report-to-function](#convert-report-to-function);
+- ✅ [convert-to-no-transform-code](#convert-to-no-transform-code);
+- ✅ [convert-traverse-to-include](#convert-traverse-to-include);
+- ✅ [convert-traverse-to-replace](#convert-traverse-to-replace);
+- ✅ [convert-traverse-to-scan](#convert-traverse-to-scan);
+- ✅ [convert-url-to-dirname](#convert-url-to-dirname);
+- ✅ [create-test](#create-test);
+- ✅ [declare](#declare);
+- ✅ [includer](#includer);
+- ✅ [move-require-on-top-level](#move-require-on-top-level);
+- ✅ [remove-unused-get-properties-argument](#remove-unused-get-properties-argument);
+- ✅ [rename-operate-to-operator](#rename-operate-to-operator);
+- ✅ [replace-operate-with-operator](#replace-operate-with-operator);
+- ✅ [replace-test-message](#replace-test-message);
+- ✅ [shorten-imports](#shorten-imports);
+
+## Config
+
 ```json
 {
     "rules": {
