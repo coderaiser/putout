@@ -232,3 +232,8 @@ test('plugin-putout: transform: remove-unused-get-properties-argument', (t) => {
     t.transform('remove-unused-get-properties-argument');
     t.end();
 });
+
+test('plugin-putout: transform: add-store', (t) => {
+    t.transform('add-store');
+    t.end();
+});

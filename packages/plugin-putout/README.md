@@ -17,6 +17,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-await-to-progress](#add-await-to-progress);
 - ✅ [add-index-to-import](#add-index-to-import);
 - ✅ [add-push](#add-push);
+- ✅ [add-store](#add-store);
 - ✅ [add-track-file](#add-track-file);
 - ✅ [apply-async-formatter](#apply-async-formatter);
 - ✅ [apply-create-test](#apply-create-test);
@@ -81,6 +82,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-for-of-to-track-file": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
+        "putout/add-store": "on",
         "putout/add-track-file": "on",
         "putout/add-await-to-progress": "on",
         "putout/add-index-to-import": "on",
@@ -829,6 +831,34 @@ module.exports.traverse = () => ({
 module.exports.traverse = ({push}) => ({
     '__a.replace(/__b/g, __c)': (path) => {
         push(path);
+    },
+});
+```
+
+## add-store
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.traverse = () => ({
+    ImportDeclaration(path) {
+        const {node} = path;
+        const {name} = node.specifiers[0].local;
+        
+        store('name', name);
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports.traverse = ({store}) => ({
+    ImportDeclaration(path) {
+        const {node} = path;
+        const {name} = node.specifiers[0].local;
+        
+        store('name', name);
     },
 });
 ```
