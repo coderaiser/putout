@@ -13,6 +13,24 @@ npm i @putout/plugin-filesystem -D
 
 ## Rules
 
+- ✅ [bundle](#bundle);
+- ✅ [convert-filesystem-to-simple-filesystem](#convert-filesystem-to-simple-filesystem);
+- ✅ [convert-js-to-json](#convert-js-to-json);
+- ✅ [convert-json-to-js](#convert-json-to-js);
+- ✅ [convert-simple-filesystem-to-filesystem](#convert-simple-filesystem-to-filesystem);
+- ✅ [move-referenced-file](#move-referenced-file);
+- ✅ [read-all-files](#read-all-files)
+ [rename-file](#rename-file);
+- ✅ [remove-vim-swap-file](#remove-vim-swap-file);
+- ✅ [remove-files](#remove-files);
+- ✅ [rename-referenced-file](#rename-referenced-file);
+- ✅ [rename-spec-to-test](#rename-spec-to-test);
+- ✅ [rename-test-to-spec](#rename-test-to-spec);
+- ✅ [replace-cwd](#replace-cwd);
+- ✅ [write-all-files](#write-all-files);
+
+## Config
+
 ```json
 {
     "rules": {
