@@ -15,6 +15,22 @@
 npm i @putout/plugin-for-of
 ```
 
+## Rules
+
+- ✅ [for-each](#for-each);
+- ✅ [for-entries](#for-entries);
+- ✅ [for-entries-n](#for-entries-n);
+- ✅ [for-in-negative](#for-in-negative);
+- ✅ [for-in-positive](#for-in-positive);
+- ✅ [for-length](#for-length);
+- ✅ [for-n](#for-n);
+- ✅ [map](#map);
+- ✅ [reduce](#reduce);
+- ✅ [remove-unused-variables](#remove-unused-variables);
+- ✅ [remove-useless](#remove-useless);
+- ✅ [remove-useless-array-from](#remove-useless-array-from);
+- ✅ [remove-useless-variables](#remove-useless-variables);
+
 ## Configuration
 
 ```json
