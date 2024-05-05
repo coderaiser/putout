@@ -83,6 +83,9 @@ module.exports.match = () => ({
         if (parentPath.isSequenceExpression())
             return false;
         
+        if (parentPath.isConditionalExpression())
+            return false;
+        
         if (parentPath.isVariableDeclarator())
             return false;
         
