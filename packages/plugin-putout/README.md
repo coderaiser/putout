@@ -837,6 +837,8 @@ module.exports.traverse = ({push}) => ({
 
 ## add-store
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b453bd78b8e9380da8b2f33dfb38b4e2/53b14f89eb88aa10c8e00ba1f0251976592e14ee).
+
 ### ❌ Example of incorrect code
 
 ```js
