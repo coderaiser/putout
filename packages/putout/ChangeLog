@@ -1,3 +1,15 @@
+2024.05.05, v35.20.0
+
+feature:
+- 5581321ec putout: @putout/plugin-for-of v5.0.0
+- 45b0a13ce @putout/plugin-for-of: drop support of 🐊 < 35
+- 5057d632f @putout/plugin-for-of: for-each: exclude ConditionalExpression
+- 0d40f13b2 @putout/plugin-putout: add-store: add
+- 9d8e3c3cc @putout/plugin-apply-overrides: rm unused code
+- 6b8afd4c2 @putout/plugin-eslint-plugin: drop support of 🐊 < 35
+- 3a2ec5b50 @putout/eslint-plugin: update-ecma-version: add
+- 86c829a97 @putout/engine-loader: rules: overlap
+
 2024.05.03, v35.19.0
 
 fix:
