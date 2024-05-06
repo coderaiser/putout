@@ -37,7 +37,6 @@ export const branch = (rawSource) => {
 
 export const find = (rawSource) => {
     const [error] = tryCatch(yaml.parse, rawSource);
-    
     const places = parsePlaces({
         error,
     });
@@ -47,11 +46,11 @@ export const find = (rawSource) => {
 
 export const merge = (rawSource, list) => {
     const [first] = list.filter(isYaml);
-    
     const source = fromJS(first, __yaml);
     
     return yaml.stringify(parse(source), null, {
         indent: 2,
+        lineWidth: Infinity,
     });
 };
 

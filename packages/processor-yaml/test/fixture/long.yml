@@ -1,0 +1,15 @@
+jobs:
+  buildx:
+    steps:
+      - name: Build and push alpine-image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: docker/Dockerfile.alpine
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            coderaiser/cloudcmd:latest-alpine
+            coderaiser/cloudcmd:${{ steps.build.outputs.version }}-alpine
+            ghcr.io/${{ github.repository }}:latest-alpine
+            ghcr.io/${{ github.repository }}:${{ steps.build.outputs.version }}-alpine

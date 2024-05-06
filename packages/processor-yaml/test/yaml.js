@@ -10,6 +10,10 @@ test('putout: processor: yaml', async ({process}) => {
     await process('travis.yml', ['travis/disable-cache']);
 });
 
+test('putout: processor: yaml: long', async ({process}) => {
+    await process('long.yml');
+});
+
 test('putout: processor: yaml: actions', async ({noProcess}) => {
     await noProcess('actions.yml');
 });
