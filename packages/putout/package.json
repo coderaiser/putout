@@ -197,6 +197,7 @@
     "fast-glob": "^3.2.2",
     "find-up": "^7.0.0",
     "fullstore": "^3.0.0",
+    "goldstein": "^5.3.0",
     "ignore": "^5.0.4",
     "is-relative": "^1.0.0",
     "nano-memoize": "^3.0.11",

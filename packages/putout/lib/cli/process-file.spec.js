@@ -1,5 +1,6 @@
 'use strict';
 
+const montag = require('montag');
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
 
@@ -358,5 +359,47 @@ test('putout: cli: process-file: quick-lint', async (t) => {
     ];
     
     t.calledWith(quickLint, expected, 'should call @putout/quick-lint');
+    t.end();
+});
+
+test('putout: cli: process-file: goldstein', async (t) => {
+    const source = 'function hello () => {await x}';
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    
+    const options = {
+        dir: '.',
+    };
+    
+    const processFile = reRequire('./process-file');
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const result = await fn({
+        name: 'example.js',
+        source,
+        index: 0,
+        length: 1,
+        options,
+    });
+    
+    stopAll();
+    
+    const expected = {
+        places: [],
+        code: montag`
+            async function hello() {
+                await x;
+            }\n
+        `,
+    };
+    
+    t.deepEqual(result, expected);
     t.end();
 });

@@ -7,6 +7,7 @@ const quickLint = require('@putout/quick-lint');
 const {putoutAsync} = require('../..');
 const merge = require('../merge');
 const parseMatch = require('../parse-options/parse-match');
+const {syntaxFix} = require('./syntax/syntax');
 
 const parseError = require('./parse-error');
 
@@ -31,7 +32,7 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({na
         printer: configurePrinter(name, printer),
     });
     
-    if (e) {
+    if (e && !fix) {
         raw && logError(e);
         const quickLintPlaces = await quickLint(source, {
             isTS,
@@ -44,6 +45,9 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({na
                 code: source,
             };
     }
+    
+    if (e && fix)
+        return await syntaxFix(source);
     
     const {code = source} = result || {};
     const allPlaces = result ? result.places : parseError(e);
