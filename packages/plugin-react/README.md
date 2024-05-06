@@ -26,6 +26,7 @@ Add `.putout.json` with:
 ## Rules
 
 - ✅ [remove-useless-provider](#remove-useless-provider);
+- ✅ [remove-useless-forward-ref](#remove-useless-forward-ref);
 - ✅ [remove-implicit-ref-return](#remove-implicit-ref-return);
 
 ## Config
@@ -36,6 +37,7 @@ Here is list of rules:
 {
     "rules": {
         "react/remove-useless-provider": "on",
+        "react/remove-useless-forward-ref": "on",
         "react/remove-implicit-ref-return": "on"
     }
 }
@@ -77,6 +79,36 @@ function App() {
         </UseTheme>
     );
 }
+```
+
+## remove-useless-forward-ref
+
+> Starting in React 19, you can now access ref as a prop for function components:
+> New function components will no longer need `forwardRef`.
+> In future versions we will deprecate and remove `forwardRef`.
+>
+> [react.dev](https://react.dev/blog/2024/04/25/react-19#ref-as-a-prop)
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/d35cf809dad425439de86ceaeca49d38/65229e30b43f072d4d6d04f3998fa47095a0a7f6).
+
+### ❌ Example of incorrect code
+
+```jsx
+const MyInput = forwardRef((props, ref) => {
+    return (
+        <input {...props} ref={ref}/>
+    );
+});
+```
+
+### ✅ Example of correct code
+
+```jsx
+const MyInput2 = forwardRef(({value}, ref) => {
+    return (
+        <input value={value} ref={ref}/>
+    );
+});
 ```
 
 ## remove-implicit-ref-return

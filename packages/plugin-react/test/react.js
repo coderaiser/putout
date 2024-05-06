@@ -19,3 +19,8 @@ test('plugin-react: transform: remove-implicit-ref-return', (t) => {
     t.transform('remove-implicit-ref-return');
     t.end();
 });
+
+test('plugin-react: transform: remove-useless-forward-ref', (t) => {
+    t.transform('remove-useless-forward-ref');
+    t.end();
+});
