@@ -11,7 +11,6 @@ const {
     Identifier,
     AssignmentPattern,
     isAssignmentPattern,
-    isIdentifier,
 } = types;
 
 const createOverrides = template('const %%overrides%% = overrides');
@@ -26,12 +25,13 @@ module.exports.fix = (path) => {
         overrides: node.left,
     }));
 };
+
 module.exports.traverse = ({push}) => ({
     Function(path) {
         const params = path.get('params');
         const {length} = params;
         
-        if (length < 3)
+        if (!length)
             return;
         
         if (path.scope.bindings.overrides)
@@ -53,16 +53,18 @@ function checkObjectPattern(path) {
     if (!path.isObjectPattern())
         return false;
     
+    const properties = path.get('properties');
+    
+    if (properties.length < 2)
+        return false;
+    
     let count = 0;
     
-    for (const prop of path.get('properties')) {
+    for (const prop of properties) {
         if (!isAssignmentPattern(prop.node.value))
             continue;
         
-        const {right} = prop.node.value;
-        
-        if (isIdentifier(right))
-            ++count;
+        ++count;
     }
     
     return count;

@@ -30,8 +30,8 @@ test('putout: apply-overrides: no report: no-args', (t) => {
     t.end();
 });
 
-test('putout: apply-overrides: no report: one-arg', (t) => {
-    t.noReport('one-arg');
+test('putout: apply-overrides: transform: one-arg', (t) => {
+    t.transform('one-arg');
     t.end();
 });
 

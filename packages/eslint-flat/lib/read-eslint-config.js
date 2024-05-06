@@ -8,7 +8,8 @@ const {FlatCompat} = require('@eslint/eslintrc');
 const {parse} = JSON;
 const _import = (a) => import(a);
 
-module.exports.readESLintConfig = async (dirPath, {read = _import, readFile} = {}) => {
+module.exports.readESLintConfig = async (dirPath, overrides = {}) => {
+    const {read = _import, readFile} = overrides;
     const configNames = [
         'eslint.config.js',
         'eslint.config.cjs',
