@@ -18,6 +18,15 @@ const message = 'Keep each property on separate lines when destructuring long pr
 
 ruleTester.run('long-properties-destructuring', rule, {
     valid: [
+        `import cloudcmd, {
+            _isDev,
+            _replaceDist,
+            createConfigManager,
+            _getPrefix,
+            _initAuth,
+            _getIndexPath,
+        } from './cloudcmd.mjs';
+        `,
         `const {
             isIdentifier,
         } = world;`,

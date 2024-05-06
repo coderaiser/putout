@@ -15,6 +15,8 @@ const parseOptions = (options) => {
     };
 };
 
+const notImportDefaultSpecifier = (a) => a.type !== 'ImportDefaultSpecifier';
+
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep each property on separate lines when destructuring long properties';
 
@@ -47,13 +49,17 @@ module.exports.filter = ({node}, options) => {
     if (isImportDeclaration(node)) {
         const {specifiers} = node;
         const {line} = node.loc.start;
-        const isLoc = isCorrectLoc(line, specifiers);
+        const filtered = specifiers.filter(notImportDefaultSpecifier);
+        const isLoc = isCorrectLoc(line, filtered);
+        
+        if (isLoc)
+            return false;
         
         const isLength = isCorrectSpecifiersLength(specifiers, {
             maxLength,
         });
         
-        return !(isLoc || isLength);
+        return !isLength;
     }
     
     const {id} = node;
