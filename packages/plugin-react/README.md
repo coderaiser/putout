@@ -1,0 +1,82 @@
+# @putout/plugin-react [![NPM version][NPMIMGURL]][NPMURL]
+
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-react-hooks "npm"
+
+> The library for web and native user interfaces
+>
+> (c) [react.dev](https://react.dev)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to migrate to new version of React. *Not bundled*.
+
+## Install
+
+```
+npm i putout @putout/plugin-react-hooks -D
+```
+
+Add `.putout.json` with:
+
+```json
+{
+    "plugins": ["react"]
+}
+```
+
+## Rules
+
+- ✅ [remove-useless-provider](#remove-useless-provider);
+
+## Config
+
+Here is list of rules:
+
+```json
+{
+    "rules": {
+        "react/remove-useless-provider": "on"
+    }
+}
+```
+
+## remove-useless-provider
+
+> In React 19, you can render <Context> as a provider instead of <Context.Provider>:
+>
+> [react.dev](https://react.dev/blog/2024/04/25/react-19#context-as-a-provider)
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/51f66807ab67704288f2f737c5152e6c/8957e4a4beb17e175bff1b10e455ffda59d7c74a).
+
+### ❌ Example of incorrect code
+
+```jsx
+function App() {
+    const [theme, setTheme] = useState('light');
+    
+    // ...
+    return (
+        <UseTheme.Provider value={theme}>
+            <Page/>
+        </UseTheme.Provider>
+    );
+}
+```
+
+### ✅ Example of correct code
+
+```jsx
+function App() {
+    const [theme, setTheme] = useState('light');
+    
+    // ...
+    return (
+        <UseTheme value={theme}>
+            <Page/>
+        </UseTheme>
+    );
+}
+```
+
+## License
+
+MIT
