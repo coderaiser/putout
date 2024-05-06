@@ -26,6 +26,7 @@ Add `.putout.json` with:
 ## Rules
 
 - ✅ [remove-useless-provider](#remove-useless-provider);
+- ✅ [remove-implicit-ref-return](#remove-implicit-ref-return);
 
 ## Config
 
@@ -34,7 +35,8 @@ Here is list of rules:
 ```json
 {
     "rules": {
-        "react/remove-useless-provider": "on"
+        "react/remove-useless-provider": "on",
+        "react/remove-implicit-ref-return": "on"
     }
 }
 ```
@@ -60,6 +62,37 @@ function App() {
         </UseTheme.Provider>
     );
 }
+```
+
+### ✅ Example of correct code
+
+```jsx
+function App() {
+    const [theme, setTheme] = useState('light');
+    
+    // ...
+    return (
+        <UseTheme value={theme}>
+            <Page/>
+        </UseTheme>
+    );
+}
+```
+
+## remove-implicit-ref-return
+
+> Due to the introduction of ref cleanup functions, returning anything else from a ref callback will now be rejected by TypeScript. The fix is usually to stop using implicit returns.
+>
+> [react.dev](https://react.dev/blog/2024/04/25/react-19#context-as-a-provider)
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/51f66807ab67704288f2f737c5152e6c/8957e4a4beb17e175bff1b10e455ffda59d7c74a).
+
+### ❌ Example of incorrect code
+
+```jsx
+const a = (
+    <div ref={(current) => (instance = current)}/>
+);
 ```
 
 ### ✅ Example of correct code

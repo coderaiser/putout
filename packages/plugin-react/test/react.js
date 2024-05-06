@@ -14,3 +14,8 @@ test('plugin-react: transform: remove-useless-provider', (t) => {
     t.transform('remove-useless-provider');
     t.end();
 });
+
+test('plugin-react: transform: remove-implicit-ref-return', (t) => {
+    t.transform('remove-implicit-ref-return');
+    t.end();
+});
