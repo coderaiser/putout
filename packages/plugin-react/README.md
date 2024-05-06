@@ -85,7 +85,7 @@ function App() {
 >
 > [react.dev](https://react.dev/blog/2024/04/25/react-19#context-as-a-provider)
 
-Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/51f66807ab67704288f2f737c5152e6c/8957e4a4beb17e175bff1b10e455ffda59d7c74a).
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/dc0c3eb7a20d54645c57e5c1c1321f65/940cde047eeef97f3a00c662e6ea86167dd0f71c).
 
 ### ❌ Example of incorrect code
 
