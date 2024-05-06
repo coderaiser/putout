@@ -230,3 +230,17 @@ test('putout: config: .github/**/*.yml', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: config: .eslintrc{*,.json}', (t) => {
+    const {match} = putoutConfig;
+    const result = match['.eslintrc{*,.json}'];
+    
+    const expected = {
+        'eslint': 'on',
+        'eslint/convert-require-to-import': 'off',
+        'eslint/apply-match-to-flat': 'off',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
