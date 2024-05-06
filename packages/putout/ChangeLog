@@ -1,3 +1,16 @@
+2024.05.06, v35.21.0
+
+fix:
+- 8b22f546d @putout/processor-yaml: lineWidth: 80 -> Infinity
+
+feature:
+- 68404b101 putout: add ability to autofix syntax
+- 7367fd174 @putout/plugin-react: remove-useless-forward-ref: add
+- 522b92c5a @putout/plugin-apply-overrides: improve support of one-two arguments
+- d86f10109 @putout/plugin-react: remove-implicit-ref-return: add
+- 6064290d3 eslint-plugin-putout: long-properties-destructuring: exclude ImportDefaultSpecifier
+- 2d6890984 @putout/plugin-react: add
+
 2024.05.06, v35.20.1
 
 fix:
