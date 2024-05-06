@@ -1,3 +1,13 @@
+2024.05.06, v35.20.1
+
+fix:
+- 44635b9f3 putout: config: eslint/apply-match-to-flat: disable for .eslintrc.js
+
+feature:
+- 4d75b9c9f putout: @putout/plugin-for-of v5.0.0
+- b1b9aa23b @putout/plugin-for-of: drop support of 🐊 < 35
+- dd29a5a0b @putout/plugin-for-of: for-each: exclude ConditionalExpression (coderaiser/minify#122)
+
 2024.05.05, v35.20.0
 
 feature:
