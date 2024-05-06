@@ -1,6 +1,5 @@
 'use strict';
 
-const tryToCatch = require('try-to-catch');
 const {join} = require('node:path');
 const {
     stat,
@@ -8,6 +7,7 @@ const {
     readFile,
 } = require('node:fs/promises');
 
+const tryToCatch = require('try-to-catch');
 const {stub} = require('supertape');
 
 const {

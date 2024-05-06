@@ -2,12 +2,11 @@
 
 const tryToCatch = require('try-to-catch');
 const eslint = require('@putout/eslint');
-const quickLint = require('@putout/quick-lint');
 
 const {putoutAsync} = require('../..');
 const merge = require('../merge');
 const parseMatch = require('../parse-options/parse-match');
-const {syntaxFix} = require('./syntax/syntax');
+const {lintSyntax} = require('./syntax/syntax');
 
 const parseError = require('./parse-error');
 
@@ -32,22 +31,25 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({na
         printer: configurePrinter(name, printer),
     });
     
-    if (e && !fix) {
+    if (e) {
         raw && logError(e);
-        const quickLintPlaces = await quickLint(source, {
+        const {places, code} = await lintSyntax(source, {
+            fix,
             isTS,
-            isJSX: true,
         });
         
-        if (quickLintPlaces.length)
+        if (!fix && places.length)
             return {
-                places: quickLintPlaces,
-                code: source,
+                places,
+                code,
+            };
+        
+        if (fix && !places.length)
+            return {
+                places,
+                code,
             };
     }
-    
-    if (e && fix)
-        return await syntaxFix(source);
     
     const {code = source} = result || {};
     const allPlaces = result ? result.places : parseError(e);

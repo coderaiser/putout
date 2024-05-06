@@ -341,7 +341,7 @@ test('putout: cli: process-file: quick-lint', async (t) => {
         write,
     });
     
-    await fn({
+    const result = await fn({
         name: 'example.js',
         source,
         index: 0,
@@ -351,14 +351,19 @@ test('putout: cli: process-file: quick-lint', async (t) => {
     
     stopAll();
     
-    const expected = [
-        source, {
-            isJSX: true,
-            isTS: false,
-        },
-    ];
+    const expected = {
+        code: '() => await x',
+        places: [{
+            message: `'await' is only allowed in async functions`,
+            position: {
+                column: 6,
+                line: 1,
+            },
+            rule: 'parser (quick-lint-js)',
+        }],
+    };
     
-    t.calledWith(quickLint, expected, 'should call @putout/quick-lint');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -398,6 +403,96 @@ test('putout: cli: process-file: goldstein', async (t) => {
                 await x;
             }\n
         `,
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: process-file: goldstein: no braces', async (t) => {
+    const source = 'if a > 2 {}';
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    
+    const options = {
+        dir: '.',
+    };
+    
+    const processFile = reRequire('./process-file');
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const result = await fn({
+        name: 'example.js',
+        source,
+        index: 0,
+        length: 1,
+        options,
+    });
+    
+    stopAll();
+    
+    const expected = {
+        places: [],
+        code: 'if (a > 2) {}\n',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: process-file: syntax error', async (t) => {
+    const source = 'CloudCmd({{ config }});';
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    
+    const options = {
+        dir: '.',
+    };
+    
+    const processFile = reRequire('./process-file');
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const result = await fn({
+        name: 'example.js',
+        source,
+        index: 0,
+        length: 1,
+        options,
+    });
+    
+    stopAll();
+    
+    const expected = {
+        code: 'CloudCmd({{ config }});',
+        places: [{
+            message: 'Unexpected token ',
+            position: {
+                column: 10,
+                line: 2,
+            },
+            rule: 'parser',
+        }, {
+            message: 'Parsing error: Unexpected token {',
+            position: {
+                column: 11,
+                line: 2,
+            },
+            rule: 'parser (eslint)',
+        }],
     };
     
     t.deepEqual(result, expected);
