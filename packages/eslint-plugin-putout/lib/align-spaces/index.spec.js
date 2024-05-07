@@ -38,7 +38,7 @@ ruleTester.run('align-spaces', rule, {
             '}',
         ].join('\n'),
         errors: [{
-            message: 'Spaces should be aligned on empty lines',
+            message: 'Keep whitespaces in blank lines',
             type: 'Program',
         }],
     }],

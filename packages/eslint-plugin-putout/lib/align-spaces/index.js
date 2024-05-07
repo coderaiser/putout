@@ -3,7 +3,7 @@
 const alignSpaces = require('align-spaces');
 const alignedMap = new Map();
 
-module.exports.report = () => 'Spaces should be aligned on empty lines';
+module.exports.report = () => 'Keep whitespaces in blank lines';
 
 module.exports.include = () => ['Program'];
 
