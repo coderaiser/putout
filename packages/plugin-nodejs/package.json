@@ -39,6 +39,7 @@
     "nodejs"
   ],
   "devDependencies": {
+    "@putout/eslint-flat": "^1.1.1",
     "@putout/plugin-declare": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-typescript": "*",

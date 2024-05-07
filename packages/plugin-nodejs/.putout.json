@@ -8,6 +8,9 @@
         }]
     },
     "match": {
+        ".filesystem.json": {
+            "eslint/convert-rc-to-flat": "on"
+        },
         "*.md": {
             "nodejs": "off"
         }
