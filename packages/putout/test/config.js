@@ -81,7 +81,8 @@ test('putout: config: eslint: FlatConfig', (t) => {
     const {match} = putoutConfig;
     const result = match['eslint.config.*'];
     const expected = {
-        eslint: 'on',
+        'eslint': 'on',
+        'putout/convert-match-to-function': 'off',
     };
     
     t.deepEqual(result, expected);

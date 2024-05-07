@@ -1,6 +1,5 @@
 {
     "printer": "putout",
-    "formatter": "memory",
     "rules": {
         "maybe/noop": "off",
         "remove-console": "on"

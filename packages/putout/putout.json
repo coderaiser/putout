@@ -106,7 +106,8 @@
             "eslint/apply-match-to-flat": "off"
         },
         "eslint.config.*": {
-            "eslint": "on"
+            "eslint": "on",
+            "putout/convert-match-to-function": "off"
         },
         "package.json": {
             "package-json": "on"
