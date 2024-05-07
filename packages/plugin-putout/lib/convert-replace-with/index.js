@@ -20,7 +20,7 @@ const isRecast = (program) => program.get('body.0.expression').isStringLiteral({
 });
 
 module.exports.report = () => {
-    return `"operator.replaceWith" should be called instead of "path.replaceWith"`;
+    return `Use 'operator.replaceWith()' instead of 'path.replaceWith()'`;
 };
 
 module.exports.fix = ({path, calleePath, property, object, program, isInserted}) => {

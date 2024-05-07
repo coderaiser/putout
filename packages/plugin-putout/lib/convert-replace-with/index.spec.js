@@ -12,7 +12,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-putout: convert-replace-with: report', (t) => {
-    t.report('replace-with', `"operator.replaceWith" should be called instead of "path.replaceWith"`);
+    t.report('replace-with', `Use 'operator.replaceWith()' instead of 'path.replaceWith()'`);
     t.end();
 });
 
