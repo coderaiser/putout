@@ -24,3 +24,8 @@ test('plugin-add-missing-star: transform', (t) => {
     t.transform('add-missing-star');
     t.end();
 });
+
+test('plugin-add-missing-star: transform: yield-star', (t) => {
+    t.transform('yield-star');
+    t.end();
+});

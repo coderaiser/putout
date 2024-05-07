@@ -66,6 +66,10 @@ function hello() {
     yield;
     'world';
 }
+
+function func2() {
+    yield * func1();
+}
 ```
 
 ### ✅ Example of correct code
@@ -73,6 +77,10 @@ function hello() {
 ```js
 function* hello() {
     yield 'world';
+}
+
+function* func2() {
+    yield* func1();
 }
 ```
 
