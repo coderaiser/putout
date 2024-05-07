@@ -1674,6 +1674,15 @@ async function runCli() {
 }
 ```
 
+<details><summary>add missing <code>async</code></summary>
+
+```diff
+-function hello() {
++async function hello() {
+    await world();
+}
+```
+
 </details>
 
 <details><summary>add <code>await</code> to <code>return promise()</code> statements (<a href=https://v8.dev/blog/fast-async>because it's faster, produces call stack and more readable</a>)</summary>
