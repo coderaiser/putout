@@ -1,3 +1,12 @@
+2024.05.07, v35.22.0
+
+feature:
+- 300976b97 putout: @putout/plugin-promises v15.0.0
+- 84f082b24 @putout/plugin-promises: drop support of 🐊 < 35
+- 6cb1598b8 putout: process-file: do not show ESLint parser errors when 🐊Putout can parse
+- 2b8b8be6c @putout/engine-parser: add ability to parse await without async
+- ca781d676 @putout/plugin-promises: add-missing-async: add
+
 2024.05.07, v35.21.1
 
 feature:
