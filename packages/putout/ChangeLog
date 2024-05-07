@@ -1,3 +1,8 @@
+2024.05.07, v35.22.1
+
+feature:
+- 947c377ef putout: eslint.config.js: disable putout/convert-match-to-flat
+
 2024.05.07, v35.22.0
 
 feature:
