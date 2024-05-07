@@ -1,3 +1,8 @@
+2024.05.07, v35.21.1
+
+feature:
+- 9f6278963 putout: process-file: syntax
+
 2024.05.06, v35.21.0
 
 fix:
