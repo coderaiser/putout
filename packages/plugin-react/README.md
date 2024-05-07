@@ -25,6 +25,7 @@ Add `.putout.json` with:
 
 ## Rules
 
+- ✅ [apply-create-root](#apply-create-root);
 - ✅ [remove-useless-provider](#remove-useless-provider);
 - ✅ [remove-useless-forward-ref](#remove-useless-forward-ref);
 - ✅ [remove-implicit-ref-return](#remove-implicit-ref-return);
@@ -36,11 +37,37 @@ Here is list of rules:
 ```json
 {
     "rules": {
+        "react/apply-create-root": "on",
         "react/remove-useless-provider": "on",
         "react/remove-useless-forward-ref": "on",
         "react/remove-implicit-ref-return": "on"
     }
 }
+```
+
+## apply-create-root
+
+> `ReactDOM.render()` was deprecated in March 2022 (v18.0.0). In React 19, we’re removing `ReactDOM.render()` and you’ll need to migrate to using `ReactDOM.createRoot()`:
+>
+> [react.dev](https://react.dev/blog/2024/04/25/react-19-upgrade-guide#removed-reactdom-render)
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/98f21f4826dba034cb0923a7933e959b/399ada3ea94e718a537e8348c710f14b7fc19c9e).
+
+### ❌ Example of incorrect code
+
+```jsx
+import {render} from 'react-dom';
+
+render(<App/>, document.getElementById('root'));
+```
+
+### ✅ Example of correct code
+
+```jsx
+import {createRoot} from 'react-dom/client';
+
+const root = createRoot(document.getElementById('root'));
+root.render(<App/>);
 ```
 
 ## remove-useless-provider

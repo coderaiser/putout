@@ -24,3 +24,8 @@ test('plugin-react: transform: remove-useless-forward-ref', (t) => {
     t.transform('remove-useless-forward-ref');
     t.end();
 });
+
+test('plugin-react: transform: apply-create-root', (t) => {
+    t.transform('apply-create-root');
+    t.end();
+});
