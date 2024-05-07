@@ -9,6 +9,14 @@ const generate = require('./generate');
 const babel = require('./parsers/babel');
 const print = require('./print');
 
+test('putout: engina-parser: parse: await without async', (t) => {
+    const source = `const hello = () => await world()`;
+    const ast = parse(source);
+    
+    t.ok(ast);
+    t.end();
+});
+
 test('putout: engina-parser: using', (t) => {
     const source = 'await using obj = g();\n';
     const ast = parse(source);

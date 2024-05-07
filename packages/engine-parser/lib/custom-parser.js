@@ -9,6 +9,10 @@ const hermes = require('./parsers/hermes');
 const secondChance = require('./second-chance');
 const isObject = (a) => typeof a === 'object';
 
+const MESSAGES = [
+    'has already been declared',
+];
+
 module.exports = (source, parser, {isTS, isFlow, isJSX}) => {
     const options = {
         parser,
@@ -17,18 +21,30 @@ module.exports = (source, parser, {isTS, isFlow, isJSX}) => {
         isJSX,
     };
     
-    return secondChance(customParse, source, options, {
+    const optionsB = {
         ...options,
         isJSX: false,
-    });
+    };
+    
+    const optionsC = {
+        ...options,
+        isRecovery: true,
+    };
+    
+    return secondChance(customParse, source, MESSAGES, [
+        options,
+        optionsB,
+        optionsC,
+    ]);
 };
 
-function customParse(source, {parser, isTS, isFlow, isJSX}) {
+function customParse(source, {parser, isTS, isFlow, isJSX, isRecovery}) {
     if (parser === 'babel')
         return babel.parse(source, {
             isTS,
             isFlow,
             isJSX,
+            isRecovery,
         });
     
     if (isObject(parser))

@@ -2,16 +2,31 @@
 
 const tryCatch = require('try-catch');
 
-module.exports = (fn, source, a, b) => {
+module.exports = (fn, source, messages, args) => {
+    const [a, ...others] = args;
     const [errorA, resultA] = tryCatch(fn, source, a);
     
     if (!errorA)
         return resultA;
     
-    const [errorB, resultB] = tryCatch(fn, source, b);
+    if (checkError(errorA, messages))
+        throw errorA;
     
-    if (!errorB)
-        return resultB;
+    for (const b of others) {
+        const [errorB, resultB] = tryCatch(fn, source, b);
+        
+        if (!errorB)
+            return resultB;
+    }
     
     throw errorA;
 };
+
+function checkError(error, messages) {
+    for (const message of messages) {
+        if (error.message.includes(message))
+            return true;
+    }
+    
+    return false;
+}

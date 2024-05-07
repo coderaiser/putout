@@ -20,12 +20,13 @@ const {assign} = Object;
 // There is a difference in options naming for babel and recast
 // recast -> sourceFileName
 // babel, putout: sourceFilename
-module.exports.parse = function babelParse(source, {sourceFilename, isTS, isJSX = true, isFlow = getFlow(source)}) {
+module.exports.parse = function babelParse(source, {sourceFilename, isTS, isJSX = true, isFlow = getFlow(source), isRecovery}) {
     const {parse} = initBabel();
     const parserOptions = {
         sourceType: 'module',
         tokens: true,
         ...options,
+        errorRecovery: isRecovery,
         plugins: clean([
             ...plugins,
             ...getBabelLangExts({
