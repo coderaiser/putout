@@ -9,6 +9,7 @@ const parseMatch = require('../parse-options/parse-match');
 const {lintSyntax} = require('./syntax/syntax');
 
 const parseError = require('./parse-error');
+const isParserError = ([a]) => a?.rule.includes('parser');
 
 const getMatchedOptions = (name, options) => {
     if (!name.includes('{'))
@@ -60,7 +61,10 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({na
         fix,
     });
     
-    allPlaces.push(...newPlaces);
+    const wasParserError = isParserError(newPlaces);
+    
+    if (e || !wasParserError)
+        allPlaces.push(...newPlaces);
     
     const places = formatPlaces(startLine, allPlaces);
     

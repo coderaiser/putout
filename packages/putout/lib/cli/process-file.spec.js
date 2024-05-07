@@ -3,6 +3,7 @@
 const montag = require('montag');
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
+const processFile = require('./process-file');
 
 const {reRequire, stopAll} = mockRequire;
 const {stringify} = JSON;
@@ -320,20 +321,15 @@ test('putout: cli: process-file: configurePrinter', async (t) => {
 });
 
 test('putout: cli: process-file: quick-lint', async (t) => {
-    const quickLint = stub().returns([]);
-    const source = '() => await x';
+    const source = 'function hello() => {return x}';
     const fix = false;
     
     const log = stub();
     const write = stub();
     
-    mockRequire('@putout/quick-lint', quickLint);
-    
     const options = {
         dir: '.',
     };
-    
-    const processFile = reRequire('./process-file');
     
     const fn = processFile({
         fix,
@@ -349,14 +345,12 @@ test('putout: cli: process-file: quick-lint', async (t) => {
         options,
     });
     
-    stopAll();
-    
     const expected = {
-        code: '() => await x',
+        code: source,
         places: [{
-            message: `'await' is only allowed in async functions`,
+            message: `functions/methods should not have '=>'`,
             position: {
-                column: 6,
+                column: 17,
                 line: 1,
             },
             rule: 'parser (quick-lint-js)',
@@ -378,8 +372,6 @@ test('putout: cli: process-file: goldstein', async (t) => {
         dir: '.',
     };
     
-    const processFile = reRequire('./process-file');
-    
     const fn = processFile({
         fix,
         log,
@@ -393,8 +385,6 @@ test('putout: cli: process-file: goldstein', async (t) => {
         length: 1,
         options,
     });
-    
-    stopAll();
     
     const expected = {
         places: [],
@@ -420,8 +410,6 @@ test('putout: cli: process-file: goldstein: no braces', async (t) => {
         dir: '.',
     };
     
-    const processFile = reRequire('./process-file');
-    
     const fn = processFile({
         fix,
         log,
@@ -435,8 +423,6 @@ test('putout: cli: process-file: goldstein: no braces', async (t) => {
         length: 1,
         options,
     });
-    
-    stopAll();
     
     const expected = {
         places: [],
@@ -458,8 +444,6 @@ test('putout: cli: process-file: syntax error', async (t) => {
         dir: '.',
     };
     
-    const processFile = reRequire('./process-file');
-    
     const fn = processFile({
         fix,
         log,
@@ -473,8 +457,6 @@ test('putout: cli: process-file: syntax error', async (t) => {
         length: 1,
         options,
     });
-    
-    stopAll();
     
     const expected = {
         code: 'CloudCmd({{ config }});',
@@ -493,6 +475,40 @@ test('putout: cli: process-file: syntax error', async (t) => {
             },
             rule: 'parser (eslint)',
         }],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: process-file: await without async: no ESLint', async (t) => {
+    const source = '() => await x';
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    
+    const options = {
+        dir: '.',
+    };
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const result = await fn({
+        name: 'example.js',
+        source,
+        index: 0,
+        length: 1,
+        options,
+    });
+    
+    const expected = {
+        code: '() => await x;\n',
+        places: [],
     };
     
     t.deepEqual(result, expected);
