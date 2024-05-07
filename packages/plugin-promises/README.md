@@ -19,9 +19,20 @@
 npm i @putout/plugin-promises -D
 ```
 
-## Rule
+## Rules
 
-Default options looks this way:
+- ✅ [add-missing-async](#add-missing-async);
+- ✅ [add-missing-await](#add-missing-await);
+- ✅ [apply-await-import](#apply-await-import);
+- ✅ [apply-top-level-await](#apply-top-level-await);
+- ✅ [convert-new-promise-to-async](#convert-new-promise-to-async);
+- ✅ [convert-reject-to-throw](#convert-reject-to-throw);
+- ✅ [remove-useless-async](#remove-useless-async);
+- ✅ [remove-useless-await](#remove-useless-await);
+- ✅ [remove-useless-resolve](#remove-useless-resolve);
+- ✅ [remove-useless-variables](#remove-useless-variables);
+
+## Config
 
 ```json
 {
@@ -39,7 +50,7 @@ Default options looks this way:
 }
 ```
 
-☝️ If you want to override any of it, update `.putout.json` in the root directory of your project.
+☝️ If you want to override any of it, update `.putout.json` in the directory near your files.
 
 [🦉 Configuration](https://github.com/coderaiser/putout#-configuration) section of 🐊**Putout** documentation tell you more about all configuration options supported.
 
@@ -155,6 +166,28 @@ async function runCli() {}
 await runCli();
 
 async function runCli() {}
+```
+
+## add-missing-async
+
+> The `async` function declaration creates a binding of a new async function to a given name. The `await` keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+
+### ❌ Example of incorrect code
+
+```js
+function hello() {
+    await world();
+}
+```
+
+### ✅ Example of correct code
+
+```js
+async function hello() {
+    await world();
+}
 ```
 
 ## convert-new-promise-to-async
