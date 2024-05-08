@@ -1,3 +1,13 @@
+2024.05.08, v35.22.2
+
+feature:
+- 1e3ca1f22 putout: run 🐊 after fixing syntax errors
+- 807430337 eslint-plugin-putout: align-spaces: report
+- 08e77aec0 @putout/plugin-putout: convert-replace-with: report
+- 19908112b @putout/plugin-for-of: add-missing-star: delegate
+- 3f41dd7de @putout/plugin-react: apply-create-root: add
+- eb138c934 @putout/plugin-for-of: add-missing-star
+
 2024.05.07, v35.22.1
 
 feature:
