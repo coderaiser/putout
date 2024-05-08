@@ -18,7 +18,7 @@ const getMatchedOptions = (name, options) => {
     return merge(options, parseMatch(name, options.match));
 };
 
-module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({name, source, startLine, options}) => {
+module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async function processFile({name, source, startLine, options, again}) {
     const {configurePrinter} = await import('./printer/printer.mjs');
     const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
     const matchedOptions = getMatchedOptions(name, options);
@@ -32,7 +32,7 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({na
         printer: configurePrinter(name, printer),
     });
     
-    if (e) {
+    if (!again && e) {
         raw && logError(e);
         const {places, code} = await lintSyntax(source, {
             fix,
@@ -46,10 +46,13 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({na
             };
         
         if (fix && !places.length)
-            return {
-                places,
-                code,
-            };
+            return await processFile({
+                again: true,
+                name,
+                source: code,
+                startLine,
+                options,
+            });
     }
     
     const {code = source} = result || {};

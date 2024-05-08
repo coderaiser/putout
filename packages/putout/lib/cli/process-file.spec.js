@@ -4,6 +4,7 @@ const montag = require('montag');
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
 const processFile = require('./process-file');
+const parseOptions = require('../parse-options');
 
 const {reRequire, stopAll} = mockRequire;
 const {stringify} = JSON;
@@ -362,7 +363,7 @@ test('putout: cli: process-file: quick-lint', async (t) => {
 });
 
 test('putout: cli: process-file: goldstein', async (t) => {
-    const source = 'function hello () => {await x}';
+    const source = 'function hello () => {return x}';
     const fix = true;
     
     const log = stub();
@@ -387,10 +388,17 @@ test('putout: cli: process-file: goldstein', async (t) => {
     });
     
     const expected = {
-        places: [],
+        places: [{
+            message: `'x' is not defined.`,
+            position: {
+                column: 12,
+                line: 3,
+            },
+            rule: 'no-undef (eslint)',
+        }],
         code: montag`
-            async function hello() {
-                await x;
+            function hello() {
+                return x;
             }\n
         `,
     };
@@ -425,8 +433,22 @@ test('putout: cli: process-file: goldstein: no braces', async (t) => {
     });
     
     const expected = {
-        places: [],
         code: 'if (a > 2) {}\n',
+        places: [{
+            message: `'a' is not defined.`,
+            position: {
+                column: 5,
+                line: 2,
+            },
+            rule: 'no-undef (eslint)',
+        }, {
+            message: 'Empty block statement.',
+            position: {
+                column: 12,
+                line: 2,
+            },
+            rule: 'no-empty (eslint)',
+        }],
     };
     
     t.deepEqual(result, expected);
@@ -510,6 +532,119 @@ test('putout: cli: process-file: await without async: no ESLint', async (t) => {
         code: '() => await x;\n',
         places: [],
     };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: process-file: after fixing syntax errors, run 🐊 and ESLint', async (t) => {
+    const source = montag`
+        function f() => {
+            return 'x';
+            var s;
+        }
+        
+        f();
+    `;
+    
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    
+    const options = parseOptions(__filename);
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const result = await fn({
+        name: __filename,
+        source,
+        index: 0,
+        length: 1,
+        options,
+    });
+    
+    const expected = {
+        code: montag`
+            function f() {
+                return 'x';
+            }
+            
+            f();\n
+        `,
+        places: [],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: process-file: recursion: infinite loop', async (t) => {
+    const source = montag`
+        function f() => {
+            return 'x';
+            var s;
+        }
+        
+        f();
+    `;
+    
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    
+    const lintSyntax = stub().returns({
+        code: source,
+        places: [],
+    });
+    
+    mockRequire('./syntax/syntax', {
+        lintSyntax,
+    });
+    
+    const processFile = reRequire('./process-file');
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const result = await fn({
+        name: __filename,
+        source,
+        index: 0,
+        length: 1,
+        options: {
+            dir: '.',
+        },
+    });
+    
+    const expected = {
+        code: source,
+        places: [{
+            message: 'Unexpected token, expected "{" ',
+            position: {
+                column: 13,
+                line: 2,
+            },
+            rule: 'parser',
+        }, {
+            message: 'Parsing error: Unexpected token =>',
+            position: {
+                column: 14,
+                line: 2,
+            },
+            rule: 'parser (eslint)',
+        }],
+    };
+    
+    stopAll();
     
     t.deepEqual(result, expected);
     t.end();
