@@ -1,3 +1,8 @@
+2024.05.09, v35.22.3
+
+feature:
+- 6cb49e0b4 putout: cli: syntax lint: improve support of fn
+
 2024.05.08, v35.22.2
 
 feature:
