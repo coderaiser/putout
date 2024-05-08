@@ -6,8 +6,8 @@ const eslint = require('@putout/eslint');
 const {putoutAsync} = require('../..');
 const merge = require('../merge');
 const parseMatch = require('../parse-options/parse-match');
-const {lintSyntax} = require('./syntax/syntax');
 
+const {simpleImport} = require('./simple-import');
 const parseError = require('./parse-error');
 const isParserError = ([a]) => a?.rule.includes('parser');
 
@@ -34,6 +34,8 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async func
     
     if (!again && e) {
         raw && logError(e);
+        
+        const {lintSyntax} = await simpleImport('./syntax/syntax.mjs');
         const {places, code} = await lintSyntax(source, {
             fix,
             isTS,

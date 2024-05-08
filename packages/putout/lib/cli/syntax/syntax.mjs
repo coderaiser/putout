@@ -1,9 +1,7 @@
-'use strict';
+import tryCatch from 'try-catch';
+import parseError from '../parse-error.js';
 
-const tryCatch = require('try-catch');
-const parseError = require('../parse-error');
-
-module.exports.lintSyntax = async (source, {fix, isTS}) => {
+export const lintSyntax = async (source, {fix, isTS}) => {
     if (fix)
         return await syntaxFix(source);
     
@@ -13,8 +11,14 @@ module.exports.lintSyntax = async (source, {fix, isTS}) => {
 };
 
 async function syntaxFix(source) {
-    const {compile} = await import('goldstein');
-    const [error, code] = tryCatch(compile, source);
+    const {compile, keywords} = await import('goldstein');
+    const {keywordArrow, keywordIf} = keywords;
+    const [error, code] = tryCatch(compile, source, {
+        keywords: {
+            keywordArrow,
+            keywordIf,
+        },
+    });
     
     if (error)
         return {

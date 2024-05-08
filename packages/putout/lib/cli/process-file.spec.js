@@ -603,8 +603,12 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
         places: [],
     });
     
-    mockRequire('./syntax/syntax', {
+    const simpleImport = stub().returns({
         lintSyntax,
+    });
+    
+    mockRequire('./simple-import', {
+        simpleImport,
     });
     
     const processFile = reRequire('./process-file');
