@@ -9,7 +9,6 @@ const parseMatch = require('../parse-options/parse-match');
 
 const {simpleImport} = require('./simple-import');
 const parseError = require('./parse-error');
-const isParserError = ([a]) => a?.rule.includes('parser');
 
 const getMatchedOptions = (name, options) => {
     if (!name.includes('{'))
@@ -66,10 +65,7 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async func
         fix,
     });
     
-    const wasParserError = isParserError(newPlaces);
-    
-    if (e || !wasParserError)
-        allPlaces.push(...newPlaces);
+    allPlaces.push(...newPlaces);
     
     const places = formatPlaces(startLine, allPlaces);
     

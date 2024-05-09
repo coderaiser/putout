@@ -503,7 +503,7 @@ test('putout: cli: process-file: syntax error', async (t) => {
     t.end();
 });
 
-test('putout: cli: process-file: await without async: no ESLint', async (t) => {
+test('putout: cli: process-file: await without async: ESLint', async (t) => {
     const source = '() => await x';
     const fix = true;
     
@@ -530,7 +530,14 @@ test('putout: cli: process-file: await without async: no ESLint', async (t) => {
     
     const expected = {
         code: '() => await x;\n',
-        places: [],
+        places: [{
+            message: `Parsing error: Cannot use keyword 'await' outside an async function`,
+            position: {
+                column: 7,
+                line: 2,
+            },
+            rule: 'parser (eslint)',
+        }],
     };
     
     t.deepEqual(result, expected);
