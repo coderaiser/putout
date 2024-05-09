@@ -89,3 +89,8 @@ test('plugin-eslint: transform: apply-match-to-flat', (t) => {
     t.transform('apply-match-to-flat');
     t.end();
 });
+
+test('plugin-eslint: transform: apply-dir-to-flat', (t) => {
+    t.transform('apply-dir-to-flat');
+    t.end();
+});

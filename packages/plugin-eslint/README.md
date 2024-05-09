@@ -17,21 +17,22 @@ npm i @putout/plugin-eslint -D
 
 ## Rules
 
-- ✅ [add-putout](#add-putout)
-- ✅ [apply-match-to-flat](#apply-match-to-flat)
-- ✅ [apply-safe-align](#apply-safe-align)
-- ✅ [convert-files-to-array](#convert-files-to-array)
-- ✅ [convert-ide-to-safe](#convert-ide-to-safe)
-- ✅ [convert-node-to-n](#convert-node-to-n)
-- ✅ [convert-rc-to-flat](#convert-rc-to-flat)
-- ✅ [convert-require-to-import](#convert-require-to-import)
-- ✅ [declare](#declare)
-- ✅ [move-putout-to-end-of-extends](#move-putout-to-end-of-extends)
-- ✅ [remove-no-missing](#remove-no-missing)
-- ✅ [remove-no-unpublished-require](#remove-no-unpublished-require)
-- ✅ [remove-no-unsupported-features](#remove-no-unsupported-features)
-- ✅ [remove-overrides-with-empty-rules](#remove-overrides-with-empty-rules)
-- ✅ [remove-useless-slice](#remove-useless-slice)
+- ✅ [add-putout](#add-putout);
+- ✅ [apply-dir-to-flat](#apply-dir-to-flat);
+- ✅ [apply-match-to-flat](#apply-match-to-flat);
+- ✅ [apply-safe-align](#apply-safe-align);
+- ✅ [convert-files-to-array](#convert-files-to-array);
+- ✅ [convert-ide-to-safe](#convert-ide-to-safe);
+- ✅ [convert-node-to-n](#convert-node-to-n);
+- ✅ [convert-rc-to-flat](#convert-rc-to-flat);
+- ✅ [convert-require-to-import](#convert-require-to-import);
+- ✅ [declare](#declare);
+- ✅ [move-putout-to-end-of-extends](#move-putout-to-end-of-extends);
+- ✅ [remove-no-missing](#remove-no-missing);
+- ✅ [remove-no-unpublished-require](#remove-no-unpublished-require);
+- ✅ [remove-no-unsupported-features](#remove-no-unsupported-features);
+- ✅ [remove-overrides-with-empty-rules](#remove-overrides-with-empty-rules);
+- ✅ [remove-useless-slice](#remove-useless-slice);
 
 ## Config
 
@@ -39,6 +40,7 @@ npm i @putout/plugin-eslint -D
 {
     "rules": {
         "eslint/add-putout": "on",
+        "eslint/apply-dir-to-flat": "on",
         "eslint/apply-safe-align": "on",
         "eslint/apply-match-to-flat": "on",
         "eslint/move-putout-to-end-of-extends": "on",
@@ -89,6 +91,39 @@ npm i @putout/plugin-eslint -D
         "node"
     ]
 }
+```
+
+## apply-dir-to-flat
+
+`matchToFlatDir()` and `mergeESLintConfigs` supports `__dirname` or `import.meta.url` starting from `v2` of [`@putout/eslint-flat`](https://www.npmjs.com/package/@putout/eslint-flat).
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/805d120cbee5d216b91473d5a71f8d78/1f5b440ef7b63b56a4a12cdfcafe419764a62889).
+
+### ❌ Example of incorrect code
+
+```js
+const scriptsConfig = await matchToFlatDir('scripts');
+const monoConfig = await mergeESLintConfigs(['codemods', 'packages', 'rules']);
+
+module.exports = [
+    ...scriptsConfig,
+    ...monoConfig,
+];
+```
+
+### ✅ Example of correct code
+
+```js
+// CommonJS
+const scriptsConfig = await matchToFlatDir(__dirname, 'scripts');
+
+// ESM
+const monoConfig = await mergeESLintConfigs(import.meta.url, ['codemods', 'packages', 'rules']);
+
+module.exports = [
+    ...scriptsConfig,
+    ...monoConfig,
+];
 ```
 
 ## apply-match-to-flat
