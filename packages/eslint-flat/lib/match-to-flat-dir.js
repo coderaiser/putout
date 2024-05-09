@@ -1,20 +1,27 @@
 'use strict';
 
-const process = require('node:process');
 const {join} = require('node:path');
+const {fileURLToPath} = require('node:url');
 const {readESLintConfig: _readESLintConfig} = require('./read-eslint-config');
+
 const isFn = (a) => typeof a === 'function';
 const {assign, entries} = Object;
-const CWD = process.cwd();
 
 module.exports.matchToFlatDir = matchToFlatDir;
 
-async function matchToFlatDir(path, config, overrides = {}) {
+function magicJoin(cwd, path) {
+    if (cwd.startsWith('file://'))
+        return fileURLToPath(new URL(path, cwd));
+    
+    return join(cwd, path);
+}
+
+async function matchToFlatDir(cwd, path, config, overrides = {}) {
     const {
         readESLintConfig = _readESLintConfig,
     } = overrides;
     
-    const dir = join(CWD, path);
+    const dir = magicJoin(cwd, path);
     const flatConfig = config || await readESLintConfig(dir);
     const {match} = flatConfig;
     

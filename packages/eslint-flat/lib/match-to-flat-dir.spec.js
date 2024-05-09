@@ -1,11 +1,12 @@
 'use strict';
 
+const {pathToFileURL} = require('node:url');
 const {test, stub} = require('supertape');
 const {matchToFlatDir} = require('./match-to-flat-dir');
 const noop = () => {};
 
 test('eslint-flat: matchToFlatDir: no files', async (t) => {
-    const result = await matchToFlatDir('./hello', [{
+    const result = await matchToFlatDir(pathToFileURL(__filename).href, './hello', [{
         languageOptions: {
             sourceType: 'module',
         },
@@ -30,14 +31,14 @@ test('eslint-flat: matchToFlatDir: files: fn', async (t) => {
         },
     }];
     
-    const result = await matchToFlatDir('./hello', config);
+    const result = await matchToFlatDir(__dirname, './hello', config);
     
     t.deepEqual(result, config);
     t.end();
 });
 
 test('eslint-flat: matchToFlatDir: ignores', async (t) => {
-    const result = await matchToFlatDir('./hello', [{
+    const result = await matchToFlatDir(__dirname, './hello', [{
         ignores: ['**/fixture'],
     }]);
     
@@ -53,7 +54,7 @@ test('eslint-flat: matchToFlatDir: ignores', async (t) => {
 });
 
 test('eslint-flat: matchToFlatDir: ignores: fn', async (t) => {
-    const result = await matchToFlatDir('./hello', [{
+    const result = await matchToFlatDir(__dirname, './hello', [{
         ignores: [stub()],
     }]);
     

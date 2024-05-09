@@ -6,8 +6,9 @@ import {
     createESLintConfig,
 } from '@putout/eslint-flat';
 
-const scriptsConfig = await matchToFlatDir('./scripts');
-const monoConfig = await mergeESLintConfigs(['./codemods', './packages', './rules']);
+const scriptsConfig = await matchToFlatDir(import.meta.url, 'scripts');
+
+const monoConfig = await mergeESLintConfigs(import.meta.url, ['codemods', 'packages', 'rules']);
 
 export default createESLintConfig([
     safeAlign, {

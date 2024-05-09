@@ -27,7 +27,7 @@ test('eslint-flat: matchToFlat', (t) => {
 });
 
 test('eslint-flat: matchToFlatDir', async (t) => {
-    const result = await matchToFlatDir('./hello', {
+    const result = await matchToFlatDir(__dirname, './hello', {
         match: {
             world: {
                 semi: 'off',
@@ -47,14 +47,14 @@ test('eslint-flat: matchToFlatDir', async (t) => {
 });
 
 test('eslint-flat: matchToFlatDir: not found', async (t) => {
-    const config = await matchToFlatDir('./hello');
+    const config = await matchToFlatDir(__dirname, './hello');
     
     t.deepEqual(config, []);
     t.end();
 });
 
 test('eslint-flat: matchToFlatDir: no match', async (t) => {
-    const result = await matchToFlatDir('./hello', [{
+    const result = await matchToFlatDir(__dirname, './hello', [{
         files: ['world'],
         rules: {
             semi: 'off',
