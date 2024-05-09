@@ -1,3 +1,8 @@
+2024.05.09, v35.22.4
+
+fix:
+- d376eb082 putout: always show ESLint parser error, even when 🐊Putout can parse
+
 2024.05.09, v35.22.3
 
 feature:
