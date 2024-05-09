@@ -11,6 +11,7 @@ const {
     Identifier,
     AssignmentPattern,
     isAssignmentPattern,
+    isFunction,
 } = types;
 
 const createOverrides = template('const %%overrides%% = overrides');
@@ -30,6 +31,9 @@ module.exports.traverse = ({push}) => ({
     Function(path) {
         const params = path.get('params');
         const {length} = params;
+        
+        if (isFunction(path.node.body))
+            return;
         
         if (!length)
             return;

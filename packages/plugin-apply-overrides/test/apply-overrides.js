@@ -50,6 +50,11 @@ test('putout: apply-overrides: no report: not-idenfier', (t) => {
     t.end();
 });
 
+test('putout: apply-overrides: no report: nested', (t) => {
+    t.noReport('nested');
+    t.end();
+});
+
 test('putout: apply-overrides: transform', (t) => {
     t.transform('apply-overrides');
     t.end();
