@@ -38,6 +38,7 @@ npm i @putout/plugin-promises -D
 {
     "rules": {
         "promises/add-missing-await": "on",
+        "promises/add-missing-async": "on",
         "promises/apply-await-import": "on",
         "promises/apply-top-level-await": "on",
         "promises/remove-useless-resolve": "on",
