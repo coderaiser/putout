@@ -19,3 +19,8 @@ test('react: apply-create-root: transform', (t) => {
     t.transform('apply-create-root');
     t.end();
 });
+
+test('react: apply-create-root: transform: specifiers', (t) => {
+    t.transform('specifiers');
+    t.end();
+});
