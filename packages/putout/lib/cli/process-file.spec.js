@@ -530,14 +530,7 @@ test('putout: cli: process-file: await without async: ESLint', async (t) => {
     
     const expected = {
         code: '() => await x;\n',
-        places: [{
-            message: `Parsing error: Cannot use keyword 'await' outside an async function`,
-            position: {
-                column: 7,
-                line: 2,
-            },
-            rule: 'parser (eslint)',
-        }],
+        places: [],
     };
     
     t.deepEqual(result, expected);

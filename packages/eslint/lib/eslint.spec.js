@@ -397,7 +397,6 @@ test('putout: eslint: get-eslint: config file', async (t) => {
 
 test('putout: eslint: convert places', async (t) => {
     const WARNING = 1;
-    
     const calculateConfigForFile = stub().resolves({
         rules: {
             'no-unused-vars': 'error',
@@ -490,7 +489,6 @@ test('putout: eslint: config: remove putout', async (t) => {
 
 test('putout: eslint: NO_ESLINT_WARNINGS', async (t) => {
     const WARNING = 1;
-    
     const calculateConfigForFile = stub().resolves({
         rules: {
             'no-unused-vars': 'error',
@@ -544,7 +542,6 @@ test('putout: eslint: NO_ESLINT', async (t) => {
     process.env.NO_ESLINT = '1';
     
     const eslint = reRequire('./eslint.js');
-    
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi'\n`,
@@ -589,5 +586,27 @@ test('putout: eslint: config: no FlatConfig found', async (t) => {
     stopAll();
     
     t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: eslint: ignored: no async', async (t) => {
+    const [, places] = await eslint({
+        name: 'hello.js',
+        code: `function hello() {await world();}`,
+        fix: false,
+    });
+    
+    t.notOk(places.length);
+    t.end();
+});
+
+test('putout: eslint: ignored: no star', async (t) => {
+    const [, places] = await eslint({
+        name: __filename,
+        code: `function hello() {yield 1;}`,
+        fix: false,
+    });
+    
+    t.notOk(places.length);
     t.end();
 });

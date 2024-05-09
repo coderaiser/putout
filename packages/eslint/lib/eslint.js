@@ -1,14 +1,18 @@
 'use strict';
 
 const process = require('node:process');
-const {simpleImport} = require('./simple-import.js');
 const tryToCatch = require('try-to-catch');
+
+const {simpleImport} = require('./simple-import.js');
+const {isIgnored} = require('./ignore');
 
 const {keys} = Object;
 const eslintId = ' (eslint)';
+
 const overrideConfigFile = process.env.ESLINT_CONFIG_FILE;
 const noESLint = process.env.NO_ESLINT;
 const noESLintWarnings = process.env.NO_ESLINT_WARNINGS;
+
 const NO_FLAT_CONFIG_FOUND = 'Could not find config file.';
 
 const WARNING = 1;
@@ -108,6 +112,9 @@ function convertToPlace({ruleId = 'parser', message, line = 0, column = 0, sever
     const rule = `${parseRule(ruleId)}${eslintId}`;
     
     if (severity === WARNING && noESLintWarnings)
+        return null;
+    
+    if (isIgnored(message))
         return null;
     
     return {
