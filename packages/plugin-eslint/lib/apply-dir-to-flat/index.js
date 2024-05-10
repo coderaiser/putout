@@ -4,7 +4,7 @@ const {operator} = require('putout');
 const {isESM} = operator;
 const createName = (a) => isESM(a) ? 'import.meta.url' : '__dirname';
 
-module.exports.report = () => `Use 'if condition' instead of 'ternary expression'`;
+module.exports.report = () => `Add '__dirname/import.meta.url' as first argument`;
 
 module.exports.replace = () => ({
     'matchToFlatDir(__a)': (vars, path) => {

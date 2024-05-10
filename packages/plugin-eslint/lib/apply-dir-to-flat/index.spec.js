@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('eslint: apply-dir-to-flat: report', (t) => {
-    t.report('apply-dir-to-flat', `Use 'if condition' instead of 'ternary expression'`);
+    t.report('apply-dir-to-flat', `Add '__dirname/import.meta.url' as first argument`);
     t.end();
 });
 
