@@ -1,6 +1,5 @@
 'use strict';
 
-const addMissingStar = require('./add-missing-star');
 const map = require('./map');
 const forEach = require('./for-each');
 const forN = require('./for-n');
@@ -16,7 +15,6 @@ const removeUselessArrayFrom = require('./remove-useless-array-from');
 const removeUnusedVariables = require('./remove-unused-variables');
 
 module.exports.rules = {
-    'add-missing-star': addMissingStar,
     map,
     'for-each': forEach,
     'for-n': forN,

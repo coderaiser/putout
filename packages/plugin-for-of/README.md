@@ -17,7 +17,6 @@ npm i @putout/plugin-for-of
 
 ## Rules
 
-- ✅ [add-missing-star](#add-missing-star);
 - ✅ [for-each](#for-each);
 - ✅ [for-entries](#for-entries);
 - ✅ [for-entries-n](#for-entries-n);
@@ -37,7 +36,6 @@ npm i @putout/plugin-for-of
 ```json
 {
     "rules": {
-        "for-of/add-missing-star": "on",
         "for-of/map": "on",
         "for-of/for-in": "on",
         "for-of/for-each": "on",
@@ -50,37 +48,6 @@ npm i @putout/plugin-for-of
         }],
         "for-of/for": "on"
     }
-}
-```
-
-## add-missing-star
-
-> The `function*` declaration creates a binding of a new generator function to a given name.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
-
-### ❌ Example of incorrect code
-
-```js
-function hello() {
-    yield;
-    'world';
-}
-
-function func2() {
-    yield * func1();
-}
-```
-
-### ✅ Example of correct code
-
-```js
-function* hello() {
-    yield 'world';
-}
-
-function* func2() {
-    yield* func1();
 }
 ```
 
