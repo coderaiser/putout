@@ -1,3 +1,20 @@
+2024.05.10, v35.23.0
+
+fix:
+- fa79b359c @putout/plugin-eslint: apply-dir-to-flat: report
+
+feature:
+- 60f3215aa putout: @putout/plugin-for-of v6.0.0
+- 360f0cc9d @putout/plugin-generators: add
+- e674127aa @putout/plugin-for-of: add-missing-star: move out to generators
+- 06937ee22 @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: improve check of parent directory
+- 358fa9655 @putout/plugin-putout: convert-node-to-path-in-get-template-values: exclude parentPath
+- c0f246225 @putout/plugin-apply-overrides: exclude nested
+- 6d61ac19a @putout/plugin-eslint: apply-dir-to-flat
+- 195ed1a66 root: @putout/eslint-flat v2.0.0
+- 2787a7c5a @putout/eslint: ignore await/yield
+- aef0bfe36 @putout/eslint-flat: add __dirname/import.meta.url
+
 2024.05.09, v35.22.4
 
 fix:
