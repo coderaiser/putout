@@ -2170,6 +2170,7 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-eslint`](/packages/plugin-eslint#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-eslint.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-eslint) |
 | [`@putout/plugin-package-json`](/packages/plugin-package-json#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-package-json.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-package-json) |
 | [`@putout/plugin-promises`](/packages/plugin-promises#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-promises.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-promises) |
+| [`@putout/plugin-generators`](/packages/plugin-generators#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-generators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-generators) |
 | [`@putout/plugin-gitignore`](/packages/plugin-gitignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-gitignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-gitignore) |
 | [`@putout/plugin-npmignore`](/packages/plugin-npmignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-npmignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-npmignore) |
 | [`@putout/plugin-coverage`](/packages/plugin-coverage#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-coverage.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-coverage) |

@@ -259,6 +259,7 @@
         "math",
         "putout",
         "putout-config",
+        "generators",
         "promises",
         "typescript",
         "coverage",

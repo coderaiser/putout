@@ -119,6 +119,7 @@
     "@putout/plugin-extract-sequence-expressions": "^3.0.0",
     "@putout/plugin-filesystem": "^5.0.0",
     "@putout/plugin-for-of": "^5.0.0",
+    "@putout/plugin-generators": "^1.0.0",
     "@putout/plugin-github": "^12.0.0",
     "@putout/plugin-gitignore": "^6.0.0",
     "@putout/plugin-logical-expressions": "^5.0.0",
