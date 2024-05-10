@@ -29,3 +29,8 @@ test('plugin-putout: convert-node-to-path-in-get-template-values: no transform: 
     t.noTransform('array-destructuring');
     t.end();
 });
+
+test('plugin-putout: convert-node-to-path-in-get-template-values: no report: parent-path', (t) => {
+    t.noReport('parent-path');
+    t.end();
+});

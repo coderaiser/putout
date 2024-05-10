@@ -34,7 +34,7 @@ module.exports.traverse = ({push}) => ({
         const {bindings} = scope;
         const __aPath = path.get('arguments.0');
         
-        if (__aPath.isMemberExpression()) {
+        if (isPathNode(__aPath)) {
             push({
                 path,
                 __aPath,
@@ -66,3 +66,14 @@ module.exports.traverse = ({push}) => ({
         });
     },
 });
+
+function isPathNode(path) {
+    if (!path.isMemberExpression())
+        return false;
+    
+    const propertyPath = path.get('property');
+    
+    return propertyPath.isIdentifier({
+        name: 'node',
+    });
+}
