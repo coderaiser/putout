@@ -55,3 +55,10 @@ test('packages: convert-simple-filesystem-to-filesystem: no transform: no-direct
     t.equal(error.message, `☝️ Looks like directory path is missing: 'hello.txt'`);
     t.end();
 }, CHECK_ASSERTIONS_COUNT);
+
+test('packages: convert-simple-filesystem-to-filesystem: no transform: member', (t) => {
+    const [error] = tryCatch(t.noTransform, 'member');
+    
+    t.equal(error.message, `☝️ Looks like file '['/App.js', ''][('/AppViewList.js', '')]' has wrong type: 'MemberExpression' expected: 'string | array'`);
+    t.end();
+}, CHECK_ASSERTIONS_COUNT);

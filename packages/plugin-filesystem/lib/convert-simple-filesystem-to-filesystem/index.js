@@ -14,10 +14,11 @@ const {replaceWith, getProperty} = require('@putout/operate');
 
 const {
     ObjectExpression,
-    isArrayExpression,
     ArrayExpression,
     StringLiteral,
     ObjectProperty,
+    isArrayExpression,
+    isStringLiteral,
 } = types;
 
 module.exports.report = () => `Convert Simple Filesystem to Filesystem`;
@@ -61,13 +62,18 @@ module.exports.fix = (path) => {
             continue;
         }
         
-        const {value} = element.node;
+        if (isStringLiteral(element)) {
+            const {value} = element.node;
+            
+            array.elements.push(ObjectExpression([
+                getType(value),
+                createFilename(noTrailingSlash(value)),
+                getFiles(value),
+            ].filter(Boolean)));
+            continue;
+        }
         
-        array.elements.push(ObjectExpression([
-            getType(value),
-            createFilename(noTrailingSlash(value)),
-            getFiles(value),
-        ].filter(Boolean)));
+        throw Error(`☝️ Looks like file '${element}' has wrong type: '${element.type}' expected: 'string | array'`);
     }
     
     buildTree(path, array);
