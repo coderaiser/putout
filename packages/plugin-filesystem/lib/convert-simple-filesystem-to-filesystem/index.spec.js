@@ -30,6 +30,11 @@ test('packages: convert-simple-filesystem-to-filesystem: transform: no-root', (t
     t.end();
 });
 
+test('packages: convert-simple-filesystem-to-filesystem: transform: template', (t) => {
+    t.transform('template');
+    t.end();
+});
+
 test('packages: convert-simple-filesystem-to-filesystem: no transform: no-slash', (t) => {
     const [error] = tryCatch(t.noTransform, 'no-slash');
     
@@ -60,5 +65,12 @@ test('packages: convert-simple-filesystem-to-filesystem: no transform: member', 
     const [error] = tryCatch(t.noTransform, 'member');
     
     t.equal(error.message, `☝️ Looks like file '['/App.js', ''][('/AppViewList.js', '')]' has wrong type: 'MemberExpression' expected: 'string | array'`);
+    t.end();
+}, CHECK_ASSERTIONS_COUNT);
+
+test('packages: convert-simple-filesystem-to-filesystem: no transform: wrong-content', (t) => {
+    const [error] = tryCatch(t.noTransform, 'wrong-content');
+    
+    t.equal(error.message, `☝️ Looks like wrong content type: 'NumericLiteral' from file: '['/App.js', 5]'`);
     t.end();
 }, CHECK_ASSERTIONS_COUNT);

@@ -19,6 +19,7 @@ const {
     ObjectProperty,
     isArrayExpression,
     isStringLiteral,
+    isTemplateLiteral,
 } = types;
 
 module.exports.report = () => `Convert Simple Filesystem to Filesystem`;
@@ -45,6 +46,16 @@ const getContent = (a) => {
     return ObjectProperty(StringLiteral('content'), StringLiteral(a));
 };
 
+function parseContent(node, path) {
+    if (isStringLiteral(node))
+        return node.value;
+    
+    if (isTemplateLiteral(node))
+        return btoa(node.quasis[0].value.raw);
+    
+    throw Error(`☝️ Looks like wrong content type: '${node.type}' from file: '${path}'`);
+}
+
 module.exports.fix = (path) => {
     const array = ArrayExpression([]);
     
@@ -52,7 +63,8 @@ module.exports.fix = (path) => {
         if (isArrayExpression(element)) {
             const [nodeValue, nodeContent] = element.node.elements;
             const {value} = nodeValue;
-            const content = nodeContent.value;
+            
+            const content = parseContent(nodeContent, element);
             
             array.elements.push(ObjectExpression([
                 getType(value),
