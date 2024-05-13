@@ -95,7 +95,7 @@ test('plugin-eslint: transform: apply-dir-to-flat', (t) => {
     t.end();
 });
 
-test('plugin-eslint: transform: convert-export-match-to-decleration', (t) => {
-    t.transform('convert-export-match-to-decleration');
+test('plugin-eslint: transform: convert-export-match-to-declaration', (t) => {
+    t.transform('convert-export-match-to-declaration');
     t.end();
 });

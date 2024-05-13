@@ -22,7 +22,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [apply-match-to-flat](#apply-match-to-flat);
 - ✅ [apply-safe-align](#apply-safe-align);
 - ✅ [convert-files-to-array](#convert-files-to-array);
-- ✅ [convert-export-match-to-decleration](#convert-export-match-to-decleration);
+- ✅ [convert-export-match-to-declaration](#convert-export-match-to-declaration);
 - ✅ [convert-ide-to-safe](#convert-ide-to-safe);
 - ✅ [convert-node-to-n](#convert-node-to-n);
 - ✅ [convert-rc-to-flat](#convert-rc-to-flat);
@@ -457,7 +457,7 @@ export default x;
 module.exports = x;
 ```
 
-## convert-export-match-to-decleration
+## convert-export-match-to-declaration
 
 Fixes [apply-match-to-flat](#apply-match-to-flat).
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2962264f25b2a9764977b53eba1baf3d/c095282c78574a57418a5a4385b28ff79a62c2a5).
