@@ -22,6 +22,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [apply-match-to-flat](#apply-match-to-flat);
 - ✅ [apply-safe-align](#apply-safe-align);
 - ✅ [convert-files-to-array](#convert-files-to-array);
+- ✅ [convert-export-match-to-decleration](#convert-export-match-to-decleration);
 - ✅ [convert-ide-to-safe](#convert-ide-to-safe);
 - ✅ [convert-node-to-n](#convert-node-to-n);
 - ✅ [convert-rc-to-flat](#convert-rc-to-flat);
@@ -44,6 +45,7 @@ npm i @putout/plugin-eslint -D
         "eslint/apply-safe-align": "on",
         "eslint/apply-match-to-flat": "on",
         "eslint/move-putout-to-end-of-extends": "on",
+        "eslint/convert-export-match-to-decleration": "on",
         "eslint/convert-files-to-array": "on",
         "eslint/convert-ide-to-safe": "on",
         "eslint/convert-require-to-import": "on",
@@ -453,6 +455,51 @@ module.exports = x.slice();
 export default x;
 
 module.exports = x;
+```
+
+## convert-export-match-to-decleration
+
+Fixes [apply-match-to-flat](#apply-match-to-flat).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2962264f25b2a9764977b53eba1baf3d/c095282c78574a57418a5a4385b28ff79a62c2a5).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.match = {
+    'bin/**': {
+        'no-process-exit': 'off',
+    },
+};
+
+module.exports = [
+    ...safeAlign, {
+        rules: {
+            'node/no-unsupported-features/node-builtins': 'off',
+        },
+    },
+    ...matchToFlat(match),
+];
+```
+
+## ✅ Example of correct code
+
+```js
+const match = {
+    'bin/**': {
+        'no-process-exit': 'off',
+    },
+};
+
+module.exports = [
+    ...safeAlign, {
+        rules: {
+            'node/no-unsupported-features/node-builtins': 'off',
+        },
+    },
+    ...matchToFlat(match),
+];
+
+module.exports.match = match;
 ```
 
 ## declare

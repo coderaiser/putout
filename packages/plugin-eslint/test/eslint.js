@@ -94,3 +94,8 @@ test('plugin-eslint: transform: apply-dir-to-flat', (t) => {
     t.transform('apply-dir-to-flat');
     t.end();
 });
+
+test('plugin-eslint: transform: convert-export-match-to-decleration', (t) => {
+    t.transform('convert-export-match-to-decleration');
+    t.end();
+});

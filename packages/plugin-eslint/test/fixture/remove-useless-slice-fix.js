@@ -1,3 +1,4 @@
+var _temp;
 export default x;
 
-module.exports = x;
+const match = x.slice();

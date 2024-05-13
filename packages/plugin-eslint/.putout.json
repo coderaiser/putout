@@ -1,6 +1,11 @@
 {
     "rules": {
-        "putout/apply-namespace-specifier": "off",
-        "eslint": "off"
+        "putout/apply-namespace-specifier": "off"
+    },
+    "match": {
+        "*.md": {
+            "putout/convert-match-to-function": "off",
+            "eslint": "off"
+        }
     }
 }
