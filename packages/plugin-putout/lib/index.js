@@ -1,5 +1,7 @@
 'use strict';
 
+const addStore = require('./add-store');
+const addPathStore = require('./add-path-store');
 const applyProcessorsDestructuring = require('./apply-processors-destructuring');
 const applyAsyncFormatter = require('./apply-async-formatter');
 const applyCreateTest = require('./apply-create-test');
@@ -49,9 +51,10 @@ const convertProgressToTrackFile = require('./convert-progress-to-track-file');
 const addAwaitToProgress = require('./add-await-to-progress');
 const applyForOfToTrackFile = require('./apply-for-of-to-track-file');
 const removeUnusedGetPropertiesArgument = require('./remove-unused-get-properties-argument');
-const addStore = require('./add-store');
 
 module.exports.rules = {
+    'add-store': addStore,
+    'add-path-store': addPathStore,
     'apply-processors-destructuring': applyProcessorsDestructuring,
     'apply-async-formatter': applyAsyncFormatter,
     'apply-create-test': applyCreateTest,
@@ -101,5 +104,4 @@ module.exports.rules = {
     'add-await-to-progress': addAwaitToProgress,
     'apply-for-of-to-track-file': applyForOfToTrackFile,
     'remove-unused-get-properties-argument': removeUnusedGetPropertiesArgument,
-    'add-store': addStore,
 };

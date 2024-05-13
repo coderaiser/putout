@@ -18,6 +18,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-index-to-import](#add-index-to-import);
 - ✅ [add-push](#add-push);
 - ✅ [add-store](#add-store);
+- ✅ [add-path-store](#add-path-store);
 - ✅ [add-track-file](#add-track-file);
 - ✅ [apply-async-formatter](#apply-async-formatter);
 - ✅ [apply-create-test](#apply-create-test);
@@ -83,6 +84,7 @@ npm i @putout/plugin-putout -D
         "putout/add-args": "on",
         "putout/add-push": "on",
         "putout/add-store": "on",
+        "putout/add-path-store": "on",
         "putout/add-track-file": "on",
         "putout/add-await-to-progress": "on",
         "putout/add-index-to-import": "on",
@@ -862,6 +864,24 @@ module.exports.traverse = ({store}) => ({
         
         store('name', name);
     },
+});
+```
+
+## add-path-store
+
+### ❌ Example of incorrect code
+
+```js
+export const traverse = () => ({
+    'module.exports.match = __object': pathStore,
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const traverse = ({pathStore}) => ({
+    'module.exports.match = __object': pathStore,
 });
 ```
 

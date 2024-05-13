@@ -237,3 +237,8 @@ test('plugin-putout: transform: add-store', (t) => {
     t.transform('add-store');
     t.end();
 });
+
+test('plugin-putout: transform: add-path-store', (t) => {
+    t.transform('add-path-store');
+    t.end();
+});
