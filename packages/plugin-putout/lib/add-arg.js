@@ -68,6 +68,9 @@ const checkArgs = (mainName, push) => (path) => {
             if (isCallee(mainName, path))
                 return;
             
+            if (isArgExists(mainName, fn))
+                return;
+            
             push({
                 path,
                 fn,
