@@ -14,6 +14,7 @@ module.exports.match = () => ({
         return __imports[0]?.local?.name === 'React';
     },
 });
+
 module.exports.replace = () => ({
     'import * as React from "react"': '',
     'import React from "react"': '',

@@ -18,6 +18,7 @@ module.exports.fix = (path) => {
         ObjectProperty(Identifier('languageOptions'), ObjectExpression(properties)),
     ];
 };
+
 module.exports.traverse = ({push}) => ({
     ObjectExpression(path) {
         const {parentPath} = path;

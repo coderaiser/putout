@@ -13,6 +13,7 @@ module.exports.include = () => [
     'ObjectExpression',
     'ArrayExpression',
 ];
+
 module.exports.filter = (path) => {
     const {parentPath, node} = path;
     

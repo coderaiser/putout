@@ -130,12 +130,14 @@ module.exports.isAny = (a) => {
         value: ANY,
     });
 };
+
 module.exports.isAnyLiteral = (a, b) => {
     if (!isLiteral(b, {value: ANY}))
         return false;
     
     return isEqualType(a, b);
 };
+
 module.exports.isArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
     

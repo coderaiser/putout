@@ -61,12 +61,14 @@ module.exports.filter = ({text, node}) => {
     
     return regexp.test(text);
 };
+
 module.exports.fix = ({text}) => {
     return text
         .replace(/\[/g, '[\n')
         .replace(/\]/g, '\n]')
         .replace(/,/g, ',\n');
 };
+
 module.exports.include = () => [
     'ArrayExpression',
 ];

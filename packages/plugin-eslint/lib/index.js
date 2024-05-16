@@ -16,7 +16,7 @@ const removeUselessSlice = require('./remove-useless-slice');
 const convertFilesToArray = require('./convert-files-to-array');
 const applyMatchToFlat = require('./apply-match-to-flat');
 const applyDirToFlat = require('./apply-dir-to-flat');
-const convertExportMatchToDeclaration = require('./convert-export-match-to-decleration');
+const convertExportMatchToDeclaration = require('./convert-export-match-to-declaration');
 
 module.exports.rules = {
     'add-putout': addPutout,

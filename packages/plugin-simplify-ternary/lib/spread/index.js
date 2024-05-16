@@ -14,6 +14,7 @@ module.exports.fix = (path) => {
     
     path.node.argument = LogicalExpression('&&', test, consequent);
 };
+
 module.exports.traverse = ({push}) => ({
     SpreadElement(path) {
         const argPath = path.get('argument');
