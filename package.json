@@ -46,7 +46,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^22.0.0",
-    "husky": "^6.0.0",
+    "husky": "^9.0.11",
     "lerna": "^6.0.1",
     "madrun": "^10.0.0",
     "redlint": "^3.1.2",
