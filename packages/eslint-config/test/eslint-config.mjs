@@ -34,6 +34,10 @@ test('eslint-config: lines-class-members', async ({noProcess}) => {
     await noProcess('lines-class-members');
 });
 
+test('eslint-config: no-unused-private-class-members', async ({comparePlaces}) => {
+    await comparePlaces('no-unused-private-class-members', []);
+});
+
 test('eslint-config: no-unsafe-negation', async ({comparePlaces}) => {
     await comparePlaces('no-unsafe-negation', []);
 });

@@ -47,6 +47,7 @@ module.exports = {
         'no-implicit-coercion': ['error', {
             allow: ['~'],
         }],
+        'no-unused-private-class-members': 'off',
         'no-unsafe-negation': 'off',
         'no-duplicate-case': 'off',
         'no-cond-assign': 'off',
