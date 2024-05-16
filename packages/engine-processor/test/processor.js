@@ -236,7 +236,7 @@ test('putout: engine-processor: markdown: no fix: return processed places', asyn
     });
     
     const expected = [{
-        message: 'Code blocks should be fenced',
+        message: 'Unexpected indented code block, expected fenced code blocks',
         position: {
             column: 1,
             line: 11,
@@ -308,7 +308,7 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
     });
     
     const expected = [{
-        message: 'Code blocks should be fenced',
+        message: 'Unexpected indented code block, expected fenced code blocks',
         rule: 'code-block-style (remark-lint)',
         position: {
             line: 11,

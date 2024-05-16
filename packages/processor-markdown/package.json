@@ -32,7 +32,7 @@
     "@putout/operator-json": "^2.0.0",
     "once": "^1.4.0",
     "remark-parse": "^11.0.0",
-    "remark-preset-lint-consistent": "^5.0.0",
+    "remark-preset-lint-consistent": "^6.0.0",
     "remark-stringify": "^11.0.0",
     "unified": "^11.0.3",
     "unified-lint-rule": "^3.0.0",

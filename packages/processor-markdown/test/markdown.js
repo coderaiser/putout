@@ -78,7 +78,7 @@ test('putout: processor: markdown: remove-dependencies-status: compare places', 
 
 test('putout: processor: markdown: compare places', async ({comparePlaces}) => {
     await comparePlaces('place', [{
-        message: 'Code blocks should be indented',
+        message: 'Unexpected fenced code block, expected indented code blocks',
         position: {
             column: 1,
             line: 3,
