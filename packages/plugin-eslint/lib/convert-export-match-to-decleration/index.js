@@ -1,11 +1,7 @@
 'use strict';
 
 const {operator, template} = require('putout');
-const {
-    replaceWith,
-    compare,
-    insertAfter,
-} = operator;
+const {replaceWith, insertAfter} = operator;
 
 const MATCH = 'module.exports.match = __object';
 const DEFAULT = 'module.exports = __a';
@@ -33,9 +29,6 @@ module.exports.traverse = ({pathStore, push}) => ({
             const [a, b] = pathStore();
             
             if (!a || !b)
-                return;
-            
-            if (compare(MATCH, a) && a.node.loc.start > b.node.loc.start)
                 return;
             
             push({
