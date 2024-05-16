@@ -34,12 +34,16 @@ test('eslint-config: lines-class-members', async ({noProcess}) => {
     await noProcess('lines-class-members');
 });
 
-test('eslint-config: no-unused-private-class-members', async ({comparePlaces}) => {
+test('eslint-config: no-unused-private-class-members: off', async ({comparePlaces}) => {
     await comparePlaces('no-unused-private-class-members', []);
 });
 
-test('eslint-config: no-unsafe-negation', async ({comparePlaces}) => {
+test('eslint-config: no-unsafe-negation: off', async ({comparePlaces}) => {
     await comparePlaces('no-unsafe-negation', []);
+});
+
+test('eslint-config: no-constant-binary-expression: off', async ({comparePlaces}) => {
+    await comparePlaces('no-constant-binary-expression', []);
 });
 
 test('eslint-config: array-bracket-spacing', async ({process}) => {
