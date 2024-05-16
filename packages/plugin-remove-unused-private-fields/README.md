@@ -48,6 +48,13 @@ class Hello {
 }
 ```
 
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`remove-unused-private-fields`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-private-fields#readme) | ✅
+⏣ **ESLint** | [`no-unused-private-class-members`](https://eslint.org/docs/rules/no-unused-private-class-members) | ❌
+
 ## License
 
 MIT
