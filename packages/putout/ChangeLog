@@ -1,3 +1,30 @@
+2024.05.17, v35.24.0
+
+fix:
+- 5e3b2a920 @putout/plugin-eslint: typo
+- 9a682de33 @putout/plugin-eslint: convert-export-match-to-decleration
+- d66f8fe3e @putout/plugin-putout: add-path-store: overlap
+
+feature:
+- 2fe7a1464 putout: get rid of vulnerable not maintained fast-glob, use glob instead
+- 551bf9d88 root: husky v9.0.11
+- 67068c248 eslint-plugin-putout: @putout/eslint-config v9.0.0
+- 812260c73 @putout/eslint-config: drop support of node < 18
+- 9f90a4eea @putout/eslint-config: no-constant-binary-expression: disable due to overlap with 🐊 logical-expressions
+- 44963cd84 @putout/processor-markdown: remark-preset-lint-consistent v6.0.0
+- 00450ceeb @putout/processor-markdown: unified-lint-rule v3.0.0
+- e2d409cab @putotu/eslint-config: no-unused-private-class-members: disable, overlap with 🐊 remove-unused-private-fields
+- f3f9959f3 @putout/engine-parser: hermes-parser v0.21.1
+- 359fb22fe eslint-plugin-putout: eslint-plugin-eslint-plugin v6.1.0
+- 0bb3d9cd2 eslint-plugin-putout: @stylistic/eslint-plugin-ts v2.1.0
+- b0a1a5cb4 eslint-plugin-putout: @stylistic/eslint-plugin-jsx v2.1.0
+- 53b84fcdd @putout/eslint-config: @stylistic/eslint-plugin-js v2.1.0
+- a1aeb136e @putout/eslint-config: @eslint/js v9.2.0
+- 244300f3f @putout/plugin-eslint: convert-export-match-to-declaration: add
+- 4ffeea87d @putout/plugin-putout: add-path-store: add
+- 04d61a915 @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: add support of TemplateLiteral
+- 388899296 @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: MemberExpression
+
 2024.05.10, v35.23.0
 
 fix:
