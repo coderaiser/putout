@@ -1,3 +1,9 @@
+2024.05.19, v35.24.1
+
+feature:
+- 1478a7d24 @putout/plugin-types: remove-useles-conversion: ternary
+- 26b0471b3 putout: get back fast-glob, linting directories
+
 2024.05.17, v35.24.0
 
 fix:
