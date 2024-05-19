@@ -11,7 +11,16 @@
 npm i putout @putout/plugin-types -D
 ```
 
-## Options
+## Rules
+
+- ✅ [apply-is-array](#apply-is-array);
+- ✅ [convert-typeof-to-is-type](#convert-typeof-to-is-type);
+- ✅ [declare](#declare);
+- ✅ [remove-double-negations](#remove-double-negations);
+- ✅ [remove-useless-conversion](#remove-useless-conversion);
+- ✅ [remove-useless-typeof](#remove-useless-typeof);
+
+## Config
 
 ```json
 {
@@ -26,9 +35,7 @@ npm i putout @putout/plugin-types -D
 }
 ```
 
-## Rules
-
-### declare
+## declare
 
 Based on [`@putout/operator-declare`](https://github.com/coderaiser/putout/tree/master/packages/operator-declare#putoutoperator-declare-).
 Supported assertions:
@@ -46,13 +53,13 @@ Supported assertions:
 - `isArray`;
 - `isEmptyArray`;
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 isString('hello');
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const isString = (a) => typeof a === 'string';
@@ -71,20 +78,20 @@ When you want to skip some declaration use `dismiss`:
 }
 ```
 
-### convert-typeof-to-is-type
+## convert-typeof-to-is-type
 
 > The `typeof` operator returns a string indicating the type of the unevaluated operand.
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 if (typeof a === 'boolean')
     return x;
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const isBool = (a) => typeof a === 'boolean';
@@ -93,22 +100,22 @@ if (isBool(a))
     return x;
 ```
 
-### remove-useless-conversion
+## remove-useless-conversion
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const a = !![1].includes(1);
 const b = Boolean([1].includes(1));
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const a = [1].includes(1);
 ```
 
-### remove-double-negations
+## remove-double-negations
 
 > It is possible to use a couple of **NOT** operators (`!!`) in series to explicitly force the conversion of any value to the corresponding boolean primitive. The conversion is based on the "truthyness" or "falsyness" of the value.
 >
@@ -116,50 +123,50 @@ const a = [1].includes(1);
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT)
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 if (!!a)
     console.log('hi');
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 if (a)
     console.log('hi');
 ```
 
-### remove-useless-typeof
+## remove-useless-typeof
 
 > The `typeof` operator returns a string indicating the type of the unevaluated operand.
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 typeof typeof 'hello';
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 typeof 'hello';
 ```
 
-### apply-is-array
+## apply-is-array
 
 > The `Array.isArray()` method determines whether the passed value is an `Array`.
 > When checking for `Array` instance, `Array.isArray()` is preferred over `instanceof` because it works through `iframes`.
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 x instanceof Array;
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const {isArray} = Array;
