@@ -23,8 +23,8 @@ npm i @putout/plugin-conditions -D
 - ✅ [merge-if-statements](#merge-if-statements);
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-constant](#remove-constant);
-- ✅ [remove-same-values-condition](#remove-same-values-condition);
-- ✅ [remove-useless-else](#remove-useless-else);
+- ✅ [remove-same-values-condition](hremove-same-values-condition);
+- ✅ [remove-useless-else](#remove-ureless-else);
 - ✅ [remove-zero](#remove-zero);
 - ✅ [simplify](#simplify);
 
@@ -352,7 +352,7 @@ if (x)
 console.log();
 ```
 
-## remove-same-values-condition"
+## remove-same-values-condition
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e537d4ec636d4a9b849063a8326b70ae/661041b3fbb1e3678bf7f828e4c8bf6ca723f89d).
 
