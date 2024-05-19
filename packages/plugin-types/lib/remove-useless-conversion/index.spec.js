@@ -49,3 +49,8 @@ test('plugin-remove-useless-type-conversion: named: transform: for-end', (t) => 
     t.transform('for-end');
     t.end();
 });
+
+test('plugin-remove-useless-type-conversion: named: transform: ternary', (t) => {
+    t.transform('ternary');
+    t.end();
+});
