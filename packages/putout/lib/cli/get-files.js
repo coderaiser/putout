@@ -3,7 +3,7 @@
 const {normalize} = require('node:path');
 const {lstat} = require('node:fs/promises');
 
-const {glob: fastGlob} = require('glob');
+const fastGlob = require('fast-glob');
 const tryToCatch = require('try-to-catch');
 
 const {getSupportedGlob} = require('./supported-files');
@@ -24,14 +24,15 @@ async function getFiles(args, options) {
 }
 
 const globOptions = {
+    unique: true,
     dot: true,
-    nodir: true,
 };
 
 const addExt = (options) => async function addExt(a) {
     const [[e], files] = await Promise.all([
         tryToCatch(lstat, a),
         safeGlob(a, {
+            onlyFiles: false,
             ...options,
         }),
     ]);
