@@ -13,6 +13,23 @@ npm i @putout/plugin-conditions -D
 
 ## Rules
 
+- ✅ [add-return](#add-return);
+- ✅ [apply-comparison-order](#apply-comparison-order);
+- ✅ [apply-consistent-blocks](#apply-consistent-blocks);
+- ✅ [apply-if](#apply-if);
+- ✅ [convert-comparison-to-boolean](#convert-comparison-to-boolean);
+- ✅ [convert-equal-to-strict-equal](#convert-equal-to-strict-equal);
+- ✅ [evaluate](#evaluate);
+- ✅ [merge-if-statements](#merge-if-statements);
+- ✅ [remove-boolean](#remove-boolean);
+- ✅ [remove-constant](#remove-constant);
+- ✅ [remove-same-values-condition](#remove-same-values-condition);
+- ✅ [remove-useless-else](#remove-useless-else);
+- ✅ [remove-zero](#remove-zero);
+- ✅ [simplify](#simplify);
+
+## Config
+
 ```json
 {
     "rules": {
