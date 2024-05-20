@@ -17,6 +17,18 @@ npm i @putout/plugin-regexp -D
 
 ## Rules
 
+- ✅ [apply-ends-with](#apply-ends-with);
+- ✅ [apply-literal-notation](#apply-literal-notation);
+- ✅ [apply-starts-with](#apply-starts-with);
+- ✅ [convert-replace-to-replace-all](#convert-replace-to-replace-all);
+- ✅ [convert-to-string](#convert-to-string);
+- ✅ [optimize](#optimize);
+- ✅ [remove-useless-group](#remove-useless-group);
+- ✅ [remove-useless-regexp](#remove-useless-regexp);
+- ✅ [types.js](#types.js);
+
+## Config
+
 ```json
 {
     "rules": {
