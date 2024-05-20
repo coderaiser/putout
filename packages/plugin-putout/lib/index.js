@@ -36,7 +36,7 @@ const renameOperateToOperator = require('./rename-operate-to-operator');
 const replaceOperateWithOperator = require('./replace-operate-with-operator');
 const shortenImports = require('./shorten-imports');
 const declare = require('./declare');
-const addArgs = require('./add-args');
+const addTestArgs = require('./add-test-args');
 const addPush = require('./add-push');
 const moveRequireOnTopLevel = require('./move-require-on-top-level');
 const includer = require('./includer');
@@ -88,7 +88,7 @@ module.exports.rules = {
     'replace-operate-with-operator': replaceOperateWithOperator,
     'shorten-imports': shortenImports,
     declare,
-    'add-args': addArgs,
+    'add-test-args': addTestArgs,
     'add-push': addPush,
     'move-require-on-top-level': moveRequireOnTopLevel,
     includer,

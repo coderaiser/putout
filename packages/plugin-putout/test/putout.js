@@ -96,8 +96,8 @@ test('plugin-putout: convert-method-to-property: complex: transform: declare', (
     t.end();
 });
 
-test('plugin-putout: convert-method-to-property: complex: transform: add-args', (t) => {
-    t.transform('add-args');
+test('plugin-putout: convert-method-to-property: complex: transform: add-test-args', (t) => {
+    t.transform('add-test-args');
     t.end();
 });
 

@@ -13,7 +13,7 @@ npm i @putout/plugin-putout -D
 
 ## Rules
 
-- ✅ [add-args](#add-args);
+- ✅ [add-test-args](#add-test-args);
 - ✅ [add-await-to-progress](#add-await-to-progress);
 - ✅ [add-index-to-import](#add-index-to-import);
 - ✅ [add-push](#add-push);
@@ -33,7 +33,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-short-processors](#apply-short-processors);
 - ✅ [check-match](#check-match);
 - ✅ [check-replace-code](#check-replace-code);
-- ✅ [convert-add-argument-to-add-args](#convert-add-argument-to-add-args);
+- ✅ [convert-add-argument-to-add-args](#convert-add-argument-to-add-test-args);
 - ✅ [convert-babel-types](#convert-babel-types);
 - ✅ [convert-destructuring-to-identifier](#convert-destructuring-to-identifier);
 - ✅ [convert-dirname-to-url](#convert-dirname-to-url);
@@ -81,7 +81,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-short-processors": "on",
         "putout/apply-namespace-specifier": "on",
         "putout/apply-for-of-to-track-file": "on",
-        "putout/add-args": "on",
+        "putout/add-test-args": "on",
         "putout/add-push": "on",
         "putout/add-store": "on",
         "putout/add-path-store": "on",
@@ -797,7 +797,7 @@ compare(a, 'const __a = __b');
 isIdentifier(a);
 ```
 
-## add-args
+## add-test-args
 
 ### ❌ Example of incorrect code
 
