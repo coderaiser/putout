@@ -15,7 +15,32 @@
 npm i putout @putout/plugin-nodejs -D
 ```
 
-## Options
+## Rules
+
+- ✅ [add-node-prefix][#add-node-prefix];
+- ✅ [convert-buffer-to-buffer-alloc][#convert-buffer-to-buffer-alloc];
+- ✅ [convert-commonjs-to-esm-commons][#convert-commonjs-to-esm-commons];
+- ✅ [convert-commonjs-to-esm-exports][#convert-commonjs-to-esm-exports];
+- ✅ [convert-commonjs-to-esm-require][#convert-commonjs-to-esm-require];
+- ✅ [convert-commonjs-to-esm.js][#convert-commonjs-to-esm.js];
+- ✅ [convert-dirname-to-url][#convert-dirname-to-url];
+- ✅ [convert-esm-to-commonjs][#convert-esm-to-commonjs];
+- ✅ [convert-exports-to-module-exports][#convert-exports-to-module-exports];
+- ✅ [convert-fs-promises][#convert-fs-promises];
+- ✅ [convert-promisify-to-fs-promises][#convert-promisify-to-fs-promises];
+- ✅ [convert-top-level-return][#convert-top-level-return];
+- ✅ [convert-url-to-dirname][#convert-url-to-dirname];
+- ✅ [declare][#declare];
+- ✅ [declare-after-require][#declare-after-require];
+- ✅ [remove-process-exit][#remove-process-exit];
+- ✅ [remove-useless-promisify][#remove-useless-promisify];
+- ✅ [rename-file-cjs-to-js][#rename-file-cjs-to-js];
+- ✅ [rename-file-mjs-to-js][#rename-file-mjs-to-js];
+- ✅ [strict-mode][#strict-mode];
+- ✅ [cjs-file][#cjs-file];
+- ✅ [mjs-file][#mjs-file];
+
+## Config
 
 ```json
 {
