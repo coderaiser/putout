@@ -1,10 +1,10 @@
 {
     "printer": "putout",
     "match": {
-        "README.md": {},
         "*.md": {
             "split-variable-declarations": "off",
-            "convert-template-to-string": "off"
+            "convert-template-to-string": "off",
+            "conditions/convert-equal-to-strict-equal": "off"
         }
     }
 }

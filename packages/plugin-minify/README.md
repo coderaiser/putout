@@ -170,7 +170,7 @@ a === b;
 ### ✅ Example of correct code
 
 ```js
-a === b;
+a == b;
 ```
 
 ## convert-array-from-to-spread
