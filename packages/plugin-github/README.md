@@ -17,6 +17,17 @@ npm i @putout/plugin-github -D
 
 ## Rules
 
+- ✅ [add-continue-on-error-to-add-and-commit][#add-continue-on-error-to-add-and-commit];
+- ✅ [add-continue-on-error-to-coveralls][#add-continue-on-error-to-coveralls];
+- ✅ [add-property.js][#add-property.js];
+- ✅ [convert-npm-to-bun][#convert-npm-to-bun];
+- ✅ [insert-rust][#insert-rust];
+- ✅ [install-bun][#install-bun];
+- ✅ [set-node-versions][#set-node-versions];
+- ✅ [update-actions][#update-actions];
+
+## Config
+
 ```json
 {
     "rules": {
