@@ -1325,6 +1325,7 @@ const {a = ''} = b;
     const {cwd, readdirSync} = overrides;
 +}
 ```
+
 </details>
 
 <details><summary>sort imports by specifiers</summary>
@@ -1674,6 +1675,7 @@ function merge(a) {
 async function runCli() {
 }
 ```
+
 </details>
 
 <details><summary>add missing <code>async</code></summary>
