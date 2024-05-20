@@ -1,3 +1,10 @@
+2024.05.20, v35.25.0
+
+feature:
+- 79ca8de10 putout: @putout/plugin-putout v20.0.0
+- fafba2dfe @putout/plugin-putout: add-traverse-args
+- 067414ae0 @putout/plugin-putout: add-args -> add-test-args
+
 2024.05.19, v35.24.1
 
 feature:
