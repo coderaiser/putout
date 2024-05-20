@@ -101,8 +101,8 @@ test('plugin-putout: convert-method-to-property: complex: transform: add-test-ar
     t.end();
 });
 
-test('plugin-putout: transform: add-push', (t) => {
-    t.transform('add-push');
+test('plugin-putout: transform: add-traverse-args', (t) => {
+    t.transform('add-traverse-args');
     t.end();
 });
 

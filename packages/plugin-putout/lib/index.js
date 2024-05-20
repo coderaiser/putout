@@ -1,7 +1,5 @@
 'use strict';
 
-const addStore = require('./add-store');
-const addPathStore = require('./add-path-store');
 const applyProcessorsDestructuring = require('./apply-processors-destructuring');
 const applyAsyncFormatter = require('./apply-async-formatter');
 const applyCreateTest = require('./apply-create-test');
@@ -37,7 +35,7 @@ const replaceOperateWithOperator = require('./replace-operate-with-operator');
 const shortenImports = require('./shorten-imports');
 const declare = require('./declare');
 const addTestArgs = require('./add-test-args');
-const addPush = require('./add-push');
+const addTraverseArgs = require('./add-traverse-args');
 const moveRequireOnTopLevel = require('./move-require-on-top-level');
 const includer = require('./includer');
 const createTest = require('./create-test');
@@ -53,8 +51,6 @@ const applyForOfToTrackFile = require('./apply-for-of-to-track-file');
 const removeUnusedGetPropertiesArgument = require('./remove-unused-get-properties-argument');
 
 module.exports.rules = {
-    'add-store': addStore,
-    'add-path-store': addPathStore,
     'apply-processors-destructuring': applyProcessorsDestructuring,
     'apply-async-formatter': applyAsyncFormatter,
     'apply-create-test': applyCreateTest,
@@ -89,7 +85,7 @@ module.exports.rules = {
     'shorten-imports': shortenImports,
     declare,
     'add-test-args': addTestArgs,
-    'add-push': addPush,
+    'add-traverse-args': addTraverseArgs,
     'move-require-on-top-level': moveRequireOnTopLevel,
     includer,
     'create-test': createTest,

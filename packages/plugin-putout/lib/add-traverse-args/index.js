@@ -9,21 +9,19 @@ const {
     Identifier,
 } = types;
 
-module.exports = function addArg(name) {
-    return {
-        report: createReport(name),
-        fix: createFix(name),
-        traverse: createTraverse(name),
-    };
-};
+const defaultNames = [
+    'push',
+    'store',
+    'pathStore',
+];
 
-const createReport = (name) => () => `Add '${name}' argument to 'traverse'`;
+module.exports.report = ({name}) => `Add '${name}' argument to 'traverse'`;
 
-const createFix = (mainName) => ({fn}) => {
+module.exports.fix = ({name, fn}) => {
     const computed = false;
     const shorthand = true;
-    const name = Identifier(mainName);
-    const property = ObjectProperty(name, name, computed, shorthand);
+    const id = Identifier(name);
+    const property = ObjectProperty(id, id, computed, shorthand);
     
     if (!fn.params.length) {
         fn.params.push(ObjectPattern([property]));
@@ -33,8 +31,11 @@ const createFix = (mainName) => ({fn}) => {
     fn.params[0].properties.push(property);
 };
 
-const createTraverse = (name) => ({push}) => {
-    const check = checkArgs(name, push);
+module.exports.traverse = ({push, options}) => {
+    const {
+        names = defaultNames,
+    } = options;
+    const check = checkArgs(names, push);
     
     return {
         'export const traverse = (__args) => __': check,
@@ -54,37 +55,44 @@ const isArgExists = (mainName, fn) => {
     return false;
 };
 
-const checkArgs = (mainName, push) => (path) => {
+const checkArgs = (names, push) => (path) => {
     const fn = parseFn(path);
-    
-    if (isArgExists(mainName, fn))
-        return false;
     
     traverse(path, {
         ReferencedIdentifier(path) {
-            if (path.node.name !== mainName)
+            const {name} = path.node;
+            
+            if (!names.includes(name))
                 return;
             
-            if (isCallee(mainName, path))
+            if (isCallee(name, path))
                 return;
             
-            if (isArgExists(mainName, fn))
+            if (isArgExists(name, fn))
                 return;
             
             push({
                 path,
                 fn,
+                name,
             });
         },
-        [`${mainName}(__args)`]: (currentPath) => {
+        [`__a(__args)`]: (currentPath) => {
+            const {callee} = currentPath.node;
+            const {name} = callee;
+            
+            if (!names.includes(name))
+                return;
+            
             const bindings = currentPath.scope.getAllBindings();
             
-            if (bindings[mainName])
+            if (bindings[name])
                 return;
             
             push({
                 path,
                 fn,
+                name,
             });
         },
     });

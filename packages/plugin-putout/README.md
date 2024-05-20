@@ -16,9 +16,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-test-args](#add-test-args);
 - ✅ [add-await-to-progress](#add-await-to-progress);
 - ✅ [add-index-to-import](#add-index-to-import);
-- ✅ [add-push](#add-push);
-- ✅ [add-store](#add-store);
-- ✅ [add-path-store](#add-path-store);
+- ✅ [add-traverse-args](#add-traverse-args);
 - ✅ [add-track-file](#add-track-file);
 - ✅ [apply-async-formatter](#apply-async-formatter);
 - ✅ [apply-create-test](#apply-create-test);
@@ -82,9 +80,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-namespace-specifier": "on",
         "putout/apply-for-of-to-track-file": "on",
         "putout/add-test-args": "on",
-        "putout/add-push": "on",
-        "putout/add-store": "on",
-        "putout/add-path-store": "on",
+        "putout/add-traverse-args": "on",
         "putout/add-track-file": "on",
         "putout/add-await-to-progress": "on",
         "putout/add-index-to-import": "on",
@@ -815,7 +811,12 @@ test('', ({comparePlaces}) => {
 });
 ```
 
-## add-push
+## add-traverse-args
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b453bd78b8e9380da8b2f33dfb38b4e2/53b14f89eb88aa10c8e00ba1f0251976592e14ee).
+Supported args:
+
+- `push`:
 
 ### ❌ Example of incorrect code
 
@@ -837,9 +838,7 @@ module.exports.traverse = ({push}) => ({
 });
 ```
 
-## add-store
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b453bd78b8e9380da8b2f33dfb38b4e2/53b14f89eb88aa10c8e00ba1f0251976592e14ee).
+- `store`
 
 ### ❌ Example of incorrect code
 
@@ -867,7 +866,7 @@ module.exports.traverse = ({store}) => ({
 });
 ```
 
-## add-path-store
+- `pathStore`:
 
 ### ❌ Example of incorrect code
 
