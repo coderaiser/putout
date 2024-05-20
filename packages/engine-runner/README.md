@@ -203,6 +203,187 @@ module.exports.traverse = ({push}) => ({
 });
 ```
 
+#### Stores
+
+Stores is preferred way of keeping 🐊**Putout** data, `traverse` init function called only once, and any other way
+of handling variables will most likely will lead to bugs. There is a couple store types:
+
+- ✅ [`listStore`](#liststore);
+- ✅ [`pathStore`](#pathstore);
+- ✅ [`store`](#store);
+- ✅ [`upstore`](#upstore);
+- ✅ [`uplist`](#uplist);
+
+Let's talk about each of them.
+
+##### `listStore`
+
+To save things as a list without duplicates use `listStore`.
+Let's suppose you have such code:
+
+```js
+debugger;
+const hello = '';
+debugger;
+const world = '';
+```
+
+Let's process it!
+
+```js
+module.exports.traverse = ({listStore}) => ({
+    'debugger'(path) {
+        listStore(path);
+    },
+    
+    Program: {
+        exit() {
+            console.log(listStore());
+            // returns
+            [{
+                type: 'DebuggerStatement',
+            }, {
+                type: 'DebuggerStatement',
+            }];
+            
+            // for code
+            'debugger; debugger';
+        },
+    },
+});
+```
+
+##### `pathStore`
+
+When you want additional check that `path` not removed.
+
+```js
+debugger;
+const hello = '';
+```
+
+Let's process it!
+
+```js
+module.exports.traverse = ({pathStore}) => ({
+    'debugger'(path) {
+        pathStore(path);
+        path.remove();
+    },
+    
+    Program: {
+        exit() {
+            console.log(pathStore());
+            // returns
+            [];
+        },
+    },
+});
+```
+
+##### `store`
+
+When you need `key-value` use `store`:
+
+```js
+module.exports.traverse = ({push, store}) => ({
+    'debugger'(path) {
+        store('hello', 'world');
+        push(path);
+    },
+    
+    Program: {
+        exit() {
+            store();
+            // returns
+            ['world'];
+            
+            store.entries();
+            // returns
+            [['hello', 'world']];
+            
+            store('hello');
+            // returns
+            'world';
+        },
+    },
+});
+```
+
+##### `upstore`
+
+When you need to update already saved values, use `upstore`:
+
+```js
+module.exports.traverse = ({push, upstore}) => ({
+    TSTypeAliasDeclaration(path) {
+        if (path.parentPath.isExportNamedDeclaration())
+            return;
+        
+        upstore(path.node.id.name, {
+            path,
+        });
+    },
+    
+    ObjectProperty(path) {
+        const {value} = path.node;
+        const {name} = value;
+        
+        store(name, {
+            used: true,
+        });
+    },
+    
+    Program: {
+        exit() {
+            for (const {path, used} of upstore()) {
+                if (used)
+                    continue;
+                
+                push(path);
+            }
+        },
+    },
+});
+```
+
+##### `uplist`
+
+When you need to update named arrays:
+
+```js
+module.exports.traverse = ({uplist, push}) => ({
+    'const __object = __a.__b': (fullPath) => {
+        const {__a, __b} = getTemplateValues(fullPath, 'const __object = __a.__b');
+        const initPath = fullPath.get('declarations.0.init');
+        const {uid} = initPath.scope;
+        
+        if (isIdentifier(__a) || isCallExpression(__a)) {
+            const {code} = generate(__a);
+            const id = `${uid}-${code}`;
+            
+            return uplist(id, initPath);
+        }
+    },
+    'Program': {
+        exit: () => {
+            for (const items of uplist()) {
+                if (items.length < 2)
+                    continue;
+                
+                const index = items.length - 1;
+                const path = items[index];
+                
+                push({
+                    path,
+                    items,
+                });
+            }
+        },
+    },
+});
+```
+
 ### Scanner
 
 **Scanner** gives you all ability to work with files.
@@ -316,187 +497,6 @@ const places = runPlugins({
     fixCount: 0, // default
     plugins,
     parser: 'babel', // default
-});
-```
-
-## Stores
-
-Stores is preferred way of keeping 🐊**Putout** data, `traverse` init function called only once, and any other way
-of handling variables will most likely will lead to bugs. There is a couple store types:
-
-- ✅ [`listStore`](#liststore);
-- ✅ [`pathStore`](#pathstore);
-- ✅ [`store`](#store);
-- ✅ [`upstore`](#upstore);
-- ✅ [`uplist`](#uplist);
-
-Let's talk about each of them.
-
-### `listStore`
-
-To save things as a list without duplicates use `listStore`.
-Let's suppose you have such code:
-
-```js
-debugger;
-const hello = '';
-debugger;
-const world = '';
-```
-
-Let's process it!
-
-```js
-module.exports.traverse = ({listStore}) => ({
-    'debugger'(path) {
-        listStore(path);
-    },
-    
-    Program: {
-        exit() {
-            console.log(listStore());
-            // returns
-            [{
-                type: 'DebuggerStatement',
-            }, {
-                type: 'DebuggerStatement',
-            }];
-            
-            // for code
-            'debugger; debugger';
-        },
-    },
-});
-```
-
-### `pathStore`
-
-When you want additional check that `path` not removed.
-
-```js
-debugger;
-const hello = '';
-```
-
-Let's process it!
-
-```js
-module.exports.traverse = ({pathStore}) => ({
-    'debugger'(path) {
-        pathStore(path);
-        path.remove();
-    },
-    
-    Program: {
-        exit() {
-            console.log(pathStore());
-            // returns
-            [];
-        },
-    },
-});
-```
-
-### `store`
-
-When you need `key-value` use `store`:
-
-```js
-module.exports.traverse = ({push, store}) => ({
-    'debugger'(path) {
-        store('hello', 'world');
-        push(path);
-    },
-    
-    Program: {
-        exit() {
-            store();
-            // returns
-            ['world'];
-            
-            store.entries();
-            // returns
-            [['hello', 'world']];
-            
-            store('hello');
-            // returns
-            'world';
-        },
-    },
-});
-```
-
-### `upstore`
-
-When you need to update already saved values, use `upstore`:
-
-```js
-module.exports.traverse = ({push, upstore}) => ({
-    TSTypeAliasDeclaration(path) {
-        if (path.parentPath.isExportNamedDeclaration())
-            return;
-        
-        upstore(path.node.id.name, {
-            path,
-        });
-    },
-    
-    ObjectProperty(path) {
-        const {value} = path.node;
-        const {name} = value;
-        
-        store(name, {
-            used: true,
-        });
-    },
-    
-    Program: {
-        exit() {
-            for (const {path, used} of upstore()) {
-                if (used)
-                    continue;
-                
-                push(path);
-            }
-        },
-    },
-});
-```
-
-### `uplist`
-
-When you need to update named arrays:
-
-```js
-module.exports.traverse = ({uplist, push}) => ({
-    'const __object = __a.__b': (fullPath) => {
-        const {__a, __b} = getTemplateValues(fullPath, 'const __object = __a.__b');
-        const initPath = fullPath.get('declarations.0.init');
-        const {uid} = initPath.scope;
-        
-        if (isIdentifier(__a) || isCallExpression(__a)) {
-            const {code} = generate(__a);
-            const id = `${uid}-${code}`;
-            
-            return uplist(id, initPath);
-        }
-    },
-    'Program': {
-        exit: () => {
-            for (const items of uplist()) {
-                if (items.length < 2)
-                    continue;
-                
-                const index = items.length - 1;
-                const path = items[index];
-                
-                push({
-                    path,
-                    items,
-                });
-            }
-        },
-    },
 });
 ```
 
