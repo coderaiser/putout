@@ -35,6 +35,7 @@ module.exports.traverse = ({push, options}) => {
     const {
         names = defaultNames,
     } = options;
+    
     const check = checkArgs(names, push);
     
     return {
