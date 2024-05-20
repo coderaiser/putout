@@ -838,7 +838,7 @@ module.exports.traverse = ({push}) => ({
 });
 ```
 
-- `store`
+- [`store`](https://github.com/coderaiser/putout/blob/master/packages/engine-runner/README.md#store)
 
 ### ❌ Example of incorrect code
 
@@ -866,7 +866,7 @@ module.exports.traverse = ({store}) => ({
 });
 ```
 
-- `pathStore`:
+- [`pathStore`](https://github.com/coderaiser/putout/blob/master/packages/engine-runner/README.md#pathstore)
 
 ### ❌ Example of incorrect code
 
