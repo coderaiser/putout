@@ -13,6 +13,12 @@ npm i @putout/plugin-math -D
 
 ## Rules
 
+- ✅ [apply-exponentiation][#apply-exponentiation];
+- ✅ [apply-multiplication][#apply-multiplication];
+- ✅ [apply-numeric-separators][#apply-numeric-separators];
+- ✅ [convert-sqrt-to-hypot][#convert-sqrt-to-hypot];
+- ✅ [declare][#declare];
+
 ```json
 {
     "rules": {
