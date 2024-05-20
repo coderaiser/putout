@@ -13,6 +13,26 @@ npm i @putout/plugin-putout -D
 
 ## Rules
 
+- ✅ [apply-template-literal](#apply-template-literal)
+- ✅ [apply-ternary](#apply-ternary)
+- ✅ [convert-array-from-to-spread](#convert-array-from-to-spread)
+- ✅ [convert-const-to-var](#convert-const-to-var)
+- ✅ [convert-if-to-logical](#convert-if-to-logical)
+- ✅ [convert-strict-equal-to-equal](#convert-strict-equal-to-equal)
+- ✅ [expand-bindings](#expand-bindings)
+- ✅ [extract-body](#extract-body)
+- ✅ [inline](#inline)
+- ✅ [mangle-names](#mangle-names)
+- ✅ [merge-loops](#merge-loops)
+- ✅ [merge-variables](#merge-variables)
+- ✅ [remove-return-undefined](#remove-return-undefined)
+- ✅ [remove-var-undefined](#remove-var-undefined)
+- ✅ [shorten-names](#shorten-names)
+- ✅ [simplify-floor](#simplify-floor)
+- ✅ [types](#types)
+
+## Config
+
 ```json
 {
     "rules": {
