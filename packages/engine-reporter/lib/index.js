@@ -27,7 +27,7 @@ export const createReport = async ({args, cwd, exit}) => {
     });
     
     if (configError)
-        exit(INVALID_CONFIG, configError);
+        return exit(INVALID_CONFIG, configError);
     
     const {formatter} = config;
     
@@ -39,7 +39,7 @@ export const createReport = async ({args, cwd, exit}) => {
         [newFormatter] = await chooseFormatter(defaultFormatter, keys(dependencies));
         
         if (!newFormatter)
-            exit(INTERACTIVE_CANCELED);
+            return exit(INTERACTIVE_CANCELED);
     }
     
     const [currentFormat, formatterOptions] = await getFormatter(newFormatter || format || formatter, exit);
