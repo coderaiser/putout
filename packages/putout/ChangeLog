@@ -1,3 +1,8 @@
+2024.05.21, v35.25.1
+
+fix:
+- aa613221b putout: show error when syntax errors in config file
+
 2024.05.20, v35.25.0
 
 feature:
