@@ -66,11 +66,8 @@ const filter = (declarations) => (path, {options}) => {
     };
     
     const names = keys(allDeclarations);
-    
     const {scope, node} = path;
-    
     const {name} = node;
-    
     const type = getModuleType(path) || setModuleType(parseType(path), path);
     
     if (scope.hasBinding(name) || checkDeclarationForESLint(name, path))
