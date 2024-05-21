@@ -1,7 +1,11 @@
 'use strict';
 
 const {operator, template} = require('putout');
-const {replaceWith, insertAfter} = operator;
+const {
+    replaceWith,
+    insertAfter,
+    compare,
+} = operator;
 
 const MATCH = 'module.exports.match = __object';
 const DEFAULT = 'module.exports = __a';
@@ -22,8 +26,12 @@ module.exports.fix = ({path, moduleExports}) => {
 };
 
 module.exports.traverse = ({pathStore, push}) => ({
-    [MATCH]: pathStore,
-    [DEFAULT]: pathStore,
+    [MATCH]: storeIfWasNot({
+        pathStore,
+    }),
+    [DEFAULT]: storeIfWasNot({
+        pathStore,
+    }),
     Program: {
         exit() {
             const [a, b] = pathStore();
@@ -38,3 +46,12 @@ module.exports.traverse = ({pathStore, push}) => ({
         },
     },
 });
+
+const storeIfWasNot = ({pathStore}) => (path) => {
+    for (const current of pathStore()) {
+        if (compare(current, DEFAULT))
+            return;
+    }
+    
+    pathStore(path);
+};
