@@ -550,6 +550,44 @@ test('putout: operator: match-files: __name: dot', (t) => {
     t.end();
 });
 
+test('putout: operator: match-files: __name: double ext', (t) => {
+    const source = stringify(['/', [
+        '/.mjsindex.mjs',
+        'export default {}',
+    ]]);
+    
+    const files = {
+        '__name.mjs -> __name.cjs': convertEsmToCommonjs,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'match-files': ['on', {
+                filename: '.mjsindex.mjs',
+            }],
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = ['/', [
+        '/.mjsindex.cjs',
+        'bW9kdWxlLmV4cG9ydHMgPSB7fTsK',
+    ]];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: operator: match-files: options', (t) => {
     const source = stringify(['/', [
         '/index.mjs',

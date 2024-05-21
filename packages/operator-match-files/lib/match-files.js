@@ -1,6 +1,6 @@
 'use strict';
 
-const {join, extname} = require('node:path');
+const path = require('node:path');
 
 const {parse, print} = require('@putout/engine-parser');
 const {transform} = require('putout/transform');
@@ -18,6 +18,8 @@ const {
     removeFile,
     getParentDirectory,
 } = require('@putout/operator-filesystem');
+
+const {join} = path;
 
 const isObject = (a) => a && typeof a === 'object';
 const {entries} = Object;
@@ -177,10 +179,9 @@ function parseMatcher(matcher, options) {
     if (!filename)
         return matcher.split(' -> ');
     
-    const ext = extname(filename);
-    const shortName = filename.replace(ext, '');
+    const {ext, name} = path.parse(filename);
     
-    matcher = matcher.replaceAll(`__name`, shortName);
+    matcher = matcher.replaceAll(`__name`, name);
     matcher = matcher.replaceAll(`__ext`, ext);
     
     return matcher.split(' -> ');
