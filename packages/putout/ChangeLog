@@ -1,3 +1,15 @@
+2024.05.21, v35.26.0
+
+feature:
+- 725e2dd6e putout: @putout/plugin-remove-useless-escape v6.0.0
+- 1791f0979 @putout/plugin-remove-useless-escape: drop support of 🐊 < 35
+- 9a7d278d9 @putout/plugin-remove-useless-escape: add h
+- b4a93b98c @putout/operator-match-files: use path.parse
+- 73e2b5f2d @putout/plugin-eslint: convert-rc-to-flat: commonjs/esm hybrid -> esm
+- 6956a1d3a @putout/operator-declare: type
+- d0a48a209 @putout/operator-match-files: add ability to pass options
+- 93cc5a871 @putout/operator-declare: first things first
+
 2024.05.21, v35.25.1
 
 fix:
