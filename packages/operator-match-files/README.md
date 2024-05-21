@@ -96,12 +96,28 @@ You can even use file matchers:
 Matchers: `__filename = __name.__ext`
 
 ```js
-const {operator} = require('putout');
-const {matchFiles} = operator;
-const updateTSConfig = require('../update-tsconfig');
-
 module.exports = matchFiles({
     '__name.json -> __name.js': updateTSConfig,
+});
+```
+
+### Options
+
+You can also pass `options`:
+
+```js
+module.exports = matchFiles({
+    '.eslintrc.json -> eslint.config.js': {
+        rules: {
+            'eslint/declare': {
+                type: 'esm',
+            },
+        },
+        plugins: [
+            ['eslint/convert-rc-to-flat', rcToFlat],
+            ['eslint/declare', declare],
+        ],
+    },
 });
 ```
 

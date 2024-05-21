@@ -2,7 +2,8 @@
     "printer": "putout",
     "match": {
         "*.md": {
-            "declare": "off"
+            "declare": "off",
+            "putout/declare": "off"
         }
     },
     "rules": {

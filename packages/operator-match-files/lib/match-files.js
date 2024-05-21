@@ -34,10 +34,8 @@ module.exports.matchFiles = (files) => {
     };
 };
 
-function fix(inputFile, {dirPath, mainPath, matchInputFilename, outputFilename, matchedJS, matchedAST, plugins}) {
-    transform(matchedAST, matchedJS, {
-        plugins,
-    });
+function fix(inputFile, {dirPath, mainPath, matchInputFilename, outputFilename, matchedJS, matchedAST, options}) {
+    transform(matchedAST, matchedJS, options);
     
     const matchedJSON = magicPrint(outputFilename, matchedAST);
     const outputFile = getOutputFile(mainPath, {
@@ -57,7 +55,7 @@ const createScan = (files) => (mainPath, {push, progress, options}) => {
     const allFiles = [];
     const cwd = getFilename(mainPath);
     
-    for (const [filename, plugin] of entries(files)) {
+    for (const [filename, rawOptions] of entries(files)) {
         const [matchInputFilename, outputFilename = matchInputFilename] = parseMatcher(filename, options);
         const inputFiles = findFile(mainPath, matchInputFilename);
         
@@ -72,7 +70,7 @@ const createScan = (files) => (mainPath, {push, progress, options}) => {
                 mainPath,
                 dirPath,
                 matchInputFilename,
-                plugin,
+                rawOptions,
                 inputFile,
                 inputFilename,
                 outputFilename,
@@ -89,7 +87,7 @@ const createScan = (files) => (mainPath, {push, progress, options}) => {
             inputFile,
             inputFilename,
             outputFilename,
-            plugin,
+            rawOptions,
             mainPath,
         } = current;
         
@@ -101,14 +99,8 @@ const createScan = (files) => (mainPath, {push, progress, options}) => {
         const fileContent = readFileContent(inputFile) || '{}';
         const [matchedJS, matchedAST] = magicParse(inputFilename, fileContent);
         
-        const name = `match-file: ${inputFilename}`;
-        const plugins = [
-            [name, plugin],
-        ];
-        
-        const places = findPlaces(matchedAST, matchedJS, {
-            plugins,
-        });
+        const options = parseOptions(inputFilename, rawOptions);
+        const places = findPlaces(matchedAST, matchedJS, options);
         
         if (!places.length)
             continue;
@@ -122,7 +114,7 @@ const createScan = (files) => (mainPath, {push, progress, options}) => {
             
             outputFilename,
             message,
-            plugins,
+            options,
             
             matchedAST,
             matchedJS,
@@ -192,4 +184,19 @@ function parseMatcher(matcher, options) {
     matcher = matcher.replaceAll(`__ext`, ext);
     
     return matcher.split(' -> ');
+}
+
+function parseOptions(inputFilename, rawOptions) {
+    if (rawOptions.plugins)
+        return rawOptions;
+    
+    const name = `match-file: ${inputFilename}`;
+    
+    const plugins = [
+        [name, rawOptions],
+    ];
+    
+    return {
+        plugins,
+    };
 }
