@@ -6,7 +6,6 @@ import process, {
     stdout,
     exit as halt,
 } from 'node:process';
-
 import {subscribe} from '@putout/engine-reporter/subscribe';
 import {parseArgs} from '../lib/cli/parse-args.js';
 import {createExit} from '../lib/cli/exit.mjs';
