@@ -501,10 +501,8 @@ test('putout: cli: ide: web storm', async (t) => {
     });
     
     const simpleImport = async (url) => {
-        if (url === 'chalk')
-            return {
-                red: stub(),
-            };
+        if (url === './exit.mjs')
+            return await import(url);
         
         if (url.includes('processor'))
             return await import(url);
@@ -1070,10 +1068,8 @@ test('putout: cli: ruler: --enable', async (t) => {
                 ruler,
             };
         
-        if (url === 'chalk')
-            return {
-                red: stub(),
-            };
+        if (url === './exit.mjs')
+            return await import(url);
         
         if (url.includes('processor'))
             return await import(url);
@@ -1120,10 +1116,8 @@ test('putout: cli: ruler: --enable-all', async (t) => {
                 ruler,
             };
         
-        if (url === 'chalk')
-            return {
-                red: stub(),
-            };
+        if (url === './exit.mjs')
+            return await import(url);
         
         if (url.includes('processor'))
             return await import(url);
@@ -1162,10 +1156,8 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
                 ruler,
             };
         
-        if (url === 'chalk')
-            return {
-                red: stub(),
-            };
+        if (url === './exit.mjs')
+            return await import(url);
         
         if (url.includes('processor'))
             return await import(url);

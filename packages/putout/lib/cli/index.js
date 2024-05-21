@@ -99,10 +99,9 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
         plugins,
     } = args;
     
-    const {red} = await simpleImport('chalk');
+    const {createExit} = await simpleImport('./exit.mjs');
     
-    const exit = getExit({
-        red,
+    const exit = createExit({
         raw,
         halt,
         logError,
@@ -319,23 +318,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
     const exitCode = getExitCode(wasStop);
     
     exit(exitCode);
-};
-
-const getExit = ({red, halt, raw, logError}) => (code, e) => {
-    if (!code)
-        return halt(0);
-    
-    if (!e)
-        return halt(code);
-    
-    const message = raw ? e : red(`🐊 ${e.message || e}`);
-    
-    logError(message);
-    halt(code);
-    
-    return {
-        exited: true,
-    };
 };
 
 module.exports._addOnce = addOnce;
