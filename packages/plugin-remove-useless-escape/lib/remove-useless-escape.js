@@ -101,6 +101,9 @@ function isEscaped(raw) {
     if (!raw.includes('\\'))
         return false;
     
+    if (raw.includes('\\h') && !raw.includes('\\\\h'))
+        return true;
+    
     if (/\\\\/g.test(raw))
         return false;
     
@@ -143,7 +146,8 @@ function unEscape(raw) {
         .replaceAll('\\$', '$')
         .replaceAll('\\{', '{')
         .replaceAll('\\.', '.')
-        .replace(/(\\),/, ',');
+        .replace(/(\\),/, ',')
+        .replaceAll('\\h', 'h');
     
     for (const emoji of match(raw)) {
         raw = raw.replace(createEncodedRegExp(emoji), emoji);

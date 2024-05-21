@@ -1,0 +1,1 @@
+const root = 'c:\\tmphello';
