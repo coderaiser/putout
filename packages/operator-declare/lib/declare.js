@@ -58,7 +58,7 @@ const filter = (declarations) => (path, {options}) => {
     if (TS_EXCLUDE.includes(path.parentPath.type))
         return false;
     
-    const {dismiss = []} = options;
+    const {dismiss = [], type: typeOverride} = options;
     
     const allDeclarations = {
         ...declarations,
@@ -78,7 +78,7 @@ const filter = (declarations) => (path, {options}) => {
     if (scope.hasBinding(name) || checkDeclarationForESLint(name, path))
         return false;
     
-    const type = getModuleType(path) || setModuleType(parseType(path), path);
+    const type = computeType(path, typeOverride);
     
     return parseCode(type, allDeclarations[name]);
 };
@@ -97,6 +97,7 @@ const fix = (declarations) => (path, {options}) => {
     const scope = path.scope.getProgramParent();
     const programPath = scope.path;
     const bodyPath = programPath.get('body');
+    
     const node = template.ast.fresh(code);
     
     insert(node, bodyPath);
@@ -179,3 +180,15 @@ const getLastImportPath = (bodyPath) => {
     
     return imports.pop() || localImports.pop();
 };
+
+function computeType(path, type) {
+    if (type)
+        return setModuleType(type, path);
+    
+    const newType = getModuleType(path);
+    
+    if (newType)
+        return newType;
+    
+    return setModuleType(parseType(path), path);
+}

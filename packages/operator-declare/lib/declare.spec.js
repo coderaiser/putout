@@ -389,6 +389,39 @@ test('putout: operator: declare: dual: commonjs', (t) => {
     t.end();
 });
 
+test('putout: operator: declare: dual: commonjs: override', (t) => {
+    const declarations = {
+        simport: {
+            esm: 'const simport = createSimport(import.meta.url)',
+            commonjs: 'const simport = createSimport(__filename)',
+        },
+    };
+    
+    const source = montag`
+        simport('fs');
+    `;
+    
+    const {code} = putout(source, {
+        rules: {
+            declare: ['on', {
+                type: 'esm',
+                declarations,
+            }],
+        },
+        plugins: [
+            ['declare', declare({})],
+        ],
+    });
+    
+    const expected = montag`
+        const simport = createSimport(import.meta.url);
+        simport('fs');\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: operator: declare: esm for commonjs', (t) => {
     const declarations = {
         simport: {

@@ -71,6 +71,22 @@ If for some reason you don't need some kind of declaration, add `dismiss` field 
 }
 ```
 
+If you want to override `type` to avoid detecting, set it to `esm|commonjs`:
+
+```json
+{
+    "rules": {
+        "putout/declare": ["on", {
+            "declarations": {
+                "fs": "import fs from 'fs/promises'"
+            },
+            "dismiss": ["fs"],
+            "type": "esm"
+        }]
+    }
+}
+```
+
 ### Used in
 
 - ✅ [declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme)
