@@ -48,7 +48,7 @@ are also supported. Here is how it looks like:
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
 - [🏗 API](#-api)
 - [🏨 Built-in transformations](#-built-in-transformations)
-- [🛠️ Syntax errors](#-syntax-errors)
+- [🛠️ Syntax errors](#%EF%B8%8F-syntax-errors)
 - [🏟 Plugins](#-plugins)
 - [🦚 Formatters](#-formatters)
 - [🦉 Configuration](#-configuration)
@@ -2083,6 +2083,35 @@ const b = 'world';
 ```
 
 </details>
+
+<details><summary>add missing <code>async</code></summary>
+
+```diff
+-function get(url) {
++async function get(url) {
+    return await fetch(url);
+}
+```    
+
+</details>
+
+<details><summary>add missing <code>*</code></summary>
+
+```diff
+-function hello() {
++function* hello() {
+    yield 'world';
+}
+
+-function func2() {
++function* func2() {
+    yield* func1();
+}
+```
+
+</details>
+
+-function get(url) {
 
 ## 🏟 Plugins
 
