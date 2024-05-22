@@ -2111,6 +2111,18 @@ const b = 'world';
 
 </details>
 
+<details><summary>declare before reference</summary>
+
+```diff
+
+-const {remove} = operator;
+const {types, operator} = require('putout');
++const {remove} = operator;
+```
+
+</details>
+
+
 ## 🏟 Plugins
 
 The 🐊**Putout** repo is comprised of many npm packages. It is a [Lerna](https://github.com/lerna/lerna) monorepo similar to [Babel](https://github.com/babel/babel).
