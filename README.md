@@ -2114,10 +2114,28 @@ const b = 'world';
 <details><summary>declare before reference</summary>
 
 ```diff
-
 -const {remove} = operator;
 const {types, operator} = require('putout');
 +const {remove} = operator;
+```
+
+</details>
+
+<details><summary>assignment to constant variable</summary>
+
+```diff
+-const a = 5;
+-let a = 5;
+a = 3;
+```
+
+</details>
+
+<details><summary>declare undefined variables</summary>
+
+```diff
++import {readFile} from 'fs/promises';
+readFile('./hello.js', 'utf8');
 ```
 
 </details>
