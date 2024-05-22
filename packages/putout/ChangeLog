@@ -1,3 +1,11 @@
+2024.05.22, v35.27.0
+
+fix:
+- ec18bbbb5 @putout/plugin-eslint: convert-export-match-to-declaration: false positive
+
+feature:
+- e82121cc7 putout: add ability to fix broken strings
+
 2024.05.21, v35.26.0
 
 feature:
