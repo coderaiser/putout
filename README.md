@@ -2125,7 +2125,7 @@ const {types, operator} = require('putout');
 
 ```diff
 -const a = 5;
--let a = 5;
++let a = 5;
 a = 3;
 ```
 
