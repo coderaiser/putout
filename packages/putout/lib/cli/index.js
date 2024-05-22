@@ -55,9 +55,7 @@ const {PUTOUT_FILES = '', PUTOUT_PRINTER} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
 const getExitCode = (wasStop) => wasStop() ? WAS_STOP : OK;
-
 const isStr = (a) => typeof a === 'string';
-
 const isNoop = (a) => String(a) === String(noop);
 
 const parseIsStop = (passedIsStop) => {
