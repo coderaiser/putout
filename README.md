@@ -2144,7 +2144,7 @@ readFile('./hello.js', 'utf8');
 ## 🏟 Plugins
 
 The 🐊**Putout** repo is comprised of many npm packages. It is a [Lerna](https://github.com/lerna/lerna) monorepo similar to [Babel](https://github.com/babel/babel).
-It has a lot plugins divided by groups:
+It has a lot of plugins divided by groups:
 
 ### Appliers
 
