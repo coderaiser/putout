@@ -2091,7 +2091,7 @@ const b = 'world';
 +async function get(url) {
     return await fetch(url);
 }
-```    
+```
 
 </details>
 
