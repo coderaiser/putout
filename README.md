@@ -48,6 +48,7 @@ are also supported. Here is how it looks like:
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
 - [🏗 API](#-api)
 - [🏨 Built-in transformations](#-built-in-transformations)
+- [🛠️ Syntax errors](#-syntax-errors)
 - [🏟 Plugins](#-plugins)
 - [🦚 Formatters](#-formatters)
 - [🦉 Configuration](#-configuration)
@@ -2043,6 +2044,42 @@ const x: n = 5;
 -    [Key in keyof Type]?: Type[Key];
 -}
 +type SuperType = Partial<Type>;
+```
+
+</details>
+
+## 🛠️ Syntax Errors
+
+🐊**Putout** not only improves working code but also fixes broken code.
+
+<details><summary>function declaration half converted from arrow expression</summary>
+
+```diff
+-function parse(source) => {
++function parse(source) {
+    return source;
+}
+```
+
+</details>
+
+<details><summary>broken string</summary>
+
+```diff
+-const a = 'hello;
++const a = 'hello';
+const b = 'world';
+```
+
+</details>
+
+<details><summary>forgoten round braces in if statement</summary>
+
+```diff
+-if a > 5 {
++if (a > 5) {
+    alert();
+}
 ```
 
 </details>
