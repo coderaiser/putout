@@ -17,6 +17,7 @@ async function syntaxFix(source) {
         keywordIf,
         keywordBrokenString,
     } = keywords;
+    
     const [error, code] = tryCatch(compile, source, {
         keywords: {
             keywordArrow,

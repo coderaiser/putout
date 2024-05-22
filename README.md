@@ -2073,7 +2073,7 @@ const b = 'world';
 
 </details>
 
-<details><summary>forgoten round braces in if statement</summary>
+<details><summary>forgotten round braces in if statement</summary>
 
 ```diff
 -if a > 5 {
