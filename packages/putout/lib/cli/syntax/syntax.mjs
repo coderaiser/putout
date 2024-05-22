@@ -12,11 +12,16 @@ export const lintSyntax = async (source, {fix, isTS}) => {
 
 async function syntaxFix(source) {
     const {compile, keywords} = await import('goldstein');
-    const {keywordArrow, keywordIf} = keywords;
+    const {
+        keywordArrow,
+        keywordIf,
+        keywordBrokenString,
+    } = keywords;
     const [error, code] = tryCatch(compile, source, {
         keywords: {
             keywordArrow,
             keywordIf,
+            keywordBrokenString,
         },
     });
     
