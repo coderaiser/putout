@@ -598,13 +598,13 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
     const log = stub();
     const write = stub();
     
-    const lintSyntax = stub().returns({
+    const lint = stub().returns({
         code: source,
         places: [],
     });
     
     const simpleImport = stub().returns({
-        lintSyntax,
+        lint,
     });
     
     mockRequire('./simple-import', {

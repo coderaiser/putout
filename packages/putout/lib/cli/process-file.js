@@ -34,8 +34,9 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async func
     if (!again && e) {
         raw && logError(e);
         
-        const {lintSyntax} = await simpleImport('./syntax/syntax.mjs');
-        const {places, code} = await lintSyntax(source, {
+        const {lint} = await simpleImport('samadhi');
+        
+        const {places, code} = await lint(source, {
             fix,
             isTS,
         });
