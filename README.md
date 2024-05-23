@@ -16,7 +16,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊**Putout** is a JavaScript Linter, pluggable and configurable code transformer, drop-in **ESLint** replacement with built-in [code printer](https://github.com/putoutjs/printer#readme) and ability to [fix syntax errors](#%EF%B8%8F-syntax-errors). It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
+🐊**Putout** is a JavaScript Linter, pluggable and configurable code transformer, drop-in **ESLint** replacement with built-in [code printer](https://github.com/putoutjs/printer#readme) and ability to [fix syntax errors](https://github.com/coderaiser/putout/blob/master/docs/syntax-errors.md#%EF%B8%8F-syntax-errors). It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
 
 The main target is **JavaScript**, but:
 
@@ -49,7 +49,7 @@ are also supported. Here is how it looks like:
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
 - [🏗 API](#-api)
 - [🏨 Built-in transformations](#-built-in-transformations)
-- [🛠️ Syntax errors](#%EF%B8%8F-syntax-errors)
+- [🛠️ Syntax errors](https://github.com/coderaiser/putout/blob/master/docs/syntax-errors.md#%EF%B8%8F-syntax-errors)
 - [🏟 Plugins](#-plugins)
 - [🦚 Formatters](#-formatters)
 - [🦉 Configuration](#-configuration)
@@ -2049,97 +2049,6 @@ const x: n = 5;
 
 </details>
 
-## 🛠️ Syntax Errors
-
-🐊**Putout** not only improves working code but also fixes broken code.
-
-<details><summary>function declaration half converted from arrow expression</summary>
-
-```diff
--function parse(source) => {
-+function parse(source) {
-    return source;
-}
-```
-
-</details>
-
-<details><summary>broken string</summary>
-
-```diff
--const a = 'hello;
-+const a = 'hello';
-const b = 'world';
-```
-
-</details>
-
-<details><summary>forgotten round braces in if statement</summary>
-
-```diff
--if a > 5 {
-+if (a > 5) {
-    alert();
-}
-```
-
-</details>
-
-<details><summary>add missing <code>async</code></summary>
-
-```diff
--function get(url) {
-+async function get(url) {
-    return await fetch(url);
-}
-```
-
-</details>
-
-<details><summary>add missing <code>*</code></summary>
-
-```diff
--function hello() {
-+function* hello() {
-    yield 'world';
-}
-
--function func2() {
-+function* func2() {
-    yield* func1();
-}
-```
-
-</details>
-
-<details><summary>declare before reference</summary>
-
-```diff
--const {remove} = operator;
-const {types, operator} = require('putout');
-+const {remove} = operator;
-```
-
-</details>
-
-<details><summary>assignment to constant variable</summary>
-
-```diff
--const a = 5;
-+let a = 5;
-a = 3;
-```
-
-</details>
-
-<details><summary>declare undefined variables</summary>
-
-```diff
-+import {readFile} from 'fs/promises';
-readFile('./hello.js', 'utf8');
-```
-
-</details>
 
 ## 🏟 Plugins
 
