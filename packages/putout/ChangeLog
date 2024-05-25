@@ -1,3 +1,14 @@
+2024.05.25, v35.29.0
+
+feature:
+- 10f1f8d39 package: @putout/plugin-declare-before-reference v4.0.0
+- a29e8de29 @putout/plugin-declare-before-reference: use getPathAfterRequires
+- c9bfe433b @putout/plugin-declare-before-reference: drop support of 🐊 < 35
+- ac311c393 @putout/plugin-putout: convert-get-rule-to-require: use getPathAfterRequires
+- 8dc811a53 @putout/plugin-putout: declare: operator: getPathAfterRequires
+- 19f7b5351 @putout/operate: getPathAfterRequires: add
+- 8ecff1259 @putout/plugin-for-of: add-missing-declaration: add
+
 2024.05.23, v35.28.0
 
 feature:
