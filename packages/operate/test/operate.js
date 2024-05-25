@@ -1188,3 +1188,23 @@ test('putout: operate: traverseProperty', (t) => {
     t.equal(propertyPath.node.key.value, 'a');
     t.end();
 });
+
+test('putout: operate: getPathAfterRequires', (t) => {
+    const ast = parse(`
+        const a = require('a');
+        const x = 'hello';
+    `);
+    
+    traverse(ast, {
+        Program: (path) => {
+            const pathRequire = operate.getPathAfterRequires(path);
+            pathRequire.remove();
+        },
+    });
+    
+    const result = print(ast);
+    const expected = `const a = require('a');\n`;
+    
+    t.equal(result, expected);
+    t.end();
+});

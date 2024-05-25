@@ -143,6 +143,15 @@ remove(path.get('declarations.0.id.0'));
 path.toString(); // returns const [, b] = c;
 ```
 
+### `getPathAfterRequires(body)`
+
+Get next `path` after latest `require`:
+
+```js
+const programPath = path.scope.getProgramParent().path;
+const afterRequirePath = getPathAfterRequires(programPath.get('body'));
+```
+
 ### `getPathAfterImports(body)`
 
 Get next `path` after latest `ImportDeclaration`:

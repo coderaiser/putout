@@ -11,6 +11,7 @@ const {getExportDefault} = require('./get-export-default');
 const {rename} = require('./rename');
 const {renameProperty} = require('./rename-property');
 const {setLiteralValue} = require('./set-literal-value');
+const {getPathAfterRequires} = require('./get-path-after-requires');
 
 const {
     getProperty,
@@ -139,6 +140,7 @@ module.exports.findBinding = (path, name) => {
 
 module.exports.remove = remove;
 
+module.exports.getPathAfterRequires = getPathAfterRequires;
 module.exports.getPathAfterImports = (body) => {
     const n = body.length;
     let i = 0;
