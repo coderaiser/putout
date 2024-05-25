@@ -54,3 +54,8 @@ test('plugin-for-of: transform: remove-useless-variables', (t) => {
     t.transform('remove-useless-variables');
     t.end();
 });
+
+test('plugin-for-of: transform: add-missing-declaration', (t) => {
+    t.transform('add-missing-declaration');
+    t.end();
+});

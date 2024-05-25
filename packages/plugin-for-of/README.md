@@ -17,6 +17,7 @@ npm i @putout/plugin-for-of
 
 ## Rules
 
+- ✅ [add-missing-declaration](#add-missing-declaration);
 - ✅ [for-each](#for-each);
 - ✅ [for-entries](#for-entries);
 - ✅ [for-entries-n](#for-entries-n);
@@ -36,6 +37,7 @@ npm i @putout/plugin-for-of
 ```json
 {
     "rules": {
+        "for-of/add-missing-declaration": "on",
         "for-of/map": "on",
         "for-of/for-in": "on",
         "for-of/for-each": "on",
@@ -48,6 +50,30 @@ npm i @putout/plugin-for-of
         }],
         "for-of/for": "on"
     }
+}
+```
+
+## add-missing-declaration
+
+> The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) declaration declares block-scoped local variables.
+>
+> (c) MDN
+
+Chechout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/68d114f01384084cc3bec0a5d75f2dfa/0bb5201d36ed27f74728921aca95a04efa35c82d).
+
+### ❌ Example of incorrect code
+
+```js
+for (name of names) {
+    alert(`hello ${name}`);
+}
+```
+
+### ✅ Example of correct code
+
+```js
+for (const name of names) {
+    alert(`hello ${name}`);
 }
 ```
 

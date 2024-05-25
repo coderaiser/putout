@@ -13,6 +13,7 @@ const removeUseless = require('./remove-useless');
 const removeUselessVariables = require('./remove-useless-variables');
 const removeUselessArrayFrom = require('./remove-useless-array-from');
 const removeUnusedVariables = require('./remove-unused-variables');
+const addMissingDeclaration = require('./add-missing-declaration');
 
 module.exports.rules = {
     map,
@@ -28,4 +29,5 @@ module.exports.rules = {
     'remove-useless-variables': removeUselessVariables,
     'remove-useless-array-from': removeUselessArrayFrom,
     'remove-unused-variables': removeUnusedVariables,
+    'add-missing-declaration': addMissingDeclaration,
 };
