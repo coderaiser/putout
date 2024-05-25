@@ -5,6 +5,7 @@ const {
     remove,
     compare,
     insertBefore,
+    getPathAfterRequires,
 } = operator;
 
 const {entries} = Object;
@@ -25,7 +26,7 @@ module.exports.fix = ({path}) => {
     const [first] = body;
     
     if (compare(first, 'const __a = require(__b)')) {
-        const latest = getLatest(body.slice(1));
+        const latest = getPathAfterRequires(body.slice(1));
         insertBefore(latest, node);
         
         return;
@@ -91,15 +92,4 @@ function getLoc(path) {
     }
     
     return [own, loc];
-}
-
-function getLatest(body) {
-    let path;
-    
-    for (path of body) {
-        if (!compare(path, 'const __a = require(__b)'))
-            break;
-    }
-    
-    return path;
 }
