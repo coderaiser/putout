@@ -361,6 +361,16 @@ test('plugin-putout: declare: transform: ignore', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: getPathAfterRequires', (t) => {
+    t.transformCode(`getPathAfterRequires(path);`, montag`
+        import {operator} from 'putout';
+        
+        const {getPathAfterRequires} = operator;
+        getPathAfterRequires(path);\n
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: operator-json', (t) => {
     t.transform('operator-json');
     t.end();
