@@ -11,6 +11,7 @@ const {
     replaceWith,
     insertBefore,
     compare,
+    getPathAfterRequires,
 } = operator;
 
 const {
@@ -65,16 +66,6 @@ module.exports.replace = () => ({
     },
 });
 
-function getLatest(body) {
-    let path;
-    
-    for (path of body)
-        if (!compare(path, REQUIRE))
-            break;
-    
-    return path;
-}
-
 function addRequire({__a, id, path}) {
     const programPath = path.scope.getProgramParent().path;
     const body = programPath.get('body');
@@ -86,7 +77,7 @@ function addRequire({__a, id, path}) {
     });
     
     if (compare(first, REQUIRE)) {
-        const latest = getLatest(body.slice(1));
+        const latest = getPathAfterRequires(body.slice(1));
         insertBefore(latest, nodeRequire);
         
         return path;
