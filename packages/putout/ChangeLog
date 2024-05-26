@@ -1,3 +1,15 @@
+2024.05.27, v35.30.0
+
+fix:
+- 2f5c9cac7 @putout/operate: getPathAfterRequires: rm additional checks
+
+feature:
+- eb49ccbcf putout: @putout/plugin-logical-expressions v6.0.0
+- a6e3bb03a @putout/plugin-logical-expressions: drop support of 🐊 < 35
+- 819f9bccc @putout/plugin-logical-expressions: simplify: add support of JSXExpressionContainer
+- d39a3f18a @putout/plugin-typescript: remove-setter-return-type: add
+- 67cd1671e @putout/plugin-typescript: remove-getter-arguments: add
+
 2024.05.25, v35.29.0
 
 feature:
