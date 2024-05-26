@@ -1,4 +1,5 @@
 # 🛠️ Syntax Errors
+
 🐊**Putout** not only improves working code but also fixes broken code.
 
 <details><summary>function declaration half converted from arrow expression</summary>
@@ -98,3 +99,24 @@ readFile('./hello.js', 'utf8');
 
 </details>
 
+<details><summary>remove getter arguments</summary>
+
+```diff
+export interface IParamsConstructor {
+-   get fromArray(name: string): IParams;
++   get fromArray(): IParams;
+}
+```
+
+</details>
+
+<details><summary>remove setter return type</summary>
+
+```diff
+export interface IParamsConstructor {
+-   set fromArray(name: string): IParams;
++   set fromArray(name: string);
+}
+```
+
+</details>

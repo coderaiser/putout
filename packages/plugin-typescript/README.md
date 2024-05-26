@@ -32,6 +32,7 @@ npm i putout @putout/plugin-typescript -D
 - ✅ [remove-duplicates-from-union][#remove-duplicates-from-union];
 - ✅ [remove-unused-types][#remove-unused-types];
 - ✅ [remove-getter-arguments][#remove-getter-arguments];
+- ✅ [remove-setter-return-type][#remove-setter-return-type];
 - ✅ [remove-useless-mapped-types][#remove-useless-mapped-types];
 - ✅ [remove-useless-mapping-modifiers][#remove-useless-mapping-modifiers];
 - ✅ [remove-useless-parens][#remove-useless-parens];
@@ -62,6 +63,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/remove-useless-parens": "on",
         "typescript/remove-useless-promise": "on",
         "typescript/remove-getter-arguments": "on",
+        "typescript/remove-setter-return-type": "on",
         "typescript/remove-useless-mapped-types": "on",
         "typescript/cts-file": "off",
         "typescript/mts-file": "off",
@@ -268,6 +270,28 @@ export interface IParamsConstructor {
 ```ts
 export interface IParamsConstructor {
     get [fromArray](): IParams;
+}
+```
+
+### remove-setter-return-type
+
+> The `set` syntax binds an object property to a function to be called when there is an attempt to set that property.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
+
+#### ❌ Example of incorrect code
+
+```ts
+export interface IParamsConstructor {
+    set fromArray(values: ParamsArray): string;
+}
+```
+
+#### ✅ Example of correct code
+
+```ts
+export interface IParamsConstructor {
+    set fromArray(values: ParamsArray);
 }
 ```
 

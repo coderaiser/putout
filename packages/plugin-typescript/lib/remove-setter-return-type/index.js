@@ -1,19 +1,19 @@
 'use strict';
 
-module.exports.report = () => 'Avoid getter arguments';
+module.exports.report = () => 'Avoid setter return type';
 
 module.exports.fix = (path) => {
-    path.node.params = [];
+    delete path.node.returnType;
 };
 
 module.exports.traverse = ({push}) => ({
     TSMethodSignature(path) {
         const {kind} = path.node;
         
-        if (kind !== 'get')
+        if (kind !== 'set')
             return;
         
-        if (!path.node.params.length)
+        if (!path.node.returnType)
             return;
         
         push(path);
