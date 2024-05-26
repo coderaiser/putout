@@ -74,3 +74,8 @@ test('plugin-simplify-logical-expression: transform: constructor', (t) => {
     t.transform('constructor');
     t.end();
 });
+
+test('plugin-simplify-logical-expression: no transform: jsx', (t) => {
+    t.noTransform('jsx');
+    t.end();
+});

@@ -7,6 +7,9 @@ module.exports.report = () => 'Simplify logical expression';
 
 module.exports.match = () => ({
     '__a(__args) && __b': ({__a, __b}, path) => {
+        if (path.parentPath.isJSXExpressionContainer())
+            return false;
+        
         if (__a.name === 'Boolean')
             return true;
         
