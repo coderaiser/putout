@@ -16,6 +16,7 @@ const removeUselessMappedTypes = require('./remove-useless-mapped-types');
 const removeUselessMappingModifiers = require('./remove-useless-mapping-modifiers');
 const removeUselessParens = require('./remove-useless-parens');
 const removeUselessPromise = require('./remove-useless-promise');
+const removeGetterArguments = require('./remove-getter-arguments');
 
 module.exports = {
     'apply-as-type-assertion': applyAsTypeAssertion,
@@ -32,6 +33,7 @@ module.exports = {
     'remove-useless-mapping-modifiers': removeUselessMappingModifiers,
     'remove-useless-parens': removeUselessParens,
     'remove-useless-promise': removeUselessPromise,
+    'remove-getter-arguments': removeGetterArguments,
     'convert-commonjs-to-esm': ['off', convertCommonjsToEsm],
     'convert-esm-to-commonjs': ['off', convertEsmToCommonjs],
 };

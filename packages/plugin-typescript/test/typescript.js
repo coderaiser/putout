@@ -80,6 +80,11 @@ test('putout: plugin: typescript: transform: remove-useless-promise', (t) => {
     t.end();
 });
 
+test('putout: plugin: typescript: transform: remove-getter-arguments', (t) => {
+    t.transform('remove-getter-arguments');
+    t.end();
+});
+
 test('plugin-typescript: no transform: find-file: off', (t) => {
     t.noTransform('find-file-off');
     t.end();

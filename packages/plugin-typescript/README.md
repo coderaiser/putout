@@ -15,6 +15,35 @@
 npm i putout @putout/plugin-typescript -D
 ```
 
+## Rules
+
+- ✅ [apply-as-type-assertion][#apply-as-type-assertion];
+- ✅ [apply-type-guards][#apply-type-guards];
+- ✅ [apply-utility-types][#apply-utility-types];
+- ✅ [convert-commonjs-to-esm][#convert-commonjs-to-esm];
+- ✅ [convert-esm-to-commonjs][#convert-esm-to-commonjs];
+- ✅ [convert-generic-to-shorthand][#convert-generic-to-shorthand];
+- ✅ [cts-file][#cts-file];
+- ✅ [filesystem.js][#filesystem.js];
+- ✅ [find-file][#find-file];
+- ✅ [mts-file][#mts-file];
+- ✅ [remove-duplicate-exports][#remove-duplicate-exports];
+- ✅ [remove-duplicate-interface-keys][#remove-duplicate-interface-keys];
+- ✅ [remove-duplicates-from-union][#remove-duplicates-from-union];
+- ✅ [remove-unused-types][#remove-unused-types];
+- ✅ [remove-getter-arguments][#remove-getter-arguments];
+- ✅ [remove-useless-mapped-types][#remove-useless-mapped-types];
+- ✅ [remove-useless-mapping-modifiers][#remove-useless-mapping-modifiers];
+- ✅ [remove-useless-parens][#remove-useless-parens];
+- ✅ [remove-useless-promise][#remove-useless-promise];
+- ✅ [remove-useless-types][#remove-useless-types];
+- ✅ [remove-useless-types-from-constants][#remove-useless-types-from-constants];
+- ✅ [rename-file-cts-to-ts][#rename-file-cts-to-ts];
+- ✅ [rename-file-mts-to-ts][#rename-file-mts-to-ts];
+- ✅ [typescript.js][#typescript.js];
+
+## Config
+
 ```json
 {
     "rules": {
@@ -32,6 +61,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/remove-useless-types": "on",
         "typescript/remove-useless-parens": "on",
         "typescript/remove-useless-promise": "on",
+        "typescript/remove-getter-arguments": "on",
         "typescript/remove-useless-mapped-types": "on",
         "typescript/cts-file": "off",
         "typescript/mts-file": "off",
@@ -218,6 +248,28 @@ export {
 ```
 
 *☝️ The rule fits good with [`putout/add-newlines-between-specifiers`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/add-newlines-between-specifiers#readme) of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/#readme).*
+
+### remove-getter-arguments
+
+> The `get` syntax binds an object property to a function that will be called when that property is looked up
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
+
+#### ❌ Example of incorrect code
+
+```ts
+export interface IParamsConstructor {
+    get [fromArray](name: string): IParams;
+}
+```
+
+#### ✅ Example of correct code
+
+```ts
+export interface IParamsConstructor {
+    get [fromArray](): IParams;
+}
+```
 
 ### remove-useless-types-from-constants
 

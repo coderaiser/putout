@@ -2,7 +2,7 @@
 
 module.exports.report = () => 'Avoid useless parens';
 
-module.exports.fix = ({path}) => {
+module.exports.fix = (path) => {
     path.node.extra.parenthesized = false;
     return;
 };
@@ -12,9 +12,7 @@ module.exports.traverse = ({push}) => ({
         if (!path.node.extra?.parenthesized)
             return;
         
-        push({
-            path,
-        });
+        push(path);
     },
     TSUnionType(path) {
         if (!path.node.extra?.parenthesized)
@@ -23,8 +21,6 @@ module.exports.traverse = ({push}) => ({
         if (path.parentPath.isTSArrayType())
             return;
         
-        push({
-            path,
-        });
+        push(path);
     },
 });
