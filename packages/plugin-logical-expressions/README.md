@@ -18,7 +18,14 @@ Complements [`@putout/plugin-apply-comparison-order`](https://github.com/coderai
 npm i @putout/plugin-logical-expressions -D
 ```
 
-## Rule
+## Rules
+
+- ✅ [convert-bitwise-to-logical][#convert-bitwise-to-logical];
+- ✅ [remove-boolean][#remove-boolean];
+- ✅ [remove-duplicates][#remove-duplicates];
+- ✅ [simplify][#simplify];
+
+## Config
 
 ```json
 {
