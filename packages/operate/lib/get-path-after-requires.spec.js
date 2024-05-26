@@ -19,7 +19,7 @@ test('operate: getPathAfterRequires', (t) => {
     
     traverse(ast, {
         Program: (path) => {
-            const pathRequires = getPathAfterRequires(path);
+            const pathRequires = getPathAfterRequires(path.get('body'));
             pathRequires.remove();
         },
     });
@@ -39,7 +39,7 @@ test('operate: getPathAfterRequires: not var', (t) => {
     
     traverse(ast, {
         Program: (path) => {
-            const pathRequires = getPathAfterRequires(path);
+            const pathRequires = getPathAfterRequires(path.get('body'));
             pathRequires.remove();
         },
     });
@@ -59,32 +59,13 @@ test('operate: getPathAfterRequires: not require', (t) => {
     
     traverse(ast, {
         Program: (path) => {
-            const pathRequires = getPathAfterRequires(path);
+            const pathRequires = getPathAfterRequires(path.get('body'));
             pathRequires.remove();
         },
     });
     
     const result = print(ast);
     const expected = `const a = require('a');\n`;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('operate: getPathAfterRequires: not program path', (t) => {
-    const ast = parse(`
-        const a = require('a');
-    `);
-    
-    traverse(ast, {
-        VariableDeclaration: (path) => {
-            const pathRequires = getPathAfterRequires(path);
-            pathRequires.remove();
-        },
-    });
-    
-    const result = print(ast);
-    const expected = '\n';
     
     t.equal(result, expected);
     t.end();

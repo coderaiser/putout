@@ -1197,7 +1197,7 @@ test('putout: operate: getPathAfterRequires', (t) => {
     
     traverse(ast, {
         Program: (path) => {
-            const pathRequire = operate.getPathAfterRequires(path);
+            const pathRequire = operate.getPathAfterRequires(path.get('body'));
             pathRequire.remove();
         },
     });

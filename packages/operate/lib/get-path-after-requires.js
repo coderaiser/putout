@@ -1,18 +1,6 @@
 'use strict';
 
-const {isArray} = Array;
-
-module.exports.getPathAfterRequires = (path) => {
-    if (isArray(path))
-        return getNotRequire(path);
-    
-    if (!path.isProgram())
-        path = path.scope.getProgramParent().path;
-    
-    return getNotRequire(path.get('body'));
-};
-
-function getNotRequire(body) {
+module.exports.getPathAfterRequires = (body) => {
     let path;
     
     for (path of body) {
@@ -21,7 +9,7 @@ function getNotRequire(body) {
     }
     
     return path;
-}
+};
 
 function isRequire(path) {
     if (!path.isVariableDeclaration())
