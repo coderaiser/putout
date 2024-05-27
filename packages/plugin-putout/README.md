@@ -1240,6 +1240,8 @@ const {
 
 ## simplify-replace-template
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a012fc12f4d38038da022f7c8f379fe2/c65bf97c42650aa31c5481849bc934323df892a6).
+
 ### ❌ Example of incorrect code
 
 ```js
