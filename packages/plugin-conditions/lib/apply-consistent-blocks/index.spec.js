@@ -40,6 +40,11 @@ test('putout: apply-consistent-blocks: no transform: comment', (t) => {
     t.end();
 });
 
+test('putout: apply-consistent-blocks: no report: correct-count', (t) => {
+    t.noReport('correct-count');
+    t.end();
+});
+
 test('putout: apply-consistent-blocks: no report after transform', (t) => {
     t.noReportAfterTransform('nested');
     t.end();

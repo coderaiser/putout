@@ -1,47 +1,108 @@
 'use strict';
 
-const {types} = require('putout');
+const {types, operator} = require('putout');
+const {replaceWith} = operator;
 const {
     isBlockStatement,
-    isIfStatement,
+    BlockStatement,
 } = types;
 
 module.exports.report = () => `Use consistent blocks`;
 
-const notBlock = ({__b}) => !isBlockStatement(__b);
+module.exports.fix = (path) => {
+    const paths = getAllNodes(path);
+    
+    if (isAllBlocks(paths))
+        for (const path of paths) {
+            if (isBlockStatement(path))
+                continue;
+            
+            const {node} = path;
+            replaceWith(path, BlockStatement([node]));
+        }
+    else
+        for (const path of paths) {
+            if (!isBlockStatement(path))
+                continue;
+            
+            const [node] = path.node.body;
+            replaceWith(path, node);
+        }
+};
 
-module.exports.match = () => ({
-    'if (__a) {__b} else {__c}': () => true,
-    'if (__a) {__b} else __c': () => true,
-    'if (__a) __b; else __body': notBlock,
-    'if (__a) __body; else __b': ({__b}) => !isIfStatement(__b),
-    'if (__a) {__b}': (vars, path) => {
-        const {parentPath} = path;
-        const __bPath = path.get('consequent.body.0');
-        const {
-            leadingComments,
-            trailingComments,
-        } = __bPath.node;
+function isAllBlocks(paths) {
+    const counts = [];
+    
+    for (const path of paths) {
+        const is = isBlockStatement(path);
         
-        if (leadingComments || trailingComments)
-            return false;
-        
-        if (!parentPath.isIfStatement())
+        if (is)
+            counts.push(path.node.body.length);
+        else
+            counts.push(Infinity);
+    }
+    
+    for (const count of counts) {
+        if (count !== 1 && count !== Infinity)
             return true;
-        
-        return path !== parentPath.get('alternate');
-    },
-});
+    }
+    
+    return false;
+}
 
-module.exports.replace = () => ({
-    'if (__a) {if (__b) {__c}}': 'if (__a) if (__b) __c',
-    'if (__a) {__b}': 'if (__a) __b',
-    'if (__a) {__b} else {__c}': 'if (__a) __b; else __c',
-    'if (__a) __b; else __body': 'if (__a) {__b} else __body',
-    'if (__a) __body; else __b': ({__b}, path) => {
-        if (isBlockStatement(__b))
-            return path;
-        
-        return 'if (__a) __body; else {__b}';
-    },
-});
+module.exports.include = () => [
+    'IfStatement',
+];
+
+module.exports.filter = (path) => {
+    if (path === path.parentPath.get('alternate'))
+        return;
+    
+    const nodes = getAllNodes(path);
+    const blocks = [];
+    
+    for (const node of nodes) {
+        const is = isBlockStatement(node);
+        blocks.push(is);
+    }
+    
+    const count = blocks.filter(Boolean).length;
+    
+    if (!count)
+        return false;
+    
+    const couple = [];
+    
+    for (const node of nodes) {
+        const is = isBlockStatement(node) && node.node.body.length > 1;
+        couple.push(is);
+    }
+    
+    const coupleCount = couple.filter(Boolean).length;
+    
+    if (!coupleCount)
+        return true;
+    
+    if (coupleCount === nodes.length)
+        return false;
+    
+    return !(count !== 1 && count === nodes.length);
+};
+
+function getAllNodes(path, nodes = []) {
+    const consequent = path.get('consequent');
+    nodes.push(consequent);
+    
+    if (!path.node.alternate)
+        return nodes;
+    
+    const alternate = path.get('alternate');
+    
+    if (!alternate.isIfStatement())
+        return [
+            ...nodes,
+            alternate,
+        ];
+    
+    return getAllNodes(alternate, nodes);
+}
