@@ -120,3 +120,12 @@ export interface IParamsConstructor {
 ```
 
 </details>
+
+<details><summary>import identifier</summary>
+
+```diff
+-import hello from hello;
++import hello from 'hello';
+```
+
+</details>
