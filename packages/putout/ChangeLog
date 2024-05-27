@@ -1,3 +1,12 @@
+2024.05.27, v35.30.1
+
+feature:
+- 4dcdfefbc putout: samadhi v2.0.0
+- e43f4e406 @putout/plugin-conditions: apply-consistent-blocks: add any count of blocks support
+- b7f7420ad @putout/plugin-conditions: apply-consistent-blocks: couple
+- 3ecb697c4 @putout/plugin-putout: simplify-replace-template: add
+- bc711bd18 @putout/cli-cache: file-entry-cache v9.0.0
+
 2024.05.27, v35.30.0
 
 fix:
