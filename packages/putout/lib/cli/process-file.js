@@ -35,16 +35,15 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async func
         raw && logError(e);
         
         const {lint} = await simpleImport('samadhi');
-        
-        const {places, code} = await lint(source, {
+        const [code, places] = await lint(source, {
             fix,
             isTS,
         });
         
         if (!fix && places.length)
             return {
-                places,
                 code,
+                places,
             };
         
         if (fix && !places.length)

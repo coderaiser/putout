@@ -598,10 +598,10 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
     const log = stub();
     const write = stub();
     
-    const lint = stub().returns({
-        code: source,
-        places: [],
-    });
+    const lint = stub().returns([
+        source,
+        [],
+    ]);
     
     const simpleImport = stub().returns({
         lint,
