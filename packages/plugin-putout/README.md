@@ -62,6 +62,7 @@ npm i @putout/plugin-putout -D
 - ✅ [replace-operate-with-operator](#replace-operate-with-operator);
 - ✅ [replace-test-message](#replace-test-message);
 - ✅ [shorten-imports](#shorten-imports);
+- ✅ [simplify-replace-template](#simplify-replace-template);
 
 ## Config
 
@@ -113,7 +114,8 @@ npm i @putout/plugin-putout -D
         "putout/includer": "on",
         "putout/move-require-on-top-level": "on",
         "putout/replace-test-message": "on",
-        "putout/remove-unused-get-properties-argument": "on"
+        "putout/remove-unused-get-properties-argument": "on",
+        "putout/simplify-replace-template": "on"
     }
 }
 ```
@@ -1234,6 +1236,24 @@ const {
     parserPath,
     rulesPath,
 } = getProperties(__jsonPath, ['parser', 'rules', 'extends']);
+```
+
+## simplify-replace-template
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.replace = () => ({
+    'if (__a) {__b} else {__c}': () => 'if (__a) __b; else __c',
+});
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports.replace = () => ({
+    'if (__a) {__b} else {__c}': 'if (__a) __b; else __c',
+});
 ```
 
 ## License

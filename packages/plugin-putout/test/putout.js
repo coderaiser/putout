@@ -242,3 +242,8 @@ test('plugin-putout: transform: add-path-store', (t) => {
     t.transform('add-path-store');
     t.end();
 });
+
+test('plugin-putout: transform: simplify-replace-template', (t) => {
+    t.transform('simplify-replace-template');
+    t.end();
+});
