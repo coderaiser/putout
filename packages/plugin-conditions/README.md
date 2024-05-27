@@ -56,7 +56,9 @@ npm i @putout/plugin-conditions -D
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block)
 
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9035db21bae7b6c76d1dc875d4c74828/07edbfd755060ae263949caf08b31aa43609375a).
+Check out in 🐊**Putout Editor**:
+- [Replacer](https://putout.cloudcmd.io/#/gist/9035db21bae7b6c76d1dc875d4c74828/07edbfd755060ae263949caf08b31aa43609375a);
+- [Traverser](https://putout.cloudcmd.io/#/gist/77f84f100d82707925c73c1784f589f2/25923f46973b99f72378104778499ff75b550d2c);
 
 ### ❌ Example of incorrect code
 
