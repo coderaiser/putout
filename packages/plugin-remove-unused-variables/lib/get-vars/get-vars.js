@@ -106,7 +106,7 @@ module.exports = ({use, declare, addParams}) => {
             if (isIdentifier(node.id)) {
                 declare(path, node.id.name);
                 isForIn && use(path, node.id.name);
-            } else if (isObjectPattern(node.id)) {
+            } else if (isObjectPattern(node.id))
                 idPath.traverse({
                     ObjectProperty(propPath) {
                         if (isAssignmentPattern(propPath.node.value))
@@ -129,7 +129,7 @@ module.exports = ({use, declare, addParams}) => {
                             use(nodePath, name);
                     },
                 });
-            } else if (idPath.isArrayPattern()) {
+            else if (idPath.isArrayPattern()) {
                 const elements = idPath.get('elements');
                 
                 for (const elPath of elements) {
