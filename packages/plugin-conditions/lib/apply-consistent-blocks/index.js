@@ -12,6 +12,7 @@ const notBlock = ({__b}) => !isBlockStatement(__b);
 
 module.exports.match = () => ({
     'if (__a) {__b} else {__c}': () => true,
+    'if (__a) {__b} else __c': () => true,
     'if (__a) __b; else __body': notBlock,
     'if (__a) __body; else __b': ({__b}) => !isIfStatement(__b),
     'if (__a) {__b}': (vars, path) => {

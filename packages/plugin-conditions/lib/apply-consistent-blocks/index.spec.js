@@ -25,6 +25,11 @@ test('putout: apply-consistent-blocks: transform: nested', (t) => {
     t.end();
 });
 
+test('putout: apply-consistent-blocks: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
+
 test('putout: apply-consistent-blocks: no transform: nested-else', (t) => {
     t.noTransform('nested-else');
     t.end();
