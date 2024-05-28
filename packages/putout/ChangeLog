@@ -1,3 +1,11 @@
+2024.05.28, v35.32.0
+
+feature:
+- d35f46d6b putout: @putout/plugin-remove-useless-variables v11.0.0
+- 4d26f83f8 @putout/plugin-remove-useless-variables: duplicate: add
+- 959bf46e2 @putout/plugin-remove-useless-variables: drop support of 🐊 < 35
+- 03bbad848 @putout/compare: __body: add support of FunctionDeclaration
+
 2024.05.28, v35.31.0
 
 feature:
