@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('remove-useless-variables: duplicate: report', (t) => {
-    t.report('duplicate', `Avoid duplicate declaration`);
+    t.report('duplicate', `Avoid duplicate declaration of 'DestructuringErrors'`);
     t.end();
 });
 
