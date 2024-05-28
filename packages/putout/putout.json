@@ -229,6 +229,7 @@
         "remove-unreachable-code",
         "remove-duplicate-keys",
         "reuse-duplicate-init",
+        "split-assignment-expressions",
         "split-variable-declarations",
         "split-nested-destructuring",
         "simplify-assignment",

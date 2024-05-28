@@ -173,6 +173,7 @@
     "@putout/plugin-simplify-boolean-return": "^1.0.0",
     "@putout/plugin-simplify-ternary": "^7.0.0",
     "@putout/plugin-sort-imports-by-specifiers": "^1.0.0",
+    "@putout/plugin-split-assignment-expressions": "^1.0.0",
     "@putout/plugin-split-nested-destructuring": "^3.0.0",
     "@putout/plugin-split-variable-declarations": "^3.0.0",
     "@putout/plugin-tape": "^14.0.0",

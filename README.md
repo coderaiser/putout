@@ -2079,6 +2079,7 @@ It has a lot of plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-split-assignment-expressions`](/packages/plugin-split-assignment-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-assignment-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-assignment-expressions) |
 | [`@putout/plugin-split-variable-declarations`](/packages/plugin-split-variable-declarations#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-variable-declarations.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-variable-declarations) |
 | [`@putout/plugin-split-nested-destructuring`](/packages/plugin-split-nested-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-nested-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-nested-destructuring) |
 
