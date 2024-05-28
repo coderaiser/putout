@@ -18,7 +18,13 @@
 ```diff
 -const a = 'hello;
 +const a = 'hello';
-const b = 'world';
+
+-x('hello);
++x('hello');
+const m = {
+-    z: x('hello
++    z: x('hello'),
+}
 ```
 
 </details>
