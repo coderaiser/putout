@@ -15,6 +15,7 @@ const {
     isImportsStr,
     isExportsStr,
     isInsideTypeReference,
+    isBodyStr,
 } = require('./is');
 
 const {
@@ -107,6 +108,9 @@ function getValues({waysFrom, node}) {
             if (!isJSXElement(node))
                 way = way.replace(/\.expression$/, '');
             
+            if (isBodyStr(name))
+                way = way.replace(/\.body\.0$/, '');
+            
             result[name] = result[name] || extractExpression(jessy(way, node));
         }
     }
@@ -144,6 +148,9 @@ function setValues({waysTo, values, path}) {
                 nessy(way, element, node);
                 continue;
             }
+            
+            if (isBodyStr(name))
+                way = way.replace(/\.body\.0$/, '');
             
             const {extra} = jessy(way, node);
             const valueExtra = values[name].extra;

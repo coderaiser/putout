@@ -84,6 +84,7 @@ module.exports.isJSXAttributesStr = (a) => a === JSX_ATTRIBUTES;
 module.exports.isObjectStr = (a) => a === ANY_OBJECT;
 module.exports.isArrayStr = (a) => a === ANY_ARRAY;
 module.exports.isAnyStr = (a) => a === ANY;
+module.exports.isBodyStr = (a) => a === BODY;
 
 const isBody = (a) => isIdentifier(a, {
     name: BODY,

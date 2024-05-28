@@ -785,7 +785,7 @@ test('putout: compare: vars: getTemplateValues: setValues: BlockStatement: Funct
         }),
     };
     
-    const input = `const a = function a() {return 'b'}`;
+    const input = `const a = function a() {const b = 5; return b}`;
     
     const {code} = putout(input, {
         printer: 'putout',
@@ -796,7 +796,8 @@ test('putout: compare: vars: getTemplateValues: setValues: BlockStatement: Funct
     
     const expected = montag`
         function a() {
-            return 'b';
+            const b = 5;
+            return b;
         }\n
     `;
     
