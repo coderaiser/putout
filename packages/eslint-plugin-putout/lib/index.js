@@ -119,8 +119,6 @@ const safeRules = {
     'remove-unreachable-code': 'off',
     'remove-useless-arguments': 'off',
     'remove-useless-variables': 'off',
-    'remove-useless-variables/declaration': 'off',
-    'remove-useless-variables/rename': 'off',
     'remove-useless-return': 'off',
     'remove-useless-spread': 'off',
     'remove-unreferenced-variables': 'off',
