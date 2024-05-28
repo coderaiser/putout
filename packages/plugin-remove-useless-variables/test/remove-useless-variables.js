@@ -74,3 +74,8 @@ test('remove usless variables: transform: useless-declarations', (t) => {
     t.transform('declaration');
     t.end();
 });
+
+test('plugin-remove-useless-variables: transform: duplicate', (t) => {
+    t.transform('duplicate');
+    t.end();
+});

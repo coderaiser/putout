@@ -11,7 +11,15 @@
 npm i @putout/plugin-remove-useless-variables -D
 ```
 
-## Rule
+## Rules
+
+- ✅ [declaration][#declaration];
+- ✅ [destruct][#destruct];
+- ✅ [duplicate][#duplicate];
+- ✅ [remove][#remove];
+- ✅ [rename][#rename];
+
+## Config
 
 ```json
 {
@@ -20,7 +28,8 @@ npm i @putout/plugin-remove-useless-variables -D
         "remove-useless-variables/remove": "on",
         "remove-useless-variables/destruct": "on",
         "remove-useless-variables/await": "on",
-        "remove-useless-variables/declaration": "on"
+        "remove-useless-variables/declaration": "on",
+        "remove-useless-variables/duplicate": "on"
     }
 }
 ```
@@ -114,6 +123,26 @@ function x() {
 ```js
 function x() {
     return 5;
+}
+```
+
+### duplicate
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/32177535829956ef4c7b51587a8853c3/52f19ab0e467ad7cc54fa8c554c3b0804de9d1ca).
+
+### ❌ Example of incorrect code
+
+```js
+const DestructuringErrors = function DestructuringErrors(a, b) {
+    return [a, b];
+};
+```
+
+### ✅ Example of correct code
+
+```js
+function DestructuringErrors(a, b) {
+    return [a, b];
 }
 ```
 
