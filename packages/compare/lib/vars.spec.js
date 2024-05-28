@@ -776,3 +776,30 @@ test('putout: compare: vars: putout: TSExportAssignment', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: compare: vars: getTemplateValues: setValues: BlockStatement: FunctionDeclaration', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            'const __a = function __a(__args) {__body}': 'function __a(__args){__body}',
+        }),
+    };
+    
+    const input = `const a = function a() {return 'b'}`;
+    
+    const {code} = putout(input, {
+        printer: 'putout',
+        plugins: [{
+            'remove-useless-variable-declaration': plugin,
+        }],
+    });
+    
+    const expected = montag`
+        function a() {
+            return 'b';
+        }\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

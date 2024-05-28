@@ -89,6 +89,13 @@ const isBody = (a) => isIdentifier(a, {
     name: BODY,
 });
 
+const isFunctionDeclarationBody = (a) => {
+    if (isBody(a))
+        return true;
+    
+    return isBlockStatement(a) && isBody(a.body[0].expression);
+};
+
 const isNop = (a) => isIdentifier(a, {
     name: NOP,
 });
@@ -259,6 +266,16 @@ module.exports.isEqualBody = (node, templateNode) => {
         return false;
     
     if (!isBody(templateNode))
+        return false;
+    
+    return node.type === 'BlockStatement';
+};
+
+module.exports.isEqualFunctionDeclarationBody = (node, templateNode) => {
+    if (!node)
+        return false;
+    
+    if (!isFunctionDeclarationBody(templateNode))
         return false;
     
     return node.type === 'BlockStatement';

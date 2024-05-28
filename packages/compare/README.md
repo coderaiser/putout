@@ -183,6 +183,10 @@ false;
 compare('const a = () => {}', 'const a = () => __body');
 // returns
 true;
+
+compare('function a(b) {return b;}', 'function __(__args) {__body}');
+// returns
+true;
 ```
 
 ##### __jsx_children

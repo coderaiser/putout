@@ -515,6 +515,16 @@ test('compare: __body', (t) => {
     t.end();
 });
 
+test('compare: __body: inside FunctionDeclaration', (t) => {
+    const a = `function hello() {return 'world'}`;
+    const b = 'function __a() {__body}';
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: __body: if', (t) => {
     const a = 'if (a) {x = 3;}';
     const b = 'if (__a) __b; else __body';
