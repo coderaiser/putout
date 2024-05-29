@@ -7,7 +7,7 @@ module.exports.report = () => `Use 'CommonJS' instead of 'ESM'`;
 
 module.exports.replace = () => ({
     'export default __a': 'module.exports = __a',
-    'export class __a {}': 'module.exports.__a = class __a {}',
+    'export class __a {__body}': 'module.exports.__a = class __a {__body}',
     'export function __a(__args) {}': replaceFn,
     'export async function __a(__args) {}': replaceFn,
     'export const __a = __b': 'module.exports.__a = __b',

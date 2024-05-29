@@ -1,1 +1,3 @@
-module.exports.Hi = class Hi {};;
+module.exports.Emojizer = class Emojizer {
+    providedCodeActionKinds;
+};

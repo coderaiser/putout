@@ -1,2 +1,6 @@
-export class Hi {};
+export class Emojizer {
+    providedCodeActionKinds = [
+        vscode.CodeActionKind.QuickFix
+    ];
+}
 
