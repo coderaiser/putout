@@ -1,3 +1,8 @@
 module.exports.Emojizer = class Emojizer {
-    providedCodeActionKinds;
-};
+    providedCodeActionKinds = [vscode.CodeActionKind.QuickFix];
+    provideCodeActions(document, range) {
+        if (!this.isAtStartOfSmiley(document, range)) {
+            return;
+        }
+    }
+};;

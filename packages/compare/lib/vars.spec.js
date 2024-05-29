@@ -804,3 +804,40 @@ test('putout: compare: vars: getTemplateValues: setValues: BlockStatement: Funct
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: compare: vars: getTemplateValues: setValues: BlockStatement: ClassDeclaration', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            'export class __a {__body}': 'module.exports = class __a {__body}',
+        }),
+    };
+    
+    const input = `
+        export class Emojizer {
+            providedCodeActionKinds = [
+                vscode.CodeActionKind.QuickFix
+            ];
+            
+            provideCodeActions(document, range) {
+            };
+        }
+    `;
+    
+    const {code} = putout(input, {
+        printer: 'putout',
+        plugins: [{
+            'remove-useless-variable-declaration': plugin,
+        }],
+    });
+    
+    const expected = montag`
+       module.exports = class Emojizer {
+           providedCodeActionKinds = [vscode.CodeActionKind.QuickFix];
+           provideCodeActions(document, range) {}
+       };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

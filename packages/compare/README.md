@@ -187,6 +187,10 @@ true;
 compare('function a(b) {return b;}', 'function __(__args) {__body}');
 // returns
 true;
+
+compare(`class a {hello: 'world'}`, 'class __a {__body}');
+// returns
+true;
 ```
 
 ##### __jsx_children

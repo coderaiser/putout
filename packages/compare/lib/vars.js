@@ -37,6 +37,8 @@ const parseNode = (a) => a.node || a;
 
 const {stringify} = JSON;
 
+const BODY_AND_CLASS_REG = /\.body\.0(\.key)?$/;
+
 module.exports.getTemplateValues = (node, str) => {
     if (!isString(str))
         throw Error(`☝️ Looks like argument 'template' of 'getTemplateValues(node, template)': is not a string, but '${stringify(str)}'`);
@@ -109,7 +111,7 @@ function getValues({waysFrom, node}) {
                 way = way.replace(/\.expression$/, '');
             
             if (isBodyStr(name))
-                way = way.replace(/\.body\.0$/, '');
+                way = way.replace(BODY_AND_CLASS_REG, '');
             
             result[name] = result[name] || extractExpression(jessy(way, node));
         }
@@ -150,7 +152,7 @@ function setValues({waysTo, values, path}) {
             }
             
             if (isBodyStr(name))
-                way = way.replace(/\.body\.0$/, '');
+                way = way.replace(BODY_AND_CLASS_REG, '');
             
             const {extra} = jessy(way, node);
             const valueExtra = values[name].extra;
