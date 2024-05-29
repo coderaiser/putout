@@ -154,3 +154,8 @@ test('plugin-putout: check-replace-code: no report: object pattern', (t) => {
     t.noReport('object-pattern');
     t.end();
 });
+
+test('plugin-putout: check-replace-code: no report: class-body', (t) => {
+    t.noReport('class-body');
+    t.end();
+});

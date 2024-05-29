@@ -2,17 +2,19 @@
 
 const putout = require('putout');
 const tryCatch = require('try-catch');
-const noop = () => {};
 
+const noop = () => {};
 const {types, operator} = putout;
-const {replaceWith} = operator;
 
 const {
     ArrayPattern,
     BlockStatement,
     ObjectExpression,
     ObjectPattern,
+    Identifier,
 } = types;
+
+const {replaceWith} = operator;
 
 module.exports = (rootPath, key) => {
     const getVar = createVarStore(rootPath);
@@ -64,8 +66,17 @@ module.exports = (rootPath, key) => {
                     if (name === '__object')
                         return objectify(path);
                     
-                    if (name === '__body')
+                    if (name === '__body') {
+                        if (path.parentPath.isClassProperty()) {
+                            const key = Identifier(getVar());
+                            
+                            replaceWith(path, key);
+                            
+                            return;
+                        }
+                        
                         replaceWith(path, BlockStatement([]));
+                    }
                 },
             }],
         ],
