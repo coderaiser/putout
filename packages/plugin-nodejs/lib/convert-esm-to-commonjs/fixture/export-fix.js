@@ -1,1 +1,1 @@
-module.exports.hello = function hello(a, b, c) {};
+module.epxorts.hello = function hello(a, b, c) {};

@@ -1,4 +1,4 @@
-module.exports.findMadrun = async function findMadrun(cwd) {
+module.epxorts.findMadrun = async function findMadrun(cwd) {
     const madrunNames = [
         '.madrun.js',
         '.madrun.mjs',
@@ -13,5 +13,4 @@ module.exports.findMadrun = async function findMadrun(cwd) {
     }
     
     return '';
-}
-;
+};

@@ -1,15 +1,22 @@
 'use strict';
 
-const {types, template} = require('putout');
+const {types} = require('putout');
 const {isImportDefaultSpecifier} = types;
+
+const BODY = '{__body}';
+const FN = `function __a(__args) ${BODY}`;
+const GEN_FN = `function* __a(__args) ${BODY}`;
+const ASYNC_FN = `async function __a(__args) ${BODY}`;
+const CLASS = `class __a ${BODY}`;
 
 module.exports.report = () => `Use 'CommonJS' instead of 'ESM'`;
 
 module.exports.replace = () => ({
     'export default __a': 'module.exports = __a',
-    'export class __a {__body}': 'module.exports.__a = class __a {__body}',
-    'export function __a(__args) {}': replaceFn,
-    'export async function __a(__args) {}': replaceFn,
+    [`export ${CLASS}`]: `module.exports.__a = ${CLASS}`,
+    [`export ${FN}`]: `module.epxorts.__a = ${FN}`,
+    [`export ${ASYNC_FN}`]: `module.epxorts.__a = ${ASYNC_FN}`,
+    [`export ${GEN_FN}`]: `module.epxorts.__a = ${GEN_FN}`,
     'export const __a = __b': 'module.exports.__a = __b',
     'export {__exports}': ({__exports}) => {
         let result = 'module.exports = {\n';
@@ -56,13 +63,3 @@ module.exports.replace = () => ({
         }`;
     },
 });
-
-function replaceFn({__a}, path) {
-    const {name} = __a;
-    const {declaration} = path.node;
-    const node = template.ast.fresh(`module.exports.${name} = __x`);
-    
-    node.right = declaration;
-    
-    return node;
-}

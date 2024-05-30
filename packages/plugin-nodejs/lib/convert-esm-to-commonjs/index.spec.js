@@ -77,6 +77,11 @@ test('plugin-convert-esm-to-commonjs: transform: export function', (t) => {
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: transform: export gn-fn', (t) => {
+    t.transform('export-gen-fn');
+    t.end();
+});
+
 test('plugin-convert-esm-to-commonjs: transform: export: multiple', (t) => {
     t.transform('export-multiple');
     t.end();
