@@ -135,3 +135,28 @@ export interface IParamsConstructor {
 ```
 
 </details>
+
+<details><summary>comma after statement</summary>
+
+```diff
+function x() {
+-    return 'hello',
++    return 'hello';
+}
+
+-const a = 5,
++const a = 5;
+```
+
+</details>
+
+<details><summary>useless comma</summary>
+
+```diff
+const a = {
+-    b: 'hello',,
++    b: 'hello',
+}
+```
+
+</details>
