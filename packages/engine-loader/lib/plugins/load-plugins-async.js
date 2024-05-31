@@ -9,11 +9,11 @@ const {
     getLoadedRules,
 } = require('../rules');
 
-const {createAsyncLoader} = require('../load/async-loader');
 const {parsePluginNames} = require('./parse-plugin-names');
 const validatePlugin = require('./validate-plugin');
 const {filterEnabledPlugins} = require('./filter-enabled-plugins');
 
+const {createAsyncLoader} = require('../load/async-loader');
 const {check, checkRule} = require('../check');
 
 const loadPluginAsync = createAsyncLoader('plugin');
@@ -25,7 +25,6 @@ module.exports.loadPluginsAsync = async (options) => {
     
     const cookedRules = parseRules(rules);
     const loadedRules = getLoadedRules(cookedRules);
-    
     const items = parsePluginNames(pluginNames);
     
     const plugins = await loadPlugins({
