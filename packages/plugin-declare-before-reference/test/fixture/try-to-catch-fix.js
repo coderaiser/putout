@@ -10,6 +10,7 @@ const program = new Command();
 
 program.exitOverride();
 const [error] = await tryToCatch(program.parseAsync, process.argv);
+
 if (error) {
     if (error instanceof InvalidConfigError) {
         console.warn(chalk.red(error.message));

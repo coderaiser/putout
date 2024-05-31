@@ -10,32 +10,32 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-try-catch: try-to-catch: report', (t) => {
+test('plugin-try-catch: async: report', (t) => {
     t.report('try-to-catch', `Use 'await tryToCatch()' instead of 'await' in 'try-catch' block`);
     t.end();
 });
 
-test('plugin-apply-try-catch: try-to-catch: transform: try-to-catch', (t) => {
+test('plugin-try-catch: async: transform: try-to-catch', (t) => {
     t.transform('try-to-catch');
     t.end();
 });
 
-test('plugin-apply-try-catch: try-to-catch: transform: couple', (t) => {
+test('plugin-try-catch: async: transform: couple', (t) => {
     t.transform('couple');
     t.end();
 });
 
-test('plugin-apply-try-catch: try-to-catch: transform: no-error', (t) => {
+test('plugin-try-catch: async: transform: no-error', (t) => {
     t.transform('no-error');
     t.end();
 });
 
-test('plugin-apply-try-catch: try-to-catch: no report: no-await', (t) => {
+test('plugin-try-catch: async: no report: no-await', (t) => {
     t.noReport('no-await');
     t.end();
 });
 
-test('plugin-apply-try-catch: try-to-catch: no report: finalizer', (t) => {
+test('plugin-try-catch: async: no report: finalizer', (t) => {
     t.noReport('finalizer');
     t.end();
 });

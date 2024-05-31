@@ -1,4 +1,5 @@
 const [error] = await tryToCatch(isValidPackageJson, 'path/to/');
+
 if (error) {
     // @ts-ignore
     expect(error.message).toMatch('No package name provided in package.json');
