@@ -321,6 +321,67 @@ test('putout: cli: process-file: configurePrinter', async (t) => {
     t.end();
 });
 
+test('putout: cli: process-file: plugin not found', async (t) => {
+    const error = Error(`Cannot find package 'putout-plugin-travis'`);
+    
+    error.code = 'ERR_MODULE_NOT_FOUND';
+    
+    const putoutAsync = stub().throws(error);
+    
+    const source = '__putout_processor_yaml({"hello": "world"})';
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    
+    mockRequire('../putout.js', {
+        putoutAsync,
+    });
+    
+    const options = {
+        dir: '.',
+    };
+    
+    const processFile = reRequire('./process-file');
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const result = await fn({
+        options,
+        name: 'example.md{js}',
+        
+        index: 0,
+        length: 1,
+        
+        source,
+    });
+    
+    stopAll();
+    
+    const expected = {
+        code: montag`
+            __putout_processor_yaml({
+                hello: 'world',
+            });
+        `,
+        places: [{
+            message: `Cannot find package 'putout-plugin-travis'`,
+            position: {
+                column: 1,
+                line: 2,
+            },
+            rule: 'parser',
+        }],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: cli: process-file: quick-lint', async (t) => {
     const source = 'function hello() => {return x}';
     const fix = false;

@@ -7,7 +7,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: processor: yaml', async ({process}) => {
-    await process('travis.yml', ['travis/disable-cache']);
+    await process('travis.yml', ['travis']);
 });
 
 test('putout: processor: yaml: long', async ({process}) => {
