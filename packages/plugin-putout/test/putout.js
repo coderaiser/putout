@@ -247,3 +247,8 @@ test('plugin-putout: transform: simplify-replace-template', (t) => {
     t.transform('simplify-replace-template');
     t.end();
 });
+
+test('plugin-putout: transform: remove-empty-array-from-process', (t) => {
+    t.transform('remove-empty-array-from-process');
+    t.end();
+});

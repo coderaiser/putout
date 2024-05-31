@@ -57,6 +57,7 @@ npm i @putout/plugin-putout -D
 - ✅ [declare](#declare);
 - ✅ [includer](#includer);
 - ✅ [move-require-on-top-level](#move-require-on-top-level);
+- ✅ [remove-empty-array-from-process](#remove-empty-array-from-process);
 - ✅ [remove-unused-get-properties-argument](#remove-unused-get-properties-argument);
 - ✅ [rename-operate-to-operator](#rename-operate-to-operator);
 - ✅ [replace-operate-with-operator](#replace-operate-with-operator);
@@ -115,6 +116,7 @@ npm i @putout/plugin-putout -D
         "putout/move-require-on-top-level": "on",
         "putout/replace-test-message": "on",
         "putout/remove-unused-get-properties-argument": "on",
+        "putout/remove-empty-array-from-process": "on",
         "putout/simplify-replace-template": "on"
     }
 }
@@ -1207,6 +1209,22 @@ test('plugin-putout: rename-operate-to-operator: no report: operator exist', (t)
     t.noReport('operator');
     t.end();
 });
+```
+
+## remove-empty-array-from-process
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fc32ff87e91fd28f26a03f55eba0663e/3423926ba0a80d30beafe2ac66c70c517df173e1).
+
+### ❌ Example of incorrect code
+
+```js
+await process('input', []);
+```
+
+### ✅ Example of correct code
+
+```js
+await process('input');
 ```
 
 ## remove-unused-get-properties-argument

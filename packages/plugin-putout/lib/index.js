@@ -50,6 +50,7 @@ const addAwaitToProgress = require('./add-await-to-progress');
 const applyForOfToTrackFile = require('./apply-for-of-to-track-file');
 const removeUnusedGetPropertiesArgument = require('./remove-unused-get-properties-argument');
 const simplifyReplaceTemplate = require('./simplify-replace-template');
+const removeEmptyArrayFromProcess = require('./remove-empty-array-from-process');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -102,4 +103,5 @@ module.exports.rules = {
     'apply-for-of-to-track-file': applyForOfToTrackFile,
     'remove-unused-get-properties-argument': removeUnusedGetPropertiesArgument,
     'simplify-replace-template': simplifyReplaceTemplate,
+    'remove-empty-array-from-process': removeEmptyArrayFromProcess,
 };
