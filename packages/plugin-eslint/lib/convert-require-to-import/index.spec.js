@@ -12,7 +12,7 @@ test('putout: plugin-eslint: convert-require-to-import-in-extends: report', (t) 
     t.end();
 });
 
-test('putout: plugin-eslint: convert-require-to-import-in-extends: transform', (t) => {
-    t.transform('convert-require-to-import');
+test('putout: plugin-eslint: convert-require-to-import-in-extends: no transform', (t) => {
+    t.noTransform('convert-require-to-import');
     t.end();
 });

@@ -100,6 +100,8 @@ test('remove usless variables: for-of', (t) => {
 });
 ```
 
+*☝️When input and output the same test fails.*
+
 ### `transformCode(input, output)`
 
 Check transform of `input` -> `output` code:

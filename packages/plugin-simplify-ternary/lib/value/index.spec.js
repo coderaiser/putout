@@ -31,7 +31,7 @@ test('plugin-simplify-ternary: value: false', (t) => {
 });
 
 test('plugin-simplify-ternary: value: return', (t) => {
-    t.transform('return');
+    t.noTransform('return');
     t.end();
 });
 

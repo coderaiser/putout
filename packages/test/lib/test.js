@@ -36,6 +36,11 @@ global.__putout_test_fs = {
 const isUpdate = () => Boolean(Number(process.env.UPDATE));
 const getPrinter = () => process.env.PUTOUT_PRINTER;
 
+const fail = (t, message) => {
+    const {__putout_test_fail = t.fail} = global;
+    return __putout_test_fail(message);
+};
+
 const TS = {
     ENABLED: true,
     DISABLED: false,
@@ -343,6 +348,9 @@ const transform = currify((dir, options, t, name, transformed = null, addons = {
             ...addons,
         }],
     });
+    
+    if (input === code)
+        return fail(t, `'input' === 'output', use 'noTransform()' instead`);
     
     if (isUpdate() && !isStr) {
         writeFixture({

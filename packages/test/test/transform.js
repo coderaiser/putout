@@ -36,6 +36,23 @@ test('transform: with PUTOUT_PRINTER: env variable', (t) => {
     t.end();
 });
 
+test('transform: input and output are equal', (t) => {
+    const fail = stub().returns({
+        is: true,
+        message: 'should fail when input === output',
+    });
+    
+    global.__putout_test_fail = fail;
+    
+    t.transform('no-transform');
+    delete global.__putout_test_fail;
+    
+    const args = [`'input' === 'output', use 'noTransform()' instead`];
+    
+    t.calledWith(fail, args);
+    t.end();
+}, NO_CHECK_ASSERTIONS_COUNT);
+
 test('transform: with UPDATE env variable', (t) => {
     update(1);
     

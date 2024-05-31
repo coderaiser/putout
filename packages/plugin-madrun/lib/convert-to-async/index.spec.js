@@ -25,8 +25,8 @@ test('madrun: convert to async: transform: two', (t) => {
     t.end();
 });
 
-test('madrun: convert to async: transform: three', (t) => {
-    t.transform('three');
+test('madrun: convert to async: no transform: three', (t) => {
+    t.noTransform('three');
     t.end();
 });
 

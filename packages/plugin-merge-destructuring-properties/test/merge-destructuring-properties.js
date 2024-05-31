@@ -26,8 +26,8 @@ test('plugin-merge-destructuring-properties: transform: properties', (t) => {
     t.end();
 });
 
-test('plugin-merge-destructuring-properties: transform: vars', (t) => {
-    t.transform('vars');
+test('plugin-merge-destructuring-properties: no transform: vars', (t) => {
+    t.noTransform('vars');
     t.end();
 });
 

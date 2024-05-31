@@ -23,12 +23,12 @@ test('plugin-nodejs: strict-mode: add: commonjs', (t) => {
 });
 
 test('plugin-strict-mode: add: strict', (t) => {
-    t.transform('strict');
+    t.noTransform('strict');
     t.end();
 });
 
 test('plugin-strict-mode: add: import', (t) => {
-    t.transform('import');
+    t.noTransform('import');
     t.end();
 });
 
@@ -63,7 +63,7 @@ test('plugin-strict-mode: add: require', (t) => {
 });
 
 test('plugin-strict-mode: add: await', (t) => {
-    t.transform('await');
+    t.noTransform('await');
     t.end();
 });
 

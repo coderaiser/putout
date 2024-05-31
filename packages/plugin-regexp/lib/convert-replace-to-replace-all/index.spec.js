@@ -32,13 +32,13 @@ test('plugin-regexp/convert-replace-to-replace-all: transform: escape', (t) => {
     t.end();
 });
 
-test('plugin-regexp/convert-replace-to-replace-all: transform: newline', (t) => {
-    t.transform('newline');
+test('plugin-regexp/convert-replace-to-replace-all: no transform: newline', (t) => {
+    t.noTransform('newline');
     t.end();
 });
 
-test('plugin-regexp/convert-replace-to-replace-all: transform: backtick', (t) => {
-    t.transform('backtick');
+test('plugin-regexp/convert-replace-to-replace-all: no transform: backtick', (t) => {
+    t.noTransform('backtick');
     t.end();
 });
 
@@ -57,8 +57,8 @@ test('plugin-regexp/convert-replace-to-replace-all: no transform: wildcard', (t)
     t.end();
 });
 
-test('plugin-regexp/convert-replace-to-replace-all: transform: character-class', (t) => {
-    t.transform('character-class');
+test('plugin-regexp/convert-replace-to-replace-all: no transform: character-class', (t) => {
+    t.noTransform('character-class');
     t.end();
 });
 

@@ -25,8 +25,8 @@ test('remove-useless-variables: rename: no transform: global', (t) => {
     t.end();
 });
 
-test('remove-useless-variables: rename: transform: destructure', (t) => {
-    t.transform('destructure');
+test('remove-useless-variables: rename: no transform: destructure', (t) => {
+    t.noTransform('destructure');
     t.end();
 });
 
