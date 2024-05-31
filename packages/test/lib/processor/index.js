@@ -32,7 +32,6 @@ const remove = async (a) => {
 
 const read = async (a, b) => {
     const read = global.readFile || readFile;
-    
     return await read(a, b);
 };
 
@@ -43,6 +42,11 @@ const buildOptions = ({options, plugins, processors}) => ({
 });
 
 const addDot = (a) => a ? `.${a}` : '';
+
+const fail = (t, message) => {
+    const {__putout_test_fail = t.fail} = global;
+    return __putout_test_fail(message);
+};
 
 module.exports._addDot = addDot;
 
@@ -56,10 +60,11 @@ module.exports.createTest = (dir, options) => {
 
 const createProcess = (dir, options) => (operator) => async (filename, plugins, processors) => {
     if (!isStr(filename))
-        return operator.fail(`Expected filename to be string!`);
+        return fail(operator, `Expected filename to be string!`);
     
     const {
         processedSource,
+        rawSource,
         output,
     } = await process(
         filename,
@@ -73,6 +78,9 @@ const createProcess = (dir, options) => (operator) => async (filename, plugins, 
     
     if (isUpdate())
         return operator.pass('fixtures updated');
+    
+    if (rawSource === processedSource)
+        return fail(operator, `'input' === 'output', use 'noProcess()'`);
     
     return operator.equal(processedSource, output, 'fixtures should equal');
 };

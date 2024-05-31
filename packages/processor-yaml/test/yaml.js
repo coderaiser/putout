@@ -10,8 +10,8 @@ test('putout: processor: yaml', async ({process}) => {
     await process('travis.yml', ['travis']);
 });
 
-test('putout: processor: yaml: long', async ({process}) => {
-    await process('long.yml');
+test('putout: processor: yaml: long', async ({noProcess}) => {
+    await noProcess('long.yml');
 });
 
 test('putout: processor: yaml: actions', async ({noProcess}) => {

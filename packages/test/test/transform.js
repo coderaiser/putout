@@ -47,7 +47,7 @@ test('transform: input and output are equal', (t) => {
     t.transform('no-transform');
     delete global.__putout_test_fail;
     
-    const args = [`'input' === 'output', use 'noTransform()' instead`];
+    const args = [`'input' === 'output', use 'noTransform()'`];
     
     t.calledWith(fail, args);
     t.end();

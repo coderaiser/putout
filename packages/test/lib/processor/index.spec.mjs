@@ -1,4 +1,4 @@
-import {test} from 'supertape';
+import {test, stub} from 'supertape';
 import {createTest} from './index.mjs';
 
 test('test: exported: processor: esm', async (t) => {
@@ -24,6 +24,23 @@ const testProcessor = createTest(import.meta.url, {
     processorRunners: [typos],
 });
 
-testProcessor('test: processor: processorRunners', async ({process}) => {
-    await process('typos', []);
+testProcessor('test: processor: processorRunners', async ({noProcess}) => {
+    await noProcess('typos');
+});
+
+testProcessor('test: processor: processorRunners: same input and output', async ({process, calledWith}) => {
+    const fail = stub().returns({
+        is: true,
+        message: 'should fail when input === output',
+    });
+    
+    global.__putout_test_fail = fail;
+    
+    await process('typos');
+    
+    const args = [`'input' === 'output', use 'noProcess()'`];
+    delete global.__putout_test_fail;
+    calledWith(fail, args);
+}, {
+    checkAssertionsCount: false,
 });

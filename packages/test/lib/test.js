@@ -350,7 +350,7 @@ const transform = currify((dir, options, t, name, transformed = null, addons = {
     });
     
     if (input === code)
-        return fail(t, `'input' === 'output', use 'noTransform()' instead`);
+        return fail(t, `'input' === 'output', use 'noTransform()'`);
     
     if (isUpdate() && !isStr) {
         writeFixture({
@@ -561,7 +561,6 @@ const noReportWithOptions = currify((dir, options, t, name, ruleOptions) => {
     rmFixture(`${full}-fix`);
     
     const rule = parseRule(options);
-    
     const rules = {
         [rule]: ['on', ruleOptions],
     };

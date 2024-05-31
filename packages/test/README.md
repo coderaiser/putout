@@ -100,7 +100,7 @@ test('remove usless variables: for-of', (t) => {
 });
 ```
 
-*☝️When input and output the same test fails.*
+*☝️When input and output the same test fails. Use [`noTransform()`](#notransformfilename) for such cases.*
 
 ### `transformCode(input, output)`
 
@@ -373,6 +373,8 @@ test('test: eslint: transform', async ({process}) => {
     });
 });
 ```
+
+*☝️When input and output the same test fails. Use [`noProcess()`](#noprocessfilename--overrides) for such cases.*
 
 ### `noProcess(filename [, overrides])`
 
