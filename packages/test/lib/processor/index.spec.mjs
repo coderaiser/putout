@@ -1,5 +1,8 @@
 import {test, stub} from 'supertape';
+import process from 'node:process';
 import {createTest} from './index.mjs';
+
+const {env} = process;
 
 test('test: exported: processor: esm', async (t) => {
     const result = await import('@putout/test/processor');
@@ -29,6 +32,8 @@ testProcessor('test: processor: processorRunners', async ({noProcess}) => {
 });
 
 testProcessor('test: processor: processorRunners: same input and output', async ({process, calledWith}) => {
+    const {UPDATE} = env;
+    delete env.UPDATE;
     const fail = stub().returns({
         is: true,
         message: 'should fail when input === output',
@@ -38,8 +43,12 @@ testProcessor('test: processor: processorRunners: same input and output', async 
     
     await process('typos');
     
+    if (UPDATE)
+        env.UPDATE = UPDATE;
+    
     const args = [`'input' === 'output', use 'noProcess()'`];
     delete global.__putout_test_fail;
+    
     calledWith(fail, args);
 }, {
     checkAssertionsCount: false,
