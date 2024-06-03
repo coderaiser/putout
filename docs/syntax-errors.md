@@ -160,3 +160,28 @@ const a = {
 ```
 
 </details>
+
+<details><summary>useless semicolon</summary>
+
+```diff
+const a = {
+-    b: 'hello';
++    b: 'hello',
+}
+
+const a = class {
+-    b() {},
++    b() {}
+}
+```
+
+</details>
+
+<details><summary>assign from</summary>
+
+```diff
+-const a = from 'a';
++const a = require('a');
+```
+
+</details>
