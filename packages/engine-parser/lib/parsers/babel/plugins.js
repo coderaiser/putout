@@ -13,9 +13,7 @@ module.exports = [
     'destructuringPrivate',
     'exportDefaultFrom',
     'throwExpressions',
-    ['recordAndTuple', {
-        syntaxType: 'hash',
-    }],
+    'recordAndTuple',
     'explicitResourceManagement',
     'deferredImportEvaluation',
     'sourcePhaseImports',
