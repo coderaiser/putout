@@ -1,4 +1,4 @@
-const Hello = class  {
+const Hello = class {
     user = 'username';
     #hello = 'hello';
     render() {
