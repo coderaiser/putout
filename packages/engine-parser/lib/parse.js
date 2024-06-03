@@ -1,6 +1,6 @@
 'use strict';
 
-const recast = require('@putout/recast');
+const recast = require('recast');
 const toBabel = require('estree-to-babel');
 const customParser = require('./custom-parser');
 const moveOutDirectives = require('./recast/move-out-directives');

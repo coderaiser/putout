@@ -1,6 +1,6 @@
 'use strict';
 
-const recast = require('@putout/recast');
+const recast = require('recast');
 const putoutPrinter = require('@putout/printer');
 const {generate} = require('@putout/babel');
 
