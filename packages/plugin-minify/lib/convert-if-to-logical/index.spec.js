@@ -47,3 +47,8 @@ test('plugin-minify: convert-if-to-logical: transform: or', (t) => {
     t.transform('or');
     t.end();
 });
+
+test('plugin-minify: convert-if-to-logical: transform: nested-or', (t) => {
+    t.transform('nested-or');
+    t.end();
+});

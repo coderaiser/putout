@@ -78,7 +78,7 @@ export const replace = () => ({
         
         const expressions = parseExpressions(__b);
         
-        return LogicalExpression('&&', __a, SequenceExpression(expressions));
+        return LogicalExpression('&&', maybeAddParens(__a), SequenceExpression(expressions));
     },
     'if (__a) __b; else __c': ({__a, __b, __c}) => {
         if (!__b.body.length && isBlockStatement(__c))
@@ -100,9 +100,11 @@ export const replace = () => ({
 
 function maybeAddParens(node) {
     if (!isLogicalExpression(node))
-        return;
+        return node;
     
     node.extra = {
         parenthesized: true,
     };
+    
+    return node;
 }
