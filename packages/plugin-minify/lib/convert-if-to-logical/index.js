@@ -9,6 +9,7 @@ const {
     ConditionalExpression,
     UnaryExpression,
     isConditionalExpression,
+    isLogicalExpression,
 } = types;
 
 const parseExpressions = ({body}) => body.map(getExpression).filter(Boolean);
@@ -65,8 +66,16 @@ export const replace = () => ({
         if (!__b.body.length)
             return '__a';
         
-        if (__b.body.length === 1)
-            return LogicalExpression('&&', __a, __b.body[0].expression);
+        if (__b.body.length === 1) {
+            const {expression} = __b.body[0];
+            
+            if (isLogicalExpression(__a))
+                __a.extra = {
+                    parenthesized: true,
+                };
+            
+            return LogicalExpression('&&', __a, expression);
+        }
         
         const expressions = parseExpressions(__b);
         
