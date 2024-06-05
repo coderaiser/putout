@@ -107,3 +107,8 @@ test('plugin-minify: transform: class', (t) => {
     t.transform('class');
     t.end();
 });
+
+test('plugin-minify: transform: var', (t) => {
+    t.transform('var');
+    t.end();
+});

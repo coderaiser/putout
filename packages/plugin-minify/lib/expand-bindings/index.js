@@ -41,6 +41,9 @@ export const traverse = ({push}) => ({
         if (!binding)
             return;
         
+        if (!binding.constant)
+            return;
+        
         if (binding.referencePaths.length !== 1)
             return;
         

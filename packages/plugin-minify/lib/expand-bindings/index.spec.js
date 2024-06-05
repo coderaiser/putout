@@ -23,6 +23,11 @@ test('plugin-minify: expand-bindings: transform: arrow', (t) => {
     t.end();
 });
 
+test('plugin-minify: expand-bindings: no transform: assign', (t) => {
+    t.noTransform('assign');
+    t.end();
+});
+
 test('plugin-minify: expand-bindings: no transform: destructuring', (t) => {
     t.noTransform('destructuring');
     t.end();
