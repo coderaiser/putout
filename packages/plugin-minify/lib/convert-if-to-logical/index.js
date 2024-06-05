@@ -60,8 +60,10 @@ export const replace = () => ({
         if (isConditionalExpression(__b))
             return '__a && (__b)';
         
-        if (!isBlockStatement(__b))
+        if (!isBlockStatement(__b)) {
+            maybeAddParens(__a);
             return '__a && __b';
+        }
         
         if (!__b.body.length)
             return '__a';
@@ -69,10 +71,7 @@ export const replace = () => ({
         if (__b.body.length === 1) {
             const {expression} = __b.body[0];
             
-            if (isLogicalExpression(__a))
-                __a.extra = {
-                    parenthesized: true,
-                };
+            maybeAddParens(__a);
             
             return LogicalExpression('&&', __a, expression);
         }
@@ -98,3 +97,12 @@ export const replace = () => ({
         );
     },
 });
+
+function maybeAddParens(node) {
+    if (!isLogicalExpression(node))
+        return;
+    
+    node.extra = {
+        parenthesized: true,
+    };
+}
