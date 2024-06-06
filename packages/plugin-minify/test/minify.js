@@ -83,6 +83,11 @@ test('plugin-minify: transform: convert-const-to-var', (t) => {
     t.end();
 });
 
+test('plugin-minify: transform: convert-const-to-var: overlap', (t) => {
+    t.transform('convert-const-to-var-overlap');
+    t.end();
+});
+
 test('plugin-minify: transform: arrow', (t) => {
     t.transform('arrow');
     t.end();

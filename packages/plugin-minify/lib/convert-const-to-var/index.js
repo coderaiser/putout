@@ -33,6 +33,11 @@ function hasOverlap(path, name) {
             break;
     }
     
+    const fn = nextPath.scope.getFunctionParent();
+    
+    if (fn && fn.path !== nextPath)
+        return getBinding(fn.path, name);
+    
     const program = nextPath.scope.getProgramParent().path;
     
     return getBinding(program, name);
