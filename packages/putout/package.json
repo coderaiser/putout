@@ -170,7 +170,7 @@
     "@putout/plugin-remove-useless-variables": "^11.0.0",
     "@putout/plugin-reuse-duplicate-init": "^5.0.0",
     "@putout/plugin-simplify-assignment": "^3.0.0",
-    "@putout/plugin-simplify-boolean-return": "^1.0.0",
+    "@putout/plugin-simplify-boolean-return": "^2.0.0",
     "@putout/plugin-simplify-ternary": "^7.0.0",
     "@putout/plugin-sort-imports-by-specifiers": "^1.0.0",
     "@putout/plugin-split-assignment-expressions": "^1.0.0",
