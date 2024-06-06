@@ -1208,3 +1208,14 @@ test('putout: operate: getPathAfterRequires', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: operate: getLiteralRaw', (t) => {
+    const node = template.ast.fresh('const a = "x"');
+    const {init} = node.declarations[0];
+    const result = operate.getLiteralRaw(init);
+    const {raw} = init.extra;
+    
+    t.equal(result, raw);
+    t.end();
+});
+

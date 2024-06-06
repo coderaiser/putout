@@ -18,6 +18,7 @@ const {
     getProperties,
     traverseProperties,
 } = require('./properties');
+const {getLiteralRaw} = require('./get-literal-raw');
 
 const {
     ExpressionStatement,
@@ -35,6 +36,7 @@ const {assign} = Object;
 
 module.exports.getBinding = getBinding;
 module.exports.getBindingPath = getBindingPath;
+module.exports.getLiteralRaw = getLiteralRaw;
 module.exports.extract = extract;
 module.exports.compute = compute;
 module.exports.replaceWith = replaceWith;

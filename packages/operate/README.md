@@ -143,6 +143,11 @@ remove(path.get('declarations.0.id.0'));
 path.toString(); // returns const [, b] = c;
 ```
 
+### `getLiteralRaw(path: Path|Node)`
+
+Get `raw` or `extra.raw`, which can be received from `template` methods.
+
+
 ### `getPathAfterRequires(body)`
 
 Get next `path` after latest `require`:
