@@ -371,6 +371,16 @@ test('plugin-putout: declare: transform: getPathAfterRequires', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: getLiteralRaw', (t) => {
+    t.transformCode(`getLiteralRaw(path);`, montag`
+        import {operator} from 'putout';
+        
+        const {getLiteralRaw} = operator;
+        getLiteralRaw(path);\n
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: operator-json', (t) => {
     t.transform('operator-json');
     t.end();

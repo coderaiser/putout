@@ -16,6 +16,7 @@ module.exports = {
     rename: 'const {rename} = operator',
     renameProperty: 'const {renameProperty} = operator',
     extract: 'const {extract} = operator',
+    getLiteralRaw: 'const {getLiteralRaw} = operator',
     getPathAfterImports: 'const {getPathAfterImports} = operator',
     getPathAfterRequires: 'const {getPathAfterRequires} = operator',
     getBinding: 'const {getBinding} = operator',
