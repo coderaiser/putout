@@ -8,6 +8,7 @@ test('operate: getLiteralRaw: root', (t) => {
     const node = {
         raw: 'x',
     };
+    
     const result = getLiteralRaw(node);
     
     t.equal(result, node.raw);
@@ -22,6 +23,7 @@ test('operate: getLiteralRaw: path', (t) => {
     const path = {
         node,
     };
+    
     const result = getLiteralRaw(path);
     
     t.equal(result, node.raw);
@@ -46,6 +48,7 @@ test('operate: getLiteralRaw: empty string', (t) => {
     const path = {
         node,
     };
+    
     const result = getLiteralRaw(path);
     
     t.equal(result, node.raw);

@@ -1218,4 +1218,3 @@ test('putout: operate: getLiteralRaw', (t) => {
     t.equal(result, raw);
     t.end();
 });
-

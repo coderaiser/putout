@@ -18,6 +18,7 @@ const {
     getProperties,
     traverseProperties,
 } = require('./properties');
+
 const {getLiteralRaw} = require('./get-literal-raw');
 
 const {

@@ -147,7 +147,6 @@ path.toString(); // returns const [, b] = c;
 
 Get `raw` or `extra.raw`, which can be received from `template` methods.
 
-
 ### `getPathAfterRequires(body)`
 
 Get next `path` after latest `require`:
