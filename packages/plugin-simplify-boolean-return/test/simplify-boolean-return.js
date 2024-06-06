@@ -1,6 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
 const simplifyTernary = require('..');
 
 const test = createTest(__dirname, {
@@ -12,6 +13,13 @@ const test = createTest(__dirname, {
 
 test('plugin-simplify-boolean-return: report', (t) => {
     t.report('simplify-boolean-return', 'Simplify boolean return');
+    t.end();
+});
+
+test('plugin-simplify-boolean-return: transform: callstack', (t) => {
+    t.transform('callstack', {
+        removeUnusedVariables,
+    });
     t.end();
 });
 

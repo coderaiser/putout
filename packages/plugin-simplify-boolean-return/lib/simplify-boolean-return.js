@@ -1,10 +1,6 @@
 'use strict';
 
-const {
-    operator,
-    types,
-    template,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {
     compareAny,
@@ -15,9 +11,8 @@ const {
 const {
     UnaryExpression,
     isUnaryExpression,
+    ReturnStatement,
 } = types;
-
-const RETURN = template('return %%argument%%');
 
 module.exports.report = () => `Simplify boolean return`;
 
@@ -36,10 +31,7 @@ module.exports.replace = () => ({
         
         if (isUnaryExpression(__a, {operator: '!'})) {
             const {argument} = __a;
-            
-            return RETURN({
-                argument,
-            });
+            return ReturnStatement(argument);
         }
         
         const unary = UnaryExpression('!', __a);
