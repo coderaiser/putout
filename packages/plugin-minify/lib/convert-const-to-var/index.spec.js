@@ -13,7 +13,22 @@ test('plugin-minify: convert-const-to-var: report', (t) => {
     t.end();
 });
 
+test('plugin-minify: convert-const-to-var: no report: not-identifier', (t) => {
+    t.noReport('not-identifier');
+    t.end();
+});
+
 test('plugin-minify: convert-const-to-var: transform', (t) => {
     t.transform('convert-const-to-var');
+    t.end();
+});
+
+test('plugin-minify: convert-const-to-var: mutation', (t) => {
+    t.transform('mutation');
+    t.end();
+});
+
+test('plugin-minify: convert-const-to-var: transform: overlap', (t) => {
+    t.transform('overlap');
     t.end();
 });
