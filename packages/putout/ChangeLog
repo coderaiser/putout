@@ -1,3 +1,34 @@
+2024.06.07, v35.33.0
+
+fix:
+- b6900b729 @putout/compare: __body: inside FunctionDeclaration: multiple statements
+- 478e7f1e0 eslint-plugin-putout: remove-useless-variables
+
+feature:
+- d9d6c9862 putout: @putout/plugin-simplify-boolean-return v2.0.0
+- aed08a413 @putout/plugin-minify: convert-const-to-var: iprove support of overlap (putoutjs/minify#17)
+- 4c18d43fa @putout/plugin-simplify-boolean-return: drop support of node < 18
+- fadcc660c @putout/plugin-simplify-boolean-return: template -> ReturnStatement
+- 3eb25963f @putout/engine-runner: Replacer: prevent stack overflow
+- e41e1d891 @putout/plugin-minify: join-continued-strings: add (putoutjs/minify#13)
+- 07a90c6ba @putout/plugin-putout: getLiteralRaw: add
+- abc9364f0 @putout/operate: getLiteralRaw: add
+- 2276f2009 @putout/plugin-minify: expand-binding: reassign (putoutjs/minify#14)
+- 12b63fd5f @putout/plugin-minify: convert-if-to-logical: nested-or: (coderaiser/minify#12)
+- f9c0ffa34 @putout/plugin-minify: convert-if-to-logical: parens when not BlockStatement (putoutjs/minify#12)
+- 1a05e31e4 @putout/plugin-minify: convert-if-to-logical: parens (putoutjs/minify#12)
+- 3039a216f @putout/engine-parser: @putout/babel v2.5.0: recordAndTuple: no more syntax configuration
+- b75205f9d @putout/engine-parser: @putout/recast -> recast
+- 50cbb8224 @putout/plugin-putout: remove-empty-array-from-process: add
+- 767c517e9 @putout/plugin-remove-unused-variables: @putout/test v10.0.0
+- 20d14b9e6 @putout/test: process: fail when input === output
+- 9317170a8 @putout/test: transform: fail test when input and output the same
+- 53d9e6ab6 @putout/plugin-nodejs: convert-esm-to-commonjs: add support of generators
+- 198ee7d96 @putout/compare: add support of ClassBody
+- 9c590c406 @putout/plugin-nodejs: convert-esm-to-commonjs: ClassDeclaration
+- 7a0a8943d @putout/plugin-putout: check-replace-code: __body inside ClassDeclaration
+- 08aa6c5b2 @putout/plugin-remove-useless-variables: duplicate: report
+
 2024.05.28, v35.32.0
 
 feature:
