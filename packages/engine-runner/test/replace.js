@@ -12,7 +12,11 @@ const {runPlugins} = require('..');
 
 const noop = () => {};
 const {print, types} = putout;
-const {StringLiteral} = types;
+
+const {
+    StringLiteral,
+    ReturnStatement,
+} = types;
 
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
 
@@ -947,6 +951,53 @@ test('putout: runner: replace: TSExportAssignment', (t) => {
     
     const expected = montag`
         export = 'hello';
+    
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: runner: replace: callstack', (t) => {
+    const convert = {
+        report: noop,
+        replace: () => ({
+            'if (__a) return __bool__a;'({__a}, path) {
+                const next = path.getNextSibling();
+                
+                next.remove();
+                
+                const {argument} = __a;
+                
+                return ReturnStatement(argument);
+            },
+        }),
+    };
+    
+    const source = montag`
+        export const match = () => ({
+            'const __a = __b': ({__a}) => {
+                if (!isIdentifier(__a))
+                    return false;
+                
+                return true;
+            },
+        });
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+      export const match = () => ({
+          'const __a = __b': ({__a}) => {
+              return isIdentifier(__a);
+          },
+      });
     
     `;
     

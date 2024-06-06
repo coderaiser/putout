@@ -119,13 +119,15 @@ const fix = (from, to, path) => {
     const waysTo = findVarsWays(nodeTo);
     const newPath = replaceWith(path, nodeTo);
     
-    validateTemplateValues(waysTo, waysFrom);
-    
-    setValues({
-        waysTo,
-        values,
-        path: newPath,
-    });
+    if (!nodeTo.__putout_replace_cooked) {
+        validateTemplateValues(waysTo, waysFrom);
+        
+        setValues({
+            waysTo,
+            values,
+            path: newPath,
+        });
+    }
     
     mark.add();
     path
@@ -174,8 +176,10 @@ function parseTo(to, values, path) {
     if (!toStr)
         return null;
     
-    if (isObj(toStr) && toStr.type)
+    if (isObj(toStr) && toStr.type) {
+        toStr.__putout_replace_cooked = true;
         return toStr;
+    }
     
     if (!isString(toStr))
         throw Error(`☝️ Looks like you passed 'replace' value with a wrong type. Allowed: 'string', 'node' and 'path'. Received: '${typeof toStr}' with value '${toStr}'.`);
