@@ -14,6 +14,7 @@ import * as removeReturnUndefined from './remove-return-undefined/index.js';
 import * as inline from './inline/index.js';
 import * as simplifyFloor from './simplify-floor/index.js';
 import * as types from './types/index.js';
+import * as joinContinuedStrings from './join-continued-strings/index.js';
 
 export const rules = {
     'apply-ternary': applyTernary,
@@ -32,4 +33,5 @@ export const rules = {
     inline,
     'simplify-floor': simplifyFloor,
     types,
+    'join-continued-strings': joinContinuedStrings,
 };

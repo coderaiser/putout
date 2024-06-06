@@ -112,3 +112,8 @@ test('plugin-minify: transform: var', (t) => {
     t.transform('var');
     t.end();
 });
+
+test('plugin-minify: transform: join-continued-strings', (t) => {
+    t.transform('join-continued-strings');
+    t.end();
+});
