@@ -18,7 +18,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-array-from-to-spread](#convert-array-from-to-spread);
 - ✅ [convert-const-to-var](#convert-const-to-var);
 - ✅ [convert-if-to-logical](#convert-if-to-logical);
-- ✅ [convert-return-to-sequence-expression][#convert-return-to-sequence-expression];
+- ✅ [convert-return-to-sequence-expression](#convert-return-to-sequence-expression);
 - ✅ [convert-strict-equal-to-equal](#convert-strict-equal-to-equal);
 - ✅ [expand-bindings](#expand-bindings);
 - ✅ [extract-body](#extract-body);
