@@ -49,3 +49,7 @@ test('eslint-config: no-constant-binary-expression: off', async ({comparePlaces}
 test('eslint-config: array-bracket-spacing', async ({process}) => {
     await process('array-bracket-spacing');
 });
+
+test('eslint-config: no-extra-parens', async ({comparePlaces}) => {
+    await comparePlaces('no-extra-parens', []);
+});

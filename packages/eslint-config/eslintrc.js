@@ -106,7 +106,9 @@ module.exports = {
         '@stylistic/js/semi': 'error',
         '@stylistic/js/no-extra-semi': 'error',
         '@stylistic/js/object-curly-spacing': 'error',
-        '@stylistic/js/no-extra-parens': 'error',
+        '@stylistic/js/no-extra-parens': ['error', 'all', {
+            enforceForSequenceExpressions: false,
+        }],
         '@stylistic/js/no-multi-spaces': 'error',
         '@stylistic/js/no-trailing-spaces': ['error', {
             skipBlankLines: true,
