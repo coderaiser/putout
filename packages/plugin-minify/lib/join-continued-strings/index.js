@@ -9,12 +9,12 @@ export const fix = (path) => {
         const {quasis} = path.node;
         
         for (const element of quasis)
-            element.value.raw = element.value.cooked;
+            element.value.raw = element.value.cooked.replaceAll('\n', '\\n');
         
         return;
     }
     
-    path.node.raw = path.node.value;
+    path.node.raw = `'${path.node.value.replaceAll('\n', '\\n')}'`;
 };
 
 export const include = () => [

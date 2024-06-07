@@ -24,6 +24,11 @@ test('minify: join-continued-strings: transform', (t) => {
     t.end();
 });
 
+test('minify: join-continued-strings: transform: win', (t) => {
+    t.transform('win');
+    t.end();
+});
+
 test('minify: join-continued-strings: transform: types', (t) => {
     t.transform('types', {
         types,
