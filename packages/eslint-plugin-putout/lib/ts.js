@@ -73,6 +73,10 @@ module.exports = [
     ts, {
         ...ts,
         ...jsx,
+        rules: {
+            ...ts.rules,
+            ...jsx.rules,
+        },
         plugins: [
             ...ts.plugins,
             ...jsx.plugins,
