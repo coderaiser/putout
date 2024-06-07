@@ -13,9 +13,10 @@ npm i @putout/plugin-putout -D
 
 ## Rules
 
-- ✅ [add-test-args](#add-test-args);
 - ✅ [add-await-to-progress](#add-await-to-progress);
 - ✅ [add-index-to-import](#add-index-to-import);
+- ✅ [add-places-to-compare-places](#add-places-to-compare-places);
+- ✅ [add-test-args](#add-test-args);
 - ✅ [add-traverse-args](#add-traverse-args);
 - ✅ [add-track-file](#add-track-file);
 - ✅ [apply-async-formatter](#apply-async-formatter);
@@ -81,6 +82,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-short-processors": "on",
         "putout/apply-namespace-specifier": "on",
         "putout/apply-for-of-to-track-file": "on",
+        "putout/add-places-to-compare-places": "on",
         "putout/add-test-args": "on",
         "putout/add-traverse-args": "on",
         "putout/add-track-file": "on",
@@ -795,6 +797,24 @@ const {isIdentifier} = types;
 
 compare(a, 'const __a = __b');
 isIdentifier(a);
+```
+
+## add-places-to-compare-places"
+
+### ❌ Example of incorrect code
+
+[`comparePlaces`](https://github.com/coderaiser/putout/tree/master/packages/test#compareplacesfilename-places-overrides) takes two or more arguments.
+
+Checkout in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/a83b1a6785bb01102451df4510333f42/a2439f7f44da56318d9a0e44b2602972811d9afb).
+
+```js
+comparePlaces('hello');
+```
+
+### ✅ Example of correct code
+
+```js
+comparePlaces('hello', []);
 ```
 
 ## add-test-args

@@ -51,6 +51,7 @@ const applyForOfToTrackFile = require('./apply-for-of-to-track-file');
 const removeUnusedGetPropertiesArgument = require('./remove-unused-get-properties-argument');
 const simplifyReplaceTemplate = require('./simplify-replace-template');
 const removeEmptyArrayFromProcess = require('./remove-empty-array-from-process');
+const addPlacesToComparePlaces = require('./add-places-to-compare-places');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -104,4 +105,5 @@ module.exports.rules = {
     'remove-unused-get-properties-argument': removeUnusedGetPropertiesArgument,
     'simplify-replace-template': simplifyReplaceTemplate,
     'remove-empty-array-from-process': removeEmptyArrayFromProcess,
+    'add-places-to-compare-places': addPlacesToComparePlaces,
 };

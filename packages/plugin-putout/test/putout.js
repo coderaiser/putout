@@ -252,3 +252,8 @@ test('plugin-putout: transform: remove-empty-array-from-process', (t) => {
     t.transform('remove-empty-array-from-process');
     t.end();
 });
+
+test('plugin-putout: transform: add-places-to-compare-places', (t) => {
+    t.transform('add-places-to-compare-places');
+    t.end();
+});
