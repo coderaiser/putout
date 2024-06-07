@@ -116,6 +116,24 @@ test('eslint-plugin-putout: ts: disabled', async ({comparePlaces}) => {
     await comparePlaces('ts-disabled', []);
 });
 
+test('eslint-plugin-putout: ts: keyword-spacing', async ({comparePlaces}) => {
+    await comparePlaces('ts-keyword-spacing', [{
+        message: `There should be no space after '{'.`,
+        position: {
+            column: 9,
+            line: 1,
+        },
+        rule: '@stylistic/ts/object-curly-spacing (eslint)',
+    }, {
+        message: `There should be no space before '}'.`,
+        position: {
+            column: 11,
+            line: 1,
+        },
+        rule: '@stylistic/ts/object-curly-spacing (eslint)',
+    }]);
+});
+
 test('eslint-plugin-putout: ts: duplicate', async ({comparePlaces}) => {
     await comparePlaces('ts-duplicate', [{
         message: `'Stub' is already defined.`,

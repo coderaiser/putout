@@ -22,6 +22,9 @@ const extensionRules = {
     '@stylistic/js/padding-line-between-statements': 'off',
     '@stylistic/ts/padding-line-between-statements': convertPaddingLines(rules['@stylistic/js/padding-line-between-statements']),
     
+    '@stylistic/js/object-curly-spacing': 'off',
+    '@stylistic/ts/object-curly-spacing': rules['@stylistic/js/object-curly-spacing'],
+    
     '@stylistic/js/semi': 'off',
     '@stylistic/ts/semi': rules['@stylistic/js/semi'],
     
