@@ -122,3 +122,8 @@ test('plugin-minify: transform: join-continued-strings', (t) => {
     t.transform('join-continued-strings');
     t.end();
 });
+
+test('plugin-minify: transform: convert-return-to-sequence-expression', (t) => {
+    t.transform('convert-return-to-sequence-expression');
+    t.end();
+});

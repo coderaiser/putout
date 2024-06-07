@@ -15,6 +15,7 @@ import * as inline from './inline/index.js';
 import * as simplifyFloor from './simplify-floor/index.js';
 import * as types from './types/index.js';
 import * as joinContinuedStrings from './join-continued-strings/index.js';
+import * as convertReturnToSequenceExpression from './convert-return-to-sequence-expression/index.js';
 
 export const rules = {
     'apply-ternary': applyTernary,
@@ -34,4 +35,5 @@ export const rules = {
     'simplify-floor': simplifyFloor,
     types,
     'join-continued-strings': joinContinuedStrings,
+    'convert-return-to-sequence-expression': convertReturnToSequenceExpression,
 };

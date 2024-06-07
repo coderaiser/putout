@@ -18,6 +18,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-array-from-to-spread](#convert-array-from-to-spread);
 - ✅ [convert-const-to-var](#convert-const-to-var);
 - ✅ [convert-if-to-logical](#convert-if-to-logical);
+- ✅ [convert-return-to-sequence-expression][#convert-return-to-sequence-expression];
 - ✅ [convert-strict-equal-to-equal](#convert-strict-equal-to-equal);
 - ✅ [expand-bindings](#expand-bindings);
 - ✅ [extract-body](#extract-body);
@@ -43,6 +44,7 @@ npm i @putout/plugin-putout -D
         "minify/convert-if-to-logical": "on",
         "minify/convert-strict-equal-to-equal": "on",
         "minify/convert-array-from-to-spread": "on",
+        "minify/convert-return-to-sequence-expression": "on",
         "minify/extract-body": "on",
         "minify/expand-bindings": "on",
         "minify/mangle-names": ["on", {
@@ -157,6 +159,28 @@ const a = 5;
 
 ```js
 var a = 5;
+```
+
+## convert-return-to-sequence-expression
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2ccbf7da6b22b32c0ba21a39b56ad20a/94664abd32cddc122458f43eb39ce8d776ad08cd).
+
+### ❌ Example of incorrect code
+
+```js
+() => {
+    d();
+    return 1;
+};
+```
+
+### ✅ Example of correct code
+
+```js
+() => {
+    d();
+    return 1;
+};
 ```
 
 ## convert-strict-equal-to-equal
