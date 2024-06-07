@@ -20,7 +20,7 @@ module.exports.replace = () => ({
 });
 
 const check = (template) => ({__a, __b}, prev) => {
-    while (prev = prev.getPrevSibling(), prev.node) {
+    while ((prev = prev.getPrevSibling(), prev.node)) {
         if (!compare(prev, template))
             continue;
         

@@ -83,9 +83,9 @@ const one = (f) => f;
 ].map(one(console.log));
 
 // output
-1, 0, [1, 2, 3];
-2, 1, [1, 2, 3];
-3, 2, [1, 2, 3];
+(1, 0, [1, 2, 3]);
+(2, 1, [1, 2, 3]);
+(3, 2, [1, 2, 3]);
 ```
 
 So behaviour is totally different. The same result for:
