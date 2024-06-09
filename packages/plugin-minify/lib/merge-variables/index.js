@@ -45,6 +45,12 @@ export const traverse = ({push, uplist}) => ({
                 
                 const [path] = vars;
                 
+                if (path.parentPath.node.kind === 'const')
+                    for (const [index, {node}] of vars.entries()) {
+                        if (!node.init)
+                            vars.splice(index, 1);
+                    }
+                
                 push({
                     path: path.parentPath,
                     vars,
