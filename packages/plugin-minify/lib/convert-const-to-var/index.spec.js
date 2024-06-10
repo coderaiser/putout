@@ -32,3 +32,8 @@ test('plugin-minify: convert-const-to-var: transform: overlap', (t) => {
     t.transform('overlap');
     t.end();
 });
+
+test('plugin-minify: convert-const-to-var: no transform: for', (t) => {
+    t.noTransform('for');
+    t.end();
+});

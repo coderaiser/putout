@@ -1,13 +1,22 @@
 import {types, operator} from 'putout';
 
 const {getBinding} = operator;
-const {isIdentifier} = types;
+const {
+    isIdentifier,
+    isBlockStatement,
+    isForStatement,
+} = types;
 
 export const report = () => `Use 'var' instead of 'const'`;
 
 export const match = () => ({
     'const __a = __b': ({__a}, path) => {
         if (!isIdentifier(__a))
+            return false;
+        
+        const blockPath = path.find(isBlockStatement);
+        
+        if (isForStatement(blockPath?.parentPath))
             return false;
         
         const {name} = __a;
