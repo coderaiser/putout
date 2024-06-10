@@ -42,6 +42,7 @@ const fixture = readFixtures([
     'export-default-class',
     'export-default-identifier',
     'export-default-object-expression',
+    'export-destructuring',
     'export-named-declaration',
     'fn-call',
     'fn-call-vars',
@@ -803,6 +804,29 @@ test('remove-unused-variables: get-vars: export default function', (t) => {
     
     const expected = [{
         addCommands: {
+            declared: true,
+            used: true,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: export: destruturing', (t) => {
+    const ast = parse(fixture.exportDestructuring);
+    const result = getVars(ast);
+    
+    const expected = [{
+        one: {
+            declared: true,
+            used: true,
+        },
+        test: {
+            declared: true,
+            used: true,
+        },
+        two: {
             declared: true,
             used: true,
         },

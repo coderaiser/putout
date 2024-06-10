@@ -9,6 +9,7 @@ const {
     isObjectExpression,
     isFunctionDeclaration,
     isArrayExpression,
+    isArrayPattern,
     isVariableDeclaration,
     isRestElement,
 } = require('putout').types;
@@ -498,18 +499,20 @@ module.exports = ({use, declare, addParams}) => {
             const {id} = declaration;
             
             if (id && isFunctionDeclaration(declaration))
-                use(path, declaration.id.name);
-            else if (isIdentifier(declaration))
-                use(path, declaration.name);
-            else if (id && isClassDeclaration(declaration))
-                use(path, declaration.id.name);
-            else if (isObjectExpression(declaration))
-                traverseObj(declarationPath.get('properties'));
+                return use(path, declaration.id.name);
+            
+            if (isIdentifier(declaration))
+                return use(path, declaration.name);
+            
+            if (id && isClassDeclaration(declaration))
+                return use(path, declaration.id.name);
+            
+            if (isObjectExpression(declaration))
+                return traverseObj(declarationPath.get('properties'));
         },
         
         ExportNamedDeclaration(path) {
             const declarationPath = path.get('declaration');
-            
             const {declaration, specifiers} = path.node;
             
             if (declarationPath.isFunctionDeclaration())
@@ -536,6 +539,12 @@ module.exports = ({use, declare, addParams}) => {
                     /* istanbul ignore else */
                     if (isIdentifier(id))
                         use(path, id.name);
+                    
+                    if (isArrayPattern(id))
+                        for (const element of id.elements) {
+                            if (isIdentifier(element))
+                                use(path, element.name);
+                        }
                 }
                 
                 return;
