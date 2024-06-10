@@ -1,3 +1,10 @@
+2024.06.10, v35.34.1
+
+feature:
+- 30ed1aded putout: @putout/plugin-remove-unreferenced-variables v4.0.0
+- 7b52e4f1f @putout/plugin-remove-unreferenced-varialbes: drop support of 🐊 < 35
+- 41bcb0e76 @putout/plugin-remove-unreferenced-variables: exclude when parentPath is ConditionalExpression (putoutjs/minify#23)
+
 2024.06.10, v35.34.0
 
 fix:
