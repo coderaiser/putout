@@ -4,6 +4,6 @@ const use = require('./use');
 const assign = require('./assign');
 
 module.exports.rules = {
-    assign,
+    assign: ['off', assign],
     use,
 };
