@@ -53,6 +53,11 @@ test('plugin-remove-unreferenced-variables: no transform: not declared', (t) => 
     t.end();
 });
 
+test('plugin-remove-unreferenced-variables: no transform: ternary', (t) => {
+    t.noTransform('ternary');
+    t.end();
+});
+
 test('plugin-remove-unreferenced-variables: transform: merge-variables', (t) => {
     t.transform('merge-variables', {
         'minify/merge-variables': mergeVariables,

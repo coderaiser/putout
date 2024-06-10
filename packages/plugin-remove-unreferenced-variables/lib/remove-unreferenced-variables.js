@@ -34,6 +34,9 @@ module.exports.traverse = ({push}) => ({
         push(path);
     },
     '__identifier = __a'(path) {
+        if (path.parentPath.isConditionalExpression())
+            return;
+        
         const {name} = path.node.left;
         const binding = path.scope.getAllBindings()[name];
         
