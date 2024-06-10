@@ -1,3 +1,21 @@
+2024.06.10, v35.34.0
+
+fix:
+- 7a7a7cf76 @putout/plugin-minify: convert-const-to-var: overlap: fn (putoutjs/minify#17)
+
+feature:
+- b614e3536 putout: @putout/plugin-apply-optional-chaining v6.0.0
+- 0c2991bb4 @putout/plugin-apply-optional-chaining: drop support of 🐊 < 35
+- e2f0ccf67 @putout/plugin-apply-optional-chaining: assign: turn off (putoutjs/minify#19)
+- 983c9f023 @putout/plugin-minify: merge-variables (putoutjs/minify#17)
+- d04e69cdd @putout/eslint-config: no-extra-parens: enforceForSequenceExpressions: false
+- 8e0851580 @putout/plugin-putout: add-places-to-compare-places: add
+- 04e0b533e eslint-plugin-putout: tsx: @typescript-eslint/no-explicit-any: off
+- e22a0ee14 eslint-plugin-putout: ts: keyword-spacing: disable js
+- 3946fc78f @putout/plugin-minify: join-continued-strings: win case (putoutjs/minify#13)
+- 4cd124f26 @putout/engine-parser: @putout/printer v9.0.0
+- 9872ea71b @putout/plugin-minify: convert-return-to-sequence-expression
+
 2024.06.07, v35.33.0
 
 fix:
