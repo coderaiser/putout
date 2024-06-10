@@ -150,7 +150,7 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/dc0c3eb7a20d5
 
 ```jsx
 const a = (
-    <div ref={(current) => (instance = current)}/>
+    <div ref={(current) => instance = current}/>
 );
 ```
 
