@@ -16,6 +16,9 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
     
     const n = body.length;
     
+    if (body[0] === node)
+        return false;
+    
     if (n < 3)
         return false;
     

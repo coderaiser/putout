@@ -24,6 +24,14 @@ const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), '
 ruleTester.run('add-newline-before-return', rule, {
     valid: [
         montag`
+            function parseIdentNode() {
+                return parseIdentNode();
+                const node = this.startNode();
+                
+                return node;
+            }
+        `,
+        montag`
             test('hello: world', (t) => {
                 const a = 5;
                 return;
