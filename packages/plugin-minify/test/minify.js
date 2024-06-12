@@ -127,3 +127,8 @@ test('plugin-minify: transform: convert-return-to-sequence-expression', (t) => {
     t.transform('convert-return-to-sequence-expression');
     t.end();
 });
+
+test('plugin-minify: transform: before-init', (t) => {
+    t.transform('before-init');
+    t.end();
+});

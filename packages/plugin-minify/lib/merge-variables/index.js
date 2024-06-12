@@ -45,6 +45,11 @@ export const traverse = ({push, uplist}) => ({
                 
                 const [path] = vars;
                 
+                const prev = path.parentPath.getPrevSibling();
+                
+                if (prev.node && !prev.isVariableDeclaration())
+                    continue;
+                
                 if (path.parentPath.node.kind === 'const')
                     for (const [index, {node}] of vars.entries()) {
                         if (!node.init)
