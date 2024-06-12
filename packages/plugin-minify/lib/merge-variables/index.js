@@ -55,7 +55,6 @@ export const traverse = ({push, uplist}) => ({
                         continue;
                     }
                     */
-                    
                     if (kind === 'const' && !node.init) {
                         vars.splice(index, 1);
                         continue;
@@ -67,7 +66,6 @@ export const traverse = ({push, uplist}) => ({
                         vars.splice(index, 1);
                         continue;
                     }
-                    
                     //path.used = true;
                 }
                 
@@ -76,7 +74,6 @@ export const traverse = ({push, uplist}) => ({
                 
                 //if (vars.length === 1)
                 //    continue;
-                
                 push({
                     path: path.parentPath,
                     vars: [path, ...vars],
