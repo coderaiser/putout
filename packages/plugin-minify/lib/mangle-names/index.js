@@ -1,5 +1,7 @@
+import {types} from 'putout';
 import {computeName} from './compute-name.js';
 
+const {isExportNamedDeclaration} = types;
 const {entries} = Object;
 
 export const report = () => `Mangle name`;
@@ -58,6 +60,9 @@ export const fix = ({path, referenced}, options) => {
         if (!mangleClassNames && binding.path.isClassDeclaration())
             continue;
         
+        if (isInsideExport(binding))
+            continue;
+        
         const all = {
             ...allStore,
             ...scope.getAllBindings(),
@@ -90,4 +95,8 @@ function generateUid({index, all, scope}) {
     });
     
     return short;
+}
+
+function isInsideExport({path}) {
+    return isExportNamedDeclaration(path.parentPath.parentPath);
 }
