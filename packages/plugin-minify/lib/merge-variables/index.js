@@ -44,17 +44,20 @@ export const traverse = ({push, uplist}) => ({
                     continue;
                 
                 const [path] = vars;
+                const {kind} = path.parentPath.node;
                 
-                const prev = path.parentPath.getPrevSibling();
-                
-                if (prev.node && !prev.isVariableDeclaration())
-                    continue;
-                
-                if (path.parentPath.node.kind === 'const')
-                    for (const [index, {node}] of vars.entries()) {
-                        if (!node.init)
-                            vars.splice(index, 1);
+                for (const [index, path] of vars.entries()) {
+                    const {node} = path;
+                    const prev = path.parentPath.getPrevSibling();
+                    
+                    if (prev.node && !prev.isVariableDeclaration()) {
+                        vars.splice(index, 1);
+                        continue;
                     }
+                    
+                    if (kind === 'const' && !node.init)
+                        vars.splice(index, 1);
+                }
                 
                 push({
                     path: path.parentPath,

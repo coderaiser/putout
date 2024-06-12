@@ -54,6 +54,11 @@ test('plugin-minify: merge-variables: transform: const', (t) => {
     t.end();
 });
 
+test('plugin-minify: merge-variables: transform: after-assign', (t) => {
+    t.transform('after-assign');
+    t.end();
+});
+
 test('plugin-minify: merge-variables: transform: remove-unreferenced-variables', (t) => {
     t.transform('remove-unreferenced-variables', {
         'remove-unreferenced-variables': removeUnreferencedVariables,
