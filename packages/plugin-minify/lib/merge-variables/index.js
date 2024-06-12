@@ -39,15 +39,28 @@ export const traverse = ({push, uplist}) => ({
     },
     Program: {
         exit() {
-            for (const vars of uplist()) {
-                if (vars.length < 2)
+            for (const allVars of uplist()) {
+                if (allVars.length < 2)
                     continue;
                 
-                const [path] = vars;
+                const [path, ...vars] = allVars;
                 const {kind} = path.parentPath.node;
                 
                 for (const [index, path] of vars.entries()) {
                     const {node} = path;
+                    
+                    /*
+                    if (path.used) {
+                        vars.splice(index, 1);
+                        continue;
+                    }
+                    */
+                    
+                    if (kind === 'const' && !node.init) {
+                        vars.splice(index, 1);
+                        continue;
+                    }
+                    
                     const prev = path.parentPath.getPrevSibling();
                     
                     if (prev.node && !prev.isVariableDeclaration()) {
@@ -55,13 +68,18 @@ export const traverse = ({push, uplist}) => ({
                         continue;
                     }
                     
-                    if (kind === 'const' && !node.init)
-                        vars.splice(index, 1);
+                    //path.used = true;
                 }
+                
+                if (!vars.length)
+                    continue;
+                
+                //if (vars.length === 1)
+                //    continue;
                 
                 push({
                     path: path.parentPath,
-                    vars,
+                    vars: [path, ...vars],
                 });
             }
         },
