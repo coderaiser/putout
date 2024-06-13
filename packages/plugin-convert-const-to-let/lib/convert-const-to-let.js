@@ -30,6 +30,9 @@ module.exports.traverse = ({push}) => ({
 });
 
 const isLoop = ({parentPath}) => {
+    if (!parentPath)
+        return false;
+    
     if (parentPath.isForOfStatement())
         return true;
     
