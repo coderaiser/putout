@@ -35,6 +35,9 @@ export const traverse = ({push, uplist}) => ({
         if (path.parentPath.parentPath.isSwitchCase())
             return;
         
+        if (path.parentPath.parentPath.isForOfStatement())
+            return;
+        
         uplist(path.scope.uid, path);
     },
     Program: {
