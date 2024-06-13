@@ -87,6 +87,15 @@ a = 3;
 
 </details>
 
+<details><summary>constant variable without initializer</summary>
+
+```diff
+-const a;
++let a;
+```
+
+</details>
+
 <details><summary>declare undefined variables</summary>
 
 ```diff

@@ -11,10 +11,14 @@ module.exports.fix = (path) => {
 module.exports.traverse = ({push}) => ({
     VariableDeclaration: (path) => {
         for (const binding of values(path.scope.bindings)) {
-            if (binding.constant)
+            const {parentPath, node} = binding.path;
+            const {init} = node;
+            
+            if (init && binding.constant)
                 continue;
             
-            const {parentPath} = binding.path;
+            if (isLoop(parentPath) && binding.constant)
+                continue;
             
             if (!parentPath.node)
                 continue;
@@ -24,3 +28,10 @@ module.exports.traverse = ({push}) => ({
         }
     },
 });
+
+const isLoop = ({parentPath}) => {
+    if (parentPath.isForOfStatement())
+        return true;
+    
+    return parentPath.isForInStatement();
+};
