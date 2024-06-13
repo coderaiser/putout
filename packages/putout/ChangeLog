@@ -1,3 +1,21 @@
+2024.06.13, v35.35.0
+
+feature:
+- 288584b98 @putout/plugin-convert-const-to-let: add support of FunctionDeclaration
+- 25d9ab194 putout: @putout/plugin-convert-const-to-let v2.0.0
+- 25239610b @putout/plugin-convert-const-to-let: drop support of 🐊 < 35
+- 92ffc3ad2 @putout/plugin-convert-const-to-let: for-of, for-in
+- 66d06887c @putout/plugin-minify: merge-variables: for-of
+- 8ac6ec73a @putout/compare: vars: Literal -> StringLiteral
+- 7d870d9a1 @putout/plugin-minify: mangle-names: exclude export
+- ecca64aab @putout/plugin-minify: merge-variables: duplicate declaration
+- 82952059e @putout/plugin-minify: merge-variables: check previous of each var (putoutjs/minify#18)
+- 015e801f3 @putout/plugin-minify: merge-variables: check  that previous node is var
+- 6237e2741 root: c8 v10.0.0
+- a3ae58d50 eslint-plugin-putout: add-newline-before-return: exclude ReturnStatement that is first element of BlackStatement
+- 7cdb80133 @putout/plugin-minify: convert-const-to-var: exclude ForStatement (putoutjs/minify#20)
+- bba017fc8 @putout/plugin-remove-unused-variables: add support of ArrayPattern inside ExportNamedDeclaration (putoutjs/minify#22)
+
 2024.06.10, v35.34.1
 
 feature:
