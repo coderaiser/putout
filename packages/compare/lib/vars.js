@@ -22,7 +22,7 @@ const {
     isIdentifier,
     isStatement,
     isJSXElement,
-    isLiteral,
+    isStringLiteral,
     isTemplateLiteral,
     TemplateElement,
 } = types;
@@ -140,7 +140,7 @@ function setValues({waysTo, values, path}) {
             if (isStatement(values[name]))
                 way = way.replace(/\.expression$/, '');
             
-            if (isLiteral(values[name]) && isTemplateLiteral(node)) {
+            if (isStringLiteral(values[name]) && isTemplateLiteral(node)) {
                 const {value} = values[name];
                 
                 const element = TemplateElement({

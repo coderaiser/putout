@@ -841,3 +841,24 @@ test('putout: compare: vars: getTemplateValues: setValues: BlockStatement: Class
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: compare: vars: getTemplateValues: setValues: setRawValue: Number', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            'String(__a)': '`${__a}`',
+        }),
+    };
+    
+    const input = `String(1)`;
+    const {code} = putout(input, {
+        plugins: [{
+            'apply-template-literal': plugin,
+        }],
+    });
+    
+    const expected = '`${1}`;\n';
+    
+    t.equal(code, expected);
+    t.end();
+});
