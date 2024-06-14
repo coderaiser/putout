@@ -15,6 +15,11 @@ test('putout: split-assignment-expressions: report', (t) => {
     t.end();
 });
 
+test('putout: split-assignment-expressions: no report: fn', (t) => {
+    t.noReport('fn');
+    t.end();
+});
+
 test('putout: split-assignment-expressions: transform', (t) => {
     t.transform('split-assignment-expressions');
     t.end();

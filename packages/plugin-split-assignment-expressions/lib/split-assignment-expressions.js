@@ -4,6 +4,7 @@ const {types, operator} = require('putout');
 const {replaceWithMultiple} = operator;
 const {
     isAssignmentExpression,
+    isFunction,
     AssignmentExpression,
 } = types;
 
@@ -44,6 +45,9 @@ module.exports.traverse = ({push}) => ({
             const {left, operator} = right;
             lefts.push([operator, left]);
         }
+        
+        if (isFunction(right))
+            return;
         
         push({
             path,
