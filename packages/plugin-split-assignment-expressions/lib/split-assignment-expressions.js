@@ -4,17 +4,19 @@ const {types, operator} = require('putout');
 const {replaceWithMultiple} = operator;
 const {
     isAssignmentExpression,
-    isFunction,
     AssignmentExpression,
 } = types;
 
 module.exports.report = () => `Split assignment expressions`;
 
 module.exports.fix = ({path, lefts, right}) => {
-    const assignments = [];
+    const [[operator, firstLeft], ...otherLefts] = lefts;
+    const assignments = [
+        AssignmentExpression(operator, firstLeft, right),
+    ];
     
-    for (const [operator, left] of lefts)
-        assignments.push(AssignmentExpression(operator, left, right));
+    for (const [operator, left] of otherLefts)
+        assignments.push(AssignmentExpression(operator, left, firstLeft));
     
     replaceWithMultiple(path, assignments);
 };
@@ -45,9 +47,6 @@ module.exports.traverse = ({push}) => ({
             const {left, operator} = right;
             lefts.push([operator, left]);
         }
-        
-        if (isFunction(right))
-            return;
         
         push({
             path,

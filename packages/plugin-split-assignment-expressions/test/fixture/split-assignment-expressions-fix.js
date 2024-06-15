@@ -1,8 +1,8 @@
 this.shorthandAssign = -1;
-this.trailingComma = -1;
-this.parenthesizedAssign = -1;
-this.parenthesizedBind = -1;
-this.doubleProto = -1;
+this.trailingComma = this.shorthandAssign;
+this.parenthesizedAssign = this.shorthandAssign;
+this.parenthesizedBind = this.shorthandAssign;
+this.doubleProto = this.shorthandAssign;
 a = '***';
-b = '***';
-c = '***';
+b = a;
+c = a;
