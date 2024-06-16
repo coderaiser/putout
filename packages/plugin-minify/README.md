@@ -25,6 +25,7 @@ npm i @putout/plugin-putout -D
 - ✅ [join-continued-strings](#join-continued-strings);
 - ✅ [inline](#inline);
 - ✅ [mangle-names](#mangle-names);
+- ✅ [merge-assign-expressions](#merge-assign-expressions);
 - ✅ [merge-loops](#merge-loops);
 - ✅ [merge-variables](#merge-variables);
 - ✅ [remove-return-undefined](#remove-return-undefined);
@@ -50,6 +51,7 @@ npm i @putout/plugin-putout -D
         "minify/mangle-names": ["on", {
             "mangleClassNames": true
         }],
+        "minify/merge-assign-expressions": "on",
         "minify/merge-variables": "on",
         "minify/merge-loops": "on",
         "minify/remove-var-undefined": "on",
@@ -359,6 +361,25 @@ class Hello {
 }
 ```
 
+## merge-assign-expresions
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31255c05343aa1b1c116a6a639a02d13/ba723cfb4abf475cd3f1bc2fe6908638cff92881).
+
+### ❌ Example of incorrect code
+
+```js
+a = 'hello';
+b = 'hello';
+c = 'hello';
+d = 'hello';
+```
+
+### ✅ Example of correct code
+
+```js
+a = b = c = d = 'hello';
+```
+
 ## merge-variables
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31255c05343aa1b1c116a6a639a02d13/ba723cfb4abf475cd3f1bc2fe6908638cff92881).
@@ -366,14 +387,14 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31255c053
 ### ❌ Example of incorrect code
 
 ```js
-var a, b;
+var a;
+var b;
 ```
 
 ### ✅ Example of correct code
 
 ```js
-var a;
-var b;
+var a, b;
 ```
 
 ## merge-loops

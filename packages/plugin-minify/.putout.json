@@ -3,6 +3,7 @@
     "match": {
         "*.md": {
             "split-variable-declarations": "off",
+            "split-assignment-expressions": "off",
             "convert-template-to-string": "off",
             "conditions/convert-equal-to-strict-equal": "off"
         }

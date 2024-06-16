@@ -132,3 +132,8 @@ test('plugin-minify: transform: before-init', (t) => {
     t.transform('before-init');
     t.end();
 });
+
+test('plugin-minify: transform: merge-assignment-expressions', (t) => {
+    t.transform('merge-assignment-expressions');
+    t.end();
+});
