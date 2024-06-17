@@ -29,7 +29,7 @@ npm i @putout/plugin-convert-assert-to-with -D
 ## ❌ Example of incorrect code
 
 ```js
-import json from './foo.json' with { type: 'json' };
+import json from './foo.json' assert { type: 'json' };
 
 import('foo.json');
 ```
