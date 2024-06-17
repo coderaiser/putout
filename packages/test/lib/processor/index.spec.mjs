@@ -28,7 +28,7 @@ const testProcessor = createTest(import.meta.url, {
 });
 
 testProcessor('test: processor: processorRunners', async ({noProcess}) => {
-    await noProcess('typos');
+    await noProcess('typos-no-process');
 });
 
 testProcessor('test: processor: processorRunners: same input and output', async ({process, calledWith}) => {

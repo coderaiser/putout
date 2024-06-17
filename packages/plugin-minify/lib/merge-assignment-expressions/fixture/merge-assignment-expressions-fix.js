@@ -1,1 +1,4 @@
-a = b = c = d = 'hello';
+a =
+b =
+c =
+d = 'hello';
