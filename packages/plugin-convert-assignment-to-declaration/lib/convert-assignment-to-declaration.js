@@ -6,7 +6,8 @@ const {
     VariableDeclarator,
     VariableDeclaration,
 } = types;
-const {replaceWith} = operator;
+
+const {replaceWith, getBinding} = operator;
 
 module.exports.report = (path) => {
     const {name} = path.node.left;
@@ -31,7 +32,7 @@ module.exports.traverse = ({push}) => ({
         
         const {name} = left;
         
-        if (path.scope.bindings[name])
+        if (getBinding(path, name))
             return;
         
         if (!path.parentPath.isExpressionStatement())
