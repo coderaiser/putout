@@ -1,3 +1,12 @@
+2024.06.17, v35.35.1
+
+feature:
+- d18ab8900 @putout/plugin-convert-assignment-to-declaration: binding
+- 0b22cf083 @putout/plugin-convert-assignment-to-declaration: add
+- 26518dcfb @putout/plugin-minify: merge-assignment-expressions: add
+- 2cd355f72 @putout/plugin-split-assignment-expressions: duplicate-reuse
+- 385a6ce21 @putout/plugin-split-assignment-expressions: exclude Function
+
 2024.06.13, v35.35.0
 
 feature:
