@@ -45,6 +45,7 @@
             "typescript/rename-file-mts-to-ts": "on"
         },
         "*.md": {
+            "convert-assignment-to-declaration": "off",
             "conditions/apply-consistent-blocks": "off",
             "conditions/convert-comparison-to-boolean": "off",
             "conditions/remove-constant": "off",
@@ -236,6 +237,7 @@
         "simplify-ternary",
         "sort-imports-by-specifiers",
         "convert-const-to-let",
+        "convert-assignment-to-declaration",
         "convert-apply-to-spread",
         "convert-concat-to-flat",
         "convert-arguments-to-rest",

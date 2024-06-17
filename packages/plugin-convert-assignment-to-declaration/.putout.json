@@ -1,0 +1,8 @@
+{
+    "printer": "putout",
+    "match": {
+        "*.md": {
+            "convert-apply-to-spread": "off"
+        }
+    }
+}

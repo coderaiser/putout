@@ -194,3 +194,12 @@ const a = class {
 ```
 
 </details>
+
+<details><summary>convert assignment to declaration</summary>
+
+```diff
+-a = 5;
+const a = 5;
+```
+
+</details>

@@ -244,6 +244,11 @@ parserTester.run('putout', rule, {
         }],
     }, {
         code: `a = is() ? a : b`,
+        options: [{
+            rules: {
+                'convert-assignment-to-declaration': 'off',
+            },
+        }],
         output: montag`
             if (!is())
                 a = b;\n
