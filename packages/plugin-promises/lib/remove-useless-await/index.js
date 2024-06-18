@@ -22,6 +22,9 @@ module.exports.replace = () => ({
 module.exports.filter = (path) => {
     const argumentPath = path.get('argument');
     
+    if (argumentPath.isTaggedTemplateExpression())
+        return false;
+    
     if (argumentPath.isAwaitExpression())
         return true;
     

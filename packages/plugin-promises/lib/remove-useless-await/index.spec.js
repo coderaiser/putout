@@ -95,6 +95,11 @@ test('plugin-promises: remove-useless-await: no transform: import-expression', (
     t.end();
 });
 
+test('plugin-promises: remove-useless-await: no transform: tagged-template', (t) => {
+    t.noTransform('tagged-template');
+    t.end();
+});
+
 test('plugin-promises: remove-useless-await: no transform: optional-chaining', (t) => {
     t.noTransform('optional-chaining');
     t.end();
