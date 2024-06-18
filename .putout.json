@@ -7,6 +7,9 @@
         "**/packages/{formatter-*,plugin-*,processor-*,test,eslint-config,engine-processor}": {
             "putout": "on"
         },
+        "**/packages/formatter-*": {
+            "putout/apply-namespace-specifier": "off"
+        },
         "**/rules": {
             "putout": "on",
             "putout/create-test": ["on", {

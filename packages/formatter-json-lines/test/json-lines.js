@@ -1,6 +1,6 @@
 import {createTest} from '@putout/test';
-import jsonLines from '../lib/json-lines.js';
 import rmVars from '@putout/plugin-remove-unused-variables';
+import jsonLines from '../lib/json-lines.js';
 
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmVars,

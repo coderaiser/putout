@@ -18,8 +18,8 @@ To create new file `.putout.json` and disable all rules defined by `places` use:
 ### disableAll
 
 ```js
-import {rule} from '@putout/cli-ruler';
 import {readFile, writeFile} from 'node:fs/promises';
+import {rule} from '@putout/cli-ruler';
 
 const places = [{
     rule: 'remove-unused-variables',
@@ -56,8 +56,8 @@ Same with `enableAll`
 To enable one rule with a name `remove-unused-variables` use:
 
 ```js
-import ruler from '@putout/cli-ruler';
 import {readFile, writeFile} from 'node:fs/promises';
+import ruler from '@putout/cli-ruler';
 
 const places = [];
 

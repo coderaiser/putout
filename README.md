@@ -2206,6 +2206,12 @@ It has a lot of plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-reuse-duplicate-init`](/packages/plugin-reuse-duplicate-init#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-reuse-duplicate-init.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-reuse-duplicate-init) |
 
+### Groupers
+
+| Package | Version |
+|--------|-------|
+| [`@putout/plugin-group-imports-by-source`](/packages/plugin-group-imports-by-source#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-group-imports-by-source.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-group-imports-by-source) |
+
 ### Not bundled
 
 Next packages not bundled with 🐊**Putout** but can be installed separately.

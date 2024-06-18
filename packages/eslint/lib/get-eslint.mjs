@@ -1,7 +1,7 @@
 import {dirname} from 'node:path';
+import process from 'node:process';
 import {loadESLint} from 'eslint';
 import {findUp} from 'find-up';
-import process from 'node:process';
 
 const CWD = process.cwd();
 

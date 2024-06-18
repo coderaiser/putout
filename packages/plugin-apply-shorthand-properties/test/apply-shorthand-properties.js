@@ -1,6 +1,6 @@
 import {createTest} from '@putout/test';
+import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
 import * as applyShorthandProperties from '../lib/apply-shorthand-properties.js';
-import removeUnusedVariables from '@putout/plugin-remove-unused-variables';
 
 const test = createTest(import.meta.url, {
     printer: 'putout',

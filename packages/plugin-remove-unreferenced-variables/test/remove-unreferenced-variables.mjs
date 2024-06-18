@@ -1,7 +1,7 @@
 import {createTest} from '@putout/test';
-import * as removeUnreferencedVariables from '../lib/remove-unreferenced-variables.js';
 import * as minify from '@putout/plugin-minify';
 import * as forOf from '@putout/plugin-for-of';
+import * as removeUnreferencedVariables from '../lib/remove-unreferenced-variables.js';
 
 const mergeVariables = minify.rules['merge-variables'];
 const forOfReduce = forOf.rules.reduce;

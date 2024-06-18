@@ -1,5 +1,5 @@
-import {test, stub} from 'supertape';
 import process from 'node:process';
+import {test, stub} from 'supertape';
 import {createTest} from './index.mjs';
 
 const {env} = process;

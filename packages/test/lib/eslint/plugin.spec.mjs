@@ -1,5 +1,5 @@
-import {createTest} from './eslint.mjs';
 import {createPlugin} from '@putout/eslint/create-plugin';
+import {createTest} from './eslint.mjs';
 
 const test = createTest(import.meta.url, [['remove-debugger', createPlugin(await import('./fixture/remove-debugger.js'))]]);
 

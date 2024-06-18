@@ -195,6 +195,7 @@
         "apply-overrides",
         "extract-object-properties",
         "extract-sequence-expressions",
+        "group-imports-by-source",
         "madrun",
         "maybe",
         "webpack",

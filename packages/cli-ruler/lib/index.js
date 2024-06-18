@@ -1,6 +1,6 @@
 import {join} from 'node:path';
-import tryToCatch from 'try-to-catch';
 import process from 'node:process';
+import tryToCatch from 'try-to-catch';
 import * as ruleProcessor from './rule-processor.js';
 
 const cwd = process.cwd();

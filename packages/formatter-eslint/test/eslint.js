@@ -1,6 +1,6 @@
+import process from 'node:process';
 import {createTest} from '@putout/test';
 import rmUnused from '@putout/plugin-remove-unused-variables';
-import process from 'node:process';
 import eslint from '../lib/eslint.js';
 
 const test = createTest(import.meta.url, {

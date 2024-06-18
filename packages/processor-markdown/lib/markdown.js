@@ -1,12 +1,12 @@
 import {toJS, fromJS} from '@putout/operator-json';
 import stringify from 'remark-stringify';
 import preset from 'remark-preset-lint-consistent';
+import {visit} from 'unist-util-visit';
+import {unified} from 'unified';
 import removeDependenciesStatusBadge from './rules/remove-dependencies-status-badge.js';
 import removeTrailingWhitespacesFromHeading from './rules/remove-trailing-whitespaces-from-heading.js';
 import mergeHeadingSpceces from './rules/merge-heading-spaces.js';
 import {run} from './rules/index.js';
-import {visit} from 'unist-util-visit';
-import {unified} from 'unified';
 import {toPlace} from './parse-place.js';
 import {initParseStore} from './parse-store.js';
 
