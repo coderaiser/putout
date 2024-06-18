@@ -1,3 +1,11 @@
+2024.06.18, v35.35.2
+
+feature:
+- 1ef73c58b @putout/plugin-group-imports-by-source: add
+- 929ef6089 @putout/plugin-putout: add-traverse-args: listStore
+- 3c530d7ce @putout/plugin-promises: remove-useless-await: exclude TaggedTemplateExpression
+- 9d2090f74 @putout/engine-parser: hermes-parser v0.22.0
+
 2024.06.17, v35.35.1
 
 feature:
