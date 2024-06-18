@@ -890,6 +890,28 @@ module.exports.traverse = ({store}) => ({
 });
 ```
 
+- [`listStore``](https://github.com/coderaiser/putout/blob/master/packages/engine-runner/README.md#liststore)
+
+### ❌ Example of incorrect code
+
+```js
+export const traverse = () => ({
+    ImportDeclaration(path) {
+        listStore(path);
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports.traverse = ({listStore}) => ({
+    ImportDeclaration(path) {
+        listStore(path);
+    },
+});
+```
+
 - [`pathStore`](https://github.com/coderaiser/putout/blob/master/packages/engine-runner/README.md#pathstore)
 
 ### ❌ Example of incorrect code

@@ -12,6 +12,7 @@ const {
 const defaultNames = [
     'push',
     'store',
+    'listStore',
     'pathStore',
 ];
 

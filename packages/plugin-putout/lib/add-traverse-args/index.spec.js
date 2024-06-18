@@ -49,3 +49,8 @@ test('plugin-putout: add-traverse-args: transform: add-path-store', (t) => {
     t.transform('add-path-store');
     t.end();
 });
+
+test('plugin-putout: add-traverse-args: transform: list-store', (t) => {
+    t.transform('list-store');
+    t.end();
+});
