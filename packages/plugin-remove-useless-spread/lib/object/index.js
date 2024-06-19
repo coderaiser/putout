@@ -4,12 +4,14 @@ const {types} = require('putout');
 const {
     isCallExpression,
     isReturnStatement,
+    isSpreadElement,
 } = types;
 
 module.exports.report = () => `Avoid useless spread '...'`;
 
 module.exports.filter = (path) => {
-    const [first] = path.node.properties;
+    const {node, parentPath} = path;
+    const [first] = node.properties;
     
     const {
         comments,
@@ -21,6 +23,9 @@ module.exports.filter = (path) => {
     
     if (trailingComments?.length)
         return false;
+    
+    if (isCallExpression(parentPath) && isSpreadElement(first))
+        return true;
     
     if (isCallExpression(first.argument))
         return true;
