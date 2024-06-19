@@ -18,6 +18,11 @@ test('plugin-regexp/remove-useless-group: report', (t) => {
     t.end();
 });
 
+test('plugin-regexp/remove-useless-group: no report: slashes', (t) => {
+    t.noReport('slashes');
+    t.end();
+});
+
 test('plugin-regexp/remove-useless-group: no report: decimal', (t) => {
     t.transform('decimal', {
         'regexp/optimize': optimize,

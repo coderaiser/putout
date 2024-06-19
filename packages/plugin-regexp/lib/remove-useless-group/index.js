@@ -2,7 +2,10 @@
 
 const regexpTree = require('regexp-tree');
 const {compare} = require('putout').operator;
-const {isDisjunction} = require('../types');
+const {
+    isDisjunction,
+    isParentDisjunction,
+} = require('../types');
 
 module.exports.report = ({from, to}) => `Remove useless group from RegExp ${from}, use ${to}`;
 
@@ -62,6 +65,9 @@ function removeUselessGroup(str) {
                 return;
             
             if (!node.expression)
+                return;
+            
+            if (isParentDisjunction(path))
                 return;
             
             if (isDisjunction(node.expression))
