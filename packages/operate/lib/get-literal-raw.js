@@ -3,11 +3,17 @@
 const isString = (a) => typeof a === 'string';
 
 module.exports.getLiteralRaw = (path) => {
-    const node = path.node || path;
-    const {raw, extra} = node;
+    const {
+        raw,
+        extra,
+        value,
+    } = path.node || path;
     
-    if (isString(node.raw))
-        return node.raw;
+    if (isString(raw))
+        return raw;
     
-    return raw || extra.raw;
+    if (extra && isString(extra.raw))
+        return extra.raw;
+    
+    return value;
 };

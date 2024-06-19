@@ -54,3 +54,18 @@ test('operate: getLiteralRaw: empty string', (t) => {
     t.equal(result, node.raw);
     t.end();
 });
+
+test('operate: getLiteralRaw: no raw, no extra', (t) => {
+    const node = {
+        value: 'hello',
+    };
+    
+    const path = {
+        node,
+    };
+    
+    const result = getLiteralRaw(path);
+    
+    t.equal(result, node.value);
+    t.end();
+});
