@@ -1,6 +1,8 @@
 import {createTest} from '@putout/test';
-import removeUnreferencedVariables from '@putout/plugin-remove-unreferenced-variables';
+import * as removeUnreferencedVariables from '@putout/plugin-remove-unreferenced-variables';
+import * as declare from '@putout/plugin-declare';
 import * as plugin from './index.js';
+import * as shortenNames from '../shorten-names/index.js';
 
 const test = createTest(import.meta.url, {
     printer: 'putout',
@@ -61,6 +63,14 @@ test('plugin-minify: merge-variables: transform: after-assign', (t) => {
 
 test('plugin-minify: merge-variables: transform: duplicate', (t) => {
     t.transform('duplicate');
+    t.end();
+});
+
+test('plugin-minify: merge-variables: transform: used-below', (t) => {
+    t.transform('used-below', {
+        shortenNames,
+        declare,
+    });
     t.end();
 });
 
