@@ -1,4 +1,6 @@
 import {createTest} from '@putout/test';
+import * as mergeDestructuringProperties from '@putout/plugin-merge-destructuring-properties';
+import * as declare from '@putout/plugin-declare';
 import * as minify from '../lib/index.js';
 
 const test = createTest(import.meta.url, {
@@ -135,5 +137,13 @@ test('plugin-minify: transform: before-init', (t) => {
 
 test('plugin-minify: transform: merge-assignment-expressions', (t) => {
     t.transform('merge-assignment-expressions');
+    t.end();
+});
+
+test('plugin-minify: transform: merge-destructuring-properties', (t) => {
+    t.transform('merge-destructuring-properties', {
+        declare,
+        mergeDestructuringProperties,
+    });
     t.end();
 });

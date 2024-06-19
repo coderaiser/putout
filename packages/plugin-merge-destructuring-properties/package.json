@@ -32,6 +32,8 @@
   ],
   "devDependencies": {
     "@putout/plugin-convert-mock-require-to-mock-import": "*",
+    "@putout/plugin-declare": "*",
+    "@putout/plugin-minify": "*",
     "@putout/plugin-nodejs": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-tape": "*",

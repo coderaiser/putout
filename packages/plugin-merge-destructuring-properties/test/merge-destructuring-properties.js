@@ -53,6 +53,17 @@ test('plugin-merge-destructuring-properties: transform: putout/declare', (t) => 
     t.end();
 });
 
+test('plugin-merge-destructuring-properties: transform: minify', async (t) => {
+    const minify = await import('@putout/plugin-minify');
+    const declare = await import('@putout/plugin-declare');
+    
+    t.transform('minify', {
+        declare,
+        minify,
+    });
+    t.end();
+});
+
 test('plugin-merge-destructuring-properties: transform: tape', (t) => {
     t.transform('tape', {
         'putout/tape': tape,
