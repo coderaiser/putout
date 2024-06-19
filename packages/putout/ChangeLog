@@ -1,3 +1,11 @@
+2024.06.19, v35.35.3
+
+feature:
+- e48b9e5fd putout: @putout/plugin-merge-destructuring-properties v9.0.0
+- 01426a7cd @putout/plugin-merge-destructuring-properties: drop support of 🐊 < 35
+- cae55119f @putout/plugin-merge-destructuring-properties: exclude remove parentPath
+- 98e715041 @putout/plugin-minify: merge-variables: exclude when first
+
 2024.06.18, v35.35.2
 
 feature:
