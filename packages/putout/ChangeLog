@@ -1,3 +1,13 @@
+2024.06.19, v35.35.4
+
+feature:
+- f445af289 putout: @putout/plugin-regexp v9.0.0
+- b2ebf86b5 @putout/plugin-regexp: drop support of 🐊 < 35
+- 3509f479e @putout/plugin-regexp: remove-useless-group: exclude Disjunction
+- 7e2a26cb5 @putout/plugin-minify: types: exclude object property
+- b3881ccec @putout/plugin-remove-useless-spread: object: inside call
+- 9324b4916 @putout/operate: get-literal-raw: no raw, no extra
+
 2024.06.19, v35.35.3
 
 feature:
