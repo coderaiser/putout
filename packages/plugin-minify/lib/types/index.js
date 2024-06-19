@@ -8,6 +8,7 @@ export const report = () => `Use minified types`;
 export const match = () => ({
     'typeof __a === "undefined"': isDeclared,
     'typeof __a !== "undefined"': isDeclared,
+    '__a': (vars, path) => !path.parentPath.isObjectProperty(),
 });
 
 export const replace = () => ({

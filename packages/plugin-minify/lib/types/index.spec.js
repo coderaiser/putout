@@ -41,6 +41,11 @@ test('plugin-minify: types: no transform: not-defined', (t) => {
     t.end();
 });
 
+test('plugin-minify: types: no report: object', (t) => {
+    t.noReport('object');
+    t.end();
+});
+
 test('plugin-minify: types: transform: not-identifier', (t) => {
     t.transform('not-identifier');
     t.end();
