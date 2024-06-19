@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-minify",
-  "version": "8.17.0",
+  "version": "8.18.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin contains minifiers",
