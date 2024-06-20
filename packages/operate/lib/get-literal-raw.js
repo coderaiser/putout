@@ -15,5 +15,12 @@ module.exports.getLiteralRaw = (path) => {
     if (extra && isString(extra.raw))
         return extra.raw;
     
-    return value;
+    return `'${maybeEncode(value)}'`;
 };
+
+function maybeEncode(a) {
+    if (a.includes(`\\'`))
+        return a;
+    
+    return a.replaceAll(`'`, `\\'`);
+}

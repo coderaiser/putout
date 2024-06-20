@@ -65,7 +65,40 @@ test('operate: getLiteralRaw: no raw, no extra', (t) => {
     };
     
     const result = getLiteralRaw(path);
+    const expected = `'hello'`;
     
-    t.equal(result, node.value);
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: getLiteralRaw: no raw, no extra: quote', (t) => {
+    const node = {
+        value: `hello: 'world'`,
+    };
+    
+    const path = {
+        node,
+    };
+    
+    const result = getLiteralRaw(path);
+    const expected = `'hello: \\'world\\''`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: getLiteralRaw: no raw, no extra: quote: slash', (t) => {
+    const node = {
+        value: `hello\\'world'`,
+    };
+    
+    const path = {
+        node,
+    };
+    
+    const result = getLiteralRaw(path);
+    const expected = `'hello\\'world''`;
+    
+    t.equal(result, expected);
     t.end();
 });
