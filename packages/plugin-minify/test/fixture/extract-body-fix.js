@@ -7,7 +7,7 @@ function z() {
     return hello;
 }
 
-var m = function A() {
+var m = function a() {
     return hello;
 };
 

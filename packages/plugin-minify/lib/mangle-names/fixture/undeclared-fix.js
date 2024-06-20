@@ -1,5 +1,5 @@
-let A = 5;
+let a = 5;
 
 fn(() => {
-    console.log(A, a);
+    console.log(a, a);
 });

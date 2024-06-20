@@ -1,17 +1,17 @@
 await b();
 
-function A(_, B) {
+function a(A, _) {
     const {stdin: c} = process;
     let d = '';
     
     const e = () => {
-        const C = c.read();
+        const B = c.read();
         
-        if (C)
-            return d += C;
+        if (B)
+            return d += B;
         
         c.removeListener('readable', e);
-        _(d, B);
+        A(d, _);
     };
     
     c.setEncoding('utf8');
@@ -25,14 +25,14 @@ async function b() {
     if (/^(-v|--version)$/.test(In))
         return log(`v${Version}`);
     
-    const {readOptions: _a} = await import('../lib/read-options.mjs');
-    const [_b, _c] = await tryToCatch(_a);
+    const {readOptions: C} = await import('../lib/read-options.mjs');
+    const [_b, _c] = await tryToCatch(C);
     
     if (_b)
         return log.error(_b.message);
     
     if (a)
-        return A(processStream, _c);
+        return a(processStream, _c);
     
     await uglifyFiles(files, _c);
 }

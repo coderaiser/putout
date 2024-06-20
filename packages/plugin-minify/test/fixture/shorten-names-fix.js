@@ -1,2 +1,2 @@
 freeze(((b) => keys(b)));
-defineProperty(((A) => keys(A)));
+defineProperty(((a) => keys(a)));
