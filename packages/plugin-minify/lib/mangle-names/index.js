@@ -5,13 +5,14 @@ const {
     isExportNamedDeclaration,
     isClassDeclaration,
 } = types;
+
 const {entries, keys} = Object;
 
 export const report = () => `Mangle name`;
 
 const hasScope = ({scope}) => scope.__putout_minify;
 
-export const traverse = ({push, pathStore}) => ({
+export const traverse = ({push, pathStore, store}) => ({
     'Program|BlockStatement'(path) {
         const {bindings} = path.scope;
         const names = keys(bindings);
@@ -23,6 +24,7 @@ export const traverse = ({push, pathStore}) => ({
     },
     'ReferencedIdentifier'(path) {
         const {name} = path.node;
+        store(name, {});
         
         if (name.length < 5)
             return;
@@ -31,6 +33,8 @@ export const traverse = ({push, pathStore}) => ({
     },
     Program: {
         exit(programPath) {
+            const referenced = Object.fromEntries(store.entries());
+            
             for (const path of pathStore()) {
                 if (hasScope(path))
                     continue;
@@ -38,13 +42,14 @@ export const traverse = ({push, pathStore}) => ({
                 push({
                     path,
                     programPath,
+                    referenced,
                 });
             }
         },
     },
 });
 
-export const fix = ({path, programPath}, options) => {
+export const fix = ({path, programPath, referenced}, options) => {
     const {scope} = path;
     const {mangleClassNames} = options;
     const names = entries(scope.bindings);
@@ -63,6 +68,7 @@ export const fix = ({path, programPath}, options) => {
         const all = {
             ...allStore,
             ...scope.getAllBindings(),
+            ...referenced,
         };
         
         const newName = generateUid({

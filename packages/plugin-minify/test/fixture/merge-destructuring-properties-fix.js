@@ -2,7 +2,7 @@ const {defineProperty: a} = Object;
 let c = null;
 var d = 1073741823, {keys: b} = Object;
 
-function e(...e) {
+function A(...e) {
     if (n)
         return new Proxy({
             get(n) {},

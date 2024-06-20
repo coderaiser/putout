@@ -135,6 +135,11 @@ test('plugin-minify: transform: before-init', (t) => {
     t.end();
 });
 
+test('plugin-minify: transform: overlap', (t) => {
+    t.transform('overlap');
+    t.end();
+});
+
 test('plugin-minify: transform: merge-assignment-expressions', (t) => {
     t.transform('merge-assignment-expressions');
     t.end();

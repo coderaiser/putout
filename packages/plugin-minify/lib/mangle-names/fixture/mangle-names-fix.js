@@ -1,4 +1,4 @@
-function a() {
+function A() {
     const a = 5;
     const b = 7;
     const c = 8;
@@ -6,7 +6,7 @@ function a() {
     const d = 'hello';
     
 function e() {
-        return a;
+        return A;
     }
 
     const f = 55;

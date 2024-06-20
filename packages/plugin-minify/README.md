@@ -361,7 +361,7 @@ class Hello {
 }
 ```
 
-## merge-assignment-expresions
+## merge-assignment-expressions
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31255c05343aa1b1c116a6a639a02d13/ba723cfb4abf475cd3f1bc2fe6908638cff92881).
 

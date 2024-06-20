@@ -1,6 +1,6 @@
 let A = 5;
 
-fn((a) => {
+((f) => f())((a) => {
     console.log(A);
     console.log(a);
 });
