@@ -1,3 +1,12 @@
+2024.06.22, v35.35.6
+
+fix:
+- 4956733ec putout: cli: pass processorRunners
+- 01e1ac3f5 @putout/engine-processor: picomatch works differently on win/unix (#208)
+
+feature:
+- 8cb43358c @putout/engine-loader: createAsyncLoader: get rid of nanomemoize
+
 2024.06.21, v35.35.5
 
 fix:
