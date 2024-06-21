@@ -9,7 +9,9 @@ import {createWrite} from './write.mjs';
 import {createCommunication} from './communication.mjs';
 import cli from '../lib/cli/index.js';
 import {parseArgs} from '../lib/cli/parse-args.js';
+import {createExit} from '../lib/cli/exit.mjs';
 
+const halt = process.exit;
 const logError = console.error;
 const {log} = console;
 
@@ -23,22 +25,26 @@ const trace = createTrace(parentPort);
 const isStop = createIsStop(parentPort);
 const write = createWrite(parentPort);
 
-const {
-    exit,
-    cwd,
-    stdout,
-} = process;
+const {cwd, stdout} = process;
 
 const args = parseArgs(workerData.slice(2));
+const {raw} = args;
 
-if (worker)
-    subscribe({
+if (worker) {
+    const exit = createExit({
+        raw,
+        halt,
+        logError,
+    });
+    
+    await subscribe({
         args,
         worker,
         exit,
         cwd,
         write: stdout.write.bind(stdout),
     });
+}
 
 workerData.push(...[
     '-f',
@@ -47,7 +53,7 @@ workerData.push(...[
 
 await cli({
     write,
-    halt: process.exit,
+    halt,
     argv: workerData.slice(2),
     log,
     logError,

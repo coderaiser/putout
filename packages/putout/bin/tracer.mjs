@@ -25,7 +25,7 @@ const worker = new Worker(slave, {
     stdin: true,
 });
 
-subscribe({
+await subscribe({
     args,
     worker,
     cwd,
