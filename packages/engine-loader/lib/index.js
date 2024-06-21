@@ -1,7 +1,5 @@
 'use strict';
 
-const {nanomemoize} = require('nano-memoize');
-
 const {loadPlugin} = require('./load/load');
 const {createAsyncLoader} = require('./load/async-loader');
 const {parsePluginNames} = require('./plugins/parse-plugin-names');
@@ -21,7 +19,7 @@ const {check, checkRule} = require('./check');
 const {isArray} = Array;
 
 module.exports.loadPluginsAsync = loadPluginsAsync;
-module.exports.loadProcessorsAsync = nanomemoize(async (options, load) => {
+module.exports.loadProcessorsAsync = async (options, load) => {
     check(options);
     
     const {processors = []} = options;
@@ -40,7 +38,7 @@ module.exports.loadProcessorsAsync = nanomemoize(async (options, load) => {
     }
     
     return await Promise.all(list);
-});
+};
 
 module.exports.createAsyncLoader = createAsyncLoader;
 
@@ -126,3 +124,4 @@ function extendRules(rule, plugin) {
     
     return result;
 }
+
