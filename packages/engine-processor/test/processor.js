@@ -11,6 +11,7 @@ const processFile = require('putout/process-file');
 const {
     getFilePatterns,
     runProcessors,
+    _addGlobs,
 } = require('..');
 
 test('putout: engine-processor: no processor', async (t) => {
@@ -675,10 +676,8 @@ test('putout: engine-processor: call merge once', async (t) => {
 
 test('putout: engine-processor: processorRunners', async (t) => {
     const name = join(__dirname, 'fixture/call-merge-once.md');
-    
     const typos = {
         files: ['*.*'],
-        
         lint: (code) => [code, []],
     };
     
@@ -697,5 +696,17 @@ test('putout: engine-processor: processorRunners', async (t) => {
     });
     
     t.deepEqual(places, []);
+    t.end();
+});
+
+test('putout: engine-processor: addGlobs: windows should have prefix "**/"', (t) => {
+    const name = 'c:\\users\\coderaiser\\putout.js';
+    const {isMatch} = _addGlobs({
+        files: ['*.js'],
+    });
+    
+    const result = isMatch(name);
+    
+    t.ok(result);
     t.end();
 });

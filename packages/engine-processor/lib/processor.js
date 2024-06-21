@@ -2,7 +2,8 @@
 
 const {loadProcessorsAsync} = require('@putout/engine-loader');
 const picomatch = require('picomatch');
-
+const {isArray} = Array;
+const maybeArray = (a) => isArray(a) ? a : [a];
 const id = (a) => a;
 const returns = (a) => () => a;
 
@@ -165,12 +166,16 @@ async function getProcessorRunners(processors, load) {
     return await loadProcessorsAsync({processors}, load);
 }
 
+const addStar = (a) => `**/${a}`;
+
+module.exports._addGlobs = addGlobs;
 function addGlobs(processor) {
     const {files} = processor;
+    const winFiles = maybeArray(files).map(addStar);
     
     return {
         ...processor,
-        isMatch: picomatch(files, {
+        isMatch: picomatch(winFiles, {
             dot: true,
             matchBase: true,
         }),
