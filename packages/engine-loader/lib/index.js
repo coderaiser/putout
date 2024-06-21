@@ -124,4 +124,3 @@ function extendRules(rule, plugin) {
     
     return result;
 }
-
