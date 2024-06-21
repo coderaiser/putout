@@ -39,7 +39,6 @@
         }
     },
     "rules": {
-        "github/convert-npm-to-bun": "off",
         "remove-useless-spread/object": ["off", {
             "exclude": "module.exports.rules = __"
         }]
