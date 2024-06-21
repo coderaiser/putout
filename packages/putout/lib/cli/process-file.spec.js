@@ -714,3 +714,51 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: cli: process-file: syntax errors: startLine', async (t) => {
+    const source = montag`
+        function f() => {
+            return 'x';
+            var s;
+        }
+        
+        f();
+    `;
+    
+    const fix = false;
+    
+    const log = stub();
+    const write = stub();
+    
+    const options = parseOptions(__filename);
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const result = await fn({
+        name: __filename,
+        source,
+        index: 0,
+        length: 1,
+        options,
+        startLine: 4,
+    });
+    
+    const expected = {
+        code: source,
+        places: [{
+            message: `functions/methods should not have '=>'`,
+            position: {
+                column: 13,
+                line: 5,
+            },
+            rule: 'parser (quick-lint-js)',
+        }],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

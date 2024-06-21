@@ -36,6 +36,7 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async func
         
         const {lint} = await simpleImport('samadhi');
         const [code, places] = await lint(source, {
+            startLine,
             fix,
             isTS,
         });
