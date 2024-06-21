@@ -1,3 +1,14 @@
+2024.06.21, v35.35.5
+
+fix:
+- f2a4d92a0 putout: syntax error: startLine
+- da1baf23e putout: --no-worker: silently fail when no formatter found -> log error (#208)
+- 814d32209 @putout/plugin-minify: mangle-names: get back references
+
+feature:
+- dbf4d047d @putout/operate: get-literal-raw: quotes
+- 2f415bd20 @putout/plugin-minify: mangle-names: speed up: 1403 -> 1058
+
 2024.06.19, v35.35.4
 
 feature:
