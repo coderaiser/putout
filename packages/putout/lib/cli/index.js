@@ -261,6 +261,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
     };
     
     const {places, exited} = await run({
+        processorRunners,
         trace,
         fix,
         exit,
