@@ -10,7 +10,13 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => ({
     VariableDeclaration: (path) => {
-        for (const binding of values(path.scope.bindings)) {
+        const {scope} = path;
+        const {declare} = path.node;
+        
+        if (declare)
+            return;
+        
+        for (const binding of values(scope.bindings)) {
             const {parentPath, node} = binding.path;
             const {init} = node;
             
