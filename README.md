@@ -161,22 +161,29 @@ Options:
    --no-worker                 disable worker thread
 ```
 
+To skip prefix `node_modules/.bin/`, update your `$PATH` variable in with `.bashrc`:
+
+```sh
+echo 'PATH="$PATH:node_modules/.bin"' >> ~/.bashrc
+source ~/.bashrc
+```
+
 To find possible transform places in a folder named `lib`, run:
 
 ```
-npx putout lib
+putout lib
 ```
 
 To find possible transform places in multiple folders, such as folders named `lib` and `test`, run:
 
 ```
-npx putout lib test
+putout lib test
 ```
 
 To apply the transforms, use `--fix`:
 
 ```
-npx putout lib test --fix
+putout lib test --fix
 ```
 
 ### ☝️Commit your code before running 🐊Putout
