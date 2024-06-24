@@ -1,10 +1,15 @@
 'use strict';
 
-const putout = require('putout');
+const {
+    operator,
+    parse,
+    print,
+    transform,
+} = require('putout');
 const tryCatch = require('try-catch');
 const generateCode = require('./generate-code');
 const noop = () => {};
-const {operator} = putout;
+
 const {
     compare,
     extract,
@@ -88,10 +93,11 @@ const createTraverseReplacer = (push) => (path) => {
             return;
         }
         
-        const [transformError, result] = tryCatch(putout, keyCode, {
-            printer: 'putout',
-            fix: true,
+        const ast = parse(keyCode, {
             isTS: true,
+        });
+        
+        const [transformError] = tryCatch(transform, ast, keyCode, {
             plugins: [
                 ['evaluate', {
                     report: noop,
@@ -112,7 +118,7 @@ const createTraverseReplacer = (push) => (path) => {
             return;
         }
         
-        const code = result.code.slice(0, -1);
+        const code = print(ast).slice(0, -1);
         const [error, is] = tryCatch(compare, rmSemi(code), template);
         
         if (error || !is)
