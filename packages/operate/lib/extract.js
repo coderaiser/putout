@@ -53,7 +53,11 @@ function extract(node) {
     if (isTSTypeReference(node))
         return extract(node.typeName);
     
-    throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, ArrayExpression, MemberExpression, JSXAttribute, JSXText and TSTypeReference🤷, found: ${node.type}`);
+    const nodeTypes = [
+        'Literals', 'Identifiers', 'TemplateLiteral', 'TemplateElement', 'RegExpLiteral', 'ArrayExpression', 'MemberExpression', 'JSXAttribute', 'JSXText',
+    ].join(', ');
+    
+    throw Error(`'operator.extract(node)' understands only ${nodeTypes} and TSTypeReference🤷, found: ${node.type}`);
 }
 
 function extractArrayExpression(node, collector = []) {
