@@ -5,6 +5,7 @@ const {
     print,
     transform,
 } = require('putout');
+
 const tryCatch = require('try-catch');
 const pluginGenerate = require('./plugin-generate');
 

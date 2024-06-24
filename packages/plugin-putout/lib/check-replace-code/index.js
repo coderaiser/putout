@@ -6,6 +6,7 @@ const {
     print,
     transform,
 } = require('putout');
+
 const tryCatch = require('try-catch');
 const generateCode = require('./generate-code');
 const noop = () => {};
