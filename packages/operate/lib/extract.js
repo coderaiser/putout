@@ -54,7 +54,15 @@ function extract(node) {
         return extract(node.typeName);
     
     const nodeTypes = [
-        'Literals', 'Identifiers', 'TemplateLiteral', 'TemplateElement', 'RegExpLiteral', 'ArrayExpression', 'MemberExpression', 'JSXAttribute', 'JSXText',
+        'Literals',
+        'Identifiers',
+        'TemplateLiteral',
+        'TemplateElement',
+        'RegExpLiteral',
+        'ArrayExpression',
+        'MemberExpression',
+        'JSXAttribute',
+        'JSXText',
     ].join(', ');
     
     throw Error(`'operator.extract(node)' understands only ${nodeTypes} and TSTypeReference🤷, found: ${node.type}`);
