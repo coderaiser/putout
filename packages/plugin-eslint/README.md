@@ -21,10 +21,11 @@ npm i @putout/plugin-eslint -D
 - ✅ [apply-dir-to-flat](#apply-dir-to-flat);
 - ✅ [apply-match-to-flat](#apply-match-to-flat);
 - ✅ [apply-safe-align](#apply-safe-align);
-- ✅ [convert-files-to-array](#convert-files-to-array);
 - ✅ [convert-export-match-to-declaration](#convert-export-match-to-declaration);
+- ✅ [convert-files-to-array](#convert-files-to-array);
 - ✅ [convert-ide-to-safe](#convert-ide-to-safe);
 - ✅ [convert-node-to-n](#convert-node-to-n);
+- ✅ [convert-plugins-array-to-object](#convert-plugins-array-to-object);
 - ✅ [convert-rc-to-flat](#convert-rc-to-flat);
 - ✅ [convert-require-to-import](#convert-require-to-import);
 - ✅ [declare](#declare);
@@ -56,6 +57,7 @@ npm i @putout/plugin-eslint -D
         "eslint/remove-no-unsupported-features": "on",
         "eslint/remove-overrides-with-empty-rules": "on",
         "eslint/remove-useless-slice": "on",
+        "eslint/convert-plugins-array-to-object": "on",
         "eslint/convert-rc-to-flat": "off"
     }
 }
@@ -508,6 +510,40 @@ Declare:
 
 - [`safeAlign`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#flat);
 
+## convert-plugins-array-to-object
+
+> On the surface, using a plugin in `flat config` looks very similar to using a plugin in `eslintrc`. The big difference is that `eslintrc` used `string`s whereas `flat configs` uses `object`s. Instead of specifying the name of a plugin, you import the plugin directly and place it into the plugins `key`.
+>
+> (c) [eslint.org](https://eslint.org/blog/2022/08/new-config-system-part-2/)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e3c56c40746e85d745774b1929181fdb/42c6c4c699ee8e389b96298f52d8911b5be603bc).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    plugins: [react],
+};
+
+module.exports = {
+    plugins: ['react'],
+};
+```
+
+## ✅ Example of correct code
+
+```js
+export default {
+    plugins: {
+        react,
+    },
+};
+
+module.exports = {
+    plugins: ['react'],
+};
+```
+
 ## convert-rc-to-flat
 
 Checkout in 🐊**Putout Editor**:
@@ -516,8 +552,6 @@ Checkout in 🐊**Putout Editor**:
 - [Traverser](https://putout.cloudcmd.io/#/gist/fcacf6f0b9f9e368568c108999882f33/dafdbca579d27e1a8ab0be7316eb1a9848d4037c);
 
 Converts `.eslintrc.json`:
-
-### ❌ Example of incorrect code
 
 ```json
 {

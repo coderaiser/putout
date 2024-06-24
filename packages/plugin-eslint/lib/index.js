@@ -17,6 +17,7 @@ const convertFilesToArray = require('./convert-files-to-array');
 const applyMatchToFlat = require('./apply-match-to-flat');
 const applyDirToFlat = require('./apply-dir-to-flat');
 const convertExportMatchToDeclaration = require('./convert-export-match-to-declaration');
+const convertPluginsArrayToObject = require('./convert-plugins-array-to-object');
 
 module.exports.rules = {
     'add-putout': addPutout,
@@ -36,4 +37,5 @@ module.exports.rules = {
     'apply-match-to-flat': applyMatchToFlat,
     'apply-dir-to-flat': applyDirToFlat,
     'convert-export-match-to-declaration': convertExportMatchToDeclaration,
+    'convert-plugins-array-to-object': convertPluginsArrayToObject,
 };

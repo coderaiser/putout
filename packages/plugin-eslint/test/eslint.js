@@ -99,3 +99,8 @@ test('plugin-eslint: transform: convert-export-match-to-declaration', (t) => {
     t.transform('convert-export-match-to-declaration');
     t.end();
 });
+
+test('plugin-eslint: transform: convert-plugins-array-to-object', (t) => {
+    t.transform('convert-plugins-array-to-object');
+    t.end();
+});
