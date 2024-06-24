@@ -1,3 +1,13 @@
+2024.06.24, v35.35.7
+
+fix:
+- 3c23a9640 putout: parse-error: braces
+- 4efc9b2ca @putout/operate: extract: quotes
+
+feature:
+- 21e064702 @putout/plugin-eslint: convert-plugins-array-to-object
+- 798a45c47 @putout/plugin-convert-const-to-let: exclude: declare
+
 2024.06.22, v35.35.6
 
 fix:
