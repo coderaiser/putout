@@ -140,6 +140,11 @@ test('plugin-putout: check-replace-code: report: __json', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: report: esm', (t) => {
+    t.report('esm', `transform mismatch: "const __a = reatomComponent(__b)" -> "const __a = reatomComponent(__b, "__a")" !== "const _temp = reatomComponent(_temp2, _temp);"`);
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: report: __json: left', (t) => {
     t.report('json-left', '☝️ Looks like template values not linked: ["__object"] -> ["__array"]');
     t.end();

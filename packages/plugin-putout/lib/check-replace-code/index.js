@@ -38,79 +38,91 @@ module.exports.fix = ({mainPath}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    'module.exports.replace = () => __a': (path) => {
-        if (get(path))
-            return;
+    'module.exports.replace = () => __a': createTraverseReplacer(push),
+    'export const replace = () => __a': createTraverseReplacer(push),
+});
+
+function getProperties(path) {
+    const props = `body.properties`;
+    
+    if (path.isExportNamedDeclaration())
+        return path.get(`declaration.declarations.0.init.${props}`);
+    
+    return path.get(`right.${props}`);
+}
+
+const createTraverseReplacer = (push) => (path) => {
+    if (get(path))
+        return;
+    
+    if (hasMatch(path))
+        return;
+    
+    for (const propertyPath of getProperties(path)) {
+        const template = extractValue(propertyPath);
         
-        if (hasMatch(path))
-            return;
+        if (!template)
+            continue;
         
-        for (const propertyPath of path.get('right.body.properties')) {
-            const template = extractValue(propertyPath);
-            
-            if (!template)
-                continue;
-            
-            const [parseError, key] = parseKey(propertyPath);
-            
-            if (parseError) {
-                push({
-                    error: parseError,
-                    mainPath: path,
-                    path: propertyPath,
-                });
-                
-                return;
-            }
-            
-            const [generateError, keyCode] = generateCode(path, key);
-            
-            if (generateError) {
-                push({
-                    error: generateError,
-                    mainPath: path,
-                    path: propertyPath,
-                });
-                
-                return;
-            }
-            
-            const [transformError, result] = tryCatch(putout, keyCode, {
-                printer: 'putout',
-                fix: true,
-                isTS: true,
-                plugins: [
-                    ['evaluate', {
-                        report: noop,
-                        replace: () => ({
-                            [key]: template,
-                        }),
-                    }],
-                ],
+        const [parseError, key] = parseKey(propertyPath);
+        
+        if (parseError) {
+            push({
+                error: parseError,
+                mainPath: path,
+                path: propertyPath,
             });
             
-            if (transformError) {
-                push({
-                    error: transformError,
-                    mainPath: path,
-                    path: propertyPath,
-                });
-                
-                return;
-            }
-            
-            const code = result.code.slice(0, -1);
-            const [error, is] = tryCatch(compare, rmSemi(code), template);
-            
-            if (error || !is)
-                push({
-                    code,
-                    mainPath: path,
-                    path: propertyPath,
-                });
+            return;
         }
-    },
-});
+        
+        const [generateError, keyCode] = generateCode(path, key);
+        
+        if (generateError) {
+            push({
+                error: generateError,
+                mainPath: path,
+                path: propertyPath,
+            });
+            
+            return;
+        }
+        
+        const [transformError, result] = tryCatch(putout, keyCode, {
+            printer: 'putout',
+            fix: true,
+            isTS: true,
+            plugins: [
+                ['evaluate', {
+                    report: noop,
+                    replace: () => ({
+                        [key]: template,
+                    }),
+                }],
+            ],
+        });
+        
+        if (transformError) {
+            push({
+                error: transformError,
+                mainPath: path,
+                path: propertyPath,
+            });
+            
+            return;
+        }
+        
+        const code = result.code.slice(0, -1);
+        const [error, is] = tryCatch(compare, rmSemi(code), template);
+        
+        if (error || !is)
+            push({
+                code,
+                mainPath: path,
+                path: propertyPath,
+            });
+    }
+};
 
 function parseKey(propertyPath) {
     const keyPath = propertyPath.get('key');
