@@ -8,6 +8,7 @@ const {
     ArrayPattern,
     ObjectExpression,
 } = types;
+
 const {replaceWith} = operator;
 const noop = () => {};
 

@@ -1,6 +1,10 @@
 'use strict';
 
-const {parse, print, transform} = require('putout');
+const {
+    parse,
+    print,
+    transform,
+} = require('putout');
 const tryCatch = require('try-catch');
 const pluginGenerate = require('./plugin-generate');
 
@@ -11,20 +15,19 @@ module.exports = (rootPath, source) => {
     
     if (parseError)
         return [parseError];
-     
+    
     const getVar = createVarStore(rootPath);
     
-     transform(ast, source, {
+    transform(ast, source, {
         rules: {
-            'generate': ['on', {
+            generate: ['on', {
                 getVar,
             }],
         },
         plugins: [
             ['generate', pluginGenerate],
-        ]
+        ],
     });
-    
     
     const code = print(ast);
     
@@ -33,13 +36,13 @@ module.exports = (rootPath, source) => {
 
 function createVarStore(path) {
     const store = {};
-
+    
     return (name) => {
         if (store[name])
             return store[name];
-
+        
         store[name] = path.scope.generateUid();
-
+        
         return store[name];
     };
 }
