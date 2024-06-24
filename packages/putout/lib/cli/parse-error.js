@@ -20,10 +20,5 @@ module.exports = (e) => {
 };
 
 function cutBrackets(a) {
-    const index = a.lastIndexOf('(');
-    
-    if (!~index)
-        return a;
-    
-    return a.slice(0, index);
+    return a.replace(/\s\(\d:\d+\)/, '');
 }

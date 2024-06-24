@@ -20,6 +20,23 @@ test('putout: cli: parse error', (t) => {
     t.end();
 });
 
+test('putout: cli: parse error: cut braces', (t) => {
+    const e = Error('Unexpected token (1:10)');
+    const result = parseError(e);
+    
+    const expected = [{
+        message: 'Unexpected token',
+        rule: 'parser',
+        position: {
+            line: 1,
+            column: 1,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: cli: parse error: rule', (t) => {
     const e = Error('hello');
     

@@ -5,7 +5,7 @@ const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
 const processFile = require('./process-file');
 const parseOptions = require('../parse-options');
-
+const noop = () => {};
 const {reRequire, stopAll} = mockRequire;
 const {stringify} = JSON;
 
@@ -544,7 +544,7 @@ test('putout: cli: process-file: syntax error', async (t) => {
     const expected = {
         code: 'CloudCmd({{ config }});',
         places: [{
-            message: 'Unexpected token ',
+            message: 'Unexpected token',
             position: {
                 column: 10,
                 line: 2,
@@ -693,7 +693,7 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
     const expected = {
         code: source,
         places: [{
-            message: 'Unexpected token, expected "{" ',
+            message: 'Unexpected token, expected "{"',
             position: {
                 column: 13,
                 line: 2,
@@ -760,5 +760,47 @@ test('putout: cli: process-file: syntax errors: startLine', async (t) => {
     };
     
     t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: process-file: transform error', async (t) => {
+    const {extract} = await import('@putout/operate');
+    const source = 'const a = () => {}';
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const plugin = {
+        report: noop,
+        fix: noop,
+        traverse: () => ({
+            Function(path) {
+                extract(path);
+            },
+        }),
+    };
+    
+    const {places} = await fn({
+        name: 'example.js',
+        source,
+        index: 0,
+        length: 1,
+        options: {
+            plugins: [
+                ['throws', plugin],
+            ],
+        },
+    });
+    
+    const {message} = places[0];
+    
+    t.match(message, `'operator.extract(node)' understands only Literals`);
     t.end();
 });
