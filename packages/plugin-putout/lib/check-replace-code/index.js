@@ -43,10 +43,20 @@ module.exports.fix = ({mainPath}) => {
     set(mainPath);
 };
 
-module.exports.traverse = ({push}) => ({
-    'module.exports.replace = () => __a': createTraverseReplacer(push),
-    'export const replace = () => __a': createTraverseReplacer(push),
-});
+module.exports.traverse = ({push, options}) => {
+    const {once = true} = options;
+    
+    return {
+        'module.exports.replace = () => __a': createTraverseReplacer({
+            once,
+            push,
+        }),
+        'export const replace = () => __a': createTraverseReplacer({
+            once,
+            push,
+        }),
+    };
+};
 
 function getProperties(path) {
     const props = `body.properties`;
@@ -57,8 +67,8 @@ function getProperties(path) {
     return path.get(`right.${props}`);
 }
 
-const createTraverseReplacer = (push) => (path) => {
-    if (get(path))
+const createTraverseReplacer = ({once, push}) => (path) => {
+    if (once && get(path))
         return;
     
     if (hasMatch(path))

@@ -89,7 +89,9 @@ npm i @putout/plugin-putout -D
         "putout/add-await-to-progress": "on",
         "putout/add-index-to-import": "on",
         "putout/check-match": "on",
-        "putout/check-replace-code": "on",
+        "putout/check-replace-code": ["on", {
+            "once": true
+        }],
         "putout/convert-putout-test-to-create-test": "on",
         "putout/convert-to-no-transform-code": "on",
         "putout/convert-number-to-numeric": "on",
@@ -743,6 +745,7 @@ module.exports.match = () => ({
 ## check-replace-code
 
 Checks that [Replacer](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#replacer) transform is possible.
+Pass `once=false` to always fail no matter how many `fixCounts` passed.
 
 ### ❌ Example of incorrect code
 

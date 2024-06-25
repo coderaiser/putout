@@ -150,6 +150,11 @@ test('plugin-putout: check-replace-code: report: __json: left', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: no report: after-transform: once', (t) => {
+    t.noReportAfterTransform('after-transform');
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: no report: json-left: object', (t) => {
     t.noReport('json-left-object');
     t.end();
