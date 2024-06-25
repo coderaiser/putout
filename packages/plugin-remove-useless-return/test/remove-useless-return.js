@@ -89,3 +89,8 @@ test('plugin-remove-useless-return: no transform: long', (t) => {
     t.noTransform('long');
     t.end();
 });
+
+test('plugin-remove-useless-return: no report: block', (t) => {
+    t.noReport('block');
+    t.end();
+});

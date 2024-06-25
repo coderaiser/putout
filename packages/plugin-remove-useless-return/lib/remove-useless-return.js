@@ -43,6 +43,9 @@ module.exports.filter = (path) => {
     
     const argPath = first.get('argument');
     
+    if (!argPath.node)
+        return false;
+    
     if (isChainCall(argPath))
         return false;
     
