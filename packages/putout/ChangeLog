@@ -1,3 +1,14 @@
+2024.06.25, v35.35.8
+
+feature:
+- c999629ba putout: @putout/plugin-remove-useless-return v7.0.0
+- 08198fb04 @putotu/plugin-remove-useless-return: drop support of  🐊 < 35'
+- eaaef62ed @putout/plugin-remove-useless-return: not argument
+- 74819bb59 putout: kill when hang after --inspect
+- 34b1b4c73 @putout/plugin-putout: check-replace-code: split more
+- 4e4f39572 @putout/plugin-putout: check-replace-code: split
+- d675e3d21 @putout/plugin-putout: check-replace-code: esm
+
 2024.06.24, v35.35.7
 
 fix:
