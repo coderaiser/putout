@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import process from 'node:process';
+import inspector from 'node:inspector';
 import {readFile, writeFile} from 'node:fs/promises';
 import {subscribe} from '@putout/engine-reporter/subscribe';
 import {createTrace} from './trace.mjs';
@@ -10,10 +11,17 @@ import {createCommunication} from './communication.mjs';
 import cli from '../lib/cli/index.js';
 import {parseArgs} from '../lib/cli/parse-args.js';
 import {createExit} from '../lib/cli/exit.mjs';
+import {onDebuggerExit} from './debuger-exit.mjs';
 
 const halt = process.exit;
 const logError = console.error;
 const {log} = console;
+
+onDebuggerExit({
+    log,
+    process,
+    inspector,
+});
 
 const {
     worker,
