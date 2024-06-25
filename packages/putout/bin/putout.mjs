@@ -11,7 +11,7 @@ import {createCommunication} from './communication.mjs';
 import cli from '../lib/cli/index.js';
 import {parseArgs} from '../lib/cli/parse-args.js';
 import {createExit} from '../lib/cli/exit.mjs';
-import {onDebuggerExit} from './debuger-exit.mjs';
+import {onDebuggerExit} from './debugger-exit.mjs';
 
 const halt = process.exit;
 const logError = console.error;

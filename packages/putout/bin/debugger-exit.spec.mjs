@@ -1,7 +1,7 @@
 import {EventEmitter} from 'node:events';
 import {test, stub} from 'supertape';
 import stripAnsi from 'strip-ansi';
-import {onDebuggerExit} from './debuger-exit.mjs';
+import {onDebuggerExit} from './debugger-exit.mjs';
 
 const {assign} = Object;
 

@@ -343,6 +343,7 @@ test('putout: cli: process-file: plugin not found', async (t) => {
     };
     
     const processFile = reRequire('./process-file');
+    
     const fn = processFile({
         fix,
         log,
