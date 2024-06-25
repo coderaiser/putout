@@ -60,6 +60,18 @@ test('putout: no vars', (t) => {
     t.end();
 });
 
+test('putout: no vars: nested', (t) => {
+    const result = putout.putout(fixture.noVars);
+    
+    const expected = {
+        code: '\n',
+        places: [],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: root vars', (t) => {
     const result = putout(fixture.rootVars, {
         plugins: ['remove-unused-variables'],

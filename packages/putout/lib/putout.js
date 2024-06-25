@@ -19,7 +19,10 @@ const {
 
 const isString = (a) => typeof a === 'string';
 
-module.exports = (source, opts) => {
+module.exports = putout;
+module.exports.putout = putout;
+
+function putout(source, opts) {
     check(source);
     opts = defaultOptions(opts);
     
@@ -63,9 +66,7 @@ module.exports = (source, opts) => {
         code,
         places,
     };
-};
-
-module.exports.putoutAsync = async (source, opts) => {
+}module.exports.putoutAsync = async (source, opts) => {
     check(source);
     opts = defaultOptions(opts);
     

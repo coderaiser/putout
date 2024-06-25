@@ -4,6 +4,13 @@ import {transform, findPlaces} from '../lib/putout.js';
 
 const {parse} = JSON;
 
+test('putout: exports: putout-options', async (t) => {
+    const {putout, default: internal} = await import('putout');
+    
+    t.equal(putout, internal);
+    t.end();
+});
+
 test('putout: exports: putout/parse-options', async (t) => {
     const parseOptions = await import('putout/parse-options');
     const internal = await import('../lib/parse-options/index.js');

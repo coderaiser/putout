@@ -283,10 +283,24 @@ For example if you need to `remove-something` create 🐊[**Putout**](https://gi
 
 ## API
 
-### putout(source, options)
+All examples works both in **ESM** and **CommonJS**.
+
+**CommonJS**:
 
 ```js
 const putout = require('putout');
+```
+
+**ESM**:
+
+```js
+import {putout} from 'putout';
+```
+
+### putout(source, options)
+
+```js
+import {putout} from 'putout';
 
 const source = `
     const t = 'hello';
@@ -308,7 +322,7 @@ console.log(t);
 ### putoutAsync(source, options)
 
 ```js
-const {putoutAsync} = require('putout');
+import {putoutAsync} from 'putout';
 
 const source = `
     const t = 'hello';
