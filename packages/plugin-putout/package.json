@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-putout",
-  "version": "20.9.1",
+  "version": "20.10.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin helps with plugins development",
