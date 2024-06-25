@@ -66,7 +66,9 @@ function putout(source, opts) {
         code,
         places,
     };
-}module.exports.putoutAsync = async (source, opts) => {
+}
+
+module.exports.putoutAsync = async (source, opts) => {
     check(source);
     opts = defaultOptions(opts);
     
