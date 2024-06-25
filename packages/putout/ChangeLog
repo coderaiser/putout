@@ -1,3 +1,9 @@
+2024.06.25, v35.36.0
+
+feature:
+- 3d798f3f7 putout: add ability to import as specifier "putout"
+- 7e813cb26 @putout/plugin-putout: check-replace-code: once: add
+
 2024.06.25, v35.35.8
 
 feature:
