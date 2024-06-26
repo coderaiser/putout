@@ -1,3 +1,10 @@
+2024.06.26, v35.36.1
+
+feature:
+- 7b4c9730b putout: @putout/plugin-remove-unused-expressions v9.0.0
+- 269a89512 @putout/plugin-remove-unused-expressions: drop support of 🐊 < 35
+- cb3b14671 @putout/plugin-remove-unused-expressions: use client: exclude (#211)
+
 2024.06.25, v35.36.0
 
 feature:
