@@ -14,6 +14,9 @@ module.exports.traverse = ({push}) => ({
         if (path.node.value === 'use strict')
             return;
         
+        if (path.node.value === 'use client')
+            return;
+        
         push(path.parentPath);
     },
     ExpressionStatement(path) {

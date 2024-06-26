@@ -73,3 +73,8 @@ test('remove unused expression: no report: iife', (t) => {
     t.noReport('iife');
     t.end();
 });
+
+test('remove unused expression: no report: use-client', (t) => {
+    t.noReport('use-client');
+    t.end();
+});
