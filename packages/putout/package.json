@@ -150,7 +150,7 @@
     "@putout/plugin-remove-nested-blocks": "^6.0.0",
     "@putout/plugin-remove-unreachable-code": "^1.0.0",
     "@putout/plugin-remove-unreferenced-variables": "^4.0.0",
-    "@putout/plugin-remove-unused-expressions": "^8.0.0",
+    "@putout/plugin-remove-unused-expressions": "^9.0.0",
     "@putout/plugin-remove-unused-for-of-variables": "^3.0.0",
     "@putout/plugin-remove-unused-private-fields": "^2.0.0",
     "@putout/plugin-remove-unused-variables": "^9.0.0",
