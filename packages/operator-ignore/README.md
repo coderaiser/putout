@@ -40,9 +40,7 @@ const {__json} = operator;
 module.exports = ignore(__json, {
     name: '.nycrc.json',
     field: 'exclude',
-    list: [
-        '*.config.*',
-    ],
+    list: ['*.config.*'],
 });
 ```
 
