@@ -15,7 +15,7 @@ npm i putout @putout/operator-ignore
 
 ### `__ignore`
 
-```
+```js
 const {operator, ignore} = require('putout');
 const {__ignore} = operator;
 
@@ -33,7 +33,7 @@ module.exports = ignore(__ignore, {
 
 ### `__json`
 
-```
+```js
 const {operator, ignore} = require('putout');
 const {__json} = operator;
 
