@@ -3,6 +3,7 @@
 const {template, print} = require('@putout/engine-parser');
 const {remove, replaceWith} = require('@putout/operate');
 const {types} = require('@putout/babel');
+const {parseTemplateFunctions} = require('./parse-template-functions');
 
 const {
     compare,
@@ -128,6 +129,8 @@ const fix = (from, to, path) => {
             path: newPath,
         });
     }
+    
+    parseTemplateFunctions(path);
     
     mark.add();
     path
