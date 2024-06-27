@@ -1,7 +1,6 @@
 import {types, operator} from 'putout';
 
 const {compare} = operator;
-
 const {
     isNumericLiteral,
     isStringLiteral,

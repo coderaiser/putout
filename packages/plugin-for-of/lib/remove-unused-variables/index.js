@@ -18,23 +18,23 @@ module.exports.report = (path) => {
 };
 
 module.exports.match = () => ({
-    'for (const __array of __b) __c': (vars, path) => match(path),
-    'for (const __object of __b) __c': (vars, path) => match(path),
+    'for (const __array of __b) __c': matchForOf,
+    'for (const __object of __b) __c': matchForOf,
 });
 
 module.exports.replace = () => ({
-    'for (const __array of __b) __c': (vars, path) => replace(path),
-    'for (const __object of __b) __c': (vars, path) => replace(path),
+    'for (const __array of __b) __c': replaceForOf,
+    'for (const __object of __b) __c': replaceForOf,
 });
 
-function match(path) {
+function matchForOf(vars, path) {
     const idPath = path.get('left.declarations.0.id');
     const elements = getElements(idPath);
     
     return !isAllReferenced(idPath, elements);
 }
 
-function replace(path) {
+function replaceForOf(vars, path) {
     const variables = getVariables(path);
     
     for (const currentPath of variables) {
