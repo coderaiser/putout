@@ -166,6 +166,11 @@ const a = {
 -    b: 'hello',,
 +    b: 'hello',
 }
+
+const a = class {
+-    b() {},
++    b() {}
+}
 ```
 
 </details>
@@ -176,11 +181,6 @@ const a = {
 const a = {
 -    b: 'hello';
 +    b: 'hello',
-}
-
-const a = class {
--    b() {},
-+    b() {}
 }
 ```
 
@@ -199,7 +199,7 @@ const a = class {
 
 ```diff
 -a = 5;
-const a = 5;
++const a = 5;
 ```
 
 </details>
