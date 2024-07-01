@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "ts-morph": "^22.0.0"
+    "ts-morph": "^23.0.0"
   },
   "keywords": [
     "putout",
