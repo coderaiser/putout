@@ -1,7 +1,6 @@
 'use strict';
 
 const justCamelCase = require('just-camel-case');
-
 const {types, template} = require('putout');
 
 const TEST = `
