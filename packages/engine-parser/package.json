@@ -56,7 +56,7 @@
     "espree": "^10.0.0",
     "esprima": "^4.0.1",
     "hermes-parser": "^0.22.0",
-    "just-camel-case": "^4.0.2",
+    "just-camel-case": "^6.2.0",
     "lerna": "^6.0.1",
     "madrun": "^10.0.0",
     "mock-require": "^3.0.3",
