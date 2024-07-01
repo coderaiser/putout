@@ -1,3 +1,10 @@
+2024.07.01, v35.36.2
+
+feature:
+- ee7386ff2 putout: picomatch v4.0.2
+- 419d1cea6 @putout/engine-processor: picomatch v4.0.2
+- 7e4f47aa7 @putout/processor-typescript: ts-morph v23.0.0
+
 2024.06.26, v35.36.1
 
 feature:
