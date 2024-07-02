@@ -25,6 +25,7 @@ npm i @putout/plugin-promises -D
 - ✅ [add-missing-await](#add-missing-await);
 - ✅ [apply-await-import](#apply-await-import);
 - ✅ [apply-top-level-await](#apply-top-level-await);
+- ✅ [apply-with-resolvers](#apply-with-resolvers);
 - ✅ [convert-new-promise-to-async](#convert-new-promise-to-async);
 - ✅ [convert-reject-to-throw](#convert-reject-to-throw);
 - ✅ [remove-useless-async](#remove-useless-async);
@@ -41,6 +42,7 @@ npm i @putout/plugin-promises -D
         "promises/add-missing-async": "on",
         "promises/apply-await-import": "on",
         "promises/apply-top-level-await": "on",
+        "promises/apply-with-resolvers": "off",
         "promises/remove-useless-resolve": "on",
         "promises/remove-useless-async": "on",
         "promises/remove-useless-await": "on",
@@ -69,6 +71,33 @@ const {readFile} = import('node:fs/promises');
 
 ```js
 const {readFile} = await import('node:fs/promises');
+```
+
+## apply-with-resolvers
+
+> The `Promise.withResolvers()` static method returns an object containing a new `Promise` object and two functions to `resolve` or `reject` it, corresponding to the two parameters passed to the executor of the `Promise()` constructor.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers)
+
+Checkout in
+
+- 🐊📱[**Mobile Putout Editor**](https://putout.vercel.app/#/gist/e93dc4b71d05661e5d96141f31880945/de8940e2b8ecaebfcfe782cf25b221cb48830a03);
+- 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e93dc4b71d05661e5d96141f31880945/de8940e2b8ecaebfcfe782cf25b221cb48830a03);
+
+### ❌ Example of incorrect code
+
+```js
+const promise = new Promise((res, rej) => {});
+```
+
+### ✅ Example of correct code
+
+```js
+const {
+    promise,
+    resolve,
+    reject,
+} = Promise.withResolvers();
 ```
 
 ## remove-useless-resolve

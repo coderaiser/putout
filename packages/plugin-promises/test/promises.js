@@ -59,3 +59,8 @@ test('plugin-promises: transform: remove-useless-variables', (t) => {
     t.transform('remove-useless-variables');
     t.end();
 });
+
+test('plugin-promises: transform: apply-with-resolvers', (t) => {
+    t.transform('apply-with-resolvers');
+    t.end();
+});

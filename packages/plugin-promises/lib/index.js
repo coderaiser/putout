@@ -10,6 +10,7 @@ const applyTopLevelAwait = require('./apply-top-level-await');
 const removeUselessAsync = require('./remove-useless-async');
 const removeUselessAwait = require('./remove-useless-await');
 const removeUselessVariables = require('./remove-useless-variables');
+const applyWithResolvers = require('./apply-with-resolvers');
 
 module.exports.rules = {
     'remove-useless-resolve': removeUselessResolve,
@@ -22,4 +23,5 @@ module.exports.rules = {
     'remove-useless-async': removeUselessAsync,
     'remove-useless-await': removeUselessAwait,
     'remove-useless-variables': removeUselessVariables,
+    'apply-with-resolvers': ['off', applyWithResolvers],
 };
