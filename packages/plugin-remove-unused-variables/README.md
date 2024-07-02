@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-unused-variables.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-unused-variables "npm"
 
-> A variable is a container for a value, like a number we might use in a sum, or a string that we might use as part of a sentence.
+> A variable is a container for a value, like a `number` we might use in a sum, or a `string` that we might use as part of a sentence.
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables)
 
