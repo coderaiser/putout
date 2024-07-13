@@ -7,7 +7,7 @@ if (error) {
 
 try {
     await isValidPackageJson('path/to/');
-} catch (error) {
+} catch(error) {
     // @ts-ignore
     expect(error.message).toMatch('No package name provided in package.json');
 }
