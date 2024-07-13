@@ -1109,6 +1109,11 @@ test('remove-unused-variables: get-vars: try-catch', (t) => {
         error_used: du,
     }, {
         error: d_,
+    }, {
+        message: d_,
+    }, {
+        error: d_,
+        stack: d_,
     }];
     
     t.deepEqual(result, expected);

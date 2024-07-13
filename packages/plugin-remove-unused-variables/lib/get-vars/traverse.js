@@ -19,7 +19,6 @@ const traverseObjectPattern = ({use, declare}) => {
                 continue;
             
             const {key, value} = path.node;
-            
             const valuePath = path.get('value');
             
             switch(value.type) {

@@ -65,6 +65,9 @@ module.exports = ({use, declare, addParams}) => {
         CatchClause(path) {
             const param = path.get('param');
             
+            if (param.isObjectPattern())
+                return processObj(param.get('properties'));
+            
             if (!param.isIdentifier())
                 return;
             

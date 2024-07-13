@@ -1,8 +1,16 @@
 try {
-} catch (error_used) {
+} catch(error_used) {
     console.log(error_used);
 }
 
 try {
-} catch (error) {
+} catch(error) {
+}
+
+try {
+} catch({message}) {
+}
+
+try {
+} catch({stack, ...error}) {
 }
