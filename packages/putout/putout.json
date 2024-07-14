@@ -229,6 +229,7 @@
         "remove-nested-blocks",
         "remove-unreachable-code",
         "remove-duplicate-keys",
+        "remove-quotes-from-import-assertions",
         "reuse-duplicate-init",
         "split-assignment-expressions",
         "split-variable-declarations",
