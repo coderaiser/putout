@@ -1,3 +1,12 @@
+2024.07.14, v35.37.0
+
+feature:
+- e7eb5dc4e @putout/plugin-remove-quotes-from-import-assertions: add
+- 075951d16 @putout/compare: improve support of __imports
+- 4e57c70e7 @putout/plugin-remove-unused-variables: try-catch: destructuring
+- d19aae67f @putout/plugin-promises: apply-with-resolvers: add
+- 4b556cb10 putout: just-camel-case v6.2.0
+
 2024.07.01, v35.36.2
 
 feature:
