@@ -134,6 +134,9 @@ function setValues({waysTo, values, path}) {
                 continue;
             }
             
+            if (isImportsStr(name) || isExportsStr(name))
+                way = way.replace(/\.0.local$/, '');
+            
             if (isArgsStr(name) || isJSXChildrenStr(name) || isJSXAttributesStr(name))
                 way = way.replace(/\.0$/, '');
             
@@ -155,12 +158,16 @@ function setValues({waysTo, values, path}) {
                 way = way.replace(BODY_AND_CLASS_REG, '');
             
             const {extra} = jessy(way, node);
-            const valueExtra = values[name].extra;
             
-            values[name].extra = {
-                ...extra,
-                ...valueExtra,
-            };
+            if (extra) {
+                const valueExtra = values[name].extra;
+                
+                values[name].extra = {
+                    ...extra,
+                    ...valueExtra,
+                };
+            }
+            
             nessy(way, values[name], node);
         }
     }
