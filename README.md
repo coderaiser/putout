@@ -2151,6 +2151,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-remove-console`](/packages/plugin-remove-console#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-console.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-console) |
 | [`@putout/plugin-remove-empty`](/packages/plugin-remove-empty#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-empty.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-empty) |
 | [`@putout/plugin-remove-nested-blocks`](/packages/plugin-remove-nested-blocks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-nested-blocks) |
+| [`@putout/plugin-remove-quotes-from-import-assertions`](/packages/plugin-remove-quotes-from-import-assertions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-quotes-from-import-assertions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-quotes-from-import-assertions) |
 
 ### Simplifiers
 
