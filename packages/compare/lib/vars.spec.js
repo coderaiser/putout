@@ -5,7 +5,7 @@ const tryCatch = require('try-catch');
 const test = require('supertape');
 const putout = require('putout');
 const montag = require('montag');
-const {template} = require('@putout/engine-parser');
+const {parse, template} = require('@putout/engine-parser');
 
 const {compare} = require('./compare');
 const {getTemplateValues} = require('./vars');
@@ -172,7 +172,7 @@ test('putout: compare: vars: vars: setValues : __args', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: vars: __imports', (t) => {
+test('putout: compare: vars: __imports', (t) => {
     const applyToSpread = {
         report: () => '',
         replace: () => ({
@@ -199,6 +199,39 @@ test('putout: compare: vars: vars: __imports', (t) => {
     const expected = `const {hello} = require('world');\n`;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: compare: vars: __imports: set', (t) => {
+    const removeQuotes = {
+        report: () => '',
+        replace: () => ({
+            'import __imports from "__a" with {"type": "__b"}': 'import __imports from "__a" with {type: "__b"}',
+        }),
+    };
+    
+    const source = 'import json from "./mod.json" with { "type": "json" };';
+    
+    const {code} = putout(source, {
+        plugins: [{
+            'remove-quotes': removeQuotes,
+        }],
+    });
+    
+    const expected = `import json from './mod.json' with { type: 'json' };\n`;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: compare: vars: __imports: no extra', (t) => {
+    const source = 'import json from "./mod.json" with { "type": "json" };';
+    
+    const ast = parse(source);
+    
+    const result = ast.program.body[0].specifiers.extra;
+    
+    t.notOk(result);
     t.end();
 });
 
