@@ -1,3 +1,11 @@
+2024.07.15, v35.37.1
+
+feature:
+- 00d3a41c2 @putout/engine-reporter: simple-import: import from putout (#214)
+- d15b34e88 @putout/engine-report: convert to ESLint v9
+- f5e2807ab @putout/plugin-remove-quotes-from-import-assertions: add
+- 075951d16 @putout/compare: improve support of __imports
+
 2024.07.14, v35.37.0
 
 feature:
