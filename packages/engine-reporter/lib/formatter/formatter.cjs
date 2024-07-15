@@ -1,6 +1,6 @@
 'use strict';
 
-const {simpleImport} = require('../simple-import.cjs');
+const {simpleImport} = require('putout/simple-import');
 const {createAsyncLoader} = require('@putout/engine-loader');
 
 const tryToCatch = require('try-to-catch');

@@ -4,7 +4,7 @@ const tryToCatch = require('try-to-catch');
 const montag = require('montag');
 const {test, stub} = require('supertape');
 
-const {simpleImport} = require('./simple-import.cjs');
+const {simpleImport} = require('putout/simple-import');
 const initReport = require('./report.cjs');
 
 test('putout: report: no places', async (t) => {

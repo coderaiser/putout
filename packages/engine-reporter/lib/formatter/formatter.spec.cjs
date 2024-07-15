@@ -78,7 +78,7 @@ test('putout: cli: formatter: get reporter: pass load', async (t) => {
     const exit = stub();
     const simpleImport = stub().rejects(Error('simple import'));
     
-    mockRequire('../simple-import.cjs', {
+    mockRequire('putout/simple-import', {
         simpleImport,
     });
     

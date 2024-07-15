@@ -52,7 +52,6 @@
     "mock-require": "^3.0.3",
     "montag": "^1.0.0",
     "nodemon": "^3.0.1",
-    "putout": "*",
     "supertape": "^10.0.0"
   },
   "peerDependencies": {
