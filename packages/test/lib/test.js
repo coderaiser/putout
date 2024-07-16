@@ -34,7 +34,6 @@ global.__putout_test_fs = {
 };
 
 const isUpdate = () => Boolean(Number(process.env.UPDATE));
-const getPrinter = () => process.env.PUTOUT_PRINTER;
 
 const fail = (t, message) => {
     const {__putout_test_fail = t.fail} = global;
@@ -293,7 +292,6 @@ const progress = (dir, options) => (t) => async (name, expected) => {
         once(progress, 'file'),
         putout(input, {
             progress,
-            printer: getPrinter(),
             isTS,
             ...options,
         }),
@@ -318,7 +316,6 @@ const progressWithOptions = (dir, options) => (t) => async (name, pluginOptions,
         putout(input, {
             rules,
             progress,
-            printer: getPrinter(),
             isTS,
             ...options,
         }),
@@ -340,7 +337,6 @@ const transform = currify((dir, options, t, name, transformed = null, addons = {
     addons = addons || {};
     
     const {code} = putout(input, {
-        printer: getPrinter(),
         isTS,
         ...options,
         plugins: [{
@@ -378,7 +374,6 @@ const transformWithOptions = currify((dir, options, t, name, pluginOptions) => {
     };
     
     const {code} = putout(input, {
-        printer: getPrinter(),
         isTS,
         rules,
         ...options,
@@ -440,7 +435,6 @@ const noTransform = currify((dir, options, t, name, addons = {}) => {
     const [input, isTS] = readFixture(full);
     
     const {code} = putout(input, {
-        printer: getPrinter(),
         isTS,
         ...options,
         plugins: [{

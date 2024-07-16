@@ -21,14 +21,6 @@ Set environment variable `UPDATE=1` to update `transform` and `format` fixtures 
 UPDATE=1 tape test/*.js
 ```
 
-## Printer
-
-You can override default printer (`recast`) with [`putout`](https://github.com/putoutjs/printer) or `babel` using:
-
-```sh
-PUTOUT_PRINTER=putout tape test/*.js
-```
-
 ## Plugins API
 
 🐊**Putout** can be used in all IDE's supported by`ESLint` as [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/packages/eslint-plugin-putout).
