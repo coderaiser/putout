@@ -51,7 +51,7 @@ const {isSupported} = supportedFiles;
 const getFormatter = nanomemoize(require('@putout/engine-reporter/formatter').getFormatter);
 
 const cwd = process.cwd();
-const {PUTOUT_FILES = '', PUTOUT_PRINTER} = process.env;
+const {PUTOUT_FILES = ''} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
 const getExitCode = (wasStop) => wasStop() ? WAS_STOP : OK;
@@ -257,7 +257,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
         write,
         transform,
         plugins,
-        printer: PUTOUT_PRINTER,
     };
     
     const {places, exited} = await run({

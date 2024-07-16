@@ -226,7 +226,6 @@ putout lib --plugins remove-debugger,remove-unused-variables
 - `ESLINT_CONFIG_FILE` - path to **ESLint** config file;
 - `NO_ESLINT` - do not run **ESLint** after 🐊**Putout**;
 - `NO_ESLINT_WARNINGS` - do not show **ESLint** warnings;
-- `PUTOUT_PRINTER` - force 🐊**Putout** to use printers like `babel`, `putout` and `recast` to `parse()` and `print()`, useful for Babel Plugins to make locations output more accurate.
 
 ```sh
 PUTOUT_FILES=lib,test putout --fix

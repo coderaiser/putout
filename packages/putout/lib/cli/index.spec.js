@@ -91,55 +91,6 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     t.end();
 });
 
-test('putout: cli: async: env: PUTOUT_PRINTER', async (t) => {
-    process.env.PUTOUT_PRINTER = 'putout';
-    
-    const argv = [
-        __filename,
-        '--no-config',
-        '--format',
-        'none',
-        '--no-ci',
-        '--no-cache',
-    ];
-    
-    const putoutAsync = stub().resolves({
-        code: '',
-        places: [],
-    });
-    
-    mockRequire('../..', {
-        putoutAsync,
-    });
-    
-    reRequire('./process-file');
-    
-    reRequire('./runner/reader.js');
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    
-    const cli = reRequire('.');
-    
-    await runCli({
-        cli,
-        argv,
-    });
-    
-    stopAll();
-    delete process.env.PUTOUT_PRINTER;
-    
-    reRequire('./process-file');
-    reRequire('./runner/runner.js');
-    reRequire('.');
-    
-    const [arg] = putoutAsync.args;
-    const [, options] = arg;
-    const {printer} = options;
-    
-    t.deepEqual(printer, ['putout', {}]);
-    t.end();
-});
-
 test('putout: cli: --raw: parse error', async (t) => {
     const logError = stub();
     

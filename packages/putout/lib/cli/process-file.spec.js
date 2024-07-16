@@ -321,6 +321,77 @@ test('putout: cli: process-file: configurePrinter', async (t) => {
     t.end();
 });
 
+test('putout: cli: process-file: configurePrinter: overrides', async (t) => {
+    const putoutAsync = stub().returns({
+        code: '',
+        places: [],
+    });
+    
+    const source = `
+        function testFn() {
+        return 123;
+        }
+        testFn();
+    `;
+    
+    const fix = false;
+    
+    const log = stub();
+    const write = stub();
+    
+    mockRequire('../putout.js', {
+        putoutAsync,
+    });
+    
+    const options = {
+        dir: '.',
+        printer: ['putout', {
+            format: {
+                indent: '  ',
+            },
+        }],
+    };
+    
+    const processFile = reRequire('./process-file');
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    await fn({
+        options,
+        name: 'example.md{js}',
+        
+        index: 0,
+        length: 1,
+        
+        source,
+    });
+    
+    stopAll();
+    
+    const expected = [
+        source, {
+            dir: '.',
+            fix: false,
+            fixCount: undefined,
+            isFlow: undefined,
+            isTS: false,
+            printer: ['putout', {
+                format: {
+                    endOfFile: '',
+                    indent: '  ',
+                },
+            }],
+        },
+    ];
+    
+    t.calledWith(putoutAsync, expected, 'should call configurePrinter');
+    t.end();
+});
+
 test('putout: cli: process-file: plugin not found', async (t) => {
     const error = Error(`Cannot find package 'putout-plugin-travis'`);
     

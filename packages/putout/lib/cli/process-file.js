@@ -17,10 +17,10 @@ const getMatchedOptions = (name, options) => {
     return merge(options, parseMatch(name, options.match));
 };
 
-module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async function processFile({name, source, startLine, options, again}) {
+module.exports = ({fix, fixCount, isFlow, logError, raw}) => async function processFile({name, source, startLine, options, again}) {
     const {configurePrinter} = await import('./printer/printer.mjs');
     const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
-    const matchedOptions = getMatchedOptions(name, options);
+    const {printer, ...matchedOptions} = getMatchedOptions(name, options);
     
     const [e, result] = await tryToCatch(putoutAsync, source, {
         fix,
