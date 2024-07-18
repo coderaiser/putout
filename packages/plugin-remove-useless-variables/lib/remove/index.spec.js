@@ -6,7 +6,6 @@ const remove = require('.');
 const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-useless-variables/remove', remove],
     ],
@@ -14,6 +13,11 @@ const test = createTest(__dirname, {
 
 test('remove usless variables: remove: report', (t) => {
     t.report('require', 'Useless variable declaration with name "child_process"');
+    t.end();
+});
+
+test('remove usless variables: remove: no transform: swap', (t) => {
+    t.noTransform('swap');
     t.end();
 });
 

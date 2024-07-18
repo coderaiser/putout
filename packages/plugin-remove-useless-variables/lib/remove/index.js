@@ -80,6 +80,9 @@ function check({mainPath, leftPath, rightPath, push}) {
     if (compare(leftPath, binding.path.node.init))
         return;
     
+    if (binding.path.get('init').isMemberExpression())
+        return;
+    
     const idName = binding.path.node.id.name;
     
     push({
