@@ -1,3 +1,10 @@
+2024.07.18, v36.0.1
+
+feature:
+- b6b1730e6 putout: @putout/plugin-remove-useless-variables v12.0.0
+- d1be29ed0 @putout/plugin-remove-useless-variables: drop support of 🐊 < 36
+- 9055ae93e @putout/plugin-remove-useless-variables: remove: init is MemberExpression (coderaiser/minify#125)
+
 2024.07.16, v36.0.0
 
 feature:
