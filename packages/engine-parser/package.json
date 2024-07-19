@@ -55,7 +55,7 @@
     "eslint-plugin-putout": "^22.0.0",
     "espree": "^10.0.0",
     "esprima": "^4.0.1",
-    "hermes-parser": "^0.22.0",
+    "hermes-parser": "^0.23.0",
     "just-camel-case": "^6.2.0",
     "lerna": "^6.0.1",
     "madrun": "^10.0.0",
