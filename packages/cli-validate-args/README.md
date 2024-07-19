@@ -19,7 +19,7 @@ npm i @putout/cli-validate-args
 
 ```js
 // validate-args.js
-import validateArgs from '@putout/cli-validate-args';
+import {validateArgs} from '@putout/cli-validate-args';
 import parse from 'yargs-parser';
 
 const argv = process.argv.slice(2);

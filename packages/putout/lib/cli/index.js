@@ -15,7 +15,6 @@ const {
     defaultProcessors,
 } = require('@putout/engine-processor');
 
-const validateArgs = require('@putout/cli-validate-args');
 const {createCache} = require('@putout/cli-cache');
 const keyPress = require('@putout/cli-keypress');
 
@@ -113,6 +112,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
         ...argvConfig.number,
     ];
     
+    const {validateArgs} = await import('@putout/cli-validate-args');
     const validationError = await validateArgs(args, optionsList);
     
     if (validationError)

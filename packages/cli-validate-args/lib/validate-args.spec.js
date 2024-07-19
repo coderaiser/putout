@@ -1,7 +1,5 @@
-'use strict';
-
-const test = require('supertape');
-const validateArgs = require('./validate-args');
+import test from 'supertape';
+import {validateArgs} from './validate-args.js';
 
 test('putout: cli: validate args: invalid: suggest', async (t) => {
     const args = {

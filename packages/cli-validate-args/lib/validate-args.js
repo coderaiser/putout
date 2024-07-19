@@ -1,9 +1,8 @@
-'use strict';
+import kebabCase from 'just-kebab-case';
 
-const kebabCase = require('just-kebab-case');
 const {keys} = Object;
 
-module.exports = async (args, optionsList) => {
+export const validateArgs = async (args, optionsList) => {
     const [, ...allKeys] = keys(args);
     
     for (const arg of allKeys) {
