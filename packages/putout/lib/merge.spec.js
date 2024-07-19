@@ -122,3 +122,32 @@ test('putout: merge: override: plugins', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: merge: override: printer', (t) => {
+    const defaultConfig = {
+        printer: ['putout', {
+            format: {
+                indent: '  ',
+            },
+        }],
+    };
+    
+    const result = merge(defaultConfig, {
+        printer: ['putout', {
+            format: {
+                indent: '  ',
+            },
+        }],
+    });
+    
+    const expected = {
+        printer: ['putout', {
+            format: {
+                indent: '  ',
+            },
+        }],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

@@ -1,8 +1,11 @@
 'use strict';
 
 const deepmerge = require('deepmerge');
+
 const {isArray} = Array;
+const isObject = (a) => typeof a === 'object';
 const isNested = (a) => isArray(a[0]) && a[0].length > 1;
+const isStringObjectTuple = (a) => isArray(a) && isString(a[0]) && isObject(a[1]);
 
 const isString = (a) => typeof a === 'string';
 const arrayUnion = (a, b) => {
@@ -12,10 +15,19 @@ const arrayUnion = (a, b) => {
     if (isNested(a))
         return a;
     
-    const flatten = [
-        ...a,
-        ...b,
-    ].flat();
+    let flatten = [];
+    
+    if (isStringObjectTuple(a) && isStringObjectTuple(b))
+        flatten = [
+            a[0],
+            b[0],
+            deepmerge(a[1], b[1]),
+        ];
+    else
+        flatten = [
+            ...a,
+            ...b,
+        ].flat();
     
     return mergeIgnore(Array.from(new Set(flatten)));
 };
