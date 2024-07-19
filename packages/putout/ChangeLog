@@ -1,3 +1,13 @@
+2024.07.19, v36.0.3
+
+feature:
+- d6ac432fc putout: @putout/cli-validate-args v2.0.0
+- 00dc4ae46 @putout/cli-validate-args: convert to ESM
+- 14e951e58 @putout/cli-validate-args: drop support of 🐊 < 36
+- dcfb1bb27 @putout/cli-validate-args: just-kebab-case v4.2.0
+- 109c8dd57 @putout/engine-parser: hermes-parser v0.23.0
+- 8f5dba57f @putout/codemod-convert-pascal-to-camel: just-camel-case v6.2.0
+
 2024.07.19, v36.0.2
 
 feature:
