@@ -730,8 +730,7 @@ test('putout: runner: replace: jsx: attribute', (t) => {
         report: () => '',
         replace: () => ({
             [from]: ({__b}) => {
-                __b.type = 'StringLiteral';
-                return __b;
+                return StringLiteral(__b.value);
             },
         }),
     };
