@@ -1,3 +1,10 @@
+2024.08.16, v36.0.4
+
+feature:
+- 935c62d3c putout: @putout/plugin-eslint v9.0.0
+- 6af8373a3 @putout/plugin-eslint: drop support of 🐊 < 36
+- d7265d182 @putout/plugin-eslint: remove-useless-properties: add
+
 2024.07.19, v36.0.3
 
 feature:
