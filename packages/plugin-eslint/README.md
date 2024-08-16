@@ -35,6 +35,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [remove-no-unsupported-features](#remove-no-unsupported-features);
 - ✅ [remove-overrides-with-empty-rules](#remove-overrides-with-empty-rules);
 - ✅ [remove-useless-slice](#remove-useless-slice);
+- ✅ [remove-useless-properties](#remove-useless-properties);
 
 ## Config
 
@@ -57,6 +58,7 @@ npm i @putout/plugin-eslint -D
         "eslint/remove-no-unsupported-features": "on",
         "eslint/remove-overrides-with-empty-rules": "on",
         "eslint/remove-useless-slice": "on",
+        "eslint/remove-useless-properties": "on",
         "eslint/convert-plugins-array-to-object": "on",
         "eslint/convert-rc-to-flat": "off"
     }
@@ -457,6 +459,26 @@ module.exports = x.slice();
 export default x;
 
 module.exports = x;
+```
+
+## remove-useless-properties
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bc90ecd03d5e55900d95797a4979adb4/aed3f14d3541674a2c08c61bf87ac0c0f833532b).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports = [
+    ...safeAlign, {
+        rules: {},
+    },
+];
+```
+
+## ✅ Example of correct code
+
+```js
+module.exports = safeAlign;
 ```
 
 ## convert-export-match-to-declaration

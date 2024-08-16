@@ -104,3 +104,8 @@ test('plugin-eslint: transform: convert-plugins-array-to-object', (t) => {
     t.transform('convert-plugins-array-to-object');
     t.end();
 });
+
+test('plugin-eslint: transform: remove-useless-properties', (t) => {
+    t.transform('remove-useless-properties');
+    t.end();
+});
