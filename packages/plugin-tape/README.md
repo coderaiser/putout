@@ -19,6 +19,7 @@ npm i @putout/plugin-tape -D
 
 - ✅ [add-args](#add-args);
 - ✅ [add-await-to-re-import](#add-await-to-re-import);
+- ✅ [add-node-prefix-to-mock-require](#add-node-prefix-to-mock-require);
 - ✅ [add-stop-all](#add-stop-all);
 - ✅ [add-t-end](#add-t-end);
 - ✅ [apply-destructuring](#apply-destructuring);
@@ -65,6 +66,7 @@ npm i @putout/plugin-tape -D
         "tape/add-t-end": "on",
         "tape/add-stop-all": "on",
         "tape/add-await-to-re-import": "on",
+        "tape/add-node-prefix-to-mock-require": "on",
         "tape/remove-useless-t-end": "on",
         "tape/sync-with-name": "on",
         "tape/switch-expected-with-result": "on",
@@ -541,6 +543,26 @@ import {test, stub} from 'supertape';
 test('xxx', (t) => {
     const a = stub();
     t.end();
+});
+```
+
+## add-node-prefix-to-mock-require
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/38f43d1972b3ebe37597022b42024cd5/ccd8cf8a3ff4a30c6dccc528358f9439f1fd366e).
+
+### ❌ Example of incorrect code
+
+```js
+mockRequire('fs/promises', {
+    readdir,
+});
+```
+
+### ✅ Example of correct code
+
+```js
+mockRequire('node:fs/promises', {
+    readdir,
 });
 ```
 

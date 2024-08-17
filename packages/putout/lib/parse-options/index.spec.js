@@ -825,10 +825,6 @@ test('putout: parseOptions: readHomeOptions: .', (t) => {
     
     const readCodeMods = stub().returns(empty);
     
-    mockRequire('os', {
-        homedir: stub().returns('/'),
-    });
-    
     mockRequire('node:fs', {
         readdirSync: stub().throws('error'),
     });

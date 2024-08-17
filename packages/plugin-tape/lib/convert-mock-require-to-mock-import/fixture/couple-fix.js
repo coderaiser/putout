@@ -8,7 +8,7 @@ const {mockImport} = createMockImport(import.meta.url);
 const mockRequire = require('mock-require');
 
 test('cloudcmd: rest: move', async (t) => {
-    mockImport('fs', unionFS);
+    mockImport('node:fs', unionFS);
     
     await reImport('@cloudcmd/rename-files');
     await reImport('@cloudcmd/move-files');

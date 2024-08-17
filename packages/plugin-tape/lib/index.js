@@ -34,6 +34,7 @@ const removeUselessTEnd = require('./remove-useless-t-end');
 const removeOnly = require('./remove-only');
 const removeSkip = require('./remove-skip');
 const convertEqualsToEqual = require('./convert-equals-to-equal');
+const addNodePrefixToMockRequire = require('./add-node-prefix-to-mock-require');
 
 module.exports.rules = {
     'convert-mock-require-to-mock-import': ['off', convertMockRequireToMockImport],
@@ -71,4 +72,5 @@ module.exports.rules = {
     'remove-useless-t-end': removeUselessTEnd,
     'remove-only': removeOnly,
     'remove-skip': removeSkip,
+    'add-node-prefix-to-mock-require': addNodePrefixToMockRequire,
 };

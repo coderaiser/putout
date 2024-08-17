@@ -38,30 +38,15 @@ test('putout: engine-loader: load: yarn PnP support', (t) => {
 });
 
 test('putout: engine-loader: load: env: PUTOUT_YARN_PNP', (t) => {
-    const customRequire = stub().returns('plugin');
-    
-    assign(customRequire, {
-        resolve: stub().returns('world'),
-    });
-    
-    const createRequire = stub().returns(customRequire);
-    
-    mockRequire('module', {
-        createRequire,
-    });
-    
     process.env.PUTOUT_YARN_PNP = 'hello';
     
     const {loadPlugin} = reRequire('./load.js');
-    
     const [error] = tryCatch(loadPlugin, {
         name: 'hello',
         namespace: 'putout',
     });
     
     delete process.env.PUTOUT_YARN_PNP;
-    
-    stopAll();
     
     t.match(error.message, `Cannot find module 'hello'`);
     t.end();

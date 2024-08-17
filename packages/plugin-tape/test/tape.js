@@ -195,3 +195,8 @@ test('plugin-tape: transform: convert-equals-to-equal', (t) => {
     t.transform('convert-equals-to-equal');
     t.end();
 });
+
+test('plugin-tape: transform: add-node-prefix-to-mock-require', (t) => {
+    t.transform('add-node-prefix-to-mock-require');
+    t.end();
+});
