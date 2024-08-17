@@ -1,3 +1,10 @@
+2024.08.17, v36.0.5
+
+feature:
+- b00a865b9 putout: @putout/plugin-tape v15.0.0
+- df77d4cc6 @putout/plugin-tape: drop support of 🐊 < 36
+- b8d7d75e8 @putout/plugin-tape: add-node-prefix-to-mock-require
+
 2024.08.16, v36.0.4
 
 feature:
