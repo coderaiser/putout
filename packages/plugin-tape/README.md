@@ -17,40 +17,40 @@ npm i @putout/plugin-tape -D
 
 ## Rules
 
-- ✅ [add-args][#add-args];
-- ✅ [add-await-to-re-import][#add-await-to-re-import];
-- ✅ [add-stop-all][#add-stop-all];
-- ✅ [add-t-end][#add-t-end];
-- ✅ [apply-destructuring][#apply-destructuring];
-- ✅ [apply-stub][#apply-stub];
-- ✅ [apply-with-name][#apply-with-name];
-- ✅ [convert-called-with-args][#convert-called-with-args];
-- ✅ [convert-called-with-no-args-to-called-with][#convert-called-with-no-args-to-called-with];
-- ✅ [convert-called-with-to-called-with-no-args][#convert-called-with-to-called-with-no-args];
-- ✅ [convert-deep-equal-to-equal][#convert-deep-equal-to-equal];
-- ✅ [convert-does-not-throw-to-try-catch][#convert-does-not-throw-to-try-catch];
-- ✅ [convert-emitter-to-promise][#convert-emitter-to-promise];
-- ✅ [convert-equal-to-called-once][#convert-equal-to-called-once];
-- ✅ [convert-equal-to-deep-equal][#convert-equal-to-deep-equal];
-- ✅ [convert-equal-to-not-ok][#convert-equal-to-not-ok];
-- ✅ [convert-equal-to-ok][#convert-equal-to-ok];
-- ✅ [convert-equals-to-equal][#convert-equals-to-equal];
-- ✅ [convert-match-regexp-to-string][#convert-match-regexp-to-string];
-- ✅ [convert-mock-require-to-mock-import][#convert-mock-require-to-mock-import];
-- ✅ [convert-ok-to-called-with][#convert-ok-to-called-with];
-- ✅ [convert-ok-to-match][#convert-ok-to-match];
-- ✅ [convert-tape-to-supertape][#convert-tape-to-supertape];
-- ✅ [convert-throws-to-try-catch][#convert-throws-to-try-catch];
-- ✅ [declare][#declare];
-- ✅ [jest][#jest];
-- ✅ [remove-default-messages][#remove-default-messages];
-- ✅ [remove-only][#remove-only];
-- ✅ [remove-skip][#remove-skip];
-- ✅ [remove-stop-all][# [remove-stop-all];
-- ✅ [remove-useless-not-called-args][#remove-useless-not-called-args];
-- ✅ [remove-useless-t-end][#remove-useless-t-end];
-- ✅ [switch-expected-with-result][#switch-expected-with-result];
-- ✅ [sync-with-name][#sync-with-name];
+- ✅ [add-args](#add-args);
+- ✅ [add-await-to-re-import](#add-await-to-re-import);
+- ✅ [add-stop-all](#add-stop-all);
+- ✅ [add-t-end](#add-t-end);
+- ✅ [apply-destructuring](#apply-destructuring);
+- ✅ [apply-stub](#apply-stub);
+- ✅ [apply-with-name](#apply-with-name);
+- ✅ [convert-called-with-args](#convert-called-with-args);
+- ✅ [convert-called-with-no-args-to-called-with](#convert-called-with-no-args-to-called-with);
+- ✅ [convert-called-with-to-called-with-no-args](#convert-called-with-to-called-with-no-args);
+- ✅ [convert-deep-equal-to-equal](#convert-deep-equal-to-equal);
+- ✅ [convert-does-not-throw-to-try-catch](#convert-does-not-throw-to-try-catch);
+- ✅ [convert-emitter-to-promise](#convert-emitter-to-promise);
+- ✅ [convert-equal-to-called-once](#convert-equal-to-called-once);
+- ✅ [convert-equal-to-deep-equal](#convert-equal-to-deep-equal);
+- ✅ [convert-equal-to-not-ok](#convert-equal-to-not-ok);
+- ✅ [convert-equal-to-ok](#convert-equal-to-ok);
+- ✅ [convert-equals-to-equal](#convert-equals-to-equal);
+- ✅ [convert-match-regexp-to-string](#convert-match-regexp-to-string);
+- ✅ [convert-mock-require-to-mock-import](#convert-mock-require-to-mock-import);
+- ✅ [convert-ok-to-called-with](#convert-ok-to-called-with);
+- ✅ [convert-ok-to-match](#convert-ok-to-match);
+- ✅ [convert-tape-to-supertape](#convert-tape-to-supertape);
+- ✅ [convert-throws-to-try-catch](#convert-throws-to-try-catch);
+- ✅ [declare](#declare);
+- ✅ [jest](#jest);
+- ✅ [remove-default-messages](#remove-default-messages);
+- ✅ [remove-only](#remove-only);
+- ✅ [remove-skip](#remove-skip);
+- ✅ [remove-stop-all](# [remove-stop-all);
+- ✅ [remove-useless-not-called-args](#remove-useless-not-called-args);
+- ✅ [remove-useless-t-end](#remove-useless-t-end);
+- ✅ [switch-expected-with-result](#switch-expected-with-result);
+- ✅ [sync-with-name](#sync-with-name);
 
 ## Config
 
