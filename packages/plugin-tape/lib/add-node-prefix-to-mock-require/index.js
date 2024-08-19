@@ -16,21 +16,25 @@ module.exports.fix = ({__a}) => {
 };
 
 const MOCK_REQUIRE = 'mockRequire(__a, __b)';
+const MOCK_IMPORT = 'mockImport(__a, __b)';
 
 module.exports.traverse = ({push}) => ({
-    [MOCK_REQUIRE](path) {
-        const {__a} = getTemplateValues(path, MOCK_REQUIRE);
-        
-        if (!isStringLiteral(__a))
-            return;
-        
-        if (__a.value.startsWith('node:'))
-            return;
-        
-        if (isBuiltin(__a.value))
-            push({
-                path,
-                __a,
-            });
-    },
+    [MOCK_REQUIRE]: createTraverser(push, MOCK_REQUIRE),
+    [MOCK_IMPORT]: createTraverser(push, MOCK_IMPORT),
 });
+
+const createTraverser = (push, template) => (path) => {
+    const {__a} = getTemplateValues(path, template);
+    
+    if (!isStringLiteral(__a))
+        return;
+    
+    if (__a.value.startsWith('node:'))
+        return;
+    
+    if (isBuiltin(__a.value))
+        push({
+            path,
+            __a,
+        });
+};

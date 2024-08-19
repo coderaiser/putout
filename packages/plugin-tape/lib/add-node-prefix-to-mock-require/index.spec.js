@@ -19,3 +19,8 @@ test('tape: add-node-prefix-to-mock-require: transform', (t) => {
     t.transform('add-node-prefix-to-mock-require');
     t.end();
 });
+
+test('tape: add-node-prefix-to-mock-require: transform: mock-import', (t) => {
+    t.transform('mock-import');
+    t.end();
+});

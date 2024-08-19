@@ -1,5 +1,3 @@
-
-
  mockRequire('fs/promises', {
     readdir,
 });

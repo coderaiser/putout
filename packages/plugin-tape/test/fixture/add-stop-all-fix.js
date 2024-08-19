@@ -8,7 +8,7 @@ const {reImport} = createMockImport(import.meta.url);
 test('test: remove', async (t) => {
     const read = await reImport('./read.js');
     
-    mockImport('fs/promises', {
+    mockImport('node:fs/promises', {
         readFile,
     });
     stopAll();
