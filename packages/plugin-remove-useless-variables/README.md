@@ -107,7 +107,7 @@ d = 5;
 
 ### declaration
 
-Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/32177535829956ef4c7b51587a8853c3/52f19ab0e467ad7cc54fa8c554c3b0804de9d1ca).
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/32177535829956ef4c7b51587a8853c3/1fe071ff6542dc66ffad55f4776733903ab07241).
 
 ### ❌ Example of incorrect code
 
@@ -116,6 +116,10 @@ function x() {
     const a = 5;
     return a;
 }
+
+const z = b.c.replace('x', 'y');
+
+b.c = z;
 ```
 
 ### ✅ Example of correct code
@@ -144,6 +148,8 @@ const DestructuringErrors = function DestructuringErrors(a, b) {
 function DestructuringErrors(a, b) {
     return [a, b];
 }
+
+bc = b.c.replace('x', 'y');
 ```
 
 ## License

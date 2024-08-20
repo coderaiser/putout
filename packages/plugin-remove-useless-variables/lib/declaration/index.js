@@ -1,7 +1,9 @@
 'use strict';
 
-const {operator} = require('putout');
+const {types, operator} = require('putout');
 const {remove, replaceWith} = operator;
+
+const {isIdentifier} = types;
 
 module.exports.report = () => `Avoid useless declarations`;
 
@@ -32,11 +34,43 @@ module.exports.match = () => ({
         
         return next === ref.parentPath;
     },
+    '__a = __b': ({__a, __b}, path) => {
+        if (!isIdentifier(__b))
+            return false;
+        
+        const binding = path.scope.getAllBindings()[__b.name];
+        
+        if (!binding)
+            return false;
+        
+        if (binding.referencePaths.length !== 1)
+            return false;
+        
+        if (!binding.path.isVariableDeclarator())
+            return false;
+        
+        if (__a.loc?.end.column - __a.loc?.start.column > 10)
+            return false;
+        
+        return binding
+            .path
+            .get('id')
+            .isIdentifier();
+    },
 });
 
 module.exports.replace = () => ({
     'return __a': ({__a}, path) => {
         const binding = path.scope.getAllBindings()[__a.name];
+        const [ref] = binding.referencePaths;
+        
+        replaceWith(ref, binding.path.node.init);
+        remove(binding.path);
+        
+        return path;
+    },
+    '__a = __b': ({__b}, path) => {
+        const binding = path.scope.getAllBindings()[__b.name];
         const [ref] = binding.referencePaths;
         
         replaceWith(ref, binding.path.node.init);

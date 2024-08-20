@@ -4,7 +4,6 @@ const {join} = require('node:path');
 const {readFileSync} = require('node:fs');
 const tryCatch = require('try-catch');
 const camelCase = require('just-camel-case');
-const dirFixture = join(__dirname, 'fixture');
 
 const readFixture = (dir, name) => {
     const longName = join(dir, name);
@@ -19,7 +18,7 @@ const readFixture = (dir, name) => {
 module.exports.readFixtures = (dir, names) => {
     if (!names) {
         names = dir;
-        dir = dirFixture;
+        dir = join(__dirname, 'fixture');
     } else {
         dir = join(dir, 'fixture');
     }
