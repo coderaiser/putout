@@ -4,10 +4,11 @@ const {types, operator} = require('putout');
 const {remove, replaceWith} = operator;
 
 const {isIdentifier} = types;
+const MAX_LENGTH = 20;
 
 module.exports.report = () => `Avoid useless declarations`;
 
-module.exports.match = () => ({
+module.exports.match = ({options}) => ({
     'return __a': ({__a}, path) => {
         const binding = path.scope.getAllBindings()[__a.name];
         
@@ -49,7 +50,11 @@ module.exports.match = () => ({
         if (!binding.path.isVariableDeclarator())
             return false;
         
-        if (__a.loc?.end.column - __a.loc?.start.column > 10)
+        const {
+            maxLength = MAX_LENGTH,
+        } = options;
+        
+        if (maxLength < __a.loc?.end.column - __a.loc?.start.column)
             return false;
         
         return binding

@@ -6,9 +6,8 @@ export const report = (path) => `Use camelCase instead of PascalCase in function
 
 export const fix = (path) => {
     const {name} = path.node;
-    const camel = toCamel(name);
     
-    path.node.name = camel;
+    path.node.name = toCamel(name);
     rename(path, name, toCamel(name));
 };
 

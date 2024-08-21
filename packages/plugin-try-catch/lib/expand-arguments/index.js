@@ -34,13 +34,8 @@ module.exports.replace = () => ({
         const fnPath = bindings[name].path;
         const {node} = fnPath.get('init.body');
         
-        const newArgs = [
-            node.callee,
-            ...node.arguments,
-        ];
-        
         if (path.node.arguments.length === 1)
-            path.node.arguments = newArgs;
+            path.node.arguments = [node.callee, ...node.arguments];
         else
             path.node.arguments[0] = node.callee;
         

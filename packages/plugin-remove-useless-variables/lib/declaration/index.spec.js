@@ -65,6 +65,18 @@ test('remove usless variables: declaration: no transform: length', (t) => {
     t.end();
 });
 
+test('remove usless variables: declaration: transform: max length', (t) => {
+    t.transform('max-length');
+    t.end();
+});
+
+test('remove usless variables: declaration: no transform: max length disabled', (t) => {
+    t.noTransformWithOptions('max-length-disabled', {
+        maxLength: 10,
+    });
+    t.end();
+});
+
 test('remove usless variables: declaration: no transform: no-binding', (t) => {
     t.noTransform('no-binding');
     t.end();
