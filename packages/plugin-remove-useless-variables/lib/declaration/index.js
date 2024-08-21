@@ -50,6 +50,9 @@ module.exports.match = ({options}) => ({
         if (!binding.path.isVariableDeclarator())
             return false;
         
+        if (binding.path.get('init').isFunction())
+            return false;
+        
         const {
             maxLength = MAX_LENGTH,
         } = options;
