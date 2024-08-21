@@ -1,3 +1,14 @@
+2024.08.21, v36.0.6
+
+feature:
+- bf7789390 putout: @putout/plugin-try-catch v4.0.0
+- 4864fac7a @putout/plugin-try-catch: drop support of 🐊 < 36
+- e6881edc5 @putout/plugin-remove-useless-variables: declaration: exclude ForOfStatement
+- 5104bad8c @putout/plugin-remove-useless-variables: declaration: exclude functions
+- a1ed42472 @putout/plugin-remove-useless-variables: declaration: maxLength: add
+- f4ea68f5d @putout/plugin-remove-useless-variables: declaration: assignment
+- 0687c3dd7 @putout/plugin-tape: add-node-prefix-to-mock-require: mock-import
+
 2024.08.17, v36.0.5
 
 feature:
