@@ -1,9 +1,16 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {remove, replaceWith} = operator;
+const {
+    compare,
+    remove,
+    replaceWith,
+} = operator;
 
-const {isIdentifier} = types;
+const {
+    isIdentifier,
+    isForOfStatement,
+} = types;
 const MAX_LENGTH = 20;
 
 module.exports.report = () => `Avoid useless declarations`;
@@ -50,7 +57,15 @@ module.exports.match = ({options}) => ({
         if (!binding.path.isVariableDeclarator())
             return false;
         
-        if (binding.path.get('init').isFunction())
+        const initPath = binding.path.get('init');
+        
+        if (initPath.isFunction())
+            return false;
+        
+        if (path.find(isForOfStatement))
+            return false;
+        
+        if (compare(__a, 'module.exports.__'))
             return false;
         
         const {
