@@ -1,4 +1,4 @@
 const fn = (overrides = {}) => {
     const {code, e = {}} = overrides;
-    create(code || e);
+    return create(code || e);
 };

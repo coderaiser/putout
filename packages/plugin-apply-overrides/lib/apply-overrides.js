@@ -13,8 +13,8 @@ const {
     isAssignmentPattern,
     isFunction,
     BlockStatement,
-    ExpressionStatement,
     isBlockStatement,
+    ReturnStatement,
 } = types;
 
 const createOverrides = template('const %%overrides%% = overrides');
@@ -29,7 +29,7 @@ module.exports.fix = (path) => {
     const {body} = parentPath.node;
     
     if (!isBlockStatement(body))
-        parentPath.node.body = BlockStatement([ExpressionStatement(body)]);
+        parentPath.node.body = BlockStatement([ReturnStatement(body)]);
     
     path.parentPath.node.body.body.unshift(createOverrides({
         overrides: node.left,
