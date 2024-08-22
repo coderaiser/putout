@@ -91,7 +91,7 @@
     "@putout/plugin-apply-early-return": "^3.0.0",
     "@putout/plugin-apply-flat-map": "^2.0.0",
     "@putout/plugin-apply-optional-chaining": "^6.0.0",
-    "@putout/plugin-apply-overrides": "^1.0.0",
+    "@putout/plugin-apply-overrides": "^2.0.0",
     "@putout/plugin-apply-starts-with": "^1.0.0",
     "@putout/plugin-apply-template-literals": "^3.0.0",
     "@putout/plugin-browserlist": "^2.0.0",
