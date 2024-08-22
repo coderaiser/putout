@@ -52,6 +52,11 @@ test('plugin-convert-const-to-let: no report: declare', (t) => {
     t.end();
 });
 
+test('plugin-convert-const-to-let: no report: declare-module', (t) => {
+    t.noReport('declare-module');
+    t.end();
+});
+
 test('plugin-convert-const-to-let: transform: split-variable-declarations', (t) => {
     t.transform('split-variable-declarations', {
         'split-variable-declaration': splitVariableDeclarations,

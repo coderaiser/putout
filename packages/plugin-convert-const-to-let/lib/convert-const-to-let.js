@@ -10,6 +10,9 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => ({
     VariableDeclaration: (path) => {
+        if (path.parentPath.isTSModuleBlock())
+            return;
+        
         const {scope} = path;
         const {declare} = path.node;
         
