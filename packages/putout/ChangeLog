@@ -1,3 +1,10 @@
+2024.08.22, v36.0.7
+
+feature:
+- a136020c9 putout: @putout/plugin-convert-const-to-let v3.0.0
+- 6d2cae860 @putout/plugin-convert-const-to-let: drop support of 🐊 < 36
+- 26695a9bc @putout/plugin-remove-useless-variables: declaration: different scopes
+
 2024.08.21, v36.0.6
 
 feature:
