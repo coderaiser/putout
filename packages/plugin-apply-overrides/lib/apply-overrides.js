@@ -12,16 +12,25 @@ const {
     AssignmentPattern,
     isAssignmentPattern,
     isFunction,
+    BlockStatement,
+    ExpressionStatement,
+    isBlockStatement,
 } = types;
 
 const createOverrides = template('const %%overrides%% = overrides');
 
 module.exports.report = () => `Use variable 'overrides' instead of destructuring function argument`;
 module.exports.fix = (path) => {
-    const {node} = path;
+    const {node, parentPath} = path;
     const {right} = node;
     
     replaceWith(path, AssignmentPattern(Identifier('overrides'), right));
+    
+    const {body} = parentPath.node;
+    
+    if (!isBlockStatement(body))
+        parentPath.node.body = BlockStatement([ExpressionStatement(body)]);
+    
     path.parentPath.node.body.body.unshift(createOverrides({
         overrides: node.left,
     }));

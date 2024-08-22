@@ -1,5 +1,3 @@
-
-
 async function matchToFlatDir(path, config, {
     cwd,
     readESLintConfig = _readESLintConfig,

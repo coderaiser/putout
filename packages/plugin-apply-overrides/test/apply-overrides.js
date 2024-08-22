@@ -59,3 +59,8 @@ test('putout: apply-overrides: transform', (t) => {
     t.transform('apply-overrides');
     t.end();
 });
+
+test('putout: apply-overrides: transform: no-body', (t) => {
+    t.transform('no-body');
+    t.end();
+});
