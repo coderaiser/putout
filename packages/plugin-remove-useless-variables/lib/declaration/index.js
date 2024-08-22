@@ -7,10 +7,8 @@ const {
     replaceWith,
 } = operator;
 
-const {
-    isIdentifier,
-    isForOfStatement,
-} = types;
+const {isIdentifier} = types;
+
 const MAX_LENGTH = 20;
 
 module.exports.report = () => `Avoid useless declarations`;
@@ -51,18 +49,13 @@ module.exports.match = ({options}) => ({
         if (!binding)
             return false;
         
+        if (path.scope.uid !== binding.scope.uid)
+            return false;
+        
         if (binding.referencePaths.length !== 1)
             return false;
         
         if (!binding.path.isVariableDeclarator())
-            return false;
-        
-        const initPath = binding.path.get('init');
-        
-        if (initPath.isFunction())
-            return false;
-        
-        if (path.find(isForOfStatement))
             return false;
         
         if (compare(__a, 'module.exports.__'))

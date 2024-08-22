@@ -91,3 +91,8 @@ test('remove usless variables: declaration: no transform: module-exports', (t) =
     t.noTransform('module-exports');
     t.end();
 });
+
+test('remove usless variables: declaration: no transform: other-scope', (t) => {
+    t.noTransform('other-scope');
+    t.end();
+});
