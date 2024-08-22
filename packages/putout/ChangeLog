@@ -1,3 +1,9 @@
+2024.08.22, v36.0.8
+
+feature:
+- b6b594adc putout: @putout/plugin-apply-overrides v2.0.0
+- c1a3b1d45 @putout/plugin-apply-overrides: drop support of 🐊 < 36
+
 2024.08.22, v36.0.7
 
 feature:
