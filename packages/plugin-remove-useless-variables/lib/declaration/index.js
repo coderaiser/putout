@@ -58,6 +58,9 @@ module.exports.match = ({options}) => ({
         if (!binding.path.isVariableDeclarator())
             return false;
         
+        if (compare(__a, 'module.exports'))
+            return false;
+        
         if (compare(__a, 'module.exports.__'))
             return false;
         
