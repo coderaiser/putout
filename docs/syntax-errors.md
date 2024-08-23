@@ -114,6 +114,14 @@ readFile('./hello.js', 'utf8');
 
 </details>
 
+<details><summary>remove useless<code>delete</code></summary>
+
+```diff
+-delete abc;
+```
+
+</details>
+
 <details><summary>remove getter arguments</summary>
 
 ```diff
