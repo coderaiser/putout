@@ -24,3 +24,8 @@ test('convert-optional-to-logical: assign: no transform call', (t) => {
     t.noTransform('call');
     t.end();
 });
+
+test('convert-optional-to-logical: assign: no report: right', (t) => {
+    t.noReport('right');
+    t.end();
+});

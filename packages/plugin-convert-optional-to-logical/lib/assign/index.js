@@ -23,6 +23,11 @@ module.exports.traverse = ({push, listStore}) => ({
         if (!path.parentPath.isAssignmentExpression())
             return;
         
+        const rightPath = path.parentPath.get('right');
+        
+        if (path === rightPath)
+            return;
+        
         listStore(path);
     },
     Program: {
