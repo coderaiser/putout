@@ -53,6 +53,7 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout** | [`remove-useless-delete`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useles-delete#readme) | ✅
 ⏣ **ESLint** | [`no-delete-var`](https://eslint.org/docs/rules/no-delete-var) | ❌
+🦕 **Deno** | [`no-delete-var`](https://lint.deno.land/rules/no-delete-var) | ❌
 
 ## License
 
