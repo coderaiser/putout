@@ -53,3 +53,18 @@ test('eslint-config: array-bracket-spacing', async ({process}) => {
 test('eslint-config: no-extra-parens', async ({comparePlaces}) => {
     await comparePlaces('no-extra-parens', []);
 });
+
+test('eslint-config: no-delete-var', async ({comparePlaces}) => {
+    await comparePlaces('no-delete-var', [], {
+        rules: {
+            'no-var': 'off',
+        },
+        parserOptions: {
+            ecmaVersion: 3,
+            sourceType: 'script',
+            babelOptions: {
+                sourceType: 'script',
+            },
+        },
+    });
+});

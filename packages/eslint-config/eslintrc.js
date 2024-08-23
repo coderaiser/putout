@@ -36,6 +36,7 @@ module.exports = {
                 object: false,
             },
         }],
+        'no-delete-var': 'off',
         'no-else-return': ['error', {
             allowElseIf: false,
         }],
