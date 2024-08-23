@@ -1,3 +1,12 @@
+2024.08.23, v36.0.9
+
+feature:
+- 450a9d74e putout: @putout/plugin-convert-optional-to-logical v4.0.0
+- 11ee1dd53 @putout/plugin-convert-optional-to-logical: drop support of 🐊 < 36
+- e9a653a2c @putout/plugin-convert-optional-chaining: assign: exclude right
+- 1efb34869 @putout/plugin-apply-overrides: ReturnStatement
+- 638722707 @putout/plugin-remove-useless-variables: declaration: exclude module.exports
+
 2024.08.22, v36.0.8
 
 feature:
