@@ -35,7 +35,7 @@ npm i putout @putout/plugin-typescript -D
 - ✅ [remove-setter-return-type][#remove-setter-return-type];
 - ✅ [remove-useless-mapped-types][#remove-useless-mapped-types];
 - ✅ [remove-useless-mapping-modifiers][#remove-useless-mapping-modifiers];
-- ✅ [remove-useless-non-null-expression](#remove-useless-non-null-expression);
+- ✅ [remove-useless-non-null-expressions](#remove-useless-non-null-expressions);
 - ✅ [remove-useless-parens][#remove-useless-parens];
 - ✅ [remove-useless-promise][#remove-useless-promise];
 - ✅ [remove-useless-types][#remove-useless-types];
@@ -66,7 +66,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/remove-getter-arguments": "on",
         "typescript/remove-setter-return-type": "on",
         "typescript/remove-useless-mapped-types": "on",
-        "typescript/remove-useless-non-null-expression": "on",
+        "typescript/remove-useless-non-null-expressions": "on",
         "typescript/cts-file": "off",
         "typescript/mts-file": "off",
         "typescript/rename-file-cts-to-ts": "off",
@@ -418,6 +418,24 @@ type SuperType = {
 
 ```ts
 type SuperType = Type;
+```
+
+## remove-useless-non-null-expressions
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7a7b37619981d2b2667a709aed96aa26/4bf8d219803979ccb8777e732aa095ce4425dff5).
+
+### ❌ Example of incorrect code
+
+```ts
+const bar = foo!!.str;
+const baz = bar!?.n;
+```
+
+### ✅ Example of correct code
+
+```ts
+const bar = foo!.str;
+const baz = bar?.n;
 ```
 
 ## remove-useless-mapping-modifiers

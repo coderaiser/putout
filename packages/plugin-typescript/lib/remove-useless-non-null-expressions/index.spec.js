@@ -6,16 +6,21 @@ const plugin = require('.');
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['remove-useless-non-null-expression', plugin],
+        ['remove-useless-non-null-expressions', plugin],
     ],
 });
 
-test('typescript: remove-useless-non-null-expression: report', (t) => {
+test('typescript: remove-useless-non-null-expressions: report', (t) => {
     t.report('remove-useless-non-null-expression', `Avoid useless non null expression: 'foo!!' -> 'foo!'`);
     t.end();
 });
 
-test('typescript: remove-useless-non-null-expression: transform', (t) => {
+test('typescript: remove-useless-non-null-expressions: transform', (t) => {
     t.transform('remove-useless-non-null-expression');
+    t.end();
+});
+
+test('typescript: remove-useless-non-null-expressions: transform: optional', (t) => {
+    t.transform('optional');
     t.end();
 });

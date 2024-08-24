@@ -14,5 +14,8 @@ module.exports.traverse = ({push}) => ({
         
         if (expressionPath.isTSNonNullExpression())
             push(expressionPath);
+        
+        if (path.parentPath.isOptionalMemberExpression())
+            push(path);
     },
 });
