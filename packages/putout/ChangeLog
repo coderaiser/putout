@@ -1,3 +1,16 @@
+2024.08.24, v36.2.0
+
+fix:
+- 9219b1d6b @putout/plugin-typescript: require
+
+feature:
+- 80542a57a @putout/plugin-remove-unused-labels: add
+- 95c5f137b @putout/eslint-config: no-unused-labels -> remove-unused-labels
+- 7f99993aa root: eslint-plugin-putout v23.0.0
+- 046aa3ac7 eslint-plugin-putout: drop support of 🐊 < 36
+- 36afe2d36 eslint-plugin-putout: no-extra-non-null-assertion -> typescript/remove-useless-non-null-expressions
+- 627838038 @putout/plugin-typescript: remove-useless-non-null-expression: add support of OptionalMemberExpression
+
 2024.08.24, v36.1.2
 
 feature:
