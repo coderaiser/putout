@@ -11,12 +11,12 @@ const test = createTest(__dirname, {
 });
 
 test('typescript: remove-useless-non-null-expressions: report', (t) => {
-    t.report('remove-useless-non-null-expression', `Avoid useless non null expression: 'foo!!' -> 'foo!'`);
+    t.report('remove-useless-non-null-expressions', `Avoid useless non null expression: 'foo!!' -> 'foo!'`);
     t.end();
 });
 
 test('typescript: remove-useless-non-null-expressions: transform', (t) => {
-    t.transform('remove-useless-non-null-expression');
+    t.transform('remove-useless-non-null-expressions');
     t.end();
 });
 

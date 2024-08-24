@@ -125,7 +125,7 @@ test('plugin-typescript: no transform: rename-file-mts-to-ts', (t) => {
     t.end();
 });
 
-test('plugin-typescript: transform: remove-useless-non-null-expression', (t) => {
-    t.transform('remove-useless-non-null-expression');
+test('plugin-typescript: transform: remove-useless-non-null-expressions', (t) => {
+    t.transform('remove-useless-non-null-expressions');
     t.end();
 });
