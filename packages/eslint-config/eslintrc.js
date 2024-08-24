@@ -37,6 +37,7 @@ module.exports = {
             },
         }],
         'no-delete-var': 'off',
+        'no-unused-labels': 'off',
         'no-else-return': ['error', {
             allowElseIf: false,
         }],
