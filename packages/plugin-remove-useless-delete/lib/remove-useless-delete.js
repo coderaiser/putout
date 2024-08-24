@@ -4,7 +4,7 @@ const {operator, types} = require('putout');
 const {isMemberExpression} = types;
 const {remove} = operator;
 
-module.exports.report = () => `Remove useless 'delete'`;
+module.exports.report = () => `Avoid useless 'delete'`;
 
 module.exports.fix = (path) => {
     remove(path);

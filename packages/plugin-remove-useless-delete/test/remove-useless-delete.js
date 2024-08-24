@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: remove-useless-delete: report', (t) => {
-    t.report('remove-useless-delete', `Remove useless 'delete'`);
+    t.report('remove-useless-delete', `Avoid useless 'delete'`);
     t.end();
 });
 
