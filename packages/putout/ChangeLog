@@ -1,3 +1,11 @@
+2024.08.24, v36.1.2
+
+feature:
+- 6df870c25 putout: @putout/plugin-typescript v8.0.0
+- 5bd7600fb @putout/plugin-typescript: drop support of 🐊 < 36
+- 4017b8f28 @putout/plugin-typescript: remove-useless-non-null-expression$: add
+- d7b1a3965 @putout/plugin-eslint: remove-useless-properties: after remove-overrides-with-empty-rules
+
 2024.08.24, v36.1.1
 
 fix:
