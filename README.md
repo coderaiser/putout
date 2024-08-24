@@ -674,6 +674,15 @@ putout(source, {
 }
 ```
 
+<details><summary>remove unused <code>labels</code></summary>
+
+```diff
+-hello:
+while (true) {
+  break;
+}
+```
+
 </details>
 
 <details><summary>remove <code>unreferenced variables</code></summary>
@@ -2124,6 +2133,7 @@ It has a lot of plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-remove-unused-variables`](/packages/plugin-remove-unused-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-variables) |
+| [`@putout/plugin-remove-unused-labels`](/packages/plugin-remove-unused-labels#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-labels.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-labels) |
 | [`@putout/plugin-remove-unreferenced-variables`](/packages/plugin-remove-unreferenced-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unreferenced-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unreferenced-variables) |
 | [`@putout/plugin-remove-duplicate-keys`](/packages/plugin-remove-duplicate-keys#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-keys.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-keys) |
 | [`@putout/plugin-remove-duplicate-case`](/packages/plugin-remove-duplicate-case#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-case.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-case) |
