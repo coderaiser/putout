@@ -5,7 +5,7 @@ const {safeAlign} = require('eslint-plugin-putout/config');
 module.exports = [
     ...safeAlign, {
         rules: {
-            'no-useless-return': 'off',
+            'no-unused-labels': 'off',
         },
     },
 ];

@@ -29,10 +29,10 @@ npm i @putout/plugin-convert-label-to-object
 ## ❌ Example of incorrect code
 
 ```js
-const a = () => ({
-    hello: 'world',
-    x: 'm',
-});
+const a = () => {
+    hello: 'world';
+    x: 'm';
+};
 ```
 
 ## ✅ Example of correct code
