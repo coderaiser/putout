@@ -45,10 +45,11 @@ while (true) {
 
 ## Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`remove-unused-labels`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-labels#readme) | ✅
-⏣ **ESLint** | [`no-unused-labels`](https://eslint.org/docs/rules/no-unused-labels) | ❌
+| Linter        | Rule                                                                                                                   | Fix |
+|---------------|------------------------------------------------------------------------------------------------------------------------|-----|
+| 🐊 **Putout** | [`remove-unused-labels`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-labels#readme) | ✅   |
+| ⏣ **ESLint**  | [`no-unused-labels`](https://eslint.org/docs/rules/no-unused-labels)                                                   | ❌   |
+| 🦕 **Deno**   | [`no-unused-labels`](https://lint.deno.land/rules/no-unused-labels)                                                    | ❌   |
 
 ## License
 
