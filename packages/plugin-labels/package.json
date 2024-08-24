@@ -1,11 +1,11 @@
 {
-  "name": "@putout/plugin-remove-unused-labels",
-  "version": "1.0.1",
+  "name": "@putout/plugin-labels",
+  "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds ability to find and remove unused 'label' statement",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-labels#readme",
-  "main": "lib/remove-unused-labels.js",
+  "description": "🐊Putout plugin helps with labels",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-labels#readme",
+  "main": "lib/index.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -23,13 +23,15 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {},
+  "dependencies": {
+    "fullstore": "^3.0.0"
+  },
   "keywords": [
     "putout",
     "putout-plugin",
-    "putout-plugin-remove",
     "plugin",
-    "label"
+    "esm",
+    "commonjs"
   ],
   "devDependencies": {
     "@putout/test": "^11.0.0",

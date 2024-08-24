@@ -6,7 +6,6 @@
         "**/fixture",
         "test",
         ".*.*",
-        "eslint.config.js",
         "**/*.config.*"
     ],
     "branches": 100,

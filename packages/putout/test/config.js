@@ -101,7 +101,7 @@ test('putout: config: markdown', (t) => {
         'convert-assignment-to-declaration': 'off',
         'convert-quotes-to-backticks': 'off',
         'remove-unused-expressions': 'off',
-        'remove-unused-labels': 'off',
+        'labels/remove-unused': 'off',
         'remove-unused-variables': 'off',
         'remove-useless-escape': 'off',
         'remove-useless-variables': 'off',

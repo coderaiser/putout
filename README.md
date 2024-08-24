@@ -674,16 +674,6 @@ putout(source, {
 }
 ```
 
-<details><summary>remove unused <code>labels</code></summary>
-
-```diff
--hello:
-while (true) {
-  break;
-}
-```
-
-</details>
 
 <details><summary>remove <code>unreferenced variables</code></summary>
 
@@ -1075,19 +1065,6 @@ const putout = require('putout');
 +const t = 'hello "world"';
 +const s1 = `hello "world"`;
 +const s = `hello 'world'`;
-```
-
-</details>
-
-<details><summary>convert <code>label</code> to <code>object</code></summary>
-
-```diff
--const a = () => {
--    hello: 'world'
--}
-+const a = () => ({
-+    hello: 'world'
-+})
 ```
 
 </details>
@@ -1662,6 +1639,33 @@ function merge(a) {
 
 </details>
 
+### Labels
+
+<details><summary>convert <code>label</code> to <code>object</code></summary>
+
+```diff
+-const a = () => {
+-    hello: 'world'
+-}
++const a = () => ({
++    hello: 'world'
++})
+```
+
+</details>
+
+<details><summary>remove unused <code>labels</code></summary>
+
+```diff
+-hello:
+while (true) {
+  break;
+}
+```
+
+</details>
+
+
 ### Promises
 
 <details><summary>remove useless <code>await</code></summary>
@@ -2126,14 +2130,12 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-convert-assignment-to-comparison`](/packages/plugin-convert-assignment-to-comparison#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-comparison.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-assignment-to-comparison) |
 | [`@putout/plugin-convert-const-to-let`](/packages/plugin-convert-const-to-let#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-const-to-let.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-const-to-let) |
 | [`@putout/plugin-convert-object-entries-to-array-entries`](/packages/plugin-convert-object-entries-to-array-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-entries-to-array-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-entries-to-array-entries) |
-| [`@putout/plugin-convert-label-to-object`](/packages/plugin-convert-label-to-object#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-label-to-object.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-label-to-object) |
 
 ### Removers
 
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-remove-unused-variables`](/packages/plugin-remove-unused-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-variables) |
-| [`@putout/plugin-remove-unused-labels`](/packages/plugin-remove-unused-labels#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-labels.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-labels) |
 | [`@putout/plugin-remove-unreferenced-variables`](/packages/plugin-remove-unreferenced-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unreferenced-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unreferenced-variables) |
 | [`@putout/plugin-remove-duplicate-keys`](/packages/plugin-remove-duplicate-keys#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-keys.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-keys) |
 | [`@putout/plugin-remove-duplicate-case`](/packages/plugin-remove-duplicate-case#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-case.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-case) |
@@ -2188,6 +2190,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-for-of`](/packages/plugin-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-for-of) |
 | [`@putout/plugin-conditions`](/packages/plugin-conditions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-conditions) |
 | [`@putout/plugin-types`](/packages/plugin-types#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-types) |
+| [`@putout/plugin-labels`](/packages/plugin-labels#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-labels.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-labels) |
 | [`@putout/plugin-math`](/packages/plugin-math#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-math.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-math) |
 | [`@putout/plugin-madrun`](/packages/plugin-madrun#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-madrun.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-madrun) |
 | [`@putout/plugin-putout`](/packages/plugin-putout#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) |
