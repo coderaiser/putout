@@ -1,3 +1,12 @@
+2024.08.24, v36.1.1
+
+fix:
+- 2496b126c @putout/plugin-remove-useless-delete: report: Remove -> Avoid
+
+feature:
+- cc32d29a7 package: @putout/plugin-convert-label-to-object v2.0.0
+- d4792680b @putout/plugin-convert-label-to-object: drop support of 🐊 < 36
+
 2024.08.23, v36.1.0
 
 feature:
