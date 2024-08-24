@@ -261,3 +261,7 @@ test('eslint-plugin-putout: putout: sync: ESM', async ({comparePlaces}) => {
 test('eslint-plugin-putout: long-properties-destructuring', async ({process}) => {
     await process('long-properties-destructuring');
 });
+
+test('eslint-plugin-putout: no-extra-non-null-assertion', async ({comparePlaces}) => {
+    await comparePlaces('no-extra-non-null-assertion', []);
+});

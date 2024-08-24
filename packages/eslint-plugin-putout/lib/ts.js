@@ -46,6 +46,7 @@ const extensionRules = {
     '@typescript-eslint/no-redeclare': 'error',
     
     '@typescript-eslint/no-unsafe-declaration-merging': 'error',
+    '@typescript-eslint/no-extra-non-null-assertion': 'off',
 };
 
 const ts = {
