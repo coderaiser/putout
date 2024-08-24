@@ -35,6 +35,7 @@ npm i putout @putout/plugin-typescript -D
 - ✅ [remove-setter-return-type][#remove-setter-return-type];
 - ✅ [remove-useless-mapped-types][#remove-useless-mapped-types];
 - ✅ [remove-useless-mapping-modifiers][#remove-useless-mapping-modifiers];
+- ✅ [remove-useless-non-null-expression](#remove-useless-non-null-expression);
 - ✅ [remove-useless-parens][#remove-useless-parens];
 - ✅ [remove-useless-promise][#remove-useless-promise];
 - ✅ [remove-useless-types][#remove-useless-types];
@@ -65,6 +66,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/remove-getter-arguments": "on",
         "typescript/remove-setter-return-type": "on",
         "typescript/remove-useless-mapped-types": "on",
+        "typescript/remove-useless-non-null-expression": "on",
         "typescript/cts-file": "off",
         "typescript/mts-file": "off",
         "typescript/rename-file-cts-to-ts": "off",
