@@ -39,7 +39,7 @@
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-n": "^17.0.0",
-    "eslint-plugin-putout": "^22.0.0",
+    "eslint-plugin-putout": "^23.0.0",
     "madrun": "^10.0.0"
   },
   "peerDependencies": {
