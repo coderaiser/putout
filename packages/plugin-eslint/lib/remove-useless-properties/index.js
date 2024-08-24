@@ -15,7 +15,12 @@ module.exports.report = (path) => {
 };
 
 module.exports.fix = (path) => {
-    remove(path.parentPath.parentPath);
+    const {parentPath} = path.parentPath;
+    
+    if (!parentPath.node)
+        return remove(path.parentPath);
+    
+    remove(parentPath);
 };
 
 module.exports.traverse = ({push}) => ({
@@ -41,10 +46,13 @@ module.exports.traverse = ({push}) => ({
 const getName = ({key}) => extract(key);
 
 function getPropertyNames(path) {
-    const names = path
-        .parentPath
-        .parentPath
-        .node
+    const {parentPath} = path.parentPath;
+    const {node} = parentPath;
+    
+    if (!node)
+        return [];
+    
+    const names = node
         .properties
         .filter(isObjectProperty)
         .map(getName);
@@ -53,7 +61,13 @@ function getPropertyNames(path) {
 }
 
 function hasSpread(path) {
-    const names = path.parentPath.parentPath.node.properties.filter(isSpreadElement);
+    const {parentPath} = path.parentPath;
+    const {node} = parentPath;
+    
+    if (!node)
+        return 0;
+    
+    const names = node.properties.filter(isSpreadElement);
     
     return names.length;
 }

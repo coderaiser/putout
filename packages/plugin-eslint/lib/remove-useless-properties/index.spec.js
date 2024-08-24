@@ -1,6 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+const removeOverrides = require('../remove-overrides-with-empty-rules');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
@@ -17,5 +18,12 @@ test('eslint: remove-useless-properties: report', (t) => {
 
 test('eslint: remove-useless-properties: transform', (t) => {
     t.transform('remove-useless-properties');
+    t.end();
+});
+
+test('eslint: remove-useless-properties: transform: call-expression-empty-object', (t) => {
+    t.transform('call-expression-empty-object', {
+        removeOverrides,
+    });
     t.end();
 });
