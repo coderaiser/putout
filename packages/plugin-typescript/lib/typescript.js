@@ -18,7 +18,7 @@ const removeUselessParens = require('./remove-useless-parens');
 const removeUselessPromise = require('./remove-useless-promise');
 const removeGetterArguments = require('./remove-getter-arguments');
 const removeSetterReturnType = require('./remove-setter-return-type');
-const removeUselessNonNullExpressions = require('./remove-useless-non-null-expression');
+const removeUselessNonNullExpressions = require('./remove-useless-non-null-expressions');
 
 module.exports = {
     'apply-as-type-assertion': applyAsTypeAssertion,
