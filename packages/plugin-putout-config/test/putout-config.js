@@ -24,3 +24,8 @@ test('plugin-putout-config: transform: move-formatter-up', (t) => {
     t.transform('move-formatter-up');
     t.end();
 });
+
+test('plugin-putout-config: transform: apply-labels', (t) => {
+    t.transform('apply-labels');
+    t.end();
+});
