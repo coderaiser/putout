@@ -1,11 +1,16 @@
 'use strict';
 
+const tryCatch = require('try-catch');
 const {defaultOptions} = require('./default-options');
 const {cutShebang} = require('./shebang');
+const parseError = require('./parse-error');
+const {validateRules} = require('@putout/engine-loader');
+
+const maybeParseError = (a) => !a ? [] : parseError(a, 'loader');
 
 // why we pass 'source' to 'transform()'?
 // because we need to calculate position in a right way
-// and determine is shebang is exists
+// and determine is shebang is existing
 //
 // 25     return {¬
 // 26         line: shebang ? line + 1 : line,¬
@@ -28,6 +33,11 @@ module.exports.transform = (ast, source, opts) => {
     
     const [, shebang] = cutShebang(source);
     
+    const [validationError] = tryCatch(validateRules, {
+        rules,
+        pluginNames,
+    });
+    
     const plugins = loadPlugins({
         pluginNames,
         cache,
@@ -43,7 +53,10 @@ module.exports.transform = (ast, source, opts) => {
         progress,
     });
     
-    return places;
+    return [
+        ...maybeParseError(validationError),
+        ...places,
+    ];
 };
 
 module.exports.transformAsync = async (ast, source, opts) => {
@@ -62,6 +75,11 @@ module.exports.transformAsync = async (ast, source, opts) => {
     
     const [, shebang] = cutShebang(source);
     
+    const [validationError] = tryCatch(validateRules, {
+        rules,
+        pluginNames,
+    });
+    
     const plugins = await loadPluginsAsync({
         pluginNames,
         cache,
@@ -77,5 +95,8 @@ module.exports.transformAsync = async (ast, source, opts) => {
         progress,
     });
     
-    return places;
+    return [
+        ...maybeParseError(validationError),
+        ...places,
+    ];
 };

@@ -3,7 +3,7 @@
 const parseError = require('./parse-error');
 const test = require('supertape');
 
-test('putout: cli: parse error', (t) => {
+test('putout: parse error', (t) => {
     const e = Error('hello');
     const result = parseError(e);
     
@@ -20,7 +20,7 @@ test('putout: cli: parse error', (t) => {
     t.end();
 });
 
-test('putout: cli: parse error: cut braces', (t) => {
+test('putout: parse error: cut braces', (t) => {
     const e = Error('Unexpected token (1:10)');
     const result = parseError(e);
     
@@ -37,7 +37,7 @@ test('putout: cli: parse error: cut braces', (t) => {
     t.end();
 });
 
-test('putout: cli: parse error: rule', (t) => {
+test('putout: parse error: rule', (t) => {
     const e = Error('hello');
     
     e.rule = 'remove-debugger';
@@ -56,7 +56,7 @@ test('putout: cli: parse error: rule', (t) => {
     t.end();
 });
 
-test('putout: cli: parse error: loc', (t) => {
+test('putout: parse error: loc', (t) => {
     const e = Error('hello');
     
     e.loc = {
@@ -68,6 +68,29 @@ test('putout: cli: parse error: loc', (t) => {
     
     const expected = [{
         rule: 'parser',
+        message: 'hello',
+        position: {
+            line: 1,
+            column: 1,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: parse error: loader', (t) => {
+    const e = Error('hello');
+    
+    e.loc = {
+        line: 1,
+        column: 1,
+    };
+    
+    const result = parseError(e, 'loader');
+    
+    const expected = [{
+        rule: 'loader',
         message: 'hello',
         position: {
             line: 1,

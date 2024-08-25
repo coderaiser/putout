@@ -838,3 +838,34 @@ test('putout: progress', async (t) => {
     t.equal(pluginsCount, 2);
     t.end();
 });
+
+test('putout: loader: no plugin found', (t) => {
+    const {places} = putout('const a = 5', {
+        fix: false,
+        rules: {
+            'remove-unused-labels': 'off',
+        },
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = [{
+        message: `No plugin found for a rule: 'remove-unused-labels'`,
+        position: {
+            column: 1,
+            line: 1,
+        },
+        rule: 'loader',
+    }, {
+        message: `'a' is defined but never used`,
+        position: {
+            column: 6,
+            line: 1,
+        },
+        rule: 'remove-unused-variables',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});

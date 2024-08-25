@@ -3,7 +3,7 @@
 const tryToCatch = require('try-to-catch');
 const {runProcessors} = require('@putout/engine-processor');
 
-const parseError = require('../parse-error.js');
+const parseError = require('../../parse-error.js');
 const {simpleImport} = require('../simple-import');
 const ignores = require('../../ignores.js');
 

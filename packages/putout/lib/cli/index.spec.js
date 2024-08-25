@@ -2,8 +2,6 @@
 
 const process = require('node:process');
 
-process.env.CI = process.env.CI || 'true';
-
 const {join, basename} = require('node:path');
 const {readFile} = require('node:fs/promises');
 const {EventEmitter} = require('node:events');

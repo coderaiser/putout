@@ -8,7 +8,7 @@ const merge = require('../merge');
 const parseMatch = require('../parse-options/parse-match');
 
 const {simpleImport} = require('./simple-import');
-const parseError = require('./parse-error');
+const parseError = require('../parse-error');
 
 const getMatchedOptions = (name, options) => {
     if (!name.includes('{'))

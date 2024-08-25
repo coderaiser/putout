@@ -62,3 +62,34 @@ test('putout: exports: findPlacesAsync', async (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putoutAsync: loader: no plugin found', async (t) => {
+    const {places} = await putoutAsync('const a = 5', {
+        fix: false,
+        rules: {
+            'remove-unused-labels': 'off',
+        },
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = [{
+        message: `No plugin found for a rule: 'remove-unused-labels'`,
+        position: {
+            column: 1,
+            line: 1,
+        },
+        rule: 'loader',
+    }, {
+        message: `'a' is defined but never used`,
+        position: {
+            column: 6,
+            line: 1,
+        },
+        rule: 'remove-unused-variables',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
