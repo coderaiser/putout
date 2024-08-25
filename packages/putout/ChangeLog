@@ -1,3 +1,9 @@
+2024.08.25, v36.3.1
+
+feature:
+- 7f84f5f7e putout: @putout/plugin-putout-config v6.0.0
+- 1eaa3713f @putout/plugin-putout-config: apply-labels: add
+
 2024.08.25, v36.3.0
 
 feature:
