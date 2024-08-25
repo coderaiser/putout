@@ -1,3 +1,10 @@
+2024.08.25, v36.3.0
+
+feature:
+- b519d78c8 putout: @putout/engine-loader v14.0.0
+- 3bd6fbf36 putout: validationError: throw -> return in places
+- 285b3e496 @putout/printer: validateRules: export and move out from loadPlugins
+
 2024.08.24, v36.2.1
 
 feature:
