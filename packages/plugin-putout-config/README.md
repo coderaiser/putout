@@ -34,7 +34,7 @@ npm i @putout/plugin-putout-config -D
 
 ## apply-labels
 
-Apply [`labels`](https://github.com/coderaiser/putout/tree/master/packages/plugin-labels#readme) according to 🐊[**Putout v36**](https://github.com/coderaiser/putout/releases/tag/v36.0.0). Checkout in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/9a3493fedfafdb25e86cf76af69dd003/8678f3b271ee6f6d13bceeedbe3b143f34be9f55)
+Apply [`labels`](https://github.com/coderaiser/putout/tree/master/packages/plugin-labels#readme) according to 🐊[**Putout v36**](https://github.com/coderaiser/putout/releases/tag/v36.0.0). Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9a3493fedfafdb25e86cf76af69dd003/8678f3b271ee6f6d13bceeedbe3b143f34be9f55).
 
 ### ❌ Example of incorrect code
 
