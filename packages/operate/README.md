@@ -233,7 +233,7 @@ Check if given source is `ESM` search for `ImportDeclaration` and `ExportDeclara
 Get property from `ObjectExpression` path:
 
 ```js
-const homepagePath = getProperties(__aPath, 'homepage');
+const homepagePath = getProperty(__aPath, 'homepage');
 ```
 
 ### `getProperties(path: Path, names: string[])`
