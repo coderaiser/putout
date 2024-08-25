@@ -197,6 +197,23 @@ await loadProcess('json', () => {
 });
 ```
 
+### validateRules
+
+```js
+const {validateRules} = require('@putout/engine-loader');
+
+const pluginNames = [];
+const rules = {
+    'remove-unused-variables': 'on',
+};
+
+validateRules({
+    pluginNames,
+    rules,
+});
+// throws since there is no plugin name passed that matches rule 'remove-unused-variables'
+```
+
 ## License
 
 MIT

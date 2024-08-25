@@ -42,6 +42,18 @@ module.exports.loadProcessorsAsync = async (options, load) => {
 
 module.exports.createAsyncLoader = createAsyncLoader;
 
+module.exports.validateRules = (options) => {
+    check(options);
+    
+    const {pluginNames = [], rules = {}} = options;
+    const items = parsePluginNames(pluginNames);
+    
+    validateRules({
+        rules,
+        items,
+    });
+};
+
 module.exports.loadPlugins = (options) => {
     check(options);
     
@@ -51,15 +63,9 @@ module.exports.loadPlugins = (options) => {
     const loadedRules = getLoadedRules(cookedRules);
     
     const items = parsePluginNames(pluginNames);
-    
     const plugins = loadPlugins({
         items,
         loadedRules,
-    });
-    
-    validateRules({
-        rules,
-        items,
     });
     
     return filterEnabledPlugins({

@@ -60,6 +60,6 @@ test('engine-runner: validate-rules: nested plugin', (t) => {
         rules,
     });
     
-    t.equal(error.message, 'Rule "estrace/trace" cannot be applied to nested plugin "estrace/trace"');
+    t.equal(error.message, `Rule 'estrace/trace' cannot be applied to nested plugin 'estrace/trace'`);
     t.end();
 });

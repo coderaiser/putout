@@ -4,7 +4,6 @@ const {basename} = require('node:path');
 
 const {
     parseRules,
-    validateRules,
     isEnabled,
     getLoadedRules,
 } = require('../rules');
@@ -30,11 +29,6 @@ module.exports.loadPluginsAsync = async (options) => {
     const plugins = await loadPlugins({
         items,
         loadedRules,
-    });
-    
-    validateRules({
-        rules,
-        items,
     });
     
     return filterEnabledPlugins({

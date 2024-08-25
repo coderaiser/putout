@@ -29,13 +29,13 @@ module.exports.validateRules = ({items, rules}) => {
             isWithSlash = parsedPluginName === parseSlashes(rule);
             
             if (isName && plugin.rules)
-                throw Error(`Rule "${rule}" cannot be applied to nested plugin "${pluginName}"`);
+                throw Error(`Rule '${rule}' cannot be applied to nested plugin '${pluginName}'`);
             
             if (isName || isWithSlash)
                 break;
         }
         
         if (!isName && !isWithSlash)
-            throw Error(`No plugin found for a rule: "${rule}"`);
+            throw Error(`No plugin found for a rule: '${rule}'`);
     }
 };

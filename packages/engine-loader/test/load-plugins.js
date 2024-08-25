@@ -194,14 +194,23 @@ test('putout: loader: nested rules', (t) => {
 });
 
 test('putout: loader: no plugin for a rule', (t) => {
-    const [e] = tryCatch(putout, 'hello', {
+    const {places} = putout('hello', {
         rules: {
             abcd: 'off',
         },
         plugins: [],
     });
     
-    t.equal(e.message, 'No plugin found for a rule: "abcd"');
+    const expected = [{
+        message: `No plugin found for a rule: 'abcd'`,
+        position: {
+            column: 1,
+            line: 1,
+        },
+        rule: 'loader',
+    }];
+    
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -511,3 +520,4 @@ test('putout: loader: disabled rules in plugin: load', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
