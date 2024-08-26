@@ -14,6 +14,7 @@ npm i @putout/plugin-putout-config -D
 ## Rules
 
 - ✅ [apply-labels][#apply-labels];
+- ✅ [apply-nodejs][#apply-nodejs];
 - ✅ [convert-boolean-to-string][#convert-boolean-to-string];
 - ✅ [move-formatter-up][#move-formatter-up];
 - ✅ [remove-empty][#remove-empty];
@@ -25,6 +26,7 @@ npm i @putout/plugin-putout-config -D
 {
     "rules": {
         "putout-config/apply-labels": "on",
+        "putout-config/apply-nodejs": "on",
         "putout-config/convert-boolean-to-string": "on",
         "putout-config/move-formatter-up": "on",
         "putout-config/remove-empty": "on"
@@ -54,6 +56,32 @@ Apply [`labels`](https://github.com/coderaiser/putout/tree/master/packages/plugi
     "rules": {
         "labels/remove-unused": "on",
         "labels/convert-to-object": "on"
+    }
+}
+```
+
+## apply-nodejs
+
+Apply [`nodejs`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs#readme) according to 🐊[**Putout v34**](https://github.com/coderaiser/putout/releases/tag/v34.0.0).
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "rules": {
+        "strict-mode/add-missing": "off",
+        "strict-mode/remove-useless": "off"
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```json
+{
+    "rules": {
+        "nodejs/add-missing-strict-mode": "off",
+        "nodejs/remove-useless-strict-mode": "off"
     }
 }
 ```

@@ -10,6 +10,16 @@ const test = createTest(__dirname, {
     ],
 });
 
+test('plugin-putout-config: transform: apply-labels', (t) => {
+    t.transform('apply-labels');
+    t.end();
+});
+
+test('plugin-putout-config: transform: apply-nodejs', (t) => {
+    t.transform('apply-nodejs');
+    t.end();
+});
+
 test('plugin-putout-config: transform: convert-boolean-to-string', (t) => {
     t.transform('convert-boolean-to-string');
     t.end();
@@ -22,10 +32,5 @@ test('plugin-putout-config: transform: remove-empty', (t) => {
 
 test('plugin-putout-config: transform: move-formatter-up', (t) => {
     t.transform('move-formatter-up');
-    t.end();
-});
-
-test('plugin-putout-config: transform: apply-labels', (t) => {
-    t.transform('apply-labels');
     t.end();
 });

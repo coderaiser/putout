@@ -1,12 +1,14 @@
 'use strict';
 
+const applyLabels = require('./apply-labels');
+const applyNodejs = require('./apply-nodejs');
 const convertBooleanToString = require('./convert-boolean-to-string');
 const removeEmpty = require('./remove-empty');
 const MoveFormatterUp = require('./move-formatter-up');
-const applyLabels = require('./apply-labels');
 
 module.exports.rules = {
     'apply-labels': applyLabels,
+    'apply-nodejs': applyNodejs,
     'convert-boolean-to-string': convertBooleanToString,
     'move-formatter-up': MoveFormatterUp,
     'remove-empty': removeEmpty,
