@@ -20,6 +20,11 @@ test('plugin-putout-config: transform: apply-nodejs', (t) => {
     t.end();
 });
 
+test('plugin-putout-config: transform: apply-tape', (t) => {
+    t.transform('apply-tape');
+    t.end();
+});
+
 test('plugin-putout-config: transform: convert-boolean-to-string', (t) => {
     t.transform('convert-boolean-to-string');
     t.end();

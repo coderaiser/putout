@@ -15,6 +15,7 @@ npm i @putout/plugin-putout-config -D
 
 - ✅ [apply-labels][#apply-labels];
 - ✅ [apply-nodejs][#apply-nodejs];
+- ✅ [apply-tape][#apply-tape];
 - ✅ [convert-boolean-to-string][#convert-boolean-to-string];
 - ✅ [move-formatter-up][#move-formatter-up];
 - ✅ [remove-empty][#remove-empty];
@@ -89,6 +90,32 @@ Apply [`nodejs`](https://github.com/coderaiser/putout/tree/master/packages/plugi
         "nodejs/remove-useless-strict-mode": "off",
         "nodejs/convert-esm-to-commonjs": "off",
         "nodejs/convert-commonjs-to-esm": "off"
+    }
+}
+```
+
+## apply-tape
+
+Apply [`tape`](https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#readme) according to:
+
+- 🐊[**Putout v33**](https://github.com/coderaiser/putout/releases/tag/v33.0.0);
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "rules": {
+        "convert-mock-require-to-mock-import": "off"
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```json
+{
+    "rules": {
+        "tape/convert-mock-require-to-mock-import": "off"
     }
 }
 ```
