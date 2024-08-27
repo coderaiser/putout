@@ -19,3 +19,8 @@ test('putout-config: apply-nodejs: transform', (t) => {
     t.transform('apply-nodejs');
     t.end();
 });
+
+test('putout-config: apply-nodejs: transform: convert-esm-to-commonjs', (t) => {
+    t.transform('convert-esm-to-commonjs');
+    t.end();
+});

@@ -62,7 +62,10 @@ Apply [`labels`](https://github.com/coderaiser/putout/tree/master/packages/plugi
 
 ## apply-nodejs
 
-Apply [`nodejs`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs#readme) according to 🐊[**Putout v34**](https://github.com/coderaiser/putout/releases/tag/v34.0.0).
+Apply [`nodejs`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs#readme) according to:
+
+- 🐊[**Putout v33**](https://github.com/coderaiser/putout/releases/tag/v33.0.0);
+- 🐊[**Putout v34**](https://github.com/coderaiser/putout/releases/tag/v34.0.0);
 
 ### ❌ Example of incorrect code
 
@@ -70,7 +73,9 @@ Apply [`nodejs`](https://github.com/coderaiser/putout/tree/master/packages/plugi
 {
     "rules": {
         "strict-mode/add-missing": "off",
-        "strict-mode/remove-useless": "off"
+        "strict-mode/remove-useless": "off",
+        "convert-esm-to-commonjs": "off",
+        "convert-commonjs-to-esm": "off"
     }
 }
 ```
@@ -81,7 +86,9 @@ Apply [`nodejs`](https://github.com/coderaiser/putout/tree/master/packages/plugi
 {
     "rules": {
         "nodejs/add-missing-strict-mode": "off",
-        "nodejs/remove-useless-strict-mode": "off"
+        "nodejs/remove-useless-strict-mode": "off",
+        "nodejs/convert-esm-to-commonjs": "off",
+        "nodejs/convert-commonjs-to-esm": "off"
     }
 }
 ```
