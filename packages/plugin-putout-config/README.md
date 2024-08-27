@@ -13,6 +13,7 @@ npm i @putout/plugin-putout-config -D
 
 ## Rules
 
+- ✅ [apply-conditions][#apply-conditions];
 - ✅ [apply-labels][#apply-labels];
 - ✅ [apply-nodejs][#apply-nodejs];
 - ✅ [apply-tape][#apply-tape];
@@ -26,11 +27,38 @@ npm i @putout/plugin-putout-config -D
 ```json
 {
     "rules": {
+        "putout-config/apply-conditions": "on",
         "putout-config/apply-labels": "on",
         "putout-config/apply-nodejs": "on",
         "putout-config/convert-boolean-to-string": "on",
         "putout-config/move-formatter-up": "on",
         "putout-config/remove-empty": "on"
+    }
+}
+```
+
+## apply-conditions
+
+Apply [`conditions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions#readme) according to 🐊[**Putout v32**](https://github.com/coderaiser/putout/releases/tag/v32.0.0).
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "rules": {
+        "remove-useless-else": "off",
+        "merge-if-statements": "off"
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```json
+{
+    "rules": {
+        "conditions/remove-useless-else": "off",
+        "conditions/merge-if-statements": "off"
     }
 }
 ```

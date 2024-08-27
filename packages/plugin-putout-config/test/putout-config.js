@@ -10,6 +10,11 @@ const test = createTest(__dirname, {
     ],
 });
 
+test('plugin-putout-config: transform: apply-conditions', (t) => {
+    t.transform('apply-conditions');
+    t.end();
+});
+
 test('plugin-putout-config: transform: apply-labels', (t) => {
     t.transform('apply-labels');
     t.end();

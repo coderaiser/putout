@@ -1,5 +1,6 @@
 'use strict';
 
+const applyConditions = require('./apply-conditions');
 const applyLabels = require('./apply-labels');
 const applyNodejs = require('./apply-nodejs');
 const applyTape = require('./apply-tape');
@@ -8,6 +9,7 @@ const removeEmpty = require('./remove-empty');
 const MoveFormatterUp = require('./move-formatter-up');
 
 module.exports.rules = {
+    'apply-conditions': applyConditions,
     'apply-labels': applyLabels,
     'apply-nodejs': applyNodejs,
     'apply-tape': applyTape,
