@@ -20,3 +20,7 @@ test('putout-config: apply-conditions: transform', (t) => {
     t.end();
 });
 
+test('putout-config: apply-conditions: transform: v29', (t) => {
+    t.transform('v29');
+    t.end();
+});

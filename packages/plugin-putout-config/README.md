@@ -42,26 +42,44 @@ npm i @putout/plugin-putout-config -D
 
 ## apply-conditions
 
-Apply [`conditions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions#readme) according to 🐊[**Putout v32**](https://github.com/coderaiser/putout/releases/tag/v32.0.0).
+Apply [`conditions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions#readme) according to:
 
-### ❌ Example of incorrect code
+- 🐊[**Putout v29**](https://github.com/coderaiser/putout/releases/tag/v29.0.0):
 
-```json
+```diff
 {
     "rules": {
-        "remove-useless-else": "off",
-        "merge-if-statements": "off"
-    }
+-       "apply-comparison-order": "off" ,
+-       "apply-if-condition": "off",
+-       "convert-comparison-to-boolean": "off",
+-       "convert-equal-to-strict-equal": "off",
+-       "remove-useless-conditions/evaluate": "off",
+-       "remove-useless-conditions/simplify": "off",
+-       "convert-comparison-to-boolean": "off",
+-       "remove-constant-conditions": "off",
+-       "remove-boolean-from-assertions": "off",
++       "conditions/apply-comparison-order": "off",
++       "conditions/apply-if": "off",
++       "conditions/convert-comparison-to-boolean": "off",
++       "conditions/convert-equal-to-strict-equal": "off",
++       "conditions/evaluate": "off"
++       "conditions/simplify": "off",
++       "conditions/convert-comparison-to-boolean": "off",
++       "conditions/remove-constant": "off",
++       "conditions/remove-boolean": "off"
+  }
 }
 ```
 
-### ✅ Example of correct code
+- 🐊[**Putout v32**](https://github.com/coderaiser/putout/releases/tag/v32.0.0):
 
-```json
+```diff
 {
     "rules": {
-        "conditions/remove-useless-else": "off",
-        "conditions/merge-if-statements": "off"
+-        "remove-useless-else": "off",
+-        "merge-if-statements": "off"
++        "conditions/remove-useless-else": "off",
++        "conditions/merge-if-statements": "off"
     }
 }
 ```

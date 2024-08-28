@@ -19,4 +19,3 @@ test('putout-config: apply-promises: transform', (t) => {
     t.transform('apply-promises');
     t.end();
 });
-

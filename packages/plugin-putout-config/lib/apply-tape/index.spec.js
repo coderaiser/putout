@@ -19,4 +19,3 @@ test('putout-config: apply-tape: transform', (t) => {
     t.transform('apply-tape');
     t.end();
 });
-
