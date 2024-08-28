@@ -16,6 +16,7 @@ npm i @putout/plugin-putout-config -D
 - ✅ [apply-conditions][#apply-conditions];
 - ✅ [apply-labels][#apply-labels];
 - ✅ [apply-nodejs][#apply-nodejs];
+- ✅ [apply-promises][#apply-promises];
 - ✅ [apply-tape][#apply-tape];
 - ✅ [convert-boolean-to-string][#convert-boolean-to-string];
 - ✅ [move-formatter-up][#move-formatter-up];
@@ -30,6 +31,8 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-conditions": "on",
         "putout-config/apply-labels": "on",
         "putout-config/apply-nodejs": "on",
+        "putout-config/apply-tape": "on",
+        "putout-config/apply-promises": "on",
         "putout-config/convert-boolean-to-string": "on",
         "putout-config/move-formatter-up": "on",
         "putout-config/remove-empty": "on"
@@ -118,6 +121,21 @@ Apply [`nodejs`](https://github.com/coderaiser/putout/tree/master/packages/plugi
         "nodejs/remove-useless-strict-mode": "off",
         "nodejs/convert-esm-to-commonjs": "off",
         "nodejs/convert-commonjs-to-esm": "off"
+    }
+}
+```
+
+## apply-promises
+
+Apply [`promises`](https://github.com/coderaiser/putout/tree/master/packages/plugin-promises#readme) according to:
+
+- 🐊[**Putout v30**](https://github.com/coderaiser/putout/releases/tag/v30.0.0);
+
+```diff
+{
+    "rules": {
+-       "remove-useless-variables/await": "off",
++       "promises/remove-useless-variables": "off"
     }
 }
 ```

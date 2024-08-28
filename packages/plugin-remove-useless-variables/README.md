@@ -27,7 +27,6 @@ npm i @putout/plugin-remove-useless-variables -D
         "remove-useless-variables/rename": "on",
         "remove-useless-variables/remove": "on",
         "remove-useless-variables/destruct": "on",
-        "remove-useless-variables/await": "on",
         "remove-useless-variables/declaration": ["on", {
             "maxLength": 20
         }],

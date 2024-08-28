@@ -25,6 +25,11 @@ test('plugin-putout-config: transform: apply-nodejs', (t) => {
     t.end();
 });
 
+test('plugin-putout-config: transform: apply-promises', (t) => {
+    t.transform('apply-promises');
+    t.end();
+});
+
 test('plugin-putout-config: transform: apply-tape', (t) => {
     t.transform('apply-tape');
     t.end();
