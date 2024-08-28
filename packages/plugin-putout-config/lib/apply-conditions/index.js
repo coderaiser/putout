@@ -2,11 +2,12 @@
 
 const {createRenameProperty} = require('../rename-property');
 
-module.exports = createRenameProperty([
-    // v32
+const v32 = [
     ['remove-useless-else', 'conditions/remove-useless-else'],
     ['merge-if-statements', 'conditions/merge-if-statements'],
-    // v29
+];
+
+const v29 = [
     ['apply-comparison-order', 'conditions/apply-comparison-order'],
     ['apply-if-condition', 'conditions/apply-if'],
     ['convert-comparison-to-boolean', 'conditions/convert-comparison-to-boolean'],
@@ -16,4 +17,9 @@ module.exports = createRenameProperty([
     ['convert-comparison-to-boolean', 'conditions/convert-comparison-to-boolean'],
     ['remove-constant-conditions', 'conditions/remove-constant'],
     ['remove-boolean-from-assertions', 'conditions/remove-boolean'],
+];
+
+module.exports = createRenameProperty([
+    ...v32,
+    ...v29,
 ]);
