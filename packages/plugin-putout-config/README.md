@@ -14,6 +14,7 @@ npm i @putout/plugin-putout-config -D
 ## Rules
 
 - ✅ [apply-conditions][#apply-conditions];
+- ✅ [apply-for-of][#apply-for-of];
 - ✅ [apply-labels][#apply-labels];
 - ✅ [apply-nodejs][#apply-nodejs];
 - ✅ [apply-promises][#apply-promises];
@@ -29,6 +30,7 @@ npm i @putout/plugin-putout-config -D
 {
     "rules": {
         "putout-config/apply-conditions": "on",
+        "putout-config/apply-for-of": "on",
         "putout-config/apply-labels": "on",
         "putout-config/apply-nodejs": "on",
         "putout-config/apply-tape": "on",
@@ -80,6 +82,35 @@ Apply [`conditions`](https://github.com/coderaiser/putout/tree/master/packages/p
 -        "merge-if-statements": "off"
 +        "conditions/remove-useless-else": "off",
 +        "conditions/merge-if-statements": "off"
+    }
+}
+```
+
+## apply-for-of
+
+Apply [`for-of`](https://github.com/coderaiser/putout/tree/master/packages/plugin-for-of#readme) according to 🐊[**Putout v29**](https://github.com/coderaiser/putout/releases/tag/v29.0.0).
+
+```diff
+{
+    "rules": {
+-       "convert-for-to-for-of": "off",
+-       "convert-for-each-to-for-of": "off",
+-       "convert-for-in-to-for-of": "off",
+-       "convert-map-to-for-of": "off",
+-       "remove-useless-for-of": "off",
+-       "remove-unused-for-of-variables": "off",
+-       "remove-useless-array-from": "off",
+-       "remove-useless-variables/for-of": "off"
+-       "convert-reduce-to-for-of": "off",
++       "for-of/for": "off",
++       "for-of/for-each": "off",
++       "for-of/for-in": "off",
++       "for-of/map": "off",
++       "for-of/remove-useless": "off",
++       "for-of/remove-unused-variables": "off",
++       "for-of/remove-useless-array-from": "off",
++       "for-of/remove-useless-variables": "off",
++       "for-of/reduce": "off"
     }
 }
 ```

@@ -15,6 +15,11 @@ test('plugin-putout-config: transform: apply-conditions', (t) => {
     t.end();
 });
 
+test('plugin-putout-config: transform: apply-for-of', (t) => {
+    t.transform('apply-for-of');
+    t.end();
+});
+
 test('plugin-putout-config: transform: apply-labels', (t) => {
     t.transform('apply-labels');
     t.end();
