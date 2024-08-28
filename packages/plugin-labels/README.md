@@ -39,7 +39,7 @@ npm i @putout/plugin-labels -D
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/86e2915cc2cffb6c26dd3bc2f2379a71/605562cf1fdf77a7918792955601e6767a805050).
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const a = () => {
@@ -48,7 +48,7 @@ const a = () => {
 };
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const a = () => ({
