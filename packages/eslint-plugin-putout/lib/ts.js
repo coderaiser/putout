@@ -9,14 +9,36 @@ const reEnable = (rule) => ({
 
 const warnOnUnsupportedTypeScriptVersion = false;
 
+const noFix = {
+    '@typescript-eslint/no-unsafe-function-type': 'off',
+    '@typescript-eslint/no-require-imports': 'off',
+    '@typescript-eslint/no-empty-object-type': 'off',
+};
+
+const handled = {
+    '@typescript-eslint/no-extra-non-null-assertion': 'off',
+    '@stylistic/brace-style': 'off', // putout/object-property-newline instead
+};
+
+const broken = {
+    '@stylistic/ts/indent': 'off',
+};
+
+const slow = {
+    '@typescript-eslint/dot-notation': 'off',
+    '@typescript-eslint/require-await': 'off',
+};
+
 const extensionRules = {
+    ...noFix,
+    ...handled,
+    ...broken,
+    ...slow,
     'no-undef': 'off',
     'no-var': 'off',
     
     '@stylistic/ts/comma-spacing': 'error',
     
-    '@stylistic/ts/indent': 'off', // broken
-    '@stylistic/brace-style': 'off', // putout/object-property-newline instead
     '@stylistic/ts/lines-between-class-members': 'off',
     
     '@stylistic/js/padding-line-between-statements': 'off',
@@ -28,25 +50,24 @@ const extensionRules = {
     '@stylistic/js/semi': 'off',
     '@stylistic/ts/semi': rules['@stylistic/js/semi'],
     
+    '@stylistic/js/no-extra-parens': 'off',
+    '@stylistic/ts/no-extra-parens': rules['@stylistic/js/no-extra-parens'],
+    
     '@stylistic/js/space-before-function-paren': 'off',
     '@stylistic/ts/space-before-function-paren': rules['@stylistic/js/space-before-function-paren'],
     
     ...reEnable('object-curly-spacing'),
     ...reEnable('func-call-spacing'),
     '@typescript-eslint/no-array-constructor': 'off',
-    '@typescript-eslint/dot-notation': 'off', // requires type information
-    '@typescript-eslint/no-extra-parens': 'error',
     '@typescript-eslint/no-implied-eval': 'off',
     
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     
-    '@typescript-eslint/require-await': 'off', // needs project information
     'no-redeclare': 'off',
     '@typescript-eslint/no-redeclare': 'error',
     
     '@typescript-eslint/no-unsafe-declaration-merging': 'error',
-    '@typescript-eslint/no-extra-non-null-assertion': 'off',
 };
 
 const ts = {
@@ -66,7 +87,7 @@ const ts = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/ban-types': 'off',
         '@typescript-eslint/no-empty-function': 'off',
-        '@typescript-eslint/type-annotation-spacing': 'error',
+        '@stylistic/ts/type-annotation-spacing': 'error',
     },
 };
 
