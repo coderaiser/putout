@@ -178,7 +178,7 @@ In case of using `inline` option:
 ```json
 {
     "rules": {
-        "apply-is-array": ["on", {
+        "types/apply-is-array": ["on", {
             "inline": true
         }]
     }

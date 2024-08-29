@@ -40,6 +40,11 @@ test('plugin-putout-config: transform: apply-tape', (t) => {
     t.end();
 });
 
+test('plugin-putout-config: transform: apply-types', (t) => {
+    t.transform('apply-types');
+    t.end();
+});
+
 test('plugin-putout-config: transform: convert-boolean-to-string', (t) => {
     t.transform('convert-boolean-to-string');
     t.end();

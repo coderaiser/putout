@@ -19,6 +19,7 @@ npm i @putout/plugin-putout-config -D
 - ✅ [apply-nodejs][#apply-nodejs];
 - ✅ [apply-promises][#apply-promises];
 - ✅ [apply-tape][#apply-tape];
+- ✅ [apply-types][#apply-types];
 - ✅ [convert-boolean-to-string][#convert-boolean-to-string];
 - ✅ [move-formatter-up][#move-formatter-up];
 - ✅ [remove-empty][#remove-empty];
@@ -35,6 +36,7 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-labels": "on",
         "putout-config/apply-nodejs": "on",
         "putout-config/apply-tape": "on",
+        "putout-config/apply-types": "on",
         "putout-config/apply-promises": "on",
         "putout-config/convert-boolean-to-string": "on",
         "putout-config/move-formatter-up": "on",
@@ -214,6 +216,30 @@ Apply [`tape`](https://github.com/coderaiser/putout/tree/master/packages/plugin-
     "rules": {
         "tape/convert-mock-require-to-mock-import": "off"
     }
+}
+```
+
+## apply-types
+
+Apply [`types`](https://github.com/coderaiser/putout/tree/master/packages/plugin-types#readme) according to:
+
+- 🐊[**Putout v29**](https://github.com/coderaiser/putout/releases/tag/v29.0.0);
+
+```diff
+{
+    "rules": {
+-       "convert-typeof-to-is-type": "off" ,
+-       "remove-useless-type-conversions": "off",
+-       "remove-useless-typeof": "off",
+-       "apply-is-array": "off",
+-       "remove-useless-type-conversion/with-double-negations": "off",
++       "types/convert-typeof-to-is-type": "off",
++       "types/remove-useless-conversion": "off",
++       "types/remove-double-negations": "off",
++       "types/remove-useless-typeof": "off",
++       "types/apply-is-array": "off",
++       "types/remove-double-negations": "off"
+  }
 }
 ```
 
