@@ -62,7 +62,7 @@
     "@putout/compare": "^14.0.0",
     "@putout/engine-loader": "^14.0.0",
     "@putout/engine-parser": "^10.0.0",
-    "@putout/engine-processor": "^11.0.0",
+    "@putout/engine-processor": "^12.0.0",
     "@putout/engine-reporter": "^1.0.0",
     "@putout/engine-runner": "^21.0.0",
     "@putout/eslint": "^3.0.0",
