@@ -47,7 +47,7 @@
     "@stylistic/eslint-plugin-jsx": "^2.1.0",
     "@stylistic/eslint-plugin-ts": "^2.1.0",
     "@typescript-eslint/eslint-plugin": "^7.0.1",
-    "@typescript-eslint/parser": "^7.0.1",
+    "@typescript-eslint/parser": "^8.3.0",
     "align-spaces": "^1.0.0",
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-react": "^7.32.2",
