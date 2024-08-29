@@ -1,3 +1,11 @@
+2024.08.29, v36.4.1
+
+feature:
+- 40665a412 putout: @putout/plugin-types v5.0.0
+- 53002e2d8 @putout/plugin-types: drop support of 🐊 < 36
+- 5e36fe79c @putout/plugin-putout-config: apply-types: add
+- 3337950e1 @putout/plugin-putout: rename-rules: add
+
 2024.08.29, v36.4.0
 
 feature:
