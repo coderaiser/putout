@@ -22,7 +22,8 @@ npm i @putout/plugin-putout-config -D
 - ✅ [convert-boolean-to-string][#convert-boolean-to-string];
 - ✅ [move-formatter-up][#move-formatter-up];
 - ✅ [remove-empty][#remove-empty];
-- ✅ [rename-property.js][#rename-property.js];
+- ✅ [rename-property][#rename-property];
+- ✅ [rename-rules][#rename-rules];
 
 ## Config
 
@@ -37,7 +38,8 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-promises": "on",
         "putout-config/convert-boolean-to-string": "on",
         "putout-config/move-formatter-up": "on",
-        "putout-config/remove-empty": "on"
+        "putout-config/remove-empty": "on",
+        "putout-config/rename-rules": "on"
     }
 }
 ```
@@ -291,6 +293,25 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/48ce05b358
         "*.js": {
             "remove-unused-variables": "off"
         }
+    }
+}
+```
+
+## rename-rules
+
+Rename rules according to:
+
+- 🐊[**Putout v29**](https://github.com/coderaiser/putout/releases/tag/v29.0.0):
+
+```diff
+{
+    "rules": {
+-       "declare-undefined-variables": "off" ,
++       "declare": "off",
+-       "apply-maybe": "off" ,
++       "maybe": "off",
+-       "apply-array-at": "off",
++       "apply-at": "off",
     }
 }
 ```

@@ -7,6 +7,7 @@ const applyNodejs = require('./apply-nodejs');
 const applyPromises = require('./apply-promises');
 const applyTape = require('./apply-tape');
 const convertBooleanToString = require('./convert-boolean-to-string');
+const renameRules = require('./rename-rules');
 const removeEmpty = require('./remove-empty');
 const MoveFormatterUp = require('./move-formatter-up');
 
@@ -19,5 +20,6 @@ module.exports.rules = {
     'apply-tape': applyTape,
     'convert-boolean-to-string': convertBooleanToString,
     'move-formatter-up': MoveFormatterUp,
+    'rename-rules': renameRules,
     'remove-empty': removeEmpty,
 };
