@@ -25,6 +25,11 @@ test('plugin-putout-config: transform: apply-labels', (t) => {
     t.end();
 });
 
+test('plugin-putout-config: transform: apply-math', (t) => {
+    t.transform('apply-math');
+    t.end();
+});
+
 test('plugin-putout-config: transform: apply-nodejs', (t) => {
     t.transform('apply-nodejs');
     t.end();

@@ -16,6 +16,7 @@ npm i @putout/plugin-putout-config -D
 - ✅ [apply-conditions][#apply-conditions];
 - ✅ [apply-for-of][#apply-for-of];
 - ✅ [apply-labels][#apply-labels];
+- ✅ [apply-math][#apply-math];
 - ✅ [apply-nodejs][#apply-nodejs];
 - ✅ [apply-promises][#apply-promises];
 - ✅ [apply-tape][#apply-tape];
@@ -34,6 +35,7 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-conditions": "on",
         "putout-config/apply-for-of": "on",
         "putout-config/apply-labels": "on",
+        "putout-config/apply-math": "on",
         "putout-config/apply-nodejs": "on",
         "putout-config/apply-tape": "on",
         "putout-config/apply-types": "on",
@@ -144,6 +146,26 @@ Apply [`labels`](https://github.com/coderaiser/putout/tree/master/packages/plugi
     }
 }
 ```
+
+## apply-math
+
+Apply [`math`](https://github.com/coderaiser/putout/tree/master/packages/plugin-labels#readme) according to 🐊[**Putout v28**](https://github.com/coderaiser/putout/releases/tag/v28.0.0).
+
+```diff
+{
+    "rules": {
+-        "convert-math-pow": "off",
+-        "apply-numeric-separators": "off",
+-        "convert-imul-to-multiplication": "off",
+-        "convert-sqrt-to-hypot": "off"
++        "math/apply-exponential": "off",
++        "math/apply-numeric-separators": "off",
++        "math/apply-multiplication": "off",
++        "math/convert-sqrt-to-hypot": "off"
+    }
+}
+```
+
 
 ## apply-nodejs
 
