@@ -166,7 +166,6 @@ Apply [`math`](https://github.com/coderaiser/putout/tree/master/packages/plugin-
 }
 ```
 
-
 ## apply-nodejs
 
 Apply [`nodejs`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs#readme) according to:
@@ -360,6 +359,19 @@ Rename rules according to:
 +       "maybe": "off",
 -       "apply-array-at": "off",
 +       "apply-at": "off",
+    }
+}
+```
+
+- 🐊[**Putout v26**](https://github.com/coderaiser/putout/releases/tag/v26.0.0):
+
+```diff
+{
+    "rules": {
+-       "strict-mode/add": "off",
+-       "strict-mode/remove": "off",
++       "strict-mode/add-missing": "off",
++       "strict-mode/remove-useless": "off",
     }
 }
 ```

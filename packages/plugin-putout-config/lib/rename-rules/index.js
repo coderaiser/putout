@@ -7,4 +7,12 @@ const v29 = [
     ['apply-maybe', 'maybe'],
 ];
 
-module.exports = createRenameProperty(v29);
+const v26 = [
+    ['strict-mode/add', 'strict-mode/add-missing'],
+    ['strict-mode/remove', 'strict-mode/remove-useless'],
+];
+
+module.exports = createRenameProperty([
+    ...v29,
+    ...v26,
+]);

@@ -19,3 +19,8 @@ test('putout-config: rename-rules: transform', (t) => {
     t.end();
 });
 
+test('putout-config: rename-rules: transform: strict-mode', (t) => {
+    t.transform('strict-mode');
+    t.end();
+});
+
