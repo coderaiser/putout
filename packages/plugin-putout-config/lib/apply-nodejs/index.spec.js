@@ -24,3 +24,8 @@ test('putout-config: apply-nodejs: transform: convert-esm-to-commonjs', (t) => {
     t.transform('convert-esm-to-commonjs');
     t.end();
 });
+
+test('putout-config: apply-nodejs: transform: v24', (t) => {
+    t.transform('v24');
+    t.end();
+});

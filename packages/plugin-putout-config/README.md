@@ -170,32 +170,41 @@ Apply [`math`](https://github.com/coderaiser/putout/tree/master/packages/plugin-
 
 Apply [`nodejs`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs#readme) according to:
 
-- 🐊[**Putout v33**](https://github.com/coderaiser/putout/releases/tag/v33.0.0);
-- 🐊[**Putout v34**](https://github.com/coderaiser/putout/releases/tag/v34.0.0);
+- 🐊[**Putout v28**](https://github.com/coderaiser/putout/releases/tag/v33.0.0):
 
-### ❌ Example of incorrect code
-
-```json
+```diff
 {
     "rules": {
-        "strict-mode/add-missing": "off",
-        "strict-mode/remove-useless": "off",
-        "convert-esm-to-commonjs": "off",
-        "convert-commonjs-to-esm": "off"
+-       "convert-top-level-return": "off",
++       "nodejs/convert-top-level-return": "off"
+-       "remove-process-exit": "off"
++       "nodejs/remove-process-exit": "off"
     }
 }
 ```
 
-### ✅ Example of correct code
+- 🐊[**Putout v33**](https://github.com/coderaiser/putout/releases/tag/v33.0.0):
 
-```json
+```diff
 {
     "rules": {
-        "nodejs/add-missing-strict-mode": "off",
-        "nodejs/remove-useless-strict-mode": "off",
-        "nodejs/convert-esm-to-commonjs": "off",
-        "nodejs/convert-commonjs-to-esm": "off"
+-    "convert-esm-to-commonjs": "on",
+-    "convert-commonjs-to-esm": "on'
++    "nodejs/convert-esm-to-commonjs": "on",
++    "nodejs/convert-commonjs-to-esm": "on'
     }
+}
+```
+
+- 🐊[**Putout v34**](https://github.com/coderaiser/putout/releases/tag/v34.0.0):
+
+```diff
+{
+    "rules": {
+-       "strict-mode/add-missing": "off",
+-       "strict-mode/remove-useless": "off"
++       "nodejs/remove-useless-strict-mode": "off",
++       "nodejs/add-missing-strict-mode": "off"
 }
 ```
 
