@@ -13,6 +13,7 @@ const removeUselessElse = require('./remove-useless-else');
 const simplify = require('./simplify');
 const removeSameValuesCondition = require('./remove-same-values-condition');
 const addReturn = require('./add-return');
+const convertArrowToCondition = require('./convert-arrow-to-condition');
 
 module.exports.rules = {
     'apply-comparison-order': applyComparisonOrder,
@@ -28,4 +29,5 @@ module.exports.rules = {
     simplify,
     'remove-same-values-condition': removeSameValuesCondition,
     'add-return': addReturn,
+    'convert-arrow-to-condition': convertArrowToCondition,
 };

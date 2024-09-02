@@ -74,3 +74,8 @@ test('plugin-conditions: transform: add-return', (t) => {
     t.transform('add-return');
     t.end();
 });
+
+test('plugin-conditions: transform: convert-arrow-to-condition', (t) => {
+    t.transform('convert-arrow-to-condition');
+    t.end();
+});

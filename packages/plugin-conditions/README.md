@@ -19,6 +19,7 @@ npm i @putout/plugin-conditions -D
 - ✅ [apply-if](#apply-if);
 - ✅ [convert-comparison-to-boolean](#convert-comparison-to-boolean);
 - ✅ [convert-equal-to-strict-equal](#convert-equal-to-strict-equal);
+- ✅ [convert-arrow-to-condition](#convert-arrow-to-condition);
 - ✅ [evaluate](#evaluate);
 - ✅ [merge-if-statements](#merge-if-statements);
 - ✅ [remove-boolean](#remove-boolean);
@@ -39,6 +40,7 @@ npm i @putout/plugin-conditions -D
         "conditions/add-return": "on",
         "conditions/convert-comparison-to-boolean": "on",
         "conditions/convert-equal-to-strict-equal": "on",
+        "conditions/convert-arrow-to-condition": "on",
         "conditions/evaluate": "on",
         "conditions/remove-boolean": "on",
         "conditions/remove-constant": "on",
@@ -164,6 +166,22 @@ if (a)
 ```js
 if (a)
     return false;
+```
+
+## convert-arrow-to-condition
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/4d489393cd08dc771c6324eb0bb2e42f/9e85c4b7b7f2d0f82c660c6db618b31270d3a85e).
+
+## ❌ Example of incorrect code
+
+```js
+if ((a) => b) {}
+```
+
+## ✅ Example of correct code
+
+```js
+if (a <= b) {}
 ```
 
 ## convert-comparison-to-boolean

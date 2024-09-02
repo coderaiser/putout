@@ -1016,6 +1016,15 @@ const putout = require('putout');
 
 </details>
 
+<details><summary>convert <code>arrow function</code> to <code>condition</code></summary>
+
+```diff
+-if (a => b) {}
++if (a >= b) {}
+```
+
+</details>
+
 <details><summary>convert <code>quotes</code> to <code>backticks</code></summary>
 
 ```diff
