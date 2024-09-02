@@ -1,3 +1,13 @@
+2024.09.02, v36.4.2
+
+feature:
+- cc0cbc79f putout: @putout/plugin-conditions v5.0.0
+- 8bf9a33ef @putout/plugin-conditions: drop support of 🐊 < 36
+- a22bb4a78 @putout/plugin-conditions: convert-arrow-to-condition: add
+- af481c392 @putout/plugin-putout-config: apply-nodejs: v24
+- a035fc861 @putout/plugin-putout-config: rename-files: strict-mode
+- b96a628f3 @putout/plugin-putout-config: apply-math: add
+
 2024.08.29, v36.4.1
 
 feature:
