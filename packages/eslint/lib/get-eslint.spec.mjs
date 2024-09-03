@@ -34,7 +34,7 @@ test('putout: eslint: get-eslint: config: putout', async (t) => {
         cwd: __dirname,
         fix: false,
         overrideConfig: {
-            ignorePatterns: ['!.*'],
+            ignores: ['!.*'],
         },
     }];
     

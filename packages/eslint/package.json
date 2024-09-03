@@ -51,6 +51,9 @@
     "supertape": "^10.0.0",
     "try-catch": "^3.0.0"
   },
+  "peerDependencies": {
+    "eslint": ">=8"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=18"

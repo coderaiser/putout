@@ -14,7 +14,6 @@ const noESLint = process.env.NO_ESLINT;
 const noESLintWarnings = process.env.NO_ESLINT_WARNINGS;
 
 const NO_FLAT_CONFIG_FOUND = 'Could not find config file.';
-
 const WARNING = 1;
 
 const noConfigFound = (config, configError) => {
@@ -26,6 +25,12 @@ const noConfigFound = (config, configError) => {
     
     if (configError)
         return false;
+    
+    if (!config)
+        return true;
+    
+    if (!config.rules)
+        return true;
     
     return !keys(config.rules).length;
 };

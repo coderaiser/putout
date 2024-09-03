@@ -128,6 +128,15 @@ test('putout: eslint: no config', (t) => {
     t.end();
 });
 
+test('putout: eslint: ignored file: no rules', (t) => {
+    const {_noConfigFound} = reRequire('./eslint');
+    
+    const result = _noConfigFound({});
+    
+    t.ok(result, 'should not found config');
+    t.end();
+});
+
 test('putout: eslint: parsing error', async (t) => {
     const [, result] = await eslint({
         name: 'hello.js',
