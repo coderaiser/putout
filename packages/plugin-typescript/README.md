@@ -17,32 +17,30 @@ npm i putout @putout/plugin-typescript -D
 
 ## Rules
 
-- ✅ [apply-as-type-assertion][#apply-as-type-assertion];
-- ✅ [apply-type-guards][#apply-type-guards];
-- ✅ [apply-utility-types][#apply-utility-types];
-- ✅ [convert-commonjs-to-esm][#convert-commonjs-to-esm];
-- ✅ [convert-esm-to-commonjs][#convert-esm-to-commonjs];
-- ✅ [convert-generic-to-shorthand][#convert-generic-to-shorthand];
-- ✅ [cts-file][#cts-file];
-- ✅ [filesystem.js][#filesystem.js];
-- ✅ [find-file][#find-file];
-- ✅ [mts-file][#mts-file];
-- ✅ [remove-duplicate-exports][#remove-duplicate-exports];
-- ✅ [remove-duplicate-interface-keys][#remove-duplicate-interface-keys];
-- ✅ [remove-duplicates-from-union][#remove-duplicates-from-union];
-- ✅ [remove-unused-types][#remove-unused-types];
-- ✅ [remove-getter-arguments][#remove-getter-arguments];
-- ✅ [remove-setter-return-type][#remove-setter-return-type];
-- ✅ [remove-useless-mapped-types][#remove-useless-mapped-types];
-- ✅ [remove-useless-mapping-modifiers][#remove-useless-mapping-modifiers];
+- ✅ [apply-as-type-assertion](#apply-as-type-assertion);
+- ✅ [apply-type-guards](#apply-type-guards);
+- ✅ [apply-utility-types](#apply-utility-types);
+- ✅ [convert-commonjs-to-esm](#convert-commonjs-to-esm);
+- ✅ [convert-esm-to-commonjs](#convert-esm-to-commonjs);
+- ✅ [convert-generic-to-shorthand](#convert-generic-to-shorthand);
+- ✅ [cts-file](#cts-file);
+- ✅ [find-file](#find-file);
+- ✅ [mts-file](#mts-file);
+- ✅ [remove-duplicate-exports](#remove-duplicate-exports);
+- ✅ [remove-duplicate-interface-keys](#remove-duplicate-interface-keys);
+- ✅ [remove-duplicates-from-union](#remove-duplicates-from-union);
+- ✅ [remove-unused-types](#remove-unused-types);
+- ✅ [remove-getter-arguments](#remove-getter-arguments);
+- ✅ [remove-setter-return-type](#remove-setter-return-type);
+- ✅ [remove-useless-mapped-types](#remove-useless-mapped-types);
+- ✅ [remove-useless-mapping-modifiers](#remove-useless-mapping-modifiers);
 - ✅ [remove-useless-non-null-expressions](#remove-useless-non-null-expressions);
-- ✅ [remove-useless-parens][#remove-useless-parens];
-- ✅ [remove-useless-promise][#remove-useless-promise];
-- ✅ [remove-useless-types][#remove-useless-types];
-- ✅ [remove-useless-types-from-constants][#remove-useless-types-from-constants];
-- ✅ [rename-file-cts-to-ts][#rename-file-cts-to-ts];
-- ✅ [rename-file-mts-to-ts][#rename-file-mts-to-ts];
-- ✅ [typescript.js][#typescript.js];
+- ✅ [remove-useless-parens](#remove-useless-parens);
+- ✅ [remove-useless-promise](#remove-useless-promise);
+- ✅ [remove-useless-types](#remove-useless-types);
+- ✅ [remove-useless-types-from-constants](#remove-useless-types-from-constants);
+- ✅ [rename-file-cts-to-ts](#rename-file-cts-to-ts);
+- ✅ [rename-file-mts-to-ts](#rename-file-mts-to-ts);
 
 ## Config
 
@@ -183,7 +181,7 @@ import foo from 'foo';
 export default 5;
 ```
 
-## convert-commonjs-to-esm
+## convert-esm-to-commonjs
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7f77665246b03d9eddc8ee35713c415b/f874630569fa856e62c8a1564c31115ac82f182e).
 
@@ -224,7 +222,7 @@ type x = boolean[]
     | string[];
 ```
 
-## remove-duplicates-exports
+## remove-duplicate-exports
 
 In **JavaScript** duplicate exports leads to [`SyntaxError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError), anyways **TypeScript** parses such code and reports [`Duplicates Identifier`](https://github.com/Microsoft/TypeScript/blob/v1.8.5/src/compiler/diagnosticMessages.json#L826-L829) diagnostic.
 
