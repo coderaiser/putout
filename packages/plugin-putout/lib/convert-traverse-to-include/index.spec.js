@@ -29,3 +29,8 @@ test('plugin-putout: convert-traverse-to-include: no transform: no properties', 
     t.noTransform('no-properties');
     t.end();
 });
+
+test('plugin-putout: convert-traverse-to-include: no transform: couple', (t) => {
+    t.noTransform('couple');
+    t.end();
+});

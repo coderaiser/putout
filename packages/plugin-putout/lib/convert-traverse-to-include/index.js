@@ -22,12 +22,14 @@ module.exports.match = () => ({
         if (__aPath.isBlockStatement())
             return false;
         
-        for (const propertyPath of __aPath.get('properties')) {
-            if (isPush(propertyPath) || isBlock(propertyPath))
-                return true;
+        const properties = __aPath.get('properties');
+        
+        for (const propertyPath of properties) {
+            if (!isPush(propertyPath) && !isBlock(propertyPath))
+                return false;
         }
         
-        return false;
+        return true;
     },
 });
 
@@ -35,8 +37,9 @@ module.exports.replace = () => ({
     'module.exports.traverse = __a': (vars, path) => {
         const node = template.ast.fresh('module.exports.include = () => []');
         const __aPath = path.get('right.body');
+        const properties = __aPath.get('properties');
         
-        for (const propertyPath of __aPath.get('properties')) {
+        for (const propertyPath of properties) {
             const name = getName(propertyPath);
             
             if (isPush(propertyPath) || isBlock(propertyPath)) {
