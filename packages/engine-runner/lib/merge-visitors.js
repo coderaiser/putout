@@ -6,6 +6,7 @@ const {generate} = require('@putout/engine-parser');
 const runFix = require('./run-fix');
 const {getPosition} = require('./get-position');
 const maybeArray = require('./maybe-array');
+const {validate} = require('./validate');
 
 const {
     listStore,
@@ -23,8 +24,10 @@ const {assign} = Object;
 const parse = (name, plugin, options) => {
     const list = [];
     
-    if (plugin[name])
+    if (plugin[name]) {
+        validate(name, plugin[name]);
         list.push(...maybeArray(plugin[name]()));
+    }
     
     if (options[name])
         list.push(...maybeArray(options[name]));

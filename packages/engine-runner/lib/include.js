@@ -2,11 +2,10 @@
 
 const log = require('debug')('putout:runner:include');
 const maybeArray = require('./maybe-array');
+const {validate} = require('./validate');
 
-const {stringify} = JSON;
 const stub = () => [];
 const good = () => true;
-const isFn = (a) => typeof a === 'function';
 
 module.exports = ({rule, plugin, msg, options}) => {
     const {
@@ -64,8 +63,3 @@ const getTraverse = (include, filter, rule) => ({push, options}) => {
     
     return result;
 };
-
-function validate(name, fn) {
-    if (!isFn(fn))
-        throw Error(`☝️ Looks like '${name}' is not a 'function' but '${typeof fn}' with value: '${stringify(fn)}'. More on using Includer: https://git.io/JqcMn`);
-}

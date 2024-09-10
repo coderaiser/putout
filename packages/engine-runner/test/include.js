@@ -116,3 +116,41 @@ test('putout: runner: include: no fix', (t) => {
     t.equal(error.message, expected);
     t.end();
 });
+
+test('putout: runner: include: not function, with traverse', (t) => {
+    const source = `import type { Query } from 'assets/core_api/types/query'`;
+    const unyield = {
+        report: () => `Use 'return' instead of 'yield'`,
+        include: ['YieldExpression'],
+        fix: (path) => {
+            path.replaceWith(path.node.argument); // I want to just have the argument, not return it, I had this wrong earlier
+        },
+        traverse: ({push}) => ({
+            YieldExpression(path) {
+                push(path);
+            },
+            Program: {
+                exit(path) {
+                    path.traverse({
+                        Function(path) {
+                            push(path);
+                        },
+                    });
+                },
+            },
+        }),
+    };
+    
+    const [error] = tryCatch(putout, source, {
+        isTS: true,
+        fix: true,
+        plugins: [{
+            unyield,
+        }],
+    });
+    
+    const expected = `☝️ Looks like 'include' is not a 'function' but 'object' with value: '["YieldExpression"]'. More on using Includer: https://git.io/JqcMn`;
+    
+    t.equal(error.message, expected);
+    t.end();
+});
