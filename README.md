@@ -673,7 +673,7 @@ putout(source, {
     console.log(a);
 }
 ```
-
+</details>
 
 <details><summary>remove <code>unreferenced variables</code></summary>
 
