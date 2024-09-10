@@ -1,3 +1,13 @@
+2024.09.10, v36.5.0
+
+feature:
+- e260e49df @putout/plugin-putout-config: remove-empty-file: add
+- b90c88e45 putout: @putout/plugin-putout v21.0.0
+- 74fa773ed @putout/plugin-putout: drop support of 🐊 < 36
+- cc27c27f8 @putout/plugin-putout: convert-traverse-to-include: check all methods
+- 58eea7073 @putout/engine-runner: improve plugins validation (#218)
+- c2ab8cb25 @putout/eslint: handle case when file is ignored
+
 2024.09.02, v36.4.2
 
 feature:
