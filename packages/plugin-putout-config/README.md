@@ -357,6 +357,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/48ce05b358
 
 ## remove-empty-file
 
+Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/3d4878a71fe3fe5a2676b2f1380bad2e/071b8db5c4c8e00f73b2d6d3ded040d0d64d2977).
 When `.putout.json` content is:
 
 ```js
