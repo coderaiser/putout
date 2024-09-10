@@ -69,3 +69,8 @@ test('plugin-putout-config: transform: move-formatter-up', (t) => {
     t.transform('move-formatter-up');
     t.end();
 });
+
+test('plugin-putout-config: no transform: remove-empty-file', (t) => {
+    t.noTransform('remove-empty-file');
+    t.end();
+});

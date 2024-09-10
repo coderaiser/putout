@@ -12,6 +12,7 @@ const convertBooleanToString = require('./convert-boolean-to-string');
 const renameRules = require('./rename-rules');
 const removeEmpty = require('./remove-empty');
 const MoveFormatterUp = require('./move-formatter-up');
+const removeEmptyFile = require('./remove-empty-file');
 
 module.exports.rules = {
     'apply-conditions': applyConditions,
@@ -26,4 +27,5 @@ module.exports.rules = {
     'move-formatter-up': MoveFormatterUp,
     'rename-rules': renameRules,
     'remove-empty': removeEmpty,
+    'remove-empty-file': ['off', removeEmptyFile],
 };

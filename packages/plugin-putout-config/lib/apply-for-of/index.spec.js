@@ -18,4 +18,3 @@ test('putout-config: apply-for-of: transform', (t) => {
     t.transform('apply-for-of');
     t.end();
 });
-

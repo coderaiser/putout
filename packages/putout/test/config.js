@@ -113,6 +113,7 @@ test('putout: config: markdown', (t) => {
         'declare': 'off',
         'nodejs/declare': 'off',
         'typescript/remove-unused-types': 'off',
+        'remove-nested-blocks': 'off',
     };
     
     t.deepEqual(result, expected);
@@ -135,6 +136,7 @@ test('putout: config: filesystem', (t) => {
         'typescript/mts-file': 'on',
         'typescript/rename-file-cts-to-ts': 'on',
         'typescript/rename-file-mts-to-ts': 'on',
+        'putout-config/remove-empty-file': 'on',
     };
     
     t.deepEqual(result, expected);

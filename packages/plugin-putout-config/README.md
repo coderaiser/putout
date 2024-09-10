@@ -24,6 +24,7 @@ npm i @putout/plugin-putout-config -D
 - ✅ [convert-boolean-to-string][#convert-boolean-to-string];
 - ✅ [move-formatter-up][#move-formatter-up];
 - ✅ [remove-empty][#remove-empty];
+- ✅ [remove-empty-file][#remove-empty-file];
 - ✅ [rename-property][#rename-property];
 - ✅ [rename-rules][#rename-rules];
 
@@ -43,6 +44,7 @@ npm i @putout/plugin-putout-config -D
         "putout-config/convert-boolean-to-string": "on",
         "putout-config/move-formatter-up": "on",
         "putout-config/remove-empty": "on",
+        "putout-config/remove-empty-file": "off",
         "putout-config/rename-rules": "on"
     }
 }
@@ -351,6 +353,22 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/48ce05b358
         }
     }
 }
+```
+
+## remove-empty-file
+
+When `.putout.json` content is:
+
+```js
+{}
+```
+
+It has no sense and removed:
+
+```diff
+ /
+ `-- /
+-     `-- .putout.json
 ```
 
 ## rename-rules
