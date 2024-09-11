@@ -157,7 +157,7 @@
     "@putout/plugin-remove-unused-labels": "^1.0.1",
     "@putout/plugin-remove-unused-private-fields": "^2.0.0",
     "@putout/plugin-remove-unused-variables": "^9.0.0",
-    "@putout/plugin-remove-useless-arguments": "^8.0.0",
+    "@putout/plugin-remove-useless-arguments": "^9.0.0",
     "@putout/plugin-remove-useless-array": "^1.0.0",
     "@putout/plugin-remove-useless-array-constructor": "^2.0.0",
     "@putout/plugin-remove-useless-array-entries": "^1.0.0",
