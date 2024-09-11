@@ -44,3 +44,8 @@ test('plugin-remove-useless-arguments: destructuring: no report: nested', (t) =>
     t.noReport('nested');
     t.end();
 });
+
+test('plugin-remove-useless-arguments: destructuring: no report: dash', (t) => {
+    t.noReport('dash');
+    t.end();
+});

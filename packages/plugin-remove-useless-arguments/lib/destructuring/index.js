@@ -7,11 +7,7 @@ const {
     isObjectProperty,
 } = types;
 
-const {
-    compareAny,
-    findBinding,
-    remove,
-} = operator;
+const {findBinding, remove} = operator;
 
 const getKey = ({key}) => key;
 
@@ -113,8 +109,16 @@ function removeUseless({push, name, param, argProps}) {
     const propKeys = properties.map(getKey);
     
     for (const propPath of argProps) {
+        let is = false;
+        
         const {key} = propPath.node;
-        const is = compareAny(key, propKeys);
+        
+        for (const {name} of propKeys) {
+            if (name === key.name) {
+                is = true;
+                break;
+            }
+        }
         
         if (!is)
             push({
