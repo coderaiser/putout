@@ -7,10 +7,8 @@ const {readFileSync, readdirSync} = require('node:fs');
 const tryCatch = require('try-catch');
 const camelCase = require('just-camel-case');
 
-const dirFixture = join(__dirname, 'fixture');
-
-const readFixture = (name) => {
-    const longName = join(dirFixture, name);
+const readFixture = (dir, name) => {
+    const longName = join(dir, 'fixture', name);
     
     const [e, data] = tryCatch(readFileSync, `${longName}.ts`, 'utf8');
     
@@ -22,14 +20,14 @@ const readFixture = (name) => {
 
 const rmExt = (a) => a.replace('.js', '');
 
-module.exports.readFixtures = () => {
-    const names = readdirSync(join(__dirname, 'fixture')).map(rmExt);
+module.exports.readFixtures = (dir) => {
+    const names = readdirSync(join(dir, 'fixture')).map(rmExt);
     
     const result = {};
     
     for (const name of names) {
         const prop = camelCase(name);
-        result[prop] = readFixture(name);
+        result[prop] = readFixture(dir, name);
     }
     
     return new Proxy(result, handler);

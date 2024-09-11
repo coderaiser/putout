@@ -20,7 +20,7 @@ const {
     template,
 } = putout;
 
-const fixture = readFixtures();
+const fixture = readFixtures(__dirname);
 
 const {
     BlockStatement,

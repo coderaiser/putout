@@ -2,10 +2,14 @@
 
 const {maybeBody} = require('./maybe-body');
 const {toExpression} = require('./to-expression');
+const {isSequenceExpression} = require('@putout/babel').types;
 
 module.exports.replaceWithMultiple = (path, nodes) => {
     const parentComments = path.parentPath.node.comments;
-    const {comments} = path.node;
+    const {
+        comments,
+        leadingComments,
+    } = path.node;
     
     const newNodes = nodes
         .filter(Boolean)
@@ -16,6 +20,9 @@ module.exports.replaceWithMultiple = (path, nodes) => {
     
     if (!newPath.length)
         return newPath;
+    
+    if (!leadingComments && !isSequenceExpression(path))
+        delete newPath[0].node.leadingComments;
     
     newPath[0].node.comments = comments || parentComments;
     

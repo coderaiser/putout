@@ -12,7 +12,6 @@ const {rename} = require('./rename');
 const {renameProperty} = require('./rename-property');
 const {setLiteralValue} = require('./set-literal-value');
 const {getPathAfterRequires} = require('./get-path-after-requires');
-const {toExpression} = require('./to-expression');
 
 const {
     getProperty,
@@ -21,8 +20,12 @@ const {
 } = require('./properties');
 
 const {getLiteralRaw} = require('./get-literal-raw');
-const {replaceWithMultiple} = require('./replace-with-multiple');
-const {maybeBody} = require('./maybe-body');
+
+const {
+    replaceWith,
+    replaceWithMultiple,
+    toExpression,
+} = require('./replace-with');
 
 const {
     ExpressionStatement,
@@ -31,8 +34,6 @@ const {
     isExportDeclaration,
     isStatement,
 } = types;
-
-const {assign} = Object;
 
 module.exports.getBinding = getBinding;
 module.exports.getBindingPath = getBindingPath;
@@ -50,23 +51,6 @@ module.exports.setLiteralValue = setLiteralValue;
 module.exports.getProperty = getProperty;
 module.exports.getProperties = getProperties;
 module.exports.traverseProperties = traverseProperties;
-
-function replaceWith(path, node) {
-    if (path?.parentPath?.isExpressionStatement() && !path.parentPath.isProgram())
-        path = path.parentPath;
-    
-    const {comments, loc} = path.node;
-    const {currentPath} = maybeBody(path, node);
-    
-    currentPath.replaceWith(node);
-    
-    assign(currentPath.node, {
-        comments,
-        loc,
-    });
-    
-    return currentPath;
-}
 
 module.exports.replaceWithMultiple = replaceWithMultiple;
 
