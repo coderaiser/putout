@@ -158,7 +158,7 @@ module.exports.isArgs = (a) => {
     });
 };
 
-module.exports.isTypeParams = (node) => {
+const isTypeParams = (node) => {
     if (!isTSTypeParameterDeclaration(node))
         return false;
     
@@ -168,6 +168,16 @@ module.exports.isTypeParams = (node) => {
     return isIdentifier(name, {
         name: TYPE_PARAMS,
     });
+};
+
+module.exports.isEqualTypeParams = (a, b) => {
+    if (!a)
+        return false;
+    
+    if (!isTypeParams(b))
+        return false;
+    
+    return isEqualType(a, b);
 };
 
 module.exports.isLinkedArgs = (a) => {

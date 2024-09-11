@@ -993,6 +993,13 @@ test('compare: TSTypeParameters', (t) => {
     t.end();
 });
 
+test('compare: TSTypeParameters: no', (t) => {
+    const result = compare('function clear(): ret {}', 'function __a<__type_params>(): __c {__body}');
+    
+    t.notOk(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
