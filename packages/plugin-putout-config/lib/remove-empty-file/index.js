@@ -17,7 +17,7 @@ module.exports.scan = (path, {push}) => {
     for (const file of findFile(path, '.putout.json')) {
         const data = readFileContent(file);
         
-        if (data === '{}')
+        if (data.startsWith('{}'))
             push(file);
     }
 };
