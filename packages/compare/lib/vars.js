@@ -10,6 +10,7 @@ const {replaceWith, extract} = require('@putout/operate');
 const {
     is,
     isArgsStr,
+    isTypeParamsStr,
     isJSXChildrenStr,
     isJSXAttributesStr,
     isImportsStr,
@@ -34,7 +35,6 @@ const isNumber = (a) => typeof a === 'number';
 const isString = (a) => typeof a === 'string';
 
 const parseNode = (a) => a.node || a;
-
 const {stringify} = JSON;
 
 const BODY_AND_CLASS_REG = /\.body\.0(\.key)?$/;
@@ -104,7 +104,7 @@ function getValues({waysFrom, node}) {
         for (let way of ways) {
             if (isImportsStr(name) || isExportsStr(name))
                 way = way.replace(/\.0.local$/, '');
-            else if (isArgsStr(name) || isJSXChildrenStr(name) || isJSXAttributesStr(name))
+            else if (isArgsStr(name) || isJSXChildrenStr(name) || isJSXAttributesStr(name) || isTypeParamsStr(name))
                 way = way.replace(/\.0$/, '');
             
             if (!isJSXElement(node))

@@ -782,6 +782,38 @@ test('putout: compare: vars: getTemplateValues: TSTypeParameters', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: getTemplateValues: __type_params', (t) => {
+    const plugin = {
+        report: () => '',
+        match: () => ({
+            'function write<__type_params>() {__body}'({__type_params}) {
+                return __type_params.length > 2;
+            },
+        }),
+        replace: () => ({
+            'function write<__type_params>() {__body}'({__type_params}, path) {
+                __type_params.pop();
+                
+                return path;
+            },
+        }),
+    };
+    
+    const input = 'function write<di, ax, es>() {}';
+    const {code} = putout(input, {
+        printer: 'putout',
+        isTS: true,
+        plugins: [{
+            plugin,
+        }],
+    });
+    
+    const expected = 'function write<di, ax>() {}\n';
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: compare: vars: getTemplateValues: TSTypeReference 2', (t) => {
     const plugin = {
         report: () => '',
