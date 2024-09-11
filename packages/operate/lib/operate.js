@@ -12,6 +12,7 @@ const {rename} = require('./rename');
 const {renameProperty} = require('./rename-property');
 const {setLiteralValue} = require('./set-literal-value');
 const {getPathAfterRequires} = require('./get-path-after-requires');
+const {toExpression} = require('./to-expression');
 
 const {
     getProperty,
@@ -20,17 +21,15 @@ const {
 } = require('./properties');
 
 const {getLiteralRaw} = require('./get-literal-raw');
+const {replaceWithMultiple} = require('./replace-with-multiple');
+const {maybeBody} = require('./maybe-body');
 
 const {
     ExpressionStatement,
-    toStatement,
     matchesPattern,
-    isBlockStatement,
     isImportDeclaration,
     isExportDeclaration,
-    isExpression,
     isStatement,
-    BlockStatement,
 } = types;
 
 const {assign} = Object;
@@ -52,28 +51,11 @@ module.exports.getProperty = getProperty;
 module.exports.getProperties = getProperties;
 module.exports.traverseProperties = traverseProperties;
 
-function toExpression(el) {
-    const {type} = el;
-    
-    const ignore = [
-        'ObjectProperty',
-    ];
-    
-    if (ignore.includes(type))
-        return el;
-    
-    if (isExpression(el))
-        return ExpressionStatement(el);
-    
-    return toStatement(el);
-}
-
 function replaceWith(path, node) {
     if (path?.parentPath?.isExpressionStatement() && !path.parentPath.isProgram())
         path = path.parentPath;
     
     const {comments, loc} = path.node;
-    
     const {currentPath} = maybeBody(path, node);
     
     currentPath.replaceWith(node);
@@ -86,24 +68,7 @@ function replaceWith(path, node) {
     return currentPath;
 }
 
-module.exports.replaceWithMultiple = (path, nodes) => {
-    const parentComments = path.parentPath.node.comments;
-    const {comments} = path.node;
-    
-    const newNodes = nodes
-        .filter(Boolean)
-        .map(toExpression);
-    
-    const {currentPath} = maybeBody(path);
-    const newPath = currentPath.replaceWithMultiple(newNodes);
-    
-    if (!newPath.length)
-        return newPath;
-    
-    newPath[0].node.comments = comments || parentComments;
-    
-    return newPath;
-};
+module.exports.replaceWithMultiple = replaceWithMultiple;
 
 module.exports.insertBefore = (path, node) => {
     path.insertBefore(node);
@@ -168,20 +133,3 @@ module.exports.isESM = (path) => {
     
     return false;
 };
-
-function maybeBody(path, node) {
-    const {parentPath} = path;
-    
-    if (node && !isStatement(node) || isBlockStatement(node) || !parentPath?.isArrowFunctionExpression?.())
-        return {
-            currentPath: path,
-        };
-    
-    parentPath.node.body = BlockStatement([
-        ExpressionStatement(path.node),
-    ]);
-    
-    return {
-        currentPath: parentPath.get('body.body.0'),
-    };
-}
