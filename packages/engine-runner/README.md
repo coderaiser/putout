@@ -450,6 +450,8 @@ export const scan = (rootPath, {push, trackFile}) => {
 };
 ```
 
+☝️ *When you use `trackFile` use [`progress()`](https://github.com/coderaiser/putout/tree/master/packages/test#progressfilename-expected) for testing*
+
 ### Finder
 
 **Finder** gives you all the control over traversing, but it's the slowest format.
