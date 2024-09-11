@@ -1,6 +1,6 @@
 {
   "name": "@putout/operate",
-  "version": "12.9.2",
+  "version": "12.10.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Operate on AST for 🐊 Putout",
