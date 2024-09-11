@@ -3,7 +3,6 @@
 const {operator} = require('putout');
 const {
     readFileContent,
-    findFile,
     removeFile,
 } = operator;
 
@@ -13,8 +12,8 @@ module.exports.fix = (filePath) => {
     removeFile(filePath);
 };
 
-module.exports.scan = (path, {push}) => {
-    for (const file of findFile(path, '.putout.json')) {
+module.exports.scan = (path, {push, trackFile}) => {
+    for (const file of trackFile(path, '.putout.json')) {
         const data = readFileContent(file);
         
         if (data.startsWith('{}'))
