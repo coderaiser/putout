@@ -1,3 +1,20 @@
+2024.09.11, v36.5.1
+
+fix:
+- d05335945 @putout/compare: vars: getTemplateValues: __type_params
+
+feature:
+- 2ea2f3ff9 putout: @putout/plugin-remove-useless-arguments v9.0.0
+- 06b9951b8 @putout/plugin-remove-useless-arguments: drop support of 🐊 < 36
+- f91eea293 @putout/plugin-remove-useless-arguments: destructuring: dashes
+- 24d82bdf2 @putout/compare: __type_params: add
+- 93a380f5f @putout/compare: vars: add support of TSTypeParameter
+- 9a228f501 @putout/operate: extract: TSTypeParameter
+- 0958850c7 @putout/operate: replaceWithMultiple: leadingComments
+- c62defe91 @putout/operate: move out replaceWithMultiple
+- aa58622f8 @putout/plugin-putout-config: remove-empty-file: trackFile
+- 304edc325 @putout/plugin-putout-config: remove-empty-file: newline
+
 2024.09.10, v36.5.0
 
 feature:
