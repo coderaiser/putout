@@ -66,7 +66,7 @@ function findVarsWays(node) {
     
     traverse(node, {
         noScope: true,
-        'Identifier|BooleanLiteral|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute|TSTypeReference'(path) {
+        'Identifier|BooleanLiteral|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute|TSTypeReference|TSTypeParameter'(path) {
             if (isInsideTypeReference(path))
                 return;
             
