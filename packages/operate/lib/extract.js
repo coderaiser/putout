@@ -13,6 +13,7 @@ const {
     isJSXText,
     isJSXAttribute,
     isTSTypeReference,
+    isTSTypeParameter,
 } = types;
 
 module.exports.extract = extract;
@@ -53,6 +54,9 @@ function extract(node) {
     if (isTSTypeReference(node))
         return extract(node.typeName);
     
+    if (isTSTypeParameter(node))
+        return extract(node.name);
+    
     const nodeTypes = [
         'Literals',
         'Identifiers',
@@ -63,6 +67,7 @@ function extract(node) {
         'MemberExpression',
         'JSXAttribute',
         'JSXText',
+        'TSTypeParameter',
     ].join(', ');
     
     throw Error(`'operator.extract(node)' understands only ${nodeTypes} and TSTypeReference🤷, found: ${node.type}`);

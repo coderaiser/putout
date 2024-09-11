@@ -83,6 +83,7 @@ Extract node value according to it's type::
 - if it is `TemplateElement` return `value.raw`;
 - if it is `ClassMethod` return `key`;
 - if it is `TSTypeReference` return `typeName.name`;
+- if it is `TSTypeParameter` return `name`;
 - if it is `MemberExpression` return `object.property`;
 - if it is `ArrayExpression` return `element1,element2,...,elementN`;
 - `throw` in other cases
