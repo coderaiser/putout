@@ -986,6 +986,13 @@ test('compare: TSExportAssignment', (t) => {
     t.end();
 });
 
+test('compare: TSTypeParameters', (t) => {
+    const result = compare('function clear<es, ax, di>(): ret {}', 'function __a<__type_params>(): __c {__body}');
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);

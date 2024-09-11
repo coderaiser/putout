@@ -261,6 +261,16 @@ compare('const a = /hello/g', 'const a = /__a/');
 true;
 ```
 
+##### `__type_params`
+
+Any count of TSTypeParameter's.
+
+```js
+compare('function clear<es, ax, di>() {}', 'function __a<__type_params>(): __c {__body}');
+// returns
+true;
+```
+
 ## License
 
 MIT

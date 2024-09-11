@@ -17,6 +17,7 @@ const {
     isJSXIdentifier,
     isJSXAttribute,
     isTSTypeReference,
+    isTSTypeParameterDeclaration,
 } = types;
 
 const isStr = (a) => typeof a === 'string';
@@ -24,6 +25,7 @@ const isStr = (a) => typeof a === 'string';
 const ANY_OBJECT = '__object';
 const ANY_ARRAY = '__array';
 const ARGS = '__args';
+const TYPE_PARAMS = '__type_params';
 const IMPORTS = '__imports';
 const EXPORTS = '__exports';
 const BODY = '__body';
@@ -43,6 +45,7 @@ const ALL = [
     ANY_OBJECT,
     ANY_ARRAY,
     ARGS,
+    TYPE_PARAMS,
     BOOL,
     JSX_CHILDREN,
     JSX_ATTRIBUTES,
@@ -151,6 +154,18 @@ module.exports.isArgs = (a) => {
     
     return isIdentifier(b, {
         name: ARGS,
+    });
+};
+
+module.exports.isTypeParams = (node) => {
+    if (!isTSTypeParameterDeclaration(node))
+        return false;
+    
+    const {params} = node;
+    const {name} = params[0];
+    
+    return isIdentifier(name, {
+        name: TYPE_PARAMS,
     });
 };
 
