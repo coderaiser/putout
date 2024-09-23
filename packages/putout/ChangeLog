@@ -1,3 +1,14 @@
+2024.09.23, v36.6.0
+
+fix:
+- 6c3eb4f40 @putout/compare: __type_params
+
+feature:
+- dc92ef92a putout: @putout/plugin-remove-useless-constructor v2.0.0
+- eb8ef6197 @putout/plugin-remove-useless-constructor: change
+- 044fd02e8 @putout/plugin-typres: remove-useless-constructor: merge
+- f5de7f09d @putout/plugin-putout: add-path-arg-to-fix: add
+
 2024.09.11, v36.5.1
 
 fix:
