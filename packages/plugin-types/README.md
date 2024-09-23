@@ -18,6 +18,7 @@ npm i putout @putout/plugin-types -D
 - ✅ [declare](#declare);
 - ✅ [remove-double-negations](#remove-double-negations);
 - ✅ [remove-useless-conversion](#remove-useless-conversion);
+- ✅ [remove-useless-constructor](#remove-useless-constructor);
 - ✅ [remove-useless-typeof](#remove-useless-typeof);
 
 ## Config
@@ -28,6 +29,7 @@ npm i putout @putout/plugin-types -D
         "types/declare": "on",
         "types/convert-typeof-to-istype": "on",
         "types/remove-useless-conversion": "on",
+        "types/remove-useless-constructor": "on",
         "types/remove-double-negations": "on",
         "types/remove-useless-typeof": "on",
         "types/apply-is-array": "on"
@@ -113,6 +115,30 @@ const b = Boolean([1].includes(1));
 
 ```js
 const a = [1].includes(1);
+```
+
+## remove-useless-constructor
+
+> Wrapper classes have surprising behaviour, such as `new Boolean(false)` evaluating to `true`.
+>
+> (c) [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html#primitive-types-wrapper-classes)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `constructor`. Use with [`new/remove-useless`](https://github.com/coderaiser/putout/tree/master/packages/plugin-new#readme).
+
+### ❌ Example of incorrect code
+
+```js
+const s = String('hello');
+const b = Boolean(false);
+const n = Number(5);
+```
+
+### ✅ Example of correct code
+
+```js
+const s = 'hello';
+const b = false;
+const n = 5;
 ```
 
 ## remove-double-negations
