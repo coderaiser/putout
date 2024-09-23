@@ -790,8 +790,11 @@ switch (x) {
 <details><summary>remove useless <code>constructor</code>(<a href=https://google.github.io/styleguide/tsguide.html#primitive-types-wrapper-classes>why</a>)</summary>
 
 ```diff
--const s = String('hello');
-+const s = 'hello';
+class A extends B() {
+-    constructor(...args) {
+-        super(...args);
+-    }
+}
 ```
 
 </details>

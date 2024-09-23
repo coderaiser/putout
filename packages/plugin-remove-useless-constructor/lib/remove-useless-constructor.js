@@ -1,20 +1,30 @@
 'use strict';
 
-const {types} = require('putout');
-const {
-    isBooleanLiteral,
-    isNumericLiteral,
-} = types;
+const {operator, types} = require('putout');
+const {isCallExpression} = types;
+const {remove} = operator;
 
-module.exports.report = () => 'Avoid useless constructor';
+module.exports.report = () => `Avoid useless constructor`;
 
-module.exports.match = () => ({
-    'Boolean(__a)': ({__a}) => isBooleanLiteral(__a),
-    'Number(__a)': ({__a}) => isNumericLiteral(__a),
-});
+module.exports.fix = (path) => {
+    remove(path);
+};
 
-module.exports.replace = () => ({
-    'String("__a")': '__a',
-    'Boolean(__a)': '__a',
-    'Number(__a)': '__a',
+module.exports.traverse = ({push}) => ({
+    ClassMethod(path) {
+        const {node} = path;
+        
+        if (node.key.name !== 'constructor')
+            return;
+        
+        if (node.body.body.length > 1)
+            return;
+        
+        const [first] = node.body.body;
+        
+        if (!isCallExpression(first?.expression) || first.expression.callee.type !== 'Super')
+            return;
+        
+        push(path);
+    },
 });

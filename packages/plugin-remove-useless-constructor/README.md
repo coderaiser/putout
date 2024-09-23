@@ -1,18 +1,19 @@
-# @putout/plugin-remove-useless-constructors [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/plugin-remove-useless-constructor [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-constructor.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-constructor "npm"
 
-> Wrapper classes have surprising behaviour, such as `new Boolean(false)` evaluating to `true`.
+> The `constructor` method is a special method of a class for creating and initializing an object instance of that class.
 >
-> (c) [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html#primitive-types-wrapper-classes)
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `constructors`. Use with [remove-useless-new](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-new#readme).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `constructor`.
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/4f23b20fe29ebaf9c691662846f75c0f/04a5f3c7ea0aba9dd9ed9fe76d957c29c46ef626).
 
 ## Install
 
 ```
-npm i @putout/plugin-remove-useless-constructors
+npm i @putout/plugin-remove-useless-constructor
 ```
 
 ## Rule
@@ -20,7 +21,7 @@ npm i @putout/plugin-remove-useless-constructors
 ```json
 {
     "rules": {
-        "remove-useless-constructors": "on"
+        "remove-useless-constructor": "on"
     }
 }
 ```
@@ -28,17 +29,17 @@ npm i @putout/plugin-remove-useless-constructors
 ## ❌ Example of incorrect code
 
 ```js
-const s = String('hello');
-const b = Boolean(false);
-const n = Number(5);
+class A extends B() {
+    constructor(...args) {
+        super(...args);
+    }
+}
 ```
 
 ## ✅ Example of correct code
 
 ```js
-const s = 'hello';
-const b = false;
-const n = 5;
+class A extends B() {}
 ```
 
 ## License

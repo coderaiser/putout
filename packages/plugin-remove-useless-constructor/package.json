@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-useless-constructor",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to remove useless constructor",
@@ -41,11 +41,11 @@
     "madrun": "^10.0.0"
   },
   "peerDependencies": {
-    "putout": ">=16"
+    "putout": ">=36"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public"
