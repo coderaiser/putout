@@ -257,3 +257,8 @@ test('plugin-putout: transform: add-places-to-compare-places', (t) => {
     t.transform('add-places-to-compare-places');
     t.end();
 });
+
+test('plugin-putout: transform: add-path-arg-to-fix', (t) => {
+    t.transform('add-path-arg-to-fix');
+    t.end();
+});

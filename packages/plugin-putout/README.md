@@ -16,6 +16,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-await-to-progress](#add-await-to-progress);
 - ✅ [add-index-to-import](#add-index-to-import);
 - ✅ [add-places-to-compare-places](#add-places-to-compare-places);
+- ✅ [add-path-arg-to-fix](#add-path-arg-to-fix);
 - ✅ [add-test-args](#add-test-args);
 - ✅ [add-traverse-args](#add-traverse-args);
 - ✅ [add-track-file](#add-track-file);
@@ -71,6 +72,13 @@ npm i @putout/plugin-putout -D
 ```json
 {
     "rules": {
+        "putout/add-places-to-compare-places": "on",
+        "putout/add-path-arg-to-fix": "on",
+        "putout/add-test-args": "on",
+        "putout/add-traverse-args": "on",
+        "putout/add-track-file": "on",
+        "putout/add-await-to-progress": "on",
+        "putout/add-index-to-import": "on",
         "putout/apply-create-test": "on",
         "putout/apply-processors-destructuring": "on",
         "putout/apply-async-formatter": "on",
@@ -82,12 +90,6 @@ npm i @putout/plugin-putout -D
         "putout/apply-short-processors": "on",
         "putout/apply-namespace-specifier": "on",
         "putout/apply-for-of-to-track-file": "on",
-        "putout/add-places-to-compare-places": "on",
-        "putout/add-test-args": "on",
-        "putout/add-traverse-args": "on",
-        "putout/add-track-file": "on",
-        "putout/add-await-to-progress": "on",
-        "putout/add-index-to-import": "on",
         "putout/check-match": "on",
         "putout/check-replace-code": ["on", {
             "once": true
@@ -818,6 +820,26 @@ comparePlaces('hello');
 
 ```js
 comparePlaces('hello', []);
+```
+
+## add-path-arg-to-fix
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3d3fb6b8f5e5376cdd1674c9b19e0e27/4872f77e680a2fc443618f4bf5fae3ffab11046a).
+
+### ❌ Example of incorrect code
+
+```js
+export const fix = () => {
+    path.remove();
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export const fix = (path) => {
+    path.remove();
+};
 ```
 
 ## add-test-args

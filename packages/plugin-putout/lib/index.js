@@ -52,6 +52,7 @@ const removeUnusedGetPropertiesArgument = require('./remove-unused-get-propertie
 const simplifyReplaceTemplate = require('./simplify-replace-template');
 const removeEmptyArrayFromProcess = require('./remove-empty-array-from-process');
 const addPlacesToComparePlaces = require('./add-places-to-compare-places');
+const addPathArgToFix = require('./add-path-arg-to-fix');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -106,4 +107,5 @@ module.exports.rules = {
     'simplify-replace-template': simplifyReplaceTemplate,
     'remove-empty-array-from-process': removeEmptyArrayFromProcess,
     'add-places-to-compare-places': addPlacesToComparePlaces,
+    'add-path-arg-to-fix': addPathArgToFix,
 };
