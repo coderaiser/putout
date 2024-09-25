@@ -38,6 +38,10 @@ function getTuple({__a}, path) {
         return null;
     
     const declarationPath = exportDefault.get('declaration');
+    
+    if (isSameEnv({__a, path, declarationPath}))
+        return null;
+    
     const property = getProperty(declarationPath, __a.value);
     
     if (!property)
@@ -49,4 +53,24 @@ function getTuple({__a}, path) {
         return null;
     
     return body;
+}
+
+function isSameEnv({__a, path, declarationPath}) {
+    if (!path.parentPath.parentPath.isArrayExpression())
+        return false;
+    
+    const [first] = path.parentPath.parentPath.node.elements;
+    const propertyPath = getProperty(declarationPath, __a.value);
+    
+    if (!propertyPath)
+        return false;
+    
+    const array = propertyPath.node.value.body;
+    
+    if (!isArrayExpression(array))
+        return false;
+    
+    const [calledFirst] = array.elements;
+    
+    return first.name !== calledFirst.name;
 }

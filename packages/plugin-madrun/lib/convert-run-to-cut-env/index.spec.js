@@ -34,3 +34,8 @@ test('madrun: convert-run-to-cut-env: no transform: no property', (t) => {
     t.noTransform('no-property');
     t.end();
 });
+
+test('madrun: convert-run-to-cut-env: no transform: env', (t) => {
+    t.noTransform('env');
+    t.end();
+});
