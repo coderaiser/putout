@@ -33,8 +33,13 @@ const putoutOffEnv = {
     PUTOUT_CONFIG_FILE: './.putout-off.json',
 };
 
+const envBreaking = {
+    BABEL_TYPES_8_BREAKING: 1,
+};
+
 export default {
     'test': () => [env, `tape -f time '${dirs}/*/test/*.*' '${dirs}/*/{bin,lib,rules}/**/*.spec.*'`],
+    'test:break': async () => [envBreaking, await run('test')],
     'test:update': () => [envUpdate, `tape 'packages/{test,plugin,processor,engine}-*/test/*.*' 'packages/{test,plugin,processor,engine}-*/lib/**/*.spec.*'`],
     'test:inspect': () => [env, `node --inspect-brk --inspect=0.0.0.0 node_modules/.bin/${cutEnv('test')}`],
     'test:fail': async () => await run('test', '-f fail'),

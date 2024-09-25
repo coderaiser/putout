@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "test": "madrun test",
+    "test:break": "madrun test:break",
     "test:update": "madrun test:update",
     "test:inspect": "madrun test:inspect",
     "test:fail": "madrun test:fail",
@@ -52,7 +53,9 @@
     "redlint": "^3.1.2",
     "supertape": "^10.0.0"
   },
-  "trustedDependencies": ["husky"],
+  "trustedDependencies": [
+    "husky"
+  ],
   "engines": {
     "node": ">=18"
   },
