@@ -126,7 +126,7 @@
     "@putout/plugin-group-imports-by-source": "^1.0.0",
     "@putout/plugin-labels": "^1.0.0",
     "@putout/plugin-logical-expressions": "^6.0.0",
-    "@putout/plugin-madrun": "^18.0.0",
+    "@putout/plugin-madrun": "^19.0.0",
     "@putout/plugin-math": "^2.0.0",
     "@putout/plugin-maybe": "^2.0.0",
     "@putout/plugin-merge-destructuring-properties": "^9.0.0",
