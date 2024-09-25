@@ -1,8 +1,8 @@
+import {safeAlign} from 'eslint-plugin-putout/config';
 import {
     matchToFlat,
     createESLintConfig,
 } from '@putout/eslint-flat';
-import {safeAlign} from 'eslint-plugin-putout/config';
 
 export const match = {
     '**/bin/putout.mjs': {
