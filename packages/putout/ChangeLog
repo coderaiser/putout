@@ -1,3 +1,10 @@
+2024.09.25, v36.6.1
+
+feature:
+- 00f1be349 putout: @putout/plugin-madrun v19.0.0
+- bd50cf196 @putout/plugin-madrun: drop support of 🐊 < 36
+- 2837459aa @putout/plugin-madrun: convert-run-to-cut-env: exclude different envs
+
 2024.09.23, v36.6.0
 
 fix:
