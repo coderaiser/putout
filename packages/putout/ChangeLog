@@ -1,3 +1,11 @@
+2024.09.26, v36.6.2
+
+fix:
+- 6c0207700 putout: rm unused exports
+
+feature:
+- 559fcd1ed @putout/plugin-remove-useless-variables: declaration: re-assign (coderaiser/minify#128)
+
 2024.09.25, v36.6.1
 
 feature:
