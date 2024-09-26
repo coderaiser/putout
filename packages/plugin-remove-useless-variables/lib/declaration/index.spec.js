@@ -96,3 +96,8 @@ test('remove usless variables: declaration: no transform: other-scope', (t) => {
     t.noTransform('other-scope');
     t.end();
 });
+
+test('remove usless variables: declaration: no transform: re-assigned', (t) => {
+    t.noTransform('re-assign');
+    t.end();
+});

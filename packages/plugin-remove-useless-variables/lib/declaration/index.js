@@ -55,6 +55,9 @@ module.exports.match = ({options}) => ({
         if (binding.referencePaths.length !== 1)
             return false;
         
+        if (binding.constantViolations.length)
+            return false;
+        
         if (!binding.path.isVariableDeclarator())
             return false;
         
