@@ -1,5 +1,7 @@
 'use strict';
 
+const {test} = require('supertape');
+const tryCatch = require('try-catch');
 const {
     parse,
     operator,
@@ -7,7 +9,6 @@ const {
     template,
 } = require('putout');
 
-const {test} = require('supertape');
 const {
     getProperty,
     getProperties,
@@ -124,5 +125,21 @@ test('operate: properties: getProperty: SpreadElement', (t) => {
     const expected = '({...x});\n';
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('operate: properties: getProperty: not object', (t) => {
+    const ast = parse(`const a = "hello"`);
+    let string;
+    
+    traverse(ast, {
+        StringLiteral: (path) => {
+            string = path;
+        },
+    });
+    
+    const [error] = tryCatch(getProperty, string, 'hello');
+    
+    t.equal(error.message, `☝️Looks like path is not 'ObjectExpression', but: 'StringLiteral' for path: "hello"`);
     t.end();
 });

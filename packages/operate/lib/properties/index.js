@@ -1,5 +1,6 @@
 'use strict';
 
+const {isObjectExpression} = require('@putout/babel').types;
 const {extract} = require('../extract');
 const {traverseProperties} = require('./traverse-properties');
 
@@ -27,6 +28,9 @@ module.exports.getProperties = (path, names) => {
 };
 
 module.exports.getProperty = (path, name) => {
+    if (!isObjectExpression(path))
+        throw Error(`☝️Looks like path is not 'ObjectExpression', but: '${path.type}' for path: ${path}`);
+    
     const propertyPaths = path.get(`properties`);
     
     for (const propertyPath of propertyPaths) {
