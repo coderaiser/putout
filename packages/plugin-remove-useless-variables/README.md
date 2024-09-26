@@ -13,11 +13,11 @@ npm i @putout/plugin-remove-useless-variables -D
 
 ## Rules
 
-- ✅ [declaration][#declaration];
-- ✅ [destruct][#destruct];
-- ✅ [duplicate][#duplicate];
-- ✅ [remove][#remove];
-- ✅ [rename][#rename];
+- ✅ [declaration](#declaration);
+- ✅ [destruct](#destruct);
+- ✅ [duplicate](#duplicate);
+- ✅ [remove](#remove);
+- ✅ [rename](#rename);
 
 ## Config
 
