@@ -134,7 +134,7 @@
     "@putout/plugin-new": "^3.0.1",
     "@putout/plugin-nodejs": "^11.0.0",
     "@putout/plugin-npmignore": "^5.0.0",
-    "@putout/plugin-package-json": "^7.0.0",
+    "@putout/plugin-package-json": "^8.0.0",
     "@putout/plugin-promises": "^15.0.0",
     "@putout/plugin-putout": "^21.0.0",
     "@putout/plugin-putout-config": "^6.0.0",
