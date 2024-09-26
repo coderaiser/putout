@@ -1,3 +1,11 @@
+2024.09.26, v36.7.0
+
+feature:
+- 5d9d805b7 putout: @putout/plugin-package-json v8.0.0
+- 22b90580f @putout/plugin-package-json: drop support of 🐊 < 36
+- 3c80fdddd @putout/operate: getProperty: check that path is ObjectExpression
+- a27d72de2 @putout/plugin-package-json: appy-https-to-repository-url
+
 2024.09.26, v36.6.2
 
 fix:
