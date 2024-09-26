@@ -129,6 +129,8 @@ b.c = z;
 function x() {
     return 5;
 }
+
+b.c = b.c.replace('x', 'y');
 ```
 
 ### duplicate
