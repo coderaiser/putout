@@ -12,13 +12,11 @@
       "import": "./lib/putout.mjs"
     },
     "./parse-options": "./lib/parse-options/index.js",
-    "./parse-error": "./lib/cli/parse-error.js",
     "./process-file": "./lib/cli/process-file.js",
     "./exit-codes": "./lib/cli/exit-codes.mjs",
     "./exit-codes/cjs": "./lib/cli/exit-codes.js",
     "./cli": "./lib/cli/index.js",
     "./cli/get-options": "./lib/cli/get-options.js",
-    "./loader": "./lib/loader.mjs",
     "./package.json": "./package.json",
     "./putout.json": "./putout.json",
     "./lint/json": "./lib/lint/json.mjs",
