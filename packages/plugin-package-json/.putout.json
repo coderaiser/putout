@@ -1,7 +1,8 @@
 {
     "printer": "putout",
-    "rules": {
-        "putout/apply-namespace-specifier": "off",
-        "putout/add-index-to-import": "off"
+    "match": {
+        "lib/index.js": {
+            "putout/add-index-to-import": "off"
+        }
     }
 }

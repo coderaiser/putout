@@ -3,7 +3,6 @@
   "version": "6.0.0",
   "type": "commonjs",
   "description": "babel plugin for putout",
-  "repository": "coderaiser/babel-plugin-putout",
   "author": "Coderaiser <coderaiser@cloudcmd.io>",
   "main": "lib/index.js",
   "release": false,

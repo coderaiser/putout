@@ -9,7 +9,7 @@
   "changelog": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/putout.git"
+    "url": "git+https://github.com/coderaiser/putout.git"
   },
   "exports": {
     ".": "./lib/index.js",

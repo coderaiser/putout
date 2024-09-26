@@ -520,4 +520,3 @@ test('putout: loader: disabled rules in plugin: load', (t) => {
     t.equal(code, expected);
     t.end();
 });
-

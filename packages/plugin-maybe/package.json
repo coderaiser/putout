@@ -11,7 +11,7 @@
   "changelog": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/maybe.git"
+    "url": "git+https://github.com/coderaiser/maybe.git"
   },
   "scripts": {
     "wisdom": "madrun wisdom",

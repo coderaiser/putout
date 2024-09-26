@@ -8,6 +8,7 @@
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove unused `label` statement.
+
 ## Install
 
 ```
@@ -33,7 +34,6 @@ npm i @putout/plugin-labels -D
 ☝️ If you want to override any of it, update `.putout.json` in the directory near your files.
 
 [🦉 Configuration](https://github.com/coderaiser/putout#-configuration) section of 🐊**Putout** documentation tell you more about all configuration options supported.
-
 
 ## convert-to-object
 
@@ -84,7 +84,6 @@ while (true) {
 | 🐊 **Putout** | [`remove-unused-labels`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-labels#readme) | ✅   |
 | ⏣ **ESLint**  | [`no-unused-labels`](https://eslint.org/docs/rules/no-unused-labels)                                                   | ❌   |
 | 🦕 **Deno**   | [`no-unused-labels`](https://lint.deno.land/rules/no-unused-labels)                                                    | ❌   |
-
 
 ## License
 

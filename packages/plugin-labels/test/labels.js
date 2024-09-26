@@ -18,4 +18,3 @@ test('plugin-labels: transform: remove-unused', (t) => {
     t.transform('remove-unused');
     t.end();
 });
-

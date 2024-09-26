@@ -211,6 +211,7 @@ validateRules({
     pluginNames,
     rules,
 });
+
 // throws since there is no plugin name passed that matches rule 'remove-unused-variables'
 ```
 

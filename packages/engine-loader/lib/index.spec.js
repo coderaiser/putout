@@ -33,4 +33,3 @@ test('engine-loader: validate-rules: exports', (t) => {
     t.equal(error.message, `Rule 'estrace/trace' cannot be applied to nested plugin 'estrace/trace'`);
     t.end();
 });
-

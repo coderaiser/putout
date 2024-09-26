@@ -1,5 +1,5 @@
 import {operator} from 'putout';
-import rules from '../package-json.js';
+import {rules} from '../package-json.js';
 
 const plugin = {
     rules,

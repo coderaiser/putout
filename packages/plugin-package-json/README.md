@@ -13,10 +13,19 @@ npm i @putout/plugin-package-json -D
 
 ## Rules
 
+- ✅ [add-type](#add-type);
+- ✅ [apply-https-to-repository-url](#apply-https-to-repository-url);
+- ✅ [find-file](#find-file);
+- ✅ [remove-nyc](#remove-nyc);
+- ✅ [remove-commit-type](#remove-commit-type);
+
+## Config
+
 ```json
 {
     "rules": {
         "package-json/add-type": "on",
+        "package-json/apply-https-to-repository-url": "on",
         "package-json/remove-nyc": "on",
         "package-json/remove-commit-type": "on",
         "package-json/find-file": "off"
@@ -34,6 +43,21 @@ Add [`type`](https://nodejs.org/dist/latest-v17.x/docs/api/packages.html#type) f
     "version": "1.0.0",
 +   "type": "commonjs"
 }
+```
+
+## apply-https-to-repository-url
+
+The `git://` protocol for GitHub repos should not be used due [security concerns](https://github.blog/security/application-security/improving-git-protocol-security-github/).
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/63ab077723e3ff368fa4e3472f9a36f3/048984adbf078a7d153ea44100d3f03676aa02d5).
+
+```diff
+{
+  "repository": {
+    "type": "git",
+-   "url": "git://github.com/coderaiser/putout.git"
++   "url": "git+https://github.com/coderaiser/putout.git"
+  }
 ```
 
 ## remove-nyc
