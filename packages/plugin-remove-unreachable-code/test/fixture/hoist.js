@@ -1,3 +1,4 @@
 function f() {
     return x;
-    function m() {}}
+    function m() {}
+}

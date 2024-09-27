@@ -1,4 +1,5 @@
 useEffect(() => {
     a();
     
-    async function a() {}});
+    async function a() {}
+});
