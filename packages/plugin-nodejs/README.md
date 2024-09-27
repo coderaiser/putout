@@ -38,6 +38,7 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [rename-file-cjs-to-js](#rename-file-cjs-to-js);
 - ✅ [rename-file-mjs-to-js](#rename-file-mjs-to-js);
 - ✅ [remove-useless-strict-mode](#remove-useless-strict-mode);
+- ✅ [remove-illigal-strict-mode](#remove-useless-strict-mode);
 - ✅ [cjs-file](#cjs-file);
 - ✅ [mjs-file](#mjs-file);
 
@@ -484,6 +485,53 @@ import a from 'b';
 
 ```js
 import a from 'b';
+```
+
+## remove-illigal-strict-mode
+
+> `SyntaxError: "use strict" not allowed in function with non-simple parameters`
+> The JavaScript exception `"use strict" not allowed in function` occurs when a `use strict` directive is used at the top of a function with default parameters, rest parameters, or destructuring parameters.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Strict_non_simple_params)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a2ff9020bd33d11f3927d4d68c830c50/e6732329a0cca03c09ec0d36b43bfaec17966eff).
+
+### ❌ Example of incorrect code
+
+```ts
+function x1(...a) {
+    'use strict';
+}
+
+function x2(a, b = 3) {
+    'use strict';
+}
+
+function x3({a}) {
+    'use strict';
+}
+
+function x4([a]) {
+    'use strict';
+}
+
+function x5(...a) {
+    'use strict';
+}
+```
+
+### ✅ Example of correct code
+
+```js
+function x1(...a) {}
+
+function x2(a, b = 3) {}
+
+function x3({a}) {}
+
+function x4([a]) {}
+
+function x5(...a) {}
 ```
 
 ## remove-useless-promisify

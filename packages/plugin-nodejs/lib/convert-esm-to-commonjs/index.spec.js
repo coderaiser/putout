@@ -1,6 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+const putout = require('@putout/plugin-putout');
 const convert = require('.');
 
 const nodejsDeclare = require('..').rules.declare;
@@ -84,6 +85,13 @@ test('plugin-convert-esm-to-commonjs: transform: export gn-fn', (t) => {
 
 test('plugin-convert-esm-to-commonjs: transform: export: multiple', (t) => {
     t.transform('export-multiple');
+    t.end();
+});
+
+test('plugin-convert-esm-to-commonjs: transform: export: no-arg', (t) => {
+    t.transform('no-arg', {
+        'add-path-arg-to-fix': putout.rules['add-path-arg-to-fix'],
+    });
     t.end();
 });
 

@@ -53,5 +53,6 @@ module.exports.rules = {
     
     'add-missing-strict-mode': strictMode.rules['add-missing'],
     'remove-useless-strict-mode': strictMode.rules['remove-useless'],
+    'remove-illigal-strict-mode': strictMode.rules['remove-illigal'],
     'remove-useless-promisify': removeUselessPromisify,
 };

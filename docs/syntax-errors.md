@@ -122,6 +122,16 @@ readFile('./hello.js', 'utf8');
 
 </details>
 
+<details><summary>remove illigal<code>strict-mode</code></summary>
+
+```diff
+function x1(...a) {
+-  'use strict';
+}
+```
+
+</details>
+
 <details><summary>remove getter arguments</summary>
 
 ```diff

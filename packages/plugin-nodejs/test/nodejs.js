@@ -104,3 +104,8 @@ test('plugin-nodejs: transform: remove-useless-promisify', (t) => {
     t.transform('remove-useless-promisify');
     t.end();
 });
+
+test('plugin-nodejs: transform: remove-illigal-strict-mode', (t) => {
+    t.transform('remove-illigal-strict-mode');
+    t.end();
+});
