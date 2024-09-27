@@ -5,7 +5,7 @@ function A() {
     
     const d = 'hello';
     
-function e() {
+    function e() {
         return A;
     }
 

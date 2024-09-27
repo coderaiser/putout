@@ -1,7 +1,7 @@
 const React = require('react');
 
 function FormLoginContainer(props) {
-function submit(event) {
+    function submit(event) {
         event.preventDefault();
     }
 
