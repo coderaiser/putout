@@ -34,3 +34,8 @@ test('plugin-convert-arguments-to-rest: transform: iife', (t) => {
     t.transform('iife');
     t.end();
 });
+
+test('plugin-convert-arguments-to-rest: no transform: strict', (t) => {
+    t.noTransform('strict');
+    t.end();
+});

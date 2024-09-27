@@ -21,7 +21,12 @@ module.exports.fix = ({path, paths}) => {
 
 module.exports.traverse = ({push}) => ({
     'FunctionExpression|FunctionDeclaration': (path) => {
+        const {directives} = path.node.body;
+        
         if (path.node.params.length)
+            return;
+        
+        if (directives.length)
             return;
         
         const paths = [];
