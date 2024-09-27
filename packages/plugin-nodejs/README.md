@@ -38,7 +38,7 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [rename-file-cjs-to-js](#rename-file-cjs-to-js);
 - ✅ [rename-file-mjs-to-js](#rename-file-mjs-to-js);
 - ✅ [remove-useless-strict-mode](#remove-useless-strict-mode);
-- ✅ [remove-illigal-strict-mode](#remove-useless-strict-mode);
+- ✅ [remove-illegal-strict-mode](#remove-useless-strict-mode);
 - ✅ [cjs-file](#cjs-file);
 - ✅ [mjs-file](#mjs-file);
 
@@ -66,6 +66,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/remove-process-exit": "on",
         "nodejs/add-missing-strict-mode": "on",
         "nodejs/remove-useless-strict-mode": "on",
+        "nodejs/remove-illegal-strict-mode": "on",
         "nodejs/remove-useless-promisify": "on"
     }
 }
@@ -487,7 +488,7 @@ import a from 'b';
 import a from 'b';
 ```
 
-## remove-illigal-strict-mode
+## remove-illegal-strict-mode
 
 > `SyntaxError: "use strict" not allowed in function with non-simple parameters`
 > The JavaScript exception `"use strict" not allowed in function` occurs when a `use strict` directive is used at the top of a function with default parameters, rest parameters, or destructuring parameters.

@@ -2,10 +2,10 @@
 
 const addMissing = require('./add-missing');
 const removeUseless = require('./remove-useless');
-const removeIlligal = require('./remove-illigal');
+const removeIllegal = require('./remove-illegal');
 
 module.exports.rules = {
     'add-missing': addMissing,
     'remove-useless': removeUseless,
-    'remove-illigal': removeIlligal,
+    'remove-illegal': removeIllegal,
 };

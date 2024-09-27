@@ -11,7 +11,7 @@ const {
 
 const {remove} = operator;
 
-module.exports.report = () => `Avoid illigal 'use strict'`;
+module.exports.report = () => `Avoid illegal 'use strict'`;
 
 module.exports.fix = (path) => {
     remove(path);
