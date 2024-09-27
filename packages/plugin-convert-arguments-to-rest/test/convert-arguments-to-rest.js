@@ -29,3 +29,8 @@ test('plugin-convert-arguments-to-rest: transform: params', (t) => {
     t.transform('params');
     t.end();
 });
+
+test('plugin-convert-arguments-to-rest: transform: iife', (t) => {
+    t.transform('iife');
+    t.end();
+});

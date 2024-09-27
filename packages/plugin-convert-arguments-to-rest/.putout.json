@@ -1,5 +1,4 @@
 {
-    "printer": "putout",
     "match": {
         "*.md": {
             "convert-arguments-to-rest": "off"

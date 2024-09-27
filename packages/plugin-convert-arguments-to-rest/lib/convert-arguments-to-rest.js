@@ -1,7 +1,11 @@
 'use strict';
 
 const {types} = require('putout');
-const {Identifier, SpreadElement} = types;
+const {
+    Identifier,
+    isFunction,
+    SpreadElement,
+} = types;
 
 module.exports.report = () => `Use 'rest parameters' instead of 'arguments'`;
 
@@ -21,10 +25,15 @@ module.exports.traverse = ({push}) => ({
             return;
         
         const paths = [];
+        const fnPath = path;
         
         path.traverse({
             Identifier(path) {
                 const {node, scope} = path;
+                const idFnPath = path.find(isFunction);
+                
+                if (idFnPath !== fnPath)
+                    return;
                 
                 if (node.name !== 'arguments')
                     return;
