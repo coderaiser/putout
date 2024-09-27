@@ -18,6 +18,7 @@ npm i putout @putout/plugin-nodejs -D
 ## Rules
 
 - ✅ [add-node-prefix](#add-node-prefix);
+- ✅ [add-missing-strict-mode](#add-missing-stict-mode);
 - ✅ [convert-buffer-to-buffer-alloc](#convert-buffer-to-buffer-alloc);
 - ✅ [convert-commonjs-to-esm-commons](#convert-commonjs-to-esm-commons);
 - ✅ [convert-commonjs-to-esm-exports](#convert-commonjs-to-esm-exports);
@@ -36,7 +37,7 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [remove-useless-promisify](#remove-useless-promisify);
 - ✅ [rename-file-cjs-to-js](#rename-file-cjs-to-js);
 - ✅ [rename-file-mjs-to-js](#rename-file-mjs-to-js);
-- ✅ [strict-mode](#strict-mode);
+- ✅ [remove-useless-strict-mode](#remove-useless-strict-mode);
 - ✅ [cjs-file](#cjs-file);
 - ✅ [mjs-file](#mjs-file);
 
