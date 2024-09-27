@@ -1,5 +1,6 @@
-import {operator} from 'putout';
+import {operator, types} from 'putout';
 
+const {isObjectExpression} = types;
 const {
     getProperty,
     __json,
@@ -22,6 +23,10 @@ export const traverse = ({push}) => ({
             return;
         
         const value = repository.get('value');
+        
+        if (!isObjectExpression(value))
+            return;
+        
         const urlPathProp = getProperty(value, 'url');
         
         if (!urlPathProp)
