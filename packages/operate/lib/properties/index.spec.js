@@ -128,6 +128,23 @@ test('operate: properties: getProperty: SpreadElement', (t) => {
     t.end();
 });
 
+test('operate: properties: getProperty: ObjectPattern', (t) => {
+    const ast = parse(`const {hello} = b`);
+    
+    traverse(ast, {
+        ObjectPattern: (path) => {
+            const helloPath = getProperty(path, 'hello');
+            helloPath.remove();
+        },
+    });
+    
+    const result = print(ast);
+    const expected = 'const {} = b;\n';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('operate: properties: getProperty: not object', (t) => {
     const ast = parse(`const a = "hello"`);
     let string;
@@ -140,6 +157,6 @@ test('operate: properties: getProperty: not object', (t) => {
     
     const [error] = tryCatch(getProperty, string, 'hello');
     
-    t.equal(error.message, `☝️Looks like path is not 'ObjectExpression', but: 'StringLiteral' for path: "hello"`);
+    t.equal(error.message, `☝️Looks like path is not 'ObjectExpression | ObjectPattern', but: 'StringLiteral' for path: "hello"`);
     t.end();
 });
