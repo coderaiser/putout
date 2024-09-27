@@ -1,3 +1,16 @@
+2024.09.27, v36.8.0
+
+feature:
+- 2242decc7 putout: @putout/plugin-nodejs v12.0.0
+- 425cef48a @putout/plugin-nodejs: drop support of 🐊 < 36
+- dc160ba2d @putout/plugin-putout: add-path-arg-to-fix: body
+- a24b23725 @putout/plugin-nodejs: remove-illigal-strict-mode: add (putoutjs/minify#28)
+- dd34149f4 putout: @putout/plugin-convert-arguments-to-rest v3.0.0
+- e3f4f6908 @putout/operate: getProperty: ObjectPattern support
+- 6b454ed4f @putout/plugin-package-json: apply-https-to-repository-url: improve check
+- 9bc776976 @putout/plugin-convert-arguments-to-rest: drop support of 🐊 < 36
+- 48beb1a07 @putout/plugin-convert-arguments-to-rest: improve support of internal functions (putoutjs/minify#28)
+
 2024.09.26, v36.7.0
 
 feature:
