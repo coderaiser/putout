@@ -18,7 +18,7 @@ npm i putout @putout/plugin-nodejs -D
 ## Rules
 
 - ✅ [add-node-prefix](#add-node-prefix);
-- ✅ [add-missing-strict-mode](#add-missing-stict-mode);
+- ✅ [add-missing-strict-mode](#add-missing-strict-mode);
 - ✅ [convert-buffer-to-buffer-alloc](#convert-buffer-to-buffer-alloc);
 - ✅ [convert-commonjs-to-esm-commons](#convert-commonjs-to-esm-commons);
 - ✅ [convert-commonjs-to-esm-exports](#convert-commonjs-to-esm-exports);
