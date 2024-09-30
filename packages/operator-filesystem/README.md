@@ -23,7 +23,7 @@ const [dirPath] = findFile(ast, 'hello');
 const filePath = createFile(dirPath, 'world.txt', 'hello world');
 ```
 
-### `createDirectory(directoryPath: FilePath, name: string): FilePath`
+### `createDirectory(directoryPath: DirectoryPath, name: string): DirectoryPath`
 
 ```js
 const {operator} = require('putout');
@@ -37,7 +37,7 @@ const [dirPath] = findFile(ast, 'hello');
 const newDirectoryPath = createDirectory(dirPath, 'world');
 ```
 
-### `findFile(filePath: Path|FilePath, name: string | string[]): FilePath[]`
+### `findFile(directoryPath: DirectoryPath, name: string | string[]): (FilePath | DirectoryPath)[]`
 
 ```js
 const {operator} = require('putout');
@@ -64,7 +64,7 @@ const {findFile} = operator;
 const coupleFiles = findFile(ast, ['/home/coderaiser', '/home/coderaiser/putout']);
 ```
 
-### `getParentDirectory(filePath: FilePath): FilePath|null`
+### `getParentDirectory(path: FilePath | DirectoryPath): FilePath | null`
 
 ```js
 const {operator} = require('putout');
@@ -83,7 +83,7 @@ dirPath === getParentDirectory(newDirectoryPath);
 true;
 ```
 
-### `getFilename(path: FilePath): string`
+### `getFilename(path: FilePath | DirectoryPath): string`
 
 ```js
 const {operator} = require('putout');
@@ -125,7 +125,7 @@ const {removeFile} = operator;
 removeFile(filePath);
 ```
 
-### `copyFile(filePath: FilePath, dirPath: FilePath)`
+### `copyFile(path: FilePath | DirectoryPath, directoryPath: DirectoryPath)`
 
 ```js
 const {operator} = require('putout');
@@ -134,7 +134,7 @@ const {moveFile, copyFile} = operator;
 copyFile(filePath, dirPath);
 ```
 
-### `moveFile(filePath: FilePath, dirPath: FilePath)`
+### `moveFile(path: FilePath | DirectoryPath, directoryPath: DirectoryPath)`
 
 ```js
 const {operator} = require('putout');
@@ -169,7 +169,7 @@ readFileContent(filePath);
 'hello';
 ```
 
-### `renameFile(filePath: FilePath, name: string)`
+### `renameFile(path: FilePath | DirectoryPath, name: string)`
 
 ```js
 const {operator} = require('putout');
