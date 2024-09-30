@@ -19,3 +19,8 @@ test('packages: add-track-file: transform', (t) => {
     t.transform('add-track-file');
     t.end();
 });
+
+test('packages: add-track-file: transform: one arg', (t) => {
+    t.transform('one-arg');
+    t.end();
+});
