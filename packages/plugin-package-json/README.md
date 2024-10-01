@@ -18,6 +18,7 @@ npm i @putout/plugin-package-json -D
 - ✅ [find-file](#find-file);
 - ✅ [remove-nyc](#remove-nyc);
 - ✅ [remove-commit-type](#remove-commit-type);
+- ✅ [remove-exports-with-missing-files](#remove-exports-with-missing-files);
 
 ## Config
 
@@ -28,6 +29,7 @@ npm i @putout/plugin-package-json -D
         "package-json/apply-https-to-repository-url": "on",
         "package-json/remove-nyc": "on",
         "package-json/remove-commit-type": "on",
+        "package-json/remove-exports-with-missing-files": "off",
         "package-json/find-file": "off"
     }
 }
@@ -133,6 +135,31 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/325233d19f
     "version": "1.0.0",
 +   "type": "commonjs"
 }
+```
+
+## remove-exports-with-missing-files
+
+Find `package.json` inside of `.filesystem.json` and removes `exports` with missing files.
+
+Checkout in 🐊**Putout Editor**:
+
+- [`remove-exports-with-missing-files`](https://putout.cloudcmd.io/#/gist/c79a69b797ccd2d94499349150e65f7c/37a48a054b98299cb15e71c3eaeb23b0b919d62c);
+- [`find-keys`](https://putout.cloudcmd.io/#/gist/b138e991aa21ad0ffb562b4c6fe6290f/cca92b8b87ca9d91c0a280991a1558a5e3fc260b);
+- [`remove-keys`](https://putout.cloudcmd.io/#/gist/b2fa6fba917a22bfc676f01532b4794e/e5970eb901ef5b29f7c143f76df9a10148b69d9e);
+
+```diff
+__putout_processor_filesystem([
+    "/",
+    ["/package.json", `{
+        "exports": {
+            "./parse-options": "./lib/parse-options/index.js",
+-            "./loader": "./lib/loader.mjs"
+        }
+    }`],
+    "/lib/",
+    "/lib/parse-options/",
+    ["/lib/parse-options/index.js", "export const a = 5"],
+]);
 ```
 
 ## License

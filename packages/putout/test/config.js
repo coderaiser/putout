@@ -131,6 +131,7 @@ test('putout: config: filesystem', (t) => {
         'nodejs/rename-file-mjs-to-js': 'on',
         'filesystem': 'on',
         'package-json/find-file': 'on',
+        'package-json/remove-exports-with-missing-files': 'on',
         'typescript/find-file': 'on',
         'typescript/cts-file': 'on',
         'typescript/mts-file': 'on',

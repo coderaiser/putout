@@ -13,7 +13,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('putout: plugin-package-json: findFile: transform', (t) => {
+test('putout: plugin-package-json: find-file: transform: enabled', (t) => {
     t.transform('find-file');
     t.end();
 });

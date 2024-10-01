@@ -37,3 +37,8 @@ test('plugin-package-json: transform: appy-https-to-repository-url', (t) => {
     t.transform('appy-https-to-repository-url');
     t.end();
 });
+
+test('plugin-package-json: no transform: remove-exports-with-missing-files', (t) => {
+    t.noTransform('remove-exports-with-missing-files-disabled');
+    t.end();
+});
