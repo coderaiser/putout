@@ -21,6 +21,11 @@ test('putout: add-path-arg-to-fix: transform', (t) => {
     t.end();
 });
 
+test('putout: add-path-arg-to-fix: no-report: empty-body', (t) => {
+    t.noReport('empty-body');
+    t.end();
+});
+
 test('putout: add-path-arg-to-fix: transform: convert-esm-to-commonjs', (t) => {
     t.transform('convert-esm-to-commonjs', {
         'convert-esm-to-commonjs': nodejs.rules['convert-esm-to-commonjs'],

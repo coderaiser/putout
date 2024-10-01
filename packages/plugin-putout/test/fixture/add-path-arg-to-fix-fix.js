@@ -1,3 +1,3 @@
-export const fix = (path) => {};
+export const fix = () => {};
 
 module.exports.fix = (path) => {};
