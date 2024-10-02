@@ -60,7 +60,6 @@ export const scan = (root, {push, trackFile}) => {
         
         for (const [key, name] of tuples) {
             const full = join(dir, name);
-            
             const [exportedFile] = findFile(dirPath, full);
             
             if (!exportedFile)

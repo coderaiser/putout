@@ -26,6 +26,9 @@ export const traverse = ({push}) => ({
             return;
         
         for (const property of objectPath.get('properties')) {
+            if (isObjectExpression(property.node.value))
+                continue;
+            
             push(property);
         }
     },
