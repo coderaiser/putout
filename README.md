@@ -752,6 +752,19 @@ switch (x) {
 
 </details>
 
+<details><summary>remove useless <code>push</code></summary>
+
+```diff
+    function notUsed() {
+-       const paths = [];
+        for (const [key, name] of tuples) {
+-           paths.push([key, full]);
+        }
+    }
+```
+
+</details>
+
 <details><summary>remove useless <code>Object.assign()</code></summary>
 
 ```diff
@@ -2161,13 +2174,14 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-remove-useless-return`](/packages/plugin-remove-useless-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-return) |
 | [`@putout/plugin-remove-useless-continue`](/packages/plugin-remove-useless-continue#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-continue.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-continue) |
 | [`@putout/plugin-remove-useless-operand`](/packages/plugin-remove-useless-operand#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-operand.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-operand) |
+| [`@putout/plugin-remove-useless-arguments`](/packages/plugin-remove-useless-arguments#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-arguments.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-arguments) |
 | [`@putout/plugin-remove-useless-array`](/packages/plugin-remove-useless-array#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array) |
 | [`@putout/plugin-remove-useless-array-constructor`](/packages/plugin-remove-useless-array-constructor#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-constructor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-constructor) |
+| [`@putout/plugin-remove-useless-array-entries`](/packages/plugin-remove-useless-array-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-entries) |
+| [`@putout/plugin-remove-useless-escape`](/packages/plugin-remove-useless-escape#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-escape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-escape) |
 | [`@putout/plugin-remove-useless-functions`](/packages/plugin-remove-useless-functions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-functions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-functions) |
 | [`@putout/plugin-remove-useless-spread`](/packages/plugin-remove-useless-spread#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-spread) |
-| [`@putout/plugin-remove-useless-array-entries`](/packages/plugin-remove-useless-array-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-entries) |
-| [`@putout/plugin-remove-useless-arguments`](/packages/plugin-remove-useless-arguments#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-arguments.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-arguments) |
-| [`@putout/plugin-remove-useless-escape`](/packages/plugin-remove-useless-escape#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-escape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-escape) |
+| [`@putout/plugin-remove-useless-push`](/packages/plugin-remove-useless-push#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-push.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-push) |
 | [`@putout/plugin-remove-useless-template-expressions`](/packages/plugin-remove-useless-template-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-template-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-template-expressions) |
 | [`@putout/plugin-remove-useless-delete`](/packages/plugin-remove-useless-delete#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-delete.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-delete) |
 | [`@putout/plugin-remove-debugger`](/packages/plugin-remove-debugger#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-debugger.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-debugger) |
