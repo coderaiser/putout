@@ -28,7 +28,14 @@ export const fix = (file, {ast, source}) => {
         ],
     });
     
-    const code = print(ast);
+    const code = print(ast, {
+        printer: ['putout', {
+            format: {
+                indent: '  ',
+            },
+        }],
+    });
+    
     writeFileContent(file, fromJS(code));
 };
 
