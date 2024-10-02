@@ -1,3 +1,16 @@
+2024.10.02, v36.9.0
+
+fix:
+- d24950965 @putout/plugin-package-json: remove-exports-with-missing-files: indent: 4 -> 2
+- 037f06789 @putout/plugin-nodejs: remove-illigal-strict-mode -> remove-illegal-strict-mode
+
+feature:
+- 9340f32a9 @putout/plugin-remove-useless-push: add
+- 8883e2e8f @putout/plugin-package-json: remove-exports-with-missing-files: add
+- ca4ecd296 @putout/plugin-putout: add-path-arg-to-fix: exclude empty body
+- 587da10e6 @putout/plugin-putout: add-track-file: one arg
+- cf3f4c49a @putout/plugin-convert-arguments-to-rest: exclude "strict mode"
+
 2024.09.27, v36.8.0
 
 feature:
