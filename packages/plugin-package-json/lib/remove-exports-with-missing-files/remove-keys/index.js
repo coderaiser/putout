@@ -26,8 +26,32 @@ export const traverse = ({push, options}) => ({
         for (const property of exportsPath.get('value.properties')) {
             const {value} = property.node.key;
             
-            if (keys.includes(value))
-                push(property);
+            for (const key of keys) {
+                if (key === value) {
+                    push(property);
+                    continue;
+                }
+                
+                if (key.includes('+'))
+                    processNested({
+                        key,
+                        value,
+                        property,
+                        push,
+                    });
+            }
         }
     },
 });
+
+function processNested({key, value, property, push}) {
+    const [one, two] = key.split('+');
+    
+    if (one !== value)
+        return;
+    
+    for (const current of property.get('value.properties')) {
+        if (two === current.node.key.value)
+            push(current);
+    }
+}

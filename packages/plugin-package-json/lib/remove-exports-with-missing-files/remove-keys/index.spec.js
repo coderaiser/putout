@@ -21,3 +21,10 @@ test('putout: package-json: remove-exports-with-missing-files: remove-keys: tran
     });
     t.end();
 });
+
+test('putout: package-json: remove-exports-with-missing-files: remove-keys: transform: nested', (t) => {
+    t.transformWithOptions('nested', {
+        keys: ['.+require'],
+    });
+    t.end();
+});
