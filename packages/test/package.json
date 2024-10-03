@@ -18,7 +18,6 @@
       "require": "./lib/processor/index.js",
       "import": "./lib/processor/index.mjs"
     },
-    "./formatter": "./lib/formatter/index.mjs",
     "./eslint": "./lib/eslint/eslint.mjs"
   },
   "release": false,
