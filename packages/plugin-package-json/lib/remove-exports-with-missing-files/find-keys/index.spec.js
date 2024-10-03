@@ -28,7 +28,7 @@ test('putout: package-json: remove-exports-with-missing-files: find-keys: no rep
     t.end();
 });
 
-test('putout: package-json: remove-exports-with-missing-files: find-keys: no report: nested', (t) => {
-    t.noReport('nested');
+test('putout: package-json: remove-exports-with-missing-files: find-keys: report: nested', (t) => {
+    t.report('nested', '.+require -> ./lib/test.js');
     t.end();
 });

@@ -9,11 +9,15 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: package-json: remove-exports-with-missing-files: remove-keys: report', (t) => {
-    t.report('remove-keys', `./loader -> ./lib/loader.mjs`);
+    t.reportWithOptions('remove-keys', `./loader -> ./lib/loader.mjs`, {
+        keys: ['./loader'],
+    });
     t.end();
 });
 
 test('putout: package-json: remove-exports-with-missing-files: remove-keys: transform', (t) => {
-    t.transform('remove-keys');
+    t.transformWithOptions('remove-keys', {
+        keys: ['./loader'],
+    });
     t.end();
 });

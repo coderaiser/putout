@@ -19,8 +19,7 @@ export const fix = (path) => {
 
 export const traverse = ({push, options}) => ({
     [__json](path) {
-        const {keys = ['./loader']} = options;
-        
+        const {keys = []} = options;
         const object = path.get('arguments.0');
         const exportsPath = getProperty(object, 'exports');
         

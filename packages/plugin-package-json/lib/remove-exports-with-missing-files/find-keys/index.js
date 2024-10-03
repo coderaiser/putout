@@ -3,10 +3,7 @@ import {operator, types} from 'putout';
 const {isObjectExpression} = types;
 const {getProperty, __json} = operator;
 
-export const report = ({node}) => {
-    const key = node.key.value;
-    const {value} = node.value;
-    
+export const report = ({key, value}) => {
     return `${key} -> ${value}`;
 };
 
@@ -26,10 +23,38 @@ export const traverse = ({push}) => ({
             return;
         
         for (const property of objectPath.get('properties')) {
-            if (isObjectExpression(property.node.value))
-                continue;
+            const valuePath = property.get('value');
+            const keyPath = property.get('key');
             
-            push(property);
+            if (valuePath.isObjectExpression()) {
+                processNested({
+                    push,
+                    keyPath,
+                    valuePath,
+                });
+                continue;
+            }
+            
+            push({
+                path: property,
+                key: keyPath.node.value,
+                value: valuePath.node.value,
+            });
         }
     },
 });
+
+function processNested({push, keyPath, valuePath}) {
+    const root = keyPath.node.value;
+    
+    for (const property of valuePath.get('properties')) {
+        const key = `${root}+${property.node.key.value}`;
+        const {value} = property.node.value;
+        
+        push({
+            key,
+            value,
+            path: property,
+        });
+    }
+}

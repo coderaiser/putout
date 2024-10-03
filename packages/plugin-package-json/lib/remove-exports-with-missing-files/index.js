@@ -21,8 +21,13 @@ const {
 
 export const report = () => `Avoid exports with missing files`;
 
-export const fix = (file, {ast, source}) => {
+export const fix = (file, {key, ast, source}) => {
     transform(ast, source, {
+        rules: {
+            'remove-keys': ['on', {
+                keys: [key],
+            }],
+        },
         plugins: [
             ['remove-keys', removeKeys],
         ],
