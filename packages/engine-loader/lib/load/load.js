@@ -17,12 +17,14 @@ const load = (type) => ({name, namespace}) => {
     
     const [error, result] = tryCatch(customRequire, pluginPath);
     
+    /* c8 ignore start */
     if (error?.code === 'ERR_REQUIRE_ESM')
         assign(error, {
             message: `☝️ Looks like '${name}' is ESM, use 'await putoutAsync()' instead`,
             name,
         });
     
+    /* c8 ignore end */
     if (error)
         throw error;
     

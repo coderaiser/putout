@@ -1,3 +1,4 @@
+import process from 'node:process';
 import {createTest} from '@putout/test/eslint';
 
 const test = createTest(import.meta.url);
@@ -236,7 +237,7 @@ test('eslint-plugin-putout: jsx: semi', async ({noProcess}) => {
     });
 });
 
-test('eslint-plugin-putout: putout: sync: ESM', async ({comparePlaces}) => {
+test('eslint-plugin-putout: putout: sync: ESM', async ({pass, comparePlaces}) => {
     const override = {
         rules: {
             'putout/putout': ['error', {
@@ -247,6 +248,9 @@ test('eslint-plugin-putout: putout: sync: ESM', async ({comparePlaces}) => {
             }],
         },
     };
+    
+    if (process.version.startsWith('v23'))
+        return pass('require of ESM supported in node v23');
     
     await comparePlaces('sync-esm', [{
         message: `☝️ Looks like 'apply-nullish-coalescing' is ESM, extend from 'plugin:putout/esm' (putout)`,

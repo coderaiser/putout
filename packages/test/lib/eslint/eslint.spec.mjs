@@ -1,3 +1,4 @@
+import process from 'node:process';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {stub} from 'supertape';
@@ -124,6 +125,19 @@ test('test: eslint: comparePlaces: overrides: ESM', async ({comparePlaces}) => {
         },
         rule: 'putout/putout (eslint)',
     }];
+    
+    if (process.version.startsWith('v23')) {
+        const places = [{
+            message: `Avoid useless argument 'a' (remove-useless-arguments/arguments)`,
+            position: {
+                column: 4,
+                line: 4,
+            },
+            rule: 'putout/putout (eslint)',
+        }];
+        
+        return await comparePlaces('sync-esm', places, overrides);
+    }
     
     await comparePlaces('sync-esm', places, overrides);
 });
