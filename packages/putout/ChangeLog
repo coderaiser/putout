@@ -1,3 +1,17 @@
+2024.10.18, v36.10.0
+
+feature:
+- eb0955cec putout: @putout/plugin-group-imports-by-source v2.0.0
+- 42ff53856 @putout/plugin-typescript: drop support of 🐊 < 36
+- 255ad02bb @putout/processor-typescript: ts-morph v24.0.0
+- c6468651b @putout/plugin-group-imports-by-source: drop support of 🐊 < 36
+- 6cbd80795 putout: @putout/plugin-github v13.0.0
+- a54241435 @putout/plugin-github: drop sut of 🐊 < 36
+- b631448d4 @putout/plugin-github: set-node-version: v23 (https://nodejs.org/en/blog/release/v23.0.0)
+- fbf87aaf6 @putout/plugin-package-json: remove-exports-with-missing-files: nested
+- e2bca80d6 @putout/plugin-package-json: remove-exports-with-missing-files: options
+- d4fc84e38 @putout/plugin-package-json: remove-exports-with-missing-files: exclude nested
+
 2024.10.02, v36.9.0
 
 fix:
