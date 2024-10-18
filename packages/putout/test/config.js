@@ -229,6 +229,7 @@ test('putout: config: .github/**/*.yml', (t) => {
                 '18.x',
                 '20.x',
                 '22.x',
+                '23.x',
             ],
         }],
         'remove-useless-escape': 'off',

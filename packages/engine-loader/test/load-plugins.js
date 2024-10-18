@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('node:process');
 const Module = require('node:module');
 
 const {test, stub} = require('supertape');
@@ -451,6 +452,9 @@ test('putout: loader: sync: load ESM: code', (t) => {
         plugins: ['@putout/plugin-apply-nullish-coalescing'],
     });
     
+    if (process.version.startsWith('v23'))
+        return t.notOk(error);
+    
     t.equal(error.code, 'ERR_REQUIRE_ESM');
     t.end();
 });
@@ -461,6 +465,9 @@ test('putout: loader: sync: load ESM: message', (t) => {
         plugins: ['@putout/plugin-apply-nullish-coalescing'],
     });
     
+    if (process.version.startsWith('v23'))
+        return t.notOk(error);
+    
     t.equal(error.message, `☝️ Looks like '@putout/plugin-apply-nullish-coalescing' is ESM, use 'await putoutAsync()' instead`);
     t.end();
 });
@@ -470,6 +477,9 @@ test('putout: loader: sync: load ESM: name', (t) => {
     const [error] = tryCatch(putout, source, {
         plugins: ['apply-nullish-coalescing'],
     });
+    
+    if (process.version.startsWith('v23'))
+        return t.notOk(error);
     
     t.equal(error.name, 'apply-nullish-coalescing');
     t.end();
