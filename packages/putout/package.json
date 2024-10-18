@@ -121,7 +121,7 @@
     "@putout/plugin-generators": "^1.0.0",
     "@putout/plugin-github": "^13.0.0",
     "@putout/plugin-gitignore": "^6.0.0",
-    "@putout/plugin-group-imports-by-source": "^1.0.0",
+    "@putout/plugin-group-imports-by-source": "^2.0.0",
     "@putout/plugin-labels": "^1.0.0",
     "@putout/plugin-logical-expressions": "^6.0.0",
     "@putout/plugin-madrun": "^19.0.0",
