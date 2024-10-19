@@ -11,37 +11,37 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('remove usless variables: remove: report', (t) => {
+test('remove useless variables: remove: report', (t) => {
     t.report('require', 'Useless variable declaration with name "child_process"');
     t.end();
 });
 
-test('remove usless variables: remove: no transform: swap', (t) => {
+test('remove useless variables: remove: no transform: swap', (t) => {
     t.noTransform('swap');
     t.end();
 });
 
-test('remove usless variables: remove: transform: require', (t) => {
+test('remove useless variables: remove: transform: require', (t) => {
     t.transform('require');
     t.end();
 });
 
-test('remove usless variables: remove: transform: assign', (t) => {
+test('remove useless variables: remove: transform: assign', (t) => {
     t.transform('assign');
     t.end();
 });
 
-test('remove usless variables: remove: no transform: react', (t) => {
+test('remove useless variables: remove: no transform: react', (t) => {
     t.noTransform('react');
     t.end();
 });
 
-test('remove usless variables: remove: no transform: if', (t) => {
+test('remove useless variables: remove: no transform: if', (t) => {
     t.noTransform('if');
     t.end();
 });
 
-test('remove usless variables: remove: no transform: vice-versa', (t) => {
+test('remove useless variables: remove: no transform: vice-versa', (t) => {
     t.noTransform('vice-versa');
     t.end();
 });

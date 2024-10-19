@@ -9,7 +9,7 @@ const {stopAll, reRequire} = mockRequire;
 
 const {assign} = Object;
 
-test('putout: engine-loader: load: yarn PnP support', (t) => {
+test('putout: engine-loader: load: yarn OnP support', (t) => {
     const customRequire = stub().returns('plugin');
     
     assign(customRequire, {

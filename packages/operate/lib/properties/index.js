@@ -4,6 +4,7 @@ const {
     isObjectExpression,
     isObjectPattern,
 } = require('@putout/babel').types;
+
 const {extract} = require('../extract');
 const {traverseProperties} = require('./traverse-properties');
 

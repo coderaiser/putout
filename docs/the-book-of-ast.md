@@ -142,8 +142,10 @@ But the most interesting thing is **const**, because it is a [**Statement**](#ex
 friend.
 
 ```js
-if (fruit === '🍎') // 🌳(🍎)
-    eat('🍎'); // 🦏 ❤️ 🍎
+if (fruit === '🍎')
+    // 🌳(🍎)
+    eat('🍎');
+// 🦏 ❤️ 🍎
 ```
 
 "An apple can grow on a branch, but branch cannot grow on apple, the same goes to **Expressions** and **Statements**", continued 🐊**Putout**.
@@ -158,7 +160,6 @@ if (fruit === '🍎') // 🌳(🍎)
 
 ```ts
 type ArrayExpression = (elements: null[] | Expression[] | SpreadElement[]) => Node;
-
 type ArrayPattern = (elements: null[] | PatternLike[]) => Node;
 ```
 
@@ -194,7 +195,6 @@ const [owl] = birds;
 
 ```ts
 type ObjectExpression = (properties: ObjectMethod[] | ObjectProperty[] | SpreadElement[]) => Node;
-
 type ObjectPattern = (properties: RestElement[] | ObjectProperty[]) => Node;
 ```
 
@@ -254,8 +254,7 @@ say(...[
     '🥕',
 ]);
 
-function say(...vegatables) {
-}
+function say(...vegatables) {}
 ```
 
 "Tell me please something about it!".

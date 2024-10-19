@@ -33,8 +33,8 @@ test('plugin-package-json: no transform: find-file: disabled', (t) => {
     t.end();
 });
 
-test('plugin-package-json: transform: appy-https-to-repository-url', (t) => {
-    t.transform('appy-https-to-repository-url');
+test('plugin-package-json: transform: apply-https-to-repository-url', (t) => {
+    t.transform('apply-https-to-repository-url');
     t.end();
 });
 

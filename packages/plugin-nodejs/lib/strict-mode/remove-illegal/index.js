@@ -23,12 +23,12 @@ module.exports.traverse = ({push}) => ({
         if (!isFunction(fnPath))
             return;
         
-        if (isIlligal(fnPath))
+        if (isIllegal(fnPath))
             push(path.parentPath);
     },
 });
 
-function isIlligal(fnPath) {
+function isIllegal(fnPath) {
     const params = fnPath.get('params');
     
     for (const param of params) {

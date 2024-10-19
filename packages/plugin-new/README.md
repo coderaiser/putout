@@ -39,14 +39,14 @@ And [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 ### ❌ Example of incorrect code
 
 ```js
-new Error('Something whent wrong');
+new Error('Something went wrong');
 new new Boolean()();
 ```
 
 ### ✅ Example of correct code
 
 ```js
-Error('Something whent wrong');
+Error('Something went wrong');
 Boolean();
 ```
 

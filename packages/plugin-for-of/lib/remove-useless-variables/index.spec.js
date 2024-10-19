@@ -11,17 +11,17 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: plugin-for-of: remove usless variables: report', (t) => {
+test('putout: plugin-for-of: remove useless variables: report', (t) => {
     t.report('for-of', `Use destructuring in head of 'for...of'`);
     t.end();
 });
 
-test('putout: plugin-for-of: remove usless variables: transform', (t) => {
+test('putout: plugin-for-of: remove useless variables: transform', (t) => {
     t.transform('for-of');
     t.end();
 });
 
-test('putout: plugin-for-of: remove usless variables: transform: array-pattern', (t) => {
+test('putout: plugin-for-of: remove useless variables: transform: array-pattern', (t) => {
     t.transform('array-pattern');
     t.end();
 });

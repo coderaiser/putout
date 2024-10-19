@@ -81,6 +81,7 @@ In that case you can use `__` in place of the name of the function to match name
 function say(a) {
     return 'hello 🐊';
 }
+
 const talk = function(a) {
     return 'hello 🐊';
 };
@@ -196,10 +197,10 @@ Template variables look like `__a`, `__b`, etc. They begin with a `__` and can o
 Template variable `__imports` can be used to match imports. For example, `import __imports` matches:
 
 ```js
-import fs from 'fs/promises';
+import fs from 'node:fs/promises';
 ```
 
-## Reoccuring template variable
+## Reoccurring template variable
 
 Re-using template variables shows their true power. Detect assignment of sum of duplicate nodes:
 

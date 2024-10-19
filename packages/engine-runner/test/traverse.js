@@ -339,7 +339,7 @@ test('putout: runner: uplist: removed node', async (t) => {
     `;
     
     const remove = 'remove-unreferenced-variables';
-    const merge = ['merge-variabels', mergeVariables];
+    const merge = ['merge-variables', mergeVariables];
     
     const plugins = [remove, merge];
     

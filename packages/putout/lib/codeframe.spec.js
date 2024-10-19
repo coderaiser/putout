@@ -38,7 +38,7 @@ test('putout: codeframe: should return message', (t) => {
     t.end();
 });
 
-test('putout: codeframe: not highlited', async (t) => {
+test('putout: codeframe: not highlighted', async (t) => {
     const loc = {
         line: 2,
         column: 8,

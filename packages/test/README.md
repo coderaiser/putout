@@ -53,7 +53,7 @@ const test = createTest(import.meta.url, {
 Check error message (or messages) of a plugin:
 
 ```js
-test('remove usless variables: for-of', (t) => {
+test('remove useless variables: for-of', (t) => {
     t.report('dot', 'Dot files should be added to .gitignore');
     t.end();
 });
@@ -62,7 +62,7 @@ test('remove usless variables: for-of', (t) => {
 When you want to check that report called exact count of times pass an array of messages:
 
 ```js
-test('remove usless variables: for-of', (t) => {
+test('remove useless variables: for-of', (t) => {
     t.report('dot', ['Dot files should be added to .gitignore']);
     t.end();
 });
@@ -84,7 +84,7 @@ test('remove debugger: report', (t) => {
 Check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory:
 
 ```js
-test('remove usless variables: for-of', (t) => {
+test('remove useless variables: for-of', (t) => {
     t.transform('array-from', {
         'remove-useless-array-from': removeUselessArrayFrom,
     });
@@ -228,7 +228,7 @@ test('plugin-apply-numeric-separators: no transform: hex', (t) => {
 Check progress of `filename.js`;
 
 ```js
-test('remove usless variables: for-of', async ({progress}) => {
+test('remove useless variables: for-of', async ({progress}) => {
     await progress('progress', {
         i: 0,
         n: 2,
@@ -242,7 +242,7 @@ test('remove usless variables: for-of', async ({progress}) => {
 Check progress of `filename.js`;
 
 ```js
-test('remove usless variables: for-of', async ({progressWithOptions}) => {
+test('remove useless variables: for-of', async ({progressWithOptions}) => {
     const options = {
         from: '/home/coderaiser',
         to: '/',

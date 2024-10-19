@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "validate args, sugest closest variant",
+  "description": "validate args, suggest closest variant",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-validate-args#readme",
   "main": "lib/validate-args.js",
   "release": false,
