@@ -53,7 +53,7 @@ Once upon a time 🐊Putout swim over the river of Code and suddenly...
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function MemberExpression(object: Expression, property: Expression | Identifier, computed: boolean, optional: boolean);
+type MemberExpression = (object: Expression, property: Expression | Identifier, computed: boolean, optional: boolean) => Node;
 ```
 
 > `MemberExpression` always has `object` and `property` fields.
@@ -75,7 +75,7 @@ Friends.elephant; // has not computed value 'elephant'
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function Literal(value: boolean | string | number | bigint | undefined | null);
+type Literal = (value: boolean | string | number | bigint | undefined | null) => Node;
 ```
 
 > `Literal` always has a `value` field.
@@ -106,7 +106,7 @@ function Literal(value: boolean | string | number | bigint | undefined | null);
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function Identifier(name: string): Identifier;
+type Identifier = (name: string) => Identifier;
 ```
 
 > When it's
@@ -192,8 +192,9 @@ const [owl] = birds;
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function ObjectExpression(properties: ObjectMethod[] | ObjectProperty[] | SpreadElement[]);
-function ObjectPattern(properties: RestElement[] | ObjectProperty[]);
+type ObjectExpression(properties: ObjectMethod[] | ObjectProperty[] | SpreadElement[]) => Node;
+
+type ObjectPattern = (properties: RestElement[] | ObjectProperty[]) => Node;
 ```
 
 > Both `ObjectExpression` and `ObjectPattern` takes `properties`, both of which takes `ObjectProperty`, but
