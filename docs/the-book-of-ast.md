@@ -157,8 +157,9 @@ if (fruit === '🍎') // 🌳(🍎)
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function ArrayExpression(elements: null[] | Expression[] | SpreadElement[]);
-function ArrayPattern(elements: null[] | PatternLike[]): ArrayPattern;
+type ArrayExpression = (elements: null[] | Expression[] | SpreadElement[]) => Node;
+
+type ArrayPattern = (elements: null[] | PatternLike[]) => Node;
 ```
 
 > Both `ArrayExpression` and `ArrayPattern` takes `properties`, both of which takes `ObjectProperty`, but
@@ -192,7 +193,7 @@ const [owl] = birds;
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-type ObjectExpression(properties: ObjectMethod[] | ObjectProperty[] | SpreadElement[]) => Node;
+type ObjectExpression = (properties: ObjectMethod[] | ObjectProperty[] | SpreadElement[]) => Node;
 
 type ObjectPattern = (properties: RestElement[] | ObjectProperty[]) => Node;
 ```
@@ -227,8 +228,8 @@ And sayed, "Here is the other code I saw in the cloud, is it similar on any kind
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function SpreadElement(argument: Expression): SpreadElement;
-function RestElement(argument: Expression): RestElement;
+type SpreadElement = (argument: Expression) => Node;
+type RestElement = (argument: Expression) => Node;
 ```
 
 > [**Spread**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) syntax (`...`) usually takes [`ArrayExpression`](#arrayexpression-and-arraypattern) or [`ObjectExpression`](#objectexpression-and-objectpattern) to be expanded in places where zero or more items are expected.
