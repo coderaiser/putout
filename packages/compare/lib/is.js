@@ -12,7 +12,7 @@ const {
     isImportDefaultSpecifier,
     isExportSpecifier,
     isRegExpLiteral,
-    isTSTypeParameter,
+    isTSMappedType,
     isJSXText,
     isJSXIdentifier,
     isJSXAttribute,
@@ -342,7 +342,7 @@ module.exports.isLinkedNode = (a) => {
     if (isTSTypeReference(a) && LINKED_NODE.test(a.typeName.name))
         return true;
     
-    return isTSTypeParameter(a) && LINKED_NODE.test(a.name);
+    return isTSMappedType(a) && LINKED_NODE.test(a.key.name);
 };
 
 module.exports.parseTemplate = (tmpl, {program} = {}) => {
