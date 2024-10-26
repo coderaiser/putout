@@ -27,6 +27,9 @@ module.exports.traverse = ({push, store}) => ({
         const initName = initPath.toString();
         
         for (const propPath of path.get('declarations.0.id.properties')) {
+            if (propPath.isRestElement())
+                continue;
+            
             const nestedPath = propPath.get('key');
             const nestedName = nestedPath.toString();
             

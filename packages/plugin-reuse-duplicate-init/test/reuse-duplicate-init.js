@@ -38,6 +38,11 @@ test('plugin-reuse-duplicate-init: no transform: no main', (t) => {
     t.end();
 });
 
+test('plugin-reuse-duplicate-init: no report: rest', (t) => {
+    t.noReport('rest');
+    t.end();
+});
+
 test('plugin-reuse-duplicate-init: transform: no node', (t) => {
     t.transform('no-node', {
         'remove-useless-variables': removeUselessVariables,
