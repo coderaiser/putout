@@ -173,7 +173,7 @@
     "@putout/plugin-remove-useless-spread": "^11.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^2.0.0",
     "@putout/plugin-remove-useless-variables": "^12.0.0",
-    "@putout/plugin-reuse-duplicate-init": "^5.0.0",
+    "@putout/plugin-reuse-duplicate-init": "^6.0.0",
     "@putout/plugin-simplify-assignment": "^3.0.0",
     "@putout/plugin-simplify-boolean-return": "^2.0.0",
     "@putout/plugin-simplify-ternary": "^7.0.0",
