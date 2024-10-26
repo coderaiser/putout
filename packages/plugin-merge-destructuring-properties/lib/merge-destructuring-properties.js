@@ -34,6 +34,9 @@ module.exports.traverse = ({push, store}) => {
         VariableDeclarator(path) {
             const {id, init} = path.node;
             
+            if (!init)
+                return;
+            
             if (!isObjectPattern(id))
                 return;
             
