@@ -91,9 +91,9 @@ test('putout: parser: print: printer: babel', (t) => {
     `;
     
     const expected = montag`
-        export default (() => {
+        export default () => {
           return <h1>hello</h1>;
-        });
+        };
     
     `;
     

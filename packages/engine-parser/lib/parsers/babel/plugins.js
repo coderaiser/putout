@@ -2,9 +2,8 @@
 
 module.exports = [
     'importMeta',
-    ['importAttributes', {
-        deprecatedAssertSyntax: true,
-    }],
+    'importAttributes',
+    'deprecatedImportAssert',
     'dynamicImport',
     'bigInt',
     'classProperties',
