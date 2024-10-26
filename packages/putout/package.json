@@ -80,7 +80,7 @@
     "@putout/operator-filesystem": "^4.0.0",
     "@putout/operator-ignore": "^1.0.0",
     "@putout/operator-json": "^2.0.0",
-    "@putout/operator-match-files": "^3.0.0",
+    "@putout/operator-match-files": "^4.0.0",
     "@putout/operator-regexp": "^1.0.0",
     "@putout/operator-rename-files": "^1.0.0",
     "@putout/plugin-apply-at": "^2.0.0",
