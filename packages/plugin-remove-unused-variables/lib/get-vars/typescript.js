@@ -7,7 +7,7 @@ const {
 } = types;
 
 module.exports = ({use, declare}) => ({
-    TSExpressionWithTypeArguments(path) {
+    TSClassImplements(path) {
         const {expression} = path.node;
         const {type} = expression;
         
