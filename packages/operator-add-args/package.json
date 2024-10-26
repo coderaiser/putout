@@ -26,7 +26,7 @@
   "dependencies": {
     "@putout/babel": "^2.0.0",
     "@putout/compare": "^14.0.0",
-    "@putout/engine-parser": "^10.0.2"
+    "@putout/engine-parser": "^11.0.1"
   },
   "keywords": [
     "putout",
@@ -47,7 +47,7 @@
     "supertape": "^10.0.0"
   },
   "peerDependencies": {
-    "putout": ">=34"
+    "putout": ">=36"
   },
   "license": "MIT",
   "engines": {
