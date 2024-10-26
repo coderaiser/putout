@@ -62,7 +62,7 @@
     "@putout/engine-parser": "^11.0.0",
     "@putout/engine-processor": "^12.0.0",
     "@putout/engine-reporter": "^2.0.0",
-    "@putout/engine-runner": "^21.0.0",
+    "@putout/engine-runner": "^22.0.0",
     "@putout/eslint": "^3.0.0",
     "@putout/formatter-codeframe": "^7.0.0",
     "@putout/formatter-dump": "^5.0.0",
