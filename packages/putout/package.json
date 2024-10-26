@@ -127,7 +127,7 @@
     "@putout/plugin-madrun": "^19.0.0",
     "@putout/plugin-math": "^2.0.0",
     "@putout/plugin-maybe": "^2.0.0",
-    "@putout/plugin-merge-destructuring-properties": "^9.0.0",
+    "@putout/plugin-merge-destructuring-properties": "^10.0.0",
     "@putout/plugin-merge-duplicate-functions": "^2.0.0",
     "@putout/plugin-merge-duplicate-imports": "^11.0.0",
     "@putout/plugin-montag": "^2.0.0",
