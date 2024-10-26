@@ -1,3 +1,50 @@
+2024.10.26, v36.11.0
+
+feature:
+- f52bbfd7a @putout/compare: TSMappedType
+- fd9700335 putout: @putout/traverse v11.0.0
+- 6d450a982 @putout/traverse: @putout/compare v15.0.0
+- 3cb4057d9 @putout/operator-declare: @putout/compare v15.0.0
+- beb2642e0 @putout/engine-runner: @putout/compare v15.0.0
+- e9c4023f4 putout: @putout/plugin-reuse-duplicate-init v6.0.0
+- 287831cb1 @putout/plugin-reuse-duplicate-init: drop support of 🐊 < 36
+- 04e9eeb7b @putout/plugin-reuse-duplicate-init: exclude RestElement
+- 0d647d058 eslint-plugin-putout: @putout/engine-parser v11.0.1
+- ebf0c4d48 putout: @putout/operator-add-args v9.0.0
+- d46a59259 @putout/operator-add-args: @putout/compare v15.0.0
+- b0a6aa8e8 @putout/operator-add-args: @putout/engine-parser v11.0.1
+- f81a2be78 putout: @putout/operator-declare v10.0.0
+- 32c89e6b7 @putout/operator-declare: @putout/engine-parser v11.0.1
+- da52f240f putout: @putout/operator-filesystem v5.0.0
+- 452cfce56 @putout/operator-filesystem: @putout/engine-parser v11.0.1
+- dcb039c89 putout: @putout/operator-match-files v4.0.0
+- fe8f4f396 @putout/operator-match-files: drop support of 🐊 < 36
+- 3893928c7 @putout/operator-match-files: @putout/engine-parser v11.0.1
+- 063055635 putout: @putout/engine-runner v22.0.0
+- 0684cc72d @putout/engine-parser: @putout/printer v10.0.0
+- 77e0a5604 @putout/engine-loader: drop @putout/engine-parser
+- 3eeb3aa89 @putout/engine-runner: @putout/engine-parser v11.0.0
+- 4b4bf7565 putout: @putout/engine-loader v15.0.0
+- bdd08d889 @putout/engine-loader: @putout/engine-parser v11.0.0
+- 332994bfe putout: @putout/compare v15.0.0
+- 504fe604a putout: @putout/engine-parser v11.0.0
+- 5d968c816 @putout/compare: @putout/engine-parser v11.0.0
+- edbb27864 @putout/engine-parser: estree-to-babel v10.0.0
+- e0b70ec27 putout: @putout/plugin-remove-unused-variables v10.0.0
+- bfbcf64b9 putout: @putout/plugin-merge-destructuring-properties v10.0.0
+- 1bcb12395 @putout/plugin-merge-destructuring-properties: drop support of 🐊 < 36
+- c35780b61 @putout/plugin-merge-destructuring-properties: exclude VariableDeclarator with no init
+- 110070eee @putout/plugin-remove-unused-variables: drop support of 🐊 < 36
+- aa40f83f9 @putout/plugin-remove-unused-variables: align with Babel v8: TSExpressionWithTypeArguments -> TSClassImplements
+- fdbd4124f @putout/engine-parser: align to latest Babel v8
+- eb7c3854b putout: @putout/plugin-group-imports-by-source v2.0.0
+- 67818a017 @putout/plugin-typescript: drop support of 🐊 < 36
+- 20d2694e5 @putout/processor-typescript: ts-morph v24.0.0
+- 64dcffa1f @putout/plugin-group-imports-by-source: drop support of 🐊 < 36
+- 1ca427fa7 putout: @putout/plugin-github v13.0.0
+- 898463356 @putout/plugin-github: drop sut of 🐊 < 36
+- e387e8c8c @putout/plugin-github: set-node-version: v23 (https://nodejs.org/en/blog/release/v23.0.0)
+
 2024.10.18, v36.10.0
 
 feature:
