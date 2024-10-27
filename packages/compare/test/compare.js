@@ -1000,6 +1000,13 @@ test('compare: TSTypeParameters: no', (t) => {
     t.end();
 });
 
+test('compare: TSMappedType', (t) => {
+    const result = compare('type A = Partial<B>', 'type __a = {[__b in keyof __c]?: __c[__b];}');
+    
+    t.notOk(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);

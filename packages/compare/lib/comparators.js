@@ -115,7 +115,7 @@ function compareTemplateElements(node, template) {
 }
 
 function linkNodes(node, template, {add, templateStore}) {
-    if (node && isLinkedNode(template) || isLinkedArgs(template) || isLinkedId(node, template) || isLinkedBool(node, template))
+    if (node && isLinkedNode(template, node) || isLinkedArgs(template) || isLinkedId(node, template) || isLinkedBool(node, template))
         return link({
             add,
             value: template,

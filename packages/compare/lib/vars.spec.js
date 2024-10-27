@@ -950,3 +950,31 @@ test('putout: compare: vars: getTemplateValues: setValues: setRawValue: Number',
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: compare: vars: getTemplateValues: setValues: TSMappedType', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            'type __a = {[__b in keyof __c]?: __c[__b];}': 'type __a = Partial<__c>',
+            'type __a = {readonly [__b in keyof __c]: __c[__b];}': 'type __a = Readonly<__c>',
+        }),
+    };
+    
+    const input = montag`
+        type SuperType1 = {
+            readonly [Key in keyof Type]?: Type[Key];
+        };
+    `;
+    
+    const {code} = putout(input, {
+        isTS: true,
+        plugins: [
+            ['apply-utility-types', plugin],
+        ],
+    });
+    
+    const expected = 'type SuperType1 = Partial<Type>;\n';
+    
+    t.equal(code, expected);
+    t.end();
+});

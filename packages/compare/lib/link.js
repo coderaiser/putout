@@ -24,6 +24,8 @@ const parseName = (node) => {
     
     if (isTSTypeReference(node))
         return node.typeName.name;
+    //    if (isTSMappedType(node))
+    //        return node.key.name;
 };
 
 module.exports = ({add, value, nodeValue, templateStore}) => {
@@ -36,6 +38,9 @@ module.exports = ({add, value, nodeValue, templateStore}) => {
         templateStore[name] = nodeValue;
         return true;
     }
+    
+    if (isIdentifier(templateStore[name]) && isTSTypeReference(nodeValue))
+        return true;
     
     add(templateStore[name], nodeValue);
     
