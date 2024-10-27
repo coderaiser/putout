@@ -8,7 +8,6 @@ const {
 } = operator;
 
 const {isIdentifier} = types;
-
 const MAX_LENGTH = 20;
 
 module.exports.report = () => `Avoid useless declarations`;
@@ -66,6 +65,17 @@ module.exports.match = ({options}) => ({
         
         if (compare(__a, 'module.exports.__'))
             return false;
+        
+        for (const node of path.scope.block.body) {
+            if (node === path.parentPath.node)
+                continue;
+            
+            if (node.type !== path.parentPath.type)
+                continue;
+            
+            if (compare(node.expression.left, __a))
+                return;
+        }
         
         const {
             maxLength = MAX_LENGTH,
