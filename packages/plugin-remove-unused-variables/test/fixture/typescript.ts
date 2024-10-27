@@ -17,3 +17,6 @@ interface FastPathType {
 
 export class Viewport implements IViewport {
 }
+
+interface x extends m {}
+interface m {}

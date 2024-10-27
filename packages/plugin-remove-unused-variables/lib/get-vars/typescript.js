@@ -7,7 +7,7 @@ const {
 } = types;
 
 module.exports = ({use, declare}) => ({
-    TSClassImplements(path) {
+    'TSClassImplements|TSInterfaceHeritage'(path) {
         const {expression} = path.node;
         const {type} = expression;
         

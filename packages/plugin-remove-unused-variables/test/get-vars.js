@@ -1661,6 +1661,8 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
         IViewport: _u,
         IInputHandlingTerminal: du,
         Pos: d_,
+        m: du,
+        x: d_,
     }, {
         options: d_,
     }];
