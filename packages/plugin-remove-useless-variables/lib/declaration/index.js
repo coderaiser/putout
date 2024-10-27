@@ -10,6 +10,12 @@ const {
 const {isIdentifier} = types;
 const MAX_LENGTH = 20;
 
+const getBody = (path) => {
+    const {body} = path.scope.block;
+    
+    return body.body || body;
+};
+
 module.exports.report = () => `Avoid useless declarations`;
 
 module.exports.match = ({options}) => ({
@@ -66,7 +72,7 @@ module.exports.match = ({options}) => ({
         if (compare(__a, 'module.exports.__'))
             return false;
         
-        for (const node of path.scope.block.body) {
+        for (const node of getBody(path)) {
             if (node === path.parentPath.node)
                 continue;
             
