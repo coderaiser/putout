@@ -24,7 +24,9 @@ const parseName = (node) => {
     
     if (isTSTypeReference(node))
         return node.typeName.name;
+    
     //    if (isTSMappedType(node))
+    
     //        return node.key.name;
 };
 
