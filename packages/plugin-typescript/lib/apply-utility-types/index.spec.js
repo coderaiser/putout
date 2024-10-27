@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-utility-types: report: mapped-types', (t) => {
-    t.report('mapped-types', 'Utility types should be applied');
+test('plugin-typescript: apply-utility-types: report: mapped-types', (t) => {
+    t.report('mapped-types', 'Apply utility types');
     t.end();
 });
 
-test('plugin-apply-utility-types: transform: mapped-types', (t) => {
+test('plugin-apply-typescript: utility-types: transform: mapped-types', (t) => {
     t.transform('mapped-types');
     t.end();
 });

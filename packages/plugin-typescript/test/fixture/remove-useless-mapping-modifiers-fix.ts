@@ -1,3 +1,3 @@
-type SuperType = Partial<Type>;
+type SuperType = Readonly<Type>;
 
 const x: SuperType = {};
