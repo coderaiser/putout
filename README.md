@@ -57,7 +57,7 @@ are also supported. Here is how it looks like:
 - [🛴 Codemods](#-codemods)
 - [⏣ Integration with ESLint](#-integration-with-eslint)
 - [☄️ Integration with Babel](#%EF%B8%8F-integration-with-babel)
-- [🐈 Integration with Yarn OnP](#-integration-with-yarn-pnp)
+- [🐈 Integration with Yarn PnP](#-integration-with-yarn-pnp)
 - [⛓ Using Putout as Loader](#-using-putout-as-loader)
 - [🚪 Exit Codes](#exit-codes)
 - [🦔 Real-world uses](#-real-world-uses)
@@ -2836,7 +2836,7 @@ Just create `.babelrc.json` file with configuration you need.
 }
 ```
 
-## 🐈 Integration with Yarn OnP
+## 🐈 Integration with Yarn PnP
 
 Since 🐊**Putout** has dynamic nature of loading:
 
@@ -2844,7 +2844,7 @@ Since 🐊**Putout** has dynamic nature of loading:
 - `processors`;
 - `formatters`;
 
-It was a nice adventure to have support of such a wonderful feature of `Yarn` as [`Plug'n'Play`](https://yarnpkg.com/features/pnp).
+It was a nice adventure to add support of such a wonderful feature of `Yarn` as [`Plug'n'Play`](https://yarnpkg.com/features/pnp).
 For this purpose new `env variable` was added to help to [load external extensions](https://yarnpkg.com/advanced/rulebook/#modules-shouldnt-hardcode-node_modules-paths-to-access-other-modules): `PUTOUT_YARN_PNP`.
 
 So if you use package **eslint-config-hardcore** you should run **ESLint** this way:
