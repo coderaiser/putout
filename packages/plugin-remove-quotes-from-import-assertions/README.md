@@ -29,7 +29,7 @@ npm i @putout/plugin-remove-quotes-from-import-assertions
 ## ❌ Example of incorrect code
 
 ```js
-import json from './mod.json' with { 'type': 'json' };
+import json from './mod.json' with { type: 'json' };
 ```
 
 ## ✅ Example of correct code
