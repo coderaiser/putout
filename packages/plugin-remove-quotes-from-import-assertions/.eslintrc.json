@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "@stylistic/js/quote-props": "off"
+    },
     "extends": [
         "plugin:n/recommended",
         "plugin:putout/recommended"
