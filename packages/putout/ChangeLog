@@ -1,3 +1,33 @@
+2024.11.11, v36.12.0
+
+feature:
+- ff6e1950c @putout/process-html: drop support of 🐊 < 36
+- 71ffdc231 @putout/processor-html: svelte v5.1.14
+- 79066f8dc @putout/engine-runner: @putout/plugin-filesystem v6.0.0
+- 9e8a42207 @putout/cli-cache: file-entry-cache v10.0.2
+- 82f20dc38 putout: ignore v6.0.2
+- 46c569164 @putout/engine-parser: hermes-parser v0.25.0
+- 406c82c5f putout: @putout/plugin-filesystem v6.0.0
+- 9e4d3e042 @putout/plugin-filesystem: drop support of 🐊 < 36
+- 6f20f3012 @putout/plugin-filesystem: @putout/operator-filesystem v5.0.0
+- 2a9faab38 putout: @putout/engine-processor v13.0.0
+- 8055d90c9 @putout/engine-processor: @putout/engine-loader v15.0.1
+- ffd0bb770 putout: @putout/operator-rename-files v2.0.0
+- 14fdd9077 @putout/operator-filesystem: drop support of 🐊 < 36
+- 3426dba12 @putout/operator-rename-files: @putout/operator-filesystem v5.0.0
+- 2fbefedde putout: @putout/operator-match-files v5.0.0
+- 86647f5dd @putout/operator-match-files: @putout/operator-filesystem v5.0.0
+- e5cf3b290 putout: @putout/engine-reporter v3.0.0
+- a4dcae4e1 @putout/engine-reporter: @putout/engine-loader v15.0.1
+- 9a03af510 putout: @putout/processor-filesystem v5.0.0
+- 39c4e3f2f @putout/processor-filesystem: @putout/operator-filesystem v5.0.0
+- 8e36c6fbd @putout/engine-runner: @putout/operator-filesystem v5.0.0
+- fbb8c38c4 @putout/engine-runner: @putout/operator-declare v10.0.1
+- 9f577e18c @putout/plugin-remove-useless-variables: declaration: not in program parent
+- 72650834b @putout/plugin-remove-useless-variables: declaration: exclude re-assign
+- 2326bb003 @putout/compare: align to Babel v8
+- 8a39a26a9 @putout/plugin-typescript: apply-utility-types: report
+
 2024.10.26, v36.11.0
 
 feature:
