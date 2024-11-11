@@ -48,7 +48,7 @@
     "try-catch": "^3.0.0"
   },
   "peerDependencies": {
-    "putout": ">=35"
+    "putout": ">=36"
   },
   "license": "MIT",
   "engines": {
