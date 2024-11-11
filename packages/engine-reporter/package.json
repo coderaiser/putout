@@ -32,7 +32,7 @@
   "dependencies": {
     "@putout/cli-choose-formatter": "^4.0.0",
     "@putout/cli-keypress": "^2.0.0",
-    "@putout/engine-loader": "^14.0.0",
+    "@putout/engine-loader": "^15.0.1",
     "fullstore": "^3.0.0",
     "try-catch": "^3.0.1",
     "try-to-catch": "^3.0.1"
