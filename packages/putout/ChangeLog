@@ -1,3 +1,8 @@
+2024.11.22, v36.13.1
+
+feature:
+- 3e75a4b4f putout: @putout/plugin-remove-duplicate-keys v6.0.0
+
 2024.11.22, v36.13.0
 
 feature:
