@@ -1,3 +1,10 @@
+2024.11.22, v36.13.0
+
+feature:
+- a2f2d494c putout: @putout/plugin-remove-duplicate-keys v5.1.0
+- 59d9c0b71 @putout/operate: traverse-properties: exclude ConditionalExpression
+- 1b2d1605d @putout/plugin-remove-duplicate-keys: drop support of 🐊 < 36
+
 2024.11.11, v36.12.0
 
 feature:
