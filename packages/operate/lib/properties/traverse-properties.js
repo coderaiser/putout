@@ -51,6 +51,10 @@ const collect = ({name, collector}) => (path) => {
             continue;
         
         const keyPath = propertyPath.get('key');
+        
+        if (keyPath.isConditionalExpression())
+            continue;
+        
         const currentName = extract(keyPath);
         
         if (name === currentName)

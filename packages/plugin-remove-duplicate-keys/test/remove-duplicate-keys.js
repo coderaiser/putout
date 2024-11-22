@@ -15,6 +15,11 @@ test('remove duplicate-keys: report', (t) => {
     t.end();
 });
 
+test('remove duplicate-keys: transform: condition', (t) => {
+    t.transform('condition');
+    t.end();
+});
+
 test('remove duplicate-keys: transform: duplicate', (t) => {
     t.transform('duplicate-literal');
     t.end();

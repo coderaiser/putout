@@ -129,6 +129,23 @@ test('operate: traverse-properties: traverse: Identifier', (t) => {
     t.end();
 });
 
+test('operate: traverse-properties: traverse: ConditionalExpression: ignore', (t) => {
+    const source = `({a: 'b', [c ? 'a' : 'b']: 'z'})`;
+    let list = [];
+    
+    traverse(parse(source), {
+        ObjectExpression(path) {
+            list = traverseProperties(path, 'a', {
+                firstLevel: true,
+            });
+            path.stop();
+        },
+    });
+    
+    t.equal(list.length, 1);
+    t.end();
+});
+
 test('operate: traverse-properties: object inside array', (t) => {
     const source = `
         __putout_processor_json({
