@@ -196,6 +196,7 @@
         "apply-flat-map",
         "apply-destructuring",
         "apply-optional-chaining",
+        "apply-shorthand-properties",
         "apply-starts-with",
         "apply-template-literals",
         "apply-overrides",

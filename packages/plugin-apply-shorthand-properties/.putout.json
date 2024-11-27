@@ -1,3 +1,7 @@
 {
-    "printer": "putout"
+    "match": {
+        "*.md": {
+            "apply-shorthand-properties": "off"
+        }
+    }
 }
