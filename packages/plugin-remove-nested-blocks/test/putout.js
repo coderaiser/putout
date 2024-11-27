@@ -7,7 +7,7 @@ const putout = require('putout');
 test('putout: plugin: remove-nested-blocks: remove-empty', (t) => {
     const {code} = putout(montag`
         export default () => {
-            for (const [index, peace] of peaces) {
+            for (const [index, peace] of pieces) {
             }
         }
     `, {
