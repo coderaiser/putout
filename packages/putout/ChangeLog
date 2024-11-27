@@ -1,3 +1,13 @@
+2024.11.27, v36.14.0
+
+feature:
+- 47435b43f @putout/plugin-apply-shorthand-properties: ESM -> CommonJS
+- 475a6b53d putout: @putout/plugin-apply-shorthand-properties v6.0.0
+- 3655f9340 @putout/plugin-apply-shorthand-properties: drop support of node < 18
+- c672afc8b @putout/plugin-apply-shorthand-properties: rename
+- 95e09dfb4 @putout/plugin-putout: includer: [__a] -> __array
+- 59fa8a186 @putout/plugin-putout: check-replace-code: __array: inside VariableDeclarator, AssignmentExpression
+
 2024.11.22, v36.13.1
 
 feature:
