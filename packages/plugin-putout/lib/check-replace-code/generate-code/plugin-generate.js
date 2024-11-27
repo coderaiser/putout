@@ -6,6 +6,7 @@ const {
     BlockStatement,
     Identifier,
     ArrayPattern,
+    ArrayExpression,
     ObjectExpression,
 } = types;
 
@@ -51,6 +52,12 @@ module.exports.fix = (path, {options}) => {
         
         if (path.parentPath.isFunction())
             return replaceWith(path, ArrayPattern([]));
+        
+        if (path.parentPath.isAssignmentExpression())
+            return replaceWith(path, ArrayExpression([]));
+        
+        if (path.parentPath.isVariableDeclarator())
+            return replaceWith(path, ArrayExpression([]));
     }
     
     if (name === '__object')
