@@ -19,3 +19,8 @@ test('plugin-putout: includer: transform', (t) => {
     t.transform('includer');
     t.end();
 });
+
+test('plugin-putout: includer: transform: include-not-fn', (t) => {
+    t.transform('not-fn');
+    t.end();
+});
