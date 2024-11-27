@@ -144,7 +144,7 @@ friend.
 ```js
 if (fruit === '🍎')
     // 🌳(🍎)
-    eat('🍎');// 🦏 ❤️ 🍎
+    eat('🍎'); // 🦏 ❤️ 🍎
 ```
 
 "An apple can grow on a branch, but branch cannot grow on apple, the same goes to **Expressions** and **Statements**", continued 🐊**Putout**.

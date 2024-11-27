@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-apply-shorthand-properties",
   "version": "6.0.0",
-  "type": "module",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to apply shorthand properties",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-shorthand-properties#readme",

@@ -1,15 +1,17 @@
-import {createTest} from '@putout/test';
-import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
-import * as applyShorthandProperties from '../lib/apply-shorthand-properties.js';
+'use strict';
 
-const test = createTest(import.meta.url, {
+const applyShorthandProperties = require('../lib/apply-shorthand-properties.js');
+const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
+const {createTest} = require('@putout/test');
+
+const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
         ['apply-shorthand-properties', applyShorthandProperties],
     ],
 });
 
-const testWithRemove = createTest(import.meta.url, {
+const testWithRemove = createTest(__dirname, {
     printer: 'putout',
     plugins: [
         ['apply-shorthand-properties', applyShorthandProperties],
