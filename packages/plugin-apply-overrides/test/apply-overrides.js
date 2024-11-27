@@ -45,7 +45,7 @@ test('putout: apply-overrides: no report: not-destr', (t) => {
     t.end();
 });
 
-test('putout: apply-overrides: no report: not-idenfier', (t) => {
+test('putout: apply-overrides: no report: not-identifier', (t) => {
     t.noReport('not-identifier');
     t.end();
 });
