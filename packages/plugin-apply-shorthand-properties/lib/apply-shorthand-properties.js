@@ -4,8 +4,10 @@ const {findBinding, rename} = operator;
 
 export const report = () => `Use shorthand properties`;
 
-export const fix = ({path, from, to}) => {
-    rename(path, from, to);
+export const fix = ({path, from, to, toRename}) => {
+    if (toRename)
+        rename(path, from, to);
+    
     path.node.shorthand = true;
 };
 
@@ -20,7 +22,7 @@ export const traverse = ({push, options}) => ({
             const valuePath = propPath.get('value');
             const keyPath = propPath.get('key');
             
-            const {ignore = []} = options;
+            const {rename, ignore = []} = options;
             
             const from = getName(valuePath);
             const to = getName(keyPath);
@@ -33,6 +35,17 @@ export const traverse = ({push, options}) => ({
             
             if (/^[A-Z].+$/.test(from))
                 continue;
+            
+            if (!rename) {
+                if (from === to)
+                    push({
+                        path: propPath,
+                        from,
+                        to,
+                    });
+                
+                continue;
+            }
             
             const bindingFrom = findBinding(propPath, from);
             const bindingTo = findBinding(propPath, to);
@@ -52,6 +65,7 @@ export const traverse = ({push, options}) => ({
                 path: propPath,
                 from,
                 to,
+                toRename: true,
             });
         }
     },

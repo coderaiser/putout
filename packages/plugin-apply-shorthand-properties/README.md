@@ -17,7 +17,8 @@ npm i @putout/plugin-apply-shorthand-properties -D
 {
     "rules": {
         "apply-shorthand-properties": ["on", {
-            "ignore": []
+            "ignore": [],
+            "rename": false
         }]
     },
     "plugins": [
@@ -26,7 +27,23 @@ npm i @putout/plugin-apply-shorthand-properties -D
 }
 ```
 
-## ❌ Example of incorrect code
+## With default options
+
+### ❌ Example of incorrect code
+
+```js
+const {a: a} = b;
+```
+
+### ✅ Example of correct code
+
+```js
+const {a} = b;
+```
+
+## When `rename` enabled
+
+### ❌ Example of incorrect code
 
 ```js
 const AUTH_SESSION = 'xx';
@@ -37,7 +54,7 @@ export const setSession = (session) => ({
 });
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const type = 'xx';
@@ -47,6 +64,13 @@ export const setSession = (payload) => ({
     payload,
 });
 ```
+
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`apply-shorthand-properties`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-shorthand-properties#readme) | ✅
+⏣ **ESLint** | [`no-useless-rename`](https://eslint.org/docs/rules/no-useless-rename) | ❌
 
 ## License
 

@@ -9,8 +9,18 @@ const test = createTest(import.meta.url, {
     ],
 });
 
+const testWithRemove = createTest(import.meta.url, {
+    printer: 'putout',
+    plugins: [
+        ['apply-shorthand-properties', applyShorthandProperties],
+        ['rm-unused-vars', removeUnusedVariables],
+    ],
+});
+
 test('plugin-apply-shorthand-properties: report', (t) => {
-    t.report('object', 'Use shorthand properties');
+    t.reportWithOptions('object', 'Use shorthand properties', {
+        rename: true,
+    });
     t.end();
 });
 
@@ -20,7 +30,19 @@ test('plugin-apply-shorthand-properties: no report: shorthand', (t) => {
 });
 
 test('plugin-apply-shorthand-properties: transform', (t) => {
-    t.transform('object');
+    t.transformWithOptions('object', {
+        rename: true,
+    });
+    t.end();
+});
+
+test('plugin-apply-shorthand-properties: transform: destructuring', (t) => {
+    t.transform('destructuring');
+    t.end();
+});
+
+test('plugin-apply-shorthand-properties: transform: rename-and-destructuring', (t) => {
+    t.transform('rename-and-destructuring');
     t.end();
 });
 
@@ -42,22 +64,30 @@ test('plugin-apply-shorthand-properties: no transform: not-valid', (t) => {
 });
 
 test('plugin-apply-shorthand-properties: no transform: destructuring', (t) => {
-    t.noTransform('destr');
+    t.noTransformWithOptions('destr', {
+        rename: true,
+    });
     t.end();
 });
 
 test('plugin-apply-shorthand-properties: no transform: import', (t) => {
-    t.noTransform('import');
+    t.noTransformWithOptions('import', {
+        rename: true,
+    });
     t.end();
 });
 
 test('plugin-apply-shorthand-properties: no transform: name exists', (t) => {
-    t.noTransform('name-exists');
+    t.noTransformWithOptions('name-exists', {
+        rename: true,
+    });
     t.end();
 });
 
 test('plugin-apply-shorthand-properties: no transform: names overlap', (t) => {
-    t.noTransform('overlap');
+    t.noTransformWithOptions('overlap', {
+        rename: true,
+    });
     t.end();
 });
 
@@ -71,9 +101,9 @@ test('plugin-apply-shorthand-properties: no transform: import declaration', (t) 
     t.end();
 });
 
-test('plugin-apply-shorthand-properties: transform: assign', (t) => {
-    t.transform('assign', {
-        'rm-unused-vars': removeUnusedVariables,
+testWithRemove('plugin-apply-shorthand-properties: transform: assign', (t) => {
+    t.transformWithOptions('assign', {
+        rename: true,
     });
     t.end();
 });

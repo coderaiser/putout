@@ -28,10 +28,8 @@
   "keywords": [
     "putout",
     "putout-plugin",
-    "putout-plugin-remove",
-    "plugin",
-    "remove",
-    "only"
+    "putout-plugin-apply",
+    "apply-shorthand-properties"
   ],
   "devDependencies": {
     "@putout/plugin-remove-unused-variables": "*",
