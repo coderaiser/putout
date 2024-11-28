@@ -7,5 +7,5 @@ onIfStatement({
 function onIfStatement({
     push: {
         a: b,
-    }
+    },
 }) {}
