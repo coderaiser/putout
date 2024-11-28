@@ -32,12 +32,16 @@ npm i @putout/plugin-apply-shorthand-properties -D
 ### ❌ Example of incorrect code
 
 ```js
+import {'b' as b} from 'b';
+
 const {a: a} = b;
 ```
 
 ### ✅ Example of correct code
 
 ```js
+import {b} from 'b';
+
 const {a} = b;
 ```
 

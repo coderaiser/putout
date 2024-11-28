@@ -1,11 +1,18 @@
 'use strict';
 
-const {operator} = require('putout');
+const {types, operator} = require('putout');
 const {findBinding, rename} = operator;
+
+const {isImportSpecifier} = types;
 
 module.exports.report = () => `Use shorthand properties`;
 
 module.exports.fix = ({path, from, to, toRename}) => {
+    if (isImportSpecifier(path)) {
+        path.node.imported = path.node.local;
+        return;
+    }
+    
     if (toRename)
         rename(path, from, to);
     
@@ -13,6 +20,12 @@ module.exports.fix = ({path, from, to, toRename}) => {
 };
 
 module.exports.traverse = ({push, options}) => ({
+    ImportSpecifier(path) {
+        if (path.node.imported.value === path.node.local.name)
+            push({
+                path,
+            });
+    },
     '__object'(path) {
         for (const propPath of path.get('properties')) {
             const {shorthand} = propPath.node;

@@ -43,6 +43,11 @@ test('plugin-apply-shorthand-properties: transform: destructuring', (t) => {
     t.end();
 });
 
+test('plugin-apply-shorthand-properties: transform: as', (t) => {
+    t.transform('as');
+    t.end();
+});
+
 test('plugin-apply-shorthand-properties: transform: rename-and-destructuring', (t) => {
     t.transform('rename-and-destructuring');
     t.end();
