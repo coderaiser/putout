@@ -2255,6 +2255,12 @@ It has a lot of plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-reuse-duplicate-init`](/packages/plugin-reuse-duplicate-init#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-reuse-duplicate-init.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-reuse-duplicate-init) |
 
+### Adders
+
+| Package | Version |
+|--------|-------|
+| [`@putout/plugin-add-parens`](/packages/plugin-add-parens#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-add-parens.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-add-parens) |
+
 ### Groupers
 
 | Package | Version |

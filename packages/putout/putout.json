@@ -190,6 +190,7 @@
         "filesystem": "off"
     },
     "plugins": [
+        "add-missing-parens",
         "apply-at",
         "apply-dot-notation",
         "apply-early-return",

@@ -1,0 +1,2 @@
+(getConsoleLog?.())``;
+(String?.raw)``;

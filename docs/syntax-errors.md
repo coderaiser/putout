@@ -221,3 +221,16 @@ const a = {
 ```
 
 </details>
+
+<details><summary>Add missing parens</summary>
+
+```diff
+-getConsoleLog?.()``;
+-String?.raw``;
+-String?.raw!``;
++(getConsoleLog?.())``;
++(String?.raw)``;
++(String?.raw!)``;
+```
+
+</details>
