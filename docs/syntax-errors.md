@@ -222,7 +222,7 @@ const a = {
 
 </details>
 
-<details><summary>Add missing parens</summary>
+<details><summary>add missing parens</summary>
 
 ```diff
 -getConsoleLog?.()``;
