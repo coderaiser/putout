@@ -1,3 +1,11 @@
+2024.12.02, v36.15.0
+
+feature:
+- e4e166626 putout: @putout/plugin-montag v3.0.0
+- d91e1b6c2 @putout/plugin-montag: drop support of 🐊 < 36
+- 54655bb2a @putout/plugin-add-missing-parens: add
+- be091a186 @putout/plugin-apply-shorthand-properties: ImportSpecifier: <StringLiteral>imported.value === <Identifier>local.name'
+
 2024.11.27, v36.14.0
 
 feature:
