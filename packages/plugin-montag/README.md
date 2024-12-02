@@ -7,7 +7,7 @@
 >
 > (c) [**Montag**](https://github.com/coderaiser/montag)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply [**Montag**](https://github.com/coderaiser/montag). Renamed to [@putout/plugin-montag](https://www.npmjs.com/package/@putout/plugin-montag).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply [**Montag**](https://github.com/coderaiser/montag).
 
 ## Install
 
