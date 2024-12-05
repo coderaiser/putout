@@ -25,9 +25,16 @@ const isObject = (a) => a && typeof a === 'object';
 const {entries} = Object;
 const report = (path, {message}) => message;
 
-module.exports.matchFiles = (files) => {
+module.exports.matchFiles = (options) => {
+    const files = options.files ?? options;
+    const exclude = options.exclude ?? [];
+    
     check(files);
-    const scan = createScan(files);
+    
+    const scan = createScan({
+        files,
+        exclude,
+    });
     
     return {
         fix,
@@ -53,17 +60,21 @@ function fix(inputFile, {dirPath, mainPath, matchInputFilename, outputFilename, 
         removeFile(inputFile);
 }
 
-const createScan = (files) => (mainPath, {push, progress, options}) => {
+const createScan = ({files, exclude}) => (mainPath, {push, progress, options}) => {
     const allFiles = [];
     const cwd = getFilename(mainPath);
     
     for (const [filename, rawOptions] of entries(files)) {
-        const [matchInputFilename, outputFilename = matchInputFilename] = parseMatcher(filename, options);
-        const inputFiles = findFile(mainPath, matchInputFilename);
+        const [matchInputFilenameMask] = parseMatcher(filename, options);
+        const inputFiles = findFile(mainPath, matchInputFilenameMask, exclude);
         
         for (const inputFile of inputFiles) {
             const dirPath = getParentDirectory(inputFile);
             const inputFilename = getFilename(inputFile);
+            
+            const [matchInputFilename, outputFilename = matchInputFilename] = parseMatcher(filename, {
+                filename: inputFilename,
+            });
             
             if (ignores(cwd, inputFilename, options))
                 continue;

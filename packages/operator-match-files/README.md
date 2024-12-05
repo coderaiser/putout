@@ -101,6 +101,23 @@ module.exports = matchFiles({
 });
 ```
 
+### Exclude
+
+If you want to exclude some files, use:
+
+```js
+const {operator} = require('putout');
+const {matchFiles} = operator;
+const updateTSConfig = require('../update-tsconfig');
+
+module.exports = matchFiles({
+    files: {
+        '__name.ts -> __name.js': updateTSConfig,
+    },
+    exclude: ['*.d.ts'],
+});
+```
+
 ### Options
 
 You can also pass `options`:

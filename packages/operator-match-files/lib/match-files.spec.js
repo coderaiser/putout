@@ -626,3 +626,50 @@ test('putout: operator: match-files: options', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: match-files: exclude', (t) => {
+    const source = stringify([
+        '/',
+        ['/index.mjs', 'export default {}'],
+        ['/hello.mjs', 'export default {}'],
+    ]);
+    
+    const options = {
+        files: {
+            '__name.mjs -> __name.cjs': {
+                plugins: [
+                    ['convert', convertEsmToCommonjs],
+                ],
+            },
+        },
+        exclude: ['hello.mjs'],
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'match-files': ['on', {
+                filename: '*.mjs',
+            }],
+        },
+        plugins: [
+            ['match-files', matchFiles(options)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = [
+        '/',
+        ['/hello.mjs', 'export default {}'],
+        ['/index.cjs', 'bW9kdWxlLmV4cG9ydHMgPSB7fTsK'],
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
