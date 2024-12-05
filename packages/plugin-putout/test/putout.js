@@ -262,3 +262,8 @@ test('plugin-putout: transform: add-path-arg-to-fix', (t) => {
     t.transform('add-path-arg-to-fix');
     t.end();
 });
+
+test('plugin-putout: transform: convert-include-to-traverse', (t) => {
+    t.transform('convert-include-to-traverse');
+    t.end();
+});

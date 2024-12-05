@@ -53,6 +53,7 @@ const simplifyReplaceTemplate = require('./simplify-replace-template');
 const removeEmptyArrayFromProcess = require('./remove-empty-array-from-process');
 const addPlacesToComparePlaces = require('./add-places-to-compare-places');
 const addPathArgToFix = require('./add-path-arg-to-fix');
+const convertIncludeToTraverse = require('./convert-include-to-traverse');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -108,4 +109,5 @@ module.exports.rules = {
     'remove-empty-array-from-process': removeEmptyArrayFromProcess,
     'add-places-to-compare-places': addPlacesToComparePlaces,
     'add-path-arg-to-fix': addPathArgToFix,
+    'convert-include-to-traverse': convertIncludeToTraverse,
 };

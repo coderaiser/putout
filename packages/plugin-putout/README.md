@@ -51,6 +51,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-replace-with-multiple](#convert-replace-with-multiple);
 - ✅ [convert-report-to-function](#convert-report-to-function);
 - ✅ [convert-to-no-transform-code](#convert-to-no-transform-code);
+- ✅ [convert-include-to-traverse](#convert-include-to-traverse);
 - ✅ [convert-traverse-to-include](#convert-traverse-to-include);
 - ✅ [convert-traverse-to-replace](#convert-traverse-to-replace);
 - ✅ [convert-traverse-to-scan](#convert-traverse-to-scan);
@@ -104,6 +105,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-babel-types": "on",
         "putout/convert-destructuring-to-identifier": "on",
         "putout/convert-node-to-path-in-get-template-values": "on",
+        "putout/convert-include-to-traverse": "on",
         "putout/convert-traverse-to-include": "on",
         "putout/convert-traverse-to-replace": "on",
         "putout/convert-traverse-to-scan": "on",
@@ -621,6 +623,26 @@ const parseOptions = require('putout/lib/parse-options');
 
 ```js
 const parseOptions = require('putout/parse-options');
+```
+
+## convert-include-to-traverse
+
+Checkout in 🐊[**Putout Editor*](https://putout.cloudcmd.io/#/gist/a41b5c943a74b59a6c18f31fc6d31937/d79c6084f49b6444536840bc2fc1fba725ba83f8).
+
+### ❌ Example of incorrect code
+
+```js
+export const include = () => ({
+    ClassDeclaration(path) {},
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const traverse = () => ({
+    ClassDeclaration(path) {},
+});
 ```
 
 ## convert-traverse-to-include
