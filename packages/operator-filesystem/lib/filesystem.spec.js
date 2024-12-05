@@ -151,6 +151,33 @@ test('putout: operator: filesystem: findFile: match', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: findFile: exclude', (t) => {
+    const ast = parseFilesystem([
+        '/',
+        '/hello/',
+        '/hello/world.txt',
+        '/hello/hello.txt',
+    ]);
+    
+    findFile(ast, '*.txt', ['hello.txt']).map(removeFile);
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/hello',
+            files: [{
+                type: 'file',
+                filename: '/hello/hello.txt',
+            }],
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: findFile: no names', (t) => {
     const ast = parse(montag`
         ${FS}({

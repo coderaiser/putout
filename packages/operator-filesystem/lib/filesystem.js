@@ -61,7 +61,16 @@ module.exports.getParentDirectory = (filePath) => {
 
 module.exports.findFile = findFile;
 
-function findFile(node, name) {
+function isExcluded(name, base, exclude) {
+    for (const currentExclude of exclude) {
+        if (name === currentExclude || getRegExp(currentExclude).test(base))
+            return true;
+    }
+    
+    return false;
+}
+
+function findFile(node, name, exclude = []) {
     checkName(name);
     
     const filePaths = [];
@@ -72,8 +81,12 @@ function findFile(node, name) {
         const base = basename(value);
         
         for (const name of names) {
-            if (value === name || getRegExp(name).test(base))
+            if (value === name || getRegExp(name).test(base)) {
+                if (isExcluded(name, base, exclude))
+                    continue;
+                
                 filePaths.push(filenamePath.parentPath);
+            }
         }
     }
     

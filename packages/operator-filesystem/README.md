@@ -37,7 +37,7 @@ const [dirPath] = findFile(ast, 'hello');
 const newDirectoryPath = createDirectory(dirPath, 'world');
 ```
 
-### `findFile(directoryPath: DirectoryPath, name: string | string[]): (FilePath | DirectoryPath)[]`
+### `findFile(directoryPath: DirectoryPath, name: string | string[], exclude?: string[]): (FilePath | DirectoryPath)[]`
 
 ```js
 const {operator} = require('putout');
@@ -53,6 +53,15 @@ import {operator} from 'putout';
 
 const {findFile} = operator;
 const coupleFiles = findFile(ast, ['*.js', '*.ts']);
+```
+
+Or `exclude` some files:
+
+```js
+import {operator} from 'putout';
+
+const {findFile} = operator;
+const coupleFiles = findFile(ast, '*.ts', ['*.d.ts']);
 ```
 
 And even search for a directory:
