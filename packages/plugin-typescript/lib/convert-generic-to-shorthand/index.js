@@ -3,7 +3,7 @@
 const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {
-    tSArrayType,
+    tsArrayType,
     isTSUnionType,
     isTSFunctionType,
 } = types;
@@ -12,7 +12,7 @@ module.exports.report = () => `Use shorthand '[]' instead of generic 'Array'`;
 
 module.exports.fix = ({path, typeReference}) => {
     if (isTSFunctionType(typeReference) || isTSUnionType(typeReference)) {
-        const ref = tSArrayType(typeReference);
+        const ref = tsArrayType(typeReference);
         
         typeReference.extra = typeReference.extra || {};
         typeReference.extra.parenthesized = true;
@@ -22,7 +22,7 @@ module.exports.fix = ({path, typeReference}) => {
         return;
     }
     
-    replaceWith(path, tSArrayType(typeReference));
+    replaceWith(path, tsArrayType(typeReference));
 };
 
 module.exports.traverse = ({push}) => ({
@@ -30,12 +30,12 @@ module.exports.traverse = ({push}) => ({
         if (!path.get('typeName').isIdentifier({name: 'Array'}))
             return;
         
-        const {typeParameters} = path.node;
+        const {typeArguments} = path.node;
         
-        if (!typeParameters)
+        if (!typeArguments)
             return;
         
-        const {params} = typeParameters;
+        const {params} = typeArguments;
         
         if (!params || params.length > 1)
             return;

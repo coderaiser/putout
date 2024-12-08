@@ -4,5 +4,6 @@ test
 fixture
 yarn-error.log
 
+scripts
 coverage
 *.config.*

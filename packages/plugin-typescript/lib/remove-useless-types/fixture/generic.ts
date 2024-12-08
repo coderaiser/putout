@@ -1,5 +1,5 @@
-type oldType = {
-    a: number;
+type oldType<A> = {
+    a: A;
     b: string;
 };
 type newType = oldType<X>;

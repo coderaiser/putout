@@ -16,7 +16,7 @@ module.exports.fix = ({name, path, nodes}) => {
 module.exports.traverse = ({push, store}) => ({
     TSTypeAliasDeclaration(path) {
         const typePath = path.get('typeAnnotation');
-        const isGeneric = typePath.get('typeParameters').node;
+        const isGeneric = typePath.get('typeArguments').node;
         
         if (isGeneric)
             return;

@@ -15,7 +15,7 @@ test('plugin-typescript: apply-utility-types: report: mapped-types', (t) => {
     t.end();
 });
 
-test('plugin-apply-typescript: utility-types: transform: mapped-types', (t) => {
+test('plugin-apply-typescript: apply-utility-types: transform: mapped-types', (t) => {
     t.transform('mapped-types');
     t.end();
 });
