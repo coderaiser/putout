@@ -22,7 +22,9 @@
     "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
     "coverage": "madrun coverage",
-    "report": "madrun report"
+    "report": "madrun report",
+    "create:declare": "madrun create:declare",
+    "create:declare:types": "madrun create:declare:types"
   },
   "dependencies": {
     "fullstore": "^3.0.0",
@@ -41,6 +43,7 @@
     "@putout/plugin-tape": "*",
     "@putout/test": "^11.0.0",
     "c8": "^10.0.0",
+    "chalk": "^5.3.0",
     "eslint": "^9.0.0",
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^23.0.0",

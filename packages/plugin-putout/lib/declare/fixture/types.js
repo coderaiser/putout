@@ -3,3 +3,4 @@ isCallExpression(node);
 isIdentifier(node);
 isObjectExpression(node);
 isStringLiteral(node);
+isTSClassImplements(node);

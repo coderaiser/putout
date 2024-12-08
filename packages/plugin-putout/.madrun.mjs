@@ -10,4 +10,14 @@ export default {
     'fix:lint': () => run('lint', '--fix'),
     'coverage': async () => `c8 ${await run('test')}`,
     'report': () => 'c8 report --reporter=lcov',
+    'create:declare': () => 'node scripts/create-declare.mjs',
+    'create:declare:types': () => createDeclare({
+        name: '@putout/babel',
+        path: 'types',
+        outputFile: './lib/declare/types.json',
+    }),
 };
+
+function createDeclare({name, path, outputFile}) {
+    return `node scripts/create-declare.mjs ${name} ${path} ${outputFile}`;
+}
