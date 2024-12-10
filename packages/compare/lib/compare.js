@@ -9,7 +9,7 @@ const {
     getTemplateValues,
 } = require('./vars');
 
-const {runComparators} = require('./comparators');
+const {runComparators} = require('./run-comparators');
 const {runTopLevelComparators} = require('./top-level-comparators');
 
 const {
@@ -21,6 +21,7 @@ const {
 } = require('./is');
 
 const {extractExpression} = template;
+const addWaterMark = (a) => a;
 
 const {keys} = Object;
 const {isArray} = Array;
@@ -28,7 +29,7 @@ const noop = () => {};
 const isEmptyArray = (a) => isArray(a) && !a.length;
 
 const compareType = (type) => (path) => path.type === type;
-const superPush = (array) => (a, b) => array.push([a, b]);
+const superPush = (array) => (a, b, c = {}) => array.push([a, b, c]);
 const maybeArray = (a) => isArray(a) ? a : [a];
 
 const findParent = (path, type) => {
@@ -71,7 +72,7 @@ function compare(path, template, options = {}, equal = noop) {
     if (!template)
         return false;
     
-    const node = extractExpression(parseNode(path));
+    const node = addWaterMark(extractExpression(parseNode(path)));
     const templateNode = extractExpression(parseNode(template));
     
     equal(node, templateNode);
@@ -114,7 +115,8 @@ module.exports.compareAll = (path, templateNodes, options) => {
     return true;
 };
 
-// @babel/template creates empty array directives// extra duplicate value
+// @babel/template creates empty array directives
+// extra duplicate value
 const ignore = [
     'loc',
     'start',
@@ -141,7 +143,7 @@ function superCompareIterate(node, template) {
     const add = superPush(array);
     
     while (item = array.pop()) {
-        const [node, template] = item;
+        const [node, template, {plain} = {}] = item;
         
         if (!node || isEmptyArray(node) && !isEmptyArray(template))
             return false;
@@ -156,6 +158,7 @@ function superCompareIterate(node, template) {
             const is = runComparators(nodeValue, value, {
                 add,
                 templateStore,
+                plain,
             });
             
             if (!is)

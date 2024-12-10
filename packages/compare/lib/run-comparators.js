@@ -1,10 +1,11 @@
 'use strict';
 
+const {types} = require('@putout/babel');
+
 const log = require('./log');
 const link = require('./link');
 
 const {
-    is,
     isId,
     isBool,
     isObject,
@@ -29,7 +30,9 @@ const {
     isLinkedRegExp,
 } = require('./is');
 
-const {types} = require('@putout/babel');
+const {comparePlain} = require('./comparators/compare-plain');
+const {comparePrimitives} = require('./comparators/compare-primitives');
+
 const {
     isClassBody,
     isBlock,
@@ -38,15 +41,14 @@ const {
 } = types;
 
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
-const isPrimitive = (a) => typeof a !== 'object' || a === null;
 
 const second = (f) => (a, b) => f(b);
 
 const comparators = [
+    comparePrimitives,
     compareTemplateElements,
     compareJSXTexts,
     compareAny,
-    comparePrimitives,
     second(isClassBody),
     second(isEmptyBlock),
     second(isAny),
@@ -70,11 +72,16 @@ const comparators = [
     compareArrays,
 ];
 
-module.exports.runComparators = (node, template, {add, templateStore}) => {
+module.exports.runComparators = (node, template, {add, templateStore, plain}) => {
     let i = -1;
     const n = comparators.length;
     
     log(template, node);
+    
+    if (plain)
+        return comparePlain(node, template, {
+            add,
+        });
     
     while (++i < n) {
         const compare = comparators[i];
@@ -88,10 +95,6 @@ module.exports.runComparators = (node, template, {add, templateStore}) => {
 
 function compareAny(node, template) {
     return template === '__';
-}
-
-function comparePrimitives(node, template) {
-    return isPrimitive(template) && !is(template) && template === node;
 }
 
 function compareArrays(node, template, {add}) {
@@ -115,7 +118,7 @@ function compareTemplateElements(node, template) {
 }
 
 function linkNodes(node, template, {add, templateStore}) {
-    if (node && isLinkedNode(template, node) || isLinkedArgs(template) || isLinkedId(node, template) || isLinkedBool(node, template))
+    if (node && isLinkedNode(template) || isLinkedArgs(template) || isLinkedId(node, template) || isLinkedBool(node, template))
         return link({
             add,
             value: template,

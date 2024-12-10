@@ -40,7 +40,9 @@ module.exports = ({add, value, nodeValue, templateStore}) => {
     if (isIdentifier(templateStore[name]) && isTSTypeReference(nodeValue))
         return true;
     
-    add(templateStore[name], nodeValue);
+    add(templateStore[name], nodeValue, {
+        plain: true,
+    });
     
     return true;
 };

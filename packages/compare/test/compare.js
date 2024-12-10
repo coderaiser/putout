@@ -943,6 +943,7 @@ test('compare: typescript: arrow function type: no args', (t) => {
 test('compare: __args__a', (t) => {
     const node = '((a) => fn(42))(value)';
     const template = '((__args__a) => __c(__args__a))(__args__b)';
+    
     const result = compare(node, template);
     
     t.notOk(result);
@@ -1002,6 +1003,41 @@ test('compare: TSTypeParameters: no', (t) => {
 
 test('compare: TSMappedType', (t) => {
     const result = compare('type A = Partial<B>', 'type __a = {[__b in keyof __c]?: __c[__b];}');
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: different template values', (t) => {
+    const result = compare('__b.body.length === 1 && __c.body.length === 1', '__a && __a');
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: different template values: literals', (t) => {
+    const result = compare(`isNameStr('__a') && isNameStr('__b')`, '__a && __a');
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compareAny: node is null', (t) => {
+    const result = compareAny('a => isIdentifier(a, {\n  name: BODY\n})', ['(__args__a) => __a.__b(__args__a)', '(__args__a) => {__a.__b(__args__a)}']);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: same member expressions', (t) => {
+    const result = compare('hello.world && hello.world && ls && hello.world', '__a && __a && __b && __a');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: different literals', (t) => {
+    const result = compare('/.tsx?$/.test(name) || /{tsx?}$/.test(name)', '__a || __a');
     
     t.notOk(result);
     t.end();
