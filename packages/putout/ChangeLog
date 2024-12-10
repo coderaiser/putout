@@ -1,3 +1,15 @@
+2024.12.10, v36.16.0
+
+feature:
+- e42148397 putout: @putout/plugin-typescript v9.0.0
+- 03f26ffd5 @putout/engine-parser: @putout/printer v11.0.0
+- 4bac48c0b @putout/plugin-typescript: typeParameters -> typeArguments
+- 7e1132149 @putout/plugin-putout: declare: isTSClassImplements: add
+- 564692fff scripts: set-engines: 16 -> 18
+- 2be18621d @putout/operator-match-files: exclude
+- ce81fba24 @putout/operator-filesystem: findFile: exclude
+- f7d55e327 @putout/plugin-putout: convert-include-to-traverse: add
+
 2024.12.02, v36.15.0
 
 feature:
