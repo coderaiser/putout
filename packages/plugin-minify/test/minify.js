@@ -105,6 +105,11 @@ test('plugin-minify: transform: if', (t) => {
     t.end();
 });
 
+test('plugin-minify: transform: if-no-ternary', (t) => {
+    t.transform('if-no-ternary');
+    t.end();
+});
+
 test('plugin-minify: transform: merge-loops', (t) => {
     t.transform('merge-loops');
     t.end();

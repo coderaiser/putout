@@ -84,7 +84,7 @@ export const replace = () => ({
         if (!__b.body.length && isBlockStatement(__c))
             return LogicalExpression('&&', UnaryExpression('!', __a), __c.body[0].expression);
         
-        if (__b.body.length === 1)
+        if (__b.body.length === 1 && __c.body.length === 1)
             return ConditionalExpression(__a, __b.body[0].expression, __c.body[0].expression);
         
         const expressionsB = parseExpressions(__b);
