@@ -1,3 +1,12 @@
+2024.12.10, v36.17.0
+
+feature:
+- 0785b644e putout: @putout/plugin-logical-expressions v7.0.0
+- 812e2f0c3 @putout/plugin-minify: drop support of 🐊 < 36
+- 1ae03f265 @putout/plugin-minify: convert-if-to-logical: improve
+- 81f775e90 @putout/compare: add plain compare
+- d81a9d0de @putout/plugin-logical-expressions: drop support of 🐊 < 36
+
 2024.12.10, v36.16.0
 
 feature:
