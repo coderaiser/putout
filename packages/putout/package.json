@@ -186,7 +186,7 @@
     "@putout/plugin-tape": "^15.0.0",
     "@putout/plugin-try-catch": "^4.0.0",
     "@putout/plugin-types": "^5.0.0",
-    "@putout/plugin-typescript": "^8.0.0",
+    "@putout/plugin-typescript": "^9.0.0",
     "@putout/plugin-webpack": "^3.0.0",
     "@putout/processor-css": "^9.0.0",
     "@putout/processor-filesystem": "^5.0.0",
