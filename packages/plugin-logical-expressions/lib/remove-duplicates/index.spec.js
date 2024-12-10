@@ -24,3 +24,8 @@ test('plugin-logical-expression: transform: remove-duplicates: same', (t) => {
     t.transform('same');
     t.end();
 });
+
+test('plugin-logical-expression: no transform: remove-duplicates: different', (t) => {
+    t.noTransform('different');
+    t.end();
+});
