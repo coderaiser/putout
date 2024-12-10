@@ -7,6 +7,7 @@
         "**/lib/declare/index.js",
         "test",
         ".*.*",
+        "**/scripts",
         "**/*.config.*"
     ],
     "branches": 100,
