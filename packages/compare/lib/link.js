@@ -8,13 +8,14 @@ const {
     isTemplateElement,
     isTSTypeReference,
     isJSXText,
+    isJSXIdentifier,
 } = types;
 
 const parseName = (node) => {
     node = node[0] || node;
     const {name, value} = node;
     
-    if (isIdentifier(node))
+    if (isIdentifier(node) || isJSXIdentifier(node))
         return name;
     
     if (isLiteral(node))
@@ -28,6 +29,8 @@ const parseName = (node) => {
     
     if (isJSXText(node))
         return node.value;
+    
+    throw Error(`☝️ Looks like type of node '${node.type}' not supported by 'compare -> link -> parseName()'`);
 };
 
 module.exports = ({add, value, nodeValue, templateStore}) => {

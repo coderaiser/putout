@@ -23,6 +23,7 @@ const {
     isIdentifier,
     isStatement,
     isJSXElement,
+    isJSXAttribute,
     isStringLiteral,
     isTemplateLiteral,
     TemplateElement,
@@ -66,11 +67,14 @@ function findVarsWays(node) {
     
     traverse(node, {
         noScope: true,
-        'Identifier|BooleanLiteral|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute|TSTypeReference|TSTypeParameter'(path) {
+        'Identifier|JSXIdentifier|BooleanLiteral|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute|TSTypeReference|TSTypeParameter'(path) {
             if (isInsideTypeReference(path))
                 return;
             
             const {node} = path;
+            
+            if (isJSXAttribute(path.parentPath) && path.parentPath.node.name === node)
+                return;
             
             const way = [];
             const name = extract(node);

@@ -486,6 +486,31 @@ test('putout: compare: vars: findVarsWays: jsx: expression', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: findVarsWays: jsx: tag: switch', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            '<html><__a>My page title</__a><__b>X</__b></html>': '<html><__b>My page title</__b><__a>X</__a></html>',
+        }),
+    };
+    
+    const source = 'const a = <html><head>My page title</head><body>X</body></html>';
+    const expected = montag`
+        const a = (
+            <html><body>My page title</body><head>X</head></html>
+        );\n
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: compare: vars: __args__a', (t) => {
     const varToConst = {
         report: () => '',

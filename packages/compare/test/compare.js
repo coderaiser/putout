@@ -842,6 +842,20 @@ test('compare: jsx: tag', (t) => {
     t.end();
 });
 
+test('compare: jsx: tag: same text', (t) => {
+    const result = compare('<title>My page title</title>', '<__a>My page title</__a>');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: jsx: tag: nested', (t) => {
+    const result = compare('<html><head>Hello</head></html>', '<__a><__b>Hello</__b></__a>');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: jsx: __jsx_attributes', (t) => {
     const result = compare('<title as={Input}>My page title</title>', '<__a __jsx_attributes>__</__a>');
     
