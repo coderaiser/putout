@@ -383,7 +383,7 @@ test('putout: eslint: convertToPlace: control sequences', async (t) => {
 });
 
 test('putout: eslint: get-eslint: config file', async (t) => {
-    process.env.ESLINT_CONFIG_FILE = 'hello.js';
+    process.env.ESLINT_CONFIG_FILE = 'abcdef.js';
     
     const eslint = reRequire('./eslint.js');
     

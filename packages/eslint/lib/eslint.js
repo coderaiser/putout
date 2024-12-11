@@ -1,5 +1,6 @@
 'use strict';
 
+const {join} = require('node:path');
 const process = require('node:process');
 const tryToCatch = require('try-to-catch');
 
@@ -9,9 +10,12 @@ const {isIgnored} = require('./ignore');
 const {keys} = Object;
 const eslintId = ' (eslint)';
 
-const overrideConfigFile = process.env.ESLINT_CONFIG_FILE;
 const noESLint = process.env.NO_ESLINT;
 const noESLintWarnings = process.env.NO_ESLINT_WARNINGS;
+const {ESLINT_CONFIG_FILE} = process.env;
+
+const dir = process.cwd();
+const overrideConfigFile = parseOverride(dir, ESLINT_CONFIG_FILE);
 
 const NO_FLAT_CONFIG_FOUND = 'Could not find config file.';
 const WARNING = 1;
@@ -160,4 +164,11 @@ function parseError(e) {
     return {
         message: `Plugin missing: ${messageData.pluginName}`,
     };
+}
+
+function parseOverride(dir, configFilePath) {
+    if (!configFilePath)
+        return configFilePath;
+    
+    return join(dir, configFilePath);
 }
