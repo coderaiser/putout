@@ -387,6 +387,31 @@ test('putout: compare: vars: findVarsWays: jsx: children: JSXText', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: jsx: JSXText: switch', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            '<section><h1>__a</h1><h2>__b</h2></section>': '<section><h1>__b</h1><h2>__a</h2></section>',
+        }),
+    };
+    
+    const source = 'const a = <section><h1>hello</h1><h2>world</h2></section>';
+    const expected = montag`
+        const a = (
+            <section><h1>world</h1><h2>hello</h2></section>
+        );\n
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: compare: vars: findVarsWays: jsx: attributes', (t) => {
     const convert = {
         report: () => '',

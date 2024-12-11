@@ -7,6 +7,7 @@ const {
     isStringLiteral,
     isTemplateElement,
     isTSTypeReference,
+    isJSXText,
 } = types;
 
 const parseName = (node) => {
@@ -24,6 +25,9 @@ const parseName = (node) => {
     
     if (isTSTypeReference(node))
         return node.typeName.name;
+    
+    if (isJSXText(node))
+        return node.value;
 };
 
 module.exports = ({add, value, nodeValue, templateStore}) => {
@@ -46,3 +50,5 @@ module.exports = ({add, value, nodeValue, templateStore}) => {
     
     return true;
 };
+
+module.exports._parseName = parseName;
