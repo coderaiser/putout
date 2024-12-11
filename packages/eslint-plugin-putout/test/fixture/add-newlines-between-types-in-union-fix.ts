@@ -1,4 +1,5 @@
-type a = string
+type a =
+    | string
     | boolean
     | object
     | number;

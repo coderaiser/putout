@@ -21,9 +21,7 @@ module.exports.filter = ({text, node}) => {
     return regExp.test(text);
 };
 
-module.exports.fix = ({text}) => {
-    return text.replace(/\s\|/g, '\n    |');
-};
+module.exports.fix = ({text}) => '\n    | ' + text.replace(/\s\|/g, '\n    |');
 
 module.exports.include = () => [
     'TSUnionType',

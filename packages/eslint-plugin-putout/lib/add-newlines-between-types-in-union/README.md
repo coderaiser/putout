@@ -11,7 +11,8 @@ type a = string | number | object | boolean;
 ## ✅ Example of correct code
 
 ```js
-type a = string
+type a =
+    | string
     | number
     | object
     | boolean;

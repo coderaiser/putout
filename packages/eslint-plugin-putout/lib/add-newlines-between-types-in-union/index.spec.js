@@ -46,7 +46,8 @@ ruleTester.run('add-newlines-between-types-in-union', rule, {
             type a = string | boolean | number | object;
         `,
         output: montag`
-            type a = string
+            type a = 
+                | string
                 | boolean
                 | number
                 | object;
