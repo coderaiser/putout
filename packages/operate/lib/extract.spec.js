@@ -18,6 +18,19 @@ test('operate: extract: Identifier', (t) => {
     t.end();
 });
 
+test('operate: extract: JSXIdentifier', (t) => {
+    const name = 'hello';
+    const node = {
+        type: 'JSXIdentifier',
+        name,
+    };
+    
+    const value = extract(node);
+    
+    t.equal(name, value);
+    t.end();
+});
+
 test('operate: extract: JSXText', (t) => {
     const value = 'hello';
     const node = {
@@ -235,7 +248,7 @@ test('operate: extract: unknown', (t) => {
     };
     
     const [error] = tryCatch(extract, node);
-    const expected = `'operator.extract(node)' understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, ArrayExpression, MemberExpression, JSXAttribute, JSXText, TSTypeParameter and TSTypeReference🤷, found: UnknownStatement`;
+    const expected = `'operator.extract(node)' understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, ArrayExpression, MemberExpression, JSXIdentifier, JSXAttribute, JSXText, TSTypeParameter and TSTypeReference🤷, found: UnknownStatement`;
     
     t.equal(error.message, expected);
     t.end();

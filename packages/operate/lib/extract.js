@@ -12,6 +12,7 @@ const {
     isTemplateLiteral,
     isJSXText,
     isJSXAttribute,
+    isJSXIdentifier,
     isTSTypeReference,
     isTSTypeParameter,
 } = types;
@@ -22,6 +23,9 @@ function extract(node) {
     node = node.node || node;
     
     if (isIdentifier(node))
+        return node.name;
+    
+    if (isJSXIdentifier(node))
         return node.name;
     
     if (isRegExpLiteral(node))
@@ -65,6 +69,7 @@ function extract(node) {
         'RegExpLiteral',
         'ArrayExpression',
         'MemberExpression',
+        'JSXIdentifier',
         'JSXAttribute',
         'JSXText',
         'TSTypeParameter',
