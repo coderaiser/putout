@@ -205,7 +205,8 @@ export = 5;
 ### ❌ Example of incorrect code
 
 ```ts
-type x = boolean[]
+type x =
+    | boolean[]
     | A
     | string
     | A
@@ -216,7 +217,8 @@ type x = boolean[]
 ### ✅ Example of correct code
 
 ```ts
-type x = boolean[]
+type x =
+    | boolean[]
     | A
     | string
     | string[];
