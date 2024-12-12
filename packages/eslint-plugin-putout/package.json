@@ -65,7 +65,7 @@
     "eslint": "^9.0.0",
     "eslint-plugin-eslint-plugin": "^6.1.0",
     "madrun": "^10.0.0",
-    "mocha": "^10.0.0",
+    "mocha": "^11.0.1",
     "montag": "^1.0.0",
     "simport": "^1.2.0",
     "supertape": "^10.0.0"
