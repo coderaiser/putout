@@ -875,3 +875,42 @@ test('putout: cli: process-file: transform error', async (t) => {
     t.match(message, `'operator.extract(node)' understands only Literals`);
     t.end();
 });
+
+test('putout: cli: process-file: after fixing syntax errors, run 🐊 and ESLint: export no const', async (t) => {
+    const source = montag`
+        export x = () => {}
+        x();
+    `;
+    
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    
+    const options = parseOptions(__filename);
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const result = await fn({
+        name: __filename,
+        source,
+        index: 0,
+        length: 1,
+        options,
+    });
+    
+    const expected = {
+        code: montag`
+            export const x = () => {};
+            x();\n
+        `,
+        places: [],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
