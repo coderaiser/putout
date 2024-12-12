@@ -452,7 +452,7 @@ test('putout: loader: sync: load ESM: code', (t) => {
         plugins: ['@putout/plugin-apply-nullish-coalescing'],
     });
     
-    if (process.version.startsWith('v23'))
+    if (process.version.startsWith('v23') || process.version.startsWith('v22.12'))
         return t.notOk(error);
     
     t.equal(error.code, 'ERR_REQUIRE_ESM');
@@ -465,7 +465,7 @@ test('putout: loader: sync: load ESM: message', (t) => {
         plugins: ['@putout/plugin-apply-nullish-coalescing'],
     });
     
-    if (process.version.startsWith('v23'))
+    if (process.version.startsWith('v23') || process.version.startsWith('v22.12'))
         return t.notOk(error);
     
     t.equal(error.message, `☝️ Looks like '@putout/plugin-apply-nullish-coalescing' is ESM, use 'await putoutAsync()' instead`);
@@ -478,7 +478,7 @@ test('putout: loader: sync: load ESM: name', (t) => {
         plugins: ['apply-nullish-coalescing'],
     });
     
-    if (process.version.startsWith('v23'))
+    if (process.version.startsWith('v23') || process.version.startsWith('v22.12'))
         return t.notOk(error);
     
     t.equal(error.name, 'apply-nullish-coalescing');
