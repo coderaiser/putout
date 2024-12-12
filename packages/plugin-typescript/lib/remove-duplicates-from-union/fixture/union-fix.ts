@@ -1,1 +1,5 @@
-type x = boolean[] | A | string | string[];
+type x = 
+    | boolean[]
+    | A
+    | string
+    | string[];
