@@ -20,10 +20,10 @@ npm i @putout/plugin-logical-expressions -D
 
 ## Rules
 
-- ✅ [convert-bitwise-to-logical][#convert-bitwise-to-logical];
-- ✅ [remove-boolean][#remove-boolean];
-- ✅ [remove-duplicates][#remove-duplicates];
-- ✅ [simplify][#simplify];
+- ✅ [convert-bitwise-to-logical](#convert-bitwise-to-logical);
+- ✅ [remove-boolean](#remove-boolean);
+- ✅ [remove-duplicates](#remove-duplicates);
+- ✅ [simplify](#simplify);
 
 ## Config
 
