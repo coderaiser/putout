@@ -1,3 +1,16 @@
+2024.12.13, v36.18.0
+
+feature:
+- a89783a7d putout: @putout/plugin-convert-optional-to-logical v5.0.0
+- 4181da995 @putout/plugin-convert-optional-to-logical: call - disabled by default
+- 034b715d0 putout: syntax errors: export without const
+- f2bb12644 eslint-plugin-putout: mocha v11.0.1
+- 9d5d45e74 @putout/eslint: change the way of config search
+- 948f1a279 eslint-plugin-putout: add-newline-between-types: improve
+- 310441006 @putout/compare: improve support of __jsx_atributes, jsx identifiers (__a)
+- 00713f19c @putout/operate: add support of JSXIdentifier
+- bd4ca28a5 @putout/compare: vars: JSXText: improve support
+
 2024.12.10, v36.17.0
 
 feature:
