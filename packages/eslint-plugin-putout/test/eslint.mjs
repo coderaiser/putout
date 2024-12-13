@@ -249,7 +249,7 @@ test('eslint-plugin-putout: putout: sync: ESM', async ({pass, comparePlaces}) =>
         },
     };
     
-    if (process.version.startsWith('v23'))
+    if (process.version.startsWith('v23') || process.version.startsWith('v22.12'))
         return pass('require of ESM supported in node v23');
     
     await comparePlaces('sync-esm', [{
