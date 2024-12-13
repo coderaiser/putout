@@ -126,7 +126,7 @@ test('test: eslint: comparePlaces: overrides: ESM', async ({comparePlaces}) => {
         rule: 'putout/putout (eslint)',
     }];
     
-    if (process.version.startsWith('v23')) {
+    if (process.version.startsWith('v23') || process.version.startsWith('v22.12')) {
         const places = [{
             message: `Avoid useless argument 'a' (remove-useless-arguments/arguments)`,
             position: {
