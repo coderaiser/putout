@@ -57,7 +57,7 @@ are also supported. Here is how it looks like:
 - [🛴 Codemods](#-codemods)
 - [⏣ Integration with ESLint](#-integration-with-eslint)
 - [☄️ Integration with Babel](#%EF%B8%8F-integration-with-babel)
-- [🐈 Integration with Yarn OnP](#-integration-with-yarn-pnp)
+- [🐈 Integration with Yarn](#-integration-with-yarn)
 - [⛓ Using Putout as Loader](#-using-putout-as-loader)
 - [🚪 Exit Codes](#exit-codes)
 - [🦔 Real-world uses](#-real-world-uses)
@@ -2841,7 +2841,7 @@ Just create `.babelrc.json` file with configuration you need.
 }
 ```
 
-## 🐈 Integration with Yarn OnP
+## 🐈 Integration with Yarn
 
 Since 🐊**Putout** has dynamic nature of loading:
 
