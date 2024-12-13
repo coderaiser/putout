@@ -19,7 +19,7 @@ const nodeVersion = process.version;
 
 const {assign} = Object;
 const returns = (a) => () => a;
-const CACHE_FILE = '.putoutcache';
+const CACHE_FILE = '.putoutcache.json';
 
 const defaultCache = {
     getPlaces: returns([]),
@@ -128,7 +128,7 @@ async function findCachePath() {
     });
     
     if (cacheDir)
-        return `${cacheDir}/places`;
+        return `${cacheDir}/places.json`;
     
     return CACHE_FILE;
 }

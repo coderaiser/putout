@@ -44,7 +44,7 @@ test('putout: cli: cache: fileCache: fresh', async (t) => {
     });
     
     stopAll();
-    const expected = 'node_modules/.cache/places';
+    const expected = 'node_modules/.cache/places.json';
     
     t.calledWith(unlink, [expected]);
     t.end();

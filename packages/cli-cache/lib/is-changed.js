@@ -39,6 +39,7 @@ async function isEslintChanged(fileCache, {findUp}) {
         '.eslintrc.cjs',
         '.eslintrc.yaml',
         '.eslintrc.yml',
+        '.eslint.config.js',
     ]);
     
     if (!name)
