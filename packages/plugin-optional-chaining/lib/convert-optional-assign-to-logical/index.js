@@ -12,7 +12,7 @@ module.exports.fix = (path) => {
         assign: true,
     });
     
-    const logicalNode = template.ast(logical);
+    const logicalNode = template.ast.fresh(logical);
     
     logicalNode.right.right = path.parentPath.node.right;
     replaceWith(path.parentPath, logicalNode);

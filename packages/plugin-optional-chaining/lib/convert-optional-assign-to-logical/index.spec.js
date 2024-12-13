@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['optional-chaining/convert-optional-assign-to-logical', plugin],
     ],

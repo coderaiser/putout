@@ -6,21 +6,21 @@ const plugin = require('.');
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['convert-optional-to-logical/call', plugin],
+        ['optional-chaining/convert-optional-to-logical', plugin],
     ],
 });
 
-test('packages: convert-optional-to-logical: call: no report', (t) => {
+test('packages: optional-chaining: convert-optional-to-logical: call: no report', (t) => {
     t.noReport('assign');
     t.end();
 });
 
-test('packages: convert-optional-to-logical: call: transform: not', (t) => {
+test('packages: optional-chaining: convert-optional-to-logical: call: transform: not', (t) => {
     t.transform('not');
     t.end();
 });
 
-test('packages: convert-optional-to-logical: call: transform: squire', (t) => {
+test('packages: optional-chaining: convert-optional-to-logical: call: transform: squire', (t) => {
     t.transform('squire');
     t.end();
 });
