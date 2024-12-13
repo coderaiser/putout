@@ -1,6 +1,7 @@
 'use strict';
 
 const applyConditions = require('./apply-conditions');
+const applyOptionalChaining = require('./apply-optional-chaining');
 const applyForOf = require('./apply-for-of');
 const applyLabels = require('./apply-labels');
 const applyMath = require('./apply-math');
@@ -20,6 +21,7 @@ module.exports.rules = {
     'apply-labels': applyLabels,
     'apply-math': applyMath,
     'apply-nodejs': applyNodejs,
+    'apply-optional-chaining': applyOptionalChaining,
     'apply-promises': applyPromises,
     'apply-tape': applyTape,
     'apply-types': applyTypes,
