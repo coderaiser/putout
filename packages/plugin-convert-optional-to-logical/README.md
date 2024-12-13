@@ -32,7 +32,7 @@ npm i @putout/plugin-convert-optional-to-logical
 {
     "rules": {
         "convert-optional-to-logical/assign": "on",
-        "convert-optional-to-logical/call": "on"
+        "convert-optional-to-logical/call": "off"
     }
 }
 ```

@@ -4,6 +4,6 @@ const call = require('./call');
 const assign = require('./assign');
 
 module.exports.rules = {
-    call,
     assign,
+    call: ['off', call],
 };

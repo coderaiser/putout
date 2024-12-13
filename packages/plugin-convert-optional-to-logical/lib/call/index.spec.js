@@ -14,3 +14,8 @@ test('packages: convert-optional-to-logical: call: no report', (t) => {
     t.noReport('assign');
     t.end();
 });
+
+test('packages: convert-optional-to-logical: call: transform: not', (t) => {
+    t.transform('not');
+    t.end();
+});
