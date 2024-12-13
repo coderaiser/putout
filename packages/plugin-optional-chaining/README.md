@@ -114,7 +114,7 @@ maybeAnObj?.prop = theValue;
 maybeAnObj && (maybeAnObj.prop = theValue);
 ```
 
-## convert-optioanl-to-logical
+## convert-optional-to-logical
 
 Disabled by default.
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e0a4ccb41708ad37e34d527a978ebb88/482f15c954cdaa35e37da7a1dddb82338d7e93a2).
