@@ -18,7 +18,7 @@ npm i @putout/plugin-putout-config -D
 - ✅ [apply-labels](#apply-labels);
 - ✅ [apply-math](#apply-math);
 - ✅ [apply-nodejs](#apply-nodejs);
-- ✅ [apply-optional-chaining](#apply-conditions);
+- ✅ [apply-optional-chaining](#apply-optional-chaining);
 - ✅ [apply-promises](#apply-promises);
 - ✅ [apply-tape](#apply-tape);
 - ✅ [apply-types](#apply-types);
