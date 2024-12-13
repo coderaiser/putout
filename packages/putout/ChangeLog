@@ -1,3 +1,16 @@
+2024.12.13, v37.0.0
+
+fix:
+- 613097b2f @putout/plugin-optional-chaining: convert-assign-to-optional: template.ast -> template.ast.fresh
+- e1395217b @putout/plugin-optional-chaining: typo
+- 7a4fac13a @putout/plugin-putout-config: apply-optional-chaining
+
+feature:
+- 3fe8ef81c putout: @putout/plugin-putout-config v7.0.1
+- 1fe97b15f putout: @putout/plugin-optional-chaining v1.0.1
+- 55c3eeff3 @putout/plugin-putout-config: optional-chaining
+- a89e949aa @putout/plugin-optional-chaining: apply-optional-chaining + convert-optional-to-logical
+
 2024.12.13, v36.18.0
 
 feature:
