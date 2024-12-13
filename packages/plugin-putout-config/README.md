@@ -13,20 +13,21 @@ npm i @putout/plugin-putout-config -D
 
 ## Rules
 
-- ✅ [apply-conditions][#apply-conditions];
-- ✅ [apply-for-of][#apply-for-of];
-- ✅ [apply-labels][#apply-labels];
-- ✅ [apply-math][#apply-math];
-- ✅ [apply-nodejs][#apply-nodejs];
-- ✅ [apply-promises][#apply-promises];
-- ✅ [apply-tape][#apply-tape];
-- ✅ [apply-types][#apply-types];
-- ✅ [convert-boolean-to-string][#convert-boolean-to-string];
-- ✅ [move-formatter-up][#move-formatter-up];
-- ✅ [remove-empty][#remove-empty];
-- ✅ [remove-empty-file][#remove-empty-file];
-- ✅ [rename-property][#rename-property];
-- ✅ [rename-rules][#rename-rules];
+- ✅ [apply-conditions](#apply-conditions);
+- ✅ [apply-for-of](#apply-for-of);
+- ✅ [apply-labels](#apply-labels);
+- ✅ [apply-math](#apply-math);
+- ✅ [apply-nodejs](#apply-nodejs);
+- ✅ [apply-optional-chaining](#apply-conditions);
+- ✅ [apply-promises](#apply-promises);
+- ✅ [apply-tape](#apply-tape);
+- ✅ [apply-types](#apply-types);
+- ✅ [convert-boolean-to-string](#convert-boolean-to-string);
+- ✅ [move-formatter-up](#move-formatter-up);
+- ✅ [remove-empty](#remove-empty);
+- ✅ [remove-empty-file](#remove-empty-file);
+- ✅ [rename-property](#rename-property);
+- ✅ [rename-rules](#rename-rules);
 
 ## Config
 
@@ -38,6 +39,7 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-labels": "on",
         "putout-config/apply-math": "on",
         "putout-config/apply-nodejs": "on",
+        "putout-config/apply-optional-chaining": "on",
         "putout-config/apply-tape": "on",
         "putout-config/apply-types": "on",
         "putout-config/apply-promises": "on",
@@ -47,6 +49,27 @@ npm i @putout/plugin-putout-config -D
         "putout-config/remove-empty-file": "off",
         "putout-config/rename-rules": "on"
     }
+}
+```
+
+## apply-optional-chaining
+
+Apply [`optional-chaining`](https://github.com/coderaiser/putout/tree/master/packages/plugin-optional-chaining#readme) according to:
+
+- 🐊[**Putout v37**](https://github.com/coderaiser/putout/releases/tag/v37.0.0):
+
+```diff
+{
+    "rules": {
+-       "convert-optional-to-logical/assign": "on",
+-       "convert-optional-to-logical/call": "off",
++       "optional-chaining/convert-optional-assign-to-logical": "on",
++       "optional-chaining/convert-optional-to-logical": "off"
+-       "apply-optional-chaining/assign": "off"
+-       "apply-optional-chaining/use": "on"
++       "optional-chaining/convert-logical-assign-to-optional": "off",
++       "optional-chaining/convert-logical-to-optional": "off"
+  }
 }
 ```
 
