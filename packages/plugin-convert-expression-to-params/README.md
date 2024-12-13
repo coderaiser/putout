@@ -5,7 +5,7 @@
 
 > `Uncaught SyntaxError: Malformed arrow function parameter list` occurs when your function declaration is missing valid parameters.
 >
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Missing_formal_parameter)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to fix `SyntaxError: missing formal parameter` .
 Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/e1818c2385974e136ae77eb28b3d2221/66dcb650e02aaafffa7fe00914f80366c4bfd7d3).
