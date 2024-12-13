@@ -248,6 +248,7 @@
         "simplify-ternary",
         "sort-imports-by-specifiers",
         "convert-const-to-let",
+        "convert-expression-to-params",
         "convert-assignment-to-declaration",
         "convert-apply-to-spread",
         "convert-concat-to-flat",

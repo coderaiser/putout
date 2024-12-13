@@ -243,3 +243,12 @@ const a = {
 ```
 
 </details>
+
+<details><summary>SyntaxError: missing formal parameter</summary>
+
+```diff
+-(__a + __b) => __b + __a;
++(__a, __b) => __b + __a;
+```
+
+</details>
