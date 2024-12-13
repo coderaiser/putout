@@ -6,26 +6,26 @@ const plugin = require('.');
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['convert-optional-to-logical/assign', plugin],
+        ['optional-chaining/convert-optional-assign-to-logical', plugin],
     ],
 });
 
-test('convert-optional-to-logical: assign: report', (t) => {
+test('optional-chaining: convert-optional-assign-to-logical: assign: report', (t) => {
     t.report('assign', `Use Logical Expression ('a && a.b = c') instead of Optional Chaining ('a?.b = c')`);
     t.end();
 });
 
-test('convert-optional-to-logical: assign: transform', (t) => {
+test('optional-chaining: convert-optional-assign-to-logical: assign: transform', (t) => {
     t.transform('assign');
     t.end();
 });
 
-test('convert-optional-to-logical: assign: no transform call', (t) => {
+test('optional-chaining: convert-optional-assign-to-logical: assign: no transform call', (t) => {
     t.noTransform('call');
     t.end();
 });
 
-test('convert-optional-to-logical: assign: no report: right', (t) => {
+test('optional-chaining: convert-optional-assign-to-logical: assign: no report: right', (t) => {
     t.noReport('right');
     t.end();
 });
