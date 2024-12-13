@@ -21,10 +21,10 @@ npm i @putout/plugin-optional-chaining
 
 ## Rules
 
-- ✅ [convert-logical-to-optional][#convert-logical-to-optional];
-- ✅ [convert-optional-to-logical][#convert-optional-to-logical];
-- ✅ [convert-logical-assign-to-optional][#convert-logical-assign-to-optional];
-- ✅ [convert-optional-assign-to-logical][#convert-logical-assign-to-optional];
+- ✅ [convert-logical-to-optional](#convert-logical-to-optional);
+- ✅ [convert-optional-to-logical](#convert-optional-to-logical);
+- ✅ [convert-logical-assign-to-optional](#convert-logical-assign-to-optional);
+- ✅ [convert-optional-assign-to-logical](#convert-logical-assign-to-optional);
 
 ## Config
 
