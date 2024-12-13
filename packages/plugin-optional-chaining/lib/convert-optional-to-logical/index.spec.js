@@ -19,3 +19,8 @@ test('packages: convert-optional-to-logical: call: transform: not', (t) => {
     t.transform('not');
     t.end();
 });
+
+test('packages: convert-optional-to-logical: call: transform: squire', (t) => {
+    t.transform('squire');
+    t.end();
+});
