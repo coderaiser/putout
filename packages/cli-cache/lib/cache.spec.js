@@ -583,3 +583,35 @@ test('putout: cli: cache: enabled: getPlaces: isChanged: yes', async (t) => {
     t.equal(result, places, 'should places equal');
     t.end();
 });
+
+test('putout: cli: cache: throws: always', async (t) => {
+    const createFromFile = stub().throws(Error('x'));
+    
+    const fileCache = await createCache({
+        cache: true,
+        files: [],
+        createFromFile,
+    });
+    
+    t.equal(fileCache, _defaultCache);
+    t.end();
+});
+
+test('putout: cli: cache: throws: unlink', async (t) => {
+    const name = '/cli-cache/node_modules/.cache/putout/places.json';
+    
+    const createFromFile = stub().throws(Error('x'));
+    const unlink = stub();
+    const findCachePath = stub().returns(name);
+    
+    await createCache({
+        cache: true,
+        files: [],
+        createFromFile,
+        findCachePath,
+        unlink,
+    });
+    
+    t.calledWith(unlink, [name]);
+    t.end();
+});

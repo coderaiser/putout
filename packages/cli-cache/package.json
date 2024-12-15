@@ -29,6 +29,7 @@
     "find-up": "^7.0.0",
     "imurmurhash": "^0.1.4",
     "json-stable-stringify-without-jsonify": "^1.0.1",
+    "try-catch": "^3.0.1",
     "try-to-catch": "^3.0.0"
   },
   "keywords": [

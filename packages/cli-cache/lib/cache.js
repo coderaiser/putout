@@ -1,11 +1,12 @@
 'use strict';
 
 const process = require('node:process');
-const {unlink} = require('node:fs/promises');
+const {unlink: _unlink} = require('node:fs/promises');
 
-const fileEntryCache = require('file-entry-cache');
+const {createFromFile: _createFromFile} = require('file-entry-cache');
 const murmur = require('imurmurhash');
 const stringify = require('json-stable-stringify-without-jsonify');
+const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');
 
 const isNoDefinition = require('./is-no-definition');
@@ -29,7 +30,7 @@ const defaultCache = {
     canUseCache: returns(false),
 };
 
-module.exports.createCache = async ({cache, fresh, version}) => {
+const createCache = async ({cache, fresh, version, again, createFromFile = _createFromFile, unlink = _unlink, findCachePath = _findCachePath}) => {
     const name = await findCachePath();
     
     if (fresh)
@@ -38,7 +39,21 @@ module.exports.createCache = async ({cache, fresh, version}) => {
     if (!cache)
         return defaultCache;
     
-    const fileCache = fileEntryCache.createFromFile(name);
+    const [error, fileCache] = tryCatch(createFromFile, name);
+    
+    if (error) {
+        if (again)
+            return defaultCache;
+        
+        await tryToCatch(unlink, name);
+        return createCache({
+            cache,
+            fresh,
+            version,
+            createFromFile,
+            again: true,
+        });
+    }
     
     const getOptionsHash = createGetOptionsCache({
         version,
@@ -67,6 +82,7 @@ module.exports.createCache = async ({cache, fresh, version}) => {
     return fileCache;
 };
 
+module.exports.createCache = createCache;
 module.exports._defaultCache = defaultCache;
 module.exports._CACHE_FILE = CACHE_FILE;
 
@@ -120,7 +136,7 @@ const createGetOptionsCache = ({version}) => (options) => {
     return optionsHashCache.get(options);
 };
 
-async function findCachePath() {
+async function _findCachePath() {
     const findCacheDir = await simpleImport('find-cache-dir');
     const cacheDir = await findCacheDir({
         name: 'putout',
