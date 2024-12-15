@@ -1,3 +1,9 @@
+2024.12.15, v37.1.1
+
+feature:
+- 0f248a3b7 putout: keywords: putout-script
+- 98e289097 @putout/cli-cache: add support of incompatible cache file
+
 2024.12.13, v37.1.0
 
 feature:
