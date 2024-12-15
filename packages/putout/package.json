@@ -219,6 +219,7 @@
   "keywords": [
     "ast",
     "transform",
+    "putout-script",
     "codemod",
     "eslint",
     "babel",
