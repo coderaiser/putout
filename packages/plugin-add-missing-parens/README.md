@@ -31,6 +31,8 @@ npm i @putout/plugin-add-missing-parens
 getConsoleLog?.()``;
 String?.raw``;
 String?.raw!``;
+
+await asyncFn()?.filter((x) => x);
 ```
 
 ## ✅ Example of correct code
@@ -39,6 +41,8 @@ String?.raw!``;
 (getConsoleLog?.())``;
 (String?.raw)``;
 String?.raw!``;
+
+(await asyncFn())?.filter((x) => x);
 ```
 
 ## License

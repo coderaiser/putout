@@ -29,3 +29,8 @@ test('putout: add-missing-parens: transform: non-null', (t) => {
     t.transform('non-null');
     t.end();
 });
+
+test('putout: add-missing-parens: transform: await', (t) => {
+    t.transform('await');
+    t.end();
+});
