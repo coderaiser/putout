@@ -1,3 +1,14 @@
+2024.12.16, v37.2.0
+
+feature:
+- 71640126f putout: @putout/plugin-promises v16.0.0
+- 6cbc165a8 putout: @putout/plugin-add-missing-parens v2.0.0
+- d5fbf87ad @putout/plugin-add-missing-parens: drop support of 🐊 < 37
+- 6e226f0b2 @putout/plugin-add-missing-parens: await
+- 6fe222bda @putout/plugin-promises: drop support of 🐊 < 37
+- 3f25609c9 @putout/plugin-promises: remove-useless-await: optional-chaining
+- 398dc7091 @putout/engine-parser: BABEL_TYPES_8_BREAKING is not supported anymore
+
 2024.12.15, v37.1.1
 
 feature:
