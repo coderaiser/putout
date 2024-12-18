@@ -5,4 +5,4 @@ const {entries} = Object;
 export {
     entries,
 };
-export 
+export {};
