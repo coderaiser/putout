@@ -6,6 +6,7 @@ const applyLinebreak = require('./apply-linebreak');
 const applyComputedPrint = require('./apply-computed-print');
 const addArgs = require('./add-args');
 const declare = require('./declare');
+const applyTypes = require('./apply-types');
 
 module.exports.rules = {
     'remove-args': removeArgs,
@@ -14,4 +15,5 @@ module.exports.rules = {
     'apply-computed-print': applyComputedPrint,
     'add-args': addArgs,
     declare,
+    'apply-types': applyTypes,
 };

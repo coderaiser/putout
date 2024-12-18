@@ -13,6 +13,16 @@ npm i @putout/plugin-printer -D
 
 ## Rules
 
+- ✅ [add-args](#add-args);
+- ✅ [apply-breakline](#apply-breakline);
+- ✅ [apply-linebreak](#apply-linebreak);
+- ✅ [apply-types](#apply-types);
+- ✅ [apply-computed-print](#apply-computed-print);
+- ✅ [declare](#declare);
+- ✅ [remove-args](#remove-args);
+
+## Config
+
 ```json
 {
     "rules": {
@@ -40,6 +50,66 @@ print.breakline();
 -indent();
 -print.newline();
 print.linebreak();
+```
+
+## apply-types
+
+```diff
+-const {isIdentifier} = require('@babel/types');
++const {types} = require('@babel/types');
++const {isIdentifier} = types;
+```
+
+## add-args
+
+### ❌ Example of incorrect code
+
+```js
+module.exports = {
+    TSPropertySignature(path) {
+        const {optional} = path.node;
+        print('__key');
+        maybe.print(optional, '?');
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports = {
+    TSPropertySignature(path, {print, maybe}) {
+        const {optional} = path.node;
+        print('__key');
+        maybe.print(optional, '?');
+    },
+};
+```
+
+## add-args
+
+### ❌ Example of incorrect code
+
+```js
+module.exports = {
+    TSPropertySignature(path) {
+        const {optional} = path.node;
+        print('__key');
+        maybe.print(optional, '?');
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports = {
+    TSPropertySignature(path, {print, maybe}) {
+        const {optional} = path.node;
+        print('__key');
+        maybe.print(optional, '?');
+    },
+};
 ```
 
 ## add-args

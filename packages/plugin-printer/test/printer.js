@@ -39,3 +39,8 @@ test('plugin-printer: transform: declare', (t) => {
     t.transform('declare');
     t.end();
 });
+
+test('plugin-printer: transform: apply-types', (t) => {
+    t.transform('apply-types');
+    t.end();
+});
