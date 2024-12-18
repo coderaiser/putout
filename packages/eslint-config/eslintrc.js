@@ -79,6 +79,7 @@ module.exports = {
                 '=': 'none',
                 '|': 'before',
                 '||': 'before',
+                '&&': 'before',
                 ':': 'before',
                 '?': 'before',
             },

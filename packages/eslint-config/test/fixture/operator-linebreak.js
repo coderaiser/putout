@@ -11,3 +11,9 @@ x = z
     : s;
 
 x = x ? y : s;
+
+const isIndent = 0
+    || 1
+    && 2
+    && 3
+    && 4;
