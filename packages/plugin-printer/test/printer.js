@@ -34,3 +34,8 @@ test('printer: apply-computed-print: transform: remove-args', (t) => {
     t.transform('remove-args');
     t.end();
 });
+
+test('plugin-printer: transform: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});

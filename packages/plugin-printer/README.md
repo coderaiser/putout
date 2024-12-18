@@ -20,6 +20,7 @@ npm i @putout/plugin-printer -D
         "printer/apply-breakline": "on",
         "printer/apply-linebreak": "on",
         "printer/apply-computed-print": "on",
+        "printer/declare": "on",
         "printer/remove-args": "on"
     }
 }
@@ -93,6 +94,23 @@ print.indent(is);
 
 ```js
 print.indent();
+```
+
+## declare
+
+### ❌ Example of incorrect code
+
+```js
+isIdentifier();
+```
+
+### ✅ Example of correct code
+
+```js
+const {types} = require('@putout/babel');
+const {isIdentifier} = types;
+
+isIdentifier();
 ```
 
 ## License
