@@ -1,3 +1,13 @@
+2024.12.18, v37.3.0
+
+feature:
+- af6bc6531 putout: @putout/plugin-putout v22.0.0
+- eb25212fa @putout/plugin-putout: drop support of 🐊 < 37
+- 65b1178e6 @putout/plugin-putout: declare: export
+- f0114e1a6 @putout/plugin-printer: drop support of node < 18
+- 3d179ac93 @putout/plugin-printer: declare: add
+- 303c420e3 @putout/eslint-config: operator-linebreak: ||
+
 2024.12.16, v37.2.0
 
 feature:
