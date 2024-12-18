@@ -5,13 +5,13 @@ const {keys} = Object;
 const [name, path, outputFile] = process.argv.slice(2);
 
 const data = await import(name);
-
-const result = {
-    [path]: `import {${path}} from 'putout'`,
-};
+const result = {};
 
 for (const key of getKeys(data, path)) {
     if (key.startsWith('__'))
+        continue;
+    
+    if (key === 'is')
         continue;
     
     if (/^[a-z]/.test(key) && !key.startsWith('is'))

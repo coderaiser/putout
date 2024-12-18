@@ -6,6 +6,10 @@
   "description": "🐊Putout plugin helps with plugins development",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-putout#readme",
   "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./declare/types": "./lib/declare/types.json"
+  },
   "release": false,
   "tag": false,
   "changelog": false,

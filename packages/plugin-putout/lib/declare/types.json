@@ -1,5 +1,4 @@
 {
-    "types": "import {types} from 'putout'",
     "AnyTypeAnnotation": "const {AnyTypeAnnotation} = types",
     "ArgumentPlaceholder": "const {ArgumentPlaceholder} = types",
     "ArrayExpression": "const {ArrayExpression} = types",
@@ -253,7 +252,6 @@
     "WhileStatement": "const {WhileStatement} = types",
     "WithStatement": "const {WithStatement} = types",
     "YieldExpression": "const {YieldExpression} = types",
-    "is": "const {is} = types",
     "isAccessor": "const {isAccessor} = types",
     "isAnyTypeAnnotation": "const {isAnyTypeAnnotation} = types",
     "isArgumentPlaceholder": "const {isArgumentPlaceholder} = types",
