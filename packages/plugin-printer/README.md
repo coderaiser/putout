@@ -15,9 +15,9 @@ npm i @putout/plugin-printer -D
 
 - ✅ [add-args](#add-args);
 - ✅ [apply-breakline](#apply-breakline);
+- ✅ [apply-computed-print](#apply-computed-print);
 - ✅ [apply-linebreak](#apply-linebreak);
 - ✅ [apply-types](#apply-types);
-- ✅ [apply-computed-print](#apply-computed-print);
 - ✅ [declare](#declare);
 - ✅ [remove-args](#remove-args);
 
@@ -30,6 +30,7 @@ npm i @putout/plugin-printer -D
         "printer/apply-breakline": "on",
         "printer/apply-linebreak": "on",
         "printer/apply-computed-print": "on",
+        "printer/apply-types": "on",
         "printer/declare": "on",
         "printer/remove-args": "on"
     }
@@ -54,62 +55,12 @@ print.linebreak();
 
 ## apply-types
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8a88fec812a52e302cf7b191eca2f49e/474ca87860d2eab755373ba9dc8b12efc4a80252).
+
 ```diff
 -const {isIdentifier} = require('@babel/types');
 +const {types} = require('@babel/types');
 +const {isIdentifier} = types;
-```
-
-## add-args
-
-### ❌ Example of incorrect code
-
-```js
-module.exports = {
-    TSPropertySignature(path) {
-        const {optional} = path.node;
-        print('__key');
-        maybe.print(optional, '?');
-    },
-};
-```
-
-### ✅ Example of correct code
-
-```js
-module.exports = {
-    TSPropertySignature(path, {print, maybe}) {
-        const {optional} = path.node;
-        print('__key');
-        maybe.print(optional, '?');
-    },
-};
-```
-
-## add-args
-
-### ❌ Example of incorrect code
-
-```js
-module.exports = {
-    TSPropertySignature(path) {
-        const {optional} = path.node;
-        print('__key');
-        maybe.print(optional, '?');
-    },
-};
-```
-
-### ✅ Example of correct code
-
-```js
-module.exports = {
-    TSPropertySignature(path, {print, maybe}) {
-        const {optional} = path.node;
-        print('__key');
-        maybe.print(optional, '?');
-    },
-};
 ```
 
 ## add-args
