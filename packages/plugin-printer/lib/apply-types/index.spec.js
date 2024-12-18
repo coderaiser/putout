@@ -20,6 +20,11 @@ test('printer: apply-types: transform', (t) => {
     t.end();
 });
 
+test('printer: apply-types: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
+
 test('printer: apply-types: no report: no pattern', (t) => {
     t.noReport('no-pattern');
     t.end();

@@ -13,13 +13,24 @@ module.exports.match = () => ({
         if (!isObjectPattern(__a))
             return false;
         
-        const [first] = __a.properties;
+        const {properties} = __a;
+        
+        if (properties.length > 1) {
+            const [, second] = properties;
+            return TYPES.includes(second.value.name);
+        }
+        
+        const [first] = properties;
         
         return TYPES.includes(first.value.name);
     },
 });
 
 module.exports.replace = () => ({
+    'const {types, __a} = require("@putout/babel")': `{
+        const {types} = require("@putout/babel");
+        const {__a} = types;
+    }`,
     'const __a = require("@putout/babel")': 'const __a = require("@putout/babel").types',
     'const __a = require("@putout/babel").types': `{
         const {types} = require("@putout/babel");
