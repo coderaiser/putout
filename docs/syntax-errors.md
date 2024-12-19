@@ -252,3 +252,12 @@ const a = {
 ```
 
 </details>
+
+<details><summary>wrong brace</summary>
+
+```diff
+-import a from 'a');
++import a from 'a';
+```
+
+</details>
