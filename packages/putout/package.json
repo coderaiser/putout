@@ -183,7 +183,7 @@
     "@putout/plugin-split-assignment-expressions": "^1.0.0",
     "@putout/plugin-split-nested-destructuring": "^3.0.0",
     "@putout/plugin-split-variable-declarations": "^3.0.0",
-    "@putout/plugin-tape": "^15.0.0",
+    "@putout/plugin-tape": "^16.0.0",
     "@putout/plugin-try-catch": "^4.0.0",
     "@putout/plugin-types": "^5.0.0",
     "@putout/plugin-typescript": "^9.0.0",
