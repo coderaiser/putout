@@ -1,3 +1,16 @@
+2024.12.19, v37.4.0
+
+feature:
+- ce1d98e4e putout: @putout/plugin-tape v16.0.0
+- 0340fdf0c putout: @putout/plugin-declare-before-reference v5.0.0
+- e18aed185 @putout/plugin-declare-before-reference: drop support of 🐊 < 37
+- 7b6dc3fdd @putout/test: noReportAfterTransform: addons
+- f9a93e7f2 @putout/plugin-declare-before-reference: printer/apply-types
+- dacb6956d @putout/plugin-tape: drop support of 🐊 < 37
+- 26fa7c082 @putout/plugin-tape: remove-only: name starts with test
+- 2e413e594 @putout/plugin-printer: apply-types: couple
+- f130427c8 @putout/plugin-printer: apply-types: add
+
 2024.12.18, v37.3.0
 
 feature:
