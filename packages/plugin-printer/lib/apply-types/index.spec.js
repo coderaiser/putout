@@ -32,6 +32,11 @@ test('printer: apply-types: no report: no pattern', (t) => {
     t.end();
 });
 
+test('printer: apply-types: no report: traverse', (t) => {
+    t.noReport('traverse');
+    t.end();
+});
+
 test('printer: apply-types: no report after transform: declare-before-reference', (t) => {
     t.noReportAfterTransform('declare-before-reference', {
         'apply-types': plugin,

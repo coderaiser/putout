@@ -21,8 +21,12 @@ module.exports.match = () => ({
         }
         
         const [first] = properties;
+        const {name} = first.value;
         
-        return TYPES.includes(first.value.name);
+        if (name === 'traverse')
+            return false;
+        
+        return TYPES.includes(name);
     },
 });
 
