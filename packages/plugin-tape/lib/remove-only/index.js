@@ -1,8 +1,5 @@
 'use strict';
 
-const {types} = require('putout');
-const {isIdentifier} = types;
-
 module.exports.report = () => `Remove 'test.only'`;
 
 module.exports.replace = () => ({
@@ -11,7 +8,6 @@ module.exports.replace = () => ({
 });
 
 module.exports.filter = (path) => {
-    return isIdentifier(path.node.callee.object, {
-        name: 'test',
-    });
+    const {name} = path.node.callee.object;
+    return name.startsWith('test');
 };

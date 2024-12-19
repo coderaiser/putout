@@ -29,3 +29,8 @@ test('plugin-remove-only: transform: iife', (t) => {
     t.transform('iife');
     t.end();
 });
+
+test('plugin-remove-only: transform: other-name', (t) => {
+    t.transform('other-name');
+    t.end();
+});

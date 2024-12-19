@@ -817,12 +817,20 @@ t.notCalled(fn);
 test.only('some test', (t) => {
     t.end();
 });
+
+testDeclareBeforeReference.only('some test', (t) => {
+    t.end();
+});
 ```
 
 ### ✅ Example of correct code
 
 ```js
 test('some test', (t) => {
+    t.end();
+});
+
+testDeclareBeforeReference('some test', (t) => {
     t.end();
 });
 ```
