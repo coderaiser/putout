@@ -2,6 +2,8 @@
 
 const {createTest} = require('@putout/test');
 const plugin = require('.');
+const declareBeforeReference = require('@putout/plugin-declare-before-reference');
+const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
 
 const test = createTest(__dirname, {
     printer: 'putout',
@@ -27,5 +29,19 @@ test('printer: apply-types: transform: couple', (t) => {
 
 test('printer: apply-types: no report: no pattern', (t) => {
     t.noReport('no-pattern');
+    t.end();
+});
+
+const testDeclare = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['apply-types', plugin],
+        ['declare-before-reference', declareBeforeReference],
+        ['remove-nested-blocks', removeNestedBlocks],
+    ],
+});
+
+testDeclare('printer: apply-types: no report: declare-before-reference', (t) => {
+    t.noReportAfterTransform('declare-before-reference');
     t.end();
 });

@@ -34,7 +34,9 @@
     "printer"
   ],
   "devDependencies": {
+    "@putout/plugin-declare-before-reference": "*",
     "@putout/plugin-for-of": "*",
+    "@putout/plugin-remove-nested-blocks": "*",
     "@putout/test": "^11.0.0",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",

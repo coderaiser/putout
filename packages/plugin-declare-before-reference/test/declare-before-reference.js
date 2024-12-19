@@ -1,15 +1,17 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const apply = require('..');
+const declare = require('..');
 const putout = require('@putout/plugin-putout');
 const tryCatch = require('@putout/plugin-try-catch');
 const promises = require('@putout/plugin-promises');
+const printer = require('@putout/plugin-printer');
+const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
 
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['declaration-before-reference', apply],
+        ['declaration-before-reference', declare],
     ],
 });
 
@@ -80,5 +82,19 @@ test('plugin-declaration-before-reference: no report: assign', (t) => {
 
 test('plugin-declaration-before-reference: no transform: export-type', (t) => {
     t.noTransform('export-type');
+    t.end();
+});
+
+const testDeclare = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['apply-types', printer.rules['apply-types']],
+        ['declare-before-reference', declare],
+        ['remove-nested-blocks', removeNestedBlocks],
+    ],
+});
+
+testDeclare('printer: apply-types: no report: declare-before-reference', (t) => {
+    t.noReportAfterTransform('apply-types');
     t.end();
 });

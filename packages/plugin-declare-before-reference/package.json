@@ -32,8 +32,10 @@
     "declare-before-reference"
   ],
   "devDependencies": {
+    "@putout/plugin-printer": "*",
     "@putout/plugin-promises": "*",
     "@putout/plugin-putout": "*",
+    "@putout/plugin-remove-nested-blocks": "*",
     "@putout/plugin-try-catch": "*",
     "@putout/test": "^11.0.0",
     "c8": "^10.0.0",

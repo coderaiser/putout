@@ -60,7 +60,7 @@ module.exports.traverse = ({push}) => ({
                 if (referencePath.isExportDeclaration())
                     break;
                 
-                const [, pathLoc] = getLoc(path);
+                const [own, pathLoc] = getLoc(path);
                 const [referenceOwn, referenceLoc] = getLoc(referencePath);
                 
                 const declarationLine = pathLoc.start.line;
@@ -71,6 +71,9 @@ module.exports.traverse = ({push}) => ({
                         name,
                         path,
                     });
+                
+                if (!own)
+                    return;
                 
                 if (!referenceOwn && declarationLine === referenceLine)
                     push({
