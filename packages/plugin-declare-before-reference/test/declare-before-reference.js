@@ -11,43 +11,43 @@ const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['declaration-before-reference', declare],
+        ['declare-before-reference', declare],
     ],
 });
 
-test('plugin-declaration-before-reference: report', (t) => {
-    t.report('declaration', `Declare 'operator' before referencing to avoid 'ReferenceError'`);
+test('plugin-declare-before-reference: report', (t) => {
+    t.report('declare', `Declare 'operator' before referencing to avoid 'ReferenceError'`);
     t.end();
 });
 
-test('plugin-declaration-before-reference: no report: class', (t) => {
+test('plugin-declare-before-reference: no report: class', (t) => {
     t.noReport('class');
     t.end();
 });
 
-test('plugin-declaration-before-reference: transform', (t) => {
-    t.transform('declaration');
+test('plugin-declare-before-reference: transform', (t) => {
+    t.transform('declare');
     t.end();
 });
 
-test('plugin-declaration-before-reference: transform: no lock', (t) => {
+test('plugin-declare-before-reference: transform: no lock', (t) => {
     t.transform('no-lock');
     t.end();
 });
 
-test('plugin-declaration-before-reference: transform: order', (t) => {
+test('plugin-declare-before-reference: transform: order', (t) => {
     t.transform('order');
     t.end();
 });
 
-test('plugin-declaration-before-reference: transform: putout', (t) => {
+test('plugin-declare-before-reference: transform: putout', (t) => {
     t.transform('putout', {
         putout,
     });
     t.end();
 });
 
-test('plugin-declaration-before-reference: transform: try-to-catch', (t) => {
+test('plugin-declare-before-reference: transform: try-to-catch', (t) => {
     t.transform('try-to-catch', {
         tryCatch,
         'promises/apply-to-level-await': promises.rules['apply-top-level-await'],
@@ -55,46 +55,41 @@ test('plugin-declaration-before-reference: transform: try-to-catch', (t) => {
     t.end();
 });
 
-test('plugin-declaration-before-reference: no transform: function', (t) => {
+test('plugin-declare-before-reference: no transform: function', (t) => {
     t.noTransform('function');
     t.end();
 });
 
-test('plugin-declaration-before-reference: no transform: scopes', (t) => {
+test('plugin-declare-before-reference: no transform: scopes', (t) => {
     t.noTransform('scopes');
     t.end();
 });
 
-test('plugin-declaration-before-reference: no transform: export', (t) => {
+test('plugin-declare-before-reference: no transform: export', (t) => {
     t.noTransform('export');
     t.end();
 });
 
-test('plugin-declaration-before-reference: no transform: same-line', (t) => {
+test('plugin-declare-before-reference: no transform: same-line', (t) => {
     t.noTransform('same-line');
     t.end();
 });
 
-test('plugin-declaration-before-reference: no report: assign', (t) => {
+test('plugin-declare-before-reference: no report: assign', (t) => {
     t.noReport('assign');
     t.end();
 });
 
-test('plugin-declaration-before-reference: no transform: export-type', (t) => {
+test('plugin-declare-before-reference: no transform: export-type', (t) => {
     t.noTransform('export-type');
     t.end();
 });
 
-const testDeclare = createTest(__dirname, {
-    printer: 'putout',
-    plugins: [
-        ['apply-types', printer.rules['apply-types']],
-        ['declare-before-reference', declare],
-        ['remove-nested-blocks', removeNestedBlocks],
-    ],
-});
-
-testDeclare('printer: apply-types: no report: declare-before-reference', (t) => {
-    t.noReportAfterTransform('apply-types');
+test('plugin-declare-before-reference: no report: apply-types', (t) => {
+    t.noReportAfterTransform('apply-types', {
+        'apply-types': printer.rules['apply-types'],
+        'declare-before-reference': declare,
+        'remove-nested-blocks': removeNestedBlocks,
+    });
     t.end();
 });

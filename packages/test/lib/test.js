@@ -498,14 +498,14 @@ const noReport = currify((dir, options, t, name) => {
 
 module.exports._createNoReport = noReport;
 
-const noReportAfterTransform = currify((dir, options, t, name) => {
+const noReportAfterTransform = currify((dir, options, t, name, addons = {}) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
     return noReportCodeAfterTransform({
         isTS,
         ...options,
-    }, t, source);
+    }, t, source, addons);
 });
 
 module.exports._createNoReportAfterTransform = noReportAfterTransform;
@@ -589,10 +589,15 @@ const noReportCode = currify((options, t, source) => {
     return t.deepEqual(places, [], 'should not report');
 });
 
-const noReportCodeAfterTransform = currify((options, t, source) => {
+const noReportCodeAfterTransform = currify((options, t, source, addons = {}) => {
+    const {plugins} = options;
     const {places} = putout(source, {
         fix: true,
         ...options,
+        plugins: [{
+            ...toObject(plugins),
+            ...addons,
+        }],
     });
     
     return t.deepEqual(places, [], 'should not report after transform');
