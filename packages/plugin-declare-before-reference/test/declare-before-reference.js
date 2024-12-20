@@ -7,6 +7,8 @@ const tryCatch = require('@putout/plugin-try-catch');
 const promises = require('@putout/plugin-promises');
 const printer = require('@putout/plugin-printer');
 const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
+const nodejs = require('@putout/plugin-nodejs');
+const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
 const declare = require('..');
 
 const test = createTest(__dirname, {
@@ -91,6 +93,14 @@ test('plugin-declare-before-reference: no report: apply-types', (t) => {
         'apply-types': printer.rules['apply-types'],
         'declare-before-reference': declare,
         'remove-nested-blocks': removeNestedBlocks,
+    });
+    t.end();
+});
+
+test('plugin-nodejs: group-require-by-id: no report after transform: group-require-by-id', (t) => {
+    t.noReportAfterTransform('group-require-by-id', {
+        'group-require-by-id': nodejs.rules['group-require-by-id'],
+        'reuse-duplicate-init': reuseDuplicateInit,
     });
     t.end();
 });

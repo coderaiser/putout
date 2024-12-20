@@ -66,7 +66,7 @@ module.exports.traverse = ({push}) => ({
                 const declarationLine = pathLoc.start.line;
                 const referenceLine = referenceLoc.start.line;
                 
-                if (declarationLine > referenceLine)
+                if (own && declarationLine > referenceLine)
                     push({
                         name,
                         path,
