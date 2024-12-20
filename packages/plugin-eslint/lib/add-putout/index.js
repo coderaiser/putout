@@ -1,13 +1,12 @@
 'use strict';
 
+const {types, operator} = require('putout');
 const {
     getExtends,
     getPlugins,
     isExtends,
     isPlugins,
 } = require('../get.js');
-
-const {types, operator} = require('putout');
 
 const {__json} = operator;
 const {StringLiteral} = types;

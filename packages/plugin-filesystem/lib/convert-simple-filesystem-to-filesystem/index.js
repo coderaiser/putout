@@ -1,7 +1,8 @@
 'use strict';
 
-const {types} = require('@putout/babel');
 const {basename, dirname} = require('node:path');
+const {types} = require('@putout/babel');
+
 const {
     createDirectory,
     getFileType,

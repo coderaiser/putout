@@ -1,8 +1,8 @@
 'use strict';
 
-const applyShorthandProperties = require('../lib/apply-shorthand-properties.js');
 const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
 const {createTest} = require('@putout/test');
+const applyShorthandProperties = require('../lib/apply-shorthand-properties.js');
 
 const test = createTest(__dirname, {
     printer: 'putout',

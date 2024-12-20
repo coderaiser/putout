@@ -26,6 +26,7 @@ const renameFileMjsToJs = require('./rename-file-mjs-to-js');
 
 const strictMode = require('./strict-mode');
 const removeUselessPromisify = require('./remove-useless-promisify');
+const groupRequireById = require('./group-require-by-id');
 
 module.exports.rules = {
     'convert-buffer-to-buffer-alloc': convertBufferToBufferAlloc,
@@ -55,4 +56,5 @@ module.exports.rules = {
     'remove-useless-strict-mode': strictMode.rules['remove-useless'],
     'remove-illegal-strict-mode': strictMode.rules['remove-illegal'],
     'remove-useless-promisify': removeUselessPromisify,
+    'group-require-by-id': groupRequireById,
 };

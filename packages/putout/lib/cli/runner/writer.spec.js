@@ -1,9 +1,10 @@
 'use strict';
 
+const {join} = require('node:path');
 const tryToCatch = require('try-to-catch');
 const mockRequire = require('mock-require');
 const {test, stub} = require('supertape');
-const {join} = require('node:path');
+
 const {simpleImport} = require('../simple-import');
 
 const {reRequire, stopAll} = mockRequire;

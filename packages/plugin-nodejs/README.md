@@ -33,6 +33,7 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [convert-url-to-dirname](#convert-url-to-dirname);
 - ✅ [declare](#declare);
 - ✅ [declare-after-require](#declare-after-require);
+- ✅ [group-require-by-id](#group-require-by-id);
 - ✅ [remove-process-exit](#remove-process-exit);
 - ✅ [remove-useless-promisify](#remove-useless-promisify);
 - ✅ [rename-file-cjs-to-js](#rename-file-cjs-to-js);
@@ -63,6 +64,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/convert-top-level-return": "on",
         "nodejs/declare": "on",
         "nodejs/declare-after-require": "on",
+        "nodejs/group-require-by-id": "on",
         "nodejs/remove-process-exit": "on",
         "nodejs/add-missing-strict-mode": "on",
         "nodejs/remove-useless-strict-mode": "on",
@@ -346,6 +348,37 @@ import minimist from 'minimist';
 const args = minimist({
     string: ['a', 'b'],
 });
+```
+
+## group-require-by-id
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ff39c5d912d836a25b96772d8045dacb/fa8d8e1ebf8ac5f19a536247536f4bccf4fdac3d).
+
+### ❌ Example of incorrect code
+
+```js
+const ss = require('../../bb/ss');
+const d = require('../hello');
+const react = require('react');
+const {lodash} = require('lodash');
+const fs = require('node:fs');
+const b = require('./ss');
+const m = require(x);
+const c = 5;
+```
+
+### ✅ Example of correct code
+
+```js
+const fs = require('node:fs');
+const react = require('react');
+const {lodash} = require('lodash');
+const ss = require('../../bb/ss');
+const d = require('../hello');
+
+const b = require('./ss');
+const m = require(x);
+const c = 5;
 ```
 
 ### exports

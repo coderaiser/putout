@@ -1,7 +1,7 @@
 'use strict';
 
-const {operator, template} = require('putout');
 const {isDeepStrictEqual} = require('node:util');
+const {operator, template} = require('putout');
 
 const {
     replaceWith,

@@ -1,10 +1,11 @@
 'use strict';
 
 const tryCatch = require('try-catch');
+
+const {validateRules} = require('@putout/engine-loader');
 const {defaultOptions} = require('./default-options');
 const {cutShebang} = require('./shebang');
 const parseError = require('./parse-error');
-const {validateRules} = require('@putout/engine-loader');
 
 const maybeParseError = (a) => !a ? [] : parseError(a, 'loader');
 

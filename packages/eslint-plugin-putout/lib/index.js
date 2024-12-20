@@ -1,6 +1,8 @@
 'use strict';
 
 const {createPlugin} = require('@putout/eslint/create-plugin');
+
+const config = require('@putout/eslint-config');
 const markdown = require('./markdown');
 const json = require('./json');
 const yaml = require('./yaml');
@@ -52,7 +54,6 @@ module.exports.rules = {
     ...getRule('remove-empty-newline-between-declarations'),
 };
 
-const config = require('@putout/eslint-config');
 const {rules} = config;
 
 const recommended = {

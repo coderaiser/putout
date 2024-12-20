@@ -1,7 +1,7 @@
 'use strict';
 
-const convertIdeToSafe = require('./index.js');
 const {createTest} = require('@putout/test');
+const convertIdeToSafe = require('./index.js');
 
 const test = createTest(__dirname, {
     'eslint/convert-node-to-n': convertIdeToSafe,

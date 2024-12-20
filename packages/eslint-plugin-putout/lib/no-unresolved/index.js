@@ -1,7 +1,6 @@
 'use strict';
 
 const process = require('node:process');
-const tryCatch = require('try-catch');
 
 const {accessSync} = require('node:fs');
 
@@ -10,6 +9,8 @@ const {
     dirname,
     join,
 } = require('node:path');
+
+const tryCatch = require('try-catch');
 
 const cwd = process.cwd();
 

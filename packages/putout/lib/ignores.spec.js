@@ -2,8 +2,8 @@
 
 const test = require('supertape');
 
-const ignores = require('./ignores');
 const tryCatch = require('try-catch');
+const ignores = require('./ignores');
 
 test('putout: ignores: empty path error', (t) => {
     const [e] = tryCatch(ignores, 'x/y', 'x/y', {

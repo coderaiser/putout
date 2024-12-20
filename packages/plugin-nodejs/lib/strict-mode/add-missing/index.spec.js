@@ -1,8 +1,10 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const nodejs = require('../..');
+
 const declare = require('@putout/plugin-declare');
+const nodejs = require('../..');
+
 const add = require('.');
 
 const test = createTest(__dirname, {

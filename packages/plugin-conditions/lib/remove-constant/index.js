@@ -1,8 +1,7 @@
 'use strict';
 
-const {types, operator} = require('putout');
-
 const {runInNewContext} = require('node:vm');
+const {types, operator} = require('putout');
 
 const {
     replaceWith,

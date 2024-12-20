@@ -1,7 +1,8 @@
 'use strict';
 
-const {getExtends, getPlugins} = require('../get.js');
 const {operator} = require('putout');
+const {getExtends, getPlugins} = require('../get.js');
+
 const {__json} = operator;
 const {assign} = Object;
 

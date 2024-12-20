@@ -4,6 +4,8 @@ const {template} = require('@putout/engine-parser');
 const {isESM, insertAfter} = require('@putout/operate');
 const {compare} = require('@putout/compare');
 
+const {types} = require('@putout/babel');
+
 const {
     addDeclarationForESLint,
     checkDeclarationForESLint,
@@ -11,7 +13,6 @@ const {
     setModuleType,
 } = require('./record');
 
-const {types} = require('@putout/babel');
 const {
     isImportDeclaration,
     isVariableDeclaration,

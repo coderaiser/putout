@@ -4,13 +4,14 @@ const tryCatch = require('try-catch');
 const montag = require('montag');
 const {stub} = require('supertape');
 const {__filesystem_name} = require('@putout/operator-json');
-const maybeFS = require('./maybe-fs');
 
 const {
     parse,
     print,
     operator,
 } = require('putout');
+
+const maybeFS = require('./maybe-fs');
 
 const {
     renameFile,

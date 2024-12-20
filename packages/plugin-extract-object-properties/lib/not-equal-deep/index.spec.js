@@ -1,11 +1,11 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const extractObjectProperties = require('.');
 
 const applyDestructuring = require('@putout/plugin-apply-destructuring');
 const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
 const putout = require('@putout/plugin-putout');
+const extractObjectProperties = require('.');
 
 const test = createTest(__dirname, {
     printer: 'putout',

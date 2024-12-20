@@ -1,18 +1,18 @@
 'use strict';
 
 const {
-    operator,
-    parse,
-    transform,
-    print,
-} = require('putout');
-
-const {
     join,
     dirname,
     relative,
     basename,
 } = require('node:path');
+
+const {
+    operator,
+    parse,
+    transform,
+    print,
+} = require('putout');
 
 const {
     readFileContent,

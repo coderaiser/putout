@@ -1,9 +1,9 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const remove = require('.');
 
 const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
+const remove = require('.');
 
 const test = createTest(__dirname, {
     plugins: [

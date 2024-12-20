@@ -1,8 +1,9 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeEmptyBlock = require('.');
+
 const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
+const removeEmptyBlock = require('.');
 
 const test = createTest(__dirname, {
     printer: 'putout',

@@ -1,8 +1,10 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeUnusedForOfVariables = require('.');
+
 const removeEmpty = require('@putout/plugin-remove-empty');
+const removeUnusedForOfVariables = require('.');
+
 const removeUselessVariables = require('../remove-useless-variables');
 
 const test = createTest(__dirname, {

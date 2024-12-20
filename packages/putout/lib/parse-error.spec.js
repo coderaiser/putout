@@ -1,7 +1,7 @@
 'use strict';
 
-const parseError = require('./parse-error');
 const test = require('supertape');
+const parseError = require('./parse-error');
 
 test('putout: parse error', (t) => {
     const e = Error('hello');

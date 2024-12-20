@@ -2,9 +2,9 @@
 
 const {createTest} = require('@putout/test');
 
+const forOf = require('@putout/plugin-for-of');
 const convertComparisonToBoolean = require('.');
 
-const forOf = require('@putout/plugin-for-of');
 const convertForEachToForOf = forOf.rules['for-each'];
 const removeUselessVariables = forOf.rules['remove-useless-variables'];
 

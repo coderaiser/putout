@@ -1,7 +1,8 @@
 'use strict';
 
-const {types, operator} = require('putout');
 const {isBuiltin} = require('node:module');
+const {types, operator} = require('putout');
+
 const {
     setLiteralValue,
     getTemplateValues,

@@ -1,8 +1,8 @@
 'use strict';
 
+const Report = require('@putout/engine-reporter/report');
 const {runWriter} = require('./writer.js');
 const initProcessFile = require('../process-file.js');
-const Report = require('@putout/engine-reporter/report');
 
 const report = Report();
 

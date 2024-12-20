@@ -109,3 +109,8 @@ test('plugin-nodejs: transform: remove-illegal-strict-mode', (t) => {
     t.transform('remove-illegal-strict-mode');
     t.end();
 });
+
+test('plugin-nodejs: transform: group-require-by-id', (t) => {
+    t.transform('group-require-by-id');
+    t.end();
+});

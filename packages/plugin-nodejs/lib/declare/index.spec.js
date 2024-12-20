@@ -1,9 +1,9 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const declare = require('.');
 
 const montag = require('montag');
+const declare = require('.');
 
 const test = createTest(__dirname, {
     printer: 'putout',

@@ -1,7 +1,7 @@
 'use strict';
 
-const convertRequireToImport = require('./index.js');
 const {createTest} = require('@putout/test');
+const convertRequireToImport = require('./index.js');
 
 const test = createTest(__dirname, {
     'eslint/convert-require-to-import': convertRequireToImport,

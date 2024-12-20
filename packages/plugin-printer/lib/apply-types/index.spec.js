@@ -1,9 +1,10 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const plugin = require('.');
+
 const declareBeforeReference = require('@putout/plugin-declare-before-reference');
 const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
+const plugin = require('.');
 
 const test = createTest(__dirname, {
     printer: 'putout',

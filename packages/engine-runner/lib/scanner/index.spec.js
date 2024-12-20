@@ -5,14 +5,16 @@ const {once} = require('node:events');
 const test = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
-const {createProgress} = require('../progress');
 
 const {__filesystem_name} = require('@putout/operator-json');
+
 const {
     findFile,
     createFile,
     writeFileContent,
 } = require('@putout/operator-filesystem');
+
+const {createProgress} = require('../progress');
 
 const {runPlugins} = require('..');
 

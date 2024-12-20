@@ -8,14 +8,14 @@ const {
     fromJS,
 } = require('@putout/operator-json');
 
-const {renameFiles} = require('./rename-files.js');
-
 const {
     parse,
     transform,
     findPlaces,
     print,
 } = require('putout');
+
+const {renameFiles} = require('./rename-files.js');
 
 const {stringify} = JSON;
 

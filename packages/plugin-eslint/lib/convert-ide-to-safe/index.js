@@ -1,7 +1,8 @@
 'use strict';
 
-const {getExtends} = require('../get.js');
 const {operator} = require('putout');
+const {getExtends} = require('../get.js');
+
 const {__json} = operator;
 
 module.exports.report = () => 'Use "putout/safe" instead of "putout/ide"';

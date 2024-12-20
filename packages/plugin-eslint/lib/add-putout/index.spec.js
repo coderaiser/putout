@@ -1,7 +1,7 @@
 'use strict';
 
-const plugin = require('./index.js');
 const {createTest} = require('@putout/test');
+const plugin = require('./index.js');
 
 const test = createTest(__dirname, {
     'eslint/add-putout': plugin,

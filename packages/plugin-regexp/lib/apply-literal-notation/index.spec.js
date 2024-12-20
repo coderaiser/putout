@@ -1,9 +1,10 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+
+const removeUselessEscape = require('@putout/plugin-remove-useless-escape');
 const applyLiteralNotation = require('.');
 const removeUselessGroup = require('../remove-useless-group');
-const removeUselessEscape = require('@putout/plugin-remove-useless-escape');
 
 const test = createTest(__dirname, {
     printer: 'putout',

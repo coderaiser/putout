@@ -1,7 +1,8 @@
 'use strict';
 
-const {getExtends} = require('../get.js');
 const {operator} = require('putout');
+const {getExtends} = require('../get.js');
+
 const {__json} = operator;
 
 module.exports.report = () => '"putout" should be in the end of the "extends" list';

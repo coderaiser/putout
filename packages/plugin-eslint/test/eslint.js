@@ -1,7 +1,7 @@
 'use strict';
 
-const eslint = require('../lib/index.js');
 const {createTest} = require('@putout/test');
+const eslint = require('../lib/index.js');
 
 const test = createTest(__dirname, {
     printer: 'putout',

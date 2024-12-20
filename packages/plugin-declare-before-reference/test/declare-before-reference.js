@@ -1,12 +1,13 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const declare = require('..');
+
 const putout = require('@putout/plugin-putout');
 const tryCatch = require('@putout/plugin-try-catch');
 const promises = require('@putout/plugin-promises');
 const printer = require('@putout/plugin-printer');
 const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
+const declare = require('..');
 
 const test = createTest(__dirname, {
     printer: 'putout',

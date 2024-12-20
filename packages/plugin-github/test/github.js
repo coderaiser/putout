@@ -1,7 +1,7 @@
 'use strict';
 
-const github = require('../lib/index.js');
 const {createTest} = require('@putout/test');
+const github = require('../lib/index.js');
 
 const test = createTest(__dirname, {
     printer: 'putout',

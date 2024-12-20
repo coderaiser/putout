@@ -1,8 +1,10 @@
 'use strict';
 
 const wraptile = require('wraptile');
-const findPath = require('./find-path');
+
 const {types} = require('@putout/babel');
+const findPath = require('./find-path');
+
 const {isProgram} = types;
 const name = '__putout_runner_replace';
 const hasWatermark = (watermark) => (path) => path.node?.[name]?.has(watermark);

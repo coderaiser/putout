@@ -1,10 +1,10 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const addRun = require('.');
 
 const strictMode = require('@putout/plugin-nodejs/strict-mode');
 const removeUnusedExpressions = require('@putout/plugin-remove-unused-expressions');
+const addRun = require('.');
 
 const test = createTest(__dirname, {
     printer: 'putout',

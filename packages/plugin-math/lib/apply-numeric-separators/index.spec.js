@@ -1,9 +1,9 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const applyNumericSeparators = require('.');
 
 const webpack = require('@putout/plugin-webpack');
+const applyNumericSeparators = require('.');
 
 const test = createTest(__dirname, {
     printer: 'putout',

@@ -1,8 +1,9 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const reactHooks = require('..');
+
 const rmUnused = require('@putout/plugin-remove-unused-variables');
+const reactHooks = require('..');
 
 const test = createTest(__dirname, {
     printer: 'putout',
