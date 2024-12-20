@@ -15,6 +15,7 @@ module.exports.fix = ({grouped}) => {
     
     for (const current of others) {
         const {node} = current;
+        delete node.declarations[0].loc;
         remove(current);
         nodes.push(node);
     }

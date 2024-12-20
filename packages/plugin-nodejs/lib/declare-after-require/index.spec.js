@@ -21,54 +21,54 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-declare-after-require: report', (t) => {
+test('plugin-nodejs: declare-after-require: report', (t) => {
     t.report('require', `Declare 'isObject' after last 'require()'`);
     t.end();
 });
 
-test('plugin-declare-after-require: report: destructuring', (t) => {
+test('plugin-nodejs: declare-after-require: report: destructuring', (t) => {
     t.report('destructuring', `Declare '{compare}' after last 'require()'`);
     t.end();
 });
 
-test('plugin-declare-after-require: transform: destructuring', (t) => {
+test('plugin-nodejs: declare-after-require: transform: destructuring', (t) => {
     t.transform('destructuring');
     t.end();
 });
 
-test('plugin-declare-after-require: transform: destructuring-require', (t) => {
+test('plugin-nodejs: declare-after-require: transform: destructuring-require', (t) => {
     t.transform('destructuring-require', {
         convertCommonjsToEsm,
     });
     t.end();
 });
 
-test('plugin-declare-after-require: transform: require', (t) => {
+test('plugin-nodejs: declare-after-require: transform: require', (t) => {
     t.transform('require');
     t.end();
 });
 
-test('plugin-declare-after-require: transform: member', (t) => {
+test('plugin-nodejs: declare-after-require: transform: member', (t) => {
     t.transform('member');
     t.end();
 });
 
-test('plugin-declare-after-require: no report: no-require', (t) => {
+test('plugin-nodejs: declare-after-require: no report: no-require', (t) => {
     t.noReport('no-require');
     t.end();
 });
 
-test('plugin-declare-after-require: no report: create-require', (t) => {
+test('plugin-nodejs: declare-after-require: no report: create-require', (t) => {
     t.noReport('create-require');
     t.end();
 });
 
-test('plugin-declare-after-require: no report after transform: require', (t) => {
+test('plugin-nodejs: declare-after-require: no report after transform: require', (t) => {
     t.noReportAfterTransform('require');
     t.end();
 });
 
-test('plugin-declare-after-require: transform: no-loc', (t) => {
+test('plugin-nodejs: declare-after-require: transform: no-loc', (t) => {
     t.transform('no-loc', {
         declare,
         convertEsmToCommonjs,
@@ -76,7 +76,7 @@ test('plugin-declare-after-require: transform: no-loc', (t) => {
     t.end();
 });
 
-test('plugin-declare-after-require: transform: putout', (t) => {
+test('plugin-nodejs: declare-after-require: transform: putout', (t) => {
     t.transform('putout', {
         putout,
         convertEsmToCommonjs,
@@ -84,27 +84,27 @@ test('plugin-declare-after-require: transform: putout', (t) => {
     t.end();
 });
 
-test('plugin-declare-after-require: transform: reference', (t) => {
+test('plugin-nodejs: declare-after-require: transform: reference', (t) => {
     t.transform('reference');
     t.end();
 });
 
-test('plugin-declare-after-require: transform: comment', (t) => {
+test('plugin-nodejs: declare-after-require: transform: comment', (t) => {
     t.transform('comment');
     t.end();
 });
 
-test('plugin-declare-after-require: no transform: call', (t) => {
+test('plugin-nodejs: declare-after-require: no transform: call', (t) => {
     t.noTransform('call');
     t.end();
 });
 
-test('plugin-declare-after-require: no report: expression', (t) => {
+test('plugin-nodejs: declare-after-require: no report: expression', (t) => {
     t.noReport('expression');
     t.end();
 });
 
-test('plugin-declare-after-require: transform: removed', (t) => {
+test('plugin-nodejs: declare-after-require: transform: removed', (t) => {
     t.transform('removed', {
         remove: {
             report: noop,

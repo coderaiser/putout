@@ -41,7 +41,9 @@
   "devDependencies": {
     "@putout/eslint-flat": "^2.0.0",
     "@putout/plugin-declare": "*",
+    "@putout/plugin-declare-before-reference": "*",
     "@putout/plugin-putout": "*",
+    "@putout/plugin-reuse-duplicate-init": "*",
     "@putout/plugin-typescript": "*",
     "@putout/test": "^11.0.0",
     "c8": "^10.0.0",
