@@ -1,3 +1,12 @@
+2024.12.20, v37.5.0
+
+feature:
+- 7c58079e2 putout: @putout/plugin-nodejs v13.0.0
+- eb42a12fc @putout/plugin-nodejs: drop support of 🐊 < 37
+- a110f288e @putout/plugin-nodejs: group-require-by-id: exclude not top-level
+- 98853450d @putout/plugin-nodejs: group-require-by-id: add
+- 3ce9cd00a @putout/plugin-printer: apply-types: traverse: exclude
+
 2024.12.19, v37.4.0
 
 feature:
