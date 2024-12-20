@@ -7,7 +7,7 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to declare imports first.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to declare imports first. For CommonJS use [nodejs/declare-after-require](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs#declare-after-require).
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b1c18e5d726afe4ebb69d6b7a7dda82b/8189590815a1b8adb35bb8a846e28228e3c7fadf).
 
