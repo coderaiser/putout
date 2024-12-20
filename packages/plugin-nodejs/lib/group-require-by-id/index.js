@@ -23,7 +23,12 @@ module.exports.fix = ({grouped}) => {
 };
 
 module.exports.traverse = ({pathStore, push}) => ({
-    'const __ = require(__)': pathStore,
+    'const __ = require(__)': (path) => {
+        if (!path.parentPath.isProgram())
+            return;
+        
+        pathStore(path);
+    },
     'Program': {
         exit(path) {
             const external = [];

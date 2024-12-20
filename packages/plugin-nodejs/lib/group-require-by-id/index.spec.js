@@ -20,6 +20,11 @@ test('nodejs: group-require-by-id: no report: grouped', (t) => {
     t.end();
 });
 
+test('nodejs: group-require-by-id: no report: not-top-level', (t) => {
+    t.noReport('not-top-level');
+    t.end();
+});
+
 test('nodejs: group-require-by-id: transform', (t) => {
     t.transform('group-require-by-id');
     t.end();
