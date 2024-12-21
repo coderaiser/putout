@@ -1,3 +1,13 @@
+2024.12.21, v37.6.0
+
+feature:
+- 54885c347 putout: @putout/plugin-remove-empty v13.0.0
+- 510900179 @putout/plugin-putout-config: apply-esm: add
+- 33a95b465 @putout/plugin-remove-empty: drop support of 🐊 < 37
+- db8664285 @putout/esm: add
+- e7b05856f @putout/plugin-nodejs: group-require-by-id: improve support of @putout/
+- c84d4bf41 @putout/plugin-declare-before-reference: improve support of @putout/plugin-nodejs: group-require-by-id
+
 2024.12.20, v37.5.0
 
 feature:
