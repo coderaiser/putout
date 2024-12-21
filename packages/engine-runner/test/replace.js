@@ -858,8 +858,12 @@ test('putout: runner: replace: watermark after remove', (t) => {
     
     const {code} = putout(source, {
         runPlugins,
+        rules: {
+            'esm': 'off',
+            'esm/merge-duplicate-imports': 'on',
+        },
         plugins: [
-            'merge-duplicate-imports',
+            'esm',
             ['remove', remove],
         ],
     });

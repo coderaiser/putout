@@ -8,9 +8,7 @@
 - `empty blocks`;
 - `empty static blocks`;
 - `empty patterns`;
-- `empty imports`;
 - `empty arguments`;
-- `empty exports`;
 
 ## Install
 
@@ -27,11 +25,7 @@ npm i @putout/plugin-remove-empty
         "remove-empty/static-block": "on",
         "remove-empty/pattern": "on",
         "remove-empty/nested-pattern": "on",
-        "remove-empty/argument": "on",
-        "remove-empty/export": "on",
-        "remove-empty/import": ["on", {
-            "ignore": []
-        }]
+        "remove-empty/argument": "on"
     }
 }
 ```
@@ -83,18 +77,6 @@ export const func = (param) => {
     const {c} = param;
     return c;
 };
-```
-
-## export
-
-```diff
--export {};
-```
-
-## import
-
-```diff
--import 'abc';
 ```
 
 ## arguments

@@ -1,8 +1,0 @@
-{
-    "printer": "putout",
-    "match": {
-        "*.md": {
-            "sort-imports-by-specifiers": "off"
-        }
-    }
-}

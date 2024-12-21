@@ -25,13 +25,13 @@ test('putout: operator: declare: recast: strict mode', (t) => {
     const {code: secondAttempt} = putout(source, {
         printer: 'recast',
         plugins: [
+            'esm',
+            'strict-mode',
             ['declare', declare(declarations)],
-            'merge-duplicate-imports',
         ],
     });
     
     const expected = montag`
-        'use strict';
         import {test, stub} from 'supertape';
         
         test('', (t) => {

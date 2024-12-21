@@ -1,9 +1,9 @@
 'use strict';
 
-const removeEmpty = require('@putout/plugin-remove-empty');
+const esm = require('@putout/plugin-esm');
 
 const test = require('..')(__dirname, {
-    'remove-empty/import': removeEmpty.rules.import,
+    'esm/remove-empty-import': esm.rules['remove-empty-import'],
 });
 
 test('test: options', (t) => {

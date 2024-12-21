@@ -2114,12 +2114,6 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-apply-overrides`](/packages/plugin-apply-overrides#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-overrides.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-overrides) |
 | [`@putout/plugin-apply-shorthand-properties`](/packages/plugin-apply-shorthand-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-shorthand-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-shorthand-properties) |
 
-### Sorters
-
-| Package | Version |
-|--------|-------|
-| [`@putout/plugin-sort-imports-by-specifiers`](/packages/plugin-sort-imports-by-specifiers#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-sort-imports-by-specifiers.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-sort-imports-by-specifiers) |
-
 ### Splitters
 
 | Package | Version |
@@ -2133,7 +2127,6 @@ It has a lot of plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-merge-destructuring-properties`](/packages/plugin-merge-destructuring-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-destructuring-properties) |
-| [`@putout/plugin-merge-duplicate-imports`](/packages/plugin-merge-duplicate-imports#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-imports.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-duplicate-imports) |
 | [`@putout/plugin-merge-duplicate-functions`](/packages/plugin-merge-duplicate-functions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-functions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-duplicate-functions) |
 
 ### Converters
@@ -2190,7 +2183,6 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-remove-console`](/packages/plugin-remove-console#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-console.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-console) |
 | [`@putout/plugin-remove-empty`](/packages/plugin-remove-empty#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-empty.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-empty) |
 | [`@putout/plugin-remove-nested-blocks`](/packages/plugin-remove-nested-blocks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-nested-blocks) |
-| [`@putout/plugin-remove-quotes-from-import-assertions`](/packages/plugin-remove-quotes-from-import-assertions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-quotes-from-import-assertions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-quotes-from-import-assertions) |
 
 ### Simplifiers
 
@@ -2205,16 +2197,16 @@ It has a lot of plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-declare`](/packages/plugin-declare#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare) |
-| [`@putout/plugin-declare-imports-first`](/packages/plugin-declare-imports-first#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-imports-first.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-imports-first) |
 | [`@putout/plugin-declare-before-reference`](/packages/plugin-declare-before-reference#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-before-reference.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-before-reference) |
 
 ### Groups
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-conditions`](/packages/plugin-conditions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-conditions) |
+| [`@putout/plugin-esm`](/packages/plugin-esm#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-esm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-esm) |
 | [`@putout/plugin-filesystem`](/packages/plugin-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-filesystem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-filesystem) |
 | [`@putout/plugin-for-of`](/packages/plugin-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-for-of) |
-| [`@putout/plugin-conditions`](/packages/plugin-conditions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-conditions) |
 | [`@putout/plugin-types`](/packages/plugin-types#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-types) |
 | [`@putout/plugin-labels`](/packages/plugin-labels#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-labels.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-labels) |
 | [`@putout/plugin-math`](/packages/plugin-math#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-math.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-math) |
@@ -2260,12 +2252,6 @@ It has a lot of plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-add-parens`](/packages/plugin-add-parens#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-add-parens.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-add-parens) |
-
-### Groupers
-
-| Package | Version |
-|--------|-------|
-| [`@putout/plugin-group-imports-by-source`](/packages/plugin-group-imports-by-source#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-group-imports-by-source.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-group-imports-by-source) |
 
 ### Not bundled
 

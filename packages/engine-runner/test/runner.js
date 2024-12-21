@@ -27,7 +27,7 @@ test('putout: runner: run plugins', (t) => {
         runPlugins,
         plugins: [
             'remove-unused-variables',
-            'remove-empty',
+            'esm',
         ],
     });
     
@@ -871,7 +871,11 @@ test('putout: runner: fix: crawl', (t) => {
     
     const {code} = putout(source, {
         runPlugins,
-        plugins: ['declare', 'merge-duplicate-imports'],
+        rules: {
+            'esm': 'off',
+            'esm/merge-duplicate-imports': 'on',
+        },
+        plugins: ['declare', 'esm'],
     });
     
     const expected = montag`

@@ -45,7 +45,3 @@ test('plugin-remove-empty: transform: static-block', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: transform: export', (t) => {
-    t.transformCode('export {}', '\n');
-    t.end();
-});

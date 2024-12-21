@@ -303,7 +303,7 @@ When you want to skip some declaration use `dismiss`:
 >
 > (c) [Nodejs.org](https://nodejs.org/en/knowledge/getting-started/what-is-require/)
 
-For ESM use [declare-imports-first](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-imports-first#readme). Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/https://putout.cloudcmd.io/#/gist/ddf5731ae829beec4d3018d4d9ac2150/342738b63337bfa9b4fc08c5b301483ea2b5ba9c).
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/https://putout.cloudcmd.io/#/gist/ddf5731ae829beec4d3018d4d9ac2150/342738b63337bfa9b4fc08c5b301483ea2b5ba9c).For **ESM** use [`esm/declare-imports-first`](https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#declare-imports-first).
 
 ### ❌ Example of incorrect code
 

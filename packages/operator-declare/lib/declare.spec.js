@@ -116,9 +116,13 @@ test('putout: operator: declare: cache', (t) => {
     `;
     
     const {code: secondAttempt} = putout(source, {
+        rules: {
+            'esm': 'off',
+            'esm/merge-duplicate-imports': 'on',
+        },
         plugins: [
             ['declare', declare(declarations)],
-            'merge-duplicate-imports',
+            'esm',
         ],
     });
     
@@ -153,9 +157,13 @@ test('putout: operator: declare: strict mode', (t) => {
     `;
     
     const {code: secondAttempt} = putout(source, {
+        rules: {
+            'esm': 'off',
+            'esm/merge-duplicate-imports': 'on',
+        },
         plugins: [
             ['declare', declare(declarations)],
-            'merge-duplicate-imports',
+            'esm',
         ],
     });
     
