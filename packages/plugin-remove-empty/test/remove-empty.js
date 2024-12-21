@@ -44,4 +44,3 @@ test('plugin-remove-empty: transform: static-block', (t) => {
     t.transform('static-block');
     t.end();
 });
-

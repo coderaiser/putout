@@ -8,7 +8,6 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 
-
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to transform to new **Node.js** API and apply best practices.
 
 ## Install
@@ -172,7 +171,6 @@ console.log(putout);
 ```diff
 -import 'abc';
 ```
-
 
 ## remove-quotes-from-import-assertions
 
