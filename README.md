@@ -665,7 +665,7 @@ putout(source, {
 
 </details>
 
-<details><summary>remove unused <code>for...of variables<code></code></summary>
+<details><summary>remove unused <code>for...of variables</code></summary>
 
 ```diff
 -for (const {a, b} of c) {
