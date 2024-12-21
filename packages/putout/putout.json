@@ -29,7 +29,7 @@
             "madrun": "on"
         },
         "setupTests.*": {
-            "remove-empty/import": "off"
+            "esm/remove-empty-import": "off"
         },
         ".filesystem.json": {
             "filesystem": "on",
@@ -123,7 +123,7 @@
             "nodejs/remove-process-exit": "off",
             "nodejs/convert-top-level-return": "on",
             "remove-console": "off",
-            "remove-empty/import": "off"
+            "esm/remove-empty-import": "off"
         },
         "{test,*.spec.{js,mjs,cjs}}": {
             "tape": "on"
@@ -201,7 +201,6 @@
         "apply-overrides",
         "extract-object-properties",
         "extract-sequence-expressions",
-        "group-imports-by-source",
         "madrun",
         "maybe",
         "webpack",
@@ -238,7 +237,6 @@
         "remove-nested-blocks",
         "remove-unreachable-code",
         "remove-duplicate-keys",
-        "remove-quotes-from-import-assertions",
         "reuse-duplicate-init",
         "split-assignment-expressions",
         "split-variable-declarations",
@@ -246,7 +244,6 @@
         "simplify-assignment",
         "simplify-boolean-return",
         "simplify-ternary",
-        "sort-imports-by-specifiers",
         "convert-const-to-let",
         "convert-expression-to-params",
         "convert-assignment-to-declaration",
@@ -262,10 +259,9 @@
         "convert-assignment-to-comparison",
         "convert-quotes-to-backticks",
         "convert-object-entries-to-array-entries",
+        "esm",
         "merge-destructuring-properties",
-        "merge-duplicate-imports",
         "merge-duplicate-functions",
-        "declare-imports-first",
         "declare-before-reference",
         "declare",
         "labels",

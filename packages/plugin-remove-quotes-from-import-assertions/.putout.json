@@ -1,5 +1,0 @@
-{
-    "rules": {
-        "remove-quotes-from-import-assertions": "off"
-    }
-}

@@ -59,10 +59,10 @@
   "devDependencies": {
     "@putout/formatter-dump": "*",
     "@putout/formatter-progress": "*",
+    "@putout/plugin-esm": "*",
     "@putout/plugin-extract-object-properties": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-remove-console": "*",
-    "@putout/plugin-remove-empty": "*",
     "@putout/plugin-remove-unused-variables": "*",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",

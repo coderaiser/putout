@@ -118,7 +118,7 @@ test('putout: run plugins', (t) => {
     const result = putout(fixture.import, {
         plugins: [
             'remove-unused-variables',
-            'remove-empty',
+            'esm',
         ],
     });
     

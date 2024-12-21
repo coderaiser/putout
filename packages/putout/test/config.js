@@ -54,7 +54,7 @@ test('putout: config: match: create-react-app: setupTests', (t) => {
     const result = match['setupTests.*'];
     
     const expected = {
-        'remove-empty/import': 'off',
+        'esm/remove-empty-import': 'off',
     };
     
     t.deepEqual(result, expected);

@@ -27,7 +27,7 @@ test('putout: runner: run plugins', (t) => {
         runPlugins,
         plugins: [
             'remove-unused-variables',
-            'remove-empty',
+            'esm',
         ],
     });
     
