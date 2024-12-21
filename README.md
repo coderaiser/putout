@@ -2219,7 +2219,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-labels`](/packages/plugin-labels#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-labels.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-labels) |
 | [`@putout/plugin-math`](/packages/plugin-math#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-math.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-math) |
 | [`@putout/plugin-madrun`](/packages/plugin-madrun#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-madrun.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-madrun) |
-| [`@putout/plugin-optional-chaining`](/packages/plugin-putout#readme) optional-chaining[![npm](https://img.shields.io/npm/v/@putout/plugin-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-optional-chaining) |
+| [`@putout/plugin-optional-chaining`](/packages/plugin-putout#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-optional-chaining) |
 | [`@putout/plugin-putout`](/packages/plugin-putout#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) |
 | [`@putout/plugin-putout-config`](/packages/plugin-putout-config#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout-config.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout-config) |
 | [`@putout/plugin-tape`](/packages/plugin-tape#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-tape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-tape) |
