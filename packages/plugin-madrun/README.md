@@ -18,27 +18,27 @@ npm i putout @putout/plugin-madrun -D
 
 ## Rules
 
-- ✅ [add-cut-env][#add-cut-env];
-- ✅ [add-fix-lint][#add-fix-lint];
-- ✅ [add-function][#add-function];
-- ✅ [add-run][#add-run];
-- ✅ [call-run][#call-run];
-- ✅ [convert-args-to-scripts][#convert-args-to-scripts];
-- ✅ [convert-cut-env-to-run][#convert-cut-env-to-run];
-- ✅ [convert-lint-lib][#convert-lint-lib];
-- ✅ [convert-nyc-to-c8][#convert-nyc-to-c8];
-- ✅ [convert-run-argument][#convert-run-argument];
-- ✅ [convert-run-to-cut-env][#convert-run-to-cut-env];
-- ✅ [convert-to-async][#convert-to-async];
-- ✅ [declare][#declare];
-- ✅ [remove-check-duplicates-from-test][#remove-check-duplicates-from-test];
-- ✅ [remove-putout][#remove-putout];
-- ✅ [remove-useless-array-in-run][#remove-useless-array-in-run];
-- ✅ [remove-useless-string-conversion][#remove-useless-string-conversion];
-- ✅ [rename-eslint-to-putout][#rename-eslint-to-putout];
-- ✅ [rename-series-to-run][#rename-series-to-run];
-- ✅ [set-lint-dot][#set-lint-dot];
-- ✅ [set-report-lcov][#set-report-lcov];
+- ✅ [add-cut-env](#add-cut-env);
+- ✅ [add-fix-lint](#add-fix-lint);
+- ✅ [add-function](#add-function);
+- ✅ [add-run](#add-run);
+- ✅ [call-run](#call-run);
+- ✅ [convert-args-to-scripts](#convert-args-to-scripts);
+- ✅ [convert-cut-env-to-run](#convert-cut-env-to-run);
+- ✅ [convert-lint-lib](#convert-lint-lib);
+- ✅ [convert-nyc-to-c8](#convert-nyc-to-c8)
+- ✅ [convert-run-argument](#convert-run-argument);
+- ✅ [convert-run-to-cut-env](#convert-run-to-cut-env);
+- ✅ [convert-to-async](#convert-to-async);
+- ✅ [declare](#declare);
+- ✅ [remove-check-duplicates-from-test](#remove-check-duplicates-from-test);
+- ✅ [remove-putout](#remove-putout);
+- ✅ [remove-useless-array-in-run](#remove-useless-array-in-run);
+- ✅ [remove-useless-string-conversion](#remove-useless-string-conversion);
+- ✅ [rename-eslint-to-putout](#rename-eslint-to-putout);
+- ✅ [rename-series-to-run](#rename-series-to-run);
+- ✅ [set-lint-dot](#set-lint-dot);
+- ✅ [set-report-lcov](#set-report-lcov);
 
 ## Config
 
