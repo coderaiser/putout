@@ -352,7 +352,7 @@ const args = minimist({
 
 ## group-require-by-id
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ff39c5d912d836a25b96772d8045dacb/fa8d8e1ebf8ac5f19a536247536f4bccf4fdac3d).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ff39c5d912d836a25b96772d8045dacb/fa8d8e1ebf8ac5f19a536247536f4bccf4fdac3d). For **ESM** use [`group-imports-by-sources`](https://github.com/coderaiser/putout/tree/master/packages/plugin-group-imports-by-source#readme).
 
 ### ❌ Example of incorrect code
 
