@@ -8,7 +8,7 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and group `import` statements by source. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3cc782acf95211f9d456d63a99032ee1/0674223d050bba572f5271ffdccf8616cb441af5).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and group `import` statements by source. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3cc782acf95211f9d456d63a99032ee1/0674223d050bba572f5271ffdccf8616cb441af5). For CommonJS use [`nodejs/group-require-by-id`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs#group-require-by-id).
 
 Group order:
 
