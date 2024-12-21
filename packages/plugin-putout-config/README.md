@@ -14,6 +14,7 @@ npm i @putout/plugin-putout-config -D
 ## Rules
 
 - ✅ [apply-conditions](#apply-conditions);
+- ✅ [apply-esm](#apply-esm);
 - ✅ [apply-for-of](#apply-for-of);
 - ✅ [apply-labels](#apply-labels);
 - ✅ [apply-math](#apply-math);
@@ -35,6 +36,7 @@ npm i @putout/plugin-putout-config -D
 {
     "rules": {
         "putout-config/apply-conditions": "on",
+        "putout-config/apply-esm": "on",
         "putout-config/apply-for-of": "on",
         "putout-config/apply-labels": "on",
         "putout-config/apply-math": "on",
@@ -49,6 +51,31 @@ npm i @putout/plugin-putout-config -D
         "putout-config/remove-empty-file": "off",
         "putout-config/rename-rules": "on"
     }
+}
+```
+
+## apply-esm
+
+Apply [`esm`](https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#readme) according to:
+
+- 🐊[**Putout v37**](https://github.com/coderaiser/putout/releases/tag/v37.0.0):
+
+```diff
+{
+    "rules": {
+-       "remove-empty/import": "on",
+-       "remove-empty/export": "on",
++       "esm/remove-empty-import": "on",
++       "esm/remove-empty-export": "on",
+-       "group-imports-by-source": "on",
+-       "declare-imports-first": "on",
+-       "remove-quotes-from-import-assertions": "on",
+-       "merge-duplicate-imports": "on"
++       "esm/group-imports-by-source": "on",
++       "esm/declare-imports-first": "on",
++       "esm/remove-quotes-from-import-assertions": "on",
++       "esm/merge-duplicate-imports": "on"
+  }
 }
 ```
 
