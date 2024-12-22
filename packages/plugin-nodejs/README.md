@@ -350,37 +350,6 @@ const args = minimist({
 });
 ```
 
-## group-require-by-id
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ff39c5d912d836a25b96772d8045dacb/fa8d8e1ebf8ac5f19a536247536f4bccf4fdac3d). For **ESM** use [`group-imports-by-sources`](https://github.com/coderaiser/putout/tree/master/packages/plugin-group-imports-by-source#readme).
-
-### ❌ Example of incorrect code
-
-```js
-const ss = require('../../bb/ss');
-const d = require('../hello');
-const react = require('react');
-const {lodash} = require('lodash');
-const fs = require('node:fs');
-const b = require('./ss');
-const m = require(x);
-const c = 5;
-```
-
-### ✅ Example of correct code
-
-```js
-const fs = require('node:fs');
-const react = require('react');
-const {lodash} = require('lodash');
-const ss = require('../../bb/ss');
-const d = require('../hello');
-
-const b = require('./ss');
-const m = require(x);
-const c = 5;
-```
-
 ### exports
 
 ### ❌ Example of incorrect code
@@ -414,6 +383,38 @@ import {fileURLToPath} from 'url';
 const __filename = fileURLToPath(import.meta.url);
 await readFile(__filename);
 ```
+
+## group-require-by-id
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ff39c5d912d836a25b96772d8045dacb/fa8d8e1ebf8ac5f19a536247536f4bccf4fdac3d). For **ESM** use [`esm/group-imports-by-sources`](https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#group-imports-by-source).
+
+### ❌ Example of incorrect code
+
+```js
+const ss = require('../../bb/ss');
+const d = require('../hello');
+const react = require('react');
+const {lodash} = require('lodash');
+const fs = require('node:fs');
+const b = require('./ss');
+const m = require(x);
+const c = 5;
+```
+
+### ✅ Example of correct code
+
+```js
+const fs = require('node:fs');
+const react = require('react');
+const {lodash} = require('lodash');
+const ss = require('../../bb/ss');
+const d = require('../hello');
+
+const b = require('./ss');
+const m = require(x);
+const c = 5;
+```
+
 
 ## convert-esm-to-commonjs
 
