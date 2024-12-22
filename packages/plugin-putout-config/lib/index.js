@@ -1,7 +1,9 @@
 'use strict';
 
 const applyConditions = require('./apply-conditions');
+const applyEsm = require('./apply-esm');
 const applyOptionalChaining = require('./apply-optional-chaining');
+const applyParens = require('./apply-parens');
 const applyForOf = require('./apply-for-of');
 const applyLabels = require('./apply-labels');
 const applyMath = require('./apply-math');
@@ -17,11 +19,13 @@ const removeEmptyFile = require('./remove-empty-file');
 
 module.exports.rules = {
     'apply-conditions': applyConditions,
+    'apply-esm': applyEsm,
     'apply-for-of': applyForOf,
     'apply-labels': applyLabels,
     'apply-math': applyMath,
     'apply-nodejs': applyNodejs,
     'apply-optional-chaining': applyOptionalChaining,
+    'apply-parens': applyParens,
     'apply-promises': applyPromises,
     'apply-tape': applyTape,
     'apply-types': applyTypes,

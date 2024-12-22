@@ -15,6 +15,7 @@ npm i @putout/plugin-putout-config -D
 
 - ✅ [apply-conditions](#apply-conditions);
 - ✅ [apply-esm](#apply-esm);
+- ✅ [apply-parens](#apply-parens);
 - ✅ [apply-for-of](#apply-for-of);
 - ✅ [apply-labels](#apply-labels);
 - ✅ [apply-math](#apply-math);
@@ -42,6 +43,7 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-math": "on",
         "putout-config/apply-nodejs": "on",
         "putout-config/apply-optional-chaining": "on",
+        "putout-config/apply-parens": "on",
         "putout-config/apply-tape": "on",
         "putout-config/apply-types": "on",
         "putout-config/apply-promises": "on",
@@ -75,6 +77,21 @@ Apply [`esm`](https://github.com/coderaiser/putout/tree/master/packages/plugin-e
 +       "esm/declare-imports-first": "on",
 +       "esm/remove-quotes-from-import-assertions": "on",
 +       "esm/merge-duplicate-imports": "on"
+  }
+}
+```
+
+## apply-parens
+
+Apply [`parens`](https://github.com/coderaiser/putout/tree/master/packages/plugin-parens#readme) according to:
+
+- 🐊[**Putout v37**](https://github.com/coderaiser/putout/releases/tag/v37.0.0):
+
+```diff
+{
+    "rules": {
+-       "add-missing-parens": "on"
++       "parens/add-missing": "on"
   }
 }
 ```

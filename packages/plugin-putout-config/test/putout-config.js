@@ -4,10 +4,19 @@ const {createTest} = require('@putout/test');
 const putoutConfig = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout-config', putoutConfig],
     ],
+});
+
+test('plugin-putout-config: transform: apply-esm', (t) => {
+    t.transform('apply-esm');
+    t.end();
+});
+
+test('plugin-putout-config: transform: apply-parens', (t) => {
+    t.transform('apply-parens');
+    t.end();
 });
 
 test('plugin-putout-config: transform: apply-conditions', (t) => {
