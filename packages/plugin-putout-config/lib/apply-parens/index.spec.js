@@ -18,4 +18,3 @@ test('putout-config: apply-parens: transform', (t) => {
     t.transform('apply-parens');
     t.end();
 });
-

@@ -19,4 +19,3 @@ test('putout-config: apply-esm: transform', (t) => {
     t.transform('apply-esm');
     t.end();
 });
-
