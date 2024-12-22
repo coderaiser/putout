@@ -18,3 +18,8 @@ test('putout: parens: transform: add-missing-for-await', (t) => {
     t.transform('add-missing-for-await');
     t.end();
 });
+
+test('plugin-parens: transform: add-missing-for-assign', (t) => {
+    t.transform('add-missing-for-assign');
+    t.end();
+});

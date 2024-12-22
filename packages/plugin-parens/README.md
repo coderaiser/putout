@@ -25,6 +25,25 @@ npm i @putout/plugin-parens
 }
 ```
 
+## assign
+
+To disable use:
+
+```json
+{
+    "rules": {
+        "parens/add-missing-for-assign": "off"
+    }
+}
+```
+
+## ❌ Example of incorrect code
+
+```diff
+-a && b = a;
++a && (b = a);
+```
+
 ## await
 
 To disable use:

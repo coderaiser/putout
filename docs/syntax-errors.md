@@ -264,3 +264,12 @@ const a = {
 ```
 
 </details>
+
+<details><summary>wrong brace</summary>
+
+```diff
+a && b = a;
+a && (b = a);
+```
+
+</details>

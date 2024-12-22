@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('parens: parens: add-missing-for-await: report', (t) => {
-    t.report('add-missing-for-await', `Add missing parens: TypeError: 'asyncFn()?.filter' is not a function`);
+    t.report('add-missing-for-await', `TypeError: 'asyncFn()?.filter' is not a function`);
     t.end();
 });
 
