@@ -1,3 +1,18 @@
+2024.12.22, v37.7.0
+
+fix:
+- 7dd2dcc3d putout: rm unused dependencies
+
+feature:
+- 43e7194d3 @putout/plugin-parens: remove-useless-for-await: no parens
+- 6f8f828af @putout/plugin-parens: remove-useless: add
+- e0ef81c05 @putout/plugin-parens: add-missing-for-assign: add
+- 6d1e77881 @putout/plugin-parens: add
+- 20ef6818c putout: @putout/plugin-remove-empty v13.0.0
+- 02cedc504 @putout/plugin-putout-config: apply-esm: add
+- bdef0dad6 @putout/plugin-remove-empty: drop support of 🐊 < 37
+- 35474d776 @putout/esm: add
+
 2024.12.21, v37.6.1
 
 fix:
