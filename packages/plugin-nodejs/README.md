@@ -415,7 +415,6 @@ const m = require(x);
 const c = 5;
 ```
 
-
 ## convert-esm-to-commonjs
 
 > **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
