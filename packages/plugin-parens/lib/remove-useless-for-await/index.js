@@ -10,6 +10,9 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => ({
     AwaitExpression(path) {
+        if (!path.node.extra?.parenthesized)
+            return;
+        
         if (path.parentPath.isVariableDeclarator())
             push(path);
     },
