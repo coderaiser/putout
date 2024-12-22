@@ -5,6 +5,7 @@ const {
     types,
     operator,
 } = require('putout');
+
 const {AwaitExpression} = types;
 const {replaceWith} = operator;
 

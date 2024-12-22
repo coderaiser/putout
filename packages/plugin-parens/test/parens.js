@@ -23,3 +23,8 @@ test('plugin-parens: transform: add-missing-for-assign', (t) => {
     t.transform('add-missing-for-assign');
     t.end();
 });
+
+test('plugin-parens: transform: remove-useless-for-await', (t) => {
+    t.transform('remove-useless-for-await');
+    t.end();
+});

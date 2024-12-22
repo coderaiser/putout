@@ -20,12 +20,15 @@ npm i @putout/plugin-parens
 ```json
 {
     "rules": {
-        "parens/add-missing": "on"
+        "parens/add-missing": "on",
+        "parens/remove-useless": "on"
     }
 }
 ```
 
-## assign
+## add-missing
+
+### assign
 
 To disable use:
 
@@ -37,14 +40,12 @@ To disable use:
 }
 ```
 
-## ❌ Example of incorrect code
-
 ```diff
 -a && b = a;
 +a && (b = a);
 ```
 
-## await
+### await
 
 To disable use:
 
@@ -56,19 +57,19 @@ To disable use:
 }
 ```
 
-## ❌ Example of incorrect code
+#### ❌ Example of incorrect code
 
 ```ts
 await asyncFn().filter(Boolean);
 ```
 
-## ✅ Example of correct code
+#### ✅ Example of correct code
 
 ```js
 (await asyncFn()).filter(Boolean);
 ```
 
-## template
+#### template
 
 Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/ef3f1e198a8d5ebeb9dd3fd1fef8f305/c6b46a34037f5cb095b5419b748a24b6dc8e2933).
 
@@ -80,7 +81,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/ef3f1e198a8
 }
 ```
 
-## ❌ Example of incorrect code
+#### ❌ Example of incorrect code
 
 ```ts
 getConsoleLog?.()``;
@@ -88,12 +89,30 @@ String?.raw``;
 String?.raw!``;
 ```
 
-## ✅ Example of correct code
+#### ✅ Example of correct code
 
 ```ts
 (getConsoleLog?.())``;
 (String?.raw)``;
 (String?.raw)!``;
+```
+
+## remove-useless
+
+### await
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3800b0c52a199dd49a089ed4b9b37566/e2dddb75cb68811883cae640a22b340b8e1afa73).
+
+#### ❌ Example of incorrect code
+
+```ts
+const s = (await m());
+```
+
+#### ✅ Example of correct code
+
+```ts
+const s = await m();
 ```
 
 ## License
