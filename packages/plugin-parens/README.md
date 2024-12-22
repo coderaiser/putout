@@ -1,7 +1,7 @@
-# @putout/plugin-add-missing-parens [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/plugin-parens [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-add-missing-parens.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-add-missing-parens"npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-parens.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-parens"npm"
 
 > The JavaScript exception "tagged template cannot be used with optional chain" occurs when the tag expression of a tagged template literal is an optional chain, or if there's an optional chain between the tag and the template.
 >
@@ -12,7 +12,7 @@
 ## Install
 
 ```
-npm i @putout/plugin-add-missing-parens
+npm i @putout/plugin-parens
 ```
 
 ## Rule
@@ -20,7 +20,43 @@ npm i @putout/plugin-add-missing-parens
 ```json
 {
     "rules": {
-        "add-missing-parens": "on"
+        "parens/add-missing": "on"
+    }
+}
+```
+
+## await
+
+To disable use:
+
+```json
+{
+    "rules": {
+        "parens/add-missing-for-await": "off"
+    }
+}
+```
+
+## ❌ Example of incorrect code
+
+```ts
+await asyncFn().filter(Boolean);
+```
+
+## ✅ Example of correct code
+
+```js
+(await asyncFn()).filter(Boolean);
+```
+
+## template
+
+Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/ef3f1e198a8d5ebeb9dd3fd1fef8f305/c6b46a34037f5cb095b5419b748a24b6dc8e2933).
+
+```json
+{
+    "rules": {
+        "parens/add-missing-for-template": "off"
     }
 }
 ```
@@ -31,8 +67,6 @@ npm i @putout/plugin-add-missing-parens
 getConsoleLog?.()``;
 String?.raw``;
 String?.raw!``;
-
-await asyncFn()?.filter((x) => x);
 ```
 
 ## ✅ Example of correct code
@@ -40,9 +74,7 @@ await asyncFn()?.filter((x) => x);
 ```ts
 (getConsoleLog?.())``;
 (String?.raw)``;
-String?.raw!``;
-
-(await asyncFn())?.filter((x) => x);
+(String?.raw)!``;
 ```
 
 ## License

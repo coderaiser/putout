@@ -302,7 +302,7 @@ So, if you want to convert it to [`ESM`](https://developer.mozilla.org/en-US/doc
  1:4   error   'unused' is defined but never used                        remove-unused-variables
  7:23  error   'a' is defined but never used                             remove-unused-variables
  3:0   error   Use arrow function                                        convert-to-arrow-function
- 1:0   error   Add missing 'use strict' directive on top of CommonJS     mode/add-missing
+ 1:0   error   Add missing 'use strict' directive on top of CommonJS     nodejs/dd-missing-strict-cmode
  8:4   error   Reject is useless in async functions, use throw instead   promises/convert-reject-to-throw
  4:11  error   Async functions should be called using 'await'            promises/add-missing-await
  7:0   error   Avoid useless async                                       promises/remove-useless-async
@@ -315,7 +315,7 @@ It will create config file `.putout.json`:
     "rules": {
         "remove-unused-variables": "off",
         "convert-to-arrow-function": "off",
-        "nodejs/strict-mode-add-missing": "off",
+        "nodejs/add-missing-strict-mode": "off",
         "promises/convert-reject-to-throw": "off",
         "promises/add-missing-await": "off",
         "promises/remove-useless-async": "off"
@@ -330,7 +330,7 @@ Then running `putout index.js --enable nodejs/convert-commonjs-to-esm` will upda
     "rules": {
         "remove-unused-variables": "off",
         "convert-to-arrow-function": "off",
-        "nodejs/strict-mode-add-missing": "off",
+        "nodejs/add-missing-strict-mode": "off",
         "promises/convert-reject-to-throw": "off",
         "promises/add-missing-await": "off",
 -       "promises/remove-useless-async": "off"
@@ -2212,6 +2212,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-math`](/packages/plugin-math#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-math.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-math) |
 | [`@putout/plugin-madrun`](/packages/plugin-madrun#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-madrun.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-madrun) |
 | [`@putout/plugin-optional-chaining`](/packages/plugin-putout#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-optional-chaining) |
+| [`@putout/plugin-parens`](/packages/plugin-parens#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-parens.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-parens) |
 | [`@putout/plugin-putout`](/packages/plugin-putout#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) |
 | [`@putout/plugin-putout-config`](/packages/plugin-putout-config#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout-config.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout-config) |
 | [`@putout/plugin-tape`](/packages/plugin-tape#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-tape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-tape) |
@@ -2246,12 +2247,6 @@ It has a lot of plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-reuse-duplicate-init`](/packages/plugin-reuse-duplicate-init#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-reuse-duplicate-init.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-reuse-duplicate-init) |
-
-### Adders
-
-| Package | Version |
-|--------|-------|
-| [`@putout/plugin-add-parens`](/packages/plugin-add-parens#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-add-parens.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-add-parens) |
 
 ### Not bundled
 

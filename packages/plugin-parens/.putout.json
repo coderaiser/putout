@@ -2,7 +2,7 @@
     "printer": "putout",
     "match": {
         "*.md{ts}": {
-            "add-missing-parens": "off"
+            "parens": "off"
         }
     }
 }
