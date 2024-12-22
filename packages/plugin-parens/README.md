@@ -75,7 +75,6 @@ await asyncFn().filter(Boolean);
 >
 > (c) [**MDN**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Bad_optional_template)
 
-
 Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/ef3f1e198a8d5ebeb9dd3fd1fef8f305/c6b46a34037f5cb095b5419b748a24b6dc8e2933).
 
 ```json
