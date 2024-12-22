@@ -106,6 +106,16 @@ String?.raw!``;
 
 ### await
 
+To disable use:
+
+```json
+{
+    "rules": {
+        "parens/remove-useless-for-await": "off"
+    }
+}
+```
+
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3800b0c52a199dd49a089ed4b9b37566/e2dddb75cb68811883cae640a22b340b8e1afa73).
 
 #### ❌ Example of incorrect code
