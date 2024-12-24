@@ -7,7 +7,8 @@
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#readme",
   "main": "lib/index.js",
   "exports": {
-    ".": "./lib/index.js"
+    ".": "./lib/index.js",
+    "./merge-duplicate-imports": "./lib/merge-duplicate-imports/index.js"
   },
   "release": false,
   "tag": false,
@@ -52,7 +53,8 @@
     "lerna": "^6.0.1",
     "madrun": "^10.0.0",
     "montag": "^1.2.1",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "supertape": "^10.8.0"
   },
   "peerDependencies": {
     "putout": ">=37"
