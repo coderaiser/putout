@@ -55,8 +55,13 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = (path) => {
+    const {consequent, alternate} = path.node;
+    
+    if (!alternate && !consequent.body?.length)
+        return false;
+    
     if (path === path.parentPath.get('alternate'))
-        return;
+        return false;
     
     const nodes = getAllNodes(path);
     const blocks = [];

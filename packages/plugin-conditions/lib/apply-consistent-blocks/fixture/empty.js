@@ -1,0 +1,1 @@
+if (compare(tokens, from)) {}
