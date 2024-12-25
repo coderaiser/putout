@@ -1,3 +1,12 @@
+2024.12.25, v37.7.1
+
+feature:
+- ee4a71a1c putout: @putout/plugin-conditions v6.0.0
+- 51005f31c @putout/plugin-conditions: drop support of 🐊 < 37
+- 3305a4bca @putout/plugin-conditions: apply-consistent-blocks: empty consequent body, no alternate
+- 2aafebb67 @putout/plugin-esm: merge-duplicate-imports: export
+- 5b39158fb @putout/plugin-putout-config: apply-parens
+
 2024.12.22, v37.7.0
 
 fix:
