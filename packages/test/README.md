@@ -48,6 +48,17 @@ const test = createTest(import.meta.url, {
 });
 ```
 
+Or use another linter with the same signature as 🐊**Putout** using `lint` field:
+
+```js
+const test = createTest(import.meta.url, {
+    lint: putout,
+    plugins: [
+        ['remove-unused-variables', rmVars],
+    ],
+});
+```
+
 ### `report(filename, message: string | string[])`
 
 Check error message (or messages) of a plugin:

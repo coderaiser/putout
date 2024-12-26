@@ -101,30 +101,31 @@ const parsePlugin = (plugins) => {
 function createTest(dir, maybeOptions) {
     dir = join(dir, 'fixture');
     
-    const options = parseOptions(maybeOptions);
+    const {lint = putout, ...options} = parseOptions(maybeOptions);
+    
     const plugin = parsePlugin(options.plugins);
     
     preTest(test, plugin);
     
     return test.extend({
-        transform: transform(dir, options),
-        noTransform: noTransform(dir, options),
-        transformCode: transformCode(options),
-        noTransformCode: noTransformCode(options),
+        transform: transform(dir, lint, options),
+        noTransform: noTransform(dir, lint, options),
+        transformCode: transformCode(lint, options),
+        noTransformCode: noTransformCode(lint, options),
         
         progress: progress(dir, options),
         progressWithOptions: progressWithOptions(dir, options),
         
-        transformWithOptions: transformWithOptions(dir, options),
-        noTransformWithOptions: noTransformWithOptions(dir, options),
+        transformWithOptions: transformWithOptions(dir, lint, options),
+        noTransformWithOptions: noTransformWithOptions(dir, lint, options),
         
-        report: report(dir, options),
-        noReport: noReport(dir, options),
-        noReportAfterTransform: noReportAfterTransform(dir, options),
-        noReportAfterTransformWithOptions: noReportAfterTransformWithOptions(dir, options),
-        reportWithOptions: reportWithOptions(dir, options),
-        noReportWithOptions: noReportWithOptions(dir, options),
-        reportCode: reportCode(options),
+        report: report(dir, lint, options),
+        noReport: noReport(dir, lint, options),
+        noReportAfterTransform: noReportAfterTransform(dir, lint, options),
+        noReportAfterTransformWithOptions: noReportAfterTransformWithOptions(dir, lint, options),
+        reportWithOptions: reportWithOptions(dir, lint, options),
+        noReportWithOptions: noReportWithOptions(dir, lint, options),
+        reportCode: reportCode(lint, options),
         format: formatSave(dir, options),
         formatMany: formatManySave(dir, options),
         noFormat: noFormat(dir, options),
@@ -324,7 +325,7 @@ const progressWithOptions = (dir, options) => (t) => async (name, pluginOptions,
     return t.deepEqual(result, expected);
 };
 
-const transform = currify((dir, options, t, name, transformed = null, addons = {}) => {
+const transform = currify((dir, lint, options, t, name, transformed = null, addons = {}) => {
     const {plugins} = options;
     const full = join(dir, name);
     const isStr = isString(transformed);
@@ -336,7 +337,7 @@ const transform = currify((dir, options, t, name, transformed = null, addons = {
     
     addons = addons || {};
     
-    const {code} = putout(input, {
+    const {code} = lint(input, {
         isTS,
         ...options,
         plugins: [{
@@ -362,7 +363,7 @@ const transform = currify((dir, options, t, name, transformed = null, addons = {
     return t.equal(code, output);
 });
 
-const transformWithOptions = currify((dir, options, t, name, pluginOptions) => {
+const transformWithOptions = currify((dir, lint, options, t, name, pluginOptions) => {
     const {writeFileSync} = global.__putout_test_fs;
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
@@ -373,7 +374,7 @@ const transformWithOptions = currify((dir, options, t, name, pluginOptions) => {
         [rule]: ['on', pluginOptions],
     };
     
-    const {code} = putout(input, {
+    const {code} = lint(input, {
         isTS,
         rules,
         ...options,
@@ -395,7 +396,7 @@ const parseRule = ({plugins}) => {
     return plugin[0] || keys(plugin)[0];
 };
 
-const noTransformWithOptions = currify((dir, options, t, name, ruleOptions) => {
+const noTransformWithOptions = currify((dir, lint, options, t, name, ruleOptions) => {
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     
@@ -406,7 +407,7 @@ const noTransformWithOptions = currify((dir, options, t, name, ruleOptions) => {
         [rule]: ['on', ruleOptions],
     };
     
-    const {code} = putout(input, {
+    const {code} = lint(input, {
         isTS,
         rules,
         ...options,
@@ -425,7 +426,7 @@ const noTransformWithOptions = currify((dir, options, t, name, ruleOptions) => {
     return t.equal(code, input);
 });
 
-const noTransform = currify((dir, options, t, name, addons = {}) => {
+const noTransform = currify((dir, lint, options, t, name, addons = {}) => {
     const full = join(dir, name);
     const [fixture] = readFixture(full);
     
@@ -434,7 +435,7 @@ const noTransform = currify((dir, options, t, name, addons = {}) => {
     const {plugins} = options;
     const [input, isTS] = readFixture(full);
     
-    const {code} = putout(input, {
+    const {code} = lint(input, {
         isTS,
         ...options,
         plugins: [{
@@ -456,8 +457,8 @@ const noTransform = currify((dir, options, t, name, addons = {}) => {
     return t.equal(code, fixture);
 });
 
-const transformCode = currify((options, t, input, output, isTS = false) => {
-    const {code} = putout(input, {
+const transformCode = currify((lint, options, t, input, output, isTS = false) => {
+    const {code} = lint(input, {
         isTS,
         ...options,
     });
@@ -465,32 +466,32 @@ const transformCode = currify((options, t, input, output, isTS = false) => {
     return t.equal(code, output);
 });
 
-const noTransformCode = currify((options, t, input) => {
-    const {code} = putout(input, options);
+const noTransformCode = currify((lint, options, t, input) => {
+    const {code} = lint(input, options);
     return t.equal(code, input);
 });
 
 const getMessage = ({message}) => message;
 
-const report = (dir, options) => (t) => (name, message) => {
+const report = (dir, lint, options) => (t) => (name, message) => {
     checkReport(name, message);
     
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    return reportCode({
+    return reportCode(lint, {
         isTS,
         ...options,
     }, t, source, message);
 };
 
-const noReport = currify((dir, options, t, name) => {
+const noReport = currify((dir, lint, options, t, name) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
     rmFixture(`${full}-fix`);
     
-    return noReportCode({
+    return noReportCode(lint, {
         isTS,
         ...options,
     }, t, source);
@@ -498,11 +499,11 @@ const noReport = currify((dir, options, t, name) => {
 
 module.exports._createNoReport = noReport;
 
-const noReportAfterTransform = currify((dir, options, t, name, addons = {}) => {
+const noReportAfterTransform = currify((dir, lint, options, t, name, addons = {}) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    return noReportCodeAfterTransform({
+    return noReportCodeAfterTransform(lint, {
         isTS,
         ...options,
     }, t, source, addons);
@@ -510,7 +511,7 @@ const noReportAfterTransform = currify((dir, options, t, name, addons = {}) => {
 
 module.exports._createNoReportAfterTransform = noReportAfterTransform;
 
-const noReportAfterTransformWithOptions = currify((dir, options, t, name, ruleOptions) => {
+const noReportAfterTransformWithOptions = currify((dir, lint, options, t, name, ruleOptions) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     const rule = parseRule(options);
@@ -519,7 +520,7 @@ const noReportAfterTransformWithOptions = currify((dir, options, t, name, ruleOp
         [rule]: ['on', ruleOptions],
     };
     
-    return noReportCodeAfterTransform({
+    return noReportCodeAfterTransform(lint, {
         isTS,
         ...options,
         rules: {
@@ -531,7 +532,7 @@ const noReportAfterTransformWithOptions = currify((dir, options, t, name, ruleOp
 
 module.exports._createNoReportAfterTransformWithOptions = noReportAfterTransformWithOptions;
 
-const reportWithOptions = currify((dir, options, t, name, message, ruleOptions) => {
+const reportWithOptions = currify((dir, lint, options, t, name, message, ruleOptions) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
@@ -541,14 +542,14 @@ const reportWithOptions = currify((dir, options, t, name, message, ruleOptions) 
         [rule]: ['on', ruleOptions],
     };
     
-    return reportCode({
+    return reportCode(lint, {
         ...options,
         rules,
         isTS,
     }, t, source, message);
 });
 
-const noReportWithOptions = currify((dir, options, t, name, ruleOptions) => {
+const noReportWithOptions = currify((dir, lint, options, t, name, ruleOptions) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
@@ -559,15 +560,15 @@ const noReportWithOptions = currify((dir, options, t, name, ruleOptions) => {
         [rule]: ['on', ruleOptions],
     };
     
-    return noReportCode({
+    return noReportCode(lint, {
         isTS,
         ...options,
         rules,
     }, t, source);
 });
 
-const reportCode = currify((options, t, source, message) => {
-    const {places} = putout(source, {
+const reportCode = currify((lint, options, t, source, message) => {
+    const {places} = lint(source, {
         fix: false,
         ...options,
     });
@@ -580,8 +581,8 @@ const reportCode = currify((options, t, source, message) => {
     return t.equal(resultMessages[0], message);
 });
 
-const noReportCode = currify((options, t, source) => {
-    const {places} = putout(source, {
+const noReportCode = currify((lint, options, t, source) => {
+    const {places} = lint(source, {
         fix: false,
         ...options,
     });
@@ -589,9 +590,9 @@ const noReportCode = currify((options, t, source) => {
     return t.deepEqual(places, [], 'should not report');
 });
 
-const noReportCodeAfterTransform = currify((options, t, source, addons = {}) => {
+const noReportCodeAfterTransform = currify((lint, options, t, source, addons = {}) => {
     const {plugins} = options;
-    const {places} = putout(source, {
+    const {places} = lint(source, {
         fix: true,
         ...options,
         plugins: [{

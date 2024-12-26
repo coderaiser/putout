@@ -5,15 +5,18 @@ const {join} = require('node:path');
 const montag = require('montag');
 const tryCatch = require('try-catch');
 const {stub} = require('supertape');
-const {template} = require('putout');
+const putout = require('putout');
 
 const {
+    createTest,
     _createNoReport,
     _createNoReportAfterTransform,
     _createNoReportAfterTransformWithOptions,
 } = require('..');
 
-const test = require('..')(__dirname, {
+const {template} = putout;
+
+const test = createTest(__dirname, {
     'remove-imports': {
         report: () => 'avoid imports',
         match: ({options}) => ({
@@ -72,7 +75,7 @@ test('putout: test: noReport', (t) => {
         plugins,
     };
     
-    const noReport = _createNoReport(dir, options);
+    const noReport = _createNoReport(dir, putout, options);
     const deepEqual = stub();
     
     const mockTest = {
@@ -126,7 +129,7 @@ test('putout: test: noReportAfterTransform: internal', (t) => {
         plugins,
     };
     
-    const noReportAfterTransform = _createNoReportAfterTransform(dir, options);
+    const noReportAfterTransform = _createNoReportAfterTransform(dir, putout, options);
     const deepEqual = stub();
     
     const mockTest = {
@@ -182,7 +185,7 @@ test('putout: test: noReportAfterTransformWithOptions: internal', (t) => {
         plugins,
     };
     
-    const noReportAfterTransformWithOptions = _createNoReportAfterTransformWithOptions(dir, options);
+    const noReportAfterTransformWithOptions = _createNoReportAfterTransformWithOptions(dir, putout, options);
     const deepEqual = stub();
     
     const mockTest = {
@@ -237,7 +240,7 @@ test('putout: test: report: with one argument', async (t) => {
     checkAssertionsCount: false,
 });
 
-const testEmptyReport = require('..')(__dirname, {
+const testEmptyReport = createTest(__dirname, {
     'remove-imports': {
         report: () => '',
         match: ({options}) => ({
