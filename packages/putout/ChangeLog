@@ -1,3 +1,9 @@
+2024.12.26, v37.7.2
+
+feature:
+- 211ac1166 @putout/engine-parser: hermes-parser v0.26.0
+- 723dd6e67 putout: ignore v7.0.0
+
 2024.12.25, v37.7.1
 
 feature:
