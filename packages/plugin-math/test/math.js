@@ -34,3 +34,8 @@ test('plugin-math: transform: declare', (t) => {
     t.transform('declare');
     t.end();
 });
+
+test('plugin-math: transform: remove-unchanged-zero-declarations', (t) => {
+    t.transform('remove-unchanged-zero-declarations');
+    t.end();
+});

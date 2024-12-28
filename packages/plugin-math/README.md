@@ -13,11 +13,12 @@ npm i @putout/plugin-math -D
 
 ## Rules
 
-- ✅ [apply-exponentiation][#apply-exponentiation];
-- ✅ [apply-multiplication][#apply-multiplication];
-- ✅ [apply-numeric-separators][#apply-numeric-separators];
-- ✅ [convert-sqrt-to-hypot][#convert-sqrt-to-hypot];
-- ✅ [declare][#declare];
+- ✅ [apply-exponentiation](#apply-exponentiation);
+- ✅ [apply-multiplication](#apply-multiplication);
+- ✅ [apply-numeric-separators](#apply-numeric-separators);
+- ✅ [convert-sqrt-to-hypot](#convert-sqrt-to-hypot);
+- ✅ [declare](#declare);
+- ✅ [remove-unchanged-zero-declarations](#remove-unchanged-zero-declarations);
 
 ```json
 {
@@ -26,7 +27,8 @@ npm i @putout/plugin-math -D
         "math/apply-multiplication": "on",
         "math/apply-numeric-separators": "on",
         "math/convert-sqrt-to-hypot": "on",
-        "math/declare": "on"
+        "math/declare": "on",
+        "math/remove-unchanged-zero-declarations": "on"
     }
 }
 ```
@@ -132,6 +134,39 @@ round(bLength / aLength) > 3;
 ```js
 const {round} = Math;
 round(bLength / aLength) > 3;
+```
+
+## remove-unchanged-zero-declarations
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2809d116815865ba77a5eea6ce5d8e22/3e040a89a814359b8bfb528cdbcef72f7a29d4ac).
+
+### ❌ Example of incorrect code
+
+```js
+for (let index = 0; index < n; index++) {
+    const tokenDelta = 0;
+    const templateDelta = 0;
+    
+    for (let templateIndex = 0; templateIndex < templateTokensLength; templateIndex++) {
+        const currentTokenIndex = index + templateIndex - tokenDelta;
+        const currentToken = tokens[currentTokenIndex];
+        
+        end = currentTokenIndex + tokenDelta;
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```js
+for (let index = 0; index < n; index++) {
+    for (let templateIndex = 0; templateIndex < templateTokensLength; templateIndex++) {
+        const currentTokenIndex = index + templateIndex;
+        const currentToken = tokens[currentTokenIndex];
+        
+        end = currentTokenIndex;
+    }
+}
 ```
 
 ## License
