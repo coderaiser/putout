@@ -1,7 +1,10 @@
 'use strict';
 
 const {operator, types} = require('putout');
-const {isNumericLiteral} = types;
+const {
+    isNumericLiteral,
+    isExportNamedDeclaration,
+} = types;
 const {remove} = operator;
 
 module.exports.report = () => 'Avoid unchanged zero declarations';
@@ -21,6 +24,9 @@ module.exports.traverse = ({push}) => ({
             return;
         
         if (init.value)
+            return;
+        
+        if (isExportNamedDeclaration(path.parentPath.parentPath))
             return;
         
         const {name} = id;

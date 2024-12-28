@@ -24,3 +24,8 @@ test('math: remove-unchanged-zero-declarations: no report: no-init', (t) => {
     t.noReport('no-init');
     t.end();
 });
+
+test('math: remove-unchanged-zero-declarations: no report: exported', (t) => {
+    t.noReport('exported');
+    t.end();
+});
