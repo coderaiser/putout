@@ -124,7 +124,7 @@
     "@putout/plugin-labels": "^1.0.0",
     "@putout/plugin-logical-expressions": "^7.0.0",
     "@putout/plugin-madrun": "^19.0.0",
-    "@putout/plugin-math": "^2.1.0",
+    "@putout/plugin-math": "^3.0.0",
     "@putout/plugin-maybe": "^2.0.0",
     "@putout/plugin-merge-destructuring-properties": "^10.0.0",
     "@putout/plugin-merge-duplicate-functions": "^2.0.0",
