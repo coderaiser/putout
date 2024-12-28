@@ -5,6 +5,7 @@ const {
     isCallExpression,
     isIdentifier,
 } = types;
+
 const {remove} = operator;
 
 module.exports.report = () => `Avoid useless 'printer' option`;
