@@ -1,3 +1,15 @@
+2024.12.28, v37.8.0
+
+feature:
+- 9610ca481 @putout/plugin-putout-config: apply-esm: convert-assert-to-with
+- 93cd1c4d9 @putout/plugin-esm: merge convert-assert-to-with
+- 15fbf4b80 putout: @putout/plugin-math v2.1.0
+- 3257753d2 @putout/plugin-putout: remove-useless-printer-option: add
+- bda76d72c @putout/plugin-math: remove-unchanged-zero-declaration: exclude exported
+- ef9aa4e43 @putout/plugin-math: drop support of 🐊 < 37
+- f543239ca @putout/plugin-math: remove-unchanged-zero-declarations: add
+- 4c1bcf1dd @putout/test: add ability to use other linter instead of 🐊Putout
+
 2024.12.26, v37.7.2
 
 feature:
