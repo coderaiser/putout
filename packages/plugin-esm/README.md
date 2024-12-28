@@ -176,7 +176,7 @@ console.log(putout);
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f9f34acddbefba0ded53225ca10fa44e/7b4dba44602b9b2d28fe3a98989474a4b0d8d73d).
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 import json from './mod.json' with { type: 'json' };
@@ -192,7 +192,7 @@ import json from './mod.json' with { type: 'json' };
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/521e2ff199243a7ce1f65db7140c272e/28c0588281286f8a6765b8aa2ecabbfcde2973a7).
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 import {
@@ -204,7 +204,7 @@ import {
 import a1 from 'a1';
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 import a1 from 'a1';
@@ -214,6 +214,38 @@ import {
     c,
     d,
 } from 'd';
+```
+
+## convert-assert-to-with
+
+> This feature would ideally use the `with` keyword to denote attributes, but there are existing implementations based on a previous version of the proposal using the `assert` keyword. Due to potential web compatibility risks, the proposal still includes `assert` marked as deprecated. Usage of the old syntax is discouraged, and its removal is being investigated.
+>
+> (c) [tc39](https://tc39.es/proposal-import-attributes/)
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9f85897b998c6458efc19db6a5414b79/57ef7cdd113c7a0087e0f7a6e70522f60baa04f4).
+
+## ❌ Example of incorrect code
+
+```js
+import json from './foo.json' assert { type: 'json' };
+
+import('foo.json', {
+    assert: {
+        type: 'json',
+    },
+});
+```
+
+## ✅ Example of correct code
+
+```js
+import json from './foo.json' with { type: 'json' };
+
+import('foo.json', {
+    with: {
+        type: 'json',
+    },
+});
 ```
 
 ## License

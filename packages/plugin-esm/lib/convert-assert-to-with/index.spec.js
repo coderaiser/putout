@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const plugin = require('..');
+const plugin = require('.');
 
 const test = createTest(__dirname, {
     plugins: [

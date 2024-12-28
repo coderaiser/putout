@@ -43,3 +43,8 @@ test('putout: plugin: esm: merge-duplicate-imports: sort-imports-by-specifiers: 
     t.transform('sort-imports-by-specifiers');
     t.end();
 });
+
+test('putout: plugin: esm: merge-duplicate-imports: convert-assert-to-with: transform', (t) => {
+    t.transform('convert-assert-to-with');
+    t.end();
+});
