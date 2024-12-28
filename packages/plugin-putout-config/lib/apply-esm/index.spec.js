@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout-config: apply-esm: report', (t) => {
-    t.report('apply-esm', `Rename property: 'remove-empty/import' -> 'esm/remove-empty-import'`);
+    t.report('apply-esm', `Rename property: 'convert-assert-to-with' -> 'esm/convert-assert-to-with'`);
     t.end();
 });
 

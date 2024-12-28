@@ -69,10 +69,12 @@ Apply [`esm`](https://github.com/coderaiser/putout/tree/master/packages/plugin-e
 -       "remove-empty/export": "on",
 +       "esm/remove-empty-import": "on",
 +       "esm/remove-empty-export": "on",
+-       "convert-assert-to-with": "off",
 -       "group-imports-by-source": "on",
 -       "declare-imports-first": "on",
 -       "remove-quotes-from-import-assertions": "on",
 -       "merge-duplicate-imports": "on"
++       "esm/convert-assert-to-with": "off",
 +       "esm/group-imports-by-source": "on",
 +       "esm/declare-imports-first": "on",
 +       "esm/remove-quotes-from-import-assertions": "on",

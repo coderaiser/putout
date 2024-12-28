@@ -3,6 +3,7 @@
 const {createRenameProperty} = require('../rename-property');
 
 const v37 = [
+    ['convert-assert-to-with', 'esm/convert-assert-to-with'],
     ['remove-empty/import', 'esm/remove-empty-import'],
     ['remove-empty/export', 'esm/remove-empty-export'],
     ['group-imports-by-source', 'esm/group-imports-by-source'],
