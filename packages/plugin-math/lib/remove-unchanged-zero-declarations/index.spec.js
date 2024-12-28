@@ -28,3 +28,8 @@ test('math: remove-unchanged-zero-declarations: no report: exported', (t) => {
     t.noReport('exported');
     t.end();
 });
+
+test('math: remove-unchanged-zero-declarations: no report: call', (t) => {
+    t.noReport('call');
+    t.end();
+});

@@ -2,8 +2,10 @@
 
 const {operator, types} = require('putout');
 const {
+    isObjectProperty,
     isNumericLiteral,
     isExportNamedDeclaration,
+    isCallExpression,
 } = types;
 
 const {remove} = operator;
@@ -37,6 +39,14 @@ module.exports.traverse = ({push}) => ({
             constantViolations,
             referencePaths,
         } = binding;
+        
+        for (const {parent} of referencePaths) {
+            if (isCallExpression(parent))
+                return;
+            
+            if (isObjectProperty(parent))
+                return;
+        }
         
         if (constantViolations.length)
             return;
