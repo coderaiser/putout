@@ -1,3 +1,8 @@
+2024.12.28, v37.8.1
+
+feature:
+- 2b9ac61dc putout: @putout/plugin-math v3.0.0
+
 2024.12.28, v37.8.0
 
 feature:
