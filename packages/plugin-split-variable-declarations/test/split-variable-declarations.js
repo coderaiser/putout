@@ -6,7 +6,6 @@ const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
 const splitVariableDeclarations = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['split-variable-declarations', splitVariableDeclarations],
     ],

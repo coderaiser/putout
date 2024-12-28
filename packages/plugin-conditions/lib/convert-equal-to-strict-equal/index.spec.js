@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertEqualToStrictEqual = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['conditions/convert-equal-to-strict-equal', convertEqualToStrictEqual],
     ],

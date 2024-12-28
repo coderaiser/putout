@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as convert from '../lib/pascal-to-camel.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['convert-pascal-to-camel', convert],
     ],

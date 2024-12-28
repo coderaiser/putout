@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const applyFlatMap = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['apply-flat-map', applyFlatMap],
     ],

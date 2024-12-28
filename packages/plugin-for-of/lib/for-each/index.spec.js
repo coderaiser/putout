@@ -10,7 +10,6 @@ const removeUselessVariables = require('../remove-useless-variables');
 const convertComparisonToBoolean = require('@putout/plugin-conditions').rules['convert-comparison-to-boolean'];
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['for-of/for-each', plugin],
     ],

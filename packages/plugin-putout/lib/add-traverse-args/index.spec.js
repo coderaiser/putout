@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const addPush = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/add-traverse-args', addPush],
     ],

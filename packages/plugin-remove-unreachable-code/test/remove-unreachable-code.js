@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeUnreachableCode = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-unreachable-code', removeUnreachableCode],
     ],

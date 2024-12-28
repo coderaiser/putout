@@ -5,7 +5,6 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['add-await-to-progress', plugin],
     ],

@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as cutLegacy from '../lib/cut-legacy.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['cut-legacy', cutLegacy],
     ],

@@ -5,7 +5,6 @@ const putout = require('@putout/plugin-putout');
 const addTEnd = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/add-t-end', addTEnd],
     ],

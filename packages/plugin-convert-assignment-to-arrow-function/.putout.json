@@ -1,5 +1,4 @@
 {
-    "printer": "putout",
     "match": {
         "*.md": {
             "convert-assignment-to-arrow-function": "off"

@@ -5,7 +5,6 @@ const {createTest} = require('@putout/test');
 const forEntries = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['for-of/for-entries', forEntries],
     ],

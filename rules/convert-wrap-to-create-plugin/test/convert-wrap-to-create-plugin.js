@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as convertTraverseToInclude from '../lib/convert-wrap-to-create-plugin.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['convert-wrap-to-create-plugin', convertTraverseToInclude],
     ],

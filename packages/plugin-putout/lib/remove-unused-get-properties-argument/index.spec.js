@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-unused-get-properties-argument', plugin],
     ],

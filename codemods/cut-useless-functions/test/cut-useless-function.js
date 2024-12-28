@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as cutUselessFunctions from '../lib/cut-useless-functions.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['cut-useless-functions', cutUselessFunctions],
     ],

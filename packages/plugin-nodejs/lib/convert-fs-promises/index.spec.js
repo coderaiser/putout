@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertFsPromises = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['nodejs/convert-fs-promises', convertFsPromises],
     ],

@@ -5,7 +5,6 @@ const removeOverrides = require('../remove-overrides-with-empty-rules');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-useless-properties', plugin],
     ],

@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertRunArgument = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['madrun/convert-run-argument', convertRunArgument],
     ],

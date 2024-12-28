@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const typescript = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     rules: {
         'typescript/rename-file-cts-to-ts': 'on',
     },

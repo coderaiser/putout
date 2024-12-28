@@ -1,5 +1,4 @@
 {
-    "printer": "putout",
     "match": {
         "README.md": {
             "typescript/remove-useless-types-from-constants": "off"

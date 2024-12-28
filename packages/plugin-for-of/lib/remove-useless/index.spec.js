@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeUselessForOf = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['for-of/remove-useless', removeUselessForOf],
     ],

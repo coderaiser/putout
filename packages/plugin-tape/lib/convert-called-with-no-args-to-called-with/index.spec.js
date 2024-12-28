@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convert = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/convert-called-with-no-args-to-called-with', convert],
     ],

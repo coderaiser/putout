@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertBooleanToString = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout-config/convert-boolean-to-string', convertBooleanToString],
     ],

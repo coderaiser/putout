@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const splitDestructuring = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['split-destructuring', splitDestructuring],
     ],

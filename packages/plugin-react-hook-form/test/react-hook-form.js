@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const reactHookForm = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['react-hook-form', reactHookForm],
     ],

@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeUselessContinue = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-useless-continue', removeUselessContinue],
     ],

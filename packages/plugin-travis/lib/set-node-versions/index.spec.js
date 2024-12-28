@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as setNodeVersion from './index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['travis/set-node-version', setNodeVersion],
     ],

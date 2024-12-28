@@ -1,5 +1,4 @@
 {
-    "printer": "putout",
     "rules": {
         "promises/remove-useless-async": "off"
     }

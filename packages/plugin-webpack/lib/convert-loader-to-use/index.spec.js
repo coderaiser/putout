@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertLoaderToUse = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['webpack/convert-loader-to-use', convertLoaderToUse],
     ],

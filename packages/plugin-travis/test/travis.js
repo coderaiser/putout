@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as travis from '../lib/index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['travis', travis],
     ],

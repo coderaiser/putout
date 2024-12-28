@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertIoCpToIoCopy = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['cloudcmd/convert-io-cp-to-io-copy', convertIoCpToIoCopy],
     ],

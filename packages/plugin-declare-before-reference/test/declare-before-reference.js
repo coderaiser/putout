@@ -12,7 +12,6 @@ const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
 const declare = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['declare-before-reference', declare],
     ],

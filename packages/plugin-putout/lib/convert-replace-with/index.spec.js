@@ -5,7 +5,6 @@ const convertReplaceWith = require('.');
 const {declare} = require('../index.js').rules;
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/convert-replace-with', convertReplaceWith],
     ],

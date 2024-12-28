@@ -62,6 +62,7 @@ npm i @putout/plugin-putout -D
 - ✅ [move-require-on-top-level](#move-require-on-top-level);
 - ✅ [remove-empty-array-from-process](#remove-empty-array-from-process);
 - ✅ [remove-unused-get-properties-argument](#remove-unused-get-properties-argument);
+- ✅ [remove-useless-printer-option](#remove-useless-printer-option);
 - ✅ [rename-operate-to-operator](#rename-operate-to-operator);
 - ✅ [replace-operate-with-operator](#replace-operate-with-operator);
 - ✅ [replace-test-message](#replace-test-message);
@@ -125,6 +126,7 @@ npm i @putout/plugin-putout -D
         "putout/replace-test-message": "on",
         "putout/remove-unused-get-properties-argument": "on",
         "putout/remove-empty-array-from-process": "on",
+        "putout/remove-useless-printer-option": "on",
         "putout/simplify-replace-template": "on"
     }
 }
@@ -1343,6 +1345,32 @@ const {
     parserPath,
     rulesPath,
 } = getProperties(__jsonPath, ['parser', 'rules', 'extends']);
+```
+
+## remove-useless-printer-option
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f176313cf67fd6d7138470385511319f/5b26aa45db21f250016d228b7bbabbb3c10b582b).
+`putout` printer used by default, so there is no need to pass it.
+
+### ❌ Example of incorrect code
+
+```js
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['remove-unchanged-zero-declarations', plugin],
+    ],
+});
+```
+
+### ✅ Example of correct code
+
+```js
+const test = createTest(__dirname, {
+    plugins: [
+        ['remove-unchanged-zero-declarations', plugin],
+    ],
+});
 ```
 
 ## simplify-replace-template

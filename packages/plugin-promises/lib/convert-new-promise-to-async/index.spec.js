@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convert = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['promises/convert-new-promise-to-async', convert],
     ],

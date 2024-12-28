@@ -5,7 +5,6 @@ const plugin = require('.');
 const removeUselessArrayFrom = require('../remove-useless-array-from');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['for-of/remove-useless-variables', plugin],
     ],

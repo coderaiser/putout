@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const rm = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-unused-private-fields', rm],
     ],

@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as applyNullishCoalescing from '../lib/apply-nullish-coalescing.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['apply-nullish-coalescing', applyNullishCoalescing],
     ],

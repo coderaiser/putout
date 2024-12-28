@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertQuotesToBacktics = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-quotes-to-backtics', convertQuotesToBacktics],
     ],

@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeConstant = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-constant', removeConstant],
     ],

@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const montag = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['montag', montag],
     ],

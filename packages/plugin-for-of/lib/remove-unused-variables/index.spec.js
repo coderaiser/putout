@@ -8,7 +8,6 @@ const removeUnusedForOfVariables = require('.');
 const removeUselessVariables = require('../remove-useless-variables');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-unused-for-of-variables', removeUnusedForOfVariables],
     ],

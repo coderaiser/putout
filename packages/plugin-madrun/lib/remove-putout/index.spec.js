@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removePutout = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['madrun/remove-putout', removePutout],
     ],

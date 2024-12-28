@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeBooleanFromLogicalExpressions = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-boolean-from-logical-expressions', removeBooleanFromLogicalExpressions],
     ],

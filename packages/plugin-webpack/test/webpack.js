@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const webpack = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['webpack', webpack],
     ],

@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const addArgs = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/includer', addArgs],
     ],

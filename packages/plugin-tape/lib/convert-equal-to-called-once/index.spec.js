@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertEqualToCalledOnce = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/convert-equal-to-called-once', convertEqualToCalledOnce],
     ],

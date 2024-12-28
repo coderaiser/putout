@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const shortenPutoutExports = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/shorten-putout-exports', shortenPutoutExports],
     ],

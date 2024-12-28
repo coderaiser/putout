@@ -5,7 +5,6 @@ const tape = require('@putout/plugin-tape');
 const putout = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout', putout],
     ],
@@ -265,5 +264,10 @@ test('plugin-putout: transform: add-path-arg-to-fix', (t) => {
 
 test('plugin-putout: transform: convert-include-to-traverse', (t) => {
     t.transform('convert-include-to-traverse');
+    t.end();
+});
+
+test('plugin-putout: transform: remove-useless-printer-option', (t) => {
+    t.transform('remove-useless-printer-option');
     t.end();
 });

@@ -1,5 +1,4 @@
 {
-    "printer": "putout",
     "rules": {
         "putout/apply-namespace-specifier": "off"
     }

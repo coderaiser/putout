@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const addAwaitToReImport = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/add-await-to-re-import', addAwaitToReImport],
     ],

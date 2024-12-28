@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertNodeToPathInGetTemplateValues = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/convert-node-to-path-in-get-template-values', convertNodeToPathInGetTemplateValues],
     ],

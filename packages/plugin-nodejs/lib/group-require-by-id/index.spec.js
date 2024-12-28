@@ -7,7 +7,6 @@ const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['group-require-by-id', plugin],
     ],

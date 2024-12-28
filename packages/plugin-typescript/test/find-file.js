@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const typescript = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     rules: {
         'typescript/find-file': ['on', {
             ignore: [],
@@ -21,7 +20,6 @@ test('plugin-typescript: transform: find-file', (t) => {
 });
 
 const testIgnore = createTest(__dirname, {
-    printer: 'putout',
     rules: {
         'typescript/find-file': ['on', {
             ignore: ['*.ts'],

@@ -6,7 +6,6 @@ const montag = require('montag');
 const tape = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape', tape],
     ],

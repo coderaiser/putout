@@ -5,7 +5,6 @@ const nodejs = require('@putout/plugin-nodejs');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['add-path-arg-to-fix', plugin],
     ],

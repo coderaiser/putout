@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const syncWithName = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/sync-with-name', syncWithName],
     ],

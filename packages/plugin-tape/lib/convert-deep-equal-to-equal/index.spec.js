@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertDeepEqualToEqual = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/convert-deep-equal-to-equal', convertDeepEqualToEqual],
     ],

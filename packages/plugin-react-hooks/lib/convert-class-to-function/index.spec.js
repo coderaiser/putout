@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertClassToFunction = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-class-to-function', convertClassToFunction],
     ],

@@ -1,5 +1,4 @@
 {
-    "printer": "putout",
     "match": {
         "*.md": {
             "convert-index-of-to-includes": "off"

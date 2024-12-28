@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const putoutConfig = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     rules: {
         'putout-config/remove-empty-file': 'on',
     },

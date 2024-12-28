@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const applyIf = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['conditions/apply-if-condition', applyIf],
     ],

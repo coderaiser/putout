@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeUselessRegexp = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['regexp/remove-useless-regexp', removeUselessRegexp],
     ],

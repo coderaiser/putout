@@ -5,7 +5,6 @@ const {createTest} = require('@putout/test');
 const entriesN = require('./index.js');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-for-to-for-of/entries-n', entriesN],
     ],

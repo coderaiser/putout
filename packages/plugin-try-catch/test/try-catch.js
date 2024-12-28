@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const tryCatch = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['try-catch', tryCatch],
     ],

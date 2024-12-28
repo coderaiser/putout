@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const applyAsTypeAssertions = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['typescript/apply-as-type-assertions', applyAsTypeAssertions],
     ],

@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as setHomepage from '../lib/set-homepage.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['set-homepage', setHomepage],
     ],

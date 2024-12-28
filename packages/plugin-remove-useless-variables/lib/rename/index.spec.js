@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const rename = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-useless-variables/rename', rename],
     ],

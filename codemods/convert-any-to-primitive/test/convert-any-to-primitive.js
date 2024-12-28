@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as convertAnyToPrimitive from '../lib/convert-any-to-primitive.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['convert-any-to-primitive', convertAnyToPrimitive],
     ],

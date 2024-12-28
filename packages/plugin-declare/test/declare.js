@@ -6,7 +6,6 @@ const montag = require('montag');
 const declare = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['declare', declare],
     ],

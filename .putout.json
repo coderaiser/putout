@@ -11,12 +11,7 @@
             "putout/apply-namespace-specifier": "off"
         },
         "**/rules": {
-            "putout": "on",
-            "putout/create-test": ["on", {
-                "add": [
-                    ["printer", "putout"]
-                ]
-            }]
+            "putout": "on"
         },
         "**/packages/plugin-*/*.md{json}": {
             "putout-config": "on"

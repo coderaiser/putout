@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as removeMadrunFromGitignore from '../lib/remove-legacy-from-gitignore.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['remove-madrun-from-gitignore', removeMadrunFromGitignore],
     ],

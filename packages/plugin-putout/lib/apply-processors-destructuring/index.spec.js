@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const applyProcessorsDestructuring = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/apply-processors-destructuring', applyProcessorsDestructuring],
     ],

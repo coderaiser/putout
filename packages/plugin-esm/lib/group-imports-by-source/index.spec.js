@@ -8,7 +8,6 @@ const plugin = require('..');
 const convertEsmToCommonJS = nodejs.rules['convert-esm-to-commonjs'];
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['group-imports-by-source', plugin],
     ],

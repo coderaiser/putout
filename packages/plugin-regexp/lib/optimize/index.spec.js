@@ -5,7 +5,6 @@ const optimize = require('.');
 const convertReplaceToReplaceAll = require('../convert-replace-to-replace-all');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['regexp/optimize', optimize],
     ],

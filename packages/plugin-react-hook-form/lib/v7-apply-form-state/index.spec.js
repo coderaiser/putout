@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const apply = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['apply-form-state', apply],
     ],

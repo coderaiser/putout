@@ -5,7 +5,6 @@ const plugin = require('.');
 const match = require('../convert-export-match-to-declaration');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-useless-slice', plugin],
     ],

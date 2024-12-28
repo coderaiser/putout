@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as gitignore from '../lib/gitignore.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['gitignore', gitignore],
     ],

@@ -6,7 +6,6 @@ const typescript = require('@putout/plugin-typescript');
 const remove = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['strict-mode/remove', remove],
     ],

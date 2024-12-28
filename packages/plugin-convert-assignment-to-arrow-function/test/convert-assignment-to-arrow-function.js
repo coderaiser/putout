@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertAssignmentToArrowFunction = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-assignment-to-arrow-function', convertAssignmentToArrowFunction],
     ],

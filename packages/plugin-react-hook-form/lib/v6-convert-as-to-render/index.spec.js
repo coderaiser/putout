@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertAsToRender = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-as-to-render', convertAsToRender],
     ],

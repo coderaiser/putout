@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const callRun = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['call-run', callRun],
     ],

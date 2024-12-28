@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertNycToC8 = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-nyc-to-c8', convertNycToC8],
     ],

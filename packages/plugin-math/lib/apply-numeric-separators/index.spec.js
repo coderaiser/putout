@@ -6,7 +6,6 @@ const webpack = require('@putout/plugin-webpack');
 const applyNumericSeparators = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['math/apply-numeric-separators', applyNumericSeparators],
     ],

@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const addFixLint = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['add-fix-lint', addFixLint],
     ],

@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as setHomepage from '../lib/set-commit-type.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['set-commit-type', setHomepage],
     ],

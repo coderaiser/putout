@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const regexp = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['regexp', regexp],
     ],

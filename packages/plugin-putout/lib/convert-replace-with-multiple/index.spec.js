@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const replaceWithMultiple = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/replace-with-multiple', replaceWithMultiple],
     ],

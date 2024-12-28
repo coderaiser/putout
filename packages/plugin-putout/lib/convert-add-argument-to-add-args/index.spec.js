@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertAddArgumentToAddArgs = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/convert-add-argument-to-add-args', convertAddArgumentToAddArgs],
     ],

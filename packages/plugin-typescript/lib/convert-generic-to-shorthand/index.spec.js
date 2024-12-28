@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertGenericToShorthand = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['typescript/convert-generic-to-shorthand', convertGenericToShorthand],
     ],

@@ -5,7 +5,6 @@ const removeUnusedTypes = require('.');
 const removeUselessTypes = require('..').rules['remove-useless-types'];
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['typescript/remove-unused-types', removeUnusedTypes],
     ],

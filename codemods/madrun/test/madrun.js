@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as codemodMadrun from '../lib/index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['codemod-madrun', codemodMadrun],
     ],

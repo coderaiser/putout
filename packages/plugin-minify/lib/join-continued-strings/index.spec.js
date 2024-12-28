@@ -3,7 +3,6 @@ import * as plugin from './index.js';
 import * as types from '../types/index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['join-continued-strings', plugin],
     ],

@@ -1,5 +1,4 @@
 {
-    "printer": "putout",
     "match": {
         "*.md": {
             "reuse-duplicate-init": "off",

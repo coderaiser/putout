@@ -9,7 +9,6 @@ const removeUselessEscape = require('..');
 const addFixLint = madrun.rules['add-fix-lint'];
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-useless-escape', removeUselessEscape],
     ],

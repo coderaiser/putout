@@ -5,7 +5,6 @@ const montag = require('montag');
 const removeEmptyPattern = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-empty-pattern', removeEmptyPattern],
     ],

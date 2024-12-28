@@ -5,14 +5,12 @@ const {createTest} = require('@putout/test');
 const applyShorthandProperties = require('../lib/apply-shorthand-properties.js');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['apply-shorthand-properties', applyShorthandProperties],
     ],
 });
 
 const testWithRemove = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['apply-shorthand-properties', applyShorthandProperties],
         ['rm-unused-vars', removeUnusedVariables],

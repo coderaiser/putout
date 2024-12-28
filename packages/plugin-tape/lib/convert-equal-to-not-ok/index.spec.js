@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertEqualToNotOk = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/convert-equal-to-not-ok', convertEqualToNotOk],
     ],

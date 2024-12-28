@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertApplyToSpread = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-apply-to-spread', convertApplyToSpread],
     ],

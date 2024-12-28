@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const applyEarlyReturn = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['apply-early-return', applyEarlyReturn],
     ],

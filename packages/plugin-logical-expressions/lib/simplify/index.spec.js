@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const simplifyLogicalExpression = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['simplify-logical-expression', simplifyLogicalExpression],
     ],

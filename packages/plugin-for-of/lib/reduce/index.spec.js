@@ -7,7 +7,6 @@ const removeUnreferencedVariables = require('@putout/plugin-remove-unreferenced-
 const convertMapToForOf = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-reduce-to-for-of', convertMapToForOf],
     ],

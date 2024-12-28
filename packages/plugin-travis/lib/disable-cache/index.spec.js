@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as disableNpmCache from './index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['travis/disable-npm-cache', disableNpmCache],
     ],

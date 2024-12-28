@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeDuplicateKeys = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-duplicate-keys', removeDuplicateKeys],
     ],

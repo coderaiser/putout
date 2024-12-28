@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const typescript = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['typescript', typescript],
     ],

@@ -6,7 +6,6 @@ const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
 const removeEmptyBlock = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-empty-block', removeEmptyBlock],
     ],

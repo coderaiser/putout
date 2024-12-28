@@ -5,6 +5,7 @@ const {
     isNumericLiteral,
     isExportNamedDeclaration,
 } = types;
+
 const {remove} = operator;
 
 module.exports.report = () => 'Avoid unchanged zero declarations';

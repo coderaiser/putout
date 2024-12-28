@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertReplaceToFunction = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/convert-replace-to-function', convertReplaceToFunction],
     ],

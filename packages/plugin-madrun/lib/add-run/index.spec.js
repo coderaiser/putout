@@ -7,7 +7,6 @@ const removeUnusedExpressions = require('@putout/plugin-remove-unused-expression
 const addRun = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['add-run', addRun],
     ],

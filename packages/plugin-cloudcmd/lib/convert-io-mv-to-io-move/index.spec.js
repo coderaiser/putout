@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertIoMvToIoMove = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['cloudcmd/convert-io-mv-to-io-move', convertIoMvToIoMove],
     ],

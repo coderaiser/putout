@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeUselessArrayConstructor = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-useless-array-constructor', removeUselessArrayConstructor],
     ],

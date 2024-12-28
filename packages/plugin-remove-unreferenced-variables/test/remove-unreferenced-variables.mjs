@@ -7,7 +7,6 @@ const mergeVariables = minify.rules['merge-variables'];
 const forOfReduce = forOf.rules.reduce;
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['remove-unreferenced-variables', removeUnreferencedVariables],
     ],

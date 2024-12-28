@@ -15,7 +15,6 @@ const noop = () => {};
 const {remove} = operator;
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['declare-after-require', plugin],
     ],

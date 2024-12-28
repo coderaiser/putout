@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertTopLevelReturn = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-top-level-return', convertTopLevelReturn],
     ],

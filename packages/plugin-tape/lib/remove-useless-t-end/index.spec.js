@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeUselessTEnd = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/remove-useless-t-end', removeUselessTEnd],
     ],

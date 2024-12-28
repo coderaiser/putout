@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeNodeVersions = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['browserlist/remove-node-versions', removeNodeVersions],
     ],

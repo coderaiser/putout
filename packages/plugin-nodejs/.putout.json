@@ -1,12 +1,4 @@
 {
-    "printer": "putout",
-    "rules": {
-        "putout/create-test": ["on", {
-            "add": [
-                ["printer", "putout"]
-            ]
-        }]
-    },
     "match": {
         ".filesystem.json": {
             "eslint/convert-rc-to-flat": "on"

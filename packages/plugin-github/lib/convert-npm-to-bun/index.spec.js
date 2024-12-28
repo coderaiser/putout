@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const plugin = require('./index.js');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-npm-to-bun', plugin],
     ],

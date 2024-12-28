@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeEmptyArgument = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-empty-argument', removeEmptyArgument],
     ],

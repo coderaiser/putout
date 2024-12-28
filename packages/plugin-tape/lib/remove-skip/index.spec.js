@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeSkip = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/remove-skip', removeSkip],
     ],

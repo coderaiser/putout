@@ -5,7 +5,6 @@ import * as plugin from './index.js';
 import * as shortenNames from '../shorten-names/index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['merge-variables', plugin],
     ],

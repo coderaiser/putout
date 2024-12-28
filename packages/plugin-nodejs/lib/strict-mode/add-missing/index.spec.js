@@ -8,7 +8,6 @@ const nodejs = require('../..');
 const add = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['strict-mode/add', add],
     ],
@@ -70,7 +69,6 @@ test('plugin-strict-mode: add: await', (t) => {
 });
 
 const testNodejs = createTest(__dirname, {
-    printer: 'putout',
     rules: {
         'nodejs/convert-commonjs-to-esm': 'off',
     },

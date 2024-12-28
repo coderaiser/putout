@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const jest = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/jest', jest],
     ],

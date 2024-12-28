@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const setNodeVersion = require('./index.js');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['github/set-node-version', setNodeVersion],
     ],

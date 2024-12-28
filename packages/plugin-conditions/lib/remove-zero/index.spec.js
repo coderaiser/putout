@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeBoolean = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['conditions/remove-zero', removeBoolean],
     ],

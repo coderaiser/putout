@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const eslintPlugin = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['eslint-plugin', eslintPlugin],
     ],

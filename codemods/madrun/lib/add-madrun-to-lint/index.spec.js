@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as addMadrunToLint from './index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['add-madrun-to-lint', addMadrunToLint],
     ],

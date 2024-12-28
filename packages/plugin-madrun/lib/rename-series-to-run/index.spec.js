@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const renameSeriesToRun = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['madrun/rename-series-to-run', renameSeriesToRun],
     ],

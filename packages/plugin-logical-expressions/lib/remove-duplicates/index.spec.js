@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const LogicalExpression = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['-logical-expression', LogicalExpression],
     ],

@@ -9,7 +9,6 @@ const convertForEachToForOf = forOf.rules['for-each'];
 const removeUselessVariables = forOf.rules['remove-useless-variables'];
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['conditions/convert-comparison-to-boolean', convertComparisonToBoolean],
     ],

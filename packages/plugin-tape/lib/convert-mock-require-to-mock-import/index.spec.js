@@ -5,7 +5,6 @@ const convertMockRequireToMockImport = require('.');
 const tape = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-mock-require-to-mock-import', convertMockRequireToMockImport],
     ],

@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as madrunRenamePredefinedEslintToPutout from './index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['madrun/rename-predefined-eslint-to-putout', madrunRenamePredefinedEslintToPutout],
     ],

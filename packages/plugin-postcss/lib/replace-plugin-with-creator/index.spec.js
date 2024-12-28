@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const replacePluginWithCreator = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['postcss/replace-plugin-with-creator', replacePluginWithCreator],
     ],

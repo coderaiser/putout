@@ -41,7 +41,6 @@ You can also pass all 🐊**Putout** options:
 
 ```js
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['remove-unused-variables', rmVars],
     ],
@@ -393,9 +392,7 @@ test('test: eslint: noProcess', async ({noProcess}) => {
 test('test: eslint: noProcess', async ({noProcess}) => {
     await noProcess('operator-linebreak-fix', {
         rules: {
-            'putout/putout': ['error', {
-                printer: 'putout',
-            }],
+            'putout/putout': ['error', {}],
         },
     });
 });

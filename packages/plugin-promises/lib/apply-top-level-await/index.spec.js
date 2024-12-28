@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const applyTopLevelAwait = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['apply-top-level-await', applyTopLevelAwait],
     ],

@@ -6,7 +6,6 @@ const rmUnused = require('@putout/plugin-remove-unused-variables');
 const reactHooks = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['react-hooks', reactHooks],
     ],

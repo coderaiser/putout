@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const renameEsilntToPutout = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['madrun/rename-esilnt-to-putout', renameEsilntToPutout],
     ],

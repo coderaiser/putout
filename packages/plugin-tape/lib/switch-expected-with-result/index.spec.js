@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const switchExpectedWithResult = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/switch-expected-with-result', switchExpectedWithResult],
     ],

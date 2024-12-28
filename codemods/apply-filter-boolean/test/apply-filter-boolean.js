@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as applyFilterBoolean from '../lib/apply-filter-boolean.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['apply-filter-boolean', applyFilterBoolean],
     ],

@@ -9,7 +9,6 @@ const CHECK_ASSERTIONS_COUNT = {
 };
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-simple-filesystem-to-filesystem', plugin],
     ],

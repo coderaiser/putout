@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const postcss = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['postcss', postcss],
     ],

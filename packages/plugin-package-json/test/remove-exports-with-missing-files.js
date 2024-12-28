@@ -4,7 +4,6 @@ import * as packageJson from '../lib/index.js';
 const [, findFile] = packageJson.rules['remove-exports-with-missing-files'];
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     rules: {
         'package-json/remove-exports-with-missing-files': 'on',
     },

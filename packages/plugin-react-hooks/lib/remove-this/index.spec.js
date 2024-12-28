@@ -5,7 +5,6 @@ const {createTest} = require('@putout/test');
 const removeThis = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-this', removeThis],
     ],

@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const applyObjectDestructuring = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['apply-object-destructuring', applyObjectDestructuring],
     ],

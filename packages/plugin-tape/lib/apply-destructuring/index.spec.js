@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const applyStub = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/apply-destructuring', applyStub],
     ],

@@ -7,7 +7,6 @@ const {minify} = require('./minify.spec');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['bundle-css', plugin],
     ],

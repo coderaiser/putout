@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const applyClearErrors = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['apply-clear-errors', applyClearErrors],
     ],

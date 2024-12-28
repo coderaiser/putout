@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertOkToMatch = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/convert-ok-to-match', convertOkToMatch],
     ],

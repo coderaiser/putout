@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const renameMethodUnderScore = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['rename-method-under-score', renameMethodUnderScore],
     ],

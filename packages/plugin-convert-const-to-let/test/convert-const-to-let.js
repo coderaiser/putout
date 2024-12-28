@@ -6,7 +6,6 @@ const splitVariableDeclarations = require('@putout/plugin-split-variable-declara
 const plugin = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-const-to-let', plugin],
     ],

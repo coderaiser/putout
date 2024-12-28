@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeUselessOperand = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-useless-operand', removeUselessOperand],
     ],

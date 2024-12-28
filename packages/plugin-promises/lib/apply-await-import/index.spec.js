@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const awaitImport = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['await-import', awaitImport],
     ],

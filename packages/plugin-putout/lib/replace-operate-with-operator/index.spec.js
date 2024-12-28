@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const replaceOperateWithOperator = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/replace-operate-with-operator', replaceOperateWithOperator],
     ],

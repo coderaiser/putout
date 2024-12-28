@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertPutoutTestToCreateTest = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/convert-putout-test-to-create-test', convertPutoutTestToCreateTest],
     ],

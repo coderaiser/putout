@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertProcessToFind = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/convert-process-to-find', convertProcessToFind],
     ],

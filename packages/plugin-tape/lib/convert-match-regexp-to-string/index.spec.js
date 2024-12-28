@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertMatchRegexpToString = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/convert-match-regexp-to-string', convertMatchRegexpToString],
     ],

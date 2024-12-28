@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const optimize = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['regexp/apply-starts-with', optimize],
     ],

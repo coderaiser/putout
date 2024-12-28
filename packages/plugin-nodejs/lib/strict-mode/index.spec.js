@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const strictMode = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['strict-mode', strictMode],
     ],

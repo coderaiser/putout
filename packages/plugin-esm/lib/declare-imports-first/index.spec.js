@@ -7,7 +7,6 @@ const plugin = require('.');
 const {remove} = operator;
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['declare-imports-first', plugin],
     ],

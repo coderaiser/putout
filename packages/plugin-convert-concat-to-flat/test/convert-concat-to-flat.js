@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertConcatToFlat = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-concat-to-flat', convertConcatToFlat],
     ],

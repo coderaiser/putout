@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertStateToHooks = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-state-to-hooks', convertStateToHooks],
     ],

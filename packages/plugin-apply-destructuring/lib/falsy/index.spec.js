@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const falsy = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['apply-array-destructuring/falsy', falsy],
     ],

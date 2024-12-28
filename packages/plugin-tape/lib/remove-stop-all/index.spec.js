@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeStopAll = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/remove-stop-all', removeStopAll],
     ],

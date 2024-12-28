@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const filesystem = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     rules: {
         'filesystem/move-referenced-file': ['on', {
             name: 'hello.js',

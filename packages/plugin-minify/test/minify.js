@@ -4,7 +4,6 @@ import * as declare from '@putout/plugin-declare';
 import * as minify from '../lib/index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['minify', minify],
     ],

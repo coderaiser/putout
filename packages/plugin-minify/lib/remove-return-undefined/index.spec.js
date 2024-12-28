@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as convertFindToTraverse from './index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['remove-return-undefined', convertFindToTraverse],
     ],

@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeCheckDuplicatesFromTest = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-check-duplicates-from-test', removeCheckDuplicatesFromTest],
     ],

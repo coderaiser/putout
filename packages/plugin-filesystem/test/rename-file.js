@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const filesystem = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     rules: {
         'filesystem/rename-file': ['on', {
             from: 'README.md',

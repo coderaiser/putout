@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertLintLib = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-lint-lib', convertLintLib],
     ],

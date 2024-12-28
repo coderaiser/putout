@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const setReportLcov = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['set-report-lcov', setReportLcov],
     ],

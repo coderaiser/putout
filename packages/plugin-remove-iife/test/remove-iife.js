@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeIife = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-iife', removeIife],
     ],

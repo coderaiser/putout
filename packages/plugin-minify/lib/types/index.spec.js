@@ -3,7 +3,6 @@ import conditions from '@putout/plugin-conditions';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['types', plugin],
     ],

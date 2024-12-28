@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const filesystem = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     rules: {
         'filesystem/replace-cwd': ['on', {
             from: '/home/coderaiser/putout',

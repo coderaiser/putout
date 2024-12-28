@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as removeNyc from './index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['package-json/add-type', removeNyc],
     ],

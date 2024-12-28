@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const removeNestedPattern = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-empty/nested-pattern', removeNestedPattern],
     ],

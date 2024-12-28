@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const generators = require('..');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['generators', generators],
     ],

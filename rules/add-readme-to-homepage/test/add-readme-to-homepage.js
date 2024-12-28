@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as setHomepage from '../lib/add-readme-to-homepage.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['add-readme-to-homepage', setHomepage],
     ],

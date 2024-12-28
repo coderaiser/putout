@@ -7,7 +7,6 @@ const noop = () => {};
 const {remove} = operator;
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['remove-duplicates-from-union', removeDuplicatesFromUnion],
     ],

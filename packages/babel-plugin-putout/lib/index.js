@@ -12,11 +12,9 @@ module.exports = () => {
     let code = '';
     
     return {
-        name: 'putout',
         visitor: {
             Program(path, {filename, opts}) {
                 const options = parseOptions({
-                    printer: 'putout',
                     filename,
                     options: opts,
                 });
@@ -32,9 +30,7 @@ module.exports = () => {
         
         generatorOverride(ast) {
             ast.program.directives = [];
-            const code = print(ast, {
-                printer: 'putout',
-            });
+            const code = print(ast, {});
             
             return {
                 code,

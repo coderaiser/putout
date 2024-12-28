@@ -12,7 +12,6 @@ const {remove} = operator;
 const noop = () => {};
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['merge-duplicate-imports', merge],
     ],

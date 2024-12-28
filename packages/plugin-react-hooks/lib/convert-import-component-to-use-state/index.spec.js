@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertImportComponentToUseState = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['convert-import-component-to-use-state', convertImportComponentToUseState],
     ],

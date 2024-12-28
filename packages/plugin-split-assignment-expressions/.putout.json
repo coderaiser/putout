@@ -1,5 +1,4 @@
 {
-    "printer": "putout",
     "match": {
         "README.md": {
             "split-assignment-expressions": "off"

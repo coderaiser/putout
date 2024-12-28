@@ -8,7 +8,6 @@ const reuseDuplicateInit = require('..');
 const declareStub = require('@putout/plugin-tape').rules.declare;
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['reuse-duplicate-init', reuseDuplicateInit],
     ],

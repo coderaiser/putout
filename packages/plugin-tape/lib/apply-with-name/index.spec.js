@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const applyWithName = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['tape/apply-with-name', applyWithName],
     ],

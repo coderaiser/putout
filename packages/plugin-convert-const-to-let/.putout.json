@@ -1,5 +1,4 @@
 {
-    "printer": "putout",
     "match": {
         "README.md": {
             "convert-const-to-let": "off"

@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const renameOperateToOperator = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/rename-operate-to-operator', renameOperateToOperator],
     ],

@@ -8,7 +8,6 @@ const putout = require('@putout/plugin-putout');
 const extractObjectProperties = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['extract-object-properties', extractObjectProperties],
     ],

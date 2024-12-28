@@ -2,7 +2,6 @@ import {createTest} from '@putout/test';
 import * as applyReplaceAll from '../lib/apply-replace-all.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'putout',
     plugins: [
         ['apply-replace-all', applyReplaceAll],
     ],

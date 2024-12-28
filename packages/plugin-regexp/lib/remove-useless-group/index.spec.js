@@ -7,7 +7,6 @@ const applyLiteralNotation = require('../apply-literal-notation');
 const optimize = require('../optimize');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['regexp/remove-useless-group', removeUselessGroup],
     ],

@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertTraverseToInclude = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/convert-traverse-to-include', convertTraverseToInclude],
     ],

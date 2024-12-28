@@ -4,7 +4,6 @@ const {createTest} = require('@putout/test');
 const convertBabelTypes = require('.');
 
 const test = createTest(__dirname, {
-    printer: 'putout',
     plugins: [
         ['putout/convert-babel-types', convertBabelTypes],
     ],
