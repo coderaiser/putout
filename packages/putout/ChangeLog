@@ -1,3 +1,12 @@
+2024.12.29, v37.8.2
+
+feature:
+- 4a111530f putout: @putout/plugin-for-of v7.0.0
+- b55c6f122 @putout/plugin-for-of: drop support of 🐊 < 37
+- 34cce1055 @putout/plugin-for-of: for-entries-n: i changed inside loop: exclude
+- d563d3431 @putout/plugin-conditions: reverse: add
+- 3d7d816da @putout/plugin-math: remove-unchanged-zero-declarations: exclude reference parents: CallExpression, ObjectProperty
+
 2024.12.28, v37.8.1
 
 feature:
