@@ -22,6 +22,7 @@ npm i @putout/plugin-conditions -D
 - ✅ [convert-arrow-to-condition](#convert-arrow-to-condition);
 - ✅ [evaluate](#evaluate);
 - ✅ [merge-if-statements](#merge-if-statements);
+- ✅ [reverse](#reverse);
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-constant](#remove-constant);
 - ✅ [remove-same-values-condition](hremove-same-values-condition);
@@ -42,6 +43,7 @@ npm i @putout/plugin-conditions -D
         "conditions/convert-equal-to-strict-equal": "on",
         "conditions/convert-arrow-to-condition": "on",
         "conditions/evaluate": "on",
+        "conditions/reverse": "on",
         "conditions/remove-boolean": "on",
         "conditions/remove-constant": "on",
         "conditions/remove-zero": "on",
@@ -243,6 +245,22 @@ const a = [];
 const c = a;
 
 console.log(a);
+```
+
+## reverse
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fabfc16a5a5d1002c721fc2dfc31474b/8d1de98533ef439e56e8784f54a34c3928a074fa).
+
+### ❌ Example of incorrect code
+
+```js
+const check = (references) => !(references > 3);
+```
+
+### ✅ Example of correct code
+
+```js
+const check = (references) => references <= 3;
 ```
 
 ## remove-boolean

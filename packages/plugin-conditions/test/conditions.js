@@ -78,3 +78,8 @@ test('plugin-conditions: transform: convert-arrow-to-condition', (t) => {
     t.transform('convert-arrow-to-condition');
     t.end();
 });
+
+test('plugin-conditions: transform: reverse-condition', (t) => {
+    t.transform('reverse-condition');
+    t.end();
+});

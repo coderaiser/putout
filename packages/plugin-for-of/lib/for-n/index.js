@@ -43,7 +43,7 @@ module.exports.filter = (path) => {
     
     const {references} = path.scope.bindings[__i.name];
     
-    return !(references > 3);
+    return references <= 3;
 };
 
 module.exports.replace = () => ({
