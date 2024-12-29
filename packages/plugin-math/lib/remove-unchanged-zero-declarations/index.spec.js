@@ -33,3 +33,8 @@ test('math: remove-unchanged-zero-declarations: no report: call', (t) => {
     t.noReport('call');
     t.end();
 });
+
+test('math: remove-unchanged-zero-declarations: no report: return', (t) => {
+    t.noReport('return');
+    t.end();
+});

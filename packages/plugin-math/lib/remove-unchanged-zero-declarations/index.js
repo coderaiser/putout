@@ -2,10 +2,9 @@
 
 const {operator, types} = require('putout');
 const {
-    isObjectProperty,
     isNumericLiteral,
     isExportNamedDeclaration,
-    isCallExpression,
+    isBinaryExpression,
 } = types;
 
 const {remove} = operator;
@@ -40,16 +39,13 @@ module.exports.traverse = ({push}) => ({
             referencePaths,
         } = binding;
         
-        for (const {parent} of referencePaths) {
-            if (isCallExpression(parent))
-                return;
-            
-            if (isObjectProperty(parent))
-                return;
-        }
-        
         if (constantViolations.length)
             return;
+        
+        for (const {parent} of referencePaths) {
+            if (!isBinaryExpression(parent))
+                return;
+        }
         
         push({
             path,
