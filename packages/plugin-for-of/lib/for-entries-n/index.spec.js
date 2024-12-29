@@ -15,6 +15,11 @@ test('plugin-convert-for-to-for-of: entries-n: report', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-to-for-of: entries-n: no report: i-changed', (t) => {
+    t.noReport('i-changed');
+    t.end();
+});
+
 test('plugin-convert-for-to-for-of: entries-n: transform: entries-n', (t) => {
     t.transform('entries-n');
     t.end();

@@ -35,6 +35,14 @@ module.exports.filter = (path) => {
     const [first] = body.body;
     const {__i, __n} = getTemplateValues(path, forLoopToN);
     
+    const {
+        constantViolations,
+        references,
+    } = path.scope.bindings[__i.name];
+    
+    if (constantViolations.length > 1)
+        return false;
+    
     if (!compare(first, assignIterable(__i)))
         return false;
     
@@ -45,8 +53,6 @@ module.exports.filter = (path) => {
     
     if (nBinding.references > 1)
         return false;
-    
-    const {references} = path.scope.bindings[__i.name];
     
     return references > 3;
 };
