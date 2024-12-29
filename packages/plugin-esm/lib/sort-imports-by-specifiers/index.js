@@ -35,6 +35,9 @@ module.exports.traverse = ({push}) => ({
         if (source.value.startsWith('node:') && !nextPath.node.source.value.startsWith('node:'))
             return;
         
+        if (source.value.startsWith('#') && !nextPath.node.source.value.startsWith('#'))
+            return;
+        
         push({
             path,
             nextPath,

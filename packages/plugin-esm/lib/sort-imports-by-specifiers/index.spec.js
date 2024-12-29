@@ -29,6 +29,11 @@ test('putout: sort-imports-by-specifiers: transform', (t) => {
     t.end();
 });
 
+test('putout: sort-imports-by-specifiers: no transform: hash', (t) => {
+    t.noTransform('hash');
+    t.end();
+});
+
 test('putout: sort-imports-by-specifiers: three', (t) => {
     t.noTransform('three');
     t.end();
