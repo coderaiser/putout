@@ -31,6 +31,7 @@ npm i @putout/plugin-for-of
 - ✅ [remove-useless](#remove-useless);
 - ✅ [remove-useless-array-from](#remove-useless-array-from);
 - ✅ [remove-useless-variables](#remove-useless-variables);
+- ✅ [to-for-n](#to-for-n);
 
 ## Configuration
 
@@ -48,7 +49,8 @@ npm i @putout/plugin-for-of
         "for-of/remove-useless-variables": ["on", {
             "maxProperties": 4
         }],
-        "for-of/for": "on"
+        "for-of/for": "on",
+        "for-of/to-for-n": "on"
     }
 }
 ```
@@ -346,6 +348,32 @@ for (let i = 0; i < n; i++) {
 ```js
 for (const [i, item] of array.entries()) {
     console.log(i, item);
+}
+```
+
+### to-for-n
+
+> The `entries()` method of `Array` instances returns a new array iterator object that contains the key/value pairs for each index in the array.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries)
+
+Index overwrites on each iteration so when it modified inside loop it has no effect so `for` should be used in this case. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/635e6c8e99c1969a731e1502a70abf75/5a25ec70cf329da098ae971f46003bbe2567a111).
+
+#### ❌ Example of incorrect code
+
+```js
+for (let [i, token] of tokens.entries()) {
+    ++i;
+}
+```
+
+#### ✅ Example of correct code
+
+```js
+const n = tokens.length;
+
+for (let i = 0; i < n; i++) {
+    ++i;
 }
 ```
 

@@ -14,6 +14,7 @@ const removeUselessVariables = require('./remove-useless-variables');
 const removeUselessArrayFrom = require('./remove-useless-array-from');
 const removeUnusedVariables = require('./remove-unused-variables');
 const addMissingDeclaration = require('./add-missing-declaration');
+const toForN = require('./to-for-n');
 
 module.exports.rules = {
     map,
@@ -30,4 +31,5 @@ module.exports.rules = {
     'remove-useless-array-from': removeUselessArrayFrom,
     'remove-unused-variables': removeUnusedVariables,
     'add-missing-declaration': addMissingDeclaration,
+    'to-for-n': toForN,
 };

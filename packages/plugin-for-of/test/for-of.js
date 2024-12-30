@@ -58,3 +58,8 @@ test('plugin-for-of: transform: add-missing-declaration', (t) => {
     t.transform('add-missing-declaration');
     t.end();
 });
+
+test('plugin-for-of: transform: to-for-n', (t) => {
+    t.transform('to-for-n');
+    t.end();
+});
