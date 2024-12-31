@@ -271,3 +271,8 @@ test('plugin-putout: transform: remove-useless-printer-option', (t) => {
     t.transform('remove-useless-printer-option');
     t.end();
 });
+
+test('plugin-putout: transform: add-path-arg-to-visitors', (t) => {
+    t.transform('add-path-arg-to-visitors');
+    t.end();
+});

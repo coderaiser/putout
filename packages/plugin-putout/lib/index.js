@@ -55,6 +55,7 @@ const addPlacesToComparePlaces = require('./add-places-to-compare-places');
 const addPathArgToFix = require('./add-path-arg-to-fix');
 const convertIncludeToTraverse = require('./convert-include-to-traverse');
 const removeUselessPrinterOption = require('./remove-useless-printer-option');
+const addPathArgToVisitors = require('./add-path-arg-to-visitors');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -112,4 +113,5 @@ module.exports.rules = {
     'add-path-arg-to-fix': addPathArgToFix,
     'convert-include-to-traverse': convertIncludeToTraverse,
     'remove-useless-printer-option': removeUselessPrinterOption,
+    'add-path-arg-to-visitors': addPathArgToVisitors,
 };

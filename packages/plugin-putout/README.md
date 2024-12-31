@@ -17,6 +17,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-index-to-import](#add-index-to-import);
 - ✅ [add-places-to-compare-places](#add-places-to-compare-places);
 - ✅ [add-path-arg-to-fix](#add-path-arg-to-fix);
+- ✅ [add-path-arg-to-visitors](#add-path-arg-to-visitors);
 - ✅ [add-test-args](#add-test-args);
 - ✅ [add-traverse-args](#add-traverse-args);
 - ✅ [add-track-file](#add-track-file);
@@ -76,6 +77,7 @@ npm i @putout/plugin-putout -D
     "rules": {
         "putout/add-places-to-compare-places": "on",
         "putout/add-path-arg-to-fix": "on",
+        "putout/add-path-arg-to-visitors": "on",
         "putout/add-test-args": "on",
         "putout/add-traverse-args": "on",
         "putout/add-track-file": "on",
@@ -864,6 +866,30 @@ export const fix = () => {
 export const fix = (path) => {
     path.remove();
 };
+```
+
+## add-path-arg-to-visitors
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e20eb16668b2ebbceca1a03cde859e93/fee08d6dbb6aa4d835adacc8e9de4d994fd34848).
+
+### ❌ Example of incorrect code
+
+```js
+export const traverse = () => ({
+    TSUnionType() {
+        console.log(path);
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const traverse = () => ({
+    TSUnionType(path) {
+        console.log(path);
+    },
+});
 ```
 
 ## add-test-args
