@@ -83,3 +83,8 @@ test('plugin-conditions: transform: reverse-condition', (t) => {
     t.transform('reverse-condition');
     t.end();
 });
+
+test('plugin-conditions: transform: wrap-with-block', (t) => {
+    t.transform('wrap-with-block');
+    t.end();
+});

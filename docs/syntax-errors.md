@@ -273,3 +273,14 @@ a && (b = a);
 ```
 
 </details>
+
+<details><summary>wrap with block</summary>
+
+```diff
+-if (a)
++if (a) {
+    const b = 5;
++}
+```
+
+</details>

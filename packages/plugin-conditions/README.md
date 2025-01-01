@@ -29,6 +29,7 @@ npm i @putout/plugin-conditions -D
 - ✅ [remove-useless-else](#remove-ureless-else);
 - ✅ [remove-zero](#remove-zero);
 - ✅ [simplify](#simplify);
+- ✅ [wrap-with-block](#wrap-with-block);
 
 ## Config
 
@@ -49,7 +50,9 @@ npm i @putout/plugin-conditions -D
         "conditions/remove-zero": "on",
         "conditions/remove-useless-else": "on",
         "conditions/remove-same-values-condition": "on",
-        "conditions/merge-if-statements": "on"
+        "conditions/merge-if-statements": "on",
+        "conditions/simplify": "on",
+        "conditions/wrap-with-block": "on"
     }
 }
 ```
@@ -428,6 +431,28 @@ for (const [i, el] of entries(elements)) {
     }
     
     remove(path);
+}
+```
+
+## wrap-with-block
+
+> If you use a declaration instead of a statement, it would be a `SyntaxError`. For example, a `let` declaration is not a statement, so you can't use it in its bare form as the body of an if statement.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations)
+
+### ❌ Example of incorrect code
+
+```js
+const a = 5;
+
+if (a) {}
+```
+
+### ✅ Example of correct code
+
+```js
+if (a) {
+    const a = 5;
 }
 ```
 
