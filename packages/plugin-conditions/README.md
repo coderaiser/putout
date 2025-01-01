@@ -440,6 +440,8 @@ for (const [i, el] of entries(elements)) {
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations)
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/256b1b6a904b0352c3a2716d365185ca/fac1c6365c01539392c674e2ca7468ee062e73e8).
+
 ### ❌ Example of incorrect code
 
 ```js
