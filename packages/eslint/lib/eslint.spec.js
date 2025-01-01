@@ -361,6 +361,25 @@ test('putout: eslint: enable putout', async (t) => {
     t.end();
 });
 
+test('putout: eslint: empty output', async (t) => {
+    const config = {
+        rules: {
+            semi: 'off',
+        },
+    };
+    
+    const [source] = await eslint({
+        name: join(__dirname, 'hello.js'),
+        code: `var a = 1;`,
+        fix: true,
+        putout: true,
+        config,
+    });
+    
+    t.equal(source, '');
+    t.end();
+});
+
 test('putout: eslint: convertToPlace: control sequences', async (t) => {
     const result = await eslint.convertToPlace({
         ruleId: '@typescript-eslint/naming-convention',

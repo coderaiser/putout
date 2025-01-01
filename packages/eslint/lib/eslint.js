@@ -99,17 +99,14 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         return noChanges;
     
     const [report] = results;
-    const {output} = report;
+    const {output = code} = report;
     
     const places = report
         .messages
         .map(convertToPlace)
         .filter(Boolean);
     
-    return [
-        output || code,
-        places,
-    ];
+    return [output, places];
 };
 
 module.exports._noConfigFound = noConfigFound;
