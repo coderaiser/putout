@@ -5,6 +5,8 @@ const {replaceWith} = operator;
 const {
     isBlockStatement,
     BlockStatement,
+    isExpressionStatement,
+    isIfStatement,
 } = types;
 
 module.exports.report = () => `Use consistent blocks`;
@@ -63,11 +65,20 @@ module.exports.filter = (path) => {
     if (path === path.parentPath.get('alternate'))
         return false;
     
-    const nodes = getAllNodes(path);
+    const paths = getAllNodes(path);
     const blocks = [];
     
-    for (const node of nodes) {
-        const is = isBlockStatement(node);
+    for (const path of paths) {
+        const is = isBlockStatement(path);
+        const {body} = path.node;
+        
+        if (is && body.length === 1) {
+            const [first] = body;
+            
+            if (!isExpressionStatement(first) && !isIfStatement(first))
+                continue;
+        }
+        
         blocks.push(is);
     }
     
@@ -78,8 +89,8 @@ module.exports.filter = (path) => {
     
     const couple = [];
     
-    for (const node of nodes) {
-        const is = isBlockStatement(node) && node.node.body.length > 1;
+    for (const path of paths) {
+        const is = isBlockStatement(path) && path.node.body.length > 1;
         couple.push(is);
     }
     
@@ -88,10 +99,10 @@ module.exports.filter = (path) => {
     if (!coupleCount)
         return true;
     
-    if (coupleCount === nodes.length)
+    if (coupleCount === paths.length)
         return false;
     
-    return !(count !== 1 && count === nodes.length);
+    return !(count !== 1 && count === paths.length);
 };
 
 function getAllNodes(path, nodes = []) {

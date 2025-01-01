@@ -49,6 +49,16 @@ test('putout: apply-consistent-blocks: no report: empty', (t) => {
     t.end();
 });
 
+test('putout: apply-consistent-blocks: no report: statement-inside-if', (t) => {
+    t.noReport('statement-inside-if');
+    t.end();
+});
+
+test('putout: apply-consistent-blocks: no report: couple-blocks', (t) => {
+    t.noReport('couple-blocks');
+    t.end();
+});
+
 test('putout: apply-consistent-blocks: no report after transform', (t) => {
     t.noReportAfterTransform('nested');
     t.end();
