@@ -38,3 +38,8 @@ test('math: remove-unchanged-zero-declarations: no report: return', (t) => {
     t.noReport('return');
     t.end();
 });
+
+test('math: remove-unchanged-zero-declarations: no report: not-referenced', (t) => {
+    t.noReport('not-referenced');
+    t.end();
+});

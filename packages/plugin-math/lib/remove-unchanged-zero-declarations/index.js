@@ -42,6 +42,9 @@ module.exports.traverse = ({push}) => ({
         if (constantViolations.length)
             return;
         
+        if (!referencePaths.length)
+            return;
+        
         for (const {parent} of referencePaths) {
             if (!isBinaryExpression(parent))
                 return;
