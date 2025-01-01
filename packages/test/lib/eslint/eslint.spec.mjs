@@ -43,7 +43,7 @@ test('test: eslint: process: UPDATE: stub', async ({process, calledWith}) => {
     update();
     delete global.writeFileSync;
     
-    const name = join(__dirname, 'fixture', 'process-fix.js');
+    const name = join(__dirname, 'fixture', 'process.js');
     const data = 'const a = 5;\n\n';
     
     calledWith(writeFileSync, [name, data]);

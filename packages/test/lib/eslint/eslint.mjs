@@ -77,7 +77,6 @@ export const createTest = (url, plugins = {}) => {
         process: (operator) => async (name, override) => {
             const full = join(fixtureDir, name);
             const [resolvedName, code] = await read(full);
-            const [fixturePath, fixture] = await read(`${full}-fix`);
             const fix = true;
             
             const [source] = await eslint({
@@ -92,9 +91,11 @@ export const createTest = (url, plugins = {}) => {
             });
             
             if (isUpdate()) {
-                update(fixturePath, source);
+                update(resolvedName, source);
                 return operator.pass('fixture updated');
             }
+            
+            const [, fixture] = await read(`${full}-fix`);
             
             return operator.equal(source, fixture);
         },
