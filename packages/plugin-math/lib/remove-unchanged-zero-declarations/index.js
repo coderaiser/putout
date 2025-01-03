@@ -48,6 +48,11 @@ module.exports.traverse = ({push}) => ({
         for (const {parent} of referencePaths) {
             if (!isBinaryExpression(parent))
                 return;
+            
+            const {operator} = parent;
+            
+            if (!/^[+-]$/.test(operator))
+                return;
         }
         
         push({
