@@ -5,8 +5,7 @@ const {replaceWith} = operator;
 const {
     isBlockStatement,
     BlockStatement,
-    isExpressionStatement,
-    isIfStatement,
+    isVariableDeclaration,
 } = types;
 
 module.exports.report = () => `Use consistent blocks`;
@@ -75,7 +74,7 @@ module.exports.filter = (path) => {
         if (is && body.length === 1) {
             const [first] = body;
             
-            if (!isExpressionStatement(first) && !isIfStatement(first))
+            if (isVariableDeclaration(first))
                 continue;
         }
         
