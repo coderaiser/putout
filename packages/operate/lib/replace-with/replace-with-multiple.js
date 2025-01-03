@@ -15,6 +15,8 @@ module.exports.replaceWithMultiple = (path, nodes) => {
         .filter(Boolean)
         .map(toExpression);
     
+    removeDuplicateLeadingComments(newNodes);
+    
     const {currentPath} = maybeBody(path);
     const newPath = currentPath.replaceWithMultiple(newNodes);
     
@@ -28,3 +30,15 @@ module.exports.replaceWithMultiple = (path, nodes) => {
     
     return newPath;
 };
+
+function removeDuplicateLeadingComments(nodes) {
+    for (const node1 of nodes) {
+        for (const node2 of nodes) {
+            if (node1 === node2)
+                continue;
+            
+            if (node1.leadingComments === node2.leadingComments)
+                delete node2.leadingComments;
+        }
+    }
+}

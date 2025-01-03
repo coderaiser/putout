@@ -42,3 +42,70 @@ test('putout: operate: replace-with: replaceWithMultiple', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operate: replace-with: replaceWithMultiple: comments', (t) => {
+    const source = fixture.replaceWithMultipleLeadingCommentConst;
+    const {code} = putout(source, {
+        plugins: [
+            ['group-by-id', {
+                report: () => 'Group require by id',
+                fix: ({grouped}) => {
+                    const [first, ...others] = grouped;
+                    const nodes = [first.node];
+                    
+                    for (const current of others) {
+                        const {node} = current;
+                        
+                        current.remove();
+                        nodes.push(node);
+                    }
+                    
+                    replaceWithMultiple(first, nodes);
+                },
+                
+                traverse: ({pathStore, push}) => ({
+                    'const __ = require(__)': (path) => {
+                        if (!path.parentPath.isProgram())
+                            return;
+                        
+                        pathStore(path);
+                    },
+                    'Program': {
+                        exit(path) {
+                            const external = [];
+                            const internal = [];
+                            const all = pathStore();
+                            
+                            for (const current of all) {
+                                const [declaration] = current.node.declarations;
+                                const {value} = declaration.init.arguments[0];
+                                
+                                if (!value || value.startsWith('.')) {
+                                    internal.push(current);
+                                    continue;
+                                }
+                                
+                                external.push(current);
+                            }
+                            
+                            const grouped = [
+                                ...external,
+                                ...internal,
+                            ];
+                            
+                            push({
+                                path,
+                                grouped,
+                            });
+                        },
+                    },
+                }),
+            }],
+        ],
+    });
+    
+    const expected = fixture.replaceWithMultipleLeadingCommentConstFix;
+    
+    t.equal(code, expected);
+    t.end();
+});

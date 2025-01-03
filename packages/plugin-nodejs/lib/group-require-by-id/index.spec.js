@@ -32,6 +32,11 @@ test('nodejs: group-require-by-id: transform', (t) => {
     t.end();
 });
 
+test('nodejs: group-require-by-id: transform: comments', (t) => {
+    t.transform('comments');
+    t.end();
+});
+
 test('plugin-nodejs: group-require-by-id: no report after transform: declare-before-reference', (t) => {
     t.noReportAfterTransform('declare-before-reference', {
         'declare-before-reference': declareBeforeReference,
