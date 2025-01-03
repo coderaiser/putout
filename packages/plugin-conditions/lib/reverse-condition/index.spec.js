@@ -18,3 +18,8 @@ test('conditions: reverse-condition: transform', (t) => {
     t.transform('reverse-condition');
     t.end();
 });
+
+test('conditions: reverse-condition: transform: and', (t) => {
+    t.transform('and');
+    t.end();
+});

@@ -102,7 +102,7 @@ module.exports.filter = (path) => {
     if (coupleCount === paths.length)
         return false;
     
-    return !(count !== 1 && count === paths.length);
+    return count === 1 || count !== paths.length;
 };
 
 function getAllNodes(path, nodes = []) {
