@@ -1,3 +1,14 @@
+2025.01.04, v37.10.0
+
+feature:
+- 4eb7a3f17 @putout/plugin-apply-arrow: add
+- aa76ecb28 @putout/plugin-tape: remove-only: exclude not Identifier
+- ee4b52b27 putout: @putout/plugin-package-json v9.0.0
+- d3b2cae5f @putout/plugin-package-json: drop support of 🐊 < 37
+- aae27cc74 @putout/plugin-package-json: remove-exports-with-missing-files: node
+- 594f88fb3 @putout/plugin-conditions: reverse-condition: and: add
+- 91b35fe43 @putout/operate: delete duplicate comments
+
 2025.01.04, v37.9.0
 
 feature:
