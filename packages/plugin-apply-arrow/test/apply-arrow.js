@@ -18,3 +18,8 @@ test('putout: apply-arrow: transform', (t) => {
     t.transform('apply-arrow');
     t.end();
 });
+
+test('putout: apply-arrow: no report: long', (t) => {
+    t.noReport('long');
+    t.end();
+});
