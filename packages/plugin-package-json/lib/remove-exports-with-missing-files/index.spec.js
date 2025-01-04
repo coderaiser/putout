@@ -21,3 +21,8 @@ test('package-json: remove-exports-with-missing-files: no report', (t) => {
     t.noReport('no-exports');
     t.end();
 });
+
+test('package-json: remove-exports-with-missing-files: no report: node', (t) => {
+    t.noReport('node');
+    t.end();
+});
