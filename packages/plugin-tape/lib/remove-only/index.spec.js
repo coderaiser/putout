@@ -33,3 +33,8 @@ test('plugin-remove-only: transform: other-name', (t) => {
     t.transform('other-name');
     t.end();
 });
+
+test('plugin-remove-only: no report: member', (t) => {
+    t.noReport('member');
+    t.end();
+});
