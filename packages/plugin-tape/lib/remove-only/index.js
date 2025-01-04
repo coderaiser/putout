@@ -8,6 +8,10 @@ module.exports.replace = () => ({
 });
 
 module.exports.filter = (path) => {
-    const {name} = path.node.callee.object;
-    return name.startsWith('test');
+    const objectPath = path.get('callee.object');
+    
+    if (!objectPath.isIdentifier())
+        return false;
+    
+    return objectPath.node.name.startsWith('test');
 };
