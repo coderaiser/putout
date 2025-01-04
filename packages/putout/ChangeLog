@@ -1,3 +1,23 @@
+2025.01.04, v37.9.0
+
+feature:
+- e48a95145 @putout/plugin-tape: remove-only: exclude not Identifier
+- 03f7a3701 putout: @putout/plugin-package-json v9.0.0
+- 3c7c632d2 @putout/plugin-package-json: drop support of 🐊 < 37
+- d00da6ede @putout/plugin-package-json: remove-exports-with-missing-files: node
+- 45a2f5a79 @putout/plugin-conditions: reverse-condition: and: add
+- 70db84bf2 @putout/operate: delete duplicate comments
+- 29f9f2206 @putout/plugin-math: remove-unchanged-zero-declaration: exclude assertions
+- 374ae6466 @putout/plugin-math: remove-unchanged-zero-declaration: exclude not referenced
+- f9dc5980d @putout/eslint: eslint: when output is empty string return it, instead of source
+- 222d5c20c @putout/test: eslint: UPDATE: generate fixture when absent
+- 60c7e3661 @putout/plugin-conditions: wrap-with-block: add
+- 5744fc4b7 @putout/plugin-conditions: apply-consistent-blocks: exclude statement-inside-if
+- 58436d2f5 @putout/plugin-putout: add-path-arg-to-visitors: add
+- 4bc086ff4 @putout/plugin-for-of: to-for-n: add
+- a7421908b @putout/plugin-esm: sort-imports-by-specifiers: hash
+- 0f37689c8 @putout/plugin-math: remove-unchanged-zero-declarations: BinaryExpressions: only
+
 2024.12.29, v37.8.2
 
 feature:
