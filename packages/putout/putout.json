@@ -47,6 +47,7 @@
             "putout-config/remove-empty-file": "on"
         },
         "*.md": {
+            "apply-arrow": "off",
             "convert-assignment-to-declaration": "off",
             "conditions/apply-consistent-blocks": "off",
             "conditions/convert-comparison-to-boolean": "off",
@@ -191,6 +192,7 @@
     "plugins": [
         "parens",
         "apply-at",
+        "apply-arrow",
         "apply-dot-notation",
         "apply-early-return",
         "apply-flat-map",

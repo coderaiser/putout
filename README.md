@@ -1308,6 +1308,17 @@ function world(a) {
 
 </details>
 
+<details><summary>apply arrow</summary>
+
+```diff
+-export function hello() {
+-    return 'world';
+-}
++export const hello = () => 'world';
+```
+
+</details>
+
 <details><summary>apply destructuring</summary>
 
 ```diff
@@ -2103,6 +2114,7 @@ It has a lot of plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-apply-arrow`](/packages/plugin-apply-arrow#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-arrow.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-arrow) |
 | [`@putout/plugin-apply-consistent-blocks`](/packages/plugin-apply-consistent-blocks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-consistent-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-consistent-blocks) |
 | [`@putout/plugin-apply-at`](/packages/plugin-apply-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-at) |
 | [`@putout/plugin-apply-dot-notation`](/packages/plugin-apply-dot-notation#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-dot-notation.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-dot-notation) |
