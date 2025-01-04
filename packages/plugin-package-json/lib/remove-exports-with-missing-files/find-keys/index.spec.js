@@ -31,3 +31,8 @@ test('putout: package-json: remove-exports-with-missing-files: find-keys: report
     t.report('nested', '.+require -> ./lib/test.js');
     t.end();
 });
+
+test('putout: package-json: remove-exports-with-missing-files: find-keys: report: node', (t) => {
+    t.report('node', 'node+require -> ./lib/test.js');
+    t.end();
+});

@@ -48,8 +48,20 @@ function processNested({push, keyPath, valuePath}) {
     const root = keyPath.node.value;
     
     for (const property of valuePath.get('properties')) {
-        const key = `${root}+${property.node.key.value}`;
-        const {value} = property.node.value;
+        const valuePath = property.get('value');
+        const keyPath = property.get('key');
+        
+        if (valuePath.isObjectExpression()) {
+            processNested({
+                push,
+                keyPath,
+                valuePath,
+            });
+            continue;
+        }
+        
+        const key = `${root}+${keyPath.node.value}`;
+        const {value} = valuePath.node;
         
         push({
             key,
