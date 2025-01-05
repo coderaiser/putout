@@ -1,0 +1,1 @@
+isError(a);

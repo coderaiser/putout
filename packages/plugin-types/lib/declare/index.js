@@ -13,4 +13,5 @@ module.exports.declare = () => ({
     isNull: `const isNull = (a) => !a && typeof a === 'object'`,
     isArray: 'const {isArray} = Array',
     isEmptyArray: 'const isEmptyArray = (a) => isArray(a) && !a.length',
+    isError: 'const isError = (a) => a instanceof Error',
 });

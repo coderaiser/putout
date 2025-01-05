@@ -48,3 +48,8 @@ test('putout: plugin: types: declare: is-empty-array', (t) => {
     t.transform('is-empty-array');
     t.end();
 });
+
+test('putout: plugin: types: declare: is-error', (t) => {
+    t.transform('is-error');
+    t.end();
+});

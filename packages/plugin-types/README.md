@@ -54,6 +54,7 @@ Supported assertions:
 - `isBigInt`;
 - `isArray`;
 - `isEmptyArray`;
+- `isError`;
 
 ### ❌ Example of incorrect code
 
