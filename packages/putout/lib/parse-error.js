@@ -19,6 +19,4 @@ module.exports = (e, type = 'parser') => {
     }];
 };
 
-function cutBrackets(a) {
-    return a.replace(/\s\(\d:\d+\)/, '');
-}
+const cutBrackets = (a) => a.replace(/\s\(\d:\d+\)/, '');

@@ -22,6 +22,4 @@ export default ({name, places, index, count, filesCount, source, errorsCount}) =
     return str;
 };
 
-function progress(index, count) {
-    return round(index / count * 100);
-}
+const progress = (index, count) => round(index / count * 100);

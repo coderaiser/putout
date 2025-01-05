@@ -596,9 +596,7 @@ test('putout: compare: vars: "__a"', (t) => {
                     },
                 };
                 
-                path
-                    .get('arguments.0')
-                    .replaceWith(regexp);
+                path.get('arguments.0').replaceWith(regexp);
                 return path.node;
             },
         }),

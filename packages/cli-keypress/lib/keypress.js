@@ -13,7 +13,10 @@ const IS_NOT_SET = () => false;
 const {KEYPRESS} = process.env;
 
 const isKeypress = (a) => a.name === '__keypress';
-const isSet = (a, b) => a.listeners(b).filter(isKeypress).length;
+const isSet = (a, b) => a
+    .listeners(b)
+    .filter(isKeypress)
+    .length;
 
 module.exports = (stream = process.stdin) => {
     if (!stream.isTTY || isCI && KEYPRESS !== '1')

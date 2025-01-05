@@ -84,16 +84,12 @@ function checkCatch(text) {
     return before || after || afterOptional;
 }
 
-function checkSwitch(text) {
-    return text.includes('switch (');
-}
+const checkSwitch = (text) => text.includes('switch (');
 
-function fixCatch(text) {
-    return text
-        .replaceAll('catch{', 'catch {')
-        .replaceAll('}catch', '} catch')
-        .replaceAll('catch (', 'catch(');
-}
+const fixCatch = (text) => text
+    .replaceAll('catch{', 'catch {')
+    .replaceAll('}catch', '} catch')
+    .replaceAll('catch (', 'catch(');
 
 function fixSwitch(text) {
     return text.replaceAll('switch (', 'switch(');

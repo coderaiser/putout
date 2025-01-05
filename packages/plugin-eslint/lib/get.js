@@ -35,10 +35,8 @@ function get(name) {
     };
 }
 
-function is(name) {
-    return ({key}) => {
-        return isStringLiteral(key, {
-            value: name,
-        });
-    };
-}
+const is = (name) => ({key}) => {
+    return isStringLiteral(key, {
+        value: name,
+    });
+};

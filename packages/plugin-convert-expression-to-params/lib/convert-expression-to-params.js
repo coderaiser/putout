@@ -7,13 +7,11 @@ module.exports.include = () => ['Function'];
 module.exports.fix = (path) => {
     const params = [];
     
-    path
-        .get('params.0')
-        .traverse({
-            Identifier(path) {
-                params.push(path.node);
-            },
-        });
+    path.get('params.0').traverse({
+        Identifier(path) {
+            params.push(path.node);
+        },
+    });
     
     path.node.params = params;
 };

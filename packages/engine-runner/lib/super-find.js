@@ -30,14 +30,12 @@ module.exports = function superFind({rule, find, ast, options, template}) {
     ];
 };
 
-function traverse({rule, options, template}) {
-    return (ast, visitor) => {
-        const templateVisitors = merge(template({
-            rule,
-            visitor,
-            options,
-        }));
-        
-        return babelTraverse(ast, templateVisitors);
-    };
-}
+const traverse = ({rule, options, template}) => (ast, visitor) => {
+    const templateVisitors = merge(template({
+        rule,
+        visitor,
+        options,
+    }));
+    
+    return babelTraverse(ast, templateVisitors);
+};

@@ -13,13 +13,11 @@ export const find = async (rawSource) => {
     return diagnostics.map(toPlace);
 };
 
-function toPlace(diagnostic) {
-    return {
-        rule: 'type-check (typescript)',
-        message: diagnostic.getMessageText(),
-        position: {
-            line: diagnostic.getLineNumber(),
-            column: 1,
-        },
-    };
-}
+const toPlace = (diagnostic) => ({
+    rule: 'type-check (typescript)',
+    message: diagnostic.getMessageText(),
+    position: {
+        line: diagnostic.getLineNumber(),
+        column: 1,
+    },
+});

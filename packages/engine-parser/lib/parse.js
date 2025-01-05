@@ -33,19 +33,17 @@ module.exports = (source, options) => {
     });
 };
 
-function getParser({parser = 'babel', isTS, isFlow, isJSX, printer}) {
-    return {
-        parse(source) {
-            const ast = toBabel(customParser(source, parser, {
-                isTS,
-                isFlow,
-                isJSX,
-            }));
-            
-            if (printer === 'recast')
-                moveOutDirectives(ast);
-            
-            return ast;
-        },
-    };
-}
+const getParser = ({parser = 'babel', isTS, isFlow, isJSX, printer}) => ({
+    parse(source) {
+        const ast = toBabel(customParser(source, parser, {
+            isTS,
+            isFlow,
+            isJSX,
+        }));
+        
+        if (printer === 'recast')
+            moveOutDirectives(ast);
+        
+        return ast;
+    },
+});

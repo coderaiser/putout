@@ -32,29 +32,27 @@ module.exports.traverse = ({push}) => ({
     }),
 });
 
-function processUseless({push, index}) {
-    return (path) => {
-        const {
-            is,
-            name,
-            argProps,
-            param,
-        } = getUseless({
-            path,
-            index,
-        });
-        
-        if (!is)
-            return;
-        
-        removeUseless({
-            push,
-            name,
-            param,
-            argProps,
-        });
-    };
-}
+const processUseless = ({push, index}) => (path) => {
+    const {
+        is,
+        name,
+        argProps,
+        param,
+    } = getUseless({
+        path,
+        index,
+    });
+    
+    if (!is)
+        return;
+    
+    removeUseless({
+        push,
+        name,
+        param,
+        argProps,
+    });
+};
 
 function getUseless({path, index}) {
     const NOT_OK = {
@@ -63,13 +61,9 @@ function getUseless({path, index}) {
     
     const {name} = path.node.callee;
     
-    const argument = path
-        .get('arguments')
-        .at(index);
+    const argument = path.get('arguments').at(index);
     
-    const argProps = argument
-        .get('properties')
-        .filter(isObjectProperty);
+    const argProps = argument.get('properties').filter(isObjectProperty);
     
     const refPath = findBinding(path, name);
     

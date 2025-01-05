@@ -53,25 +53,23 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, progress = c
 
 module.exports.getPosition = getPosition;
 
-function run({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge}) {
-    return [
-        ...runWithoutMerge({
-            ast,
-            fix,
-            shebang,
-            template,
-            pluginsFind,
-        }),
-        ...runWithMerge({
-            ast,
-            fix,
-            shebang,
-            template,
-            pluginsTraverse,
-            merge,
-        }),
-    ];
-}
+const run = ({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge}) => [
+    ...runWithoutMerge({
+        ast,
+        fix,
+        shebang,
+        template,
+        pluginsFind,
+    }),
+    ...runWithMerge({
+        ast,
+        fix,
+        shebang,
+        template,
+        pluginsTraverse,
+        merge,
+    }),
+];
 
 function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge}) {
     const {entries, visitor} = merge(pluginsTraverse, {

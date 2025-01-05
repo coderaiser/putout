@@ -93,13 +93,7 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-function isFunction(node) {
-    return isArrowFunctionExpression(node)
-        || isFunctionExpression(node)
-        || isFunctionDeclaration(node)
-        || isObjectMethod(node)
-        || isClassMethod(node);
-}
+const isFunction = (node) => isArrowFunctionExpression(node) || isFunctionExpression(node) || isFunctionDeclaration(node) || isObjectMethod(node) || isClassMethod(node);
 
 function blockIsIndependentBody(node, parentNode) {
     const {body} = parentNode;

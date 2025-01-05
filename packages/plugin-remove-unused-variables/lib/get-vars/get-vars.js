@@ -377,21 +377,17 @@ module.exports = ({use, declare, addParams}) => {
             if (isIdentifier(left))
                 use(path, left.name);
             else
-                path
-                    .get('left')
-                    .traverse({
-                        Identifier(leftPath) {
-                            declare(path, leftPath.node.name);
-                        },
-                    });
-            
-            path
-                .get('left')
-                .traverse({
-                    Identifier(path) {
-                        use(path, path.node.name);
+                path.get('left').traverse({
+                    Identifier(leftPath) {
+                        declare(path, leftPath.node.name);
                     },
                 });
+            
+            path.get('left').traverse({
+                Identifier(path) {
+                    use(path, path.node.name);
+                },
+            });
         },
         
         ExpressionStatement(path) {

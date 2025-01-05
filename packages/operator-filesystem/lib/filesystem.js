@@ -253,9 +253,7 @@ module.exports.createFile = (dirPath, name, content) => {
     
     dirPathFiles.node.value.elements.push(ObjectExpression(properties));
     
-    const filePath = dirPathFiles
-        .get('value.elements')
-        .at(-1);
+    const filePath = dirPathFiles.get('value.elements').at(-1);
     
     if (isString(content))
         writeFileContent(filePath, content);
@@ -263,9 +261,7 @@ module.exports.createFile = (dirPath, name, content) => {
     return filePath;
 };
 
-function getFiles(dirPath) {
-    return getProperty(dirPath, 'files');
-}
+const getFiles = (dirPath) => getProperty(dirPath, 'files');
 
 module.exports.createDirectory = (dirPath, name) => {
     const dirPathFiles = getFiles(dirPath);
@@ -284,9 +280,7 @@ module.exports.createDirectory = (dirPath, name) => {
     
     maybeFS.createDirectory(filename);
     
-    return dirPathFiles
-        .get('value.elements')
-        .at(-1);
+    return dirPathFiles.get('value.elements').at(-1);
 };
 
 module.exports.readFileContent = (filePath) => {

@@ -29,11 +29,7 @@ module.exports.traverse = ({push}) => ({
         if (!statement)
             return;
         
-        const forOfCount = statement
-            .parentPath
-            .get('body')
-            .filter(isForOfStatement)
-            .length;
+        const forOfCount = statement.parentPath.get('body').filter(isForOfStatement).length;
         
         if (forOfCount > 1)
             return;

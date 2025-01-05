@@ -11,9 +11,7 @@ const {
 
 const plugin = require('..');
 
-function trim(str) {
-    return str.replace(/^\s+|\s+$/, '');
-}
+const trim = (str) => str.replace(/^\s+|\s+$/, '');
 
 const fixturesDir = path.join(__dirname, 'fixture');
 

@@ -69,6 +69,4 @@ export const enableAll = (places, config) => {
     return config;
 };
 
-function parseRules(places) {
-    return places.map(getRule);
-}
+const parseRules = (places) => places.map(getRule);

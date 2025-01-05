@@ -107,10 +107,6 @@ function parseFn(path) {
     return path.get('declaration.declarations.0.init').node;
 }
 
-function isCallee(name, {parentPath}) {
-    return parentPath
-        .get('callee')
-        .isIdentifier({
-            name,
-        });
-}
+const isCallee = (name, {parentPath}) => parentPath.get('callee').isIdentifier({
+    name,
+});

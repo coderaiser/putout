@@ -7,8 +7,6 @@ module.exports.traverseClass = (traverse, ast, visitor) => {
     });
 };
 
-function push(visitor) {
-    return (path) => {
-        path.traverse(visitor);
-    };
-}
+const push = (visitor) => (path) => {
+    path.traverse(visitor);
+};

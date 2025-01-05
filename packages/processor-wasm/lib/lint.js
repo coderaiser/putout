@@ -43,16 +43,14 @@ export const lint = (source, {fix} = {}) => {
     };
 };
 
-function parseError({message}) {
-    return {
-        rule: 'wasm-parser-error (wasm)',
-        message,
-        position: {
-            line: 1,
-            column: 0,
-        },
-    };
-}
+const parseError = ({message}) => ({
+    rule: 'wasm-parser-error (wasm)',
+    message,
+    position: {
+        line: 1,
+        column: 0,
+    },
+});
 
 function convertPlaces(rule, rawPlaces, plugin) {
     const places = [];

@@ -23,13 +23,9 @@ module.exports.match = () => ({
     },
 });
 
-function isRules(path) {
-    return path
-        .get('key')
-        .isStringLiteral({
-            value: 'rules',
-        });
-}
+const isRules = (path) => path.get('key').isStringLiteral({
+    value: 'rules',
+});
 
 module.exports.replace = () => ({
     [__json]: ({__object}, path) => {

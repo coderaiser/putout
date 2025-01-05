@@ -156,12 +156,10 @@ function unEscape(raw) {
     return raw;
 }
 
-function unescapeRegExp(raw) {
-    return raw
-        .replaceAll('\\:', ':')
-        .replaceAll('\\+\\/', '+/')
-        .replaceAll('\\,', ',');
-}
+const unescapeRegExp = (raw) => raw
+    .replaceAll('\\:', ':')
+    .replaceAll('\\+\\/', '+/')
+    .replaceAll('\\,', ',');
 
 const is = (a) => (b) => b.includes(`\\${a}`) && !b.includes(`\\\\${a}`);
 const isRegExpColon = is(':');

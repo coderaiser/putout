@@ -11,9 +11,7 @@ module.exports.filter = (path) => {
     if (!nextPath.node)
         return false;
     
-    return path
-        .get('consequent')
-        .isEmptyStatement();
+    return path.get('consequent').isEmptyStatement();
 };
 
 module.exports.include = () => [

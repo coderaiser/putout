@@ -59,23 +59,19 @@ module.exports.find = (ast, {push, traverse}) => {
     });
 };
 
-function VariableDeclarator(push) {
-    return (path) => {
-        if (!isVarFromState(path))
-            return;
-        
-        push(path);
-    };
-}
+const VariableDeclarator = (push) => (path) => {
+    if (!isVarFromState(path))
+        return;
+    
+    push(path);
+};
 
-function CallExpression(push) {
-    return (path) => {
-        if (!isThisSetState(path))
-            return;
-        
-        push(path);
-    };
-}
+const CallExpression = (push) => (path) => {
+    if (!isThisSetState(path))
+        return;
+    
+    push(path);
+};
 
 function isVarFromState(path) {
     const {init} = path.node;
@@ -86,9 +82,7 @@ function isVarFromState(path) {
     return isThisState(init);
 }
 
-function isThisState(init) {
-    return isThis(init, 'state');
-}
+const isThisState = (init) => isThis(init, 'state');
 
 function isThisSetState({node}) {
     return isThis(node.callee, 'setState');

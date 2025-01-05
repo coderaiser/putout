@@ -8,34 +8,30 @@ module.exports = ({type}, options) => {
     assign(options, merge(options, rules));
 };
 
-function commonjs() {
-    return {
-        match: {
-            '*.js': {
-                'nodejs/convert-esm-to-commonjs': 'on',
-            },
-            '.eslintrc.json': {
-                'eslint': 'on',
-                'eslint/convert-require-to-import': 'off',
-            },
+const commonjs = () => ({
+    match: {
+        '*.js': {
+            'nodejs/convert-esm-to-commonjs': 'on',
         },
-    };
-}
+        '.eslintrc.json': {
+            'eslint': 'on',
+            'eslint/convert-require-to-import': 'off',
+        },
+    },
+});
 
-function esm() {
-    return {
-        match: {
-            '*.js': {
-                'nodejs/convert-commonjs-to-esm': 'on',
-                'nodejs/add-strict-mode': 'off',
-            },
-            '{test,*.spec.js}': {
-                'tape/convert-mock-require-to-mock-import': 'on',
-            },
-            '.eslintrc.json': {
-                'eslint': 'on',
-                'eslint/convert-require-to-import': 'on',
-            },
+const esm = () => ({
+    match: {
+        '*.js': {
+            'nodejs/convert-commonjs-to-esm': 'on',
+            'nodejs/add-strict-mode': 'off',
         },
-    };
-}
+        '{test,*.spec.js}': {
+            'tape/convert-mock-require-to-mock-import': 'on',
+        },
+        '.eslintrc.json': {
+            'eslint': 'on',
+            'eslint/convert-require-to-import': 'on',
+        },
+    },
+});

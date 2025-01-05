@@ -12,21 +12,13 @@ module.exports.report = () => {
     return `"putout.types" should be used instead of "@babel/types"`;
 };
 
-function isRequire(path) {
-    return path
-        .get('callee')
-        .isIdentifier({
-            name: 'require',
-        });
-}
+const isRequire = (path) => path.get('callee').isIdentifier({
+    name: 'require',
+});
 
-function isBabelTypes(path) {
-    return path
-        .get('arguments.0')
-        .isStringLiteral({
-            value: '@babel/types',
-        });
-}
+const isBabelTypes = (path) => path.get('arguments.0').isStringLiteral({
+    value: '@babel/types',
+});
 
 module.exports.traverse = ({push}) => ({
     CallExpression(path) {

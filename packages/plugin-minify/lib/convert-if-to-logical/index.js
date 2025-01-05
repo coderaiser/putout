@@ -12,7 +12,9 @@ const {
     isLogicalExpression,
 } = types;
 
-const parseExpressions = ({body}) => body.map(getExpression).filter(Boolean);
+const parseExpressions = ({body}) => body
+    .map(getExpression)
+    .filter(Boolean);
 
 const getExpression = ({expression}) => {
     if (!expression)

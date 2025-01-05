@@ -69,13 +69,11 @@ function isBig({node}) {
     return /[A-Z]/.test(node.name[0]);
 }
 
-function checkBig(query, push) {
-    return (path) => {
-        const keyPath = path.get(query);
-        
-        if (!isBig(keyPath))
-            return;
-        
-        push(keyPath);
-    };
-}
+const checkBig = (query, push) => (path) => {
+    const keyPath = path.get(query);
+    
+    if (!isBig(keyPath))
+        return;
+    
+    push(keyPath);
+};

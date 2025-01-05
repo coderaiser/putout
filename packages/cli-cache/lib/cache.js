@@ -126,7 +126,8 @@ const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
     return !places.length;
 };
 
-const hash = (a) => murmur(a).result()
+const hash = (a) => murmur(a)
+    .result()
     .toString(36);
 
 const createGetOptionsCache = ({version}) => (options) => {

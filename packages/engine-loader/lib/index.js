@@ -74,15 +74,11 @@ module.exports.loadPlugins = (options) => {
     });
 };
 
-function splitRule(rule) {
-    return [rule, 'putout'];
-}
+const splitRule = (rule) => [rule, 'putout'];
 
-function parseRule(rule) {
-    return rule
-        .replace('import:@putout/plugin-', '')
-        .replace('@putout/plugin-', '');
-}
+const parseRule = (rule) => rule
+    .replace('import:@putout/plugin-', '')
+    .replace('@putout/plugin-', '');
 
 const maybeFromTuple = (a) => isArray(a) ? a[1] : a;
 

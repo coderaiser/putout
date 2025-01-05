@@ -91,6 +91,4 @@ function getPropertyPath(path, name) {
     return propPath;
 }
 
-function isInsideForOf(path) {
-    return path.__putout_for_of_reduce;
-}
+const isInsideForOf = (path) => path.__putout_for_of_reduce;

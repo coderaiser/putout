@@ -37,9 +37,7 @@ module.exports.loadPluginsAsync = async (options) => {
     });
 };
 
-function splitRule(rule) {
-    return [rule, 'putout'];
-}
+const splitRule = (rule) => [rule, 'putout'];
 
 async function loadPlugins({items, loadedRules}) {
     const promises = [];

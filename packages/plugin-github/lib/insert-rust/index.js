@@ -42,9 +42,7 @@ module.exports.traverse = ({push}) => ({
         
         for (const [index, step] of steps.entries()) {
             const prop = step.get('properties.0');
-            const valueStr = prop
-                .get('value')
-                .toString();
+            const valueStr = prop.get('value').toString();
             
             if (!valueStr.includes('actions-rs'))
                 continue;

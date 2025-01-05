@@ -35,9 +35,7 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-function parseParent(path) {
-    return [
-        path.parentPath,
-        path.parentPath.parentPath,
-    ];
-}
+const parseParent = (path) => [
+    path.parentPath,
+    path.parentPath.parentPath,
+];

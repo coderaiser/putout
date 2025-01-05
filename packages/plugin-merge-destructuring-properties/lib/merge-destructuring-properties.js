@@ -60,9 +60,7 @@ module.exports.traverse = ({push, store}) => {
 const createUID = (path) => {
     const {uid} = path.scope;
     
-    const str = `${uid}-${path
-        .get('init')
-        .toString()}`;
+    const str = `${uid}-${path.get('init').toString()}`;
     
     return str.replace(/['"`]/g, '*');
 };

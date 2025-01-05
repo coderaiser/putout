@@ -14,9 +14,7 @@ module.exports = (items) => {
     return result;
 };
 
-function transform([name, value]) {
-    return {
-        name,
-        ...value,
-    };
-}
+const transform = ([name, value]) => ({
+    name,
+    ...value,
+});

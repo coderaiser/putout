@@ -40,9 +40,7 @@ module.exports.traverse = ({push, options}) => ({
         const {__object} = getTemplateValues(path, __yaml);
         
         for (const nodeVersionPath of traverseProperties(__object, 'node-version')) {
-            const valueStr = nodeVersionPath
-                .get('value')
-                .toString();
+            const valueStr = nodeVersionPath.get('value').toString();
             
             const versions = parse(valueStr);
             

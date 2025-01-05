@@ -30,16 +30,14 @@ export const lint = async (source, {fix} = {}) => {
     ];
 };
 
-function toPlace({line, column, rule, text}) {
-    return {
-        message: text,
-        rule: `${rule} (stylelint)`,
-        position: {
-            line,
-            column,
-        },
-    };
-}
+const toPlace = ({line, column, rule, text}) => ({
+    message: text,
+    rule: `${rule} (stylelint)`,
+    position: {
+        line,
+        column,
+    },
+});
 
 function cutAlign({message}) {
     return !message.startsWith('Delete') || !message.endsWith('(prettier/prettier)');
