@@ -24,12 +24,14 @@ const isString = (a) => typeof a === 'string';
 const getLastVarPath = (bodyPath) => bodyPath
     .filter(isVariableDeclaration)
     .pop();
+
 const isLast = (insertionPath, bodyPath) => bodyPath.at(-1) === insertionPath;
 const isLocalImport = (path) => path.node.source.value.includes('.');
 
 const cutName = (a) => a
     .split('.')
     .shift();
+
 const parseType = (path) => isESM(path) ? 'esm' : 'commonjs';
 
 const TS_EXCLUDE = [
