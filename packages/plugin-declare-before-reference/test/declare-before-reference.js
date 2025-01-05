@@ -42,6 +42,11 @@ test('plugin-declare-before-reference: transform: order', (t) => {
     t.end();
 });
 
+test('plugin-declare-before-reference: transform: call', (t) => {
+    t.transform('call');
+    t.end();
+});
+
 test('plugin-declare-before-reference: transform: putout', (t) => {
     t.transform('putout', {
         putout,

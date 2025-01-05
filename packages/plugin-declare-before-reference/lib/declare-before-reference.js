@@ -1,6 +1,6 @@
 'use strict';
 
-const {operator} = require('putout');
+const {types, operator} = require('putout');
 const {
     remove,
     compare,
@@ -8,7 +8,10 @@ const {
     getPathAfterRequires,
 } = operator;
 
+const {isFunction, isProgram} = types;
+
 const {entries} = Object;
+const isTopScope = (a) => isFunction(a) || isProgram(a);
 
 module.exports.report = ({name}) => {
     return `Declare '${name}' before referencing to avoid 'ReferenceError'`;
@@ -51,7 +54,9 @@ module.exports.traverse = ({push}) => ({
                 break;
             
             for (const referencePath of referencePaths) {
-                if (uid !== referencePath.scope.uid)
+                const referenceUid = referencePath.find(isTopScope).scope.uid;
+                
+                if (uid !== referenceUid)
                     continue;
                 
                 if (referencePath.parentPath.isExportDefaultDeclaration())
