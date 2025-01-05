@@ -1,3 +1,14 @@
+2025.01.05, v37.12.0
+
+fix:
+- 64605cf2b @putout/test: Error -> createError
+
+feature:
+- 90ab1d5fe putout: @putout/plugin-remove-useless-arguments v10.0.0
+- f3b72d079 @putout/plugin-remove-useless-arguments: drop support of node < 18
+- 1079cdc74 @putout/plugin-remove-useless-arguments: unused: add
+- 113c84884 @putout/plugin-declare-before-reference: improve scope check
+
 2025.01.05, v37.11.0
 
 fix:
