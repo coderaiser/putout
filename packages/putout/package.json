@@ -182,7 +182,7 @@
     "@putout/plugin-split-variable-declarations": "^3.0.0",
     "@putout/plugin-tape": "^16.0.0",
     "@putout/plugin-try-catch": "^4.0.0",
-    "@putout/plugin-types": "^5.0.0",
+    "@putout/plugin-types": "^6.0.0",
     "@putout/plugin-typescript": "^9.0.0",
     "@putout/plugin-webpack": "^3.0.0",
     "@putout/processor-css": "^9.0.0",
