@@ -36,7 +36,7 @@ sum(a, b, c);
 
 ```js
 const sum = (a, b) => {};
-sum(a, b, c);
+sum(a, b);
 ```
 
 ### destructuring
