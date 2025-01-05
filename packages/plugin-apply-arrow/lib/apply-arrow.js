@@ -1,6 +1,8 @@
 'use strict';
 
-const {print} = require('putout');
+const {print, types} = require('putout');
+const {isFunction, isProgram} = types;
+const isTopScope = (a) => isFunction(a) || isProgram(a);
 
 module.exports.report = () => `Use 'Arrow Function' instead of 'Function Declaration`;
 
@@ -19,8 +21,9 @@ module.exports.match = () => ({
             return binding.references === 1;
         
         const [ref] = binding.referencePaths;
+        const {uid} = ref.find(isTopScope).scope;
         
-        return ref.scope.uid !== binding.scope.uid;
+        return uid !== binding.scope.uid;
     },
 });
 
