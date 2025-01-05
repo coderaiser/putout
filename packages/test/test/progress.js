@@ -28,7 +28,10 @@ testProgress('@putout/test: progress: no name', async ({progress, match}) => {
         rule: 'read-all-files',
     });
     
-    match(error.message, `☝️ Looks like you forget to pass the 'name'`);
+    const {default: stripAnsi} = await import('strip-ansi');
+    const result = stripAnsi(error.message);
+    
+    match(result, `^ ☝️ Looks like you forget to pass the 'name'`);
 }, {
     checkAssertionsCount: false,
 });

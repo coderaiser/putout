@@ -635,6 +635,6 @@ function checkProgress(name, expected) {
             expected,
         };
         
-        throw Error(message, signature, values);
+        throw Error(createError(message, signature, values));
     }
 }
