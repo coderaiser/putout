@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-typeof-to-is-type: report', (t) => {
-    t.report('typeof', `Use function to check type instead of 'typeof'`);
+    t.report('typeof', `Use function to check type instead of 'typeof' or 'instanceof'`);
     t.end();
 });
 
@@ -46,6 +46,11 @@ test('plugin-convert-typeof-to-is-type: transform: bigint', (t) => {
 
 test('plugin-convert-typeof-to-is-type: transform: assign', (t) => {
     t.transform('assign');
+    t.end();
+});
+
+test('plugin-convert-typeof-to-is-type: transform: is-error', (t) => {
+    t.transform('is-error');
     t.end();
 });
 
