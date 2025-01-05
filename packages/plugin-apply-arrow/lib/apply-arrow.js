@@ -12,10 +12,15 @@ module.exports.match = () => ({
         const {name} = __a;
         const binding = path.parentPath.scope.bindings[name];
         
+        if (!binding.referenced)
+            return true;
+        
         if (path.parentPath.isExportNamedDeclaration())
             return binding.references === 1;
         
-        return !binding.referenced;
+        const [ref] = binding.referencePaths;
+        
+        return ref.scope.uid !== binding.scope.uid;
     },
 });
 

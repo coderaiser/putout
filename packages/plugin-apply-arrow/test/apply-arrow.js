@@ -22,6 +22,11 @@ test('putout: apply-arrow: transform', (t) => {
     t.end();
 });
 
+test('putout: apply-arrow: transform: other-scope-reference', (t) => {
+    t.transform('other-scope-reference');
+    t.end();
+});
+
 test('putout: apply-arrow: no report: long', (t) => {
     t.noReport('long');
     t.end();
