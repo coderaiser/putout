@@ -1,3 +1,17 @@
+2025.01.05, v37.11.0
+
+fix:
+- f871b5344 @putout/plugin-apply-arrow: find top scope
+
+feature:
+- ebdccbaa4 putout: @putout/plugin-types v6.0.0
+- b8b25399c @putout/plugin-types: convert-typeof-to-is-type: add support of isError
+- b3fe00dfb @putout/plugin-types: drop support of 🐊 < 37
+- fdc62279f @putout/plugin-types: declare: isError: add
+- b49445435 @putout/plugin-apply-arrow: different scopes
+- bf73e15cb @putout/apply-arrow: handle case when no loc found
+- 90146fe82 @putout/plugin-apply-arrow: exclude long lines
+
 2025.01.04, v37.10.0
 
 feature:
