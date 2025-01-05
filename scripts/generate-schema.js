@@ -20,4 +20,3 @@ const names = await readdir(process.cwd());
 for (const name of names) {
     console.log(run(plugin, name));
 }
-
