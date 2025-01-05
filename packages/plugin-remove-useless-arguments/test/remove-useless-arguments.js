@@ -63,3 +63,8 @@ test('plugin-remove-useless-arguments: transform: method', (t) => {
     t.transform('method');
     t.end();
 });
+
+test('plugin-remove-useless-arguments: transform: unused', (t) => {
+    t.transform('unused');
+    t.end();
+});

@@ -3,5 +3,6 @@ async function call() {
 }
 
 async function createFileTable(data, panelParam, options) {
+    return data + panelParam + options;
 }
 

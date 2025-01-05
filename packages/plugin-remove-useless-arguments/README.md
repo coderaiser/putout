@@ -11,14 +11,22 @@
 npm i @putout/plugin-remove-useless-arguments
 ```
 
-## Rule
+## Rules
+
+- ✅ [arguments](#arguments);
+- ✅ [destructuring](#destructring);
+- ✅ [method](#method);
+- ✅ [unused](#unused);
+
+## Config
 
 ```json
 {
     "rules": {
         "remove-useless-arguments/arguments": "on",
         "remove-useless-arguments/destructuring": "on",
-        "remove-useless-arguments/method": "on"
+        "remove-useless-arguments/method": "on",
+        "remove-useless-arguments/unused": "on"
     }
 }
 ```
@@ -89,6 +97,30 @@ class Parser {
     }
     
     parseGuard() {}
+}
+```
+
+### unused
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f6bf5e069cfb1328fe7418c501e265cc/388ab2266babe84f77c1f82687f5ed44873e8651).
+
+### ❌ Example of incorrect code
+
+```js
+member += compute(member, list[i]);
+
+function compute(member, current) {
+    return String(current);
+}
+```
+
+### ✅ Example of correct code
+
+```js
+member += compute(list[i]);
+
+function compute(current) {
+    return String(current);
 }
 ```
 

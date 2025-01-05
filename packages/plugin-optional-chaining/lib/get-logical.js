@@ -11,7 +11,7 @@ module.exports.getLogical = (path, {assign} = {}) => {
     const logical = [member];
     
     while (++i < n) {
-        member += compute(member, list[i]);
+        member += compute(list[i]);
         logical.push(member);
     }
     
@@ -23,7 +23,7 @@ module.exports.getLogical = (path, {assign} = {}) => {
     return `${fullLogical} && (${logical.at(-1)} = __a)`;
 };
 
-function compute(member, current) {
+function compute(current) {
     if (current[0] === '(')
         return current;
     

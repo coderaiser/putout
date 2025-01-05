@@ -43,11 +43,11 @@ module.exports.matchFiles = (options) => {
     };
 };
 
-function fix(inputFile, {dirPath, mainPath, matchInputFilename, outputFilename, matchedJS, matchedAST, options}) {
+function fix(inputFile, {dirPath, matchInputFilename, outputFilename, matchedJS, matchedAST, options}) {
     transform(matchedAST, matchedJS, options);
     
     const matchedJSON = magicPrint(outputFilename, matchedAST);
-    const outputFile = getOutputFile(mainPath, {
+    const outputFile = getOutputFile({
         dirPath,
         matchInputFilename,
         outputFilename,
@@ -80,7 +80,6 @@ const createScan = ({files, exclude}) => (mainPath, {push, progress, options}) =
                 continue;
             
             allFiles.push({
-                mainPath,
                 dirPath,
                 matchInputFilename,
                 rawOptions,
@@ -101,7 +100,6 @@ const createScan = ({files, exclude}) => (mainPath, {push, progress, options}) =
             inputFilename,
             outputFilename,
             rawOptions,
-            mainPath,
         } = current;
         
         progress({
@@ -122,7 +120,6 @@ const createScan = ({files, exclude}) => (mainPath, {push, progress, options}) =
         
         push(inputFile, {
             dirPath,
-            mainPath,
             matchInputFilename,
             
             outputFilename,
@@ -171,7 +168,7 @@ function check(files) {
     }
 }
 
-function getOutputFile(path, {dirPath, matchInputFilename, outputFilename, inputFile}) {
+function getOutputFile({dirPath, matchInputFilename, outputFilename, inputFile}) {
     if (matchInputFilename === outputFilename)
         return inputFile;
     
