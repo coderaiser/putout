@@ -60,7 +60,7 @@ module.exports.parseSimpleFilesystem = (list) => {
     
     replaceWith(rootPath.parentPath, rootPath);
     
-    return JSON.parse(fromJS(print(ast)), null, 4);
+    return JSON.parse(fromJS(print(ast)));
 };
 
 function createFlatFiles(list) {

@@ -17,6 +17,7 @@ npm i @putout/plugin-remove-useless-arguments
 - ✅ [destructuring](#destructring);
 - ✅ [method](#method);
 - ✅ [unused](#unused);
+- ✅ [json-parse](#json-parse);
 
 ## Config
 
@@ -26,7 +27,8 @@ npm i @putout/plugin-remove-useless-arguments
         "remove-useless-arguments/arguments": "on",
         "remove-useless-arguments/destructuring": "on",
         "remove-useless-arguments/method": "on",
-        "remove-useless-arguments/unused": "on"
+        "remove-useless-arguments/unused": "on",
+        "remove-useless-arguments/json-parse": "on"
     }
 }
 ```
@@ -122,6 +124,32 @@ member += compute(list[i]);
 function compute(current) {
     return String(current);
 }
+```
+
+### json-parse
+
+> The `JSON.parse()` static method parses a JSON string, constructing the JavaScript value or object described by the string. An optional reviver function can be provided to perform a transformation on the resulting object before it is returned.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/efdb0e3d0ab937f7901ce3047626b5fd/580aa27e4fb61fbfe3eead0cd21971a6ff084174).
+
+### ❌ Example of incorrect code
+
+```js
+import {operator} from 'putout';
+
+const {fromJS} = operator;
+JSON.parse(fromJS(print(ast)), null, 4);
+```
+
+### ✅ Example of correct code
+
+```js
+import {operator} from 'putout';
+
+const {fromJS} = operator;
+JSON.parse(fromJS(print(ast)));
 ```
 
 ## License
