@@ -18,3 +18,17 @@ test('eslint-plugin-putout: safe: no-remove-useless-declaration', async ({proces
         },
     });
 });
+
+test('eslint-plugin-putout: safe: no-merge-duplicate-functions', async ({noProcess}) => {
+    await noProcess('no-merge-duplicate-functions', {
+        extends: ['plugin:putout/safe'],
+        rules: {
+            'putout/putout': ['error', {
+                ignore: ['!**/fixture'],
+                rules: {
+                    ...safeRules,
+                },
+            }],
+        },
+    });
+});

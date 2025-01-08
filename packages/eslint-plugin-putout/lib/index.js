@@ -113,6 +113,7 @@ const recommended = {
 const safeRules = {
     'apply-template-literals': 'off',
     'remove-empty': 'off',
+    'merge-duplicate-functions': 'off',
     'nodejs/remove-process-exit': 'off',
     'typescript/remove-unused-types': 'off',
     'remove-unused-variables': 'off',
