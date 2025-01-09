@@ -11,6 +11,12 @@ module.exports.match = () => ({
         if (isToLong(__b))
             return false;
         
+        const [first] = path.node.body.body;
+        const {leadingComments} = first;
+        
+        if (leadingComments)
+            return false;
+        
         const {name} = __a;
         const binding = path.parentPath.scope.bindings[name];
         

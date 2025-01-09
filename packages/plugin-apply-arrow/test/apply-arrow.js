@@ -37,6 +37,11 @@ test('putout: apply-arrow: no report: for-of', (t) => {
     t.end();
 });
 
+test('putout: apply-arrow: no report: comment', (t) => {
+    t.noReport('comment');
+    t.end();
+});
+
 test('putout: apply-arrow: no report: no-loc', (t) => {
     const FN = 'function __a(__args) {return __b}';
     
