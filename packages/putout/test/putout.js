@@ -16,7 +16,6 @@ const fixture = readFixtures([
     'comment',
     'comment-fix',
     'debugger',
-    'no-vars',
     'no-parent',
     'root-vars',
     'import',
@@ -49,7 +48,7 @@ const fixture = readFixtures([
 ]);
 
 test('putout: no vars', (t) => {
-    const result = putout(fixture.noVars);
+    const result = putout('');
     
     const expected = {
         code: '\n',
@@ -61,7 +60,7 @@ test('putout: no vars', (t) => {
 });
 
 test('putout: no vars: nested', (t) => {
-    const result = putout.putout(fixture.noVars);
+    const result = putout.putout('');
     
     const expected = {
         code: '\n',

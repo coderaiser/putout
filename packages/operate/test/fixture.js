@@ -35,7 +35,7 @@ module.exports.readFixtures = (dir) => {
 
 const handler = {
     get(obj, prop) {
-        if (obj[prop] === undefined)
+        if (!obj[prop])
             throw Error(`"${prop}" not found!`);
         
         return obj[prop];

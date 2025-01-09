@@ -28,6 +28,7 @@ npm i @putout/plugin-conditions -D
 - ✅ [remove-same-values-condition](hremove-same-values-condition);
 - ✅ [remove-useless-else](#remove-ureless-else);
 - ✅ [remove-zero](#remove-zero);
+- ✅ [remove-undefined](#remove-undefined);
 - ✅ [simplify](#simplify);
 - ✅ [wrap-with-block](#wrap-with-block);
 
@@ -48,6 +49,7 @@ npm i @putout/plugin-conditions -D
         "conditions/remove-boolean": "on",
         "conditions/remove-constant": "on",
         "conditions/remove-zero": "on",
+        "conditions/remove-undefined": "on",
         "conditions/remove-useless-else": "on",
         "conditions/remove-same-values-condition": "on",
         "conditions/merge-if-statements": "on",
@@ -312,6 +314,24 @@ function hi(b) {
 if (b === 0) {}
 
 if (b !== 0) {}
+```
+
+### ✅ Example of correct code
+
+```js
+if (!b) {}
+
+if (b) {}
+```
+
+## remove-undefined
+
+### ❌ Example of incorrect code
+
+```js
+if (b === undefined) {}
+
+if (b !== undefined) {}
 ```
 
 ### ✅ Example of correct code

@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-conditions: remove-zero: report', (t) => {
-    t.report('remove-zero', 'Avoid zero in assertions');
+    t.report('remove-zero', `Avoid '0' in assertions`);
     t.end();
 });
 

@@ -58,7 +58,6 @@ const fixture = readFixtures([
     'function-declaration',
     'function-as-argument',
     'import',
-    'no-vars',
     'no-root-vars',
     'import-expression',
     'logical-expression',
@@ -134,7 +133,7 @@ const dutify = (obj) => {
 };
 
 test('remove-unused-variables: get-vars: no', (t) => {
-    const ast = parse(fixture.noVars);
+    const ast = parse('');
     const result = getVars(ast);
     const expected = [];
     
@@ -1602,7 +1601,7 @@ test('remove-unused-variables: get-vars: yield', (t) => {
 });
 
 test('remove-unused-variables: get-vars: template: no loc', (t) => {
-    const ast = parse(fixture.noVars);
+    const ast = parse('');
     
     const buildRequire = template(`
         function fn() {

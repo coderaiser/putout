@@ -44,6 +44,11 @@ test('plugin-conditions: transform: remove-zero', (t) => {
     t.end();
 });
 
+test('plugin-conditions: transform: remove-undefined', (t) => {
+    t.transform('remove-undefined');
+    t.end();
+});
+
 test('plugin-conditions: transform: remove-useless-else', (t) => {
     t.transform('remove-useless-else');
     t.end();

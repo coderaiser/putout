@@ -24,7 +24,6 @@ const fixture = readFixtures([
     'arrow-function-expression',
     'arrow-function-expression-fix',
     'arrow-vars',
-    'no-vars',
     'root-vars',
     'fn-vars',
     'fn-vars-fix',
@@ -62,7 +61,7 @@ const fixture = readFixtures([
 ]);
 
 test('remove-unused-variables: putout: no vars', (t) => {
-    const result = putout(fixture.noVars);
+    const result = putout('');
     
     const expected = {
         code: '\n',

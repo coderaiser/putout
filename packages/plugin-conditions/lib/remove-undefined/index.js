@@ -2,4 +2,4 @@
 
 const {createAvoidInAssertions} = require('../avoid-in-assertions');
 
-module.exports = createAvoidInAssertions(0);
+module.exports = createAvoidInAssertions(undefined);
