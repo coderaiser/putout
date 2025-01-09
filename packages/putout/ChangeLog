@@ -1,3 +1,14 @@
+2025.01.09, v37.13.0
+
+feature:
+- bb648a364 putout: @putout/plugin-remove-useless-functions v4.0.0
+- 2b6495d04 @putout/plugin-remove-useless-functions: drop support of node < 18
+- 054cc07a5 @putout/plugin-remove-useless-functions: undefined
+- afab717af @putout/plugin-types: convert-typeof-to-is-type: instanceof: Array, Object
+- 614fb22da @putout/processor-typescript: ts-morph v25.0.0
+- ea39a1ef7 eslint-plugin-putout: safe: merge-duplicate-functions
+- 02e4cb8e9 @putout/plugin-remove-useless-argruments: json-parse: add
+
 2025.01.05, v37.12.0
 
 fix:
