@@ -28,14 +28,14 @@ const y = (...a) => {
     alert(...a);
 };
 
-[].filter((a) => a);
+[1, 2, null].filter((a) => a);
 ```
 
 ## ✅ Example of correct code
 
 ```js
 const y = alert;
-[].filter(Boolean);
+[1, 2, null].filter(Boolean);
 ```
 
 ## Open Questions

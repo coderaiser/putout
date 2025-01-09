@@ -47,6 +47,7 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     '(__a) => Boolean(__a)': 'Boolean',
     '(__a) => __a': 'Boolean',
+    '(__a) => __a !== undefined': 'Boolean',
     '(...__a) => __b(...__a)': '__b',
     '(...__a) => {__b(...__a)}': '__b',
     'async (__a, __b) => {return await __c(__a, __b);}': '__c',

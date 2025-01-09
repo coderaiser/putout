@@ -39,6 +39,11 @@ test('remove useless functions: transform: id', (t) => {
     t.end();
 });
 
+test('remove useless functions: transform: undefined', (t) => {
+    t.transform('undefined');
+    t.end();
+});
+
 test('remove useless functions: no transform: method', (t) => {
     t.noTransform('method');
     t.end();
