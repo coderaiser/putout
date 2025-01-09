@@ -28,6 +28,8 @@ const BODIES = {
     symbol: `typeof __a === 'symbol'`,
     bigint: `typeof __a === 'bigint'`,
     error: `__a instanceof Error`,
+    array: `__a instanceof Array`,
+    object: `__a instanceof Object`,
 };
 
 const NOT_BODIES = {
@@ -39,6 +41,8 @@ const NOT_BODIES = {
     symbol: `typeof __a !== 'symbol'`,
     bigint: `typeof __a !== 'bigint'`,
     error: `!(__a instanceof Error)`,
+    array: `!(__a instanceof Array)`,
+    object: `!(__a instanceof Object)`,
 };
 
 module.exports.report = () => `Use function to check type instead of 'typeof' or 'instanceof'`;
@@ -58,6 +62,8 @@ module.exports.replace = () => ({
     [BODIES.symbol]: 'isSymbol(__a)',
     [BODIES.bigint]: 'isBigInt(__a)',
     [BODIES.error]: 'isError(__a)',
+    [BODIES.array]: 'isArray(__a)',
+    [BODIES.object]: 'isObject(__a)',
     [NOT_BODIES.function]: '!isFn(__a)',
     [NOT_BODIES.string]: '!isString(__a)',
     [NOT_BODIES.number]: '!isNumber(__a)',
@@ -66,6 +72,8 @@ module.exports.replace = () => ({
     [NOT_BODIES.symbol]: '!isSymbol(__a)',
     [NOT_BODIES.bigint]: '!isBigInt(__a)',
     [NOT_BODIES.error]: '!isError(__a)',
+    [NOT_BODIES.array]: '!isArray(__a)',
+    [NOT_BODIES.object]: '!isObject(__a)',
 });
 
 function check({__a, __b}, path) {

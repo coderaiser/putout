@@ -54,6 +54,11 @@ test('plugin-convert-typeof-to-is-type: transform: is-error', (t) => {
     t.end();
 });
 
+test('plugin-convert-typeof-to-is-type: transform: instanceof', (t) => {
+    t.transform('instanceof');
+    t.end();
+});
+
 test('plugin-convert-typeof-to-is-type: no transform: bind', (t) => {
     t.noTransform('bind');
     t.end();
