@@ -4,11 +4,15 @@ const {entries} = Object;
 const isOneDeclaration = ({node}) => node.declarations.length === 1;
 
 module.exports.remove = (path) => {
-    const programBlock = path.scope.getProgramParent().block;
+    const {scope} = path;
     const prev = getPrevSibling(path);
     
-    if (path.scope.block === programBlock && !prev.node)
-        programBlock.comments = getComments(path);
+    if (scope) {
+        const programBlock = scope.getProgramParent().block;
+        
+        if (scope.block === programBlock && !prev.node)
+            programBlock.comments = getComments(path);
+    }
     
     if (!path.parentPath.isArrayPattern()) {
         path.remove();
