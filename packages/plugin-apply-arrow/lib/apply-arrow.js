@@ -1,7 +1,12 @@
 'use strict';
 
 const {print, types} = require('putout');
-const {isFunction, isProgram} = types;
+const {
+    isFunction,
+    isProgram,
+    isLogicalExpression,
+} = types;
+
 const isTopScope = (a) => isFunction(a) || isProgram(a);
 
 module.exports.report = () => `Use 'Arrow Function' instead of 'Function Declaration`;
@@ -9,6 +14,9 @@ module.exports.report = () => `Use 'Arrow Function' instead of 'Function Declara
 module.exports.match = () => ({
     'function __a(__args) {return __b}': ({__a, __b}, path) => {
         if (isToLong(__b))
+            return false;
+        
+        if (isLogicalExpression(__b))
             return false;
         
         const [first] = path.node.body.body;
