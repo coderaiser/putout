@@ -120,7 +120,7 @@
     "@putout/plugin-filesystem": "^6.0.0",
     "@putout/plugin-for-of": "^7.0.0",
     "@putout/plugin-generators": "^1.0.0",
-    "@putout/plugin-github": "^13.0.0",
+    "@putout/plugin-github": "^14.0.0",
     "@putout/plugin-gitignore": "^6.0.0",
     "@putout/plugin-labels": "^1.0.0",
     "@putout/plugin-logical-expressions": "^7.0.0",
