@@ -1,3 +1,22 @@
+2025.01.12, v37.14.0
+
+feature:
+- cb9fa5a7c @putout/engine-runner: @putout/plugin-filesystem v7.0.0
+- 56b19dc72 putout: @putout/plugin-filesystem v7.0.0
+- bd27d3b9a @putout/plugin-filesystem: drop support of 🐊 < 37
+- 903010628 putout: @putout/formatter-codeframe v8.0.0
+- a5834ffdd @putout/formatter-codeframe: drop support of 🐊 < 37
+- 47282eb41 putout: @putout/plugin-github v14.0.0
+- 5aad75ba4 @putout/engine-parser: @putout/printer v12.0.0
+- 4235ad19d @putout/compare: vars: Identifier inside TSTypeParameter
+- bed86b079 @putout/operator/filesystem: getParentDirectory: no parentPath
+- 81bd7b188 @putout/plugin-github: drop support of 🐊 < 37
+- 0256b88c4 @putout/operate: remove: add ability to have no scope
+- 01107d757 @putout/operate: replaceWith: allow path
+- aab65a133 @putout/traverse: @putout/babel v3.0.0
+- 559cdf23e @putout/plugin-apply-arrow: exclude nodes with comments
+- 2724c45b4 @putout/plugin-conditions: remove-unudefined: add
+
 2025.01.09, v37.13.0
 
 feature:
