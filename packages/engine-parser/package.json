@@ -33,7 +33,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/babel": "^2.5.0",
+    "@putout/babel": "^3.0.0",
     "@putout/printer": "^11.0.0",
     "estree-to-babel": "^10.0.0",
     "nano-memoize": "^3.0.11",
