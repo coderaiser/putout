@@ -1,7 +1,6 @@
 'use strict';
 
 const test = require('supertape');
-
 const {
     __filesystem,
     toJS,
