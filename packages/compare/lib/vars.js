@@ -16,6 +16,7 @@ const {
     isImportsStr,
     isExportsStr,
     isInsideTypeReference,
+    isInsideTypeParameter,
     isBodyStr,
 } = require('./is');
 
@@ -69,6 +70,9 @@ function findVarsWays(node) {
         noScope: true,
         'Identifier|JSXIdentifier|BooleanLiteral|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute|TSTypeReference|TSTypeParameter'(path) {
             if (isInsideTypeReference(path))
+                return;
+            
+            if (isInsideTypeParameter(path))
                 return;
             
             const {node} = path;

@@ -357,3 +357,4 @@ module.exports.parseTemplate = (tmpl, {program} = {}) => {
 };
 
 module.exports.isInsideTypeReference = (path) => path.isIdentifier() && path.parentPath?.isTSTypeReference();
+module.exports.isInsideTypeParameter = (path) => path.isIdentifier() && path.parentPath?.isTSTypeParameter();
