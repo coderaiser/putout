@@ -51,6 +51,9 @@ const getRegExp = (wildcard) => {
 };
 
 module.exports.getParentDirectory = (filePath) => {
+    if (!filePath.parentPath)
+        return null;
+    
     const {parentPath} = filePath.parentPath.parentPath;
     
     if (isProgram(parentPath))

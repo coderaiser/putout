@@ -647,6 +647,14 @@ test('putout: operator: filesystem: getParentDirectory', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: getParentDirectory: no parentPath', (t) => {
+    const dirPath = {};
+    const parentdirPath = getParentDirectory(dirPath);
+    
+    t.notOk(parentdirPath);
+    t.end();
+});
+
 test('putout: operator: filesystem: readFileContent: directory', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
