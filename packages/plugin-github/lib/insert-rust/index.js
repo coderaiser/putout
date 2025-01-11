@@ -17,17 +17,21 @@ const RUST = template.ast(`({
 
 delete RUST.extra;
 
+const DELETE_COUNT = 0;
+
 module.exports.report = () => 'Install Rust';
 
 module.exports.fix = ({path, index, stepsPathValue}) => {
-    stepsPathValue.node.elements.splice(index + 1, 0, RUST);
+    stepsPathValue.node.elements.splice(index + 1, DELETE_COUNT, RUST);
     remove(path);
 };
 
 module.exports.traverse = ({push}) => ({
     [__yaml](path) {
         const {__object} = getTemplateValues(path, __yaml);
-        const [stepsPath] = traverseProperties(__object, 'steps');
+        const [stepsPath] = traverseProperties(__object, 'steps', {
+            scope: path.scope,
+        });
         
         if (!stepsPath)
             return;
