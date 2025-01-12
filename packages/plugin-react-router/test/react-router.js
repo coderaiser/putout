@@ -9,13 +9,13 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-react-hooks: transform: convert-switch-to-routes', (t) => {
-    t.transform('convert-switch-to-routes');
+test('plugin-react-hooks: transform: v6-convert-switch-to-routes', (t) => {
+    t.transform('v6-convert-switch-to-routes');
     t.end();
 });
 
-test('plugin-react-hooks: transform: convert-component-to-element', (t) => {
-    t.transform('convert-component-to-element');
+test('plugin-react-hooks: transform: v6-convert-component-to-element', (t) => {
+    t.transform('v6-convert-component-to-element');
     t.end();
 });
 
