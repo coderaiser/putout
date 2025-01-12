@@ -5,7 +5,7 @@
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to migrate to latest ReactRouter",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-react-router#readme",
-  "main": "lib/react-router.js",
+  "main": "lib/index.js",
   "release": false,
   "tag": false,
   "changelog": false,

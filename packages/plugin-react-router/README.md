@@ -11,24 +11,22 @@
 npm i putout @putout/plugin-react-router -D
 ```
 
-Update `.putout.json` with:
-
-```json
-{
-    "plugins": ["react-router"]
-}
-```
-
 ## Rules
 
-Here is list of rules:
+- ✅ [v6-convert-switch-to-routers](#v6-convert-switch-to-routers);
+- ✅ [v6-convert-component-to-element](#v6-convert-component-to-element);
+- ✅ [v7-split-multi-segment-route](#v7-split-multi-segment-route);
+
+## Config
 
 ```json
 {
     "rules": {
-        "react-router/convert-switch-to-routers": "on",
-        "react-router/convert-component-to-element": "on"
-    }
+        "react-router/v6-convert-switch-to-routers": "on",
+        "react-router/v6-convert-component-to-element": "on",
+        "react-router/v7-split-multi-segment-route": "on"
+    },
+    "plugins": ["react-router"]
 }
 ```
 
@@ -76,6 +74,34 @@ const routes = () => (
 
 ```jsx
 <Route path="/" element={<Home/>}/>;
+```
+
+## v7-split-multi-segment-route
+
+> Split any multi-segment splat `<Route>` into a parent route with the path and a child route with the splat.
+>
+> (c) [reactrouter.com](https://reactrouter.com/upgrading/v6)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f7e4ee30936fee2eb0b9269e9b377561/5bb969962141c3d617576384203a8ab3c38c7b31).
+
+### ❌ Example of incorrect code
+
+```jsx
+<Routes>
+    <Route path="/" element={<Home/>}/>
+    <Route path="dashboard/*" element={<Dashboard/>}/>
+</Routes>;
+```
+
+### ✅ Example of correct code
+
+```jsx
+<Routes>
+    <Route path="/" element={<Home/>}/>
+    <Route path="dashboard">
+        <Route path="*" element={<Dashboard/>}/>
+    </Route>
+</Routes>;
 ```
 
 ## License

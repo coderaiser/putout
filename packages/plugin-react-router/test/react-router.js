@@ -18,3 +18,8 @@ test('plugin-react-hooks: transform: convert-component-to-element', (t) => {
     t.transform('convert-component-to-element');
     t.end();
 });
+
+test('plugin-react-router: transform: v7-split-multi-segment-route', (t) => {
+    t.transform('v7-split-multi-segment-route');
+    t.end();
+});
