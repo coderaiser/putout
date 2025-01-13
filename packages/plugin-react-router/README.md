@@ -82,7 +82,10 @@ const routes = () => (
 >
 > (c) [reactrouter.com](https://reactrouter.com/upgrading/v6)
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f7e4ee30936fee2eb0b9269e9b377561/5bb969962141c3d617576384203a8ab3c38c7b31).
+Checkout in 🐊**Putout Editor**:
+
+- ✅ [jsx](https://putout.cloudcmd.io/#/gist/f7e4ee30936fee2eb0b9269e9b377561/5bb969962141c3d617576384203a8ab3c38c7b31);
+- ✅ [object](https://putout.cloudcmd.io/#/gist/001a1bd9df2eeeae0f9c5912b5ecddee/c7b1043bf209d9ca49e8058f95cc7868cc417cc8);
 
 ### ❌ Example of incorrect code
 
@@ -91,6 +94,14 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f7e4ee3093
     <Route path="/" element={<Home/>}/>
     <Route path="dashboard/*" element={<Dashboard/>}/>
 </Routes>;
+
+createBrowserRouter([{
+    path: '/',
+    element: <Home/>,
+}, {
+    path: 'dashboard/*',
+    element: <Dashboard/>,
+}]);
 ```
 
 ### ✅ Example of correct code
@@ -102,6 +113,17 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f7e4ee3093
         <Route path="*" element={<Dashboard/>}/>
     </Route>
 </Routes>;
+
+createBrowserRouter([{
+    path: '/',
+    element: <Home/>,
+}, {
+    path: 'dashboard',
+    children: [{
+        path: '*',
+        element: <Dashboard/>,
+    }],
+}]);
 ```
 
 ## License

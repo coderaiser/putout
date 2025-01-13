@@ -18,3 +18,8 @@ test('react-router: v7-split-multi-segment-route: transform', (t) => {
     t.transform('v7-split-multi-segment-route');
     t.end();
 });
+
+test('react-router: v7-split-multi-segment-route: transform: object', (t) => {
+    t.transform('object');
+    t.end();
+});
