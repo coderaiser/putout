@@ -148,7 +148,7 @@
     "@putout/plugin-remove-duplicate-keys": "^6.0.0",
     "@putout/plugin-remove-empty": "^13.0.0",
     "@putout/plugin-remove-iife": "^4.0.0",
-    "@putout/plugin-remove-nested-blocks": "^6.0.0",
+    "@putout/plugin-remove-nested-blocks": "^7.0.0",
     "@putout/plugin-remove-unreachable-code": "^2.0.0",
     "@putout/plugin-remove-unreferenced-variables": "^4.0.0",
     "@putout/plugin-remove-unused-expressions": "^10.0.0",
