@@ -28,3 +28,8 @@ test('plugin-remove-unreachable-code: no transform: hoist', (t) => {
     t.noTransform('hoist');
     t.end();
 });
+
+test('plugin-remove-unreachable-code: no report: return-no-arg', (t) => {
+    t.noReport('return-no-arg');
+    t.end();
+});
