@@ -29,15 +29,15 @@ npm i @putout/plugin-merge-return-with-next-sibling
 
 ```js
 function x() {
-    return
+    return;
     {
         hello: 'world';
     }
     
-    return
+    return;
     5;
     
-    return
+    return;
     a ? 2 : 3;
 }
 ```
