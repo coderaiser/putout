@@ -83,6 +83,11 @@ test('remove unused expression: transform: return', (t) => {
     t.end();
 });
 
+test('remove unused expression: no report: return-block', (t) => {
+    t.noReport('return-block');
+    t.end();
+});
+
 test('remove unused expression: no report: return-no-args', (t) => {
     t.noReport('return-no-args');
     t.end();

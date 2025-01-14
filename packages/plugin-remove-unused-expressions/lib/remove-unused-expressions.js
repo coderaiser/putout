@@ -2,7 +2,10 @@
 
 const {types, operator} = require('putout');
 const {remove, isSimple} = operator;
-const {isReturnStatement} = types;
+const {
+    isReturnStatement,
+    isBlockStatement,
+} = types;
 
 module.exports.report = () => 'Avoid unused expression statements';
 
@@ -86,8 +89,17 @@ function isUselessLogical(path) {
 function isPrevReturnWithoutArg(path) {
     const prevPath = path.getPrevSibling();
     
-    if (!isReturnStatement(prevPath))
-        return false;
+    if (isReturnStatement(prevPath))
+        return !prevPath.node.argument;
     
-    return !prevPath.node.argument;
+    const {parentPath} = path;
+    
+    if (parentPath.isLabeledStatement()) {
+        const blockPath = parentPath.parentPath;
+        
+        if (isBlockStatement(blockPath))
+            return isPrevReturnWithoutArg(blockPath);
+    }
+    
+    return false;
 }
