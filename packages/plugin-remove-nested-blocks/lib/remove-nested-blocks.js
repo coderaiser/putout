@@ -1,6 +1,8 @@
 'use strict';
 
-const {replaceWithMultiple} = require('putout').operator;
+const {types, operator} = require('putout');
+const {isReturnStatement} = types;
+const {replaceWithMultiple} = operator;
 const {keys} = Object;
 
 const isIntersect = (bindingsA, path) => {
@@ -30,6 +32,9 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = (path) => {
+    if (isReturnWithoutArg(path))
+        return false;
+    
     const {parentPath} = path;
     const {bindings} = path.scope;
     
@@ -46,3 +51,12 @@ module.exports.filter = (path) => {
     
     return is && (parentPath.isBlockStatement() || parentPath.isProgram());
 };
+
+function isReturnWithoutArg(path) {
+    const prevPath = path.getPrevSibling();
+    
+    if (!isReturnStatement(prevPath))
+        return false;
+    
+    return !prevPath.node.argument;
+}
