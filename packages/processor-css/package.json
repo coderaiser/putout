@@ -29,7 +29,7 @@
     "deepmerge": "^4.2.2",
     "prettier": "^3.1.0",
     "stylelint": "^16.0.1",
-    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard": "^37.0.0",
     "stylelint-prettier": "^5.0.0"
   },
   "keywords": [
