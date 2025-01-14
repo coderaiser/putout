@@ -1,9 +1,10 @@
 'use strict';
 
-const {operator} = require('putout');
+const {types, operator} = require('putout');
 const {remove, isSimple} = operator;
+const {isReturnStatement} = types;
 
-module.exports.report = () => 'Unused expression statement';
+module.exports.report = () => 'Avoid unused expression statements';
 
 module.exports.fix = (path) => {
     remove(path);
@@ -21,6 +22,9 @@ module.exports.traverse = ({push}) => ({
     },
     ExpressionStatement(path) {
         const expressionPath = path.get('expression');
+        
+        if (isPrevReturnWithoutArg(path))
+            return;
         
         if (isUselessLogical(expressionPath))
             return push(expressionPath);
@@ -77,4 +81,13 @@ function isUselessLogical(path) {
     const right = path.get('right');
     
     return isSimple(left) && isSimple(right);
+}
+
+function isPrevReturnWithoutArg(path) {
+    const prevPath = path.getPrevSibling();
+    
+    if (!isReturnStatement(prevPath))
+        return false;
+    
+    return !prevPath.node.argument;
 }

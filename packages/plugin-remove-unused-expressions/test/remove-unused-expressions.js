@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('remove unused expression: report', (t) => {
-    t.reportCode('error;', 'Unused expression statement');
+    t.reportCode('error;', 'Avoid unused expression statements');
     t.end();
 });
 
@@ -75,5 +75,15 @@ test('remove unused expression: no report: iife', (t) => {
 
 test('remove unused expression: no report: use-client', (t) => {
     t.noReport('use-client');
+    t.end();
+});
+
+test('remove unused expression: transform: return', (t) => {
+    t.transform('return');
+    t.end();
+});
+
+test('remove unused expression: no report: return-no-args', (t) => {
+    t.noReport('return-no-args');
     t.end();
 });
