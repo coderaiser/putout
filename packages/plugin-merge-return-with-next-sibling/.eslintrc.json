@@ -1,0 +1,13 @@
+{
+    "rules": {
+        "@stylistic/js/semi": "off"
+    },
+    "extends": [
+        "plugin:n/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "n"
+    ]
+}

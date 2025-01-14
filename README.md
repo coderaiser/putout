@@ -1461,6 +1461,20 @@ result = result ?? 'hello';
 
 </details>
 
+<details><summary>merge <code>return</code> with next sibling</summary>
+
+```diff
+-return
+-{
+-    a: 5
+-}
++return {
++   a: 5
++};
+```
+
+</details>
+
 <details><summary>merge duplicate imports</summary>
 
 ```diff
@@ -2140,6 +2154,7 @@ It has a lot of plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-merge-destructuring-properties`](/packages/plugin-merge-destructuring-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-destructuring-properties) |
 | [`@putout/plugin-merge-duplicate-functions`](/packages/plugin-merge-duplicate-functions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-functions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-duplicate-functions) |
+| [`@putout/plugin-merge-return-with-next-sibling`](/packages/plugin-merge-return-with-next-sibling#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-return-with-next-sibling.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-return-with-next-sibling) |
 
 ### Converters
 

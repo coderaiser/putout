@@ -264,6 +264,7 @@
         "esm",
         "merge-destructuring-properties",
         "merge-duplicate-functions",
+        "merge-return-with-next-sibling",
         "declare-before-reference",
         "declare",
         "labels",

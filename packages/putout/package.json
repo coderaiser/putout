@@ -129,6 +129,7 @@
     "@putout/plugin-maybe": "^2.0.0",
     "@putout/plugin-merge-destructuring-properties": "^10.0.0",
     "@putout/plugin-merge-duplicate-functions": "^2.0.0",
+    "@putout/plugin-merge-return-with-next-sibling": "^1.0.0",
     "@putout/plugin-montag": "^3.0.0",
     "@putout/plugin-new": "^3.0.1",
     "@putout/plugin-nodejs": "^13.0.0",

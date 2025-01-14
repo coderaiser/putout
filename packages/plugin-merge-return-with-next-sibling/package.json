@@ -1,0 +1,56 @@
+{
+  "name": "@putout/plugin-merge-return-with-next-sibling",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "🐊Putout plugin adds ability to merge return with next sibling",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-merge-return-with-next-sibling#readme",
+  "main": "lib/merge-return-with-next-sibling.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keyswords": [
+    "putout",
+    "putout-plugin",
+    "putout-plugin-merge",
+    "plugin",
+    "merge",
+    "duplicate",
+    "functions"
+  ],
+  "devDependencies": {
+    "@putout/test": "^11.0.0",
+    "c8": "^10.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-n": "^17.0.0",
+    "eslint-plugin-putout": "^23.0.0",
+    "lerna": "^6.0.1",
+    "madrun": "^10.0.0",
+    "nodemon": "^3.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=37"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
