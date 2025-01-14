@@ -1,3 +1,25 @@
+2025.01.14, v37.15.0
+
+feature:
+- b63ba46e6 @putout/processor-css: stylelint-config-standard v37.0.0
+- bdefe4298 putout: @putout/plugin-remove-nested-blocks v7.0.0
+- c29efca99 putout: @putout/plugin-remove-unreachable-code v2.0.0
+- 415250dc9 putout: @putout/plugin-remove-unused-expressions v10.0.0
+- 9202702ae @putout/plugin-labels: remove-unused: exclude when previous ReturnStatement without args
+- 8f8efd153 @putout/labels: drop support of 🐊 < 37
+- bdcf9e2a8 @putout/plugin-remove-unreachable-code: drop support of 🐊 < 37
+- ba5440107 @putout/plugin-remove-unreachable-code: exclude ReturnStatement wihout arg
+- a4e6777ae @putout/plugin-remove-nested-blocks: drop support of 🐊 < 37
+- 0b6709223 @putout/plugin-remove-nested-blocks: exclude ReturnStatement
+- 278c48b71 @putout/plugin-remove-unused-expressions: return block
+- ae26c57a0 @putout/plugin-remove-unused-expressions: drop support of 🐊 < 37
+- 0cd79a7b0 @putout/plugin-remove-unused-expressions: exclude return without argument with next sibling
+- c5d32f76b @putout/plugin-merge-return-with-next-sibling: add
+- 4b9619a50 @putout/plugin-react-router: v7-split-multi-segment-route: object (#221)
+- 1c5b7c2c7 @putout/plugin-react-router: drop support of 🐊 < 37
+- 8af6d2250 @putotu/plugin-react-router: v7-split-multi-segment-route: add (#221)
+- 36b8c05c6 @putout/plugin-apply-arrow: exclude LogicalExpression
+
 2025.01.12, v37.14.0
 
 feature:
