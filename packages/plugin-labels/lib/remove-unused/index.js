@@ -1,6 +1,7 @@
 'use strict';
 
-const {operator} = require('putout');
+const {operator, types} = require('putout');
+const {isReturnStatement} = types;
 const {traverse, replaceWith} = operator;
 
 module.exports.report = ({name}) => `Label '${name}' is defined but never used`;
@@ -13,6 +14,9 @@ module.exports.traverse = ({push}) => ({
     LabeledStatement(path) {
         const {label} = path.node;
         const {name} = label;
+        
+        if (isPrevReturnWithoutArg(path))
+            return;
         
         if (!usedLabel({path, name}))
             push({
@@ -44,4 +48,13 @@ function usedLabel({path, name}) {
     });
     
     return used;
+}
+
+function isPrevReturnWithoutArg({parentPath}) {
+    const retPath = parentPath.getPrevSibling();
+    
+    if (!isReturnStatement(retPath))
+        return false;
+    
+    return !retPath.node.argument;
 }

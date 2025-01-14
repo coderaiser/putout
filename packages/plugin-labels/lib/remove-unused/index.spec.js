@@ -23,3 +23,8 @@ test('putout: remove-unused: transform: wrong', (t) => {
     t.transform('wrong');
     t.end();
 });
+
+test('putout: remove-unused: no report: return', (t) => {
+    t.noReport('return');
+    t.end();
+});
