@@ -101,7 +101,8 @@ function _readOptions(name) {
             dirname(packagePath), {
                 ...options,
                 ...require(packagePath).putout,
-            }];
+            },
+        ];
     
     return ['', {}];
 }
