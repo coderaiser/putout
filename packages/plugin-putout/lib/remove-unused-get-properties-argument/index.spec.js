@@ -14,12 +14,12 @@ test('putout: remove-unused-get-properties-argument: report', (t) => {
     t.end();
 });
 
-test('putout: remove-unused-get-properties-argument: no report', (t) => {
+test('putout: remove-unused-get-properties-argument: no report: computed', (t) => {
     t.noReport('computed');
     t.end();
 });
 
-test('putout: remove-unused-get-properties-argument: no destructuring', (t) => {
+test('putout: remove-unused-get-properties-argument: no-destructuring', (t) => {
     t.noReport('no-destructuring');
     t.end();
 });

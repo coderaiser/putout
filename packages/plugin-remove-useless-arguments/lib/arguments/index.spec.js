@@ -29,7 +29,7 @@ test('plugin-remove-useless-arguments: arguments: transform: no-args', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-arguments: arguments: no transform: not fn', (t) => {
+test('plugin-remove-useless-arguments: arguments: no transform: not-fn', (t) => {
     t.noTransform('not-fn');
     t.end();
 });

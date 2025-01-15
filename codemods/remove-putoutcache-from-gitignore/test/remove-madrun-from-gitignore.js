@@ -20,7 +20,7 @@ test('plugin-remove-madrun-from-gitignore: transform', (t) => {
     t.end();
 });
 
-test('plugin-remove-madrun-from-gitignore: no transform: present', (t) => {
+test('plugin-remove-madrun-from-gitignore: no transform: not-present', (t) => {
     t.noTransform('not-present');
     t.end();
 });

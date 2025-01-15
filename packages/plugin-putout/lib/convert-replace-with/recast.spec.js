@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-replace-with: recast: transform', (t) => {
+test('plugin-putout: convert-replace-with: recast: transform: recast-replace-with', (t) => {
     t.transform('recast-replace-with');
     t.end();
 });

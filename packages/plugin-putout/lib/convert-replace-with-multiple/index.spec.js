@@ -19,17 +19,17 @@ test('plugin-putout: replace-with-multiple: transform', (t) => {
     t.end();
 });
 
-test('plugin-putout: replace-with-multiple: transform: replaceWithMultiple: exists', (t) => {
+test('plugin-putout: replace-with-multiple: transform: replaceWithMultiple: replace-with-multiple-exists', (t) => {
     t.transform('replace-with-multiple-exists');
     t.end();
 });
 
-test('plugin-putout: replace-with-multiple: transform: replaceWith: exists', (t) => {
+test('plugin-putout: replace-with-multiple: transform: replaceWith: replace-with-exists', (t) => {
     t.transform('replace-with-exists');
     t.end();
 });
 
-test('plugin-putout: replace-with-multiple: transform: insertAfter: exists', (t) => {
+test('plugin-putout: replace-with-multiple: transform: insertAfter: insert-after-exists', (t) => {
     t.transform('insert-after-exists');
     t.end();
 });

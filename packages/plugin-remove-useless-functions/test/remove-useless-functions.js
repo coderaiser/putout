@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('remove useless functions: report', (t) => {
+test('remove useless functions: report: block', (t) => {
     t.report('block', 'Avoid useless functions');
     t.end();
 });
@@ -49,12 +49,12 @@ test('remove useless functions: no transform: method', (t) => {
     t.end();
 });
 
-test('remove useless functions: no transform: method block', (t) => {
+test('remove useless functions: no transform: method-block', (t) => {
     t.noTransform('method-block');
     t.end();
 });
 
-test('remove useless functions: no transform: different args', (t) => {
+test('remove useless functions: no transform: different-args', (t) => {
     t.noTransform('different-args');
     t.end();
 });

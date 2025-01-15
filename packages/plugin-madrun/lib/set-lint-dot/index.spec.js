@@ -19,12 +19,12 @@ test('madrun: set lint dot: transform', (t) => {
     t.end();
 });
 
-test('madrun: set lint dot: transform: template', (t) => {
+test('madrun: set lint dot: transform: lint-template', (t) => {
     t.transform('lint-template');
     t.end();
 });
 
-test('madrun: set lint dot: transform: template: variables', (t) => {
+test('madrun: set lint dot: transform: template: template-variables', (t) => {
     t.transform('template-variables');
     t.end();
 });
@@ -34,12 +34,12 @@ test('madrun: set lint dot: transform: esm', (t) => {
     t.end();
 });
 
-test('madrun: set lint dot: no transform: function', (t) => {
+test('madrun: set lint dot: no transform: lint-fn', (t) => {
     t.noTransform('lint-fn');
     t.end();
 });
 
-test('madrun: set lint dot: no transform: no lint', (t) => {
+test('madrun: set lint dot: no transform: no-lint', (t) => {
     t.noTransform('no-lint');
     t.end();
 });

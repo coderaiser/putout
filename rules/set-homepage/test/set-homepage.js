@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('rules: set-hompage: report', (t) => {
+test('rules: set-hompage: report: homepage', (t) => {
     t.report('homepage', 'Set homepage');
     t.end();
 });
 
-test('rules: set-hompeage: transform', (t) => {
+test('rules: set-hompeage: transform: homepage', (t) => {
     t.transform('homepage');
     t.end();
 });
@@ -22,7 +22,7 @@ test('rules: set-hompeage: transform: different', (t) => {
     t.end();
 });
 
-test('rules: set-hompeage: no report', (t) => {
+test('rules: set-hompeage: no report: no-name-homepage', (t) => {
     t.noReport('no-name-homepage');
     t.end();
 });

@@ -14,7 +14,7 @@ test('plugin-nextjs: convert-trigger-validation-to-trigger: report', (t) => {
     t.end();
 });
 
-test('plugin-nextjs: convert-trigger-validation-to-trigger: no report: no-as', (t) => {
+test('plugin-nextjs: convert-trigger-validation-to-trigger: no report: no-trigger-validation', (t) => {
     t.noReport('no-trigger-validation');
     t.end();
 });

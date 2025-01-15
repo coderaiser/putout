@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: convert-called-with-arguments: report', (t) => {
+test('plugin-tape: convert-called-with-arguments: report: args', (t) => {
     t.report('args', `Use an array as args to 'calledWith()'`);
     t.end();
 });
 
-test('plugin-tape: convert-called-with-arguments: transform', (t) => {
+test('plugin-tape: convert-called-with-arguments: transform: args', (t) => {
     t.transform('args');
     t.end();
 });

@@ -19,7 +19,7 @@ test('plugin-tape: convert-called-with-to-called-with-no-args: no args', (t) => 
     t.end();
 });
 
-test('plugin-tape: convert-called-with-to-called-with-no-args: empty array', (t) => {
+test('plugin-tape: convert-called-with-to-called-with-no-args: empty-array', (t) => {
     t.transform('empty-array');
     t.end();
 });

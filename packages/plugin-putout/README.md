@@ -25,6 +25,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-create-test](#apply-create-test);
 - ✅ [apply-declare](#apply-declare);
 - ✅ [apply-for-of-to-track-file](#apply-for-of-to-track-file);
+- ✅ [apply-fixture-name-to-message](#apply-fixture-name-to-message);
 - ✅ [apply-insert-after](#apply-insert-after);
 - ✅ [apply-insert-before](#apply-insert-before);
 - ✅ [apply-namespace-specifier](#apply-namespace-specifier);
@@ -84,9 +85,9 @@ npm i @putout/plugin-putout -D
         "putout/add-await-to-progress": "on",
         "putout/add-index-to-import": "on",
         "putout/apply-create-test": "on",
-        "putout/apply-processors-destructuring": "on",
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
+        "putout/apply-processors-destructuring": "on",
         "putout/apply-rename": "on",
         "putout/apply-remove": "on",
         "putout/apply-insert-before": "on",
@@ -94,6 +95,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-short-processors": "on",
         "putout/apply-namespace-specifier": "on",
         "putout/apply-for-of-to-track-file": "on",
+        "putout/apply-fixture-name-to-message": "on",
         "putout/check-match": "on",
         "putout/check-replace-code": ["on", {
             "once": true
@@ -1416,6 +1418,26 @@ module.exports.replace = () => ({
 ```js
 module.exports.replace = () => ({
     'if (__a) {__b} else {__c}': 'if (__a) __b; else __c',
+});
+```
+
+## apply-fixture-name-to-message"
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/66eb493ee966c2465a9fc783cd3ca362/f42ec60e393181b6d6aaf6df81640e93fabe8783).
+
+```js
+test('flatlint: convert-comma-to-semicolon: no report: xxx', (t) => {
+    t.noReport('array');
+    t.end();
+});
+```
+
+### ✅ Example of correct code
+
+```js
+test('flatlint: convert-comma-to-semicolon: no report: array', (t) => {
+    t.noReport('array');
+    t.end();
 });
 ```
 

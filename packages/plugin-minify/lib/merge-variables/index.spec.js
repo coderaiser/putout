@@ -20,7 +20,7 @@ test('plugin-minify: merge-variables: transform', (t) => {
     t.end();
 });
 
-test('plugin-minify: merge-variables: transform: mutation', (t) => {
+test('plugin-minify: merge-variables: transform: await', (t) => {
     t.transform('await');
     t.end();
 });
@@ -50,7 +50,7 @@ test('plugin-minify: merge-variables: no transform: const', (t) => {
     t.end();
 });
 
-test('plugin-minify: merge-variables: transform: const', (t) => {
+test('plugin-minify: merge-variables: transform: before-init', (t) => {
     t.transform('before-init');
     t.end();
 });

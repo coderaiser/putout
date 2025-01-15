@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-types-from-constants: report', (t) => {
+test('plugin-remove-useless-types-from-constants: report: any', (t) => {
     t.report('any', 'Remove useless type when declaring constant with primitive value');
     t.end();
 });
@@ -29,7 +29,7 @@ test('plugin-remove-useless-types-from-constants: no transform: union', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-types-from-constants: no report', (t) => {
+test('plugin-remove-useless-types-from-constants: no report: no-type', (t) => {
     t.noReport('no-type');
     t.end();
 });

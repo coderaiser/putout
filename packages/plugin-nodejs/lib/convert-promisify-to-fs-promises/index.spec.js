@@ -19,7 +19,7 @@ test('plugin-convert-fs-to-promises: transform', (t) => {
     t.end();
 });
 
-test('plugin-convert-fs-to-promises: no transform: no promises', (t) => {
+test('plugin-convert-fs-to-promises: no transform: no-promises', (t) => {
     t.noTransform('no-promises');
     t.end();
 });

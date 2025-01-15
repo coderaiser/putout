@@ -24,7 +24,7 @@ test('putout: add-path-arg-to-visitors: transform: property', (t) => {
     t.end();
 });
 
-test('putout: add-path-arg-to-visitors: no report: not referenced', (t) => {
+test('putout: add-path-arg-to-visitors: no report: not-referenced', (t) => {
     t.noReport('not-referenced');
     t.end();
 });

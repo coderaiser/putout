@@ -29,17 +29,17 @@ test('madrun: rename-eslint-to-putout: no transform: eslintrc', (t) => {
     t.end();
 });
 
-test('madrun: rename-eslint-to-putout: no transform: not lint', (t) => {
+test('madrun: rename-eslint-to-putout: no transform: not-lint', (t) => {
     t.noTransform('not-lint');
     t.end();
 });
 
-test('madrun: rename-eslint-to-putout: no transform: putout', (t) => {
+test('madrun: rename-eslint-to-putout: no transform: eslint-fix', (t) => {
     t.noTransform('eslint-fix');
     t.end();
 });
 
-test('madrun: rename-eslint-to-putout: no transform: not str', (t) => {
+test('madrun: rename-eslint-to-putout: no transform: not-str', (t) => {
     t.noTransform('not-str');
     t.end();
 });

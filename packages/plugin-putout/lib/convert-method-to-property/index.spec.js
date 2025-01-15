@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-method-to-property: report', (t) => {
+test('plugin-putout: convert-method-to-property: report: match', (t) => {
     t.report('match', 'Object Property should be used instead of Method');
     t.end();
 });

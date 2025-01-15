@@ -17,7 +17,7 @@ test('putout: plugin-package-json: remove-commit-type: transform', (t) => {
     t.end();
 });
 
-test('putout: plugin-package-json: remove-commit-type: no commit-type', (t) => {
+test('putout: plugin-package-json: remove-commit-type: no-commit-type', (t) => {
     t.noTransform('no-commit-type');
     t.end();
 });

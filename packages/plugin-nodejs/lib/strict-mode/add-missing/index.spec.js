@@ -13,7 +13,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-nodejs: strict-mode: add: report', (t) => {
+test('plugin-nodejs: strict-mode: add: report: commonjs', (t) => {
     t.report('commonjs', `Add missing 'use strict' directive on top of CommonJS`);
     t.end();
 });

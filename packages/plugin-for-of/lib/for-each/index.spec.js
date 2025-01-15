@@ -15,12 +15,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-for-of: report', (t) => {
+test('plugin-for-of: report: keys', (t) => {
     t.report('keys', `Use 'for-of' instead of 'forEach()'`);
     t.end();
 });
 
-test('plugin-for-of: transform', (t) => {
+test('plugin-for-of: transform: keys', (t) => {
     t.transform('keys');
     t.end();
 });
@@ -35,32 +35,32 @@ test('plugin-for-of: transform: return', (t) => {
     t.end();
 });
 
-test('plugin-for-of: transform: empty return', (t) => {
+test('plugin-for-of: transform: empty-return', (t) => {
     t.transform('empty-return');
     t.end();
 });
 
-test('plugin-for-of: no transform: not function', (t) => {
+test('plugin-for-of: no transform: not-fn', (t) => {
     t.noTransform('not-fn');
     t.end();
 });
 
-test('plugin-for-of: no transform: empty function', (t) => {
+test('plugin-for-of: no transform: empty-fn', (t) => {
     t.noTransform('empty-fn');
     t.end();
 });
 
-test('plugin-for-of: no transform: parent function argument', (t) => {
+test('plugin-for-of: no transform: parent-fn-arg', (t) => {
     t.noTransform('parent-fn-arg');
     t.end();
 });
 
-test('plugin-for-of: no transform: not this', (t) => {
+test('plugin-for-of: no transform: not-this', (t) => {
     t.noTransform('not-this');
     t.end();
 });
 
-test('plugin-for-of: transform: var not bound', (t) => {
+test('plugin-for-of: transform: not-bound', (t) => {
     t.transform('not-bound');
     t.end();
 });
@@ -85,7 +85,7 @@ test('plugin-for-of: no transform: var is bound', (t) => {
     t.end();
 });
 
-test('plugin-for-of: no transform: var is bound in a function', (t) => {
+test('plugin-for-of: no transform: var-fn', (t) => {
     t.noTransform('var-fn');
     t.end();
 });
@@ -100,12 +100,12 @@ test('plugin-for-of: transform: i', (t) => {
     t.end();
 });
 
-test('plugin-for-of: no transform: same name', (t) => {
+test('plugin-for-of: no transform: same-name', (t) => {
     t.noTransform('same-name');
     t.end();
 });
 
-test('plugin-for-of: transform: this i', (t) => {
+test('plugin-for-of: transform: this-i', (t) => {
     t.transform('this-i');
     t.end();
 });

@@ -24,7 +24,7 @@ test('plugin-browserlist: no transform: absent', (t) => {
     t.end();
 });
 
-test('plugin-browserlist: no transform: no browser', (t) => {
+test('plugin-browserlist: no transform: no-browser', (t) => {
     t.noTransform('no-browser');
     t.end();
 });

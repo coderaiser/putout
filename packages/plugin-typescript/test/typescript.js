@@ -89,7 +89,7 @@ test('putout: plugin: typescript: transform: remove-setter-return-type', (t) => 
     t.end();
 });
 
-test('plugin-typescript: no transform: find-file: off', (t) => {
+test('plugin-typescript: no transform: find-file: find-file-off', (t) => {
     t.noTransform('find-file-off');
     t.end();
 });

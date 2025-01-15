@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: plugin-types: remove-useless-conversion: named: report', (t) => {
+test('putout: plugin-types: remove-useless-conversion: named: report: bool', (t) => {
     t.report('bool', 'Avoid useless type conversion');
     t.end();
 });
 
-test('putout: plugin-types: remove-useless-conversion: named: transform', (t) => {
+test('putout: plugin-types: remove-useless-conversion: named: transform: bool', (t) => {
     t.transform('bool');
     t.end();
 });

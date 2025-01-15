@@ -39,7 +39,7 @@ test('typescript: remove useless types: no transform: export', (t) => {
     t.end();
 });
 
-test('typescript: remove useless types: no transform: qualified name', (t) => {
+test('typescript: remove useless types: no transform: qualified-name', (t) => {
     t.noTransform('qualified-name');
     t.end();
 });

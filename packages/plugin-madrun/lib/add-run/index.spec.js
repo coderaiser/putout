@@ -14,12 +14,12 @@ const test = createTest(__dirname, {
 
 const {'add-missing': addMissing} = strictMode.rules;
 
-test('madrun: add run: report', (t) => {
+test('madrun: add run: report: no-run', (t) => {
     t.report('no-run', 'run should be declared');
     t.end();
 });
 
-test('madrun: add run: transform: no exists', (t) => {
+test('madrun: add run: transform: no-run', (t) => {
     t.transform('no-run');
     t.end();
 });
@@ -29,7 +29,7 @@ test('madrun: add run: no transform: exists', (t) => {
     t.end();
 });
 
-test('madrun: add run: no transform: no run used', (t) => {
+test('madrun: add run: no transform: no-run-used', (t) => {
     t.noTransform('no-run-used');
     t.end();
 });

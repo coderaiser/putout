@@ -17,7 +17,7 @@ test('plugin-gitignore: transform', (t) => {
     t.end();
 });
 
-test('plugin-gitignore: no transform: all presented', (t) => {
+test('plugin-gitignore: no transform: gitignore-fix', (t) => {
     t.noTransform('gitignore-fix');
     t.end();
 });

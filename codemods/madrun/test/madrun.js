@@ -7,17 +7,17 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('codemod-madrun: transform', (t) => {
+test('codemod-madrun: transform: add-madrun-to-lint', (t) => {
     t.transform('add-madrun-to-lint');
     t.end();
 });
 
-test('codemod-madrun: no transform: no module.exports', (t) => {
+test('codemod-madrun: no transform: no-module-exports', (t) => {
     t.noTransform('no-module-exports');
     t.end();
 });
 
-test('codemod-madrun: no transform: module.exports not object', (t) => {
+test('codemod-madrun: no transform: module-exports-not-object', (t) => {
     t.noTransform('module-exports-not-object');
     t.end();
 });

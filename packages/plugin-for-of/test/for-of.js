@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-for-of: transform: for-of', (t) => {
+test('plugin-for-of: transform: for-entries-n', (t) => {
     t.transform('for-entries-n');
     t.end();
 });

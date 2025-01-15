@@ -11,12 +11,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-empty: block: report', (t) => {
+test('plugin-remove-empty: block: report: not-function', (t) => {
     t.report('not-function', 'Avoid useless empty blocks');
     t.end();
 });
 
-test('plugin-remove-empty: no report: block: else', (t) => {
+test('plugin-remove-empty: no report: block: else-comment', (t) => {
     t.noReport('else-comment');
     t.end();
 });
@@ -26,7 +26,7 @@ test('plugin-remove-empty: block: function', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: block: not function', (t) => {
+test('plugin-remove-empty: block: not-function', (t) => {
     t.transform('not-function');
     t.end();
 });
@@ -46,12 +46,12 @@ test('plugin-remove-empty: block: if-else', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: block: empty if', (t) => {
+test('plugin-remove-empty: block: empty-if', (t) => {
     t.transform('empty-if');
     t.end();
 });
 
-test('plugin-remove-empty: block: empty if: not binary expression', (t) => {
+test('plugin-remove-empty: block: empty if: empty-if-not-binary', (t) => {
     t.transform('empty-if-not-binary');
     t.end();
 });
@@ -76,7 +76,7 @@ test('plugin-remove-empty: block: else if', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: block: if test call', (t) => {
+test('plugin-remove-empty: block: if-test-call', (t) => {
     t.transform('if-test-call');
     t.end();
 });

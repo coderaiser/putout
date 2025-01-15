@@ -14,7 +14,7 @@ test('packages: convert-require-resolve-to-require: report', (t) => {
     t.end();
 });
 
-test('packages: convert-require-resolve-to-require: no report', (t) => {
+test('packages: convert-require-resolve-to-require: no report: not-property', (t) => {
     t.noReport('not-property');
     t.end();
 });

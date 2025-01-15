@@ -33,7 +33,7 @@ test('plugin-reuse-duplicate-init: no transform: scope', (t) => {
     t.end();
 });
 
-test('plugin-reuse-duplicate-init: no transform: no main', (t) => {
+test('plugin-reuse-duplicate-init: no transform: no-main', (t) => {
     t.noTransform('no-main');
     t.end();
 });

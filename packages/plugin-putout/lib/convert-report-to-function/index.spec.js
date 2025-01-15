@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert report to function: report', (t) => {
+test('plugin-putout: convert report to function: report: convert-report-to-function', (t) => {
     t.report('convert-report-to-function', `Typeof 'report' should be a 'function'`);
     t.end();
 });
 
-test('plugin-putout: convert report to function: transform', (t) => {
+test('plugin-putout: convert report to function: transform: convert-report-to-function', (t) => {
     t.transform('convert-report-to-function');
     t.end();
 });

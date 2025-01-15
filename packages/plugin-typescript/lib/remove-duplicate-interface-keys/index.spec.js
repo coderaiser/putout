@@ -14,12 +14,12 @@ test('plugin-typescript: remove duplicate-interface-keys: report', (t) => {
     t.end();
 });
 
-test('plugin-typescript: remove duplicate-interface-keys: transform: duplicate', (t) => {
+test('plugin-typescript: remove duplicate-interface-keys: transform: duplicate-literal', (t) => {
     t.transform('duplicate-literal');
     t.end();
 });
 
-test('plugin-typescript: remove duplicate-interface-keys: transform: break code with additional ";"', (t) => {
+test('plugin-typescript: remove duplicate-interface-keys: transform: additional-semicolon', (t) => {
     t.transform('additional-semicolon');
     t.end();
 });
@@ -29,7 +29,7 @@ test('plugin-typescript: remove duplicate-interface-keys: transform: alot', (t) 
     t.end();
 });
 
-test('plugin-typescript: remove duplicate-interface-keys: no transform: index signature', (t) => {
+test('plugin-typescript: remove duplicate-interface-keys: no transform: index-signature', (t) => {
     t.noTransform('index-signature');
     t.end();
 });

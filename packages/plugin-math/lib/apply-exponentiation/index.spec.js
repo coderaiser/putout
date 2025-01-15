@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-math: apply-exponentiation: report', (t) => {
+test('plugin-math: apply-exponentiation: report: pow', (t) => {
     t.report('pow', `Use operator '**' instead of 'Math.pow()'`);
     t.end();
 });
 
-test('plugin-math: apply-exponentiation: transform', (t) => {
+test('plugin-math: apply-exponentiation: transform: pow', (t) => {
     t.transform('pow');
     t.end();
 });

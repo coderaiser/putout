@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-postcss: report', (t) => {
+test('plugin-postcss: report: export', (t) => {
     t.report('export', `creator should be used instead of plugin`);
     t.end();
 });
 
-test('plugin-postcss: transform', (t) => {
+test('plugin-postcss: transform: export', (t) => {
     t.transform('export');
     t.end();
 });

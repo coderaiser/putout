@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-url-to-dirname: report', (t) => {
+test('plugin-putout: convert-url-to-dirname: report: commonjs', (t) => {
     t.report('commonjs', `Use 'createTest(__dirname)' instead of 'createTest(import.meta.url)' in CommonJS'`);
     t.end();
 });
 
-test('plugin-putout: convert-url-to-dirname: transform', (t) => {
+test('plugin-putout: convert-url-to-dirname: transform: commonjs', (t) => {
     t.transform('commonjs');
     t.end();
 });

@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-unreachable-code: report', (t) => {
+test('plugin-remove-unreachable-code: report: return', (t) => {
     t.report('return', 'Unreachable code');
     t.end();
 });

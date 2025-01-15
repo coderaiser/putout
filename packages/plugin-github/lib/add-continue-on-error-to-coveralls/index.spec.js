@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-github: add coveralls continue-on-error: report', (t) => {
+test('plugin-github: add coveralls continue-on-error: report: add-continue-on-error-to-coveralls', (t) => {
     t.report('add-continue-on-error-to-coveralls', `Add 'continue-on-error' to 'coverallsapp/github-action'`);
     t.end();
 });
 
-test('plugin-github: add coveralls continue-on-error: transform', (t) => {
+test('plugin-github: add coveralls continue-on-error: transform: add-continue-on-error-to-coveralls', (t) => {
     t.transform('add-continue-on-error-to-coveralls');
     t.end();
 });

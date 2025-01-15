@@ -19,17 +19,17 @@ test('plugin-putout: convert-traverse-to-replace: transform', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert-traverse-to-replace: no transform: with fix', (t) => {
+test('plugin-putout: convert-traverse-to-replace: no transform: with-fix', (t) => {
     t.noTransform('with-fix');
     t.end();
 });
 
-test('plugin-putout: convert-traverse-to-replace: no transform: with push', (t) => {
+test('plugin-putout: convert-traverse-to-replace: no transform: with-push', (t) => {
     t.noTransform('with-push');
     t.end();
 });
 
-test('plugin-putout: convert-traverse-to-replace: transform: with options', (t) => {
+test('plugin-putout: convert-traverse-to-replace: transform: with-options', (t) => {
     t.transform('with-options');
     t.end();
 });

@@ -63,7 +63,7 @@ const test = createTest(import.meta.url, {
 Check error message (or messages) of a plugin:
 
 ```js
-test('remove useless variables: for-of', (t) => {
+test('remove useless variables: dot', (t) => {
     t.report('dot', 'Dot files should be added to .gitignore');
     t.end();
 });
@@ -72,7 +72,7 @@ test('remove useless variables: for-of', (t) => {
 When you want to check that report called exact count of times pass an array of messages:
 
 ```js
-test('remove useless variables: for-of', (t) => {
+test('remove useless variables: dot', (t) => {
     t.report('dot', ['Dot files should be added to .gitignore']);
     t.end();
 });
@@ -321,12 +321,12 @@ const test = createTest(__dirname, {
     'remove-console': removeConsole,
 });
 
-test('remove-console: report', (t) => {
+test('remove-console: report: property-identifier', (t) => {
     t.report('property-identifier', 'Unexpected "console" call');
     t.end();
 });
 
-test('remove-console: property identifier', (t) => {
+test('remove-console: property-identifier', (t) => {
     t.transform('property-identifier');
     t.end();
 });
@@ -435,7 +435,7 @@ test('eslint-config: operator-line-break', async ({comparePlaces}) => {
 ### `transform(name)`
 
 ```js
-test('test: eslint: transform', (t) => {
+test('test: eslint: transform: remove-debugger', (t) => {
     t.transform('remove-debugger');
     t.end();
 });
@@ -444,7 +444,7 @@ test('test: eslint: transform', (t) => {
 ### `report(filename, message | []messages)`
 
 ```js
-test('test: eslint: report', (t) => {
+test('test: eslint: report: remove-debugger', (t) => {
     t.report('remove-debugger', `Avoid 'debugger' statement`);
     t.end();
 });

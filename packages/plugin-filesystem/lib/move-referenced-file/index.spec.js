@@ -33,7 +33,7 @@ test('packages: move-referenced-file: transform', (t) => {
     t.end();
 });
 
-test('packages: move-referenced-file: no transform: no name', (t) => {
+test('packages: move-referenced-file: no transform: no-name', (t) => {
     t.noTransform('no-name');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-promises: apply-top-level-await: report', (t) => {
+test('plugin-promises: apply-top-level-await: report: esm', (t) => {
     t.report('esm', `Use top level 'await'`);
     t.end();
 });
 
-test('plugin-promises: apply-top-level-await: transform: object', (t) => {
+test('plugin-promises: apply-top-level-await: transform: esm', (t) => {
     t.transform('esm');
     t.end();
 });
@@ -29,7 +29,7 @@ test('plugin-promises: apply-top-level-await: transform: export-default', (t) =>
     t.end();
 });
 
-test('plugin-promises: apply-top-level-await: no transform: no esm', (t) => {
+test('plugin-promises: apply-top-level-await: no transform: not-esm', (t) => {
     t.noTransform('not-esm');
     t.end();
 });

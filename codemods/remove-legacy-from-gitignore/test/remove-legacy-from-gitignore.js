@@ -17,7 +17,7 @@ test('codemod-remove-legacy-from-gitignore: transform', (t) => {
     t.end();
 });
 
-test('codemod-remove-legacy-from-gitignore: no transform: present', (t) => {
+test('codemod-remove-legacy-from-gitignore: no transform: not-present', (t) => {
     t.noTransform('not-present');
     t.end();
 });

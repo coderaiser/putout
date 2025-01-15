@@ -24,12 +24,12 @@ test('plugin-convert-top-level-return: transform: if', (t) => {
     t.end();
 });
 
-test('plugin-convert-top-level-return: transform: return arg', (t) => {
+test('plugin-convert-top-level-return: transform: return-arg', (t) => {
     t.transform('return-arg');
     t.end();
 });
 
-test('plugin-convert-top-level-return: no transform: function', (t) => {
+test('plugin-convert-top-level-return: no transform: fn', (t) => {
     t.noTransform('fn');
     t.end();
 });

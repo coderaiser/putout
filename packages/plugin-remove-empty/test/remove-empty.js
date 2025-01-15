@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-empty: complex: report: block', (t) => {
+test('plugin-remove-empty: complex: report: not-function', (t) => {
     t.report('not-function', 'Avoid useless empty blocks');
     t.end();
 });
 
-test('plugin-remove-empty: report: block', (t) => {
+test('plugin-remove-empty: report: pattern', (t) => {
     t.report('pattern', 'Avoid empty patterns');
     t.end();
 });
@@ -24,7 +24,7 @@ test('plugin-remove-empty: transform: block: function', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: transform: block: not function', (t) => {
+test('plugin-remove-empty: transform: block: not-function', (t) => {
     t.transform('not-function');
     t.end();
 });

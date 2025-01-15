@@ -38,12 +38,12 @@ test('remove unused for-of-variables: no transform: identifier', (t) => {
     t.end();
 });
 
-test('remove unused for-of-variables: transform: object: one', (t) => {
+test('remove unused for-of-variables: transform: object: object-one', (t) => {
     t.transform('object-one');
     t.end();
 });
 
-test('remove unused for-of-variables: transform: array: one', (t) => {
+test('remove unused for-of-variables: transform: array: array-one', (t) => {
     t.transform('array-one');
     t.end();
 });

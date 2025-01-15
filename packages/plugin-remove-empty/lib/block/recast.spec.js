@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-empty: block: recast: block-fn', (t) => {
+test('plugin-remove-empty: block: recast: recast-block-fn', (t) => {
     t.transform('recast-block-fn');
     t.end();
 });

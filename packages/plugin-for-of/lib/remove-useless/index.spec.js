@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-for-of: remove-useless: report', (t) => {
+test('plugin-for-of: remove-useless: report: empty', (t) => {
     t.report('empty', 'Avoid useless for-of');
     t.end();
 });
@@ -29,7 +29,7 @@ test('plugin-for-of: remove-useless: no transform: many', (t) => {
     t.end();
 });
 
-test('plugin-for-of: remove-useless: no transform: not identifier', (t) => {
+test('plugin-for-of: remove-useless: no transform: not-id', (t) => {
     t.noTransform('not-id');
     t.end();
 });
@@ -39,7 +39,7 @@ test('plugin-for-of: remove-useless: no transform: refs', (t) => {
     t.end();
 });
 
-test('plugin-for-of: remove-useless: transform: no refs', (t) => {
+test('plugin-for-of: remove-useless: transform: no-refs', (t) => {
     t.transform('no-refs');
     t.end();
 });

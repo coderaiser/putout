@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-typeof: report', (t) => {
+test('plugin-remove-useless-typeof: report: typeof-typeof', (t) => {
     t.report('typeof-typeof', `Avoid useless 'typeof'`);
     t.end();
 });
 
-test('plugin-remove-useless-typeof: transform', (t) => {
+test('plugin-remove-useless-typeof: transform: typeof-typeof', (t) => {
     t.transform('typeof-typeof');
     t.end();
 });

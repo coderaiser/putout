@@ -22,7 +22,7 @@ test('plugin-for-of: for-length: no transform: no-body', (t) => {
     t.end();
 });
 
-test('plugin-for-of: for-length: no transform: no-body1', (t) => {
+test('plugin-for-of: for-length: no transform: entries', (t) => {
     t.noTransform('entries');
     t.end();
 });

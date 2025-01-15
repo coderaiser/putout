@@ -34,7 +34,7 @@ test('plugin-putout: convert find to traverse: no transform: for-of', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert find to traverse: no transform: find: one arg', (t) => {
+test('plugin-putout: convert find to traverse: no transform: find: find-one-arg', (t) => {
     t.noTransform('find-one-arg');
     t.end();
 });

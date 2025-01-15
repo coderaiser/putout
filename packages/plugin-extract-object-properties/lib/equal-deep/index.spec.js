@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-extract-object-properties: equal-deep: report', (t) => {
+test('plugin-extract-object-properties: equal-deep: report: fn', (t) => {
     t.report('fn', 'Extract object properties into variables');
     t.end();
 });
@@ -29,17 +29,17 @@ test('plugin-extract-object-properties: equal-deep: no transform: fn-args', (t) 
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: no transform: no var', (t) => {
+test('plugin-extract-object-properties: equal-deep: no transform: not-var', (t) => {
     t.noTransform('not-var');
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: no transform: one property', (t) => {
+test('plugin-extract-object-properties: equal-deep: no transform: one-prop', (t) => {
     t.noTransform('one-prop');
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: no transform: var exist', (t) => {
+test('plugin-extract-object-properties: equal-deep: no transform: var-exist', (t) => {
     t.noTransform('var-exist');
     t.end();
 });
@@ -49,7 +49,7 @@ test('plugin-extract-object-properties: equal-deep: no transform: default', (t) 
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: no transform: no destructuring', (t) => {
+test('plugin-extract-object-properties: equal-deep: no transform: no-destr', (t) => {
     t.noTransform('no-destr');
     t.end();
 });

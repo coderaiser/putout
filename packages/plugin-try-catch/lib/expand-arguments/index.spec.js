@@ -24,12 +24,12 @@ test('plugin-tape: expand-try-catch-arguments: transform: arg', (t) => {
     t.end();
 });
 
-test('plugin-tape: expand-try-catch-arguments: not fn', (t) => {
+test('plugin-tape: expand-try-catch-arguments: not-fn', (t) => {
     t.noTransform('not-fn');
     t.end();
 });
 
-test('plugin-tape: expand-try-catch-arguments: not call', (t) => {
+test('plugin-tape: expand-try-catch-arguments: not-call', (t) => {
     t.noTransform('not-call');
     t.end();
 });

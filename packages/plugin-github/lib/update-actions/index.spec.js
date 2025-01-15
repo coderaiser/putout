@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-github: update-actions: report', (t) => {
+test('plugin-github: update-actions: report: set-coveralls-version', (t) => {
     t.report('set-coveralls-version', `Update action 'actions/checkout' to latest version`);
     t.end();
 });
 
-test('plugin-github: update-actions: transform: v2', (t) => {
+test('plugin-github: update-actions: transform: set-coveralls-version', (t) => {
     t.transform('set-coveralls-version');
     t.end();
 });

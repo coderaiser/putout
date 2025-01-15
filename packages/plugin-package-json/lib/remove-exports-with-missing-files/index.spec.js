@@ -17,7 +17,7 @@ test('package-json: remove-exports-with-missing-files: transform', (t) => {
     t.end();
 });
 
-test('package-json: remove-exports-with-missing-files: no report', (t) => {
+test('package-json: remove-exports-with-missing-files: no report: no-exports', (t) => {
     t.noReport('no-exports');
     t.end();
 });

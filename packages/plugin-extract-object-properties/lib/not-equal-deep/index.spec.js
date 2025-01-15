@@ -35,22 +35,22 @@ test('plugin-extract-object-properties: not-equal-deep: transform: operate', (t)
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: no transform: var exists', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: no transform: var-exists', (t) => {
     t.noTransform('var-exists');
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: no transform: not destructuring', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: no transform: not-destr', (t) => {
     t.noTransform('not-destr');
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: no transform: property not identifier', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: no transform: not-identifier', (t) => {
     t.noTransform('not-identifier');
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: no transform: different scopes', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: no transform: different-scopes', (t) => {
     t.noTransform('different-scopes');
     t.end();
 });

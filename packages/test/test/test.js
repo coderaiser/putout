@@ -11,22 +11,22 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('test: message', (t) => {
+test('test: report: property-identifier', (t) => {
     t.report('property-identifier', `Avoid 'console' call`);
     t.end();
 });
 
-test('test: ts', (t) => {
+test('test: typescript', (t) => {
     t.report('typescript', `Avoid 'console' call`);
     t.end();
 });
 
-test('test: message: all messages', (t) => {
+test('test: message: property-identifier', (t) => {
     t.report('property-identifier', [`Avoid 'console' call`, `Avoid 'console' call`, `Avoid 'console' call`]);
     t.end();
 });
 
-test('test: no report', (t) => {
+test('test: no report: declared', (t) => {
     t.noReport('declared');
     t.end();
 });
@@ -46,7 +46,7 @@ test('test: noTransformCode', (t) => {
     t.end();
 });
 
-test('test: property identifier', (t) => {
+test('test: transform: property-identifier', (t) => {
     t.transform('property-identifier');
     t.end();
 });

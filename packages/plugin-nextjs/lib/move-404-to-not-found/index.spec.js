@@ -19,7 +19,7 @@ test('packages: move-404-to-not-found: transform', (t) => {
     t.end();
 });
 
-test('packages: move-404-to-not-found: no transform', (t) => {
+test('packages: move-404-to-not-found: no transform: no-404', (t) => {
     t.noTransform('no-404');
     t.end();
 });

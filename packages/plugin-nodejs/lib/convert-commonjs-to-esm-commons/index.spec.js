@@ -29,7 +29,7 @@ test('plugin-convert-commonjs-to-esm: commons: transform: top-level-require', (t
     t.end();
 });
 
-test('plugin-convert-commonjs-to-esm: commons: no transform: declared require', (t) => {
+test('plugin-convert-commonjs-to-esm: commons: no transform: declared-require', (t) => {
     t.noTransform('declared-require');
     t.end();
 });

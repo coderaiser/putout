@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: apply-with-name: report', (t) => {
+test('plugin-tape: apply-with-name: report: called-before', (t) => {
     t.report('called-before', `'stub().withName()' should be used`);
     t.end();
 });

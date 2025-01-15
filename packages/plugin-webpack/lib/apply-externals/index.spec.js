@@ -19,7 +19,7 @@ test('plugin-webpack: apply-externals: transform', (t) => {
     t.end();
 });
 
-test('plugin-webpack: apply-externals: no transform', (t) => {
+test('plugin-webpack: apply-externals: no transform: two-args', (t) => {
     t.noTransform('two-args');
     t.end();
 });

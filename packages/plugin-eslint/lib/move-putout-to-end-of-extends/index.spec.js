@@ -7,17 +7,17 @@ const test = createTest(__dirname, {
     'eslint/move-putout-to-end-of-extends': movePutoutToEndOfExtends,
 });
 
-test('putout: plugin-eslint: move-putout-to-end-in-extends: report', (t) => {
+test('putout: plugin-eslint: move-putout-to-end-in-extends: report: json', (t) => {
     t.report('json', '"putout" should be in the end of the "extends" list');
     t.end();
 });
 
-test('putout: plugin-eslint: move-putout-to-end-in-extends: transform', (t) => {
+test('putout: plugin-eslint: move-putout-to-end-in-extends: transform: json', (t) => {
     t.transform('json');
     t.end();
 });
 
-test('putout: plugin-eslint: move-putout-to-end-in-extends: no transform: no extends', (t) => {
+test('putout: plugin-eslint: move-putout-to-end-in-extends: no transform: no-extends', (t) => {
     t.noTransform('no-extends');
     t.end();
 });

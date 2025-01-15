@@ -19,7 +19,7 @@ test('madrun: set-report-lcov: transform: transform', (t) => {
     t.end();
 });
 
-test('madrun: set-report-lcov: no report', (t) => {
+test('madrun: set-report-lcov: no report: no-report', (t) => {
     t.noReport('no-report');
     t.end();
 });

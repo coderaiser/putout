@@ -101,7 +101,7 @@ test('plugin-apply-shorthand-properties: no transform: constant', (t) => {
     t.end();
 });
 
-test('plugin-apply-shorthand-properties: no transform: import declaration', (t) => {
+test('plugin-apply-shorthand-properties: no transform: import-declaration', (t) => {
     t.noTransform('import-declaration');
     t.end();
 });

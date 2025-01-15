@@ -45,7 +45,7 @@ test('plugin-convert-apply-to-spread: transform: this', (t) => {
     t.end();
 });
 
-test('plugin-convert-apply-to-spread: transform: member expression', (t) => {
+test('plugin-convert-apply-to-spread: transform: member-expression', (t) => {
     t.transform('member-expression');
     t.end();
 });

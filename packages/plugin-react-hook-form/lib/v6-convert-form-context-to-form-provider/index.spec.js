@@ -14,7 +14,7 @@ test('plugin-nextjs: convert-form-context-to-form-provider: report', (t) => {
     t.end();
 });
 
-test('plugin-nextjs: convert-form-context-to-form-provider: no report: no-as', (t) => {
+test('plugin-nextjs: convert-form-context-to-form-provider: no report: no-form-context', (t) => {
     t.noReport('no-form-context');
     t.end();
 });

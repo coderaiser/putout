@@ -34,7 +34,7 @@ test('plugin-remove-useless-map: no transform: not-identifier', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-map: no transform: not-identifier: argument', (t) => {
+test('plugin-remove-useless-map: no transform: not-identifier: not-identifier-argument', (t) => {
     t.noTransform('not-identifier-argument');
     t.end();
 });

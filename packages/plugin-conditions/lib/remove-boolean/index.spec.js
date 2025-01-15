@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-conditions: remove-boolean: report', (t) => {
+test('plugin-conditions: remove-boolean: report: assertions', (t) => {
     t.report('assertions', 'Avoid boolean in assertions');
     t.end();
 });
 
-test('plugin-conditions: remove-boolean: transform', (t) => {
+test('plugin-conditions: remove-boolean: transform: assertions', (t) => {
     t.transform('assertions');
     t.end();
 });

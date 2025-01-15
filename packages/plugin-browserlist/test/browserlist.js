@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: transform: node', (t) => {
+test('plugin-putout: transform: browserlist', (t) => {
     t.transform('browserlist');
     t.end();
 });

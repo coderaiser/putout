@@ -17,7 +17,7 @@ test('putout: package-json: remove-exports-with-missing-files: find-keys: transf
     t.end();
 });
 
-test('putout: package-json: remove-exports-with-missing-files: find-keys: no report: no exports', (t) => {
+test('putout: package-json: remove-exports-with-missing-files: find-keys: no report: no-exports', (t) => {
     t.noReport('no-exports');
     t.end();
 });

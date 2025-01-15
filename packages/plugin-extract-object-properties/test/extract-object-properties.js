@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-extract-object-properties: report', (t) => {
+test('plugin-extract-object-properties: report: fn', (t) => {
     t.report('fn', 'Extract object properties into variables');
     t.end();
 });
@@ -34,12 +34,12 @@ test('plugin-extract-object-properties: no transform: not-var', (t) => {
     t.end();
 });
 
-test('plugin-extract-object-properties: no transform: one property', (t) => {
+test('plugin-extract-object-properties: no transform: one-prop', (t) => {
     t.noTransform('one-prop');
     t.end();
 });
 
-test('plugin-extract-object-properties: no transform: var exist', (t) => {
+test('plugin-extract-object-properties: no transform: var-exist', (t) => {
     t.noTransform('var-exist');
     t.end();
 });
@@ -49,7 +49,7 @@ test('plugin-extract-object-properties: no transform: default', (t) => {
     t.end();
 });
 
-test('plugin-extract-object-properties: no transform: no destructuring', (t) => {
+test('plugin-extract-object-properties: no transform: no-destr', (t) => {
     t.noTransform('no-destr');
     t.end();
 });

@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-webpack: transform', (t) => {
+test('plugin-webpack: transform: loader', (t) => {
     t.transform('loader');
     t.end();
 });

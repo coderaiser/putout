@@ -27,7 +27,7 @@ test('putout: plugin-package-json: remove-nyc: remove-commit-type', (t) => {
     t.end();
 });
 
-test('plugin-package-json: no transform: find-file: disabled', (t) => {
+test('plugin-package-json: no transform: find-file: find-file-disabled', (t) => {
     t.noTransform('find-file-disabled');
     t.end();
 });
@@ -37,7 +37,7 @@ test('plugin-package-json: transform: apply-https-to-repository-url', (t) => {
     t.end();
 });
 
-test('plugin-package-json: no transform: remove-exports-with-missing-files', (t) => {
+test('plugin-package-json: no transform: remove-exports-with-missing-files-disabled', (t) => {
     t.noTransform('remove-exports-with-missing-files-disabled');
     t.end();
 });

@@ -19,7 +19,7 @@ test('plugin-putout-config: convert-boolean-to-string: transform: bool', (t) => 
     t.end();
 });
 
-test('plugin-putout-config: convert-boolean-to-string: transform: bool: first', (t) => {
+test('plugin-putout-config: convert-boolean-to-string: transform: bool: bool-first', (t) => {
     t.transform('bool-first');
     t.end();
 });

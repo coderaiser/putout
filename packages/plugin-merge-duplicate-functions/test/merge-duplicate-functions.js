@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('merge duplicate functions: report', (t) => {
+test('merge duplicate functions: report: merge-duplicate-functions', (t) => {
     t.report('merge-duplicate-functions', 'Avoid duplicate functions');
     t.end();
 });
 
-test('merge duplicate functions: transform', (t) => {
+test('merge duplicate functions: transform: merge-duplicate-functions', (t) => {
     t.transform('merge-duplicate-functions');
     t.end();
 });
@@ -25,7 +25,7 @@ test('merge duplicate functions: no transform: not-var', (t) => {
     t.end();
 });
 
-test('merge duplicate functions: no transform: different type', (t) => {
+test('merge duplicate functions: no transform: different-type', (t) => {
     t.noTransform('different-type');
     t.end();
 });

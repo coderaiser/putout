@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-nodejs: strict-mode: remove: report', (t) => {
+test('plugin-nodejs: strict-mode: remove: report: esm', (t) => {
     t.report('esm', `Avoid 'use strict' in ESM`);
     t.end();
 });
@@ -21,37 +21,37 @@ test('plugin-nodejs: strict-mode: remove: transform: esm', (t) => {
     t.end();
 });
 
-test('plugin-strict-mode: transform: commonjs', (t) => {
+test('plugin-nodejs: strict-mode: transform: commonjs', (t) => {
     t.transform('commonjs');
     t.end();
 });
 
-test('plugin-strict-mode: remove: export all', (t) => {
+test('plugin-nodejs: strict-mode: remove: export-all', (t) => {
     t.transform('export-all');
     t.end();
 });
 
-test('plugin-strict-mode: remove: transform: top-level-await', (t) => {
+test('plugin-nodejs: strict-mode: remove: transform: top-level-await', (t) => {
     t.transform('top-level-await');
     t.end();
 });
 
-test('plugin-strict-mode: remove: transform: couple', (t) => {
+test('plugin-nodejs: strict-mode: remove: transform: couple', (t) => {
     t.transform('couple');
     t.end();
 });
 
-test('plugin-strict-mode: remove: no transform: use-client', (t) => {
+test('plugin-nodejs: strict-mode: remove: no transform: use-client', (t) => {
     t.noTransform('use-client');
     t.end();
 });
 
-test('plugin-strict-mode: remove: no transform: import-expression', (t) => {
+test('plugin-nodejs: strict-mode: remove: no transform: import-expression', (t) => {
     t.noTransform('import-expression');
     t.end();
 });
 
-test('plugin-strict-mode: remove: transform: typescript', (t) => {
+test('plugin-nodejs: strict-mode: remove: transform: typescript', (t) => {
     t.transform('typescript', {
         typescript,
     });

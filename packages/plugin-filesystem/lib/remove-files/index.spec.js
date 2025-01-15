@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('packages: remove-files: no report: no options', (t) => {
+test('packages: remove-files: no report: no-options', (t) => {
     t.noReport('no-options');
     t.end();
 });

@@ -19,12 +19,12 @@ test('plugin-regexp: apply-literal-notation: transform: regexp', (t) => {
     t.end();
 });
 
-test('plugin-regexp: convert-to-string: transform', (t) => {
+test('plugin-regexp: convert-to-string: transform: replace', (t) => {
     t.transform('replace');
     t.end();
 });
 
-test('plugin-regexp: convert-replace-to-replace-all: transform', (t) => {
+test('plugin-regexp: convert-replace-to-replace-all: transform: replace-global', (t) => {
     t.transform('replace-global');
     t.end();
 });

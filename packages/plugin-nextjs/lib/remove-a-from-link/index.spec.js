@@ -19,7 +19,7 @@ test('plugin-nextjs: remove-a-from-link: transform', (t) => {
     t.end();
 });
 
-test('plugin-nextjs: remove-a-from-link: no transform: no link', (t) => {
+test('plugin-nextjs: remove-a-from-link: no transform: no-link', (t) => {
     t.noTransform('no-link');
     t.end();
 });

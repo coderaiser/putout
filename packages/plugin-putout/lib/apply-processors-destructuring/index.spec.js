@@ -24,7 +24,7 @@ test('plugin-putout: apply-processors-destructuring: transform: no-process', (t)
     t.end();
 });
 
-test('plugin-putout: apply-processors-destructuring: transform: compare places', (t) => {
+test('plugin-putout: apply-processors-destructuring: transform: compare-places', (t) => {
     t.transform('compare-places');
     t.end();
 });

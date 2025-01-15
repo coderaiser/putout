@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('packages: optional-chaining: convert-optional-to-logical: call: no report', (t) => {
+test('packages: optional-chaining: convert-optional-to-logical: call: no report: assign', (t) => {
     t.noReport('assign');
     t.end();
 });

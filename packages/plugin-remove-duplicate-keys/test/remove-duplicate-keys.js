@@ -19,7 +19,7 @@ test('remove duplicate-keys: transform: condition', (t) => {
     t.end();
 });
 
-test('remove duplicate-keys: transform: duplicate', (t) => {
+test('remove duplicate-keys: transform: duplicate-literal', (t) => {
     t.transform('duplicate-literal');
     t.end();
 });
@@ -44,7 +44,7 @@ test('remove duplicate-keys: no transform: extract', (t) => {
     t.end();
 });
 
-test('remove duplicate-keys: no transform: no duplicate', (t) => {
+test('remove duplicate-keys: no transform: no-duplicate', (t) => {
     t.noTransform('no-duplicate');
     t.end();
 });

@@ -29,7 +29,7 @@ test('plugin-types: remove-double-negations: no transform: bitwise', (t) => {
     t.end();
 });
 
-test('plugin-types: remove-double-negations: no transform: not bitwise', (t) => {
+test('plugin-types: remove-double-negations: no transform: not-bitwise', (t) => {
     t.noTransform('not-bitwise');
     t.end();
 });

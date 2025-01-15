@@ -14,7 +14,7 @@ test('plugin-putout: check-match: report', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-match: no report', (t) => {
+test('plugin-putout: check-match: no report: valid', (t) => {
     t.noReport('valid');
     t.end();
 });

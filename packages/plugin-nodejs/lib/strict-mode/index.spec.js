@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-strict-mode: transform', (t) => {
+test('plugin-strict-mode: transform: commonjs', (t) => {
     t.transform('commonjs');
     t.end();
 });

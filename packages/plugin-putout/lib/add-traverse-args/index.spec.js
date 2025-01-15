@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: add-traverse-args: report', (t) => {
+test('plugin-putout: add-traverse-args: report: push', (t) => {
     t.report('push', `Add 'push' argument to 'traverse'`);
     t.end();
 });
 
-test('plugin-putout: add-traverse-args: transform', (t) => {
+test('plugin-putout: add-traverse-args: transform: push', (t) => {
     t.transform('push');
     t.end();
 });

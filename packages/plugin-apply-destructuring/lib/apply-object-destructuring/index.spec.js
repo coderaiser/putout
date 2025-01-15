@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-destructuring: no transform: member expression', (t) => {
+test('plugin-apply-destructuring: no transform: member-expression', (t) => {
     t.noTransform('member-expression');
     t.end();
 });
 
-test('plugin-apply-destructuring: no transform: object-texpression', (t) => {
+test('plugin-apply-destructuring: no transform: object-expression', (t) => {
     t.noTransform('object-expression');
     t.end();
 });

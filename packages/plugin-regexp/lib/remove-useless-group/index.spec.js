@@ -69,7 +69,7 @@ test('plugin-regexp/remove-useless-group: no transform: repetition', (t) => {
     t.end();
 });
 
-test('plugin-regexp/remove-useless-group: no transform: two groups', (t) => {
+test('plugin-regexp/remove-useless-group: no transform: two-groups', (t) => {
     t.noTransform('two-groups');
     t.end();
 });
@@ -94,12 +94,12 @@ test('plugin-regexp/remove-useless-group: no transform: first-group', (t) => {
     t.end();
 });
 
-test('plugin-regexp/remove-useless-group: no transform: named group', (t) => {
+test('plugin-regexp/remove-useless-group: no transform: named-group', (t) => {
     t.noTransform('named-group');
     t.end();
 });
 
-test('plugin-regexp/remove-useless-group: no transform: empty non capturing group', (t) => {
+test('plugin-regexp/remove-useless-group: no transform: empty-non-capturing-group', (t) => {
     t.noTransform('empty-non-capturing-group');
     t.end();
 });
@@ -114,7 +114,7 @@ test('plugin-regexp/remove-useless-group: no transform: exec', (t) => {
     t.end();
 });
 
-test('plugin-regexp/remove-useless-group: no transform: replaceAll', (t) => {
+test('plugin-regexp/remove-useless-group: no transform: replace-all', (t) => {
     t.noTransform('replace-all');
     t.end();
 });

@@ -19,22 +19,22 @@ test('plugin-tape: convert-throws-to-try-catch', (t) => {
     t.end();
 });
 
-test('plugin-tape: convert-throws-to-try-catch: couple tests', (t) => {
+test('plugin-tape: convert-throws-to-try-catch: throws-couple', (t) => {
     t.transform('throws-couple');
     t.end();
 });
 
-test('plugin-tape: convert-throws-to-try-catch: declared try-catch', (t) => {
+test('plugin-tape: convert-throws-to-try-catch: throws-declared', (t) => {
     t.transform('throws-declared');
     t.end();
 });
 
-test('plugin-tape: convert-throws-to-try-catch: member expression', (t) => {
+test('plugin-tape: convert-throws-to-try-catch: member-expression', (t) => {
     t.transform('member-expression');
     t.end();
 });
 
-test('plugin-tape: convert-throws-to-try-catch: no error', (t) => {
+test('plugin-tape: convert-throws-to-try-catch: no-error', (t) => {
     t.transform('no-error');
     t.end();
 });

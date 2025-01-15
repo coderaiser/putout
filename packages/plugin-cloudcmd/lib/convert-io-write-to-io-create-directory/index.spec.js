@@ -19,17 +19,17 @@ test('cloudcmd: convert-io-write-to-io-create-directory: transform', (t) => {
     t.end();
 });
 
-test('cloudcmd: convert-io-write-to-io-create-directory: transform: str', (t) => {
+test('cloudcmd: convert-io-write-to-io-create-directory: transform: write-str', (t) => {
     t.transform('write-str');
     t.end();
 });
 
-test('cloudcmd: convert-io-write-to-io-create-directory: transform: template', (t) => {
+test('cloudcmd: convert-io-write-to-io-create-directory: transform: write-template', (t) => {
     t.transform('write-template');
     t.end();
 });
 
-test('cloudcmd: convert-io-write-to-io-create-directory: no transform: no suffix', (t) => {
+test('cloudcmd: convert-io-write-to-io-create-directory: no transform: no-suffix', (t) => {
     t.noTransform('no-suffix');
     t.end();
 });

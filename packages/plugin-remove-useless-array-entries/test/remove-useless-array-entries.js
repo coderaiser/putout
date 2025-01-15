@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-array-entries: report', (t) => {
+test('plugin-remove-useless-array-entries: report: for-of', (t) => {
     t.report('for-of', `Remove useless '.entries()'`);
     t.end();
 });
 
-test('plugin-remove-useless-array-entries: transform: array', (t) => {
+test('plugin-remove-useless-array-entries: transform: for-of', (t) => {
     t.transform('for-of');
     t.end();
 });

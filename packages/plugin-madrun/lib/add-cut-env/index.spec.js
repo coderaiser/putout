@@ -24,7 +24,7 @@ test('madrun: add-cut-env: no transform: run', (t) => {
     t.end();
 });
 
-test('madrun: add-cut-env: no report: no property', (t) => {
+test('madrun: add-cut-env: no report: no-property', (t) => {
     t.noReport('no-property');
     t.end();
 });

@@ -18,7 +18,7 @@ test('plugin-putout: create-test: report', (t) => {
     t.end();
 });
 
-test('plugin-putout: create-test: no options: no transform', (t) => {
+test('plugin-putout: create-test: no options: no transform: create-test-no-options', (t) => {
     t.noTransform('create-test-no-options');
     t.end();
 });

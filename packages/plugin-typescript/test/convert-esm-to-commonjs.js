@@ -12,7 +12,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-typescript: transform: convert-esm-to-commonjs: on', (t) => {
+test('plugin-typescript: transform: convert-esm-to-commonjs: convert-esm-to-commonjs-on', (t) => {
     t.transform('convert-esm-to-commonjs-on');
     t.end();
 });

@@ -12,12 +12,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-typescript: rename-file-cts-to-ts: report', (t) => {
+test('plugin-typescript: rename-file-cts-to-ts: report: rename-file-cts-to-ts-on', (t) => {
     t.report('rename-file-cts-to-ts-on', `Rename '/lib/hello.cts' to '/lib/hello.ts'`);
     t.end();
 });
 
-test('plugin-typescript: rename-file-cts-to-ts: transform', (t) => {
+test('plugin-typescript: rename-file-cts-to-ts: transform: rename-file-cts-to-ts-on', (t) => {
     t.transform('rename-file-cts-to-ts-on');
     t.end();
 });

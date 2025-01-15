@@ -13,17 +13,17 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-nested-blocks: report', (t) => {
+test('plugin-remove-nested-blocks: report: for-of', (t) => {
     t.report('for-of', 'Avoid nested blocks');
     t.end();
 });
 
-test('plugin-remove-nested-blocks: transform', (t) => {
+test('plugin-remove-nested-blocks: transform: for-of', (t) => {
     t.transform('for-of');
     t.end();
 });
 
-test('plugin-remove-nested-blocks: transform: switch: no vars', (t) => {
+test('plugin-remove-nested-blocks: transform: switch: switch-no-vars', (t) => {
     t.transform('switch-no-vars');
     t.end();
 });

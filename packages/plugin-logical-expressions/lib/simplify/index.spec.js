@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-simplify-logical-expression: report', (t) => {
+test('plugin-simplify-logical-expression: report: not', (t) => {
     t.report('not', 'Simplify logical expression');
     t.end();
 });
 
-test('plugin-simplify-logical-expression: transform', (t) => {
+test('plugin-simplify-logical-expression: transform: not', (t) => {
     t.transform('not');
     t.end();
 });

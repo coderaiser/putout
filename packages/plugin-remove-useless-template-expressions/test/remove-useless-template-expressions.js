@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-template-expressions: report', (t) => {
+test('plugin-remove-useless-template-expressions: report: literal', (t) => {
     t.report('literal', 'Avoid useless template expressions');
     t.end();
 });
@@ -24,7 +24,7 @@ test('plugin-remove-useless-template-expressions: transform: var', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-template-expressions: no transform: var: only', (t) => {
+test('plugin-remove-useless-template-expressions: no transform: var: var-only', (t) => {
     t.noTransform('var-only');
     t.end();
 });
@@ -34,7 +34,7 @@ test('plugin-remove-useless-template-expressions: no transform: comments', (t) =
     t.end();
 });
 
-test('plugin-remove-useless-template-expressions: no transform: contains quasis', (t) => {
+test('plugin-remove-useless-template-expressions: no transform: contains-quasis', (t) => {
     t.noTransform('contains-quasis');
     t.end();
 });

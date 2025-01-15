@@ -24,7 +24,7 @@ test('plugin-conditions: convert-equal-to-strict-equal: no transform: null', (t)
     t.end();
 });
 
-test('plugin-conditions: convert-equal-to-strict-equal: no transform: not null', (t) => {
+test('plugin-conditions: convert-equal-to-strict-equal: no transform: not-null', (t) => {
     t.noTransform('not-null');
     t.end();
 });

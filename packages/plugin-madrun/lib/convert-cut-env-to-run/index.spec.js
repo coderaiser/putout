@@ -24,7 +24,7 @@ test('madrun: convert-cut-env-to-run: no transform: no export default', (t) => {
     t.end();
 });
 
-test('madrun: convert-cut-env-to-run: no transform: no property', (t) => {
+test('madrun: convert-cut-env-to-run: no transform: no-property', (t) => {
     t.noTransform('no-property');
     t.end();
 });

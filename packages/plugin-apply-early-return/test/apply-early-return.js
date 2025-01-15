@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-early-return: report', (t) => {
+test('plugin-apply-early-return: report: else', (t) => {
     t.report('else', 'Apply early return');
     t.end();
 });

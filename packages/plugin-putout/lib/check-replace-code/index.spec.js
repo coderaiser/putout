@@ -14,7 +14,7 @@ test('plugin-putout: check-replace-code: report', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: no transform', (t) => {
+test('plugin-putout: check-replace-code: no transform: valid', (t) => {
     t.noTransform('valid');
     t.end();
 });
@@ -29,12 +29,12 @@ test('plugin-putout: check-replace-code: report: computed', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: report: computed: not found', (t) => {
+test('plugin-putout: check-replace-code: report: computed: computed-not-found', (t) => {
     t.report('computed-not-found', `Replace key cannot be computed: 'BODIES.function'`);
     t.end();
 });
 
-test('plugin-putout: check-replace-code: report: computed invalid', (t) => {
+test('plugin-putout: check-replace-code: report: computed-invalid', (t) => {
     t.report('computed-invalid', `Replace key cannot be computed: 'NOT_OBJECT_EXPRESSION.boolean'`);
     t.end();
 });
@@ -99,7 +99,7 @@ test('plugin-putout: check-replace-code: no report: typescript', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: no report: string literal', (t) => {
+test('plugin-putout: check-replace-code: no report: string-literal', (t) => {
     t.noReport('string-literal');
     t.end();
 });
@@ -129,7 +129,7 @@ test('plugin-putout: check-replace-code: report: mismatch', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: no report: json: object', (t) => {
+test('plugin-putout: check-replace-code: no report: json: json-object', (t) => {
     t.noReport('json-object');
     t.end();
 });
@@ -144,7 +144,7 @@ test('plugin-putout: check-replace-code: report: esm', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: report: __json: left', (t) => {
+test('plugin-putout: check-replace-code: report: __json: json-left', (t) => {
     t.report('json-left', '☝️ Looks like template values not linked: ["__object"] -> ["__array"]');
     t.end();
 });
@@ -154,12 +154,12 @@ test('plugin-putout: check-replace-code: no report: after-transform: once', (t) 
     t.end();
 });
 
-test('plugin-putout: check-replace-code: no report: json-left: object', (t) => {
+test('plugin-putout: check-replace-code: no report: json-left: json-left-object', (t) => {
     t.noReport('json-left-object');
     t.end();
 });
 
-test('plugin-putout: check-replace-code: no report: object pattern', (t) => {
+test('plugin-putout: check-replace-code: no report: object-pattern', (t) => {
     t.noReport('object-pattern');
     t.end();
 });

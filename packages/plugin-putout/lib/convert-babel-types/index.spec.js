@@ -19,7 +19,7 @@ test('plugin-putout: convert-babel-types: transform', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert-babel-types: no transform', (t) => {
+test('plugin-putout: convert-babel-types: no transform: no-types', (t) => {
     t.noTransform('no-types');
     t.end();
 });

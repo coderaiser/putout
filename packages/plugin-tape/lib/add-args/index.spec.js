@@ -29,7 +29,7 @@ test('plugin-tape: add-args: transform: skip', (t) => {
     t.end();
 });
 
-test('plugin-tape: add-args: no transform', (t) => {
+test('plugin-tape: add-args: no transform: upper-scope', (t) => {
     t.noTransform('upper-scope');
     t.end();
 });

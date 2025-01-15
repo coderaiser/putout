@@ -49,7 +49,7 @@ test('plugin-apply-destructuring: no transform: array: nested', (t) => {
     t.end();
 });
 
-test('plugin-apply-destructuring: no transform: array: nested assign', (t) => {
+test('plugin-apply-destructuring: no transform: array: nested-assign', (t) => {
     t.noTransform('nested-assign');
     t.end();
 });

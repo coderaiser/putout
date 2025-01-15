@@ -24,7 +24,7 @@ test('plugin-remove-empty: nested-pattern: transform: array', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: nested-pattern: no transform: not empty array', (t) => {
+test('plugin-remove-empty: nested-pattern: no transform: not-empty-array', (t) => {
     t.noTransform('not-empty-array');
     t.end();
 });

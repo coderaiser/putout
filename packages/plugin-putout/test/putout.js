@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: transform', (t) => {
+test('plugin-putout: transform: no-transform-code', (t) => {
     t.transform('no-transform-code');
     t.end();
 });
 
-test('plugin-putout: complex: transform: shorten putout exports', (t) => {
+test('plugin-putout: complex: transform: shorten-putout-exports', (t) => {
     t.transform('shorten-putout-exports');
     t.end();
 });
@@ -25,7 +25,7 @@ test('plugin-putout: convert-destructuring-to-identifier: complex: report: destr
     t.end();
 });
 
-test('plugin-putout: convert-destructuring-todentifier: complex: transform: destructuring', (t) => {
+test('plugin-putout: convert-destructuring-todentifier: complex: transform: convert-destructuring-to-identifier', (t) => {
     t.transform('convert-destructuring-to-identifier');
     t.end();
 });
@@ -45,7 +45,7 @@ test('plugin-putout: convert-traverse-to-include: complex: transform', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert-traverse-to-include: complex: transform: traverse-to-replace', (t) => {
+test('plugin-putout: convert-traverse-to-include: complex: transform: convert-traverse-to-replace', (t) => {
     t.transform('convert-traverse-to-replace');
     t.end();
 });
@@ -60,7 +60,7 @@ test('plugin-putout: convert-method-to-property: complex: transform', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert-method-to-property: complex: transform: apply-processors-destrcturing', (t) => {
+test('plugin-putout: convert-method-to-property: complex: transform: apply-processors-destructuring', (t) => {
     t.transform('apply-processors-destructuring');
     t.end();
 });
@@ -274,5 +274,10 @@ test('plugin-putout: transform: remove-useless-printer-option', (t) => {
 
 test('plugin-putout: transform: add-path-arg-to-visitors', (t) => {
     t.transform('add-path-arg-to-visitors');
+    t.end();
+});
+
+test('plugin-putout: transform: apply-fixture-name-to-message', (t) => {
+    t.transform('apply-fixture-name-to-message');
     t.end();
 });

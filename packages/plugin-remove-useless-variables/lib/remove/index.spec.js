@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('remove useless variables: remove: report', (t) => {
+test('remove useless variables: remove: report: require', (t) => {
     t.report('require', 'Useless variable declaration with name "child_process"');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: remove-default-messages: report', (t) => {
+test('plugin-tape: remove-default-messages: report: operator', (t) => {
     t.report('operator', 'Avoid passing default messages to operators');
     t.end();
 });
 
-test('plugin-tape: remove-default-messages: transform', (t) => {
+test('plugin-tape: remove-default-messages: transform: operator', (t) => {
     t.transform('operator');
     t.end();
 });

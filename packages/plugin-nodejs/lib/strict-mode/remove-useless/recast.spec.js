@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-strict-mode: remove: recast: transform: couple', (t) => {
+test('plugin-strict-mode: remove: recast: transform: recast-couple', (t) => {
     t.transform('recast-couple');
     t.end();
 });

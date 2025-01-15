@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-math: apply-multiplication: report', (t) => {
+test('plugin-math: apply-multiplication: report: imul', (t) => {
     t.report('imul', `Use '*' instead of 'Math.imul()'`);
     t.end();
 });

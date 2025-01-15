@@ -25,7 +25,7 @@ test('remove unused types: no transform: used', (t) => {
     t.end();
 });
 
-test('remove unused types: no transform: not defined', (t) => {
+test('remove unused types: no transform: not-defined', (t) => {
     t.noTransform('not-defined');
     t.end();
 });
@@ -40,12 +40,12 @@ test('remove unused types: no transform: export-named', (t) => {
     t.end();
 });
 
-test('remove unused types: no transform: export default', (t) => {
+test('remove unused types: no transform: export-default', (t) => {
     t.noTransform('export-default');
     t.end();
 });
 
-test('remove unused types: no transform: export default object', (t) => {
+test('remove unused types: no transform: export-default-object', (t) => {
     t.noTransform('export-default-object');
     t.end();
 });

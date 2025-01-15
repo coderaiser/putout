@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-template-literals: report', (t) => {
+test('plugin-apply-template-literals: report: binary', (t) => {
     t.report('binary', `Use template literals instead of binary expressions`);
     t.end();
 });
 
-test('plugin-apply-template-literals: transform: instanceof', (t) => {
+test('plugin-apply-template-literals: transform: binary', (t) => {
     t.transform('binary');
     t.end();
 });

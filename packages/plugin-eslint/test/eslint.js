@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: plugin-eslint: report: move-putout-to-end-in-extends', (t) => {
+test('putout: plugin-eslint: report: json', (t) => {
     t.report('json', '"putout" should be in the end of the "extends" list');
     t.end();
 });
 
-test('putout: plugin-eslint: transform: move-putout-to-end-in-extends', (t) => {
+test('putout: plugin-eslint: transform: json', (t) => {
     t.transform('json');
     t.end();
 });

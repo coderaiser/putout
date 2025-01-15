@@ -17,7 +17,7 @@ test('putout: plugin-package-json: remove-nyc: transform', (t) => {
     t.end();
 });
 
-test('putout: plugin-package-json: remove-nyc: no nyc', (t) => {
+test('putout: plugin-package-json: remove-nyc: no-nyc', (t) => {
     t.noTransform('no-nyc');
     t.end();
 });

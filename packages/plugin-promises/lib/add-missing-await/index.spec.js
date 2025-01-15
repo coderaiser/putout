@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-add-missing-await: exports: report', (t) => {
+test('plugin-add-missing-await: exports: report: async', (t) => {
     t.report('async', `Call async functions using 'await'`);
     t.end();
 });
 
-test('plugin-add-missing-await: transform', (t) => {
+test('plugin-add-missing-await: transform: async', (t) => {
     t.transform('async');
     t.end();
 });
@@ -24,17 +24,17 @@ test('plugin-add-missing-await: transform: switch', (t) => {
     t.end();
 });
 
-test('plugin-add-missing-await: no transform: not call', (t) => {
+test('plugin-add-missing-await: no transform: not-call', (t) => {
     t.noTransform('not-call');
     t.end();
 });
 
-test('plugin-add-missing-await: no transform: not async', (t) => {
+test('plugin-add-missing-await: no transform: not-async', (t) => {
     t.noTransform('not-async');
     t.end();
 });
 
-test('plugin-add-missing-await: no transform: not fn', (t) => {
+test('plugin-add-missing-await: no transform: not-fn', (t) => {
     t.noTransform('not-fn');
     t.end();
 });

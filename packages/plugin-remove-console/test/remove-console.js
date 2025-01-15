@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-console: report', (t) => {
+test('plugin-remove-console: report: property-identifier', (t) => {
     t.report('property-identifier', `Avoid 'console' call`);
     t.end();
 });
 
-test('plugin-remove-console: property identifier', (t) => {
+test('plugin-remove-console: property-identifier', (t) => {
     t.transform('property-identifier');
     t.end();
 });

@@ -19,7 +19,7 @@ test('plugin-types: remove-useless-constructor: transform', (t) => {
     t.end();
 });
 
-test('plugin-types: remove-useless-constructor: no transform', (t) => {
+test('plugin-types: remove-useless-constructor: no transform: not-string', (t) => {
     t.noTransform('not-string');
     t.end();
 });

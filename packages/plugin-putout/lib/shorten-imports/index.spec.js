@@ -9,17 +9,17 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: shorten-putout-exports: report', (t) => {
+test('plugin-putout: shorten-putout-exports: report: shorten-imports', (t) => {
     t.report('shorten-imports', 'Shorten require path to putout exports');
     t.end();
 });
 
-test('plugin-putout: shorten-putout-exports: transform', (t) => {
+test('plugin-putout: shorten-putout-exports: transform: shorten-imports', (t) => {
     t.transform('shorten-imports');
     t.end();
 });
 
-test('plugin-putout: shorten-putout-exports: transform: parse options', (t) => {
+test('plugin-putout: shorten-putout-exports: transform: parse-options', (t) => {
     t.transform('parse-options');
     t.end();
 });

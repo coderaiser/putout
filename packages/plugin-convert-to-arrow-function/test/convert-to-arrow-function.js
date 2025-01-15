@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-to-arrow-function: report', (t) => {
+test('plugin-convert-to-arrow-function: report: fn', (t) => {
     t.report('fn', 'Use arrow function');
     t.end();
 });
@@ -24,7 +24,7 @@ test('plugin-convert-to-arrow-function: transform: body', (t) => {
     t.end();
 });
 
-test('plugin-convert-to-arrow-function: transform: return fn', (t) => {
+test('plugin-convert-to-arrow-function: transform: return-fn', (t) => {
     t.transform('return-fn');
     t.end();
 });

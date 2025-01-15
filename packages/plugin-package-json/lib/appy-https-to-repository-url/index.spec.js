@@ -17,7 +17,7 @@ test('package-json: apply-https-to-repository-url: transform', (t) => {
     t.end();
 });
 
-test('package-json: apply-https-to-repository-url: no report', (t) => {
+test('package-json: apply-https-to-repository-url: no report: repository-not-object', (t) => {
     t.noReport('repository-not-object');
     t.end();
 });

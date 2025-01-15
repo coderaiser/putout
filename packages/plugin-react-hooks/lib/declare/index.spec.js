@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-react-hooks: declare: report', (t) => {
+test('plugin-react-hooks: declare: report: use-state', (t) => {
     t.report('use-state', `Declare 'useState', it referenced but not defined`);
     t.end();
 });
 
-test('plugin-react-hooks: declare: transform', (t) => {
+test('plugin-react-hooks: declare: transform: use-state', (t) => {
     t.transform('use-state');
     t.end();
 });

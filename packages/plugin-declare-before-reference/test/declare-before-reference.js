@@ -32,7 +32,7 @@ test('plugin-declare-before-reference: transform', (t) => {
     t.end();
 });
 
-test('plugin-declare-before-reference: transform: no loc', (t) => {
+test('plugin-declare-before-reference: transform: no-loc', (t) => {
     t.transform('no-loc');
     t.end();
 });

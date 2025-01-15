@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-array-copy-to-slice: report', (t) => {
+test('plugin-convert-array-copy-to-slice: report: spread', (t) => {
     t.report('spread', 'Array should be copied using slice');
     t.end();
 });
 
-test('plugin-convert-array-copy-to-slice: transform', (t) => {
+test('plugin-convert-array-copy-to-slice: transform: spread', (t) => {
     t.transform('spread');
     t.end();
 });

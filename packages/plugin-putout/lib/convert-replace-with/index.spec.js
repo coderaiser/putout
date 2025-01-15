@@ -20,22 +20,22 @@ test('plugin-putout: convert-replace-with: transform', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert-replace-with: transform: replaceWith exists', (t) => {
+test('plugin-putout: convert-replace-with: transform: replace-with-exists', (t) => {
     t.transform('replace-with-exists');
     t.end();
 });
 
-test('plugin-putout: convert-replace-with: transform: replaceWith multiple exists', (t) => {
+test('plugin-putout: convert-replace-with: transform: replace-with-multiple-exists', (t) => {
     t.transform('replace-with-multiple-exists');
     t.end();
 });
 
-test('plugin-putout: convert-replace-with: transform: insertAfter exists', (t) => {
+test('plugin-putout: convert-replace-with: transform: insert-after-exists', (t) => {
     t.transform('insert-after-exists');
     t.end();
 });
 
-test('plugin-putout: convert-replace-with: transform: putout declared', (t) => {
+test('plugin-putout: convert-replace-with: transform: putout-declared', (t) => {
     t.transform('putout-declared');
     t.end();
 });

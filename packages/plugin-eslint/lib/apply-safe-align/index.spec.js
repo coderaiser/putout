@@ -17,7 +17,7 @@ test('putout: plugin-eslint: convert-safe-to-safe-align: transform', (t) => {
     t.end();
 });
 
-test('putout: plugin-eslint: convert-safe-to-safe-align: no transform: no-extends', (t) => {
+test('putout: plugin-eslint: convert-safe-to-safe-align: no transform: no-safe', (t) => {
     t.noTransform('no-safe');
     t.end();
 });

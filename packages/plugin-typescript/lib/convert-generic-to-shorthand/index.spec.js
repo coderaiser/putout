@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-typescript: convert-generic-to-shorthand: report', (t) => {
+test('plugin-typescript: convert-generic-to-shorthand: report: array', (t) => {
     t.report('array', `Use shorthand '[]' instead of generic 'Array'`);
     t.end();
 });

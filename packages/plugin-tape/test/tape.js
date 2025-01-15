@@ -11,12 +11,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: report', (t) => {
+test('plugin-tape: report: equal', (t) => {
     t.report('equal', '"result" should be before "expected"');
     t.end();
 });
 
-test('plugin-tape: transform', (t) => {
+test('plugin-tape: transform: equal', (t) => {
     t.transform('equal');
     t.end();
 });
@@ -41,17 +41,17 @@ test('plugin-tape: transform: called-with', (t) => {
     t.end();
 });
 
-test('plugin-tape: transform: apply stub', (t) => {
+test('plugin-tape: transform: apply-stub', (t) => {
     t.transform('apply-stub');
     t.end();
 });
 
-test('plugin-tape: transform: convert calledWith to calledWithNoArgs', (t) => {
+test('plugin-tape: transform: no-args', (t) => {
     t.transform('no-args');
     t.end();
 });
 
-test('plugin-tape: transform: convert calledWithNoArgs to calledWith', (t) => {
+test('plugin-tape: transform: convert-called-with-no-args-to-called-with', (t) => {
     t.transform('convert-called-with-no-args-to-called-with');
     t.end();
 });

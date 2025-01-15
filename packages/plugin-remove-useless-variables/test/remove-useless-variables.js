@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('remove useless variables: report', (t) => {
+test('remove useless variables: report: function', (t) => {
     t.report('function', 'Useless variable declaration with name "b"');
     t.end();
 });
 
-test('remove useless variables: transform', (t) => {
+test('remove useless variables: transform: function', (t) => {
     t.transform('function');
     t.end();
 });
@@ -39,12 +39,12 @@ test('remove useless variables: transform: property', (t) => {
     t.end();
 });
 
-test('remove useless variables: transform: upper case', (t) => {
+test('remove useless variables: transform: uppercase', (t) => {
     t.transform('uppercase');
     t.end();
 });
 
-test('remove useless variables: no transform: not declared', (t) => {
+test('remove useless variables: no transform: not-declared', (t) => {
     t.noTransform('not-declared');
     t.end();
 });

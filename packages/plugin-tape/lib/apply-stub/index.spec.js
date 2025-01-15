@@ -9,17 +9,17 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: apply-stub: report', (t) => {
+test('plugin-tape: apply-stub: report: fn', (t) => {
     t.report('fn', `Use 'stub()' instead of creating a function`);
     t.end();
 });
 
-test('plugin-tape: apply-stub: transform', (t) => {
+test('plugin-tape: apply-stub: transform: fn', (t) => {
     t.transform('fn');
     t.end();
 });
 
-test('plugin-tape: apply-stub: no transform: no-test', (t) => {
+test('plugin-tape: apply-stub: no transform: no-var', (t) => {
     t.noTransform('no-var');
     t.end();
 });

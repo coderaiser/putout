@@ -17,7 +17,7 @@ test('plugin-travis: disable-npm-cache: transform', (t) => {
     t.end();
 });
 
-test('plugin-travis: disable-npm-cache: no transform: cache exists', (t) => {
+test('plugin-travis: disable-npm-cache: no transform: cache-exists', (t) => {
     t.noTransform('cache-exists');
     t.end();
 });

@@ -29,7 +29,7 @@ test('plugin-optional-chaining: transform: fn', (t) => {
     t.end();
 });
 
-test('plugin-optional-chaining: transform: fn if', (t) => {
+test('plugin-optional-chaining: transform: fn-if', (t) => {
     t.transform('fn-if');
     t.end();
 });

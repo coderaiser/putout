@@ -29,7 +29,7 @@ test('plugin-github: set node versions: transform: options', (t) => {
     t.end();
 });
 
-test('plugin-github: set node versions: no transform: no version', (t) => {
+test('plugin-github: set node versions: no transform: no-version', (t) => {
     t.noTransform('no-version');
     t.end();
 });

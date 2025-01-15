@@ -19,7 +19,7 @@ test('plugin-nextjs: convert-page-to-head: transform', (t) => {
     t.end();
 });
 
-test('plugin-nextjs: convert-page-to-head: no transform: no head', (t) => {
+test('plugin-nextjs: convert-page-to-head: no transform: no-head', (t) => {
     t.noTransform('no-head');
     t.end();
 });

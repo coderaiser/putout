@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('packages: rename-referenced-file: no report: no options', (t) => {
+test('packages: rename-referenced-file: no report: rename-referenced-file-no-options', (t) => {
     t.noReport('rename-referenced-file-no-options');
     t.end();
 });

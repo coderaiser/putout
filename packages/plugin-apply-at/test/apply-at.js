@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-at: report', (t) => {
+test('plugin-apply-at: report: array', (t) => {
     t.report('array', `Use 'Array.at()'`);
     t.end();
 });
 
-test('plugin-apply-at: transform: object', (t) => {
+test('plugin-apply-at: transform: array', (t) => {
     t.transform('array');
     t.end();
 });

@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-strict-mode: recast: transform', (t) => {
+test('plugin-strict-mode: recast: transform: recast-commonjs', (t) => {
     t.transform('recast-commonjs');
     t.end();
 });
 
-test('plugin-strict-mode: recast: transform: esm', (t) => {
+test('plugin-strict-mode: recast: transform: recast-esm', (t) => {
     t.transform('recast-esm');
     t.end();
 });

@@ -14,7 +14,7 @@ test('plugin-remove-useless-arguments: transform: second', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-arguments: no report', (t) => {
+test('plugin-remove-useless-arguments: no report: spread', (t) => {
     t.noReport('spread');
     t.end();
 });
@@ -29,7 +29,7 @@ test('plugin-remove-useless-arguments: no transform: method', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-arguments: destructuring: no transform: function as argument', (t) => {
+test('plugin-remove-useless-arguments: destructuring: no transform: fn-as-arg', (t) => {
     t.noTransform('fn-as-arg');
     t.end();
 });

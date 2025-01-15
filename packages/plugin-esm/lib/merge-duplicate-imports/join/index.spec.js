@@ -39,7 +39,7 @@ test('plugin-merge-duplicate-imports: join: transform: tape: declare', (t) => {
     t.end();
 });
 
-test('plugin-merge-duplicate-imports: join: no transform: a couple defaultImportSpecifiers', (t) => {
+test('plugin-merge-duplicate-imports: join: no transform: couple-same-defaults', (t) => {
     t.noTransform('couple-same-defaults');
     t.end();
 });

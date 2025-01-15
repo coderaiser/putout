@@ -19,17 +19,17 @@ test('plugin-remove-empty: import', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: import: not empty', (t) => {
+test('plugin-remove-empty: import: not-empty-import', (t) => {
     t.noTransform('not-empty-import');
     t.end();
 });
 
-test('plugin-remove-empty: import: css', (t) => {
+test('plugin-remove-empty: import: import-css', (t) => {
     t.noTransform('import-css');
     t.end();
 });
 
-test('plugin-remove-empty: import: min', (t) => {
+test('plugin-remove-empty: import: import-min', (t) => {
     t.noTransform('import-min');
     t.end();
 });

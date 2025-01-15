@@ -53,7 +53,7 @@ test('remove unused expression: transformCode: not', (t) => {
     t.end();
 });
 
-test('remove unused expression: transform: duplicate strict mode', (t) => {
+test('remove unused expression: transform: duplicate-strict-mode', (t) => {
     t.transform('duplicate-strict-mode');
     t.end();
 });

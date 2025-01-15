@@ -41,12 +41,12 @@ test('plugin-regexp/convert-replace-to-replace-all: no transform: backtick', (t)
     t.end();
 });
 
-test('plugin-regexp/convert-replace-to-replace-all: no transform: flags', (t) => {
+test('plugin-regexp/convert-replace-to-replace-all: no transform: replace-all-flags', (t) => {
     t.noTransform('replace-all-flags');
     t.end();
 });
 
-test('plugin-regexp/convert-replace-to-replace-all: no transform: replace with flags', (t) => {
+test('plugin-regexp/convert-replace-to-replace-all: no transform: replace-flags', (t) => {
     t.noTransform('replace-flags');
     t.end();
 });

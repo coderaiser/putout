@@ -9,22 +9,22 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-for-of: for-n: for-no report', (t) => {
+test('plugin-for-of: for-n: no report: no-length', (t) => {
     t.noReport('no-length');
     t.end();
 });
 
-test('plugin-for-of: for-n: for-no transform', (t) => {
+test('plugin-for-of: for-n: no transform: no-length', (t) => {
     t.noTransform('no-length');
     t.end();
 });
 
-test('plugin-for-of: for-n: transform: used length', (t) => {
+test('plugin-for-of: for-n: transform: used-length', (t) => {
     t.transform('used-length');
     t.end();
 });
 
-test('plugin-for-of: for-n: for-no transform: more i references', (t) => {
+test('plugin-for-of: for-n: for-no transform: for-more', (t) => {
     t.noTransform('for-more');
     t.end();
 });
@@ -42,7 +42,7 @@ test('plugin-for-of: for-n: transform: remove-useless-arguments', (t) => {
     t.end();
 });
 
-test('plugin-for-of: for-n: for-no transform: xxx', (t) => {
+test('plugin-for-of: for-n: for-no transform: for-to-n-wrong-prev', (t) => {
     t.noTransform('for-to-n-wrong-prev');
     t.end();
 });

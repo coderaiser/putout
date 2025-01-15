@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-math: apply-numeric-separators: report', (t) => {
+test('plugin-math: apply-numeric-separators: report: number', (t) => {
     t.report('number', 'Numeric separators should be used');
     t.end();
 });

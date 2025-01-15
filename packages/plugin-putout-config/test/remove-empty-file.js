@@ -17,7 +17,7 @@ test('plugin-nodejs: remove-empty-file: report', (t) => {
     t.end();
 });
 
-test('plugin-nodejs: remove-empty-file: transform', (t) => {
+test('plugin-nodejs: remove-empty-file: transform: remove-empty-file-on', (t) => {
     t.transform('remove-empty-file-on');
     t.end();
 });

@@ -14,7 +14,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-escape: report', (t) => {
+test('plugin-remove-useless-escape: report: string', (t) => {
     t.report('string', 'Unnecessary escape character');
     t.end();
 });
@@ -74,17 +74,17 @@ test('plugin-remove-useless-escape: transform: emoji', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-escape: transform: emoji: template', (t) => {
+test('plugin-remove-useless-escape: transform: emoji: emoji-template', (t) => {
     t.transform('emoji-template');
     t.end();
 });
 
-test('plugin-remove-useless-escape: transform: regexp: colon', (t) => {
+test('plugin-remove-useless-escape: transform: regexp: regexp-colon', (t) => {
     t.transform('regexp-colon');
     t.end();
 });
 
-test('plugin-remove-useless-escape: no transform: regexp', (t) => {
+test('plugin-remove-useless-escape: no transform: regexp-slash', (t) => {
     t.noTransform('regexp-slash');
     t.end();
 });

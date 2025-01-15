@@ -47,7 +47,7 @@ test('plugin-remove-unreferenced-variables: no transform', (t) => {
     t.end();
 });
 
-test('plugin-remove-unreferenced-variables: no transform: not declared', (t) => {
+test('plugin-remove-unreferenced-variables: no transform: not-declared', (t) => {
     t.noTransform('not-declared');
     t.end();
 });

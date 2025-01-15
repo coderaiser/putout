@@ -165,7 +165,7 @@ test('putout: plugin: declare: returns', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare: readFixture', (t) => {
+test('putout: plugin: declare: undefined', (t) => {
     t.transform(`fixtures`);
     t.end();
 });

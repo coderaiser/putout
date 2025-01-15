@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-madrun: declare: report', (t) => {
+test('plugin-madrun: declare: report: cut-env', (t) => {
     t.report('cut-env', `Declare 'cutEnv', it referenced but not defined`);
     t.end();
 });
 
-test('plugin-madrun: declare: transform', (t) => {
+test('plugin-madrun: declare: transform: cut-env', (t) => {
     t.transform('cut-env');
     t.end();
 });

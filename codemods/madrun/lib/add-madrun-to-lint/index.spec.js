@@ -42,7 +42,7 @@ test('madrun: add madrun to lint: no transform: um', (t) => {
     t.end();
 });
 
-test('madrun: add madrun to lint: no transform: um: template', (t) => {
+test('madrun: add madrun to lint: no transform: um: um-template', (t) => {
     t.noTransform('um-template');
     t.end();
 });
@@ -52,7 +52,7 @@ test('madrun: add madrun to lint: no transform: dot', (t) => {
     t.end();
 });
 
-test('madrun: add madrun to lint: no transform: dot: template', (t) => {
+test('madrun: add madrun to lint: no transform: dot: dot-template', (t) => {
     t.noTransform('dot-template');
     t.end();
 });

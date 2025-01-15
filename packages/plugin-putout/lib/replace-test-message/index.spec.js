@@ -44,7 +44,7 @@ test('plugin-putout: replace-test-message: transform: apply-report', (t) => {
     t.end();
 });
 
-test('plugin-putout: replace-test-message: transform: transform-instead-of-transform', (t) => {
+test('plugin-putout: replace-test-message: transform: report-instead-of-transform', (t) => {
     t.transform('report-instead-of-transform');
     t.end();
 });

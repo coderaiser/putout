@@ -29,7 +29,7 @@ test('plugin-remove-useless-async: transform: args', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-async: transform: args fn', (t) => {
+test('plugin-remove-useless-async: transform: args-fn', (t) => {
     t.transform('args-fn');
     t.end();
 });
@@ -44,7 +44,7 @@ test('plugin-remove-useless-async: transform: export-default', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-async: no transform: no body arrow', (t) => {
+test('plugin-remove-useless-async: no transform: no-body-arrow', (t) => {
     t.noTransform('no-body-arrow');
     t.end();
 });
@@ -59,12 +59,12 @@ test('plugin-remove-useless-async: no transform: await', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-async: no transform: for of', (t) => {
+test('plugin-remove-useless-async: no transform: for-of', (t) => {
     t.noTransform('for-of');
     t.end();
 });
 
-test('plugin-remove-useless-async: no transform: for await of', (t) => {
+test('plugin-remove-useless-async: no transform: for-await-of', (t) => {
     t.noTransform('for-await-of');
     t.end();
 });

@@ -12,7 +12,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-promises: transform: apply-with-resolvers: on', (t) => {
+test('plugin-promises: transform: apply-with-resolvers: apply-with-resolvers-on', (t) => {
     t.transform('apply-with-resolvers-on');
     t.end();
 });

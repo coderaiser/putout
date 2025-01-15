@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "putout/replace-test-message": "off"
+    }
+}

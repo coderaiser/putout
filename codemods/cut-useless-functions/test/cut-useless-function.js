@@ -7,7 +7,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('cut useless functions: report', (t) => {
+test('cut useless functions: report: block', (t) => {
     t.report('block', 'Useless functions should be avoided');
     t.end();
 });
@@ -27,12 +27,12 @@ test('cut useless functions: no transform: method', (t) => {
     t.end();
 });
 
-test('cut useless functions: no transform: method block', (t) => {
+test('cut useless functions: no transform: method-block', (t) => {
     t.noTransform('method-block');
     t.end();
 });
 
-test('cut useless functions: no transform: different args', (t) => {
+test('cut useless functions: no transform: different-args', (t) => {
     t.noTransform('different-args');
     t.end();
 });
@@ -47,7 +47,7 @@ test('cut useless functions: no transform: identifier', (t) => {
     t.end();
 });
 
-test('cut useless functions: no transform: identifier: block', (t) => {
+test('cut useless functions: no transform: identifier: identifier-block', (t) => {
     t.noTransform('identifier-block');
     t.end();
 });

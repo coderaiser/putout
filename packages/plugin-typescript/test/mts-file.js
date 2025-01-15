@@ -12,7 +12,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-typescript: transform: mts-file: on', (t) => {
+test('plugin-typescript: transform: mts-file: mts-file-on', (t) => {
     t.transform('mts-file-on');
     t.end();
 });

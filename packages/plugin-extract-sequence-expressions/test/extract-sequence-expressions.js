@@ -24,7 +24,7 @@ test('plugin-extract-sequence-expressions: transform arrow function', (t) => {
     t.end();
 });
 
-test('plugin-extract-sequence-expressions: transform simple arrow function', (t) => {
+test('plugin-extract-sequence-expressions: simple-arrow', (t) => {
     t.transform('simple-arrow');
     t.end();
 });

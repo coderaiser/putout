@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-conditions: remove-constant: report', (t) => {
+test('plugin-conditions: remove-constant: report: positive', (t) => {
     t.report('positive', 'Avoid constant conditions');
     t.end();
 });
@@ -34,7 +34,7 @@ test('plugin-conditions: remove-constant: transform: else', (t) => {
     t.end();
 });
 
-test('plugin-conditions: remove-constant: transform: else if', (t) => {
+test('plugin-conditions: remove-constant: transform: else-if', (t) => {
     t.transform('else-if');
     t.end();
 });

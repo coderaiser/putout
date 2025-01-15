@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: declare: report', (t) => {
+test('plugin-tape: declare: report: test', (t) => {
     t.report('test', `Declare 'test', it referenced but not defined`);
     t.end();
 });
 
-test('plugin-tape: declare: transform', (t) => {
+test('plugin-tape: declare: transform: test', (t) => {
     t.transform('test');
     t.end();
 });
@@ -44,12 +44,12 @@ test('plugin-tape: declare: transform: re-import', (t) => {
     t.end();
 });
 
-test('plugin-tape: declare: transform: stop-all: esm', (t) => {
+test('plugin-tape: declare: transform: stop-all: stop-all-esm', (t) => {
     t.transform('stop-all-esm');
     t.end();
 });
 
-test('plugin-tape: declare: transform: stop-all: commonjs', (t) => {
+test('plugin-tape: declare: transform: stop-all: stop-all-commonjs', (t) => {
     t.transform('stop-all-commonjs');
     t.end();
 });

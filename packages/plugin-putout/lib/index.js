@@ -56,6 +56,7 @@ const addPathArgToFix = require('./add-path-arg-to-fix');
 const convertIncludeToTraverse = require('./convert-include-to-traverse');
 const removeUselessPrinterOption = require('./remove-useless-printer-option');
 const addPathArgToVisitors = require('./add-path-arg-to-visitors');
+const applyFixtureNameToMessage = require('./apply-fixture-name-to-message');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -114,4 +115,5 @@ module.exports.rules = {
     'convert-include-to-traverse': convertIncludeToTraverse,
     'remove-useless-printer-option': removeUselessPrinterOption,
     'add-path-arg-to-visitors': addPathArgToVisitors,
+    'apply-fixture-name-to-message': applyFixtureNameToMessage,
 };

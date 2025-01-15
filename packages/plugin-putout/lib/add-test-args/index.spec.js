@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: add-args: transform', (t) => {
+test('plugin-putout: add-args: transform: compare-places', (t) => {
     t.transform('compare-places');
     t.end();
 });
@@ -19,7 +19,7 @@ test('plugin-putout: add-args: process', (t) => {
     t.end();
 });
 
-test('plugin-putout: add-args: noProcess', (t) => {
+test('plugin-putout: add-args: no-process', (t) => {
     t.transform('no-process');
     t.end();
 });
@@ -29,7 +29,7 @@ test('plugin-putout: add-args: progress', (t) => {
     t.end();
 });
 
-test('plugin-putout: add-args: no transform: has binding', (t) => {
+test('plugin-putout: add-args: no transform: has-binding', (t) => {
     t.noTransform('has-binding');
     t.end();
 });

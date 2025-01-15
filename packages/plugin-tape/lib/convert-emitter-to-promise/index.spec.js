@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: convert-emitter-to-promise: class', (t) => {
+test('plugin-tape: convert-emitter-to-promise: end', (t) => {
     t.report('end', '"await once" should be used');
     t.end();
 });

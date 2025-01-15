@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-spread: report', (t) => {
+test('plugin-remove-useless-spread: report: for-of', (t) => {
     t.report('for-of', `Avoid useless spread '...'`);
     t.end();
 });
 
-test('plugin-remove-useless-spread: transform: array', (t) => {
+test('plugin-remove-useless-spread: transform: for-of', (t) => {
     t.transform('for-of');
     t.end();
 });

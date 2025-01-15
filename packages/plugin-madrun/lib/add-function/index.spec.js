@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: add function: report', (t) => {
+test('madrun: add function: report: string', (t) => {
     t.report('string', 'function should be used instead of string in script "hello');
     t.end();
 });
@@ -29,7 +29,7 @@ test('madrun: add function: transform: call', (t) => {
     t.end();
 });
 
-test('madrun: add function: transform: no exports', (t) => {
+test('madrun: add function: transform: no-exports', (t) => {
     t.transform('no-exports');
     t.end();
 });

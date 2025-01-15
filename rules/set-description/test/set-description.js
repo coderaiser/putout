@@ -17,7 +17,7 @@ test('rules: set-description: transform', (t) => {
     t.end();
 });
 
-test('rules: set-description: no report', (t) => {
+test('rules: set-description: no report: no-description', (t) => {
     t.noReport('no-description');
     t.end();
 });

@@ -9,27 +9,27 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-promises: remove-useless-await: report', (t) => {
+test('plugin-promises: remove-useless-await: report: await-await', (t) => {
     t.report('await-await', `Avoid useless 'await'`);
     t.end();
 });
 
-test('plugin-promises: remove-useless-await: transform', (t) => {
+test('plugin-promises: remove-useless-await: transform: await-await', (t) => {
     t.transform('await-await');
     t.end();
 });
 
-test('plugin-promises: remove-useless-await: transform: not async', (t) => {
+test('plugin-promises: remove-useless-await: transform: not-async', (t) => {
     t.transform('not-async');
     t.end();
 });
 
-test('plugin-promises: remove-useless-await: no transform: no call', (t) => {
+test('plugin-promises: remove-useless-await: no transform: no-call', (t) => {
     t.noTransform('no-call');
     t.end();
 });
 
-test('plugin-promises: remove-useless-await: no transform: no declaration', (t) => {
+test('plugin-promises: remove-useless-await: no transform: no-declaration', (t) => {
     t.noTransform('no-declaration');
     t.end();
 });
@@ -44,12 +44,12 @@ test('plugin-promises: remove-useless-await: no transform: resolve', (t) => {
     t.end();
 });
 
-test('plugin-promises: remove-useless-await: no transform: not fn', (t) => {
+test('plugin-promises: remove-useless-await: no transform: not-fn', (t) => {
     t.noTransform('not-fn');
     t.end();
 });
 
-test('plugin-promises: remove-useless-await: no transform: callee not identifier', (t) => {
+test('plugin-promises: remove-useless-await: no transform: callee-not-identifier', (t) => {
     t.noTransform('callee-not-identifier');
     t.end();
 });

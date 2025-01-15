@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-try-catch: async: report', (t) => {
+test('plugin-try-catch: async: report: try-to-catch', (t) => {
     t.report('try-to-catch', `Use 'await tryToCatch()' instead of 'await' in 'try-catch' block`);
     t.end();
 });

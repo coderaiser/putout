@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('putout: plugin-package-json: add-type: report', (t) => {
+test('putout: plugin-package-json: add-type: report: no-type', (t) => {
     t.report('no-type', `Add 'type' of module to 'package.json'`);
     t.end();
 });
 
-test('putout: plugin-package-json: add-type: transform', (t) => {
+test('putout: plugin-package-json: add-type: transform: no-type', (t) => {
     t.transform('no-type');
     t.end();
 });

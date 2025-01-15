@@ -24,7 +24,7 @@ test('plugin-remove-skip: transform: options', (t) => {
     t.end();
 });
 
-test('plugin-remove-skip: transform: not top level', (t) => {
+test('plugin-remove-skip: transform: not-top-level', (t) => {
     t.transform('not-top-level');
     t.end();
 });

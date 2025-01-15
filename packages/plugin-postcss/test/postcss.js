@@ -10,6 +10,6 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-postcss: transform: replace-plugin-with-creator', (t) => {
-    t.transform('export');
+    t.transform('replace-plugin-with-creator');
     t.end();
 });

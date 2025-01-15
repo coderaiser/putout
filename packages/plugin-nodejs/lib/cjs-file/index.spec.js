@@ -19,7 +19,7 @@ test('packages: cjs-file: transform', (t) => {
     t.end();
 });
 
-test('packages: cjs-file: no report', (t) => {
+test('packages: cjs-file: no report: commonjs', (t) => {
     t.noReport('commonjs');
     t.end();
 });

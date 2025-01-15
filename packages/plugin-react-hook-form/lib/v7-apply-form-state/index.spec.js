@@ -14,7 +14,7 @@ test('plugin-nextjs: v7-apply-form-state: report', (t) => {
     t.end();
 });
 
-test('plugin-nextjs: v7-apply-form-state: no report', (t) => {
+test('plugin-nextjs: v7-apply-form-state: no report: no-use-form-context', (t) => {
     t.noReport('no-use-form-context');
     t.end();
 });

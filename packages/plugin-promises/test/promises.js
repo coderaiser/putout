@@ -9,17 +9,17 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-promises: report', (t) => {
+test('plugin-promises: report: await', (t) => {
     t.report('await', `Call async functions using 'await'`);
     t.end();
 });
 
-test('plugin-promises: transform: export', (t) => {
+test('plugin-promises: transform: await', (t) => {
     t.transform('await');
     t.end();
 });
 
-test('plugin-promises: transform: add missing await', (t) => {
+test('plugin-promises: transform: async', (t) => {
     t.transform('async');
     t.end();
 });
@@ -29,12 +29,12 @@ test('plugin-promises: transform: add-missing-async', (t) => {
     t.end();
 });
 
-test('plugin-promises: transform: return-useless-async', (t) => {
+test('plugin-promises: transform: remove-useless-async', (t) => {
     t.transform('remove-useless-async');
     t.end();
 });
 
-test('plugin-promises: transform: return-useless-await', (t) => {
+test('plugin-promises: transform: remove-useless-await', (t) => {
     t.transform('remove-useless-await');
     t.end();
 });

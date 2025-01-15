@@ -25,22 +25,22 @@ test('putout: plugin-for-of: remove useless variables: transform: array-pattern'
     t.end();
 });
 
-test('putout: plugin-for-of: remove-useless-variables no transform: no destr', (t) => {
+test('putout: plugin-for-of: remove-useless-variables no transform: no-destr', (t) => {
     t.noTransform('no-destr');
     t.end();
 });
 
-test('putout: plugin-for-of: remove-useless-variables no transform: more refs', (t) => {
+test('putout: plugin-for-of: remove-useless-variables no transform: more-refs', (t) => {
     t.noTransform('more-refs');
     t.end();
 });
 
-test('putout: plugin-for-of: remove-useless-variables no transform: no declaration', (t) => {
+test('putout: plugin-for-of: remove-useless-variables no transform: no-declaration', (t) => {
     t.noTransform('no-declaration');
     t.end();
 });
 
-test('putout: plugin-for-of: remove-useless-variables no transform: multiple', (t) => {
+test('putout: plugin-for-of: remove-useless-variables no transform: for-of-multiple', (t) => {
     t.noTransform('for-of-multiple');
     t.end();
 });

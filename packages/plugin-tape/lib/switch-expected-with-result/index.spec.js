@@ -9,17 +9,17 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: switch-expected-with-result: report', (t) => {
+test('plugin-tape: switch-expected-with-result: report: equal', (t) => {
     t.report('equal', '"result" should be before "expected"');
     t.end();
 });
 
-test('plugin-tape: switch-expected-with-result: transform', (t) => {
+test('plugin-tape: switch-expected-with-result: transform: equal', (t) => {
     t.transform('equal');
     t.end();
 });
 
-test('plugin-tape: switch-expected-with-result: transform: deep equal', (t) => {
+test('plugin-tape: switch-expected-with-result: transform: deep-equal', (t) => {
     t.transform('deep-equal');
     t.end();
 });

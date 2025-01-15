@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: call run: report', (t) => {
+test('madrun: call run: report: redrun', (t) => {
     t.report('redrun', '"run" should be called in script: "lint"');
     t.end();
 });
@@ -19,12 +19,12 @@ test('madrun: call run: transform: redrun', (t) => {
     t.end();
 });
 
-test('madrun: call run: transform: redrun: args', (t) => {
+test('madrun: call run: transform: redrun: redrun-args', (t) => {
     t.transform('redrun-args');
     t.end();
 });
 
-test('madrun: call run: transform: npm: args', (t) => {
+test('madrun: call run: transform: npm: npm-args', (t) => {
     t.transform('npm-args');
     t.end();
 });

@@ -22,7 +22,7 @@ test('plugin-convert-index-of-to-includes: transform: equal', (t) => {
     t.end();
 });
 
-test('plugin-convert-index-of-to-includes: transform: not equal', (t) => {
+test('plugin-convert-index-of-to-includes: transform: not-equal', (t) => {
     t.transform('not-equal');
     t.end();
 });

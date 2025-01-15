@@ -30,7 +30,7 @@ const testIgnore = createTest(__dirname, {
     ],
 });
 
-testIgnore('plugin-typescript: no transform: find-file: ignore', (t) => {
+testIgnore('plugin-typescript: no transform: find-file: find-file-ignore', (t) => {
     t.noTransform('find-file-ignore');
     t.end();
 });

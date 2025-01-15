@@ -19,7 +19,7 @@ test('plugin-convert-commonjs-to-esm: exports: transform', (t) => {
     t.end();
 });
 
-test('plugin-convert-commonjs-to-esm: exports: transform: string', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: transform: exports-string', (t) => {
     t.transform('exports-string');
     t.end();
 });
@@ -44,17 +44,17 @@ test('plugin-convert-commonjs-to-esm: exports: transform: different', (t) => {
     t.end();
 });
 
-test('plugin-convert-commonjs-to-esm: exports: no transform: no member expression', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: no transform: no-member-expression', (t) => {
     t.noTransform('no-member-expression');
     t.end();
 });
 
-test('plugin-convert-commonjs-to-esm: exports: no transform: no exports', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: no transform: no-exports', (t) => {
     t.noTransform('no-exports');
     t.end();
 });
 
-test('plugin-convert-commonjs-to-esm: exports: no transform: sequance', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: no transform: sequence', (t) => {
     t.noTransform('sequence');
     t.end();
 });

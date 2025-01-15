@@ -24,7 +24,7 @@ test('packages: convert-traverse-to-scan: transform: path-used-in-report', (t) =
     t.end();
 });
 
-test('packages: convert-traverse-to-scan: no report: no-filystem', (t) => {
+test('packages: convert-traverse-to-scan: no report: no-filesystem', (t) => {
     t.noReport('no-filesystem');
     t.end();
 });

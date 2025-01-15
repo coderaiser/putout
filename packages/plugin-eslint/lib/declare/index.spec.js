@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-eslint: declare: report', (t) => {
+test('plugin-eslint: declare: report: safe-align', (t) => {
     t.report('safe-align', `Declare 'safeAlign', it referenced but not defined`);
     t.end();
 });

@@ -34,7 +34,7 @@ test('plugin-minify: transform: extract-body', (t) => {
     t.end();
 });
 
-test('plugin-minify: transform: expand-body', (t) => {
+test('plugin-minify: transform: expand-bindings', (t) => {
     t.transform('expand-bindings');
     t.end();
 });
@@ -84,7 +84,7 @@ test('plugin-minify: transform: convert-const-to-var', (t) => {
     t.end();
 });
 
-test('plugin-minify: transform: convert-const-to-var: overlap', (t) => {
+test('plugin-minify: transform: convert-const-to-var: convert-const-to-var-overlap', (t) => {
     t.transform('convert-const-to-var-overlap');
     t.end();
 });

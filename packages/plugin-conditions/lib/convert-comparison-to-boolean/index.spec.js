@@ -14,12 +14,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-conditions: convert-comparison-to-boolean: report', (t) => {
+test('plugin-conditions: convert-comparison-to-boolean: report: binary', (t) => {
     t.report('binary', 'Avoid constant conditions');
     t.end();
 });
 
-test('plugin-conditions: convert-comparison-to-boolean: transform: positive', (t) => {
+test('plugin-conditions: convert-comparison-to-boolean: transform: binary', (t) => {
     t.transform('binary');
     t.end();
 });
@@ -34,12 +34,12 @@ test('plugin-conditions: convert-comparison-to-boolean: no transform: compare', 
     t.end();
 });
 
-test('plugin-conditions: convert-comparison-to-boolean: no transform: literal left', (t) => {
+test('plugin-conditions: convert-comparison-to-boolean: no transform: literal-left', (t) => {
     t.noTransform('literal-left');
     t.end();
 });
 
-test('plugin-conditions: convert-comparison-to-boolean: no transform: literal right', (t) => {
+test('plugin-conditions: convert-comparison-to-boolean: no transform: literal-right', (t) => {
     t.noTransform('literal-right');
     t.end();
 });
@@ -59,7 +59,7 @@ test('plugin-conditions: convert-comparison-to-boolean: no transform: bitwise', 
     t.end();
 });
 
-test('plugin-conditions: convert-comparison-to-boolean: no transform: member expression', (t) => {
+test('plugin-conditions: convert-comparison-to-boolean: no transform: member-expression', (t) => {
     t.noTransform('member-expression');
     t.end();
 });

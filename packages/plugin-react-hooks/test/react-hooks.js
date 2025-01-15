@@ -25,7 +25,7 @@ test('plugin-react-hooks: transform: React.Component', (t) => {
     t.end();
 });
 
-test('plugin-react-hooks: transform: not react', (t) => {
+test('plugin-react-hooks: transform: not-react', (t) => {
     t.transform('not-react');
     t.end();
 });
