@@ -1,3 +1,10 @@
+2025.01.15, v37.15.1
+
+feature:
+- b51d57ab7 putout: @putout/formatter-frame v7.0.0
+- 78fdd9f50 @putout/formatter-frame: drop support of 🐊 < 37
+- a212f3071 @putout/formatter-frame: @putout/formatter-codeframe v8.0.0
+
 2025.01.14, v37.15.0
 
 feature:
