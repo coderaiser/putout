@@ -27,8 +27,7 @@
   "keywords": [
     "putout",
     "putout-plugin",
-    "plugin",
-    "putout"
+    "plugin"
   ],
   "devDependencies": {
     "@putout/plugin-putout": "*",

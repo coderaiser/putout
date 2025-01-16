@@ -41,7 +41,6 @@
     "putout",
     "putout-plugin",
     "plugin",
-    "putout",
     "config"
   ],
   "devDependencies": {

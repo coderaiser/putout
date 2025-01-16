@@ -18,6 +18,7 @@ npm i @putout/plugin-package-json -D
 - ✅ [find-file](#find-file);
 - ✅ [remove-nyc](#remove-nyc);
 - ✅ [remove-commit-type](#remove-commit-type);
+- ✅ [remove-duplicate-keywords](#remove-duplicate-keywords);
 - ✅ [remove-exports-with-missing-files](#remove-exports-with-missing-files);
 
 ## Config
@@ -122,6 +123,22 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c
     "version": "1.0.0",
     "commitType": "colon"
 }
+```
+
+## remove-duplicate-keywords
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c8e99effc91ae44119d625d7/8e60d60b2c2e7bb28ca5b2eba61715a062ac5319).
+
+```diff
+__putout_processor_json({
+    "keywords": [
+     "putout",
+     "putout-plugin",
+-    "plugin",
+-    "putout"
++    "plugin"
+   ],
+});
 ```
 
 ## find-file

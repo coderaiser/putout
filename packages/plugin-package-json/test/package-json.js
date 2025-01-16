@@ -41,3 +41,8 @@ test('plugin-package-json: no transform: remove-exports-with-missing-files-disab
     t.noTransform('remove-exports-with-missing-files-disabled');
     t.end();
 });
+
+test('plugin-package-json: transform: remove-duplicate-keywords', (t) => {
+    t.transform('remove-duplicate-keywords');
+    t.end();
+});
