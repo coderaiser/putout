@@ -1,7 +1,10 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+const pluginTape = require('@putout/plugin-tape');
 const plugin = require('.');
+
+const removeOnly = pluginTape.rules['remove-only'];
 
 const test = createTest(__dirname, {
     plugins: [
@@ -21,5 +24,12 @@ test('putout: apply-fixture-name-to-message: transform', (t) => {
 
 test('putout: apply-fixture-name-to-message: no report: no-parent', (t) => {
     t.noReport('no-parent');
+    t.end();
+});
+
+test('putout: apply-fixture-name-to-message: no report: remove-only', (t) => {
+    t.transform('remove-only', {
+        removeOnly,
+    });
     t.end();
 });

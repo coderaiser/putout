@@ -33,7 +33,9 @@ module.exports.replace = () => ({
     't.noTransform(__a)': transform,
 });
 
-const isTest = (path) => compare(path, 'test(__a, (t) => __body)');
+const isTest = (path) => compare(path, 'test(__a, (t) => __body)', {
+    findUp: false,
+});
 
 const check = ({__a}, path) => {
     const name = __a.value;
@@ -41,20 +43,14 @@ const check = ({__a}, path) => {
     if (FIXTURE.includes(name))
         return false;
     
-    const testPath = path.find(isTest);
-    
-    if (!testPath)
-        return false;
-    
-    const [str] = testPath.parentPath.parentPath.node.arguments;
+    const str = getTestNodeArgument(name, path);
     
     return !str.value.includes(name);
 };
 
 const transform = ({__a}, path) => {
     const name = __a.value;
-    const testPath = path.find(isTest);
-    const [str] = testPath.parentPath.parentPath.node.arguments;
+    const str = getTestNodeArgument(name, path);
     
     const values = str.value.split(':');
     const last = values
@@ -67,4 +63,18 @@ const transform = ({__a}, path) => {
     setLiteralValue(str, `${values.join(':')}: ${name}`);
     
     return path;
+};
+
+const getTestNodeArgument = (value, path) => {
+    let testPath = path.find(isTest);
+    
+    if (!testPath)
+        return {
+            value,
+        };
+    
+    if (testPath.isExpressionStatement())
+        testPath = testPath.get('expression');
+    
+    return testPath.node.arguments[0];
 };
