@@ -25,8 +25,10 @@ export const traverse = ({push}) => ({
             return;
         
         let first = arrayPath.get('elements.0');
+        
         do {
             let second = arrayPath.get('elements.0');
+            
             do {
                 if (first === second)
                     continue;
