@@ -15,14 +15,14 @@ const keywords = [
 
 module.exports.report = () => `Extract 'export' from variable`;
 
-module.exports.fix = ({path, keywordPath}) => {
-    if (keywordPath.node.id.name === 'export')
-        replaceWith(path, ExportNamedDeclaration(path.node));
+module.exports.fix = ({path, nextPath}) => {
+    if (path.node.id.name === 'export')
+        replaceWith(nextPath, ExportNamedDeclaration(nextPath.node));
     
-    if (keywordPath.node.id.name === 'const')
-        replaceWith(path, VariableDeclaration('const', [VariableDeclarator(path.node.expression.left, path.node.expression.right)]));
+    if (path.node.id.name === 'const')
+        replaceWith(nextPath, VariableDeclaration('const', [VariableDeclarator(nextPath.node.expression.left, nextPath.node.expression.right)]));
     
-    remove(keywordPath);
+    remove(path);
 };
 
 module.exports.traverse = ({push}) => ({
@@ -35,14 +35,14 @@ module.exports.traverse = ({push}) => ({
         
         if (nextPath.isVariableDeclaration())
             return push({
-                path: nextPath,
-                keywordPath: path,
+                path,
+                nextPath,
             });
         
         if (nextPath.isExpressionStatement() && nextPath.get('expression').isAssignmentExpression())
             return push({
-                path: nextPath,
-                keywordPath: path,
+                path,
+                nextPath,
             });
     },
 });
