@@ -25,12 +25,11 @@ export const traverse = ({push}) => ({
             return;
         
         let first = arrayPath.get('elements.0');
-        let second = arrayPath.get('elements.1');
-        
         do {
+            let second = arrayPath.get('elements.0');
             do {
-                if (!second)
-                    break;
+                if (first === second)
+                    continue;
                 
                 if (first.node.value === second.node.value)
                     push(second);

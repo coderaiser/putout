@@ -16,3 +16,8 @@ test('package-json: remove-duplicate-keywords: transform', (t) => {
     t.transform('remove-duplicate-keywords');
     t.end();
 });
+
+test('package-json: remove-duplicate-keywords: transform: second', (t) => {
+    t.transform('second');
+    t.end();
+});
