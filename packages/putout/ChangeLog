@@ -1,3 +1,14 @@
+2025.01.17, v37.15.2
+
+feature:
+- 9a6f245e8 putout: @putout/plugin-convert-const-to-let v4.0.0
+- 2c22b5b8e @putout/plugin-convert-const-to-let: drop support of 🐊 < 37
+- cad7b02aa @putout/plugin-convert-const-to-let: exclude: export
+- d629da0cc @putout/plugin-package-json: remove-duplicate-keywords: second
+- d10696282 @putout/plugin-package-json: remove-duplicate-keywords: add
+- a64d46d50 @putout/plugin-apply-fixture-name-to-message: tape: remove-only
+- c8b795082 @putout/plugin-putout: apply-fixture-name-to-message
+
 2025.01.15, v37.15.1
 
 feature:
