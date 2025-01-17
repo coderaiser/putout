@@ -7,7 +7,7 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Unexpected_token)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to extract `keywords` from variables. Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fcaedaa9daf7f3a771274aca0da9ab1b).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to extract `keywords` from variables. Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fcaedaa9daf7f3a771274aca0da9ab1b/4496811b3f092b8124703fd69c84c51be86cf90a).
 
 ## Install
 

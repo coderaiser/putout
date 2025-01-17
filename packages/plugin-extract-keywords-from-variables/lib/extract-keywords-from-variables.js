@@ -1,33 +1,51 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {remove, replaceWith} = operator;
+const buildDeclaration = (type) => (path) => {
+    const {left, right} = path.node.expression;
+    replaceWith(path, VariableDeclaration(type, [VariableDeclarator(left, right)]));
+};
+
 const {
+    ImportDefaultSpecifier,
+    ImportDeclaration,
+    ExportNamedDeclaration,
     VariableDeclarator,
     VariableDeclaration,
-    ExportNamedDeclaration,
 } = types;
+
+const {remove, replaceWith} = operator;
 
 const keywords = [
     'export',
     'const',
+    'var',
+    'let',
+    'import',
 ];
+
+const builders = {
+    const: buildDeclaration('const'),
+    var: buildDeclaration('var'),
+    let: buildDeclaration('let'),
+    import: buildImport,
+    export: buildExport,
+};
 
 module.exports.report = () => `Extract 'export' from variable`;
 
 module.exports.fix = ({path, nextPath}) => {
-    if (path.node.id.name === 'export')
-        replaceWith(nextPath, ExportNamedDeclaration(nextPath.node));
+    const {name} = path.node.id;
     
-    if (path.node.id.name === 'const')
-        replaceWith(nextPath, VariableDeclaration('const', [VariableDeclarator(nextPath.node.expression.left, nextPath.node.expression.right)]));
-    
+    builders[name](nextPath);
     remove(path);
 };
 
 module.exports.traverse = ({push}) => ({
     VariableDeclarator(path) {
-        if (!keywords.includes(path.node.id.name))
+        const {name} = path.node.id;
+        
+        if (!keywords.includes(name))
             return;
         
         const topPath = getTopPath(path);
@@ -39,7 +57,7 @@ module.exports.traverse = ({push}) => ({
                 nextPath,
             });
         
-        if (nextPath.isExpressionStatement() && nextPath.get('expression').isAssignmentExpression())
+        if (nextPath.isExpressionStatement())
             return push({
                 path,
                 nextPath,
@@ -52,4 +70,19 @@ function getTopPath(path) {
         return path.parentPath.parentPath;
     
     return path.parentPath;
+}
+
+function buildExport(path) {
+    replaceWith(path, ExportNamedDeclaration(path.node));
+}
+
+function buildImport(path) {
+    const fromPath = path.getNextSibling();
+    const sourcePath = fromPath.getNextSibling();
+    const source = sourcePath.node.expression;
+    const local = path.node.expression;
+    
+    replaceWith(path, ImportDeclaration([ImportDefaultSpecifier(local, local)], source));
+    remove(sourcePath);
+    remove(fromPath);
 }

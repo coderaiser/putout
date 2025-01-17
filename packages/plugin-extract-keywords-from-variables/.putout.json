@@ -1,5 +1,5 @@
 {
     "rules": {
-        "extract-keywords-from-variables": "on"
+        "extract-keywords-from-variables": "off"
     }
 }
