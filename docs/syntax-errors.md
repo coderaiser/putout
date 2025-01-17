@@ -284,3 +284,17 @@ a && (b = a);
 ```
 
 </details>
+
+<details><summary>extract keywords from variables</summary>
+
+```diff
+-export const isTemplateMiddle = (a) => a?.type === 'TemplateMiddle',
++export const isTemplateMiddle = (a) => a?.type === 'TemplateMiddle';
+export const isTemplateTail = (a) => a?.type === 'TemplateTail';
+
+-export const a = 1,
++export const a = 1;
+const b = 5;
+```
+
+</details>

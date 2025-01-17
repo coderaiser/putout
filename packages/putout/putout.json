@@ -201,6 +201,7 @@
         "apply-starts-with",
         "apply-template-literals",
         "apply-overrides",
+        "extract-keywords-from-variables",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",
