@@ -32,7 +32,13 @@ module.exports.traverse = ({push}) => ({
             if (!parentPath.node)
                 continue;
             
-            if (binding.path.isVariableDeclarator() && parentPath.node.kind === 'const')
+            if (!binding.path.isVariableDeclarator())
+                continue;
+            
+            if (binding.path.node.id.name === 'export')
+                continue;
+            
+            if (parentPath.node.kind === 'const')
                 push(binding.path.parentPath);
         }
     },

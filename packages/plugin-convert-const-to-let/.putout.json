@@ -1,9 +1,10 @@
 {
+    "rules": {
+        "convert-const-to-let": "on"
+    },
     "match": {
-        "README.md": {
-            "convert-const-to-let": "off"
-        },
         "*.md": {
+            "convert-const-to-let": "off",
             "remove-unreferenced-variables": "off"
         }
     }
