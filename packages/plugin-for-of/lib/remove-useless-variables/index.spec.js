@@ -50,6 +50,11 @@ test('putout: plugin-for-of: remove-useless-variables no transform: assignment',
     t.end();
 });
 
+test('putout: plugin-for-of: remove-useless-variables no transform: nested', (t) => {
+    t.noReport('nested');
+    t.end();
+});
+
 test('putout: plugin-for-of: remove-useless-variables transform with: array-from', (t) => {
     t.transform('array-from', {
         'remove-useless-array-from': removeUselessArrayFrom,

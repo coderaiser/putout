@@ -3,8 +3,11 @@
 const {types, operator} = require('putout');
 
 const {replaceWith, remove} = operator;
+const {
+    isAssignmentPattern,
+    isObjectPattern,
+} = types;
 
-const {isAssignmentPattern} = types;
 const isToManyProperties = (a, {maxProperties}) => a.isObjectPattern() && a.node.properties.length > maxProperties;
 const isAssignment = (a) => isAssignmentPattern(a.value);
 
@@ -24,9 +27,7 @@ module.exports.traverse = ({push, options}) => ({
             return;
         
         const {scope, node} = varPath;
-        
         const {name} = node;
-        
         const {references, referencePaths} = scope.bindings[name];
         
         if (references !== 1)
@@ -48,6 +49,9 @@ module.exports.traverse = ({push, options}) => ({
         if (isToManyProperties(idPath, {maxProperties}))
             return;
         
+        if (isNested(idPath))
+            return;
+        
         const {properties} = idPath.node;
         
         if (idPath.isObjectPattern() && properties.find(isAssignment))
@@ -59,3 +63,15 @@ module.exports.traverse = ({push, options}) => ({
         });
     },
 });
+
+function isNested(path) {
+    if (!path.isObjectPattern())
+        return false;
+    
+    for (const {value} of path.node.properties) {
+        if (isObjectPattern(value))
+            return true;
+    }
+    
+    return false;
+}
