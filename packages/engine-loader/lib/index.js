@@ -130,5 +130,8 @@ function extendRules(rule, plugin) {
 // https://github.com/esm-dev/esm.sh/issues/1045
 function loadPlugin({name, namespace}) {
     const {loadPlugin} = require('./load/load');
-    return loadPlugin({name, namespace});
+    return loadPlugin({
+        name,
+        namespace,
+    });
 }
