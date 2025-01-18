@@ -37,6 +37,10 @@ const isTest = (path) => compare(path, 'test(__a, (t) => __body)', {
     findUp: false,
 });
 
+const isTestOnly = (path) => compare(path, 'test.only(__a, (t) => __body)', {
+    findUp: false,
+});
+
 const check = ({__a}, path) => {
     const name = __a.value;
     
@@ -73,6 +77,9 @@ const transform = ({__a}, path) => {
 
 const getTestNodeArgument = (path) => {
     let testPath = path.find(isTest);
+    
+    if (!testPath)
+        testPath = path.find(isTestOnly);
     
     if (!testPath)
         return {
