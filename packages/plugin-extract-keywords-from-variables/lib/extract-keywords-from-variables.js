@@ -32,7 +32,7 @@ const builders = {
     export: buildExport,
 };
 
-module.exports.report = () => `Extract 'export' from variable`;
+module.exports.report = ({name}) => `Extract '${name}' from variable`;
 
 module.exports.fix = ({path, nextPath}) => {
     const {name} = path.node.id;
@@ -53,12 +53,14 @@ module.exports.traverse = ({push}) => ({
         
         if (nextPath.isVariableDeclaration())
             return push({
+                name,
                 path,
                 nextPath,
             });
         
         if (nextPath.isExpressionStatement())
             return push({
+                name,
                 path,
                 nextPath,
             });

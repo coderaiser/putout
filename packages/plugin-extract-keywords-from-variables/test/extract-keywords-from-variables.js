@@ -18,3 +18,8 @@ test('putout: extract-keywords-from-variables: transform', (t) => {
     t.transform('extract-keywords-from-variables');
     t.end();
 });
+
+test('putout: extract-keywords-from-variables: report: const', (t) => {
+    t.report('const', `Extract 'const' from variable`);
+    t.end();
+});
