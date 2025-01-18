@@ -6,7 +6,6 @@ const mockRequire = require('mock-require');
 const {test, stub} = require('supertape');
 
 const {stopAll, reRequire} = mockRequire;
-
 const {assign} = Object;
 
 test('putout: engine-loader: load: yarn OnP support', (t) => {
@@ -73,6 +72,8 @@ test('putout: engine-loader: load: createRequire', (t) => {
     });
     
     stopAll();
+    
+    reRequire('./load.js');
     
     t.calledCount(createRequire, 2, 'should call for "putout" and PUTOUT_YARN_PNP');
     t.end();

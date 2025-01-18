@@ -1,6 +1,5 @@
 'use strict';
 
-const {loadPlugin} = require('./load/load');
 const {createAsyncLoader} = require('./load/async-loader');
 const {parsePluginNames} = require('./plugins/parse-plugin-names');
 const parseProcessorNames = require('./processors/parse-processor-names');
@@ -125,4 +124,11 @@ function extendRules(rule, plugin) {
     }
     
     return result;
+}
+
+// add support of esm.sh
+// https://github.com/esm-dev/esm.sh/issues/1045
+function loadPlugin({name, namespace}) {
+    const {loadPlugin} = require('./load/load');
+    return loadPlugin({name, namespace});
 }
