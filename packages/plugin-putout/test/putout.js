@@ -286,3 +286,8 @@ test('plugin-putout: transform: apply-vars', (t) => {
     t.transform('apply-vars');
     t.end();
 });
+
+test('plugin-putout: transform: declare-template-variables', (t) => {
+    t.transform('declare-template-variables');
+    t.end();
+});

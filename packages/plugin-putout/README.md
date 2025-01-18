@@ -61,6 +61,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-url-to-dirname](#convert-url-to-dirname);
 - ✅ [create-test](#create-test);
 - ✅ [declare](#declare);
+- ✅ [declare-template-variables](#declare-template-variables);
 - ✅ [includer](#includer);
 - ✅ [move-require-on-top-level](#move-require-on-top-level);
 - ✅ [remove-empty-array-from-process](#remove-empty-array-from-process);
@@ -127,6 +128,7 @@ npm i @putout/plugin-putout -D
         "putout/create-test": "on",
         "putout/shorten-imports": "on",
         "putout/declare": "on",
+        "putout/declare-template-variables": "on",
         "putout/includer": "on",
         "putout/move-require-on-top-level": "on",
         "putout/replace-test-message": "on",
@@ -868,6 +870,34 @@ const {isIdentifier} = types;
 
 compare(a, 'const __a = __b');
 isIdentifier(a);
+```
+
+## declare-template-variables
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/71ae86cc372dca8adc79bf53c49e8d5f/c9c8517ee932c18abcfda10c0515253b907ee485).
+
+### ❌ Example of incorrect code
+
+```js
+export const match = () => ({
+    '__a(__args': (vars, path) => {
+        fn(x);
+        
+        return __args[__a];
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const match = () => ({
+    '__a(__args': ({__args, __a}, path) => {
+        fn(x);
+        
+        return __args[__a];
+    },
+});
 ```
 
 ## add-places-to-compare-places"

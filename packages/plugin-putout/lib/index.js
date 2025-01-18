@@ -58,6 +58,7 @@ const removeUselessPrinterOption = require('./remove-useless-printer-option');
 const addPathArgToVisitors = require('./add-path-arg-to-visitors');
 const applyFixtureNameToMessage = require('./apply-fixture-name-to-message');
 const applyVars = require('./apply-vars');
+const declareTemplateVariables = require('./declare-template-variables');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -118,4 +119,5 @@ module.exports.rules = {
     'add-path-arg-to-visitors': addPathArgToVisitors,
     'apply-fixture-name-to-message': applyFixtureNameToMessage,
     'apply-vars': applyVars,
+    'declare-template-variables': declareTemplateVariables,
 };
