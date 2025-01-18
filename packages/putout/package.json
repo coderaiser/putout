@@ -223,7 +223,6 @@
     "eslint",
     "babel",
     "plugin",
-    "jscodeshift",
     "lint",
     "variable",
     "unused"
