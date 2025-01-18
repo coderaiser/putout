@@ -28,6 +28,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-fixture-name-to-message](#apply-fixture-name-to-message);
 - ✅ [apply-insert-after](#apply-insert-after);
 - ✅ [apply-insert-before](#apply-insert-before);
+- ✅ [apply-vars](#apply-vars);
 - ✅ [apply-namespace-specifier](#apply-namespace-specifier);
 - ✅ [apply-processors-destructuring](#apply-processors-destructuring);
 - ✅ [apply-remove](#apply-remove);
@@ -92,6 +93,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-remove": "on",
         "putout/apply-insert-before": "on",
         "putout/apply-insert-after": "on",
+        "putout/apply-vars": "on",
         "putout/apply-short-processors": "on",
         "putout/apply-namespace-specifier": "on",
         "putout/apply-for-of-to-track-file": "on",
@@ -281,6 +283,42 @@ const {insertAfter} = operator;
 export const fix = (path) => {
     insertAfter(path, path.get('init'));
 };
+```
+
+## apply-vars
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f96aaef6c54049ca91497a17f7a4b88a/b960916e73a7f51c1c0425ad9a3f304452c0d159).
+
+### ❌ Example of incorrect code
+
+```js
+export const replace = () => ({
+    '__a(__args': ({}, path) => {
+        return true;
+    },
+});
+
+export const match = () => ({
+    '__a(__args': ({}, path) => {
+        return '';
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const replace = () => ({
+    '__a(__args': (vars, path) => {
+        return true;
+    },
+});
+
+export const match = () => ({
+    '__a(__args': (vars, path) => {
+        return '';
+    },
+});
 ```
 
 ## apply-declare

@@ -281,3 +281,8 @@ test('plugin-putout: transform: apply-fixture-name-to-message', (t) => {
     t.transform('apply-fixture-name-to-message');
     t.end();
 });
+
+test('plugin-putout: transform: apply-vars', (t) => {
+    t.transform('apply-vars');
+    t.end();
+});
