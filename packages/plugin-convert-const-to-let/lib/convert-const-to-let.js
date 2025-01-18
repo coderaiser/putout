@@ -1,6 +1,12 @@
 'use strict';
 
 const {values} = Object;
+const isKeyword = (a) => [
+    'export',
+    'const',
+    'let',
+    'var',
+].includes(a);
 
 module.exports.report = () => `Use 'let' when reassign`;
 
@@ -35,7 +41,7 @@ module.exports.traverse = ({push}) => ({
             if (!binding.path.isVariableDeclarator())
                 continue;
             
-            if (binding.path.node.id.name === 'export')
+            if (isKeyword(binding.path.node.id.name))
                 continue;
             
             if (parentPath.node.kind === 'const')
