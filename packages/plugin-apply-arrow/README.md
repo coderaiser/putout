@@ -20,7 +20,9 @@ npm i @putout/plugin-apply-arrow
 ```json
 {
     "rules": {
-        "apply-arrow": "on"
+        "apply-arrow": ["on", {
+            "maxSize": 30
+        }]
     }
 }
 ```
