@@ -1,12 +1,21 @@
 'use strict';
 
+const {types} = require('putout');
+const {
+    isBlockStatement,
+    isProgram,
+} = types;
+
 const {values} = Object;
+
 const isKeyword = (a) => [
     'export',
     'const',
     'let',
     'var',
 ].includes(a);
+
+const isInsideBlock = ({parentPath}) => isProgram(parentPath) || isBlockStatement(parentPath);
 
 module.exports.report = () => `Use 'let' when reassign`;
 
@@ -42,6 +51,9 @@ module.exports.traverse = ({push}) => ({
                 continue;
             
             if (isKeyword(binding.path.node.id.name))
+                continue;
+            
+            if (!binding.path.node.init && isInsideBlock(binding.path.parentPath))
                 continue;
             
             if (parentPath.node.kind === 'const')

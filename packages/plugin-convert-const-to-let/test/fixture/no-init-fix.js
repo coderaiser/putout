@@ -1,4 +1,4 @@
-let a;
+const a;
 
 for (const a of b) {}
 
