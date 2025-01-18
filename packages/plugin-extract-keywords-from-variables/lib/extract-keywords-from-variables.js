@@ -1,20 +1,28 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const buildDeclaration = (type) => (path) => {
-    const {left, right} = path.node.expression;
-    replaceWith(path, VariableDeclaration(type, [VariableDeclarator(left, right)]));
-};
-
 const {
     ImportDefaultSpecifier,
     ImportDeclaration,
     ExportNamedDeclaration,
+    isLiteral,
     VariableDeclarator,
     VariableDeclaration,
+    isAssignmentExpression,
 } = types;
 
 const {remove, replaceWith} = operator;
+
+const buildDeclaration = (type) => (nextPath, path) => {
+    const {expression} = nextPath.node;
+    
+    if (isAssignmentExpression(expression)) {
+        const {left, right} = expression;
+        replaceWith(nextPath, VariableDeclaration(type, [VariableDeclarator(left, right)]));
+    } else {
+        replaceWith(nextPath, VariableDeclaration(type, [VariableDeclarator(path.node.id, nextPath.node.expression)]));
+    }
+};
 
 const keywords = [
     'export',
@@ -34,10 +42,8 @@ const builders = {
 
 module.exports.report = ({name}) => `Extract '${name}' from variable`;
 
-module.exports.fix = ({path, nextPath}) => {
-    const {name} = path.node.id;
-    
-    builders[name](nextPath);
+module.exports.fix = ({name, path, nextPath}) => {
+    builders[name](nextPath, path);
     remove(path);
 };
 
@@ -45,25 +51,39 @@ module.exports.traverse = ({push}) => ({
     VariableDeclarator(path) {
         const {name} = path.node.id;
         
-        if (!keywords.includes(name))
+        if (keywords.includes(name)) {
+            const topPath = getTopPath(path);
+            const nextPath = topPath.getNextSibling();
+            
+            if (nextPath.isVariableDeclaration())
+                push({
+                    name,
+                    path,
+                    nextPath,
+                });
+            else if (nextPath.isExpressionStatement())
+                push({
+                    name,
+                    path,
+                    nextPath,
+                });
+            
             return;
+        }
         
-        const topPath = getTopPath(path);
-        const nextPath = topPath.getNextSibling();
+        const {kind} = path.parentPath.node;
         
-        if (nextPath.isVariableDeclaration())
-            return push({
-                name,
-                path,
-                nextPath,
-            });
-        
-        if (nextPath.isExpressionStatement())
-            return push({
-                name,
-                path,
-                nextPath,
-            });
+        if (kind === 'const' && !path.node.init) {
+            const topPath = getTopPath(path);
+            const nextPath = topPath.getNextSibling();
+            
+            if (nextPath.isExpressionStatement() && isLiteral(nextPath.node.expression))
+                return push({
+                    name: 'const',
+                    path,
+                    nextPath,
+                });
+        }
     },
 });
 
