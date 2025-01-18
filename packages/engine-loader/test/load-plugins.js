@@ -530,3 +530,32 @@ test('putout: loader: disabled rules in plugin: load', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: loader: similar names', (t) => {
+    const source = montag`
+        export const match = () => ({
+            '__a(__args': (vars, path) => {
+                return __args[__a];
+            }
+        });
+    `;
+    
+    const {code} = putout(source, {
+        rules: {
+            'putout/declare': 'off',
+            'putout/declare-template-variables': 'on',
+        },
+        plugins: ['putout'],
+    });
+    
+    const expected = montag`
+        export const match = () => ({
+            '__a(__args': ({__args, __a}, path) => {
+                return __args[__a];
+            },
+        });\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

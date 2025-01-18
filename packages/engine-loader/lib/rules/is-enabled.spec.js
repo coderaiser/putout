@@ -95,3 +95,20 @@ test('putout: get-plugins: is-enabled: similar names: on', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: get-plugins: is-enabled: similar names: on: /', (t) => {
+    const name = 'putout/declare-template-variables';
+    
+    const rules = [{
+        rule: 'putout/declare',
+        state: false,
+    }, {
+        rule: 'putout/declare-template-variables',
+        state: true,
+    }];
+    
+    const result = isEnabled(name, rules);
+    
+    t.ok(result);
+    t.end();
+});
