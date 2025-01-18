@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: remove-check-duplicates-from-test: report', (t) => {
+test('madrun: remove-check-duplicates-from-test: report: check-duplicates', (t) => {
     t.report('check-duplicates', 'test: "-d" can be removed, duplicates checked by default');
     t.end();
 });
 
-test('madrun: remove-check-duplicates-from-test: transform', (t) => {
+test('madrun: remove-check-duplicates-from-test: transform: check-duplicates', (t) => {
     t.transform('check-duplicates');
     t.end();
 });

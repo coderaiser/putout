@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-assign: report', (t) => {
+test('plugin-remove-useless-assign: report: assign', (t) => {
     t.report('assign', `Avoid useless 'Object.assign()'`);
     t.end();
 });
 
-test('plugin-remove-useless-assign: transform', (t) => {
+test('plugin-remove-useless-assign: transform: assign', (t) => {
     t.transform('assign');
     t.end();
 });

@@ -24,7 +24,7 @@ test('plugin-simplify-ternary: transform: object', (t) => {
     t.end();
 });
 
-test('plugin-simplify-ternary: no transform: no duplicate', (t) => {
+test('plugin-simplify-ternary: no transform: duplicate', (t) => {
     t.noTransform('duplicate');
     t.end();
 });
@@ -34,7 +34,7 @@ test('plugin-simplify-ternary: transform: simple-duplicate', (t) => {
     t.end();
 });
 
-test('plugin-simplify-ternary: no transform: different test and consequent', (t) => {
+test('plugin-simplify-ternary: no transform: diff', (t) => {
     t.noTransform('diff');
     t.end();
 });

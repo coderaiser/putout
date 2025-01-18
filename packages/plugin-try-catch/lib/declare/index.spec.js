@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-try-catch: declare: report', (t) => {
+test('plugin-apply-try-catch: declare: report: try-catch', (t) => {
     t.report('try-catch', `Declare 'tryCatch', it referenced but not defined`);
     t.end();
 });
 
-test('plugin-apply-try-catch: declare: transform', (t) => {
+test('plugin-apply-try-catch: declare: transform: try-catch', (t) => {
     t.transform('try-catch');
     t.end();
 });

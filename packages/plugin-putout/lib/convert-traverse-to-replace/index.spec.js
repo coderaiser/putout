@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-traverse-to-replace: report', (t) => {
+test('plugin-putout: convert-traverse-to-replace: report: traverse', (t) => {
     t.report('traverse', 'Replacer should be used instead of Traverser (https://git.io/JqcMn)');
     t.end();
 });
 
-test('plugin-putout: convert-traverse-to-replace: transform', (t) => {
+test('plugin-putout: convert-traverse-to-replace: transform: traverse', (t) => {
     t.transform('traverse');
     t.end();
 });

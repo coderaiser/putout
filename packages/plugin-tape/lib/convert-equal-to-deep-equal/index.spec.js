@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: convert-equal-to-deep-equal: report', (t) => {
+test('plugin-tape: convert-equal-to-deep-equal: report: equal', (t) => {
     t.report('equal', `Use 't.deepEqual()' when comparing Objects an Arrays`);
     t.end();
 });
 
-test('plugin-tape: convert-equal-to-deep-equal: transform', (t) => {
+test('plugin-tape: convert-equal-to-deep-equal: transform: equal', (t) => {
     t.transform('equal');
     t.end();
 });

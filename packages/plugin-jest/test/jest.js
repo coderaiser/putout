@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-jest: report', (t) => {
+test('plugin-jest: report: jest', (t) => {
     t.report('jest', 'Latest Jest API should be used');
     t.end();
 });
 
-test('plugin-jest: transform', (t) => {
+test('plugin-jest: transform: jest', (t) => {
     t.transform('jest');
     t.end();
 });

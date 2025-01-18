@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-arguments: arguments: report', (t) => {
+test('plugin-remove-useless-arguments: arguments: report: arg', (t) => {
     t.report('arg', `Avoid useless argument 'callback'`);
     t.end();
 });

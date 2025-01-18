@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-throw: report', (t) => {
+test('plugin-convert-throw: report: throw', (t) => {
     t.report('throw', '"throw" should be used without body');
     t.end();
 });
 
-test('plugin-convert-throw: transform', (t) => {
+test('plugin-convert-throw: transform: throw', (t) => {
     t.transform('throw');
     t.end();
 });

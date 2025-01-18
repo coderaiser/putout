@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: convert-cut-env-to-run: report', (t) => {
+test('madrun: convert-cut-env-to-run: report: cut-env', (t) => {
     t.report('cut-env', `Use 'cutEnv()' instead of 'run()'`);
     t.end();
 });
 
-test('madrun: convert-cut-env-to-run: transform', (t) => {
+test('madrun: convert-cut-env-to-run: transform: cut-env', (t) => {
     t.transform('cut-env');
     t.end();
 });

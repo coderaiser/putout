@@ -20,7 +20,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-nodejs: declare-after-require: report', (t) => {
+test('plugin-nodejs: declare-after-require: report: require', (t) => {
     t.report('require', `Declare 'isObject' after last 'require()'`);
     t.end();
 });

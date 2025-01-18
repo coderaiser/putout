@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('putout: plugin-package-json: remove-nyc: complex: report', (t) => {
+test('putout: plugin-package-json: remove-nyc: complex: report: nyc', (t) => {
     t.report('nyc', `Remove 'nyc' section of 'package.json', use file '.nycrc.json' instead`);
     t.end();
 });
 
-test('putout: plugin-package-json: remove-nyc: complex: transform', (t) => {
+test('putout: plugin-package-json: remove-nyc: complex: transform: nyc', (t) => {
     t.transform('nyc');
     t.end();
 });

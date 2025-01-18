@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-empty: argument: report', (t) => {
+test('plugin-remove-empty: argument: report: arg', (t) => {
     t.report('arg', 'Avoid empty destructuring argument');
     t.end();
 });
 
-test('plugin-remove-empty: transform: argument: object', (t) => {
+test('plugin-remove-empty: transform: argument: arg', (t) => {
     t.transform('arg');
     t.end();
 });

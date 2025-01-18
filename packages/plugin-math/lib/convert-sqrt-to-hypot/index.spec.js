@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-math: convert-sqrt-to-hypot: report', (t) => {
+test('plugin-math: convert-sqrt-to-hypot: report: sqrt', (t) => {
     t.report('sqrt', `Use 'Math.hypot()' instead of 'Math.sqrt()'`);
     t.end();
 });
 
-test('plugin-math: convert-sqrt-to-hypot: transform', (t) => {
+test('plugin-math: convert-sqrt-to-hypot: transform: sqrt', (t) => {
     t.transform('sqrt');
     t.end();
 });

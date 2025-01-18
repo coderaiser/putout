@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('codemod-remove-legacy-from-gitignore: report', (t) => {
+test('codemod-remove-legacy-from-gitignore: report: gitignore', (t) => {
     t.report('gitignore', 'legacy should be removed from .gitignore');
     t.end();
 });
 
-test('codemod-remove-legacy-from-gitignore: transform', (t) => {
+test('codemod-remove-legacy-from-gitignore: transform: gitignore', (t) => {
     t.transform('gitignore');
     t.end();
 });

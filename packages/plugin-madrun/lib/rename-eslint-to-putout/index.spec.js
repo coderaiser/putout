@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: rename-eslint-to-putout: report', (t) => {
+test('madrun: rename-eslint-to-putout: report: eslint', (t) => {
     t.report('eslint', `"putout" should be used instead of "eslint"`);
     t.end();
 });

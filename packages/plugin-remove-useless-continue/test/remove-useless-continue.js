@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-continue: report', (t) => {
+test('plugin-remove-useless-continue: report: continue', (t) => {
     t.report('continue', `Avoid useless 'continue'`);
     t.end();
 });
@@ -19,7 +19,7 @@ test('plugin-remove-useless-continue: no report: if', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-continue: transform', (t) => {
+test('plugin-remove-useless-continue: transform: continue', (t) => {
     t.transform('continue');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-constructor: report', (t) => {
+test('plugin-remove-useless-constructor: report: constructor', (t) => {
     t.report('constructor', 'Avoid useless constructor');
     t.end();
 });
 
-test('plugin-remove-useless-constructor: transform', (t) => {
+test('plugin-remove-useless-constructor: transform: constructor', (t) => {
     t.transform('constructor');
     t.end();
 });

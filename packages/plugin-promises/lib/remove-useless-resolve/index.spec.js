@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-resolve: exports: report', (t) => {
+test('plugin-remove-useless-resolve: exports: report: resolve', (t) => {
     t.report('resolve', `'resolve()' is useless in 'async' functions, use 'return' instead`);
     t.end();
 });
 
-test('plugin-remove-useless-resolve: transform', (t) => {
+test('plugin-remove-useless-resolve: transform: resolve', (t) => {
     t.transform('resolve');
     t.end();
 });

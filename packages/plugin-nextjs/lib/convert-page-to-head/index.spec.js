@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-nextjs: convert-page-to-head: report', (t) => {
+test('plugin-nextjs: convert-page-to-head: report: head', (t) => {
     t.report('head', `Use 'Head' instead of 'Page'`);
     t.end();
 });
 
-test('plugin-nextjs: convert-page-to-head: transform', (t) => {
+test('plugin-nextjs: convert-page-to-head: transform: head', (t) => {
     t.transform('head');
     t.end();
 });

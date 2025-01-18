@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-assignment-to-comparison: report', (t) => {
+test('plugin-convert-assignment-to-comparison: report: assignment', (t) => {
     t.report('assignment', 'Expected comparison instead of assignment');
     t.end();
 });
 
-test('plugin-convert-assignment-to-comparison: transform', (t) => {
+test('plugin-convert-assignment-to-comparison: transform: assignment', (t) => {
     t.transform('assignment');
     t.end();
 });

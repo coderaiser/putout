@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-skip: report', (t) => {
+test('plugin-remove-skip: report: skip', (t) => {
     t.report('skip', 'Remove "test.skip"');
     t.end();
 });
 
-test('plugin-remove-skip: transform', (t) => {
+test('plugin-remove-skip: transform: skip', (t) => {
     t.transform('skip');
     t.end();
 });

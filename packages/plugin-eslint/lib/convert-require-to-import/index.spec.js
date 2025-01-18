@@ -7,12 +7,12 @@ const test = createTest(__dirname, {
     'eslint/convert-require-to-import': convertRequireToImport,
 });
 
-test('putout: plugin-eslint: convert-require-to-import-in-extends: report', (t) => {
+test('putout: plugin-eslint: convert-require-to-import-in-extends: report: convert-require-to-import', (t) => {
     t.report('convert-require-to-import', `Use 'import' in ESM`);
     t.end();
 });
 
-test('putout: plugin-eslint: convert-require-to-import-in-extends: no transform', (t) => {
+test('putout: plugin-eslint: convert-require-to-import-in-extends: no transform: convert-require-to-import', (t) => {
     t.noTransform('convert-require-to-import');
     t.end();
 });

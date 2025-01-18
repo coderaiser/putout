@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-traverse-to-include: report', (t) => {
+test('plugin-putout: convert-traverse-to-include: report: traverse', (t) => {
     t.report('traverse', 'Includer should be used instead of Traverser');
     t.end();
 });
 
-test('plugin-putout: convert-traverse-to-include: transform', (t) => {
+test('plugin-putout: convert-traverse-to-include: transform: traverse', (t) => {
     t.transform('traverse');
     t.end();
 });

@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-gitignore: report', (t) => {
+test('plugin-gitignore: report: gitignore', (t) => {
     t.report('gitignore', `Add dotfiles to '.gitignore'`);
     t.end();
 });
 
-test('plugin-gitignore: transform', (t) => {
+test('plugin-gitignore: transform: gitignore', (t) => {
     t.transform('gitignore');
     t.end();
 });

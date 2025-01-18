@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('cloudcmd/convert-load-dir-to-change-dir: report', (t) => {
+test('cloudcmd/convert-load-dir-to-change-dir: report: convert-load-dir-to-change-dir', (t) => {
     t.report('convert-load-dir-to-change-dir', `Use 'CloudCmd.changeDir()' instead of 'CloudCmd.loadDir()'`);
     t.end();
 });
 
-test('cloudcmd/convert-load-dir-to-change-dir: transform', (t) => {
+test('cloudcmd/convert-load-dir-to-change-dir: transform: convert-load-dir-to-change-dir', (t) => {
     t.transform('convert-load-dir-to-change-dir');
     t.end();
 });

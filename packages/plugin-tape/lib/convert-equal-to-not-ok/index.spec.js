@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: convert-equal-to-not-ok: report', (t) => {
+test('plugin-tape: convert-equal-to-not-ok: report: equal', (t) => {
     t.report('equal', `Use 't.notOk(error)' instead of 't.equal(error, null)'`);
     t.end();
 });
 
-test('plugin-tape: convert-equal-to-not-ok: transform', (t) => {
+test('plugin-tape: convert-equal-to-not-ok: transform: equal', (t) => {
     t.transform('equal');
     t.end();
 });

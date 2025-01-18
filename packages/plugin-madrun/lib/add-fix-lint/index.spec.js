@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: add fix:lint: report', (t) => {
+test('madrun: add fix:lint: report: lint', (t) => {
     t.report('lint', 'fix:lint should exist');
     t.end();
 });
 
-test('madrun: add fix:lint: transform: string', (t) => {
+test('madrun: add fix:lint: transform: lint', (t) => {
     t.transform('lint');
     t.end();
 });

@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-madrun-from-gitignore: report', (t) => {
+test('plugin-remove-madrun-from-gitignore: report: gitignore', (t) => {
     t.report('gitignore', '.putoutcache should be removed from .gitignore');
     t.end();
 });
 
-test('plugin-remove-madrun-from-gitignore: transform', (t) => {
+test('plugin-remove-madrun-from-gitignore: transform: gitignore', (t) => {
     t.transform('gitignore');
     t.end();
 });

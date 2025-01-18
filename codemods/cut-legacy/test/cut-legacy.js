@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('codemod-cut-legacy: report', (t) => {
+test('codemod-cut-legacy: report: legacy', (t) => {
     t.report('legacy', 'Suffix "legacy" should be avoided');
     t.end();
 });
 
-test('codemod-cut-legacy: transform', (t) => {
+test('codemod-cut-legacy: transform: legacy', (t) => {
     t.transform('legacy');
     t.end();
 });

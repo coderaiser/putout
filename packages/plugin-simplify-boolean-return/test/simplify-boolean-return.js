@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-simplify-boolean-return: report', (t) => {
+test('plugin-simplify-boolean-return: report: simplify-boolean-return', (t) => {
     t.report('simplify-boolean-return', 'Simplify boolean return');
     t.end();
 });
@@ -22,7 +22,7 @@ test('plugin-simplify-boolean-return: transform: callstack', (t) => {
     t.end();
 });
 
-test('plugin-simplify-boolean-return: transform', (t) => {
+test('plugin-simplify-boolean-return: transform: simplify-boolean-return', (t) => {
     t.transform('simplify-boolean-return');
     t.end();
 });

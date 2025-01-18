@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-mapped-types: report', (t) => {
+test('plugin-remove-useless-mapped-types: report: mapped-types', (t) => {
     t.report('mapped-types', 'Avoid useless mapped types');
     t.end();
 });
 
-test('plugin-remove-useless-mapped-types: transform', (t) => {
+test('plugin-remove-useless-mapped-types: transform: mapped-types', (t) => {
     t.transform('mapped-types');
     t.end();
 });

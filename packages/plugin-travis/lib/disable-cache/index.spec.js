@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-travis: disable-npm-cache: report', (t) => {
+test('plugin-travis: disable-npm-cache: report: travis', (t) => {
     t.report('travis', '"cache" field should exist in travis');
     t.end();
 });
 
-test('plugin-travis: disable-npm-cache: transform', (t) => {
+test('plugin-travis: disable-npm-cache: transform: travis', (t) => {
     t.transform('travis');
     t.end();
 });

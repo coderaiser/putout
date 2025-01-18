@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout-config: remove-empty: report', (t) => {
+test('plugin-putout-config: remove-empty: report: empty', (t) => {
     t.report('empty', 'Avoid empty property values');
     t.end();
 });
 
-test('plugin-putout-config: remove-empty: transform', (t) => {
+test('plugin-putout-config: remove-empty: transform: empty', (t) => {
     t.transform('empty');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: apply-processors-destructuring: report', (t) => {
+test('plugin-putout: apply-processors-destructuring: report: process', (t) => {
     t.report('process', 'Test operator should be destructured');
     t.end();
 });
 
-test('plugin-putout: apply-processors-destructuring: transform', (t) => {
+test('plugin-putout: apply-processors-destructuring: transform: process', (t) => {
     t.transform('process');
     t.end();
 });

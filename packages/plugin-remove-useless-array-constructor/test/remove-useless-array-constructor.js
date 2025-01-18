@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-array-constructor: report', (t) => {
+test('plugin-remove-useless-array-constructor: report: array', (t) => {
     t.report('array', `Avoid array constructor, use '[]' instead`);
     t.end();
 });
 
-test('plugin-remove-useless-array-constructor: transform', (t) => {
+test('plugin-remove-useless-array-constructor: transform: array', (t) => {
     t.transform('array');
     t.end();
 });

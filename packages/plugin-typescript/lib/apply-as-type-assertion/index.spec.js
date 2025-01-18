@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-as-type-assertiong: report', (t) => {
+test('plugin-apply-as-type-assertiong: report: assertion', (t) => {
     t.report('assertion', '"as" should be used for type assertions');
     t.end();
 });
 
-test('plugin-apply-as-type-assertiong: transform: object', (t) => {
+test('plugin-apply-as-type-assertiong: transform: assertion', (t) => {
     t.transform('assertion');
     t.end();
 });

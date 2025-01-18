@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: apply-async-formatter: report', (t) => {
+test('plugin-tape: apply-async-formatter: report: formatter', (t) => {
     t.report('formatter', 'Use Async API to test Formatter');
     t.end();
 });
 
-test('plugin-tape: apply-async-formatter', (t) => {
+test('plugin-tape: formatter', (t) => {
     t.transform('formatter');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-assert-to-with: report', (t) => {
+test('plugin-convert-assert-to-with: report: convert-assert-to-with', (t) => {
     t.report('convert-assert-to-with', `Use 'with' instead of 'assert'`);
     t.end();
 });
 
-test('plugin-convert-assert-to-with: transform', (t) => {
+test('plugin-convert-assert-to-with: transform: convert-assert-to-with', (t) => {
     t.transform('convert-assert-to-with');
     t.end();
 });

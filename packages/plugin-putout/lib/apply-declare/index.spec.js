@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: apply-declare: report', (t) => {
+test('plugin-tape: apply-declare: report: declare', (t) => {
     t.report('declare', `Use 'Declarator' instead of 'operator.declare()'`);
     t.end();
 });
 
-test('plugin-tape: apply-declare', (t) => {
+test('plugin-tape: declare', (t) => {
     t.transform('declare');
     t.end();
 });

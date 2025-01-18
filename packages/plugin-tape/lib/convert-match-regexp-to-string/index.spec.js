@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: convert-match-regexp-to-string: report', (t) => {
+test('plugin-tape: convert-match-regexp-to-string: report: regexp', (t) => {
     t.report('regexp', 't.match should be used with string pattern');
     t.end();
 });
 
-test('plugin-tape: convert-match-regexp-to-string: transform', (t) => {
+test('plugin-tape: convert-match-regexp-to-string: transform: regexp', (t) => {
     t.transform('regexp');
     t.end();
 });

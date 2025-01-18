@@ -9,17 +9,17 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-extract-sequence-expressions: report', (t) => {
+test('plugin-extract-sequence-expressions: report: sequence', (t) => {
     t.report('sequence', 'Avoid sequence expressions');
     t.end();
 });
 
-test('plugin-extract-sequence-expressions: transform', (t) => {
+test('plugin-extract-sequence-expressions: transform: sequence', (t) => {
     t.transform('sequence');
     t.end();
 });
 
-test('plugin-extract-sequence-expressions: transform arrow function', (t) => {
+test('plugin-extract-sequence-expressions: arrow', (t) => {
     t.transform('arrow');
     t.end();
 });
@@ -29,17 +29,17 @@ test('plugin-extract-sequence-expressions: simple-arrow', (t) => {
     t.end();
 });
 
-test('plugin-extract-sequence-expressions: transform call expression', (t) => {
+test('plugin-extract-sequence-expressions: call', (t) => {
     t.transform('call');
     t.end();
 });
 
-test('plugin-extract-sequence-expressions: transform return', (t) => {
+test('plugin-extract-sequence-expressions: return', (t) => {
     t.transform('return');
     t.end();
 });
 
-test('plugin-extract-sequence-expressions: transform layers', (t) => {
+test('plugin-extract-sequence-expressions: layers', (t) => {
     t.transform('layers');
     t.end();
 });

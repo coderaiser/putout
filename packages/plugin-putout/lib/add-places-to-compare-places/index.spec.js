@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: add-places-to-compare-places: report', (t) => {
+test('putout: add-places-to-compare-places: report: add-places-to-compare-places', (t) => {
     t.report('add-places-to-compare-places', `Add 'places' array to 'comparePlaces()'`);
     t.end();
 });
 
-test('putout: add-places-to-compare-places: transform', (t) => {
+test('putout: add-places-to-compare-places: transform: add-places-to-compare-places', (t) => {
     t.transform('add-places-to-compare-places');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: convert-throws-to-try-catch: report', (t) => {
+test('plugin-tape: convert-throws-to-try-catch: report: throws', (t) => {
     t.report('throws', 'try-catch should be used instead of t.throws');
     t.end();
 });
 
-test('plugin-tape: convert-throws-to-try-catch', (t) => {
+test('plugin-tape: throws', (t) => {
     t.transform('throws');
     t.end();
 });

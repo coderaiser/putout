@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: expand-try-catch-arguments: report', (t) => {
+test('plugin-tape: expand-try-catch-arguments: report: try-catch', (t) => {
     t.report('try-catch', 'try-catch arguments should be expanded');
     t.end();
 });
 
-test('plugin-tape: expand-try-catch-arguments: transform', (t) => {
+test('plugin-tape: expand-try-catch-arguments: transform: try-catch', (t) => {
     t.transform('try-catch');
     t.end();
 });

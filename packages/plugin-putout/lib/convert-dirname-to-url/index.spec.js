@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-dirname-to-url: report', (t) => {
+test('plugin-putout: convert-dirname-to-url: report: dirname', (t) => {
     t.report('dirname', `Use 'createTest(import.meta.url)' instead of 'createTest(__dirname)'`);
     t.end();
 });
 
-test('plugin-putout: convert-dirname-to-url: transform', (t) => {
+test('plugin-putout: convert-dirname-to-url: transform: dirname', (t) => {
     t.transform('dirname');
     t.end();
 });

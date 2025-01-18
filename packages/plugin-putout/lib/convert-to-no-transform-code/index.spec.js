@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-to-no-transform-code: transform', (t) => {
+test('plugin-putout: convert-to-no-transform-code: transform: no-transform-code', (t) => {
     t.transform('no-transform-code');
     t.end();
 });

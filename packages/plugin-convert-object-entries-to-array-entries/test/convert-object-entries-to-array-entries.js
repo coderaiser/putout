@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-object-entries-to-array-entries: report', (t) => {
+test('plugin-convert-object-entries-to-array-entries: report: convert-object-entries-to-array-entries', (t) => {
     t.report('convert-object-entries-to-array-entries', `Use 'array.entries()' instead of 'Object.entries()'`);
     t.end();
 });
 
-test('plugin-convert-object-entries-to-array-entries: transform', (t) => {
+test('plugin-convert-object-entries-to-array-entries: transform: convert-object-entries-to-array-entries', (t) => {
     t.transform('convert-object-entries-to-array-entries');
     t.end();
 });

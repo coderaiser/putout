@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: add-path-arg-to-fix: report', (t) => {
+test('putout: add-path-arg-to-fix: report: add-path-arg-to-fix', (t) => {
     t.report('add-path-arg-to-fix', `Add 'path' argument to 'fix'`);
     t.end();
 });
 
-test('putout: add-path-arg-to-fix: transform', (t) => {
+test('putout: add-path-arg-to-fix: transform: add-path-arg-to-fix', (t) => {
     t.transform('add-path-arg-to-fix');
     t.end();
 });

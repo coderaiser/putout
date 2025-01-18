@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('remove iife: report', (t) => {
+test('remove iife: report: iife', (t) => {
     t.report('iife', 'Avoid IIFE');
     t.end();
 });
 
-test('remove iife: transform', (t) => {
+test('remove iife: transform: iife', (t) => {
     t.transform('iife');
     t.end();
 });

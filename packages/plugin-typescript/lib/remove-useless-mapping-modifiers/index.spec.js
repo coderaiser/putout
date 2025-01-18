@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-mapping-modifiers: report', (t) => {
+test('plugin-remove-useless-mapping-modifiers: report: mapping-modifiers', (t) => {
     t.report('mapping-modifiers', 'Avoid useless mapping modifiers');
     t.end();
 });
 
-test('plugin-remove-useless-mapping-modifiers: transform', (t) => {
+test('plugin-remove-useless-mapping-modifiers: transform: mapping-modifiers', (t) => {
     t.transform('mapping-modifiers');
     t.end();
 });

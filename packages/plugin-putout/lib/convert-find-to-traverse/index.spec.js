@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert find to traverse: report', (t) => {
+test('plugin-putout: convert find to traverse: report: find', (t) => {
     t.report('find', `"traverse" should be used instead of "find"`);
     t.end();
 });
 
-test('plugin-putout: convert find to traverse: transform', (t) => {
+test('plugin-putout: convert find to traverse: transform: find', (t) => {
     t.transform('find');
     t.end();
 });

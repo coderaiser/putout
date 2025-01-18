@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: remove putout: report', (t) => {
+test('madrun: remove putout: report: putout', (t) => {
     t.report('putout', `scripts should not have a name "putout", because "putout" is "lint"`);
     t.end();
 });
 
-test('madrun: remove putout: transform: eslint', (t) => {
+test('madrun: remove putout: transform: putout', (t) => {
     t.transform('putout');
     t.end();
 });

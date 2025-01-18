@@ -56,7 +56,7 @@ test('plugin-tape: transform: convert-called-with-no-args-to-called-with', (t) =
     t.end();
 });
 
-test('plugin-tape: transform: convert-emitter-to-promise', (t) => {
+test('plugin-tape: transform: emitter', (t) => {
     t.transform('emitter');
     t.end();
 });

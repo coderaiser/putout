@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: convert-ok-to-called-with: report', (t) => {
+test('plugin-tape: convert-ok-to-called-with: report: called-with', (t) => {
     t.report('called-with', `Use 't.calledWith()' instead of 't.ok()'`);
     t.end();
 });
@@ -19,7 +19,7 @@ test('plugin-tape: convert-ok-to-called-with: report: not-ok', (t) => {
     t.end();
 });
 
-test('plugin-tape: convert-ok-to-called-with', (t) => {
+test('plugin-tape: called-with', (t) => {
     t.transform('called-with');
     t.end();
 });

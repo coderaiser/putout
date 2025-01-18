@@ -29,7 +29,7 @@ test('plugin-for-of: for-n: for-no transform: for-more', (t) => {
     t.end();
 });
 
-test('plugin-for-of: for-n: for-no transform: for-no-name', (t) => {
+test('plugin-for-of: for-n: for-no transform: no-name', (t) => {
     t.noTransform('no-name');
     t.end();
 });

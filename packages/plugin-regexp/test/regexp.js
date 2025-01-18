@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-regexp: optimize: report', (t) => {
+test('plugin-regexp: optimize: report: regexp', (t) => {
     t.report('regexp', 'RegExp /(ab|ab)/ can be optimized to /(ab)/');
     t.end();
 });

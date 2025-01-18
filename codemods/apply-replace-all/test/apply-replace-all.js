@@ -7,7 +7,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('apply replace all: report', (t) => {
+test('apply replace all: report: replace', (t) => {
     t.report('replace', 'Replace regexp should be used instead of string');
     t.end();
 });

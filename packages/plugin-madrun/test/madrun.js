@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-madrun: transform', (t) => {
+test('plugin-madrun: transform: madrun', (t) => {
     t.transform('madrun');
     t.end();
 });

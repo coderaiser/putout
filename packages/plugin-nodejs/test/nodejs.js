@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: plugin: nodejs: convert-fs-promises: transform', (t) => {
+test('putout: plugin: nodejs: convert-fs-promises: transform: fs', (t) => {
     t.transform('fs');
     t.end();
 });
 
-test('putout: plugin: nodejs: convert-promisify-to-fs-promises: transform', (t) => {
+test('putout: plugin: nodejs: convert-promisify-to-fs-promises: transform: promisify', (t) => {
     t.transform('promisify');
     t.end();
 });

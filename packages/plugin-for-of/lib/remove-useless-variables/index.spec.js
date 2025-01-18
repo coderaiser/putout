@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: plugin-for-of: remove useless variables: report', (t) => {
+test('putout: plugin-for-of: remove useless variables: report: for-of', (t) => {
     t.report('for-of', `Use destructuring in head of 'for...of'`);
     t.end();
 });
 
-test('putout: plugin-for-of: remove useless variables: transform', (t) => {
+test('putout: plugin-for-of: remove useless variables: transform: for-of', (t) => {
     t.transform('for-of');
     t.end();
 });

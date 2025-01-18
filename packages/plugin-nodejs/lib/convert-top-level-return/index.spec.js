@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-top-level-return: report', (t) => {
+test('plugin-convert-top-level-return: report: return', (t) => {
     t.report('return', '"process.exit" should be used instead of top-level return');
     t.end();
 });
 
-test('plugin-convert-top-level-return: transform', (t) => {
+test('plugin-convert-top-level-return: transform: return', (t) => {
     t.transform('return');
     t.end();
 });

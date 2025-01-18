@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-for-in-to-for-of: positive: report', (t) => {
+test('plugin-convert-for-in-to-for-of: positive: report: for-in', (t) => {
     t.report('for-in', 'for-of should be used instead of for-in');
     t.end();
 });
 
-test('plugin-convert-for-in-to-for-of: positive: transform', (t) => {
+test('plugin-convert-for-in-to-for-of: positive: transform: for-in', (t) => {
     t.transform('for-in');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: move-require-on-top-level: report', (t) => {
+test('plugin-putout: move-require-on-top-level: report: require', (t) => {
     t.report('require', 'Move require on top level');
     t.end();
 });
 
-test('plugin-putout: move-require-on-top-level: transform', (t) => {
+test('plugin-putout: move-require-on-top-level: transform: require', (t) => {
     t.transform('require');
     t.end();
 });

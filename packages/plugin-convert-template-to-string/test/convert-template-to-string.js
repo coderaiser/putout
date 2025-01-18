@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-template-to-string: report', (t) => {
+test('plugin-template-to-string: report: template', (t) => {
     t.report('template', 'Avoid using Template string with only one expression');
     t.end();
 });
 
-test('plugin-template-to-string: transform', (t) => {
+test('plugin-template-to-string: transform: template', (t) => {
     t.transform('template');
     t.end();
 });

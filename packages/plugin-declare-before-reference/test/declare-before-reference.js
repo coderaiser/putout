@@ -17,7 +17,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-declare-before-reference: report', (t) => {
+test('plugin-declare-before-reference: report: declare', (t) => {
     t.report('declare', `Declare 'operator' before referencing to avoid 'ReferenceError'`);
     t.end();
 });
@@ -27,7 +27,7 @@ test('plugin-declare-before-reference: no report: class', (t) => {
     t.end();
 });
 
-test('plugin-declare-before-reference: transform', (t) => {
+test('plugin-declare-before-reference: transform: declare', (t) => {
     t.transform('declare');
     t.end();
 });

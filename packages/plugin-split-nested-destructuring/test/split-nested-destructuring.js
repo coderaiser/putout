@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-split-destructuring: report', (t) => {
+test('plugin-split-destructuring: report: destr', (t) => {
     t.report('destr', 'Avoid nested destructuring');
     t.end();
 });
 
-test('plugin-split-destructuring: transform', (t) => {
+test('plugin-split-destructuring: transform: destr', (t) => {
     t.transform('destr');
     t.end();
 });

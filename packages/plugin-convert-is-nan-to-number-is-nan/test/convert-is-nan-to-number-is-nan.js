@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-is-nan-to-number-is-nan: report', (t) => {
+test('plugin-convert-is-nan-to-number-is-nan: report: is-nan', (t) => {
     t.report('is-nan', 'Number.isNaN should be used instead of isNaN');
     t.end();
 });
 
-test('plugin-convert-is-nan-to-number-is-nan: transform', (t) => {
+test('plugin-convert-is-nan-to-number-is-nan: transform: is-nan', (t) => {
     t.transform('is-nan');
     t.end();
 });

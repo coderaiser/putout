@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: set lint dot: report', (t) => {
+test('madrun: set lint dot: report: lint', (t) => {
     t.report('lint', `Use 'lint' to check current drectory`);
     t.end();
 });
 
-test('madrun: set lint dot: transform', (t) => {
+test('madrun: set lint dot: transform: lint', (t) => {
     t.transform('lint');
     t.end();
 });

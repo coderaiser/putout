@@ -7,12 +7,12 @@ const test = createTest(__dirname, {
     'eslint/convert-ide-to-safe': convertIdeToSafe,
 });
 
-test('putout: plugin-eslint: convert-ide-to-safe: report', (t) => {
+test('putout: plugin-eslint: convert-ide-to-safe: report: ide', (t) => {
     t.report('ide', 'Use "putout/safe" instead of "putout/ide"');
     t.end();
 });
 
-test('putout: plugin-eslint: convert-ide-to-safe: transform', (t) => {
+test('putout: plugin-eslint: convert-ide-to-safe: transform: ide', (t) => {
     t.transform('ide');
     t.end();
 });

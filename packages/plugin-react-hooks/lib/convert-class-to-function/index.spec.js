@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-react-hooks: convert-class-to-function: report', (t) => {
+test('plugin-react-hooks: convert-class-to-function: report: class', (t) => {
     t.report('class', 'class FormLoginContainer should be a function');
     t.end();
 });
 
-test('plugin-react-hooks: convert-class-to-function: transform', (t) => {
+test('plugin-react-hooks: convert-class-to-function: transform: class', (t) => {
     t.transform('class');
     t.end();
 });

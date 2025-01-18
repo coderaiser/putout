@@ -43,14 +43,20 @@ const check = ({__a}, path) => {
     if (FIXTURE.includes(name))
         return false;
     
-    const str = getTestNodeArgument(name, path);
+    const {value} = getTestNodeArgument(path);
     
-    return !str.value.includes(name);
+    if (!value)
+        return false;
+    
+    const regEnd = RegExp(`: ${name}$`);
+    const regMiddle = RegExp(`: ${name}: .*`);
+    
+    return !(regEnd.test(value) || regMiddle.test(value));
 };
 
 const transform = ({__a}, path) => {
     const name = __a.value;
-    const str = getTestNodeArgument(name, path);
+    const str = getTestNodeArgument(path);
     
     const values = str.value.split(':');
     const last = values
@@ -65,12 +71,12 @@ const transform = ({__a}, path) => {
     return path;
 };
 
-const getTestNodeArgument = (value, path) => {
+const getTestNodeArgument = (path) => {
     let testPath = path.find(isTest);
     
     if (!testPath)
         return {
-            value,
+            value: '',
         };
     
     if (testPath.isExpressionStatement())

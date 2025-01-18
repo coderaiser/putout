@@ -12,12 +12,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-reduce-to-for-of: report', (t) => {
+test('plugin-convert-reduce-to-for-of: report: reduce', (t) => {
     t.report('reduce', `Use 'for...of' instead of '.reduce()'`);
     t.end();
 });
 
-test('plugin-convert-reduce-to-for-of: transform', (t) => {
+test('plugin-convert-reduce-to-for-of: transform: reduce', (t) => {
     t.transform('reduce');
     t.end();
 });

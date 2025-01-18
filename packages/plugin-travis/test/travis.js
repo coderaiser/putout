@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-travis: transform', (t) => {
+test('plugin-travis: transform: travis', (t) => {
     t.transform('travis');
     t.end();
 });
 
-test('plugin-travis: transform: disable npm cache', (t) => {
+test('plugin-travis: transform: cache', (t) => {
     t.transform('cache');
     t.end();
 });

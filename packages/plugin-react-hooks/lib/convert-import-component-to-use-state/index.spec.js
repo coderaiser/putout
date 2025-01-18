@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-react-hooks: convert-import-component-to-use-state: report', (t) => {
+test('plugin-react-hooks: convert-import-component-to-use-state: report: component', (t) => {
     t.report('component', 'useState should be used instead of Component');
     t.end();
 });

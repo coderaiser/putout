@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-montag: declare: report', (t) => {
+test('plugin-montag: declare: report: montag', (t) => {
     t.report('montag', `Declare 'montag', it referenced but not defined`);
     t.end();
 });
 
-test('plugin-montag: declare: transform', (t) => {
+test('plugin-montag: declare: transform: montag', (t) => {
     t.transform('montag');
     t.end();
 });

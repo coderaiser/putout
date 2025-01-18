@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-try-catch: report', (t) => {
+test('plugin-try-catch: report: try-catch', (t) => {
     t.report('try-catch', 'Use tryCatch instead of try-catch block');
     t.end();
 });

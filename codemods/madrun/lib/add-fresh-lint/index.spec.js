@@ -7,7 +7,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('madrun: add fresh:lint: report', (t) => {
+test('madrun: add fresh:lint: report: lint', (t) => {
     t.report('lint', 'fresh:lint should exist');
     t.end();
 });

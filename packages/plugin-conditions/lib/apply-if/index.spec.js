@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-conditions: apply-if: report', (t) => {
+test('plugin-conditions: apply-if: report: if', (t) => {
     t.report('if', 'Avoid empty statement in if condition');
     t.end();
 });
 
-test('plugin-conditions: apply-if: transform', (t) => {
+test('plugin-conditions: apply-if: transform: if', (t) => {
     t.transform('if');
     t.end();
 });

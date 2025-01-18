@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('typescript: remove-duplicate-exports: report', (t) => {
+test('typescript: remove-duplicate-exports: report: duplicate', (t) => {
     t.report('duplicate', 'Avoid duplicate exports');
     t.end();
 });

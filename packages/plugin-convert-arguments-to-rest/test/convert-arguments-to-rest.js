@@ -9,17 +9,17 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-arguments-to-rest: report', (t) => {
+test('plugin-convert-arguments-to-rest: report: arguments', (t) => {
     t.report('arguments', `Use 'rest parameters' instead of 'arguments'`);
     t.end();
 });
 
-test('plugin-convert-arguments-to-rest: transform', (t) => {
+test('plugin-convert-arguments-to-rest: transform: arguments', (t) => {
     t.transform('arguments');
     t.end();
 });
 
-test('plugin-convert-arguments-to-rest: transform: args exists', (t) => {
+test('plugin-convert-arguments-to-rest: transform: args', (t) => {
     t.transform('args');
     t.end();
 });

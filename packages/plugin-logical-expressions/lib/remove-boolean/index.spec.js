@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-boolean-from-logical-expressions: report', (t) => {
+test('plugin-remove-boolean-from-logical-expressions: report: logical', (t) => {
     t.report('logical', '"true" and "false" has no sense in logical expressions');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-babel-types: report', (t) => {
+test('plugin-putout: convert-babel-types: report: types', (t) => {
     t.report('types', '"putout.types" should be used instead of "@babel/types"');
     t.end();
 });
 
-test('plugin-putout: convert-babel-types: transform', (t) => {
+test('plugin-putout: convert-babel-types: transform: types', (t) => {
     t.transform('types');
     t.end();
 });

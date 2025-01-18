@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('rules: set-commit-type: report', (t) => {
+test('rules: set-commit-type: report: commit-type', (t) => {
     t.report('commit-type', `Set 'commitType'`);
     t.end();
 });
 
-test('rules: set-commit-type: transform', (t) => {
+test('rules: set-commit-type: transform: commit-type', (t) => {
     t.transform('commit-type');
     t.end();
 });

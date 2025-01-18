@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-webpack: convert-node-to-resolve-fallback: report', (t) => {
+test('plugin-webpack: convert-node-to-resolve-fallback: report: node', (t) => {
     t.report('node', `"resolve.fallback" should be used instead of "node"`);
     t.end();
 });
 
-test('plugin-webpack: convert-node-to-resolve-fallback: transform', (t) => {
+test('plugin-webpack: convert-node-to-resolve-fallback: transform: node', (t) => {
     t.transform('node');
     t.end();
 });

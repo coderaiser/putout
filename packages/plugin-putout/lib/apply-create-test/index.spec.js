@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: apply-create-test: report', (t) => {
+test('plugin-tape: apply-create-test: report: test', (t) => {
     t.report('test', `Apply 'createTest'`);
     t.end();
 });
 
-test('plugin-tape: apply-create-test', (t) => {
+test('plugin-tape: test', (t) => {
     t.transform('test');
     t.end();
 });

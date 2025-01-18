@@ -11,12 +11,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-split-variable-declarations: report', (t) => {
+test('plugin-split-variable-declarations: report: split-variable-declarations', (t) => {
     t.report('split-variable-declarations', 'Variables should be declared separately');
     t.end();
 });
 
-test('plugin-split-variable-declarations: transform', (t) => {
+test('plugin-split-variable-declarations: transform: split-variable-declarations', (t) => {
     t.transform('split-variable-declarations');
     t.end();
 });

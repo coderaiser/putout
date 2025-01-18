@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('putout: plugin-package-json: remove-commit-type: report', (t) => {
+test('putout: plugin-package-json: remove-commit-type: report: commit-type', (t) => {
     t.report('commit-type', `Remove 'commitType=colon' field of 'package.json', it is 'colon' by default`);
     t.end();
 });
 
-test('putout: plugin-package-json: remove-commit-type: transform', (t) => {
+test('putout: plugin-package-json: remove-commit-type: transform: commit-type', (t) => {
     t.transform('commit-type');
     t.end();
 });

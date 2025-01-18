@@ -7,7 +7,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('madrun: rename-predefined-eslint-to-putout: report', (t) => {
+test('madrun: rename-predefined-eslint-to-putout: report: eslint', (t) => {
     t.report('eslint', `"putout" should be used instead of "eslint", when predefined`);
     t.end();
 });

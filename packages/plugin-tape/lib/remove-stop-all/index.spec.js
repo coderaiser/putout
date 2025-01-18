@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: remove-stop-all: report', (t) => {
+test('plugin-tape: remove-stop-all: report: stop-all', (t) => {
     t.report('stop-all', `Remove 'stopAll()' when you not calling 'reImport()'`);
     t.end();
 });
 
-test('plugin-tape: remove-stop-all: transform', (t) => {
+test('plugin-tape: remove-stop-all: transform: stop-all', (t) => {
     t.transform('stop-all');
     t.end();
 });

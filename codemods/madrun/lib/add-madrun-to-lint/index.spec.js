@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('madrun: add madrun to lint: report', (t) => {
+test('madrun: add madrun to lint: report: lint', (t) => {
     t.report('lint', '"lint" should check ".madrun.js"');
     t.end();
 });
 
-test('madrun: add madrun to lint: transform', (t) => {
+test('madrun: add madrun to lint: transform: lint', (t) => {
     t.transform('lint');
     t.end();
 });
@@ -32,7 +32,7 @@ test('madrun: add madrun to lint: no transform: array', (t) => {
     t.end();
 });
 
-test('madrun: add madrun to lint: no transform: exist .madrun.js', (t) => {
+test('madrun: add madrun to lint: no transform: exist', (t) => {
     t.noTransform('exist');
     t.end();
 });

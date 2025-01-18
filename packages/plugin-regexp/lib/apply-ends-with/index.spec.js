@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-regexp/apply-ends-with: report', (t) => {
+test('plugin-regexp/apply-ends-with: report: apply-ends-with', (t) => {
     t.report('apply-ends-with', `Use '.endsWith()' instead of '.test()'`);
     t.end();
 });
 
-test('plugin-regexp/apply-ends-with: transform', (t) => {
+test('plugin-regexp/apply-ends-with: transform: apply-ends-with', (t) => {
     t.transform('apply-ends-with');
     t.end();
 });

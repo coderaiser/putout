@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-for-of: for-entries: report', (t) => {
+test('plugin-for-of: for-entries: report: for', (t) => {
     t.report('for', `Use 'for...of' instead of 'for'`);
     t.end();
 });

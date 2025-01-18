@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-operand: report', (t) => {
+test('plugin-remove-useless-operand: report: operand', (t) => {
     t.report('operand', 'Avoid useless operand');
     t.end();
 });
 
-test('plugin-remove-useless-operand: transform', (t) => {
+test('plugin-remove-useless-operand: transform: operand', (t) => {
     t.transform('operand');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-starts-with: report', (t) => {
+test('plugin-apply-starts-with: report: apply-starts-with', (t) => {
     t.report('apply-starts-with', `Use '.startsWith()' instead of '.indexOf()'`);
     t.end();
 });
 
-test('plugin-apply-starts-with: transform: object', (t) => {
+test('plugin-apply-starts-with: transform: apply-starts-with', (t) => {
     t.transform('apply-starts-with');
     t.end();
 });

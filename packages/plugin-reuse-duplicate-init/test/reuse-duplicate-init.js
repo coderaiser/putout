@@ -13,12 +13,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-reuse-duplicate-init: report', (t) => {
+test('plugin-reuse-duplicate-init: report: init', (t) => {
     t.report('init', 'Reuse duplicate init');
     t.end();
 });
 
-test('plugin-reuse-duplicate-init: transform', (t) => {
+test('plugin-reuse-duplicate-init: transform: init', (t) => {
     t.transform('init');
     t.end();
 });

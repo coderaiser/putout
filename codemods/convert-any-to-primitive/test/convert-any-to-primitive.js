@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-convert-any-to-primitive: report', (t) => {
+test('plugin-convert-any-to-primitive: report: any', (t) => {
     t.report('any', 'Type "number" should be used instead of "any"');
     t.end();
 });
 
-test('plugin-convert-any-to-primitive: transform', (t) => {
+test('plugin-convert-any-to-primitive: transform: any', (t) => {
     t.transform('any');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-simplify-assignment: report', (t) => {
+test('plugin-simplify-assignment: report: assignment', (t) => {
     t.report('assignment', 'Simplify assignment');
     t.end();
 });
 
-test('plugin-simplify-assignment: transform', (t) => {
+test('plugin-simplify-assignment: transform: assignment', (t) => {
     t.transform('assignment');
     t.end();
 });

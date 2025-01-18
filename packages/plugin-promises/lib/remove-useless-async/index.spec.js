@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-async: report', (t) => {
+test('plugin-remove-useless-async: report: async', (t) => {
     t.report('async', `Avoid useless 'async'`);
     t.end();
 });
 
-test('plugin-remove-useless-async: transform', (t) => {
+test('plugin-remove-useless-async: transform: async', (t) => {
     t.transform('async');
     t.end();
 });

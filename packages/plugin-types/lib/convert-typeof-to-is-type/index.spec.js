@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-typeof-to-is-type: report', (t) => {
+test('plugin-convert-typeof-to-is-type: report: typeof', (t) => {
     t.report('typeof', `Use function to check type instead of 'typeof' or 'instanceof'`);
     t.end();
 });
 
-test('plugin-convert-typeof-to-is-type: transform', (t) => {
+test('plugin-convert-typeof-to-is-type: transform: typeof', (t) => {
     t.transform('typeof');
     t.end();
 });

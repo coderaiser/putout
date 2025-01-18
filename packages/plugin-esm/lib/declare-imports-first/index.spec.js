@@ -12,12 +12,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: plugin-esm: declare-imports-first: report', (t) => {
+test('putout: plugin-esm: declare-imports-first: report: declare', (t) => {
     t.report('declare', `Declare imports first`);
     t.end();
 });
 
-test('putout: plugin-esm: declare-imports-first: transform', (t) => {
+test('putout: plugin-esm: declare-imports-first: transform: declare', (t) => {
     t.transform('declare');
     t.end();
 });

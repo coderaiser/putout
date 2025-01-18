@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: add-args: transform', (t) => {
+test('plugin-tape: add-args: transform: t', (t) => {
     t.transform('t');
     t.end();
 });

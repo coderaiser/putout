@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-regexp/optimize: report', (t) => {
+test('plugin-regexp/optimize: report: regexp', (t) => {
     t.report('regexp', 'RegExp /(ab|ab)/ can be optimized to /(ab)/');
     t.end();
 });
 
-test('plugin-regexp/optimize: transform', (t) => {
+test('plugin-regexp/optimize: transform: regexp', (t) => {
     t.transform('regexp');
     t.end();
 });
@@ -42,7 +42,7 @@ test('plugin-regexp/optimize: transform: replace-all', (t) => {
     t.end();
 });
 
-test('plugin-regexp/optimize: escapes', (t) => {
+test('plugin-regexp/optimize: escape', (t) => {
     t.noTransform('escape');
     t.end();
 });

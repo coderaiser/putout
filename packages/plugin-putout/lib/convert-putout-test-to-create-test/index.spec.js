@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-putout-test-to-create-test: report', (t) => {
+test('plugin-putout: convert-putout-test-to-create-test: report: putout-test', (t) => {
     t.report('putout-test', `Use 'createTest' instead of 'putoutTest'`);
     t.end();
 });
 
-test('plugin-putout: convert-putout-test-to-create-test: transform', (t) => {
+test('plugin-putout: convert-putout-test-to-create-test: transform: putout-test', (t) => {
     t.transform('putout-test');
     t.end();
 });

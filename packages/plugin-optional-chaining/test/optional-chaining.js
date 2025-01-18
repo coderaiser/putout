@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-optional-chaining: report', (t) => {
+test('plugin-optional-chaining: report: chain', (t) => {
     t.report('chain', 'Use optional chaining');
     t.end();
 });
 
-test('plugin-optional-chaining: transform', (t) => {
+test('plugin-optional-chaining: transform: chain', (t) => {
     t.transform('chain');
     t.end();
 });

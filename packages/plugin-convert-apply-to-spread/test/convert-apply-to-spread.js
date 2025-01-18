@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-apply-to-spread: report', (t) => {
+test('plugin-convert-apply-to-spread: report: apply', (t) => {
     t.report('apply', `Use 'spread' instead of 'apply'`);
     t.end();
 });
 
-test('plugin-convert-apply-to-spread: transform', (t) => {
+test('plugin-convert-apply-to-spread: transform: apply', (t) => {
     t.transform('apply');
     t.end();
 });

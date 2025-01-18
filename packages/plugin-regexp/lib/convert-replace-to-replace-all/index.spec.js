@@ -11,12 +11,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-regexp/convert-replace-to-replace-all: report', (t) => {
+test('plugin-regexp/convert-replace-to-replace-all: report: replace', (t) => {
     t.report('replace', `Use 'replaceAll()' instead of 'replace()'`);
     t.end();
 });
 
-test('plugin-regexp/convert-replace-to-replace-all: transform', (t) => {
+test('plugin-regexp/convert-replace-to-replace-all: transform: replace', (t) => {
     t.transform('replace');
     t.end();
 });

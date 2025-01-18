@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-travis: set node versions: report', (t) => {
+test('plugin-travis: set node versions: report: travis', (t) => {
     t.report('travis', 'Latest version of node is missing');
     t.end();
 });
 
-test('plugin-travis: set node versions: transform', (t) => {
+test('plugin-travis: set node versions: transform: travis', (t) => {
     t.transform('travis');
     t.end();
 });

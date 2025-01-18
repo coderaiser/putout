@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('remove unused types: report', (t) => {
+test('remove unused types: report: unused', (t) => {
     t.report('unused', '"Point" is defined but never used');
     t.end();
 });

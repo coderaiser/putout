@@ -7,12 +7,12 @@ const test = createTest(__dirname, {
     'convert-index-of-to-includes': convertIndexOfToIncludes,
 });
 
-test('plugin-convert-index-of-to-includes: report', (t) => {
+test('plugin-convert-index-of-to-includes: report: index-of', (t) => {
     t.report('index-of', `Use 'includes()' instead of 'indexOf()'`);
     t.end();
 });
 
-test('plugin-convert-index-of-to-includes: transform', (t) => {
+test('plugin-convert-index-of-to-includes: transform: index-of', (t) => {
     t.transform('index-of');
     t.end();
 });

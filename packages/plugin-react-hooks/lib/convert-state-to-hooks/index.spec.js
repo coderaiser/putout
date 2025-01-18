@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-react-hooks: convert state tot hooks: report', (t) => {
+test('plugin-react-hooks: convert state tot hooks: report: react-hooks', (t) => {
     t.report('react-hooks', 'hooks should be used instead of this.state');
     t.end();
 });
 
-test('plugin-react-hooks: convert state to hooks: transform', (t) => {
+test('plugin-react-hooks: convert state to hooks: transform: react-hooks', (t) => {
     t.transform('react-hooks');
     t.end();
 });

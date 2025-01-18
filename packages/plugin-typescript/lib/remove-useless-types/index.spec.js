@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('typescript: remove useless types: report', (t) => {
+test('typescript: remove useless types: report: types', (t) => {
     t.report('types', 'Avoid useless type declaration');
     t.end();
 });
 
-test('typescript: remove useless types: transform', (t) => {
+test('typescript: remove useless types: transform: types', (t) => {
     t.transform('types');
     t.end();
 });

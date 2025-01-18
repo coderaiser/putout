@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-spread-to-array-from: report', (t) => {
+test('plugin-convert-spread-to-array-from: report: spread', (t) => {
     t.report('spread', `Array.from should be used instead of array spread`);
     t.end();
 });
 
-test('plugin-convert-spread-to-array-from: transform', (t) => {
+test('plugin-convert-spread-to-array-from: transform: spread', (t) => {
     t.transform('spread');
     t.end();
 });

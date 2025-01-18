@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-mock-require-to-mock-import: report', (t) => {
+test('plugin-convert-mock-require-to-mock-import: report: mock-require', (t) => {
     t.report('mock-require', '"mockImport" should be used instead of "mockRequire"');
     t.end();
 });
 
-test('plugin-convert-mock-require-to-mock-import: transform', (t) => {
+test('plugin-convert-mock-require-to-mock-import: transform: mock-require', (t) => {
     t.transform('mock-require');
     t.end();
 });

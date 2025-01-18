@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('packages: add-await-to-progress: report', (t) => {
+test('packages: add-await-to-progress: report: add-await-to-progress', (t) => {
     t.report('add-await-to-progress', `Add 'await' to operator 'progress()'`);
     t.end();
 });
 
-test('packages: add-await-to-progress: transform', (t) => {
+test('packages: add-await-to-progress: transform: add-await-to-progress', (t) => {
     t.transform('add-await-to-progress');
     t.end();
 });

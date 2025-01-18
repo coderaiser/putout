@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('codemod-remove-madrun-form-gitignore: report', (t) => {
+test('codemod-remove-madrun-form-gitignore: report: gitignore', (t) => {
     t.report('gitignore', 'legacy should be removed from .gitignore');
     t.end();
 });
 
-test('codemod-remove-madrun-from-gitignore: transform', (t) => {
+test('codemod-remove-madrun-from-gitignore: transform: gitignore', (t) => {
     t.transform('gitignore');
     t.end();
 });

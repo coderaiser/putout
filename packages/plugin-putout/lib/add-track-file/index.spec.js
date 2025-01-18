@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('packages: add-track-file: report', (t) => {
+test('packages: add-track-file: report: add-track-file', (t) => {
     t.report('add-track-file', `Argument 'trackFile' is missing`);
     t.end();
 });
 
-test('packages: add-track-file: transform', (t) => {
+test('packages: add-track-file: transform: add-track-file', (t) => {
     t.transform('add-track-file');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-only: report', (t) => {
+test('plugin-remove-only: report: only', (t) => {
     t.report('only', `Remove 'test.only'`);
     t.end();
 });
 
-test('plugin-remove-only: transform', (t) => {
+test('plugin-remove-only: transform: only', (t) => {
     t.transform('only');
     t.end();
 });

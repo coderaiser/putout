@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('rules: add-readme-to-homepage: report', (t) => {
+test('rules: add-readme-to-homepage: report: homepage', (t) => {
     t.report('homepage', `Add anchor '#readme' to 'homepage' in package.json`);
     t.end();
 });
 
-test('rules: add-readme-to-homepage: transform', (t) => {
+test('rules: add-readme-to-homepage: transform: homepage', (t) => {
     t.transform('homepage');
     t.end();
 });

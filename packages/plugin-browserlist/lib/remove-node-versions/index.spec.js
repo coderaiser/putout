@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-browserlist: remove-node-versions: report', (t) => {
+test('plugin-browserlist: remove-node-versions: report: browserlist', (t) => {
     t.report('browserlist', 'remove node from .browserlist');
     t.end();
 });
 
-test('plugin-browserlist: remove-node-versions: transform', (t) => {
+test('plugin-browserlist: remove-node-versions: transform: browserlist', (t) => {
     t.transform('browserlist');
     t.end();
 });

@@ -19,7 +19,7 @@ test('optional-chaining: convert-optional-assign-to-logical: assign: transform',
     t.end();
 });
 
-test('optional-chaining: convert-optional-assign-to-logical: assign: no transform call', (t) => {
+test('optional-chaining: convert-optional-assign-to-logical: assign: call', (t) => {
     t.noTransform('call');
     t.end();
 });

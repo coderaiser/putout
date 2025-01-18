@@ -12,18 +12,28 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: apply-fixture-name-to-message: report', (t) => {
+test('putout: apply-fixture-name-to-message: report: apply-fixture-name-to-message', (t) => {
     t.report('apply-fixture-name-to-message', `Apply 'fixture' name to 'message'`);
     t.end();
 });
 
-test('putout: apply-fixture-name-to-message: transform', (t) => {
+test('putout: apply-fixture-name-to-message: transform: apply-fixture-name-to-message', (t) => {
     t.transform('apply-fixture-name-to-message');
+    t.end();
+});
+
+test('putout: apply-fixture-name-to-message: transform: partial', (t) => {
+    t.transform('partial');
     t.end();
 });
 
 test('putout: apply-fixture-name-to-message: no report: no-parent', (t) => {
     t.noReport('no-parent');
+    t.end();
+});
+
+test('putout: apply-fixture-name-to-message: no report: used', (t) => {
+    t.noReport('used');
     t.end();
 });
 

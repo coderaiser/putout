@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-promises: convert-new-promise-to-async: exports: report', (t) => {
+test('plugin-promises: convert-new-promise-to-async: exports: report: new-promise', (t) => {
     t.report('new-promise', `Async functions should be used instead of 'new Promise()'`);
     t.end();
 });
 
-test('plugin-promises: convert-new-promise-to-async: transform', (t) => {
+test('plugin-promises: convert-new-promise-to-async: transform: new-promise', (t) => {
     t.transform('new-promise');
     t.end();
 });

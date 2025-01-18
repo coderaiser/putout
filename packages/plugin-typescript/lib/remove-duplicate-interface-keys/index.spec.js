@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-typescript: remove duplicate-interface-keys: report', (t) => {
+test('plugin-typescript: remove duplicate-interface-keys: report: duplicate', (t) => {
     t.report('duplicate', `Avoid duplicate interface keys`);
     t.end();
 });

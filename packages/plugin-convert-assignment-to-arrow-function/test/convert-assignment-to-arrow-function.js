@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-assignment-to-arrow-function: report', (t) => {
+test('plugin-convert-assignment-to-arrow-function: report: assignment', (t) => {
     t.report('assignment', 'Expected ArrowFunction instead of Assignment');
     t.end();
 });
 
-test('plugin-convert-assignment-to-arrow-function: transform', (t) => {
+test('plugin-convert-assignment-to-arrow-function: transform: assignment', (t) => {
     t.transform('assignment');
     t.end();
 });

@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-coverage: report', (t) => {
+test('plugin-coverage: report: coverage', (t) => {
     t.report('coverage', `Add dotfiles to '.nycrc.json'`);
     t.end();
 });
 
-test('plugin-coverage: transform', (t) => {
+test('plugin-coverage: transform: coverage', (t) => {
     t.transform('coverage');
     t.end();
 });

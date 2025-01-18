@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-regexp/remove-useless-regexp: report', (t) => {
+test('plugin-regexp/remove-useless-regexp: report: regexp', (t) => {
     t.report('regexp', 'Remove useless RegExp, use strict equal operator instead');
     t.end();
 });
 
-test('plugin-regexp/remove-useless-regexp: transform', (t) => {
+test('plugin-regexp/remove-useless-regexp: transform: regexp', (t) => {
     t.transform('regexp');
     t.end();
 });

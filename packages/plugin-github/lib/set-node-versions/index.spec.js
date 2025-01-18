@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-github: set node versions: report', (t) => {
+test('plugin-github: set node versions: report: github', (t) => {
     t.report('github', 'Latest version of node is missing');
     t.end();
 });
 
-test('plugin-github: set node versions: transform', (t) => {
+test('plugin-github: set node versions: transform: github', (t) => {
     t.transform('github');
     t.end();
 });

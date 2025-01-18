@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-add-argument-to-add-args: report', (t) => {
+test('plugin-putout: convert-add-argument-to-add-args: report: add-argument', (t) => {
     t.report('add-argument', 'Use addArgs instead of addArgument');
     t.end();
 });
 
-test('plugin-putout: convert-add-argument-to-add-args: transform', (t) => {
+test('plugin-putout: convert-add-argument-to-add-args: transform: add-argument', (t) => {
     t.transform('add-argument');
     t.end();
 });

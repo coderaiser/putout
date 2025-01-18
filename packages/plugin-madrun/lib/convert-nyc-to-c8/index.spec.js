@@ -14,7 +14,7 @@ test('madrun: convert-nyc-to-c8: report: coverage', (t) => {
     t.end();
 });
 
-test('madrun: convert-nyc-to-c8: no report', (t) => {
+test('madrun: convert-nyc-to-c8: no report: c8', (t) => {
     t.noReport('c8');
     t.end();
 });

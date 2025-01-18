@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('cloudcmd: convert-io-write-to-io-create-directory: report', (t) => {
+test('cloudcmd: convert-io-write-to-io-create-directory: report: write', (t) => {
     t.report('write', 'IO.createDirectory should be used instead of IO.write');
     t.end();
 });
 
-test('cloudcmd: convert-io-write-to-io-create-directory: transform', (t) => {
+test('cloudcmd: convert-io-write-to-io-create-directory: transform: write', (t) => {
     t.transform('write');
     t.end();
 });

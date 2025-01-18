@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: add-await-to-re-import: report', (t) => {
+test('plugin-tape: add-await-to-re-import: report: re-import', (t) => {
     t.report('re-import', `Call 'reImport()' using await`);
     t.end();
 });
 
-test('plugin-tape: add-await-to-re-import: transform', (t) => {
+test('plugin-tape: add-await-to-re-import: transform: re-import', (t) => {
     t.transform('re-import');
     t.end();
 });

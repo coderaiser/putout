@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: check-replace-code: report', (t) => {
+test('plugin-putout: check-replace-code: report: replace', (t) => {
     t.report('replace', '☝️ Looks like template values not linked: ["__a"] -> ["__b"]');
     t.end();
 });
@@ -134,7 +134,7 @@ test('plugin-putout: check-replace-code: no report: json: json-object', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: report: __json', (t) => {
+test('plugin-putout: check-replace-code: report: json', (t) => {
     t.report('json', 'transform mismatch: "export default __array" -> "__json" !== "export default __array;"');
     t.end();
 });

@@ -14,7 +14,7 @@ test('plugin-generators: transform: convert-multiply-to-generator', (t) => {
     t.end();
 });
 
-test('plugin-for-of: transform: add-missing-start', (t) => {
+test('plugin-for-of: transform: add-missing-star', (t) => {
     t.transform('add-missing-star');
     t.end();
 });

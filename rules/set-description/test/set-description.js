@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('rules: set-description: report', (t) => {
+test('rules: set-description: report: description', (t) => {
     t.report('description', 'Set 🐊 in description');
     t.end();
 });
 
-test('rules: set-description: transform', (t) => {
+test('rules: set-description: transform: description', (t) => {
     t.transform('description');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-conditions: apply-comparison-order: report', (t) => {
+test('plugin-conditions: apply-comparison-order: report: order', (t) => {
     t.report('order', `Swap '[]' with 'a'`);
     t.end();
 });
 
-test('plugin-conditions: apply-comparison-order: transform', (t) => {
+test('plugin-conditions: apply-comparison-order: transform: order', (t) => {
     t.transform('order');
     t.end();
 });

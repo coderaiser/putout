@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-new: report', (t) => {
+test('plugin-new: report: new', (t) => {
     t.report('new', `Add missing operator 'new'`);
     t.end();
 });
 
-test('plugin-new: transform', (t) => {
+test('plugin-new: transform: new', (t) => {
     t.transform('new');
     t.end();
 });

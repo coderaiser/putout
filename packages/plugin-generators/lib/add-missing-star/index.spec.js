@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-add-missing-star: exports: report', (t) => {
+test('plugin-add-missing-star: exports: report: add-missing-star', (t) => {
     t.report('add-missing-star', `Add missing '*' in generator function`);
     t.end();
 });
@@ -19,7 +19,7 @@ test('plugin-add-missing-star: no report: member', (t) => {
     t.end();
 });
 
-test('plugin-add-missing-star: transform', (t) => {
+test('plugin-add-missing-star: transform: add-missing-star', (t) => {
     t.transform('add-missing-star');
     t.end();
 });

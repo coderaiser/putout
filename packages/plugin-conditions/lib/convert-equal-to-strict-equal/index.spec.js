@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-conditions: convert-equal-to-strict-equal: report', (t) => {
+test('plugin-conditions: convert-equal-to-strict-equal: report: equal', (t) => {
     t.report('equal', `Use strict equal ('===') instead of equal ('==')`);
     t.end();
 });
 
-test('plugin-conditions: convert-equal-to-strict-equal: transform', (t) => {
+test('plugin-conditions: convert-equal-to-strict-equal: transform: equal', (t) => {
     t.transform('equal');
     t.end();
 });

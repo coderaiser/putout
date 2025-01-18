@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-fs-to-promises: report', (t) => {
+test('plugin-convert-fs-to-promises: report: fs', (t) => {
     t.report('fs', 'fs.promises should be used instead of fs');
     t.end();
 });
 
-test('plugin-convert-fs-to-promises: transform', (t) => {
+test('plugin-convert-fs-to-promises: transform: fs', (t) => {
     t.transform('fs');
     t.end();
 });

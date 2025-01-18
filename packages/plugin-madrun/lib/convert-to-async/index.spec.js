@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: convert to async: report', (t) => {
+test('madrun: convert to async: report: run', (t) => {
     t.report('run', 'Use async function');
     t.end();
 });
 
-test('madrun: convert to async: transform', (t) => {
+test('madrun: convert to async: transform: run', (t) => {
     t.transform('run');
     t.end();
 });

@@ -14,7 +14,7 @@ test('plugin-extract-object-properties: equal-deep: report: fn', (t) => {
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: transform', (t) => {
+test('plugin-extract-object-properties: equal-deep: transform: object', (t) => {
     t.transform('object');
     t.end();
 });

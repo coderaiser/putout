@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-conditions: simplify: report', (t) => {
+test('plugin-conditions: simplify: report: conditions', (t) => {
     t.report('conditions', 'Avoid useless conditions');
     t.end();
 });
 
-test('plugin-conditions: simplify: transform: array', (t) => {
+test('plugin-conditions: simplify: transform: conditions', (t) => {
     t.transform('conditions');
     t.end();
 });

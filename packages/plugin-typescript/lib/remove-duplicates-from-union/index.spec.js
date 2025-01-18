@@ -12,7 +12,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-duplicates-from-union: report', (t) => {
+test('plugin-remove-duplicates-from-union: report: union', (t) => {
     t.report('union', 'Avoid using duplicates in Union');
     t.end();
 });

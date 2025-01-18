@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: convert-ok-to-match: report', (t) => {
+test('plugin-tape: convert-ok-to-match: report: ok', (t) => {
     t.report('ok', `Use 't.match()' instead of 't.ok()'`);
     t.end();
 });
 
-test('plugin-tape: convert-ok-to-match: transform', (t) => {
+test('plugin-tape: convert-ok-to-match: transform: ok', (t) => {
     t.transform('ok');
     t.end();
 });

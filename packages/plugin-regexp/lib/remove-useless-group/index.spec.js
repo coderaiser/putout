@@ -12,7 +12,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-regexp/remove-useless-group: report', (t) => {
+test('plugin-regexp/remove-useless-group: report: regexp', (t) => {
     t.report('regexp', `Remove useless group from RegExp /(ab)/, use /ab/`);
     t.end();
 });
@@ -29,7 +29,7 @@ test('plugin-regexp/remove-useless-group: no report: decimal', (t) => {
     t.end();
 });
 
-test('plugin-regexp/remove-useless-group: transform', (t) => {
+test('plugin-regexp/remove-useless-group: transform: regexp', (t) => {
     t.transform('regexp');
     t.end();
 });

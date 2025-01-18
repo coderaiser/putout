@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: convert-equal-to-called-once: report', (t) => {
+test('plugin-tape: convert-equal-to-called-once: report: equal', (t) => {
     t.report('equal', `Use 't.calledOnce(fn)' instead of 't.equal(fn.callCount, 1)'`);
     t.end();
 });
 
-test('plugin-tape: convert-equal-to-called-once: transform', (t) => {
+test('plugin-tape: convert-equal-to-called-once: transform: equal', (t) => {
     t.transform('equal');
     t.end();
 });

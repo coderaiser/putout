@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-concat-to-flat: report', (t) => {
+test('plugin-convert-concat-to-flat: report: concat', (t) => {
     t.report('concat', '"flat" should be used instead of "concat"');
     t.end();
 });
 
-test('plugin-convert-concat-to-flat: transform', (t) => {
+test('plugin-convert-concat-to-flat: transform: concat', (t) => {
     t.transform('concat');
     t.end();
 });

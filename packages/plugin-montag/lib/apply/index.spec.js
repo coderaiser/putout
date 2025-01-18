@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-montag: apply: report', (t) => {
+test('plugin-montag: apply: report: montag', (t) => {
     t.report('montag', `Apply 'montag' instead of [''].join()`);
     t.end();
 });

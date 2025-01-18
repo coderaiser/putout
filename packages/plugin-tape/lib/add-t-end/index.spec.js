@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: add-t-end: report', (t) => {
+test('plugin-tape: add-t-end: report: t-end', (t) => {
     t.report('t-end', `'t.end()' is missing at the end of the test`);
     t.end();
 });
 
-test('plugin-tape: add-t-end: transform', (t) => {
+test('plugin-tape: add-t-end: transform: t-end', (t) => {
     t.transform('t-end');
     t.end();
 });

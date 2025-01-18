@@ -14,7 +14,7 @@ test('plugin-extract-object-properties: report: fn', (t) => {
     t.end();
 });
 
-test('plugin-extract-object-properties: transform', (t) => {
+test('plugin-extract-object-properties: transform: object', (t) => {
     t.transform('object');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-add-missing-async: exports: report', (t) => {
+test('plugin-add-missing-async: exports: report: add-missing-async', (t) => {
     t.report('add-missing-async', `Add missing 'async'`);
     t.end();
 });
 
-test('plugin-add-missing-async: transform', (t) => {
+test('plugin-add-missing-async: transform: add-missing-async', (t) => {
     t.transform('add-missing-async');
     t.end();
 });

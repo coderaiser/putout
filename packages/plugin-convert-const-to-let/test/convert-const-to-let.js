@@ -11,12 +11,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-const-to-let: report', (t) => {
+test('plugin-convert-const-to-let: report: const', (t) => {
     t.report('const', `Use 'let' when reassign`);
     t.end();
 });
 
-test('plugin-convert-const-to-let: transform', (t) => {
+test('plugin-convert-const-to-let: transform: const', (t) => {
     t.transform('const');
     t.end();
 });

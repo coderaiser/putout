@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-webpack: convert-query-loader-to-use: report', (t) => {
+test('plugin-webpack: convert-query-loader-to-use: report: query', (t) => {
     t.report('query', `"use" should be used instead of query in loaders`);
     t.end();
 });

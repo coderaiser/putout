@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-react-hooks: convert-component-to-use-state: report', (t) => {
+test('plugin-react-hooks: convert-component-to-use-state: report: component', (t) => {
     t.report('component', 'useState should be used instead of Component');
     t.end();
 });
 
-test('plugin-react-hooks: convert-component-to-use-state: transform', (t) => {
+test('plugin-react-hooks: convert-component-to-use-state: transform: component', (t) => {
     t.transform('component');
     t.end();
 });

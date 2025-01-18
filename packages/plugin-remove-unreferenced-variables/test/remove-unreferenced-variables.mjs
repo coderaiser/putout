@@ -12,7 +12,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-remove-unreferenced-variables: report', (t) => {
+test('plugin-remove-unreferenced-variables: report: unreferenced', (t) => {
     t.report('unreferenced', 'Avoid unreferenced variables');
     t.end();
 });
@@ -42,7 +42,7 @@ test('plugin-remove-unreferenced-variables: transform: no-init', (t) => {
     t.end();
 });
 
-test('plugin-remove-unreferenced-variables: no transform', (t) => {
+test('plugin-remove-unreferenced-variables: no transform: referenced', (t) => {
     t.noTransform('referenced');
     t.end();
 });

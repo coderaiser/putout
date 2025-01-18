@@ -80,7 +80,7 @@ test('plugin-for-of: transform: inner-block', (t) => {
     t.end();
 });
 
-test('plugin-for-of: no transform: var is bound', (t) => {
+test('plugin-for-of: no transform: var', (t) => {
     t.noTransform('var');
     t.end();
 });

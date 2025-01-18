@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-quotes-to-backtics: report', (t) => {
+test('plugin-convert-quotes-to-backtics: report: quotes', (t) => {
     t.report('quotes', 'Use backticks instead of quotes');
     t.end();
 });
 
-test('plugin-convert-quotes-to-backtics: transform', (t) => {
+test('plugin-convert-quotes-to-backtics: transform: quotes', (t) => {
     t.transform('quotes');
     t.end();
 });

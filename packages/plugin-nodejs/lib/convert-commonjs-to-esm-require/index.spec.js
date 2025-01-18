@@ -34,7 +34,7 @@ test('plugin-convert-commonjs-to-esm: require: transform: relative', (t) => {
     t.end();
 });
 
-test('plugin-convert-commonjs-to-esm: require: no transform: json (🐌 DISABLED FEATURE: IMPORT TYPE "JSON" https://2ality.com/2021/06/json-modules.html', (t) => {
+test('plugin-convert-commonjs-to-esm: require: no transform: json (🐌 DISABLED FEATURE: IMPORT TYPE "JSON" https: json', (t) => {
     t.noTransform('json');
     t.end();
 });

@@ -20,7 +20,7 @@ test('plugin-putout: complex: transform: shorten-putout-exports', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert-destructuring-to-identifier: complex: report: destructuring', (t) => {
+test('plugin-putout: convert-destructuring-to-identifier: complex: report: convert-destructuring-to-identifier', (t) => {
     t.report('convert-destructuring-to-identifier', 'Identifier should be used instead of empty destructuring');
     t.end();
 });
@@ -35,12 +35,12 @@ test('plugin-putout: convert-putout-test-to-create-test', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert-node-to-path-in-get-template-values: complex: transform', (t) => {
+test('plugin-putout: convert-node-to-path-in-get-template-values: complex: transform: get-template-values', (t) => {
     t.transform('get-template-values');
     t.end();
 });
 
-test('plugin-putout: convert-traverse-to-include: complex: transform', (t) => {
+test('plugin-putout: convert-traverse-to-include: complex: transform: convert-traverse-to-include', (t) => {
     t.transform('convert-traverse-to-include');
     t.end();
 });
@@ -50,12 +50,12 @@ test('plugin-putout: convert-traverse-to-include: complex: transform: convert-tr
     t.end();
 });
 
-test('plugin-putout: convert-process-to-find: complex transform', (t) => {
+test('plugin-putout: convert-process-to-find: convert-process-to-find', (t) => {
     t.transform('convert-process-to-find');
     t.end();
 });
 
-test('plugin-putout: convert-method-to-property: complex: transform', (t) => {
+test('plugin-putout: convert-method-to-property: complex: transform: convert-method-to-property', (t) => {
     t.transform('convert-method-to-property');
     t.end();
 });
@@ -80,12 +80,12 @@ test('plugin-putout: convert-method-to-property: complex: transform: apply-async
     t.end();
 });
 
-test('plugin-putout: check-replace-code: complex: report', (t) => {
+test('plugin-putout: check-replace-code: complex: report: check-replace-code', (t) => {
     t.report('check-replace-code', `☝️ Looks like template values not linked: ["__a"] -> ["__b"]`);
     t.end();
 });
 
-test('plugin-putout: check-match: complex: report', (t) => {
+test('plugin-putout: check-match: complex: report: check-match', (t) => {
     t.report('check-match', `☝️ Looks like 'match()' template absent in 'replace()'`);
     t.end();
 });

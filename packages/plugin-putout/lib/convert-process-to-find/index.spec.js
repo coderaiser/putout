@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-process-to-find: report', (t) => {
+test('plugin-putout: convert-process-to-find: report: process', (t) => {
     t.report('process', 'Use find instead of process');
     t.end();
 });
 
-test('plugin-putout: convert-process-to-find: transform', (t) => {
+test('plugin-putout: convert-process-to-find: transform: process', (t) => {
     t.transform('process');
     t.end();
 });

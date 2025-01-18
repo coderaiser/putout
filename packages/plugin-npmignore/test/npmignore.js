@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-npmignore: report', (t) => {
+test('plugin-npmignore: report: npmignore', (t) => {
     t.report('npmignore', `Add dotfiles to '.npmignore'`);
     t.end();
 });
 
-test('plugin-npmignore: transform', (t) => {
+test('plugin-npmignore: transform: npmignore', (t) => {
     t.transform('npmignore');
     t.end();
 });

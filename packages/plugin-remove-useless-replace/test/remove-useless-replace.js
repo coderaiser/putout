@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-replace: report', (t) => {
+test('plugin-remove-useless-replace: report: replace', (t) => {
     t.report('replace', `Avoid useless 'replace()'`);
     t.end();
 });
 
-test('plugin-remove-useless-replace: transform', (t) => {
+test('plugin-remove-useless-replace: transform: replace', (t) => {
     t.transform('replace');
     t.end();
 });

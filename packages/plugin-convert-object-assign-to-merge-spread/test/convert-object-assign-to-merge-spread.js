@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-object-assign-to-merge-spread: report', (t) => {
+test('plugin-convert-object-assign-to-merge-spread: report: object', (t) => {
     t.report('object', `Use merge spread instead of 'Object.assign()'`);
     t.end();
 });
 
-test('plugin-convert-object-assign-to-merge-spread: transform', (t) => {
+test('plugin-convert-object-assign-to-merge-spread: transform: object', (t) => {
     t.transform('object');
     t.end();
 });

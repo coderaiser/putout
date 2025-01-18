@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-nextjs: remove-a-from-link: report', (t) => {
+test('plugin-nextjs: remove-a-from-link: report: link', (t) => {
     t.report('link', `Remove '<a>' from <Link>, it always renders under the hood`);
     t.end();
 });
 
-test('plugin-nextjs: remove-a-from-link: transform', (t) => {
+test('plugin-nextjs: remove-a-from-link: transform: link', (t) => {
     t.transform('link');
     t.end();
 });

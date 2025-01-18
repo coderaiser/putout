@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-logical-expression: remove-duplicates: report', (t) => {
+test('plugin-logical-expression: remove-duplicates: report: duplicates', (t) => {
     t.report('duplicates', 'Avoid duplicates in logical expressions');
     t.end();
 });

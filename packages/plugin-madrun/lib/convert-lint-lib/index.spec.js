@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: convert lint:lib: report', (t) => {
+test('madrun: convert lint:lib: report: lint', (t) => {
     t.report('lint', `'lint' should be used instead of 'lint:lib'`);
     t.end();
 });

@@ -17,12 +17,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-merge-duplicate-imports: join: report', (t) => {
+test('plugin-merge-duplicate-imports: join: report: duplicate', (t) => {
     t.report('duplicate', 'Avoid duplicate imports');
     t.end();
 });
 
-test('plugin-merge-duplicate-imports: join: transform', (t) => {
+test('plugin-merge-duplicate-imports: join: transform: duplicate', (t) => {
     t.transform('duplicate');
     t.end();
 });

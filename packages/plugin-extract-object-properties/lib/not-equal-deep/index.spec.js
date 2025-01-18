@@ -13,7 +13,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-extract-object-properties: not-equal-deep: report', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: report: object', (t) => {
     t.report('object', 'Extract object properties into variables');
     t.end();
 });

@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-map: report', (t) => {
+test('plugin-remove-useless-map: report: map', (t) => {
     t.report('map', 'Avoid useless map');
     t.end();
 });
 
-test('plugin-remove-useless-map: transform', (t) => {
+test('plugin-remove-useless-map: transform: map', (t) => {
     t.transform('map');
     t.end();
 });

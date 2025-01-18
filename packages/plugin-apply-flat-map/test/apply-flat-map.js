@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-flat-map: report', (t) => {
+test('plugin-apply-flat-map: report: map', (t) => {
     t.report('map', `Use '.flatMap()' instead of '.map().flat()'`);
     t.end();
 });
 
-test('plugin-apply-flat-map: transform: instanceof', (t) => {
+test('plugin-apply-flat-map: transform: map', (t) => {
     t.transform('map');
     t.end();
 });

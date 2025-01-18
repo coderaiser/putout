@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-react-hooks: remove-this: report', (t) => {
+test('plugin-react-hooks: remove-this: report: this', (t) => {
     t.report('this', `should be used "submit" instead of "this.submit"`);
     t.end();
 });
 
-test('plugin-react-hooks: remove-this: transform', (t) => {
+test('plugin-react-hooks: remove-this: transform: this', (t) => {
     t.transform('this');
     t.end();
 });

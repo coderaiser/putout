@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-simplify-ternary: value: report', (t) => {
+test('plugin-simplify-ternary: value: report: ternary', (t) => {
     t.report('ternary', 'Simplify ternary');
     t.end();
 });
 
-test('plugin-simplify-ternary: value: transform', (t) => {
+test('plugin-simplify-ternary: value: transform: ternary', (t) => {
     t.transform('ternary');
     t.end();
 });

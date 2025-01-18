@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-apply-await-import: report', (t) => {
+test('plugin-apply-await-import: report: await-import', (t) => {
     t.report('await-import', `Use 'await' near 'import' call`);
     t.end();
 });

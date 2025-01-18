@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('remove duplicate-keys: report', (t) => {
+test('remove duplicate-keys: report: duplicate', (t) => {
     t.report('duplicate', 'Avoid duplicate keys');
     t.end();
 });

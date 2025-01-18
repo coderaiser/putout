@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert-node-to-path-in-get-template-values: report', (t) => {
+test('plugin-putout: convert-node-to-path-in-get-template-values: report: get-template-values', (t) => {
     t.report('get-template-values', '"path" should be used instead of "node" in getTemplateValues');
     t.end();
 });
 
-test('plugin-putout: convert-node-to-path-in-get-template-values: transform', (t) => {
+test('plugin-putout: convert-node-to-path-in-get-template-values: transform: get-template-values', (t) => {
     t.transform('get-template-values');
     t.end();
 });

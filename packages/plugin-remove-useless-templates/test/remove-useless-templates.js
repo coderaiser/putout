@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-remove-useless-templates: report', (t) => {
+test('plugin-remove-useless-templates: report: template', (t) => {
     t.report('template', 'Template string with only one variable should not be used');
     t.end();
 });
 
-test('plugin-remove-useless-templates: transform', (t) => {
+test('plugin-remove-useless-templates: transform: template', (t) => {
     t.transform('template');
     t.end();
 });

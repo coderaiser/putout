@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-tape: convert-called-with-no-args-to-called-with: report', (t) => {
+test('plugin-tape: convert-called-with-no-args-to-called-with: report: args', (t) => {
     t.report('args', '"calledWithArgs" should be used when arguments are present');
     t.end();
 });
 
-test('plugin-tape: convert-called-with-no-args-to-called-with: transform', (t) => {
+test('plugin-tape: convert-called-with-no-args-to-called-with: transform: args', (t) => {
     t.transform('args');
     t.end();
 });

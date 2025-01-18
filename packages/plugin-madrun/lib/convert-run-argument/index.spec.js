@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('madrun: convert run argument: report', (t) => {
+test('madrun: convert run argument: report: run', (t) => {
     t.report('run', 'First "run" argument should be string, if it is single');
     t.end();
 });

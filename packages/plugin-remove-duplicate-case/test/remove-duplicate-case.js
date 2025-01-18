@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('remove duplicate-case: report', (t) => {
+test('remove duplicate-case: report: case', (t) => {
     t.report('case', `Avoid duplicate 'case'`);
     t.end();
 });
 
-test('remove duplicate-case: transform: duplicate', (t) => {
+test('remove duplicate-case: transform: case', (t) => {
     t.transform('case');
     t.end();
 });
