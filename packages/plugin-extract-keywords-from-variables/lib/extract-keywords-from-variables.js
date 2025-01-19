@@ -2,6 +2,7 @@
 
 const {types, operator} = require('putout');
 const {
+    IfStatement,
     ImportDefaultSpecifier,
     ImportDeclaration,
     ExportNamedDeclaration,
@@ -30,6 +31,7 @@ const keywords = [
     'var',
     'let',
     'import',
+    'if',
 ];
 
 const builders = {
@@ -38,6 +40,7 @@ const builders = {
     let: buildDeclaration('let'),
     import: buildImport,
     export: buildExport,
+    if: buildIf,
 };
 
 module.exports.report = ({name}) => `Extract '${name}' from variable`;
@@ -61,7 +64,8 @@ module.exports.traverse = ({push}) => ({
                     path,
                     nextPath,
                 });
-            else if (nextPath.isExpressionStatement())
+            
+            if (nextPath.isExpressionStatement())
                 push({
                     name,
                     path,
@@ -107,4 +111,14 @@ function buildImport(path) {
     replaceWith(path, ImportDeclaration([ImportDefaultSpecifier(local, local)], source));
     remove(sourcePath);
     remove(fromPath);
+}
+
+function buildIf(path) {
+    const {expression} = path.node;
+    delete expression.extra.parenthesized;
+    const nextPath = path.getNextSibling();
+    const next = nextPath.node;
+    
+    remove(nextPath);
+    replaceWith(path, IfStatement(expression, next));
 }

@@ -24,6 +24,11 @@ test('putout: extract-keywords-from-variables: transform: const', (t) => {
     t.end();
 });
 
+test('putout: extract-keywords-from-variables: transform: if', (t) => {
+    t.transform('if');
+    t.end();
+});
+
 test('putout: extract-keywords-from-variables: report: const', (t) => {
     t.report('const', `Extract 'const' from variable`);
     t.end();
