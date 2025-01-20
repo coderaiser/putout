@@ -25,7 +25,8 @@ npm i @putout/plugin-vitest -D
 ```json
 {
     "rules": {
-        "vitest": "on"
+        "vitest/v3-apply-options-as-second-argument": "on",
+        "vitest/v3-apply-browser-instances": "on"
     }
 }
 ```
