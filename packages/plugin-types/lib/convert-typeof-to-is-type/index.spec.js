@@ -54,8 +54,8 @@ test('plugin-convert-typeof-to-is-type: transform: is-error', (t) => {
     t.end();
 });
 
-test('plugin-convert-typeof-to-is-type: transform: instanceof', (t) => {
-    t.transform('instanceof');
+test('plugin-convert-typeof-to-is-type: transform: equal-undefined', (t) => {
+    t.transform('equal-undefined');
     t.end();
 });
 

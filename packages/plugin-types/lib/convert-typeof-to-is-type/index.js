@@ -19,6 +19,9 @@ const NOT_EQUAL = 'typeof __a !== "__b"';
 const EQUAL_INSTANCE_OF = '__a instanceof __b';
 const NOT_EQUAL_INSTANCE_OF = '!(__a instanceof __b)';
 
+const EQUAL_UNDEFINED = '__a === undefined';
+const NOT_EQUAL_UNDEFINED = '__a !== undefined';
+
 const BODIES = {
     function: `typeof __a === 'function'`,
     string: `typeof __a === 'string'`,
@@ -30,6 +33,7 @@ const BODIES = {
     error: `__a instanceof Error`,
     array: `__a instanceof Array`,
     object: `__a instanceof Object`,
+    equalUndefined: '__a === undefined',
 };
 
 const NOT_BODIES = {
@@ -43,6 +47,7 @@ const NOT_BODIES = {
     error: `!(__a instanceof Error)`,
     array: `!(__a instanceof Array)`,
     object: `!(__a instanceof Object)`,
+    equalUndefined: '__a !== undefined',
 };
 
 module.exports.report = () => `Use function to check type instead of 'typeof' or 'instanceof'`;
@@ -51,6 +56,8 @@ module.exports.match = () => ({
     [NOT_EQUAL]: check,
     [EQUAL_INSTANCE_OF]: check,
     [NOT_EQUAL_INSTANCE_OF]: check,
+    [EQUAL_UNDEFINED]: check,
+    [NOT_EQUAL_UNDEFINED]: check,
 });
 
 module.exports.replace = () => ({
@@ -64,6 +71,7 @@ module.exports.replace = () => ({
     [BODIES.error]: 'isError(__a)',
     [BODIES.array]: 'isArray(__a)',
     [BODIES.object]: 'isObject(__a)',
+    [BODIES.equalUndefined]: 'isUndefined(__a)',
     [NOT_BODIES.function]: '!isFn(__a)',
     [NOT_BODIES.string]: '!isString(__a)',
     [NOT_BODIES.number]: '!isNumber(__a)',
@@ -74,13 +82,14 @@ module.exports.replace = () => ({
     [NOT_BODIES.error]: '!isError(__a)',
     [NOT_BODIES.array]: '!isArray(__a)',
     [NOT_BODIES.object]: '!isObject(__a)',
+    [NOT_BODIES.equalUndefined]: '!isUndefined(__a)',
 });
 
 function check({__a, __b}, path) {
     if (path.parentPath.isFunction())
         return false;
     
-    if (isBind(path, __b.value))
+    if (__b && isBind(path, __b.value))
         return false;
     
     return getBindingPath(path, __a);
