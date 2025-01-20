@@ -1,3 +1,27 @@
+2025.01.20, v37.17.0
+
+feature:
+- 2226743e0 putout: @putout/plugin-conditions v7.0.0
+- 058352358 @putout/plugin-conditions: remove-undefined: remove
+- c5292d422 @putout/plugin-types: convert-typeof-to-is-type: equal undefined
+- cd74412f7 @putout/processor-css: improve output
+- 61133cc20 @putout/plugin-vitest: add
+- 54f1b7f9b @putout/plugin-extract-keywords-from-variables: if
+- ff0c02ac1 @putout/plugin-apply-fixture-name-to-message: only
+- d4b1905c1 @putout/plugin-convert-const-to-let: no assign
+- 2b9c660ec @putout/plugin-extract-keywords-from-variables: add support of literals
+- 324ad3384 @putout/engine-loader: esm.sh
+- 58d40dd86 @putout/plugin-apply-arrow: exclude long lines
+- a27a1883f @putout/plugin-convert-const-to-let: exclude const, let, var
+- b8b19a49a @putout/plugin-extract-keywords-from-variables: report
+- 114a9a397 @putout/plugin-putout: apply-fixture-name-to-message: exclude partial
+- 6c760cd53 @putout/engine-laoder: when rule name same as used in config use state of it
+- 679ed2bab @putout/plugin-declare-template-variables: add
+- 48ed56374 @putout/plugin-putout: apply-vars: add
+- c1e3c4004 @putout/plugin-extract-keywords-from-variables: add support of import, let, var
+- 4896496fb @putout/plugin-for-of: remove-useless-variables: exclude nested ObjectPatterns
+- 9b1f6a050 @putout/plugin-extract-keywords-from-variables: switch places of paths
+
 2025.01.17, v37.16.0
 
 feature:
