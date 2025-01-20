@@ -481,7 +481,7 @@ test('putout: cli: process-file: quick-lint', async (t) => {
     const expected = {
         code: source,
         places: [{
-            message: `functions/methods should not have '=>'`,
+            message: `Functions/methods should not have '=>'`,
             position: {
                 column: 17,
                 line: 1,
@@ -821,7 +821,7 @@ test('putout: cli: process-file: syntax errors: startLine', async (t) => {
     const expected = {
         code: source,
         places: [{
-            message: `functions/methods should not have '=>'`,
+            message: `Functions/methods should not have '=>'`,
             position: {
                 column: 13,
                 line: 5,

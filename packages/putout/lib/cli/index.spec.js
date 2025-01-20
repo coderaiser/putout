@@ -1753,6 +1753,7 @@ test('putout: cli: exit code: PLACE', async (t) => {
     
     reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
+    
     const cli = reRequire('.');
     
     await runCli({
