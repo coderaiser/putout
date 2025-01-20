@@ -11,7 +11,7 @@ test('putout: processor: css', async ({process}) => {
 
 test('putout: processor: css: places', async ({comparePlaces}) => {
     await comparePlaces('style', [{
-        message: 'Insert "····" (prettier/prettier)',
+        message: 'Insert "····"',
         position: {
             column: 5,
             line: 3,
@@ -34,7 +34,7 @@ test('putout: processor: css: comparePlaces: url-quotes', async ({comparePlaces}
 
 test('putout: processor: css: template', async ({comparePlaces}) => {
     await comparePlaces('template', [{
-        message: 'Unknown word (CssSyntaxError)',
+        message: 'Unknown word',
         position: {
             column: 4,
             line: 1,

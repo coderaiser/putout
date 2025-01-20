@@ -31,7 +31,7 @@ export const lint = async (source, {fix} = {}) => {
 };
 
 const toPlace = ({line, column, rule, text}) => ({
-    message: text,
+    message: text.replace(` (${rule})`, ''),
     rule: `${rule} (stylelint)`,
     position: {
         line,
@@ -39,6 +39,6 @@ const toPlace = ({line, column, rule, text}) => ({
     },
 });
 
-function cutAlign({message}) {
-    return !message.startsWith('Delete') || !message.endsWith('(prettier/prettier)');
+function cutAlign({message, rule}) {
+    return !message.startsWith('Delete') || !rule.endsWith('prettier/prettier (stylelint)');
 }

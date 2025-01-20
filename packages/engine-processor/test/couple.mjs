@@ -30,14 +30,14 @@ test('putout: engine: processor: couple', async ({comparePlaces}) => {
         },
         rule: 'typo (typos)',
     }, {
-        message: 'Unexpected unknown type selector "target" (selector-type-no-unknown)',
+        message: 'Unexpected unknown type selector "target"',
         position: {
             column: 1,
             line: 1,
         },
         rule: 'selector-type-no-unknown (stylelint)',
     }, {
-        message: 'Insert "····" (prettier/prettier)',
+        message: 'Insert "····"',
         position: {
             column: 1,
             line: 2,
