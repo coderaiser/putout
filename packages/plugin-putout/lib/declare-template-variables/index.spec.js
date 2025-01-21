@@ -18,3 +18,13 @@ test('putout: declare-template-variables: transform', (t) => {
     t.transform('declare-template-variables');
     t.end();
 });
+
+test('putout: declare-template-variables: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
+
+test('putout: declare-template-variables: no report: declared', (t) => {
+    t.noReport('declared');
+    t.end();
+});

@@ -1,6 +1,7 @@
 'use strict';
 
-const {types} = require('putout');
+const {types, operator} = require('putout');
+const {getBindingPath} = operator;
 const {
     ObjectPattern,
     isIdentifier,
@@ -28,7 +29,7 @@ module.exports.fix = ({path, node}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '(vars, path) => __body': (path) => {
+    '(__a, path) => __body': (path) => {
         path.traverse({
             ReferencedIdentifier(refPath) {
                 const {node} = refPath;
@@ -37,7 +38,7 @@ module.exports.traverse = ({push}) => ({
                 if (!name.startsWith('__'))
                     return;
                 
-                if (refPath.scope.bindings[name])
+                if (getBindingPath(refPath, name))
                     return;
                 
                 push({
