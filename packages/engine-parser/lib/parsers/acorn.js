@@ -4,15 +4,15 @@ const once = require('once');
 
 const initAcorn = once(() => {
     const {Parser} = require('acorn');
-    const jsx = require('acorn-jsx');
-    const stage3 = require('acorn-stage3');
     
-    return Parser.extend(stage3, jsx());
+    const stage3 = require('acorn-stage3');
+    const typescript = require('acorn-typescript').default;
+    
+    return Parser.extend(typescript(), stage3);
 });
 
 module.exports.parse = function acornParse(source) {
     const parser = initAcorn();
-    
     const options = {
         locations: true,
         comment: true,
@@ -21,6 +21,7 @@ module.exports.parse = function acornParse(source) {
         allowAwaitOutsideFunction: true,
         allowReturnOutsideFunction: true,
         allowImportExportEverywhere: true,
+        preserveParens: true,
     };
     
     const tokensToAvoidEsprima = Array.from(parser.tokenizer(source, options));

@@ -23,6 +23,8 @@ const fixture = readFixtures([
     'decorator',
     'decorator-legacy',
     'decorator-auto-accessors',
+    'destructuring-private',
+    'directive-comment',
     'duplicate',
     'throw',
     'flow',
@@ -40,8 +42,8 @@ const fixture = readFixtures([
     'recast-record',
     'strict-mode',
     'strict-mode-fix',
-    'destructuring-private',
-    'directive-comment',
+    'parens-typescript',
+    'parens-typescript-fix',
 ]);
 
 test('putout: parser: export default declaration: acorn', (t) => {
@@ -51,6 +53,18 @@ test('putout: parser: export default declaration: acorn', (t) => {
     });
     
     const expected = fixture.exportDefaultDeclarationFix;
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
+test('putout: parser: acorn: parens-typescript', (t) => {
+    const {code} = putout(fixture.parensTypescript, {
+        parser: 'acorn',
+        plugins: ['remove-unused-variables'],
+    });
+    
+    const expected = fixture.parensTypescriptFix;
     
     t.deepEqual(code, expected);
     t.end();
@@ -220,7 +234,6 @@ test('putout: parser: decorator-legacy', (t) => {
 
 test('putout: parser: jsx', (t) => {
     const babel = require('../lib/parsers/babel');
-    
     const node = babel.parse(fixture.jsxTemplate, {
         isJSX: true,
     });

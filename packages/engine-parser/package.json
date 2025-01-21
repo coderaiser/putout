@@ -47,8 +47,8 @@
   ],
   "devDependencies": {
     "acorn": "^8.1.1",
-    "acorn-jsx": "^5.0.2",
     "acorn-stage3": "^4.0.0",
+    "acorn-typescript": "^1.4.13",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-n": "^17.0.0",
