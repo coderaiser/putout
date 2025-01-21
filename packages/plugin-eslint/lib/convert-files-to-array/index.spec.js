@@ -28,3 +28,8 @@ test('eslint: convert-files-to-array: transform: flat', (t) => {
     t.transform('flat');
     t.end();
 });
+
+test('eslint: convert-files-to-array: report: config', (t) => {
+    t.report('config', [`Convert 'files' to an array to simplify migrating to FlatConfig`]);
+    t.end();
+});

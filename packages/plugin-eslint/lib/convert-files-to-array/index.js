@@ -1,7 +1,6 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
 const {
     isArrayExpression,
     ArrayExpression,
@@ -11,6 +10,7 @@ const {
 const {
     traverseProperties,
     __json,
+    compare,
 } = operator;
 
 module.exports.report = ({main}) => {
@@ -27,11 +27,14 @@ module.exports.fix = ({path, value}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    __object: traverseFiles(push),
+    __object: traverseFiles(push, 'flat'),
     [__json]: traverseFiles(push),
 });
 
-const traverseFiles = (push) => (path) => {
+const traverseFiles = (push, type) => (path) => {
+    if (type === 'flat' && compare(path, __json))
+        return;
+    
     const filesList = traverseProperties(path, 'files');
     
     for (const files of filesList) {
