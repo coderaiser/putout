@@ -29,23 +29,29 @@ module.exports.fix = ({path, node}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '(__a, path) => __body': (path) => {
-        path.traverse({
-            ReferencedIdentifier(refPath) {
-                const {node} = refPath;
-                const {name} = node;
-                
-                if (!name.startsWith('__'))
-                    return;
-                
-                if (getBindingPath(refPath, name))
-                    return;
-                
-                push({
-                    path,
-                    node,
-                });
-            },
-        });
-    },
+    '(__a, path) => __body': process(push),
+    '(__a) => __body': process(push),
 });
+
+const process = (push) => (path) => {
+    if (!path.parentPath.isObjectProperty())
+        return;
+    
+    path.traverse({
+        ReferencedIdentifier(refPath) {
+            const {node} = refPath;
+            const {name} = node;
+            
+            if (!name.startsWith('__'))
+                return;
+            
+            if (getBindingPath(refPath, name))
+                return;
+            
+            push({
+                path,
+                node,
+            });
+        },
+    });
+};

@@ -62,6 +62,7 @@ npm i @putout/plugin-putout -D
 - ✅ [create-test](#create-test);
 - ✅ [declare](#declare);
 - ✅ [declare-template-variables](#declare-template-variables);
+- ✅ [declare-path-variable](#declare-path-variable);
 - ✅ [includer](#includer);
 - ✅ [move-require-on-top-level](#move-require-on-top-level);
 - ✅ [remove-empty-array-from-process](#remove-empty-array-from-process);
@@ -129,6 +130,7 @@ npm i @putout/plugin-putout -D
         "putout/shorten-imports": "on",
         "putout/declare": "on",
         "putout/declare-template-variables": "on",
+        "putout/declare-path-variable": "on",
         "putout/includer": "on",
         "putout/move-require-on-top-level": "on",
         "putout/replace-test-message": "on",
@@ -896,6 +898,36 @@ export const match = () => ({
         fn(x);
         
         return __args[__a];
+    },
+});
+```
+
+## declare-path-variable
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b485bf55785ea836408d0d45c492c3e4/2a0b465076242ebf6a0d8015a90ccf7b0b660a42).
+
+### ❌ Example of incorrect code
+
+```js
+export const match = () => ({
+    '__x __a __expr': ({__x}) => {
+        if (path.isNextPunctuator(assign))
+            return false;
+        
+        return isOneOfKeywords(__x, ['const', 'let', 'var']);
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const match = () => ({
+    '__x __a __expr': ({__x}) => {
+        if (path.isNextPunctuator(assign))
+            return false;
+        
+        return isOneOfKeywords(__x, ['const', 'let', 'var']);
     },
 });
 ```

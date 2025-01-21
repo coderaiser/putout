@@ -24,7 +24,17 @@ test('putout: declare-template-variables: transform: couple', (t) => {
     t.end();
 });
 
+test('putout: declare-template-variables: transform: one', (t) => {
+    t.transform('one');
+    t.end();
+});
+
 test('putout: declare-template-variables: no report: declared', (t) => {
     t.noReport('declared');
+    t.end();
+});
+
+test('putout: declare-template-variables: no report: test', (t) => {
+    t.noReport('test');
     t.end();
 });

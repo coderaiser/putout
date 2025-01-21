@@ -59,6 +59,7 @@ const addPathArgToVisitors = require('./add-path-arg-to-visitors');
 const applyFixtureNameToMessage = require('./apply-fixture-name-to-message');
 const applyVars = require('./apply-vars');
 const declareTemplateVariables = require('./declare-template-variables');
+const declarePathVariable = require('./declare-path-variable');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -120,4 +121,5 @@ module.exports.rules = {
     'apply-fixture-name-to-message': applyFixtureNameToMessage,
     'apply-vars': applyVars,
     'declare-template-variables': declareTemplateVariables,
+    'declare-path-variable': declarePathVariable,
 };

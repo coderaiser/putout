@@ -291,3 +291,8 @@ test('plugin-putout: transform: declare-template-variables', (t) => {
     t.transform('declare-template-variables');
     t.end();
 });
+
+test('plugin-putout: transform: declare-path-variable', (t) => {
+    t.transform('declare-path-variable');
+    t.end();
+});
