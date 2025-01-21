@@ -1,3 +1,10 @@
+2025.01.21, v37.18.0
+
+feature:
+- e66562c50 putout: @putout/plugin-eslint v10.0.0
+- 615e09b60 @putout/plugin-eslint: drop support of 🐊 < 37
+- 12400df77 @putout/plugin-eslint: convert-files-to-array: check config type
+
 2025.01.20, v37.17.0
 
 feature:
