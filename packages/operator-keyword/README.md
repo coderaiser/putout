@@ -16,7 +16,11 @@ npm i putout @putout/operator-keyword
 ```js
 import {operator} from 'putout';
 
-const {isKeyword} = operator;
+const {
+    isKeyword,
+    isDeclarationKeyword,
+    isConditionKeyword,
+} = operator;
 
 isKeyword('if');
 // returns
@@ -25,6 +29,14 @@ true;
 isKeyword('abc');
 // returns
 false;
+
+isDeclarationKeyword('const');
+// returns
+true;
+
+isConditionKeyword('if');
+// returns
+true;
 ```
 
 ## License

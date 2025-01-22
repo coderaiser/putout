@@ -1,23 +1,30 @@
 'use strict';
 
+const declarations = [
+    'export',
+    'const',
+    'var',
+    'let',
+    'import',
+];
+
+const conditions = ['if'];
+
 const keywords = [
+    ...conditions,
+    ...declarations,
     'as',
     'await',
-    'const',
     'continue',
     'for',
     'function',
-    'var',
-    'let',
     'new',
     'else',
     'export',
     'from',
-    'import',
     'return',
     'throw',
     'of',
-    'if',
     'yield',
     'typeof',
     'while',
@@ -25,4 +32,12 @@ const keywords = [
 
 module.exports.isKeyword = (name) => {
     return keywords.includes(name);
+};
+
+module.exports.isDeclarationKeyword = (name) => {
+    return declarations.includes(name);
+};
+
+module.exports.isConditionKeyword = (name) => {
+    return conditions.includes(name);
 };
