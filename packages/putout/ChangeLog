@@ -1,3 +1,13 @@
+2025.01.23, v37.20.0
+
+feature:
+- 0f3d340b2 putout: @putout/plugin-split-variable-declarations v4.0.0
+- 321cd4666 putout: @putout/plugin-convert-assignment-to-declaration v2.0.0
+- 63c4f40ad @putout/plugin-convert-assignment-to-declaration: drop support of 🐊 < 37
+- 47a5ba076 @putout/plugin-convert-assignment-to-declaration: exclude keywords
+- fc20fe6e7 @putout/plugin-split-variables-declarations: drop support of 🐊 < 37
+- 9a8146c8f @putout/plugin-split-variable-declarations: exclude keywords
+
 2025.01.23, v37.19.0
 
 fix:
