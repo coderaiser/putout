@@ -19,6 +19,11 @@ test('putout: convert-assignment-to-declaration: no report: nested', (t) => {
     t.end();
 });
 
+test('putout: convert-assignment-to-declaration: no report: keyword', (t) => {
+    t.noReport('keyword');
+    t.end();
+});
+
 test('putout: convert-assignment-to-declaration: transform', (t) => {
     t.transform('convert-assignment-to-declaration');
     t.end();

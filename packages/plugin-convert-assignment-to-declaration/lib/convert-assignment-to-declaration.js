@@ -7,7 +7,11 @@ const {
     VariableDeclaration,
 } = types;
 
-const {replaceWith, getBinding} = operator;
+const {
+    replaceWith,
+    getBinding,
+    isKeyword,
+} = operator;
 
 module.exports.report = (path) => {
     const {name} = path.node.left;
@@ -25,6 +29,15 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => ({
     AssignmentExpression(path) {
+        const prevPath = path.parentPath.getPrevSibling();
+        
+        if (prevPath.isVariableDeclaration()) {
+            const {name} = prevPath.node.declarations.at(-1).id;
+            
+            if (isKeyword(name))
+                return;
+        }
+        
         const {left} = path.node;
         
         if (!isIdentifier(left))
