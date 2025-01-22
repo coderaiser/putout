@@ -2,10 +2,12 @@
 
 const filesystem = require('./filesystem');
 const json = require('./json');
+const keyword = require('./keyword');
 
 module.exports = {
     ...filesystem,
     ...json,
+    ...keyword,
     operator: `import {operator} from 'putout'`,
     compare: 'const {compare} = operator',
     compareAll: 'const {compareAll} = operator',
@@ -38,5 +40,4 @@ module.exports = {
     setLiteralValue: 'const {setLiteralValue} = operator',
     matchFiles: 'const {matchFiles} = operator',
     ignore: 'const {ignore} = operator',
-    isKeyword: 'const {isKeyword} = operator',
 };

@@ -390,12 +390,7 @@ test('plugin-putout: declare: transform: operator-filesystem', (t) => {
     t.end();
 });
 
-test('plugin-putout: declare: transform: operator: isKeyword', (t) => {
-    t.transformCode(`isKeyword('if');`, montag`
-        import {operator} from 'putout';
-        
-        const {isKeyword} = operator;
-        isKeyword('if');\n
-    `);
+test('plugin-putout: declare: transform: operator-keyword', (t) => {
+    t.transform('operator-keyword');
     t.end();
 });
