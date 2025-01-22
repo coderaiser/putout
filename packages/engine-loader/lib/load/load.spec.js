@@ -1,5 +1,6 @@
 'use strict';
 
+const {join} = require('node:path');
 const process = require('node:process');
 const tryCatch = require('try-catch');
 const mockRequire = require('mock-require');
@@ -76,5 +77,23 @@ test('putout: engine-loader: load: createRequire', (t) => {
     reRequire('./load.js');
     
     t.calledCount(createRequire, 2, 'should call for "putout" and PUTOUT_YARN_PNP');
+    t.end();
+});
+
+test('putout: engine-loader: load: PUTOUT_LOAD_DIR', (t) => {
+    process.env.PUTOUT_LOAD_DIR = join(__dirname, 'fixture');
+    
+    const {loadPlugin} = reRequire('./load.js');
+    const {report} = loadPlugin({
+        namespace: 'putout',
+        name: 'hello',
+    });
+    
+    delete process.env.PUTOUT_LOAD_DIR;
+    
+    const result = report();
+    const expected = 'hello';
+    
+    t.equal(result, expected);
     t.end();
 });

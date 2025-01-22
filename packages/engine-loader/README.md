@@ -56,6 +56,8 @@ So when someone using your plugin, he needs to enable it:
 When you need to get things working with Yarn OnP, and using custom `plugins` `formatters` or `processors`, add env variable
 `PUTOUT_YARN_PNP` with name of a package that contains dependencies you need.
 
+If you want to load from custom directory (for Visual Studio Code Extension, for example) use `PUTOUT_LOAD_DIR`.
+
 ## API
 
 ### loadPlugins

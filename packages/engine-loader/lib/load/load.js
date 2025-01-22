@@ -2,7 +2,7 @@
 
 const process = require('node:process');
 const {createRequire} = require('node:module');
-
+const {join} = require('node:path');
 const tryCatch = require('try-catch');
 const once = require('once');
 const {assign} = Object;
@@ -61,7 +61,7 @@ const createPutoutRequire = once(() => createRequire(require.resolve('putout')))
 // - declared in module that want to extend 🐊Putout;
 //
 // https://yarnpkg.com/advanced/rulebook#modules-shouldnt-hardcode-node_modules-paths-to-access-other-modules
-function getModulePath(name) {
+function getModulePath(name, {again = false} = {}) {
     let path;
     
     const customRequire = createCustomRequire();
@@ -74,5 +74,21 @@ function getModulePath(name) {
     
     [, path] = tryCatch(customRequire.resolve, name);
     
+    if (!path && !again)
+        return getModulePath(buildPluginsDir(name), {
+            again: true,
+        });
+    
     return [path, customRequire];
+}
+
+const getPutoutLoadDir = once(() => process.env.PUTOUT_LOAD_DIR);
+
+function buildPluginsDir(name) {
+    const dir = getPutoutLoadDir();
+    
+    if (!dir)
+        return name;
+    
+    return join(dir, name);
 }
