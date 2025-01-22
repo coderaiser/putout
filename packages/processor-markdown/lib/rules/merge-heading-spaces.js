@@ -38,7 +38,7 @@ const bothSpaces = (node, nextNode) => {
     if (node.type !== 'text' || node.value !== ' ')
         return false;
     
-    return !(nextNode.type !== 'text' || nextNode.value !== ' ');
+    return nextNode.type === 'text' && nextNode.value === ' ';
 };
 
 export default {

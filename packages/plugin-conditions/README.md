@@ -258,12 +258,16 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fabfc16a5a
 
 ```js
 const check = (references) => !(references > 3);
+
+return !(nextNode.type !== 'text' || nextNode.value !== ' ');
 ```
 
 ### ✅ Example of correct code
 
 ```js
 const check = (references) => references <= 3;
+
+return nextNode.type === 'text' && nextNode.value === ' ';
 ```
 
 ## remove-boolean
