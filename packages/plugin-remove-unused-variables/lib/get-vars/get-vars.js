@@ -5,6 +5,7 @@ const {operator, types} = require('putout');
 const jsx = require('./jsx');
 const flow = require('./flow');
 const typescript = require('./typescript');
+
 const {
     traverseObjectExpression,
     processObjectPattern,
@@ -15,6 +16,7 @@ const {
 
 const {isKeyword} = operator;
 const {assign} = Object;
+
 const {
     isAssignmentPattern,
     isClassDeclaration,
