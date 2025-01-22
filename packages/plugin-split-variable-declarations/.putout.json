@@ -1,6 +1,6 @@
 {
     "match": {
-        "README.md": {
+        "*.md": {
             "split-variable-declarations": "off"
         }
     }

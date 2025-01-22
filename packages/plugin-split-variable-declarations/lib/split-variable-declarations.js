@@ -7,7 +7,10 @@ const {
     variableDeclaration,
 } = types;
 
-const {replaceWithMultiple} = operator;
+const {
+    replaceWithMultiple,
+    isKeyword,
+} = operator;
 
 module.exports.report = () => 'Variables should be declared separately';
 
@@ -33,6 +36,13 @@ module.exports.traverse = ({push}) => ({
         
         if (declarations.length === 1)
             return;
+        
+        for (const declaration of declarations) {
+            const {name} = declaration.id;
+            
+            if (isKeyword(name))
+                return;
+        }
         
         const init = node;
         

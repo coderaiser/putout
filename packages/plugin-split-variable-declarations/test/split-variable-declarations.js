@@ -36,6 +36,11 @@ test('plugin-split-variable-declarations: no transform: export', (t) => {
     t.end();
 });
 
+test('plugin-split-variable-declarations: no transform: keyword', (t) => {
+    t.noTransform('keyword');
+    t.end();
+});
+
 test('plugin-split-variable-declarations: null literal: loc', (t) => {
     t.transform('null-literal', '\n', {
         'remove-unused-variables': removeUnusedVariables,
