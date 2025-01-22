@@ -1,5 +1,20 @@
 'use strict';
 
+const {operator, types} = require('putout');
+
+const jsx = require('./jsx');
+const flow = require('./flow');
+const typescript = require('./typescript');
+const {
+    traverseObjectExpression,
+    processObjectPattern,
+    traverseArrayExpression,
+    traverseAssignmentExpression,
+    traverseTemplateLiteral,
+} = require('./traverse');
+
+const {isKeyword} = operator;
+const {assign} = Object;
 const {
     isAssignmentPattern,
     isClassDeclaration,
@@ -12,21 +27,7 @@ const {
     isArrayPattern,
     isVariableDeclaration,
     isRestElement,
-} = require('putout').types;
-
-const {
-    traverseObjectExpression,
-    processObjectPattern,
-    traverseArrayExpression,
-    traverseAssignmentExpression,
-    traverseTemplateLiteral,
-} = require('./traverse');
-
-const jsx = require('./jsx');
-
-const flow = require('./flow');
-const typescript = require('./typescript');
-const {assign} = Object;
+} = types;
 
 module.exports = ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
@@ -108,8 +109,10 @@ module.exports = ({use, declare, addParams}) => {
             
             /* istanbul ignore else */
             if (isIdentifier(node.id)) {
-                declare(path, node.id.name);
-                isForIn && use(path, node.id.name);
+                if (!isKeyword(node.id.name)) {
+                    declare(path, node.id.name);
+                    isForIn && use(path, node.id.name);
+                }
             } else if (isObjectPattern(node.id)) {
                 idPath.traverse({
                     ObjectProperty(propPath) {
