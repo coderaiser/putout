@@ -1,3 +1,24 @@
+2025.01.23, v37.19.0
+
+fix:
+- d9359471b @putout/plugin-extract-keywords-from-variables: isDeclarationKeyword
+
+feature:
+- 94e35fbba @putout/plugin-putout: declare: operator-keyword
+- 1be222802 @putout/operator-keyword: isDeclarationKeyword, isConditionKeyword
+- f37981315 putout: @putout/plugin-remove-unused-variables v10.1.0
+- f27b24496 @putout/plugin-remove-unused-variables: drop support of 🐊 < 37
+- 40ad7ae99 putout: add operator-keyword
+- 6cf22f70d @putout/plugin-remove-unused-variables: exclude keywords
+- 8e3dce03e @putout/operator-keyword: add
+- 03024f0ea @putout/plugin-extract-keywords-from-variables: isKeyword
+- e6d85801d @putout/plugin: declare: isKeyword
+- da325b7f1 @putout/engine-loader: load: PUTOUT_LOAD_DIR
+- dfdf418eb @putout/plugin-conditions: reverse-conditions: !(__a !== __b || __c !== __d) -> __a === __b && __c === __d
+- b178889e1 @putout/plugin-putout: declare-path-variable: add
+- 4989b9f90 @putout/plugin-putout: declare-template-variables: declared partially
+- ee80b0024 @putout/engine-parser: acorn: ParenthesizedExpression + TS
+
 2025.01.21, v37.18.0
 
 feature:
