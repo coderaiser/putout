@@ -137,6 +137,7 @@ module.exports.operator = {
     ...require('@putout/operator-regexp'),
     ...require('@putout/operator-add-args'),
     ...require('@putout/operator-filesystem'),
+    ...require('@putout/operator-keyword'),
     ...require('@putout/operator-match-files'),
     ...require('@putout/operator-rename-files'),
     ...require('@putout/operator-ignore'),

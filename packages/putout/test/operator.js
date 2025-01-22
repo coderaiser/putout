@@ -126,3 +126,10 @@ test('putout: operator: renameFiles', (t) => {
     t.ok(scan);
     t.end();
 });
+
+test('putout: operator: isKeyword', (t) => {
+    const result = operator.isKeyword('if');
+    
+    t.ok(result);
+    t.end();
+});
