@@ -182,7 +182,7 @@
     "@putout/plugin-simplify-ternary": "^7.0.0",
     "@putout/plugin-split-assignment-expressions": "^1.0.0",
     "@putout/plugin-split-nested-destructuring": "^3.0.0",
-    "@putout/plugin-split-variable-declarations": "^3.0.0",
+    "@putout/plugin-split-variable-declarations": "^4.0.0",
     "@putout/plugin-tape": "^16.0.0",
     "@putout/plugin-try-catch": "^4.0.0",
     "@putout/plugin-types": "^6.0.0",
