@@ -15,7 +15,8 @@ const {
 const {
     remove,
     replaceWith,
-    isKeyword,
+    isDeclarationKeyword,
+    isConditionKeyword,
 } = operator;
 
 const buildDeclaration = (type) => (nextPath, path) => {
@@ -49,7 +50,7 @@ module.exports.traverse = ({push}) => ({
     VariableDeclarator(path) {
         const {name} = path.node.id;
         
-        if (isKeyword(name)) {
+        if (isDeclarationKeyword(name) || isConditionKeyword(name)) {
             const topPath = getTopPath(path);
             const nextPath = topPath.getNextSibling();
             
