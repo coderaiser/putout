@@ -395,6 +395,13 @@ if (x)
 console.log();
 ```
 
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`conditions/remove-useless-else`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions#remove-useless-else) | ✅
+⏣ **ESLint** | [`no-else-return`](https://eslint.org/docs/rules/no-else-return) | ✅
+
 ## remove-same-values-condition
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e537d4ec636d4a9b849063a8326b70ae/661041b3fbb1e3678bf7f828e4c8bf6ca723f89d).
@@ -457,13 +464,6 @@ if (a) {
     const a = 5;
 }
 ```
-
-### Comparison
-
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`conditions/remove-useless-else`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger#readme) | ✅
-⏣ **ESLint** | [`no-else-return`](https://eslint.org/docs/rules/no-else-return) | ✅
 
 ## License
 
