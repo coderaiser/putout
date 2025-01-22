@@ -101,7 +101,7 @@
     "@putout/plugin-convert-array-copy-to-slice": "^3.0.0",
     "@putout/plugin-convert-assignment-to-arrow-function": "^1.0.0",
     "@putout/plugin-convert-assignment-to-comparison": "^2.0.0",
-    "@putout/plugin-convert-assignment-to-declaration": "^1.0.0",
+    "@putout/plugin-convert-assignment-to-declaration": "^2.0.0",
     "@putout/plugin-convert-concat-to-flat": "^1.0.0",
     "@putout/plugin-convert-const-to-let": "^4.0.0",
     "@putout/plugin-convert-expression-to-params": "^1.0.0",
