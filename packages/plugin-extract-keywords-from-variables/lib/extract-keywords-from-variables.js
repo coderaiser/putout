@@ -12,7 +12,11 @@ const {
     isAssignmentExpression,
 } = types;
 
-const {remove, replaceWith} = operator;
+const {
+    remove,
+    replaceWith,
+    isKeyword,
+} = operator;
 
 const buildDeclaration = (type) => (nextPath, path) => {
     const {expression} = nextPath.node;
@@ -24,15 +28,6 @@ const buildDeclaration = (type) => (nextPath, path) => {
         replaceWith(nextPath, VariableDeclaration(type, [VariableDeclarator(path.node.id, nextPath.node.expression)]));
     }
 };
-
-const keywords = [
-    'export',
-    'const',
-    'var',
-    'let',
-    'import',
-    'if',
-];
 
 const builders = {
     const: buildDeclaration('const'),
@@ -54,7 +49,7 @@ module.exports.traverse = ({push}) => ({
     VariableDeclarator(path) {
         const {name} = path.node.id;
         
-        if (keywords.includes(name)) {
+        if (isKeyword(name)) {
             const topPath = getTopPath(path);
             const nextPath = topPath.getNextSibling();
             
