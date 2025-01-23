@@ -43,3 +43,8 @@ test('plugin-printer: transform: apply-types', (t) => {
     t.transform('apply-types');
     t.end();
 });
+
+test('plugin-printer: transform: remove-legacy-test-declaration', (t) => {
+    t.transform('remove-legacy-test-declaration');
+    t.end();
+});

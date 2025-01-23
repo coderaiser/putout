@@ -20,6 +20,7 @@ npm i @putout/plugin-printer -D
 - ✅ [apply-types](#apply-types);
 - ✅ [declare](#declare);
 - ✅ [remove-args](#remove-args);
+- ✅ [remove-legacy-test-declaration](#remove-legacy-test-declaration);
 
 ## Config
 
@@ -123,15 +124,39 @@ print.indent();
 
 ```js
 isIdentifier();
+
+test('', (t) => {
+    t.print(fixture.returnStatement);
+});
 ```
 
 ### ✅ Example of correct code
 
 ```js
 const {types} = require('@putout/babel');
+const {createTest} = require('#test');
+
+const {test, fixture} = createTest(__dirname);
 const {isIdentifier} = types;
 
 isIdentifier();
+
+test('', (t) => {
+    t.print(fixture.returnStatement);
+});
+```
+
+## remove-legacy-test-declaration
+
+```diff
+-const {printExtension} = require('../../../test/printer');
+-const {readFixtures} = require('../../../test/fixture');
+-
+-const fixture = readFixtures(__dirname);
+-
+-const test = extend({
+-    print: printExtension,
+-});
 ```
 
 ## License

@@ -18,3 +18,8 @@ test('printer: declare: transform', (t) => {
     t.transform('declare');
     t.end();
 });
+
+test('printer: declare: transform: create-test', (t) => {
+    t.transform('create-test');
+    t.end();
+});
