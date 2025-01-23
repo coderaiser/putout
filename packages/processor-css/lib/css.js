@@ -15,6 +15,7 @@ export const lint = async (source, {fix} = {}) => {
         fix,
         code: source,
         config,
+        quietDeprecationWarnings: true,
     });
     
     const {warnings} = JSON.parse(report)[0];
