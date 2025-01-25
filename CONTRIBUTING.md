@@ -83,7 +83,8 @@ $ UPDATE=1 npm run fix:lint && npm test
 ```
 
 This command will fix test for you and generate fixture. Most likely you will need two types of tests:
-- ✅[`noReport()`](https://github.com/coderaiser/putout/tree/master/packages/test#noreportfilename) - when rule has false possitive;
+
+- ✅[`noReport()`](https://github.com/coderaiser/putout/tree/master/packages/test#noreportfilename) - when rule has false positive;
 - ✅[`transform()`](https://github.com/coderaiser/putout/tree/master/packages/test#transformfilename--output-plugins) - when new case added;
 
 The command `UPDATE=1 npm run test` will generate `fixture` for you, so you need not to worry about it, also `@putout/plugin-putout` will fix test message and other things, so you can also warry not about it 😏. Always remember that all things should be simple and automated: 🐊**Putout** fixes everything, including itself.
