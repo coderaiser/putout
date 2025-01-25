@@ -18,3 +18,8 @@ test('plugin-apply-guards: transform: apply-type-guards', (t) => {
     t.transform('apply-type-guards');
     t.end();
 });
+
+test('plugin-apply-guards: no report: exists', (t) => {
+    t.noReport('exists');
+    t.end();
+});

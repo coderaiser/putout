@@ -15,6 +15,10 @@ const create = template('(__a): __a is __c => typeof __a === "__b"', {
 
 module.exports.report = () => `Use 'type guards'`;
 
+module.exports.match = () => ({
+    '(__a) => typeof __a === "__b"': ({}, path) => !path.node.returnType,
+});
+
 module.exports.replace = () => ({
     '(__a) => typeof __a === "__b"': ({__a, __b}, path) => {
         replaceWith(path, create({
