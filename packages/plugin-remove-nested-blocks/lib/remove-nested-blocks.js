@@ -49,7 +49,10 @@ module.exports.filter = (path) => {
     
     const is = !isIntersect(bindings, path.parentPath);
     
-    return is && (parentPath.isBlockStatement() || parentPath.isProgram());
+    if (!parentPath.isBlockStatement() && !parentPath.isProgram())
+        return false;
+    
+    return is || path.container.length === 1;
 };
 
 function isReturnWithoutArg(path) {

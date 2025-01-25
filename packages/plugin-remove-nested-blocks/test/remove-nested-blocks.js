@@ -61,3 +61,13 @@ test('plugin-remove-nested-blocks: no report: return', (t) => {
     t.noReport('return');
     t.end();
 });
+
+test('plugin-remove-nested-blocks: transform: intersect-single', (t) => {
+    t.transform('intersect-single');
+    t.end();
+});
+
+test('plugin-remove-nested-blocks: no report: intersect-multi', (t) => {
+    t.noReport('intersect-multi');
+    t.end();
+});
