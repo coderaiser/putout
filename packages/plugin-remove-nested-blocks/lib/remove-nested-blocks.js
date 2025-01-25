@@ -59,4 +59,3 @@ const isIntersect = (path, bindings) => {
     
     return false;
 };
-
