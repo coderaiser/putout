@@ -17,24 +17,38 @@ module.exports.fix = ({siblings}) => {
     }
 };
 
-module.exports.traverse = ({push}) => ({
-    'ReturnStatement|ThrowStatement'(path) {
-        const siblings = path.getAllNextSiblings();
-        
-        if (!siblings.length)
-            return;
-        
+const processBlock = (push, path, leaf) => {
+    const siblings = path.getAllNextSiblings();
+    
+    if (!siblings.length)
+        return;
+    
+    if (leaf) {
         const [first] = siblings;
         
         if (!path.node.argument && (isBlockStatement(first) || isExpressionStatement(first)))
             return false;
-        
-        if (siblings.find(isFunctionDeclaration))
-            return;
+    }
+    
+    for (const sibling of siblings) {
+        if (isFunctionDeclaration(sibling))
+            continue;
         
         push({
-            path: siblings[0],
-            siblings,
+            path: sibling,
+            siblings: [sibling],
         });
+    }
+};
+
+module.exports.traverse = ({push}) => ({
+    'ReturnStatement|ThrowStatement'(path) {
+        let leaf = true;
+        
+        while (path.parentPath?.isBlockStatement()) {
+            processBlock(push, path, leaf);
+            path = path.parentPath;
+            leaf = false;
+        }
     },
 });
