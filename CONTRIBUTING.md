@@ -24,6 +24,70 @@ No matter what `package` you are interested in, you always have 4 little friends
 
 You can call them from each package with `npm run` and they will always come 🤙.
 
+## 🤷 How to write tests?
+
+🐊**Putout** is one of projects that have 100% code coverage, it helps a lot, since when code not covered with tests, you have two choices:
+
+- ✅ cover with tests;
+- ✅ remove;
+
+That's it! Writing tests is very simple tasks since we have own framework based on 📼[`supertape`](https://github.com/coderaiser/supertape): [`@putout/test`](https://github.com/coderaiser/putout/tree/master/packages/test#putouttest-). We have also [`@putout/plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/plugin-putout#putoutplugin-putout-) with test-based rules, that help you write as little code as possible. So how adding tests looks like?
+
+Let's suppose you want to add test for [`@putout/plugin-remove-unreachable-code`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unreachable-code), you open [`test/remove-unreachable-code.js`](https://github.com/coderaiser/putout/blob/master/packages/plugin-remove-unreachable-code/test/remove-unreachable-code.js) and see a lot of lines that ends up with:
+
+```js
+test('plugin-remove-unreachable-code: no report: return-no-arg', (t) => {
+    t.noReport('return-no-arg');
+    t.end();
+});
+```
+
+What you need to do is copy this 4 lines, so you have:
+
+```diff
+test('plugin-remove-unreachable-code: no report: return-no-arg', (t) => {
+    t.noReport('return-no-arg');
+    t.end();
+});
+
++test('plugin-remove-unreachable-code: no report: return-no-arg', (t) => {
++    t.noReport('return-no-arg');
++    t.end();
++});
+```
+
+Then you add `fixture` named `fixture/return-with-some-of-your-case` (try to add name that mirrors the problem) and change argument of `noReport`:
+
+```diff
+test('plugin-remove-unreachable-code: no report: return-no-arg', (t) => {
+    t.noReport('return-no-arg');
+    t.end();
+});
+
+test('plugin-remove-unreachable-code: no report: return-no-arg', (t) => {
+-   t.noReport('return-no-arg');
++   t.noReport('return-with-some-of-your-case');
+    t.end();
+});
+```
+
+Then you write in terminal:
+
+```sh
+$ cat > fixture/return-with-some-of-your-case.js
+if (a) {
+  return 'some of your case';
+}
+^c
+$ UPDATE=1 npm run fix:lint && npm test
+```
+
+This command will fix test for you and generate fixture. Most likely you will need two types of tests:
+- ✅[`noReport()`](https://github.com/coderaiser/putout/tree/master/packages/test#noreportfilename) - when rule has false possitive;
+- ✅[`transform()`](https://github.com/coderaiser/putout/tree/master/packages/test#transformfilename--output-plugins) - when new case added;
+
+The command `UPDATE=1 npm run test` will generate `fixture` for you, so you need not to worry about it, also `@putout/plugin-putout` will fix test message and other things, so you can also warry not about it 😏. Always remember that all things should be simple and automated: 🐊**Putout** fixes everything, including itself.
+
 ## 🤷 How to check if my changes do not break anything?
 
 When your made changes, added coverage and your package is ready for publishing 📦 , run: `npm run fresh`,
