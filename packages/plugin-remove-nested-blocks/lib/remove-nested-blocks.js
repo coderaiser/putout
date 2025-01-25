@@ -5,22 +5,6 @@ const {isReturnStatement} = types;
 const {replaceWithMultiple} = operator;
 const {keys} = Object;
 
-const isIntersect = (bindingsA, path) => {
-    if (path.removed)
-        return false;
-    
-    path.scope.crawl();
-    
-    const keysA = keys(bindingsA);
-    
-    for (const key of keysA) {
-        if (path.scope.hasBinding(key))
-            return true;
-    }
-    
-    return false;
-};
-
 module.exports.report = () => 'Avoid nested blocks';
 
 module.exports.fix = (path) => {
@@ -47,12 +31,13 @@ module.exports.filter = (path) => {
     if (isSwitch)
         return false;
     
-    const is = !isIntersect(bindings, path.parentPath);
-    
     if (!parentPath.isBlockStatement() && !parentPath.isProgram())
         return false;
     
-    return is || path.container.length === 1;
+    if (!isIntersect(parentPath, bindings))
+        return true;
+    
+    return path.container.length === 1;
 };
 
 function isReturnWithoutArg(path) {
@@ -63,3 +48,15 @@ function isReturnWithoutArg(path) {
     
     return !prevPath.node.argument;
 }
+
+const isIntersect = (path, bindings) => {
+    path.scope.crawl();
+    
+    for (const key of keys(bindings)) {
+        if (path.scope.hasBinding(key))
+            return true;
+    }
+    
+    return false;
+};
+
