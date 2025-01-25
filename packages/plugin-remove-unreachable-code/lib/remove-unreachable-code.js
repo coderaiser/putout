@@ -1,54 +1,58 @@
 'use strict';
 
 const {types, operator} = require('putout');
+const {remove} = operator;
+
 const {
     isExpressionStatement,
     isFunctionDeclaration,
     isBlockStatement,
 } = types;
 
-const {remove} = operator;
+const not = (fn) => (...a) => !fn(...a);
 
 module.exports.report = () => `Unreachable code`;
 
-module.exports.fix = ({siblings}) => {
-    for (const sibling of siblings) {
-        remove(sibling);
-    }
-};
-
-const processBlock = (push, path, leaf) => {
-    const siblings = path.getAllNextSiblings();
-    
-    if (!siblings.length)
-        return;
-    
-    if (leaf) {
-        const [first] = siblings;
-        
-        if (!path.node.argument && (isBlockStatement(first) || isExpressionStatement(first)))
-            return false;
-    }
-    
-    for (const sibling of siblings) {
-        if (isFunctionDeclaration(sibling))
-            continue;
-        
-        push({
-            path: sibling,
-            siblings: [sibling],
-        });
-    }
+module.exports.fix = (path) => {
+    remove(path);
 };
 
 module.exports.traverse = ({push}) => ({
     'ReturnStatement|ThrowStatement'(path) {
-        let leaf = true;
-        
         while (path.parentPath?.isBlockStatement()) {
-            processBlock(push, path, leaf);
+            const siblings = path.getAllNextSiblings();
+            const {argument} = path.node;
+            
             path = path.parentPath;
-            leaf = false;
+            
+            if (checkFirstSibling({argument, siblings}))
+                continue;
+            
+            processSiblings({
+                push,
+                siblings,
+            });
         }
     },
 });
+
+const processSiblings = ({push, siblings}) => {
+    if (!siblings.length)
+        return;
+    
+    siblings
+        .filter(not(isFunctionDeclaration))
+        .map(push);
+};
+
+function checkFirstSibling({argument, siblings}) {
+    if (argument)
+        return false;
+    
+    const [first] = siblings;
+    
+    if (isBlockStatement(first))
+        return true;
+    
+    return isExpressionStatement(first);
+}
