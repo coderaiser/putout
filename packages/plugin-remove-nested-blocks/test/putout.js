@@ -4,7 +4,7 @@ const test = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
 
-test('putout: plugin: remove-nested-blocks: remove-empty', (t) => {
+test('putout: plugin: remove-nested-blocks: remove-empty: reproduced only this way', (t) => {
     const {code} = putout(montag`
         export default () => {
             for (const [index, peace] of pieces) {

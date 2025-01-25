@@ -3,6 +3,8 @@
 const {createTest} = require('@putout/test');
 
 const {declare} = require('@putout/plugin-tape').rules;
+const removeEmpty = require('@putout/plugin-remove-empty');
+
 const removeNestedBlocks = require('..');
 
 const convertReduceToForOf = require('@putout/plugin-for-of').rules.reduce;
@@ -43,6 +45,13 @@ test('plugin-remove-nested-blocks: transform: vars', (t) => {
 test('plugin-remove-nested-blocks: transform: reduce', (t) => {
     t.transform('reduce', {
         'convert-reduce-to-for-of': convertReduceToForOf,
+    });
+    t.end();
+});
+
+test('plugin-remove-nested-blocks: transform: removeEmpty', (t) => {
+    t.transform('remove-empty', {
+        'remove-empty': removeEmpty,
     });
     t.end();
 });
