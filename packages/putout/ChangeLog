@@ -1,3 +1,12 @@
+2025.01.25, v37.21.0
+
+feature:
+- 9857a7c69 putout: @putout/plugin-typescript v10.0.0
+- afafd9f58 @putout/plugin-typescript: drop support of 🐊 < 37
+- 1c37d8136 @putout/plugin-typescript: apply-type-guards: exists
+- e26fabdf6 @putout/plugin-printer: remove-legacy-test-declaration: add
+- 7065b535c @putout/processor-css: quietDeprecationWarnings
+
 2025.01.23, v37.20.0
 
 feature:
