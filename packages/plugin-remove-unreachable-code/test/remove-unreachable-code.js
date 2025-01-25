@@ -44,6 +44,11 @@ test('plugin-remove-unreachable-code: transform: backtrack-normal', (t) => {
     t.end();
 });
 
+test('plugin-remove-unreachable-code: report: backtrack-normal', (t) => {
+    t.report('backtrack-normal', ['Unreachable code', 'Unreachable code', 'Unreachable code']);
+    t.end();
+});
+
 test('plugin-remove-unreachable-code: no report: backtrack-func', (t) => {
     t.noReport('backtrack-func');
     t.end();

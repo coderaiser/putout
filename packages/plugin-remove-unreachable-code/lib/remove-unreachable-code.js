@@ -13,37 +13,38 @@ const not = (fn) => (...a) => !fn(...a);
 
 module.exports.report = () => `Unreachable code`;
 
-module.exports.fix = (path) => {
-    remove(path);
+module.exports.fix = ({siblings}) => {
+    siblings.map(remove);
 };
 
 module.exports.traverse = ({push}) => ({
     'ReturnStatement|ThrowStatement'(path) {
-        while (path.parentPath?.isBlockStatement()) {
-            const siblings = path.getAllNextSiblings();
-            const {argument} = path.node;
+        let nextPath = path;
+        
+        while (nextPath.parentPath?.isBlockStatement()) {
+            const siblings = nextPath
+                .getAllNextSiblings()
+                .filter(not(isFunctionDeclaration));
             
-            path = path.parentPath;
+            const prevPath = nextPath;
+            
+            nextPath = nextPath.parentPath;
+            
+            if (!siblings.length)
+                continue;
+            
+            const {argument} = path.node;
             
             if (checkFirstSibling({argument, siblings}))
                 continue;
             
-            processSiblings({
-                push,
+            push({
+                path: prevPath,
                 siblings,
             });
         }
     },
 });
-
-const processSiblings = ({push, siblings}) => {
-    if (!siblings.length)
-        return;
-    
-    siblings
-        .filter(not(isFunctionDeclaration))
-        .map(push);
-};
 
 function checkFirstSibling({argument, siblings}) {
     if (argument)

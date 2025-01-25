@@ -6,6 +6,8 @@ function fun3(f) {
         return x3 * 2;
     }
     return 3;
+    return 5;
+    return 7;
 }
 
 fun3(x3);
