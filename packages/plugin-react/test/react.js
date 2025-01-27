@@ -28,3 +28,8 @@ test('plugin-react: transform: apply-create-root', (t) => {
     t.transform('apply-create-root');
     t.end();
 });
+
+test('plugin-react: transform: rename-js-to-jsx', (t) => {
+    t.transform('rename-js-to-jsx');
+    t.end();
+});

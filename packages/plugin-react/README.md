@@ -29,6 +29,7 @@ Add `.putout.json` with:
 - ✅ [remove-useless-provider](#remove-useless-provider);
 - ✅ [remove-useless-forward-ref](#remove-useless-forward-ref);
 - ✅ [remove-implicit-ref-return](#remove-implicit-ref-return);
+- ✅ [rename-js-to-jsx](#rename-js-to-jsx);
 
 ## Config
 
@@ -145,6 +146,43 @@ const MyInput2 = forwardRef(({value}, ref) => {
 > [react.dev](https://react.dev/blog/2024/04/25/react-19#context-as-a-provider)
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/dc0c3eb7a20d54645c57e5c1c1321f65/940cde047eeef97f3a00c662e6ea86167dd0f71c).
+
+### ❌ Example of incorrect code
+
+```jsx
+const a = (
+    <div ref={(current) => instance = current}/>
+);
+```
+
+### ✅ Example of correct code
+
+```jsx
+function App() {
+    const [theme, setTheme] = useState('light');
+    
+    // ...
+    return (
+        <UseTheme value={theme}>
+            <Page/>
+        </UseTheme>
+    );
+}
+```
+
+## rename-js-to-jsx
+
+Rename `*.js` files to `*.jsx` when they contains JSX.
+
+```diff
+ /
+ |-- package.json
+ `-- lib/
+-     `-- hello.js
++     `-- hello.jsx
+```
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/bebaba6a03958effd72f160f9ef8c8ef/e3a275a2d6352183f71415dcd4346f2cd5667748).
 
 ### ❌ Example of incorrect code
 
