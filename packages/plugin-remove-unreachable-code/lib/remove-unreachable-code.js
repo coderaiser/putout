@@ -11,7 +11,7 @@ const {
 
 const not = (fn) => (...a) => !fn(...a);
 
-module.exports.report = () => `Unreachable code`;
+module.exports.report = () => `Avoid unreachable code`;
 
 module.exports.fix = ({siblings}) => {
     siblings.map(remove);

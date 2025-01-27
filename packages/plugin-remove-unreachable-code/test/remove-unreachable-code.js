@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-unreachable-code: report: return', (t) => {
-    t.report('return', 'Unreachable code');
+    t.report('return', 'Avoid unreachable code');
     t.end();
 });
 
@@ -45,7 +45,12 @@ test('plugin-remove-unreachable-code: transform: backtrack-normal', (t) => {
 });
 
 test('plugin-remove-unreachable-code: report: backtrack-normal', (t) => {
-    t.report('backtrack-normal', ['Unreachable code', 'Unreachable code', 'Unreachable code']);
+    t.report('backtrack-normal', [
+        'Avoid unreachable code',
+        'Avoid unreachable code',
+        'Avoid unreachable code',
+        'Avoid unreachable code',
+    ]);
     t.end();
 });
 

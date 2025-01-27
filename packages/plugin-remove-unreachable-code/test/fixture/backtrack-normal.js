@@ -8,6 +8,7 @@ function fun3(f) {
     return 3;
     return 5;
     return 7;
+    return 9;
 }
 
 fun3(x3);
