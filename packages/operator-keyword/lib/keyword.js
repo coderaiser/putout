@@ -4,6 +4,7 @@ const moduleDeclarations = [
     'import',
     'export',
 ];
+
 const declarations = [
     'const',
     'var',
