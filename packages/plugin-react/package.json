@@ -31,7 +31,7 @@
     "react"
   ],
   "peerDependencies": {
-    "putout": ">=35"
+    "putout": ">=37"
   },
   "devDependencies": {
     "@putout/plugin-remove-unused-variables": "*",
