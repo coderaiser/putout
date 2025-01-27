@@ -5,14 +5,14 @@ const react = require('..');
 
 const test = createTest(__dirname, {
     rules: {
-        'react/rename-jsx-to-js': 'on',
+        'react/rename-file-js-to-jsx': 'on',
     },
     plugins: [
         ['react', react],
     ],
 });
 
-test('plugin-react: transform: rename-jsx-to-js: rename-jsx-to-js-on', (t) => {
-    t.transform('rename-jsx-to-js-on');
+test('plugin-react: transform: rename-file-js-to-jsx: rename-file-js-to-jsx-on', (t) => {
+    t.transform('rename-file-js-to-jsx-on');
     t.end();
 });

@@ -29,12 +29,12 @@ test('plugin-react: transform: apply-create-root', (t) => {
     t.end();
 });
 
-test('plugin-react: transform: rename-js-to-jsx', (t) => {
-    t.transform('rename-js-to-jsx');
+test('plugin-react: transform: rename-file-js-to-jsx', (t) => {
+    t.transform('rename-file-js-to-jsx');
     t.end();
 });
 
-test('plugin-react: transform: rename-jsx-to-js', (t) => {
-    t.transform('rename-jsx-to-js');
+test('plugin-react: transform: rename-file-jsx-to-js', (t) => {
+    t.transform('rename-file-jsx-to-js');
     t.end();
 });
