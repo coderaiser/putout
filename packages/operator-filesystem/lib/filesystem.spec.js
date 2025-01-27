@@ -179,6 +179,39 @@ test('putout: operator: filesystem: findFile: exclude', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: findFile: exclude: function', (t) => {
+    const ast = parseFilesystem([
+        '/',
+        '/hello/',
+        ['/hello/world.js', 'const a = 5'],
+        ['/hello/hello.js', 'const a = <A></A>'],
+    ]);
+    
+    const exclude = (path) => {
+        const source = readFileContent(path);
+        return source.includes('<');
+    };
+    
+    findFile(ast, '*.js', exclude).map(removeFile);
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/hello',
+            files: [{
+                type: 'file',
+                filename: '/hello/hello.js',
+                content: 'const a = <A></A>',
+            }],
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: findFile: no names', (t) => {
     const ast = parse(montag`
         ${FS}({
