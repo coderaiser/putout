@@ -2,14 +2,16 @@
 
 const {types, operator} = require('putout');
 const {
+    isArrowFunctionExpression,
+    isLiteral,
     IfStatement,
     ImportDefaultSpecifier,
     ImportDeclaration,
     ExportNamedDeclaration,
-    isLiteral,
     VariableDeclarator,
     VariableDeclaration,
     isAssignmentExpression,
+    isExportNamedDeclaration,
 } = types;
 
 const {
@@ -17,17 +19,33 @@ const {
     replaceWith,
     isDeclarationKeyword,
     isConditionKeyword,
+    isModuleDeclarationKeyword,
 } = operator;
 
 const buildDeclaration = (type) => (nextPath, path) => {
     const {expression} = nextPath.node;
+    let left;
+    let right;
     
     if (isAssignmentExpression(expression)) {
-        const {left, right} = expression;
-        replaceWith(nextPath, VariableDeclaration(type, [VariableDeclarator(left, right)]));
+        ({
+            left,
+            right,
+        } = expression);
     } else {
-        replaceWith(nextPath, VariableDeclaration(type, [VariableDeclarator(path.node.id, nextPath.node.expression)]));
+        left = path.node.id;
+        right = nextPath.node.expression;
     }
+    
+    replaceWith(nextPath, VariableDeclaration(type, [VariableDeclarator(left, right)]));
+    
+    const {name} = path.node.id;
+    
+    if (isDeclarationKeyword(name))
+        return;
+    
+    if (isExportNamedDeclaration(path.parentPath.parentPath))
+        replaceWith(nextPath, ExportNamedDeclaration(nextPath.node));
 };
 
 const builders = {
@@ -50,7 +68,7 @@ module.exports.traverse = ({push}) => ({
     VariableDeclarator(path) {
         const {name} = path.node.id;
         
-        if (isDeclarationKeyword(name) || isConditionKeyword(name)) {
+        if (isDeclarationKeyword(name) || isConditionKeyword(name) || isModuleDeclarationKeyword(name)) {
             const topPath = getTopPath(path);
             const nextPath = topPath.getNextSibling();
             
@@ -73,13 +91,18 @@ module.exports.traverse = ({push}) => ({
         
         const {kind} = path.parentPath.node;
         
-        if (kind === 'const' && !path.node.init) {
+        if (!path.node.init) {
             const topPath = getTopPath(path);
             const nextPath = topPath.getNextSibling();
             
-            if (nextPath.isExpressionStatement() && isLiteral(nextPath.node.expression))
-                return push({
-                    name: 'const',
+            if (!nextPath.isExpressionStatement())
+                return;
+            
+            const {expression} = nextPath.node;
+            
+            if (isLiteral(expression) || isArrowFunctionExpression(expression))
+                push({
+                    name: kind,
                     path,
                     nextPath,
                 });

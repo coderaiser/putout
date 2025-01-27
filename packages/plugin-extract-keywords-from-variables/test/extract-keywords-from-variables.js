@@ -29,6 +29,26 @@ test('putout: extract-keywords-from-variables: transform: if', (t) => {
     t.end();
 });
 
+test('putout: extract-keywords-from-variables: transform: export', (t) => {
+    t.transform('export');
+    t.end();
+});
+
+test('putout: extract-keywords-from-variables: transform: export-let', (t) => {
+    t.transform('export-let');
+    t.end();
+});
+
+test('putout: extract-keywords-from-variables: transform: export-var', (t) => {
+    t.transform('export-var');
+    t.end();
+});
+
+test('putout: extract-keywords-from-variables: transform: let-no-init', (t) => {
+    t.transform('let-no-init');
+    t.end();
+});
+
 test('putout: extract-keywords-from-variables: report: const', (t) => {
     t.report('const', `Extract 'const' from variable`);
     t.end();
