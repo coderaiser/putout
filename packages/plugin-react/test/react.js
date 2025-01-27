@@ -33,3 +33,8 @@ test('plugin-react: transform: rename-js-to-jsx', (t) => {
     t.transform('rename-js-to-jsx');
     t.end();
 });
+
+test('plugin-react: transform: rename-jsx-to-js', (t) => {
+    t.transform('rename-jsx-to-js');
+    t.end();
+});

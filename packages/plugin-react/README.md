@@ -30,6 +30,7 @@ Add `.putout.json` with:
 - ✅ [remove-useless-forward-ref](#remove-useless-forward-ref);
 - ✅ [remove-implicit-ref-return](#remove-implicit-ref-return);
 - ✅ [rename-js-to-jsx](#rename-js-to-jsx);
+- ✅ [rename-jsx-to-js](#rename-jsx-to-js);
 
 ## Config
 
@@ -41,7 +42,9 @@ Here is list of rules:
         "react/apply-create-root": "on",
         "react/remove-useless-provider": "on",
         "react/remove-useless-forward-ref": "on",
-        "react/remove-implicit-ref-return": "on"
+        "react/remove-implicit-ref-return": "on",
+        "react/rename-jsx-to-js": "on",
+        "react/rename-js-to-jsx": "on"
     }
 }
 ```
@@ -183,6 +186,20 @@ Rename `*.js` files to `*.jsx` when they contains JSX.
 ```
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/bebaba6a03958effd72f160f9ef8c8ef/e3a275a2d6352183f71415dcd4346f2cd5667748).
+
+## rename-jsx-to-js
+
+Rename `*.jsx` files to `*.js` when they contains JSX.
+
+```diff
+ /
+ |-- package.json
+ `-- lib/
+-     `-- hello.jsx
++     `-- hello.js
+```
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/20bb4c5e3646ebbebccdc23bc93224c1/a0216b8fce6dce41fce16534d80354d9d94c6983).
 
 ### ❌ Example of incorrect code
 

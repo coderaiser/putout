@@ -1,13 +1,13 @@
 'use strict';
 
 const {operator} = require('putout');
-
 const isJSX = require('../is-jsx');
+
 const {matchFiles} = operator;
 
 module.exports = matchFiles({
-    filename: '*.js',
+    filename: '*.jsx',
     files: {
-        '__name.js -> __name.jsx': isJSX,
+        '__name.jsx -> __name.js': isJSX,
     },
 });
