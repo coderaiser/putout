@@ -1,3 +1,11 @@
-export const fix = () => {};
+import {operator} from 'putout';
 
-module.exports.fix = (path) => {};
+const {remove} = operator;
+
+export const fix = (path) => {
+    remove(path);
+};
+
+module.exports.fix = (path) => {
+    remove(path);
+};
