@@ -19,6 +19,7 @@ import {operator} from 'putout';
 const {
     isKeyword,
     isDeclarationKeyword,
+    isModuleDeclarationKeyword,
     isConditionKeyword,
 } = operator;
 
@@ -31,6 +32,10 @@ isKeyword('abc');
 false;
 
 isDeclarationKeyword('const');
+// returns
+true;
+
+isModuleDeclarationKeyword('import');
 // returns
 true;
 

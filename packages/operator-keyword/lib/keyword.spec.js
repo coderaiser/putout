@@ -5,6 +5,7 @@ const {
     isKeyword,
     isDeclarationKeyword,
     isConditionKeyword,
+    isModuleDeclarationKeyword,
 } = require('./keyword');
 
 test('putout: operator: keyword: isKeyword: yes', (t) => {
@@ -25,6 +26,20 @@ test('putout: operator: keyword: isDeclarationKeyword', (t) => {
     const result = isDeclarationKeyword('let');
     
     t.ok(result);
+    t.end();
+});
+
+test('putout: operator: keyword: isModuleDeclarationKeyword', (t) => {
+    const result = isModuleDeclarationKeyword('export');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: keyword: isModuleDeclarationKeyword: no', (t) => {
+    const result = isModuleDeclarationKeyword('let');
+    
+    t.notOk(result);
     t.end();
 });
 
