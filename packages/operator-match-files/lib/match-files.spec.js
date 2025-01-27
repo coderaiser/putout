@@ -515,6 +515,44 @@ test('putout: operator: match-files: __name', (t) => {
     t.end();
 });
 
+test('putout: operator: match-files: default filename', (t) => {
+    const source = stringify(['/', [
+        '/.eslintrc.js',
+        '{}',
+    ]]);
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        plugins: [
+            ['match-files', matchFiles({
+                filename: '*.js',
+                files: {
+                    '__name.js -> __name.jsx': {
+                        report: () => '',
+                        fix: noop,
+                        include: () => ['Program'],
+                    },
+                },
+            })],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = ['/', [
+        '/.eslintrc.jsx',
+        'e30K',
+    ]];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: operator: match-files: __name: dot', (t) => {
     const source = stringify(['/', [
         '/index.mjs',

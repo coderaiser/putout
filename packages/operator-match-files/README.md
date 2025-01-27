@@ -101,7 +101,7 @@ module.exports = matchFiles({
 });
 ```
 
-### Exclude
+### `exclude`
 
 If you want to exclude some files, use:
 
@@ -134,6 +134,23 @@ module.exports = matchFiles({
             ['eslint/convert-rc-to-flat', rcToFlat],
             ['eslint/declare', declare],
         ],
+    },
+});
+```
+
+### `filename`
+
+You can pass default `filename`, so when no options provided it will be used.
+
+```js
+const {operator} = require('putout');
+const {matchFiles} = operator;
+const updateTSConfig = require('../update-tsconfig');
+
+module.exports = matchFiles({
+    filename: '*.d.ts',
+    files: {
+        '__name.ts -> __name.js': updateTSConfig,
     },
 });
 ```

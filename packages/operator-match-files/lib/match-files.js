@@ -26,12 +26,14 @@ const {entries} = Object;
 const report = (path, {message}) => message;
 
 module.exports.matchFiles = (options) => {
+    const {filename} = options;
     const files = options.files ?? options;
     const exclude = options.exclude ?? [];
     
     check(files);
     
     const scan = createScan({
+        defaultFilename: filename,
         files,
         exclude,
     });
@@ -60,9 +62,11 @@ function fix(inputFile, {dirPath, matchInputFilename, outputFilename, matchedJS,
         removeFile(inputFile);
 }
 
-const createScan = ({files, exclude}) => (mainPath, {push, progress, options}) => {
+const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, progress, options}) => {
     const allFiles = [];
     const cwd = getFilename(mainPath);
+    
+    options.filename = options.filename ?? defaultFilename;
     
     for (const [filename, rawOptions] of entries(files)) {
         const [matchInputFilenameMask] = parseMatcher(filename, options);
