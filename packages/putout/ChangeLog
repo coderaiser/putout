@@ -1,3 +1,28 @@
+2025.01.28, v37.21.1
+
+fix:
+- b6b24d18c @putout/plugin-react: rename -> rename-file
+- 240965767 @putout/plugin-remove-unreachable-code: report count
+
+feature:
+- 6a5934166 putout: @putout/plugin-remove-unused-variables v11.0.0
+- a440651b6 babel-plugin-putout: mocha v11.1.0
+- a40bcb195 eslint-plugin-putout: @stylistic/eslint-plugin-ts v3.0.0
+- 5eef5ad00 eslint-plugin-putout: @stylistic/eslint-plugin-jsx v3.0.0
+- 0e525ee18 @putout/eslint-config: @stylistic/eslint-plugin-js v3.0.0
+- d77150cc6 @putout/plugin-react: drop support of 🐊 < 37
+- dab92ff9e @putout/plugin-react: rename-jsx-to-js: add
+- 8b2b5c432 @putout/plugin-putout: add-path-arg-to-fix: exclude empty body
+- d9b8c9ab1 @putout/plugin-extract-keywords-from-variables: export
+- 1d21caeb9 @putout/plugin-putout: declare: isModuleDeclarationKeyword
+- 3c4e67958 @putout/operator-keyword: isModuleDeclarationKeyword: add
+- 5f4d46c14 @putout/plugin-react: rename-js-to-jsx: add
+- 4f7a7a8c3 @putout/operator-match-files: add support of filename
+- 9e9c03c09 @putout/operator-filesystem: findFile: exclude: function
+- d80ebedd2 @putout/plugin-remove-unreachable-code: report
+- e109fd293 @putout/plugin-remove-nested-blocks: case when it is the only block (#225)
+- 8698589be @putout/plugin-remove-unreachable-code: backtracking parents and enhancements (#226)
+
 2025.01.25, v37.21.0
 
 feature:
