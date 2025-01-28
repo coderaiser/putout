@@ -19,6 +19,7 @@ const keywords = [
     ...moduleDeclarations,
     'as',
     'await',
+    'break',
     'continue',
     'for',
     'function',

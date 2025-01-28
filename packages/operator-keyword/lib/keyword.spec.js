@@ -49,3 +49,10 @@ test('putout: operator: keyword: isConditionKeyword', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: operator: keyword: break', (t) => {
+    const result = isKeyword('break');
+    
+    t.ok(result);
+    t.end();
+});
