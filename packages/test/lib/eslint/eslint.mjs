@@ -75,7 +75,7 @@ export const createTest = (url, plugins = {}) => {
     
     return extend({
         process: (operator) => async (name, override) => {
-            const full = join(fixtureDir, name);
+            const full = join(fixtureDir, basename(name));
             const [resolvedName, code] = await read(full);
             const fix = true;
             
@@ -90,12 +90,16 @@ export const createTest = (url, plugins = {}) => {
                 },
             });
             
+            const fixtureName = `${full}-fix`;
+            
             if (isUpdate()) {
-                update(resolvedName, source);
+                const fixtureNameWithExt = `${fixtureName}${extname(resolvedName)}`;
+                update(fixtureNameWithExt, source);
+                
                 return operator.pass('fixture updated');
             }
             
-            const [, fixture] = await read(`${full}-fix`);
+            const [, fixture] = await read(fixtureName);
             
             return operator.equal(source, fixture);
         },
