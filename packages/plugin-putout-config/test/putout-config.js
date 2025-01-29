@@ -9,6 +9,11 @@ const test = createTest(__dirname, {
     ],
 });
 
+test('plugin-putout-config: transform: apply-conditions', (t) => {
+    t.transform('apply-conditions');
+    t.end();
+});
+
 test('plugin-putout-config: transform: apply-esm', (t) => {
     t.transform('apply-esm');
     t.end();
@@ -19,8 +24,8 @@ test('plugin-putout-config: transform: apply-parens', (t) => {
     t.end();
 });
 
-test('plugin-putout-config: transform: apply-conditions', (t) => {
-    t.transform('apply-conditions');
+test('plugin-putout-config: transform: apply-return', (t) => {
+    t.transform('apply-return');
     t.end();
 });
 

@@ -15,6 +15,7 @@ npm i @putout/plugin-putout-config -D
 
 - ✅ [apply-conditions](#apply-conditions);
 - ✅ [apply-esm](#apply-esm);
+- ✅ [apply-return](#apply-return);
 - ✅ [apply-parens](#apply-parens);
 - ✅ [apply-for-of](#apply-for-of);
 - ✅ [apply-labels](#apply-labels);
@@ -44,6 +45,7 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-nodejs": "on",
         "putout-config/apply-optional-chaining": "on",
         "putout-config/apply-parens": "on",
+        "putout-config/apply-return": "on",
         "putout-config/apply-tape": "on",
         "putout-config/apply-types": "on",
         "putout-config/apply-promises": "on",
@@ -53,6 +55,27 @@ npm i @putout/plugin-putout-config -D
         "putout-config/remove-empty-file": "off",
         "putout-config/rename-rules": "on"
     }
+}
+```
+
+## apply-return
+
+Apply [`return`](https://github.com/coderaiser/putout/tree/master/packages/plugin-return#readme) according to:
+
+- 🐊[**Putout v38**](https://github.com/coderaiser/putout/releases/tag/v38.0.0):
+
+```diff
+{
+    "rules": {
+-       "apply-early-return": "off",
++       "return/apply-early": "off",
+-       "simplify-boolean-return": "off",
++       "return/simplify-boolean": "off",
+-       "convert-break-to-return": "off",
++       "return/convert-from-break": "off"
+-       "remove-useless-return": "off"
++       "return/remove-useless": "off"
+  }
 }
 ```
 

@@ -4,6 +4,7 @@ const applyConditions = require('./apply-conditions');
 const applyEsm = require('./apply-esm');
 const applyOptionalChaining = require('./apply-optional-chaining');
 const applyParens = require('./apply-parens');
+const applyReturn = require('./apply-return');
 const applyForOf = require('./apply-for-of');
 const applyLabels = require('./apply-labels');
 const applyMath = require('./apply-math');
@@ -27,6 +28,7 @@ module.exports.rules = {
     'apply-optional-chaining': applyOptionalChaining,
     'apply-parens': applyParens,
     'apply-promises': applyPromises,
+    'apply-return': applyReturn,
     'apply-tape': applyTape,
     'apply-types': applyTypes,
     'convert-boolean-to-string': convertBooleanToString,
