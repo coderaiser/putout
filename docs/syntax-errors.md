@@ -298,3 +298,15 @@ const b = 5;
 ```
 
 </details>
+
+<details><summary>convert <code>break</code> to <code>return</code></summary>
+
+```diff
+function get() {
+    if (b)
+-       break;
++       return;
+}
+```
+
+</details>
