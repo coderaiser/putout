@@ -265,7 +265,7 @@ const a = {
 
 </details>
 
-<details><summary>wrong brace</summary>
+<details><summary>add missing brace</summary>
 
 ```diff
 a && b = a;
