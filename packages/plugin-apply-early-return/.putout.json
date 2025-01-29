@@ -1,7 +1,0 @@
-{
-    "match": {
-        "*.md{js}": {
-            "apply-early-return": "off"
-        }
-    }
-}

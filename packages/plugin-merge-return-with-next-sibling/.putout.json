@@ -1,7 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "merge-return-with-next-sibling": "off"
-        }
-    }
-}

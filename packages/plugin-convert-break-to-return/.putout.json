@@ -1,7 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "convert-break-to-return": "off"
-        }
-    }
-}

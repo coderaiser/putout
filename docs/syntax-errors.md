@@ -310,3 +310,15 @@ function get() {
 ```
 
 </details>
+
+<details><summary>convert <code>continue</code> to <code>return</code></summary>
+
+```diff
+function get() {
+    if (b)
+-       continue;
++       return;
+}
+```
+
+</details>
