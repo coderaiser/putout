@@ -53,9 +53,7 @@
     "redlint": "^3.1.2",
     "supertape": "^10.0.0"
   },
-  "trustedDependencies": [
-    "husky"
-  ],
+  "trustedDependencies": ["husky"],
   "engines": {
     "node": ">=18"
   },
