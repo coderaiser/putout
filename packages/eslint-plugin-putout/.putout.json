@@ -20,7 +20,7 @@
             "remove-useless-variables/rename": "off",
             "remove-useless-variables/declaration": "off",
             "remove-useless-spread": "off",
-            "remove-useless-return": "off",
+            "return/remove-useless": "off",
             "remove-unreferenced-variables": "off",
             "remove-unreachable-code": "off",
             "tape/remove-skip": "off",
