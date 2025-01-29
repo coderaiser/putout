@@ -33,3 +33,8 @@ test('plugin-return: transform: simplify-boolean', (t) => {
     t.transform('simplify-boolean');
     t.end();
 });
+
+test('plugin-return: transform: remove-useless', (t) => {
+    t.transform('remove-useless');
+    t.end();
+});
