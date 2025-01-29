@@ -1,3 +1,12 @@
+2025.01.29, v37.22.0
+
+fix:
+- 147dce894 @putout/test: eslint: UPDATE
+
+feature:
+- f3c660348 @putout/plugin-convert-break-to-return: add
+- 5717ab6ff @putout/operator-keyword: break
+
 2025.01.28, v37.21.1
 
 fix:
