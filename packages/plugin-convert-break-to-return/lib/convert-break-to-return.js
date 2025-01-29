@@ -7,7 +7,7 @@ const {
     ReturnStatement,
 } = types;
 
-module.exports.report = () => `Use 'break' instead of 'return'`;
+module.exports.report = () => `Use 'return' instead of 'break'`;
 
 module.exports.fix = (path) => {
     replaceWith(path, ReturnStatement());

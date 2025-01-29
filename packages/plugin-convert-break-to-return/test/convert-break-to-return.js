@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: convert-break-to-return: report', (t) => {
-    t.report('convert-break-to-return', `Use 'break' instead of 'return'`);
+    t.report('convert-break-to-return', `Use 'return' instead of 'break'`);
     t.end();
 });
 
