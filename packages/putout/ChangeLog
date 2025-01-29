@@ -1,3 +1,14 @@
+2025.01.29, v38.0.0
+
+fix:
+- 34b3cfb3e @putout/plugin-convert-break-to-return: report
+
+feature:
+- 315f40e32 @putout/plugin-return: convert-from-break/continue: simplify
+- e43dc88e4 eslint-plugin-putout: drop support of 🐊 < 38
+- 664d486f5 eslint-plugin-putout: remove-useless-return -> return/remove-useless
+- eaeda59c9 @putout/plugin-return: add
+
 2025.01.29, v37.22.0
 
 fix:
