@@ -24,6 +24,7 @@ const {
 } = operator;
 
 const isInit = (a) => isIdentifier(a) || isLiteral(a) || isArrowFunctionExpression(a);
+
 const buildDeclaration = (type) => (nextPath, path) => {
     const {expression} = nextPath.node;
     let left;
