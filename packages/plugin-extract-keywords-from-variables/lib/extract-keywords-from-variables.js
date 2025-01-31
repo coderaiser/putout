@@ -12,6 +12,7 @@ const {
     VariableDeclaration,
     isAssignmentExpression,
     isExportNamedDeclaration,
+    isIdentifier,
 } = types;
 
 const {
@@ -22,6 +23,7 @@ const {
     isModuleDeclarationKeyword,
 } = operator;
 
+const isInit = (a) => isIdentifier(a) || isLiteral(a) || isArrowFunctionExpression(a);
 const buildDeclaration = (type) => (nextPath, path) => {
     const {expression} = nextPath.node;
     let left;
@@ -100,7 +102,7 @@ module.exports.traverse = ({push}) => ({
             
             const {expression} = nextPath.node;
             
-            if (isLiteral(expression) || isArrowFunctionExpression(expression))
+            if (isInit(expression))
                 push({
                     name: kind,
                     path,

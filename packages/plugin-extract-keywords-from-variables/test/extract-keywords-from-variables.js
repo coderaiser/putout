@@ -49,6 +49,11 @@ test('putout: extract-keywords-from-variables: transform: let-no-init', (t) => {
     t.end();
 });
 
+test('putout: extract-keywords-from-variables: transform: destr', (t) => {
+    t.transform('destr');
+    t.end();
+});
+
 test('putout: extract-keywords-from-variables: report: const', (t) => {
     t.report('const', `Extract 'const' from variable`);
     t.end();
