@@ -13,25 +13,33 @@ const declarations = [
 
 const conditions = ['if'];
 
-const keywords = [
+const expressions = [
+    'as',
+    'await',
+    'new',
+    'yield',
+    'typeof',
+    'function',
+];
+
+const statements = [
     ...conditions,
     ...declarations,
     ...moduleDeclarations,
-    'as',
-    'await',
     'break',
     'continue',
     'for',
-    'function',
-    'new',
     'else',
     'from',
     'return',
     'throw',
     'of',
-    'yield',
-    'typeof',
     'while',
+];
+
+const keywords = [
+    ...statements,
+    ...expressions,
 ];
 
 module.exports.isKeyword = (name) => {
@@ -48,4 +56,8 @@ module.exports.isModuleDeclarationKeyword = (name) => {
 
 module.exports.isConditionKeyword = (name) => {
     return conditions.includes(name);
+};
+
+module.exports.isStatementKeyword = (name) => {
+    return statements.includes(name);
 };

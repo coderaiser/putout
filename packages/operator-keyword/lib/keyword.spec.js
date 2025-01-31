@@ -6,6 +6,7 @@ const {
     isDeclarationKeyword,
     isConditionKeyword,
     isModuleDeclarationKeyword,
+    isStatementKeyword,
 } = require('./keyword');
 
 test('putout: operator: keyword: isKeyword: yes', (t) => {
@@ -52,6 +53,27 @@ test('putout: operator: keyword: isConditionKeyword', (t) => {
 
 test('putout: operator: keyword: break', (t) => {
     const result = isKeyword('break');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isStatementKeyword: of', (t) => {
+    const result = isStatementKeyword('of');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isStatementKeyword: await', (t) => {
+    const result = isStatementKeyword('await');
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('putout: operator: isStatementKeyword: typeof', (t) => {
+    const result = isKeyword('typeof');
     
     t.ok(result);
     t.end();

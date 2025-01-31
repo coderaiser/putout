@@ -42,6 +42,10 @@ true;
 isConditionKeyword('if');
 // returns
 true;
+
+isStatementKeyword('for');
+// returns
+true;
 ```
 
 ## License
