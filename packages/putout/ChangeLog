@@ -1,3 +1,16 @@
+2025.01.31, v38.0.1
+
+fix:
+- 003699b56 @putout/plugin-return: remove-useless
+
+feature:
+- 151732a11 putout: @putout/plugin-extract-keywords-from-variables v2.0.0
+- ad89e159f @putout/plugin-extract-keywords-from-variables: drop support of 🐊 < 38
+- 7c314f9d6 @putout/plugin-extract-keywords-from-variables: add support of Identifier used as init
+- d3bd4516f @putout/plugin-putout-config: drop support of 🐊 < 38
+- 281827db0 @putout/plugin-putout-config: add apply-return
+- ab0804f65 root: eslint-plugin-putout v24.0.0
+
 2025.01.29, v38.0.0
 
 fix:
