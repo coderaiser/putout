@@ -49,7 +49,7 @@ test('plugin-remove-nested-blocks: transform: reduce', (t) => {
     t.end();
 });
 
-test('plugin-remove-nested-blocks: transform: removeEmpty', (t) => {
+test('plugin-remove-nested-blocks: transform: remove-empty', (t) => {
     t.transform('remove-empty', {
         'remove-empty': removeEmpty,
     });

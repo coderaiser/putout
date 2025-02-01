@@ -11,14 +11,14 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-react-hooks: transform', (t) => {
+test('plugin-react-hooks: transform: react-hooks', (t) => {
     t.transform('react-hooks', {
         'remove-unused-variables': rmUnused,
     });
     t.end();
 });
 
-test('plugin-react-hooks: transform: React.Component', (t) => {
+test('plugin-react-hooks: transform: react-component', (t) => {
     t.transform('react-component', {
         'remove-unused-variables': rmUnused,
     });

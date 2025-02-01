@@ -19,7 +19,7 @@ test('plugin-remove-console: property-identifier', (t) => {
     t.end();
 });
 
-test('plugin-remove-console: property literal', (t) => {
+test('plugin-remove-console: property-literal', (t) => {
     t.transform('property-literal', '\n');
     t.end();
 });

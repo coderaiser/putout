@@ -119,7 +119,7 @@ test('plugin-remove-useless-escape: transform: h', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-escape: no transform: no raw', (t) => {
+test('plugin-remove-useless-escape: no transform: no-raw', (t) => {
     t.transform('no-raw', {
         addFixLint,
     });

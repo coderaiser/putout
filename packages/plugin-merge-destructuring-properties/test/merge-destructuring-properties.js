@@ -51,7 +51,7 @@ test('plugin-merge-destructuring-properties: no report: no-init', (t) => {
     t.end();
 });
 
-test('plugin-merge-destructuring-properties: transform: putout/declare', (t) => {
+test('plugin-merge-destructuring-properties: transform: putout-declare', (t) => {
     t.transform('putout-declare', {
         'putout/declare': declare,
     });
@@ -83,7 +83,7 @@ test('plugin-merge-destructuring-properties: no transform: exports', (t) => {
     t.end();
 });
 
-test('plugin-merge-destructuring-properties: no transform: removed variable', (t) => {
+test('plugin-merge-destructuring-properties: no transform: mock-require', (t) => {
     t.transform('mock-require', {
         'node/convert-commonjs-to-esm': convert,
         'tape/convert-mock-require-to-mock-import': tape.rules['convert-mock-require-to-mock-import'],

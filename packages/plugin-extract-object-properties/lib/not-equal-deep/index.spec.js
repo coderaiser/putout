@@ -55,14 +55,14 @@ test('plugin-extract-object-properties: not-equal-deep: no transform: different-
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: transform: no scope', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: transform: no-scope', (t) => {
     t.transform('no-scope', {
         'apply-destructuring': applyDestructuring,
     });
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: transform: remove unused-variables: duplicate declaration', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: transform: remove unused-variables: remove-unused-variables', (t) => {
     t.transform('remove-unused-variables', {
         'remove': removeUnusedVariables,
         'putout/convert-replace-with': putout.rules['convert-replace-with'],

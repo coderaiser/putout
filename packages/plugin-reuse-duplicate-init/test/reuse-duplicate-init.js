@@ -43,14 +43,14 @@ test('plugin-reuse-duplicate-init: no report: rest', (t) => {
     t.end();
 });
 
-test('plugin-reuse-duplicate-init: transform: no node', (t) => {
+test('plugin-reuse-duplicate-init: transform: no-node', (t) => {
     t.transform('no-node', {
         'remove-useless-variables': removeUselessVariables,
     });
     t.end();
 });
 
-test('plugin-reuse-duplicate-init: transform: declare', (t) => {
+test('plugin-reuse-duplicate-init: transform: declare-stub', (t) => {
     t.transform('declare-stub', {
         'tape/declare': declareStub,
     });

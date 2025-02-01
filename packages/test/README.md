@@ -94,7 +94,7 @@ test('remove debugger: report', (t) => {
 Check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory:
 
 ```js
-test('remove useless variables: for-of', (t) => {
+test('remove useless variables: array-from', (t) => {
     t.transform('array-from', {
         'remove-useless-array-from': removeUselessArrayFrom,
     });

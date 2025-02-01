@@ -15,7 +15,7 @@ test('remove unused types: report: unused', (t) => {
     t.end();
 });
 
-test('remove unused types: transform', (t) => {
+test('remove unused types: transform: unused', (t) => {
     t.transform('unused', '\n');
     t.end();
 });

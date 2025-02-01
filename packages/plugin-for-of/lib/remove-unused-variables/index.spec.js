@@ -63,7 +63,7 @@ test('remove unused for-of-variables: no transform: spread', (t) => {
     t.end();
 });
 
-test('remove unused for-of-variables: transform: remove-useless-variables', (t) => {
+test('remove unused for-of-variables: transform: for-of', (t) => {
     t.transform('for-of', {
         'remove-useless-variables/for-of': removeUselessVariables,
     });

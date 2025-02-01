@@ -71,7 +71,7 @@ test('plugin-remove-empty: block: else', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: block: else if', (t) => {
+test('plugin-remove-empty: block: else-if', (t) => {
     t.transform('else-if', '\n');
     t.end();
 });

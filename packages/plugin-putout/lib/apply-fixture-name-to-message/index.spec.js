@@ -48,3 +48,8 @@ test('putout: apply-fixture-name-to-message: no report: remove-only', (t) => {
     });
     t.end();
 });
+
+test('putout: apply-fixture-name-to-message: options', (t) => {
+    t.transform('options');
+    t.end();
+});

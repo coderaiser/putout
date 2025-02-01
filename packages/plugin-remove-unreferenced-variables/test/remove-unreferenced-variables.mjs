@@ -17,7 +17,7 @@ test('plugin-remove-unreferenced-variables: report: unreferenced', (t) => {
     t.end();
 });
 
-test('plugin-remove-unreferenced-variables: transform', (t) => {
+test('plugin-remove-unreferenced-variables: transform: unreferenced', (t) => {
     t.transform('unreferenced', '\n');
     t.end();
 });
@@ -64,7 +64,7 @@ test('plugin-remove-unreferenced-variables: transform: merge-variables', (t) => 
     t.end();
 });
 
-test('plugin-remove-unreferenced-variables: transform: for-of/reduce', (t) => {
+test('plugin-remove-unreferenced-variables: transform: for-of-reduce', (t) => {
     t.transform('for-of-reduce', {
         'for-of/reduce': forOfReduce,
     });

@@ -2,6 +2,7 @@
 
 const {createTest} = require('@putout/test');
 const moveRequireOnTopLevel = require('.');
+const applyFixtureNameToMessage = require('../apply-fixture-name-to-message');
 
 const test = createTest(__dirname, {
     plugins: [
@@ -36,5 +37,12 @@ test('plugin-putout: move-require-on-top-level: no transform: member-expression'
 
 test('plugin-putout: move-require-on-top-level: no transform: not-require', (t) => {
     t.noTransform('not-require');
+    t.end();
+});
+
+test('plugin-putout: move-require-on-top-level: no transform: apply-fixture-name-to-message', (t) => {
+    t.transform('apply-fixture-name-to-message', {
+        'apply-fixture-name-to-message': applyFixtureNameToMessage,
+    });
     t.end();
 });

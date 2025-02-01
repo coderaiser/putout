@@ -40,7 +40,7 @@ test('plugin-putout: convert-replace-with: transform: putout-declared', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert-replace-with: transform: replace with crawl', (t) => {
+test('plugin-putout: convert-replace-with: transform: replace-with-crawl', (t) => {
     t.transform('replace-with-crawl', {
         declare,
     });

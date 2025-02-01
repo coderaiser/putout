@@ -14,7 +14,7 @@ test('plugin-for-of: remove-useless: report: empty', (t) => {
     t.end();
 });
 
-test('plugin-for-of: remove-useless: transform', (t) => {
+test('plugin-for-of: remove-useless: transform: empty', (t) => {
     t.transform('empty', '\n');
     t.end();
 });

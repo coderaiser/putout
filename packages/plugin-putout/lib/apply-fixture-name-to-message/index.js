@@ -23,6 +23,7 @@ module.exports.match = () => ({
     't.noReport(__a)': check,
     't.report(__a, __b)': check,
     't.transform(__a)': check,
+    't.transform(__a, __b)': check,
     't.noTransform(__a)': check,
 });
 
@@ -30,6 +31,7 @@ module.exports.replace = () => ({
     't.noReport(__a)': transform,
     't.report(__a, __b)': transform,
     't.transform(__a)': transform,
+    't.transform(__a, __b)': transform,
     't.noTransform(__a)': transform,
 });
 

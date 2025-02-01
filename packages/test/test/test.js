@@ -51,7 +51,7 @@ test('test: transform: property-identifier', (t) => {
     t.end();
 });
 
-test('test: property literal', (t) => {
+test('test: property-literal', (t) => {
     t.transform('property-literal', '\n');
     t.end();
 });

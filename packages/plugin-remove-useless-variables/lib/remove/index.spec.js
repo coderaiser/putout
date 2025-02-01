@@ -46,7 +46,7 @@ test('remove useless variables: remove: no transform: vice-versa', (t) => {
     t.end();
 });
 
-test('plugin-reuse-duplicate-init: transform: with-remove-useless', (t) => {
+test('plugin-reuse-duplicate-init: transform: with-reuse', (t) => {
     t.transform('with-reuse', {
         'reuse-duplicate-init': reuseDuplicateInit,
     });

@@ -137,14 +137,14 @@ test('plugin-for-of: transform: end-return', (t) => {
     t.end();
 });
 
-test('plugin-for-of: transform: not-constant', (t) => {
+test('plugin-for-of: transform: not-const', (t) => {
     t.transform('not-const', {
         convertConstToLet,
     });
     t.end();
 });
 
-test('plugin-for-of: transform: with convert-comparison-to-boolean', (t) => {
+test('plugin-for-of: transform: convert-comparison-to-boolean', (t) => {
     t.transform('convert-comparison-to-boolean', {
         'convert-comparison-to-boolean': convertComparisonToBoolean,
         'remove-useless-variables': removeUselessVariables,

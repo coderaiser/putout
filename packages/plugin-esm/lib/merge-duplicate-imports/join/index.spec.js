@@ -67,7 +67,7 @@ test('plugin-merge-duplicate-imports: join: transform: remove', (t) => {
     t.end();
 });
 
-test('plugin-merge-duplicate-imports: join: transform: nested', (t) => {
+test('plugin-merge-duplicate-imports: join: transform: remove-replace', (t) => {
     t.transform('remove-replace', {
         remove: {
             report: noop,
