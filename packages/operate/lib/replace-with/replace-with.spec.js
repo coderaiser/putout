@@ -1,7 +1,8 @@
 'use strict';
 
+const putout = require('putout');
 const {test, stub} = require('supertape');
-
+const montag = require('montag');
 const {replaceWith} = require('./replace-with');
 
 test('putout: operate: replaceWith', (t) => {
@@ -79,7 +80,17 @@ test('putout: operate: replaceWith: expression', (t) => {
     
     const result = replaceWith(path, node);
     
-    t.equal(result, parentPath, 'should return result');
+    const expected = {
+        node: {
+            comments: undefined,
+            loc: undefined,
+        },
+        isExpressionStatement: stub(),
+        isProgram: stub(),
+        replaceWith: stub(),
+    };
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -156,5 +167,48 @@ test('putout: operate: replaceWith: loc', (t) => {
     replaceWith(path, newNode);
     
     t.equal(path.node.loc, loc);
+    t.end();
+});
+
+test('putout: operate: replaceWith: parentPath', (t) => {
+    const source = montag`
+        const test = require('@putout/test')(__dirname, {
+            'remove-debugger': require('..'),
+        });
+        
+        test('remove debugger: report', (t) => {
+            t.transform('debugger', {
+                'remove-debugger': require('..'),
+            });
+            t.end();
+        });
+    `;
+    
+    const {code} = putout(source, {
+        rules: {
+            'putout': 'off',
+            'putout/apply-fixture-name-to-messsage': 'on',
+            'putout/move-require-on-top-level': 'on',
+        },
+        plugins: ['putout'],
+    });
+    
+    const expected = montag`
+        import {createTest} from '@putout/test';
+        
+        const removeDebugger = require('..');
+        const test = createTest(import.meta.url, {
+            'remove-debugger': removeDebugger,
+        });
+        
+        test('remove debugger: report: debugger', (t) => {
+            t.transform('debugger', {
+                'remove-debugger': removeDebugger,
+            });
+            t.end();
+        });\n
+    `;
+    
+    t.equal(code, expected);
     t.end();
 });
