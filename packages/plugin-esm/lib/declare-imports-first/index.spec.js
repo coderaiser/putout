@@ -2,7 +2,12 @@
 
 const {operator} = require('putout');
 const {createTest} = require('@putout/test');
+
+const nodejs = require('@putout/plugin-nodejs');
 const plugin = require('.');
+
+const convertEsmToCommonjs = nodejs.rules['convert-esm-to-commonjs'];
+const groupRequireById = nodejs.rules['group-require-by-id'];
 
 const {remove} = operator;
 
@@ -44,6 +49,14 @@ test('putout: plugin-esm: declare-imports-first: transform: remove', (t) => {
             include: () => ['ImportDeclaration'],
             fix: (path) => remove(path),
         },
+    });
+    t.end();
+});
+
+test('putout: plugin-esm: declare-imports-first: transform: convert-esm-to-commonjs', (t) => {
+    t.transform('convert-esm-to-commonjs', {
+        'convert-esm-to-commonjs': convertEsmToCommonjs,
+        'node/group-require-by-id': groupRequireById,
     });
     t.end();
 });

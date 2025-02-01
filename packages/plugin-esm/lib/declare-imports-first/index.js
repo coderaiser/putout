@@ -1,6 +1,13 @@
 'use strict';
 
-const {replaceWith} = require('putout').operator;
+const {types, operator} = require('putout');
+const {
+    isImportDeclaration,
+    isExportDeclaration,
+} = types;
+
+const {replaceWith} = operator;
+const isESMNode = (a) => isImportDeclaration(a) || isExportDeclaration(a);
 
 module.exports.report = () => `Declare imports first`;
 
@@ -39,6 +46,12 @@ module.exports.traverse = ({push, pathStore}) => ({
     },
     Program: {
         exit: () => {
+            const all = pathStore();
+            const esmNodes = all.filter(isESMNode);
+            
+            if (!esmNodes.length)
+                return;
+            
             for (const importPath of pathStore()) {
                 if (importPath) {
                     const path = importPath.getPrevSibling();
