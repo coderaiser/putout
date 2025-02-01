@@ -1,3 +1,10 @@
+2025.02.02, v38.0.4
+
+feature:
+- bdd6ae17a putout: @putout/plugin-esm v2.0.0
+- 9b4ea5c24 @putout/plugin-esm: drop support of 🐊 < 38
+- 7017b762e @putout/plugin-esm: declare-imports-first: exclude not ESM
+
 2025.02.02, v38.0.3
 
 feature:
