@@ -37,8 +37,8 @@ const {
     WAS_STOP,
     INVALID_OPTION,
     UNHANDLED,
-    RULLER_WITH_FIX,
-    RULLER_NO_FILES,
+    RULER_WITH_FIX,
+    RULER_NO_FILES,
     INVALID_CONFIG,
     CANNOT_LINT_STAGED,
     INTERACTIVE_CANCELED,
@@ -154,7 +154,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
     }
     
     if (fix && (enable || disable || enableAll || disableAll))
-        return exit(RULLER_WITH_FIX, Error(`'--fix' cannot be used with ruler toggler ('--enable', '--disable')`));
+        return exit(RULER_WITH_FIX, Error(`'--fix' cannot be used with ruler toggler ('--enable', '--disable')`));
     
     if (enable || disable) {
         const {ruler} = await simpleImport('@putout/cli-ruler');
@@ -229,7 +229,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
     const noFiles = !names.length;
     
     if (noFiles && (enableAll || disableAll))
-        return exit(RULLER_NO_FILES, Error('`path` is missing for ruler toggler (`--enable-all`, `--disable-all`)'));
+        return exit(RULER_NO_FILES, Error('`path` is missing for ruler toggler (`--enable-all`, `--disable-all`)'));
     
     if (noFiles)
         return exit();

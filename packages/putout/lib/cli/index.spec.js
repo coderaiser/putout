@@ -23,7 +23,7 @@ const {
     WAS_STOP,
     INVALID_OPTION,
     CANNOT_LOAD_PROCESSOR,
-    RULLER_WITH_FIX,
+    RULER_WITH_FIX,
     INVALID_CONFIG,
     CANNOT_LINT_STAGED,
     INTERACTIVE_CANCELED,
@@ -1177,7 +1177,7 @@ test('putout: cli: ruler processor: --enable-all: no path: code', async (t) => {
     
     stopAll();
     
-    t.calledWith(halt, [RULLER_WITH_FIX]);
+    t.calledWith(halt, [RULER_WITH_FIX]);
     t.end();
 });
 
@@ -1204,7 +1204,7 @@ test('putout: cli: ruler processor: --enable-all --fix: code', async (t) => {
     
     stopAll();
     
-    t.calledWith(halt, [RULLER_WITH_FIX]);
+    t.calledWith(halt, [RULER_WITH_FIX]);
     t.end();
 });
 
@@ -1259,7 +1259,7 @@ test('putout: cli: ruler processor: --enable-all --fix', async (t) => {
     
     stopAll();
     
-    t.calledWith(halt, [RULLER_WITH_FIX]);
+    t.calledWith(halt, [RULER_WITH_FIX]);
     t.end();
 });
 

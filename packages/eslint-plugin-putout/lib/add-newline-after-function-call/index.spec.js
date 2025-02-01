@@ -64,7 +64,7 @@ ruleTester.run('add-newline-after-function-call', rule, {
         `,
         montag`
             {
-                mockRequire('./ruler-processor', rullerProcessor);
+                mockRequire('./ruler-processor', rulerProcessor);
                 const cli = reRequire('.');
                 
                 await tryToCatch(runCli);
