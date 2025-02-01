@@ -1,3 +1,11 @@
+2025.02.01, v38.0.2
+
+fix:
+- 682989347 putout: exit codes: RULLER -> RULER
+
+feature:
+- e947022dd @putout/operator-keyword: isStatementKeyword: add
+
 2025.01.31, v38.0.1
 
 fix:
