@@ -3,8 +3,8 @@
 const {dirname} = require('node:path');
 const escalade = require('escalade/sync');
 
-const merge = require('../merge');
-const parseMatch = require('./parse-match');
+const {mergeOptions} = require('./merge-options');
+const {parseMatch} = require('./parse-match');
 
 module.exports = (name, configName, overrides) => {
     if (name === '<input>')
@@ -19,10 +19,10 @@ module.exports = (name, configName, overrides) => {
         customRequire,
     });
     
-    let mergedOptions = merge(...optionsList);
+    let mergedOptions = mergeOptions(...optionsList);
     
     for (const currentOptions of optionsList)
-        mergedOptions = merge(
+        mergedOptions = mergeOptions(
             mergedOptions,
             currentOptions,
             parseMatch(

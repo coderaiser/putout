@@ -2,22 +2,29 @@
 
 const tryToCatch = require('try-to-catch');
 const eslint = require('@putout/eslint');
-
-const {putoutAsync} = require('../..');
-const merge = require('../merge');
-const parseMatch = require('../parse-options/parse-match');
+const {parseMatch} = require('putout/parse-match');
+const {mergeOptions} = require('putout/merge-options');
+const parseError = require('putout/parse-error');
+const {putoutAsync} = require('putout');
 
 const {simpleImport} = require('./simple-import');
-const parseError = require('../parse-error');
 
 const getMatchedOptions = (name, options) => {
     if (!name.includes('{'))
         return options;
     
-    return merge(options, parseMatch(name, options.match));
+    return mergeOptions(options, parseMatch(name, options.match));
 };
 
-module.exports = ({fix, fixCount, isFlow, logError, raw}) => async function processFile({name, source, startLine, options, again}) {
+module.exports = ({fix, fixCount, isFlow, logError, raw}) => async function processFile(overrides) {
+    const {
+        name = '<input>',
+        source,
+        startLine,
+        options = {},
+        again,
+    } = overrides;
+    
     const {configurePrinter} = await import('./printer/printer.mjs');
     const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
     const {printer, ...matchedOptions} = getMatchedOptions(name, options);

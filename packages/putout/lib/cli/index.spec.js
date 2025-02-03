@@ -106,7 +106,7 @@ test('putout: cli: --raw: parse error', async (t) => {
     reRequire('./runner/writer.js');
     
     reRequire('./get-files');
-    reRequire('./process-file');
+    reRequire('@putout/cli-process-file');
     const cli = reRequire('.');
     
     await runCli({
@@ -149,7 +149,7 @@ test('putout: cli: --format: ci', async (t) => {
     const getFormatter = stub().returns(['dump', {}]);
     const report = stub().returns(stub);
     
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     mockRequire('@putout/engine-reporter/formatter', {
         getFormatter,
     });
@@ -195,7 +195,7 @@ test('putout: cli: -i', async (t) => {
     const getFormatter = stub().returns(['dump', {}]);
     const report = stub().returns(stub);
     
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     mockRequire('@putout/engine-reporter/formatter', {
         getFormatter,
     });
@@ -249,7 +249,7 @@ test('putout: cli: -i: cancel', async (t) => {
     const getFormatter = stub().returns(['dump', {}]);
     const report = stub().returns(stub);
     
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     mockRequire('@putout/engine-reporter/formatter', {
         getFormatter,
     });
@@ -306,7 +306,7 @@ test('putout: cli: --format: specified twice', async (t) => {
     
     const report = stub().returns(stub);
     
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     mockRequire('@putout/engine-reporter/formatter', {
         getFormatter,
     });
@@ -359,7 +359,7 @@ test('putout: cli: no ide', async (t) => {
         setInfo,
     });
     
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     mockRequire('@putout/engine-reporter/formatter', {
         getFormatter,
     });
@@ -439,7 +439,7 @@ test('putout: cli: ide: web storm', async (t) => {
         setInfo,
     });
     
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     mockRequire('@putout/engine-reporter/formatter', {
         getFormatter,
     });
@@ -522,7 +522,7 @@ test('putout: cli: ide: vs code', async (t) => {
         setInfo,
     });
     
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     mockRequire('@putout/engine-reporter/formatter', {
         getFormatter,
     });
@@ -591,7 +591,7 @@ test('putout: cli: ide: vs code: cache', async (t) => {
         setInfo,
     });
     
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     mockRequire('@putout/engine-reporter/formatter', {
         getFormatter,
     });
@@ -659,7 +659,7 @@ test('putout: cli: no ide: cache', async (t) => {
         setInfo,
     });
     
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     mockRequire('@putout/engine-reporter/formatter', {
         getFormatter,
     });
@@ -829,7 +829,7 @@ test('putout: cli: --fix --staged: set', async (t) => {
     const processFile = stub().returns(process);
     
     mockRequire('./get-files', getFiles);
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     
     mockRequire('@putout/cli-staged', {
         get,
@@ -881,7 +881,7 @@ test('putout: cli: --fix --staged: get', async (t) => {
     const {isSupported} = require('./supported-files');
     
     mockRequire('./get-files', getFiles);
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     
     mockRequire('@putout/cli-staged', {
         get,
@@ -937,7 +937,7 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
     const createCache = stub().returns(_defaultCache);
     
     mockRequire('./get-files', getFiles);
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     mockRequire('@putout/cli-cache', {
         createCache,
     });
@@ -1313,7 +1313,7 @@ test('putout: cli: tsx', async (t) => {
     mockRequire('@putout/eslint', eslint);
     mockRequire('./get-options', getOptions);
     
-    reRequire('./process-file');
+    reRequire('@putout/cli-process-file');
     const cli = reRequire('.');
     
     await runCli({
@@ -1383,7 +1383,7 @@ test('putout: cli: --transform', async (t) => {
     
     mockRequire('@putout/eslint', eslint);
     
-    reRequire('./process-file');
+    reRequire('@putout/cli-process-file');
     reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     
@@ -1443,10 +1443,13 @@ test('putout: cli: --plugins', async (t) => {
     
     mockRequire('@putout/eslint', eslint);
     
-    reRequire('./process-file');
+    reRequire('@putout/cli-process-file');
     reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
+    
     const cli = reRequire('.');
+    
+    reRequire('@putout/eslint');
     
     await runCli({
         cli,
@@ -1513,7 +1516,7 @@ test('putout: cli: fix', async (t) => {
     });
     
     mockRequire('./get-options', getOptions);
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     
     reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
@@ -1554,7 +1557,7 @@ test('putout: cli: no processors', async (t) => {
     });
     
     mockRequire('./get-options', getOptions);
-    mockRequire('./process-file', processFile);
+    mockRequire('@putout/cli-process-file', processFile);
     
     reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');

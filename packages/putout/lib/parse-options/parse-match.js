@@ -4,7 +4,7 @@ const picomatch = require('picomatch');
 
 const {keys, assign} = Object;
 
-module.exports = (name, match) => {
+module.exports.parseMatch = (name, match) => {
     if (!match || !name)
         return {};
     

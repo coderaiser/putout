@@ -1,0 +1,6 @@
+node_modules
+*.swp
+yarn-error.log
+
+coverage
+.idea

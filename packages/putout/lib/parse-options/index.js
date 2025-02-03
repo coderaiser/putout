@@ -10,9 +10,9 @@ const once = require('once');
 const tryCatch = require('try-catch');
 const escalade = require('escalade/sync');
 
-const parseMatch = require('./parse-match');
+const {parseMatch} = require('./parse-match');
 const defaultOptions = require('../../putout.json');
-const merge = require('../merge');
+const {mergeOptions} = require('./merge-options');
 const recursiveRead = require('./recursive-read');
 const applyModuleTypeRules = require('./apply-module-type-rules');
 const {validateOptions} = require('./validate-options');
@@ -47,9 +47,9 @@ module.exports = (info = {}, overrides = {}) => {
         options,
     ];
     
-    const mergedOptions = merge(...optionsList);
+    const mergedOptions = mergeOptions(...optionsList);
     
-    const mergedDefaultsMatch = merge(
+    const mergedDefaultsMatch = mergeOptions(
         mergedOptions,
         parseMatch(
             name,
@@ -58,7 +58,7 @@ module.exports = (info = {}, overrides = {}) => {
         options,
     );
     
-    const mergedMatch = merge(customOptions, options, parseMatch(name, options.match));
+    const mergedMatch = mergeOptions(customOptions, options, parseMatch(name, options.match));
     
     const resultOptionsList = [
         readCodeMods({
@@ -74,7 +74,7 @@ module.exports = (info = {}, overrides = {}) => {
         mergedMatch,
     ];
     
-    const finalMergedOptions = merge(...resultOptionsList);
+    const finalMergedOptions = mergeOptions(...resultOptionsList);
     
     validateOptions(finalMergedOptions);
     

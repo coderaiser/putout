@@ -1,11 +1,11 @@
 {
-  "name": "@putout/engine-processor",
-  "version": "13.0.0",
-  "type": "commonjs",
+  "name": "@putout/cli-process-file",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout engine processor runner",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/engine-processor#readme",
-  "main": "lib/processor.js",
+  "description": "Run all 🐊Putout linters",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-process-file#readme",
+  "main": "lib/process-file.js",
+  "type": "commonjs",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -24,32 +24,34 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/engine-loader": "^15.0.1",
-    "once": "^1.4.0",
-    "picomatch": "^4.0.2",
-    "try-to-catch": "^3.0.1"
+    "@putout/eslint": "^3.8.0",
+    "@putout/formatter-eslint": "^2.0.2",
+    "deepmerge": "^4.3.1",
+    "samadhi": "^2.14.1",
+    "try-catch": "^3.0.0",
+    "try-to-catch": "^3.0.0"
   },
   "keywords": [
     "putout",
-    "putout-engine"
+    "cli"
   ],
   "devDependencies": {
-    "@putout/cli-process-file": "^1.0.0",
-    "@putout/plugin-travis": "*",
-    "@putout/processor-css": "*",
-    "@putout/test": "^11.0.0",
+    "@putout/operate": "^12.17.0",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^24.0.0",
     "lerna": "^6.0.1",
     "madrun": "^10.0.0",
+    "mock-import": "^4.2.1",
+    "mock-require": "^3.0.3",
+    "montag": "^1.2.1",
     "nodemon": "^3.0.1",
     "putout": "*",
     "supertape": "^10.0.0"
   },
   "peerDependencies": {
-    "putout": "*"
+    "putout": ">=38"
   },
   "license": "MIT",
   "engines": {

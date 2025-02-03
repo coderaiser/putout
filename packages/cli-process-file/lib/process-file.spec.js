@@ -3,8 +3,12 @@
 const montag = require('montag');
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
+
+const parseOptions = require('putout/parse-options');
+const putout = require('putout');
 const processFile = require('./process-file');
-const parseOptions = require('../parse-options');
+
+const {assign} = Object;
 const noop = () => {};
 const {reRequire, stopAll} = mockRequire;
 const {stringify} = JSON;
@@ -276,7 +280,7 @@ test('putout: cli: process-file: configurePrinter', async (t) => {
     const log = stub();
     const write = stub();
     
-    mockRequire('../putout.js', {
+    mockRequire('putout', {
         putoutAsync,
     });
     
@@ -339,7 +343,8 @@ test('putout: cli: process-file: configurePrinter: overrides', async (t) => {
     const log = stub();
     const write = stub();
     
-    mockRequire('../putout.js', {
+    mockRequire('putout', {
+        ...putout,
         putoutAsync,
     });
     
@@ -405,13 +410,16 @@ test('putout: cli: process-file: plugin not found', async (t) => {
     const log = stub();
     const write = stub();
     
-    mockRequire('../putout.js', {
+    mockRequire('putout', {
+        ...putout,
         putoutAsync,
     });
     
     const options = {
         dir: '.',
     };
+    
+    reRequire('@putout/eslint');
     
     const processFile = reRequire('./process-file');
     
@@ -743,6 +751,7 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
         simpleImport,
     });
     
+    reRequire('putout');
     const processFile = reRequire('./process-file');
     
     const fn = processFile({
@@ -912,5 +921,33 @@ test('putout: cli: process-file: after fixing syntax errors, run 🐊 and ESLint
     };
     
     t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: process-file: logError', async (t) => {
+    const logError = stub();
+    const lint = processFile({
+        raw: true,
+        logError,
+        fix: true,
+    });
+    
+    const source = 'const a =\n';
+    
+    await lint({
+        source,
+    });
+    
+    const error = SyntaxError('Unexpected token (2:0)');
+    
+    assign(error, {
+        pos: 11,
+        loc: {
+            column: 0,
+            line: 2,
+        },
+    });
+    
+    t.calledWith(logError, [error], 'should call logError');
     t.end();
 });

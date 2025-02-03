@@ -34,7 +34,7 @@ const arrayUnion = (a, b) => {
 
 const arrayMerge = (a, b) => arrayUnion(b, a);
 
-module.exports = (...args) => {
+module.exports.mergeOptions = (...args) => {
     return deepmerge.all(args, {
         arrayMerge,
     });

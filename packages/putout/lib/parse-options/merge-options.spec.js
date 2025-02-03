@@ -1,14 +1,14 @@
 'use strict';
 
 const test = require('supertape');
-const merge = require('./merge');
+const {mergeOptions} = require('./merge-options');
 
 test('putout: merge', (t) => {
     const defaultConfig = {
         plugins: ['remove-unused-variables'],
     };
     
-    const result = merge(defaultConfig, {
+    const result = mergeOptions(defaultConfig, {
         plugins: ['extract-sequence-expressions'],
     });
     
@@ -28,7 +28,7 @@ test('putout: merge: ignore', (t) => {
         plugins: ['remove-unused-variables'],
     };
     
-    const result = merge(defaultConfig, {
+    const result = mergeOptions(defaultConfig, {
         ignore: [
             '**/coverage',
             '!**/coverage',
@@ -53,7 +53,7 @@ test('putout: merge: rules', (t) => {
         },
     };
     
-    const result = merge({}, options);
+    const result = mergeOptions({}, options);
     
     t.deepEqual(result, options);
     t.end();
@@ -73,7 +73,7 @@ test('putout: merge: override: rules', (t) => {
         plugins: ['remove-unused-variables'],
     };
     
-    const result = merge(defaultConfig, {
+    const result = mergeOptions(defaultConfig, {
         rules: {
             'github/set-node-versions': ['on', {
                 versions: [
@@ -111,7 +111,7 @@ test('putout: merge: override: plugins', (t) => {
         ],
     };
     
-    const result = merge(defaultConfig, {});
+    const result = mergeOptions(defaultConfig, {});
     
     const expected = {
         plugins: [
@@ -132,7 +132,7 @@ test('putout: merge: override: printer', (t) => {
         }],
     };
     
-    const result = merge(defaultConfig, {
+    const result = mergeOptions(defaultConfig, {
         printer: ['putout', {
             format: {
                 indent: '  ',

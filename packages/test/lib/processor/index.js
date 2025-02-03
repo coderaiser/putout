@@ -15,7 +15,7 @@ const {
 const tryToCatch = require('try-to-catch');
 
 const test = require('supertape');
-const processFile = require('putout/process-file');
+const processFile = require('@putout/cli-process-file');
 const {runProcessors} = require('@putout/engine-processor');
 
 const isStr = (a) => typeof a === 'string';
