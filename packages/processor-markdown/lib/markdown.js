@@ -1,22 +1,21 @@
 import {toJS, fromJS} from '@putout/operator-json';
 import stringify from 'remark-stringify';
 import preset from 'remark-preset-lint-consistent';
+import remarkFrontmatter from 'remark-frontmatter';
 import {visit} from 'unist-util-visit';
 import {unified} from 'unified';
+import remarkParse from 'remark-parse';
 import removeDependenciesStatusBadge from './rules/remove-dependencies-status-badge.js';
 import removeTrailingWhitespacesFromHeading from './rules/remove-trailing-whitespaces-from-heading.js';
 import mergeHeadingSpceces from './rules/merge-heading-spaces.js';
 import {run} from './rules/index.js';
 import {toPlace} from './parse-place.js';
-import {initParseStore} from './parse-store.js';
 
 const plugins = [
     removeDependenciesStatusBadge,
     removeTrailingWhitespacesFromHeading,
     mergeHeadingSpceces,
 ];
-
-const parseStore = initParseStore();
 
 const text = ({value}) => value;
 
@@ -32,13 +31,11 @@ const stringifyOptions = {
 
 export const files = ['*.md'];
 export const find = async (rawSource, options = {}) => {
-    await parseStore.init();
-    
     if (!rawSource.length)
         return [];
     
     const {messages} = await unified()
-        .use(parseStore)
+        .use(remarkParse)
         .use(preset)
         .use(run, {
             fix: false,
@@ -48,16 +45,17 @@ export const find = async (rawSource, options = {}) => {
             ],
         })
         .use(stringify, stringifyOptions)
+        .use(remarkFrontmatter, ['yaml', 'toml'])
         .process(rawSource);
     
     return messages.map(toPlace);
 };
 export const fix = async (rawSource, options = {}) => {
-    await parseStore.init();
-    
     const {value} = await unified()
-        .use(parseStore)
+        .use(remarkParse)
         .use(preset)
+        .use(stringify, stringifyOptions)
+        .use(remarkFrontmatter, ['yaml', 'toml'])
         .use(run, {
             fix: true,
             plugins: [
@@ -65,7 +63,6 @@ export const fix = async (rawSource, options = {}) => {
                 ...options.plugins || [],
             ],
         })
-        .use(stringify, stringifyOptions)
         .process(rawSource);
     
     return value;
@@ -74,7 +71,7 @@ export const branch = async (rawSource) => {
     const list = [];
     
     await unified()
-        .use(parseStore)
+        .use(remarkParse)
         .use(collect, {
             list,
             visit,
@@ -88,7 +85,7 @@ export const merge = async (rawSource, list) => {
     const newList = list.slice();
     
     const {value} = await unified()
-        .use(parseStore)
+        .use(remarkParse)
         .use(apply, {
             list: newList,
             rawSource,
@@ -97,15 +94,12 @@ export const merge = async (rawSource, list) => {
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
-    await parseStore.clear();
-    
     return value;
 };
 
 const collect = ({list, visit}) => (node) => {
     visit(node, 'code', (node) => {
         const {lang, value} = node;
-        
         const startLine = node.position.start.line;
         
         if (/^(js|javascript)$/.test(lang)) {

@@ -155,3 +155,7 @@ test('putout: processor: markdown: merge-heading-spaces: comparePlaces', async (
 test('putout: processor: markdown: compare places: empty', async ({comparePlaces}) => {
     await comparePlaces('empty', []);
 });
+
+test('putout: processor: markdown: compare places: frontmatter', async ({noProcess}) => {
+    await noProcess('frontmatter');
+});
