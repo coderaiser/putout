@@ -1,3 +1,9 @@
+2025.02.04, v38.0.6
+
+feature:
+- 487a24e4e @putout/cli-process-file: add
+- 34c38b881 @putout/plugin-extract-keywords-from-variables: MemberExpression
+
 2025.02.03, v38.0.5
 
 feature:
