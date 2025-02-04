@@ -1,5 +1,8 @@
 'use strict';
 
+const process = require('node:process');
+const {join} = require('node:path');
+const once = require('once');
 const {nanomemoize} = require('nano-memoize');
 const tryToCatch = require('try-to-catch');
 const {simpleImport} = require('./simple-import');
@@ -14,10 +17,24 @@ module.exports.createAsyncLoader = (type) => nanomemoize(async (name, load) => {
     if (name.startsWith('import:')) {
         const shortName = name.replace('import:', '');
         
-        return await cleverLoad([require.resolve(shortName)], load);
+        return await cleverLoad([
+            require.resolve(shortName),
+        ], load);
     }
     
-    return await cleverLoad([`@putout/${type}-${name}`, `putout-${type}-${name}`], load);
+    const namesBase = [
+        `@putout/${type}-${name}`,
+        `putout-${type}-${name}`,
+    ];
+    
+    const namesFromPluginsDirs = namesBase.flatMap(buildPluginsDirs);
+    
+    const names = Array.from(new Set([
+        ...namesBase,
+        ...namesFromPluginsDirs,
+    ]));
+    
+    return await cleverLoad(names, load);
 });
 
 async function cleverLoad(names, load = simpleImport) {
@@ -45,4 +62,20 @@ async function cleverLoad(names, load = simpleImport) {
     });
     
     throw e;
+}
+
+const getPutoutLoadDir = once(() => process.env.PUTOUT_LOAD_DIR);
+
+function buildPluginsDirs(name) {
+    const dir = getPutoutLoadDir();
+    
+    if (!dir)
+        return [name];
+    
+    const base = join(dir, name);
+    
+    return [
+        base,
+        `${base}.js`,
+    ];
 }

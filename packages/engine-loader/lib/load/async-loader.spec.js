@@ -1,5 +1,7 @@
 'use strict';
 
+const process = require('node:process');
+const {join} = require('node:path');
 const tryToCatch = require('try-to-catch');
 
 const {test, stub} = require('supertape');
@@ -79,5 +81,25 @@ test('putout: loader: async-loader: calls load', async (t) => {
     reRequire('./async-loader');
     
     t.deepEqual(error, Error('@putout/formatter-xxx: LOAD USED'));
+    t.end();
+});
+
+test('putout: engine-loader: async-loader: PUTOUT_LOAD_DIR', async (t) => {
+    process.env.PUTOUT_LOAD_DIR = join(__dirname, 'fixture');
+    
+    const {createAsyncLoader} = reRequire('./async-loader');
+    const loadAsync = createAsyncLoader('plugin');
+    
+    const {report} = await loadAsync('hello');
+    
+    stopAll();
+    reRequire('./async-loader');
+    
+    delete process.env.PUTOUT_LOAD_DIR;
+    
+    const result = report();
+    const expected = 'hello';
+    
+    t.equal(result, expected);
     t.end();
 });
