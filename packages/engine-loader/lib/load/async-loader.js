@@ -47,6 +47,15 @@ async function cleverLoad(names, load = simpleImport) {
         if (!e)
             return reporter;
         
+        if (e.code === 'ERR_UNSUPPORTED_DIR_IMPORT') {
+            const fullName = require.resolve(name);
+            
+            [e, reporter] = await tryToCatch(load, fullName);
+            
+            if (!e)
+                return reporter;
+        }
+        
         if (e.code === 'ERR_MODULE_NOT_FOUND')
             continue;
         

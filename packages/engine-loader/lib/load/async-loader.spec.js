@@ -103,3 +103,23 @@ test('putout: engine-loader: async-loader: PUTOUT_LOAD_DIR', async (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: engine-loader: async-loader: PUTOUT_LOAD_DIR: node_modules', async (t) => {
+    process.env.PUTOUT_LOAD_DIR = join(__dirname, 'fixture');
+    
+    const {createAsyncLoader} = reRequire('./async-loader');
+    const loadAsync = createAsyncLoader('plugin');
+    
+    const {report} = await loadAsync('world');
+    
+    stopAll();
+    reRequire('./async-loader');
+    
+    delete process.env.PUTOUT_LOAD_DIR;
+    
+    const result = report();
+    const expected = 'hello';
+    
+    t.equal(result, expected);
+    t.end();
+});
