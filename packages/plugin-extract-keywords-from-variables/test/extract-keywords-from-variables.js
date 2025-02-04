@@ -54,6 +54,16 @@ test('putout: extract-keywords-from-variables: transform: destr', (t) => {
     t.end();
 });
 
+test('putout: extract-keywords-from-variables: transform: member', (t) => {
+    t.transform('member');
+    t.end();
+});
+
+test('putout: extract-keywords-from-variables: transform: arrow', (t) => {
+    t.transform('arrow');
+    t.end();
+});
+
 test('putout: extract-keywords-from-variables: report: const', (t) => {
     t.report('const', `Extract 'const' from variable`);
     t.end();

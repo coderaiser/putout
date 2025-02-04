@@ -13,6 +13,7 @@ const {
     isAssignmentExpression,
     isExportNamedDeclaration,
     isIdentifier,
+    isMemberExpression,
 } = types;
 
 const {
@@ -23,7 +24,7 @@ const {
     isModuleDeclarationKeyword,
 } = operator;
 
-const isInit = (a) => isIdentifier(a) || isLiteral(a) || isArrowFunctionExpression(a);
+const isInit = (a) => isIdentifier(a) || isLiteral(a) || isMemberExpression(a) || isArrowFunctionExpression(a);
 
 const buildDeclaration = (type) => (nextPath, path) => {
     const {expression} = nextPath.node;
