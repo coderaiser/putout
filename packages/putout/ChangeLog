@@ -1,3 +1,17 @@
+2025.02.05, v38.0.7
+
+fix:
+- da369e6e6 @putout/operator-keyword: typescript
+
+feature:
+- a56fdafa3 putout: @putout/plugin-apply-template-literals v4.0.0
+- 99b7bc6e7 @putout/plugin-apply-template-literals: exclude \n
+- 2b5274a3f @putout/plugin-apply-template-literals: drop support of 🐊 < 38
+- 61065dc79 @putout/operator-keyword: interface
+- eb86fd19d @putout/engine-loader: async-loader: require.resolve
+- 7e6560416 @putout/engine-loader: async-loader: PUTOUT_LOAD_DIR
+- b17d5145f @putout/processor-markdown: add support frontmatter
+
 2025.02.04, v38.0.6
 
 feature:
