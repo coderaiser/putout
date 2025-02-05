@@ -114,3 +114,38 @@ test('putout: operator: isTSKeyword: implements', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: operator: isTSKeyword: declare', (t) => {
+    const result = isTSKeyword('declare');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isTSKeyword: module', (t) => {
+    const result = isTSKeyword('module');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isTSKeyword: type', (t) => {
+    const result = isTSKeyword('type');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isTSKeyword: class', (t) => {
+    const result = isKeyword('class');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isTSKeyword: extends', (t) => {
+    const result = isKeyword('extends');
+    
+    t.ok(result);
+    t.end();
+});

@@ -18,6 +18,9 @@ const typescript = [
     'readonly',
     'static',
     'implements',
+    'declare',
+    'module',
+    'type',
 ];
 
 const expressions = [
@@ -43,6 +46,8 @@ const statements = [
     'throw',
     'of',
     'while',
+    'class',
+    'extends',
 ];
 
 const keywords = [
