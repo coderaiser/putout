@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "find-up": "^7.0.0",
+    "once": "^1.4.0",
     "try-to-catch": "^3.0.1"
   },
   "keywords": [

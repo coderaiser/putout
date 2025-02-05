@@ -3,6 +3,7 @@
 const {join} = require('node:path');
 const process = require('node:process');
 const tryToCatch = require('try-to-catch');
+const once = require('once');
 
 const {simpleImport} = require('./simple-import.js');
 const {isIgnored} = require('./ignore');
@@ -10,7 +11,7 @@ const {isIgnored} = require('./ignore');
 const {keys} = Object;
 const eslintId = ' (eslint)';
 
-const noESLint = process.env.NO_ESLINT;
+const isNoESLint = once(() => process.env.NO_ESLINT);
 const noESLintWarnings = process.env.NO_ESLINT_WARNINGS;
 const {ESLINT_CONFIG_FILE} = process.env;
 
@@ -49,7 +50,7 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         [],
     ];
     
-    if (noESLint)
+    if (isNoESLint())
         return noChanges;
     
     const [, ESLint] = await tryToCatch(simpleImport, './get-eslint.mjs');
