@@ -35,6 +35,7 @@ const statements = [
     'throw',
     'of',
     'while',
+    'interface',
 ];
 
 const keywords = [

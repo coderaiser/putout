@@ -78,3 +78,10 @@ test('putout: operator: isStatementKeyword: typeof', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: operator: isStatementKeyword: interface', (t) => {
+    const result = isKeyword('interface');
+    
+    t.ok(result);
+    t.end();
+});
