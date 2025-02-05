@@ -16,7 +16,12 @@ module.exports.filter = ({parentPath}) => {
     
     parentPath.traverse({
         StringLiteral(path) {
-            if (path.node.value.includes('\r'))
+            const {value} = path.node;
+            
+            if (value.includes('\r'))
+                is = false;
+            
+            if (value.includes('\n'))
                 is = false;
         },
     });
