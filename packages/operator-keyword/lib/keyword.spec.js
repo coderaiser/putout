@@ -85,3 +85,10 @@ test('putout: operator: isStatementKeyword: interface', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: operator: isStatementKeyword: readonly', (t) => {
+    const result = isKeyword('readonly');
+    
+    t.ok(result);
+    t.end();
+});

@@ -12,8 +12,10 @@ const declarations = [
 ];
 
 const conditions = ['if'];
-
-const typescript = ['interface'];
+const typescript = [
+    'interface',
+    'readonly',
+];
 
 const expressions = [
     'as',
