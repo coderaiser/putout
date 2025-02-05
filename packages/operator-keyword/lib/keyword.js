@@ -12,6 +12,7 @@ const declarations = [
 ];
 
 const conditions = ['if'];
+
 const typescript = [
     'interface',
     'readonly',
