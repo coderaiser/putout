@@ -89,7 +89,9 @@ module.exports.match = ({options}) => ({
         if (maxLength < __a.loc?.end.column - __a.loc?.start.column)
             return false;
         
-        return binding.path.get('id').isIdentifier();
+        return binding.path
+            .get('id')
+            .isIdentifier();
     },
 });
 
