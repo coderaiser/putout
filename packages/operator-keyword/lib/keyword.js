@@ -16,6 +16,8 @@ const conditions = ['if'];
 const typescript = [
     'interface',
     'readonly',
+    'static',
+    'implements',
 ];
 
 const expressions = [
@@ -66,4 +68,8 @@ module.exports.isConditionKeyword = (name) => {
 
 module.exports.isStatementKeyword = (name) => {
     return statements.includes(name);
+};
+
+module.exports.isTSKeyword = (name) => {
+    return typescript.includes(name);
 };

@@ -18,6 +18,7 @@ import {operator} from 'putout';
 
 const {
     isKeyword,
+    isTSKeyword,
     isDeclarationKeyword,
     isModuleDeclarationKeyword,
     isConditionKeyword,
@@ -44,6 +45,10 @@ isConditionKeyword('if');
 true;
 
 isStatementKeyword('for');
+// returns
+true;
+
+isTSKeyword('implements');
 // returns
 true;
 ```

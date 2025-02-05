@@ -3,6 +3,7 @@
 const {test} = require('supertape');
 const {
     isKeyword,
+    isTSKeyword,
     isDeclarationKeyword,
     isConditionKeyword,
     isModuleDeclarationKeyword,
@@ -88,6 +89,27 @@ test('putout: operator: isStatementKeyword: interface', (t) => {
 
 test('putout: operator: isStatementKeyword: readonly', (t) => {
     const result = isKeyword('readonly');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isStatementKeyword: static', (t) => {
+    const result = isKeyword('static');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isStatementKeyword: implements', (t) => {
+    const result = isKeyword('implements');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isTSKeyword: implements', (t) => {
+    const result = isTSKeyword('implements');
     
     t.ok(result);
     t.end();
