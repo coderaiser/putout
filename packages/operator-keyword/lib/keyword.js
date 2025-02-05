@@ -12,6 +12,9 @@ const declarations = [
 ];
 
 const conditions = ['if'];
+const typescript = [
+    'interface',
+];
 
 const expressions = [
     'as',
@@ -26,6 +29,7 @@ const statements = [
     ...conditions,
     ...declarations,
     ...moduleDeclarations,
+    ...typescript,
     'break',
     'continue',
     'for',
@@ -35,7 +39,6 @@ const statements = [
     'throw',
     'of',
     'while',
-    'interface',
 ];
 
 const keywords = [
