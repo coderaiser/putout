@@ -111,17 +111,6 @@ const fix = (declarations) => (path, {options}) => {
     addDeclarationForESLint(name, path);
 };
 
-function isUseStrict(path) {
-    if (!path.isExpressionStatement())
-        return false;
-    
-    const expressionPath = path.get('expression');
-    
-    return expressionPath.isStringLiteral({
-        value: 'use strict',
-    });
-}
-
 const parseCode = (type, current) => {
     if (isString(current))
         return current;
@@ -157,7 +146,7 @@ function insert(node, bodyPath) {
     if (isVariableDeclaration(node))
         return first.insertBefore(node);
     
-    if (!insertionPath && !isUseStrict(first))
+    if (!insertionPath)
         return first.insertBefore(node);
     
     if (insertionPath.isImportDeclaration() && isLocalImport(insertionPath))
