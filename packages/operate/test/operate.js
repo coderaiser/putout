@@ -8,10 +8,6 @@ const montag = require('montag');
 const {readFixtures} = require('./fixture');
 const operate = require('..');
 
-const RECAST = {
-    printer: 'recast',
-};
-
 const {
     traverse,
     parse,
@@ -524,7 +520,7 @@ test('operate: remove: empty', (t) => {
     const ast = parse(montag`
         // hello
         var a = 1;
-    `, RECAST);
+    `);
     
     traverse(ast, {
         VariableDeclaration(path) {
@@ -532,7 +528,7 @@ test('operate: remove: empty', (t) => {
         },
     });
     
-    const result = print(ast, RECAST);
+    const result = print(ast);
     
     const expected = montag`
         // hello
@@ -547,7 +543,7 @@ test('operate: remove: VariableDeclarator', (t) => {
     const ast = parse(montag`
         // hello
         var a = 1;
-    `, RECAST);
+    `);
     
     traverse(ast, {
         VariableDeclarator(path) {
@@ -555,7 +551,7 @@ test('operate: remove: VariableDeclarator', (t) => {
         },
     });
     
-    const result = print(ast, RECAST);
+    const result = print(ast);
     
     const expected = montag`
         // hello

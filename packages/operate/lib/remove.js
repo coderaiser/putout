@@ -6,8 +6,9 @@ const isOneDeclaration = ({node}) => node.declarations.length === 1;
 module.exports.remove = (path) => {
     const {scope} = path;
     const prev = getPrevSibling(path);
+    const next = getNextSibling(path);
     
-    if (scope) {
+    if (scope && !next.node) {
         const programBlock = scope.getProgramParent().block;
         
         if (scope.block === programBlock && !prev.node)
@@ -37,15 +38,15 @@ module.exports.remove = (path) => {
 };
 
 const getComments = (path) => {
-    const {comments} = path.node;
+    const {leadingComments} = path.node;
     
-    if (comments?.length)
-        return comments;
+    if (leadingComments?.length)
+        return leadingComments;
     
     const {parentPath} = path;
     
     if (path.isVariableDeclarator() && isOneDeclaration(parentPath))
-        return parentPath.node.comments;
+        return parentPath.node.leadingComments;
     
     return [];
 };
@@ -55,4 +56,11 @@ const getPrevSibling = (path) => {
         return path.getPrevSibling();
     
     return path.parentPath.getPrevSibling();
+};
+
+const getNextSibling = (path) => {
+    if (!path.isVariableDeclarator())
+        return path.getNextSibling();
+    
+    return path.parentPath.getNextSibling();
 };
