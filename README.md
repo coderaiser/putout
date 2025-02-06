@@ -22,7 +22,6 @@ The main target is **JavaScript**, but:
 
 - ✅ JSX;
 - ✅ TypeScript;
-- ✅ Flow;
 - ✅ Yaml;
 - ✅ Markdown;
 - ✅ JSON;
@@ -153,7 +152,6 @@ Options:
    --enable-all                enable all found rules and save them to '.putout.json' walking up parent directories
    --disable-all               disable all found rules (set baseline) and save them to '.putout.json' walking up parent directories
    --match [pattern]           read '.putout.json' and convert 'rules' to 'match' according to 'pattern'
-   --flow                      enable flow
    --fresh                     generate a fresh cache
    --no-config                 avoid reading '.putout.json'
    --no-ci                     disable the CI detection

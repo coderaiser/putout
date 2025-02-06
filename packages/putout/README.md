@@ -20,7 +20,6 @@ The main target is **JavaScript**, but:
 
 - ✅ JSX;
 - ✅ TypeScript;
-- ✅ Flow;
 - ✅ Yaml;
 - ✅ Markdown;
 - ✅ JSON;
