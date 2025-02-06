@@ -86,9 +86,6 @@ module.exports.traverse = ({push}) => ({
         if (blockIsAlternate(node, parentNode))
             return push(parentPath);
         
-        if (parentPath.isProgram())
-            return push(path);
-        
         push(parentPath);
     },
 });
