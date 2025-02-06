@@ -73,38 +73,52 @@ test('putout: operator: isStatementKeyword: await', (t) => {
     t.end();
 });
 
-test('putout: operator: isStatementKeyword: typeof', (t) => {
+test('putout: operator: isKeyword: typeof', (t) => {
     const result = isKeyword('typeof');
     
     t.ok(result);
     t.end();
 });
 
-test('putout: operator: isStatementKeyword: interface', (t) => {
+test('putout: operator: isKeyword: interface', (t) => {
     const result = isKeyword('interface');
     
     t.ok(result);
     t.end();
 });
 
-test('putout: operator: isStatementKeyword: readonly', (t) => {
+test('putout: operator: isKeyword: readonly: no', (t) => {
     const result = isKeyword('readonly');
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('putout: operator: isTSKeyword: readonly', (t) => {
+    const result = isTSKeyword('readonly');
     
     t.ok(result);
     t.end();
 });
 
-test('putout: operator: isStatementKeyword: static', (t) => {
+test('putout: operator: isKeyword: static', (t) => {
     const result = isKeyword('static');
     
     t.ok(result);
     t.end();
 });
 
-test('putout: operator: isStatementKeyword: implements', (t) => {
-    const result = isKeyword('implements');
+test('putout: operator: isTSKeyword: static', (t) => {
+    const result = isTSKeyword('static');
     
     t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isKeyword: implements: no', (t) => {
+    const result = isKeyword('implements');
+    
+    t.notOk(result);
     t.end();
 });
 
@@ -136,16 +150,23 @@ test('putout: operator: isTSKeyword: type', (t) => {
     t.end();
 });
 
-test('putout: operator: isTSKeyword: class', (t) => {
+test('putout: operator: isKeyword: class', (t) => {
     const result = isKeyword('class');
     
     t.ok(result);
     t.end();
 });
 
-test('putout: operator: isTSKeyword: extends', (t) => {
+test('putout: operator: isKeyword: extends', (t) => {
     const result = isKeyword('extends');
     
     t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isKeyword: module: no', (t) => {
+    const result = isKeyword('module');
+    
+    t.notOk(result);
     t.end();
 });

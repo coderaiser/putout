@@ -14,13 +14,16 @@ const declarations = [
 const conditions = ['if'];
 
 const typescript = [
-    'interface',
     'readonly',
-    'static',
     'implements',
     'declare',
     'module',
     'type',
+];
+
+const typescriptReserved = [
+    'interface',
+    'static',
 ];
 
 const expressions = [
@@ -36,7 +39,7 @@ const statements = [
     ...conditions,
     ...declarations,
     ...moduleDeclarations,
-    ...typescript,
+    ...typescriptReserved,
     'break',
     'continue',
     'for',
@@ -76,5 +79,8 @@ module.exports.isStatementKeyword = (name) => {
 };
 
 module.exports.isTSKeyword = (name) => {
-    return typescript.includes(name);
+    const ts = typescript.includes(name);
+    const tsReserved = typescriptReserved.includes(name);
+    
+    return ts || tsReserved;
 };
