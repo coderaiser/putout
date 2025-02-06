@@ -26,7 +26,7 @@
   "dependencies": {
     "@putout/babel": "^3.0.0",
     "@putout/compare": "^15.0.0",
-    "@putout/engine-parser": "^11.0.1",
+    "@putout/engine-parser": "^12.0.0",
     "@putout/operate": "^12.0.0"
   },
   "keywords": [
