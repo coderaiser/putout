@@ -16,7 +16,7 @@ const getMatchedOptions = (name, options) => {
     return mergeOptions(options, parseMatch(name, options.match));
 };
 
-module.exports = ({fix, fixCount, isFlow, logError, raw}) => async function processFile(overrides) {
+module.exports = ({fix, fixCount, logError, raw}) => async function processFile(overrides) {
     const {
         name = '<input>',
         source,
@@ -33,7 +33,6 @@ module.exports = ({fix, fixCount, isFlow, logError, raw}) => async function proc
         fix,
         fixCount,
         isTS,
-        isFlow,
         ...matchedOptions,
         printer: configurePrinter(name, printer),
     });

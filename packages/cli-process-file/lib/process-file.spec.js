@@ -312,7 +312,6 @@ test('putout: cli: process-file: configurePrinter', async (t) => {
         dir: '.',
         fix: false,
         fixCount: undefined,
-        isFlow: undefined,
         isTS: false,
         printer: ['putout', {
             format: {
@@ -382,7 +381,6 @@ test('putout: cli: process-file: configurePrinter: overrides', async (t) => {
             dir: '.',
             fix: false,
             fixCount: undefined,
-            isFlow: undefined,
             isTS: false,
             printer: ['putout', {
                 format: {
