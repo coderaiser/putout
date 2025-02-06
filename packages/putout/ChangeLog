@@ -1,3 +1,64 @@
+2025.02.06, v38.0.8
+
+feature:
+- 4269f7ad6 @putout/cli-process-file: @putout/operate v13.0.0
+- 9a71fef9e @putout/operator-filesystem: drop support of 🐊 < 38
+- a1a52770d @putout/operator-filesystem: @putout/operate v13.0.0
+- f2d777785 @putout/engine-runner: @putout/operate v13.0.0
+- f969a94bc putout: @putout/operator-ignore v2.0.0
+- 3ac7372e5 @putout/operator-ignore: @putout/operate v13.0.0
+- 961b4d737 @putout/plugin-filesystem: drop support of 🐊 < 38
+- 883b1d69c @putout/plugin-filesystem: @putout/operate v13.0.0
+- 613b55151 @putout/operator-add-args: @putout/compare v16.0.0
+- 23f2ac211 @putout/operator-declare: @putout/operate v13.0.0
+- 52551faf8 @putout/operator-declare: @putout/compare v16.0.0
+- 4c736adab putout: @putout/traverse v12.0.0
+- 90627cd70 @putout/traverse: @putout/compare v16.0.0
+- 73169ee66 putout: @putout/engine-parser v12.0.0
+- 3207f8fb1 @putout/operator-match-files: @putout/engine-parser v12.0.0
+- b0e80c608 putout: @putout/operator-filesystem v6.0.0
+- fa149fe34 @putout/operator-filesystem: @putout/engine-parser v12.0.0
+- fc660f3d2 putout: @putout/cli-process-file v2.0.0
+- f2af527ac @putout/cli-process-file: drop support of Flow
+- 208b2ab01 putout: @putout/operator-declare v11.0.0
+- 3049e07d4 @putout/operator-declare: drop support of 🐊 < 38
+- 45dd802e8 @putout/operator-declare: @putout/engine-parser v12.0.0
+- b5892c2f0 putout: @putout/operator-add-args v10.0.0
+- 42a742372 @putout/operator-add-args: drop support of 🐊 < 38
+- 3ad0c40a7 @putout/operator-add-args: @putout/engine-parser v12.0.0
+- a363cd851 eslint-plugin-putout: @putout/engine-parser v12.0.0
+- 7e804d899 putout: @putout/engine-runner v23.0.1
+- c48edf3eb putout: @putout/compare v16.0.0
+- 57b0233dd @putout/engine-runner: @putout/compare v16.0.0
+- 1e43c45c2 @putout/engine-runner: @putout/engine-parser v12.0.0
+- ac9a46a1f @putout/compare: @putout/engine-parser v12.0.0
+- 22f168b30 putout: @putout/operate v13.0.0
+- 43897393b putout: @putout/engine-parser v11.4.0
+- 3ee67ae93 putout: @putout/plugin-remove-unused-variables v12.0.0
+- d8c6f5199 putout: @putout/plugin-nodejs v13.1.1
+- aa186521a putout: @putout/plugin-remove-empty v14.0.0
+- 7796fa4d6 putout: @putout/plugin-remove-unused-expressions v11.0.0
+- bb94b324b putout: @putout/plugin-remove-useless-spread v12.0.0
+- 571e49674 putout: @putout/operator-keyword v2.0.0
+- e90e45b5f @putout/plugin-remove-useless-spread: drop support of 🐊 < 38
+- 034ac332d @putout/plugin-remove-useless-spread: drop support of recast
+- c110a9b54 @putout/plugin-remove-unused-expressions: drop support 🐊 < 38
+- fdd6c4a2b @putout/plugin-remove-empty: drop support of 🐊 < 38
+- fe047333a @putout/plugin-remove-empty: drop support of recast
+- 005b1d7ab @putout/plugin-putout: drop support of recast
+- 925f0102c @putout/plugin-nodejs: drop support of 🐊 < 38
+- f0ea8fa79 @putout/plugin-nodejs: drop support of recast
+- 6e090d6bc @putout/operate: drop support of recast
+- 8431e0ec1 putout: get rid of --flow
+- c5fed41a4 @putout/plugin-remove-unused-variables: drop support of 🐊 < 38
+- 9f1696e58 @putout/plugin-remove-unused-variables: drop support of flow
+- f16737e5b @putout/operator-keyword: isTSKeyword: split reserved and unreserved
+- 1da48c79c @putout/engine-parser: get rid of recast
+- 93d6a4798 @putout/operator-keyword: class, extends, declare, mode, type
+- 3f3144e42 @putout/eslint: NO_ESLINT: once
+- b3ead03cb @putout/operator-keyword: isTSKeyword
+- d7f61438d @putout/operator-keyword: readonly: add
+
 2025.02.05, v38.0.7
 
 fix:
