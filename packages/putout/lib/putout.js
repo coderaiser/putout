@@ -29,7 +29,6 @@ function putout(source, opts) {
     const {
         parser,
         isTS,
-        isFlow,
         isJSX,
         sourceFileName,
         sourceMapName,
@@ -42,7 +41,6 @@ function putout(source, opts) {
         sourceFileName,
         parser,
         isTS,
-        isFlow,
         isJSX,
         printer,
     });
@@ -75,7 +73,6 @@ module.exports.putoutAsync = async (source, opts) => {
     const {
         parser,
         isTS,
-        isFlow,
         isJSX,
         sourceFileName,
         sourceMapName,
@@ -88,7 +85,6 @@ module.exports.putoutAsync = async (source, opts) => {
         sourceFileName,
         parser,
         isTS,
-        isFlow,
         isJSX,
         printer,
     });

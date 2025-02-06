@@ -758,26 +758,6 @@ test('putout: filter', (t) => {
     t.end();
 });
 
-test('putout: source map', (t) => {
-    const source = montag`
-        const a = b;
-    `;
-    
-    const {code} = putout(source, {
-        printer: 'recast',
-        sourceFileName: 'hello',
-        sourceMapName: 'world',
-    });
-    
-    const expected = montag`
-          const a = b;
-          //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhlbGxvIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLENBQUMsQ0FBQyxDQUFDLENBQUMsRUFBRSxFQUFFLEVBQUUsQ0FBQyIsImZpbGUiOiJ3b3JsZCIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IGEgPSBiOyJdfQ==
-    \n`;
-    
-    t.equal(code, expected);
-    t.end();
-});
-
 test('putout: no source', (t) => {
     const [error] = tryCatch(putout);
     

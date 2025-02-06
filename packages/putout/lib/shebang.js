@@ -1,12 +1,10 @@
 'use strict';
 
-const maybeNewline = (a) => a[0] === '\n' ? a : `\n${a}`;
-
 module.exports.mergeShebang = (shebang, source) => {
     if (!shebang)
         return source;
     
-    return shebang + maybeNewline(source);
+    return `${shebang}\n${source}`;
 };
 
 module.exports.cutShebang = (source) => {

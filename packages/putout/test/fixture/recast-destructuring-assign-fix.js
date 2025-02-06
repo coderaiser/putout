@@ -1,4 +1,3 @@
 const {
-  statementIndentUnit = indentUnit
+    statementIndentUnit = indentUnit,
 } = parserConfig;
-

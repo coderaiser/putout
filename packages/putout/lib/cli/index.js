@@ -84,7 +84,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
         raw,
         rulesdir,
         format,
-        flow: isFlow,
         disable,
         disableAll,
         enable,
@@ -242,7 +241,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
     
     const options = {
         fix,
-        isFlow,
         fixCount,
         raw,
         ruler: {
