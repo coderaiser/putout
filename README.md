@@ -616,37 +616,24 @@ In our case `Data URL` used. Here is an example of source map:
 }
 ```
 
-To generate **source map** you need to pass:
-
-- ✅ `sourceFileName`;
-- ✅ `sourceMapName`;
+To generate **source map** you can use:
 
 ```js
-putout(source, {
-    fix: false,
-    sourceFileName: 'hello.js',
-    sourceMapName: 'world.js',
-    plugins: [
-        'remove-unused-variables',
-    ],
+const {generate} = require('@putout/engine-parser');
+const {parse} = require('@putout/engine-parser/babel');
+
+const ast = parse(source, {
+    sourceFilename: 'hello.js',
+});
+
+generate(ast, {sourceMaps: true}, {
+    'hello.js': source,
 });
 
 // returns
 ({
-    code: `
-        const hello = 'world';
-        const hi = 'there';
-        console.log(hello);
-        //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJ...
-    `,
-    places: [{
-        rule: 'remove-unused-variables',
-        message: '"hi" is defined but never used',
-        position: {
-            line: 3,
-            column: 10,
-        },
-    }],
+    code,
+    map,
 });
 ```
 
