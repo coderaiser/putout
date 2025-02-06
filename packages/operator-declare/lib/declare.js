@@ -157,9 +157,6 @@ function insert(node, bodyPath) {
     if (isVariableDeclaration(node))
         return first.insertBefore(node);
     
-    if (!insertionPath && isUseStrict(first))
-        return insertAfter(first, node);
-    
     if (!insertionPath && !isUseStrict(first))
         return first.insertBefore(node);
     
