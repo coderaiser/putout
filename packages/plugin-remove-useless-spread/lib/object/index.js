@@ -13,13 +13,7 @@ module.exports.filter = (path) => {
     const {node, parentPath} = path;
     const [first] = node.properties;
     
-    const {
-        comments,
-        trailingComments,
-    } = first;
-    
-    if (comments?.length)
-        return false;
+    const {trailingComments} = first;
     
     if (trailingComments?.length)
         return false;
