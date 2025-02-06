@@ -1,1 +1,1 @@
-import hi from 'hi'
+import hi from 'hi';
