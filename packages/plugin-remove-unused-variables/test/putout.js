@@ -252,10 +252,7 @@ test('remove-unused-variables: putout: exports', (t) => {
 });
 
 test('remove-unused-variables: putout: comments', (t) => {
-    const {code} = putout(fixture.comments, {
-        printer: 'recast',
-    });
-    
+    const {code} = putout(fixture.comments);
     const expected = fixture.commentsFix;
     
     t.equal(code, expected);

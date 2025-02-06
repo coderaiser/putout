@@ -1,7 +1,6 @@
 'use strict';
 
 const test = require('supertape');
-
 const {
     parse,
     traverse,
@@ -1652,6 +1651,7 @@ test('remove-unused-variables: get-vars: flow', (t) => {
         NodeBase: _u,
         Array: _u,
         N: du,
+        Program: du,
         State: du,
         IInputHandlingTerminal: du,
     }];

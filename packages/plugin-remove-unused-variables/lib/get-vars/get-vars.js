@@ -3,7 +3,6 @@
 const {operator, types} = require('putout');
 
 const jsx = require('./jsx');
-const flow = require('./flow');
 const typescript = require('./typescript');
 
 const {
@@ -532,10 +531,6 @@ module.exports = ({use, declare, addParams}) => {
             if (declarationPath.isTSTypeAliasDeclaration())
                 return use(path, declaration.id.name);
             
-            // flow
-            if (declarationPath.isInterfaceDeclaration())
-                return use(path, declaration.id.name);
-            
             if (isVariableDeclaration(declaration)) {
                 const {declarations} = declaration;
                 
@@ -614,10 +609,6 @@ module.exports = ({use, declare, addParams}) => {
             });
         },
         ...jsx(use),
-        ...flow({
-            use,
-            declare,
-        }),
         ...typescript({
             use,
             declare,
