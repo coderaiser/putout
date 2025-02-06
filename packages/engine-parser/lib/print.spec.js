@@ -42,14 +42,10 @@ test('putout: parser: print: empty', (t) => {
 });
 
 test('putout: parser: print: balanced braces', (t) => {
-    const source = '((a) => fn(42))(value)';
-    const ast = parse(source, {
-        printer: 'recast',
-    });
+    const source = '((a) => fn(42))(value);\n';
+    const ast = parse(source);
     
-    const result = print(ast, {
-        printer: 'recast',
-    });
+    const result = print(ast);
     
     t.equal(result, source);
     t.end();
@@ -67,15 +63,12 @@ test('putout: parser: print: balanced braces: string', (t) => {
         ];
         
         const {b, c} = y;
+    
     `;
     
-    const ast = parse(source, {
-        printer: 'recast',
-    });
+    const ast = parse(source);
     
-    const result = print(ast, {
-        printer: 'recast',
-    });
+    const result = print(ast);
     
     t.equal(result, source);
     t.end();
@@ -159,7 +152,7 @@ test('putout: parser: print: printer: putout: options', (t) => {
     t.end();
 });
 
-test('putout: parser: print: printer: recast: options', (t) => {
+test('putout: parser: print: printer: options: indent', (t) => {
     const source = montag`
         export default () => {
           return a + b;
@@ -169,14 +162,16 @@ test('putout: parser: print: printer: recast: options', (t) => {
     const expected = montag`
         export default () => {
           return a + b;
-        };
+        };\n
     `;
     
     const ast = parse(source);
     
     const result = print(ast, {
-        printer: ['recast', {
-            tabWidth: 2,
+        printer: ['putout', {
+            format: {
+                indent: '  ',
+            },
         }],
     });
     

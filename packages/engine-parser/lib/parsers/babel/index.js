@@ -7,16 +7,13 @@ const options = require('./options');
 const getFlow = (a) => !a.indexOf('// @flow');
 const clean = (a) => a.filter(Boolean);
 const initBabel = once(() => require('@putout/babel'));
-const {assign} = Object;
 
-// There is a difference in options naming for babel and recast
-// recast -> sourceFileName
-// babel, putout: sourceFilename
-module.exports.parse = function babelParse(source, {sourceFilename, isTS, isJSX = true, isFlow = getFlow(source), isRecovery}) {
+module.exports.parse = function babelParse(source, {sourceFileName, isTS, isJSX = true, isFlow = getFlow(source), isRecovery}) {
     const {parse} = initBabel();
     const parserOptions = {
+        sourceFileName,
         sourceType: 'module',
-        tokens: true,
+        tokens: false,
         ...options,
         errorRecovery: isRecovery,
         plugins: clean([
@@ -29,10 +26,6 @@ module.exports.parse = function babelParse(source, {sourceFilename, isTS, isJSX 
         ]),
     };
     
-    sourceFilename && assign(parserOptions, {
-        sourceFilename,
-    });
-    
     return parse(source, parserOptions);
 };
 
@@ -41,11 +34,8 @@ function getBabelLangExts({isTS, isFlow, isJSX}) {
         isJSX && 'jsx',
     ];
     
-    if (isTS)
+    if (isTS || isFlow)
         return langs.concat(['typescript']);
-    
-    if (isFlow)
-        return langs.concat(['flow', 'flowComments']);
     
     return langs;
 }

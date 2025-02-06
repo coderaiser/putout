@@ -73,33 +73,6 @@ create node without `memoization`.
 
 Extract `expression` node from `ExpressionStatement`.
 
-### Sourcemaps
-
-You have two ways to benefit from source map generation:
-
-- using `Recast` print;
-- using `Babel` generator;
-
-#### Generate sourcemaps using Recast
-
-```js
-const source = `const hello = 'world';`;
-
-const ast = parse(source, {
-    printer: 'recast',
-    sourceFileName: 'hello.js',
-});
-
-print(ast, {
-    printer: 'recast',
-    sourceMapName: 'hello.map',
-});
-
-// returns
-`const hello = 'world';
-{"version":3,"sources":["hello.js"],"names":[],"mappings":"AAAA...","file":"hello.map","sourcesContent":["const hello = 'world';"]}`;
-```
-
 #### Generate sourcemaps using Babel
 
 To generate sourcemap using babel generator, you should use babel parser before.
@@ -107,9 +80,9 @@ This is low level transformation, because `Babel` doesn't preserve any formattin
 
 ```js
 const {generate} = require('@putout/engine-parser');
-const babel = require('@putout/engine-parser/babel');
+const {parse} = require('@putout/engine-parser/babel');
 
-const ast = babel.parse(source, {
+const ast = parse(source, {
     sourceFilename: 'hello.js',
 });
 

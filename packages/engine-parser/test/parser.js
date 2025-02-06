@@ -179,7 +179,6 @@ test('putout: parser: generate', (t) => {
 
 test('putout: parser: flow', (t) => {
     const {code} = putout(fixture.flow, {
-        printer: 'recast',
         plugins: ['remove-unused-variables'],
     });
     
@@ -265,14 +264,8 @@ test('putout: parser: babel: record', (t) => {
 });
 
 test('putout: parser: recast: record: print', (t) => {
-    const node = parse(fixture.recastRecord, {
-        printer: 'recast',
-    });
-    
-    const code = print(node, {
-        printer: 'recast',
-    });
-    
+    const node = parse(fixture.recastRecord);
+    const code = print(node);
     const expected = fixture.recastRecord;
     
     t.equal(code, expected);
@@ -333,14 +326,12 @@ test('putout: print: recast: object expressions', (t) => {
         },
     });
     
-    const result = print(ast, {
-        printer: 'recast',
-    });
+    const result = print(ast);
     
     const expected = montag`
-        b => ({
-          a: 'b'
-        })
+        (b) => ({
+            a: 'b',
+        });\n
     `;
     
     t.equal(result, expected);
@@ -478,10 +469,7 @@ test('putout: parser: printer: babel', (t) => {
 });
 
 test('putout: parser: recast: directive: comment', (t) => {
-    const {code} = putout(fixture.directiveComment, {
-        printer: 'recast',
-    });
-    
+    const {code} = putout(fixture.directiveComment);
     const expected = fixture.directiveComment;
     
     t.equal(code, expected);

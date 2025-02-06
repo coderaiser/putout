@@ -1,9 +1,7 @@
 'use strict';
 
-const recast = require('recast');
 const toBabel = require('estree-to-babel');
 const customParser = require('./custom-parser');
-const moveOutDirectives = require('./recast/move-out-directives');
 
 module.exports = (source, options) => {
     const {
@@ -12,7 +10,6 @@ module.exports = (source, options) => {
         isTS,
         isFlow,
         isJSX,
-        sourceFileName,
     } = options || {};
     
     const cookedParser = getParser({
@@ -21,28 +18,18 @@ module.exports = (source, options) => {
         isTS,
         isFlow,
         isJSX,
-        sourceFileName,
     });
     
-    if (printer !== 'recast')
-        return cookedParser.parse(source);
-    
-    return recast.parse(source, {
-        sourceFileName,
-        parser: cookedParser,
-    });
+    return cookedParser.parse(source);
 };
 
-const getParser = ({parser = 'babel', isTS, isFlow, isJSX, printer}) => ({
+const getParser = ({parser = 'babel', isTS, isFlow, isJSX}) => ({
     parse(source) {
         const ast = toBabel(customParser(source, parser, {
             isTS,
             isFlow,
             isJSX,
         }));
-        
-        if (printer === 'recast')
-            moveOutDirectives(ast);
         
         return ast;
     },
