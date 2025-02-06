@@ -15,10 +15,6 @@ const {
     insertBefore,
 } = operator;
 
-const isRecast = (program) => program.get('body.0.expression').isStringLiteral({
-    value: 'use strict',
-});
-
 module.exports.report = () => {
     return `Use 'operator.replaceWith()' instead of 'path.replaceWith()'`;
 };
@@ -41,9 +37,7 @@ module.exports.fix = ({path, calleePath, property, object, program, isInserted})
         const first = program.get('body.0');
         const pathToInsert = types ? types.path.parentPath : first;
         
-        if (isRecast(program))
-            insertAfter(pathToInsert, replaceWithAST);
-        else if (types)
+        if (types)
             insertAfter(pathToInsert, replaceWithAST);
         else
             insertBefore(pathToInsert, replaceWithAST);

@@ -6,18 +6,9 @@ const {
     types,
 } = require('putout');
 
-const {
-    insertAfter,
-    replaceWith,
-    insertBefore,
-} = operator;
+const {replaceWith, insertBefore} = operator;
 
 const {Identifier, ObjectProperty} = types;
-
-const isRecast = (program) => program.get('body.0').get('expression')
-    .isStringLiteral({
-        value: 'use strict',
-    });
 
 module.exports.report = () => {
     return `"operate.replaceWithMultiple" should be called instead of "path.replaceWithMultiple"`;
@@ -37,12 +28,8 @@ module.exports.fix = ({path, calleePath, property, object, program}) => {
     if (bindings.replaceWithMultiple)
         return;
     
-    if (!bindings.replaceWith && !bindings.insertAfter) {
-        if (isRecast(program))
-            return insertAfter(first, replaceWithAST);
-        
+    if (!bindings.replaceWith && !bindings.insertAfter)
         return insertBefore(first, replaceWithAST);
-    }
     
     const id = Identifier('replaceWithMultiple');
     const varPath = getVarPath(bindings);
