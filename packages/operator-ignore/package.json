@@ -52,6 +52,6 @@
   },
   "dependencies": {
     "@putout/babel": "^3.0.0",
-    "@putout/operate": "^12.5.0"
+    "@putout/operate": "^13.0.0"
   }
 }
