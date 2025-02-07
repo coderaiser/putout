@@ -2438,13 +2438,12 @@ You have also ability to define `printer` of your choose, it can be:
 
 - ✅[`putout`](https://github.com/putoutjs/printer) (*default*)
 - ✅[`babel`](https://babeljs.io/docs/babel-generator)
-- ✅[`recast`](https://github.com/putoutjs/recast)
 
 `@putout/printer` used by default, if you want to set any other update `.putout.json` with:
 
 ```json
 {
-    "printer": "recast"
+    "printer": "babel"
 }
 ```
 
@@ -2453,17 +2452,10 @@ You have also ability to define `printer` of your choose, it can be:
 - ✅ much simpler in support then `recast`;
 - ✅ opinionated and has good defaults;
 - ✅ produces code like it was processed by **ESLint**;
-- ✅ twice faster then `recast`;
-
-`recast`:
-
-- ✅ tryies to preserve formatting, and in 70% succeeded;
-- ❌ for other cases you need [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme);
-- ❌ slowest printer: involves additional parser + sophisticated printer;
 
 `babel`:
 
-- ✅ faster then `recast`;
+- ✅ supports source maps then `recast`;
 - ❌ [produces throw away code](https://github.com/babel/babel/issues/5139);
 
 You can choose any of them, but preferred is *[default printer](https://github.com/putoutjs/printer)*.
