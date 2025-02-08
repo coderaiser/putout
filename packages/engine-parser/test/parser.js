@@ -36,8 +36,8 @@ const fixture = readFixtures([
     'jsx-template',
     'jsx-template-fix',
     'jsx-not-react',
-    'no-recast',
-    'no-recast-fix',
+    'printer-babel',
+    'printer-babel-fix',
     'record',
     'recast-record',
     'strict-mode',
@@ -457,12 +457,12 @@ test('putout: parser: esprima', (t) => {
 });
 
 test('putout: parser: printer: babel', (t) => {
-    const {code} = putout(fixture.noRecast, {
+    const {code} = putout(fixture.printerBabel, {
         printer: 'babel',
         plugins: ['remove-unused-variables'],
     });
     
-    const expected = fixture.noRecastFix;
+    const expected = fixture.printerBabelFix;
     
     t.equal(code, expected);
     t.end();

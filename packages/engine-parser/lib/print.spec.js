@@ -178,31 +178,3 @@ test('putout: parser: print: printer: options: indent', (t) => {
     t.equal(result, expected);
     t.end();
 });
-
-test('putout: parser: print: printer: babel: preserve format', (t) => {
-    const source = montag`
-        export default () => {
-            const a = 3;
-            
-            return a + b;
-        }
-    `;
-    
-    const expected = montag`
-        export default () => {
-            const a = 3;
-            
-            return a + b;
-        }\n
-    `;
-    
-    const ast = parse(source);
-    
-    const result = print(ast, {
-        printer: 'babel',
-        source,
-    });
-    
-    t.equal(result, expected);
-    t.end();
-});

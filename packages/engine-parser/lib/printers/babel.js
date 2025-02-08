@@ -9,8 +9,8 @@ const defaultOptions = {
 
 module.exports.print = (ast, options) => {
     const {source, alignSpaces} = {
-        ...options,
         ...defaultOptions,
+        ...options,
     };
     
     let {code} = generate(ast, {
@@ -19,6 +19,9 @@ module.exports.print = (ast, options) => {
             retainLines: true,
         },
     }, source);
+    
+    if (code[0] === '\n')
+        code = code.trimStart();
     
     code += '\n';
     
