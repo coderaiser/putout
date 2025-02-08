@@ -13,7 +13,7 @@ module.exports.parse = function babelParse(source, {sourceFileName, isTS, isJSX 
     const parserOptions = {
         sourceFileName,
         sourceType: 'module',
-        tokens: false,
+        tokens: true,
         ...options,
         errorRecovery: isRecovery,
         plugins: clean([

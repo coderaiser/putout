@@ -11,17 +11,18 @@ module.exports = (ast, options = {}) => {
     const [printer = 'putout', printerOptions] = maybeArray(options.printer);
     
     if (printer === 'babel')
-        return babelPrint(ast);
+        return babelPrint(ast, options);
     
     return putoutPrinter.print(ast, printerOptions);
 };
 
-function babelPrint(ast) {
+function babelPrint(ast, {source}) {
     const {code} = generate(ast, {
-        indent: {
-            style: '    ',
+        ...source && {
+            experimental_preserveFormat: true,
+            retainLines: true,
         },
-    });
+    }, source);
     
     return `${code}\n`;
 }
