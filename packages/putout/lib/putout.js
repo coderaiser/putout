@@ -30,15 +30,12 @@ function putout(source, opts) {
         parser,
         isTS,
         isJSX,
-        sourceFileName,
-        sourceMapName,
         printer,
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
     
     const ast = parse(clearSource, {
-        sourceFileName,
         parser,
         isTS,
         isJSX,
@@ -54,7 +51,6 @@ function putout(source, opts) {
         };
     
     const printed = print(ast, {
-        sourceMapName,
         printer,
     });
     
@@ -74,15 +70,12 @@ module.exports.putoutAsync = async (source, opts) => {
         parser,
         isTS,
         isJSX,
-        sourceFileName,
-        sourceMapName,
         printer,
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
     
     const ast = parse(clearSource, {
-        sourceFileName,
         parser,
         isTS,
         isJSX,
@@ -98,7 +91,6 @@ module.exports.putoutAsync = async (source, opts) => {
         };
     
     const printed = print(ast, {
-        sourceMapName,
         printer,
     });
     
