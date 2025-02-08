@@ -1,5 +1,7 @@
 class H extends Y {
-    constructor(@IOptionsService optionsService: IOptionsService) {
+    constructor(
+        @IOptionsService optionsService: IOptionsService
+    ) {
         super();
         console.log(optionsService);
     }
