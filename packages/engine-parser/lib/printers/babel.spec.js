@@ -79,6 +79,7 @@ test('putout: parser: print: printer: babel: preserve format: align-spaces: off'
             return a + b;
         }
     `;
+    
     const ast = parse(source);
     
     transform(ast, source, {
