@@ -105,7 +105,7 @@ Also it works good with monorepository, since it uses `eslint.config.js` that is
 ## 🤷‍♂️ Why does this project exist?
 
 - ❌[**ESLint**](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
-- ❌[**Babel**](https://babeljs.io) has no ability to report erros, it only runs transformations.
+- ❌[**Babel**](https://babeljs.io) has no ability to report errors, it only runs transformations.
 - ❌[**Prettier**](https://github.com/prettier/prettier) is a formatter.
 - ❌[**JSCodeshift**](https://github.com/facebook/jscodeshift) has no **config** and **plugins** support.
 
