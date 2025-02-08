@@ -1,3 +1,13 @@
+2025.02.08, v38.0.9
+
+fix:
+- a5caadeb0 putout: get rid of sourceFileName
+- 917e3cb49 @putout/operator-declare: rm unused check
+
+feature:
+- 49ca79f58 @putout/operator-declare: rm unused check
+- 7e1a59001 @putout/compare: @putout/operate v13.0.0
+
 2025.02.06, v38.0.8
 
 feature:
