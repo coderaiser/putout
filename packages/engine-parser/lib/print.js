@@ -1,7 +1,7 @@
 'use strict';
 
 const putoutPrinter = require('@putout/printer');
-const {generate} = require('@putout/babel');
+const babelPrinter = require('./printers/babel');
 
 const {isArray} = Array;
 
@@ -11,18 +11,10 @@ module.exports = (ast, options = {}) => {
     const [printer = 'putout', printerOptions] = maybeArray(options.printer);
     
     if (printer === 'babel')
-        return babelPrint(ast, options);
+        return babelPrinter.print(ast, {
+            ...options,
+            ...printerOptions,
+        });
     
     return putoutPrinter.print(ast, printerOptions);
 };
-
-function babelPrint(ast, {source}) {
-    const {code} = generate(ast, {
-        ...source && {
-            experimental_preserveFormat: true,
-            retainLines: true,
-        },
-    }, source);
-    
-    return `${code}\n`;
-}

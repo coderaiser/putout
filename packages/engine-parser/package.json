@@ -35,6 +35,7 @@
   "dependencies": {
     "@putout/babel": "^3.0.0",
     "@putout/printer": "^12.0.0",
+    "align-spaces": "^1.0.4",
     "estree-to-babel": "^10.0.0",
     "nano-memoize": "^3.0.11",
     "once": "^1.4.0",

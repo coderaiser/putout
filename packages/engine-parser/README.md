@@ -25,15 +25,12 @@ Any parser should be installed before use, but you can be sure that `@babel/pars
 
 By default [`@putout/printer`](https://github.com/putoutjs/printer) used. It formats code according to [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme) rules but without using **ESLint**.
 
-But you can also use [`recast`](https://github.com/putoutjs/recast) or `babel` with:
+But you can also use `babel` with:
 
 ```js
-const ast = parse(source, {
-    printer: 'recast',
-});
-
+const ast = parse(source);
 const code = print(ast, {
-    printer: 'recast',
+    printer: 'babel',
 });
 ```
 
@@ -45,6 +42,12 @@ const code = print(ast, {
         format: {
             indent: '    ',
         },
+    }],
+});
+
+print(ast, {
+    printer: ['babel', {
+        alginSpaces: false, // when you don't want to add spaces on empty lines
     }],
 });
 ```
