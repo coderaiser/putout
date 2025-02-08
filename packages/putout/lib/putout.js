@@ -52,6 +52,7 @@ function putout(source, opts) {
     
     const printed = print(ast, {
         printer,
+        source,
     });
     
     const code = mergeShebang(shebang, printed);

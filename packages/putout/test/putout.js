@@ -43,6 +43,8 @@ const fixture = readFixtures([
     'no-recast-fix',
     'printer-putout',
     'printer-putout-fix',
+    'printer-babel',
+    'printer-babel-fix',
     'printer-putout-options',
     'printer-putout-options-fix',
 ]);
@@ -788,6 +790,18 @@ test('putout: printer: putout: options', (t) => {
     });
     
     const expected = fixture.printerPutoutOptionsFix;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: printer: babel', (t) => {
+    const {code} = putout(fixture.printerBabel, {
+        printer: 'babel',
+        plugins: ['remove-unused-variables'],
+    });
+    
+    const expected = fixture.printerBabelFix;
     
     t.equal(code, expected);
     t.end();
