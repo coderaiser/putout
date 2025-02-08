@@ -1,3 +1,16 @@
+2025.02.09, v38.0.10
+
+feature:
+- d8372b25d putout: @putout/processor-css v10.0.0
+- 4088078e4 @putout/processor-css: drop support of 🐊 < 38
+- 1ecef2753 @putout/processor-css: align-spaces v2.0.0
+- 96f8b560e @putout/engine-parser: align-spaces v2.0.0
+- 751e23450 eslint-plugin-putout: align-spaces v2.0.0
+- 9cf373e4b @putout/engine-parser: printer: babel: trim spaces (babel/babel#17121)
+- c30554998 @putout/engine-parser: printer: babel: align spaces by default (babel/babel#17120)
+- 970f80ba1 putout: printer: babel
+- 1de78eb14 @putout/engine-parser: print: improve support of babel
+
 2025.02.08, v38.0.9
 
 fix:
