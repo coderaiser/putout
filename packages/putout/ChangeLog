@@ -1,3 +1,24 @@
+2025.02.09, v38.1.1
+
+fix:
+- 72e487a1b @putout/operate: get back
+- 434e4f7f7 @putout/plugin-nodejs: strict-mode: remove-useless: get back
+
+feature:
+- 897f6d958 putout: default fixCount: 3
+- 72b54dbb2 @putout/engine-runner: @putout/plugin-filesystem v8.0.1
+- e5cbf3c3e @putout/processor-filesystem: @putout/operator-filesystem v6.0.2
+- 8b2a11bf7 putout: @putout/operator-match-files v6.0.1
+- f7e8b64f9 @putout/plugin-filesystem: @putout/operator-filesystem v6.0.2
+- 0a1a8d0ac putout: @putout/plugin-filesystem v8.0.0
+- c8786fd9d @putout/processor-html: @putout/processor-css v10.0.0
+- e8cc4051b putout: @putout/plugin-nodejs v14.0.0
+- 718205c4d @putout/operator-rename-files: @putout/operator-filesystem v6.0.2
+- 62292c6f8 @putout/operator-match-files: @putout/operator-filesystem v6.0.2
+- 079db9f12 @putout/engine-runner: @putout/operator-declare v11.0.3
+- 04680543a @putout/test: @putout/cli-process-file v2.0.1
+- b9fa6d7fe @putout/engine-runner: @putout/operator-filesystem v6.0.2
+
 2025.02.09, v38.1.0
 
 feature:
