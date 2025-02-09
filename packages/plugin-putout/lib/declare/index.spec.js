@@ -414,3 +414,13 @@ test('plugin-putout: declare: transform: removeParens', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: hasParens', (t) => {
+    t.transformCode(`hasParens(path);`, montag`
+        import {operator} from 'putout';
+        
+        const {hasParens} = operator;
+        hasParens(path);\n
+    `);
+    t.end();
+});
