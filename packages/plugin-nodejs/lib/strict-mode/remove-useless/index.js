@@ -31,6 +31,13 @@ module.exports.traverse = ({push, store}) => ({
     },
     'Program': {
         exit(path) {
+            const [, ...paths] = path.get('body');
+            
+            for (const path of paths) {
+                if (path.isExpressionStatement() && path.node.expression.value === 'use strict')
+                    push(path);
+            }
+            
             const directives = path.get('directives');
             
             if (directives.length)

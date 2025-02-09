@@ -2,8 +2,11 @@
 
 const {createTest} = require('@putout/test');
 const typescript = require('@putout/plugin-typescript');
+const putout = require('@putout/plugin-putout');
+const nodejs = require('@putout/plugin-nodejs');
 
 const remove = require('.');
+const convertEsmToCommonjs = nodejs.rules['convert-esm-to-commonjs'];
 
 const test = createTest(__dirname, {
     plugins: [
@@ -54,6 +57,15 @@ test('plugin-nodejs: strict-mode: remove: no transform: import-expression', (t) 
 test('plugin-nodejs: strict-mode: remove: transform: typescript', (t) => {
     t.transform('typescript', {
         typescript,
+    });
+    t.end();
+});
+
+test('plugin-nodejs: strict-mode: remove: transform: expression', (t) => {
+    t.transform('expression', {
+        putout,
+        convertEsmToCommonjs,
+        nodejs,
     });
     t.end();
 });
