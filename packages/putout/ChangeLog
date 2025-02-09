@@ -1,3 +1,18 @@
+2025.02.09, v38.1.0
+
+feature:
+- 83cca883d putout: @putout/plugin-parens v2.0.0
+- 67adb9f8a putout: @putout/plugin-typescript v11.0.0
+- 3c5b53f29 @putout/plugin-typescript: drop supprot of 🐊 < 38
+- d5acfc730 @putout/plugin-parens: drop support of 🐊 < 38
+- e047933a5 @putout/plugin-putout: apply-parens: add
+- 943fa0cd5 @putout/plugin-putout: hasParens: add
+- 4f0e164b0 @putout/opereate: hasParens: add
+- 9eb02880b @putout/plugin-putout: declare: addParens, removeParens
+- 6cf363866 @putout/operate: addParens, removeParens: add
+- 4f41b2f2d @putout/engine-parser: mark used printer in ast
+- 4f273837f @putout/plugin-react-hook-form: drop support of 🐊 < 38
+
 2025.02.09, v38.0.10
 
 feature:
