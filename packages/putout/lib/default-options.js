@@ -9,7 +9,7 @@ module.exports.defaultOptions = (opts = {}) => {
         parser = 'babel',
         printer = opts.printer || 'putout',
         fix = true,
-        fixCount = 2,
+        fixCount = 3,
         loadPlugins = loader.loadPlugins,
         loadPluginsAsync = loader.loadPluginsAsync,
         runPlugins = runner.runPlugins,
