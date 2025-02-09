@@ -33,7 +33,7 @@
     "react-hook-form"
   ],
   "peerDependencies": {
-    "putout": ">=32"
+    "putout": ">=38"
   },
   "devDependencies": {
     "@putout/test": "^11.0.0",
@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public"
