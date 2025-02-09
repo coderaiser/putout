@@ -2,6 +2,7 @@
 
 const {test} = require('supertape');
 const tryCatch = require('try-catch');
+
 const {
     parse,
     operator,
