@@ -12,6 +12,7 @@ const {rename} = require('./rename');
 const {renameProperty} = require('./rename-property');
 const {setLiteralValue} = require('./set-literal-value');
 const {getPathAfterRequires} = require('./get-path-after-requires');
+
 const {
     addParens,
     removeParens,
