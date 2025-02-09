@@ -479,7 +479,6 @@ test('putout: runner: replace: watermark: when function used', (t) => {
         },
         plugins: [
             'nodejs',
-            'declare',
             'putout',
         ],
     });
