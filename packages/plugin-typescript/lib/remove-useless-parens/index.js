@@ -1,21 +1,24 @@
 'use strict';
 
+const {operator} = require('putout');
+const {hasParens, removeParens} = operator;
+
 module.exports.report = () => 'Avoid useless parens';
 
 module.exports.fix = (path) => {
-    path.node.extra.parenthesized = false;
+    removeParens(path);
     return;
 };
 
 module.exports.traverse = ({push}) => ({
     TSTypeReference(path) {
-        if (!path.node.extra?.parenthesized)
+        if (!hasParens(path))
             return;
         
         push(path);
     },
     TSUnionType(path) {
-        if (!path.node.extra?.parenthesized)
+        if (!hasParens(path))
             return;
         
         if (path.parentPath.isTSArrayType())

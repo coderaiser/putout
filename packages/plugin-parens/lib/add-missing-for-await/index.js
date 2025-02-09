@@ -7,7 +7,7 @@ const {
 } = require('putout');
 
 const {AwaitExpression} = types;
-const {replaceWith} = operator;
+const {replaceWith, addParens} = operator;
 
 module.exports.report = (path) => {
     const line = print(path.get('argument.callee'));
@@ -21,9 +21,7 @@ module.exports.fix = (path) => {
     
     path = replaceWith(objectPath, AwaitExpression(objectPath.node));
     
-    path.node.extra = {
-        parenthesized: true,
-    };
+    addParens(path);
 };
 
 module.exports.traverse = ({push}) => ({

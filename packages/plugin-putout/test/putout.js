@@ -296,3 +296,8 @@ test('plugin-putout: transform: declare-path-variable', (t) => {
     t.transform('declare-path-variable');
     t.end();
 });
+
+test('plugin-putout: transform: apply-parens', (t) => {
+    t.transform('apply-parens');
+    t.end();
+});

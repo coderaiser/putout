@@ -33,6 +33,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-processors-destructuring](#apply-processors-destructuring);
 - ✅ [apply-remove](#apply-remove);
 - ✅ [apply-rename](#apply-rename);
+- ✅ [apply-parens](#apply-parens);
 - ✅ [apply-short-processors](#apply-short-processors);
 - ✅ [check-match](#check-match);
 - ✅ [check-replace-code](#check-replace-code);
@@ -92,6 +93,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-declare": "on",
         "putout/apply-processors-destructuring": "on",
         "putout/apply-rename": "on",
+        "putout/apply-parens": "on",
         "putout/apply-remove": "on",
         "putout/apply-insert-before": "on",
         "putout/apply-insert-after": "on",
@@ -213,6 +215,35 @@ const {rename} = operator;
 export const fix = ({path, from, to}) => {
     rename(path, from, to);
 };
+```
+
+## apply-parens
+
+Better use [`addParens(path)`](https://github.com/coderaiser/putout/tree/master/packages/operate#addparenspath-path) method of `operator` instead of using `path.node.extra` to have support of both printers:
+
+- ✅ `@putout/printer`;
+- ✅ `babel`;
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d325a84e26807d46b5ec14db179c38f4/8bcd22d6dbe880c0fd70992a1a36b9c609b53b22).
+
+### ❌ Example of incorrect code
+
+```js
+path.node.extra.parenthesized = false;
+path.node.extra.parenthesized = true;
+
+if (!path.node.extra?.parenthesized)
+    return;
+```
+
+### ✅ Example of correct code
+
+```js
+removeParens(path);
+addParens(path);
+
+if (!hasParens(path))
+    return;
 ```
 
 ## apply-remove

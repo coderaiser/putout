@@ -11,7 +11,7 @@ const {
     isLogicalExpression,
 } = types;
 
-const {replaceWith} = operator;
+const {replaceWith, addParens} = operator;
 
 module.exports.report = () => `SyntaxError: Invalid left-hand side in assignment expression`;
 
@@ -50,9 +50,7 @@ module.exports.fix = (path) => {
         ));
     }
     
-    path.node.extra = {
-        parenthesized: true,
-    };
+    addParens(path);
 };
 
 module.exports.traverse = ({push}) => ({

@@ -1,11 +1,12 @@
 'use strict';
 
+const {operator} = require('putout');
+const {addParens} = operator;
+
 module.exports.report = () => `Add missing parens: invalid tagged template on optional chain`;
 
 module.exports.fix = (path) => {
-    path.node.extra = {
-        parenthesized: true,
-    };
+    addParens(path);
 };
 
 module.exports.traverse = ({push}) => ({

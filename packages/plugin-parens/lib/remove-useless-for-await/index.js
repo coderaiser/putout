@@ -1,5 +1,8 @@
 'use strict';
 
+const {operator} = require('putout');
+const {hasParens} = operator;
+
 module.exports.report = () => `Remove useless parens around 'await'`;
 
 module.exports.fix = (path) => {
@@ -10,7 +13,7 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => ({
     AwaitExpression(path) {
-        if (!path.node.extra?.parenthesized)
+        if (!hasParens(path))
             return;
         
         if (path.parentPath.isVariableDeclarator())
