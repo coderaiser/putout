@@ -34,7 +34,7 @@
     "putout-engine"
   ],
   "devDependencies": {
-    "@putout/cli-process-file": "^1.0.0",
+    "@putout/cli-process-file": "*",
     "@putout/plugin-travis": "*",
     "@putout/processor-css": "*",
     "@putout/test": "^11.0.0",
