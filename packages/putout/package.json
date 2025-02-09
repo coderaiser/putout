@@ -139,7 +139,7 @@
     "@putout/plugin-npmignore": "^5.0.0",
     "@putout/plugin-optional-chaining": "^1.0.1",
     "@putout/plugin-package-json": "^9.0.0",
-    "@putout/plugin-parens": "^1.0.0",
+    "@putout/plugin-parens": "^2.0.0",
     "@putout/plugin-promises": "^16.0.0",
     "@putout/plugin-putout": "^23.0.0",
     "@putout/plugin-putout-config": "^8.0.0",
