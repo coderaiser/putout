@@ -40,4 +40,6 @@ module.exports = {
     setLiteralValue: 'const {setLiteralValue} = operator',
     matchFiles: 'const {matchFiles} = operator',
     ignore: 'const {ignore} = operator',
+    addParens: 'const {addParens} = operator',
+    removeParens: 'const {removeParens} = operator',
 };

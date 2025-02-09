@@ -394,3 +394,23 @@ test('plugin-putout: declare: transform: operator-keyword', (t) => {
     t.transform('operator-keyword');
     t.end();
 });
+
+test('plugin-putout: declare: transform: addParens', (t) => {
+    t.transformCode(`addParens(path);`, montag`
+        import {operator} from 'putout';
+        
+        const {addParens} = operator;
+        addParens(path);\n
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: removeParens', (t) => {
+    t.transformCode(`removeParens(path);`, montag`
+        import {operator} from 'putout';
+        
+        const {removeParens} = operator;
+        removeParens(path);\n
+    `);
+    t.end();
+});
