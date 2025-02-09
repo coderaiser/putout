@@ -134,6 +134,7 @@ test('putout: parser: print: printer: babel: preserve format: parens: parser: no
 
 test('putout: parser: print: printer: babel: preserve format: parens', (t) => {
     const source = montag`
+        a && (a = b);
         const a: (boolean | number)[] = [false, 1];
     `;
     
@@ -148,6 +149,7 @@ test('putout: parser: print: printer: babel: preserve format: parens', (t) => {
     });
     
     const expected = montag`
+        a && (a = b);
         const a: (boolean | number)[] = [false, 1];\n
     `;
     

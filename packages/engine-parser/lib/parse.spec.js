@@ -102,3 +102,24 @@ test('putout: engine-parser: parse + generate = sourcemap', (t) => {
     t.ok(map, 'returns map');
     t.end();
 });
+
+test('putout: engine-parser: parse: set extra.__putout_printer', (t) => {
+    const source = `const hello = 'world';`;
+    const ast = parse(source);
+    const {__putout_printer} = ast.program.extra;
+    
+    t.equal(__putout_printer, 'putout');
+    t.end();
+});
+
+test('putout: engine-parser: parse: set extra.__putout_printer: babel', (t) => {
+    const source = `const hello = 'world';`;
+    const ast = parse(source, {
+        printer: 'babel',
+    });
+    
+    const {__putout_printer} = ast.program.extra;
+    
+    t.equal(__putout_printer, 'babel');
+    t.end();
+});

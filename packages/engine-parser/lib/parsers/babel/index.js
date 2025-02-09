@@ -41,7 +41,10 @@ module.exports.parse = function babelParse(source, overrides) {
             createParenthesizedExpressions: true,
         });
     
-    return parse(source, parserOptions);
+    const ast = parse(source, parserOptions);
+    
+    ast.program.extra.__putout_printer = printer;
+    return ast;
 };
 
 function getBabelLangExts({isTS, isFlow, isJSX}) {

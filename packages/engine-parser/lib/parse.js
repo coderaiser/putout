@@ -2,6 +2,7 @@
 
 const toBabel = require('estree-to-babel');
 const customParser = require('./custom-parser');
+const {assign} = Object;
 
 module.exports = (source, options) => {
     const {
@@ -23,11 +24,18 @@ module.exports = (source, options) => {
 
 const getParser = ({parser = 'babel', isTS, isJSX, printer}) => ({
     parse(source) {
+        const options = {};
+        
+        if (printer === 'babel')
+            assign(options, {
+                convertParens: false,
+            });
+        
         const ast = toBabel(customParser(source, parser, {
             isTS,
             isJSX,
             printer,
-        }));
+        }), options);
         
         return ast;
     },
