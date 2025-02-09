@@ -13,11 +13,11 @@ const MESSAGES = [
     'has already been declared',
 ];
 
-module.exports = (source, parser, {isTS, isFlow, isJSX}) => {
+module.exports = (source, parser, {isTS, isJSX, printer}) => {
     const options = {
         parser,
+        printer,
         isTS,
-        isFlow,
         isJSX,
     };
     
@@ -38,13 +38,13 @@ module.exports = (source, parser, {isTS, isFlow, isJSX}) => {
     ]);
 };
 
-function customParse(source, {parser, isTS, isFlow, isJSX, isRecovery}) {
+function customParse(source, {parser, printer, isTS, isJSX, isRecovery}) {
     if (parser === 'babel')
         return babel.parse(source, {
             isTS,
-            isFlow,
             isJSX,
             isRecovery,
+            printer,
         });
     
     if (isObject(parser))

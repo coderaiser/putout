@@ -4,11 +4,21 @@ const once = require('once');
 
 const plugins = require('./plugins');
 const options = require('./options');
+const {assign} = Object;
 const getFlow = (a) => !a.indexOf('// @flow');
 const clean = (a) => a.filter(Boolean);
 const initBabel = once(() => require('@putout/babel'));
 
-module.exports.parse = function babelParse(source, {sourceFileName, isTS, isJSX = true, isFlow = getFlow(source), isRecovery}) {
+module.exports.parse = function babelParse(source, overrides) {
+    const {
+        sourceFileName,
+        isTS,
+        isJSX = true,
+        isFlow = getFlow(source),
+        isRecovery,
+        printer,
+    } = overrides;
+    
     const {parse} = initBabel();
     const parserOptions = {
         sourceFileName,
@@ -25,6 +35,11 @@ module.exports.parse = function babelParse(source, {sourceFileName, isTS, isJSX 
             }),
         ]),
     };
+    
+    if (printer === 'babel')
+        assign(parserOptions, {
+            createParenthesizedExpressions: true,
+        });
     
     return parse(source, parserOptions);
 };

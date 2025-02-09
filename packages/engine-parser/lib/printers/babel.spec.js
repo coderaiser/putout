@@ -108,3 +108,49 @@ test('putout: parser: print: printer: babel: preserve format: align-spaces: off'
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: parser: print: printer: babel: preserve format: parens: parser: not set printer', (t) => {
+    const source = montag`
+        const a: (boolean | number)[] = [false, 1];
+    `;
+    
+    const ast = parse(source, {
+        isTS: true,
+    });
+    
+    const result = print(ast, {
+        printer: 'babel',
+        source,
+    });
+    
+    const expected = montag`
+        const a:  (boolean| number)[] = [false, 1];
+    
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: parser: print: printer: babel: preserve format: parens', (t) => {
+    const source = montag`
+        const a: (boolean | number)[] = [false, 1];
+    `;
+    
+    const ast = parse(source, {
+        isTS: true,
+        printer: 'babel',
+    });
+    
+    const result = print(ast, {
+        printer: 'babel',
+        source,
+    });
+    
+    const expected = montag`
+        const a: (boolean | number)[] = [false, 1];\n
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});

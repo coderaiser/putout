@@ -8,7 +8,6 @@ module.exports = (source, options) => {
         parser,
         printer = 'putout',
         isTS,
-        isFlow,
         isJSX,
     } = options || {};
     
@@ -16,19 +15,18 @@ module.exports = (source, options) => {
         printer,
         parser,
         isTS,
-        isFlow,
         isJSX,
     });
     
     return cookedParser.parse(source);
 };
 
-const getParser = ({parser = 'babel', isTS, isFlow, isJSX}) => ({
+const getParser = ({parser = 'babel', isTS, isJSX, printer}) => ({
     parse(source) {
         const ast = toBabel(customParser(source, parser, {
             isTS,
-            isFlow,
             isJSX,
+            printer,
         }));
         
         return ast;
