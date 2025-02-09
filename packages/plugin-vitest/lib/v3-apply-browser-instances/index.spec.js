@@ -18,3 +18,8 @@ test('vitest: v3-apply-browser-instances: transform', (t) => {
     t.transform('v3-apply-browser-instances');
     t.end();
 });
+
+test('vitest: v3-apply-browser-instances: no report after transform', (t) => {
+    t.noReportAfterTransform('v3-apply-browser-instances');
+    t.end();
+});

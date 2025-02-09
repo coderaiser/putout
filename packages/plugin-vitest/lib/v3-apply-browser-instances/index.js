@@ -36,6 +36,11 @@ module.exports.fix = ({path, properties}) => {
 module.exports.traverse = ({push}) => ({
     'defineConfig(__object)': (path) => {
         const {__object} = getTemplateValues(path, DEFINE_CONFIG);
+        const [instancesPath] = traverseProperties(__object, 'instances');
+        
+        if (instancesPath)
+            return;
+        
         const [browserPath] = traverseProperties(__object, 'browser');
         const properties = browserPath.get('value.properties');
         
