@@ -1092,3 +1092,18 @@ test('putout: operate: removeParens', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: operate: hasParens', (t) => {
+    let result;
+    const source = 'b = 3';
+    const ast = parse(source);
+    
+    traverse(ast, {
+        AssignmentExpression: (path) => {
+            result = operate.hasParens(path);
+        },
+    });
+    
+    t.notOk(result);
+    t.end();
+});

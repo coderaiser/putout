@@ -276,6 +276,17 @@ Remove parens around expression depending on used `printer`:
 removeParens(path);
 ```
 
+### `hasParens(path: Path)`
+
+Check if `path` has parens around expression depending on used `printer`:
+
+- ✅ checks `node.extra.parenthesized` when `@putout/printer` used;
+- ✅ check if parent node type is `ParenthesizedExpression` or `TSParenthesizedType` when `babel` used;
+
+```js
+hasParens(path);
+```
+
 ## License
 
 MIT

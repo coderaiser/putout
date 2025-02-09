@@ -8,7 +8,11 @@ const {
     traverse,
 } = require('putout');
 
-const {addParens, removeParens} = require('./parens');
+const {
+    addParens,
+    removeParens,
+    hasParens,
+} = require('./parens');
 
 test('putout: operate: parens: removeParens: putout', (t) => {
     const source = '(b = 3)';
@@ -110,5 +114,58 @@ test('putout: operate: parens: addParens: babel: ts', (t) => {
     const expected = 'const a: (boolean) = true;\n';
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operate: parens: hasParens: babel: ts', (t) => {
+    let result = false;
+    const source = 'const a: (boolean) = true;';
+    const ast = parse(source, {
+        printer: 'babel',
+        isTS: true,
+    });
+    
+    traverse(ast, {
+        TSBooleanKeyword(path) {
+            result = hasParens(path);
+            path.stop();
+        },
+    });
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operate: parens: hasParens: babel', (t) => {
+    let result = false;
+    const source = '(b = 3)';
+    const ast = parse(source, {
+        printer: 'babel',
+    });
+    
+    traverse(ast, {
+        AssignmentExpression(path) {
+            result = hasParens(path);
+            path.stop();
+        },
+    });
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operate: parens: hasParens', (t) => {
+    let result = false;
+    const source = '(b = 3)';
+    const ast = parse(source);
+    
+    traverse(ast, {
+        AssignmentExpression(path) {
+            result = hasParens(path);
+            path.stop();
+        },
+    });
+    
+    t.ok(result);
     t.end();
 });

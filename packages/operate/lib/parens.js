@@ -6,6 +6,17 @@ const {
     TSParenthesizedType,
 } = types;
 
+module.exports.hasParens = (path) => {
+    const printer = getPrinter(path);
+    
+    if (printer !== 'babel')
+        return path.node.extra?.parenthesized;
+    
+    const {type} = path.parentPath;
+    
+    return /^(TS)?Parenthesized(Expression|Type)?$/.test(type);
+};
+
 module.exports.addParens = (path) => {
     const printer = getPrinter(path);
     
