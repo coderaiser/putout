@@ -3,17 +3,8 @@
 const {maybeBody} = require('./maybe-body');
 const {assign} = Object;
 
-const parseNode = (a) => {
-    a = extractMark(a);
-    
-    if (a.node)
-        return a.node;
-    
-    return a;
-};
-
 module.exports.replaceWith = (path, node) => {
-    node = parseNode(node);
+    node = extractMark(node);
     
     if (path?.parentPath?.isExpressionStatement() && !path.parentPath.isProgram()) {
         addMark(path, node);

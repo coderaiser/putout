@@ -1053,3 +1053,42 @@ test('putout: operate: getLiteralRaw', (t) => {
     t.equal(result, raw);
     t.end();
 });
+
+test('putout: operate: addParens', (t) => {
+    const source = 'const a: boolean = true;';
+    const ast = parse(source, {
+        printer: 'babel',
+        isTS: true,
+    });
+    
+    traverse(ast, {
+        TSBooleanKeyword(path) {
+            operate.addParens(path);
+            path.stop();
+        },
+    });
+    
+    const result = print(ast, {
+        printer: 'babel',
+    });
+    
+    const expected = 'const a: (boolean) = true;\n';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operate: removeParens', (t) => {
+    const source = '(b = 3)';
+    const ast = parse(source);
+    
+    traverse(ast, {
+        AssignmentExpression: operate.removeParens,
+    });
+    
+    const result = print(ast);
+    const expected = 'b = 3;\n';
+    
+    t.equal(result, expected);
+    t.end();
+});

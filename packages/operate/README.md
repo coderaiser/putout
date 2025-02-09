@@ -254,6 +254,28 @@ const object = template.ast('x({"a": "b"})');
 const [propertyPath] = traverseProperties(object, 'a');
 ```
 
+### `addParens(path: Path)`
+
+Add parens around expression depending on used `printer`:
+
+- ✅ set `node.extra.parenthesized: true` when `@putout/printer` used;
+- ✅ set add `ParenthesizedExpression` or `TSParenthesizedType` when `babel` used;
+
+```js
+addParens(path);
+```
+
+### `removeParens(path: Path)`
+
+Remove parens around expression depending on used `printer`:
+
+- ✅ set `node.extra.parenthesized: false` when `@putout/printer` used;
+- ✅ remove `ParenthesizedExpression` or `TSParenthesizedType` when `babel` used;
+
+```js
+removeParens(path);
+```
+
 ## License
 
 MIT
