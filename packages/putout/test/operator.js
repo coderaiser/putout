@@ -5,6 +5,7 @@ const test = require('supertape');
 const putout = require('..');
 const {keys} = Object;
 const {stringify} = JSON;
+
 const {
     operator,
     parse,
