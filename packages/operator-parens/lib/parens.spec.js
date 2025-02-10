@@ -14,7 +14,7 @@ const {
     hasParens,
 } = require('./parens');
 
-test('putout: operate: parens: removeParens: putout', (t) => {
+test('putout: operator: parens: removeParens: putout', (t) => {
     const source = '(b = 3)';
     const ast = parse(source);
     
@@ -29,7 +29,7 @@ test('putout: operate: parens: removeParens: putout', (t) => {
     t.end();
 });
 
-test('putout: operate: parens: removeParens: babel', (t) => {
+test('putout: operator: parens: removeParens: babel', (t) => {
     const source = '(b = 3)';
     const ast = parse(source, {
         printer: 'babel',
@@ -52,7 +52,7 @@ test('putout: operate: parens: removeParens: babel', (t) => {
     t.end();
 });
 
-test('putout: operate: parens: addParens', (t) => {
+test('putout: operator: parens: addParens', (t) => {
     const source = 'const b = a';
     const ast = parse(source);
     
@@ -70,7 +70,7 @@ test('putout: operate: parens: addParens', (t) => {
     t.end();
 });
 
-test('putout: operate: parens: addParens: babel', (t) => {
+test('putout: operator: parens: addParens: babel', (t) => {
     const source = 'b = 3';
     const ast = parse(source, {
         printer: 'babel',
@@ -93,7 +93,7 @@ test('putout: operate: parens: addParens: babel', (t) => {
     t.end();
 });
 
-test('putout: operate: parens: addParens: babel: ts', (t) => {
+test('putout: operator: parens: addParens: babel: ts', (t) => {
     const source = 'const a: boolean = true;';
     const ast = parse(source, {
         printer: 'babel',
@@ -117,7 +117,7 @@ test('putout: operate: parens: addParens: babel: ts', (t) => {
     t.end();
 });
 
-test('putout: operate: parens: hasParens: babel: ts', (t) => {
+test('putout: operator: parens: hasParens: babel: ts', (t) => {
     let result = false;
     const source = 'const a: (boolean) = true;';
     const ast = parse(source, {
@@ -136,7 +136,7 @@ test('putout: operate: parens: hasParens: babel: ts', (t) => {
     t.end();
 });
 
-test('putout: operate: parens: hasParens: babel', (t) => {
+test('putout: operator: parens: hasParens: babel', (t) => {
     let result = false;
     const source = '(b = 3)';
     const ast = parse(source, {
@@ -154,7 +154,7 @@ test('putout: operate: parens: hasParens: babel', (t) => {
     t.end();
 });
 
-test('putout: operate: parens: hasParens', (t) => {
+test('putout: operator: parens: hasParens', (t) => {
     let result = false;
     const source = '(b = 3)';
     const ast = parse(source);

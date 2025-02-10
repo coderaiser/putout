@@ -14,12 +14,6 @@ const {setLiteralValue} = require('./set-literal-value');
 const {getPathAfterRequires} = require('./get-path-after-requires');
 
 const {
-    addParens,
-    removeParens,
-    hasParens,
-} = require('./parens');
-
-const {
     getProperty,
     getProperties,
     traverseProperties,
@@ -53,10 +47,6 @@ module.exports.isSimple = isSimple;
 module.exports.rename = rename;
 module.exports.renameProperty = renameProperty;
 module.exports.setLiteralValue = setLiteralValue;
-
-module.exports.addParens = addParens;
-module.exports.hasParens = hasParens;
-module.exports.removeParens = removeParens;
 
 module.exports.getProperty = getProperty;
 module.exports.getProperties = getProperties;
