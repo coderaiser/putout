@@ -3,7 +3,7 @@
   "version": "2.2.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout operator adds ability to json referenced variables that was not defined",
+  "description": "🐊Putout operator adds ability to work with json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-json#readme",
   "main": "lib/json.js",
   "release": false,
