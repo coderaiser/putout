@@ -1,3 +1,13 @@
+2025.02.10, v38.1.2
+
+fix:
+- 9331e96fe @putout/operator-json: description
+- c1a88abdc @putout/plugin-vitest: v3-apply-browser-instances: report after transform
+
+feature:
+- f9ccb341b @putout/operator-parens: add
+- fb7db0604 @putout/plugin-vitest: drop support of 🐊 < 38
+
 2025.02.09, v38.1.1
 
 fix:
