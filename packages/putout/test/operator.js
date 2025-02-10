@@ -5,7 +5,11 @@ const test = require('supertape');
 const putout = require('..');
 const {keys} = Object;
 const {stringify} = JSON;
-const {operator} = putout;
+const {
+    operator,
+    parse,
+    traverse,
+} = putout;
 
 test('putout: operator: compare', (t) => {
     const result = operator.compare('const a = {}', 'const __ = {}');
@@ -129,6 +133,22 @@ test('putout: operator: renameFiles', (t) => {
 
 test('putout: operator: isKeyword', (t) => {
     const result = operator.isKeyword('if');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operate: parens: hasParens', (t) => {
+    let result = false;
+    const source = '(b = 3)';
+    const ast = parse(source);
+    
+    traverse(ast, {
+        AssignmentExpression(path) {
+            result = operator.hasParens(path);
+            path.stop();
+        },
+    });
     
     t.ok(result);
     t.end();

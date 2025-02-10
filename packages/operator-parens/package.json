@@ -1,0 +1,55 @@
+{
+  "name": "@putout/operator-parens",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "🐊Putout operator adds ability to work with parens",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-parens#readme",
+  "main": "lib/parens.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "keywords": [
+    "putout",
+    "putout-operator",
+    "operator",
+    "parens"
+  ],
+  "devDependencies": {
+    "c8": "^10.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-n": "^17.0.0",
+    "eslint-plugin-putout": "^24.0.0",
+    "lerna": "^6.0.1",
+    "madrun": "^10.0.0",
+    "montag": "^1.2.1",
+    "nodemon": "^3.0.1",
+    "putout": "^38.1.1",
+    "supertape": "^10.0.0",
+    "try-catch": "^3.0.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@putout/babel": "^3.0.0"
+  }
+}

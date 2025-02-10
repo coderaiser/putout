@@ -130,6 +130,7 @@ module.exports.operator = {
     ...require('@putout/operator-match-files'),
     ...require('@putout/operator-rename-files'),
     ...require('@putout/operator-ignore'),
+    ...require('@putout/operator-parens'),
 };
 
 module.exports.ignores = require('./ignores');
