@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-apply-template-literals: report: binary', (t) => {
-    t.report('binary', `Use template literals instead of binary expressions`);
+    t.report('binary', `Use template literals ('\`\`') instead of binary expressions ('+')`);
     t.end();
 });
 
