@@ -71,7 +71,7 @@ module.exports.filter = ({node}, options) => {
         maxLength,
     });
     
-    return !(isLoc || isLength);
+    return !isLoc && !isLength;
 };
 
 function isCorrectPropertiesLength(properties, {maxLength}) {

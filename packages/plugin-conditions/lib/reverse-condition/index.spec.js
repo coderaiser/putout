@@ -28,3 +28,8 @@ test('conditions: reverse-condition: transform: or', (t) => {
     t.transform('or');
     t.end();
 });
+
+test('conditions: reverse-condition: transform: not-or', (t) => {
+    t.transform('not-or');
+    t.end();
+});

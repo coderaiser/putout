@@ -57,7 +57,7 @@ const check = ({__a}, path) => {
     const regEnd = RegExp(`: ${name}$`);
     const regMiddle = RegExp(`: ${name}: .*`);
     
-    return !(regEnd.test(value) || regMiddle.test(value));
+    return !regEnd.test(value) && !regMiddle.test(value);
 };
 
 const transform = ({__a}, path) => {

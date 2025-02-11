@@ -8,7 +8,7 @@ const {
 
 module.exports.report = () => `Use template literals ('\`\`') instead of binary expressions ('+')`;
 
-module.exports.filter = ({parentPath}) => !(isBinaryExpression(parentPath) || isTemplateLiteral(parentPath.parentPath));
+module.exports.filter = ({parentPath}) => !isBinaryExpression(parentPath) && !isTemplateLiteral(parentPath.parentPath);
 
 module.exports.replace = () => ({
     '"__a" + __identifier__b + "__c"': replaceNewlines('`__a${__identifier__b}__c`', ['__a', '__c']),
