@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {},
-  "keyswords": [
+  "keywords": [
     "putout",
     "putout-plugin",
     "putout-plugin-merge",

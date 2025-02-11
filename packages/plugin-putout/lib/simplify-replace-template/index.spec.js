@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: simplify-replace-template: report', (t) => {
-    t.report('simplify-replace-template', `Simplify replce template`);
+    t.report('simplify-replace-template', `Simplify replace template`);
     t.end();
 });
 

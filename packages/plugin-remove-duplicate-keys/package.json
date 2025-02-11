@@ -26,7 +26,7 @@
   "dependencies": {
     "fullstore": "^3.0.0"
   },
-  "keyswords": [
+  "keywords": [
     "putout",
     "putout-plugin",
     "putout-plugin-remove",

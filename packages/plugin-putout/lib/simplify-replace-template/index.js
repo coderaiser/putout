@@ -8,7 +8,7 @@ const parentNodesList = [
     'export const replace = __',
 ];
 
-module.exports.report = () => `Simplify replce template`;
+module.exports.report = () => `Simplify replace template`;
 
 module.exports.fix = (path) => {
     const {body} = path.node;
