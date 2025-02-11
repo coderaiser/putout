@@ -82,7 +82,7 @@ module.exports = ({fix, fixCount, logError, raw}) => async function processFile(
     };
 };
 
-function formatPlaces(line = 1, places) {
+function formatPlaces(line = 0, places) {
     const newPlaces = [];
     
     for (const place of places) {

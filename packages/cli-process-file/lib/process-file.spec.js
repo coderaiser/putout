@@ -180,7 +180,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
         message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
         position: {
             column: 50,
-            line: 2,
+            line: 1,
         },
         rule: 'putout-config/convert-boolean-to-string',
     }];
@@ -252,14 +252,14 @@ test('putout: cli: process-file: ruler', async (t) => {
         message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
         position: {
             column: 50,
-            line: 2,
+            line: 1,
         },
         rule: 'putout-config/convert-boolean-to-string',
     }, {
         message: 'Missing semicolon.',
         position: {
             column: 58,
-            line: 3,
+            line: 2,
         },
         rule: 'semi (eslint)',
     }];
@@ -449,7 +449,7 @@ test('putout: cli: process-file: plugin not found', async (t) => {
             message: `Cannot find package 'putout-plugin-travis'`,
             position: {
                 column: 1,
-                line: 2,
+                line: 1,
             },
             rule: 'parser',
         }],
@@ -530,7 +530,7 @@ test('putout: cli: process-file: goldstein', async (t) => {
             message: `'x' is not defined.`,
             position: {
                 column: 12,
-                line: 3,
+                line: 2,
             },
             rule: 'no-undef (eslint)',
         }],
@@ -576,14 +576,14 @@ test('putout: cli: process-file: goldstein: no braces', async (t) => {
             message: `'a' is not defined.`,
             position: {
                 column: 5,
-                line: 2,
+                line: 1,
             },
             rule: 'no-undef (eslint)',
         }, {
             message: 'Empty block statement.',
             position: {
                 column: 12,
-                line: 2,
+                line: 1,
             },
             rule: 'no-empty (eslint)',
         }],
@@ -624,14 +624,14 @@ test('putout: cli: process-file: syntax error', async (t) => {
             message: 'Unexpected token',
             position: {
                 column: 10,
-                line: 2,
+                line: 1,
             },
             rule: 'parser',
         }, {
             message: 'Parsing error: Unexpected token {',
             position: {
                 column: 11,
-                line: 2,
+                line: 1,
             },
             rule: 'parser (eslint)',
         }],
@@ -774,14 +774,14 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
             message: 'Unexpected token, expected "{"',
             position: {
                 column: 13,
-                line: 2,
+                line: 1,
             },
             rule: 'parser',
         }, {
             message: 'Parsing error: Unexpected token =>',
             position: {
                 column: 14,
-                line: 2,
+                line: 1,
             },
             rule: 'parser (eslint)',
         }],
