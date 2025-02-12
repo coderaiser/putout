@@ -153,6 +153,7 @@ Disabled 🐊**Putout** rules:
 - ❌ [`for-of/remove-useless`](https://github.com/coderaiser/putout/tree/v29.7.1/packages/plugin-for-of#remove-useless);
 - ❌ [`for-of/remove-unused-variables`](https://github.com/coderaiser/putout/tree/29.7.1/packages/plugin-for-of#remove-unused-variables);
 - ❌ [`maybe/noop`](https://github.com/coderaiser/putout/tree/29.2.4/packages/plugin-maybe#noop);
+- ❌ [`remove-useless-push`](https://github.com/coderaiser/putout/tree/38.1.2/packages/plugin-remove-useless-push#readme);
 
 ### safe+align
 

@@ -132,6 +132,7 @@ const safeRules = {
     'for-of/remove-unused-variables': 'off',
     'for-of/remove-useless': 'off',
     'maybe/noop': 'off',
+    'remove-useless-push': 'off',
 };
 
 module.exports.safeRules = safeRules;
