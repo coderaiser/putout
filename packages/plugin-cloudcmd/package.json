@@ -31,6 +31,7 @@
     "cloudcmd"
   ],
   "devDependencies": {
+    "@putout/eslint-flat": "^2.0.0",
     "@putout/plugin-remove-unused-expressions": "*",
     "@putout/plugin-strict-mode": "*",
     "@putout/test": "^11.0.0",

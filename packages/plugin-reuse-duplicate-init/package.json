@@ -33,6 +33,7 @@
     "init"
   ],
   "devDependencies": {
+    "@putout/eslint-flat": "^2.0.0",
     "@putout/plugin-remove-useless-variables": "*",
     "@putout/plugin-tape": "*",
     "@putout/test": "^11.0.0",

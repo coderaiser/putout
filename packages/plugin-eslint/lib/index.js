@@ -20,6 +20,7 @@ const convertExportMatchToDeclaration = require('./convert-export-match-to-decla
 const convertPluginsArrayToObject = require('./convert-plugins-array-to-object');
 const removeUselessProperties = require('./remove-useless-properties');
 const applyIgnores = require('./apply-ignores');
+const applyCreateEslintConfig = require('./apply-create-eslint-config');
 
 module.exports.rules = {
     'add-putout': addPutout,
@@ -42,4 +43,5 @@ module.exports.rules = {
     'convert-plugins-array-to-object': convertPluginsArrayToObject,
     'remove-useless-properties': removeUselessProperties,
     'apply-ignores': ['off', applyIgnores],
+    'apply-create-eslint-config': applyCreateEslintConfig,
 };

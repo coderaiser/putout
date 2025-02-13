@@ -7,10 +7,11 @@ import {
 } from '@putout/eslint-flat';
 
 const scriptsConfig = await matchToFlatDir(import.meta.url, 'scripts');
-
 const monoConfig = await mergeESLintConfigs(import.meta.url, ['codemods', 'packages', 'rules']);
 
 export default createESLintConfig([
+    scriptsConfig,
+    monoConfig,
     safeAlign, {
         files: ['*.js'],
         rules: {
@@ -20,9 +21,6 @@ export default createESLintConfig([
         plugins: {
             import: importPlugin,
         },
-    },
-    scriptsConfig,
-    monoConfig, {
         languageOptions: {
             sourceType: 'module',
             ecmaVersion: 'latest',

@@ -1,4 +1,5 @@
 import x from 'x';
+import {createESLintConfig} from '@putout/eslint-flat';
 import {safeAlign} from 'eslint-plugin-putout/config';
 import {matchToFlat} from '@putout/eslint-flat';
 
@@ -10,7 +11,7 @@ export const match = {
         'node/no-extraneous-import': 'off',
     },
 };
-export default [
-    ...safeAlign,
+export default createESLintConfig([
+    safeAlign,
     ...matchToFlat(match),
-];
+]);

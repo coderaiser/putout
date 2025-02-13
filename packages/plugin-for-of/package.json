@@ -32,6 +32,7 @@
     "try-to-catch"
   ],
   "devDependencies": {
+    "@putout/eslint-flat": "^2.0.0",
     "@putout/plugin-conditions": "*",
     "@putout/plugin-convert-const-to-let": "*",
     "@putout/plugin-remove-empty": "*",

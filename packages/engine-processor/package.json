@@ -35,6 +35,7 @@
   ],
   "devDependencies": {
     "@putout/cli-process-file": "*",
+    "@putout/eslint-flat": "^2.0.0",
     "@putout/plugin-travis": "*",
     "@putout/processor-css": "*",
     "@putout/test": "^11.0.0",

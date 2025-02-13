@@ -10,7 +10,6 @@ putout('const a = 5', {
 {
     "plugins": [
         "babel/transform-inline-consecutive-adds"
-    ],
-    "ignorePatterns": ["**/fixture"]
+    ]
 }
 ```

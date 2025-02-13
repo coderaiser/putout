@@ -32,6 +32,7 @@
     "only"
   ],
   "devDependencies": {
+    "@putout/eslint-flat": "^2.0.0",
     "@putout/plugin-apply-destructuring": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-remove-unused-variables": "*",

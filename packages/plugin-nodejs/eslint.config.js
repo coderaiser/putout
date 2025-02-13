@@ -1,6 +1,9 @@
 'use strict';
 
-const {matchToFlat} = require('@putout/eslint-flat');
+const {
+    matchToFlat,
+    createESLintConfig,
+} = require('@putout/eslint-flat');
 const {safeAlign} = require('eslint-plugin-putout/config');
 
 const match = {
@@ -10,13 +13,13 @@ const match = {
     },
 };
 
-module.exports = [
-    ...safeAlign, {
+module.exports = createESLintConfig([
+    matchToFlat(match),
+    safeAlign, {
         rules: {
             'no-useless-return': 'off',
         },
     },
-    ...matchToFlat(match),
-];
+]);
 
 module.exports.match = match;

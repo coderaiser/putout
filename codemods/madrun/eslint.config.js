@@ -1,10 +1,11 @@
 import {safeAlign} from 'eslint-plugin-putout/config';
+import {createESLintConfig} from '@putout/eslint-flat';
 
-export default [
-    ...safeAlign, {
+export default createESLintConfig([
+    safeAlign, {
         files: ['**/*.js'],
         languageOptions: {
             sourceType: 'module',
         },
     },
-];
+]);

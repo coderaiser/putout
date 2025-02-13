@@ -33,6 +33,7 @@
     "rename-files"
   ],
   "devDependencies": {
+    "@putout/eslint-flat": "^2.0.0",
     "@putout/operator-json": "^2.1.0",
     "@putout/plugin-nodejs": "*",
     "@putout/test": "^11.0.0",

@@ -36,6 +36,7 @@
     "codeframe"
   ],
   "devDependencies": {
+    "@putout/eslint-flat": "^2.0.0",
     "@putout/plugin-nodejs": "*",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/test": "^11.0.0",

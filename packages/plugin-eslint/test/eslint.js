@@ -113,3 +113,8 @@ test('plugin-eslint: transform: apply-ignores', (t) => {
     t.transform('apply-ignores');
     t.end();
 });
+
+test('plugin-eslint: transform: apply-create-eslint-config', (t) => {
+    t.transform('apply-create-eslint-config');
+    t.end();
+});

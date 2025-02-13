@@ -39,6 +39,7 @@
     "putout": "*"
   },
   "devDependencies": {
+    "@putout/eslint-flat": "^2.0.0",
     "@putout/formatter-progress": "*",
     "@putout/plugin-apply-nullish-coalescing": "*",
     "@putout/plugin-convert-commonjs-to-esm": "*",

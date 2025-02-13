@@ -26,6 +26,7 @@
     "madrun": "^10.0.1"
   },
   "dependencies": {
+    "@putout/eslint-flat": "^2.0.0",
     "montag": "^1.2.1",
     "try-catch": "^3.0.1",
     "try-to-catch": "^3.0.1"

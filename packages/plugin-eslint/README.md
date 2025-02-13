@@ -20,6 +20,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [add-putout](#add-putout);
 - ✅ [apply-dir-to-flat](#apply-dir-to-flat);
 - ✅ [apply-ignores](#apply-ignores);
+- ✅ [apply-create-eslint](#apply-create-eslint);
 - ✅ [apply-match-to-flat](#apply-match-to-flat);
 - ✅ [apply-safe-align](#apply-safe-align);
 - ✅ [convert-export-match-to-declaration](#convert-export-match-to-declaration);
@@ -45,6 +46,7 @@ npm i @putout/plugin-eslint -D
     "rules": {
         "eslint/add-putout": "on",
         "eslint/apply-dir-to-flat": "on",
+        "eslint/apply-create-eslint": "on",
         "eslint/apply-ignores": ["off", {
             "ignores": ["**/fixture"]
         }],
@@ -115,6 +117,30 @@ Flat config:
 +       "**/fixture"
 +   ]
 +}];
+```
+
+## apply-create-eslint
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3e2944d9298bca267b133fa4dc01131/fc0aa8718af032c67d310456e775c8590c3b9b70).
+
+### ❌ Example of incorrect code
+
+```js
+export default [
+    ...safeAlign, {
+        ignores: ['**/fixture'],
+    },
+];
+```
+
+### ✅ Example of correct code
+
+```js
+export default createESLintConfig([
+    safeAlign, {
+        ignores: ['**/fixture'],
+    },
+]);
 ```
 
 ## apply-safe-align

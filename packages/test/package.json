@@ -58,6 +58,7 @@
     "runner"
   ],
   "devDependencies": {
+    "@putout/eslint-flat": "^2.0.0",
     "@putout/formatter-dump": "*",
     "@putout/formatter-progress": "*",
     "@putout/plugin-esm": "*",
