@@ -16,6 +16,9 @@ module.exports.fix = (path) => {
         .replaceAll('\\', '\\\\')
         .replaceAll('\n', '\\n');
     
+    if (path.parentPath.isObjectProperty())
+        path.parentPath.node.computed = true;
+    
     replaceWith(path, TemplateLiteral([TemplateElement({
         raw: value,
     })], []));
@@ -25,9 +28,6 @@ const {replaceWith} = operator;
 
 module.exports.traverse = ({push}) => ({
     StringLiteral(path) {
-        if (path.parentPath.isObjectProperty())
-            return;
-        
         const {value} = path.node;
         
         if (value.includes('${'))

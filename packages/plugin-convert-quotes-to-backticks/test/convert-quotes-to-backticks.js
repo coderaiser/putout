@@ -29,8 +29,8 @@ test('plugin-convert-quotes-to-backtics: no report: variables', (t) => {
     t.end();
 });
 
-test('plugin-convert-quotes-to-backtics: no report: object-key', (t) => {
-    t.noReport('object-key');
+test('plugin-convert-quotes-to-backtics: transform: object-key', (t) => {
+    t.transform('object-key');
     t.end();
 });
 
