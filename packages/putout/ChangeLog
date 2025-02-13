@@ -1,3 +1,11 @@
+2025.02.13, v38.1.6
+
+feature:
+- b06f22259 putout: @putout/plugin-remove-unused-private-fields v3.0.0
+- da4f95e0f @putout/plugin-remove-unused-private-fields: drop support of 🐊 < 38
+- d4d863da1 @putout/plugin-remove-unused-private-fields: use before declare
+- 7274aec73 @putout/plugin-putout-config: apply-esm:  add missing sort-imports-by-specifiers (#229)
+
 2025.02.13, v38.1.5
 
 fix:
