@@ -4,6 +4,7 @@ const {
     matchToFlat,
     createESLintConfig,
 } = require('@putout/eslint-flat');
+
 const {safeAlign} = require('eslint-plugin-putout/config');
 
 const match = {
@@ -19,7 +20,6 @@ module.exports = createESLintConfig([
         rules: {
             'no-useless-return': 'off',
         },
-    },
-]);
+    }]);
 
 module.exports.match = match;

@@ -26,5 +26,4 @@ export default createESLintConfig([
             ecmaVersion: 'latest',
         },
         ignores: ['**/fixture'],
-    },
-]);
+    }]);
