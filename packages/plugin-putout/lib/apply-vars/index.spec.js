@@ -5,16 +5,21 @@ const plugin = require('.');
 
 const test = createTest(__dirname, {
     plugins: [
-        ['apply-vars', plugin],
+        ['putout/apply-vars', plugin],
     ],
 });
 
-test('putout: apply-vars: report', (t) => {
-    t.report('apply-vars', `Use 'var' instead of '{}'`);
+test('plugin-putout: apply-vars: report', (t) => {
+    t.report('apply-vars', `Use 'vars' instead of '{}'`);
     t.end();
 });
 
-test('putout: apply-vars: transform', (t) => {
+test('plugin-putout: apply-vars: transform', (t) => {
     t.transform('apply-vars');
+    t.end();
+});
+
+test('plugin-putout: apply-vars: transform: no-body', (t) => {
+    t.transform('no-body');
     t.end();
 });
