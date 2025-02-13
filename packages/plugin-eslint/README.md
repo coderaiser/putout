@@ -45,7 +45,7 @@ npm i @putout/plugin-eslint -D
     "rules": {
         "eslint/add-putout": "on",
         "eslint/apply-dir-to-flat": "on",
-        "eslint/apply-ignores": ["on", {
+        "eslint/apply-ignores": ["off", {
             "ignores": ["**/fixture"]
         }],
         "eslint/apply-safe-align": "on",

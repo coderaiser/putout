@@ -1,11 +1,3 @@
-export default [
-    ...x, {
-        ignores: ['**/fixture'],
-    },
-];
+export default x;
 
-module.exports = [
-    ...x, {
-        ignores: ['**/fixture'],
-    },
-];
+module.exports = x;

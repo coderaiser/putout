@@ -41,5 +41,5 @@ module.exports.rules = {
     'convert-export-match-to-declaration': convertExportMatchToDeclaration,
     'convert-plugins-array-to-object': convertPluginsArrayToObject,
     'remove-useless-properties': removeUselessProperties,
-    'apply-ignores': applyIgnores,
+    'apply-ignores': ['off', applyIgnores],
 };

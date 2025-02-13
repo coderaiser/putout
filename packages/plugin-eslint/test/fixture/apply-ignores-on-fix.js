@@ -1,8 +1,16 @@
 import {safeAlign} from 'eslint-plugin-putout/config';
 
-module.exports = safeAlign;
+module.exports = [
+    ...safeAlign, {
+        ignores: ['**/fixture'],
+    },
+];
 
-export default safeAlign;
+export default [
+    ...safeAlign, {
+        ignores: ['**/fixture'],
+    },
+];
 
 __putout_processor_json({
     'extends': [
@@ -10,4 +18,5 @@ __putout_processor_json({
         'plugin:putout/recommended',
     ],
     'plugins': ['n', 'putout'],
+    'ignorePatterns': ['**/fixture'],
 });
