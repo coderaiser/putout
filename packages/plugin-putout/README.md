@@ -322,7 +322,7 @@ export const fix = (path) => {
 
 ## apply-vars
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f96aaef6c54049ca91497a17f7a4b88a/b960916e73a7f51c1c0425ad9a3f304452c0d159).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6b1a4b5dc75f2591faf580774d23b38f/7278945371ceb76942494f7caf88375d2eaca869).
 
 ### ❌ Example of incorrect code
 
