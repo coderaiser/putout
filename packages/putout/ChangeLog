@@ -1,3 +1,10 @@
+2025.02.13, v38.1.4
+
+feature:
+- 38a149629 putout: @putout/plugin-convert-quotes-to-backticks v4.0.1
+- 3b8e4ca62 @putout/plugin-convert-quot-to-backticks: exclude ObjectProperty
+- 7ad5a8bff @putout/plugin-convert-quotes-to-backticks: drop support of 🐊 < 38
+
 2025.02.13, v38.1.3
 
 fix:
