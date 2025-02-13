@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-unused-private-fields: report: class', (t) => {
-    t.report('class', 'private field "#world" declared by not used');
+    t.report('class', 'Private field "#world" declared by not used');
     t.end();
 });
 
@@ -36,5 +36,10 @@ test('plugin-remove-unused-private-fields: transform: private-method', (t) => {
 
 test('plugin-remove-unused-private-fields: no transform: destructuring', (t) => {
     t.noTransform('destructuring');
+    t.end();
+});
+
+test('plugin-remove-unused-private-fields: no report: private', (t) => {
+    t.noReport('private');
     t.end();
 });

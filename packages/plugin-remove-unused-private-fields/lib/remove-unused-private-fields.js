@@ -4,12 +4,13 @@ const {traverse, operator} = require('putout');
 
 const {remove} = operator;
 
-module.exports.report = ({name}) => `private field "#${name}" declared by not used`;
+module.exports.report = ({name}) => `Private field "#${name}" declared by not used`;
 
 module.exports.find = (ast) => {
     const vars = [];
     const addVar = addVariable(vars);
     const rmVar = removeVariable(vars);
+    const list = [];
     
     traverseClass(ast, {
         ClassPrivateProperty(path) {
@@ -27,7 +28,7 @@ module.exports.find = (ast) => {
             const propertyPath = parentPath.get('property');
             
             if (propertyPath.isPrivateName()) {
-                rmVar(path, propertyPath.node.id.name);
+                list.push([path, propertyPath.node.id.name]);
                 return;
             }
             
@@ -43,10 +44,14 @@ module.exports.find = (ast) => {
                 const keyPath = propertyPath.get('key');
                 
                 if (keyPath.isPrivateName())
-                    rmVar(path, keyPath.node.id.name);
+                    list.push([path, keyPath.node.id.name]);
             }
         },
     });
+    
+    for (const [path, name] of list) {
+        rmVar(path, name);
+    }
     
     return Object.values(vars);
 };
