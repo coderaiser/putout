@@ -4,5 +4,6 @@
         "rules": {
             "putout/nonblock-statement-body-newline": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

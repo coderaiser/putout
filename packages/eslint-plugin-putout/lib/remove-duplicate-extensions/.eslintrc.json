@@ -4,5 +4,6 @@
         "rules": {
             "putout/remove-duplicate-extensions": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

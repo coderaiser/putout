@@ -4,5 +4,6 @@
         "rules": {
             "putout/tape-add-newline-between-tests": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

@@ -4,5 +4,6 @@
         "rules": {
             "putout/remove-empty-specifiers": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

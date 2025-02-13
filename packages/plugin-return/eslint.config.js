@@ -2,4 +2,8 @@
 
 const {safeAlign} = require('eslint-plugin-putout/config');
 
-module.exports = safeAlign;
+module.exports = [
+    ...safeAlign, {
+        ignores: ['**/fixture'],
+    },
+];

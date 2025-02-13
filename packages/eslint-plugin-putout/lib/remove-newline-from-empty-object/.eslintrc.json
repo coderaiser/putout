@@ -4,5 +4,6 @@
         "rules": {
             "putout/remove-newline-from-empty-object": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

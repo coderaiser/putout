@@ -4,5 +4,6 @@
         "rules": {
             "putout/array-element-newline": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

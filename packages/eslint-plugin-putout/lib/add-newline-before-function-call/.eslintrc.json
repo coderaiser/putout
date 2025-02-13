@@ -4,5 +4,6 @@
         "rules": {
             "putout/add-newline-before-function-call": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

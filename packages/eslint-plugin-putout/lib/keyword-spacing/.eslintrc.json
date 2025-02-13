@@ -4,5 +4,6 @@
         "rules": {
             "putout/keyword-spacing": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

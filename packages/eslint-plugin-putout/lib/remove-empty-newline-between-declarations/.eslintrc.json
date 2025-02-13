@@ -4,5 +4,6 @@
         "rules": {
             "putout/remove-empty-newline-after-import": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

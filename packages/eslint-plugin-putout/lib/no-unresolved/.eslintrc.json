@@ -4,5 +4,6 @@
         "rules": {
             "putout/no-unresolved": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

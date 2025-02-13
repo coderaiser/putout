@@ -4,5 +4,6 @@
         "rules": {
             "putout/add-newlines-between-specifiers": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

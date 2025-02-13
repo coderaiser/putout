@@ -108,3 +108,8 @@ test('plugin-eslint: transform: remove-useless-properties', (t) => {
     t.transform('remove-useless-properties');
     t.end();
 });
+
+test('plugin-eslint: transform: apply-ignores', (t) => {
+    t.transform('apply-ignores');
+    t.end();
+});

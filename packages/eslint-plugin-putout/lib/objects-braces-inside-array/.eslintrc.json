@@ -7,5 +7,6 @@
         "rules": {
             "putout/objects-braces-inside-array": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

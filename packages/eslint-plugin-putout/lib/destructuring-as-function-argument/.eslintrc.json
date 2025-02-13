@@ -4,5 +4,6 @@
         "rules": {
             "putout/destructuring-as-function-argument": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

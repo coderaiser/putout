@@ -4,5 +4,6 @@
         "rules": {
             "putout/tape-remove-newline-before-t-end": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

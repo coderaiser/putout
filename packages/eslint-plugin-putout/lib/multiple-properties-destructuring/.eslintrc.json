@@ -4,5 +4,6 @@
         "rules": {
             "putout/multiple-properties-destructuring": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

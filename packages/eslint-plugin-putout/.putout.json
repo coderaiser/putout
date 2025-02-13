@@ -1,9 +1,12 @@
 {
     "printer": "putout",
     "rules": {
-        "putout": "off"
+        "putout": "off",
+        "eslint/apply-ignores": "off"
     },
-    "plugins": ["eslint-plugin"],
+    "plugins": [
+        "eslint-plugin"
+    ],
     "match": {
         "*.js": {
             "nodejs/convert-esm-to-commonjs": "on"
@@ -34,5 +37,7 @@
             "maybe/noop": "off"
         }
     },
-    "ignore": ["*.md"]
+    "ignore": [
+        "*.md"
+    ]
 }

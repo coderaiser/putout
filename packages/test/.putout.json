@@ -8,5 +8,8 @@
         "test": {
             "promises/apply-top-level-await": "off"
         }
+    },
+    "rules": {
+        "eslint/apply-ignores": "off"
     }
 }

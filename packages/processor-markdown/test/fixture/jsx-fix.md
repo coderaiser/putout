@@ -9,6 +9,7 @@ module.exports = () => {
         </content>
     );
 };
+
 ```
 
 ```tsx
@@ -26,4 +27,5 @@ module.exports = () => {
         </content>
     );
 };
+
 ```

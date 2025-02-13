@@ -13,5 +13,6 @@
         "putout",
         "n",
         "@babel/development"
-    ]
+    ],
+    "ignorePatterns": ["**/fixture"]
 }

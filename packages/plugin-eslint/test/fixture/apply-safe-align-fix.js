@@ -6,7 +6,8 @@ __putout_processor_json({
     "plugins": [
         "putout",
         "n"
-    ]
+    ],
+    "ignorePatterns": ["**/fixture"]
 });
 
 __putout_processor_json({
@@ -17,5 +18,6 @@ __putout_processor_json({
     "plugins": [
         "putout",
         "n"
-    ]
+    ],
+    "ignorePatterns": ["**/fixture"]
 });

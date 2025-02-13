@@ -19,6 +19,7 @@ const applyDirToFlat = require('./apply-dir-to-flat');
 const convertExportMatchToDeclaration = require('./convert-export-match-to-declaration');
 const convertPluginsArrayToObject = require('./convert-plugins-array-to-object');
 const removeUselessProperties = require('./remove-useless-properties');
+const applyIgnores = require('./apply-ignores');
 
 module.exports.rules = {
     'add-putout': addPutout,
@@ -40,4 +41,5 @@ module.exports.rules = {
     'convert-export-match-to-declaration': convertExportMatchToDeclaration,
     'convert-plugins-array-to-object': convertPluginsArrayToObject,
     'remove-useless-properties': removeUselessProperties,
+    'apply-ignores': applyIgnores,
 };

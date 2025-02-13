@@ -4,5 +4,6 @@
         "rules": {
             "putout/object-property-newline": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 }

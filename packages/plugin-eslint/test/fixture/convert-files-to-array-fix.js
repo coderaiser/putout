@@ -9,5 +9,6 @@ __putout_processor_json({
         "rules": {
             "import/no-extraneous-dependencies": "off"
         }
-    }]
+    }],
+    "ignorePatterns": ["**/fixture"]
 });
