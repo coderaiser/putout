@@ -1,3 +1,15 @@
+2025.02.13, v38.1.5
+
+fix:
+- 9f2fbb1c7 @putout/plugin-remove-useless-arguments: method: exclude: ClassPrivateProperty
+
+feature:
+- ef3e07c75 putout: @putout/plugin-remove-useless-arguments v11.0.0
+- ae33022ae @putout/plugin-remove-useless-arguments: drop support of 🐊 < 38
+- 2ff56b573 putout: @putout/plugin-convert-quotes-to-backticks v4.0.1
+- fa0fb1db8 @putout/plugin-convert-quot-to-backticks: drop support of 🐊 < 38
+- b055d874a @putout/plugin-convert-quotes-to-backticks: exclude ObjectProperty
+
 2025.02.13, v38.1.4
 
 feature:
