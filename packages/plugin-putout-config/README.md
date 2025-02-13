@@ -96,12 +96,14 @@ Apply [`esm`](https://github.com/coderaiser/putout/tree/master/packages/plugin-e
 -       "group-imports-by-source": "on",
 -       "declare-imports-first": "on",
 -       "remove-quotes-from-import-assertions": "on",
--       "merge-duplicate-imports": "on"
+-       "merge-duplicate-imports": "on",
+-       "sort-imports-by-specifiers": "on"
 +       "esm/convert-assert-to-with": "off",
 +       "esm/group-imports-by-source": "on",
 +       "esm/declare-imports-first": "on",
 +       "esm/remove-quotes-from-import-assertions": "on",
-+       "esm/merge-duplicate-imports": "on"
++       "esm/merge-duplicate-imports": "on",
++       "esm/sort-imports-by-specifiers": "on"
   }
 }
 ```

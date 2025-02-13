@@ -9,6 +9,7 @@ const v37 = [
     ['group-imports-by-source', 'esm/group-imports-by-source'],
     ['declare-imports-first', 'esm/declare-imports-first'],
     ['remove-quotes-from-import-assertions', 'esm/remove-quotes-from-import-assertions'],
+    ['sort-imports-by-specifiers', 'esm/sort-imports-by-specifiers'],
     ['merge-duplicate-imports', 'esm/merge-duplicate-imports'],
 ];
 
