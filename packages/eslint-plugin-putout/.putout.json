@@ -37,7 +37,5 @@
             "maybe/noop": "off"
         }
     },
-    "ignore": [
-        "*.md"
-    ]
+    "ignore": ["*.md"]
 }
