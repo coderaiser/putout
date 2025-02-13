@@ -29,6 +29,11 @@ test('plugin-convert-quotes-to-backtics: no report: variables', (t) => {
     t.end();
 });
 
+test('plugin-convert-quotes-to-backtics: no report: object-key', (t) => {
+    t.noReport('object-key');
+    t.end();
+});
+
 test('plugin-convert-quotes-to-backtics: transform: backslash', (t) => {
     t.transform('backslash');
     t.end();

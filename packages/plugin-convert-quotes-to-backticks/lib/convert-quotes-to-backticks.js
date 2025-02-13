@@ -25,6 +25,9 @@ const {replaceWith} = operator;
 
 module.exports.traverse = ({push}) => ({
     StringLiteral(path) {
+        if (path.parentPath.isObjectProperty())
+            return;
+        
         const {value} = path.node;
         
         if (value.includes('${'))
