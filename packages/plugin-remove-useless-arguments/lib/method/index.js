@@ -1,7 +1,6 @@
 'use strict';
 
 const {operator, types} = require('putout');
-
 const {compare} = operator;
 
 const {
@@ -10,6 +9,7 @@ const {
     isSuper,
     isClass,
     isClassProperty,
+    isClassPrivateProperty,
 } = types;
 
 module.exports.report = ({methodNode}) => {
@@ -41,6 +41,9 @@ module.exports.traverse = ({push}) => ({
         
         for (const methodNode of parentPath.node.body.body) {
             if (isClassProperty(methodNode))
+                continue;
+            
+            if (isClassPrivateProperty(methodNode))
                 continue;
             
             if (isRestElement(methodNode.params.at(-1)))

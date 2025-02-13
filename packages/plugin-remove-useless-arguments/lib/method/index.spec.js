@@ -33,3 +33,8 @@ test('plugin-remove-useless-method: method: no report: getter', (t) => {
     t.noReport('getter');
     t.end();
 });
+
+test('plugin-remove-useless-method: method: no report: private', (t) => {
+    t.noReport('private');
+    t.end();
+});
