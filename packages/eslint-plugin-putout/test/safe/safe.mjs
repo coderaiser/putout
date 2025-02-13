@@ -33,7 +33,7 @@ test('eslint-plugin-putout: safe: no-merge-duplicate-functions', async ({noProce
     });
 });
 
-test('eslint-plugin-putout: safe: no-merge-duplicate-functions', async ({noProcess}) => {
+test('eslint-plugin-putout: safe: no-remoe-useless-push', async ({noProcess}) => {
     await noProcess('no-remove-useless-push', {
         extends: ['plugin:putout/safe'],
         rules: {
