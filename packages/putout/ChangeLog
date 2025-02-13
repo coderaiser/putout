@@ -1,3 +1,21 @@
+2025.02.13, v38.1.3
+
+fix:
+- 0e4ecd321 @putout/cli-process-file: startLine: 1 -> 0
+
+feature:
+- f3478ed1f putout: @putout/plugin-eslint v11.0.0
+- 1442f9f86 @putout/plugin-eslint: drop support of 🐊 < 38
+- 2dff0742e @putout/cli-process-file: printer: package.json
+- 047bba202 @putout/plugin-eslint: apply-ignores: add
+- d8b06eff9 @putout/plugin-putout: check-match: return
+- cd9fde269 eslint-plugin-putout: safe: remove-useless-push: add
+- 716dea229 putout: @putout/plugin-conditions v7.1.0
+- f8303aade @putout/plugin-conditions: drop support of 🐊 < 38
+- cfe3afbdd @putout/plugin-conditions: reverse: !(__a || __b) -> !__a && !__b
+- bcd8b0f97 @putout/plugin-apply-template-literals: improve support of newlines
+- c7bee3487 @putout/operator-parens: add
+
 2025.02.10, v38.1.2
 
 fix:
