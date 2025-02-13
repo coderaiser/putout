@@ -18,23 +18,36 @@ const JSON = {
     },
 };
 
+const PACKAGE = {
+    ...JSON,
+    format: {
+        ...JSON.format,
+        indent: '  ',
+    },
+};
+
 export const configurePrinter = (name, printerOptions) => {
     const [printer = 'putout', options = {}] = maybeArray(printerOptions);
-    const ext = name
-        .split('.')
-        .pop();
     
     if (printer !== 'putout')
         return printerOptions;
     
-    const mergedOptions = deepMerge(parseOptions(ext), options);
+    const mergedOptions = deepMerge(parseOptions(name), options);
     
     return [printer, mergedOptions];
 };
 
-function parseOptions(ext) {
-    if (ext === 'json')
+function parseOptions(name) {
+    const ext = name
+        .split('.')
+        .pop();
+    
+    if (ext === 'json') {
+        if (name.endsWith('package.json'))
+            return PACKAGE;
+        
         return JSON;
+    }
     
     if (ext === 'yml{json}')
         return JSON;

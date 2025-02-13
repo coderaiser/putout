@@ -53,6 +53,22 @@ test('putout: cli: printer: md{js}', (t) => {
     t.end();
 });
 
+test('putout: cli: printer: json: package.json', (t) => {
+    const result = configurePrinter('/package.json');
+    const expected = ['putout', {
+        format: {
+            quote: '"',
+            indent: '  ',
+        },
+        semantics: {
+            trailingComma: false,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: cli: printer: printer: md{ts}', (t) => {
     const result = configurePrinter('hello.md{ts}', ['putout', {}]);
     
