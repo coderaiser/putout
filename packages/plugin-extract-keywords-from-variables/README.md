@@ -32,6 +32,11 @@ export const isTemplateTail = (a) => a?.type === 'TemplateTail';
 
 -const a 5;
 +const a = 5;
+
+-export const packContent = (content) {
++export const packContent = (content) => {
+    console.log(a);
+}
 ```
 
 ## License

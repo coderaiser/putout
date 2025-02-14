@@ -2,6 +2,8 @@
 
 const {types, operator} = require('putout');
 const {
+    isExportDeclaration,
+    ArrowFunctionExpression,
     isArrowFunctionExpression,
     isLiteral,
     IfStatement,
@@ -14,9 +16,11 @@ const {
     isExportNamedDeclaration,
     isIdentifier,
     isMemberExpression,
+    isBlockStatement,
 } = types;
 
 const {
+    removeParens,
     remove,
     replaceWith,
     isDeclarationKeyword,
@@ -31,7 +35,13 @@ const buildDeclaration = (type) => (nextPath, path) => {
     let left;
     let right;
     
-    if (isAssignmentExpression(expression)) {
+    if (isBlockStatement(nextPath)) {
+        left = path.node.id;
+        const {node: init} = removeParens(path.get('init'));
+        const params = [init];
+        
+        right = ArrowFunctionExpression(params, nextPath.node);
+    } else if (isAssignmentExpression(expression)) {
         ({
             left,
             right,
@@ -105,6 +115,19 @@ module.exports.traverse = ({push}) => ({
             const {expression} = nextPath.node;
             
             if (isInit(expression))
+                push({
+                    name: kind,
+                    path,
+                    nextPath,
+                });
+            
+            return;
+        }
+        
+        if (isExportDeclaration(path.parentPath.parentPath)) {
+            const nextPath = path.parentPath.parentPath.getNextSibling();
+            
+            if (isBlockStatement(nextPath))
                 push({
                     name: kind,
                     path,
