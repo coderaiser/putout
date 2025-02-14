@@ -28,3 +28,8 @@ test('plugin-parens: transform: remove-useless-for-await', (t) => {
     t.transform('remove-useless-for-await');
     t.end();
 });
+
+test('plugin-parens: transform: remove-useless-for-params', (t) => {
+    t.transform('remove-useless-for-params');
+    t.end();
+});

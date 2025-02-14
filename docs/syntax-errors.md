@@ -321,4 +321,11 @@ function get() {
 }
 ```
 
+<details><summary>remove useless <code>parens</code> for params </summary>
+
+```diff
+-const a = ((b)) => c;
++const a = (b) => c;
+```
+
 </details>

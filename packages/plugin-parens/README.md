@@ -11,7 +11,17 @@
 npm i @putout/plugin-parens
 ```
 
-## Rule
+## Rules
+
+- ✅ [add-missing-for-await](#add-missing-for-await);
+- ✅ [add-missing-for-template](#add-missing-for-template);
+- ✅ [add-missing-for-assign](#add-missing-for-assign);
+- ✅ [remove-useless-for-await](#remove-useless-for-params);
+- ✅ [remove-useless-for-params](#remove-useless-for-params);
+
+## Config
+
+Short:
 
 ```json
 {
@@ -22,9 +32,21 @@ npm i @putout/plugin-parens
 }
 ```
 
-## add-missing
+Full:
 
-### assign
+```json
+{
+    "rules": {
+        "parens/add-missing-for-await": "on",
+        "parens/add-missing-for-template": "on",
+        "parens/add-missing-for-assign": "on",
+        "parens/remove-useless-for-await": "on",
+        "parens/remove-useless-for-params": "on"
+    }
+}
+```
+
+## add-missing-for-assign
 
 > The JavaScript exception "invalid assignment left-hand side" occurs when there was an unexpected assignment somewhere. It may be triggered when a single `=` sign was used instead of `==` or `===`.
 >
@@ -45,31 +67,21 @@ To disable use:
 +a && (b = a);
 ```
 
-### await
+## add-missing-for-await
 
-To disable use:
-
-```json
-{
-    "rules": {
-        "parens/add-missing-for-await": "off"
-    }
-}
-```
-
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 await asyncFn().filter(Boolean);
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 (await asyncFn()).filter(Boolean);
 ```
 
-#### template
+## add-missing-for-template
 
 > The JavaScript exception "tagged template cannot be used with optional chain" occurs when the tag expression of a tagged template literal is an optional chain, or if there's an optional chain between the tag and the template.
 >
@@ -85,7 +97,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/ef3f1e198a8
 }
 ```
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 getConsoleLog?.()``;
@@ -93,7 +105,7 @@ String?.raw``;
 String?.raw!``;
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 (getConsoleLog?.())``;
@@ -101,32 +113,41 @@ String?.raw!``;
 (String?.raw)!``;
 ```
 
-## remove-useless
-
-### await
-
-To disable use:
-
-```json
-{
-    "rules": {
-        "parens/remove-useless-for-await": "off"
-    }
-}
-```
+## remove-useless-for-await
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3800b0c52a199dd49a089ed4b9b37566/e2dddb75cb68811883cae640a22b340b8e1afa73).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```ts
 const s = (await m());
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```ts
 const s = await m();
+```
+
+## remove-useless-for-params
+
+> `Uncaught SyntaxError: Invalid destructuring assignment target`
+>
+> (c) Chrome
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8cbc3929366a2e6e5f9db64b461f5a2f/568ec40e8f4f0b0195dc44a078fa1a9ae62abe2b).
+
+### ❌ Example of incorrect code
+
+```
+const a = ((b)) => c;
+
+```
+
+### ✅ Example of correct code
+
+```js
+const a = (b) => c;
 ```
 
 ## License
