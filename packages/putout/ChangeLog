@@ -1,3 +1,17 @@
+2025.02.14, v38.1.7
+
+feature:
+- b163f5597 putout: @putout/plugin-remove-nested-blocks v8.0.0
+- 74712f1e2 @putout/plugin-remove-nested-blocks: drop support of 🐊 < 38
+- 9341d99b5 @putout/plugin-remove-nested-blocks: ExportNamedDeclaration
+- 9f8c82ef7 @putout/plugin-exptract-keywrods-from-variables: ArrowFunctionExpression
+- 281cd6f40 @putout/plugin-parens: remove-useless-for-parens: add
+- 53b4b91a2 @putout/operator-parens: addParens/removeParens: return path
+- a16d22d08 @putout/plugin-eslint: apply-create-eslint: add
+- 499ff7d66 @putout/plugin-eslint: apply-ignores: off
+- 96bb81494 @putout/plugin-convert-quotes-to-backticks: add support of ObjectProperty
+- cf66ec5c5 @putout/plugin-putout: apply-vars: add support of CommonJS
+
 2025.02.13, v38.1.6
 
 feature:
