@@ -6,19 +6,13 @@ const {
     TSParenthesizedType,
 } = types;
 
-module.exports.hasParens = (path) => {
-    const printer = getPrinter(path);
-    
-    if (printer !== 'babel')
-        return path.node.extra?.parenthesized;
-    
-    const {type} = path.parentPath;
-    
-    return /^(TS)?Parenthesized(Expression|Type)?$/.test(type);
-};
+module.exports.hasParens = hasParens;
 
 module.exports.addParens = (path) => {
     const printer = getPrinter(path);
+    
+    if (hasParens(path, printer))
+        return path;
     
     if (printer !== 'babel') {
         const {extra = {}} = path.node;
@@ -42,6 +36,9 @@ module.exports.addParens = (path) => {
 module.exports.removeParens = (path) => {
     const printer = getPrinter(path);
     
+    if (!hasParens(path, printer))
+        return path;
+    
     if (printer !== 'babel') {
         path.node.extra.parenthesized = false;
         return path;
@@ -58,4 +55,13 @@ function getPrinter(path) {
     const programPath = scope.path;
     
     return programPath.node.extra.__putout_printer;
+}
+
+function hasParens(path, printer = getPrinter(path)) {
+    if (printer !== 'babel')
+        return path.node.extra?.parenthesized;
+    
+    const {type} = path.parentPath;
+    
+    return /^(TS)?Parenthesized(Expression|Type)?$/.test(type);
 }

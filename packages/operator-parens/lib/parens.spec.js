@@ -69,6 +69,29 @@ test('putout: operator: parens: removeParens: babel', (t) => {
     t.end();
 });
 
+test('putout: operator: parens: removeParens: babel: no parens', (t) => {
+    const source = 'b = 3';
+    const ast = parse(source, {
+        printer: 'babel',
+    });
+    
+    traverse(ast, {
+        NumericLiteral(path) {
+            removeParens(path);
+            path.stop();
+        },
+    });
+    
+    const result = print(ast, {
+        printer: 'babel',
+    });
+    
+    const expected = 'b = 3;\n';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('putout: operator: parens: removeParens: babel: return', (t) => {
     const source = '(b = 3)';
     const ast = parse(source, {
@@ -124,6 +147,29 @@ test('putout: operator: parens: addParens: return', (t) => {
 
 test('putout: operator: parens: addParens: babel', (t) => {
     const source = 'b = 3';
+    const ast = parse(source, {
+        printer: 'babel',
+    });
+    
+    traverse(ast, {
+        AssignmentExpression(path) {
+            addParens(path);
+            path.stop();
+        },
+    });
+    
+    const result = print(ast, {
+        printer: 'babel',
+    });
+    
+    const expected = '(b = 3);\n';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: parens: addParens: babel: has parens', (t) => {
+    const source = '(b = 3)';
     const ast = parse(source, {
         printer: 'babel',
     });
