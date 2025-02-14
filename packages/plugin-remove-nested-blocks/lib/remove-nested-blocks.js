@@ -1,7 +1,11 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {isReturnStatement} = types;
+const {
+    isReturnStatement,
+    isExportNamedDeclaration,
+} = types;
+
 const {replaceWithMultiple} = operator;
 const {keys} = Object;
 
@@ -16,6 +20,11 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = (path) => {
+    const prev = path.getPrevSibling();
+    
+    if (isExportNamedDeclaration(prev))
+        return false;
+    
     if (isReturnWithoutArg(path))
         return false;
     

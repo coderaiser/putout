@@ -80,3 +80,8 @@ test('plugin-remove-nested-blocks: no report: intersect-multi', (t) => {
     t.noReport('intersect-multi');
     t.end();
 });
+
+test('plugin-remove-nested-blocks: no report: arrow', (t) => {
+    t.noReport('arrow');
+    t.end();
+});
