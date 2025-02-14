@@ -124,8 +124,7 @@ test('putout: parser: print: printer: babel: preserve format: parens: parser: no
     });
     
     const expected = montag`
-        const a:  (boolean| number)[] = [false, 1];
-    
+        const a: (boolean | number)[] = [false, 1];\n
     `;
     
     t.equal(result, expected);
