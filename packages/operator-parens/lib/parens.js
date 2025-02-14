@@ -26,7 +26,7 @@ module.exports.addParens = (path) => {
         extra.parenthesized = true;
         path.node.extra = extra;
         
-        return;
+        return path;
     }
     
     const {node} = path;
@@ -35,16 +35,22 @@ module.exports.addParens = (path) => {
         return path.replaceWith(TSParenthesizedType(node));
     
     path.replaceWith(ParenthesizedExpression(node));
+    
+    return path;
 };
 
 module.exports.removeParens = (path) => {
     const printer = getPrinter(path);
     
-    if (printer !== 'babel')
-        return path.node.extra.parenthesized = false;
+    if (printer !== 'babel') {
+        path.node.extra.parenthesized = false;
+        return path;
+    }
     
     const {node} = path;
     path.parentPath.replaceWith(node);
+    
+    return path;
 };
 
 function getPrinter(path) {

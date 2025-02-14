@@ -13,7 +13,7 @@ npm i putout @putout/operator-parens
 
 ## API
 
-### `addParens(path: Path)`
+### `addParens(path: Path): Path`
 
 Add parens around expression depending on used `printer`:
 
@@ -28,7 +28,7 @@ const {addParens} = operator;
 addParens(path);
 ```
 
-### `removeParens(path: Path)`
+### `removeParens(path: Path): Path`
 
 Remove parens around expression depending on used `printer`:
 
@@ -43,7 +43,7 @@ const {removeParens} = operator;
 removeParens(path);
 ```
 
-### `hasParens(path: Path)`
+### `hasParens(path: Path): Boolean`
 
 Check if `path` has parens around expression depending on used `printer`:
 

@@ -19,13 +19,30 @@ test('putout: operator: parens: removeParens: putout', (t) => {
     const ast = parse(source);
     
     traverse(ast, {
-        AssignmentExpression: removeParens,
+        AssignmentExpression: (path) => {
+            removeParens(path);
+        },
     });
     
     const result = print(ast);
     const expected = 'b = 3;\n';
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: parens: removeParens: putout: return', (t) => {
+    const source = '(b = 3)';
+    const ast = parse(source);
+    let result;
+    
+    traverse(ast, {
+        AssignmentExpression: (path) => {
+            result = removeParens(path);
+        },
+    });
+    
+    t.equal(result.type, 'AssignmentExpression');
     t.end();
 });
 
@@ -52,6 +69,25 @@ test('putout: operator: parens: removeParens: babel', (t) => {
     t.end();
 });
 
+test('putout: operator: parens: removeParens: babel: return', (t) => {
+    const source = '(b = 3)';
+    const ast = parse(source, {
+        printer: 'babel',
+    });
+    
+    let result;
+    
+    traverse(ast, {
+        AssignmentExpression(path) {
+            result = removeParens(path);
+            path.stop();
+        },
+    });
+    
+    t.equal(result.type, 'AssignmentExpression');
+    t.end();
+});
+
 test('putout: operator: parens: addParens', (t) => {
     const source = 'const b = a';
     const ast = parse(source);
@@ -67,6 +103,22 @@ test('putout: operator: parens: addParens', (t) => {
     const expected = 'const b = (a);\n';
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: parens: addParens: return', (t) => {
+    const source = 'const b = a';
+    const ast = parse(source);
+    let result;
+    
+    traverse(ast, {
+        VariableDeclarator(path) {
+            result = addParens(path.get('init'));
+            path.stop();
+        },
+    });
+    
+    t.equal(result.type, 'Identifier');
     t.end();
 });
 
@@ -90,6 +142,25 @@ test('putout: operator: parens: addParens: babel', (t) => {
     const expected = '(b = 3);\n';
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: parens: addParens: babel: return', (t) => {
+    const source = 'b = 3';
+    const ast = parse(source, {
+        printer: 'babel',
+    });
+    
+    let result;
+    
+    traverse(ast, {
+        AssignmentExpression(path) {
+            result = addParens(path);
+            path.stop();
+        },
+    });
+    
+    t.equal(result.type, 'ParenthesizedExpression');
     t.end();
 });
 
