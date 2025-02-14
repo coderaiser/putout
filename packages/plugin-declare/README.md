@@ -203,6 +203,22 @@ const entries = (a) => isArray(a) ? a.entries() : Object.entries();
 entries([1, 2, 3]);
 ```
 
+## `fromEntries`
+
+### ❌ Example of incorrect code
+
+```js
+fromEntries(['hello', 'world']);
+```
+
+### ✅ Example of correct code
+
+```js
+const {fromEntries} = Object;
+
+fromEntries(['hello', 'world']);
+```
+
 ## License
 
 MIT

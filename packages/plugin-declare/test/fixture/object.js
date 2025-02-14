@@ -5,3 +5,5 @@ defineProperty(fn, 'name', {
 freeze({});
 
 entries(a);
+
+fromEntries(['a', 'b']);

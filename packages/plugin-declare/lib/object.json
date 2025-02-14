@@ -4,5 +4,6 @@
     "values": "const {values} = Object",
     "freeze": "const {freeze} = Object",
     "defineProperty": "const {defineProperty} = Object",
-    "entries": "const {entries} = Object"
+    "entries": "const {entries} = Object",
+    "fromEntries": "const {fromEntries} = Object"
 }

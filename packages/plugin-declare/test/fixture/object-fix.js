@@ -1,3 +1,4 @@
+const {fromEntries} = Object;
 const {entries} = Object;
 const {freeze} = Object;
 const {defineProperty} = Object;
@@ -9,3 +10,5 @@ defineProperty(fn, 'name', {
 freeze({});
 
 entries(a);
+
+fromEntries(['a', 'b']);
