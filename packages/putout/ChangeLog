@@ -1,3 +1,11 @@
+2025.02.14, v38.1.8
+
+feature:
+- 3822c6326 putout: @putout/plugin-declare v5.0.0
+- ea96c54c6 @putout/plugin-declare: drop support of 🐊 < 38
+- d9f9409cf @putout/plugin-declare: fromEntries: add
+- 6102ae452 @putout/operator-parens: addParens/removeParens: do nothingh when parens exists/absent
+
 2025.02.14, v38.1.7
 
 feature:
