@@ -37,7 +37,7 @@ const [dirPath] = findFile(ast, 'hello');
 const newDirectoryPath = createDirectory(dirPath, 'world');
 ```
 
-### `findFile(directoryPath: DirectoryPath, name: string | string[], exclude?: string[] | (FilePath) => boolean): (FilePath | DirectoryPath)[]`
+### `findFile(directoryPath: DirectoryPath, name: string | string[], exclude?: string[]): (FilePath | DirectoryPath)[]`
 
 ```js
 const {operator} = require('putout');
@@ -63,11 +63,6 @@ import {operator} from 'putout';
 const {findFile, getFilename} = operator;
 
 const coupleFilesWithExcludeArray = findFile(ast, '*.ts', ['*.d.ts']);
-
-const coupleFilesWithExcludeFn = findFile(ast, '*.ts', (filePath) => {
-    const name = getFilename(filePath);
-    return !name.endsWith('*.d.ts');
-});
 ```
 
 And even search for a directory:

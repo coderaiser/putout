@@ -11,7 +11,7 @@ const {
 } = require('@putout/operate');
 
 const maybeFS = require('./maybe-fs');
-const isFn = (a) => typeof a === 'function';
+
 const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
@@ -65,10 +65,7 @@ module.exports.getParentDirectory = (filePath) => {
 
 module.exports.findFile = findFile;
 
-function isExcluded({path, name, base, exclude}) {
-    if (isFn(exclude))
-        return exclude(path);
-    
+function isExcluded({name, base, exclude}) {
     for (const currentExclude of exclude) {
         if (name === currentExclude || getRegExp(currentExclude).test(base))
             return true;
@@ -91,7 +88,6 @@ function findFile(node, name, exclude = []) {
             if (value === name || getRegExp(name).test(base)) {
                 const path = filenamePath.parentPath;
                 const excluded = isExcluded({
-                    path,
                     name,
                     base,
                     exclude,
