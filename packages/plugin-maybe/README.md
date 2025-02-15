@@ -98,6 +98,8 @@ When you not sure is `f` a function, but you want to use it as function anyways:
 
 ```js
 const fn = maybeFn(f);
+
+maybeCall(fn);
 ```
 
 ### ✅ Example of correct code
@@ -105,9 +107,11 @@ const fn = maybeFn(f);
 ```js
 const isFn = (a) => typeof a === 'function';
 const noop = () => {};
-const maybeFn = isFn(a) ? a : noop;
+const maybeFn = (a) => isFn(a) ? a : noop;
+const maybeCall = (a, ...b) => isFn(a) && a(...b);
 
 const fn = maybeFn(f);
+maybeCall(fn);
 ```
 
 When you not sure is `a` is an array or not, but you want to get first element of it.

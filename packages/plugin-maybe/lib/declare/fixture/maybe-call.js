@@ -1,0 +1,2 @@
+maybeCall(fn, 'hello');
+

@@ -23,3 +23,8 @@ test('plugin-maybe: declare: transform: maybe-first', (t) => {
     t.transform('maybe-first');
     t.end();
 });
+
+test('plugin-maybe: declare: transform: maybe-call', (t) => {
+    t.transform('maybe-call');
+    t.end();
+});

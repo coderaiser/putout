@@ -3,5 +3,8 @@
         "*.md{js}": {
             "maybe": "off"
         }
+    },
+    "rules": {
+        "optional-chaining/convert-logical-to-optional": "off"
     }
 }
