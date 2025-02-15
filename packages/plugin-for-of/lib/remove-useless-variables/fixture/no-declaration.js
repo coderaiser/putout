@@ -1,3 +1,6 @@
-for (a of b) {
-    const {b, c, x} = a;
+console.log(filename);
+const result = {};
+
+for (const file of list) {
+    console.log(file);
 }

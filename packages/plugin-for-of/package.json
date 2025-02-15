@@ -35,6 +35,7 @@
     "@putout/eslint-flat": "^2.0.0",
     "@putout/plugin-conditions": "*",
     "@putout/plugin-convert-const-to-let": "*",
+    "@putout/plugin-remove-console": "*",
     "@putout/plugin-remove-empty": "*",
     "@putout/plugin-remove-nested-blocks": "*",
     "@putout/plugin-remove-unreferenced-variables": "*",

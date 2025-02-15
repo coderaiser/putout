@@ -1,8 +1,12 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const plugin = require('.');
+
+const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
+const removeConsole = require('@putout/plugin-remove-console');
+
 const removeUselessArrayFrom = require('../remove-useless-array-from');
+const plugin = require('.');
 
 const test = createTest(__dirname, {
     plugins: [
@@ -52,6 +56,14 @@ test('putout: plugin-for-of: remove-useless-variables no transform: assignment',
 
 test('putout: plugin-for-of: remove-useless-variables no transform: nested', (t) => {
     t.noReport('nested');
+    t.end();
+});
+
+test('putout: plugin-for-of: remove-useless-variables no report: no-declaration', (t) => {
+    t.transform('no-declaration', {
+        'remove-console': removeConsole,
+        'remove-unused-variables': removeUnusedVariables,
+    });
     t.end();
 });
 

@@ -36,11 +36,7 @@ module.exports.traverse = ({push, options}) => ({
         const [referencePath] = referencePaths;
         const {parentPath} = referencePath;
         
-        const isSameName = parentPath.get('init').isIdentifier({
-            name,
-        });
-        
-        if (!isSameName)
+        if (!parentPath.isVariableDeclarator())
             return;
         
         const idPath = parentPath.get('id');
