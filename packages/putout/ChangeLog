@@ -1,3 +1,10 @@
+2025.02.15, v38.1.10
+
+feature:
+- 3d5020104 putout: @putout/plugin-for-of v8.0.0
+- 047babc2f @putout/plugin-for-of: drop support of 🐊 < 38
+- 8e213c77f @putout/plugin-for-of: remove-useless-variables: check for VariableDeclarator before getting init
+
 2025.02.15, v38.1.9
 
 fix:
