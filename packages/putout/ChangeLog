@@ -1,3 +1,15 @@
+2025.02.15, v38.1.9
+
+fix:
+- 3c45f796e @putout/operator-filesystem: findFile: exclude fn: drop, no place where it can be used
+
+feature:
+- 55a774cbd putout: @putout/plugin-maybe v3.0.0
+- b87489f33 @putout/plugin-maybe: drop support of 🐊 < 38
+- ebdada7c1 @putout/plugin-maybe: declare: maybeCall
+- a3ff2b943 @putout/operator-keyword: async
+- 3fd84ef41 @putout/compare: nessy v5.1.0
+
 2025.02.14, v38.1.8
 
 feature:
