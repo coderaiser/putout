@@ -13,6 +13,14 @@ npm i @putout/plugin-maybe -D
 
 ## Rules
 
+- ✅ [array](#array);
+- ✅ [empty-array](#empty-array);
+- ✅ [fn](#fn);
+- ✅ [noop](#noop);
+- ✅ [declare](#declare);
+
+## Config
+
 ```json
 {
     "rules": {
