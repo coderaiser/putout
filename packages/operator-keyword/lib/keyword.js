@@ -40,6 +40,7 @@ const statements = [
     ...declarations,
     ...moduleDeclarations,
     ...typescriptReserved,
+    'async',
     'break',
     'continue',
     'for',

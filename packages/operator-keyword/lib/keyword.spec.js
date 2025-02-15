@@ -170,3 +170,10 @@ test('putout: operator: isKeyword: module: no', (t) => {
     t.notOk(result);
     t.end();
 });
+
+test('putout: operator: isKeyword: async', (t) => {
+    const result = isKeyword('async');
+    
+    t.ok(result);
+    t.end();
+});
