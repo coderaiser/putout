@@ -1,3 +1,11 @@
+2025.02.16, v38.2.0
+
+feature:
+- c31e0dbbd putout: @putout/plugin-types v7.0.0
+- 466615717 @putout/plugin-types: declare: isNumberLike: add
+- 1b5bb3139 @putout/plugin-types: drop support of 🐊 < 38
+- 9950c02fd @putout/plugin-types: declare: isNumber: add check for isNaN
+
 2025.02.15, v38.1.10
 
 feature:
