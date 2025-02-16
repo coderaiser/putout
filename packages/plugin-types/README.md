@@ -60,13 +60,18 @@ Supported assertions:
 
 ```js
 isString('hello');
+isNumber('a' - 5);
 ```
 
 ### ✅ Example of correct code
 
 ```js
 const isString = (a) => typeof a === 'string';
+const isNumber = (a) => !Number.isNaN(a) && typeof a === 'number';
+
 isString('hello');
+
+isNumber('a' - 5);
 ```
 
 When you want to skip some declaration use `dismiss`:
