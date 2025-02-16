@@ -1,6 +1,6 @@
 import b from 'b';
 
-const isNumber = (a) => typeof a === 'number';
+const isNumber = (a) => !Number.isNaN(a) && typeof a === 'number';
 
 /**
  * This is class X
