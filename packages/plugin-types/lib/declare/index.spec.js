@@ -53,3 +53,8 @@ test('putout: plugin: types: declare: is-error', (t) => {
     t.transform('is-error');
     t.end();
 });
+
+test('putout: plugin: types: declare: is-number-like', (t) => {
+    t.transform('is-number-like');
+    t.end();
+});

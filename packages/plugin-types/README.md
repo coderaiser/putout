@@ -45,6 +45,7 @@ Supported assertions:
 - `isString`;
 - `isEmptyString`;
 - `isNumber`;
+- `isNumberLike` - checks if `a` can be convert to `Number` from `String`;
 - `isFn`;
 - `isBool`;
 - `isObject`;
