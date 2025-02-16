@@ -197,8 +197,7 @@ entries([1, 2, 3]);
 ### ✅ Example of correct code
 
 ```js
-const {isArray} = Array;
-const entries = (a) => isArray(a) ? a.entries() : Object.entries();
+const {entries} = Object;
 
 entries([1, 2, 3]);
 ```
