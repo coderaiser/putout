@@ -16,8 +16,10 @@ module.exports.fix = (path) => {
         .replaceAll('\\', '\\\\')
         .replaceAll('\n', '\\n');
     
-    if (path.parentPath.isObjectProperty())
-        path.parentPath.node.computed = true;
+    const {parentPath} = path;
+    
+    if (parentPath.isObjectProperty() && path === parentPath.get('key'))
+        parentPath.node.computed = true;
     
     replaceWith(path, TemplateLiteral([TemplateElement({
         raw: value,
