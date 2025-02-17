@@ -29,7 +29,10 @@ module.exports.traverse = ({push}) => ({
         if (nextPath.node.specifiers.length !== 1)
             return;
         
-        const is = isExcluded(source, nextPath, {
+        const first = source.value;
+        const second = nextPath.node.source.value;
+        
+        const is = isExcluded(first, second, {
             direct: [
                 ['node:', 'node:'],
                 ['#', '#'],
@@ -50,14 +53,14 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-function isExcluded(source, nextPath, {direct, reversed}) {
+function isExcluded(first, second, {direct, reversed}) {
     for (const [current, next] of direct) {
-        if (source.value.startsWith(current) && !nextPath.node.source.value.startsWith(next))
+        if (first.startsWith(current) && !second.startsWith(next))
             return true;
     }
     
     for (const [current, next] of reversed) {
-        if (!source.value.startsWith(current) && nextPath.node.source.value.startsWith(next))
+        if (!first.startsWith(current) && second.startsWith(next))
             return true;
     }
     
