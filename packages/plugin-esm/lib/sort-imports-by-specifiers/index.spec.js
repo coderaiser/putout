@@ -43,3 +43,8 @@ test('putout: sort-imports-by-specifiers: external-internal', (t) => {
     t.noTransform('external-internal');
     t.end();
 });
+
+test('putout: sort-imports-by-specifiers: external-hashed', (t) => {
+    t.noReport('external-hashed');
+    t.end();
+});

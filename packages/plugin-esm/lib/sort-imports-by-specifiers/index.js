@@ -40,6 +40,7 @@ module.exports.traverse = ({push}) => ({
             reversed: [
                 ['./', './'],
                 ['../', '../'],
+                ['#', '#'],
             ],
         });
         

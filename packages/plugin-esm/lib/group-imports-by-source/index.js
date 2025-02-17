@@ -9,7 +9,7 @@ const {
     remove,
 } = operator;
 
-module.exports.report = () => `Group imports by source: 'builtins', 'external', 'internal'`;
+module.exports.report = () => `Group imports by source: 'builtins', 'external', 'hashed', 'internal'`;
 
 module.exports.fix = ({grouped}) => {
     const [first, ...others] = grouped;

@@ -15,7 +15,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: group-imports-by-source: report', (t) => {
-    t.report('group-imports-by-source', `Group imports by source: 'builtins', 'external', 'internal'`);
+    t.report('group-imports-by-source', `Group imports by source: 'builtins', 'external', 'hashed', 'internal'`);
     t.end();
 });
 
@@ -42,7 +42,7 @@ test('putout: group-imports-by-source: transform: convert-esm-to-commonjs', (t) 
 });
 
 test('putout: group-imports-by-source: transform: sort-imports-by-specifiers', (t) => {
-    t.transform('sort-imports-by-specifiers', {
+    t.noReportAfterTransform('sort-imports-by-specifiers', {
         sortImportsBySpecifiers,
     });
     t.end();
