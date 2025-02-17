@@ -69,6 +69,7 @@ Group order:
 
 - ✅ builtins;
 - ✅ external;
+- ✅ hashed;
 - ✅ internal;
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3cc782acf95211f9d456d63a99032ee1/0674223d050bba572f5271ffdccf8616cb441af5).
@@ -82,6 +83,7 @@ import react from 'react';
 import d from '../hello.js';
 import ss from '../../bb/ss.js';
 import b from './ss.js';
+import parse from '#parser';
 
 const c = 5;
 ```
@@ -92,6 +94,7 @@ const c = 5;
 import fs from 'node:fs';
 import react from 'react';
 import {lodash} from 'lodash';
+import parse from '#parser';
 import b from './ss.js';
 import d from '../hello.js';
 import ss from '../../bb/ss.js';
