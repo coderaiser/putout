@@ -29,13 +29,18 @@ module.exports.traverse = ({push}) => ({
         if (nextPath.node.specifiers.length !== 1)
             return;
         
-        if (!source.value.startsWith('./') && nextPath.node.source.value.startsWith('./'))
-            return;
+        const is = isExcluded(source, nextPath, {
+            direct: [
+                ['node:', 'node:'],
+                ['#', '#'],
+            ],
+            reversed: [
+                ['./', './'],
+                ['../', '../'],
+            ],
+        });
         
-        if (source.value.startsWith('node:') && !nextPath.node.source.value.startsWith('node:'))
-            return;
-        
-        if (source.value.startsWith('#') && !nextPath.node.source.value.startsWith('#'))
+        if (is)
             return;
         
         push({
@@ -44,3 +49,17 @@ module.exports.traverse = ({push}) => ({
         });
     },
 });
+
+function isExcluded(source, nextPath, {direct, reversed}) {
+    for (const [current, next] of direct) {
+        if (source.value.startsWith(current) && !nextPath.node.source.value.startsWith(next))
+            return true;
+    }
+    
+    for (const [current, next] of reversed) {
+        if (!source.value.startsWith(current) && nextPath.node.source.value.startsWith(next))
+            return true;
+    }
+    
+    return false;
+}

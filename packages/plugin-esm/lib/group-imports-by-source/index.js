@@ -31,6 +31,7 @@ module.exports.traverse = ({pathStore, push}) => ({
             const external = [];
             const internal = [];
             const builtin = [];
+            const hashed = [];
             const all = pathStore().filter(isImportDeclaration);
             
             if (!all.length)
@@ -49,12 +50,18 @@ module.exports.traverse = ({pathStore, push}) => ({
                     continue;
                 }
                 
+                if (value.startsWith('#')) {
+                    hashed.push(current);
+                    continue;
+                }
+                
                 external.push(current);
             }
             
             const grouped = [
                 ...builtin,
                 ...external,
+                ...hashed,
                 ...internal,
             ];
             

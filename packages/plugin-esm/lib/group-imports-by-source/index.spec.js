@@ -5,6 +5,7 @@ const {createTest} = require('@putout/test');
 const nodejs = require('@putout/plugin-nodejs');
 const plugin = require('..');
 
+const sortImportsBySpecifiers = require('../sort-imports-by-specifiers');
 const convertEsmToCommonJS = nodejs.rules['convert-esm-to-commonjs'];
 
 const test = createTest(__dirname, {
@@ -36,6 +37,13 @@ test('putout: group-imports-by-source: transform', (t) => {
 test('putout: group-imports-by-source: transform: convert-esm-to-commonjs', (t) => {
     t.transform('convert-esm-to-commonjs', {
         convertEsmToCommonJS,
+    });
+    t.end();
+});
+
+test('putout: group-imports-by-source: transform: sort-imports-by-specifiers', (t) => {
+    t.transform('sort-imports-by-specifiers', {
+        sortImportsBySpecifiers,
     });
     t.end();
 });
