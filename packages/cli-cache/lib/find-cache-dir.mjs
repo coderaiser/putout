@@ -2,7 +2,7 @@ import {join} from 'node:path';
 import {mkdir as _mkdir} from 'node:fs/promises';
 import {findUp as _findUp} from './find-up.mjs';
 
-export default async function findCacheDir(overrides = {}) {
+export async function findCacheDir(overrides = {}) {
     const {
         name,
         findUp = _findUp,

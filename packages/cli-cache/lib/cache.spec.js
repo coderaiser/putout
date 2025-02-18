@@ -31,7 +31,9 @@ test('putout: cli: cache: fileCache: fresh', async (t) => {
     });
     
     const findCacheDir = stub().returns('node_modules/.cache');
-    const simpleImport = stub().returns(findCacheDir);
+    const simpleImport = stub().returns({
+        findCacheDir,
+    });
     
     mockRequire('./simple-import', {
         simpleImport,
@@ -59,7 +61,9 @@ test(`putout: cli: cache: find up can't find`, async (t) => {
     });
     
     const findCacheDir = stub();
-    const simpleImport = stub().returns(findCacheDir);
+    const simpleImport = stub().returns({
+        findCacheDir,
+    });
     
     mockRequire('./simple-import', {
         simpleImport,

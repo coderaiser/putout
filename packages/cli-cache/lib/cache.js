@@ -156,7 +156,7 @@ const createGetOptionsCache = ({version}) => (options) => {
 };
 
 async function _findCachePath() {
-    const findCacheDir = await simpleImport('./find-cache-dir.mjs');
+    const {findCacheDir} = await simpleImport('./find-cache-dir.mjs');
     
     const cacheDir = await findCacheDir({
         name: 'putout',
