@@ -53,7 +53,8 @@ are also supported. Here is how it looks like:
 - [🦚 Formatters](#-formatters)
 - [🦉 Configuration](#-configuration)
 - [🧬 Plugins API](#-plugins-api)
-- [🛴 Codemods](#-codemods)
+- [🛴 codemods](#-codemods)
+- [💾 rulesdir](#-rulesdir)
 - [⏣ Integration with ESLint](#-integration-with-eslint)
 - [☄️ Integration with Babel](#%EF%B8%8F-integration-with-babel)
 - [🐈 Integration with Yarn](#-integration-with-yarn)
@@ -2684,7 +2685,7 @@ Where `plugins` is an `array` that contains `[name, implementation]` `tuples`.
 
 🐊**Putout** supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/v12.0.0/codemods/convert-tape-to-supertape#install) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
 
-### `rulesdir`
+## 💾 Rulesdir
 
 When you have plugins related to your project and you don't want to publish them (because it cannot be reused right now). Use [`rulesdir`](https://github.com/coderaiser/putout/tree/master/rules):
 
