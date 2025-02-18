@@ -1,3 +1,23 @@
+2025.02.18, v38.3.0
+
+fix:
+- 7368c1f1b @putout/cli-cache: use data field (https://github.com/jaredwray/cacheable/tree/main/packages/file-entry-cache#setting-additional-meta-data)
+
+feature:
+- 945d7e658 putout: @putout/cli-cache v5.0.0
+- 8baa29be3 @putout/cli-cache: convert to ESM
+- 7ede62b95 putout: dynamic load of @putout/cli-cache
+- 45f3bca30 @putout/cli-cache: get rid of find-up
+- fcc31feb6 @putout/cli-cache: find-node-modules using escalade
+- 40cd7d8ea @putout/cli-cache: find node_modules instead of package.json
+- a46da87c0 cache: check mtime when change do not work
+- e225bdbf4 @putout/plugin-esm: merge-duplicate-imports: duplicate-specifier
+- 25dc14614 @putout/plugin-esm: sort-imports-by-specifiers: do not switch oterh then # with #
+- 8f89126ac @putout/plugin-esm: group-imports-by-source: add support of hash
+- d565d800e @putout/engine-runner: nessy v5.2.0
+- 398f2217e @putout/engine-parser: @putout/printer v13.0.0
+- f5ebcf9da @putout/plugin-convert-quotes-to-backticks: check key
+
 2025.02.16, v38.2.0
 
 feature:
