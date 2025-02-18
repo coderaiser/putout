@@ -11,12 +11,12 @@ test('putout: processor: css', async ({process}) => {
 
 test('putout: processor: css: places', async ({comparePlaces}) => {
     await comparePlaces('style', [{
-        message: 'Insert "····"',
+        message: 'Expected indentation of 8 spaces',
         position: {
             column: 5,
             line: 3,
         },
-        rule: 'prettier/prettier (stylelint)',
+        rule: '@stylistic/indentation (stylelint)',
     }]);
 });
 

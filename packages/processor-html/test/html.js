@@ -25,12 +25,12 @@ test('putout: processor: html: css: no fix', async ({comparePlaces}) => {
         },
         rule: 'no-undef (eslint)',
     }, {
-        message: 'Insert ";"',
+        message: 'Expected a trailing semicolon',
         position: {
-            column: 27,
+            column: 26,
             line: 5,
         },
-        rule: 'prettier/prettier (stylelint)',
+        rule: '@stylistic/declaration-block-trailing-semicolon (stylelint)',
     }]);
 });
 

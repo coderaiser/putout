@@ -1,18 +1,25 @@
 {
     "extends": ["stylelint-config-standard"],
     "rules": {
+        "@stylistic/indentation": 4,
         "selector-class-pattern": null,
+        "@stylistic/declaration-block-trailing-semicolon": "always",
+        "@stylistic/declaration-colon-space-before": null,
+        "@stylistic/selector-list-comma-newline-after": null,
         "comment-empty-line-before": null,
+        "@stylistic/number-leading-zero": null,
+        "@stylistic/number-no-trailing-zeros": null,
+        "@stylistic/string-quotes": "single",
         "function-url-quotes": "never",
+        "@stylistic/no-eol-whitespace": null,
         "font-family-name-quotes": "always-unless-keyword",
         "font-family-no-missing-generic-family-keyword": null,
         "rule-empty-line-before": null,
+        "@stylistic/max-empty-lines": 2,
         "property-no-vendor-prefix": null,
-        "selector-no-vendor-prefix": null,
-        "prettier/prettier": [true, {
-            "singleQuote": true,
-            "tabWidth": 4
-        }]
+        "selector-no-vendor-prefix": null
     },
-    "plugins": ["stylelint-prettier"]
+    "plugins": [
+        "@stylistic/stylelint-plugin"
+    ]
 }
