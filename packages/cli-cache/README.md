@@ -14,7 +14,7 @@ npm i @putout/cli-cache
 ## Example
 
 ```js
-const {createCache} = require('@putout/cli-cache');
+import {createCache} from '@putout/cli-cache';
 
 const fileCache = await createCache({
     version,
