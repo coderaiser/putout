@@ -1,8 +1,8 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-const mockRequire = require('mock-require');
-const {stopAll, reRequire} = mockRequire;
+import {test, stub} from 'supertape';
+import isChanged, {
+    isEslintChanged,
+    isNodeModulesChanged,
+} from './is-changed.js';
 
 test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', async (t) => {
     const fileCache = {
@@ -11,14 +11,10 @@ test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', 
         reconcile: stub(),
     };
     
-    const {isNodeModulesChanged} = reRequire('./is-changed');
     const findUp = stub();
-    
     const result = await isNodeModulesChanged(fileCache, {
         findUp,
     });
-    
-    stopAll();
     
     t.notOk(result);
     t.end();
@@ -33,13 +29,9 @@ test('putout: cli: cache files: is changed: isNodeModulesChanged', async (t) => 
     
     const findUp = stub().returns('xx');
     
-    const {isNodeModulesChanged} = reRequire('./is-changed');
-    
     const result = await isNodeModulesChanged(fileCache, {
         findUp,
     });
-    
-    stopAll();
     
     t.ok(result);
     t.end();
@@ -53,14 +45,9 @@ test('putout: cli: cache files: is changed: isEslintChanged: cannot find', async
     };
     
     const findUp = stub();
-    
-    const {isEslintChanged} = reRequire('./is-changed');
-    
     const result = await isEslintChanged(fileCache, {
         findUp,
     });
-    
-    stopAll();
     
     t.notOk(result);
     t.end();
@@ -75,13 +62,9 @@ test('putout: cli: cache files: is changed: isEslintChanged', async (t) => {
     
     const findUp = stub().returns('xxx');
     
-    const {isEslintChanged} = reRequire('./is-changed');
-    
     const result = await isEslintChanged(fileCache, {
         findUp,
     });
-    
-    stopAll();
     
     t.ok(result);
     t.end();
@@ -95,21 +78,10 @@ test('putout: cli: cache files: is changed', async (t) => {
     };
     
     const findUp = stub();
-    const simpleImport = stub().resolves({
-        findNodeModules: stub(),
-    });
-    
-    mockRequire('./simple-import', {
-        simpleImport,
-    });
-    
-    const isChanged = reRequire('./is-changed');
     
     const result = await isChanged(fileCache, {
         findUp,
     });
-    
-    stopAll();
     
     t.notOk(result);
     t.end();

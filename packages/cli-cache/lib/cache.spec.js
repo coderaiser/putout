@@ -1,17 +1,5 @@
-'use strict';
-
-const fs = require('node:fs/promises');
-
-const {test, stub} = require('supertape');
-const mockRequire = require('mock-require');
-
-const {
-    createCache,
-    _CACHE_FILE,
-    _defaultCache,
-} = require('./cache');
-
-const {reRequire, stopAll} = mockRequire;
+import {test, stub} from 'supertape';
+import {createCache, _defaultCache} from './cache.js';
 
 test('putout: cli: cache: disabled: fileCache', async (t) => {
     const fileCache = await createCache({
@@ -24,60 +12,45 @@ test('putout: cli: cache: disabled: fileCache', async (t) => {
 
 test('putout: cli: cache: fileCache: fresh', async (t) => {
     const unlink = stub();
-    
-    mockRequire('node:fs/promises', {
-        ...fs,
-        unlink,
-    });
-    
     const findCacheDir = stub().returns('node_modules/.cache');
-    const simpleImport = stub().returns({
-        findCacheDir,
-    });
-    
-    mockRequire('./simple-import', {
-        simpleImport,
-    });
-    
-    const {createCache} = reRequire('./cache');
     
     await createCache({
         fresh: true,
+        findCacheDir,
+        unlink,
     });
     
-    stopAll();
     const expected = 'node_modules/.cache/places.json';
     
     t.calledWith(unlink, [expected]);
     t.end();
 });
 
-test(`putout: cli: cache: find up can't find`, async (t) => {
+test(`putout: cli: cache: find up can't find: no unlink`, async (t) => {
     const unlink = stub();
-    
-    mockRequire('node:fs/promises', {
-        ...fs,
-        unlink,
-    });
-    
     const findCacheDir = stub();
-    const simpleImport = stub().returns({
-        findCacheDir,
-    });
-    
-    mockRequire('./simple-import', {
-        simpleImport,
-    });
-    
-    const {createCache} = reRequire('./cache');
     
     await createCache({
         fresh: true,
+        findCacheDir,
+        unlink,
     });
     
-    stopAll();
+    t.notCalled(unlink);
+    t.end();
+});
+
+test(`putout: cli: cache: find up can't find: cache`, async (t) => {
+    const unlink = stub();
+    const findCacheDir = stub();
     
-    t.calledWith(unlink, [_CACHE_FILE]);
+    const cache = await createCache({
+        fresh: true,
+        findCacheDir,
+        unlink,
+    });
+    
+    t.ok(cache);
     t.end();
 });
 
@@ -91,22 +64,18 @@ test('putout: cli: cache: enabled: setInfo', async (t) => {
         meta,
     });
     
+    const isChanged = stub();
+    
     const createFromFile = stub().returns({
         getFileDescriptor,
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
-    
     const fileCache = await createCache({
         cache: true,
         files: [],
+        isChanged,
+        createFromFile,
     });
     
     const name = 'hello';
@@ -119,7 +88,6 @@ test('putout: cli: cache: enabled: setInfo', async (t) => {
     fileCache.setInfo(name, [place], {
         hello: 'world',
     });
-    stopAll();
     
     t.calledWith(getFileDescriptor, [name], 'should call getFileDescriptor');
     t.end();
@@ -135,22 +103,18 @@ test('putout: cli: cache: setInfo: definition not found', async (t) => {
         meta,
     });
     
+    const isChanged = stub();
+    
     const createFromFile = stub().returns({
         getFileDescriptor,
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
-    
     const fileCache = await createCache({
         cache: true,
         files: [],
+        isChanged,
+        createFromFile,
     });
     
     const name = 'hello';
@@ -163,7 +127,6 @@ test('putout: cli: cache: setInfo: definition not found', async (t) => {
     fileCache.setInfo(name, [place], {
         hello: 'world',
     });
-    stopAll();
     
     t.notCalled(getFileDescriptor, 'should not call getFileDescriptor');
     t.end();
@@ -184,17 +147,13 @@ test('putout: cli: cache: setInfo: eslint parser error', async (t) => {
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
+    const isChanged = stub();
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        isChanged,
+        createFromFile,
     });
     
     const name = 'hello';
@@ -207,7 +166,6 @@ test('putout: cli: cache: setInfo: eslint parser error', async (t) => {
     fileCache.setInfo(name, [place], {
         hello: 'world',
     });
-    stopAll();
     
     t.notCalled(getFileDescriptor, 'should not call getFileDescriptor');
     t.end();
@@ -230,17 +188,13 @@ test('putout: cli: cache: enabled: setInfo: not set', async (t) => {
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
+    const isChanged = stub();
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        isChanged,
+        createFromFile,
     });
     
     const name = 'hello';
@@ -252,7 +206,6 @@ test('putout: cli: cache: enabled: setInfo: not set', async (t) => {
     fileCache.setInfo(name, [place], {
         hello: 'world',
     });
-    stopAll();
     
     t.notCalled(getFileDescriptor, 'should not call getFileDescriptor');
     t.end();
@@ -282,24 +235,19 @@ test('putout: cli: cache: enabled: canUseCache: mtime changed', async (t) => {
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
+    const isChanged = stub();
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        isChanged,
+        createFromFile,
     });
     
     const name = 'hello';
     const options = {};
     
     const result = fileCache.canUseCache(name, options);
-    stopAll();
     
     t.notOk(result);
     t.end();
@@ -323,24 +271,20 @@ test('putout: cli: cache: enabled: canUseCache: changed', async (t) => {
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
+    const isChanged = stub();
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        
+        isChanged,
+        createFromFile,
     });
     
     const name = 'hello';
     const options = {};
     
     fileCache.canUseCache(name, options);
-    stopAll();
     
     t.calledWith(getFileDescriptor, [name], 'should call getFileDescriptor');
     t.end();
@@ -363,25 +307,19 @@ test('putout: cli: cache: enabled: canUseCache: no data', async (t) => {
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
+    const isChanged = stub();
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        createFromFile,
+        isChanged,
     });
     
     const name = 'hello';
     const options = {};
     
     const result = fileCache.canUseCache(name, options);
-    
-    stopAll();
     
     t.notOk(result);
     t.end();
@@ -395,24 +333,19 @@ test('putout: cli: cache: enabled: canUseCache: no descriptor', async (t) => {
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
+    const isChanged = stub();
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        isChanged,
+        createFromFile,
     });
     
     const name = 'hello';
     const options = {};
     
     fileCache.canUseCache(name, options);
-    stopAll();
     
     t.calledWith(getFileDescriptor, [name], 'should call getFileDescriptor');
     t.end();
@@ -440,24 +373,19 @@ test('putout: cli: cache: enabled: canUseCache: options changed', async (t) => {
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
+    const isChanged = stub();
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        isChanged,
+        createFromFile,
     });
     
     const name = 'hello';
     const options = {};
     
     fileCache.canUseCache(name, options);
-    stopAll();
     
     t.calledWith(getFileDescriptor, [name], 'should call getFileDescriptor');
     t.end();
@@ -481,29 +409,24 @@ test('putout: cli: cache: enabled: canUseCache: not fix', async (t) => {
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
+    const isChanged = stub();
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    mockRequire('imurmurhash', stub().returns({
+    const murmur = stub().returns({
         result: stub().returns('1cnbekx'),
-    }));
-    
-    const {createCache} = reRequire('./cache');
+    });
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        createFromFile,
+        isChanged,
+        murmur,
     });
     
     const name = 'hello';
     const options = {};
     
     const result = fileCache.canUseCache(name, options);
-    
-    stopAll();
     
     t.notOk(result);
     t.end();
@@ -531,29 +454,24 @@ test('putout: cli: cache: enabled: canUseCache: fix, no places', async (t) => {
         reconcile: stub(),
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
+    const isChanged = stub();
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    mockRequire('imurmurhash', stub().returns({
+    const murmur = stub().returns({
         result: stub().returns('1cnbekx'),
-    }));
-    
-    const {createCache} = reRequire('./cache');
+    });
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        isChanged,
+        createFromFile,
+        murmur,
     });
     
     const name = 'hello';
     const options = {};
     
     const result = fileCache.canUseCache(name, options);
-    
-    stopAll();
     
     t.ok(result);
     t.end();
@@ -584,22 +502,16 @@ test('putout: cli: cache: enabled: getPlaces: isChanged: no', async (t) => {
         reconcile,
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub().returns(false));
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
+    const isChanged = stub().returns(false);
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        isChanged,
+        createFromFile,
     });
     
     const result = fileCache.getPlaces();
-    
-    stopAll();
     
     t.equal(result, places, 'should places equal');
     t.end();
@@ -630,22 +542,16 @@ test('putout: cli: cache: enabled: getPlaces: isChanged: yes', async (t) => {
         reconcile,
     });
     
-    const fileEntryCache = {
-        createFromFile,
-    };
-    
-    mockRequire('./is-changed', stub().returns(true));
-    mockRequire('file-entry-cache', fileEntryCache);
-    const {createCache} = reRequire('./cache');
+    const isChanged = stub().returns(true);
     
     const fileCache = await createCache({
         cache: true,
         files: [],
+        isChanged,
+        createFromFile,
     });
     
     const result = fileCache.getPlaces();
-    
-    stopAll();
     
     t.equal(result, places, 'should places equal');
     t.end();

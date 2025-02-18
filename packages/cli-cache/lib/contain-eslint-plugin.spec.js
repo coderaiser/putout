@@ -1,7 +1,5 @@
-'use strict';
-
-const test = require('supertape');
-const containEslintPlugin = require('./contain-eslint-plugin');
+import test from 'supertape';
+import containEslintPlugin from './contain-eslint-plugin.js';
 
 test('putout: cli: cache-files: contain-eslint-plugin: no', (t) => {
     const result = containEslintPlugin([{
