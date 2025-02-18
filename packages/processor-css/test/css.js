@@ -11,12 +11,12 @@ test('putout: processor: css', async ({process}) => {
 
 test('putout: processor: css: places', async ({comparePlaces}) => {
     await comparePlaces('style', [{
-        message: 'Insert "····"',
+        message: 'Expected indentation of 8 spaces',
         position: {
             column: 5,
             line: 3,
         },
-        rule: 'prettier/prettier (stylelint)',
+        rule: '@stylistic/indentation (stylelint)',
     }]);
 });
 
@@ -34,7 +34,7 @@ test('putout: processor: css: comparePlaces: url-quotes', async ({comparePlaces}
 
 test('putout: processor: css: template', async ({comparePlaces}) => {
     await comparePlaces('template', [{
-        message: 'Unknown word',
+        message: 'Unknown word template',
         position: {
             column: 4,
             line: 1,

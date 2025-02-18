@@ -27,7 +27,7 @@ export const lint = async (source, {fix} = {}) => {
     
     return [
         alignSpaces(code),
-        places.filter(cutAlign),
+        places,
     ];
 };
 
@@ -40,6 +40,3 @@ const toPlace = ({line, column, rule, text}) => ({
     },
 });
 
-function cutAlign({message, rule}) {
-    return !message.startsWith('Delete') || !rule.endsWith('prettier/prettier (stylelint)');
-}

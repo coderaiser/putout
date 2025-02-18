@@ -30,18 +30,18 @@ test('putout: engine: processor: couple', async ({comparePlaces}) => {
         },
         rule: 'typo (typos)',
     }, {
+        message: 'Expected indentation of 4 spaces',
+        position: {
+            column: 1,
+            line: 2,
+        },
+        rule: '@stylistic/indentation (stylelint)',
+    }, {
         message: 'Unexpected unknown type selector "target"',
         position: {
             column: 1,
             line: 1,
         },
         rule: 'selector-type-no-unknown (stylelint)',
-    }, {
-        message: 'Insert "····"',
-        position: {
-            column: 1,
-            line: 2,
-        },
-        rule: 'prettier/prettier (stylelint)',
     }]);
 });
