@@ -56,7 +56,6 @@
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^24.0.0",
     "just-camel-case": "^6.2.0",
-    "lerna": "^6.0.1",
     "madrun": "^10.0.0",
     "mock-require": "^3.0.3",
     "montag": "^1.0.0",
