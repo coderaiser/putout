@@ -254,6 +254,53 @@ test('putout: cli: cache: enabled: setInfo: not set', async (t) => {
     t.end();
 });
 
+test('putout: cli: cache: enabled: canUseCache: mtime changed', async (t) => {
+    const data = {
+        mtime: 123,
+        optionsHash: 'hello',
+        places: ['world'],
+    };
+    
+    const meta = {
+        data,
+        mtime: 1,
+    };
+    
+    const changed = false;
+    
+    const getFileDescriptor = stub().returns({
+        meta,
+        changed,
+    });
+    
+    const createFromFile = stub().returns({
+        getFileDescriptor,
+        reconcile: stub(),
+    });
+    
+    const fileEntryCache = {
+        createFromFile,
+    };
+    
+    mockRequire('./is-changed', stub());
+    mockRequire('file-entry-cache', fileEntryCache);
+    const {createCache} = reRequire('./cache');
+    
+    const fileCache = await createCache({
+        cache: true,
+        files: [],
+    });
+    
+    const name = 'hello';
+    const options = {};
+    
+    const result = fileCache.canUseCache(name, options);
+    stopAll();
+    
+    t.notOk(result);
+    t.end();
+});
+
 test('putout: cli: cache: enabled: canUseCache: changed', async (t) => {
     const meta = {
         optionsHash: 'hello',
@@ -372,6 +419,7 @@ test('putout: cli: cache: enabled: canUseCache: options changed', async (t) => {
         optionsHash: 'hello',
         places: ['world'],
     };
+    
     const meta = {
         data,
     };

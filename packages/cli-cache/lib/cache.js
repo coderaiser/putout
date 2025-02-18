@@ -104,6 +104,7 @@ const setInfo = ({fileCache, getOptionsHash}) => (name, places, options) => {
     
     meta.data.optionsHash = getOptionsHash(options);
     meta.data.places = places;
+    meta.data.mtime = meta.mtime;
 };
 
 const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
@@ -120,6 +121,9 @@ const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
     const {data} = meta;
     
     if (!data)
+        return false;
+    
+    if (meta.mtime !== data.mtime)
         return false;
     
     const {places, optionsHash} = data;
