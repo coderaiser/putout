@@ -1,8 +1,8 @@
 'use strict';
 
 const {test, stub} = require('supertape');
-
-const {stopAll, reRequire} = require('mock-require');
+const mockRequire = require('mock-require');
+const {stopAll, reRequire} = mockRequire;
 
 test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', async (t) => {
     const fileCache = {
@@ -11,13 +11,17 @@ test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', 
         reconcile: stub(),
     };
     
-    const findUp = stub();
+    const simpleImport = stub().resolves({
+        findNodeModules: stub(),
+    });
+    
+    mockRequire('./simple-import', {
+        simpleImport,
+    });
     
     const {isNodeModulesChanged} = reRequire('./is-changed');
     
-    const result = await isNodeModulesChanged(fileCache, {
-        findUp,
-    });
+    const result = await isNodeModulesChanged(fileCache);
     
     stopAll();
     
@@ -96,6 +100,13 @@ test('putout: cli: cache files: is changed', async (t) => {
     };
     
     const findUp = stub();
+    const simpleImport = stub().resolves({
+        findNodeModules: stub(),
+    });
+    
+    mockRequire('./simple-import', {
+        simpleImport,
+    });
     
     const isChanged = reRequire('./is-changed');
     
