@@ -86,7 +86,7 @@ module.exports.createCache = createCache;
 module.exports._defaultCache = defaultCache;
 module.exports._CACHE_FILE = CACHE_FILE;
 
-const getPlaces = ({fileCache}) => (name) => fileCache.getFileDescriptor(name).meta.places;
+const getPlaces = ({fileCache}) => (name) => fileCache.getFileDescriptor(name).meta.data.places;
 
 const setInfo = ({fileCache, getOptionsHash}) => (name, places, options) => {
     if (containEslintPlugin(places))
@@ -100,8 +100,10 @@ const setInfo = ({fileCache, getOptionsHash}) => (name, places, options) => {
     
     const {meta} = fileCache.getFileDescriptor(name);
     
-    meta.optionsHash = getOptionsHash(options);
-    meta.places = places;
+    meta.data = {};
+    
+    meta.data.optionsHash = getOptionsHash(options);
+    meta.data.places = places;
 };
 
 const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
@@ -112,13 +114,15 @@ const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
     
     const {changed, meta} = descriptor;
     
-    if (!meta)
-        return false;
-    
-    const {places, optionsHash} = meta;
-    
     if (changed)
         return false;
+    
+    const {data} = meta;
+    
+    if (!data)
+        return false;
+    
+    const {places, optionsHash} = data;
     
     if (optionsHash !== getOptionsHash(options))
         return false;

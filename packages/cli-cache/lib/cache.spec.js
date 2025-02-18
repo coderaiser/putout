@@ -295,8 +295,10 @@ test('putout: cli: cache: enabled: canUseCache: changed', async (t) => {
     t.end();
 });
 
-test('putout: cli: cache: enabled: canUseCache: no meta', async (t) => {
-    const meta = null;
+test('putout: cli: cache: enabled: canUseCache: no data', async (t) => {
+    const meta = {
+        data: null,
+    };
     
     const changed = true;
     
@@ -366,9 +368,12 @@ test('putout: cli: cache: enabled: canUseCache: no descriptor', async (t) => {
 });
 
 test('putout: cli: cache: enabled: canUseCache: options changed', async (t) => {
-    const meta = {
+    const data = {
         optionsHash: 'hello',
         places: ['world'],
+    };
+    const meta = {
+        data,
     };
     
     const changed = false;
@@ -453,9 +458,13 @@ test('putout: cli: cache: enabled: canUseCache: not fix', async (t) => {
 });
 
 test('putout: cli: cache: enabled: canUseCache: fix, no places', async (t) => {
-    const meta = {
+    const data = {
         optionsHash: '1cnbekx',
         places: [],
+    };
+    
+    const meta = {
+        data,
     };
     
     const changed = false;
@@ -500,10 +509,13 @@ test('putout: cli: cache: enabled: canUseCache: fix, no places', async (t) => {
 
 test('putout: cli: cache: enabled: getPlaces: isChanged: no', async (t) => {
     const places = [];
-    
-    const meta = {
+    const data = {
         optionsHash: '1cnbekx',
         places,
+    };
+    
+    const meta = {
+        data,
     };
     
     const changed = false;
@@ -543,10 +555,13 @@ test('putout: cli: cache: enabled: getPlaces: isChanged: no', async (t) => {
 
 test('putout: cli: cache: enabled: getPlaces: isChanged: yes', async (t) => {
     const places = [];
-    
-    const meta = {
+    const data = {
         optionsHash: '1cnbekx',
         places,
+    };
+    
+    const meta = {
+        data,
     };
     
     const changed = false;
