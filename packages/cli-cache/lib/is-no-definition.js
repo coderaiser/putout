@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = (places) => {
+export default (places) => {
     for (const {rule, message} of places) {
         const shortRule = rule.replace('eslint/', '');
         

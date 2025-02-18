@@ -1,7 +1,7 @@
 {
   "name": "@putout/cli-cache",
   "version": "4.4.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "The cache of Places found by 🐊Putout",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-cache#readme",
@@ -46,7 +46,6 @@
     "eslint-plugin-putout": "^24.0.0",
     "lerna": "^6.0.1",
     "madrun": "^10.0.0",
-    "mock-require": "^3.0.3",
     "nodemon": "^3.0.1",
     "putout": "*",
     "supertape": "^10.0.0"

@@ -1,26 +1,21 @@
-'use strict';
-
-const process = require('node:process');
-const {unlink: _unlink} = require('node:fs/promises');
-
-const {createFromFile: _createFromFile} = require('file-entry-cache');
-const murmur = require('imurmurhash');
-const stringify = require('json-stable-stringify-without-jsonify');
-const tryCatch = require('try-catch');
-const tryToCatch = require('try-to-catch');
-
-const isNoDefinition = require('./is-no-definition');
-const isParserError = require('./is-parser-error');
-const containEslintPlugin = require('./contain-eslint-plugin');
-const isChanged = require('./is-changed');
-const {simpleImport} = require('./simple-import');
+import process from 'node:process';
+import {unlink as _unlink} from 'node:fs/promises';
+import {createFromFile as _createFromFile} from 'file-entry-cache';
+import _murmur from 'imurmurhash';
+import stringify from 'json-stable-stringify-without-jsonify';
+import tryCatch from 'try-catch';
+import tryToCatch from 'try-to-catch';
+import isNoDefinition from './is-no-definition.js';
+import isParserError from './is-parser-error.js';
+import containEslintPlugin from './contain-eslint-plugin.js';
+import _isChanged from './is-changed.js';
+import {findCacheDir as _findCacheDir} from './find-cache-dir.js';
 
 const optionsHashCache = new WeakMap();
 const nodeVersion = process.version;
 
 const {assign} = Object;
 const returns = (a) => () => a;
-const CACHE_FILE = '.putoutcache.json';
 
 const defaultCache = {
     getPlaces: returns([]),
@@ -30,7 +25,7 @@ const defaultCache = {
     canUseCache: returns(false),
 };
 
-const createCache = async (overrides = {}) => {
+export const createCache = async (overrides = {}) => {
     const {
         cache,
         fresh,
@@ -39,9 +34,17 @@ const createCache = async (overrides = {}) => {
         createFromFile = _createFromFile,
         unlink = _unlink,
         findCachePath = _findCachePath,
+        findCacheDir = _findCacheDir,
+        isChanged = _isChanged,
+        murmur = _murmur,
     } = overrides;
     
-    const name = await findCachePath();
+    const name = await findCachePath({
+        findCacheDir,
+    });
+    
+    if (!name)
+        return defaultCache;
     
     if (fresh)
         await tryToCatch(unlink, name);
@@ -67,6 +70,7 @@ const createCache = async (overrides = {}) => {
     
     const getOptionsHash = createGetOptionsCache({
         version,
+        murmur,
     });
     
     assign(fileCache, {
@@ -84,7 +88,7 @@ const createCache = async (overrides = {}) => {
         }),
     });
     
-    const {findUp} = await import('./find-up.mjs');
+    const {findUp} = await import('./find-up.js');
     
     if (await isChanged(fileCache, {findUp}))
         await tryToCatch(unlink, name);
@@ -92,9 +96,7 @@ const createCache = async (overrides = {}) => {
     return fileCache;
 };
 
-module.exports.createCache = createCache;
-module.exports._defaultCache = defaultCache;
-module.exports._CACHE_FILE = CACHE_FILE;
+export const _defaultCache = defaultCache;
 
 const getPlaces = ({fileCache}) => (name) => fileCache.getFileDescriptor(name).meta.data.places;
 
@@ -144,20 +146,18 @@ const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
     return !places.length;
 };
 
-const hash = (a) => murmur(a)
+const hash = (a, murmur) => murmur(a)
     .result()
     .toString(36);
 
-const createGetOptionsCache = ({version}) => (options) => {
+const createGetOptionsCache = ({version, murmur}) => (options) => {
     if (!optionsHashCache.has(options))
-        optionsHashCache.set(options, hash(`${version}_${nodeVersion}_${stringify(options)}`));
+        optionsHashCache.set(options, hash(`${version}_${nodeVersion}_${stringify(options)}`, murmur));
     
     return optionsHashCache.get(options);
 };
 
-async function _findCachePath() {
-    const {findCacheDir} = await simpleImport('./find-cache-dir.mjs');
-    
+async function _findCachePath({findCacheDir}) {
     const cacheDir = await findCacheDir({
         name: 'putout',
     });
@@ -165,5 +165,5 @@ async function _findCachePath() {
     if (cacheDir)
         return `${cacheDir}/places.json`;
     
-    return CACHE_FILE;
+    return '';
 }

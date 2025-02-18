@@ -1,5 +1,5 @@
 import {test, stub} from 'supertape';
-import {findUp} from './find-up.mjs';
+import {findUp} from './find-up.js';
 
 test('putout: cli-cache: find-up: name: array', async (t) => {
     const escalade = stub((dir, fn) => {

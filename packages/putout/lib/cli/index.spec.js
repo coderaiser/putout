@@ -694,7 +694,7 @@ test('putout: cli: --fresh', async (t) => {
         '--fresh',
     ];
     
-    const {_defaultCache} = require('@putout/cli-cache');
+    const {_defaultCache} = await import('@putout/cli-cache');
     const createCache = stub().returns(_defaultCache);
     
     const getOptions = stub().returns({
@@ -929,7 +929,7 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
     });
     
     const processFile = stub().returns(process);
-    const {_defaultCache} = require('@putout/cli-cache');
+    const {_defaultCache} = await import('@putout/cli-cache');
     const createCache = stub().returns(_defaultCache);
     
     mockRequire('./get-files', getFiles);
