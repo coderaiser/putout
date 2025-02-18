@@ -2,7 +2,7 @@
 
 const {types, operator} = require('putout');
 
-const {remove} = operator;
+const {remove, compareAny} = operator;
 const {values} = Object;
 
 const {
@@ -24,6 +24,9 @@ module.exports.fix = ({path, imports}) => {
                 path.node.specifiers.unshift(spec);
                 continue;
             }
+            
+            if (compareAny(spec, path.node.specifiers))
+                continue;
             
             all.push(spec);
         }

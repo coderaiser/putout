@@ -5,9 +5,11 @@ const declare = require('@putout/plugin-declare');
 const tape = require('@putout/plugin-tape');
 const {createTest} = require('@putout/test');
 const convertEsmToCommonjs = require('@putout/plugin-nodejs/convert-esm-to-commonjs');
+const convertCommonjsToEsm = require('@putout/plugin-nodejs/convert-commonjs-to-esm');
+const putoutPlugin = require('@putout/plugin-putout');
 
 const merge = require('.');
-
+const convertReplaceWith = putoutPlugin.rules['convert-replace-with'];
 const {remove} = operator;
 const noop = () => {};
 
@@ -87,6 +89,14 @@ test('plugin-merge-duplicate-imports: join: transform: convert-esm-to-commonjs',
     t.transform('convert-esm-to-commonjs', {
         'tape/declare': tape.rules.declare,
         'nodejs/convert-esm-to-commonjs': convertEsmToCommonjs,
+    });
+    t.end();
+});
+
+test('plugin-merge-duplicate-imports: join: transform: duplicate-specifier', (t) => {
+    t.transform('duplicate-specifier', {
+        'putout/convert-replace-with': convertReplaceWith,
+        'nodejs/convert-commonjs-to-esm': convertCommonjsToEsm,
     });
     t.end();
 });
