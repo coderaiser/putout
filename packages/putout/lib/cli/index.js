@@ -15,7 +15,6 @@ const {
     defaultProcessors,
 } = require('@putout/engine-processor');
 
-const {createCache} = require('@putout/cli-cache');
 const keyPress = require('@putout/cli-keypress');
 
 const supportedFiles = require('./supported-files');
@@ -232,6 +231,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, 
     
     if (noFiles)
         return exit();
+    
+    const {createCache} = await simpleImport('@putout/cli-cache');
     
     const fileCache = await createCache({
         version,

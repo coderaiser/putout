@@ -449,18 +449,6 @@ test('putout: cli: ide: web storm', async (t) => {
         createCache,
     });
     
-    const simpleImport = async (url) => {
-        if (url === './exit.mjs')
-            return await import(url);
-        
-        if (url.includes('processor'))
-            return await import(url);
-    };
-    
-    mockRequire('./simple-import.js', {
-        simpleImport,
-    });
-    
     reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
@@ -715,9 +703,17 @@ test('putout: cli: --fresh', async (t) => {
         processors: ['javascript'],
     });
     
-    mockRequire('@putout/cli-cache', {
-        createCache,
+    mockRequire('./simple-import', {
+        simpleImport: async (url) => {
+            if (url === '@putout/cli-cache')
+                return {
+                    createCache,
+                };
+            
+            return await import(url);
+        },
     });
+    
     mockRequire('./get-options', getOptions);
     
     reRequire('./get-files');
@@ -965,7 +961,6 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
 test('putout: cli: --staged --fix', async (t) => {
     const logError = stub();
     const get = stub().returns(['./xxx.js']);
-    
     const set = stub().returns(['hello.txt']);
     
     const argv = [
@@ -1017,11 +1012,7 @@ test('putout: cli: ruler: --enable', async (t) => {
                 ruler,
             };
         
-        if (url === './exit.mjs')
-            return await import(url);
-        
-        if (url.includes('processor'))
-            return await import(url);
+        return await import(url);
     };
     
     mockRequire('./simple-import', {
@@ -1059,21 +1050,17 @@ test('putout: cli: ruler: --enable-all', async (t) => {
     
     const argv = ['--enable-all', __filename];
     
-    const simpleImport = async (url) => {
+    const _simpleImport = async (url) => {
         if (url.includes('ruler'))
             return {
                 ruler,
             };
         
-        if (url === './exit.mjs')
-            return await import(url);
-        
-        if (url.includes('processor'))
-            return await import(url);
+        return await import(url);
     };
     
     mockRequire('./simple-import', {
-        simpleImport,
+        simpleImport: _simpleImport,
     });
     
     const cli = reRequire('.');
@@ -1099,7 +1086,7 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     const rulerError = Error('should call ruler with await');
     const ruler = stub().rejects(rulerError);
     
-    const simpleImport = async (url) => {
+    const _simpleImport = async (url) => {
         if (url.includes('ruler'))
             return {
                 ruler,
@@ -1110,10 +1097,12 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
         
         if (url.includes('processor'))
             return await import(url);
+        
+        return simpleImport(url);
     };
     
     mockRequire('./simple-import', {
-        simpleImport,
+        simpleImport: _simpleImport,
     });
     
     const cli = reRequire('.');
@@ -1711,8 +1700,18 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     });
     
     mockRequire('./get-options', getOptions);
-    mockRequire('@putout/cli-cache', {
-        createCache,
+    //mockRequire('@putout/cli-cache', {
+    //    createCache,
+    //});
+    mockRequire('./simple-import.js', {
+        simpleImport: (name) => {
+            if (name === '@putout/cli-cache')
+                return {
+                    createCache,
+                };
+            
+            return simpleImport(name);
+        },
     });
     
     reRequire('./runner/writer.js');
