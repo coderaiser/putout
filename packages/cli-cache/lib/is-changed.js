@@ -1,7 +1,5 @@
 'use strict';
 
-const {dirname, join} = require('node:path');
-
 module.exports = async (fileCache, {findUp}) => {
     const result = await Promise.all([
         isNodeModulesChanged(fileCache, {
@@ -21,14 +19,12 @@ module.exports.isNodeModulesChanged = isNodeModulesChanged;
 module.exports.isEslintChanged = isEslintChanged;
 
 async function isNodeModulesChanged(fileCache, {findUp}) {
-    const packagePath = await findUp('package.json');
+    const packagePath = await findUp('node_modules');
     
     if (!packagePath)
         return false;
     
-    const name = join(dirname(packagePath), 'node_modules');
-    
-    return isChanged(name, fileCache);
+    return isChanged(packagePath, fileCache);
 }
 
 // https://eslint.org/docs/user-guide/configuring#configuration-file-formats
@@ -40,6 +36,9 @@ async function isEslintChanged(fileCache, {findUp}) {
         '.eslintrc.yaml',
         '.eslintrc.yml',
         '.eslint.config.js',
+        '.eslint.config.mjs',
+        '.eslint.config.cjs',
+        '.eslint.config.ts',
     ]);
     
     if (!name)

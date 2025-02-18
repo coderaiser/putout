@@ -30,7 +30,17 @@ const defaultCache = {
     canUseCache: returns(false),
 };
 
-const createCache = async ({cache, fresh, version, again, createFromFile = _createFromFile, unlink = _unlink, findCachePath = _findCachePath}) => {
+const createCache = async (overrides = {}) => {
+    const {
+        cache,
+        fresh,
+        version,
+        again,
+        createFromFile = _createFromFile,
+        unlink = _unlink,
+        findCachePath = _findCachePath,
+    } = overrides;
+    
     const name = await findCachePath();
     
     if (fresh)
@@ -146,10 +156,10 @@ const createGetOptionsCache = ({version}) => (options) => {
 };
 
 async function _findCachePath() {
-    const findCacheDir = await simpleImport('find-cache-dir');
+    const findCacheDir = await simpleImport('./find-cache-dir.mjs');
+    
     const cacheDir = await findCacheDir({
         name: 'putout',
-        create: true,
     });
     
     if (cacheDir)

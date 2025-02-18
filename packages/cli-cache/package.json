@@ -24,6 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
+    "escalade": "^3.2.0",
     "file-entry-cache": "^10.0.2",
     "find-cache-dir": "^5.0.0",
     "find-up": "^7.0.0",
