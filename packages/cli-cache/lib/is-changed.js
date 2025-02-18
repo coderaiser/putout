@@ -1,10 +1,10 @@
 'use strict';
 
-const {simpleImport} = require('./simple-import');
-
 module.exports = async (fileCache, {findUp}) => {
     const result = await Promise.all([
-        isNodeModulesChanged(fileCache),
+        isNodeModulesChanged(fileCache, {
+            findUp,
+        }),
         isEslintChanged(fileCache, {
             findUp,
         }),
@@ -18,9 +18,8 @@ module.exports = async (fileCache, {findUp}) => {
 module.exports.isNodeModulesChanged = isNodeModulesChanged;
 module.exports.isEslintChanged = isEslintChanged;
 
-async function isNodeModulesChanged(fileCache) {
-    const {findNodeModules} = await simpleImport('./find-node-modules.mjs');
-    const packagePath = await findNodeModules();
+async function isNodeModulesChanged(fileCache, {findUp}) {
+    const packagePath = await findUp('node_modules');
     
     if (!packagePath)
         return false;

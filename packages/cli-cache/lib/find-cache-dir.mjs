@@ -1,22 +1,16 @@
 import {join} from 'node:path';
 import {mkdir as _mkdir} from 'node:fs/promises';
-import process from 'node:process';
-import {findNodeModules} from './find-node-modules.mjs';
-
-const {cwd: _cwd} = process;
+import {findUp as _findUp} from './find-up.mjs';
 
 export default async function findCacheDir(overrides = {}) {
     const {
         name,
-        cwd = _cwd,
+        findUp = _findUp,
         mkdir = _mkdir,
         directory = 'node_modules',
     } = overrides;
     
-    const path = await findNodeModules({
-        cwd,
-        directory,
-    });
+    const path = await findUp(directory);
     
     if (!path)
         return path;

@@ -6,6 +6,5 @@
     "plugins": [
         "n",
         "putout"
-    ],
-    "ignorePatterns": ["**/fixture"]
+    ]
 }

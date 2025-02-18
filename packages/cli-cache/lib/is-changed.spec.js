@@ -11,17 +11,12 @@ test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', 
         reconcile: stub(),
     };
     
-    const simpleImport = stub().resolves({
-        findNodeModules: stub(),
-    });
-    
-    mockRequire('./simple-import', {
-        simpleImport,
-    });
-    
     const {isNodeModulesChanged} = reRequire('./is-changed');
+    const findUp = stub();
     
-    const result = await isNodeModulesChanged(fileCache);
+    const result = await isNodeModulesChanged(fileCache, {
+        findUp,
+    });
     
     stopAll();
     

@@ -84,7 +84,7 @@ const createCache = async (overrides = {}) => {
         }),
     });
     
-    const {findUp} = await import('find-up');
+    const {findUp} = await import('./find-up.mjs');
     
     if (await isChanged(fileCache, {findUp}))
         await tryToCatch(unlink, name);
