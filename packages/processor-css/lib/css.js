@@ -39,4 +39,3 @@ const toPlace = ({line, column, rule, text}) => ({
         column,
     },
 });
-
