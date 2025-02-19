@@ -1,0 +1,1 @@
+const [, tsx] = require('./ts');
