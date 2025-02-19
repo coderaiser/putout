@@ -44,6 +44,9 @@ module.exports.traverse = ({push}) => ({
         const {bindings} = path.scope;
         
         for (const [name, value] of entries(bindings)) {
+            if (name === 'require')
+                continue;
+            
             const {referencePaths, path} = value;
             const {uid} = path.scope;
             
