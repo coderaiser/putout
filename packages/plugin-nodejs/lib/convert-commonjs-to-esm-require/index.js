@@ -13,6 +13,7 @@ const {replaceWith, insertBefore} = operator;
 const {
     isFunction,
     isObjectPattern,
+    isArrayPattern,
     isIdentifier,
     isStringLiteral,
     AwaitExpression,
@@ -97,6 +98,21 @@ module.exports.replace = () => ({
             
             for (const {key, value} of __a.properties)
                 imports.push(`${key.name} as ${value.name}`);
+            
+            const importsStr = imports.join(',');
+            
+            return `import {${importsStr}} from "${value}" ${assertion}`;
+        }
+        
+        if (isArrayPattern(__a)) {
+            const imports = [];
+            
+            for (const [index, value] of __a.elements.entries()) {
+                if (!value)
+                    continue;
+                
+                imports.push(`'${index}' as ${value.name}`);
+            }
             
             const importsStr = imports.join(',');
             

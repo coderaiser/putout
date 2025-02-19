@@ -168,3 +168,8 @@ test('plugin-convert-commonjs-to-esm: require: transform: mjs', (t) => {
     t.transform('mjs');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: require: transform: array-pattern', (t) => {
+    t.transform('array-pattern');
+    t.end();
+});
