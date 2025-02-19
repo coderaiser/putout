@@ -31,3 +31,8 @@ test('putout: add-path-arg-to-fix: transform: convert-esm-to-commonjs', (t) => {
     });
     t.end();
 });
+
+test('putout: add-path-arg-to-fix: transform: no-body', (t) => {
+    t.transform('no-body');
+    t.end();
+});
