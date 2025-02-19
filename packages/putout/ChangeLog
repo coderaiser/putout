@@ -1,3 +1,18 @@
+2025.02.19, v38.3.1
+
+feature:
+- b0ac42adf putout: @putout/plugin-declare-before-reference v6.0.0
+- ec1b1aa4d @putout/plugin-declare-before-reference: drop support of 🐊 < 38
+- aa139735a @putout/declare-before-reference: exclude require
+- 1ede44548 @putout/plugin-eslint: remove-spread-from-create-eslint-config: add
+- f6ae23714 @putout/plugin-eslint: remove-parser-options: add
+- 2584e601f @putout/plugin: add-path-to-arg-fix: no body
+- f9b2209e9 @putout/plugin-commonjs: require: add support of ArrayPattern
+- d680da029 @putout/processor-css: use @stylistic instead of prettier
+- 49140f0ce root: lerna: drop
+- 3ae38614e putout: @putout/cli-cache v5.0.0
+- cb993e6bf @putout/cli-cache: convert to ESM
+
 2025.02.18, v38.3.0
 
 fix:
