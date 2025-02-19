@@ -52,6 +52,7 @@ const statements = [
     'while',
     'class',
     'extends',
+    'default',
 ];
 
 const keywords = [

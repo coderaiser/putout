@@ -177,3 +177,10 @@ test('putout: operator: isKeyword: async', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: operator: isKeyword: default', (t) => {
+    const result = isKeyword('default');
+    
+    t.ok(result);
+    t.end();
+});
