@@ -123,3 +123,8 @@ test('plugin-eslint: transform: remove-parser-options', (t) => {
     t.transform('remove-parser-options');
     t.end();
 });
+
+test('plugin-eslint: transform: remove-spread-from-create-eslint-config', (t) => {
+    t.transform('remove-spread-from-create-eslint-config');
+    t.end();
+});
