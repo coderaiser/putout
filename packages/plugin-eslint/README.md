@@ -39,6 +39,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [remove-useless-slice](#remove-useless-slice);
 - ✅ [remove-useless-properties](#remove-useless-properties);
 - ✅ [remove-parser-options](#remove-parser-options);
+- ✅ [remove-spread-from-create-eslint-config](#remove-spread-from-create-eslint-config);
 
 ## Config
 
@@ -68,7 +69,8 @@ npm i @putout/plugin-eslint -D
         "eslint/remove-overrides-with-empty-rules": "on",
         "eslint/remove-useless-slice": "on",
         "eslint/remove-useless-properties": "on",
-        "eslint/remove-parser-options": "on"
+        "eslint/remove-parser-options": "on",
+        "eslint/remove-spread-from-create-eslint-config": "on"
     }
 }
 ```
@@ -490,6 +492,25 @@ const ruleTester = new RuleTester({
         sourceType: 'module',
     },
 });
+```
+
+## remove-spread-from-create-eslint-config
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/1e10683f0f1fbb6f5b3dd23a940b316c/6274c36dfa69a98e640e2ee1cdd5bfcbf52d36ee).
+
+### ❌ Example of incorrect code
+
+```js
+export default createESLintConfig([
+    safeAlign,
+    ...matchToFlat(match),
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export default createESLintConfig([safeAlign, matchToFlat(match)]);
 ```
 
 ## convert-node-to-n
