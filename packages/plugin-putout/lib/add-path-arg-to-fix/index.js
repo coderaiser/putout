@@ -1,6 +1,13 @@
 'use strict';
 
-const check = ({__a}) => __a.body.length > 0;
+const {operator} = require('putout');
+const {compare} = operator;
+const check = ({__a}) => {
+    if (__a.body)
+        return __a.body.length > 0;
+    
+    return compare(__a, 'path.__()');
+};
 
 module.exports.report = () => `Add 'path' argument to 'fix'`;
 
