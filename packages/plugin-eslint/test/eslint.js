@@ -118,3 +118,8 @@ test('plugin-eslint: transform: apply-create-eslint-config', (t) => {
     t.transform('apply-create-eslint-config');
     t.end();
 });
+
+test('plugin-eslint: transform: remove-parser-options', (t) => {
+    t.transform('remove-parser-options');
+    t.end();
+});
