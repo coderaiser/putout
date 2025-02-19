@@ -38,6 +38,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [remove-overrides-with-empty-rules](#remove-overrides-with-empty-rules);
 - ✅ [remove-useless-slice](#remove-useless-slice);
 - ✅ [remove-useless-properties](#remove-useless-properties);
+- ✅ [remove-parser-options](#remove-parser-options);
 
 ## Config
 
@@ -52,21 +53,22 @@ npm i @putout/plugin-eslint -D
         }],
         "eslint/apply-safe-align": "on",
         "eslint/apply-match-to-flat": "on",
+        "eslint/declare": "on",
         "eslint/move-putout-to-end-of-extends": "on",
         "eslint/convert-export-match-to-decleration": "on",
         "eslint/convert-files-to-array": "on",
         "eslint/convert-ide-to-safe": "on",
         "eslint/convert-require-to-import": "on",
         "eslint/convert-node-to-n": "on",
-        "eslint/declare": "on",
+        "eslint/convert-plugins-array-to-object": "on",
+        "eslint/convert-rc-to-flat": "off",
         "eslint/remove-no-missing": "on",
         "eslint/remove-no-unpublished-require": "on",
         "eslint/remove-no-unsupported-features": "on",
         "eslint/remove-overrides-with-empty-rules": "on",
         "eslint/remove-useless-slice": "on",
         "eslint/remove-useless-properties": "on",
-        "eslint/convert-plugins-array-to-object": "on",
-        "eslint/convert-rc-to-flat": "off"
+        "eslint/remove-parser-options": "on"
     }
 }
 ```
@@ -458,6 +460,38 @@ And ofcourse remove only elements with empty `rules`:
 };
 ```
 
+## remove-parser-options
+
+> In flat config files, the `globals`, and `parserOptions` are consolidated under the `languageOptions` key;
+>
+> (c) [eslint.org](https://eslint.org/docs/latest/use/configure/migration-guide#configuring-language-options)
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d6b1cf2681ec6829f11aa2a5f0b60538/199de7e426b1ebeb7f0b242778dfce3fd345b2ae)
+
+### ❌ Example of incorrect code
+
+```js
+const ruleTester = new RuleTester({
+    languageOptions: {
+        parserOptions: {
+            ecmaVersion: 2025,
+            sourceType: 'module',
+        },
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+const ruleTester = new RuleTester({
+    languageOptions: {
+        ecmaVersion: 2025,
+        sourceType: 'module',
+    },
+});
+```
+
 ## convert-node-to-n
 
 `eslint-plugin-node` [is no longer supported](https://github.com/mysticatea/eslint-plugin-node/issues/300). Better to use [`eslint-plugin-n`](https://github.com/weiran-zsd/eslint-plugin-node).
@@ -516,7 +550,7 @@ export default x.slice();
 module.exports = x.slice();
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 export default x;
