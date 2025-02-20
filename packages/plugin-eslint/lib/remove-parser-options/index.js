@@ -24,6 +24,11 @@ module.exports.traverse = ({push}) => ({
         if (!parserOptionsPath)
             return;
         
+        const [parserPath] = traverseProperties(languageOptionsPath, 'parser');
+        
+        if (parserPath)
+            return false;
+        
         const [babelOptionsPath] = traverseProperties(parserOptionsPath, 'babelOptions');
         const [ecmaFeatures] = traverseProperties(parserOptionsPath, 'ecmaFeatures');
         

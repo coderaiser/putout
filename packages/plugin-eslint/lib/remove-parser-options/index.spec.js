@@ -33,3 +33,8 @@ test('eslint: remove-parser-options: no report: typescript-options', (t) => {
     t.noReport('typescript-options');
     t.end();
 });
+
+test('eslint: remove-parser-options: no report: has-parser', (t) => {
+    t.noReport('has-parser');
+    t.end();
+});
