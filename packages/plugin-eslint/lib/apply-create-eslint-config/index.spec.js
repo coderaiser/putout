@@ -18,3 +18,8 @@ test('eslint: apply-create-eslint-config: transform', (t) => {
     t.transform('apply-create-eslint-config');
     t.end();
 });
+
+test('eslint: apply-create-eslint-config: no report: no-spread', (t) => {
+    t.noReport('no-spread');
+    t.end();
+});

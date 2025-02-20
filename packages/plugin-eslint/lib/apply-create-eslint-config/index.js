@@ -6,6 +6,15 @@ const {isSpreadElement} = types;
 
 module.exports.report = () => `Use 'createESLintConfig()' instead of spread ('...')`;
 
+module.exports.match = () => ({
+    'module.exports = __array': hasSpreads({
+        selector: 'right.elements',
+    }),
+    'export default __array': hasSpreads({
+        selector: 'declaration.elements',
+    }),
+});
+
 module.exports.replace = () => ({
     'module.exports = __array': extractSpreads({
         selector: 'right.elements',
@@ -16,6 +25,17 @@ module.exports.replace = () => ({
         template: 'export default createESLintConfig(__array)',
     }),
 });
+
+const hasSpreads = ({selector}) => (vars, path) => {
+    const elements = path.get(selector);
+    
+    for (const element of elements) {
+        if (isSpreadElement(element))
+            return true;
+    }
+    
+    return false;
+};
 
 const extractSpreads = ({selector, template}) => (vars, path) => {
     const elements = path.get(selector);
