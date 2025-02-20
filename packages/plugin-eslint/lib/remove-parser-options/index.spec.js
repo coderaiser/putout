@@ -28,3 +28,8 @@ test('eslint: remove-parser-options: no report: babel-options', (t) => {
     t.noReport('babel-options');
     t.end();
 });
+
+test('eslint: remove-parser-options: no report: typescript-options', (t) => {
+    t.noReport('typescript-options');
+    t.end();
+});

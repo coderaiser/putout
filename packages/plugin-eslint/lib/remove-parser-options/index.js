@@ -25,8 +25,9 @@ module.exports.traverse = ({push}) => ({
             return;
         
         const [babelOptionsPath] = traverseProperties(parserOptionsPath, 'babelOptions');
+        const [ecmaFeatures] = traverseProperties(parserOptionsPath, 'ecmaFeatures');
         
-        if (babelOptionsPath)
+        if (ecmaFeatures || babelOptionsPath)
             return;
         
         push(parserOptionsPath);
