@@ -39,6 +39,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [remove-useless-slice](#remove-useless-slice);
 - ✅ [remove-useless-properties](#remove-useless-properties);
 - ✅ [remove-parser-options](#remove-parser-options);
+- ✅ [remove-sufix-config](#remove-sufix-config);
 - ✅ [remove-spread-from-create-eslint-config](#remove-spread-from-create-eslint-config);
 
 ## Config
@@ -70,6 +71,7 @@ npm i @putout/plugin-eslint -D
         "eslint/remove-useless-slice": "on",
         "eslint/remove-useless-properties": "on",
         "eslint/remove-parser-options": "on",
+        "eslint/remove-suffix-config": "on",
         "eslint/remove-spread-from-create-eslint-config": "on"
     }
 }
@@ -492,6 +494,22 @@ const ruleTester = new RuleTester({
         sourceType: 'module',
     },
 });
+```
+
+## remove-suffix-config
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5770e4174210dd3d811726b661a3336a/1c1bf17bb90dd57ae40bf71e5038dd21cfb71681).
+
+### ❌ Example of incorrect code
+
+```js
+import {safeAlign} from 'eslint-plugin-putout/config';
+```
+
+### ✅ Example of correct code
+
+```js
+import {safeAlign} from 'eslint-plugin-putout';
 ```
 
 ## remove-spread-from-create-eslint-config

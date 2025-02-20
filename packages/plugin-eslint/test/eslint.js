@@ -128,3 +128,8 @@ test('plugin-eslint: transform: remove-spread-from-create-eslint-config', (t) =>
     t.transform('remove-spread-from-create-eslint-config');
     t.end();
 });
+
+test('plugin-eslint: transform: remove-suffix-config', (t) => {
+    t.transform('remove-suffix-config');
+    t.end();
+});

@@ -23,6 +23,7 @@ const applyIgnores = require('./apply-ignores');
 const applyCreateEslintConfig = require('./apply-create-eslint-config');
 const removeParserOptions = require('./remove-parser-options');
 const removeSpreadFromCreateEslintConfig = require('./remove-spread-from-create-eslint-config');
+const removeSuffixConfig = require('./remove-suffix-config');
 
 module.exports.rules = {
     'add-putout': addPutout,
@@ -48,4 +49,5 @@ module.exports.rules = {
     'apply-create-eslint-config': applyCreateEslintConfig,
     'remove-parser-options': removeParserOptions,
     'remove-spread-from-create-eslint-config': removeSpreadFromCreateEslintConfig,
+    'remove-suffix-config': removeSuffixConfig,
 };
