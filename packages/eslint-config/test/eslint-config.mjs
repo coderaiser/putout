@@ -63,11 +63,16 @@ test('eslint-config: no-delete-var', async ({comparePlaces}) => {
         rules: {
             'no-var': 'off',
         },
-        parserOptions: {
+        languageOptions: {
             ecmaVersion: 3,
             sourceType: 'script',
-            babelOptions: {
-                sourceType: 'script',
+            parserOptions: {
+                requireConfigFile: 'false',
+                babelOptions: {
+                    babelrc: false,
+                    configFile: false,
+                    sourceType: 'script',
+                },
             },
         },
     });

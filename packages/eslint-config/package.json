@@ -1,12 +1,12 @@
 {
   "name": "@putout/eslint-config",
   "version": "9.5.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout config for ESLint",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/eslint-config#readme",
-  "main": "./eslintrc.js",
-  "exports": "./eslintrc.js",
+  "main": "./index.js",
+  "exports": "./index.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -25,7 +25,8 @@
   },
   "dependencies": {
     "@eslint/js": "^9.2.0",
-    "@stylistic/eslint-plugin-js": "^3.0.0"
+    "@stylistic/eslint-plugin-js": "^4.0.1",
+    "globals": "^16.0.0"
   },
   "peerDependencies": {
     "eslint": ">=8.0.0"
@@ -41,6 +42,7 @@
     "@putout/test": "^11.0.0",
     "c8": "^10.0.0",
     "eslint-plugin-n": "^17.0.0",
+    "eslint-plugin-putout": "*",
     "madrun": "^10.0.0",
     "putout": "*"
   },
