@@ -19,7 +19,8 @@ export const getESLint = async ({name, fix, config = [], overrideConfigFile, loa
         overrideConfig: [
             ...maybeArray(config), {
                 ignores: ['!.*'],
-            },
+            }
+            ,
         ],
         ...overrideConfigFile && {
             overrideConfigFile,
