@@ -1,3 +1,8 @@
+2025.02.21, v38.4.1
+
+feature:
+- 79ca0645c putout: @putout/plugin-eslint v12.0.0
+
 2025.02.21, v38.4.0
 
 feature:
