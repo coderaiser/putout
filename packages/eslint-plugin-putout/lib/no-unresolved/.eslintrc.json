@@ -1,9 +1,0 @@
-{
-    "overrides": [{
-        "files": ["*.md{js}"],
-        "rules": {
-            "putout/no-unresolved": "off"
-        }
-    }],
-    "ignorePatterns": ["**/fixture"]
-}

@@ -1,9 +1,0 @@
-{
-    "overrides": [{
-        "files": ["*.md{js}"],
-        "rules": {
-            "putout/remove-empty-newline-after-last-specifier": "off"
-        }
-    }],
-    "ignorePatterns": ["**/fixture"]
-}

@@ -4,13 +4,13 @@ This rule aims to add newlines between types in union. Part of [`eslint-plugin-p
 
 ## ❌ Example of incorrect code
 
-```js
+```ts
 type a = string | number | object | boolean;
 ```
 
 ## ✅ Example of correct code
 
-```js
+```ts
 type a =
     | string
     | number

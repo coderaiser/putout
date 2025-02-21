@@ -37,7 +37,7 @@ module.exports = ({context, options}) => {
     
     if (errorParser) {
         context.report({
-            message: `${parseError(errorParser)} (putout)`,
+            message: `${parseError(errorParser)} (parser)`,
             node,
         });
         

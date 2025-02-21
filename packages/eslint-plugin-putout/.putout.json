@@ -1,16 +1,14 @@
 {
-    "printer": "putout",
     "rules": {
         "putout": "off",
-        "eslint/apply-ignores": "off"
+        "eslint/apply-ignores": "off",
+        "eslint/add-putout": "off",
+        "eslint/convert-file-to-array": "on"
     },
     "plugins": [
         "eslint-plugin"
     ],
     "match": {
-        "*.js": {
-            "nodejs/convert-esm-to-commonjs": "on"
-        },
         "eslint-fixture": {
             "apply-template-literals": "off",
             "nodejs/strict-mode": "off",

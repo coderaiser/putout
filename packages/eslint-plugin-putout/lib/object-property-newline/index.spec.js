@@ -1,6 +1,8 @@
 'use strict';
 
 const montag = require('montag');
+const babel = require('@babel/eslint-parser/experimental-worker');
+const typescript = require('@typescript-eslint/parser');
 
 const {RuleTester} = require('eslint');
 
@@ -9,10 +11,8 @@ const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
     languageOptions: {
-        parserOptions: {
-            ecmaVersion: 2024,
-            sourceType: 'module',
-        },
+        ecmaVersion: 2025,
+        sourceType: 'module',
     },
 });
 
@@ -55,7 +55,7 @@ ruleTester.run('object-property-newline', rule, {
 
 const babelParserTester = new RuleTester({
     languageOptions: {
-        parser: require('@babel/eslint-parser/experimental-worker'),
+        parser: babel,
         parserOptions: {
             requireConfigFile: false,
             babelOptions: {
@@ -67,7 +67,7 @@ const babelParserTester = new RuleTester({
 
 const tsParserTester = new RuleTester({
     languageOptions: {
-        parser: require('@typescript-eslint/parser'),
+        parser: typescript,
         parserOptions: {
             warnOnUnsupportedTypeScriptVersion: false,
         },

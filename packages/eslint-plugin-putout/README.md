@@ -17,13 +17,12 @@ npm i putout eslint eslint-plugin-putout -D
 
 ## Usage
 
-Add `putout` to the plugins section of your `.eslintrc.json` configuration file. You can omit the `eslint-plugin-` prefix:
+Update `eslint.config.js` with:
 
-```json
-{
-    "extends": ["plugin:putout/recommended"],
-    "plugins": ["putout"]
-}
+```js
+import {recommended} from 'eslint-plugin-putout';
+
+export default recommended;
 ```
 
 Then configure the rules you want to use under the rules section.
@@ -117,11 +116,10 @@ Then configure the rules you want to use under the rules section.
 
 When using 🐊**Putout** in IDE with `--fix` on save, or when you want to disable the most dangerous rules, use:
 
-```json
-{
-    "extends": ["plugin:putout/safe"],
-    "plugins": ["putout"]
-}
+```js
+import {safe} from 'eslint-plugin-putout';
+
+export default safe;
 ```
 
 Disabled **ESLint** rules:
@@ -155,23 +153,18 @@ Disabled 🐊**Putout** rules:
 - ❌ [`maybe/noop`](https://github.com/coderaiser/putout/tree/29.2.4/packages/plugin-maybe#noop);
 - ❌ [`remove-useless-push`](https://github.com/coderaiser/putout/tree/38.1.2/packages/plugin-remove-useless-push#readme);
 
-### safe+align
+### safeAlign
 
-When you want to enable ability to align spaces on empty lines, while have all benefits of `safe` preset: use `safe+align`.
+When you want to enable ability to align spaces on empty lines, while have all benefits of `safe` preset: use `safeAlign`.
 
 ### jsx
 
 When you need to support `jsx` in files using `js` extension,  use:
 
-```json
-{
-    "extends": [
-        "plugin:putout/jsx"
-    ],
-    "plugins": [
-        "putout"
-    ]
-}
+```js
+import {jsx} from 'eslint-plugin-putout;
+
+export default jsx;
 ```
 
 ### esm
@@ -179,30 +172,10 @@ When you need to support `jsx` in files using `js` extension,  use:
 If you want to use **ESM** plugins of 🐊**Putout** you need to use `esm` preset:
 
 ```json
-{
-    "extends": [
-        "plugin:putout/esm"
-    ],
-    "plugins": [
-        "putout"
-    ]
-}
+import {esm} from 'eslint-plugin-putout;
+
+export default esm;
 ```
-
-## Flat
-
-The time is came for a [FlatConfig](https://eslint.org/blog/2022/08/new-config-system-part-2/). To use it with `eslint-plugin-putout` add to `eslint.config.js`:
-
-```js
-const {recommended} = require('eslint-plugin-putout/config');
-
-module.exports = [
-    ...recommended,
-    {},
-];
-```
-
-`safe` and `safeAlign` supported as well.
 
 ## License
 

@@ -1,5 +1,8 @@
 import process from 'node:process';
 import {createTest} from '@putout/test/eslint';
+import {configs} from '../lib/index.mjs';
+
+const {jsx} = configs;
 
 const test = createTest(import.meta.url);
 
@@ -136,14 +139,7 @@ test('eslint-plugin-putout: ts: keyword-spacing', async ({comparePlaces}) => {
 });
 
 test('eslint-plugin-putout: ts: duplicate', async ({comparePlaces}) => {
-    await comparePlaces('ts-duplicate', [{
-        message: `'Stub' is already defined.`,
-        position: {
-            column: 9,
-            line: 2,
-        },
-        rule: '@typescript-eslint/no-redeclare (eslint)',
-    }]);
+    await comparePlaces('ts-duplicate', []);
 });
 
 test('eslint-plugin-putout: remove-empty-specifiers', async ({process}) => {
@@ -220,21 +216,15 @@ test('eslint-plugin-putout: remove-newline-between-declarations', async ({proces
 });
 
 test('eslint-plugin-putout: jsx-parens', async ({process}) => {
-    await process('jsx-parens', {
-        extends: ['plugin:putout/jsx'],
-    });
+    await process('jsx-parens', jsx);
 });
 
 test('eslint-plugin-putout: jsx-parens: ts', async ({process}) => {
-    await process('jsx-parens-ts', {
-        extends: ['plugin:putout/jsx'],
-    });
+    await process('jsx-parens-ts', jsx);
 });
 
 test('eslint-plugin-putout: jsx: semi', async ({noProcess}) => {
-    await noProcess('jsx-semi', {
-        extends: ['plugin:putout/jsx'],
-    });
+    await noProcess('jsx-semi', jsx);
 });
 
 test('eslint-plugin-putout: putout: sync: ESM', async ({pass, comparePlaces}) => {

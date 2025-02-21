@@ -14,10 +14,8 @@ const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), '
 
 const ruleTester = new RuleTester({
     languageOptions: {
-        parserOptions: {
-            ecmaVersion: 2024,
-            sourceType: 'module',
-        },
+        ecmaVersion: 2025,
+        sourceType: 'module',
     },
 });
 

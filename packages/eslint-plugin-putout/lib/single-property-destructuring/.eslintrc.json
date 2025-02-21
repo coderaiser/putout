@@ -1,6 +1,0 @@
-{
-    "rules": {
-        "putout/single-property-destructuring": "off"
-    },
-    "ignorePatterns": ["**/fixture"]
-}

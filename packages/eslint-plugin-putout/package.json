@@ -12,7 +12,7 @@
     "url": "git+https://github.com/coderaiser/putout.git"
   },
   "exports": {
-    ".": "./lib/index.js",
+    ".": "./lib/index.mjs",
     "./config": "./lib/config/index.js"
   },
   "keywords": [
@@ -44,22 +44,25 @@
     "@putout/engine-parser": "^12.0.0",
     "@putout/eslint": "^3.0.0",
     "@putout/eslint-config": "^9.0.0",
-    "@stylistic/eslint-plugin-jsx": "^3.0.0",
-    "@stylistic/eslint-plugin-ts": "^3.0.0",
+    "@putout/eslint-flat": "^2.0.0",
+    "@stylistic/eslint-plugin-js": "^4.0.1",
+    "@stylistic/eslint-plugin-jsx": "^4.0.1",
+    "@stylistic/eslint-plugin-ts": "^4.0.1",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
     "align-spaces": "^2.0.0",
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-react": "^7.32.2",
+    "globals": "^16.0.0",
     "parse-import-specifiers": "^1.0.1",
     "synckit": "^0.9.0",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "typescript-eslint": "^8.24.1"
   },
   "devDependencies": {
     "@babel/plugin-syntax-typescript": "^8.0.0-alpha.1",
-    "@putout/eslint-flat": "^2.0.0",
     "@putout/plugin-eslint-plugin": "*",
     "@putout/test": "^11.0.0",
     "c8": "^10.0.0",
@@ -75,7 +78,7 @@
     "node": ">=18"
   },
   "peerDependencies": {
-    "eslint": ">=8.0.0",
+    "eslint": ">=9",
     "putout": ">=38"
   },
   "license": "MIT",

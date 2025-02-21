@@ -5,13 +5,15 @@ const {readFileSync} = require('node:fs');
 
 const {RuleTester} = require('eslint');
 const montag = require('montag');
+const babel = require('@babel/eslint-parser/experimental-worker');
+const typescript = require('@typescript-eslint/parser');
 
 const rule = require('./index');
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), 'utf8');
 
 const ruleTester = new RuleTester({
     languageOptions: {
-        ecmaVersion: 2024,
+        ecmaVersion: 2025,
     },
 });
 
@@ -83,7 +85,7 @@ ruleTester.run('putout', rule, {
 
 const parserTester = new RuleTester({
     languageOptions: {
-        parser: require('@babel/eslint-parser/experimental-worker'),
+        parser: babel,
         parserOptions: {
             requireConfigFile: false,
             babelOptions: {
@@ -95,7 +97,7 @@ const parserTester = new RuleTester({
 
 const tsParserTester = new RuleTester({
     languageOptions: {
-        parser: require('@typescript-eslint/parser'),
+        parser: typescript,
         parserOptions: {
             warnOnUnsupportedTypeScriptVersion: false,
         },
@@ -310,7 +312,7 @@ tsParserTester.run('typescript-eslint-parser-error', rule, {
             alert(a);
         `,
         errors: [{
-            message: `Identifier 'Stub' has already been declared. (3:20) (putout)`,
+            message: `Identifier 'Stub' has already been declared. (3:20) (parser)`,
             line: 2,
             column: 13,
         }],

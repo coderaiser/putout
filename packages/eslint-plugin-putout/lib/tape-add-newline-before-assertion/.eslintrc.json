@@ -1,9 +1,0 @@
-{
-    "overrides": [{
-        "files": ["*.md{js}"],
-        "rules": {
-            "putout/tape-add-newline-before-assertion": "off"
-        }
-    }],
-    "ignorePatterns": ["**/fixture"]
-}
