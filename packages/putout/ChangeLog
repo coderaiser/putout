@@ -1,3 +1,32 @@
+2025.02.21, v38.4.0
+
+feature:
+- 5e784a86d @putout/test: @putout/eslint v4.0.0
+- 3c3082de1 @putout/cli-process-file: @putout/eslint v4.0.0
+- 94406e20b putout: @putout/test v12.0.0
+- 7438f34ef root: eslint-plugin-putout v25.0.1
+- 5c9d37329 putout: @putout/eslint v4.0.0
+- 5b739c41c eslint-plugin-putout: @putout/eslint v4.0.0
+- 950d5ab5c eslint-plugin-putout: @putout/eslint-config v10.0.0
+- 064e59bb5 putout: migrate to FlatConfig
+- 480bee08e @putout/test: improve support of FlatConfig
+- 5c9a692d7 @putout/eslint: improve support of FlatConfig
+- 888b338e9 @putout/eslint-config: migrate to ESM
+- 1710fb0e2 eslint-plugin-putout: migrate to FlatConfig
+- f0abc9b18 @putout/plugin-eslint: remove-suffix-config: add
+- bd50bf939 @putout/plugin-eslint: remove-parser-options: exclude when has parser property
+- 8d957e176 @putout/plugin-eslint: remove-parser-options: exclude typescript options
+- daed489ee @putout/plugin-eslint: apply-create-eslint-config: exclude when no SpreadElement
+- 5f35b70d2 @putout/operator-keyword: default: add
+- 37f664458 putout: @putout/plugin-declare-before-reference v6.0.0
+- 9cdf816d5 @putout/plugin-declare-before-reference: drop support of 🐊 < 38
+- f871b6fd3 @putout/declare-before-reference: exclude require
+- 7dbf1415a @putout/plugin-eslint: remove-spread-from-create-eslint-config: add
+- 43afe6b55 @putout/plugin-eslint: remove-parser-options: add
+- 48374759c @putout/plugin: add-path-to-arg-fix: no body
+- 9a873a604 @putout/plugin-commonjs: require: add support of ArrayPattern
+- b1ddce88b @putout/processor-css: use @stylistic instead of prettier
+
 2025.02.19, v38.3.1
 
 feature:
