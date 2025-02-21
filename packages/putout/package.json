@@ -116,7 +116,7 @@
     "@putout/plugin-coverage": "^1.0.0",
     "@putout/plugin-declare": "^5.0.0",
     "@putout/plugin-declare-before-reference": "^6.0.0",
-    "@putout/plugin-eslint": "^11.0.0",
+    "@putout/plugin-eslint": "^12.0.0",
     "@putout/plugin-esm": "^2.0.0",
     "@putout/plugin-extract-keywords-from-variables": "^2.0.0",
     "@putout/plugin-extract-object-properties": "^9.0.0",
