@@ -64,8 +64,10 @@ export default [{
         ...jsx.rules,
     },
     plugins: jsx.plugins,
-    parser: babel,
-    parserOptions,
+    languageOptions: {
+        parser: babel,
+        parserOptions,
+    },
 }, {
     ...tsx,
     ...jsx,

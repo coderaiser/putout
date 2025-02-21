@@ -2,7 +2,7 @@ import {run} from 'madrun';
 
 export default {
     'lint': () => 'putout .',
-    'test': () => 'tape test/*.mjs',
+    'test': () => 'tape test/*.*',
     'coverage': async () => `c8 ${await run('test')}`,
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),

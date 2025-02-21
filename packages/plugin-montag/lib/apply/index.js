@@ -42,7 +42,7 @@ function evaluate({__array}, path) {
     
     const alignedStr = aligned
         .join('\n')
-        .replace(/\`/g, '\\`');
+        .replace(/`/g, '\\`');
     
     return [alignedStr, createAligner(column - 4)];
 }

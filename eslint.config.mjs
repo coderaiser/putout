@@ -1,4 +1,4 @@
-import {safeAlign} from 'eslint-plugin-putout/config';
+import {safeAlign} from 'eslint-plugin-putout';
 import importPlugin from 'eslint-plugin-import';
 import {
     matchToFlatDir,
@@ -25,5 +25,4 @@ export default createESLintConfig([
             sourceType: 'module',
             ecmaVersion: 'latest',
         },
-        ignores: ['**/fixture'],
     }]);

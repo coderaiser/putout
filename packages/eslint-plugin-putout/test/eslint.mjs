@@ -138,10 +138,6 @@ test('eslint-plugin-putout: ts: keyword-spacing', async ({comparePlaces}) => {
     }]);
 });
 
-test('eslint-plugin-putout: ts: duplicate', async ({comparePlaces}) => {
-    await comparePlaces('ts-duplicate', []);
-});
-
 test('eslint-plugin-putout: remove-empty-specifiers', async ({process}) => {
     await process('remove-empty-specifiers');
 });

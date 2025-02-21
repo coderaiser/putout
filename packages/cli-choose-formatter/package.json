@@ -38,7 +38,7 @@
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-n": "^17.0.0",
-    "eslint-plugin-putout": "^24.0.0",
+    "eslint-plugin-putout": "^24.1.0",
     "madrun": "^10.0.0",
     "nodemon": "^3.0.1",
     "putout": "*",

@@ -74,7 +74,8 @@ async function getFlatESLint({cwd, fix, config = [], overrideConfigFile, loadESL
         overrideConfig: [
             ...maybeArray(config), {
                 ignores: ['!.*'],
-            },
+            }
+            ,
         ],
         ...overrideConfigFile && {
             overrideConfigFile,
