@@ -159,7 +159,8 @@ function unEscape(raw) {
 const unescapeRegExp = (raw) => raw
     .replaceAll('\\:', ':')
     .replaceAll('\\+\\/', '+/')
-    .replaceAll('\\,', ',');
+    .replaceAll('\\,', ',')
+    .replaceAll('\\`', '`');
 
 const is = (a) => (b) => b.includes(`\\${a}`) && !b.includes(`\\\\${a}`);
 const isRegExpColon = is(':');
@@ -169,6 +170,9 @@ const isRegExpSlash = (a) => a.includes('\\\\\\\\');
 function isEscapedRegExp(raw) {
     if (raw.includes('\\/'))
         return false;
+    
+    if (raw.includes('\\`'))
+        return true;
     
     return isRegExpColon(raw) || isRegExpSlash(raw) || isComa(raw);
 }

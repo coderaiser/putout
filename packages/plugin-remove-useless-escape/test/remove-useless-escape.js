@@ -84,6 +84,11 @@ test('plugin-remove-useless-escape: transform: regexp: regexp-colon', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: transform: regexp: regexp-quote', (t) => {
+    t.transform('regexp-quote');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: no transform: regexp-slash', (t) => {
     t.noTransform('regexp-slash');
     t.end();
