@@ -9,4 +9,7 @@ export const match = {
         'no-useless-escape': 'off',
     },
 };
-export default createESLintConfig([safeAlign, matchToFlat(match)]);
+export default createESLintConfig([
+    safeAlign,
+    matchToFlat(match),
+]);
