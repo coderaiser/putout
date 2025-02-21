@@ -419,7 +419,7 @@ test('putout: eslint: get-eslint: config file', async (t) => {
     
     reRequire('./eslint.js');
     
-    t.match(message, /^Cannot read config file/);
+    t.match(message, 'no such file or directory');
     t.end();
 });
 

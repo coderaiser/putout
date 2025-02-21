@@ -154,12 +154,10 @@ test('putout: eslint: get-eslint: flat: no overrides', async (t) => {
     });
     
     const loadESLintOverride = stub().resolves(ESLintOverride);
-    const find = stub().returns('/hello/world/eslint.config.js');
     
     await getESLint({
         name: 'index.js',
         loadESLintOverride,
-        find,
         fix: false,
     });
     
@@ -172,106 +170,5 @@ test('putout: eslint: get-eslint: flat: no overrides', async (t) => {
     }];
     
     t.calledWith(ESLintOverride, expected);
-    t.end();
-});
-
-test('putout: eslint: get-eslint: flat: no overrides: rc', async (t) => {
-    const lintText = stub();
-    const error = Error('hello');
-    const calculateConfigForFile = stub().rejects(error);
-    
-    const ESLintOverride = stub().returns({
-        calculateConfigForFile,
-        lintText,
-    });
-    
-    const loadESLintOverride = stub().resolves(ESLintOverride);
-    const findRC = stub().returns('/hello/world/.eslintrc.json');
-    const findFlat = stub().returns('/eslint.config.js');
-    
-    await getESLint({
-        name: 'index.js',
-        loadESLintOverride,
-        findRC,
-        findFlat,
-        fix: false,
-    });
-    
-    const expected = [{
-        cwd: CWD,
-        fix: false,
-        overrideConfig: {
-            ignorePatterns: ['!.*'],
-        },
-    }];
-    
-    t.calledWith(ESLintOverride, expected);
-    t.end();
-});
-
-test('putout: eslint: get-eslint: overrideConfigFile: rc', async (t) => {
-    const lintText = stub();
-    const error = Error('hello');
-    const calculateConfigForFile = stub().rejects(error);
-    
-    const ESLintOverride = stub().returns({
-        calculateConfigForFile,
-        lintText,
-    });
-    
-    const loadESLintOverride = stub().resolves(ESLintOverride);
-    const findFlat = stub().returns('/hello/world/eslint.config.js');
-    const findRC = stub().returns('/hello/.eslintrc.json');
-    
-    await getESLint({
-        name: 'index.js',
-        loadESLintOverride,
-        findRC,
-        findFlat,
-        fix: false,
-        overrideConfigFile: '.eslintrc.json',
-    });
-    
-    const expected = [{
-        cwd: CWD,
-        fix: false,
-        overrideConfig: {
-            ignorePatterns: ['!.*'],
-        },
-        overrideConfigFile: '.eslintrc.json',
-        useEslintrc: false,
-    }];
-    
-    t.calledWith(ESLintOverride, expected);
-    t.end();
-});
-
-test('putout: eslint: get-eslint: no RC, no FlatConfig', async (t) => {
-    const lintText = stub();
-    const error = Error('hello');
-    const calculateConfigForFile = stub().rejects(error);
-    
-    const ESLintOverride = stub().returns({
-        calculateConfigForFile,
-        lintText,
-    });
-    
-    const loadESLintOverride = stub().resolves(ESLintOverride);
-    const findFlat = stub().returns('');
-    const findRC = stub().returns('');
-    
-    await getESLint({
-        name: 'index.js',
-        loadESLintOverride,
-        findRC,
-        findFlat,
-        fix: false,
-    });
-    
-    const expected = [{
-        useFlatConfig: false,
-    }];
-    
-    t.calledWith(loadESLintOverride, expected);
     t.end();
 });

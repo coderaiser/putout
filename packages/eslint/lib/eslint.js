@@ -40,10 +40,6 @@ const noConfigFound = (config, configError) => {
     return !keys(config.rules).length;
 };
 
-const cutNewLine = ({message}) => ({
-    message: message.replace(/\n.*/, ''),
-});
-
 module.exports = async ({name, code, fix, config, putout = false}) => {
     const noChanges = [
         code,
@@ -60,20 +56,12 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
     
     const {getESLint} = ESLint;
     
-    const [eslintError, eslint] = await tryToCatch(getESLint, {
+    const eslint = await getESLint({
         name,
         fix,
         config,
         overrideConfigFile,
     });
-    
-    if (eslintError) {
-        const places = [
-            convertToPlace(cutNewLine(eslintError)),
-        ];
-        
-        return [code, places];
-    }
     
     const [configError, finalConfig] = await tryToCatch(eslint.calculateConfigForFile, name);
     
