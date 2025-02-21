@@ -3,6 +3,8 @@ import process from 'node:process';
 import {loadESLint} from 'eslint';
 import {findUp} from 'find-up';
 
+const {isArray} = Array;
+const maybeArray = (a) => isArray(a) ? a : [a];
 const CWD = process.cwd();
 
 export const getESLint = async ({name, fix, config, overrideConfigFile, loadESLintOverride, find = findUp, findFlat = find, findRC = find}) => {
@@ -61,7 +63,7 @@ async function getOldESLint({cwd, fix, config, overrideConfigFile, loadESLintOve
     return eslint;
 }
 
-async function getFlatESLint({cwd, fix, config, overrideConfigFile, loadESLintOverride = loadESLint}) {
+async function getFlatESLint({cwd, fix, config = [], overrideConfigFile, loadESLintOverride = loadESLint}) {
     const FlatESLint = await loadESLintOverride({
         useFlatConfig: true,
     });
@@ -69,10 +71,11 @@ async function getFlatESLint({cwd, fix, config, overrideConfigFile, loadESLintOv
     const eslint = new FlatESLint({
         cwd,
         fix,
-        overrideConfig: {
-            ignores: ['!.*'],
-            ...config,
-        },
+        overrideConfig: [
+            ...maybeArray(config), {
+                ignores: ['!.*'],
+            },
+        ],
         ...overrideConfigFile && {
             overrideConfigFile,
         },

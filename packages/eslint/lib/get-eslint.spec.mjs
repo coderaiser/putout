@@ -33,9 +33,9 @@ test('putout: eslint: get-eslint: config: putout', async (t) => {
     const expected = [{
         cwd: __dirname,
         fix: false,
-        overrideConfig: {
+        overrideConfig: [{
             ignores: ['!.*'],
-        },
+        }],
     }];
     
     t.calledWith(ESLintOverride, expected);
@@ -133,9 +133,9 @@ test('putout: eslint: get-eslint: flat: overrideConfigFile', async (t) => {
     const expected = [{
         cwd: CWD,
         fix: false,
-        overrideConfig: {
+        overrideConfig: [{
             ignores: ['!.*'],
-        },
+        }],
         overrideConfigFile: 'other.config.js',
     }];
     
@@ -166,9 +166,9 @@ test('putout: eslint: get-eslint: flat: no overrides', async (t) => {
     const expected = [{
         cwd: CWD,
         fix: false,
-        overrideConfig: {
+        overrideConfig: [{
             ignores: ['!.*'],
-        },
+        }],
     }];
     
     t.calledWith(ESLintOverride, expected);
