@@ -39,7 +39,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [remove-useless-slice](#remove-useless-slice);
 - ✅ [remove-useless-properties](#remove-useless-properties);
 - ✅ [remove-parser-options](#remove-parser-options);
-- ✅ [remove-sufix-config](#remove-sufix-config);
+- ✅ [remove-suffix-config](#remove-suffix-config);
 - ✅ [remove-spread-from-create-eslint-config](#remove-spread-from-create-eslint-config);
 
 ## Config
