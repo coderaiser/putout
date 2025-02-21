@@ -40,6 +40,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [remove-useless-properties](#remove-useless-properties);
 - ✅ [remove-parser-options](#remove-parser-options);
 - ✅ [remove-suffix-config](#remove-suffix-config);
+- ✅ [remove-create-eslint-config-wiht-one-argument](#remove-create-eslint-config-wiht-one-argument);
 - ✅ [remove-spread-from-create-eslint-config](#remove-spread-from-create-eslint-config);
 
 ## Config
@@ -72,6 +73,7 @@ npm i @putout/plugin-eslint -D
         "eslint/remove-useless-properties": "on",
         "eslint/remove-parser-options": "on",
         "eslint/remove-suffix-config": "on",
+        "eslint/remove-create-eslint-config-with-one-argument": "on",
         "eslint/remove-spread-from-create-eslint-config": "on"
     }
 }
@@ -510,6 +512,22 @@ import {safeAlign} from 'eslint-plugin-putout/config';
 
 ```js
 import {safeAlign} from 'eslint-plugin-putout';
+```
+
+## remove-create-eslint-config-with-one-argument
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/609b2ca3789d0b7220fb224e2f4f9aa2/4db953be75214e2c07f1c0eb4f81b74ad29ac2e8).
+
+### ❌ Example of incorrect code
+
+```js
+export default createESLintConfig([safeAlign]);
+```
+
+### ✅ Example of correct code
+
+```js
+export default safeAlign;
 ```
 
 ## remove-spread-from-create-eslint-config

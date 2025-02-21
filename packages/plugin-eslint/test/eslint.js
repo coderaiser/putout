@@ -133,3 +133,8 @@ test('plugin-eslint: transform: remove-suffix-config', (t) => {
     t.transform('remove-suffix-config');
     t.end();
 });
+
+test('plugin-eslint: transform: remove-create-eslint-config-with-one-argument', (t) => {
+    t.transform('remove-create-eslint-config-with-one-argument');
+    t.end();
+});
