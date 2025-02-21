@@ -1,3 +1,11 @@
+2025.02.21, v38.4.2
+
+feature:
+- 132b5cbd2 putout: @putout/plugin-remove-useless-escape v7.0.0
+- 82b4986bd @putout/plugin-eslint: remove-create-eslint-config-with-one-argument
+- d0cae79c5 @putout/plugin-remove-useless-escape: drop support of 🐊 < 38
+- 40d4e7b40 @putout/plugin-remove-useless-escape: backtick inside RegExp
+
 2025.02.21, v38.4.1
 
 feature:
