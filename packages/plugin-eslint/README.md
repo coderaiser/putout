@@ -40,7 +40,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [remove-useless-properties](#remove-useless-properties);
 - ✅ [remove-parser-options](#remove-parser-options);
 - ✅ [remove-suffix-config](#remove-suffix-config);
-- ✅ [remove-create-eslint-config-wiht-one-argument](#remove-create-eslint-config-wiht-one-argument);
+- ✅ [remove-create-eslint-config-with-one-argument](#remove-create-eslint-config-with-one-argument);
 - ✅ [remove-spread-from-create-eslint-config](#remove-spread-from-create-eslint-config);
 
 ## Config
