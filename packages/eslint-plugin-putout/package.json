@@ -41,7 +41,7 @@
     "@babel/eslint-parser": "^8.0.0-alpha.1",
     "@eslint/eslintrc": "^3.0.0",
     "@putout/engine-parser": "^12.0.0",
-    "@putout/eslint": "^3.0.0",
+    "@putout/eslint": "^4.0.0",
     "@putout/eslint-config": "^10.0.0",
     "@putout/eslint-flat": "^2.0.0",
     "@stylistic/eslint-plugin-js": "^4.0.1",
