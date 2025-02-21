@@ -15,6 +15,7 @@ import tryToCatch from 'try-to-catch';
 import {extend} from 'supertape';
 import {lint} from '@putout/eslint/lint';
 import tryCatch from 'try-catch';
+import {recommended} from 'eslint-plugin-putout';
 
 const {keys} = Object;
 const {isArray} = Array;
@@ -37,14 +38,6 @@ const remove = (name) => {
 };
 
 const getMessage = ({message}) => message;
-
-const config = {
-    extends: [
-        'plugin:n/recommended',
-        'plugin:eslint-plugin/recommended',
-        'plugin:putout/recommended',
-    ],
-};
 
 const readSync = (name) => {
     const [, data] = tryCatch(readFileSync, `${name}.js`, 'utf8');
@@ -74,7 +67,7 @@ export const createTest = (url, plugins = {}) => {
     const fixtureDir = new URL('fixture', url).pathname;
     
     return extend({
-        process: (operator) => async (name, override) => {
+        process: (operator) => async (name, overrides) => {
             const full = join(fixtureDir, basename(name));
             const [resolvedName, code] = await read(full);
             const fix = true;
@@ -84,10 +77,10 @@ export const createTest = (url, plugins = {}) => {
                 code,
                 fix,
                 putout: true,
-                config: {
-                    ...config,
-                    ...override,
-                },
+                config: [
+                    ...recommended,
+                    ...parseOverrides(overrides, '@putout/test: eslint: process: overrides'),
+                ],
             });
             
             const fixtureName = `${full}-fix`;
@@ -110,10 +103,10 @@ export const createTest = (url, plugins = {}) => {
             
             const [source] = await eslint({
                 name: resolvedName,
-                config: {
-                    ...config,
-                    ...overrides,
-                },
+                config: [
+                    ...recommended,
+                    ...parseOverrides(overrides, '@putout/test: eslint: no process: overrides'),
+                ],
                 code,
                 putout: true,
                 fix,
@@ -126,7 +119,7 @@ export const createTest = (url, plugins = {}) => {
             
             return operator.equal(source, code);
         },
-        comparePlaces: (operator) => async (name, expected, override) => {
+        comparePlaces: (operator) => async (name, expected, overrides) => {
             const full = join(fixtureDir, name);
             const [resolvedName, code] = await read(full);
             
@@ -134,10 +127,10 @@ export const createTest = (url, plugins = {}) => {
                 name: resolvedName,
                 code,
                 putout: true,
-                config: {
-                    ...config,
-                    ...override,
-                },
+                config: [
+                    ...recommended,
+                    ...parseOverrides(overrides, '@putout/test: eslint: compare places: overrides'),
+                ],
             });
             
             return operator.deepEqual(places, expected);
@@ -178,3 +171,20 @@ export const createTest = (url, plugins = {}) => {
         },
     });
 };
+
+function parseOverrides(overrides, name) {
+    const config = {
+        name,
+    };
+    
+    if (!overrides)
+        return [config];
+    
+    if (isArray(overrides))
+        return overrides;
+    
+    return [{
+        ...config,
+        ...overrides,
+    }];
+}
