@@ -41,7 +41,7 @@
     "@putout/cli-process-file": "^2.0.1",
     "@putout/engine-processor": "*",
     "@putout/engine-runner": "*",
-    "@putout/eslint": "^3.0.0",
+    "@putout/eslint": "^4.0.0",
     "@putout/plugin-filesystem": "*",
     "currify": "^4.0.0",
     "montag": "^1.2.1",
