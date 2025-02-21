@@ -345,7 +345,7 @@ First you need to create test with:
 ```js
 import {createTest} from '@putout/test/eslint';
 
-const test = createTest(import.meta.url);
+const test = createTest(import.meta.url, config);
 ```
 
 ### `process(filename [, config])`
