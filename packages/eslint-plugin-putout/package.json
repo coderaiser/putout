@@ -12,8 +12,7 @@
     "url": "git+https://github.com/coderaiser/putout.git"
   },
   "exports": {
-    ".": "./lib/index.mjs",
-    "./config": "./lib/config/index.js"
+    ".": "./lib/index.mjs"
   },
   "keywords": [
     "putout",

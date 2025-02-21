@@ -1,10 +1,10 @@
 import process from 'node:process';
 import {createTest} from '@putout/test/eslint';
-import {configs} from '../lib/index.mjs';
+import {configs, recommended} from '../lib/index.mjs';
 
 const {jsx} = configs;
 
-const test = createTest(import.meta.url);
+const test = createTest(import.meta.url, recommended);
 
 test('eslint-plugin-putout: no-resolve: places', async ({comparePlaces}) => {
     await comparePlaces('no-unresolved-message', [{

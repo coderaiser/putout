@@ -15,7 +15,6 @@ import tryToCatch from 'try-to-catch';
 import {extend} from 'supertape';
 import {lint} from '@putout/eslint/lint';
 import tryCatch from 'try-catch';
-import {recommended} from 'eslint-plugin-putout';
 
 const {keys} = Object;
 const {isArray} = Array;
@@ -63,7 +62,8 @@ const read = async (name) => {
     return [`${name}.ts`, await readFile(`${name}.ts`, 'utf8')];
 };
 
-export const createTest = (url, plugins = {}) => {
+export const createTest = (url, config = []) => {
+    const plugins = config.plugins || config;
     const fixtureDir = new URL('fixture', url).pathname;
     
     return extend({
@@ -78,7 +78,7 @@ export const createTest = (url, plugins = {}) => {
                 fix,
                 putout: true,
                 config: [
-                    ...recommended,
+                    ...config,
                     ...parseOverrides(overrides, '@putout/test: eslint: process: overrides'),
                 ],
             });
@@ -104,7 +104,7 @@ export const createTest = (url, plugins = {}) => {
             const [source] = await eslint({
                 name: resolvedName,
                 config: [
-                    ...recommended,
+                    ...config,
                     ...parseOverrides(overrides, '@putout/test: eslint: no process: overrides'),
                 ],
                 code,
@@ -128,7 +128,7 @@ export const createTest = (url, plugins = {}) => {
                 code,
                 putout: true,
                 config: [
-                    ...recommended,
+                    ...config,
                     ...parseOverrides(overrides, '@putout/test: eslint: compare places: overrides'),
                 ],
             });
@@ -172,13 +172,10 @@ export const createTest = (url, plugins = {}) => {
     });
 };
 
-function parseOverrides(overrides, name) {
+function parseOverrides(overrides = [], name) {
     const config = {
         name,
     };
-    
-    if (!overrides)
-        return [config];
     
     if (isArray(overrides))
         return overrides;
