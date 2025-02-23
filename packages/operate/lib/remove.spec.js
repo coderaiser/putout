@@ -42,3 +42,21 @@ test('@putout/operate: remove: no scope', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('@putout/operate: remove: not found', (t) => {
+    const source = `x ? a() : b();\n`;
+    const ast = parse(source);
+    
+    traverse(ast, {
+        ConditionalExpression: (path) => {
+            const nextPath = path.getNextSibling();
+            
+            remove(nextPath);
+        },
+    });
+    
+    const code = print(ast);
+    
+    t.equal(code, source);
+    t.end();
+});

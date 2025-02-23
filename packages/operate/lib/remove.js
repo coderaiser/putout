@@ -4,6 +4,9 @@ const {entries} = Object;
 const isOneDeclaration = ({node}) => node.declarations.length === 1;
 
 module.exports.remove = (path) => {
+    if (!path.node)
+        return;
+    
     const {scope} = path;
     const prev = getPrevSibling(path);
     const next = getNextSibling(path);
