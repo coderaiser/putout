@@ -59,8 +59,6 @@ function isReturnWithoutArg(path) {
 }
 
 const isIntersect = (path, bindings) => {
-    path.scope.crawl();
-    
     for (const key of keys(bindings)) {
         if (path.scope.hasBinding(key))
             return true;
