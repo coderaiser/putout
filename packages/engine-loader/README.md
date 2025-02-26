@@ -74,7 +74,6 @@ const rules = {
 };
 
 const plugins = loadPlugins({
-    cache: true, //default
     pluginNames,
     rules,
 });
@@ -112,7 +111,6 @@ const rules = {
 };
 
 const plugins = await loadPluginsAsync({
-    cache: true, //default
     pluginNames,
     rules,
 });
