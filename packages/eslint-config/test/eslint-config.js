@@ -58,6 +58,10 @@ test('eslint-config: no-unused-labels', async ({comparePlaces}) => {
     await comparePlaces('no-unused-labels', []);
 });
 
+test('eslint-config: no-empty', async ({comparePlaces}) => {
+    await comparePlaces('no-empty', []);
+});
+
 test('eslint-config: no-delete-var', async ({comparePlaces}) => {
     await comparePlaces('no-delete-var', [], {
         rules: {

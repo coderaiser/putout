@@ -39,6 +39,7 @@ export const rules = {
     'no-unsafe-negation': 'off',
     'no-duplicate-case': 'off',
     'no-cond-assign': 'off',
+    'no-empty': 'off',
     'no-empty-pattern': 'off',
     'no-control-regex': 'off',
     'no-useless-rename': 'error',

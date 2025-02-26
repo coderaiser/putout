@@ -579,13 +579,6 @@ test('putout: cli: process-file: goldstein: no braces', async (t) => {
                 line: 1,
             },
             rule: 'no-undef (eslint)',
-        }, {
-            message: 'Empty block statement.',
-            position: {
-                column: 12,
-                line: 1,
-            },
-            rule: 'no-empty (eslint)',
         }],
     };
     
