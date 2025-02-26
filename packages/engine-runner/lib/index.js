@@ -1,6 +1,6 @@
 'use strict';
 
-const {traverse} = require('@putout/babel');
+const {traverse: defaultTraverse} = require('@putout/babel');
 const once = require('once');
 const debug = require('debug')('putout:runner:find');
 
@@ -18,7 +18,7 @@ const {getPath, getPosition} = require('./get-position');
 
 const isRemoved = (a) => a?.removed;
 
-module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, progress = createProgress()}) => {
+module.exports.runPlugins = ({ast, shebang, fix, fixCount = 1, plugins, progress = createProgress(), traverse = defaultTraverse}) => {
     let places = [];
     
     const merge = once(mergeVisitors);
@@ -38,6 +38,7 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, progress = c
             pluginsTraverse,
             merge,
             template,
+            traverse,
         });
         
         progress.reset();
@@ -53,7 +54,7 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, progress = c
 
 module.exports.getPosition = getPosition;
 
-const run = ({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge}) => [
+const run = ({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge, traverse}) => [
     ...runWithoutMerge({
         ast,
         fix,
@@ -68,10 +69,11 @@ const run = ({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge})
         template,
         pluginsTraverse,
         merge,
+        traverse,
     }),
 ];
 
-function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge}) {
+function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge, traverse}) {
     const {entries, visitor} = merge(pluginsTraverse, {
         fix,
         shebang,

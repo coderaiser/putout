@@ -6,11 +6,13 @@ const tryCatch = require('try-catch');
 const {test, stub} = require('supertape');
 const putout = require('putout');
 const mockRequire = require('mock-require');
+const {loadPlugins} = require('@putout/engine-loader');
 
 const {readFixtures} = require('./fixture');
 const {runPlugins} = require('..');
 
 const {reRequire, stopAll} = mockRequire;
+const {parse} = putout;
 
 const fixture = readFixtures([
     'import',
@@ -955,5 +957,93 @@ test('putout: runner: duplication: find + traverse', (t) => {
     }];
     
     t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: runner: runPlugins', (t) => {
+    const duplicator = {
+        report: () => '',
+        include: () => 'debugger',
+        find: (ast, {traverse, push}) => {
+            traverse(ast, {
+                DebuggerStatement: push,
+            });
+        },
+        traverse: ({push}) => ({
+            debugger: push,
+        }),
+    };
+    
+    const code = 'debugger';
+    const ast = parse(code);
+    
+    const plugins = loadPlugins({
+        pluginNames: [
+            ['duplicator', duplicator],
+        ],
+    });
+    
+    const places = runPlugins({
+        ast,
+        fix: false,
+        plugins,
+    });
+    
+    const expected = [{
+        message: '',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'duplicator',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: runner: runPlugins: override traverse', (t) => {
+    const duplicator = {
+        report: () => '',
+        include: () => 'debugger',
+        find: (ast, {traverse, push}) => {
+            traverse(ast, {
+                DebuggerStatement: push,
+            });
+        },
+        traverse: ({push}) => ({
+            debugger: push,
+        }),
+    };
+    
+    const code = 'debugger';
+    const ast = parse(code);
+    
+    const plugins = loadPlugins({
+        pluginNames: [
+            ['duplicator', duplicator],
+        ],
+    });
+    
+    const traverse = stub();
+    
+    runPlugins({
+        traverse,
+        ast,
+        fix: false,
+        plugins,
+    });
+    
+    const shouldSkip = stub().withName('shouldSkip');
+    
+    const expected = [
+        ast, {
+            _exploded: true,
+            _verified: true,
+            shouldSkip,
+        },
+    ];
+    
+    t.calledWith(traverse, expected);
     t.end();
 });

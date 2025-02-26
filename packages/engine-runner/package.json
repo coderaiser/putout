@@ -49,6 +49,7 @@
     "putout-engine"
   ],
   "devDependencies": {
+    "@putout/engine-loader": "*",
     "@putout/eslint-flat": "^2.0.0",
     "@putout/plugin-minify": "*",
     "c8": "^10.0.0",
