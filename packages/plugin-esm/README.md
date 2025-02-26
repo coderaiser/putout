@@ -18,6 +18,7 @@ npm i putout @putout/plugin-esm -D
 
 ## Rules
 
+- ✅ [apply-export-from](#apply-export-from);
 - ✅ [declare-imports-first](#declare-imports-first);
 - ✅ [group-imports-by-source](#group-imports-by-source);
 - ✅ [merge-duplicate-imports](#merge-duplicate-imports);
@@ -31,6 +32,7 @@ npm i putout @putout/plugin-esm -D
 ```json
 {
     "rules": {
+        "esm/apply-export-from": "on",
         "esm/declare-imports-first": "on",
         "esm/group-imports-by-source": "on",
         "esm/merge-duplicate-imports": "on",
@@ -42,6 +44,30 @@ npm i putout @putout/plugin-esm -D
         "esm/sort-imports-by-specifiers": "on"
     }
 }
+```
+
+## apply-export-from
+
+> The `export` declaration is used to export values from a JavaScript module.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c9a3983d269745da89c1c7560f3b7fac/3ecb9aa6b910ce3816605bae11c8dd86bdc457e5).
+
+## ❌ Example of incorrect code
+
+```js
+import * as ns_1 from 'x';
+
+export {
+    ns_1 as ns,
+};
+```
+
+## ✅ Example of correct code
+
+```js
+export * as ns from 'x';
 ```
 
 ## declare-imports-first

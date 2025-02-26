@@ -8,6 +8,7 @@ const removeEmptyImport = require('./remove-empty-import');
 const removeEmptyExport = require('./remove-empty-export');
 const mergeDuplicateImports = require('./merge-duplicate-imports');
 const convertAssertToWith = require('./convert-assert-to-with');
+const applyExportFrom = require('./apply-export-from');
 
 module.exports.rules = {
     ...mergeDuplicateImports.rules,
@@ -18,4 +19,5 @@ module.exports.rules = {
     'remove-empty-export': removeEmptyExport,
     'sort-imports-by-specifiers': sortImportsBySpecifiers,
     'convert-assert-to-with': convertAssertToWith,
+    'apply-export-from': applyExportFrom,
 };

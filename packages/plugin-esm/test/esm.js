@@ -48,3 +48,8 @@ test('putout: plugin: esm: merge-duplicate-imports: convert-assert-to-with: tran
     t.transform('convert-assert-to-with');
     t.end();
 });
+
+test('plugin-esm: transform: apply-export-from', (t) => {
+    t.transform('apply-export-from');
+    t.end();
+});
