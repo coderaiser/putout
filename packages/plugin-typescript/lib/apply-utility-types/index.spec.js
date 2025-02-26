@@ -18,3 +18,8 @@ test('plugin-apply-typescript: apply-utility-types: transform: mapped-types', (t
     t.transform('mapped-types');
     t.end();
 });
+
+test('plugin-apply-typescript: apply-utility-types: transform: optional', (t) => {
+    t.transform('optional');
+    t.end();
+});
