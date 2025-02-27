@@ -5,8 +5,18 @@ const applyObjectDestructuring = require('.');
 
 const test = createTest(__dirname, {
     plugins: [
-        ['apply-object-destructuring', applyObjectDestructuring],
+        ['apply-destructuring/object', applyObjectDestructuring],
     ],
+});
+
+test('plugin-apply-destructuring: transform: assign', (t) => {
+    t.transform('assign');
+    t.end();
+});
+
+test('plugin-apply-destructuring: no transform: while', (t) => {
+    t.noTransform('while');
+    t.end();
 });
 
 test('plugin-apply-destructuring: no transform: member-expression', (t) => {

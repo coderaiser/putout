@@ -47,12 +47,14 @@ const [first] = array;
 
 ```js
 const name = user.name;
+hello = world.hello;
 ```
 
 ## ✅ Example of correct code
 
 ```js
 const {name} = user;
+({hello} = world);
 ```
 
 ## falsy
