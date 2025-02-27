@@ -59,7 +59,6 @@ export const traverse = ({push, uplist}) => ({
                     
                     const prev = path.parentPath.getPrevSibling();
                     
-                    //if (prev.node && !prev.isVariableDeclaration()) {
                     if (!prev.isVariableDeclaration()) {
                         vars.splice(index, 1);
                         continue;
