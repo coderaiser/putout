@@ -47,6 +47,7 @@ const [first] = array;
 
 ```js
 const name = user.name;
+
 hello = world.hello;
 ```
 
@@ -54,6 +55,7 @@ hello = world.hello;
 
 ```js
 const {name} = user;
+
 ({hello} = world);
 ```
 
