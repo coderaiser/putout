@@ -16,9 +16,7 @@ const {
     pathStore,
 } = require('./store');
 
-const shouldSkip = (a) => !a.parent;
 const {merge} = traverse.visitors;
-
 const {assign} = Object;
 
 const parse = (name, plugin, options) => {
@@ -87,7 +85,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
     const entries = Object.entries(pushed);
     
     const visitor = {
-        shouldSkip,
+        //shouldSkip,
         ...merge(mergeItems),
     };
     

@@ -1026,13 +1026,10 @@ test('putout: runner: runPlugins: override traverse', (t) => {
         plugins,
     });
     
-    const shouldSkip = stub().withName('shouldSkip');
-    
     const expected = [
         ast, {
             _exploded: true,
             _verified: true,
-            shouldSkip,
         },
     ];
     
