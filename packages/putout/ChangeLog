@@ -1,3 +1,21 @@
+2025.02.28, v38.4.3
+
+feature:
+- d1d721543 putout: @putout/plugin-apply-destructuring v8.0.0
+- dacc7c482 @putout/plugin-apply-destructuring: shorten
+- 10a42996f @putout/plugin-apply-destructuring: assign
+- c7e0ff204 @putout/plugin-apply-destructuring: drop support of 🐊 < 38
+- 884c7a1c5 @putout/plugin-minify: drop support of 🐊 < 38
+- 9465e15ca @putout/engine-runner: fixCount: 2
+- 32c313f96 @putout/engine-runner: traverse: override
+- 58f32a1ca @putout/plugin-esm: apply-export-from: add
+- e93b188c2 @putout/plugin-typescript: apply-utility-types: Optional: add
+- 04b17fd7d @putout/eslint-config: no-empty: off
+- 9916d5c2e @putout/plugin-remove-nested-blocks: remove useless crawl
+- a23b1a2c4 @putout/operate: remove: do not throw when no node
+- b5d6949da eslint-plugin-putout: export rules
+- 525711e30 @putout/eslint: get rid of legacy ESLintRC
+
 2025.02.21, v38.4.2
 
 feature:
