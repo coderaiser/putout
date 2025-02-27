@@ -15,7 +15,25 @@
 npm i @putout/plugin-apply-destructuring
 ```
 
-## Rule
+## Rules
+
+- ✅ [object](#object);
+- ✅ [array](#array);
+- ✅ [falsy](#falsy);
+
+## Config
+
+Short:
+
+```json
+{
+    "rules": {
+        "apply-destructuring": "on"
+    }
+}
+```
+
+Full:
 
 ```json
 {
