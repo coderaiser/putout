@@ -963,15 +963,11 @@ test('putout: runner: duplication: find + traverse', (t) => {
 test('putout: runner: runPlugins', (t) => {
     const duplicator = {
         report: () => '',
-        include: () => 'debugger',
         find: (ast, {traverse, push}) => {
             traverse(ast, {
                 DebuggerStatement: push,
             });
         },
-        traverse: ({push}) => ({
-            debugger: push,
-        }),
     };
     
     const code = 'debugger';
@@ -1005,15 +1001,11 @@ test('putout: runner: runPlugins', (t) => {
 test('putout: runner: runPlugins: override traverse', (t) => {
     const duplicator = {
         report: () => '',
-        include: () => 'debugger',
         find: (ast, {traverse, push}) => {
             traverse(ast, {
                 DebuggerStatement: push,
             });
         },
-        traverse: ({push}) => ({
-            debugger: push,
-        }),
     };
     
     const code = 'debugger';

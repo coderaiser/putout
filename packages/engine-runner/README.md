@@ -496,7 +496,7 @@ const places = runPlugins({
     ast,
     shebang: false, // default
     fix: false, // default
-    fixCount: 1, // default
+    fixCount: 2, // default
     plugins,
     parser: 'babel', // default
 });

@@ -18,7 +18,7 @@ const {getPath, getPosition} = require('./get-position');
 
 const isRemoved = (a) => a?.removed;
 
-module.exports.runPlugins = ({ast, shebang, fix, fixCount = 1, plugins, progress = createProgress(), traverse = defaultTraverse}) => {
+module.exports.runPlugins = ({ast, shebang, fix, fixCount = 2, plugins, progress = createProgress(), traverse = defaultTraverse}) => {
     let places = [];
     
     const merge = once(mergeVisitors);
