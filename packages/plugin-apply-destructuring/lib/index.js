@@ -1,7 +1,7 @@
 'use strict';
 
-const object = require('./apply-object-destructuring');
-const array = require('./apply-array-destructuring');
+const object = require('./object');
+const array = require('./array');
 const falsy = require('./falsy');
 
 module.exports.rules = {
