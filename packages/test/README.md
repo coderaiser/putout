@@ -58,7 +58,7 @@ const test = createTest(import.meta.url, {
 });
 ```
 
-### `report(filename, message: string | string[])`
+### `report(filename, message: string | string[], plugins?: PutoutPlugin[])`
 
 Check error message (or messages) of a plugin:
 
@@ -78,7 +78,7 @@ test('remove useless variables: dot', (t) => {
 });
 ```
 
-### `reportCode(input, message)`
+### `reportCode(input: string, message: string | string[], plugins?: PutoutPlugins)`
 
 Check error message of a plugin from `input` code:
 

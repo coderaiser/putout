@@ -473,16 +473,20 @@ const noTransformCode = currify((lint, options, t, input) => {
 
 const getMessage = ({message}) => message;
 
-const report = (dir, lint, options) => (t) => (name, message) => {
+const report = (dir, lint, options) => (t) => (name, message, plugins) => {
     checkReport(name, message);
     
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    return reportCode(lint, {
+    const addT = reportCode(lint, {
         isTS,
         ...options,
-    }, t, source, message);
+    });
+    
+    const run = addT(t);
+    
+    return run(source, message, plugins);
 };
 
 const noReport = currify((dir, lint, options, t, name) => {
@@ -542,11 +546,15 @@ const reportWithOptions = currify((dir, lint, options, t, name, message, ruleOpt
         [rule]: ['on', ruleOptions],
     };
     
-    return reportCode(lint, {
+    const addT = reportCode(lint, {
         ...options,
         rules,
         isTS,
-    }, t, source, message);
+    });
+    
+    const run = addT(t);
+    
+    return run(source, message);
 });
 
 const noReportWithOptions = currify((dir, lint, options, t, name, ruleOptions) => {
@@ -567,10 +575,15 @@ const noReportWithOptions = currify((dir, lint, options, t, name, ruleOptions) =
     }, t, source);
 });
 
-const reportCode = currify((lint, options, t, source, message) => {
+const reportCode = (lint, options) => (t) => (source, message, addons) => {
+    const {plugins} = options;
     const {places} = lint(source, {
         fix: false,
         ...options,
+        plugins: [{
+            ...toObject(plugins),
+            ...addons,
+        }],
     });
     
     const resultMessages = places.map(getMessage);
@@ -579,7 +592,7 @@ const reportCode = currify((lint, options, t, source, message) => {
         return t.deepEqual(resultMessages, message);
     
     return t.equal(resultMessages[0], message);
-});
+};
 
 const noReportCode = currify((lint, options, t, source) => {
     const {places} = lint(source, {

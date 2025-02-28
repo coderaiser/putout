@@ -6,6 +6,7 @@ const montag = require('montag');
 const tryCatch = require('try-catch');
 const {stub} = require('supertape');
 const putout = require('putout');
+const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
 
 const {
     createTest,
@@ -57,6 +58,18 @@ test('putout: test: noReportWithOptions', (t) => {
     
     t.noReportWithOptions('remove-import', {
         cache,
+    });
+    t.end();
+});
+
+test('putout: test: report: plugins', (t) => {
+    const expected = [
+        `'x' is defined but never used`,
+        'avoid imports',
+    ];
+    
+    t.report('remove-import', expected, {
+        removeUnusedVariables,
     });
     t.end();
 });
