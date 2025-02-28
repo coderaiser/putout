@@ -440,11 +440,7 @@ test('putout: cli: process-file: plugin not found', async (t) => {
     stopAll();
     
     const expected = {
-        code: montag`
-            __putout_processor_yaml({
-                hello: 'world',
-            });
-        `,
+        code: `__putout_processor_yaml({hello: 'world'});`,
         places: [{
             message: `Cannot find package 'putout-plugin-travis'`,
             position: {
@@ -876,7 +872,7 @@ test('putout: cli: process-file: transform error', async (t) => {
     t.end();
 });
 
-test('putout: cli: process-file: transform error: no flatlint', async (t) => {
+test('putout: cli: process-file: transform error: no flatlint: reason: traverse', async (t) => {
     const {extract} = await import('@putout/operate');
     const source = 'const a = () => {}';
     const fix = true;
@@ -906,6 +902,50 @@ test('putout: cli: process-file: transform error: no flatlint', async (t) => {
         source,
         index: 0,
         length: 1,
+        simpleImport,
+        options: {
+            plugins: [
+                ['throws', plugin],
+            ],
+        },
+    });
+    
+    t.notCalled(simpleImport);
+    t.end();
+});
+
+test('putout: cli: process-file: transform error: no flatlint: reason: fix', async (t) => {
+    const source = 'const a = () => {}';
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    const simpleImport = stub();
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const plugin = {
+        report: noop,
+        fix: () => {
+            throw Error('x');
+        },
+        traverse: ({push}) => ({
+            Function(path) {
+                push(path);
+            },
+        }),
+    };
+    
+    await fn({
+        name: 'example.js',
+        source,
+        index: 0,
+        length: 1,
+        simpleImport,
         options: {
             plugins: [
                 ['throws', plugin],
