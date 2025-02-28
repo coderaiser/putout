@@ -7,7 +7,7 @@ const {mergeOptions} = require('putout/merge-options');
 const parseError = require('putout/parse-error');
 const {putoutAsync} = require('putout');
 
-const {simpleImport} = require('./simple-import');
+const {simpleImport: _simpleImport} = require('./simple-import');
 
 const getMatchedOptions = (name, options) => {
     if (!name.includes('{'))
@@ -23,6 +23,7 @@ module.exports = ({fix, fixCount, logError, raw}) => async function processFile(
         startLine,
         options = {},
         again,
+        simpleImport = _simpleImport,
     } = overrides;
     
     const {configurePrinter} = await import('./printer/printer.mjs');
@@ -37,7 +38,7 @@ module.exports = ({fix, fixCount, logError, raw}) => async function processFile(
         printer: configurePrinter(name, printer),
     });
     
-    if (!again && e) {
+    if (!again && e && e.reason !== 'traverse') {
         raw && logError(e);
         
         const {lint} = await simpleImport('samadhi');

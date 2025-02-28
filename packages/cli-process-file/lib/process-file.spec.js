@@ -876,6 +876,47 @@ test('putout: cli: process-file: transform error', async (t) => {
     t.end();
 });
 
+test('putout: cli: process-file: transform error: no flatlint', async (t) => {
+    const {extract} = await import('@putout/operate');
+    const source = 'const a = () => {}';
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    const simpleImport = stub();
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const plugin = {
+        report: noop,
+        fix: noop,
+        traverse: () => ({
+            Function(path) {
+                extract(path);
+            },
+        }),
+    };
+    
+    await fn({
+        name: 'example.js',
+        source,
+        index: 0,
+        length: 1,
+        options: {
+            plugins: [
+                ['throws', plugin],
+            ],
+        },
+    });
+    
+    t.notCalled(simpleImport);
+    t.end();
+});
+
 test('putout: cli: process-file: after fixing syntax errors, run 🐊 and ESLint: export no const', async (t) => {
     const source = montag`
         export x = () => {}
