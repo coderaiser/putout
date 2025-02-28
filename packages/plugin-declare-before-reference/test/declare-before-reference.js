@@ -97,6 +97,11 @@ test('plugin-declare-before-reference: no transform: require', (t) => {
     t.end();
 });
 
+test('plugin-declare-before-reference: transform: destructuring', (t) => {
+    t.transform('destructuring');
+    t.end();
+});
+
 test('plugin-declare-before-reference: no report: apply-types', (t) => {
     t.noReportAfterTransform('apply-types', {
         'apply-types': printer.rules['apply-types'],

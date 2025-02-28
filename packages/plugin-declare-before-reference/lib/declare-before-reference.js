@@ -8,39 +8,51 @@ const {
     getPathAfterRequires,
 } = operator;
 
-const {isFunction, isProgram} = types;
+const {
+    isFunction,
+    isStatement,
+    isBlockStatement,
+    isProgram,
+} = types;
 
 const {entries} = Object;
-const isTopScope = (a) => isFunction(a) || isProgram(a);
+const isTopScope = (a) => isFunction(a) || isProgram(a) || isBlockStatement(a);
 
 module.exports.report = ({name}) => {
     return `Declare '${name}' before referencing to avoid 'ReferenceError'`;
 };
 
-module.exports.fix = ({path}) => {
-    const programPath = path.scope.getProgramParent().path;
+module.exports.fix = ({path, referencePath}) => {
     const {node} = path.parentPath;
+    const programPath = path.scope.getProgramParent().path;
     
     delete node.loc;
     
     remove(path.parentPath);
     
-    const body = programPath.get('body');
-    const [first] = body;
-    
-    if (compare(first, 'const __a = require(__b)')) {
-        const latest = getPathAfterRequires(body.slice(1));
-        insertBefore(latest, node);
+    if (path.scope.uid !== programPath.scope.uid) {
+        const topPath = referencePath.find(isStatement);
         
-        return;
+        insertBefore(topPath, node);
+    } else {
+        const body = programPath.get('body');
+        const [first] = body;
+        
+        if (compare(first, 'const __a = require(__b)')) {
+            const latest = getPathAfterRequires(body.slice(1));
+            insertBefore(latest, node);
+            
+            return;
+        }
+        
+        programPath.node.body.unshift(node);
     }
     
     path.__putout_declare_before_reference = true;
-    programPath.node.body.unshift(node);
 };
 
 module.exports.traverse = ({push}) => ({
-    Program(path) {
+    'Program|BlockStatement'(path) {
         const {bindings} = path.scope;
         
         for (const [name, value] of entries(bindings)) {
@@ -53,13 +65,16 @@ module.exports.traverse = ({push}) => ({
             if (path.isFunctionDeclaration())
                 continue;
             
+            if (path.isClassDeclaration())
+                continue;
+            
             if (path.__putout_declare_before_reference)
                 break;
             
             for (const referencePath of referencePaths) {
                 const referenceUid = referencePath.find(isTopScope).scope.uid;
                 
-                if (uid !== referenceUid)
+                if (uid !== referenceUid && (uid && referencePath.find(isFunction)))
                     continue;
                 
                 if (referencePath.parentPath.isExportDefaultDeclaration())
@@ -78,6 +93,7 @@ module.exports.traverse = ({push}) => ({
                     push({
                         name,
                         path,
+                        referencePath,
                     });
                 
                 if (!own)
@@ -87,6 +103,7 @@ module.exports.traverse = ({push}) => ({
                     push({
                         name,
                         path,
+                        referencePath,
                     });
             }
         }
