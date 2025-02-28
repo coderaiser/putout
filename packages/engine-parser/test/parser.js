@@ -195,6 +195,13 @@ test('putout: parser: no-flow', (t) => {
     t.end();
 });
 
+test('putout: parser: broken', (t) => {
+    const [error] = tryCatch(putout, 'console.lo(');
+    
+    t.equal(error.reason, 'parse');
+    t.end();
+});
+
 test('putout: parser: typescript', (t) => {
     const {code} = putout(fixture.typescript, {
         isTS: true,

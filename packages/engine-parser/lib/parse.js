@@ -2,6 +2,7 @@
 
 const toBabel = require('estree-to-babel');
 const customParser = require('./custom-parser');
+const {tryThrowWithReason} = require('./try-throw-with-reason');
 const {assign} = Object;
 
 module.exports = (source, options) => {
@@ -12,14 +13,14 @@ module.exports = (source, options) => {
         isJSX,
     } = options || {};
     
-    const cookedParser = getParser({
+    const {parse} = getParser({
         printer,
         parser,
         isTS,
         isJSX,
     });
     
-    return cookedParser.parse(source);
+    return tryThrowWithReason(parse, source);
 };
 
 const getParser = ({parser = 'babel', isTS, isJSX, printer}) => ({
