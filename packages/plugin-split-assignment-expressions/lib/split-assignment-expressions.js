@@ -5,6 +5,8 @@ const {replaceWithMultiple} = operator;
 const {
     isAssignmentExpression,
     AssignmentExpression,
+    isMemberExpression,
+    isSequenceExpression,
 } = types;
 
 module.exports.report = () => `Split assignment expressions`;
@@ -33,6 +35,9 @@ module.exports.traverse = ({push}) => ({
         let {right} = path.node;
         
         if (!isAssignmentExpression(right))
+            return;
+        
+        if (isMemberExpression(right.left) && isSequenceExpression(right.left.property))
             return;
         
         const lefts = [

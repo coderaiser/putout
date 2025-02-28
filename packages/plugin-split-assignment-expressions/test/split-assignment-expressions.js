@@ -28,3 +28,8 @@ test('putout: split-assignment-expressions: transform', (t) => {
     t.transform('split-assignment-expressions');
     t.end();
 });
+
+test('putout: split-assignment-expressions: no report: separate', (t) => {
+    t.noReport('separate');
+    t.end();
+});
