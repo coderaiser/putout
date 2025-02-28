@@ -5,13 +5,29 @@ const {replaceWithMultiple} = operator;
 const {
     isAssignmentExpression,
     AssignmentExpression,
+    ArrayPattern,
     isMemberExpression,
     isSequenceExpression,
 } = types;
 
 module.exports.report = () => `Split assignment expressions`;
 
-module.exports.fix = ({path, lefts, right}) => {
+module.exports.fix = ({path, lefts, right, merged}) => {
+    if (merged) {
+        const rightPath = path.get('right');
+        const {right, left} = rightPath.node;
+        const {object, property} = left;
+        
+        const assignments = [
+            AssignmentExpression(lefts[0][0], lefts[0][1], object),
+            AssignmentExpression(lefts[1][0], convertToArray(property), right),
+        ];
+        
+        replaceWithMultiple(path, assignments);
+        
+        return;
+    }
+    
     const [[operator, firstLeft], ...otherLefts] = lefts;
     const assignments = [
         AssignmentExpression(operator, firstLeft, right),
@@ -37,8 +53,7 @@ module.exports.traverse = ({push}) => ({
         if (!isAssignmentExpression(right))
             return;
         
-        if (isMemberExpression(right.left) && isSequenceExpression(right.left.property))
-            return;
+        const merged = isMemberExpression(right.left) && isSequenceExpression(right.left.property);
         
         const lefts = [
             [operator, left],
@@ -57,6 +72,9 @@ module.exports.traverse = ({push}) => ({
             path,
             lefts,
             right,
+            merged,
         });
     },
 });
+
+const convertToArray = ({expressions}) => ArrayPattern(expressions);
