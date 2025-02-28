@@ -13,6 +13,7 @@ const declare = require('./declare');
 const scanner = require('./scanner');
 const template = require('./template');
 const {createProgress} = require('./progress');
+const {tryThrowWithReason} = require('./try-throw-with-reason');
 
 const {getPath, getPosition} = require('./get-position');
 
@@ -80,7 +81,7 @@ function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge, trav
         template,
     });
     
-    traverse(ast, visitor);
+    tryThrowWithReason(traverse, ast, visitor);
     
     const places = [];
     
@@ -107,7 +108,7 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
         
         const {report, find} = plugin;
         
-        const items = superFind({
+        const items = tryThrowWithReason(superFind, {
             rule,
             find,
             ast,

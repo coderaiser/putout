@@ -10,7 +10,7 @@ const {loadPlugins} = require('@putout/engine-loader');
 
 const {readFixtures} = require('./fixture');
 const {runPlugins} = require('..');
-
+const noop = () => {};
 const {reRequire, stopAll} = mockRequire;
 const {parse} = putout;
 
@@ -1034,5 +1034,66 @@ test('putout: runner: runPlugins: override traverse', (t) => {
     ];
     
     t.calledWith(traverse, expected);
+    t.end();
+});
+
+test('putout: runner: runPlugins: find: reason', (t) => {
+    const duplicator = {
+        report: () => '',
+        find: (ast, {traverse}) => {
+            traverse(ast, {
+                DebuggerStatement: () => {
+                    throw Error('x');
+                },
+            });
+        },
+    };
+    
+    const code = 'debugger';
+    const ast = parse(code);
+    
+    const plugins = loadPlugins({
+        pluginNames: [
+            ['duplicator', duplicator],
+        ],
+    });
+    
+    const [error] = tryCatch(runPlugins, {
+        ast,
+        fix: false,
+        plugins,
+    });
+    
+    t.equal(error.reason, 'traverse');
+    t.end();
+});
+
+test('putout: runner: runPlugins: traverse: reason', (t) => {
+    const duplicator = {
+        report: () => '',
+        fix: noop,
+        traverse: () => ({
+            DebuggerStatement: () => {
+                throw Error('x');
+            },
+        }),
+    };
+    
+    const code = 'debugger';
+    const ast = parse(code);
+    
+    const plugins = loadPlugins({
+        pluginNames: [
+            ['duplicator', duplicator],
+        ],
+    });
+    
+    const [error] = tryCatch(runPlugins, {
+        ast,
+        fix: false,
+        plugins,
+    });
+    
+    t.equal(error.reason, 'traverse');
     t.end();
 });
