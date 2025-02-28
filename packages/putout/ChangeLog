@@ -1,3 +1,17 @@
+2025.02.28, v38.4.4
+
+fix:
+- 22496dc1d @putout/engine-runner: remove useless should skip
+
+feature:
+- 11d844a16 putout: @putout/plugin-split-assignment-expressions v2.0.0
+- 6b36f0b14 @putout/plugin-split-assignment-expressions: false positive: MemberExpression with SequenceExpression property
+- 0f13915fd @putout/plugin-split-assignment-expressions: drop support of 🐊 < 38
+- 4dd1beba9 @putout/cli-process-file: use flatlint only when reason = parse
+- a72e6eacd @putout/engine-runner: reason: fix
+- 6b27274b6 @putout/engine-runner: add error reason when throw during traverse
+- 61792e6d8 @putout/cli-process-file: do not run samadhi, when reason of an error is traverse
+
 2025.02.28, v38.4.3
 
 feature:
