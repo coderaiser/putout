@@ -41,6 +41,7 @@ const tryToFix = (fix, {path, pathOptions, position, options}) => {
         return;
     
     e.loc = e.loc || position;
+    e.reason = 'fix';
     
     throw e;
 };

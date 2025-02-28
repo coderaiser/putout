@@ -1097,3 +1097,35 @@ test('putout: runner: runPlugins: traverse: reason', (t) => {
     t.equal(error.reason, 'traverse');
     t.end();
 });
+
+test('putout: runner: runPlugins: fix: reason', (t) => {
+    const duplicator = {
+        report: () => '',
+        fix: () => {
+            throw Error('x');
+        },
+        traverse: ({push}) => ({
+            DebuggerStatement: (path) => {
+                push(path);
+            },
+        }),
+    };
+    
+    const code = 'debugger';
+    const ast = parse(code);
+    
+    const plugins = loadPlugins({
+        pluginNames: [
+            ['duplicator', duplicator],
+        ],
+    });
+    
+    const [error] = tryCatch(runPlugins, {
+        ast,
+        fix: true,
+        plugins,
+    });
+    
+    t.equal(error.reason, 'fix');
+    t.end();
+});

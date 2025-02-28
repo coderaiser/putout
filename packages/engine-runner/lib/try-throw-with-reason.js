@@ -6,7 +6,7 @@ module.exports.tryThrowWithReason = (fn, ...args) => {
     const [error, result] = tryCatch(fn, ...args);
     
     if (error) {
-        error.reason = 'traverse';
+        error.reason ??= 'traverse';
         throw error;
     }
     
