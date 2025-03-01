@@ -5,7 +5,7 @@ const {traverse: babelTraverse, types} = require('@putout/babel');
 const {generate} = require('@putout/engine-parser');
 const {merge} = babelTraverse.visitors;
 
-module.exports = function superFind({rule, find, ast, options, template}) {
+module.exports = function superFind({rule, find, ast, options, template, traverse = babelTraverse}) {
     const pushItems = [];
     
     const push = (a) => {
@@ -13,10 +13,11 @@ module.exports = function superFind({rule, find, ast, options, template}) {
     };
     
     const returnItems = find(ast, {
-        traverse: traverse({
+        traverse: createTraverse({
             rule,
             options,
             template,
+            traverse,
         }),
         generate,
         types,
@@ -30,12 +31,12 @@ module.exports = function superFind({rule, find, ast, options, template}) {
     ];
 };
 
-const traverse = ({rule, options, template}) => (ast, visitor) => {
+const createTraverse = ({rule, options, template, traverse}) => (ast, visitor) => {
     const templateVisitors = merge(template({
         rule,
         visitor,
         options,
     }));
     
-    return babelTraverse(ast, templateVisitors);
+    return traverse(ast, templateVisitors);
 };

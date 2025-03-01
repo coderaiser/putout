@@ -1026,14 +1026,7 @@ test('putout: runner: runPlugins: override traverse', (t) => {
         plugins,
     });
     
-    const expected = [
-        ast, {
-            _exploded: true,
-            _verified: true,
-        },
-    ];
-    
-    t.calledWith(traverse, expected);
+    t.calledCount(traverse, 2);
     t.end();
 });
 

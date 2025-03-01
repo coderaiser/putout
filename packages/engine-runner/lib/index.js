@@ -62,6 +62,7 @@ const run = ({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge, 
         shebang,
         template,
         pluginsFind,
+        traverse,
     }),
     ...runWithMerge({
         ast,
@@ -100,7 +101,7 @@ function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge, trav
     return places;
 }
 
-function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
+function runWithoutMerge({ast, fix, shebang, template, pluginsFind, traverse}) {
     const places = [];
     
     for (const {rule, plugin, msg, options} of pluginsFind) {
@@ -116,6 +117,7 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
             fix,
             shebang,
             template,
+            traverse,
         });
         
         if (!items.length)
