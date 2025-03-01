@@ -102,6 +102,11 @@ test('plugin-declare-before-reference: transform: destructuring', (t) => {
     t.end();
 });
 
+test('plugin-declare-before-reference: no report: different-scopes', (t) => {
+    t.noReport('different-scopes');
+    t.end();
+});
+
 test('plugin-declare-before-reference: no report: apply-types', (t) => {
     t.noReportAfterTransform('apply-types', {
         'apply-types': printer.rules['apply-types'],

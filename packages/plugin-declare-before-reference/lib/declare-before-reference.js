@@ -16,7 +16,9 @@ const {
 } = types;
 
 const {entries} = Object;
-const isTopScope = (a) => isFunction(a) || isProgram(a) || isBlockStatement(a);
+const isTopScope = (a) => isFunction(a) || isProgram(a);
+const getTopUID = (a) => a.find(isTopScope).scope.uid;
+const getBlockUID = (a) => a.find(isBlockStatement)?.scope.uid;
 
 module.exports.report = ({name}) => {
     return `Declare '${name}' before referencing to avoid 'ReferenceError'`;
@@ -72,9 +74,10 @@ module.exports.traverse = ({push}) => ({
                 break;
             
             for (const referencePath of referencePaths) {
-                const referenceUid = referencePath.find(isTopScope).scope.uid;
+                const referenceUid = getTopUID(referencePath);
+                const blockUid = getBlockUID(referencePath);
                 
-                if (uid !== referenceUid && (uid && referencePath.find(isFunction)))
+                if (uid !== referenceUid && uid !== blockUid)
                     continue;
                 
                 if (referencePath.parentPath.isExportDefaultDeclaration())
