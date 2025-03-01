@@ -1,3 +1,1 @@
-export function equal(a, b) {
-    return a.type === b.type && a.value === b.value;
-}
+export const equal = (a, b) => a.type === b.type;

@@ -59,10 +59,10 @@ function isToLong(__b, maxSize) {
     if (isBlockStatement(__b.body))
         return false;
     
-    if (__b.loc)
+    if (__b.loc) {
         linesCount = __b.loc.end.line - __b.loc.start.line;
-    
-    columnsCount = __b.loc.end.column - __b.loc.start.column;
+        columnsCount = __b.loc.end.column - __b.loc.start.column;
+    }
     
     if (!__b.loc || linesCount) {
         const code = print(__b);

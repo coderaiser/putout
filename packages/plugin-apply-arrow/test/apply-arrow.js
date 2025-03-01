@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const {operator} = require('putout');
 
 const plugin = require('..');
-const {getTemplateValues} = operator;
+const {
+    compare,
+    getTemplateValues,
+} = operator;
 
 const test = createTest(__dirname, {
     plugins: [
@@ -54,10 +57,15 @@ test('putout: apply-arrow: no report: no-loc', (t) => {
         noLoc: {
             report: () => '',
             fix: (path) => {
-                const {__b} = getTemplateValues(path, FN);
+                const {__b} = getTemplateValues(path.get('body.0.declaration'), FN);
+                
                 delete __b.loc;
             },
-            include: () => [FN],
+            include: () => ['Program'],
+            filter: (path) => {
+                const fnPath = path.get('body.0.declaration');
+                return compare(fnPath, FN);
+            },
         },
     });
     t.end();
