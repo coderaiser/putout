@@ -1,3 +1,18 @@
+2025.03.01, v38.4.5
+
+fix:
+- 81b03812a @putout/plugin-apply-arrow: no loc
+- 9f556a4fa eslint-plugin-putout: typescript version according to peer dependencies
+
+feature:
+- d1b5a3743 putout: @putout/plugin-apply-arrow v2.0.0
+- 6c78e2aaf @putout/plugin-apply-arrow: drop support of 🐊 < 38
+- dc08ab558 @putout/engine-runner: find: override traverse
+- 6dd6b23b2 @putout/plugin-declare-before-reference: improve uid check
+- 1929a9875 @putout/plugin-declare-before-reference: add not top level
+- e30bfad5f @putout/plugin-split-assignment-expressions: array destructuring after variable assignment
+- 7fa846e79 @putout/test: report: add ability to pass plugins
+
 2025.02.28, v38.4.4
 
 fix:
