@@ -1,3 +1,8 @@
+2025.03.02, v38.5.0
+
+feature:
+- 66cc1de57 @putout/plugin-split-call-with-destructuring: add
+
 2025.03.01, v38.4.5
 
 fix:
