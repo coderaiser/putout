@@ -1,0 +1,10 @@
+{
+    "match": {
+        "*.md": {
+            "remove-debugger": "off"
+        },
+        "*.md*": {
+            "split-call-with-destructuring": "off"
+        }
+    }
+}

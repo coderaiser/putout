@@ -241,6 +241,7 @@
         "return",
         "reuse-duplicate-init",
         "split-assignment-expressions",
+        "split-call-with-destructuring",
         "split-variable-declarations",
         "split-nested-destructuring",
         "simplify-assignment",

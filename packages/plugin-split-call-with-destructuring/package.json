@@ -1,0 +1,55 @@
+{
+  "name": "@putout/plugin-split-call-with-destructuring",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "🐊Putout plugin adds ability to find and  'split-call-with-destructuring' statement",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-split-call-with-destructuring#readme",
+  "main": "lib/split-call-with-destructuring.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "split",
+    "call",
+    "destructuring"
+  ],
+  "devDependencies": {
+    "@putout/eslint-flat": "^2.0.0",
+    "@putout/test": "^12.0.0",
+    "c8": "^10.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-n": "^17.0.0",
+    "eslint-plugin-putout": "^25.0.1",
+    "madrun": "^10.0.0",
+    "nodemon": "^3.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=38"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
