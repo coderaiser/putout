@@ -23,3 +23,8 @@ test('plugin-regexp/apply-ends-with: transform: slash', (t) => {
     t.transform('slash');
     t.end();
 });
+
+test('plugin-regexp/apply-ends-with: no report: escape', (t) => {
+    t.noReport('escape');
+    t.end();
+});

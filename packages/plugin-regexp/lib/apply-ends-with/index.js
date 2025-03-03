@@ -15,6 +15,9 @@ module.exports.match = () => ({
         if (!raw.endsWith('$'))
             return false;
         
+        if (raw.includes('\\d'))
+            return false;
+        
         return !/[\^+({*\].]/.test(raw);
     },
 });
