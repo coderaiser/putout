@@ -1,3 +1,10 @@
+2025.03.03, v38.5.1
+
+feature:
+- 9cb17c1a1 putout: @putout/plugin-regexp v10.0.0
+- 785310630 @putout/plugin-regexp: drop support of 🐊 < 38
+- 4d9d69748 @putout/plugin-regexp: apply-ends-with: exclude escape
+
 2025.03.02, v38.5.0
 
 feature:
