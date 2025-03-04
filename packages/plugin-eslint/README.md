@@ -38,6 +38,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [remove-overrides-with-empty-rules](#remove-overrides-with-empty-rules);
 - ✅ [remove-useless-slice](#remove-useless-slice);
 - ✅ [remove-useless-properties](#remove-useless-properties);
+- ✅ [remove-useless-match-to-flat](#remove-useless-match-to-flat);
 - ✅ [remove-parser-options](#remove-parser-options);
 - ✅ [remove-suffix-config](#remove-suffix-config);
 - ✅ [remove-create-eslint-config-with-one-argument](#remove-create-eslint-config-with-one-argument);
@@ -71,6 +72,7 @@ npm i @putout/plugin-eslint -D
         "eslint/remove-overrides-with-empty-rules": "on",
         "eslint/remove-useless-slice": "on",
         "eslint/remove-useless-properties": "on",
+        "eslint/remove-useless-match-to-flat": "on",
         "eslint/remove-parser-options": "on",
         "eslint/remove-suffix-config": "on",
         "eslint/remove-create-eslint-config-with-one-argument": "on",
@@ -633,6 +635,27 @@ module.exports = [
 
 ```js
 module.exports = safeAlign;
+```
+
+## remove-useless-match-to-flat
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bab49b08d12e779729265c05423bb856/a0b80b8e52f5319c40174773f36d8afbffb1c8b9).
+
+### ❌ Example of incorrect code
+
+```js
+import {safeAlign} from 'eslint-plugin-putout';
+
+export let match;
+export default createESLintConfig([safeAlign, matchToFlat(match)]);
+```
+
+## ✅ Example of correct code
+
+```js
+import {safeAlign} from 'eslint-plugin-putout';
+
+export default safeAlign;
 ```
 
 ## convert-export-match-to-declaration

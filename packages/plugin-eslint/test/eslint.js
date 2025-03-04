@@ -138,3 +138,8 @@ test('plugin-eslint: transform: remove-create-eslint-config-with-one-argument', 
     t.transform('remove-create-eslint-config-with-one-argument');
     t.end();
 });
+
+test('plugin-eslint: transform: remove-useless-match-to-flat', (t) => {
+    t.transform('remove-useless-match-to-flat');
+    t.end();
+});
