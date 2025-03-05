@@ -38,9 +38,9 @@ module.exports = ({fix, fixCount, logError, raw}) => async function processFile(
         printer: configurePrinter(name, printer),
     });
     
+    raw && logError(e);
+    
     if (!again && e && e.reason === 'parse') {
-        raw && logError(e);
-        
         const {lint} = await simpleImport('samadhi');
         const [code, places] = await lint(source, {
             startLine,
