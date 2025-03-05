@@ -15,7 +15,7 @@ export default {
     'wisdom': () => run(['lint:all', 'coverage']),
     'test': () => `tape 'test/**/*.mjs' 'lib/config/*.spec.*'`,
     'test:all': () => [env, `mocha --timeout ${MOCHA_TIMEOUT} 'test/**/*.mjs' 'lib/putout/*.spec.js' 'lib/**/*.spec.js'`],
-    'watch:test': async () => `nodemon -w rules -x ${await run('test')}`,
+    'watch:test': async () => `nodemon -w rules -x "${await run('test')}"`,
     'lint': () => 'putout .',
     'lint:all': () => run(['lint', 'lint:safe']),
     'lint:safe': () => [lintEnv, 'putout eslint-fixture'],

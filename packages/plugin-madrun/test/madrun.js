@@ -73,3 +73,8 @@ test('plugin-madrun: transform: remove-useless-string-conversion', (t) => {
     t.transform('remove-useless-string-conversion');
     t.end();
 });
+
+test('plugin-madrun: transform: add-missing-quotes-to-watcher', (t) => {
+    t.transform('add-missing-quotes-to-watcher');
+    t.end();
+});

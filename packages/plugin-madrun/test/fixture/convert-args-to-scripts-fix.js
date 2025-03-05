@@ -18,7 +18,7 @@ const c = {
     'test:dts': () => 'check-dts',
     'wisdom': () => run('build', '--test', 'test:dts'),
     'fix:lint': async () => await run('lint', '--fix'),
-    'watch:test': async () => `nodemon -w lib -x ${await run('test')}`,
+    'watch:test': async () => `nodemon -w lib -x "${await run('test')}"`,
 };
 
 const d = {

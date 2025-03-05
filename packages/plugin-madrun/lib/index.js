@@ -21,6 +21,7 @@ const declare = require('./declare');
 const convertArgsToScripts = require('./convert-args-to-scripts');
 const removeUselessArrayInRun = require('./remove-useless-array-in-run');
 const removeUselessStringConversion = require('./remove-useless-string-conversion');
+const addMissingQuotesToWatcher = require('./add-missing-quotes-to-watcher');
 
 module.exports.rules = {
     'add-function': addFunction,
@@ -44,4 +45,5 @@ module.exports.rules = {
     'convert-args-to-scripts': convertArgsToScripts,
     'remove-useless-array-in-run': removeUselessArrayInRun,
     'remove-useless-string-conversion': removeUselessStringConversion,
+    'add-missing-quotes-to-watcher': addMissingQuotesToWatcher,
 };

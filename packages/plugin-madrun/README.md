@@ -21,6 +21,7 @@ npm i putout @putout/plugin-madrun -D
 - ✅ [add-cut-env](#add-cut-env);
 - ✅ [add-fix-lint](#add-fix-lint);
 - ✅ [add-function](#add-function);
+- ✅ [add-missing-quotes-to-watcher](#add-missing-quotes-to-watcher);
 - ✅ [add-run](#add-run);
 - ✅ [call-run](#call-run);
 - ✅ [convert-args-to-scripts](#convert-args-to-scripts);
@@ -48,6 +49,7 @@ npm i putout @putout/plugin-madrun -D
         "madrun/add-function": "on",
         "madrun/add-fix-lint": "on",
         "madrun/add-run": "on",
+        "madrun/add-missing-quotes-to-watcher": "on",
         "madrun/add-cut-env": "on",
         "madrun/call-run": "on",
         "madrun/convert-run-argument": "on",
@@ -105,6 +107,26 @@ const {run} = require('madrun');
 module.exports = {
     'lint': 'putout lib test',
     'fix:lint': run('lint', '--fix'),
+};
+```
+
+## add-missing-quotes-to-watcher
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/cf8431088953395b51e827f005c66d2c/dffe20ab71d35eb70aebe191f27c8d34224fa8a4).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    'watch:test': async () => await run('watcher', await run('test')),
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    'watch:test': async () => await run('watcher', `"${await run('test')}"`),
 };
 ```
 
