@@ -1,3 +1,13 @@
+2025.03.05, v38.5.2
+
+feature:
+- f3b7634d0 putout: @putout/plugin-madrun v20.0.0
+- 696408a0f @putout/plugin-madrun: drop support of 🐊 < 38
+- 8fd873682 @putout/plugin-madrun: add-missing-quotes-to-watcher
+- 80ffe0331 @putout/compare: jessy v4.1.0
+- 5095a96ad @putout/engine-runner: jessy v4.0.0
+- 0859c0230 @putout/plugin-eslint: remove-useless-match-to-flat: add
+
 2025.03.03, v38.5.1
 
 feature:
