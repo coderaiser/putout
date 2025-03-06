@@ -1054,3 +1054,21 @@ test('putout: cli: process-file: logError: traverse', async (t) => {
     t.calledWith(logError, [error], 'should call logError');
     t.end();
 });
+
+test('putout: cli: process-file: logError: traverse: no error', async (t) => {
+    const logError = stub();
+    const lint = processFile({
+        raw: true,
+        logError,
+        fix: true,
+    });
+    
+    const source = 'const a = 2';
+    
+    await lint({
+        source,
+    });
+    
+    t.notCalled(logError);
+    t.end();
+});
