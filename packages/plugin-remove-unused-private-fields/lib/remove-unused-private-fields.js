@@ -1,18 +1,21 @@
 'use strict';
 
-const {traverse, operator} = require('putout');
-
+const {operator} = require('putout');
 const {remove} = operator;
 
 module.exports.report = ({name}) => `Private field "#${name}" declared by not used`;
 
-module.exports.find = (ast) => {
+module.exports.fix = ({path}) => {
+    remove(path);
+};
+
+module.exports.traverse = ({push}) => {
     const vars = [];
     const addVar = addVariable(vars);
     const rmVar = removeVariable(vars);
     const list = [];
     
-    traverseClass(ast, {
+    return {
         ClassPrivateProperty(path) {
             const keyPath = path.get('key');
             addVar(path, keyPath.node.id.name);
@@ -22,7 +25,6 @@ module.exports.find = (ast) => {
             const keyPath = path.get('key');
             addVar(path, keyPath.node.id.name);
         },
-        
         ThisExpression(path) {
             const {parentPath} = path;
             const propertyPath = parentPath.get('property');
@@ -47,17 +49,24 @@ module.exports.find = (ast) => {
                     list.push([path, keyPath.node.id.name]);
             }
         },
-    });
-    
-    for (const [path, name] of list) {
-        rmVar(path, name);
-    }
-    
-    return Object.values(vars);
-};
-
-module.exports.fix = ({path}) => {
-    remove(path);
+        Program: {
+            exit() {
+                for (const [path, name] of list) {
+                    rmVar(path, name);
+                }
+                
+                for (const {name, path} of Object.values(vars)) {
+                    if (!path.node)
+                        continue;
+                    
+                    push({
+                        name,
+                        path,
+                    });
+                }
+            },
+        },
+    };
 };
 
 function findClassName(path) {
@@ -84,11 +93,3 @@ const removeVariable = (vars) => (path, name) => {
     
     delete vars[id];
 };
-
-function traverseClass(ast, visitor) {
-    traverse(ast, {
-        'ClassDeclaration|ClassExpression'(path) {
-            path.traverse(visitor);
-        },
-    });
-}
