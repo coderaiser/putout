@@ -32,7 +32,7 @@
     "react-hooks"
   ],
   "peerDependencies": {
-    "putout": ">=34"
+    "putout": ">=38"
   },
   "devDependencies": {
     "@putout/eslint-flat": "^2.0.0",
