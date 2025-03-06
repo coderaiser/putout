@@ -4,7 +4,7 @@ const {types, operator} = require('putout');
 
 const {
     isArrayExpression,
-    ArrayExpression,
+    arrayExpression,
 } = types;
 
 const {
@@ -20,7 +20,7 @@ module.exports.replace = () => ({
         
         if (!isArrayExpression(body)) {
             const tuple = getTuple(vars, path);
-            path.scope.block.body = ArrayExpression([tuple.elements[0], body]);
+            path.scope.block.body = arrayExpression([tuple.elements[0], body]);
         }
         
         return 'cutEnv(__a)';

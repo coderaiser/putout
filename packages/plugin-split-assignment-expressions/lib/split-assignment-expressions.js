@@ -1,14 +1,14 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {replaceWithMultiple} = operator;
 const {
+    arrayPattern,
     isAssignmentExpression,
-    AssignmentExpression,
-    ArrayPattern,
     isMemberExpression,
     isSequenceExpression,
+    assignmentExpression,
 } = types;
+const {replaceWithMultiple} = operator;
 
 module.exports.report = () => `Split assignment expressions`;
 
@@ -19,8 +19,8 @@ module.exports.fix = ({path, lefts, right, merged}) => {
         const {object, property} = left;
         
         const assignments = [
-            AssignmentExpression(lefts[0][0], lefts[0][1], object),
-            AssignmentExpression(lefts[1][0], convertToArray(property), right),
+            assignmentExpression(lefts[0][0], lefts[0][1], object),
+            assignmentExpression(lefts[1][0], convertToArray(property), right),
         ];
         
         replaceWithMultiple(path, assignments);
@@ -30,11 +30,11 @@ module.exports.fix = ({path, lefts, right, merged}) => {
     
     const [[operator, firstLeft], ...otherLefts] = lefts;
     const assignments = [
-        AssignmentExpression(operator, firstLeft, right),
+        assignmentExpression(operator, firstLeft, right),
     ];
     
     for (const [operator, left] of otherLefts)
-        assignments.push(AssignmentExpression(operator, left, firstLeft));
+        assignments.push(assignmentExpression(operator, left, firstLeft));
     
     replaceWithMultiple(path, assignments);
 };
@@ -77,4 +77,4 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-const convertToArray = ({expressions}) => ArrayPattern(expressions);
+const convertToArray = ({expressions}) => arrayPattern(expressions);

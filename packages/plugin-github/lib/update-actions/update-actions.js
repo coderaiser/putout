@@ -11,7 +11,7 @@ const {
 
 const {entries} = Object;
 
-const {StringLiteral} = types;
+const {stringLiteral} = types;
 const cutV = (a) => Number(a.slice(1));
 const cutMaster = (a) => a.replace('master', 'v0');
 
@@ -24,7 +24,7 @@ module.exports.updateActions = (actions) => ({
 const report = ({name}) => `Update action '${name}' to latest version`;
 
 const fix = ({full, path}) => {
-    const checkoutNode = StringLiteral(full);
+    const checkoutNode = stringLiteral(full);
     replaceWith(path, checkoutNode);
 };
 

@@ -8,7 +8,7 @@ const {
     remove,
 } = operator;
 
-const {ExportNamespaceSpecifier} = types;
+const {exportNamespaceSpecifier} = types;
 
 module.exports.report = () => `Use 'export *' instead of 'import/export'`;
 
@@ -23,7 +23,7 @@ module.exports.fix = ({path, current}) => {
     delete current.node.exported;
     
     current.node.specifiers = [
-        ExportNamespaceSpecifier(exported),
+        exportNamespaceSpecifier(exported),
     ];
     
     remove(path);

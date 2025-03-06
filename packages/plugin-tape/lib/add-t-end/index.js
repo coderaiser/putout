@@ -7,7 +7,7 @@ const {
 } = require('putout');
 
 const {compare, traverse} = operator;
-const {ExpressionStatement} = types;
+const {expressionStatement} = types;
 
 module.exports.report = () => `'t.end()' is missing at the end of the test`;
 
@@ -50,6 +50,6 @@ function match({__body}, path) {
 }
 
 function replace({__body}, path) {
-    __body.body.push(ExpressionStatement(template.ast('t.end()')));
+    __body.body.push(expressionStatement(template.ast('t.end()')));
     return path;
 }

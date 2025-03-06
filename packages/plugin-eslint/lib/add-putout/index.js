@@ -9,7 +9,7 @@ const {
 } = require('../get.js');
 
 const {__json} = operator;
-const {StringLiteral} = types;
+const {stringLiteral} = types;
 
 module.exports.report = () => `Add 'putout' to 'plugins' and 'extends'`;
 
@@ -29,8 +29,8 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     [__json]: ({__object}, path) => {
-        getExtends(__object).push(StringLiteral('putout:plugin/safe+align'));
-        getPlugins(__object).push(StringLiteral('putout'));
+        getExtends(__object).push(stringLiteral('putout:plugin/safe+align'));
+        getPlugins(__object).push(stringLiteral('putout'));
         
         return path;
     },

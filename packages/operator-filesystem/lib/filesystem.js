@@ -1,8 +1,8 @@
 'use strict';
 
 const {join, basename} = require('node:path');
-const tryCatch = require('try-catch');
 const {types} = require('@putout/babel');
+const tryCatch = require('try-catch');
 
 const {
     setLiteralValue,
@@ -11,7 +11,13 @@ const {
 } = require('@putout/operate');
 
 const maybeFS = require('./maybe-fs');
-
+const {
+    arrayExpression,
+    stringLiteral,
+    objectProperty,
+    isProgram,
+    objectExpression,
+} = types;
 const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
@@ -33,14 +39,6 @@ const fromBase64 = (content) => {
     
     return content;
 };
-
-const {
-    ObjectExpression,
-    ArrayExpression,
-    StringLiteral,
-    ObjectProperty,
-    isProgram,
-} = types;
 
 const getRegExp = (wildcard) => {
     const escaped = wildcard
@@ -198,7 +196,7 @@ module.exports.copyFile = (filePath, dirPath) => {
     const newFilename = join(dirname, basename);
     const [hasContent, content] = getFileContent(filePath);
     
-    const copiedFile = ObjectExpression([
+    const copiedFile = objectExpression([
         createTypeProperty('file'),
         createFilenameProperty(newFilename),
         hasContent && createContentProperty(content),
@@ -230,19 +228,19 @@ function maybeRemoveFile(dirPath, filename) {
     fileToOverwrite.remove();
 }
 
-const createTypeProperty = (type) => ObjectProperty(StringLiteral('type'), StringLiteral(type));
+const createTypeProperty = (type) => objectProperty(stringLiteral('type'), stringLiteral(type));
 
 module.exports.createTypeProperty = createTypeProperty;
 
-const createFilesProperty = (files) => ObjectProperty(StringLiteral('files'), ArrayExpression(files));
+const createFilesProperty = (files) => objectProperty(stringLiteral('files'), arrayExpression(files));
 
 module.exports.createFilesProperty = createFilesProperty;
 
-const createFilenameProperty = (filename) => ObjectProperty(StringLiteral('filename'), StringLiteral(filename));
+const createFilenameProperty = (filename) => objectProperty(stringLiteral('filename'), stringLiteral(filename));
 
 module.exports.createFilenameProperty = createFilenameProperty;
 
-const createContentProperty = (content) => ObjectProperty(StringLiteral('content'), StringLiteral(content));
+const createContentProperty = (content) => objectProperty(stringLiteral('content'), stringLiteral(content));
 
 module.exports.createContentProperty = createContentProperty;
 
@@ -262,7 +260,7 @@ module.exports.createFile = (dirPath, name, content) => {
         content && createContentProperty(content),
     ].filter(Boolean);
     
-    dirPathFiles.node.value.elements.push(ObjectExpression(properties));
+    dirPathFiles.node.value.elements.push(objectExpression(properties));
     
     const filePath = dirPathFiles.get('value.elements').at(-1);
     
@@ -283,7 +281,7 @@ module.exports.createDirectory = (dirPath, name) => {
     const filesProperty = createFilesProperty([]);
     const filenameProperty = createFilenameProperty(filename);
     
-    dirPathFiles.node.value.elements.push(ObjectExpression([
+    dirPathFiles.node.value.elements.push(objectExpression([
         typeProperty,
         filenameProperty,
         filesProperty,

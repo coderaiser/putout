@@ -1,19 +1,17 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
+const {
+    objectProperty,
+    booleanLiteral,
+    stringLiteral,
+} = types;
 const {
     getTemplateValues,
     getProperties,
     traverseProperties,
     __yaml,
 } = operator;
-
-const {
-    StringLiteral,
-    ObjectProperty,
-    BooleanLiteral,
-} = types;
 
 module.exports.addProperty = (name, property, value) => ({
     traverse: traverse(name, property),
@@ -24,9 +22,9 @@ module.exports.addProperty = (name, property, value) => ({
 const report = (name, property) => () => `Add '${property}' to '${name}'`;
 
 const fix = (property, value) => (path) => {
-    const keyNode = StringLiteral(property);
-    const valueNode = BooleanLiteral(value);
-    const node = ObjectProperty(keyNode, valueNode);
+    const keyNode = stringLiteral(property);
+    const valueNode = booleanLiteral(value);
+    const node = objectProperty(keyNode, valueNode);
     
     path.node.properties.splice(2, 0, node);
 };

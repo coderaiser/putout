@@ -4,7 +4,7 @@ const {types, operator} = require('putout');
 
 const {replaceWith, isSimpleRegExp} = operator;
 
-const {StringLiteral} = types;
+const {stringLiteral} = types;
 
 const match = (flags) => ({__b}) => {
     if (__b.flags === flags) {
@@ -19,7 +19,7 @@ const replace = ({__b}, path) => {
     const {pattern} = __b;
     const regExpPath = path.get('arguments.0');
     
-    replaceWith(regExpPath, StringLiteral(pattern));
+    replaceWith(regExpPath, stringLiteral(pattern));
     
     return path;
 };

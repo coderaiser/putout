@@ -301,3 +301,8 @@ test('plugin-putout: transform: apply-parens', (t) => {
     t.transform('apply-parens');
     t.end();
 });
+
+test('plugin-putout: transform: apply-lowercase-to-node-builders', (t) => {
+    t.transform('apply-lowercase-to-node-builders');
+    t.end();
+});

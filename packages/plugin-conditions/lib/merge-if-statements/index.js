@@ -3,7 +3,7 @@
 const {types, operator} = require('putout');
 
 const {replaceWith} = operator;
-const {LogicalExpression} = types;
+const {logicalExpression} = types;
 
 module.exports.report = () => `Merge 'if' statements`;
 
@@ -12,7 +12,7 @@ module.exports.fix = ({path, consequentPath}) => {
     const left = testPath.node;
     const right = consequentPath.node.test;
     
-    replaceWith(testPath, LogicalExpression('&&', left, right));
+    replaceWith(testPath, logicalExpression('&&', left, right));
     
     replaceWith(path.get('consequent'), consequentPath.get('consequent'));
 };

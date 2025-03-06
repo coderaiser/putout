@@ -2,7 +2,7 @@
 
 const {types, operator} = require('putout');
 const {remove, replaceWith} = operator;
-const {YieldExpression} = types;
+const {yieldExpression} = types;
 
 const DELEGATE = true;
 
@@ -17,7 +17,7 @@ module.exports.fix = (path) => {
         const next = path.parentPath.getNextSibling();
         const {expression} = next.node;
         
-        replaceWith(path, YieldExpression(expression));
+        replaceWith(path, yieldExpression(expression));
         remove(next);
         
         return;
@@ -26,7 +26,7 @@ module.exports.fix = (path) => {
     const {parentPath} = path;
     const {right} = parentPath.node;
     
-    replaceWith(parentPath, YieldExpression(right, DELEGATE));
+    replaceWith(parentPath, yieldExpression(right, DELEGATE));
 };
 
 module.exports.traverse = ({push}) => ({

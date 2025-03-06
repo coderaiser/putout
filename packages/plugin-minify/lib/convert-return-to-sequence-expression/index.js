@@ -2,7 +2,7 @@ import {types, operator} from 'putout';
 
 const {
     isExpressionStatement,
-    SequenceExpression,
+    sequenceExpression,
 } = types;
 
 const {replaceWith} = operator;
@@ -18,7 +18,7 @@ export const fix = ({path, body, last}) => {
     
     elements.push(last.node.argument);
     
-    const sequence = SequenceExpression(elements);
+    const sequence = sequenceExpression(elements);
     
     replaceWith(path, sequence);
 };

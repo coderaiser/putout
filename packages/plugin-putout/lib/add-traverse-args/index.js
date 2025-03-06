@@ -1,13 +1,13 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {traverse} = operator;
-
 const {
-    ObjectProperty,
-    ObjectPattern,
-    Identifier,
+    objectPattern,
+    objectProperty,
+    identifier,
 } = types;
+
+const {traverse} = operator;
 
 const defaultNames = [
     'push',
@@ -21,11 +21,11 @@ module.exports.report = ({name}) => `Add '${name}' argument to 'traverse'`;
 module.exports.fix = ({name, fn}) => {
     const computed = false;
     const shorthand = true;
-    const id = Identifier(name);
-    const property = ObjectProperty(id, id, computed, shorthand);
+    const id = identifier(name);
+    const property = objectProperty(id, id, computed, shorthand);
     
     if (!fn.params.length) {
-        fn.params.push(ObjectPattern([property]));
+        fn.params.push(objectPattern([property]));
         return;
     }
     

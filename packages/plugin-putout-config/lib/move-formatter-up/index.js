@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator, types} = require('putout');
-const {ObjectProperty} = types;
+const {objectProperty} = types;
 const {
     insertAfter,
     remove,
@@ -46,7 +46,7 @@ module.exports.replace = () => ({
         } = getProperties(objectPath, ['formatter', 'parser', 'printer']);
         
         const {key, value} = formatterPath.node;
-        const node = ObjectProperty(key, value);
+        const node = objectProperty(key, value);
         
         remove(formatterPath);
         

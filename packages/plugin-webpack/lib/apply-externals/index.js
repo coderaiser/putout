@@ -1,8 +1,7 @@
 'use strict';
 
 const {types} = require('putout');
-const {ObjectProperty, ObjectPattern} = types;
-
+const {objectProperty, objectPattern} = types;
 const COMPUTED = false;
 const SHORTHAND = true;
 
@@ -14,13 +13,13 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     'function externals(__args) {}': ({__args}, path) => {
-        const node = ObjectPattern([]);
+        const node = objectPattern([]);
         
         for (const [index, arg] of __args.entries()) {
             if (index === __args.length - 1)
                 break;
             
-            node.properties.push(ObjectProperty(arg, arg, COMPUTED, SHORTHAND));
+            node.properties.push(objectProperty(arg, arg, COMPUTED, SHORTHAND));
         }
         
         const fn = path.node.params.pop();

@@ -16,10 +16,10 @@ const TRANSFORM = `
 `;
 
 const {
-    Identifier,
     isIdentifier,
     isObjectExpression,
     isMemberExpression,
+    identifier,
 } = types;
 
 module.exports.report = () => 'Move require on top level';
@@ -65,7 +65,7 @@ function declareRequire({__a, __b}, path) {
     const name = justCamelCase(shortName);
     
     const requireNode = buildRequire({
-        NAME: Identifier(name),
+        NAME: identifier(name),
         REQUIRE: __b,
     });
     

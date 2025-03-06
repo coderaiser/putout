@@ -5,9 +5,9 @@ const {types, operator} = require('putout');
 const {replaceWith} = operator;
 
 const {
-    ReturnStatement,
     isCallExpression,
     isIdentifier,
+    returnStatement,
 } = types;
 
 const {entries} = Object;
@@ -29,7 +29,7 @@ module.exports.fix = fixType({
         path.node.params = [path.node.params[1]];
     },
     isCallExpression: (path) => {
-        replaceWith(path, ReturnStatement(path.node.arguments[1]));
+        replaceWith(path, returnStatement(path.node.arguments[1]));
     },
 });
 

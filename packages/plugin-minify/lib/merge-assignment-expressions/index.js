@@ -3,7 +3,7 @@ import {operator, types} from 'putout';
 const {compare, remove} = operator;
 const {
     isAssignmentExpression,
-    AssignmentExpression,
+    assignmentExpression,
 } = types;
 
 export const report = () => `Merge assignment expressions`;
@@ -13,7 +13,7 @@ export const fix = ({path, lefts}) => {
     let currentRight = right;
     
     for (const [currentLeft, currentPath] of lefts.reverse()) {
-        currentRight = AssignmentExpression(operator, currentLeft, currentRight);
+        currentRight = assignmentExpression(operator, currentLeft, currentRight);
         remove(currentPath);
     }
     

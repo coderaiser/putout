@@ -1,18 +1,16 @@
 'use strict';
 
 const {operator, types} = require('putout');
-
+const {
+    unaryExpression,
+    isUnaryExpression,
+    returnStatement,
+} = types;
 const {
     compareAny,
     replaceWith,
     remove,
 } = operator;
-
-const {
-    UnaryExpression,
-    isUnaryExpression,
-    ReturnStatement,
-} = types;
 
 module.exports.report = () => `Simplify boolean return`;
 
@@ -31,10 +29,10 @@ module.exports.replace = () => ({
         
         if (isUnaryExpression(__a, {operator: '!'})) {
             const {argument} = __a;
-            return ReturnStatement(argument);
+            return returnStatement(argument);
         }
         
-        const unary = UnaryExpression('!', __a);
+        const unary = unaryExpression('!', __a);
         replaceWith(path.get('test'), unary);
         
         return 'return !(__a)';

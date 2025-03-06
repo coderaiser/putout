@@ -3,7 +3,7 @@
 const {types} = require('putout');
 const {
     isIdentifier,
-    MemberExpression,
+    memberExpression,
 } = types;
 
 const checkIdentifier = ({__a}) => isIdentifier(__a);
@@ -41,7 +41,7 @@ function convertIdentifierCallee({__a, __args}, path) {
 
 function convertMemberExpressionCallee({__a, __b, __args}, path) {
     path.node.arguments = [
-        MemberExpression(__a, __b),
+        memberExpression(__a, __b),
         ...__args,
     ];
     

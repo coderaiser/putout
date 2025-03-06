@@ -29,6 +29,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-insert-after](#apply-insert-after);
 - ✅ [apply-insert-before](#apply-insert-before);
 - ✅ [apply-vars](#apply-vars);
+- ✅ [apply-lowercase-to-node-builders](#apply-lowercase-to-node-builders);
 - ✅ [apply-namespace-specifier](#apply-namespace-specifier);
 - ✅ [apply-processors-destructuring](#apply-processors-destructuring);
 - ✅ [apply-remove](#apply-remove);
@@ -99,6 +100,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-insert-after": "on",
         "putout/apply-vars": "on",
         "putout/apply-short-processors": "on",
+        "putout/apply-lowercase-to-node-builders": "on",
         "putout/apply-namespace-specifier": "on",
         "putout/apply-for-of-to-track-file": "on",
         "putout/apply-fixture-name-to-message": "on",
@@ -143,6 +145,23 @@ npm i @putout/plugin-putout -D
     }
 }
 ```
+
+## apply-lowercase-to-node-builders
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fe78f6e48998fb39fa7e53e4046f1fc0/e1e6f2387895ff2ab98b4a9bcd2e8d565f7c3f16).
+
+### ❌ Example of incorrect code
+
+```js
+path.node = Identifier('x');
+```
+
+### ✅ Example of correct code
+
+```js
+path.node = identifier('x');
+```
+
 
 ## apply-processors-destructuring
 

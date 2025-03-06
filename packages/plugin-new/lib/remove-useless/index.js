@@ -1,7 +1,7 @@
 'use strict';
 
 const {types} = require('putout');
-const {ObjectExpression} = types;
+const {objectExpression} = types;
 
 module.exports.report = () => `Avoid useless operator 'new'`;
 
@@ -16,7 +16,7 @@ module.exports.replace = () => ({
     'new Symbol(__a)': 'Symbol(__a)',
     'new RegExp(__a)': 'RegExp(__a)',
     'new Object()': () => {
-        return ObjectExpression([]);
+        return objectExpression([]);
     },
     'new Object(__a)': 'Object(__a)',
     'new BigInt(__a)': 'BigInt(__a)',

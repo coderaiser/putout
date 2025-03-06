@@ -7,7 +7,7 @@ const {
 } = require('putout');
 
 const {replaceWith} = operator;
-const {Identifier} = types;
+const {identifier} = types;
 
 const create = template('(__a): __a is __c => typeof __a === "__b"', {
     placeholderPattern: /__/,
@@ -24,7 +24,7 @@ module.exports.replace = () => ({
         replaceWith(path, create({
             __a,
             __b,
-            __c: Identifier(__b.value),
+            __c: identifier(__b.value),
         }));
         
         return path;

@@ -4,7 +4,7 @@ const {types, operator} = require('putout');
 
 const {
     isStringLiteral,
-    TemplateLiteral,
+    templateLiteral,
 } = types;
 
 const {
@@ -27,7 +27,7 @@ module.exports.fix = ({lintPath}) => {
     node.value.raw = dotLine;
     node.value.cooked = dotLine;
     
-    replaceWith(lintPath.parentPath, TemplateLiteral([node], []));
+    replaceWith(lintPath.parentPath, templateLiteral([node], []));
 };
 
 function getValue(bodyPath) {

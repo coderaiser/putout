@@ -2,7 +2,7 @@
 
 const {types, operator} = require('putout');
 
-const {StringLiteral} = types;
+const {stringLiteral} = types;
 
 const {
     replaceWith,
@@ -29,7 +29,7 @@ module.exports.fix = ({path, pattern}) => {
     const regExpPath = path.get('arguments.0');
     const calleePath = path.get('callee.property');
     
-    replaceWith(regExpPath, StringLiteral(decode(pattern)));
+    replaceWith(regExpPath, stringLiteral(decode(pattern)));
     calleePath.node.name = 'replaceAll';
     
     return path;

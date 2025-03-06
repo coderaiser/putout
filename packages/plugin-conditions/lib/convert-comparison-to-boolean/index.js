@@ -4,12 +4,12 @@ const {types, operator} = require('putout');
 
 const {replaceWith, compute} = operator;
 
-const {isIdentifier, BooleanLiteral} = types;
+const {isIdentifier, booleanLiteral} = types;
 
 module.exports.report = () => 'Avoid constant conditions';
 
 module.exports.fix = ({path, value}) => {
-    replaceWith(path, BooleanLiteral(value));
+    replaceWith(path, booleanLiteral(value));
 };
 
 module.exports.traverse = ({push}) => ({

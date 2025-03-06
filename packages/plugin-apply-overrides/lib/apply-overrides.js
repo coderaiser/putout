@@ -5,17 +5,16 @@ const {
     operator,
     template,
 } = require('putout');
-
-const {replaceWith} = operator;
 const {
-    Identifier,
-    AssignmentPattern,
+    returnStatement,
+    blockStatement,
+    identifier,
     isAssignmentPattern,
     isFunction,
-    BlockStatement,
     isBlockStatement,
-    ReturnStatement,
+    assignmentPattern,
 } = types;
+const {replaceWith} = operator;
 
 const createOverrides = template('const %%overrides%% = overrides');
 
@@ -24,12 +23,12 @@ module.exports.fix = (path) => {
     const {node, parentPath} = path;
     const {right} = node;
     
-    replaceWith(path, AssignmentPattern(Identifier('overrides'), right));
+    replaceWith(path, assignmentPattern(identifier('overrides'), right));
     
     const {body} = parentPath.node;
     
     if (!isBlockStatement(body))
-        parentPath.node.body = BlockStatement([ReturnStatement(body)]);
+        parentPath.node.body = blockStatement([returnStatement(body)]);
     
     path.parentPath.node.body.body.unshift(createOverrides({
         overrides: node.left,

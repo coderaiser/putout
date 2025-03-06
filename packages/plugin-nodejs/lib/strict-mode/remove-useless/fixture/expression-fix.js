@@ -2,7 +2,7 @@
 
 const {types: types} = require('putout');
 const {template: template} = require('putout');
-const {NumericLiteral} = types;
+const {numericLiteral} = types;
 
 template('hello');
-NumericLiteral(5);
+numericLiteral(5);

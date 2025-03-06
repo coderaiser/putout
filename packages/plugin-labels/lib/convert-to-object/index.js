@@ -1,12 +1,12 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {replaceWith} = operator;
 const {
-    ObjectExpression,
-    ObjectProperty,
+    objectExpression,
     isLabeledStatement,
+    objectProperty,
 } = types;
+const {replaceWith} = operator;
 
 module.exports.report = () => `Convert 'label' to 'object'`;
 
@@ -29,10 +29,10 @@ module.exports.replace = () => ({
         const properties = [];
         
         for (const {label, body} of __body.body) {
-            properties.push(ObjectProperty(label, body.expression));
+            properties.push(objectProperty(label, body.expression));
         }
         
-        const object = ObjectExpression(properties);
+        const object = objectExpression(properties);
         
         replaceWith(path.get('body'), object);
         

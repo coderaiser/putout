@@ -3,8 +3,8 @@
 const {types} = require('putout');
 const {
     isStringLiteral,
-    Identifier,
     isValidIdentifier,
+    identifier,
 } = types;
 
 module.exports.report = ({value}) => {
@@ -14,7 +14,7 @@ module.exports.report = ({value}) => {
 module.exports.fix = ({value, path}) => {
     const {node} = path;
     
-    node.property = Identifier(value);
+    node.property = identifier(value);
     node.computed = false;
 };
 

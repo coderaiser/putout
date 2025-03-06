@@ -3,7 +3,7 @@
 const {types} = require('putout');
 const {
     isIdentifier,
-    AwaitExpression,
+    awaitExpression,
 } = types;
 
 module.exports.report = () => `Call async functions using 'await'`;
@@ -47,7 +47,7 @@ module.exports.replace = () => ({
         
         fnPath.node.async = true;
         
-        return AwaitExpression(path.node);
+        return awaitExpression(path.node);
     },
 });
 

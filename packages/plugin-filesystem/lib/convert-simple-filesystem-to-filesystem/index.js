@@ -2,7 +2,6 @@
 
 const {basename, dirname} = require('node:path');
 const {types} = require('@putout/babel');
-
 const {
     createDirectory,
     getFileType,
@@ -12,15 +11,14 @@ const {
 
 const {__filesystem_name} = require('@putout/operator-json');
 const {replaceWith, getProperty} = require('@putout/operate');
-
 const {
-    ObjectExpression,
-    ArrayExpression,
-    StringLiteral,
-    ObjectProperty,
+    objectExpression,
+    arrayExpression,
+    stringLiteral,
     isArrayExpression,
     isStringLiteral,
     isTemplateLiteral,
+    objectProperty,
 } = types;
 
 module.exports.report = () => `Convert Simple Filesystem to Filesystem`;
@@ -29,22 +27,22 @@ const isDirectory = (a) => a.endsWith('/');
 const getType = (a) => {
     const type = isDirectory(a) ? 'directory' : 'file';
     
-    return ObjectProperty(StringLiteral('type'), StringLiteral(type));
+    return objectProperty(stringLiteral('type'), stringLiteral(type));
 };
 
 const createFilename = (filename) => {
-    return ObjectProperty(StringLiteral('filename'), StringLiteral(filename));
+    return objectProperty(stringLiteral('filename'), stringLiteral(filename));
 };
 
 const getFiles = (a) => {
     if (isDirectory(a))
-        return ObjectProperty(StringLiteral('files'), ArrayExpression([]));
+        return objectProperty(stringLiteral('files'), arrayExpression([]));
     
     return null;
 };
 
 const getContent = (a) => {
-    return ObjectProperty(StringLiteral('content'), StringLiteral(a));
+    return objectProperty(stringLiteral('content'), stringLiteral(a));
 };
 
 function parseContent(node, path) {
@@ -58,7 +56,7 @@ function parseContent(node, path) {
 }
 
 module.exports.fix = (path) => {
-    const array = ArrayExpression([]);
+    const array = arrayExpression([]);
     
     for (const element of path.get('elements')) {
         if (isArrayExpression(element)) {
@@ -67,7 +65,7 @@ module.exports.fix = (path) => {
             
             const content = parseContent(nodeContent, element);
             
-            array.elements.push(ObjectExpression([
+            array.elements.push(objectExpression([
                 getType(value),
                 createFilename(value),
                 getContent(content),
@@ -78,7 +76,7 @@ module.exports.fix = (path) => {
         if (isStringLiteral(element)) {
             const {value} = element.node;
             
-            array.elements.push(ObjectExpression([
+            array.elements.push(objectExpression([
                 getType(value),
                 createFilename(noTrailingSlash(value)),
                 getFiles(value),

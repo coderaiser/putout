@@ -5,23 +5,21 @@ const {
     operator,
     types,
 } = require('putout');
-
+const {
+    identifier,
+    callExpression,
+    spreadElement,
+    stringLiteral,
+    objectProperty,
+    isStatement,
+    objectExpression,
+} = types;
 const {
     insertBefore,
     remove,
     getProperties,
     __json,
 } = operator;
-
-const {
-    Identifier,
-    SpreadElement,
-    StringLiteral,
-    ObjectProperty,
-    ObjectExpression,
-    isStatement,
-    CallExpression,
-} = types;
 
 module.exports.report = () => `Apply 'matchToFlat()'`;
 
@@ -31,18 +29,18 @@ module.exports.exclude = () => [__json];
 
 module.exports.fix = ({objects}) => {
     const statementPath = objects[0].find(isStatement);
-    const match = ObjectExpression([]);
+    const match = objectExpression([]);
     let added = false;
     
     for (const object of objects) {
         const {filesPath, rulesPath} = getProperties(object, ['files', 'rules']);
         const {value} = filesPath.node.value.elements[0];
         
-        match.properties.push(ObjectProperty(StringLiteral(value), rulesPath.node.value));
+        match.properties.push(objectProperty(stringLiteral(value), rulesPath.node.value));
         
         if (!added) {
             added = true;
-            const node = SpreadElement(CallExpression(Identifier('matchToFlat'), [Identifier('match')]));
+            const node = spreadElement(callExpression(identifier('matchToFlat'), [identifier('match')]));
             
             object.parentPath.node.elements.push(node);
         }

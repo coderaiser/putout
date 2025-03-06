@@ -1,15 +1,13 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
-const {replaceWith} = operator;
-
 const {
-    ObjectExpression,
-    ObjectProperty,
-    Identifier,
-    BooleanLiteral,
+    identifier,
+    objectProperty,
+    objectExpression,
+    booleanLiteral,
 } = types;
+const {replaceWith} = operator;
 
 module.exports.report = () => '"resolve.fallback" should be used instead of "node"';
 
@@ -20,11 +18,11 @@ module.exports.fix = (path) => {
     path.node.key.name = 'resolve';
     
     for (const prop of valueNode.properties) {
-        prop.value = BooleanLiteral(false);
+        prop.value = booleanLiteral(false);
     }
     
-    replaceWith(valuePath, ObjectExpression([
-        ObjectProperty(Identifier('fallback'), valueNode),
+    replaceWith(valuePath, objectExpression([
+        objectProperty(identifier('fallback'), valueNode),
     ]));
 };
 

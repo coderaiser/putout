@@ -1,15 +1,15 @@
 import {types} from 'putout';
 
 const {
-    SequenceExpression,
-    LogicalExpression,
     isBlockStatement,
     isExpression,
     isYieldExpression,
-    ConditionalExpression,
-    UnaryExpression,
     isConditionalExpression,
     isLogicalExpression,
+    logicalExpression,
+    sequenceExpression,
+    unaryExpression,
+    conditionalExpression,
 } = types;
 
 const parseExpressions = ({body}) => body
@@ -75,27 +75,27 @@ export const replace = () => ({
             
             maybeAddParens(__a);
             
-            return LogicalExpression('&&', __a, expression);
+            return logicalExpression('&&', __a, expression);
         }
         
         const expressions = parseExpressions(__b);
         
-        return LogicalExpression('&&', maybeAddParens(__a), SequenceExpression(expressions));
+        return logicalExpression('&&', maybeAddParens(__a), sequenceExpression(expressions));
     },
     'if (__a) __b; else __c': ({__a, __b, __c}) => {
         if (!__b.body.length && isBlockStatement(__c))
-            return LogicalExpression('&&', UnaryExpression('!', __a), __c.body[0].expression);
+            return logicalExpression('&&', unaryExpression('!', __a), __c.body[0].expression);
         
         if (__b.body.length === 1 && __c.body.length === 1)
-            return ConditionalExpression(__a, __b.body[0].expression, __c.body[0].expression);
+            return conditionalExpression(__a, __b.body[0].expression, __c.body[0].expression);
         
         const expressionsB = parseExpressions(__b);
         const expressionsC = parseExpressions(__c);
         
-        return ConditionalExpression(
+        return conditionalExpression(
             __a,
-            SequenceExpression(expressionsB),
-            SequenceExpression(expressionsC),
+            sequenceExpression(expressionsB),
+            sequenceExpression(expressionsC),
         );
     },
 });

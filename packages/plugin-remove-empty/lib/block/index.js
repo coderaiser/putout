@@ -5,7 +5,6 @@ const {types, operator} = require('putout');
 const {replaceWith, remove} = operator;
 
 const {
-    UnaryExpression,
     isArrowFunctionExpression,
     isFunctionExpression,
     isFunctionDeclaration,
@@ -14,6 +13,7 @@ const {
     isCatchClause,
     isIfStatement,
     isTryStatement,
+    unaryExpression,
 } = types;
 
 module.exports.report = () => 'Avoid useless empty blocks';
@@ -51,7 +51,7 @@ module.exports.fix = (path) => {
         return;
     }
     
-    replaceWith(testPath, UnaryExpression('!', testPath.node));
+    replaceWith(testPath, unaryExpression('!', testPath.node));
 };
 
 module.exports.traverse = ({push}) => ({

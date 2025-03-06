@@ -5,7 +5,7 @@ const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {
     isFunction,
-    AwaitExpression,
+    awaitExpression,
 } = types;
 
 module.exports.report = () => `Use 'await' near 'import' call`;
@@ -26,6 +26,6 @@ module.exports.replace = () => ({
         if (fnPath)
             fnPath.node.async = true;
         
-        return replaceWith(path, AwaitExpression(path.node));
+        return replaceWith(path, awaitExpression(path.node));
     },
 });

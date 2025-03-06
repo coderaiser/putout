@@ -5,15 +5,13 @@ const {
     template,
     types,
 } = require('putout');
-
-const {traverse, insertAfter} = operator;
-
 const {
-    ObjectProperty,
-    ObjectMethod,
-    Identifier,
-    ObjectExpression,
+    objectExpression,
+    objectMethod,
+    identifier,
+    objectProperty,
 } = types;
+const {traverse, insertAfter} = operator;
 
 const booleanExport = template.ast('module.exports.postcss = true');
 
@@ -26,10 +24,10 @@ module.exports.replace = () => ({
         const returnPath = getReturnPath(__b);
         const onceFn = returnPath.node.argument;
         
-        const nameProp = ObjectProperty(Identifier('postcssPlugin'), __a);
-        const onceProp = ObjectMethod('method', Identifier('Once'), onceFn.params, onceFn.body);
+        const nameProp = objectProperty(identifier('postcssPlugin'), __a);
+        const onceProp = objectMethod('method', identifier('Once'), onceFn.params, onceFn.body);
         
-        const object = ObjectExpression([nameProp, onceProp]);
+        const object = objectExpression([nameProp, onceProp]);
         
         returnPath.node.argument = object;
         insertAfter(path, booleanExport);

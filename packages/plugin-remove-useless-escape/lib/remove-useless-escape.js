@@ -5,7 +5,7 @@ const emojiRegex = require('emoji-regex');
 const {types, operator} = require('putout');
 
 const {replaceWith} = operator;
-const {RegExpLiteral} = types;
+const {regExpLiteral} = types;
 const {assign} = Object;
 
 module.exports.report = () => 'Unnecessary escape character';
@@ -25,7 +25,7 @@ module.exports.fix = (path) => {
         const unescaped = unescapeRegExp(pattern);
         const raw = `/${unescaped}/`;
         
-        const regExpNode = assign(RegExpLiteral(unescaped, flags), {
+        const regExpNode = assign(regExpLiteral(unescaped, flags), {
             value: unescaped,
             raw,
             extra: {

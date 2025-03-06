@@ -1,7 +1,11 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
+const {
+    expressionStatement,
+    blockStatement,
+    returnStatement,
+} = types;
 const {
     replaceWithMultiple,
     toExpression,
@@ -9,12 +13,6 @@ const {
     remove,
     insertBefore,
 } = operator;
-
-const {
-    ReturnStatement,
-    BlockStatement,
-    ExpressionStatement,
-} = types;
 
 module.exports.report = () => 'Avoid sequence expressions';
 
@@ -31,8 +29,8 @@ module.exports.fix = (path) => {
         const n = expressions.length - 1;
         const {expression} = expressions[n];
         
-        expressions[n] = ReturnStatement(expression);
-        parentPath.node.body = BlockStatement(expressions);
+        expressions[n] = returnStatement(expression);
+        parentPath.node.body = blockStatement(expressions);
         
         return;
     }
@@ -43,14 +41,14 @@ module.exports.fix = (path) => {
         
         replaceWithMultiple(parentPath, [
             ...expressions,
-            ReturnStatement(argument),
+            returnStatement(argument),
         ]);
         return;
     }
     
     if (isIfTest(path)) {
         while (path.node.expressions.length > 1) {
-            insertBefore(path.parentPath, ExpressionStatement(path.node.expressions.shift()));
+            insertBefore(path.parentPath, expressionStatement(path.node.expressions.shift()));
         }
         
         return;

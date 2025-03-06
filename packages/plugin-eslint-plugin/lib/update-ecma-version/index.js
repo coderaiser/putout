@@ -1,13 +1,13 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {NumericLiteral} = types;
+const {numericLiteral} = types;
 const {replaceWith} = operator;
 
 module.exports.report = ({ecmaVersion}) => `Set 'ecmaVersion' to: ${ecmaVersion}`;
 
 module.exports.fix = ({path, ecmaVersion}) => {
-    const node = NumericLiteral(ecmaVersion);
+    const node = numericLiteral(ecmaVersion);
     replaceWith(path, node);
 };
 

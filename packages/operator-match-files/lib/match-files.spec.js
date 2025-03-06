@@ -1,9 +1,10 @@
 'use strict';
 
+const {types} = require('@putout/babel');
 const tryCatch = require('try-catch');
 const test = require('supertape');
 const putout = require('putout');
-const {types} = require('@putout/babel');
+
 const convertEsmToCommonjs = require('@putout/plugin-nodejs/convert-esm-to-commonjs');
 
 const {
@@ -19,7 +20,7 @@ const {
 } = require('@putout/operator-filesystem');
 
 const {matchFiles} = require('./match-files.js');
-const {ObjectProperty, StringLiteral} = types;
+const {stringLiteral, objectProperty} = types;
 
 const {
     parse,
@@ -78,7 +79,7 @@ test('putout: operator: match-files: transform', (t) => {
     const plugin = {
         report: () => 'hello',
         fix: (path) => {
-            const property = ObjectProperty(StringLiteral('hello'), StringLiteral('world'));
+            const property = objectProperty(stringLiteral('hello'), stringLiteral('world'));
             
             path.node.properties.push(property);
         },

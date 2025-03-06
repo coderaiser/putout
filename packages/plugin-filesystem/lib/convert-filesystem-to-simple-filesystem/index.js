@@ -11,10 +11,9 @@ const {
 } = require('@putout/operator-filesystem');
 
 const {
-    StringLiteral,
-    ArrayExpression,
+    stringLiteral,
+    arrayExpression,
 } = types;
-
 const {isArray} = Array;
 const maybeAddSlash = (a) => a === '/' ? a : `${a}/`;
 
@@ -46,17 +45,17 @@ module.exports.fix = (root, {files}) => {
     
     for (const name of names) {
         if (isArray(name)) {
-            list.push(ArrayExpression([
-                StringLiteral(name[0]),
-                StringLiteral(name[1]),
+            list.push(arrayExpression([
+                stringLiteral(name[0]),
+                stringLiteral(name[1]),
             ]));
             continue;
         }
         
-        list.push(StringLiteral(name));
+        list.push(stringLiteral(name));
     }
     
-    replaceWith(root, ArrayExpression(list));
+    replaceWith(root, arrayExpression(list));
 };
 
 module.exports.traverse = ({push}) => ({

@@ -2,9 +2,9 @@
 
 const {types, operator} = require('putout');
 const {
-    Identifier,
-    ObjectPattern,
-    ObjectProperty,
+    objectProperty,
+    objectPattern,
+    identifier,
 } = types;
 
 const {remove, compare} = operator;
@@ -40,11 +40,11 @@ function addAwait(vars, path) {
     const [first] = params;
     
     if (first.name === 't') {
-        const id = Identifier('progress');
+        const id = identifier('progress');
         
         path.scope.block.params = [
-            ObjectPattern([
-                ObjectProperty(id, id, false, true),
+            objectPattern([
+                objectProperty(id, id, false, true),
             ]),
         ];
     }

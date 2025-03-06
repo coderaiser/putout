@@ -4,8 +4,8 @@ const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {
     isBlockStatement,
-    BlockStatement,
     isVariableDeclaration,
+    blockStatement,
 } = types;
 
 module.exports.report = () => `Use consistent blocks`;
@@ -19,7 +19,7 @@ module.exports.fix = (path) => {
                 continue;
             
             const {node} = path;
-            replaceWith(path, BlockStatement([node]));
+            replaceWith(path, blockStatement([node]));
         }
     else
         for (const path of paths) {

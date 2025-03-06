@@ -3,13 +3,13 @@
 const {types, operator} = require('putout');
 
 const {replaceWith} = operator;
-const {StringLiteral} = types;
+const {stringLiteral} = types;
 
 module.exports.report = () => `Use 'String (on/off)' instead of 'Boolean (true/false)'`;
 
 module.exports.fix = (path) => {
     const {value} = path.node;
-    const newValue = StringLiteral(value ? 'on' : 'off');
+    const newValue = stringLiteral(value ? 'on' : 'off');
     
     replaceWith(path, newValue);
 };

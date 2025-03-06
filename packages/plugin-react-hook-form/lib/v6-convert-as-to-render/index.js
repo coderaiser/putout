@@ -3,11 +3,11 @@
 const {types, template} = require('putout');
 
 const {
-    Identifier,
     JSXExpressionContainer,
     JSXIdentifier,
     isJSXSpreadAttribute,
     JSXAttribute,
+    identifier,
 } = types;
 
 const ARROW = template(`({field}) => {
@@ -62,8 +62,8 @@ module.exports.replace = () => ({
                 
                 const {expression} = attr.value;
                 
-                const onChangeAttribute = JSXAttribute(JSXIdentifier('onChange'), JSXExpressionContainer(Identifier('onChange')));
-                const nameAttribute = JSXAttribute(JSXIdentifier('name'), JSXExpressionContainer(Identifier('name')));
+                const onChangeAttribute = JSXAttribute(JSXIdentifier('onChange'), JSXExpressionContainer(identifier('onChange')));
+                const nameAttribute = JSXAttribute(JSXIdentifier('name'), JSXExpressionContainer(identifier('name')));
                 
                 expression.openingElement.attributes.unshift(nameAttribute, onChangeAttribute);
                 

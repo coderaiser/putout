@@ -8,7 +8,7 @@ const {
     remove,
 } = operator;
 
-const {StringLiteral} = types;
+const {stringLiteral} = types;
 
 module.exports.report = () => `'lint' should be used instead of 'lint:lib'`;
 
@@ -18,7 +18,7 @@ module.exports.fix = ({lintLib, fixLint, lint}) => {
     
     const {body} = fixLint.node.value;
     
-    body.arguments[0] = StringLiteral('lint');
+    body.arguments[0] = stringLiteral('lint');
 };
 
 module.exports.traverse = ({push}) => ({

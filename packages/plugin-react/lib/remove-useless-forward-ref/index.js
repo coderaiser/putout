@@ -2,10 +2,10 @@
 
 const {types} = require('putout');
 const {
-    RestElement,
-    ObjectPattern,
+    restElement,
+    objectPattern,
     isIdentifier,
-    ObjectProperty,
+    objectProperty,
 } = types;
 
 module.exports.report = () => `Avoid useless 'forwardRef' in react > 19`;
@@ -20,10 +20,10 @@ module.exports.replace = () => ({
 
 function buildParams({params}) {
     const [props, ref] = params;
-    const refProp = ObjectProperty(ref, ref);
+    const refProp = objectProperty(ref, ref);
     
     if (isIdentifier(props)) {
-        const param = ObjectPattern([refProp, RestElement(props)]);
+        const param = objectPattern([refProp, restElement(props)]);
         
         return [param];
     }

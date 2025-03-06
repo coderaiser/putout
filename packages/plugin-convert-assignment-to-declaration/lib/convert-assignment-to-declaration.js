@@ -2,11 +2,10 @@
 
 const {types, operator} = require('putout');
 const {
+    variableDeclarator,
     isIdentifier,
-    VariableDeclarator,
-    VariableDeclaration,
+    variableDeclaration,
 } = types;
-
 const {
     replaceWith,
     getBinding,
@@ -20,8 +19,8 @@ module.exports.report = (path) => {
 
 module.exports.fix = (path) => {
     const {left, right} = path.node;
-    const node = VariableDeclaration('const', [
-        VariableDeclarator(left, right),
+    const node = variableDeclaration('const', [
+        variableDeclarator(left, right),
     ]);
     
     replaceWith(path, node);

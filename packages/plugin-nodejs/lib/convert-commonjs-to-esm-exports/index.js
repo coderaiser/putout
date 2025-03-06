@@ -1,14 +1,14 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {replaceWith} = operator;
-
 const {
+    exportSpecifier,
     isIdentifier,
-    ExportNamedDeclaration,
     isImportSpecifier,
-    ExportSpecifier,
+    exportNamedDeclaration,
 } = types;
+
+const {replaceWith} = operator;
 
 module.exports.report = () => `Use 'ESM' instead of 'CommonJS'`;
 
@@ -56,10 +56,10 @@ function addExportToBinding(name, path) {
     if (isImportSpecifier(bindingPath)) {
         const {imported} = bindingPath.node;
         
-        return ExportNamedDeclaration(null, [ExportSpecifier(imported, imported)]);
+        return exportNamedDeclaration(null, [exportSpecifier(imported, imported)]);
     }
     
-    const exportNode = ExportNamedDeclaration(bindingPath.node);
+    const exportNode = exportNamedDeclaration(bindingPath.node);
     
     replaceWith(bindingPath, exportNode);
     

@@ -2,12 +2,12 @@
 
 const {operator, types} = require('putout');
 const {
-    ObjectPattern,
-    BlockStatement,
-    Identifier,
-    ArrayPattern,
-    ArrayExpression,
-    ObjectExpression,
+    objectPattern,
+    objectExpression,
+    blockStatement,
+    identifier,
+    arrayExpression,
+    arrayPattern,
 } = types;
 
 const {replaceWith} = operator;
@@ -48,16 +48,16 @@ module.exports.fix = (path, {options}) => {
     
     if (name === '__array') {
         if (path.parentPath.isCallExpression())
-            return replaceWith(path, ArrayPattern([]));
+            return replaceWith(path, arrayPattern([]));
         
         if (path.parentPath.isFunction())
-            return replaceWith(path, ArrayPattern([]));
+            return replaceWith(path, arrayPattern([]));
         
         if (path.parentPath.isAssignmentExpression())
-            return replaceWith(path, ArrayExpression([]));
+            return replaceWith(path, arrayExpression([]));
         
         if (path.parentPath.isVariableDeclarator())
-            return replaceWith(path, ArrayExpression([]));
+            return replaceWith(path, arrayExpression([]));
     }
     
     if (name === '__object')
@@ -65,14 +65,14 @@ module.exports.fix = (path, {options}) => {
     
     if (name === '__body') {
         if (path.parentPath.isClassProperty()) {
-            const key = Identifier(getVar());
+            const key = identifier(getVar());
             
             replaceWith(path, key);
             
             return;
         }
         
-        replaceWith(path, BlockStatement([]));
+        replaceWith(path, blockStatement([]));
     }
 };
 
@@ -82,14 +82,14 @@ function objectify(path) {
     const isVar = parentPath.isVariableDeclarator();
     
     if (path.parentPath.isExportDeclaration())
-        return replaceWith(path, ObjectExpression([]));
+        return replaceWith(path, objectExpression([]));
     
     if (path.parentPath.isCallExpression())
-        return replaceWith(path, ObjectExpression([]));
+        return replaceWith(path, objectExpression([]));
     
     if (isAssign && parentPath.get('right') === path)
-        return replaceWith(path, ObjectExpression([]));
+        return replaceWith(path, objectExpression([]));
     
     if (isVar && parentPath.get('id') === path)
-        return replaceWith(path, ObjectPattern([]));
+        return replaceWith(path, objectPattern([]));
 }

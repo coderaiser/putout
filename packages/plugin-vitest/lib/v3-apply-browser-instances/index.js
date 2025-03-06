@@ -1,19 +1,17 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
+const {
+    objectProperty,
+    identifier,
+    objectExpression,
+    arrayExpression,
+} = types;
 const {
     traverseProperties,
     getTemplateValues,
     remove,
 } = operator;
-
-const {
-    ObjectProperty,
-    Identifier,
-    ObjectExpression,
-    ArrayExpression,
-} = types;
 
 const DEFINE_CONFIG = 'defineConfig(__object)';
 const getNode = (path) => path.node;
@@ -22,12 +20,12 @@ module.exports.report = () => `Use 'browser.instances'`;
 
 module.exports.fix = ({path, properties}) => {
     const nodes = properties.map(getNode);
-    const value = ArrayExpression([
-        ObjectExpression(nodes),
+    const value = arrayExpression([
+        objectExpression(nodes),
     ]);
     
-    const instances = Identifier('instances');
-    const property = ObjectProperty(instances, value);
+    const instances = identifier('instances');
+    const property = objectProperty(instances, value);
     
     properties.map(remove);
     path.node.value.properties = [property];

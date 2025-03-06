@@ -11,11 +11,11 @@ const {
 } = operator;
 
 const {
-    Identifier,
     isReturnStatement,
     isObjectMethod,
     isObjectProperty,
     isObjectExpression,
+    identifier,
 } = types;
 
 module.exports.report = () => `Use Scanner instead of Traverser`;
@@ -23,7 +23,7 @@ module.exports.report = () => `Use Scanner instead of Traverser`;
 module.exports.fix = ({path, pathProperty}) => {
     if (path.isObjectMethod()) {
         replaceWith(path.parentPath, path.get('body'));
-        path.parentPath.parentPath.node.params.unshift(Identifier('path'));
+        path.parentPath.parentPath.node.params.unshift(identifier('path'));
         
         path.parentPath.parentPath.parentPath.node.left.property.name = 'scan';
         return;
@@ -31,7 +31,7 @@ module.exports.fix = ({path, pathProperty}) => {
     
     if (path.isObjectProperty()) {
         replaceWith(path.parentPath, path.get('value.body'));
-        path.parentPath.parentPath.node.params.unshift(Identifier('path'));
+        path.parentPath.parentPath.node.params.unshift(identifier('path'));
         
         const assignmentPath = path.parentPath.parentPath.parentPath;
         

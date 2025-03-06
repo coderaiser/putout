@@ -1,21 +1,22 @@
 'use strict';
 
-const {replaceWith} = require('putout').operator;
 const {
     operator,
     types,
     template,
 } = require('putout');
-
-const {getProperties, __json} = operator;
-
 const {
-    ArrayExpression,
-    ObjectExpression,
-    ObjectProperty,
-    Identifier,
-    SpreadElement,
+    objectProperty,
+    objectExpression,
+    arrayExpression,
+    identifier,
+    spreadElement,
 } = types;
+const {
+    replaceWith,
+    getProperties,
+    __json,
+} = operator;
 
 const createFlatConfig = template(`export default %%flatConfig%%`);
 
@@ -30,14 +31,14 @@ module.exports.replace = () => ({
             rulesPath,
         } = getProperties(__jsonPath, ['parser', 'rules', 'overrides']);
         
-        const safeAlign = SpreadElement(Identifier('safeAlign'));
-        const flatConfig = ArrayExpression([safeAlign]);
+        const safeAlign = spreadElement(identifier('safeAlign'));
+        const flatConfig = arrayExpression([safeAlign]);
         
         if (parserPath || rulesPath) {
-            const config = ObjectExpression([]);
+            const config = objectExpression([]);
             
             if (parserPath)
-                config.properties.push(ObjectProperty(Identifier('languageOptions'), ObjectExpression([parserPath.node])));
+                config.properties.push(objectProperty(identifier('languageOptions'), objectExpression([parserPath.node])));
             
             if (rulesPath)
                 config.properties.push(rulesPath.node);

@@ -2,11 +2,10 @@
 
 const {operator, types} = require('putout');
 const {
-    ArrayExpression,
-    StringLiteral,
-    ObjectProperty,
+    arrayExpression,
+    stringLiteral,
+    objectProperty,
 } = types;
-
 const {getProperty, __json} = operator;
 
 const getValue = (a) => a.value;
@@ -15,11 +14,11 @@ module.exports.report = () => `Update 'tsconfig.json'`;
 
 module.exports.fix = ({path, propertyInclude}) => {
     if (!propertyInclude) {
-        propertyInclude = ObjectProperty(StringLiteral('include'), ArrayExpression([]));
+        propertyInclude = objectProperty(stringLiteral('include'), arrayExpression([]));
         path.node.properties.push(propertyInclude);
     }
     
-    propertyInclude.value.elements.push(StringLiteral('./dist/types/**/*.ts'), StringLiteral('./next-env.d.ts'));
+    propertyInclude.value.elements.push(stringLiteral('./dist/types/**/*.ts'), stringLiteral('./next-env.d.ts'));
 };
 
 module.exports.traverse = ({push}) => ({

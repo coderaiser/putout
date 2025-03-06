@@ -2,16 +2,16 @@
 
 const {types} = require('putout');
 const {
-    Identifier,
+    identifier,
     isFunction,
-    SpreadElement,
+    spreadElement,
 } = types;
 
 module.exports.report = () => `Use 'rest parameters' instead of 'arguments'`;
 
 module.exports.fix = ({path, paths}) => {
     path.node.params = [
-        SpreadElement(Identifier('args')),
+        spreadElement(identifier('args')),
     ];
     
     for (const path of paths) {

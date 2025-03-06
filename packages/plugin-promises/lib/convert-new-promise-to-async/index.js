@@ -2,16 +2,15 @@
 
 const {operator, types} = require('putout');
 const {
+    returnStatement,
+    throwStatement,
+} = types;
+const {
     replaceWith,
     traverse,
     remove,
     compare,
 } = operator;
-
-const {
-    ReturnStatement,
-    ThrowStatement,
-} = types;
 
 const isPassedToFn = (path) => {
     const {parentPath} = path;
@@ -59,18 +58,18 @@ module.exports.replace = () => ({
                 const {node} = rejectPath.get('arguments.0');
                 
                 if (scope === rejectPath.scope.getFunctionParent())
-                    replaceWith(rejectPath.parentPath, ThrowStatement(node));
+                    replaceWith(rejectPath.parentPath, throwStatement(node));
             },
             'resolve(__)': (resolvePath) => {
                 const {node} = resolvePath.get('arguments.0');
                 
                 if (resolvePath.parentPath.parentPath.isExpression()) {
-                    replaceWith(resolvePath, ReturnStatement(node));
+                    replaceWith(resolvePath, returnStatement(node));
                     return;
                 }
                 
                 if (scope === resolvePath.scope.getFunctionParent())
-                    replaceWith(resolvePath.parentPath, ReturnStatement(node));
+                    replaceWith(resolvePath.parentPath, returnStatement(node));
             },
             'resolve()': (resolvePath) => {
                 if (scope === resolvePath.scope?.getFunctionParent())

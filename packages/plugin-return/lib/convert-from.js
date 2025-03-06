@@ -4,13 +4,13 @@ const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {
     isLabeledStatement,
-    ReturnStatement,
+    returnStatement,
 } = types;
 
 const createReport = (name) => () => `Use 'return' instead of '${name}'`;
 
 const fix = (path) => {
-    replaceWith(path, ReturnStatement());
+    replaceWith(path, returnStatement());
 };
 
 module.exports.convertFrom = (name) => {

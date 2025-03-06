@@ -1,22 +1,21 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {replaceWithMultiple} = operator;
-
 const {
-    AwaitExpression,
-    ArrayPattern,
-    VariableDeclaration,
-    VariableDeclarator,
-    CallExpression,
-    Identifier,
-    IfStatement,
+    awaitExpression,
+    arrayPattern,
+    variableDeclarator,
+    variableDeclaration,
+    ifStatement,
+    identifier,
+    callExpression,
 } = types;
+const {replaceWithMultiple} = operator;
 
 module.exports = (tryName) => (path) => {
     const expression = parseExpression(path);
     
-    const callNode = CallExpression(Identifier(tryName), [
+    const callNode = callExpression(identifier(tryName), [
         expression.callee,
         ...expression.arguments,
     ]);
@@ -33,11 +32,11 @@ module.exports = (tryName) => (path) => {
     }
     
     const ifNode = body.body.length ? [
-        IfStatement(param, body),
+        ifStatement(param, body),
     ] : body.body;
     
-    const varNode = VariableDeclaration('const', [
-        VariableDeclarator(ArrayPattern([param]), maybeAwait(path, callNode)),
+    const varNode = variableDeclaration('const', [
+        variableDeclarator(arrayPattern([param]), maybeAwait(path, callNode)),
     ]);
     
     replaceWithMultiple(path, [
@@ -59,7 +58,7 @@ function maybeAwait(path, node) {
     const expressionPath = path.get('block.body.0.expression');
     
     if (expressionPath.isAwaitExpression())
-        return AwaitExpression(node);
+        return awaitExpression(node);
     
     return node;
 }

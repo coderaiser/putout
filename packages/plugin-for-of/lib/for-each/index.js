@@ -7,8 +7,8 @@ const {
 } = require('putout');
 
 const {
-    ContinueStatement,
     isIdentifier,
+    continueStatement,
 } = types;
 
 const {
@@ -138,9 +138,9 @@ function fixReturn(path) {
             const {argument} = path.node;
             
             if (!argument)
-                return replaceWith(path, ContinueStatement());
+                return replaceWith(path, continueStatement());
             
-            replaceWithMultiple(path, [argument, ContinueStatement()]);
+            replaceWithMultiple(path, [argument, continueStatement()]);
         },
     });
 }

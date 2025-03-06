@@ -2,18 +2,17 @@
 
 const {operator, types} = require('putout');
 const {
+    stringLiteral,
+    identifier,
+    objectProperty,
+    objectExpression,
+    arrayExpression,
+} = types;
+const {
     replaceWith,
     setLiteralValue,
     getProperties,
 } = operator;
-
-const {
-    StringLiteral,
-    Identifier,
-    ObjectProperty,
-    ObjectExpression,
-    ArrayExpression,
-} = types;
 
 module.exports.report = () => `Split multi-segment splat <Route`;
 
@@ -62,15 +61,15 @@ module.exports.replace = () => ({
             
             const [first, second] = pathPath.node.value.value.split('/');
             
-            const value = ArrayExpression([
-                ObjectExpression([
-                    ObjectProperty(Identifier('path'), StringLiteral(second)),
+            const value = arrayExpression([
+                objectExpression([
+                    objectProperty(identifier('path'), stringLiteral(second)),
                     elementPath.node,
                 ]),
             ]);
             
             setLiteralValue(pathPath.get('value'), first);
-            replaceWith(elementPath, ObjectProperty(Identifier('children'), value));
+            replaceWith(elementPath, objectProperty(identifier('children'), value));
         }
         
         return path;

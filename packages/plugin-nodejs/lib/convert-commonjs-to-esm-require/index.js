@@ -1,26 +1,25 @@
 'use strict';
 
-const justCamelCase = require('just-camel-case');
-
 const {
     types,
     operator,
     template,
 } = require('putout');
 
-const {replaceWith, insertBefore} = operator;
-
+const justCamelCase = require('just-camel-case');
 const {
+    awaitExpression,
+    identifier,
+    importDeclaration,
     isFunction,
     isObjectPattern,
     isArrayPattern,
     isIdentifier,
     isStringLiteral,
-    AwaitExpression,
-    ImportDeclaration,
-    ImportDefaultSpecifier,
-    Identifier,
+    importDefaultSpecifier,
 } = types;
+
+const {replaceWith, insertBefore} = operator;
 
 const camelCase = (a) => justCamelCase(a.replace('@', ''));
 
@@ -30,10 +29,10 @@ const __B = 'declarations.0.init.arguments.0';
 
 const createImport = ({name, source}) => {
     const specifiers = [
-        ImportDefaultSpecifier(name),
+        importDefaultSpecifier(name),
     ];
     
-    return ImportDeclaration(specifiers, source);
+    return importDeclaration(specifiers, source);
 };
 
 const createFnDeclaration = template('const NAME1 = FN(NAME2)');
@@ -125,14 +124,14 @@ module.exports.replace = () => ({
         const name = `_${__a.name}`;
         
         const importNode = createImport({
-            name: Identifier(name),
+            name: identifier(name),
             source: __c,
         });
         
         const declarationNode = createFnDeclaration({
             NAME1: __a,
             FN: __b,
-            NAME2: Identifier(name),
+            NAME2: identifier(name),
         });
         
         insertBefore(path, [importNode]);
@@ -171,7 +170,7 @@ function applyDynamicImport(path) {
     const {node} = initPath;
     
     initPath.node.callee.name = 'import';
-    replaceWith(initPath, AwaitExpression(node));
+    replaceWith(initPath, awaitExpression(node));
     
     return path;
 }

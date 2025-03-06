@@ -2,7 +2,7 @@
 
 const {operator, types} = require('putout');
 
-const {ObjectProperty} = types;
+const {objectProperty} = types;
 
 const {replaceWith, compare} = operator;
 
@@ -12,7 +12,7 @@ const COMPUTED = false;
 module.exports.report = () => `Extract object properties into variables`;
 
 module.exports.fix = ({path, expandPath, property}) => {
-    const newProperty = ObjectProperty(property, property, COMPUTED, SHORTHAND);
+    const newProperty = objectProperty(property, property, COMPUTED, SHORTHAND);
     
     expandPath.node.properties.push(newProperty);
     replaceWith(path, property);

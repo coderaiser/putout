@@ -3,7 +3,7 @@
 const {types, operator} = require('putout');
 
 const {replaceWith} = operator;
-const {ObjectProperty} = types;
+const {objectProperty} = types;
 
 module.exports.report = () => 'Object Property should be used instead of Method';
 
@@ -29,5 +29,5 @@ module.exports.fix = (path) => {
     path.node.type = 'ArrowFunctionExpression';
     path.node.id = null;
     
-    replaceWith(path, ObjectProperty(keyPath.node, path.node));
+    replaceWith(path, objectProperty(keyPath.node, path.node));
 };

@@ -1,10 +1,9 @@
 'use strict';
 
 const {types, operator} = require(`putout`);
-
 const {
-    TemplateLiteral,
-    TemplateElement,
+    templateElement,
+    templateLiteral,
 } = types;
 
 module.exports.report = () => `Use backticks instead of quotes`;
@@ -21,7 +20,7 @@ module.exports.fix = (path) => {
     if (parentPath.isObjectProperty() && path === parentPath.get('key'))
         parentPath.node.computed = true;
     
-    replaceWith(path, TemplateLiteral([TemplateElement({
+    replaceWith(path, templateLiteral([templateElement({
         raw: value,
     })], []));
 };

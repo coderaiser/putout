@@ -2,9 +2,9 @@
 
 const {types} = require('putout');
 const {
-    ObjectProperty,
-    ObjectPattern,
+    objectProperty,
     isRestElement,
+    objectPattern,
 } = types;
 
 module.exports.report = () => `Use 'formState.errors' instead of 'errors'`;
@@ -48,7 +48,7 @@ module.exports.replace = () => ({
                 
                 property.key.name = 'formState';
                 
-                property.value = ObjectPattern([ObjectProperty(key, key, COMPUTED, SHORTHAND)]);
+                property.value = objectPattern([objectProperty(key, key, COMPUTED, SHORTHAND)]);
             }
         }
         

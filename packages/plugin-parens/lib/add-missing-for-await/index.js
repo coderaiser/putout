@@ -6,7 +6,7 @@ const {
     operator,
 } = require('putout');
 
-const {AwaitExpression} = types;
+const {awaitExpression} = types;
 const {replaceWith, addParens} = operator;
 
 module.exports.report = (path) => {
@@ -19,7 +19,7 @@ module.exports.fix = (path) => {
     const newPath = replaceWith(path, argument);
     const objectPath = newPath.get('expression.callee.object');
     
-    path = replaceWith(objectPath, AwaitExpression(objectPath.node));
+    path = replaceWith(objectPath, awaitExpression(objectPath.node));
     
     addParens(path);
 };

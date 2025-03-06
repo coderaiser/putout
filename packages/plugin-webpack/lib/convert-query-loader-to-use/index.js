@@ -1,19 +1,17 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
-const {replaceWith} = operator;
-
 const {
-    ArrayExpression,
-    NumericLiteral,
-    ObjectProperty,
-    ObjectExpression,
-    Identifier,
-    StringLiteral,
+    objectExpression,
+    identifier,
+    objectProperty,
+    numericLiteral,
+    stringLiteral,
     isStringLiteral,
     isIdentifier,
+    arrayExpression,
 } = types;
+const {replaceWith} = operator;
 
 module.exports.report = () => `"use" should be used instead of query in loaders`;
 
@@ -26,7 +24,7 @@ module.exports.fix = (path) => {
     const [name, options] = valuePath.node.value.split('?');
     const object = buildObject(name, options);
     
-    replaceWith(valuePath, ArrayExpression([object]));
+    replaceWith(valuePath, arrayExpression([object]));
 };
 
 module.exports.traverse = ({push}) => ({
@@ -52,9 +50,9 @@ module.exports.traverse = ({push}) => ({
 
 function parseValue(value) {
     if (isNaN(value))
-        return StringLiteral(value);
+        return stringLiteral(value);
     
-    return NumericLiteral(Number(value));
+    return numericLiteral(Number(value));
 }
 
 function buildObject(name, options) {
@@ -65,11 +63,11 @@ function buildObject(name, options) {
         const [key, value] = option.split('=');
         const parsed = parseValue(value);
         
-        properties.push(ObjectProperty(Identifier(key), parsed));
+        properties.push(objectProperty(identifier(key), parsed));
     }
     
-    const loaderProp = ObjectProperty(Identifier('loader'), StringLiteral(name));
-    const optionsProp = ObjectProperty(Identifier('options'), ObjectExpression(properties));
+    const loaderProp = objectProperty(identifier('loader'), stringLiteral(name));
+    const optionsProp = objectProperty(identifier('options'), objectExpression(properties));
     
-    return ObjectExpression([loaderProp, optionsProp]);
+    return objectExpression([loaderProp, optionsProp]);
 }

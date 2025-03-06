@@ -1,7 +1,7 @@
 import {types, operator} from 'putout';
 
 const {replaceWith} = operator;
-const {RegExpLiteral} = types;
+const {regExpLiteral} = types;
 
 export const report = () => `Replace regexp should be used instead of string`;
 
@@ -11,7 +11,7 @@ export const replace = () => ({
         const raw = `/${escape(value)}/g`;
         
         const regexp = {
-            ...RegExpLiteral(escape(value), 'g'),
+            ...regExpLiteral(escape(value), 'g'),
             raw,
             extra: {
                 raw,

@@ -1,6 +1,6 @@
 import {types, operator} from 'putout';
 
-const {StringLiteral, ObjectProperty} = types;
+const {objectProperty, stringLiteral} = types;
 
 const {
     getProperties,
@@ -30,6 +30,6 @@ export const traverse = ({push}) => ({
 });
 
 export const fix = ({mainPath}) => {
-    const commitTypeNode = ObjectProperty(StringLiteral('commitType'), StringLiteral('colon'));
+    const commitTypeNode = objectProperty(stringLiteral('commitType'), stringLiteral('colon'));
     insertAfter(mainPath, commitTypeNode);
 };

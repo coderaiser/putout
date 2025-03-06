@@ -1,11 +1,11 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {remove} = operator;
 const {
-    ObjectExpression,
-    ObjectProperty,
+    objectExpression,
+    objectProperty,
 } = types;
+const {remove} = operator;
 
 module.exports.report = () => `Merge 'return' with next sibling`;
 
@@ -18,11 +18,11 @@ module.exports.fix = ({path, nextPath}) => {
         const properties = [];
         
         for (const {label, body} of nextPath.node.body) {
-            const property = ObjectProperty(label, body.expression);
+            const property = objectProperty(label, body.expression);
             properties.push(property);
         }
         
-        node = ObjectExpression(properties);
+        node = objectExpression(properties);
     }
     
     path.node.argument = node;

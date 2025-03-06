@@ -6,7 +6,7 @@ const {replaceWith} = operator;
 
 const {
     isStringLiteral,
-    RegExpLiteral,
+    regExpLiteral,
 } = types;
 
 const match = ({__a}) => isStringLiteral(__a);
@@ -36,7 +36,7 @@ function oneArgumentReplace({__a}, path) {
     const raw = `/${encode(value)}/`;
     
     return replaceWith(path, {
-        ...RegExpLiteral(value),
+        ...regExpLiteral(value),
         raw,
         extra: {
             raw,
@@ -48,7 +48,7 @@ function twoArgumentsReplace({__a, __b}, path) {
     const raw = `/${encode(__a.value)}/${__b.value}`;
     
     return replaceWith(path, {
-        ...RegExpLiteral(encode(__a.value), __b.value),
+        ...regExpLiteral(encode(__a.value), __b.value),
         raw,
         extra: {
             raw,

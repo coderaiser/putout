@@ -6,9 +6,8 @@ const {
     types,
 } = require('putout');
 
+const {objectProperty, identifier} = types;
 const {replaceWith, insertBefore} = operator;
-
-const {Identifier, ObjectProperty} = types;
 
 module.exports.report = () => {
     return `"operate.replaceWithMultiple" should be called instead of "path.replaceWithMultiple"`;
@@ -31,10 +30,10 @@ module.exports.fix = ({path, calleePath, property, object, program}) => {
     if (!bindings.replaceWith && !bindings.insertAfter)
         return insertBefore(first, replaceWithAST);
     
-    const id = Identifier('replaceWithMultiple');
+    const id = identifier('replaceWithMultiple');
     const varPath = getVarPath(bindings);
     
-    varPath.node.id.properties.push(ObjectProperty(id, id, false, true));
+    varPath.node.id.properties.push(objectProperty(id, id, false, true));
 };
 
 function getVarPath(bindings) {

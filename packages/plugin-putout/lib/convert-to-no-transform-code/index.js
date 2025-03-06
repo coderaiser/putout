@@ -1,6 +1,7 @@
 'use strict';
 
-const {isIdentifier, Identifier} = require('putout').types;
+const {types} = require('putout');
+const {isIdentifier, identifier} = types;
 
 module.exports.report = () => {
     return `"noTransformCode" should be called instead of using same arguments twice in "transformCode"`;
@@ -34,6 +35,6 @@ module.exports.traverse = ({push}) => ({
 });
 
 module.exports.fix = ({path, calleePath}) => {
-    calleePath.node.property = Identifier('noTransformCode');
+    calleePath.node.property = identifier('noTransformCode');
     path.node.arguments.pop();
 };

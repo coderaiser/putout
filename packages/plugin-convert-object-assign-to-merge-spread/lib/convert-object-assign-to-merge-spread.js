@@ -1,15 +1,13 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
-const {compare, replaceWith} = operator;
-
 const {
-    ObjectExpression,
-    SpreadElement,
+    objectExpression,
     isObjectExpression,
     isSpreadElement,
+    spreadElement,
 } = types;
+const {compare, replaceWith} = operator;
 
 module.exports.report = () => `Use merge spread instead of 'Object.assign()'`;
 
@@ -23,10 +21,10 @@ module.exports.fix = (path) => {
             continue;
         }
         
-        properties = properties.concat(SpreadElement(arg));
+        properties = properties.concat(spreadElement(arg));
     }
     
-    replaceWith(path, ObjectExpression(properties));
+    replaceWith(path, objectExpression(properties));
 };
 
 module.exports.include = () => [

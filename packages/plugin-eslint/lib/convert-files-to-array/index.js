@@ -3,8 +3,8 @@
 const {types, operator} = require('putout');
 const {
     isArrayExpression,
-    ArrayExpression,
     isObjectExpression,
+    arrayExpression,
 } = types;
 
 const {
@@ -23,7 +23,7 @@ module.exports.report = ({main}) => {
 };
 
 module.exports.fix = ({path, value}) => {
-    path.node.value = ArrayExpression([value]);
+    path.node.value = arrayExpression([value]);
 };
 
 module.exports.traverse = ({push}) => ({

@@ -5,13 +5,11 @@ const {
     operator,
     template,
 } = require('putout');
-
+const {stringLiteral, objectProperty} = types;
 const {
     getProperty,
     replaceWithMultiple,
 } = operator;
-
-const {ObjectProperty, StringLiteral} = types;
 
 const fixLintScript = template.ast(`
     () => run('lint', '--fix')
@@ -20,7 +18,7 @@ const fixLintScript = template.ast(`
 module.exports.report = () => `fix:lint should exist`;
 
 module.exports.fix = (path) => {
-    replaceWithMultiple(path, [path.node, ObjectProperty(StringLiteral('fix:lint'), fixLintScript)]);
+    replaceWithMultiple(path, [path.node, objectProperty(stringLiteral('fix:lint'), fixLintScript)]);
 };
 
 module.exports.traverse = ({push}) => ({

@@ -1,15 +1,14 @@
 'use strict';
 
 const {operator, types} = require('putout');
+const {
+    objectProperty,
+    objectPattern,
+    identifier,
+} = types;
 
 const computed = true;
 const shorthand = true;
-
-const {
-    Identifier,
-    ObjectPattern,
-    ObjectProperty,
-} = types;
 
 const {compare} = operator;
 
@@ -25,13 +24,13 @@ const create = (name) => (vars, path) => {
     const {block} = path.scope;
     const {body} = block.body;
     const n = body.length - 1;
-    const nameId = Identifier(name);
+    const nameId = identifier(name);
     
     block.async = true;
     
     block.params = [
-        ObjectPattern([
-            ObjectProperty(nameId, nameId, !computed, shorthand),
+        objectPattern([
+            objectProperty(nameId, nameId, !computed, shorthand),
         ]),
     ];
     

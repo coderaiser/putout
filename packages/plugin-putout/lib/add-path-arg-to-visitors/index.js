@@ -1,14 +1,14 @@
 'use strict';
 
 const {types} = require('putout');
-const {Identifier} = types;
+const {identifier} = types;
 
 module.exports.report = () => `Add 'path' argument to 'traverse' visitors`;
 
 const TRAVERSE = '(__args) => __object';
 
 module.exports.fix = (path) => {
-    path.node.params.push(Identifier('path'));
+    path.node.params.push(identifier('path'));
 };
 
 module.exports.traverse = ({push}) => ({

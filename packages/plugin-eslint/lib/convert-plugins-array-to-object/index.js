@@ -1,14 +1,13 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
-const {extract, replaceWith} = operator;
 const {
+    objectExpression,
     isObjectProperty,
-    ObjectExpression,
-    ObjectProperty,
     isIdentifier,
+    objectProperty,
 } = types;
+const {extract, replaceWith} = operator;
 
 const COMPUTED = false;
 const SHORTHAND = true;
@@ -20,10 +19,10 @@ module.exports.fix = (path) => {
     const properties = [];
     
     for (const element of elements) {
-        properties.push(ObjectProperty(element, element, COMPUTED, SHORTHAND));
+        properties.push(objectProperty(element, element, COMPUTED, SHORTHAND));
     }
     
-    replaceWith(path, ObjectExpression(properties));
+    replaceWith(path, objectExpression(properties));
 };
 
 module.exports.traverse = ({push}) => ({

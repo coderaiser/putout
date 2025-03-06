@@ -1,0 +1,1 @@
+path.node = Identifier('x');

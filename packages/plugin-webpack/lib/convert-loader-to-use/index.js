@@ -1,15 +1,13 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
-const {replaceWith} = operator;
-
 const {
-    ArrayExpression,
-    StringLiteral,
+    arrayExpression,
     isStringLiteral,
     isIdentifier,
+    stringLiteral,
 } = types;
+const {replaceWith} = operator;
 
 module.exports.report = () => `"use" should be used instead of exclamation mark in loaders`;
 
@@ -23,10 +21,10 @@ module.exports.fix = (path) => {
     const names = valuePath.node.value.split('!');
     
     for (const name of names) {
-        elements.push(StringLiteral(name));
+        elements.push(stringLiteral(name));
     }
     
-    replaceWith(valuePath, ArrayExpression(elements));
+    replaceWith(valuePath, arrayExpression(elements));
 };
 
 module.exports.traverse = ({push}) => ({

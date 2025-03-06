@@ -2,9 +2,9 @@ import {types, operator} from 'putout';
 
 const {__yaml} = operator;
 const {
-    BooleanLiteral,
-    StringLiteral,
-    ObjectProperty,
+    objectProperty,
+    stringLiteral,
+    booleanLiteral,
 } = types;
 
 const isCache = (property) => property.key.value === 'cache';
@@ -19,7 +19,7 @@ export const match = () => ({
 
 export const replace = () => ({
     [__yaml]({__object}, path) {
-        const property = ObjectProperty(StringLiteral('cache'), BooleanLiteral(false));
+        const property = objectProperty(stringLiteral('cache'), booleanLiteral(false));
         __object.properties.push(property);
         
         return path;

@@ -1,6 +1,6 @@
 import {operator, types} from 'putout';
 
-const {ObjectProperty, StringLiteral} = types;
+const {objectProperty, stringLiteral} = types;
 const {
     getProperties,
     insertAfter,
@@ -25,6 +25,6 @@ export const traverse = ({push}) => ({
 });
 
 export const fix = (path) => {
-    const node = ObjectProperty(StringLiteral('type'), StringLiteral('commonjs'));
+    const node = objectProperty(stringLiteral('type'), stringLiteral('commonjs'));
     insertAfter(path, node);
 };

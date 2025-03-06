@@ -4,7 +4,7 @@ const {types} = require('putout');
 const {
     isNullLiteral,
     isObjectExpression,
-    LogicalExpression,
+    logicalExpression,
 } = types;
 
 module.exports.report = () => 'Simplify ternary';
@@ -12,7 +12,7 @@ module.exports.report = () => 'Simplify ternary';
 module.exports.fix = (path) => {
     const {test, consequent} = path.node.argument;
     
-    path.node.argument = LogicalExpression('&&', test, consequent);
+    path.node.argument = logicalExpression('&&', test, consequent);
 };
 
 module.exports.traverse = ({push}) => ({

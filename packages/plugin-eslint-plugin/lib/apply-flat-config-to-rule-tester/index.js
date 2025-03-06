@@ -1,13 +1,12 @@
 'use strict';
 
 const {operator, types} = require('putout');
-
-const {traverseProperties} = operator;
 const {
-    ObjectExpression,
-    Identifier,
-    ObjectProperty,
+    objectExpression,
+    identifier,
+    objectProperty,
 } = types;
+const {traverseProperties} = operator;
 
 module.exports.report = () => `Use FlatConfig in RuleTester`;
 
@@ -15,7 +14,7 @@ module.exports.fix = (path) => {
     const {properties} = path.node;
     
     path.node.properties = [
-        ObjectProperty(Identifier('languageOptions'), ObjectExpression(properties)),
+        objectProperty(identifier('languageOptions'), objectExpression(properties)),
     ];
 };
 

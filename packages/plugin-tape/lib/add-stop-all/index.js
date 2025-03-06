@@ -21,7 +21,7 @@ const {
     insertBefore,
 } = operator;
 
-const {ExpressionStatement} = types;
+const {expressionStatement} = types;
 
 module.exports.report = () => `Call 'stopAll()' at the end of test when 'mockImport()' used`;
 
@@ -29,7 +29,7 @@ module.exports.fix = (path) => {
     const assertionPath = getAssertionsPath(path);
     const stopAllNode = template.ast('stopAll()');
     
-    insertBefore(assertionPath, ExpressionStatement(stopAllNode));
+    insertBefore(assertionPath, expressionStatement(stopAllNode));
 };
 
 module.exports.traverse = ({push}) => ({

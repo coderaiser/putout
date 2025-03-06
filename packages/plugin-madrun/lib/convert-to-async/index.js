@@ -5,8 +5,8 @@ const {types, operator} = require('putout');
 const {replaceWith, traverse} = operator;
 
 const {
-    AwaitExpression,
     isStringLiteral,
+    awaitExpression,
 } = types;
 
 module.exports.report = () => 'Use async function';
@@ -34,7 +34,7 @@ module.exports.replace = () => ({
     'run(__args)': (vars, path) => {
         traverse(path, {
             'run(__args)'(path) {
-                replaceWith(path, AwaitExpression(path.node));
+                replaceWith(path, awaitExpression(path.node));
                 path.stop();
             },
         });

@@ -2,15 +2,14 @@
 
 const {types, operator} = require('putout');
 const {
-    BinaryExpression,
-    LogicalExpression,
-    UnaryExpression,
-    AssignmentExpression,
+    unaryExpression,
+    binaryExpression,
+    logicalExpression,
     isBinaryExpression,
     isUnaryExpression,
     isLogicalExpression,
+    assignmentExpression,
 } = types;
-
 const {replaceWith, addParens} = operator;
 
 module.exports.report = () => `SyntaxError: Invalid left-hand side in assignment expression`;
@@ -26,25 +25,25 @@ module.exports.fix = (path) => {
     const logicalLeft = left.left;
     
     if (isLogicalExpression(left)) {
-        const logicalRight = AssignmentExpression(operator, left.right, right);
+        const logicalRight = assignmentExpression(operator, left.right, right);
         
-        replaceWith(path, LogicalExpression(
+        replaceWith(path, logicalExpression(
             logicalOperator,
             logicalLeft,
             logicalRight,
         ));
     } else if (isBinaryExpression(left)) {
-        const logicalRight = AssignmentExpression(operator, left.right, right);
+        const logicalRight = assignmentExpression(operator, left.right, right);
         
-        replaceWith(path, BinaryExpression(
+        replaceWith(path, binaryExpression(
             logicalOperator,
             logicalLeft,
             logicalRight,
         ));
     } else if (isUnaryExpression(left)) {
-        const logicalRight = AssignmentExpression(operator, left.argument, right);
+        const logicalRight = assignmentExpression(operator, left.argument, right);
         
-        replaceWith(path, UnaryExpression(
+        replaceWith(path, unaryExpression(
             logicalOperator,
             logicalRight,
         ));

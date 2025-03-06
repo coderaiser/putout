@@ -1,13 +1,11 @@
 'use strict';
 
 const {types, template} = require('putout');
-
 const {
-    ObjectPattern,
-    ObjectProperty,
+    objectProperty,
     isObjectPattern,
+    objectPattern,
 } = types;
-
 const buildDeclaration = template(`
     const %%__b%% = %%__a%%
 `);
@@ -44,8 +42,8 @@ function replaceArg({__a, __b, __c}, path) {
     
     const declaration = buildDeclaration({
         __a,
-        __b: ObjectPattern([
-            ObjectProperty(__b, __c || __b),
+        __b: objectPattern([
+            objectProperty(__b, __c || __b),
         ]),
     });
     

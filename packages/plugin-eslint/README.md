@@ -720,6 +720,10 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e3c56c4074
 ### ❌ Example of incorrect code
 
 ```js
+import {types} from 'putout';
+
+const {react} = types;
+
 export default {
     plugins: [react],
 };
@@ -732,6 +736,10 @@ module.exports = {
 ## ✅ Example of correct code
 
 ```js
+import {types} from 'putout';
+
+const {react} = types;
+
 export default {
     plugins: {
         react,

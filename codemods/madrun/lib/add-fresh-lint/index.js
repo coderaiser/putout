@@ -7,7 +7,7 @@ import getProperty from '../get-property.js';
 
 const {replaceWithMultiple} = operator;
 
-const {ObjectProperty, StringLiteral} = types;
+const {objectProperty, stringLiteral} = types;
 
 const freshLintScript = template.ast(`
     () => run('lint', '--fresh')
@@ -16,7 +16,7 @@ const freshLintScript = template.ast(`
 export const report = () => `fresh:lint should exist`;
 
 export const fix = (path) => {
-    replaceWithMultiple(path, [path.node, ObjectProperty(StringLiteral('fresh:lint'), freshLintScript), ObjectProperty(StringLiteral('lint:fresh'), freshLintScript)]);
+    replaceWithMultiple(path, [path.node, objectProperty(stringLiteral('fresh:lint'), freshLintScript), objectProperty(stringLiteral('lint:fresh'), freshLintScript)]);
 };
 
 export const traverse = ({push}) => ({

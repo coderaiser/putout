@@ -2,23 +2,22 @@
 
 const {types, operator} = require('putout');
 const {
+    ifStatement,
+    importDefaultSpecifier,
+    importDeclaration,
+    exportNamedDeclaration,
+    variableDeclarator,
+    variableDeclaration,
     isExportDeclaration,
-    ArrowFunctionExpression,
     isArrowFunctionExpression,
     isLiteral,
-    IfStatement,
-    ImportDefaultSpecifier,
-    ImportDeclaration,
-    ExportNamedDeclaration,
-    VariableDeclarator,
-    VariableDeclaration,
     isAssignmentExpression,
     isExportNamedDeclaration,
     isIdentifier,
     isMemberExpression,
     isBlockStatement,
+    arrowFunctionExpression,
 } = types;
-
 const {
     removeParens,
     remove,
@@ -40,7 +39,7 @@ const buildDeclaration = (type) => (nextPath, path) => {
         const {node: init} = removeParens(path.get('init'));
         const params = [init];
         
-        right = ArrowFunctionExpression(params, nextPath.node);
+        right = arrowFunctionExpression(params, nextPath.node);
     } else if (isAssignmentExpression(expression)) {
         ({
             left,
@@ -51,7 +50,7 @@ const buildDeclaration = (type) => (nextPath, path) => {
         right = nextPath.node.expression;
     }
     
-    replaceWith(nextPath, VariableDeclaration(type, [VariableDeclarator(left, right)]));
+    replaceWith(nextPath, variableDeclaration(type, [variableDeclarator(left, right)]));
     
     const {name} = path.node.id;
     
@@ -59,7 +58,7 @@ const buildDeclaration = (type) => (nextPath, path) => {
         return;
     
     if (isExportNamedDeclaration(path.parentPath.parentPath))
-        replaceWith(nextPath, ExportNamedDeclaration(nextPath.node));
+        replaceWith(nextPath, exportNamedDeclaration(nextPath.node));
 };
 
 const builders = {
@@ -145,7 +144,7 @@ function getTopPath(path) {
 }
 
 function buildExport(path) {
-    replaceWith(path, ExportNamedDeclaration(path.node));
+    replaceWith(path, exportNamedDeclaration(path.node));
 }
 
 function buildImport(path) {
@@ -154,7 +153,7 @@ function buildImport(path) {
     const source = sourcePath.node.expression;
     const local = path.node.expression;
     
-    replaceWith(path, ImportDeclaration([ImportDefaultSpecifier(local, local)], source));
+    replaceWith(path, importDeclaration([importDefaultSpecifier(local, local)], source));
     remove(sourcePath);
     remove(fromPath);
 }
@@ -166,5 +165,5 @@ function buildIf(path) {
     const next = nextPath.node;
     
     remove(nextPath);
-    replaceWith(path, IfStatement(expression, next));
+    replaceWith(path, ifStatement(expression, next));
 }

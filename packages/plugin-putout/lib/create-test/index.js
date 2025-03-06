@@ -1,14 +1,13 @@
 'use strict';
 
 const {operator, types} = require('putout');
-
 const {
-    StringLiteral,
-    ArrayExpression,
-    Identifier,
-    ObjectProperty,
-    ObjectExpression,
+    arrayExpression,
+    objectExpression,
+    stringLiteral,
+    identifier,
     isIdentifier,
+    objectProperty,
 } = types;
 
 const {replaceWith, getProperty} = operator;
@@ -30,7 +29,7 @@ module.exports.fix = (path, {options}) => {
         if (getProperty(objectPath, name))
             continue;
         
-        const property = ObjectProperty(Identifier(name), StringLiteral(value));
+        const property = objectProperty(identifier(name), stringLiteral(value));
         objectPath.node.properties.unshift(property);
     }
 };
@@ -51,7 +50,7 @@ module.exports.filter = (path, {options}) => {
 
 const maybeLiteral = (a) => {
     if (isIdentifier(a))
-        return StringLiteral(a.name);
+        return stringLiteral(a.name);
     
     return a;
 };
@@ -59,9 +58,9 @@ const maybeLiteral = (a) => {
 function convert(objectPath) {
     const {key, value} = objectPath.node.properties[0];
     
-    replaceWith(objectPath, ObjectExpression([
-        ObjectProperty(Identifier('plugins'), ArrayExpression([
-            ArrayExpression([
+    replaceWith(objectPath, objectExpression([
+        objectProperty(identifier('plugins'), arrayExpression([
+            arrayExpression([
                 maybeLiteral(key),
                 value,
             ]),

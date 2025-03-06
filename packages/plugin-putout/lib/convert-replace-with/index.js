@@ -7,8 +7,8 @@ const {
 } = require('putout');
 
 const fullstore = require('fullstore');
+const {objectProperty, identifier} = types;
 
-const {Identifier, ObjectProperty} = types;
 const {
     replaceWith,
     insertAfter,
@@ -47,10 +47,10 @@ module.exports.fix = ({path, calleePath, property, object, program, isInserted})
         return;
     }
     
-    const id = Identifier('replaceWith');
+    const id = identifier('replaceWith');
     const varPath = getVarPath(bindings);
     
-    varPath.node.id.properties.unshift(ObjectProperty(id, id, false, true));
+    varPath.node.id.properties.unshift(objectProperty(id, id, false, true));
 };
 
 function getVarPath(bindings) {

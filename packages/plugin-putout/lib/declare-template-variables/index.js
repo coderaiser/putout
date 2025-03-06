@@ -1,12 +1,13 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {getBindingPath} = operator;
 const {
-    ObjectPattern,
+    objectPattern,
     isIdentifier,
-    ObjectProperty,
+    objectProperty,
 } = types;
+
+const {getBindingPath} = operator;
 
 const SHORTHAND = true;
 const COMPUTED = false;
@@ -18,10 +19,10 @@ module.exports.report = ({node}) => {
 
 module.exports.fix = ({path, node}) => {
     const [first] = path.node.params;
-    const property = ObjectProperty(node, node, COMPUTED, SHORTHAND);
+    const property = objectProperty(node, node, COMPUTED, SHORTHAND);
     
     if (isIdentifier(first)) {
-        path.node.params[0] = ObjectPattern([property]);
+        path.node.params[0] = objectPattern([property]);
         return;
     }
     
