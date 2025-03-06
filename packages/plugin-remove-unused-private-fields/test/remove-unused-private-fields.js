@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-unused-private-fields: report: class', (t) => {
-    t.report('class', 'Private field "#world" declared by not used');
+    t.report('class', 'Avoid unused private field "#world"');
     t.end();
 });
 

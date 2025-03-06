@@ -3,7 +3,7 @@
 const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = ({name}) => `Private field "#${name}" declared by not used`;
+module.exports.report = ({name}) => `Avoid unused private field "#${name}"`;
 
 module.exports.fix = ({path}) => {
     remove(path);
