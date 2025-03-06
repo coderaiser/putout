@@ -3,7 +3,6 @@
 const {operator, types} = require('putout');
 
 const {traverseClass} = require('../common');
-
 const stateToHooks = require('./state-to-hooks');
 const setStateToHooks = require('./set-state-to-hooks');
 
@@ -54,19 +53,19 @@ module.exports.find = (ast, {push, traverse}) => {
             
             push(path);
         },
-        VariableDeclarator: VariableDeclarator(push),
-        CallExpression: CallExpression(push),
+        VariableDeclarator: checkVar(push),
+        CallExpression: checkCall(push),
     });
 };
 
-const VariableDeclarator = (push) => (path) => {
+const checkVar = (push) => (path) => {
     if (!isVarFromState(path))
         return;
     
     push(path);
 };
 
-const CallExpression = (push) => (path) => {
+const checkCall = (push) => (path) => {
     if (!isThisSetState(path))
         return;
     
