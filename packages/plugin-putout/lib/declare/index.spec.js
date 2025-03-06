@@ -424,3 +424,13 @@ test('plugin-putout: declare: transform: hasParens', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: identifier', (t) => {
+    t.transformCode(`identifier('hello');`, montag`
+        import {types} from 'putout';
+        
+        const {identifier} = types;
+        identifier('hello');\n
+    `);
+    t.end();
+});

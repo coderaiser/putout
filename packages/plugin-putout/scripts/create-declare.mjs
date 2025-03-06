@@ -14,9 +14,6 @@ for (const key of getKeys(data, path)) {
     if (key === 'is')
         continue;
     
-    if (/^[a-z]/.test(key) && !key.startsWith('is'))
-        continue;
-    
     if (key.toUpperCase() === key)
         continue;
     
