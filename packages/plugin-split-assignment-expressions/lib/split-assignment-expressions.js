@@ -8,6 +8,7 @@ const {
     isSequenceExpression,
     assignmentExpression,
 } = types;
+
 const {replaceWithMultiple} = operator;
 
 module.exports.report = () => `Split assignment expressions`;

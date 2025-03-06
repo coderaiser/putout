@@ -5,6 +5,7 @@ const {
     objectExpression,
     objectProperty,
 } = types;
+
 const {remove} = operator;
 
 module.exports.report = () => `Merge 'return' with next sibling`;

@@ -6,6 +6,7 @@ const {
     isIdentifier,
     variableDeclaration,
 } = types;
+
 const {
     replaceWith,
     getBinding,

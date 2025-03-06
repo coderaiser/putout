@@ -10,6 +10,7 @@ const {
     isLogicalExpression,
     assignmentExpression,
 } = types;
+
 const {replaceWith, addParens} = operator;
 
 module.exports.report = () => `SyntaxError: Invalid left-hand side in assignment expression`;

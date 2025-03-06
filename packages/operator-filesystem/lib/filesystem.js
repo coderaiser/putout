@@ -11,6 +11,7 @@ const {
 } = require('@putout/operate');
 
 const maybeFS = require('./maybe-fs');
+
 const {
     arrayExpression,
     stringLiteral,
@@ -18,6 +19,7 @@ const {
     isProgram,
     objectExpression,
 } = types;
+
 const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];

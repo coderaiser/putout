@@ -5,6 +5,7 @@ const {
     returnStatement,
     throwStatement,
 } = types;
+
 const {
     replaceWith,
     traverse,

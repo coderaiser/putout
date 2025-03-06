@@ -5,6 +5,7 @@ const {
     types,
     template,
 } = require('putout');
+
 const {
     objectProperty,
     objectExpression,
@@ -12,6 +13,7 @@ const {
     identifier,
     spreadElement,
 } = types;
+
 const {
     replaceWith,
     getProperties,

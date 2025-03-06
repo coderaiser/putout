@@ -14,6 +14,7 @@ const {
     stringLiteral,
     arrayExpression,
 } = types;
+
 const {isArray} = Array;
 const maybeAddSlash = (a) => a === '/' ? a : `${a}/`;
 

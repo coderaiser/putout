@@ -6,6 +6,7 @@ const {
     identifier,
     objectProperty,
 } = types;
+
 const {traverseProperties} = operator;
 
 module.exports.report = () => `Use FlatConfig in RuleTester`;

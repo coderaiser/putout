@@ -6,6 +6,7 @@ const {
     isLabeledStatement,
     objectProperty,
 } = types;
+
 const {replaceWith} = operator;
 
 module.exports.report = () => `Convert 'label' to 'object'`;

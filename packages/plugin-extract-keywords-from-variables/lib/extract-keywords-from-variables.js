@@ -18,6 +18,7 @@ const {
     isBlockStatement,
     arrowFunctionExpression,
 } = types;
+
 const {
     removeParens,
     remove,

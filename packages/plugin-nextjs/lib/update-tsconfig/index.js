@@ -6,6 +6,7 @@ const {
     stringLiteral,
     objectProperty,
 } = types;
+
 const {getProperty, __json} = operator;
 
 const getValue = (a) => a.value;

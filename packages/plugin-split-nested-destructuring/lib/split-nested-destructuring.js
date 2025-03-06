@@ -6,6 +6,7 @@ const {
     isObjectPattern,
     objectPattern,
 } = types;
+
 const buildDeclaration = template(`
     const %%__b%% = %%__a%%
 `);

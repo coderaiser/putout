@@ -5,12 +5,14 @@ const {
     template,
     types,
 } = require('putout');
+
 const {
     objectExpression,
     objectMethod,
     identifier,
     objectProperty,
 } = types;
+
 const {traverse, insertAfter} = operator;
 
 const booleanExport = template.ast('module.exports.postcss = true');

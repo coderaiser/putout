@@ -7,6 +7,7 @@ const {
     objectExpression,
     booleanLiteral,
 } = types;
+
 const {replaceWith} = operator;
 
 module.exports.report = () => '"resolve.fallback" should be used instead of "node"';

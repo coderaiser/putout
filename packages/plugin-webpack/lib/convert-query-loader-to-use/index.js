@@ -11,6 +11,7 @@ const {
     isIdentifier,
     arrayExpression,
 } = types;
+
 const {replaceWith} = operator;
 
 module.exports.report = () => `"use" should be used instead of query in loaders`;

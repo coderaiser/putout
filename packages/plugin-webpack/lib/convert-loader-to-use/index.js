@@ -7,6 +7,7 @@ const {
     isIdentifier,
     stringLiteral,
 } = types;
+
 const {replaceWith} = operator;
 
 module.exports.report = () => `"use" should be used instead of exclamation mark in loaders`;

@@ -7,6 +7,7 @@ const {
     isIdentifier,
     objectProperty,
 } = types;
+
 const {extract, replaceWith} = operator;
 
 const COMPUTED = false;

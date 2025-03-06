@@ -7,6 +7,7 @@ const {
     isSpreadElement,
     spreadElement,
 } = types;
+
 const {compare, replaceWith} = operator;
 
 module.exports.report = () => `Use merge spread instead of 'Object.assign()'`;

@@ -162,7 +162,6 @@ path.node = Identifier('x');
 path.node = identifier('x');
 ```
 
-
 ## apply-processors-destructuring
 
 ### ❌ Example of incorrect code

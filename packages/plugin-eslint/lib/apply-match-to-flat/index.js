@@ -5,6 +5,7 @@ const {
     operator,
     types,
 } = require('putout');
+
 const {
     identifier,
     callExpression,
@@ -14,6 +15,7 @@ const {
     isStatement,
     objectExpression,
 } = types;
+
 const {
     insertBefore,
     remove,

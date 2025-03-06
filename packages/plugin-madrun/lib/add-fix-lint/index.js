@@ -5,6 +5,7 @@ const {
     operator,
     template,
 } = require('putout');
+
 const {stringLiteral, objectProperty} = types;
 const {
     getProperty,
