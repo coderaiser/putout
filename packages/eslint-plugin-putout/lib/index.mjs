@@ -5,7 +5,7 @@ import json from './json.mjs';
 import html from './html.mjs';
 import ts from './ts.mjs';
 import jsxConfig, {jsx} from './jsx.mjs';
-import putout from './plugin.js';
+import * as putout from './plugin.mjs';
 
 const n = nPlugin.configs['flat/mixed-esm-and-cjs'];
 

@@ -1,6 +1,7 @@
-'use strict';
+import {createRequire} from 'node:module';
+import {createPlugin} from '@putout/eslint/create-plugin';
 
-const {createPlugin} = require('@putout/eslint/create-plugin');
+const require = createRequire(import.meta.url);
 
 const getRule = (a) => ({
     [a]: require(`./${a}`),
@@ -10,7 +11,7 @@ const getWrapRule = (a) => ({
     [a]: createPlugin(require(`./${a}`)),
 });
 
-module.exports.rules = {
+export const rules = {
     ...getWrapRule('array-element-newline'),
     ...getWrapRule('single-property-destructuring'),
     ...getWrapRule('multiple-properties-destructuring'),

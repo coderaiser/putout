@@ -4,7 +4,7 @@ import tseslint from 'typescript-eslint';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import stylisticTs from '@stylistic/eslint-plugin-ts';
 import {jsx} from './jsx.mjs';
-import plugin from './plugin.js';
+import * as plugin from './plugin.mjs';
 
 const {assign} = Object;
 
