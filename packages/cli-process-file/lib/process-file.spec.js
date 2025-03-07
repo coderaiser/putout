@@ -914,6 +914,48 @@ test('putout: cli: process-file: transform error: no flatlint: reason: traverse'
     t.end();
 });
 
+test('putout: cli: process-file: transform error: flatlint: env variable FLATLINT', async (t) => {
+    const {extract} = await import('@putout/operate');
+    const source = 'const a = () => {}';
+    const fix = true;
+    
+    const log = stub();
+    const write = stub();
+    const simpleImport = stub();
+    
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const plugin = {
+        report: noop,
+        fix: noop,
+        traverse: () => ({
+            Function(path) {
+                extract(path);
+            },
+        }),
+    };
+    
+    await fn({
+        name: 'example.js',
+        source,
+        index: 0,
+        length: 1,
+        simpleImport,
+        options: {
+            plugins: [
+                ['throws', plugin],
+            ],
+        },
+    });
+    
+    t.notCalled(simpleImport);
+    t.end();
+});
+
 test('putout: cli: process-file: transform error: no flatlint: reason: fix', async (t) => {
     const source = 'const a = () => {}';
     const fix = true;

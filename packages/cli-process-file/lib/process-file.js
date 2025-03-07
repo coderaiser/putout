@@ -1,11 +1,13 @@
 'use strict';
 
+const process = require('node:process');
 const tryToCatch = require('try-to-catch');
 const eslint = require('@putout/eslint');
 const {parseMatch} = require('putout/parse-match');
 const {mergeOptions} = require('putout/merge-options');
 const parseError = require('putout/parse-error');
 const {putoutAsync} = require('putout');
+const once = require('once');
 
 const {simpleImport: _simpleImport} = require('./simple-import');
 
@@ -16,6 +18,8 @@ const getMatchedOptions = (name, options) => {
     return mergeOptions(options, parseMatch(name, options.match));
 };
 
+const getEnv = once(() => process.env);
+
 module.exports = ({fix, fixCount, logError, raw}) => async function processFile(overrides) {
     const {
         name = '<input>',
@@ -23,6 +27,7 @@ module.exports = ({fix, fixCount, logError, raw}) => async function processFile(
         startLine,
         options = {},
         again,
+        env = getEnv(),
         simpleImport = _simpleImport,
     } = overrides;
     
@@ -40,7 +45,9 @@ module.exports = ({fix, fixCount, logError, raw}) => async function processFile(
     
     e && raw && logError(e);
     
-    if (!again && e && e.reason === 'parse') {
+    const {FLATLINT} = env;
+    
+    if (FLATLINT || !again && e && e.reason === 'parse') {
         const {lint} = await simpleImport('samadhi');
         const [code, places] = await lint(source, {
             startLine,
