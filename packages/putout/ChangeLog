@@ -1,3 +1,23 @@
+2025.03.07, v38.5.3
+
+fix:
+- 48492ecc8 @putout/cli-process-file: log error
+- 95098943a @putout/cli-process-file: log any kind of error, not only from parser
+
+feature:
+- 4183d7a89 putout: @putout/plugin-remove-duplicate-keys v7.0.0
+- 66e8e4b74 @putout/plugin-remove-duplicate-keys: drop support of 🐊 < 38
+- 4dfb77852 @putout/plugin-remove-duplicate-keys: argument name clash support
+- 208422a17 @putout/operate: traverseProperties: ObjectPattern: exclude RestElement
+- 340e3a131 eslint-plugin-puotut: plugin: convert to ESM
+- fade161c4 @putout/cli-process-file: FLATLINT
+- ecf87f88e @putout/plugin-putout: apply-lowercase-to-node-builders: add (babel/babel#17129)
+- 8622b32f5 @putout/plugin-react-hooks: drop support of 🐊 < 38
+- 43c258230 @putout/plugin-react-hooks: convert-state-to-hooks: change names
+- 4139f0cfd @putout/plugin-putout: declare: lowercased node builders (babel/babel#17129)
+- f69c01e8a @putout/plugin-remove-unused-private-fields: report
+- 07c709330 @putout/plugin-remove-unused-private-fields: convert to Traverser
+
 2025.03.05, v38.5.2
 
 feature:
