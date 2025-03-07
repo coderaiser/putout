@@ -35,6 +35,22 @@ test('operate: traverse-properties: traverse', (t) => {
     t.end();
 });
 
+test('operate: traverse-properties: traverse: ObjectPattern', (t) => {
+    const source = 'const a = ({b, ...c}) => {}';
+    let propertyPath;
+    
+    traverse(parse(source), {
+        ObjectPattern(path) {
+            [propertyPath] = traverseProperties(path, 'b', {
+                firstLevel: true,
+            });
+        },
+    });
+    
+    t.equal(propertyPath.node.key.name, 'b');
+    t.end();
+});
+
 test('operate: traverse-properties: traverse: ObjectExpression: path', (t) => {
     const source = '({"a": "b"})';
     let propertyPath;

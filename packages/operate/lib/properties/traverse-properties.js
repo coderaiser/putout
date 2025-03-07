@@ -50,6 +50,9 @@ const collect = ({name, collector}) => (path) => {
         if (propertyPath.isSpreadElement())
             continue;
         
+        if (propertyPath.isRestElement())
+            continue;
+        
         const keyPath = propertyPath.get('key');
         
         if (keyPath.isConditionalExpression())
