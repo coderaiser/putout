@@ -329,3 +329,12 @@ function get() {
 ```
 
 </details>
+
+<details><summary>Argument name clash</summary>
+
+```diff
+-const a = ({b, b, ...c}) => {};
++const a = ({b, ...c}) => {};
+```
+
+</details>

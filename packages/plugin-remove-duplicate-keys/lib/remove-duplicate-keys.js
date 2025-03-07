@@ -2,20 +2,20 @@
 
 const {types, operator} = require('putout');
 const fullstore = require('fullstore');
+const {
+    compare,
+    traverseProperties,
+    extract,
+} = operator;
 
 const {
     isSpreadElement,
     isIdentifier,
     isMemberExpression,
     isObjectProperty,
-    isObjectPattern,
     isStringLiteral,
+    isObjectPattern,
 } = types;
-
-const {
-    traverseProperties,
-    extract,
-} = operator;
 
 const isSpreadId = (name) => (a) => isSpreadElement(a) && isIdentifier(a.argument, {
     name,
@@ -54,14 +54,14 @@ module.exports.match = () => ({
         const newProperties = [];
         const {properties} = __object;
         
-        if (isObjectPattern(__object))
-            return false;
-        
         const reversed = properties
             .slice()
             .reverse();
         
         for (const prop of reversed) {
+            if (isObjectPattern(path) && !compare(prop.key, prop.value))
+                continue;
+            
             if (isSpreadElement(prop) && isIdentifier(prop.argument)) {
                 const {name} = prop.argument;
                 const isFirst = checkIfFirst(properties, newProperties, isSpreadId, name);

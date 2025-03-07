@@ -44,6 +44,17 @@ const a = {
 };
 ```
 
+> SyntaxError: Duplicate parameter name not allowed in this context
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Duplicate_parameter)
+
+Argument name clash:
+
+```diff
+-const a = ({b, b, ...c}) => {};
++const a = ({b, ...c}) => {};
+```
+
 ## License
 
 MIT

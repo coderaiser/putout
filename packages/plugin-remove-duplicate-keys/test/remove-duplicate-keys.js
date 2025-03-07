@@ -63,3 +63,18 @@ test('remove duplicate-keys: transform: array', (t) => {
     t.transform('array');
     t.end();
 });
+
+test('remove duplicate-keys: transform: object-pattern', (t) => {
+    t.transform('object-pattern');
+    t.end();
+});
+
+test('remove duplicate-keys: no report: object-pattern-rename', (t) => {
+    t.noReport('object-pattern-rename');
+    t.end();
+});
+
+test('remove duplicate-keys: no report: object-pattern-nested', (t) => {
+    t.noReport('object-pattern-nested');
+    t.end();
+});
