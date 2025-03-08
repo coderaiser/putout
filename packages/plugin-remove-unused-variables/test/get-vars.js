@@ -36,6 +36,7 @@ const fixture = readFixtures([
     'destr-fn-vars',
     'decorator',
     'do-while',
+    'export-const',
     'export-default-function',
     'export-default-anonymous-function',
     'export-default-class',
@@ -808,6 +809,29 @@ test('remove-unused-variables: get-vars: import', (t) => {
     const expected = [{
         readFileSync: du,
         writeFileSync: d_,
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: export const', (t) => {
+    const ast = parse(fixture.exportConst);
+    const result = getVars(ast);
+    
+    const expected = [{
+        putout: {
+            declared: false,
+            used: true,
+        },
+        rules: {
+            declared: true,
+            used: true,
+        },
+        spread: {
+            declared: true,
+            used: true,
+        },
     }];
     
     t.deepEqual(result, expected);

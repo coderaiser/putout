@@ -13,8 +13,9 @@ const {
     traverseTemplateLiteral,
 } = require('./traverse');
 
-const {isKeyword} = operator;
+const {createExportNamedDeclaration} = require('./visitors/export-named-declaration.js');
 const {assign} = Object;
+const {isKeyword} = operator;
 
 const {
     isAssignmentPattern,
@@ -25,8 +26,6 @@ const {
     isObjectExpression,
     isFunctionDeclaration,
     isArrayExpression,
-    isArrayPattern,
-    isVariableDeclaration,
     isRestElement,
 } = types;
 
@@ -513,49 +512,9 @@ module.exports = ({use, declare, addParams}) => {
             if (isObjectExpression(declaration))
                 return traverseObj(declarationPath.get('properties'));
         },
-        
-        ExportNamedDeclaration(path) {
-            const declarationPath = path.get('declaration');
-            const {declaration, specifiers} = path.node;
-            
-            if (declarationPath.isFunctionDeclaration())
-                return use(path, declaration.id.name);
-            
-            if (declarationPath.isClassDeclaration())
-                return use(path, declaration.id.name);
-            
-            // typescript
-            if (declarationPath.isTSInterfaceDeclaration())
-                return use(path, declaration.id.name);
-            
-            if (declarationPath.isTSTypeAliasDeclaration())
-                return use(path, declaration.id.name);
-            
-            if (isVariableDeclaration(declaration)) {
-                const {declarations} = declaration;
-                
-                for (const {id} of declarations) {
-                    /* istanbul ignore else */
-                    if (isIdentifier(id))
-                        use(path, id.name);
-                    
-                    if (isArrayPattern(id))
-                        for (const element of id.elements) {
-                            if (isIdentifier(element))
-                                use(path, element.name);
-                        }
-                }
-                
-                return;
-            }
-            
-            for (const {local} of specifiers) {
-                /* istanbul ignore else */
-                if (isIdentifier(local))
-                    use(path, local.name);
-            }
-        },
-        
+        ExportNamedDeclaration: createExportNamedDeclaration({
+            use,
+        }),
         Function(path) {
             const {node, parentPath} = path;
             const {
