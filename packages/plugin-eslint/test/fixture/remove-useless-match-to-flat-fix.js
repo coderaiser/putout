@@ -1,4 +1,4 @@
 import {safeAlign} from 'eslint-plugin-putout';
-import {createESLintConfig} from '@putout/eslint-flat';
+import {defineConfig} from 'eslint/config';
 
-export default safeAlign;
+export default defineConfig([safeAlign]);

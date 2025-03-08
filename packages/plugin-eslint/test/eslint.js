@@ -143,3 +143,8 @@ test('plugin-eslint: transform: remove-useless-match-to-flat', (t) => {
     t.transform('remove-useless-match-to-flat');
     t.end();
 });
+
+test('plugin-eslint: transform: apply-define-config', (t) => {
+    t.transform('apply-define-config');
+    t.end();
+});

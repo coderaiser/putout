@@ -26,6 +26,7 @@ const removeSpreadFromCreateEslintConfig = require('./remove-spread-from-create-
 const removeSuffixConfig = require('./remove-suffix-config');
 const removeCreateEslintConfigWithOneArgument = require('./remove-create-eslint-config-with-one-argument');
 const removeUselessMatchToFlat = require('./remove-useless-match-to-flat');
+const applyDefineConfig = require('./apply-define-config');
 
 module.exports.rules = {
     'add-putout': addPutout,
@@ -54,4 +55,5 @@ module.exports.rules = {
     'remove-suffix-config': removeSuffixConfig,
     'remove-create-eslint-config-with-one-argument': removeCreateEslintConfigWithOneArgument,
     'remove-useless-match-to-flat': removeUselessMatchToFlat,
+    'apply-define-config': applyDefineConfig,
 };

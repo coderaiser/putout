@@ -1,6 +1,6 @@
 import {safeAlign} from 'eslint-plugin-putout';
 import {matchToFlat} from '@putout/eslint-flat';
-import {createESLintConfig} from '@putout/eslint-flat';
+import {defineConfig} from 'eslint/config';
 
 const match = {
     'bin/**': {
@@ -8,7 +8,7 @@ const match = {
     },
 };
 
-module.exports = createESLintConfig([
+module.exports = defineConfig([
     safeAlign, {
         'rules': {
             'node/no-unsupported-features/node-builtins': 'off',

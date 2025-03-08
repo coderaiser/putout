@@ -1,9 +1,9 @@
 'use strict';
 
-const {createESLintConfig} = require('@putout/eslint-flat');
+const {defineConfig} = require('eslint/config');
 const {safeAlign} = require('./lib/index.mjs');
 
-module.exports = createESLintConfig([
+module.exports = defineConfig([
     safeAlign, {
         rules: {
             'no-unreachable': 'off',

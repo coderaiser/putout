@@ -18,6 +18,7 @@ npm i @putout/plugin-eslint -D
 ## Rules
 
 - ✅ [add-putout](#add-putout);
+- ✅ [apply-define-config](#apply-define-config);
 - ✅ [apply-dir-to-flat](#apply-dir-to-flat);
 - ✅ [apply-ignores](#apply-ignores);
 - ✅ [apply-create-eslint](#apply-create-eslint);
@@ -50,6 +51,7 @@ npm i @putout/plugin-eslint -D
 {
     "rules": {
         "eslint/add-putout": "on",
+        "eslint/apply-define-config": "on",
         "eslint/apply-dir-to-flat": "on",
         "eslint/apply-create-eslint": "on",
         "eslint/apply-ignores": ["off", {
@@ -94,6 +96,36 @@ npm i @putout/plugin-eslint -D
         "node"
     ]
 }
+```
+
+## apply-define-config
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3e2944d9298bca267b133fa4dc01131/fc0aa8718af032c67d310456e775c8590c3b9b70).
+
+### ❌ Example of incorrect code
+
+```js
+import {safeAlign} from 'eslint-plugin-putout';
+import {createESLintConfig} from '@putout/eslint-flat';
+
+export default createESLintConfig([
+    safeAlign, {
+        ignores: ['**/fixture'],
+    },
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+import {safeAlign} from 'eslint-plugin-putout';
+import {defineConfig} from '@eslint/config';
+
+export default defineConfig([
+    safeAlign, {
+        ignores: ['**/fixture'],
+    },
+]);
 ```
 
 ## apply-ignores

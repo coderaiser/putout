@@ -1,7 +1,7 @@
-import {createESLintConfig} from '@putout/eslint-flat';
 import {recommended} from 'eslint-plugin-putout';
+import {defineConfig} from 'eslint/config';
 
-export default createESLintConfig([
+export default defineConfig([
     recommended, {
         ignores: ['**/fixture'],
     },

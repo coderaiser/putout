@@ -1,9 +1,7 @@
 import {safeAlign} from 'eslint-plugin-putout';
 import eslintPlugin from 'eslint-plugin-eslint-plugin';
-import {
-    createESLintConfig,
-    matchToFlat,
-} from '@putout/eslint-flat';
+import {matchToFlat} from '@putout/eslint-flat';
+import {defineConfig} from 'eslint/config';
 
 export const match = {
     'eslint-fixture/**/*.js': {
@@ -18,7 +16,7 @@ export const match = {
         'putout/add-newline-before-return': 'off',
     },
 };
-export default createESLintConfig([
+export default defineConfig([
     eslintPlugin.configs['flat/recommended'],
     safeAlign,
     matchToFlat(match),

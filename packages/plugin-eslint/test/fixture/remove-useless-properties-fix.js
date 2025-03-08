@@ -1,11 +1,11 @@
 import {safeAlign} from 'eslint-plugin-putout';
-import {createESLintConfig} from '@putout/eslint-flat';
+import {defineConfig} from 'eslint/config';
 
-module.exports = createESLintConfig([safeAlign]);
+module.exports = defineConfig([safeAlign]);
 
-module.exports = createESLintConfig([safeAlign]);
+module.exports = defineConfig([safeAlign]);
 
-module.exports = createESLintConfig([
+module.exports = defineConfig([
     safeAlign, {
         files: ['src/**/*.js'],
         ignores: ['**/*.config.js'],
@@ -14,7 +14,7 @@ module.exports = createESLintConfig([
     },
 ]);
 
-module.exports = createESLintConfig([
+module.exports = defineConfig([
     safeAlign, {
         rules: {
             'node/no-unsupported-features/node-builtins': 'off',

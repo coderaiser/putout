@@ -1,8 +1,6 @@
 import {safeAlign} from 'eslint-plugin-putout';
-import {
-    createESLintConfig,
-    matchToFlat,
-} from '@putout/eslint-flat';
+import {matchToFlat} from '@putout/eslint-flat';
+import {defineConfig} from 'eslint/config';
 
 export const match = {
     '*.md{ts}': {
@@ -12,4 +10,4 @@ export const match = {
         '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
     },
 };
-export default createESLintConfig([safeAlign, matchToFlat(match)]);
+export default defineConfig([safeAlign, matchToFlat(match)]);
