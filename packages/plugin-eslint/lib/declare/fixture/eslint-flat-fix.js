@@ -1,7 +1,7 @@
 import {matchToFlat} from '@putout/eslint-flat';
 import {mergeESLintConfigs} from '@putout/eslint-flat';
 import {createESLintConfig} from '@putout/eslint-flat';
-import {safeAlign} from 'eslint-plugin-putout/config';
+import {safeAlign} from 'eslint-plugin-putout';
 
 matchToFlatDir('./hello');
 matchToFlat(config);

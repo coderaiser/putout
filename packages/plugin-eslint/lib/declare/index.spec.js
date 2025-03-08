@@ -23,3 +23,8 @@ test('plugin-eslint: declare: transform: eslint-flat', (t) => {
     t.transform('eslint-flat');
     t.end();
 });
+
+test('plugin-eslint: declare: no transform: config-helpers', (t) => {
+    t.noTransform('config-helpers');
+    t.end();
+});
