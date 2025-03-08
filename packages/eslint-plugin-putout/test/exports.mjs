@@ -1,5 +1,7 @@
 import {test} from 'supertape';
 
+const {keys} = Object;
+
 test('eslint-plugin-putout: exports: rules', async (t) => {
     const {rules} = await import('eslint-plugin-putout');
     const internal = await import('../lib/index.mjs');
@@ -13,5 +15,21 @@ test('eslint-plugin-putout: exports: default', async (t) => {
     const internal = await import('../lib/plugin.mjs');
     
     t.equal(result.default, internal);
+    t.end();
+});
+
+test('eslint-plugin-putout: exports: configs', async (t) => {
+    const {configs} = await import('eslint-plugin-putout');
+    const result = keys(configs);
+    
+    const expected = [
+        'recommended',
+        'jsx',
+        'safe',
+        'safeAlign',
+        'esm',
+    ];
+    
+    t.deepEqual(result, expected);
     t.end();
 });
