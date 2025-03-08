@@ -17,7 +17,32 @@ npm i putout eslint eslint-plugin-putout -D
 
 ## Usage
 
-Update `eslint.config.js` with:
+### Plugin
+
+To use `putout` as ESLint plugin you can use in `eslint.config.js`
+
+```js
+import putout from 'eslint-plugin-putout';
+
+export default [
+    rules: {
+        'putout/putout': 'error',
+    },
+    plugins: {
+        putout,
+    },
+];
+```
+
+### Preset
+
+Also you can import one of predefined preset:
+
+- ✅ **recommended** - all rules enabled;
+- ✅ **safe** - dangerous rules disabled;
+- ✅ **safeAlign** - dangerous rules disabled + add whitespaces on empty lines;
+
+Here is how it can look like:
 
 ```js
 import {recommended} from 'eslint-plugin-putout';

@@ -139,8 +139,4 @@ export const configs = {
     esm,
 };
 
-const {rules} = putout;
-
-export {
-    rules,
-};
+export default putout;
