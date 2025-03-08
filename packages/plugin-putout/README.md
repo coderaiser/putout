@@ -37,6 +37,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-parens](#apply-parens);
 - ✅ [apply-short-processors](#apply-short-processors);
 - ✅ [check-match](#check-match);
+- ✅ [check-declare](#check-declare);
 - ✅ [check-replace-code](#check-replace-code);
 - ✅ [convert-add-argument-to-add-args](#convert-add-argument-to-add-test-args);
 - ✅ [convert-babel-types](#convert-babel-types);
@@ -105,6 +106,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-for-of-to-track-file": "on",
         "putout/apply-fixture-name-to-message": "on",
         "putout/check-match": "on",
+        "putout/check-declare": "on",
         "putout/check-replace-code": ["on", {
             "once": true
         }],
@@ -862,6 +864,23 @@ module.exports.match = () => ({
     'module.exports.traverse = __a': ({}, path) => {},
 });
 ```
+
+## check-declare
+
+Checks that [Declarator](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#declarator) transform is possible.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9fccb187bb8933afff0dc0db57b3cea8/25cb812978fadb4efb5f0cb44058a61f70f8b78e):
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.declare = () => ({
+    isNumber: 'const isNumber = () => {}',
+    isString: 'const isNumber = () => {}',
+});
+```
+
+☝️ *There is no `fix` for this rule, it used internally to be more confident about `test coverage`, because of declaration form, transforms cannon be checked by `nyc` and `c8`, and uncovered lines can find unfixable false positives when running on code.
+This is additional tests, if you forget to test some case (from a big list of rules that is supported) it will be checked with this `rule` and make transforms more stable.*
 
 ## check-replace-code
 

@@ -7,6 +7,7 @@ const applyRemove = require('./apply-remove');
 const applyInsertBefore = require('./apply-insert-before');
 const applyInsertAfter = require('./apply-insert-after');
 const applyDeclare = require('./apply-declare');
+const checkDeclare = require('./check-declare');
 const checkReplaceCode = require('./check-replace-code');
 const checkMatch = require('./check-match');
 const convertPutoutTestToCreateTest = require('./convert-putout-test-to-create-test');
@@ -71,6 +72,7 @@ module.exports.rules = {
     'apply-insert-before': applyInsertBefore,
     'apply-insert-after': applyInsertAfter,
     'apply-declare': applyDeclare,
+    'check-declare': checkDeclare,
     'check-replace-code': checkReplaceCode,
     'check-match': checkMatch,
     'convert-putout-test-to-create-test': convertPutoutTestToCreateTest,

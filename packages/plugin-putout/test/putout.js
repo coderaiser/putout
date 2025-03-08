@@ -306,3 +306,8 @@ test('plugin-putout: transform: apply-lowercase-to-node-builders', (t) => {
     t.transform('apply-lowercase-to-node-builders');
     t.end();
 });
+
+test('plugin-putout: transform: check-declare', (t) => {
+    t.transform('check-declare');
+    t.end();
+});

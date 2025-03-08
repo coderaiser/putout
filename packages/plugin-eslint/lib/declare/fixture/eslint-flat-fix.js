@@ -1,3 +1,4 @@
+import {matchToFlatDir} from '@putout/eslint-flat';
 import {matchToFlat} from '@putout/eslint-flat';
 import {mergeESLintConfigs} from '@putout/eslint-flat';
 import {createESLintConfig} from '@putout/eslint-flat';
