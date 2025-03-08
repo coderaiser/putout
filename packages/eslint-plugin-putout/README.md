@@ -50,6 +50,22 @@ import {recommended} from 'eslint-plugin-putout';
 export default recommended;
 ```
 
+Or with [`defineConfig`](https://eslint.org/blog/2025/03/flat-config-extends-define-config-global-ignores/):
+
+```js
+import {defineConfig} from 'eslint/config';
+import putout from 'eslint-plugin-putout';
+
+export default defineConfig({
+    plugins: {
+        putout,
+    },
+    extends: [
+        "putout/recommended",
+    ]
+});
+```
+
 Then configure the rules you want to use under the rules section.
 
 ```json
