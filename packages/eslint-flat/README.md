@@ -123,7 +123,7 @@ export default [
 
 ### `createESLintConfig(configs)`
 
-Gives ability to avoid lots of spreads:
+Gives ability to avoid lots of spreads (alias to [`defineConfig`](https://eslint.org/blog/2025/03/flat-config-extends-define-config-global-ignores/):
 
 ```js
 export default createESLintConfig([safeAlign, config]);
