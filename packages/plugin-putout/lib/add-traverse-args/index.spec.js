@@ -53,3 +53,13 @@ test('plugin-putout: add-traverse-args: transform: list-store', (t) => {
     t.transform('list-store');
     t.end();
 });
+
+test('plugin-putout: add-traverse-args: transform: options', (t) => {
+    t.transform('options');
+    t.end();
+});
+
+test('plugin-putout: add-traverse-args: no report: options-declared-upper', (t) => {
+    t.noReport('options-declared-upper');
+    t.end();
+});

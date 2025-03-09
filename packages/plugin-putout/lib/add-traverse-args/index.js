@@ -7,13 +7,14 @@ const {
     identifier,
 } = types;
 
-const {traverse} = operator;
+const {traverse, getBinding} = operator;
 
 const defaultNames = [
     'push',
     'store',
     'listStore',
     'pathStore',
+    'options',
 ];
 
 module.exports.report = ({name}) => `Add '${name}' argument to 'traverse'`;
@@ -73,22 +74,23 @@ const checkArgs = (names, push) => (path) => {
             if (isArgExists(name, fn))
                 return;
             
+            if (getBinding(path, name))
+                return;
+            
             push({
                 path,
                 fn,
                 name,
             });
         },
-        [`__a(__args)`]: (currentPath) => {
-            const {callee} = currentPath.node;
+        [`__a(__args)`]: (path) => {
+            const {callee} = path.node;
             const {name} = callee;
             
             if (!names.includes(name))
                 return;
             
-            const bindings = currentPath.scope.getAllBindings();
-            
-            if (bindings[name])
+            if (getBinding(path, name))
                 return;
             
             push({
