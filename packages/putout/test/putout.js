@@ -831,7 +831,7 @@ test('putout: progress', async (t) => {
         }),
     ]);
     
-    t.equal(pluginsCount, 2);
+    t.equal(pluginsCount, 3);
     t.end();
 });
 
