@@ -15,6 +15,7 @@ const replaceCwd = require('./replace-cwd');
 const readAllFiles = require('./read-all-files');
 const writeAllFiles = require('./write-all-files');
 const convertJsToJson = require('./convert-js-to-json');
+const removeNycOutputFiles = require('./remove-nyc-output-files');
 
 module.exports.rules = {
     'remove-vim-swap-file': removeVimSwapFile,
@@ -32,4 +33,5 @@ module.exports.rules = {
     'write-all-files': ['off', writeAllFiles],
     'convert-js-to-json': ['off', convertJsToJson],
     'convert-json-to-js': ['off', convertJsonToJs],
+    'remove-nyc-output-files': removeNycOutputFiles,
 };

@@ -83,3 +83,8 @@ test('plugin-filesystem: no transform: convert-js-to-json-disabled', (t) => {
     t.noTransform('convert-js-to-json-disabled');
     t.end();
 });
+
+test('plugin-filesystem: transform: remove-nyc-output-files', (t) => {
+    t.transform('remove-nyc-output-files');
+    t.end();
+});
