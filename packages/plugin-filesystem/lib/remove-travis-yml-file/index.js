@@ -2,4 +2,4 @@
 
 const {createRemoveFiles} = require('../create-remove-files');
 
-module.exports = createRemoveFiles('*.swp');
+module.exports = createRemoveFiles('.travis.yml');

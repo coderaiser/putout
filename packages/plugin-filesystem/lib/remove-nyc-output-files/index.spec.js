@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('filesystem: remove-nyc-output-files: report', (t) => {
-    t.report('remove-nyc-output-files', `Remove '.nyc_output' directory`);
+    t.report('remove-nyc-output-files', `Remove '.nyc_output': '/.nyc_output'`);
     t.end();
 });
 

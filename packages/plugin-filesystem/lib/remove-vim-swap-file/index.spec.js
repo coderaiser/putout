@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('packages: remove-vim-swap-file: report', (t) => {
-    t.report('remove-vim-swap-file', `Remove vim swap file`);
+    t.report('remove-vim-swap-file', `Remove '*.swp': '/home/coderaiser/putout/lib/putout.js.swp'`);
     t.end();
 });
 

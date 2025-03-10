@@ -21,6 +21,7 @@ npm i @putout/plugin-filesystem -D
 - ✅ [move-referenced-file](#move-referenced-file);
 - ✅ [read-all-files](#read-all-files)
   [rename-file](#rename-file);
+- ✅ [remove-travis-yml-file](#remove-travis-yml-file);
 - ✅ [remove-vim-swap-file](#remove-vim-swap-file);
 - ✅ [remove-nyc-output-files](#remove-nyc-output-files);
 - ✅ [remove-files](#remove-files);
@@ -35,6 +36,7 @@ npm i @putout/plugin-filesystem -D
 ```json
 {
     "rules": {
+        "filesystem/remove-travis-yml-file": "on",
         "filesystem/remove-vim-swap-file": "on",
         "filesystem/remove-nyc-output-files": "on",
         "filesystem/bundle": "off",
@@ -114,6 +116,14 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/52d8126f3e
 
 ```diff
 -.nyc_output
+```
+
+## remove-travis-yml-file
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a495c6782ed8b512f37e757bafd02b08/5d0dc03f6be2653639bb22ea00c3ce91e8454940).
+
+```diff
+-.travis.yml
 ```
 
 ## remove-vim-swap-file

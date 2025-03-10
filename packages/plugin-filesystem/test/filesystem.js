@@ -88,3 +88,8 @@ test('plugin-filesystem: transform: remove-nyc-output-files', (t) => {
     t.transform('remove-nyc-output-files');
     t.end();
 });
+
+test('plugin-filesystem: transform: remove-travis-yml-file', (t) => {
+    t.transform('remove-travis-yml-file');
+    t.end();
+});
