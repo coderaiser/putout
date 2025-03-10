@@ -4,6 +4,8 @@ const {createTest} = require('@putout/test');
 
 const removeUselessVariables = require('@putout/plugin-remove-useless-variables');
 const reuseDuplicateInit = require('..');
+const convertTapeToSupertape = require('@putout/plugin-tape').rules['convert-tape-to-supertape'];
+const applyDestructuring = require('@putout/plugin-tape').rules['apply-destructuring'];
 
 const declareStub = require('@putout/plugin-tape').rules.declare;
 
@@ -53,6 +55,14 @@ test('plugin-reuse-duplicate-init: transform: no-node', (t) => {
 test('plugin-reuse-duplicate-init: transform: declare-stub', (t) => {
     t.transform('declare-stub', {
         'tape/declare': declareStub,
+    });
+    t.end();
+});
+
+test('plugin-reuse-duplicate-init: transform: overlap', (t) => {
+    t.transform('overlap', {
+        'tape/convert-tape-to-supertape': convertTapeToSupertape,
+        'tape/apply-destructuring': applyDestructuring,
     });
     t.end();
 });

@@ -41,6 +41,9 @@ module.exports.traverse = ({push, store}) => ({
         if (!newPath || !newPath.node)
             return;
         
+        if (path === newPath.parentPath.parentPath)
+            return;
+        
         if (path.scope.uid !== newPath.scope.uid)
             return;
         
