@@ -1,3 +1,22 @@
+2025.03.10, v38.5.4
+
+fix:
+- 7d2db2ff5 @putout/plugin-reuse-duplicate-init: overlap
+- c311d1b43 eslint-plugin-putout: rules
+- 9fe97183d eslint-plugin-putout: exports: rules
+
+feature:
+- 1af5645a6 putout: @putout/plugin-reuse-duplicate-init v7.0.0
+- ad76550ff @putout/plugin-reuse-duplicate-init: drop support of 🐊 < 38
+- 2d49645c5 @putout/plugin-filesystem: remove-nyc-output-files: add
+- be3cbcdcb @putout/plugin-putout: add-traverse-args: options
+- 0dcc70fef @putout/plugin-eslint: apply-define-config: add (https://eslint.org/blog/2025/03/flat-config-extends-define-config-global-ignores/)
+- 1aaeac6d4 @putout/plugin-putout: check-declare: add
+- 2de7fd42f @putout/plugin-eslint: declare: defineConfig, globalIgnores
+- c0efe51d1 remove-unused-variables: ExportNamedDeclaraiton: ObjectPattern
+- 72c932ea9 @putout/eslint-flat: createESLintConfig: alias to defineConfig
+- 95c59f7f4 eslint-plugin-putout: export plugin (#232)
+
 2025.03.07, v38.5.3
 
 fix:
