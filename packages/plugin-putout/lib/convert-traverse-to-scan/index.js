@@ -16,6 +16,7 @@ const {
     isObjectProperty,
     isObjectExpression,
     identifier,
+    isVariableDeclarator,
 } = types;
 
 module.exports.report = () => `Use Scanner instead of Traverser`;
@@ -25,7 +26,13 @@ module.exports.fix = ({path, pathProperty}) => {
         replaceWith(path.parentPath, path.get('body'));
         path.parentPath.parentPath.node.params.unshift(identifier('path'));
         
-        path.parentPath.parentPath.parentPath.node.left.property.name = 'scan';
+        const currentPath = path.parentPath.parentPath.parentPath;
+        
+        if (isVariableDeclarator(currentPath))
+            currentPath.node.init.name = 'scan';
+        else
+            currentPath.node.left.property.name = 'scan';
+        
         return;
     }
     

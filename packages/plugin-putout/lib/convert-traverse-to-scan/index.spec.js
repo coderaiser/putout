@@ -73,3 +73,8 @@ test('packages: convert-traverse-to-scan: transform: create-traverse', (t) => {
     t.transform('create-traverse');
     t.end();
 });
+
+test('packages: convert-traverse-to-scan: transform: esm', (t) => {
+    t.transform('esm');
+    t.end();
+});
