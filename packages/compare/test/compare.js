@@ -709,7 +709,7 @@ test('compare: ts: exportKind', (t) => {
         type: 'ExportNamedDeclaration',
         specifiers: [],
         source: null,
-        assertions: [],
+        attributes: [],
         declaration: {
             type: 'VariableDeclaration',
             declarations: [{
