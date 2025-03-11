@@ -5,6 +5,7 @@ const {
     objectPattern,
     objectProperty,
     identifier,
+    isObjectPattern,
 } = types;
 
 const {traverse, getBinding} = operator;
@@ -50,7 +51,12 @@ const isArgExists = (mainName, fn) => {
     if (!fn.params.length)
         return false;
     
-    for (const prop of fn.params[0].properties) {
+    const [first] = fn.params;
+    
+    if (!isObjectPattern(first))
+        return false;
+    
+    for (const prop of first.properties) {
         if (prop.key.name === mainName)
             return true;
     }

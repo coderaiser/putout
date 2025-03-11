@@ -2,6 +2,8 @@
 
 const {createTest} = require('@putout/test');
 const addPush = require('.');
+const putout = require('..');
+const convertTraverseToScan = putout.rules['convert-traverse-to-scan'];
 
 const test = createTest(__dirname, {
     plugins: [
@@ -61,5 +63,12 @@ test('plugin-putout: add-traverse-args: transform: options', (t) => {
 
 test('plugin-putout: add-traverse-args: no report: options-declared-upper', (t) => {
     t.noReport('options-declared-upper');
+    t.end();
+});
+
+test('plugin-putout: add-traverse-args: report: convert-traverse-to-scan', (t) => {
+    t.transform('convert-traverse-to-scan', {
+        'convert-traverse-to-scan': convertTraverseToScan,
+    });
     t.end();
 });
