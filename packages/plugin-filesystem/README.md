@@ -19,8 +19,8 @@ npm i @putout/plugin-filesystem -D
 - ✅ [convert-json-to-js](#convert-json-to-js);
 - ✅ [convert-simple-filesystem-to-filesystem](#convert-simple-filesystem-to-filesystem);
 - ✅ [move-referenced-file](#move-referenced-file);
-- ✅ [read-all-files](#read-all-files)
-  [rename-file](#rename-file);
+- ✅ [read-all-files](#read-all-files);
+- ✅ [rename-file](#rename-file);
 - ✅ [remove-travis-yml-file](#remove-travis-yml-file);
 - ✅ [remove-vim-swap-file](#remove-vim-swap-file);
 - ✅ [remove-nyc-output-files](#remove-nyc-output-files);
