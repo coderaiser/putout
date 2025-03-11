@@ -123,3 +123,11 @@ test('plugin-nodejs: group-require-by-id: no report after transform: group-requi
     });
     t.end();
 });
+
+test('plugin-declare-before-reference: transform: convert-traverse-to-scan', (t) => {
+    t.transform('convert-traverse-to-scan', {
+        'convert-esm-to-commonjs': nodejs.rules['convert-esm-to-commonjs'],
+        'putout/declare': putout.rules.declare,
+    });
+    t.end();
+});

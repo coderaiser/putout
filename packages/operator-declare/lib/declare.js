@@ -2,6 +2,7 @@
 
 const {template} = require('@putout/engine-parser');
 const {isESM, insertAfter} = require('@putout/operate');
+
 const {compare} = require('@putout/compare');
 
 const {types} = require('@putout/babel');
@@ -143,8 +144,12 @@ function insert(node, bodyPath) {
     if (isVariableDeclaration(node) && isImportDeclaration(insertionPath) || isRequire(insertionPath))
         return insertAfter(insertionPath, node);
     
-    if (isVariableDeclaration(node))
+    if (isVariableDeclaration(node)) {
+        if (isRequire(first))
+            return first.insertAfter(node);
+        
         return first.insertBefore(node);
+    }
     
     if (!insertionPath)
         return first.insertBefore(node);

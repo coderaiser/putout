@@ -3,6 +3,7 @@
 const test = require('supertape');
 const putout = require('putout');
 const montag = require('montag');
+const nodejs = require('@putout/plugin-nodejs');
 
 const {declare} = require('./declare.js');
 
@@ -636,8 +637,8 @@ test('putout: operator: declare: require', (t) => {
     });
     
     const expected = montag`
-        const process = require('process');
         const fs = require('fs');
+        const process = require('process');
         const a = 5;
         
         async function hello() {
@@ -1042,6 +1043,37 @@ test('putout: operator: declare: under require', (t) => {
             'add-function': isNumber(),
             'hello': hello,
         };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operator: declare: insert before require', (t) => {
+    const declarations = {
+        operator: `import {operator} from 'putout'`,
+        findFile: `const {findFile} = operator`,
+    };
+    
+    const source = montag`
+        import {operator} from 'putout';
+        const a = 5;
+        findFile();
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert-esm-to-commonjs', nodejs.rules['convert-esm-to-commonjs']],
+            ['declare', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        const {operator: operator} = require('putout');
+        const {findFile} = operator;
+        const a = 5;
+        
+        findFile();\n
     `;
     
     t.equal(code, expected);
