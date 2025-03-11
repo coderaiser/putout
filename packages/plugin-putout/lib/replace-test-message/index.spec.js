@@ -48,3 +48,8 @@ test('plugin-putout: replace-test-message: transform: report-instead-of-transfor
     t.transform('report-instead-of-transform');
     t.end();
 });
+
+test('plugin-putout: replace-test-message: transform: transform-with-plugins', (t) => {
+    t.transform('transform-with-plugins');
+    t.end();
+});

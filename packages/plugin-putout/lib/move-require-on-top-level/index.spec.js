@@ -40,7 +40,7 @@ test('plugin-putout: move-require-on-top-level: no transform: not-require', (t) 
     t.end();
 });
 
-test('plugin-putout: move-require-on-top-level: no transform: apply-fixture-name-to-message', (t) => {
+test('plugin-putout: move-require-on-top-level: transform: apply-fixture-name-to-message', (t) => {
     t.transform('apply-fixture-name-to-message', {
         'apply-fixture-name-to-message': applyFixtureNameToMessage,
     });

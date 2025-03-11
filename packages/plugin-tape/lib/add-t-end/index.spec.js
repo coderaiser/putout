@@ -35,7 +35,7 @@ test('plugin-tape: add-t-end: no transform: async-operator', (t) => {
     t.end();
 });
 
-test('plugin-tape: add-t-end: no transform: putout', (t) => {
+test('plugin-tape: add-t-end: transform: putout', (t) => {
     t.transform('putout', {
         putout,
     });

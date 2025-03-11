@@ -76,14 +76,14 @@ test('plugin-merge-destructuring-properties: transform: tape', (t) => {
     t.end();
 });
 
-test('plugin-merge-destructuring-properties: no transform: exports', (t) => {
+test('plugin-merge-destructuring-properties: transform: exports', (t) => {
     t.transform('exports', {
         'node/convert-commonjs-to-esm': convert,
     });
     t.end();
 });
 
-test('plugin-merge-destructuring-properties: no transform: mock-require', (t) => {
+test('plugin-merge-destructuring-properties: transform: mock-require', (t) => {
     t.transform('mock-require', {
         'node/convert-commonjs-to-esm': convert,
         'tape/convert-mock-require-to-mock-import': tape.rules['convert-mock-require-to-mock-import'],

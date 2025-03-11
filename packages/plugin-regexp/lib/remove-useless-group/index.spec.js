@@ -22,7 +22,7 @@ test('plugin-regexp/remove-useless-group: no report: slashes', (t) => {
     t.end();
 });
 
-test('plugin-regexp/remove-useless-group: no report: decimal', (t) => {
+test('plugin-regexp/remove-useless-group: transform: decimal', (t) => {
     t.transform('decimal', {
         'regexp/optimize': optimize,
     });

@@ -42,7 +42,7 @@ test('putout: apply-fixture-name-to-message: transform: only', (t) => {
     t.end();
 });
 
-test('putout: apply-fixture-name-to-message: no report: remove-only', (t) => {
+test('putout: apply-fixture-name-to-message: transform: remove-only', (t) => {
     t.transform('remove-only', {
         removeOnly,
     });

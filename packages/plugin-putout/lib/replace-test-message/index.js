@@ -13,25 +13,37 @@ module.exports.fix = ({path, incorrect, correct}) => {
     path.node.raw = path.node.raw.replace(incorrect, correct);
 };
 
+const INCORRECT = {
+    TRANSFORM: /: (no transform|report|no report)/,
+    NO_TRANSFORM: /: (transform|report|no report)/,
+    REPORT: /: (no report|transform|no transform)/,
+    NO_REPORT: /: (report|transform|no transform)/,
+};
+
 module.exports.traverse = ({push}) => ({
     't.transform(__a)': convert({
         push,
-        incorrect: /: (no transform|report|no report)/,
+        incorrect: INCORRECT.TRANSFORM,
+        correct: ': transform',
+    }),
+    't.transform(__a, __b)': convert({
+        push,
+        incorrect: INCORRECT.TRANSFORM,
         correct: ': transform',
     }),
     't.noTransform(__a)': convert({
         push,
-        incorrect: /: (transform|report|no report)/,
+        incorrect: INCORRECT.NO_TRANSFORM,
         correct: ': no transform',
     }),
     't.report(__a, __b)': convert({
         push,
-        incorrect: /: (no report|transform|no transform)/,
+        incorrect: INCORRECT.REPORT,
         correct: ': report',
     }),
     't.noReport(__a)': convert({
         push,
-        incorrect: /: (report|transform|no transform)/,
+        incorrect: INCORRECT.NO_REPORT,
         correct: ': no report',
     }),
 });

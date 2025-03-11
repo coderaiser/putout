@@ -55,7 +55,7 @@ test('remove unused types: no transform: bubling', (t) => {
     t.end();
 });
 
-test('remove unused types: no transform: remove-useless-types', (t) => {
+test('remove unused types: transform: remove-useless-types', (t) => {
     t.transform('remove-useless-types', {
         'remove-useless-types': removeUselessTypes,
     });

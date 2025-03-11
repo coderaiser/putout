@@ -50,7 +50,7 @@ test('putout: apply-arrow: no report: logical', (t) => {
     t.end();
 });
 
-test('putout: apply-arrow: no report: no-loc', (t) => {
+test('putout: apply-arrow: transform: no-loc', (t) => {
     const FN = 'function __a(__args) {return __b}';
     
     t.transform('no-loc', {

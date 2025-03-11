@@ -39,7 +39,7 @@ test('plugin-convert-reduce-to-for-of: no transform: call-expression', (t) => {
     t.end();
 });
 
-test('plugin-convert-reduce-to-for-of: no transform: remove-unreferenced-variables', (t) => {
+test('plugin-convert-reduce-to-for-of: transform: remove-unreferenced-variables', (t) => {
     t.transform('remove-unreferenced-variables', {
         'remove-unreferenced-variables': removeUnreferencedVariables,
     });

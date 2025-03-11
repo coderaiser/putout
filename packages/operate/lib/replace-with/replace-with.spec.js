@@ -201,7 +201,7 @@ test('putout: operate: replaceWith: parentPath', (t) => {
             'remove-debugger': removeDebugger,
         });
         
-        test('remove debugger: report: debugger', (t) => {
+        test('remove debugger: transform: debugger', (t) => {
             t.transform('debugger', {
                 'remove-debugger': removeDebugger,
             });
