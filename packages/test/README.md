@@ -115,7 +115,7 @@ test('remove-console: property identifier: code', (t) => {
 });
 ```
 
-### `reportWithOptions(filename, options)`
+### `reportWithOptions(filename, message: string | string[], options)`
 
 Check report of `filename.js` with `options`:
 
