@@ -26,7 +26,7 @@ const envUpdate = {
 };
 
 const eslintOffEnv = {
-    ESLINT_CONFIG_FILE: './.eslintrc-off.json',
+    ESLINT_CONFIG_FILE: './eslint-off.config.js',
 };
 
 const putoutOffEnv = {
