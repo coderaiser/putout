@@ -1,5 +1,6 @@
 import {operator} from 'putout';
 
+const {readDirectory} = operator;
 const {renameFiles} = operator;
 const {getFileType} = operator;
 const {copyFile} = operator;
@@ -11,3 +12,4 @@ createFile(dirPath, 'hello');
 copyFile(filePath, dirPath);
 getFileType();
 renameFiles();
+readDirectory();
