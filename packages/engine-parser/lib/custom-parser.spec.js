@@ -36,7 +36,8 @@ test('putout: parser: custom parser: typescript + jsx: ambiguity', (t) => {
         source,
         babel, {
             isTS: true,
-        }];
+        },
+    ];
     
     const [error] = tryCatch(customParser, ...args);
     

@@ -14,7 +14,8 @@ const chooseFixArgs = ({path, pathOptions, options}) => {
             path,
             pathOptions, {
                 options,
-            }];
+            },
+        ];
     
     return [
         path, {

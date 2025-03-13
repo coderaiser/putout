@@ -48,6 +48,7 @@ const {
 } = operator;
 
 const [dirPath] = findFile(ast, '/bin');
+
 readDirectory(dirPath);
 // returns list of files
 [];

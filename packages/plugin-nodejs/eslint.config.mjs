@@ -15,4 +15,5 @@ export default defineConfig([
         rules: {
             'no-useless-return': 'off',
         },
-    }]);
+    },
+]);

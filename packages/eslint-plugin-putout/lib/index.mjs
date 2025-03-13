@@ -108,7 +108,8 @@ export const safe = [
                 rules: safeRules,
             }],
         },
-    }];
+    },
+];
 
 export const safeAlign = [
     ...n,
@@ -117,7 +118,8 @@ export const safeAlign = [
             ...safe.rules,
             'putout/align-spaces': 'error',
         },
-    }];
+    },
+];
 
 export const esm = {
     ...n,
