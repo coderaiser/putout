@@ -37,6 +37,22 @@ const [dirPath] = findFile(ast, 'hello');
 const newDirectoryPath = createDirectory(dirPath, 'world');
 ```
 
+### `readDirectory(directoryPath: DirectoryPath): (FilePath | DirectoryPath)[]`
+
+```js
+const {operator} = require('putout');
+const {
+    finedFiles,
+    findFile,
+    readDirectory,
+} = operator;
+
+const [dirPath] = findFile(ast, '/bin');
+readDirectory(dirPath);
+// returns list of files
+[];
+```
+
 ### `findFile(directoryPath: DirectoryPath, name: string | string[], exclude?: string[]): (FilePath | DirectoryPath)[]`
 
 ```js

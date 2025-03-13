@@ -169,7 +169,7 @@ module.exports.moveFile = (filePath, dirPath) => {
     
     const dirname = getFilename(dirPath);
     const filename = getFilename(filePath);
-    const dirPathFiles = getProperty(dirPath, 'files');
+    const dirPathFiles = getFiles(dirPath);
     const filenamePath = getProperty(filePath, 'filename');
     
     const basename = filename
@@ -273,6 +273,15 @@ module.exports.createFile = (dirPath, name, content) => {
 };
 
 const getFiles = (dirPath) => getProperty(dirPath, 'files');
+
+module.exports.readDirectory = (dirPath) => {
+    const fileType = getFileType(dirPath);
+    
+    if (fileType !== 'directory')
+        return [];
+    
+    return getFiles(dirPath).get('value.elements');
+};
 
 module.exports.createDirectory = (dirPath, name) => {
     const dirPathFiles = getFiles(dirPath);

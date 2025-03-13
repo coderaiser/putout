@@ -24,6 +24,7 @@ const {
     getFileContent,
     createFile,
     createDirectory,
+    readDirectory,
     getParentDirectory,
     readFileContent,
     writeFileContent,
@@ -1095,6 +1096,38 @@ test('putout: operator: filesystem: findFile: directory', (t) => {
     const files = findFile(ast, ['/hello', '/hello/world']);
     
     t.equal(files.length, 2);
+    t.end();
+});
+
+test('putout: operator: filesystem: readDirectory: file', (t) => {
+    const ast = parseFilesystem(['/hello/', '/hello/world/', '/hello/world.txt']);
+    
+    const [helloDir] = findFile(ast, '/hello/world.txt');
+    const files = readDirectory(helloDir).map(getFilename);
+    
+    const expected = [];
+    
+    t.deepEqual(files, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: readDirectory', (t) => {
+    const ast = parseFilesystem([
+        '/hello/',
+        '/hello/world/',
+        '/hello/world/abc',
+        '/hello/world.txt',
+    ]);
+    
+    const [helloDir] = findFile(ast, '/hello');
+    const files = readDirectory(helloDir).map(getFilename);
+    
+    const expected = [
+        '/hello/world',
+        '/hello/world.txt',
+    ];
+    
+    t.deepEqual(files, expected);
     t.end();
 });
 
