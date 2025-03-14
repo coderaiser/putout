@@ -16,6 +16,8 @@ bun install --no-save
 npm run bootstrap
 ```
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/coderaiser/putout)
+
 No matter what `package` you are interested in, you always have 4 little friends:
 
 - 🦊 `lint`
