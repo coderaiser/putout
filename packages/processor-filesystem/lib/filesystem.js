@@ -6,6 +6,7 @@ import {
     __filesystem,
 } from '@putout/operator-json';
 import {isFilesystem} from './is-filesystem.cjs';
+import {maybeFromSimple} from './from-simple.js';
 
 export const files = [
     '.filesystem.json',
@@ -14,7 +15,7 @@ export const files = [
 export const branch = (rawSource) => {
     filesystem.init(filesystemCLI);
     
-    const source = toJS(rawSource, __filesystem);
+    const source = toJS(maybeFromSimple(rawSource), __filesystem);
     
     return [{
         source,

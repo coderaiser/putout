@@ -1,8 +1,17 @@
+import {readFileSync} from 'node:fs';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {test} from 'supertape';
 import montag from 'montag';
+import {fromJS, __filesystem} from '@putout/operator-json';
 import {merge, branch} from '../lib/filesystem.js';
 
-const {stringify} = JSON;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const readFixtureJSON = (a) => readFileSync(join(__dirname, 'fixture', `${a}.json`), 'utf8');
+const readFixtureJS = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
+
+const {stringify, parse} = JSON;
 
 test('putout: processor: filesystem: merge', (t) => {
     const rawSource = montag`
@@ -102,5 +111,22 @@ test('putout: processor: filesystem: merge: a couple items in list: not last', (
     }, null, 4) + '\n';
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: processor: filesystem: branch: big', (t) => {
+    const rawSource = readFixtureJSON('big');
+    const expected = parse(fromJS(
+        readFixtureJS('big-fix'),
+        __filesystem,
+    ));
+    
+    const [{source}] = branch(rawSource);
+    const result = parse(fromJS(
+        source,
+        __filesystem,
+    ));
+    
+    t.deepEqual(result, expected);
     t.end();
 });
