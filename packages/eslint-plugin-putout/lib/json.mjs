@@ -56,4 +56,14 @@ export default [{
         '@stylistic/js/indent': 'off',
         'comma-spacing': 'off',
     },
+}, {
+    name: 'putout: json: filesystem',
+    files: ['**/.filesystem.json'],
+    plugins: {
+        '@stylistic': stylisticJs,
+        putout,
+    },
+    rules: {
+        'putout/objects-braces-inside-array': 'off',
+    },
 }];

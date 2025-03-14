@@ -1,0 +1,60 @@
+{
+    "filename": "/Users/coderaiser/putout",
+    "type": "directory",
+    "files": [
+        {
+            "filename": "/Users/coderaiser/putout/.npmignore",
+            "type": "file"
+        },
+        {
+            "filename": "/Users/coderaiser/putout/deno",
+            "type": "directory",
+            "files": [
+                {
+                    "filename": "/Users/coderaiser/putout/deno/deno.lock",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "filename": "/Users/coderaiser/putout/LICENSE",
+            "type": "file"
+        },
+        {
+            "filename": "/Users/coderaiser/putout/images",
+            "type": "directory",
+            "files": [
+                {
+                    "filename": "/Users/coderaiser/putout/images/putout.drawio",
+                    "type": "file"
+                },
+                {
+                    "filename": "/Users/coderaiser/putout/images/putout-logo.svg",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "filename": "/Users/coderaiser/putout/casts",
+            "type": "directory",
+            "files": [
+                {
+                    "filename": "/Users/coderaiser/putout/casts/putout.cast",
+                    "type": "file"
+                },
+                {
+                    "filename": "/Users/coderaiser/putout/casts/putout-progress-bar.cast",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "filename": "/Users/coderaiser/putout/eslint-off.config.mjs",
+            "type": "file"
+        },
+        {
+            "filename": "/Users/coderaiser/putout/.npmrc",
+            "type": "file"
+        }
+    ]
+}

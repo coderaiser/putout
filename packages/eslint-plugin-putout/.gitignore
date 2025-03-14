@@ -1,0 +1,5 @@
+!eslint-fixture/.filesystem.json
+.idea
+*.swp
+yarn-error.log
+coverage
