@@ -14,6 +14,9 @@ export const match = {
     },
 };
 
-export default defineConfig([safeAlign, matchToFlat(match), {
-    ignores: ['**/fixture'],
-}]);
+export default defineConfig([
+    safeAlign,
+    matchToFlat(match), {
+        ignores: ['**/fixture'],
+    },
+]);
