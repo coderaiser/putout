@@ -122,6 +122,7 @@ test('putout: processor: filesystem: branch: big', (t) => {
     ));
     
     const [{source}] = branch(rawSource);
+    
     const result = parse(fromJS(
         source,
         __filesystem,
