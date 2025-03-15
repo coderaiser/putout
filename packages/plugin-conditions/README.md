@@ -26,7 +26,8 @@ npm i @putout/plugin-conditions -D
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-constant](#remove-constant);
 - ✅ [remove-same-values-condition](hremove-same-values-condition);
-- ✅ [remove-useless-else](#remove-ureless-else);
+- ✅ [remove-useless-else](#remove-useless-else);
+- ✅ [remove-useless-loop-condition](#remove-useless-loop-condition);
 - ✅ [remove-zero](#remove-zero);
 - ✅ [simplify](#simplify);
 - ✅ [wrap-with-block](#wrap-with-block);
@@ -49,6 +50,7 @@ npm i @putout/plugin-conditions -D
         "conditions/remove-constant": "on",
         "conditions/remove-zero": "on",
         "conditions/remove-useless-else": "on",
+        "conditions/remove-useless-loop-condition": "on",
         "conditions/remove-same-values-condition": "on",
         "conditions/merge-if-statements": "on",
         "conditions/simplify": "on",
@@ -405,6 +407,25 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout** | [`conditions/remove-useless-else`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions#remove-useless-else) | ✅
 ⏣ **ESLint** | [`no-else-return`](https://eslint.org/docs/rules/no-else-return) | ✅
+
+## remove-useless-loop-condition
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eefe12da089fda5554d394746ee25a6f/7a3c467cb95a5909f6d7f7d8228b5003da674113).
+
+### ❌ Example of incorrect code
+
+```js
+while (currentDirPath = getParentDirectory(currentDirPath)) {
+    if (!currentDirPath)
+        break;
+}
+```
+
+### ✅ Example of correct code
+
+```js
+while (currentDirPath = getParentDirectory(currentDirPath)) {}
+```
 
 ## remove-same-values-condition
 

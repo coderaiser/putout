@@ -88,3 +88,8 @@ test('plugin-conditions: transform: wrap-with-block', (t) => {
     t.transform('wrap-with-block');
     t.end();
 });
+
+test('plugin-conditions: transform: remove-useless-loop-condition', (t) => {
+    t.transform('remove-useless-loop-condition');
+    t.end();
+});

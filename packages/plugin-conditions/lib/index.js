@@ -16,6 +16,7 @@ const addReturn = require('./add-return');
 const convertArrowToCondition = require('./convert-arrow-to-condition');
 const reverseCondition = require('./reverse-condition');
 const wrapWithBlock = require('./wrap-with-block');
+const removeUselessLoopCondition = require('./remove-useless-loop-condition');
 
 module.exports.rules = {
     'apply-comparison-order': applyComparisonOrder,
@@ -34,4 +35,5 @@ module.exports.rules = {
     'convert-arrow-to-condition': convertArrowToCondition,
     'reverse-condition': reverseCondition,
     'wrap-with-block': wrapWithBlock,
+    'remove-useless-loop-condition': removeUselessLoopCondition,
 };
