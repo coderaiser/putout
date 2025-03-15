@@ -1,5 +1,7 @@
 import {operator} from 'putout';
 
+const {createNestedDirectory} = operator;
+const {createDirectory} = operator;
 const {readDirectory} = operator;
 const {renameFiles} = operator;
 const {getFileType} = operator;
@@ -13,3 +15,5 @@ copyFile(filePath, dirPath);
 getFileType();
 renameFiles();
 readDirectory();
+createDirectory();
+createNestedDirectory();

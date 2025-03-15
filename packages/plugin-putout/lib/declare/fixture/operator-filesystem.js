@@ -4,3 +4,5 @@ copyFile(filePath, dirPath);
 getFileType();
 renameFiles();
 readDirectory();
+createDirectory();
+createNestedDirectory();
