@@ -59,7 +59,7 @@ module.exports = ({rule, plugin, msg, options}) => {
         options,
     });
     
-    const fix = getFix(replaceItems);
+    const fix = getFix(replaceItems, plugin.match, options);
     const include = packKeys(replaceItems);
     
     return {
@@ -94,9 +94,6 @@ const fix = (from, to, path) => {
     mark.init();
     
     if (mark.has())
-        return;
-    
-    if (!compare(path, nodeFrom, {findUp: false}))
         return;
     
     const waysFrom = findVarsWays(nodeFrom);
@@ -138,9 +135,21 @@ const fix = (from, to, path) => {
     log(from, newPath);
 };
 
-const getFix = (items) => (path) => {
-    for (const [from, to] of entries(items))
-        fix(from, to, path);
+const getFix = (items, match = stubMatch, options) => (path) => {
+    const initedMatch = match({
+        options,
+    });
+    
+    for (const [from, to] of entries(items)) {
+        const nodeFrom = template.ast(from);
+        
+        if (compare(path, nodeFrom, {findUp: false})) {
+            const matchFn = initedMatch[from];
+            
+            if (!matchFn || runMatch(path, nodeFrom, matchFn))
+                fix(from, to, path);
+        }
+    }
 };
 
 const getFilter = (match = stubMatch, options) => (path) => {
@@ -151,24 +160,28 @@ const getFilter = (match = stubMatch, options) => (path) => {
     for (const [from, matchProperty] of all) {
         const nodeFrom = template.ast(from);
         
-        if (!compare(path.node, nodeFrom))
+        if (!compare(path.node, nodeFrom, {findUp: false}))
             continue;
         
-        const waysFrom = findVarsWays(nodeFrom);
-        const {node} = path;
-        
-        const values = getValues({
-            waysFrom,
-            node,
-        });
-        
-        validateMatchProperty(matchProperty);
-        
-        return matchProperty(values, path);
+        return runMatch(path, nodeFrom, matchProperty);
     }
     
     return true;
 };
+
+function runMatch(path, nodeFrom, matchProperty) {
+    const waysFrom = findVarsWays(nodeFrom);
+    const {node} = path;
+    
+    const values = getValues({
+        waysFrom,
+        node,
+    });
+    
+    validateMatchProperty(matchProperty);
+    
+    return matchProperty(values, path);
+}
 
 function parseTo(to, values, path) {
     const toStr = isFn(to) ? to(values, path) : to;

@@ -16,6 +16,7 @@ const {print, types} = putout;
 const {
     StringLiteral,
     ReturnStatement,
+    isStringLiteral,
 } = types;
 
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
@@ -1000,6 +1001,96 @@ test('putout: runner: replace: callstack', (t) => {
               return isIdentifier(__a);
           },
       });
+    
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: runner: replace: match: double', (t) => {
+    const convert = {
+        report: noop,
+        match: () => ({
+            'createDirectory(__a, __b)': ({__b}) => {
+                if (!isStringLiteral(__b))
+                    return false;
+                
+                return __b.value.includes('/');
+            },
+            'createNestedDirectory(__a, __b)': ({__b}) => {
+                if (!isStringLiteral(__b))
+                    return false;
+                
+                return !__b.value.includes('/');
+            },
+        }),
+        replace: () => ({
+            'createDirectory(__a, __b)': 'createNestedDirectory(__a, __b)',
+            'createNestedDirectory(__a, __b)': 'createDirectory(__a, __b)',
+        }),
+    };
+    
+    const source = montag`
+        const dirPath = createDirectory(path, '/hello/world');
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+        const dirPath = createNestedDirectory(path, '/hello/world');\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: runner: replace: match: couple checks', (t) => {
+    const convert = {
+        report: noop,
+        match: () => ({
+            'createDirectory(__a, __b)': ({__b}) => {
+                if (!isStringLiteral(__b))
+                    return false;
+                
+                return __b.value.includes('/');
+            },
+            'createNestedDirectory(__a, __b)': ({__b}) => {
+                if (!isStringLiteral(__b))
+                    return false;
+                
+                return !__b.value.includes('/');
+            },
+        }),
+        replace: () => ({
+            '!__a in __b': '!(__a in __b)',
+            '__a in !__b': '!(__a in __b)',
+            '!__a in !__b': '!(__a in __b)',
+        }),
+    };
+    
+    const source = montag`
+        !a in b;
+        a in !b;
+        !a in !b;
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+        !(a in b);
+        !(a in b);
+        !(a in b);
     
     `;
     

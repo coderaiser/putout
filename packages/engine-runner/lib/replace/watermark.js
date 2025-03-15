@@ -11,7 +11,7 @@ const hasWatermark = (watermark) => (path) => path.node?.[name]?.has(watermark);
 
 module.exports = (from, to, path) => {
     const {watermark, highWatermark} = create(from, to, path);
-    const program = path.findParent(isProgram) || path;
+    const program = path.findParent(isProgram);
     const options = {
         watermark,
         highWatermark,

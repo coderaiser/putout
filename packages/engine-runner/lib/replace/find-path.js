@@ -16,10 +16,13 @@ module.exports = (parentPath) => {
     
     return path.join('.');
 };
+
 function findKey(path, parent) {
     const {node} = path;
+    let key;
+    let value;
     
-    for (const [key, value] of entries(parent)) {
+    for ([key, value] of entries(parent)) {
         if (isArray(value)) {
             const index = value.indexOf(node);
             
@@ -30,6 +33,8 @@ function findKey(path, parent) {
         }
         
         if (value === node)
-            return key;
+            break;
     }
+    
+    return key;
 }
