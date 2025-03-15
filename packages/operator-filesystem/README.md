@@ -61,9 +61,10 @@ const {operator} = require('putout');
 const {
     createDirectory,
     findFile,
+    createNestedDirectory,
 } = operator;
 
-const newDirectoryPath = createDirectory(ast, '/hello/world');
+const newDirectoryPath = createNestedDirectory(ast, '/hello/world');
 ```
 
 ### `readDirectory(directoryPath: DirectoryPath): (FilePath | DirectoryPath)[]`

@@ -311,3 +311,8 @@ test('plugin-putout: transform: check-declare', (t) => {
     t.transform('check-declare');
     t.end();
 });
+
+test('plugin-putout: transform: apply-create-nested-directory', (t) => {
+    t.transform('apply-create-nested-directory');
+    t.end();
+});

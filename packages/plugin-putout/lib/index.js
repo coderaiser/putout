@@ -63,6 +63,7 @@ const declareTemplateVariables = require('./declare-template-variables');
 const declarePathVariable = require('./declare-path-variable');
 const applyParens = require('./apply-parens');
 const applyLowercaseToNodeBuilders = require('./apply-lowercase-to-node-builders');
+const applyCreateNestedDirectory = require('./apply-create-nested-directory');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -128,4 +129,5 @@ module.exports.rules = {
     'declare-path-variable': declarePathVariable,
     'apply-parens': applyParens,
     'apply-lowercase-to-node-builders': applyLowercaseToNodeBuilders,
+    'apply-create-nested-directory': applyCreateNestedDirectory,
 };

@@ -23,6 +23,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-track-file](#add-track-file);
 - ✅ [apply-async-formatter](#apply-async-formatter);
 - ✅ [apply-create-test](#apply-create-test);
+- ✅ [apply-create-nested-directory](#apply-create-nested-directory);
 - ✅ [apply-declare](#apply-declare);
 - ✅ [apply-for-of-to-track-file](#apply-for-of-to-track-file);
 - ✅ [apply-fixture-name-to-message](#apply-fixture-name-to-message);
@@ -91,6 +92,7 @@ npm i @putout/plugin-putout -D
         "putout/add-await-to-progress": "on",
         "putout/add-index-to-import": "on",
         "putout/apply-create-test": "on",
+        "putout/apply-create-nested-directory": "on",
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
         "putout/apply-processors-destructuring": "on",
@@ -439,6 +441,24 @@ const {createTest} = require('@putout/test');
 const test = createTest({
     'remove-debugger': plugin,
 });
+```
+
+## apply-create-nested-directory
+
+Checkout in [**Putout Editor**](https://putout.cloudcmd.io/#/gist/d97578b334963b2f573d1980a61034de/0b876a781268916344fa0ed4c19bdbc9fd7bbc3f).
+
+### ❌ Example of incorrect code
+
+```js
+const dirPath = createDirectory(path, '/hello/world');
+const dirPath2 = createNestedDirectory(path, 'world');
+```
+
+### ✅ Example of correct code
+
+```js
+const dirPath = createNestedDirectory(path, '/hello/world');
+const dirPath2 = createDirectory(path, 'world');
 ```
 
 ## apply-for-of-to-track-file
