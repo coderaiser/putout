@@ -1,7 +1,12 @@
 'use strict';
 
 const {types} = require('putout');
-const {isVariableDeclaration} = types;
+const {
+    isVariableDeclaration,
+    isIdentifier,
+    isArrayPattern,
+    isObjectPattern,
+} = types;
 
 module.exports.report = () => `Add missing declaration`;
 
@@ -12,7 +17,28 @@ module.exports.match = () => ({
         
         const bindings = path.scope.getAllBindings();
         
-        return !bindings[__a.name];
+        if (isIdentifier(__a))
+            return !bindings[__a.name];
+        
+        if (isArrayPattern(__a)) {
+            for (const element of __a.elements) {
+                if (!isIdentifier(element) || bindings[element.name])
+                    return false;
+            }
+            
+            return true;
+        }
+        
+        if (isObjectPattern(__a))
+            for (const property of __a.properties) {
+                if (property.computed)
+                    return false;
+                
+                if (!isIdentifier(property.key) || bindings[property.key.name])
+                    return false;
+            }
+        
+        return true;
     },
 });
 

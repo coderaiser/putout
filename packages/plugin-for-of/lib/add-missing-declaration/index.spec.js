@@ -18,3 +18,18 @@ test('for-of: add-missing-declaration: transform', (t) => {
     t.transform('add-missing-declaration');
     t.end();
 });
+
+test('for-of: add-missing-declaration: no report: declared', (t) => {
+    t.noReport('declared');
+    t.end();
+});
+
+test('for-of: add-missing-declaration: no report: computed', (t) => {
+    t.noReport('computed');
+    t.end();
+});
+
+test('for-of: add-missing-declaration: transform: pattern', (t) => {
+    t.transform('pattern');
+    t.end();
+});
