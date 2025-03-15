@@ -44,6 +44,10 @@ module.exports.traverse = ({push}) => ({
         }
         
         const {name} = __aPath.node;
+        
+        if (name === 'parentPath')
+            return;
+        
         const binding = bindings[name];
         
         if (!binding)
