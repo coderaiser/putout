@@ -379,6 +379,8 @@ if (a > b && b < c)
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 
+Checkout in [**Putout Editor**](https://putout.cloudcmd.io/#/gist/9d7df8b29406ce24a798f92bce84f40d/10b33f57ba87271283ecb4d7edaae8e8d0300169).
+
 ### ❌ Example of incorrect code
 
 ```js
