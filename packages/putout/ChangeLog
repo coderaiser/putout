@@ -1,3 +1,26 @@
+2025.03.15, v38.5.5
+
+feature:
+- 783b883d9 putout: @putout/plugin-tape v17.0.0
+- 2abe1fae3 @putout/plugin-conditions: merge-if-with-else
+- 70b56daee @putout/plugin-tape: drop support of 🐊 < 38
+- 819116c10 @putout/plugin-tape: convert-called-with-args: add spread
+- 9d3893e2a @putout/engine-runner: replace: couple: run fix only after match
+- 08ce83bd7 @putout/plugin-for-of: add-missing-declaration: add support-of ArrayPattern, ObjectPattern
+- 769c220e2 @putout/engine-runner: rm comment
+- 86af22bfa @putout/operator-filesystem: createNestedDirectory: add
+- 5fa44bdbd @putout/plugin-conditions: remove-useless-loop-condition
+- b8dcb0016 @putout/plugin-putout: convert-node-to-path-in-get-template-values: exclude parentPath
+- 698ad755e eslint-plugin-putout: json: .filesystem.json: putout/objects-braces-inside-array: disable
+- d4ababf00 @putout/processor-filesystem: lint simple filesystem
+- 40c6a3b5b @putout/plugin-putout: declare: readDirectory: add
+- d6c60679f @putout/operator-filesystem: readDirectory: add
+- 7b16cf80b @putout/plugin-operator-declare: nodejs/convert-esm-to-commonjs: improve support
+- 67fb7675d @putout/plugin-putout: replace-test-message: transform with plugins
+- d8574395d @putout/plugin-putout: add-traverse-args: convert-traverse-to-scan
+- 7dfac1641 @putout/plugin-putout: convert-traverse-to-scan: ESM
+- c0f811234 @putout/plugin-filesystem: remove-travis-yml-file: add
+
 2025.03.10, v38.5.4
 
 fix:
