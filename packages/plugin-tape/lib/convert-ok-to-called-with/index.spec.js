@@ -19,7 +19,7 @@ test('plugin-tape: convert-ok-to-called-with: report: not-ok', (t) => {
     t.end();
 });
 
-test('plugin-tape: called-with', (t) => {
+test('plugin-tape: convert-ok-to-called-with: called-with', (t) => {
     t.transform('called-with');
     t.end();
 });

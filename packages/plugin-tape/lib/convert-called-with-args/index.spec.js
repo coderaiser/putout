@@ -19,6 +19,11 @@ test('plugin-tape: convert-called-with-arguments: transform: args', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-called-with-arguments: transform: spread', (t) => {
+    t.transform('spread');
+    t.end();
+});
+
 test('plugin-tape: convert-called-with-arguments: no transform: identifier', (t) => {
     t.noTransform('identifier');
     t.end();

@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-tape: convert-called-with-to-called-with-no-args: report: no-args', (t) => {
-    t.report('no-args', '"calledWithNoArgs" should be used when arguments are absent');
+    t.report('no-args', `Use 'calledWithNoArgs()' when arguments are absent`);
     t.end();
 });
 

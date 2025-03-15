@@ -19,4 +19,5 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     't.calledWith(__a, __b)': 't.calledWith(__a, [__b])',
+    't.calledWith(__a, [...__b], __c)': 't.calledWith(__a, __b, __c)',
 });

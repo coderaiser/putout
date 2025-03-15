@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => '"calledWithNoArgs" should be used when arguments are absent';
+module.exports.report = () => `Use 'calledWithNoArgs()' when arguments are absent`;
 
 module.exports.replace = () => ({
     't.calledWith(__a)': 't.calledWithNoArgs(__a)',
