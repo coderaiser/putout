@@ -93,3 +93,8 @@ test('plugin-conditions: transform: remove-useless-loop-condition', (t) => {
     t.transform('remove-useless-loop-condition');
     t.end();
 });
+
+test('plugin-conditions: transform: merge-if-with-else', (t) => {
+    t.transform('merge-if-with-else');
+    t.end();
+});

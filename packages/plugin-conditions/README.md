@@ -22,6 +22,7 @@ npm i @putout/plugin-conditions -D
 - ✅ [convert-arrow-to-condition](#convert-arrow-to-condition);
 - ✅ [evaluate](#evaluate);
 - ✅ [merge-if-statements](#merge-if-statements);
+- ✅ [merge-if-with-else](#merge-if-with-else);
 - ✅ [reverse](#reverse);
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-constant](#remove-constant);
@@ -53,6 +54,7 @@ npm i @putout/plugin-conditions -D
         "conditions/remove-useless-loop-condition": "on",
         "conditions/remove-same-values-condition": "on",
         "conditions/merge-if-statements": "on",
+        "conditions/merge-if-with-else": "on",
         "conditions/simplify": "on",
         "conditions/wrap-with-block": "on"
     }
@@ -352,7 +354,7 @@ alert('hello');
 
 ## merge-if-statements
 
-> The `if` statement executes a statement `if` a specified condition is truthy.
+> Multiple `if...else` statements can be nested to create an else if clause
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 
@@ -369,6 +371,28 @@ if (a > b)
 ```js
 if (a > b && b < c)
     console.log('hello');
+```
+
+## merge-if-with-else
+
+> The `if` statement executes a statement `if` a specified condition is truthy.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+
+### ❌ Example of incorrect code
+
+```js
+if (!matchFn)
+    fix(from, to, path);
+else if (matchFn(options))
+    fix(from, to, path);
+```
+
+### ✅ Example of correct code
+
+```js
+if (!matchFn || matchFn(options))
+    fix(from, to, path);
 ```
 
 ## remove-useless-else

@@ -1497,6 +1497,18 @@ isFn(1);
 
 </details>
 
+<details><summary>merge <code>if</code> with <code>else</code></summary>
+
+```diff
+-if (!matchFn)
++if (!matchFn || matchFn(options))
+    fix(from, to, path);
+-else if (matchFn(options))
+-   fix(from, to, path);
+```
+
+</details>
+
 <details><summary>convert <code>anonymous</code> to <code>arrow function</code></summary>
 
 ```diff

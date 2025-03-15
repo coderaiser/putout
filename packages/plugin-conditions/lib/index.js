@@ -17,6 +17,7 @@ const convertArrowToCondition = require('./convert-arrow-to-condition');
 const reverseCondition = require('./reverse-condition');
 const wrapWithBlock = require('./wrap-with-block');
 const removeUselessLoopCondition = require('./remove-useless-loop-condition');
+const mergeIfWithElse = require('./merge-if-with-else');
 
 module.exports.rules = {
     'apply-comparison-order': applyComparisonOrder,
@@ -36,4 +37,5 @@ module.exports.rules = {
     'reverse-condition': reverseCondition,
     'wrap-with-block': wrapWithBlock,
     'remove-useless-loop-condition': removeUselessLoopCondition,
+    'merge-if-with-else': mergeIfWithElse,
 };
