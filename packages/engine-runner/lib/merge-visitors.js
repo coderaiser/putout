@@ -84,10 +84,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
     
     const entries = Object.entries(pushed);
     
-    const visitor = {
-        //shouldSkip,
-        ...merge(mergeItems),
-    };
+    const visitor = merge(mergeItems);
     
     return {
         entries,
