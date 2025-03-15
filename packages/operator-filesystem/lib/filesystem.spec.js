@@ -24,6 +24,7 @@ const {
     getFileContent,
     createFile,
     createDirectory,
+    createNestedDirectory,
     readDirectory,
     getParentDirectory,
     readFileContent,
@@ -572,6 +573,135 @@ test('putout: operator: filesystem: createDirectory', (t) => {
             type: 'directory',
             filename: '/hello/world/xyz',
             files: [],
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: createNestedDirectory: beyond root', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [],
+    });
+    
+    const [dirPath] = findFile(ast, 'world');
+    createNestedDirectory(dirPath, '/1/2/3/4/hello/world');
+    
+    const expected = {
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'directory',
+            filename: '/hello/world/1',
+            files: [{
+                type: 'directory',
+                filename: '/hello/world/1/2',
+                files: [{
+                    type: 'directory',
+                    filename: '/hello/world/1/2/3',
+                    files: [{
+                        type: 'directory',
+                        filename: '/hello/world/1/2/3/4',
+                        files: [{
+                            type: 'directory',
+                            filename: '/hello/world/1/2/3/4/hello',
+                            files: [{
+                                type: 'directory',
+                                filename: '/hello/world/1/2/3/4/hello/world',
+                                files: [],
+                            }],
+                        }],
+                    }],
+                }],
+            }],
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: createNestedDirectory: find root', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/hello',
+            files: [{
+                type: 'directory',
+                filename: '/hello/world',
+                files: [],
+            }],
+        }],
+    });
+    
+    const [dirPath] = findFile(ast, '/hello/world');
+    createNestedDirectory(dirPath, '/hello/world/abc');
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/hello',
+            files: [{
+                type: 'directory',
+                filename: '/hello/world',
+                files: [{
+                    type: 'directory',
+                    filename: '/hello/world/abc',
+                    files: [],
+                }],
+            }],
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: createNestedDirectory: other nesting', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/hello',
+            files: [{
+                type: 'directory',
+                filename: '/hello/x',
+                files: [],
+            }],
+        }],
+    });
+    
+    const [dirPath] = findFile(ast, '/hello/x');
+    
+    createNestedDirectory(dirPath, '/hello/world/abc');
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/hello',
+            files: [{
+                type: 'directory',
+                filename: '/hello/x',
+                files: [],
+            }, {
+                type: 'directory',
+                filename: '/hello/world',
+                files: [{
+                    type: 'directory',
+                    filename: '/hello/world/abc',
+                    files: [],
+                }],
+            }],
         }],
     };
     

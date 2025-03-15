@@ -1,6 +1,11 @@
 'use strict';
 
-const {join, basename} = require('node:path');
+const {
+    join,
+    basename,
+    dirname,
+} = require('node:path');
+
 const {types} = require('@putout/babel');
 const tryCatch = require('try-catch');
 
@@ -51,7 +56,9 @@ const getRegExp = (wildcard) => {
     return RegExp(`^${escaped}$`);
 };
 
-module.exports.getParentDirectory = (filePath) => {
+module.exports.getParentDirectory = getParentDirectory;
+
+function getParentDirectory(filePath) {
     if (!filePath.parentPath)
         return null;
     
@@ -61,7 +68,7 @@ module.exports.getParentDirectory = (filePath) => {
         return null;
     
     return parentPath;
-};
+}
 
 module.exports.findFile = findFile;
 
@@ -283,7 +290,9 @@ module.exports.readDirectory = (dirPath) => {
     return getFiles(dirPath).get('value.elements');
 };
 
-module.exports.createDirectory = (dirPath, name) => {
+module.exports.createDirectory = createDirectory;
+
+function createDirectory(dirPath, name) {
     const dirPathFiles = getFiles(dirPath);
     const parentFilename = getFilename(dirPath);
     const filename = join(parentFilename, name);
@@ -301,7 +310,7 @@ module.exports.createDirectory = (dirPath, name) => {
     maybeFS.createDirectory(filename);
     
     return dirPathFiles.get('value.elements').at(-1);
-};
+}
 
 module.exports.readFileContent = (filePath) => {
     const fileType = getFileType(filePath);
@@ -345,6 +354,64 @@ function writeFileContent(filePath, content) {
     
     const property = createContentProperty(toBase64(content));
     filePath.node.properties.push(property);
+}
+
+module.exports.createNestedDirectory = (path, name) => {
+    const rootPath = getRootDirectory(path);
+    const dir = dirname(name);
+    
+    if (dir === getFilename(path))
+        return createDirectory(path, basename(name));
+    
+    let currentDir = name;
+    
+    const rootDir = getFilename(rootPath);
+    const directories = [];
+    let prevDir = currentDir;
+    
+    while (currentDir !== rootDir) {
+        directories.unshift(currentDir);
+        prevDir = currentDir;
+        currentDir = dirname(currentDir);
+        
+        if (currentDir === prevDir) {
+            currentDir = rootDir;
+            
+            for (const [i, dir] of directories.entries()) {
+                directories[i] = join(rootDir, dir);
+            }
+            
+            directories.shift();
+            break;
+        }
+    }
+    
+    let lastDirectoryPath = findFile(rootPath, directories).at(-1) || rootPath;
+    const lastDirectoryName = getFilename(lastDirectoryPath);
+    
+    const n = directories.length;
+    
+    for (let i = directories.indexOf(lastDirectoryName) + 1; i < n; i++) {
+        const name = basename(directories[i]);
+        lastDirectoryPath = createDirectory(lastDirectoryPath, name);
+    }
+    
+    return lastDirectoryPath;
+};
+
+function getRootDirectory(path) {
+    let currentDirPath = getParentDirectory(path);
+    
+    if (!currentDirPath)
+        return path;
+    
+    let prevPath = path;
+    
+    while (currentDirPath = getParentDirectory(currentDirPath)) {
+        prevPath = currentDirPath;
+    }
+    
+    return prevPath;
 }
 
 module.exports.init = maybeFS.init;

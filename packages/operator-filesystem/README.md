@@ -54,6 +54,35 @@ readDirectory(dirPath);
 [];
 ```
 
+### `createNestedDirectory(path: FilePath|DirectoryPath, name: string): DirectoryPath`
+
+```js
+const {operator} = require('putout');
+const {
+    createDirectory,
+    findFile,
+} = operator;
+
+const newDirectoryPath = createDirectory(ast, '/hello/world');
+```
+
+### `readDirectory(directoryPath: DirectoryPath): (FilePath | DirectoryPath)[]`
+
+```js
+const {operator} = require('putout');
+const {
+    finedFiles,
+    findFile,
+    readDirectory,
+} = operator;
+
+const [dirPath] = findFile(ast, '/bin');
+
+readDirectory(dirPath);
+// returns list of files
+[];
+```
+
 ### `findFile(directoryPath: DirectoryPath, name: string | string[], exclude?: string[]): (FilePath | DirectoryPath)[]`
 
 ```js
