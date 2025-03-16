@@ -14,10 +14,10 @@ module.exports.report = (path) => {
     if (compare(path, 't.noReport(__a, "__b")'))
         return `Use 't.noReport(__a)' instead of 't.noReport(__a, "__b")'`;
     
-    if (compare(path, 't.noReportWithOptions(__a, "__b", __c)'))
-        return `Use 't.noReportWithOptions(__a, __c)' instead of 't.noReportWithOptions(__a, "__b", __c)'`;
+    if (compare(path, 't.noReportWithOptions(__a, __b, __c)'))
+        return `Use 't.noReportWithOptions(__a, __c)' instead of 't.noReportWithOptions(__a, __b, __c)'`;
     
-    return `Use '${TYPES[name]}()' instead of '${name}()'`;
+    return `Use 't.${TYPES[name]}()' instead of 't.${name}()'`;
 };
 
 module.exports.replace = () => ({
@@ -25,5 +25,5 @@ module.exports.replace = () => ({
     't.noReport(__a, "__b")': 't.noReport(__a)',
     't.report(__a)': 't.noReport(__a)',
     't.noReportWithOptions(__a)': 't.noReport(__a)',
-    't.noReportWithOptions(__a, "__b", __c)': 't.noReportWithOptions(__a, __c)',
+    't.noReportWithOptions(__a, __b, __c)': 't.noReportWithOptions(__a, __c)',
 });
