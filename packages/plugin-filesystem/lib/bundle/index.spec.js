@@ -82,8 +82,8 @@ test('packages: bundle-css: transform', (t) => {
     t.end();
 });
 
-test('packages: bundle-css: no report: no-groups', (t) => {
-    t.noReport('no-group', 'no-groups');
+test('packages: bundle-css: no report: no-group', (t) => {
+    t.noReport('no-group');
     t.end();
 });
 
@@ -139,9 +139,4 @@ test('packages: bundle-css: error', (t) => {
     t.end();
 }, {
     checkAssertionsCount: false,
-});
-
-test('packages: bundle-css: no report: no-group', (t) => {
-    t.noReport('no-group');
-    t.end();
 });
