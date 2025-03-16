@@ -64,6 +64,7 @@ const declarePathVariable = require('./declare-path-variable');
 const applyParens = require('./apply-parens');
 const applyLowercaseToNodeBuilders = require('./apply-lowercase-to-node-builders');
 const applyCreateNestedDirectory = require('./apply-create-nested-directory');
+const applyReport = require('./apply-report');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -130,4 +131,5 @@ module.exports.rules = {
     'apply-parens': applyParens,
     'apply-lowercase-to-node-builders': applyLowercaseToNodeBuilders,
     'apply-create-nested-directory': applyCreateNestedDirectory,
+    'apply-report': applyReport,
 };

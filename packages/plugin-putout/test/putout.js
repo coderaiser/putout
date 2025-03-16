@@ -316,3 +316,8 @@ test('plugin-putout: transform: apply-create-nested-directory', (t) => {
     t.transform('apply-create-nested-directory');
     t.end();
 });
+
+test('plugin-putout: transform: apply-report', (t) => {
+    t.transform('apply-report');
+    t.end();
+});

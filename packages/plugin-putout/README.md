@@ -32,6 +32,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-vars](#apply-vars);
 - ✅ [apply-lowercase-to-node-builders](#apply-lowercase-to-node-builders);
 - ✅ [apply-namespace-specifier](#apply-namespace-specifier);
+- ✅ [apply-report](#apply-report);
 - ✅ [apply-processors-destructuring](#apply-processors-destructuring);
 - ✅ [apply-remove](#apply-remove);
 - ✅ [apply-rename](#apply-rename);
@@ -95,6 +96,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-create-nested-directory": "on",
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
+        "putout/apply-report": "on",
         "putout/apply-processors-destructuring": "on",
         "putout/apply-rename": "on",
         "putout/apply-parens": "on",
@@ -164,6 +166,56 @@ path.node = Identifier('x');
 
 ```js
 path.node = identifier('x');
+```
+
+## apply-report
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e9debc0b256556a632fb031be86afffc/afefbd44443f07dbb7d8f2972f2e40a9a82c214f).
+
+### ❌ Example of incorrect code
+
+```js
+t.noReport('rename-files-full', {
+    from: ['/'],
+    to: [],
+});
+
+t.noReportWithOptions('rename-files-full');
+
+t.noReport('a', 'Use b');
+t.report('a');
+```
+
+### ✅ Example of correct code
+
+```js
+t.noReportWithOptons('rename-files-full', {
+    from: ['/'],
+    to: [],
+});
+
+t.noReport('rename-files-full');
+
+t.report('a', 'Use b');
+t.noReport('a');
+```
+
+## apply-processors-destructuring
+
+### ❌ Example of incorrect code
+
+```js
+test('', async (t) => {
+    await t.process({});
+});
+```
+
+### ✅ Example of correct code
+
+```js
+test('', async ({process}) => {
+    await process({});
+});
 ```
 
 ## apply-processors-destructuring
