@@ -1,4 +1,4 @@
-t.noReportWithOptons('rename-files-full', {
+t.noReportWithOptions('rename-files-full', {
     from: ['/'],
     to: [],
 });

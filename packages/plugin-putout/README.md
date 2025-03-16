@@ -189,7 +189,7 @@ t.report('a');
 ### ✅ Example of correct code
 
 ```js
-t.noReportWithOptons('rename-files-full', {
+t.noReportWithOptions('rename-files-full', {
     from: ['/'],
     to: [],
 });

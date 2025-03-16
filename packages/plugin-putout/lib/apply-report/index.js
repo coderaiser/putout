@@ -18,7 +18,7 @@ module.exports.report = (path) => {
 };
 
 module.exports.replace = () => ({
-    't.noReport(__a, __object)': 't.noReportWithOptons(__a, __object)',
+    't.noReport(__a, __object)': 't.noReportWithOptions(__a, __object)',
     't.noReport(__a, "__b")': 't.noReport(__a)',
     't.report(__a)': 't.noReport(__a)',
     't.noReportWithOptions(__a)': 't.noReport(__a)',
