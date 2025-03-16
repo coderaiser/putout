@@ -32,6 +32,7 @@ module.exports.copyFile = (from, to, overrides = {}) => {
 module.exports.removeFile = (filename, {rmSync = rmSyncOriginal} = {}) => {
     rmSync(filename, {
         recursive: true,
+        force: true,
     });
 };
 

@@ -55,6 +55,7 @@ test('putout: cli: filesystem: removeFile', (t) => {
     
     const expected = ['/hello/world', {
         recursive: true,
+        force: true,
     }];
     
     t.calledWith(rmSync, expected);
