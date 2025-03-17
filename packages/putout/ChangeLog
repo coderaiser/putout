@@ -1,3 +1,14 @@
+2025.03.17, v38.5.7
+
+fix:
+- f15bcd105 @putout/plugin-remove-useless-variables: assignment
+- c19c8e110 @putout/plugin-remove-useless-variables: report
+
+feature:
+- 8061de2a0 putout: @putout/plugin-remove-unreferenced-variables v5.0.0
+- f59537cb6 @putout/plugin-remove-unreferenced-variables: drop support of 🐊 < 38
+- 50271f209 @putout/plugin-remove-unreferenced-variables: AssignmentExpression: exclude
+
 2025.03.17, v38.5.6
 
 fix:
