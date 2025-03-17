@@ -413,7 +413,9 @@ function getRootDirectory(path) {
     }
     
     return prevPath;
-}module.exports.init = maybeFS.init;
+}
+
+module.exports.init = maybeFS.init;
 module.exports.deinit = maybeFS.deinit;
 
 module.exports.pause = maybeFS.pause;
