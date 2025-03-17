@@ -57,6 +57,11 @@ test('plugin-remove-unreferenced-variables: no transform: ternary', (t) => {
     t.end();
 });
 
+test('plugin-remove-unreferenced-variables: no report: assignment', (t) => {
+    t.noReport('assignment');
+    t.end();
+});
+
 test('plugin-remove-unreferenced-variables: transform: merge-variables', (t) => {
     t.transform('merge-variables', {
         'minify/merge-variables': mergeVariables,

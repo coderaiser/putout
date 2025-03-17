@@ -34,7 +34,12 @@ module.exports.traverse = ({push}) => ({
         push(path);
     },
     '__identifier = __a'(path) {
-        if (path.parentPath.isConditionalExpression())
+        const {parentPath} = path;
+        
+        if (parentPath.isMemberExpression())
+            return;
+        
+        if (parentPath.isConditionalExpression())
             return;
         
         const {name} = path.node.left;
