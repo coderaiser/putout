@@ -39,7 +39,7 @@ npm i @putout/plugin-remove-useless-variables -D
 
 ## assignment
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a2f7fe5e2c294443576f95dce6fde67e/342492c8b9de8e36e469c8f543fc0f2b7d2df73c).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a2f7fe5e2c294443576f95dce6fde67e/0699ccb4f7335e8e3f80de891913a8e3ad4f35e3).
 
 ### ❌ Example of incorrect code
 

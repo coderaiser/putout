@@ -24,5 +24,6 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '(__a = __b).__c': '__b',
+    '(__a = __b).__c': '__b.__c',
 });
+

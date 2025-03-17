@@ -1,7 +1,7 @@
 function notReferenced() {
     let files = [];
     
-    while (!readDirectory(parentDir)) {}}
+    while (!readDirectory(parentDir).length) {}}
 
 function referenced() {
     let files = [];
