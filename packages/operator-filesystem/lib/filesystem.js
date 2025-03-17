@@ -399,22 +399,21 @@ module.exports.createNestedDirectory = (path, name) => {
     return lastDirectoryPath;
 };
 
+module.exports.getRootDirectory = getRootDirectory;
 function getRootDirectory(path) {
     let currentDirPath = getParentDirectory(path);
     
     if (!currentDirPath)
         return path;
     
-    let prevPath = path;
+    let prevPath = currentDirPath;
     
     while (currentDirPath = getParentDirectory(currentDirPath)) {
         prevPath = currentDirPath;
     }
     
     return prevPath;
-}
-
-module.exports.init = maybeFS.init;
+}module.exports.init = maybeFS.init;
 module.exports.deinit = maybeFS.deinit;
 
 module.exports.pause = maybeFS.pause;

@@ -140,6 +140,20 @@ dirPath === getParentDirectory(newDirectoryPath);
 true;
 ```
 
+### `getRootDirectory(path: FilePath | DirectoryPath): DrectoryPath`
+
+```js
+const {operator} = require('putout');
+const {
+    findFile,
+    getRootDirectory,
+} = operator;
+
+const [filePath] = findFile(ast, 'hello');
+
+getRootDirectory(dirPath);
+```
+
 ### `getFilename(path: FilePath | DirectoryPath): string`
 
 ```js

@@ -27,6 +27,7 @@ const {
     createNestedDirectory,
     readDirectory,
     getParentDirectory,
+    getRootDirectory,
     readFileContent,
     writeFileContent,
     init,
@@ -1280,5 +1281,18 @@ test('putout: operator: filesystem: start', (t) => {
 
 test('putout: operator: filesystem: pause', (t) => {
     t.equal(pause, maybeFS.pause);
+    t.end();
+});
+
+test('putout: operator: filesystem: getRootDirectory', (t) => {
+    const ast = parseFilesystem(['/hello/world/', '/hello/world/package.json']);
+    
+    const [filePath] = findFile(ast, 'package.json');
+    const rootDirectoryPath = getRootDirectory(filePath);
+    const filename = getFilename(rootDirectoryPath);
+    
+    const expected = '/hello/world';
+    
+    t.equal(filename, expected);
     t.end();
 });
