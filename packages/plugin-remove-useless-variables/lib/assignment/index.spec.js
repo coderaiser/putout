@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('remove-useless-variables: assignment: report', (t) => {
-    t.report('assignment', `Avoid useless assign`);
+    t.report('assignment', `Avoid useless assignment`);
     t.end();
 });
 

@@ -5,7 +5,7 @@ const {types, operator} = require('putout');
 const {getBinding} = operator;
 const {isIdentifier} = types;
 
-module.exports.report = () => `Avoid useless assign`;
+module.exports.report = () => `Avoid useless assignment`;
 
 module.exports.match = () => ({
     '(__a = __b).__c': ({__a}, path) => {
