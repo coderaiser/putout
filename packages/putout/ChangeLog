@@ -1,3 +1,20 @@
+2025.03.17, v38.5.6
+
+fix:
+- c8f3d140b @putout/plugin-putout: apply-report: no-report-three: TemplateLiteral
+
+feature:
+- 1ce114ff5 putout: @putout/plugin-remove-useless-variables v13.0.0
+- 320fb45f1 @putout/plugin-remove-useless-variables: drop support of 🐊 < 38
+- ba7a45953 @putout/plugin-remove-useless-variables: assignment: add
+- 01dc18bc3 @putout/plugin-putout: declare: addRootDirectory
+- 4b127eb3d @putout/operator-filesystem: getRootDirectory: add
+- 474878740 @putout/plugin-putout: apply-report: noReportWithOptions: 3 args
+- ded6d6690 @putout/cli-filesystem: removeFile: force: add
+- 3aa90044b @putout/plugin-putout: apply-report: add
+- 2bf9c989e @putout/plugin-putout: apply-create-nested-directory: add
+- 0fd65e55a @putout/plugin-putout: declare: createNestedDirectory: add
+
 2025.03.15, v38.5.5
 
 feature:
