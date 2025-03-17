@@ -5,6 +5,7 @@ const remove = require('./remove');
 const destruct = require('./destruct');
 const declaration = require('./declaration');
 const duplicate = require('./duplicate');
+const assignment = require('./assignment');
 
 module.exports.rules = {
     rename,
@@ -12,4 +13,5 @@ module.exports.rules = {
     destruct,
     declaration,
     duplicate,
+    assignment,
 };

@@ -13,6 +13,7 @@ npm i @putout/plugin-remove-useless-variables -D
 
 ## Rules
 
+- ✅ [assignment](#assignmentn);
 - ✅ [declaration](#declaration);
 - ✅ [destruct](#destruct);
 - ✅ [duplicate](#duplicate);
@@ -24,6 +25,7 @@ npm i @putout/plugin-remove-useless-variables -D
 ```json
 {
     "rules": {
+        "remove-useless-variables/assignment": "on",
         "remove-useless-variables/rename": "on",
         "remove-useless-variables/remove": "on",
         "remove-useless-variables/destruct": "on",
@@ -33,6 +35,22 @@ npm i @putout/plugin-remove-useless-variables -D
         "remove-useless-variables/duplicate": "on"
     }
 }
+```
+
+## assignment
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a2f7fe5e2c294443576f95dce6fde67e/342492c8b9de8e36e469c8f543fc0f2b7d2df73c).
+
+### ❌ Example of incorrect code
+
+```js
+while (!(files = readDirectory(parentDir)).length) {}
+```
+
+### ✅ Example of correct code
+
+```js
+while (!readDirectory(parentDir).length) {}
 ```
 
 ## rename

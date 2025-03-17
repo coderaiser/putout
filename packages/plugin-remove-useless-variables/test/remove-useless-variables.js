@@ -78,3 +78,8 @@ test('plugin-remove-useless-variables: transform: duplicate', (t) => {
     t.transform('duplicate');
     t.end();
 });
+
+test('plugin-remove-useless-variables: transform: assignment', (t) => {
+    t.transform('assignment');
+    t.end();
+});

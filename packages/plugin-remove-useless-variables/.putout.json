@@ -1,6 +1,7 @@
 {
     "match": {
-        "README.md": {
+        "*.md": {
+            "putout/declare": "off",
             "promises/remove-useless-async": "off"
         }
     }
