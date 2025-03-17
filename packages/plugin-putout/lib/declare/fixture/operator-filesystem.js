@@ -6,3 +6,4 @@ renameFiles();
 readDirectory();
 createDirectory();
 createNestedDirectory();
+getRootDirectory();
