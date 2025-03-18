@@ -7,3 +7,4 @@ readDirectory();
 createDirectory();
 createNestedDirectory();
 getRootDirectory();
+removeEmptyDirectory(dirPath);

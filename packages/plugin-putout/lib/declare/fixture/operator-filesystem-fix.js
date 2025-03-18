@@ -1,5 +1,6 @@
 import {operator} from 'putout';
 
+const {removeEmptyDirectory} = operator;
 const {getRootDirectory} = operator;
 const {createNestedDirectory} = operator;
 const {createDirectory} = operator;
@@ -19,3 +20,4 @@ readDirectory();
 createDirectory();
 createNestedDirectory();
 getRootDirectory();
+removeEmptyDirectory(dirPath);

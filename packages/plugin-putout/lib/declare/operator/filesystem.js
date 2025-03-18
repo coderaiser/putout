@@ -17,4 +17,5 @@ module.exports = {
     writeFileContent: 'const {writeFileContent} = operator',
     copyFile: 'const {copyFile} = operator',
     readDirectory: 'const {readDirectory} = operator',
+    removeEmptyDirectory: 'const {removeEmptyDirectory} = operator',
 };
