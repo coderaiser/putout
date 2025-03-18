@@ -18,9 +18,13 @@ const {
 const maybeFS = require('./maybe-fs');
 
 const {
-    arrayExpression,
-    stringLiteral,
-    objectProperty,
+    createTypeProperty,
+    createFilesProperty,
+    createFilenameProperty,
+    createContentProperty,
+} = require('./property');
+
+const {
     isProgram,
     objectExpression,
 } = types;
@@ -261,22 +265,6 @@ function maybeRemoveFile(dirPath, filename) {
     fileToOverwrite.remove();
 }
 
-const createTypeProperty = (type) => objectProperty(stringLiteral('type'), stringLiteral(type));
-
-module.exports.createTypeProperty = createTypeProperty;
-
-const createFilesProperty = (files) => objectProperty(stringLiteral('files'), arrayExpression(files));
-
-module.exports.createFilesProperty = createFilesProperty;
-
-const createFilenameProperty = (filename) => objectProperty(stringLiteral('filename'), stringLiteral(filename));
-
-module.exports.createFilenameProperty = createFilenameProperty;
-
-const createContentProperty = (content) => objectProperty(stringLiteral('content'), stringLiteral(content));
-
-module.exports.createContentProperty = createContentProperty;
-
 module.exports.createFile = (dirPath, name, content) => {
     maybeRemoveFile(dirPath, name);
     
@@ -416,7 +404,9 @@ module.exports.createNestedDirectory = (path, name) => {
     
     const n = directories.length;
     
-    for (let i = directories.indexOf(lastDirectoryName) + 1; i < n; i++) {
+    let i = directories.indexOf(lastDirectoryName) + 1;
+    
+    for (; i < n; i++) {
         const name = basename(directories[i]);
         lastDirectoryPath = createDirectory(lastDirectoryPath, name);
     }
