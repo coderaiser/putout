@@ -39,27 +39,31 @@ const log = (from, path) => {
 };
 
 const {keys, entries} = Object;
-
 const {stringify} = JSON;
 
 const stub = () => [];
 const stubMatch = () => ({});
 const packKeys = (a) => () => keys(a);
-const isObj = (a) => typeof a === 'object';
+const isObject = (a) => typeof a === 'object';
 
 module.exports = ({rule, plugin, msg, options}) => {
+    const maybeMatch = plugin.match || stubMatch;
+    const match = maybeMatch({
+        options,
+    });
+    
     const {
         report,
         exclude = stub,
         replace,
-        filter = getFilter(plugin.match, options),
+        filter = getFilter(match),
     } = plugin;
     
     const replaceItems = replace({
         options,
     });
     
-    const fix = getFix(replaceItems, plugin.match, options);
+    const fix = getFix(replaceItems, match);
     const include = packKeys(replaceItems);
     
     return {
@@ -135,16 +139,12 @@ const fix = (from, to, path) => {
     log(from, newPath);
 };
 
-const getFix = (items, match = stubMatch, options) => (path) => {
-    const initedMatch = match({
-        options,
-    });
-    
+const getFix = (items, match) => (path) => {
     for (const [from, to] of entries(items)) {
         const nodeFrom = template.ast(from);
         
         if (compare(path, nodeFrom, {findUp: false})) {
-            const matchFn = initedMatch[from];
+            const matchFn = match[from];
             
             if (!matchFn || runMatch(path, nodeFrom, matchFn))
                 fix(from, to, path);
@@ -152,10 +152,8 @@ const getFix = (items, match = stubMatch, options) => (path) => {
     }
 };
 
-const getFilter = (match = stubMatch, options) => (path) => {
-    const all = entries(match({
-        options,
-    }));
+const getFilter = (match) => (path) => {
+    const all = entries(match);
     
     for (const [from, matchProperty] of all) {
         const nodeFrom = template.ast(from);
@@ -189,7 +187,7 @@ function parseTo(to, values, path) {
     if (!toStr)
         return null;
     
-    if (isObj(toStr) && toStr.type) {
+    if (isObject(toStr) && toStr.type) {
         toStr.__putout_replace_cooked = true;
         return toStr;
     }
