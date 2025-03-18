@@ -67,6 +67,20 @@ const {
 const newDirectoryPath = createNestedDirectory(ast, '/hello/world');
 ```
 
+### `removeEmptyDirectory(DirectoryPath)`
+
+```js
+const {operator} = require('putout');
+const {
+    removeEmptyDirectory,
+    createNestedDirectory,
+} = operator;
+
+const newDirectoryPath = createNestedDirectory(ast, '/hello/world');
+
+removeEmptyDirectory(newDirectoryPath);
+```
+
 ### `readDirectory(directoryPath: DirectoryPath): (FilePath | DirectoryPath)[]`
 
 ```js

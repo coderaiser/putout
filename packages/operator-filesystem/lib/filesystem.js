@@ -163,11 +163,35 @@ module.exports.renameFile = (filePath, name) => {
     maybeFS.renameFile(oldName, newFilename);
 };
 
-module.exports.removeFile = (filePath) => {
+module.exports.removeFile = removeFile;
+function removeFile(filePath) {
     const filename = getFilename(filePath);
+    
+    if (!getParentDirectory(filePath))
+        return;
     
     filePath.remove();
     maybeFS.removeFile(filename);
+}
+
+module.exports.removeEmptyDirectory = (dirPath) => {
+    const type = getFileType(dirPath);
+    
+    if (type !== 'directory')
+        return;
+    
+    let nextParentDir = dirPath;
+    
+    while (!readDirectory(dirPath).length) {
+        const name = getFilename(dirPath);
+        
+        if (name === '/')
+            break;
+        
+        nextParentDir = getParentDirectory(dirPath);
+        removeFile(dirPath);
+        dirPath = nextParentDir;
+    }
 };
 
 module.exports.moveFile = (filePath, dirPath) => {
@@ -281,14 +305,15 @@ module.exports.createFile = (dirPath, name, content) => {
 
 const getFiles = (dirPath) => getProperty(dirPath, 'files');
 
-module.exports.readDirectory = (dirPath) => {
+module.exports.readDirectory = readDirectory;
+function readDirectory(dirPath) {
     const fileType = getFileType(dirPath);
     
     if (fileType !== 'directory')
         return [];
     
     return getFiles(dirPath).get('value.elements');
-};
+}
 
 module.exports.createDirectory = createDirectory;
 

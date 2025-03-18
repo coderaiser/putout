@@ -25,6 +25,7 @@ const {
     createFile,
     createDirectory,
     createNestedDirectory,
+    removeEmptyDirectory,
     readDirectory,
     getParentDirectory,
     getRootDirectory,
@@ -198,15 +199,10 @@ test('putout: operator: filesystem: findFile: no names', (t) => {
 });
 
 test('putout: operator: filesystem: findFile: glob', (t) => {
-    const ast = parse(montag`
-        ${FS}({
-            "type": "directory",
-            "filename": "/hello.swp",
-            "files": []
-        });
-    `);
+    const ast = parseFilesystem(['/', '/hello.swp']);
     
     const [filePath] = findFile(ast, '*.swp');
+    
     removeFile(filePath);
     
     const result = print(ast, {
@@ -214,7 +210,11 @@ test('putout: operator: filesystem: findFile: glob', (t) => {
     });
     
     const expected = montag`
-        ${FS}();
+        ${FS}({
+            "type": "directory",
+            "filename": "/",
+            "files": []
+        });
     `;
     
     t.equal(result, expected);
@@ -278,6 +278,34 @@ test('putout: operator: filesystem: rename: maybeFS', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: removeFile: root', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/lib/lint/json/",
+            "files": []
+        });
+    `);
+    
+    const [filePath] = findFile(ast, 'json');
+    removeFile(filePath);
+    
+    const result = print(ast, {
+        printer: PRINTER,
+    });
+    
+    const expected = montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/lib/lint/json/",
+            "files": []
+        });
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: removeFile', (t) => {
     const ast = parse(montag`
         ${FS}({
@@ -295,7 +323,76 @@ test('putout: operator: filesystem: removeFile', (t) => {
     });
     
     const expected = montag`
-        ${FS}();
+        ${FS}({
+            "type": "directory",
+            "filename": "/lib/lint/json.js",
+            "files": []
+        });
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: removeEmptyDirectory', (t) => {
+    const ast = parseFilesystem([
+        '/',
+        '/hello/',
+        '/hello/world/',
+        '/hello/world/package/',
+    ]);
+    
+    const [filePath] = findFile(ast, 'package');
+    removeEmptyDirectory(filePath);
+    
+    const result = print(ast, {
+        printer: PRINTER,
+    });
+    
+    const expected = montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/",
+            "files": []
+        });
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: removeEmptyDirectory: file', (t) => {
+    const ast = parseFilesystem([
+        '/',
+        '/hello/',
+        '/hello/world/',
+        '/hello/world/package.json',
+    ]);
+    
+    const [filePath] = findFile(ast, 'package.json');
+    removeEmptyDirectory(filePath);
+    
+    const result = print(ast, {
+        printer: PRINTER,
+    });
+    
+    const expected = montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/",
+            "files": [{
+                "type": "directory",
+                "filename": "/hello",
+                "files": [{
+                    "type": "directory",
+                    "filename": "/hello/world",
+                    "files": [{
+                        "type": "file",
+                        "filename": "/hello/world/package.json"
+                    }]
+                }]
+            }]
+        });
     `;
     
     t.equal(result, expected);
