@@ -45,7 +45,7 @@ test('putout: loader: parse rules: disabled: enabled partially', (t) => {
         options: {},
         plugin: null,
         rule: 'convert-commonjs-to-esm',
-        state: true,
+        state: false,
     }, {
         msg: '',
         options: {},

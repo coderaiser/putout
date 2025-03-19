@@ -15,6 +15,7 @@ const {
 
 const {filterEnabledPlugins} = require('./plugins/filter-enabled-plugins');
 const {check, checkRule} = require('./check');
+const {enableNestedRules} = require('./rules/parse-rules');
 const {isArray} = Array;
 
 module.exports.loadPluginsAsync = loadPluginsAsync;
@@ -58,8 +59,9 @@ module.exports.loadPlugins = (options) => {
     
     const {pluginNames = [], rules = {}} = options;
     
-    const cookedRules = parseRules(rules);
-    const loadedRules = getLoadedRules(cookedRules);
+    const enabledRules = enableNestedRules(rules);
+    const cookedEnabledRules = parseRules(enabledRules);
+    const loadedRules = getLoadedRules(cookedEnabledRules);
     
     const items = parsePluginNames(pluginNames);
     const plugins = loadPlugins({
@@ -67,13 +69,10 @@ module.exports.loadPlugins = (options) => {
         loadedRules,
     });
     
-    const cookedNotEnabled = parseRules(rules, {
-        enable: false,
-    });
-    
+    const cookedRules = parseRules(rules);
     return filterEnabledPlugins({
         plugins,
-        cookedRules: cookedNotEnabled,
+        cookedRules,
     });
 };
 

@@ -24,10 +24,7 @@ const parseState = (rule, value) => {
     return value;
 };
 
-module.exports.parseRules = (rules, {enable = true} = {}) => {
-    if (enable)
-        rules = parseSubrules(rules);
-    
+module.exports.parseRules = (rules) => {
     const result = [];
     const plugin = null;
     const msg = '';
@@ -119,7 +116,7 @@ function validateState(rule, value) {
 
 const cut = (a) => a.split('/')[0];
 
-function parseSubrules(rules) {
+module.exports.enableNestedRules = (rules) => {
     const newRules = {};
     
     for (const [rule, value] of entries(rules)) {
@@ -130,4 +127,4 @@ function parseSubrules(rules) {
     }
     
     return newRules;
-}
+};
