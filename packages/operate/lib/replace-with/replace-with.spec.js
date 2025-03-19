@@ -187,8 +187,12 @@ test('putout: operate: replaceWith: parentPath', (t) => {
     const {code} = putout(source, {
         rules: {
             'putout': 'off',
+            'putout/apply-create-test': 'on',
             'putout/apply-fixture-name-to-message': 'on',
+            'putout/declare': 'on',
+            'putout/convert-dirname-to-url': 'on',
             'putout/move-require-on-top-level': 'on',
+            'putout/replace-test-message': 'on',
         },
         plugins: ['putout'],
     });

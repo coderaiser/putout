@@ -24,6 +24,7 @@ test('putout: runner: progress: start', async (t) => {
         putout(source, {
             progress,
             rules: {
+                'filesystem': 'off',
                 'filesystem/remove-files': ['on', {
                     names: ['coverage'],
                 }],
@@ -32,7 +33,7 @@ test('putout: runner: progress: start', async (t) => {
         }),
     ]);
     
-    t.equal(pluginsCount, 4);
+    t.equal(pluginsCount, 1);
     t.end();
 });
 
@@ -52,6 +53,7 @@ test('putout: runner: progress: end', async (t) => {
         putout(source, {
             progress,
             rules: {
+                'filesystem': 'off',
                 'filesystem/remove-files': ['on', {
                     names: ['coverage'],
                 }],
@@ -60,7 +62,7 @@ test('putout: runner: progress: end', async (t) => {
         }),
     ]);
     
-    t.equal(pluginsCount, 4);
+    t.equal(pluginsCount, 1);
     t.end();
 });
 
@@ -90,6 +92,6 @@ test('putout: runner: progress: push', async (t) => {
         }),
     ]);
     
-    t.equal(pluginsCount, 4);
+    t.equal(pluginsCount, 1);
     t.end();
 });

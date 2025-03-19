@@ -67,9 +67,13 @@ module.exports.loadPlugins = (options) => {
         loadedRules,
     });
     
+    const cookedNotEnabled = parseRules(rules, {
+        enable: false,
+    });
+    
     return filterEnabledPlugins({
         plugins,
-        cookedRules,
+        cookedRules: cookedNotEnabled,
     });
 };
 

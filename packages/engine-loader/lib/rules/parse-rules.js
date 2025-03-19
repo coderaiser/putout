@@ -24,8 +24,9 @@ const parseState = (rule, value) => {
     return value;
 };
 
-module.exports.parseRules = (rules) => {
-    rules = parseSubrules(rules);
+module.exports.parseRules = (rules, {enable = true} = {}) => {
+    if (enable)
+        rules = parseSubrules(rules);
     
     const result = [];
     const plugin = null;

@@ -243,7 +243,7 @@ test('putout: loader: no options.pluginNames', (t) => {
     t.end();
 });
 
-test('putout: loader: enable part of rule', (t) => {
+test('putout: loader: enable part of plugin', (t) => {
     const source = `const {run} = require('madrun');`;
     
     const {code} = putout(source, {
@@ -291,6 +291,31 @@ test('putout: loader: disabled part of rule', (t) => {
     }];
     
     t.deepEqual(places, expected, 'should disable one of rules in plugin');
+    t.end();
+});
+
+test('putout: loader: enable part of rule', (t) => {
+    const code = montag`
+        const {run} = require('madrun');
+        
+        module.exports = {
+            'lint': () => 'bin/putout.js .',
+            'fix:lint': () => run('lint', '--fix'),
+        };
+    `;
+    
+    const {places} = putout(code, {
+        fix: false,
+        rules: {
+            'madrun': 'off',
+            'madrun/add-madrun-to-lint': 'on',
+        },
+        plugins: ['madrun'],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should disable all but couple of rules in plugin');
     t.end();
 });
 
