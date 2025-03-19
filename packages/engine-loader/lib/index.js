@@ -70,6 +70,7 @@ module.exports.loadPlugins = (options) => {
     });
     
     const cookedRules = parseRules(rules);
+    
     return filterEnabledPlugins({
         plugins,
         cookedRules,
