@@ -93,3 +93,8 @@ test('plugin-filesystem: transform: remove-travis-yml-file', (t) => {
     t.transform('remove-travis-yml-file');
     t.end();
 });
+
+test('plugin-filesystem: transform: remove-empty-directory', (t) => {
+    t.transform('remove-empty-directory');
+    t.end();
+});

@@ -4,9 +4,5 @@ __putout_processor_filesystem({
     "files": [{
         "type": "file",
         "filename": "/home/coderaiser/putout/README.md"
-    }, {
-        "type": "directory",
-        "filename": "/home/coderaiser/putout/lib",
-        "files": []
     }]
 });

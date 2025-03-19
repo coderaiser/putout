@@ -17,9 +17,5 @@ __putout_processor_filesystem({
             "filename": "/test/hello.spec.js",
             "content": "import hello from '../src/hello.js'"
         }]
-    }, {
-        "type": "directory",
-        "filename": "/lib",
-        "files": []
     }]
 });

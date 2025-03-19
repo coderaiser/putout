@@ -21,6 +21,7 @@ npm i @putout/plugin-filesystem -D
 - ✅ [move-referenced-file](#move-referenced-file);
 - ✅ [read-all-files](#read-all-files);
 - ✅ [rename-file](#rename-file);
+- ✅ [remove-empty-directory](#remove-empty-directory);
 - ✅ [remove-travis-yml-file](#remove-travis-yml-file);
 - ✅ [remove-vim-swap-file](#remove-vim-swap-file);
 - ✅ [remove-nyc-output-files](#remove-nyc-output-files);
@@ -36,6 +37,7 @@ npm i @putout/plugin-filesystem -D
 ```json
 {
     "rules": {
+        "filesystem/remove-empty-directory": "on",
         "filesystem/remove-travis-yml-file": "on",
         "filesystem/remove-vim-swap-file": "on",
         "filesystem/remove-nyc-output-files": "on",
@@ -108,6 +110,17 @@ It will rename 'test' to 'spec' in `*.test.*` files:
 ```diff
 -index.test.js
 +index.spec.js
+```
+
+## remove-empty-directory
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/52d8126f3e41b687c6028852a1925db7/5efcb17493ad5ebe8f1786075a985e1dd35ea59e).
+
+```diff
+/
+-|-- hello/
+-|  `-- abc/
+-|      `-- def/
 ```
 
 ## remove-nyc-output-files

@@ -17,6 +17,7 @@ const writeAllFiles = require('./write-all-files');
 const convertJsToJson = require('./convert-js-to-json');
 const removeNycOutputFiles = require('./remove-nyc-output-files');
 const removeTravisYmlFile = require('./remove-travis-yml-file');
+const removeEmptyDirectory = require('./remove-empty-directory');
 
 module.exports.rules = {
     'remove-vim-swap-file': removeVimSwapFile,
@@ -36,4 +37,5 @@ module.exports.rules = {
     'convert-json-to-js': ['off', convertJsonToJs],
     'remove-nyc-output-files': removeNycOutputFiles,
     'remove-travis-yml-file': removeTravisYmlFile,
+    'remove-empty-directory': removeEmptyDirectory,
 };
