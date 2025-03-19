@@ -361,6 +361,30 @@ test('putout: operator: filesystem: removeEmptyDirectory', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: removeEmptyDirectory: root', (t) => {
+    const ast = parseFilesystem([
+        '/hello/world/package/',
+    ]);
+    
+    const [filePath] = findFile(ast, 'package');
+    removeEmptyDirectory(filePath);
+    
+    const result = print(ast, {
+        printer: PRINTER,
+    });
+    
+    const expected = montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/hello/world/package",
+            "files": []
+        });
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: removeEmptyDirectory: file', (t) => {
     const ast = parseFilesystem([
         '/',

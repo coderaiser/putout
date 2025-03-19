@@ -193,6 +193,10 @@ module.exports.removeEmptyDirectory = (dirPath) => {
             break;
         
         nextParentDir = getParentDirectory(dirPath);
+        
+        if (!nextParentDir)
+            break;
+        
         removeFile(dirPath);
         dirPath = nextParentDir;
     }
