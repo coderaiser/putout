@@ -235,8 +235,8 @@ test('eslint-plugin-putout: putout: sync: ESM', async ({pass, comparePlaces}) =>
         },
     };
     
-    if (process.version.startsWith('v23') || process.version.startsWith('v22'))
-        return pass('require of ESM supported in node v23');
+    if (process.version.startsWith('v2'))
+        return pass('require of ESM supported in node v2x');
     
     await comparePlaces('sync-esm', [{
         message: `☝️ Looks like 'apply-nullish-coalescing' is ESM, extend from 'plugin:putout/esm' (putout)`,
