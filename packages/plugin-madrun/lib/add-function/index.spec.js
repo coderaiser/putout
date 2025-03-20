@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('madrun: add function: report: string', (t) => {
-    t.report('string', 'function should be used instead of string in script "hello');
+    t.report('string', `Use 'function' instead of 'string' in script: 'hello'`);
     t.end();
 });
 
@@ -40,6 +40,6 @@ test('madrun: add function: transform: export-default', (t) => {
 });
 
 test('madrun: add function: report: identifier', (t) => {
-    t.report('identifier', 'function should be used instead of string in script "build');
+    t.report('identifier', `Use 'function' instead of 'string' in script: 'build'`);
     t.end();
 });

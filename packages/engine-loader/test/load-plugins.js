@@ -299,8 +299,7 @@ test('putout: loader: enable part of rule', (t) => {
         const {run} = require('madrun');
         
         module.exports = {
-            'lint': () => 'bin/putout.js .',
-            'fix:lint': () => run('lint', '--fix'),
+            'lint': 'putout .',
         };
     `;
     
@@ -308,12 +307,19 @@ test('putout: loader: enable part of rule', (t) => {
         fix: false,
         rules: {
             'madrun': 'off',
-            'madrun/add-madrun-to-lint': 'on',
+            'madrun/add-function': 'on',
         },
         plugins: ['madrun'],
     });
     
-    const expected = [];
+    const expected = [{
+        message: `Use 'function' instead of 'string' in script: 'lint'`,
+        position: {
+            column: 12,
+            line: 4,
+        },
+        rule: 'madrun/add-function',
+    }];
     
     t.deepEqual(places, expected, 'should disable all but couple of rules in plugin');
     t.end();

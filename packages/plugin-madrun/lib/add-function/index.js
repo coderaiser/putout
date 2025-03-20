@@ -3,14 +3,13 @@
 const {types, operator} = require('putout');
 
 const {replaceWith, extract} = operator;
-
 const {
     isLiteral,
     isCallExpression,
     arrowFunctionExpression,
 } = types;
 
-module.exports.report = ({name}) => `function should be used instead of string in script "${name}`;
+module.exports.report = ({name}) => `Use 'function' instead of 'string' in script: '${name}'`;
 
 module.exports.fix = ({path}) => {
     replaceWith(path, arrowFunctionExpression([], path.node));
