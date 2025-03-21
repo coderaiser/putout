@@ -1,18 +1,17 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isStringLiteral} = types;
 
-module.exports.report = () => `Apply 'montag' instead of [''].join()`;
+export const report = () => `Apply 'montag' instead of [''].join()`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '__array.join("\\n")': ({__array}) => {
         const {elements} = __array;
         return elements.every(isStringLiteral);
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__array.join("\\n")': ({__array}, path) => {
         const [value, aligner] = evaluate({
             __array,
