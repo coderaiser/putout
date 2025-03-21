@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {traverse} = operator;
 
 const EXTEND = `
@@ -9,16 +8,16 @@ const EXTEND = `
     })
 `;
 
-module.exports.report = () => `Remove legacy test declaration`;
+export const report = () => `Remove legacy test declaration`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'const fixture = __': check,
     'const {printExtension} = __': check,
     'const {readFixtures} = __': check,
     [EXTEND]: check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const fixture = __': '',
     'const {printExtension} = __': '',
     'const {readFixtures} = __': '',

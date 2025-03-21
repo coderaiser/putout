@@ -1,12 +1,9 @@
-'use strict';
+import {createTest} from '@putout/test';
+import declareBeforeReference from '@putout/plugin-declare-before-reference';
+import removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
+import * as plugin from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const declareBeforeReference = require('@putout/plugin-declare-before-reference');
-const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
-const plugin = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['apply-types', plugin],
     ],

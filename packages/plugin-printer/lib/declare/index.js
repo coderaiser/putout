@@ -1,8 +1,6 @@
-'use strict';
+import types from '@putout/plugin-putout/declare/types';
 
-const types = require('@putout/plugin-putout/declare/types');
-
-module.exports.declare = () => ({
+export const declare = () => ({
     createTest: `const {createTest} = require('#test')`,
     test: 'const {test} = createTest(__dirname)',
     fixture: 'const {fixture} = createTest(__dirname)',

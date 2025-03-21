@@ -1,10 +1,8 @@
-'use strict';
-
 const checkArgs = ({__args}) => __args.length;
 
-module.exports.report = () => 'Remove useless argument';
+export const report = () => 'Remove useless argument';
 
-module.exports.match = () => ({
+export const match = () => ({
     'print.newline(__args)': checkArgs,
     'print.space(__args)': checkArgs,
     
@@ -25,7 +23,7 @@ module.exports.match = () => ({
     'print.indent.dec(__args)': checkArgs,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'print.newline(__args)': 'print.newline()',
     'print.breakline(__a)': 'print.breakline()',
     'print.linebreak(__a)': 'print.linebreak()',

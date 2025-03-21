@@ -1,6 +1,4 @@
-'use strict';
-
-const {operator, template} = require('putout');
+import {operator, template} from 'putout';
 
 const {
     compare,
@@ -9,11 +7,11 @@ const {
     remove,
 } = operator;
 
-module.exports.report = () => `breakline = newline + indent`;
+export const report = () => `breakline = newline + indent`;
 
 const next = (path) => path.parentPath.getNextSibling();
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const sibling = next(path);
     const newNode = choose(path);
     
@@ -21,11 +19,11 @@ module.exports.fix = (path) => {
     replaceWith(path, newNode);
 };
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     return compareAny(next(path), ['indent()', 'print.indent()', 'write.indent()']);
 };
 
-module.exports.include = () => [
+export const include = () => [
     'print.newline()',
     'write.newline()',
 ];

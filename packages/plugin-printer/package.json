@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-printer",
   "version": "4.3.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds support of transformations for @putout/printer",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-printer#readme",
@@ -48,11 +48,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=37"
+    "putout": ">=39"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

@@ -1,8 +1,6 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {addArgs} = operator;
-
 const parents = [
     '__ = __',
     'const __ = __',
@@ -13,7 +11,11 @@ const parents = [
     'function __(path, __object) {}',
 ];
 
-module.exports = addArgs({
+const {
+    report,
+    fix,
+    traverse,
+} = addArgs({
     path: ['path', 'module.exports.__a = () => __body'],
     maybe: ['{maybe}', parents],
     write: ['{write}', parents],
@@ -23,3 +25,9 @@ module.exports = addArgs({
     traverse: ['{traverse}', parents],
     store: ['{store}', parents],
 });
+
+export {
+    report,
+    fix,
+    traverse,
+};

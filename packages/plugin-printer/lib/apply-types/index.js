@@ -1,14 +1,13 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isObjectPattern} = types;
 
 const {keys} = Object;
 const TYPES = keys(types);
 
-module.exports.report = () => `require: ('@putout/babel') -> ('putout/babel').types`;
+export const report = () => `require: ('@putout/babel') -> ('putout/babel').types`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'const __a = require("@putout/babel")': ({__a}) => {
         if (!isObjectPattern(__a))
             return false;
@@ -30,7 +29,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const {types, __a} = require("@putout/babel")': `{
         const {types} = require("@putout/babel");
         const {__a} = types;
