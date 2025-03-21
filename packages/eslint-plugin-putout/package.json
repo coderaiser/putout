@@ -57,7 +57,7 @@
     "parse-import-specifiers": "^1.0.1",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.1",
-    "typescript": "~5.7.0",
+    "typescript": "^5.8.2",
     "typescript-eslint": "^8.24.1"
   },
   "devDependencies": {
