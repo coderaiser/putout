@@ -1,3 +1,14 @@
+2025.03.22, v39.0.8
+
+feature:
+- 4cb7c20db putout: @putout/operator-rename-files v3.0.0
+- 25ee061f0 @putout/operator-rename-files: @putout/operator-filesystem v7.0.0
+- 55b51e239 @putout/operator-rename-files: drop support of node < 20
+- c5d2ba619 @putout/engine-runner: @putout/operator-filesystem v7.0.0
+- 703dfc60d @putout/engine-runner: @putout/compare v17.0.0
+- ae16cfa37 @putout/engine-runner: @putout/operator-declare v12.0.0
+- befb1007d @putout/operator-match-files: @putout/operator-filesystem v7.0.0
+
 2025.03.22, v39.0.7
 
 feature:
