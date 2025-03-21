@@ -1,3 +1,10 @@
+2025.03.22, v39.0.6
+
+feature:
+- 851b52a36 putout: @putout/processor-filesystem v6.0.0
+- 2308a4b0d @putout/processor-filesystem: drop support of node < 20
+- 0ebf92ded @putout/processor-filesystem: @putout/operator-filesystem v7.0.0
+
 2025.03.22, v39.0.5
 
 feature:
