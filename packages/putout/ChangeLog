@@ -1,3 +1,14 @@
+2025.03.22, v39.0.4
+
+feature:
+- 22da9682f putout: @putout/compare v17.0.0
+- 68af3aa91 @putout/compare: drop support of node < 20
+- f202f7919 @putout/compare: @putout/engine-parser v13.0.0
+- aed617aaf putout: @putout/engine-runner v24.0.0
+- 709484533 @putout/engine-runner: @putout/engine-parser v13.0.0
+- 43bb04896 putout: @putout/operator-match-files v7.0.0
+- 7f2912020 @putout/operator-match-files: drop support of node < 20
+
 2025.03.22, v39.0.3
 
 feature:
