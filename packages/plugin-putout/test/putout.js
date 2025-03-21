@@ -319,3 +319,8 @@ test('plugin-putout: transform: apply-report', (t) => {
     t.transform('apply-report');
     t.end();
 });
+
+test('plugin-putout: transform: apply-exports-to-add-args', (t) => {
+    t.transform('apply-exports-to-add-args');
+    t.end();
+});

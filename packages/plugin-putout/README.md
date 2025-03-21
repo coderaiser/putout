@@ -25,6 +25,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-create-test](#apply-create-test);
 - ✅ [apply-create-nested-directory](#apply-create-nested-directory);
 - ✅ [apply-declare](#apply-declare);
+- ✅ [apply-exports-to-add-args](#apply-exports-to-add-args);
 - ✅ [apply-for-of-to-track-file](#apply-for-of-to-track-file);
 - ✅ [apply-fixture-name-to-message](#apply-fixture-name-to-message);
 - ✅ [apply-insert-after](#apply-insert-after);
@@ -96,6 +97,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-create-nested-directory": "on",
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
+        "putout/apply-exports-to-add-args": "on",
         "putout/apply-report": "on",
         "putout/apply-processors-destructuring": "on",
         "putout/apply-rename": "on",
@@ -454,6 +456,32 @@ module.exports.declare = () => ({
     tryCatch: `import tryCatch from 'try-catch'`,
     tryToCatch: `import tryToCatch from 'try-to-catch'`,
 });
+```
+
+## apply-exports-to-add-args
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/cf35de5e80e8f7aad866358a50c5eded/0af6142fc9c9e71ac2a2aa96cb85613dd95c9fbf).
+
+### ❌ Example of incorrect code
+
+```js
+export default addArgs(__args);
+```
+
+### ✅ Example of correct code
+
+```js
+const {
+    report,
+    fix,
+    traverse,
+} = addArgs(__args);
+
+export {
+    report,
+    fix,
+    traverse,
+};
 ```
 
 ## apply-async-formatter

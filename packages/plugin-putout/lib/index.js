@@ -63,6 +63,7 @@ import * as applyParens from './apply-parens/index.js';
 import * as applyLowercaseToNodeBuilders from './apply-lowercase-to-node-builders/index.js';
 import * as applyCreateNestedDirectory from './apply-create-nested-directory/index.js';
 import * as applyReport from './apply-report/index.js';
+import * as applyExportsToAddArgs from './apply-exports-to-add-args/index.js';
 
 export const rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -72,6 +73,7 @@ export const rules = {
     'apply-insert-before': applyInsertBefore,
     'apply-insert-after': applyInsertAfter,
     'apply-declare': applyDeclare,
+    'apply-exports-to-add-args': applyExportsToAddArgs,
     'check-declare': checkDeclare,
     'check-replace-code': checkReplaceCode,
     'check-match': checkMatch,
