@@ -25,16 +25,16 @@ const onceAnyNoResult = template(`await once(%%emitter%%, %%event%%)`);
 module.exports.report = () => '"await once" should be used';
 
 module.exports.match = () => ({
-    'test(__a, (__args) => __body)': match,
-    'test(__a, async (__args) => __body)': match,
+    'test(__a, (__args) => __body)': doMatch,
+    'test(__a, async (__args) => __body)': doMatch,
 });
 
 module.exports.replace = () => ({
-    'test(__a, (__args) => __body)': replace,
-    'test(__a, async (__args) => __body)': replace,
+    'test(__a, (__args) => __body)': doReplace,
+    'test(__a, async (__args) => __body)': doReplace,
 });
 
-function match({__body}) {
+function doMatch({__body}) {
     for (const codeLine of __body.body) {
         const {
             expression = codeLine,
@@ -53,7 +53,7 @@ function match({__body}) {
     return false;
 }
 
-function replace({__a}, path) {
+function doReplace({__a}, path) {
     declareOnce(path);
     
     const arg = path.get('arguments.1').node;
