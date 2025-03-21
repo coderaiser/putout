@@ -42,7 +42,7 @@
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^26.0.0",
     "eslint-plugin-react": "^7.32.0",
-    "madrun": "^10.0.0"
+    "madrun": "^11.0.0"
   },
   "license": "MIT",
   "engines": {
