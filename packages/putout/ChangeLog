@@ -1,3 +1,21 @@
+2025.03.21, v39.0.1
+
+fix:
+- 83da6f393 eslint-plugin-putout: rm synkit
+
+feature:
+- 5881498cc @putout/plugin-printer: convert to ESM
+- 8fb6762bb @putout/plugin-apply-exports-to-add-args: add
+- b3cd69a90 @putout/plugin-putout: convert to ESM
+- 91f44cc12 @putout/plugin-putout: drop support of node < 20
+- 28ab74ed8 @putout/operator-parens: putout v39.0.0
+- d91505ce0 root: @putout/eslint-flat v3.0.0
+- 9bdb8921d @putout/eslint-flat: drop support of node < 20
+- db06f0fa2 @putout/eslint-flat: @eslint/config-helpers v0.2.0
+- 1ecc6b65e eslint-plugin-putout: typescript v5.8.2
+- d0f92b682 eslint-plugin-putout: @putout/eslint-config v11.0.0
+- ef072c248 root: eslint-plugin-putout v26.0.0
+
 2025.03.21, v39.0.0
 
 fix:
