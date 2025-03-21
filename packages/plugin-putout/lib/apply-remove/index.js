@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Use 'remove(path)' instead of 'path.remove()'`;
 
-module.exports.report = () => `Use 'remove(path)' instead of 'path.remove()'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a.remove()': 'remove(__a)',
 });

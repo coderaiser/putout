@@ -1,15 +1,15 @@
-'use strict';
+import {operator} from 'putout';
 
-const {compare} = require('putout').operator;
+const {compare} = operator;
 
-module.exports.report = () => 'Identifier should be used instead of empty destructuring';
+export const report = () => 'Identifier should be used instead of empty destructuring';
 
-module.exports.match = () => ({
+export const match = () => ({
     '({}) => __body': (vars, path) => findUp(path, 'module.exports.__a = __'),
     '({}, __a) => __body': (vars, path) => findUp(path, 'module.exports.__a = __'),
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '({}) => __body': '(vars) => __body',
     '({}, __a) => __body': '(vars, __a) => __body',
 });

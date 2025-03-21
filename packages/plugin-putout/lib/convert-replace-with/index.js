@@ -1,12 +1,10 @@
-'use strict';
-
-const {
+import {
     operator,
     template,
     types,
-} = require('putout');
+} from 'putout';
+import fullstore from 'fullstore';
 
-const fullstore = require('fullstore');
 const {objectProperty, identifier} = types;
 
 const {
@@ -15,11 +13,11 @@ const {
     insertBefore,
 } = operator;
 
-module.exports.report = () => {
+export const report = () => {
     return `Use 'operator.replaceWith()' instead of 'path.replaceWith()'`;
 };
 
-module.exports.fix = ({path, calleePath, property, object, program, isInserted}) => {
+export const fix = ({path, calleePath, property, object, program, isInserted}) => {
     replaceWith(calleePath, property);
     const {bindings} = program.scope;
     
@@ -65,7 +63,7 @@ function getVarPath(bindings) {
     return insertAfter.path;
 }
 
-module.exports.traverse = ({push}) => {
+export const traverse = ({push}) => {
     const isInserted = fullstore();
     
     return {

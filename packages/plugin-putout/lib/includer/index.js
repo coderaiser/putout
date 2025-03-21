@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'Includer functions should return array (https://git.io/Jyndl)';
 
-module.exports.report = () => 'Includer functions should return array (https://git.io/Jyndl)';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'module.exports.include = () => "__a"': 'module.exports.include = ["__a"]',
     'module.exports.exclude = () => "__a"': 'module.exports.exclude = ["__a"]',
     'module.exports.include = __array': 'module.exports.include = () => __array',

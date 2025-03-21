@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compareAny} = operator;
 
-module.exports.report = () => `Use 'vars' instead of '{}'`;
+export const report = () => `Use 'vars' instead of '{}'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '({}, path) => __a': isInsideReplacer,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '({}, path) => __a': '(vars, path) => __a',
 });
 

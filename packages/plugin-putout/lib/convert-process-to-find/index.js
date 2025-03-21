@@ -1,10 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {replaceWith} = require('putout').operator;
+const {replaceWith} = operator;
 
-module.exports.report = () => 'Use find instead of process';
+export const report = () => 'Use find instead of process';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'module.exports.preProcess = __a': 'module.exports.branch = __a',
     'module.exports.postProcess = __a ': 'module.exports.merge = __a',
     'module.exports.process = __a': (vars, path) => {

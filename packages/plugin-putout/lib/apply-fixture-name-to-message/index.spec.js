@@ -1,12 +1,10 @@
-'use strict';
-
-const {createTest} = require('@putout/test');
-const pluginTape = require('@putout/plugin-tape');
-const plugin = require('.');
+import {createTest} from '@putout/test';
+import pluginTape from '@putout/plugin-tape';
+import * as plugin from './index.js';
 
 const removeOnly = pluginTape.rules['remove-only'];
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['apply-fixture-name-to-message', plugin],
     ],

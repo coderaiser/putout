@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {compute, rename} = operator;
 const {identifier} = types;
@@ -14,12 +12,12 @@ const getShortName = (a) => {
         .replace('putout_processor_', '');
 };
 
-module.exports.report = ({value}) => {
+export const report = ({value}) => {
     const name = getShortName(value);
     return `Use '[${name}]' instead of '${value}'`;
 };
 
-module.exports.fix = ({path, value}) => {
+export const fix = ({path, value}) => {
     const name = getShortName(value);
     
     path.node.key = identifier(name);
@@ -27,7 +25,7 @@ module.exports.fix = ({path, value}) => {
     rename(path.get('value'), '__a', chooseType(name));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ObjectProperty(path) {
         const [is, value] = compute(path.get('key'));
         

@@ -1,11 +1,10 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as addPush from './index.js';
+import * as putout from '../index.js';
 
-const {createTest} = require('@putout/test');
-const addPush = require('.');
-const putout = require('..');
 const convertTraverseToScan = putout.rules['convert-traverse-to-scan'];
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout/add-traverse-args', addPush],
     ],

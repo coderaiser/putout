@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `'replace' should be a function`;
 
-module.exports.report = () => `'replace' should be a function`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'module.exports.replace = __object': 'module.exports.replace = () => __object',
 });

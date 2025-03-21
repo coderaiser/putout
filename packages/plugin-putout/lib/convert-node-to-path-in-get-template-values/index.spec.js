@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertNodeToPathInGetTemplateValues from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertNodeToPathInGetTemplateValues = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout/convert-node-to-path-in-get-template-values', convertNodeToPathInGetTemplateValues],
     ],

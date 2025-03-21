@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Avoid empty array used as 'process()' argument`;
 
-module.exports.report = () => `Avoid empty array used as 'process()' argument`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'await process(__a, [])': 'await process(__a)',
 });

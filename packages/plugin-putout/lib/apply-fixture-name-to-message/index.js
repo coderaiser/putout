@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     setLiteralValue,
     compare,
@@ -17,9 +16,9 @@ const NAMES = [
     'no transform',
 ];
 
-module.exports.report = () => `Apply 'fixture' name to 'message'`;
+export const report = () => `Apply 'fixture' name to 'message'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     't.noReport(__a)': check,
     't.report(__a, __b)': check,
     't.transform(__a)': check,
@@ -27,7 +26,7 @@ module.exports.match = () => ({
     't.noTransform(__a)': check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.noReport(__a)': transform,
     't.report(__a, __b)': transform,
     't.transform(__a)': transform,

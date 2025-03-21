@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith} = operator;
 
@@ -12,7 +10,7 @@ const {
 
 const {entries} = Object;
 
-module.exports.report = () => '"traverse" should be used instead of "find"';
+export const report = () => '"traverse" should be used instead of "find"';
 
 const fixType = (types) => (path) => {
     for (const [is, fix] of entries(types)) {
@@ -21,7 +19,7 @@ const fixType = (types) => (path) => {
     }
 };
 
-module.exports.fix = fixType({
+export const fix = fixType({
     isMemberExpression: (path) => {
         path.get('property').node.name = 'traverse';
     },
@@ -33,7 +31,7 @@ module.exports.fix = fixType({
     },
 });
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'module.exports.find = (__args) => __'(path) {
         const leftPath = path.get('left');
         const rightPath = path.get('right');

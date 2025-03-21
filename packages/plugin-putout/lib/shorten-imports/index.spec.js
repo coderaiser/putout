@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as shortenPutoutExports from './index.js';
 
-const {createTest} = require('@putout/test');
-const shortenPutoutExports = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout/shorten-putout-exports', shortenPutoutExports],
     ],

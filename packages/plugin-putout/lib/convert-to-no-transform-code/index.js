@@ -1,13 +1,12 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isIdentifier, identifier} = types;
 
-module.exports.report = () => {
+export const report = () => {
     return `"noTransformCode" should be called instead of using same arguments twice in "transformCode"`;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     CallExpression(path) {
         const calleePath = path.get('callee');
         
@@ -34,7 +33,7 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-module.exports.fix = ({path, calleePath}) => {
+export const fix = ({path, calleePath}) => {
     calleePath.node.property = identifier('noTransformCode');
     path.node.arguments.pop();
 };

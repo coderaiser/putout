@@ -1,17 +1,16 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {rename} = operator;
 const {assign} = Object;
 
-module.exports.report = () => `Use 'createTest' instead of 'putoutTest'`;
-module.exports.filter = ({scope}) => !scope.bindings.createTest;
+export const report = () => `Use 'createTest' instead of 'putoutTest'`;
+export const filter = ({scope}) => !scope.bindings.createTest;
 
-module.exports.include = () => [
+export const include = () => [
     'import putoutTest from "@putout/test"',
 ];
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const [first] = path.node.specifiers;
     
     assign(first, {

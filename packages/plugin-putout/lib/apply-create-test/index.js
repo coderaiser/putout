@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Apply 'createTest'`;
 
-module.exports.report = () => `Apply 'createTest'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'require("@putout/test")(__dirname, __a)': `createTest(__dirname, __a)`,
 });

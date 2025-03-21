@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     compare,
@@ -13,11 +11,11 @@ const {
     isArrayPattern,
 } = types;
 
-module.exports.report = () => '"path" should be used instead of "node" in getTemplateValues';
+export const report = () => '"path" should be used instead of "node" in getTemplateValues';
 
 const GET_TEMPLATE_VALUES_NODE = 'getTemplateValues(__a.node, __b)';
 
-module.exports.fix = ({path, __aPath, init}) => {
+export const fix = ({path, __aPath, init}) => {
     if (compare(path, GET_TEMPLATE_VALUES_NODE)) {
         const {__a} = getTemplateValues(path, GET_TEMPLATE_VALUES_NODE);
         replaceWith(__aPath, __a);
@@ -28,7 +26,7 @@ module.exports.fix = ({path, __aPath, init}) => {
     replaceWith(__aPath, init);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'getTemplateValues(__a, __b)': (path) => {
         const {scope} = path;
         const {bindings} = scope;

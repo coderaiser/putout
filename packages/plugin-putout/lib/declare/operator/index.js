@@ -1,11 +1,9 @@
-'use strict';
+import filesystem from './filesystem.js';
+import json from './json.js';
+import keyword from './keyword.js';
+import parens from './parens.js';
 
-const filesystem = require('./filesystem');
-const json = require('./json');
-const keyword = require('./keyword');
-const parens = require('./parens');
-
-module.exports = {
+export default {
     ...filesystem,
     ...json,
     ...keyword,

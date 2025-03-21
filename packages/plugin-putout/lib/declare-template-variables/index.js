@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     objectPattern,
     isIdentifier,
@@ -12,12 +11,12 @@ const {getBindingPath} = operator;
 const SHORTHAND = true;
 const COMPUTED = false;
 
-module.exports.report = ({node}) => {
+export const report = ({node}) => {
     const {name} = node;
     return `Declare template variable '${name}'`;
 };
 
-module.exports.fix = ({path, node}) => {
+export const fix = ({path, node}) => {
     const [first] = path.node.params;
     const property = objectProperty(node, node, COMPUTED, SHORTHAND);
     
@@ -29,7 +28,7 @@ module.exports.fix = ({path, node}) => {
     path.node.params[0].properties.push(property);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '(__a, path) => __body': process(push),
     '(__a) => __body': process(push),
 });

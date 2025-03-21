@@ -1,6 +1,4 @@
-'use strict';
-
-const {operator, template} = require('putout');
+import {operator, template} from 'putout';
 
 const {replaceWith} = operator;
 
@@ -8,7 +6,7 @@ const astRequire = template.ast(`
     require('putout').types
 `);
 
-module.exports.report = () => {
+export const report = () => {
     return `"putout.types" should be used instead of "@babel/types"`;
 };
 
@@ -20,7 +18,7 @@ const isBabelTypes = (path) => path.get('arguments.0').isStringLiteral({
     value: '@babel/types',
 });
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     CallExpression(path) {
         if (!isRequire(path))
             return;
@@ -32,6 +30,6 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     replaceWith(path, astRequire);
 };

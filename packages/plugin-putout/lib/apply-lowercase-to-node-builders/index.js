@@ -1,18 +1,17 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isIdentifier} = types;
 
-module.exports.report = () => `Use lowercased node builders`;
+export const report = () => `Use lowercased node builders`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const [first] = path.node.name;
     const other = path.node.name.slice(1);
     
     path.node.name = first.toLowerCase() + other;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     CallExpression(path) {
         const calleePath = path.get('callee');
         

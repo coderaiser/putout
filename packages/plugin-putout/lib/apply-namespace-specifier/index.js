@@ -1,18 +1,16 @@
-'use strict';
+import {types} from 'putout';
+import {parseImportSpecifiers} from 'parse-import-specifiers';
 
-const {types} = require('putout');
-
-const {parseImportSpecifiers} = require('parse-import-specifiers');
 const {isImportDeclaration} = types;
 const noop = () => {};
 
-module.exports.report = () => `Use 'import * as plugin' instead of 'import plugin'`;
+export const report = () => `Use 'import * as plugin' instead of 'import plugin'`;
 
-module.exports.fix = ({first}) => {
+export const fix = ({first}) => {
     first.node.type = 'ImportNamespaceSpecifier';
 };
 
-module.exports.traverse = ({push, listStore, pathStore}) => ({
+export const traverse = ({push, listStore, pathStore}) => ({
     'export const rules = __object': listStore,
     'import {createTest} from "@putout/test"': listStore,
     ...createImportVisitor({

@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Use 'insertAfter(a, b)' instead of 'a.insertAfter(b)'`;
 
-module.exports.report = () => `Use 'insertAfter(a, b)' instead of 'a.insertAfter(b)'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a.insertAfter(__b)': 'insertAfter(__a, __b)',
 });

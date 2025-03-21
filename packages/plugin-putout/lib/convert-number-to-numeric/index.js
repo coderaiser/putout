@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {rename} = operator;
 
-module.exports.report = () => `Use 'isNumericLiteral()' instead of 'isNumberLiteral()'`;
+export const report = () => `Use 'isNumericLiteral()' instead of 'isNumberLiteral()'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const bindings = path.scope.getAllBindings();
     const {name} = path.node.callee;
     const program = path.scope.getProgramParent().path;
@@ -19,7 +18,7 @@ module.exports.fix = (path) => {
     path.node.callee.name = name.replace('Number', 'Numeric');
 };
 
-module.exports.include = () => [
+export const include = () => [
     'isNumberLiteral(__a)',
     'NumberLiteral(__a)',
 ];

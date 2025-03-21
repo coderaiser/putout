@@ -1,8 +1,6 @@
-'use strict';
-
-const {test} = require('supertape');
-const {getRule} = require('./get-rule');
-const index = require('.');
+import {test} from 'supertape';
+import {getRule} from './get-rule.js';
+import * as index from './index.js';
 
 test('putout: plugin-putout: declare: getRule', (t) => {
     const rule = getRule('index');

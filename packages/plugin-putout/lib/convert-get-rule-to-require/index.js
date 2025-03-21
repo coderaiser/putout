@@ -1,12 +1,10 @@
-'use strict';
-
-const {
+import {
     types,
     operator,
     template,
-} = require('putout');
+} from 'putout';
+import camel from 'just-camel-case';
 
-const camel = require('just-camel-case');
 const {
     stringLiteral,
     arrayExpression,
@@ -21,19 +19,19 @@ const {
     getPathAfterRequires,
 } = operator;
 
-module.exports.report = () => `Use top-level 'require()' instead of '...getRule()'`;
+export const report = () => `Use top-level 'require()' instead of '...getRule()'`;
 
 const REQUIRE = `const __a = require(__b)`;
 const createRequire = template(REQUIRE, {
     placeholderPattern: /__/,
 });
 
-module.exports.match = () => ({
-    'getRule(__a)': match,
-    'getRule(__a, __b)': match,
+export const match = () => ({
+    'getRule(__a)': runMatch,
+    'getRule(__a, __b)': runMatch,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'getRule(__a)': ({__a}, path) => {
         const name = camel(__a.value);
         const id = identifier(name);
@@ -86,7 +84,7 @@ function addRequire({__a, id, path}) {
     programPath.node.body.unshift(nodeRequire);
 }
 
-function match({__a}, path) {
+function runMatch({__a}, path) {
     const name = __a.value;
     
     if (!path.parentPath.isSpreadElement())

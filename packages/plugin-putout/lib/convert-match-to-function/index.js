@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `'match' should be a function`;
 
-module.exports.report = () => `'match' should be a function`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'module.exports.match= __object': 'module.exports.match = () => __object',
 });

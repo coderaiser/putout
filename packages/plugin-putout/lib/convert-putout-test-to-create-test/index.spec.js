@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertPutoutTestToCreateTest from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertPutoutTestToCreateTest = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout/convert-putout-test-to-create-test', convertPutoutTestToCreateTest],
     ],

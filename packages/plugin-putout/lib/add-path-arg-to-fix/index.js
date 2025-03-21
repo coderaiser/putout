@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compare} = operator;
 const check = ({__a}) => {
     if (__a.body)
@@ -9,14 +8,14 @@ const check = ({__a}) => {
     return compare(__a, 'path.__()');
 };
 
-module.exports.report = () => `Add 'path' argument to 'fix'`;
+export const report = () => `Add 'path' argument to 'fix'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'const fix = () => __a': check,
     'module.exports.fix = () => __a': check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const fix = () => __a': 'const fix = (path) => __a',
     'module.exports.fix = () => __a': 'module.exports.fix = (path) => __a',
 });

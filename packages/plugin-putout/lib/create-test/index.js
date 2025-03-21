@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     arrayExpression,
     objectExpression,
@@ -12,14 +11,14 @@ const {
 
 const {replaceWith, getProperty} = operator;
 
-module.exports.report = () => `Apply modifications to 'createTest()' options`;
+export const report = () => `Apply modifications to 'createTest()' options`;
 
-module.exports.include = () => [
+export const include = () => [
     'createTest(__dirname, __object)',
     'createTest(import.meta.url, __object)',
 ];
 
-module.exports.fix = (path, {options}) => {
+export const fix = (path, {options}) => {
     const objectPath = path.get('arguments.1');
     
     if (!getProperty(objectPath, 'plugins'))
@@ -34,7 +33,7 @@ module.exports.fix = (path, {options}) => {
     }
 };
 
-module.exports.filter = (path, {options}) => {
+export const filter = (path, {options}) => {
     if (!options.add)
         return false;
     

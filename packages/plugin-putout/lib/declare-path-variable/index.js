@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {getBindingPath} = operator;
 
-module.exports.report = () => `Declare 'path' variable`;
+export const report = () => `Declare 'path' variable`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '(__a) => __body': (vars, path) => {
         let is = false;
         
@@ -26,6 +25,6 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '(__a) => __body': '(__a, path) => __body',
 });

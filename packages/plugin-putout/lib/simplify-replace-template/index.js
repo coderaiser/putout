@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compareAny, replaceWith} = operator;
 
 const parentNodesList = [
@@ -8,18 +7,18 @@ const parentNodesList = [
     'export const replace = __',
 ];
 
-module.exports.report = () => `Simplify replace template`;
+export const report = () => `Simplify replace template`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {body} = path.node;
     replaceWith(path, body);
 };
 
-module.exports.include = () => [
+export const include = () => [
     '() => "__a"',
 ];
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     return path.find(isReplace);
 };
 

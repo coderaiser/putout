@@ -1,7 +1,5 @@
-'use strict';
-
-const justCamelCase = require('just-camel-case');
-const {types, template} = require('putout');
+import justCamelCase from 'just-camel-case';
+import {types, template} from 'putout';
 
 const TEST = `
     const test = require('@putout/test')(__dirname, {
@@ -22,14 +20,14 @@ const {
     identifier,
 } = types;
 
-module.exports.report = () => 'Move require on top level';
+export const report = () => 'Move require on top level';
 
-module.exports.match = () => ({
+export const match = () => ({
     [TEST]: ({__b}) => !isIdentifier(__b),
     [TRANSFORM]: ({__b}) => !isIdentifier(__b) && !isObjectExpression(__b) && !isMemberExpression(__b),
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [TEST]: (vars, path) => {
         const name = declareRequire(vars, path);
         const {__a} = vars;

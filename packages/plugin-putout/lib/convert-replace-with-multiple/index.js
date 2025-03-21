@@ -1,15 +1,13 @@
-'use strict';
-
-const {
+import {
     operator,
     template,
     types,
-} = require('putout');
+} from 'putout';
 
 const {objectProperty, identifier} = types;
 const {replaceWith, insertBefore} = operator;
 
-module.exports.report = () => {
+export const report = () => {
     return `"operate.replaceWithMultiple" should be called instead of "path.replaceWithMultiple"`;
 };
 
@@ -17,7 +15,7 @@ const replaceWithAST = template.ast(`
     const {replaceWithMultiple} = require('putout').operate;
 `);
 
-module.exports.fix = ({path, calleePath, property, object, program}) => {
+export const fix = ({path, calleePath, property, object, program}) => {
     const first = program.get('body.0');
     const {bindings} = program.scope;
     
@@ -45,7 +43,7 @@ function getVarPath(bindings) {
     return insertAfter.path;
 }
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     CallExpression(path) {
         const calleePath = path.get('callee');
         

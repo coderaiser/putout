@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertAddArgumentToAddArgs from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertAddArgumentToAddArgs = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout/convert-add-argument-to-add-args', convertAddArgumentToAddArgs],
     ],

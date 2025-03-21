@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Add 'places' array to 'comparePlaces()'`;
 
-module.exports.report = () => `Add 'places' array to 'comparePlaces()'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'comparePlaces(__a)': 'comparePlaces(__a, [])',
 });

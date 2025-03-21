@@ -1,13 +1,11 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {isForOfStatement} = types;
 const {remove, replaceWith} = operator;
 
-module.exports.report = () => `Convert 'progress()' to 'trackFile()'`;
+export const report = () => `Convert 'progress()' to 'trackFile()'`;
 
-module.exports.fix = ({path, statement}) => {
+export const fix = ({path, statement}) => {
     const {name} = statement.node.right.callee.object;
     const nameBinding = path.scope.getAllBindings()[name];
     const {init} = nameBinding.path.node;
@@ -22,7 +20,7 @@ module.exports.fix = ({path, statement}) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'progress(__args)': (path) => {
         const statement = path.find(isForOfStatement);
         

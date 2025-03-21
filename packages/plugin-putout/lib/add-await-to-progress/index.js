@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     objectProperty,
     objectPattern,
@@ -17,14 +16,14 @@ const checkAwait = (vars, path) => {
     return !path.parentPath.isAwaitExpression();
 };
 
-module.exports.report = () => `Add 'await' to operator 'progress()'`;
+export const report = () => `Add 'await' to operator 'progress()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'progress(__args)': checkAwait,
     't.progress(__args)': checkAwait,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'test(__a, async (t, {progress}) => __body)': 'test(__a, async ({progress}) => __body)',
     'progress(__args)': addAwait,
     't.progress(__args)': addAwait,

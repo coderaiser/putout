@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {isObjectPattern} = types;
 const {
     getTemplateValues,
@@ -9,13 +8,13 @@ const {
 
 const GET_PROPERTIES = 'const __a = getProperties(__b, __c)';
 
-module.exports.report = ({name}) => `Remove unused property '${name}' from 'getProperties()' arguments`;
+export const report = ({name}) => `Remove unused property '${name}' from 'getProperties()' arguments`;
 
-module.exports.fix = ({path}) => {
+export const fix = ({path}) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [GET_PROPERTIES]: (path) => {
         const {__a} = getTemplateValues(path, GET_PROPERTIES);
         

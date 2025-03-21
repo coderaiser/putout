@@ -1,10 +1,8 @@
-'use strict';
+import operator from './operator/index.js';
+import {getRule} from './get-rule.js';
+import types from './types.js';
 
-const types = require('./types');
-const operator = require('./operator');
-const {getRule} = require('./get-rule');
-
-module.exports.declare = () => ({
+export const declare = () => ({
     types: `import {types} from 'putout'`,
     ...types,
     template: `import {template} from 'putout'`,

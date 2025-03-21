@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     objectProperty,
     objectPattern,
@@ -12,9 +11,9 @@ const shorthand = true;
 
 const {compare} = operator;
 
-module.exports.report = () => 'Use Async API to test Formatter';
+export const report = () => 'Use Async API to test Formatter';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.format(__args)': create('format'),
     't.noFormat(__args)': create('noFormat'),
     't.formatMany(__args)': create('formatMany'),

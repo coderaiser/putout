@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Use 'insertBefore(a, b)' instead of 'a.insertBefore(b)'`;
 
-module.exports.report = () => `Use 'insertBefore(a, b)' instead of 'a.insertBefore(b)'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a.insertBefore(__b)': 'insertBefore(__a, __b)',
 });

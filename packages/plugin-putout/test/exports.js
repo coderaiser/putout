@@ -1,10 +1,8 @@
-'use strict';
+import {test} from 'supertape';
 
-const {test} = require('supertape');
-
-test('@putout/plugin-putout: exports', (t) => {
-    const types = require('@putout/plugin-putout/declare/types');
-    const internal = require('../lib/declare/types.json');
+test('@putout/plugin-putout: exports', async (t) => {
+    const types = await import('@putout/plugin-putout/declare/types');
+    const internal = await import('../lib/declare/types.js');
     
     t.equal(types, internal);
     t.end();

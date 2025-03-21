@@ -1,14 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
-const {
-    traverse,
-    setLiteralValue,
-} = operator;
+const {setLiteralValue} = operator;
 
-module.exports.report = () => `Add 'index.js' to nested import`;
+export const report = () => `Add 'index.js' to nested import`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {source} = path.node;
     const {value} = source;
     
@@ -20,7 +16,7 @@ module.exports.fix = (path) => {
     setLiteralValue(source, `${value}/index.js`);
 };
 
-module.exports.traverse = ({push, listStore}) => ({
+export const traverse = ({push, listStore}) => ({
     'export const rules = __object': listStore,
     'Program': {
         exit: (path) => {
@@ -29,7 +25,7 @@ module.exports.traverse = ({push, listStore}) => ({
             if (!rules.length)
                 return;
             
-            traverse(path, {
+            operator.traverse(path, {
                 ImportDeclaration: createImportVisitor(push),
             });
         },

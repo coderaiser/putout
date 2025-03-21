@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {contains, traverse} = operator;
 
-module.exports.report = () => 'Replacer should be used instead of Traverser (https://git.io/JqcMn)';
+export const report = () => 'Replacer should be used instead of Traverser (https://git.io/JqcMn)';
 
-module.exports.match = () => ({
+export const match = () => ({
     'module.exports.traverse = (__args) => __a': ({__args}, path) => {
         const program = path.scope.getProgramParent().path;
         
@@ -29,7 +28,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'module.exports.traverse = (__args) => __a': 'module.exports.replace = (__args) => __a',
 });
 

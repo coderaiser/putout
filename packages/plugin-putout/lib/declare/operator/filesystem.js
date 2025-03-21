@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+export default {
     findFile: 'const {findFile} = operator',
     renameFile: 'const {renameFile} = operator',
     renameFiles: 'const {renameFiles} = operator',

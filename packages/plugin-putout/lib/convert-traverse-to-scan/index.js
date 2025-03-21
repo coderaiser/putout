@@ -1,8 +1,6 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
-    traverse,
     remove,
     rename,
     getProperty,
@@ -19,9 +17,9 @@ const {
     isVariableDeclarator,
 } = types;
 
-module.exports.report = () => `Use Scanner instead of Traverser`;
+export const report = () => `Use Scanner instead of Traverser`;
 
-module.exports.fix = ({path, pathProperty}) => {
+export const fix = ({path, pathProperty}) => {
     if (path.isObjectMethod()) {
         replaceWith(path.parentPath, path.get('body'));
         path.parentPath.parentPath.node.params.unshift(identifier('path'));
@@ -57,7 +55,7 @@ module.exports.fix = ({path, pathProperty}) => {
         
         const {path: programPath} = path.scope.getProgramParent();
         
-        traverse(programPath, {
+        operator.traverse(programPath, {
             'module.exports.fix = (__object) => __': (path) => {
                 const rightPath = path.get('right');
                 const [argPath] = rightPath.get('params');
@@ -87,7 +85,7 @@ module.exports.fix = ({path, pathProperty}) => {
     }
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'ObjectMethod|ObjectProperty'(path) {
         if (!isFilesystemPath(path))
             return;

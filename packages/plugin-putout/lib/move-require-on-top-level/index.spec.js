@@ -1,10 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as moveRequireOnTopLevel from './index.js';
+import * as applyFixtureNameToMessage from '../apply-fixture-name-to-message/index.js';
 
-const {createTest} = require('@putout/test');
-const moveRequireOnTopLevel = require('.');
-const applyFixtureNameToMessage = require('../apply-fixture-name-to-message');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout/move-require-on-top-level', moveRequireOnTopLevel],
     ],

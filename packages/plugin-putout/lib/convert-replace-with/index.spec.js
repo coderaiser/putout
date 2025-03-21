@@ -1,10 +1,10 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertReplaceWith from './index.js';
+import {rules} from '../index.js';
 
-const {createTest} = require('@putout/test');
-const convertReplaceWith = require('.');
-const {declare} = require('../index.js').rules;
+const {declare} = rules;
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout/convert-replace-with', convertReplaceWith],
     ],

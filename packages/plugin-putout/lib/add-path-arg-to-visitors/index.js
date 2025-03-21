@@ -1,17 +1,16 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {identifier} = types;
 
-module.exports.report = () => `Add 'path' argument to 'traverse' visitors`;
+export const report = () => `Add 'path' argument to 'traverse' visitors`;
 
 const TRAVERSE = '(__args) => __object';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.node.params.push(identifier('path'));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [`export const traverse = ${TRAVERSE}`]: traverseMethods({
         where: 'declaration.declarations.0.init',
         push,

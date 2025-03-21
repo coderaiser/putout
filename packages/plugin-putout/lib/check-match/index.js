@@ -1,6 +1,4 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {
     getTemplateValues,
@@ -13,13 +11,13 @@ const PATTERN_MATCH = 'module.exports.match = () => __object';
 const PATTERN_REPLACE = 'module.exports.replace = () => __object';
 const PATTERN_REPLACE_RETURN = 'module.exports.replace = (__args) => __body';
 
-module.exports.report = () => `☝️ Looks like 'match()' template absent in 'replace()'`;
+export const report = () => `☝️ Looks like 'match()' template absent in 'replace()'`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [PATTERN_MATCH]: PATTERN_MATCH,
 });
 
-module.exports.match = () => ({
+export const match = () => ({
     [PATTERN_MATCH]: ({__object}, path) => {
         const namesMatch = getNames(__object);
         const namesReplace = [];

@@ -1,14 +1,12 @@
-'use strict';
-
-const {
+import tryCatch from 'try-catch';
+import {
     operator,
     parse,
     print,
     transform,
-} = require('putout');
+} from 'putout';
+import generateCode from './generate-code/index.js';
 
-const tryCatch = require('try-catch');
-const generateCode = require('./generate-code');
 const noop = () => {};
 
 const {
@@ -29,7 +27,7 @@ const rmSemi = (a) => {
     return a;
 };
 
-module.exports.report = ({path, code, error}) => {
+export const report = ({path, code, error}) => {
     if (error)
         return error.message;
     
@@ -39,11 +37,11 @@ module.exports.report = ({path, code, error}) => {
     return `transform mismatch: "${key}" -> "${value}" !== "${code}"`;
 };
 
-module.exports.fix = ({mainPath}) => {
+export const fix = ({mainPath}) => {
     set(mainPath);
 };
 
-module.exports.traverse = ({push, options}) => {
+export const traverse = ({push, options}) => {
     const {once = true} = options;
     
     return {

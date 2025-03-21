@@ -1,14 +1,13 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isCallExpression} = types;
 
-module.exports.report = ({correct, operatorPath}) => {
+export const report = ({correct, operatorPath}) => {
     const calleePath = operatorPath.get('callee');
     return `Use '${correct}' in test message when using '${calleePath}()'`;
 };
 
-module.exports.fix = ({path, incorrect, correct}) => {
+export const fix = ({path, incorrect, correct}) => {
     path.node.value = path.node.value.replace(incorrect, correct);
     path.node.raw = path.node.raw.replace(incorrect, correct);
 };
@@ -20,7 +19,7 @@ const INCORRECT = {
     NO_REPORT: /: (report|transform|no transform)/,
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     't.transform(__a)': convert({
         push,
         incorrect: INCORRECT.TRANSFORM,

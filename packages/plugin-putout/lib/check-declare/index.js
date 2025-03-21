@@ -1,11 +1,8 @@
-'use strict';
-
-const tryCatch = require('try-catch');
-const putout = require('putout');
+import tryCatch from 'try-catch';
+import putout from 'putout';
 
 const {types, operator} = putout;
 
-const noop = () => {};
 const {getTemplateValues} = operator;
 
 const DECLARE_ESM = 'export const declare = () => __object';
@@ -17,10 +14,10 @@ const {
     isStringLiteral,
 } = types;
 
-module.exports.report = ({message}) => message;
+export const report = ({message}) => message;
 
-module.exports.fix = noop;
-module.exports.traverse = ({push}) => ({
+export const fix = () => {};
+export const traverse = ({push}) => ({
     [DECLARE_ESM]: createCheck(push, DECLARE_ESM),
     [DECLARE_COMMONJS]: createCheck(push, DECLARE_COMMONJS),
     [COMMONJS]: createCheck(push, COMMONJS),

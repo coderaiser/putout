@@ -1,14 +1,13 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {isESM} = operator;
 
-module.exports.report = () => `Use 'createTest(import.meta.url)' instead of 'createTest(__dirname)'`;
+export const report = () => `Use 'createTest(import.meta.url)' instead of 'createTest(__dirname)'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'createTest(__dirname, __a)': (vars, path) => isESM(path),
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'createTest(__dirname, __a)': 'createTest(import.meta.url, __a)',
 });

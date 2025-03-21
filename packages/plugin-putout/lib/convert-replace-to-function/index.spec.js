@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertReplaceToFunction from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertReplaceToFunction = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout/convert-replace-to-function', convertReplaceToFunction],
     ],

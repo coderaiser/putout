@@ -1,20 +1,19 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isObjectExpression} = types;
 
-module.exports.report = () => `Use 'traverse' instead of 'include'`;
+export const report = () => `Use 'traverse' instead of 'include'`;
 
 const check = ({__a}) => {
     return isObjectExpression(__a.body);
 };
 
-module.exports.match = () => ({
+export const match = () => ({
     'const include = __a': check,
     'module.exports.include = __a': check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const include = __a': 'const traverse = __a',
     'module.exports.include = __a': 'module.exports.traverse = __a',
 });

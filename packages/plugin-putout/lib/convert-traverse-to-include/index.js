@@ -1,10 +1,8 @@
-'use strict';
-
-const {
+import {
     types,
     template,
     operator,
-} = require('putout');
+} from 'putout';
 
 const {stringLiteral} = types;
 const {compare, remove} = operator;
@@ -13,9 +11,9 @@ const isPush = (path) => path.get('value').isIdentifier({
     name: 'push',
 });
 
-module.exports.report = () => 'Includer should be used instead of Traverser';
+export const report = () => 'Includer should be used instead of Traverser';
 
-module.exports.match = () => ({
+export const match = () => ({
     'module.exports.traverse = __a': (vars, path) => {
         const __aPath = path.get('right.body');
         
@@ -33,7 +31,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'module.exports.traverse = __a': (vars, path) => {
         const node = template.ast.fresh('module.exports.include = () => []');
         const __aPath = path.get('right.body');

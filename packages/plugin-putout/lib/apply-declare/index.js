@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Use 'Declarator' instead of 'operator.declare()'`;
 
-module.exports.report = () => `Use 'Declarator' instead of 'operator.declare()'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'module.exports = declare(__a)': 'module.exports.declare = () => __a',
 });

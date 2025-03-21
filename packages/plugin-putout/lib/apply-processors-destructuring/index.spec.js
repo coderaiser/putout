@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as applyProcessorsDestructuring from './index.js';
 
-const {createTest} = require('@putout/test');
-const applyProcessorsDestructuring = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout/apply-processors-destructuring', applyProcessorsDestructuring],
     ],

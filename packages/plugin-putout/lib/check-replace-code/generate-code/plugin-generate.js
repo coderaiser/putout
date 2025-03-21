@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     objectPattern,
     objectExpression,
@@ -11,16 +10,15 @@ const {
 } = types;
 
 const {replaceWith} = operator;
-const noop = () => {};
 
-module.exports.report = noop;
+export const report = () => {};
 
-module.exports.include = () => [
+export const include = () => [
     'Identifier',
     'StringLiteral',
 ];
 
-module.exports.fix = (path, {options}) => {
+export const fix = (path, {options}) => {
     const {getVar} = options;
     const {node} = path;
     

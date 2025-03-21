@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+export default {
     toJS: 'const {toJS} = operator',
     fromJS: 'const {fromJS} = operator',
     __filesystem: 'const {__filesystem} = operator',

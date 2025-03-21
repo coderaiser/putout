@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compare} = operator;
 const TYPES = {
     noReport: 'noReportWithOptions',
@@ -8,7 +7,7 @@ const TYPES = {
     noReportWithOptions: 'noReport',
 };
 
-module.exports.report = (path) => {
+export const report = (path) => {
     const {name} = path.node.callee.property;
     
     if (compare(path, 't.noReport(__a, "__b")'))
@@ -20,7 +19,7 @@ module.exports.report = (path) => {
     return `Use 't.${TYPES[name]}()' instead of 't.${name}()'`;
 };
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.noReport(__a, __object)': 't.noReportWithOptions(__a, __object)',
     't.noReport(__a, __b)': 't.noReport(__a)',
     't.report(__a)': 't.noReport(__a)',

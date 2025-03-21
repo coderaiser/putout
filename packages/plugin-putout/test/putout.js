@@ -1,10 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as tape from '@putout/plugin-tape';
+import * as putout from '../lib/index.js';
 
-const {createTest} = require('@putout/test');
-const tape = require('@putout/plugin-tape');
-const putout = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout', putout],
     ],

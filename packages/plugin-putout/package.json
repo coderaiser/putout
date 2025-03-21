@@ -1,14 +1,14 @@
 {
   "name": "@putout/plugin-putout",
   "version": "23.16.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin helps with plugins development",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-putout#readme",
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
-    "./declare/types": "./lib/declare/types.json"
+    "./declare/types": "./lib/declare/types.js"
   },
   "release": false,
   "tag": false,

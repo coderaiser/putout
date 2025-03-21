@@ -1,10 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import nodejs from '@putout/plugin-nodejs';
+import * as plugin from './index.js';
 
-const {createTest} = require('@putout/test');
-const nodejs = require('@putout/plugin-nodejs');
-const plugin = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['add-path-arg-to-fix', plugin],
     ],

@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     objectPattern,
     objectProperty,
@@ -8,7 +7,7 @@ const {
     isObjectPattern,
 } = types;
 
-const {traverse, getBinding} = operator;
+const {getBinding} = operator;
 
 const defaultNames = [
     'push',
@@ -18,9 +17,9 @@ const defaultNames = [
     'options',
 ];
 
-module.exports.report = ({name}) => `Add '${name}' argument to 'traverse'`;
+export const report = ({name}) => `Add '${name}' argument to 'traverse'`;
 
-module.exports.fix = ({name, fn}) => {
+export const fix = ({name, fn}) => {
     const computed = false;
     const shorthand = true;
     const id = identifier(name);
@@ -34,7 +33,7 @@ module.exports.fix = ({name, fn}) => {
     fn.params[0].properties.push(property);
 };
 
-module.exports.traverse = ({push, options}) => {
+export const traverse = ({push, options}) => {
     const {
         names = defaultNames,
     } = options;
@@ -67,7 +66,7 @@ const isArgExists = (mainName, fn) => {
 const checkArgs = (names, push) => (path) => {
     const fn = parseFn(path);
     
-    traverse(path, {
+    operator.traverse(path, {
         ReferencedIdentifier(path) {
             const {name} = path.node;
             

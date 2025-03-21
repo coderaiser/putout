@@ -1,15 +1,12 @@
-'use strict';
-
-const {
+import {
     parse,
     print,
     transform,
-} = require('putout');
+} from 'putout';
+import tryCatch from 'try-catch';
+import * as pluginGenerate from './plugin-generate.js';
 
-const tryCatch = require('try-catch');
-const pluginGenerate = require('./plugin-generate');
-
-module.exports = (rootPath, source) => {
+export default (rootPath, source) => {
     const [parseError, ast] = tryCatch(parse, source, {
         isTS: true,
     });

@@ -1,7 +1,7 @@
-'use strict';
+import {createRequire} from 'node:module';
 
-const getRule = (name, options = 'on') => ({
+const require = createRequire(import.meta.url);
+
+export const getRule = (name, options = 'on') => ({
     [name]: [options, require(`./${name}`)],
 });
-
-module.exports.getRule = getRule;

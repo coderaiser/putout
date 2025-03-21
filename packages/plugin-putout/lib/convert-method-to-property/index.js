@@ -1,17 +1,15 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith} = operator;
 const {objectProperty} = types;
 
-module.exports.report = () => 'Object Property should be used instead of Method';
+export const report = () => 'Object Property should be used instead of Method';
 
-module.exports.include = () => [
+export const include = () => [
     'ObjectMethod',
 ];
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     if (!path.node.params.length)
         return false;
     
@@ -23,7 +21,7 @@ module.exports.filter = (path) => {
     return !firstPath.node.properties.length;
 };
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const keyPath = path.get('key');
     
     path.node.type = 'ArrowFunctionExpression';

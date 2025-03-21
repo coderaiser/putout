@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     isCallExpression,
     isIdentifier,
@@ -8,13 +7,13 @@ const {
 
 const {remove} = operator;
 
-module.exports.report = () => `Avoid useless 'printer' option`;
+export const report = () => `Avoid useless 'printer' option`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ObjectProperty(path) {
         const {value} = path.node;
         

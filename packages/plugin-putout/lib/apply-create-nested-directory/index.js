@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isStringLiteral} = types;
 
 const NESTED = {
@@ -8,12 +7,12 @@ const NESTED = {
     createNestedDirectory: 'createDirectory',
 };
 
-module.exports.report = (path) => {
+export const report = (path) => {
     const {name} = path.node.callee;
     return `Use '${NESTED[name]}()' instead of '${name}()'`;
 };
 
-module.exports.match = () => ({
+export const match = () => ({
     'createDirectory(__a, __b)': ({__b}) => {
         if (!isStringLiteral(__b))
             return false;
@@ -28,7 +27,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'createDirectory(__a, __b)': 'createNestedDirectory(__a, __b)',
     'createNestedDirectory(__a, __b)': 'createDirectory(__a, __b)',
 });

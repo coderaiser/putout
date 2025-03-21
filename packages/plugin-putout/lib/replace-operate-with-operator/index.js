@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => '"operator" should be used instead of "operate"';
 
-module.exports.report = () => '"operator" should be used instead of "operate"';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __object = require("putout").operate': 'const __object = require("putout").operator',
 });

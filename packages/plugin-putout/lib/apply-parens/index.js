@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.report = (path) => {
+export const report = (path) => {
     if (path.isOptionalMemberExpression())
         return `Use 'hasParens(path)' instead of 'path.node.extra'`;
     
@@ -17,7 +15,7 @@ const ASSIGN_OBJECT = `
     }
 `;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a.node.extra.parenthesized = false': 'removeParens(__a)',
     '__a.node.extra.parenthesized = true': 'addParens(__a)',
     '__a.node.extra?.parenthesized': 'hasParens(__a)',
