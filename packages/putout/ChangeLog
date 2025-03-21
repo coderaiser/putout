@@ -1,3 +1,25 @@
+2025.03.22, v39.0.5
+
+feature:
+- 1a0032eb9 putout: @putout/operator-declare v12.0.0
+- 3ed32a6ed @putout/operator-declare: @putout/engine-parser v13.0.1
+- f0050dd42 @putout/operator-declare: @putout/compare v17.0.0
+- dcec9d2b7 @putout/operator-declare: drop support of node < 20
+- d7e4e9c54 @putout/operator-add-args: @putout/engine-parser v13.0.1
+- 8051ac4fd @putout/operator-match-files: @putout/engine-parser v13.0.1
+- 4b2b14e4b putout: @putout/traverse v13.0.0
+- 0faf6eebd @putout/traverse: drop support of node < 20
+- 8b4e83f6a @putout/traverse: @putout/compare v17.0.0
+- a5a8b7e7b putout: @putout/operator-filesystem v7.0.0
+- 41ef0eecc @putout/operator-filesystem: drop support of node < 20
+- ca729724d @putout/operator-filesystem: @putout/engine-parser v13.0.1
+- 9a5882f41 root: redlint v4.0.0
+- f915a602d putout: @putout/operator-add-args v10.0.1
+- cfeb9e50b @putout/operator-add-args: @putout/compare v17.0.0
+- 8b05e3efd @putout/operator-add-args: drop support of node < 20
+- a3d06ef9a @putout/engine-parser: @putout/printer v14.0.0
+- d023d0e87 eslint-plugin-putout: @putout/engine-parser v13.0.0
+
 2025.03.22, v39.0.4
 
 feature:
