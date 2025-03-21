@@ -1,3 +1,30 @@
+2025.03.21, v39.0.0
+
+fix:
+- be67064de @putout/plugin-madrun: add-function: report
+- 6ba9abfc8 @putout/operator-filesystem: removeEmptyDirectory: root
+- d98797154 @putout/plugin-putout: apply-report: template
+
+feature:
+- 16f2974e9 putout: @putout/plugin-montag v4.0.0
+- dca9ff3d7 putout: @putout/plugin-github v15.0.0
+- 953e1f062 @putout/plugin-github: set-node-versions: report
+- 465424b6e putout: drop support of node < 20
+- 87b73ceeb @putout/eslint-config: drop support of node < 20
+- be11baee1 @putout/eslint-config: object-shorthand: dissable, use apply-shorthand-properties instead
+- b0f280911 eslint-plugin-putout: drop support of node < 20
+- b75f4714a @putout/plugin-github: convert to ESM
+- 2477c3f51 @putout/plugin-github: drop support of node < 20
+- ef38ba0c0 @putout/plugin-montag: convert to ESM
+- fb6b83776 eslint-plugin-putout: get rid of esm preset
+- fae128672 @putout/engine-loader: rules: parse-rules: get rid of condition
+- 2238f289d @putout/engine-loader: add ability to disable all rules except couple enabled
+- 33d1f137f @putout/plugin-filesystem: remove-empty-directory: add
+- 9b0fa1ea6 @putout/engine-runner: replace: initialize match once
+- 44a831012 @putout/plugin-putout: declare: removeEmptyDirectory
+- 9975fe8d1 @putout/operator-filesystem: property: move out
+- 78c27f37e @putout/operator-filesystem: removeEmptyDirectory: add
+
 2025.03.17, v38.5.7
 
 fix:
