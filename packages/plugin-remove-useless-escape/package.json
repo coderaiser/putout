@@ -36,7 +36,7 @@
     "escape"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^2.0.0",
+    "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-madrun": "*",
     "@putout/plugin-regexp": "*",
     "@putout/test": "^12.0.0",

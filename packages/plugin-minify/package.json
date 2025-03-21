@@ -35,7 +35,7 @@
     "minify"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^2.0.0",
+    "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-conditions": "*",
     "@putout/plugin-declare": "*",
     "@putout/plugin-merge-destructuring-properties": "*",

@@ -31,7 +31,7 @@
     "destructuring"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^2.0.0",
+    "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-convert-mock-require-to-mock-import": "*",
     "@putout/plugin-declare": "*",
     "@putout/plugin-minify": "*",
