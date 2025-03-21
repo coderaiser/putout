@@ -1,3 +1,8 @@
+2025.03.21, v39.0.2
+
+feature:
+- facefb7ed putout: @putout/plugin-putout v24.0.0
+
 2025.03.21, v39.0.1
 
 fix:
