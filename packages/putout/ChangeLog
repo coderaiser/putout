@@ -1,3 +1,11 @@
+2025.03.22, v39.0.3
+
+feature:
+- 9d23ae441 putout: @putout/engine-parser v13.0.0
+- 7755997dc @putout/engine-parser: drop support of node < 20
+- 91d9216b5 @putout/engine-parser: @putout/printer v13.4.1
+- 49440ef0e root: madrun v11.0.0
+
 2025.03.21, v39.0.2
 
 feature:
