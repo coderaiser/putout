@@ -27,7 +27,6 @@ test('eslint-plugin-putout: exports: configs', async (t) => {
         'jsx',
         'safe',
         'safeAlign',
-        'esm',
     ];
     
     t.deepEqual(result, expected);

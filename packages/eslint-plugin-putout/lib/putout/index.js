@@ -19,16 +19,6 @@ module.exports = {
     
     create(context) {
         const {esm, ...options} = getContextOptions(context);
-        
-        if (esm) {
-            const putoutAsync = require('./async');
-            
-            return putoutAsync({
-                context,
-                options,
-            });
-        }
-        
         const putoutSync = require('./sync');
         
         return putoutSync({

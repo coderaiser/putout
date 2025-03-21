@@ -104,7 +104,6 @@ export const safe = [
             'putout/align-spaces': 'off',
             'putout/remove-newline-from-empty-object': 'off',
             'putout/putout': ['error', {
-                esm: false,
                 rules: safeRules,
             }],
         },
@@ -121,24 +120,11 @@ export const safeAlign = [
     },
 ];
 
-export const esm = {
-    ...n,
-    ...safeAlign,
-    rules: {
-        ...safeAlign.rules,
-        'putout/putout': ['error', {
-            esm: true,
-            rules: safeRules,
-        }],
-    },
-};
-
 export const configs = {
     recommended,
     jsx,
     safe,
     safeAlign,
-    esm,
 };
 
 export const {rules} = putout;

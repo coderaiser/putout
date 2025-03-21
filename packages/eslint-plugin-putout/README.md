@@ -208,16 +208,6 @@ import {jsx} from 'eslint-plugin-putout;
 export default jsx;
 ```
 
-### esm
-
-If you want to use **ESM** plugins of 🐊**Putout** you need to use `esm` preset:
-
-```json
-import {esm} from 'eslint-plugin-putout;
-
-export default esm;
-```
-
 ## License
 
 MIT
