@@ -10,7 +10,7 @@ export const rules = {
     ],
     'dot-notation': 'error',
     'no-global-assign': 'off',
-    'object-shorthand': 'error',
+    'object-shorthand': 'off',
     'prefer-arrow-callback': 'error',
     'prefer-const': ['error', {
         destructuring: 'all',

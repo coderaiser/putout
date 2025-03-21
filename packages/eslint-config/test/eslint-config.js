@@ -62,6 +62,10 @@ test('eslint-config: no-empty', async ({comparePlaces}) => {
     await comparePlaces('no-empty', []);
 });
 
+test('eslint-config: object-shorthand', async ({comparePlaces}) => {
+    await comparePlaces('object-shorthand', []);
+});
+
 test('eslint-config: no-delete-var', async ({comparePlaces}) => {
     await comparePlaces('no-delete-var', [], {
         rules: {
