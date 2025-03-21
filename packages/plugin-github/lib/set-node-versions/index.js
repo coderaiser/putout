@@ -1,7 +1,5 @@
-'use strict';
-
-const {isDeepStrictEqual} = require('node:util');
-const {operator, template} = require('putout');
+import {isDeepStrictEqual} from 'node:util';
+import {operator, template} from 'putout';
 
 const {
     replaceWith,
@@ -18,9 +16,9 @@ const defaultVersions = [
 
 const {parse, stringify} = JSON;
 
-module.exports.report = () => 'Latest version of node is missing';
+export const report = () => 'Latest version of node is missing';
 
-module.exports.fix = (path, {options}) => {
+export const fix = (path, {options}) => {
     const {
         versions = defaultVersions,
     } = options;
@@ -30,7 +28,7 @@ module.exports.fix = (path, {options}) => {
     replaceWith(path, nodeVersionsNode);
 };
 
-module.exports.traverse = ({push, options}) => ({
+export const traverse = ({push, options}) => ({
     [__yaml](path) {
         const {
             versions: nodeVersions = defaultVersions,

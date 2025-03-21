@@ -1,14 +1,12 @@
-'use strict';
+import * as insertRust from './insert-rust/index.js';
+import * as convertNpmToBun from './convert-npm-to-bun/index.js';
+import * as installBun from './install-bun/index.js';
+import * as setNodeVersions from './set-node-versions/index.js';
+import * as updateActions from './update-actions/index.js';
+import * as addContinueOnErrorToAddAndCommit from './add-continue-on-error-to-add-and-commit/index.js';
+import * as addContinueOnErrorToCoveralls from './add-continue-on-error-to-coveralls/index.js';
 
-const insertRust = require('./insert-rust/index.js');
-const convertNpmToBun = require('./convert-npm-to-bun/index.js');
-const installBun = require('./install-bun/index.js');
-const setNodeVersions = require('./set-node-versions/index.js');
-const updateActions = require('./update-actions/index.js');
-const addContinueOnErrorToAddAndCommit = require('./add-continue-on-error-to-add-and-commit/index.js');
-const addContinueOnErrorToCoveralls = require('./add-continue-on-error-to-coveralls/index.js');
-
-module.exports.rules = {
+export const rules = {
     'add-continue-on-error-to-coveralls': addContinueOnErrorToCoveralls,
     'add-continue-on-error-to-add-and-commit': addContinueOnErrorToAddAndCommit,
     'update-actions': updateActions,

@@ -1,8 +1,10 @@
-'use strict';
+import {updateActions} from './update-actions.js';
 
-const {updateActions} = require('./update-actions.js');
-
-module.exports = updateActions({
+const {
+    report,
+    fix,
+    traverse,
+} = updateActions({
     'actions/checkout': 'v4',
     'actions/cache': 'v4',
     'actions/setup-node': 'v4',
@@ -13,3 +15,9 @@ module.exports = updateActions({
     'coverallsapp/github-action': 'v2',
     'EndBug/add-and-commit': 'v9',
 });
+
+export {
+    report,
+    fix,
+    traverse,
+};
