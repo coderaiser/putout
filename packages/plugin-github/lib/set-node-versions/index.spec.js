@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-github: set node versions: report: github', (t) => {
-    t.report('github', 'Latest version of node is missing');
+    t.report('github', 'Use latest version of node');
     t.end();
 });
 

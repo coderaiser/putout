@@ -16,7 +16,7 @@ const defaultVersions = [
 
 const {parse, stringify} = JSON;
 
-export const report = () => 'Latest version of node is missing';
+export const report = () => 'Use latest version of node';
 
 export const fix = (path, {options}) => {
     const {
