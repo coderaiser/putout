@@ -38,7 +38,7 @@ test('eslint-plugin-putout: putout: parse-error: ESM', (t) => {
         message,
     });
     
-    const expected = `☝️ Looks like 'xx.js' is ESM, extend from 'plugin:putout/esm'`;
+    const expected = `☝️ Looks like 'xx.js' is ESM, consider updating node to >= v20.19`;
     
     t.equal(result, expected);
     t.end();
