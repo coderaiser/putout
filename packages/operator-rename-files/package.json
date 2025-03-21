@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/operator-filesystem": "^6.0.2"
+    "@putout/operator-filesystem": "^7.0.0"
   },
   "keywords": [
     "putout",
