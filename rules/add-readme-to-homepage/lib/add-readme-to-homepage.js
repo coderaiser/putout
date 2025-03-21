@@ -14,7 +14,6 @@ export const fix = ({homepage}) => {
 export const traverse = ({push}) => ({
     [__json]: (path) => {
         const __object = path.get('arguments.0');
-        
         const {homepagePath} = getProperties(__object, ['homepage']);
         
         if (!homepagePath)
