@@ -5,7 +5,7 @@ module.exports.parseError = ({code, message, name}) => {
         return 'Parser error';
     
     if (code === 'ERR_REQUIRE_ESM')
-        return `☝️ Looks like '${name}' is ESM, extend from 'plugin:putout/esm'`;
+        return `☝️ Looks like '${name}' is ESM, consider updating node to >= v20.19`;
     
     return message;
 };
