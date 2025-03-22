@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import nodejs from '@putout/plugin-nodejs';
+import * as nodejs from '@putout/plugin-nodejs';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
