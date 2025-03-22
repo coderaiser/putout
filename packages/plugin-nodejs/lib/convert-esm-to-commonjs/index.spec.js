@@ -1,12 +1,16 @@
-'use strict';
+import {fileURLToPath} from 'node:url';
+import {dirname} from 'node:path';
+import {createRequire} from 'node:module';
+import {createTest} from '@putout/test';
+import * as putout from '@putout/plugin-putout';
+import * as convert from './index.js';
 
-const {createTest} = require('@putout/test');
-const putout = require('@putout/plugin-putout');
-const convert = require('.');
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const require = createRequire(import.meta.url);
 const nodejsDeclare = require('..').rules.declare;
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['nodejs/convert-esm-to-commonjs', convert],
     ],

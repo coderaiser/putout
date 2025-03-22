@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Use 'module.exports' instead of 'exports'`;
 
-module.exports.report = () => `Use 'module.exports' instead of 'exports'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'exports.__a': 'module.exports.__a',
 });

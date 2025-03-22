@@ -1,14 +1,12 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as typescript from '@putout/plugin-typescript';
+import * as putout from '@putout/plugin-putout';
+import * as nodejs from '@putout/plugin-nodejs';
+import * as remove from './index.js';
 
-const {createTest} = require('@putout/test');
-const typescript = require('@putout/plugin-typescript');
-const putout = require('@putout/plugin-putout');
-const nodejs = require('@putout/plugin-nodejs');
-
-const remove = require('.');
 const convertEsmToCommonjs = nodejs.rules['convert-esm-to-commonjs'];
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['strict-mode/remove', remove],
     ],

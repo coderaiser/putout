@@ -1,13 +1,9 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as declare from '@putout/plugin-declare';
+import * as nodejs from '../../index.js';
+import * as add from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const declare = require('@putout/plugin-declare');
-const nodejs = require('../..');
-
-const add = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['strict-mode/add', add],
     ],
@@ -68,7 +64,7 @@ test('plugin-strict-mode: add: await', (t) => {
     t.end();
 });
 
-const testNodejs = createTest(__dirname, {
+const testNodejs = createTest(import.meta.url, {
     rules: {
         'nodejs/convert-commonjs-to-esm': 'off',
     },

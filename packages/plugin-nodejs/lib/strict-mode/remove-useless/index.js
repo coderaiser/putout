@@ -1,16 +1,15 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {remove} = operator;
 const {isProgram} = types;
 
 const isStrictMode = (a) => a.node.value.value === 'use strict';
 
-module.exports.report = () => `Avoid 'use strict' in ESM`;
+export const report = () => `Avoid 'use strict' in ESM`;
 
-module.exports.fix = (path) => remove(path);
+export const fix = (path) => remove(path);
 
-module.exports.traverse = ({push, store}) => ({
+export const traverse = ({push, store}) => ({
     'await __a(__args)'({scope}) {
         if (isProgram(scope.block))
             store('is-module', true);

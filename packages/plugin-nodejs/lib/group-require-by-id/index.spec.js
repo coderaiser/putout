@@ -1,12 +1,9 @@
-'use strict';
+import {createTest} from '@putout/test';
+import declareBeforeReference from '@putout/plugin-declare-before-reference';
+import reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
+import * as plugin from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const declareBeforeReference = require('@putout/plugin-declare-before-reference');
-const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
-const plugin = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['group-require-by-id', plugin],
     ],

@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as strictMode from './index.js';
 
-const {createTest} = require('@putout/test');
-const strictMode = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['strict-mode', strictMode],
     ],

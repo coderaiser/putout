@@ -1,10 +1,8 @@
-'use strict';
+import * as convertCommonjsToEsmExports from './convert-commonjs-to-esm-exports/index.js';
+import * as convertCommonjsToEsmCommons from './convert-commonjs-to-esm-commons/index.js';
+import * as convertCommonjsToEsmRequire from './convert-commonjs-to-esm-require/index.js';
 
-const convertCommonjsToEsmExports = require('./convert-commonjs-to-esm-exports');
-const convertCommonjsToEsmCommons = require('./convert-commonjs-to-esm-commons');
-const convertCommonjsToEsmRequire = require('./convert-commonjs-to-esm-require');
-
-module.exports.rules = {
+export const rules = {
     'convert-commonjs-to-esm-exports': convertCommonjsToEsmExports,
     'convert-commonjs-to-esm-common': convertCommonjsToEsmCommons,
     'convert-commonjs-to-esm-require': convertCommonjsToEsmRequire,

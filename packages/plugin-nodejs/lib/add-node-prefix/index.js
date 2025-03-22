@@ -1,7 +1,5 @@
-'use strict';
-
-const {isBuiltin} = require('node:module');
-const {types, operator} = require('putout');
+import {isBuiltin} from 'node:module';
+import {types, operator} from 'putout';
 
 const {
     setLiteralValue,
@@ -12,11 +10,11 @@ const {isCallExpression} = types;
 
 const REQUIRE = 'require("__a")';
 
-module.exports.report = ({value}) => {
+export const report = ({value}) => {
     return `Use 'node:${value}' instead of '${value}'`;
 };
 
-module.exports.fix = ({path, value}) => {
+export const fix = ({path, value}) => {
     if (isCallExpression(path)) {
         const arg = path.get('arguments.0');
         setLiteralValue(arg, `node:${value}`);
@@ -28,7 +26,7 @@ module.exports.fix = ({path, value}) => {
     setLiteralValue(source, `node:${value}`);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [REQUIRE](path) {
         const {__a} = getTemplateValues(path, REQUIRE);
         const {value} = __a;

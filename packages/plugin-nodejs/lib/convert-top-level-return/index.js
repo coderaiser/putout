@@ -1,13 +1,12 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isFunction} = types;
 
-module.exports.report = () => `"process.exit" should be used instead of top-level return`;
+export const report = () => `"process.exit" should be used instead of top-level return`;
 
-module.exports.filter = (path) => !path.findParent(isFunction);
+export const filter = (path) => !path.findParent(isFunction);
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'return __a()': '{__a(); process.exit()}',
     'return __a': 'process.exit()',
     'return': 'process.exit()',

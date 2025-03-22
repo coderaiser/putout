@@ -1,20 +1,16 @@
-'use strict';
-
-const {operator} = require('putout');
-const {createTest} = require('@putout/test');
-
-const putout = require('@putout/plugin-putout');
-const declare = require('../declare/index.js');
-const convertEsmToCommonjs = require('../convert-esm-to-commonjs');
-const convertCommonjsToEsm = require('../convert-commonjs-to-esm');
-
-const plugin = require('.');
+import {operator} from 'putout';
+import {createTest} from '@putout/test';
+import * as putout from '@putout/plugin-putout';
+import * as declare from '../declare/index.js';
+import * as convertEsmToCommonjs from '../convert-esm-to-commonjs/index.js';
+import * as convertCommonjsToEsm from '../convert-commonjs-to-esm.js';
+import * as plugin from './index.js';
 
 const noop = () => {};
 
 const {remove} = operator;
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['declare-after-require', plugin],
     ],

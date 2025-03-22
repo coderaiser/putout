@@ -1,4 +1,8 @@
 {
+    "rules": {
+        "nodejs/convert-commonjs-to-esm": "on",
+        "nodejs/convert-esm-to-commonjs": "off"
+    },
     "match": {
         ".filesystem.json": {
             "eslint/convert-rc-to-flat": "on"

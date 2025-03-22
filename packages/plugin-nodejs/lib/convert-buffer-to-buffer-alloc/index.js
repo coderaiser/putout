@@ -1,13 +1,12 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compute} = operator;
 
 const isNumber = (a) => typeof a === 'number';
 
-module.exports.report = () => `Use 'Buffer.alloc()' or 'Buffer.from()' instead of 'Buffer()' and 'new Buffer()'`;
+export const report = () => `Use 'Buffer.alloc()' or 'Buffer.from()' instead of 'Buffer()' and 'new Buffer()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'new Buffer(__a)': (vars, path) => {
         const __aPath = path.get('arguments.0');
         const [is] = compute(__aPath);
@@ -16,7 +15,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'new Buffer(__a)': transform,
     'new Buffer(__a, __b)': transform,
     'Buffer(__a)': transform,

@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     isArrayPattern,
     isObjectPattern,
@@ -11,12 +10,12 @@ const {
 
 const {remove} = operator;
 
-module.exports.report = () => `Avoid illegal 'use strict'`;
+export const report = () => `Avoid illegal 'use strict'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     DirectiveLiteral(path) {
         const fnPath = path.parentPath.parentPath.parentPath;
         

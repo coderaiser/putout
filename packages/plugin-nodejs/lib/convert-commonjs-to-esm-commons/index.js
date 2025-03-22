@@ -1,6 +1,4 @@
-'use strict';
-
-const {template, operator} = require('putout');
+import {template, operator} from 'putout';
 
 const {
     getPathAfterImports,
@@ -13,9 +11,9 @@ const initCommons = template.ast(`
     const require = createRequire(import.meta.url);
 `);
 
-module.exports.report = () => '"__filename", "__dirname" and "require" should be declared in ESM';
+export const report = () => '"__filename", "__dirname" and "require" should be declared in ESM';
 
-module.exports.fix = ({scope}) => {
+export const fix = ({scope}) => {
     const programScope = scope.getProgramParent();
     const body = programScope.path.get('body');
     const afterImportPath = getPathAfterImports(body);
@@ -23,13 +21,13 @@ module.exports.fix = ({scope}) => {
     insertBefore(afterImportPath, initCommons);
 };
 
-module.exports.include = () => [
+export const include = () => [
     '__filename',
     '__dirname',
     'require',
 ];
 
-module.exports.filter = ({scope}) => {
+export const filter = ({scope}) => {
     const isDirname = scope.hasBinding('__dirname');
     const isFilename = scope.hasBinding('__filename');
     const isRequire = scope.hasBinding('require');

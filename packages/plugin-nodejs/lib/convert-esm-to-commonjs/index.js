@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isImportDefaultSpecifier} = types;
 
 const BODY = '{__body}';
@@ -9,9 +8,9 @@ const GEN_FN = `function* __a(__args) ${BODY}`;
 const ASYNC_FN = `async function __a(__args) ${BODY}`;
 const CLASS = `class __a ${BODY}`;
 
-module.exports.report = () => `Use 'CommonJS' instead of 'ESM'`;
+export const report = () => `Use 'CommonJS' instead of 'ESM'`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'export default __a': 'module.exports = __a',
     [`export ${CLASS}`]: `module.exports.__a = ${CLASS}`,
     [`export ${FN}`]: `module.epxorts.__a = ${FN}`,

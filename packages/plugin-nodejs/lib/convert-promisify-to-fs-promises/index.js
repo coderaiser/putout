@@ -1,15 +1,16 @@
-'use strict';
-
-const {types: t, operator} = require('putout');
+import {
+    types as t,
+    operator,
+} from 'putout';
 
 const {replaceWith, remove} = operator;
 
 const NOT_COMPUTED = false;
 const SHORTHAND = true;
 
-module.exports.report = () => `fs.promises should be used instead of fs`;
+export const report = () => `fs.promises should be used instead of fs`;
 
-module.exports.fix = ({path, promisified}) => {
+export const fix = ({path, promisified}) => {
     const props = [];
     
     for (const path of promisified) {
@@ -32,7 +33,7 @@ module.exports.fix = ({path, promisified}) => {
     replaceWith(path.get('id'), t.ObjectPattern(props));
 };
 
-module.exports.find = (ast, {push, traverse}) => {
+export const find = (ast, {push, traverse}) => {
     const fs = [];
     const promisified = [];
     

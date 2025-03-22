@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertTopLevelReturn from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertTopLevelReturn = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-top-level-return', convertTopLevelReturn],
     ],

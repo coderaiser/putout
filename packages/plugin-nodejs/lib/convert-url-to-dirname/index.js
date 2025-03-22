@@ -1,13 +1,12 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {isESM} = operator;
 const not = (fn) => (...a) => !fn(...a);
 
-module.exports.report = () => `Use __dirname instead of 'import.meta.url' in CommonJS`;
+export const report = () => `Use __dirname instead of 'import.meta.url' in CommonJS`;
 
-module.exports.filter = not(isESM);
+export const filter = not(isESM);
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'new URL(__a, import.meta.url).pathname': 'join(__dirname, __a)',
 });

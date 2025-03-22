@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-nodejs",
   "version": "14.1.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to transform code to new API of Node.js",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs#readme",
@@ -55,11 +55,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=38"
+    "putout": ">=39"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18.6"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

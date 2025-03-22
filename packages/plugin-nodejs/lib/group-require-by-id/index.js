@@ -1,15 +1,14 @@
-'use strict';
+import {isDeepStrictEqual} from 'node:util';
+import {operator} from 'putout';
 
-const {isDeepStrictEqual} = require('node:util');
-const {operator} = require('putout');
 const {
     replaceWithMultiple,
     remove,
 } = operator;
 
-module.exports.report = () => 'Group require by id';
+export const report = () => 'Group require by id';
 
-module.exports.fix = ({grouped}) => {
+export const fix = ({grouped}) => {
     const [first, ...others] = grouped;
     const nodes = [first.node];
     
@@ -25,7 +24,7 @@ module.exports.fix = ({grouped}) => {
     replaceWithMultiple(first, nodes);
 };
 
-module.exports.traverse = ({pathStore, push}) => ({
+export const traverse = ({pathStore, push}) => ({
     'const __ = require(__)': (path) => {
         if (!path.parentPath.isProgram())
             return;

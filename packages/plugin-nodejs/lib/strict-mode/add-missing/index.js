@@ -1,19 +1,18 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isExpressionStatement,
     stringLiteral,
     expressionStatement,
 } = types;
 
-module.exports.report = () => `Add missing 'use strict' directive on top of CommonJS`;
+export const report = () => `Add missing 'use strict' directive on top of CommonJS`;
 
-module.exports.fix = ({node}) => {
+export const fix = ({node}) => {
     node.body.unshift(expressionStatement(stringLiteral('use strict')));
 };
 
-module.exports.traverse = ({push, store}) => ({
+export const traverse = ({push, store}) => ({
     'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|TypeAlias'() {
         store('is-module', true);
     },

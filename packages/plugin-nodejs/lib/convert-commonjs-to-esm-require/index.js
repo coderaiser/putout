@@ -1,12 +1,10 @@
-'use strict';
-
-const {
+import {
     types,
     operator,
     template,
-} = require('putout');
+} from 'putout';
+import justCamelCase from 'just-camel-case';
 
-const justCamelCase = require('just-camel-case');
 const {
     awaitExpression,
     identifier,
@@ -23,7 +21,7 @@ const {replaceWith, insertBefore} = operator;
 
 const camelCase = (a) => justCamelCase(a.replace('@', ''));
 
-module.exports.report = () => `Use 'ESM' instead of 'CommonJS'`;
+export const report = () => `Use 'ESM' instead of 'CommonJS'`;
 
 const __B = 'declarations.0.init.arguments.0';
 
@@ -38,7 +36,7 @@ const createImport = ({name, source}) => {
 const createFnDeclaration = template('const NAME1 = FN(NAME2)');
 const isPackage = ({value}) => /package(\.json)?$/.test(value);
 
-module.exports.match = () => ({
+export const match = () => ({
     'const __a = require(__b)': ({__b}, path) => {
         // exclude jsons while not supported
         if (/\.json/.test(__b.value))
@@ -64,9 +62,9 @@ module.exports.match = () => ({
     'const __a = require("__b").__c(__args)': checkCall,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __a = require(".")': 'import __a from "./index.js"',
-    'const __a = require(__b).default': 'import __a from "__b"',
+    'const __a = require("__b").default': 'import __a from "__b"',
     'const __a = require(__b).__c': `{
         const {__c} = require(__b);
         const __a = __c;

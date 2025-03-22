@@ -1,6 +1,8 @@
-'use strict';
+import {createRequire} from 'node:module';
 
-module.exports.declare = () => ({
+const require = createRequire(import.meta.url);
+
+export const declare = () => ({
     ...require('./modules/events'),
     ...require('./modules/fs'),
     ...require('./modules/fs-promises'),

@@ -1,12 +1,21 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {renameFiles} = operator;
 
-module.exports = renameFiles({
+const {
+    report,
+    fix,
+    scan,
+} = renameFiles({
     type: 'commonjs',
     mask: '*.cjs',
     rename(name) {
         return name.replace(/cjs$/, 'js');
     },
 });
+
+export {
+    report,
+    fix,
+    scan,
+};

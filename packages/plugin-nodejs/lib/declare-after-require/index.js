@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     remove,
     compareAny,
@@ -13,14 +12,14 @@ const REQUIRE_LIST = [
     'const __a = require(__b).__c',
 ];
 
-module.exports.report = ({path}) => {
+export const report = ({path}) => {
     const idPath = path.get('declarations.0.id');
     const id = String(idPath).replace(/\s+/g, '');
     
     return `Declare '${id}' after last 'require()'`;
 };
 
-module.exports.fix = ({path, lastRequire}) => {
+export const fix = ({path, lastRequire}) => {
     const {node} = path;
     
     delete node.loc;
@@ -30,7 +29,7 @@ module.exports.fix = ({path, lastRequire}) => {
     insertAfter(lastRequire, node);
 };
 
-module.exports.traverse = ({push, pathStore}) => ({
+export const traverse = ({push, pathStore}) => ({
     'const __a = __b': (path) => {
         if (!path.parentPath.isProgram())
             return;

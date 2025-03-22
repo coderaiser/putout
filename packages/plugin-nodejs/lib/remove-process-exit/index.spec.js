@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as rmProcessExit from './index.js';
 
-const {createTest} = require('@putout/test');
-const rmProcessExit = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-process-exit', rmProcessExit],
     ],

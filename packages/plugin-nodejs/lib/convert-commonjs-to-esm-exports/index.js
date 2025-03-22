@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     exportSpecifier,
     isIdentifier,
@@ -10,11 +9,11 @@ const {
 
 const {replaceWith} = operator;
 
-module.exports.report = () => `Use 'ESM' instead of 'CommonJS'`;
+export const report = () => `Use 'ESM' instead of 'CommonJS'`;
 
-module.exports.exclude = () => ['__, __'];
+export const exclude = () => ['__, __'];
 
-module.exports.match = () => ({
+export const match = () => ({
     'module.exports.__a = __b': ({__a, __b}, path) => {
         const {name} = __a;
         
@@ -36,7 +35,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'module.exports = __a': 'export default __a',
     'module.exports.__a = __b': ({__a, __b}, path) => {
         const {name} = __a;
