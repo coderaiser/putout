@@ -1,6 +1,9 @@
+import {createRequire} from 'node:module';
 import {test} from 'supertape';
-import {getRule} from './get-rule.js';
 import * as index from './index.js';
+
+const require = createRequire(import.meta.url);
+const {getRule} = require('./get-rule.cjs');
 
 test('putout: plugin-putout: declare: getRule', (t) => {
     const rule = getRule('index');

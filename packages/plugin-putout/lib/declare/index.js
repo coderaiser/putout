@@ -1,5 +1,5 @@
 import operator from './operator/index.js';
-import {getRule} from './get-rule.js';
+import {getRule} from './get-rule.cjs';
 import types from './types.js';
 
 export const declare = () => ({

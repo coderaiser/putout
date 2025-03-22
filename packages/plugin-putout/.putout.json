@@ -2,6 +2,9 @@
     "match": {
         "*.md{js}": {
             "putout": "off"
+        },
+        "declare/get-rule.js": {
+            "nodejs/convert-commonjs-to-esm-common": "off"
         }
     }
 }
