@@ -7,17 +7,22 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-putout: convert report to function: report: convert-report-to-function', (t) => {
+test('plugin-putout: convert-report-to-function: report: convert-report-to-function', (t) => {
     t.report('convert-report-to-function', `Typeof 'report' should be a 'function'`);
     t.end();
 });
 
-test('plugin-putout: convert report to function: transform: convert-report-to-function', (t) => {
+test('plugin-putout: convert-report-to-function: transform: convert-report-to-function', (t) => {
     t.transform('convert-report-to-function');
     t.end();
 });
 
-test('plugin-putout: convert report to function: transform: template', (t) => {
+test('plugin-putout: convert-report-to-function: transform: template', (t) => {
     t.transform('template');
+    t.end();
+});
+
+test('plugin-putout: convert-report-to-function: transform: esm', (t) => {
+    t.transform('esm');
     t.end();
 });
