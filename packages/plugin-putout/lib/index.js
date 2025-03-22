@@ -1,3 +1,4 @@
+import * as applyExportsToRenameFiles from './apply-exports-to-rename-files/index.js';
 import * as applyExportsToMatchFiles from './apply-exports-to-match-files/index.js';
 import * as applyProcessorsDestructuring from './apply-processors-destructuring/index.js';
 import * as applyAsyncFormatter from './apply-async-formatter/index.js';
@@ -134,4 +135,5 @@ export const rules = {
     'apply-create-nested-directory': applyCreateNestedDirectory,
     'apply-report': applyReport,
     'apply-exports-to-match-files': applyExportsToMatchFiles,
+    'apply-exports-to-rename-files': applyExportsToRenameFiles,
 };

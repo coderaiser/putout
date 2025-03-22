@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: apply-exports-to-add-args: report', (t) => {
-    t.report('apply-exports-to-add-args', `Apply exports to 'addArgs'`);
+    t.report('apply-exports-to-add-args', `Apply exports to 'addArgs()'`);
     t.end();
 });
 

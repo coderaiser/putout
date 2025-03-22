@@ -329,3 +329,8 @@ test('plugin-putout: transform: apply-exports-to-match-files', (t) => {
     t.transform('apply-exports-to-match-files');
     t.end();
 });
+
+test('plugin-putout: transform: apply-exports-to-rename-files', (t) => {
+    t.transform('apply-exports-to-rename-files');
+    t.end();
+});

@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: apply-exports-to-match-files: report', (t) => {
-    t.report('apply-exports-to-match-files', `Apply 'exports' to 'matchFiles`);
+    t.report('apply-exports-to-match-files', `Apply 'exports' to 'matchFiles()'`);
     t.end();
 });
 

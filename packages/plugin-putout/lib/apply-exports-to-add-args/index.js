@@ -1,4 +1,4 @@
-export const report = () => `Apply exports to 'addArgs'`;
+export const report = () => `Apply exports to 'addArgs()'`;
 
 export const replace = () => ({
     'export default addArgs(__args)': `{

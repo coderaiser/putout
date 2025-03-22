@@ -27,6 +27,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-declare](#apply-declare);
 - ✅ [apply-exports-to-add-args](#apply-exports-to-add-args);
 - ✅ [apply-exports-to-match-files](#apply-exports-to-match-files);
+- ✅ [apply-exports-to-rename-files](#apply-exports-to-rename-files);
 - ✅ [apply-for-of-to-track-file](#apply-for-of-to-track-file);
 - ✅ [apply-fixture-name-to-message](#apply-fixture-name-to-message);
 - ✅ [apply-insert-after](#apply-insert-after);
@@ -100,6 +101,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-declare": "on",
         "putout/apply-exports-to-add-args": "on",
         "putout/apply-exports-to-match-files": "on",
+        "putout/apply-exports-to-rename-files": "on",
         "putout/apply-report": "on",
         "putout/apply-processors-destructuring": "on",
         "putout/apply-rename": "on",
@@ -507,6 +509,44 @@ const {
     scan,
 } = matchFiles({
     '*.cjs': plugin,
+});
+
+export {
+    report,
+    fix,
+    scan,
+};
+```
+
+## apply-exports-to-rename-files
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/999f7a582825fa88691ba87324365f3f/c679723b7ff2159d738ab7681f8c7c6460dd4326).
+
+### ❌ Example of incorrect code
+
+```js
+export default renameFiles({
+    type: 'module',
+    mask: '*.mjs',
+    rename(name) {
+        return name.replace(/mjs$/, 'js');
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+const {
+    report,
+    fix,
+    scan,
+} = renameFiles({
+    type: 'module',
+    mask: '*.mjs',
+    rename(name) {
+        return name.replace(/mjs$/, 'js');
+    },
 });
 
 export {
