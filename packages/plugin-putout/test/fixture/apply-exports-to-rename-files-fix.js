@@ -1,13 +1,13 @@
 import {operator} from 'putout';
 
-const {matchFiles} = operator;
+const {renameFiles} = operator;
 
 {
     const {
         report,
         fix,
         scan,
-    } = matchFiles({
+    } = renameFiles({
         type: 'module',
         mask: '*.mjs',
         rename(name) {
