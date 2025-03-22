@@ -7,7 +7,7 @@ const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
     languageOptions: {
-        ecmaVersion: 2024,
+        ecmaVersion: 2025,
         sourceType: 'module',
     },
 });
@@ -22,6 +22,13 @@ ruleTester.run('no-unresolved', rule, {
     ],
     
     invalid: [{
+        code: `import * as strictMode from '..';`,
+        output: `import * as strictMode from '../index.js';`,
+        errors: [{
+            message,
+            type: 'ImportDeclaration',
+        }],
+    }, {
         code: `import hello from './hello'`,
         output: `import hello from './hello.js'`,
         errors: [{

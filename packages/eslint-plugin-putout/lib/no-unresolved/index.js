@@ -1,7 +1,6 @@
 'use strict';
 
 const process = require('node:process');
-
 const {accessSync} = require('node:fs');
 
 const {
@@ -44,6 +43,9 @@ module.exports.fix = ({node, text, filename}) => {
 module.exports.filter = ({node}) => {
     const value = getValue(node);
     
+    if (!value || value.endsWith('.js'))
+        return false;
+    
     if (!isRelativeStart(value))
         return false;
     
@@ -55,10 +57,10 @@ function resolveSource({dir, value}) {
         const name = join(dir, value, 'package.json');
         const [error, info] = tryCatch(require, name);
         
-        if (error)
-            return value;
+        if (!error)
+            return join(value, info.main);
         
-        return join(value, info.main);
+        return `${value}/index.js`;
     }
     
     for (const ext of ['js', 'mjs', 'cjs']) {
