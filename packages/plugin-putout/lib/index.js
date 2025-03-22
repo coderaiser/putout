@@ -1,3 +1,4 @@
+import * as applyExportsToMatchFiles from './apply-exports-to-match-files/index.js';
 import * as applyProcessorsDestructuring from './apply-processors-destructuring/index.js';
 import * as applyAsyncFormatter from './apply-async-formatter/index.js';
 import * as applyCreateTest from './apply-create-test/index.js';
@@ -132,4 +133,5 @@ export const rules = {
     'apply-lowercase-to-node-builders': applyLowercaseToNodeBuilders,
     'apply-create-nested-directory': applyCreateNestedDirectory,
     'apply-report': applyReport,
+    'apply-exports-to-match-files': applyExportsToMatchFiles,
 };

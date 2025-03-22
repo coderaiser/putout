@@ -2,11 +2,13 @@
     const {
         report,
         fix,
-        traverse,
-    } = addArgs(__args);
+        scan,
+    } = matchFiles({
+        '*.cjs': plugin,
+    });
     export {
         report,
         fix,
-        traverse,
+        scan,
     };
 }

@@ -26,6 +26,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-create-nested-directory](#apply-create-nested-directory);
 - ✅ [apply-declare](#apply-declare);
 - ✅ [apply-exports-to-add-args](#apply-exports-to-add-args);
+- ✅ [apply-exports-to-match-files](#apply-exports-to-match-files);
 - ✅ [apply-for-of-to-track-file](#apply-for-of-to-track-file);
 - ✅ [apply-fixture-name-to-message](#apply-fixture-name-to-message);
 - ✅ [apply-insert-after](#apply-insert-after);
@@ -98,6 +99,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
         "putout/apply-exports-to-add-args": "on",
+        "putout/apply-exports-to-match-files": "on",
         "putout/apply-report": "on",
         "putout/apply-processors-destructuring": "on",
         "putout/apply-rename": "on",
@@ -481,6 +483,36 @@ export {
     report,
     fix,
     traverse,
+};
+```
+
+## apply-exports-to-match-files
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d40ac85b974249c51f9874919468fd30/4194c9b21d065bd1359ffc7298aaeb1835fbbb48).
+
+### ❌ Example of incorrect code
+
+```js
+export default matchFiles({
+    '*.cjs': plugin,
+});
+```
+
+### ✅ Example of correct code
+
+```js
+const {
+    report,
+    fix,
+    scan,
+} = matchFiles({
+    '*.cjs': plugin,
+});
+
+export {
+    report,
+    fix,
+    scan,
 };
 ```
 

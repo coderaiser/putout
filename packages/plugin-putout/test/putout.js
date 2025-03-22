@@ -324,3 +324,8 @@ test('plugin-putout: transform: apply-exports-to-add-args', (t) => {
     t.transform('apply-exports-to-add-args');
     t.end();
 });
+
+test('plugin-putout: transform: apply-exports-to-match-files', (t) => {
+    t.transform('apply-exports-to-match-files');
+    t.end();
+});
