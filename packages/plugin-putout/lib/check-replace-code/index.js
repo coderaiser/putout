@@ -57,12 +57,16 @@ export const traverse = ({push, options}) => {
 };
 
 function getProperties(path) {
-    const props = `body.properties`;
+    if (path.isExportNamedDeclaration()) {
+        const bodyPath = path.get('declaration.declarations.0.init.body');
+        
+        if (bodyPath.isObjectExpression())
+            return bodyPath.get(`properties`);
+        
+        return [];
+    }
     
-    if (path.isExportNamedDeclaration())
-        return path.get(`declaration.declarations.0.init.${props}`);
-    
-    return path.get(`right.${props}`);
+    return path.get(`right.body.properties`);
 }
 
 const createTraverseReplacer = ({once, push}) => (path) => {

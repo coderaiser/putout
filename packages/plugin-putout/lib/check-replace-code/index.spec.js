@@ -166,3 +166,8 @@ test('plugin-putout: check-replace-code: no report: class-body', (t) => {
     t.noReport('class-body');
     t.end();
 });
+
+test('plugin-putout: check-replace-code: no report: return', (t) => {
+    t.noReport('return');
+    t.end();
+});
