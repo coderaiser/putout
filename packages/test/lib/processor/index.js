@@ -45,7 +45,9 @@ const buildOptions = ({options, plugins, processors}) => ({
 const addDot = (a) => a ? `.${a}` : '';
 
 const fail = (t, message) => {
-    const {__putout_test_fail = t.fail} = global;
+    const {
+        __putout_test_fail = t.fail,
+    } = global;
     return __putout_test_fail(message);
 };
 

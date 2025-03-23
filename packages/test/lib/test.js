@@ -36,7 +36,9 @@ global.__putout_test_fs = {
 const isUpdate = () => Boolean(Number(process.env.UPDATE));
 
 const fail = (t, message) => {
-    const {__putout_test_fail = t.fail} = global;
+    const {
+        __putout_test_fail = t.fail,
+    } = global;
     return __putout_test_fail(message);
 };
 
