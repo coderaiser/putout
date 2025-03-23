@@ -1,3 +1,11 @@
+2025.03.23, v39.0.11
+
+feature:
+- 69c35c650 putout: @putout/plugin-for-of v9.0.0
+- c6d2ca2ea @putout/plugin-for-of: drop support of node < 20
+- bfb25a8c9 @putout/plugin-for-of: convert to ESM
+- 702ac92ac @putout/plugin-putout: check-replace-code: exclude BlockStatement
+
 2025.03.22, v39.0.10
 
 fix:
