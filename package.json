@@ -50,9 +50,11 @@
     "husky": "^9.0.11",
     "madrun": "^11.0.0",
     "redlint": "^4.0.0",
-    "supertape": "^10.0.0"
+    "supertape": "^11.0.3"
   },
-  "trustedDependencies": ["husky"],
+  "trustedDependencies": [
+    "husky"
+  ],
   "engines": {
     "node": ">=18"
   },
