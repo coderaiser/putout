@@ -39,6 +39,7 @@ const fail = (t, message) => {
     const {
         __putout_test_fail = t.fail,
     } = global;
+    
     return __putout_test_fail(message);
 };
 
