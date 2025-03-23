@@ -1,10 +1,8 @@
-'use strict';
-
-const {
+import {
     template,
     operator,
     types,
-} = require('putout');
+} from 'putout';
 
 const {
     isIdentifier,
@@ -30,9 +28,9 @@ const forOfEntriesTemplate = template(`
 const {keys} = Object;
 const isRoot = (path) => path.isFunction() || path.isProgram();
 
-module.exports.report = () => `Use 'for-of' instead of 'forEach()'`;
+export const report = () => `Use 'for-of' instead of 'forEach()'`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__.forEach.call(__a, (__b) => __body)': 'for (const __b of __a) __body',
     '__.forEach(__args)': (vars, path) => {
         const {params, body} = path.node.arguments[0];
@@ -76,7 +74,7 @@ module.exports.replace = () => ({
     },
 });
 
-module.exports.match = () => ({
+export const match = () => ({
     '__.forEach(__args)': (vars, path) => {
         const {parentPath} = path;
         

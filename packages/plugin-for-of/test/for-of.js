@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as forOf from '../lib/index.js';
 
-const {createTest} = require('@putout/test');
-const forOf = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['for-of', forOf],
     ],

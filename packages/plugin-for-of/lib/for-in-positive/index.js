@@ -1,15 +1,13 @@
-'use strict';
-
-const {generate, operator} = require('putout');
+import {generate, operator} from 'putout';
 
 const {
     contains,
     getTemplateValues,
 } = operator;
 
-module.exports.report = () => `for-of should be used instead of for-in`;
+export const report = () => `for-of should be used instead of for-in`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'for (__a in __b) __body': ({__a, __b, __body}) => {
         const declaration = getTemplateValues(__a, 'var __a');
         
@@ -22,7 +20,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'for (__a in __b) __body': ({__b, __body}) => {
         const [first] = __body.body;
         const condition = getTemplateValues(first, 'if (__b.hasOwnProperty(__a)) __body');

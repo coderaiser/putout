@@ -1,13 +1,9 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeEmpty from '@putout/plugin-remove-empty';
+import * as removeUnusedForOfVariables from './index.js';
+import * as removeUselessVariables from '../remove-useless-variables/index.js';
 
-const {createTest} = require('@putout/test');
-
-const removeEmpty = require('@putout/plugin-remove-empty');
-const removeUnusedForOfVariables = require('.');
-
-const removeUselessVariables = require('../remove-useless-variables');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-unused-for-of-variables', removeUnusedForOfVariables],
     ],

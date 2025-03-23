@@ -1,14 +1,10 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import * as removeConsole from '@putout/plugin-remove-console';
+import * as removeUselessArrayFrom from '../remove-useless-array-from/index.js';
+import * as plugin from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
-const removeConsole = require('@putout/plugin-remove-console');
-
-const removeUselessArrayFrom = require('../remove-useless-array-from');
-const plugin = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['for-of/remove-useless-variables', plugin],
     ],

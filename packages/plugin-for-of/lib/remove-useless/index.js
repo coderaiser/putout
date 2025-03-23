@@ -1,13 +1,11 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {isIdentifier} = types;
 const {replaceWith} = operator;
 
-module.exports.report = () => `Avoid useless for-of`;
+export const report = () => `Avoid useless for-of`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'for (const __identifier__a of __identifier__b) __c': ({__identifier__a}, path) => {
         const {name} = __identifier__a;
         const {references} = path.scope.bindings[name];
@@ -28,7 +26,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'for (const __identifier__a of __identifier__b) __c': '__c',
     'for (const __a of __array) __c': ({__a, __c, __array}, path) => {
         const {elements} = __array;

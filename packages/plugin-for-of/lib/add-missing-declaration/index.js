@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isVariableDeclaration,
     isIdentifier,
@@ -8,9 +7,9 @@ const {
     isObjectPattern,
 } = types;
 
-module.exports.report = () => `Add missing declaration`;
+export const report = () => `Add missing declaration`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'for (__a of __b) __c': ({__a}, path) => {
         if (isVariableDeclaration(__a))
             return false;
@@ -42,6 +41,6 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'for (__a of __b) __c': 'for (const __a of __b) __c',
 });

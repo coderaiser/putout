@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isReturnStatement,
     isBlockStatement,
@@ -9,9 +8,9 @@ const {
 
 const tail = (body) => body.at(-1);
 
-module.exports.report = () => `Use 'for...of' instead of map when 'return' absent`;
+export const report = () => `Use 'for...of' instead of map when 'return' absent`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '__a.map((__b) => __c)': ({__c}, path) => {
         if (!path.parentPath.isExpressionStatement())
             return false;
@@ -28,7 +27,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a.map((__b) => __c)': (vars, path) => {
         const a = path.get('callee.object');
         const b = path.get('arguments.0.params.0');

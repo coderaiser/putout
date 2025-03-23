@@ -1,9 +1,10 @@
-'use strict';
+import {createRequire} from 'node:module';
+import {createTest} from '@putout/test';
+import * as forN from './index.js';
 
-const {createTest} = require('@putout/test');
-const forN = require('.');
+const require = createRequire(import.meta.url);
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['for-of/n', forN],
     ],

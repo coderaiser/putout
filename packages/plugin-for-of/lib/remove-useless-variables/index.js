@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith, remove} = operator;
 const {
@@ -11,14 +9,14 @@ const {
 const isToManyProperties = (a, {maxProperties}) => a.isObjectPattern() && a.node.properties.length > maxProperties;
 const isAssignment = (a) => isAssignmentPattern(a.value);
 
-module.exports.report = () => `Use destructuring in head of 'for...of'`;
+export const report = () => `Use destructuring in head of 'for...of'`;
 
-module.exports.fix = ({path, varPath}) => {
+export const fix = ({path, varPath}) => {
     replaceWith(varPath, path.node.id);
     remove(path);
 };
 
-module.exports.traverse = ({push, options}) => ({
+export const traverse = ({push, options}) => ({
     'for (const __ of __) __'(path) {
         const leftPath = path.get('left');
         const varPath = leftPath.get('declarations.0.id');

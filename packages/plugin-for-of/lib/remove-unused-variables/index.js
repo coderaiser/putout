@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     isIdentifier,
@@ -10,19 +8,19 @@ const {
 const {remove} = operator;
 const getValue = ({value}) => value;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     const variables = getVariables(path);
     const names = getNames(variables);
     
     return `'${names.join(', ')}' inside 'for...of' loop defined but never used`;
 };
 
-module.exports.match = () => ({
+export const match = () => ({
     'for (const __array of __b) __c': matchForOf,
     'for (const __object of __b) __c': matchForOf,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'for (const __array of __b) __c': replaceForOf,
     'for (const __object of __b) __c': replaceForOf,
 });

@@ -1,15 +1,13 @@
-'use strict';
+export const report = () => `Use 'for' instead of 'for...of' with '.entries()' when change index`;
 
-module.exports.report = () => `Use 'for' instead of 'for...of' with '.entries()' when change index`;
-
-module.exports.match = () => ({
+export const match = () => ({
     'for (let [__a, __b] of __c.entries())__body': ({__a}, path) => {
         const binding = path.scope.bindings[__a.name];
         return binding.constantViolations.length;
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'for (let [__a, __b] of __c.entries())__body': (vars, path) => {
         const {n} = path.parentPath.scope.bindings;
         

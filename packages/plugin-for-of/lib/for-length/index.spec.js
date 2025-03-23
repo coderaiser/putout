@@ -1,10 +1,8 @@
-'use strict';
+import removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import {createTest} from '@putout/test';
+import * as convertForToForOf from './index.js';
 
-const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
-const {createTest} = require('@putout/test');
-const convertForToForOf = require('./index.js');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['for-of/length', convertForToForOf],
     ],

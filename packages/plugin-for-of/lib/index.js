@@ -1,22 +1,20 @@
-'use strict';
+import * as map from './map/index.js';
+import * as forEach from './for-each/index.js';
+import * as forN from './for-n/index.js';
+import * as forLength from './for-length/index.js';
+import * as forEntries from './for-entries/index.js';
+import * as forEntriesN from './for-entries-n/index.js';
+import * as forInNegative from './for-in-negative/index.js';
+import * as forInPositive from './for-in-positive/index.js';
+import * as reduce from './reduce/index.js';
+import * as removeUseless from './remove-useless/index.js';
+import * as removeUselessVariables from './remove-useless-variables/index.js';
+import * as removeUselessArrayFrom from './remove-useless-array-from/index.js';
+import * as removeUnusedVariables from './remove-unused-variables/index.js';
+import * as addMissingDeclaration from './add-missing-declaration/index.js';
+import * as toForN from './to-for-n/index.js';
 
-const map = require('./map');
-const forEach = require('./for-each');
-const forN = require('./for-n');
-const forLength = require('./for-length');
-const forEntries = require('./for-entries');
-const forEntriesN = require('./for-entries-n');
-const forInNegative = require('./for-in-negative');
-const forInPositive = require('./for-in-positive');
-const reduce = require('./reduce');
-const removeUseless = require('./remove-useless');
-const removeUselessVariables = require('./remove-useless-variables');
-const removeUselessArrayFrom = require('./remove-useless-array-from');
-const removeUnusedVariables = require('./remove-unused-variables');
-const addMissingDeclaration = require('./add-missing-declaration');
-const toForN = require('./to-for-n');
-
-module.exports.rules = {
+export const rules = {
     map,
     'for-each': forEach,
     'for-n': forN,

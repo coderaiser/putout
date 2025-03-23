@@ -1,15 +1,14 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isBlockStatement,
     isArrayExpression,
     isCallExpression,
 } = types;
 
-module.exports.report = () => `Use 'for...of' instead of '.reduce()'`;
+export const report = () => `Use 'for...of' instead of '.reduce()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'const __a = __b.reduce((__c, __d) => __e)': ({__b, __e}) => {
         if (isArrayExpression(__b))
             return false;
@@ -28,7 +27,7 @@ module.exports.match = () => ({
     'const __a = __b.reduce((__c, __d) => __e, __f)': ({__e}) => !isBlockStatement(__e),
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __a = __b.reduce((__c, __d) => __e)': ({__a, __d}, path) => {
         path.__putout_for_of_reduce = true;
         rename(path, __d, __a);

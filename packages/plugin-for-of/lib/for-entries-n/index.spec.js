@@ -1,10 +1,8 @@
-'use strict';
+import montag from 'montag';
+import {createTest} from '@putout/test';
+import * as entriesN from './index.js';
 
-const montag = require('montag');
-const {createTest} = require('@putout/test');
-const entriesN = require('./index.js');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-for-to-for-of/entries-n', entriesN],
     ],

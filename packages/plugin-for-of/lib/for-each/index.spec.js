@@ -1,15 +1,14 @@
-'use strict';
+import {createRequire} from 'node:module';
+import {createTest} from '@putout/test';
+import * as convertConstToLet from '@putout/plugin-convert-const-to-let';
+import * as removeUselessContinue from '@putout/plugin-remove-useless-continue';
+import * as plugin from './index.js';
+import * as removeUselessVariables from '../remove-useless-variables/index.js';
 
-const {createTest} = require('@putout/test');
-
-const convertConstToLet = require('@putout/plugin-convert-const-to-let');
-const removeUselessContinue = require('@putout/plugin-remove-useless-continue');
-const plugin = require('.');
-
-const removeUselessVariables = require('../remove-useless-variables');
+const require = createRequire(import.meta.url);
 const convertComparisonToBoolean = require('@putout/plugin-conditions').rules['convert-comparison-to-boolean'];
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['for-of/for-each', plugin],
     ],

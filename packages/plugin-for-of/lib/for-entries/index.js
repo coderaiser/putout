@@ -1,10 +1,8 @@
-'use strict';
-
-const {
+import {
     operator,
     types,
     template,
-} = require('putout');
+} from 'putout';
 
 const {
     compare,
@@ -13,14 +11,14 @@ const {
 
 const {isBlockStatement} = types;
 
-module.exports.report = () => `Use 'for...of' instead of 'for'`;
+export const report = () => `Use 'for...of' instead of 'for'`;
 
 const forLoop = 'for (let __i = 0; __i < __e.length; __i++) __c';
 const getForOfLoop = template(`for (const [INDEX, ITEM] of ITEMS.entries()) BODY`);
 const assignIterable = (__i) => `const __a = __b[${__i.name}]`;
 const assignIterableWithName = (__i, __e) => `const __a = ${__e.name}[${__i.name}]`;
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const {node} = path;
     const {body} = node;
     
@@ -43,7 +41,7 @@ module.exports.filter = (path) => {
     return compare(first, assignIterableWithName(__i, __e));
 };
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [forLoop]: ({__c, __i}) => {
         const [node] = __c.body;
         const {__a, __b} = getTemplateValues(node, assignIterable(__i));

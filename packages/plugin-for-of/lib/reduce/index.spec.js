@@ -1,12 +1,9 @@
-'use strict';
+import {createTest} from '@putout/test';
+import removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
+import removeUnreferencedVariables from '@putout/plugin-remove-unreferenced-variables';
+import * as convertMapToForOf from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
-const removeUnreferencedVariables = require('@putout/plugin-remove-unreferenced-variables');
-
-const convertMapToForOf = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-reduce-to-for-of', convertMapToForOf],
     ],
