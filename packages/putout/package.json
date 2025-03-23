@@ -242,7 +242,7 @@
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
     "strip-ansi": "^7.0.0",
-    "supertape": "^10.0.0"
+    "supertape": "^11.0.3"
   },
   "license": "MIT",
   "engines": {
