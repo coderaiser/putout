@@ -1,14 +1,13 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isIdentifier,
     isMemberExpression,
 } = types;
 
-module.exports.report = () => 'Expected ArrowFunction instead of Assignment';
+export const report = () => 'Expected ArrowFunction instead of Assignment';
 
-module.exports.match = () => ({
+export const match = () => ({
     'const __a = __b = __c': ({__b}, path) => {
         if (isIdentifier(__b) && path.scope.hasBinding(__b.name))
             return false;
@@ -17,6 +16,6 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __a = __b = __c': 'const __a = __b => __c',
 });

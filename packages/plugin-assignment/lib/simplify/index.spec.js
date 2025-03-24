@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as simplify from './index.js';
 
-const {createTest} = require('@putout/test');
-const simplify = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['assignment/simplify', simplify],
     ],

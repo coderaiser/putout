@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-assignment",
-  "version": "1.0.0",
-  "type": "commonjs",
+  "version": "1.0.2",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to transform code related to assignment",
   "homepage": "https://github.com/coderaiser/putout/tree/v38.5.7/packages/plugin-assignment#readme",

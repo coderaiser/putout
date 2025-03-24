@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     arrayPattern,
     isAssignmentExpression,
@@ -11,9 +10,9 @@ const {
 
 const {replaceWithMultiple} = operator;
 
-module.exports.report = () => `Split assignment expressions`;
+export const report = () => `Split assignment expressions`;
 
-module.exports.fix = ({path, lefts, right, merged}) => {
+export const fix = ({path, lefts, right, merged}) => {
     if (merged) {
         const rightPath = path.get('right');
         const {right, left} = rightPath.node;
@@ -40,7 +39,7 @@ module.exports.fix = ({path, lefts, right, merged}) => {
     replaceWithMultiple(path, assignments);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     AssignmentExpression(path) {
         const {node} = path;
         

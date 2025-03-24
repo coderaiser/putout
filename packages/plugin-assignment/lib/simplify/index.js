@@ -1,14 +1,12 @@
-'use strict';
+export const report = () => 'Simplify assignment';
 
-module.exports.report = () => 'Simplify assignment';
-
-module.exports.match = () => ({
+export const match = () => ({
     'const __a = (() => __b)()': check,
     '__a = (() => __b)()': check,
     'var __a = (() => __b)()': check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const {__a} = {__a: __b}': 'const __a = __b',
     'const [__a] = [__b]': 'const __a = __b',
     'const __a = (() => __b)()': 'const __a = __b',

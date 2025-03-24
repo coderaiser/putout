@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     variableDeclarator,
     isIdentifier,
@@ -13,12 +12,12 @@ const {
     isKeyword,
 } = operator;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     const {name} = path.node.left;
     return `Declare '${name}' before assignment`;
 };
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {left, right} = path.node;
     const node = variableDeclaration('const', [
         variableDeclarator(left, right),
@@ -27,7 +26,7 @@ module.exports.fix = (path) => {
     replaceWith(path, node);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     AssignmentExpression(path) {
         const prevPath = path.parentPath.getPrevSibling();
         
