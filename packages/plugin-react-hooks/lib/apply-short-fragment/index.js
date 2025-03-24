@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     JSXClosingFragment,
@@ -10,20 +8,20 @@ const {
 
 const {replaceWith} = operator;
 
-module.exports.report = () => `Apply shorthand syntax for 'Fragment'`;
+export const report = () => `Apply shorthand syntax for 'Fragment'`;
 
-module.exports.include = () => [
+export const include = () => [
     'JSXOpeningElement',
 ];
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {parentPath} = path;
     const {children} = path.parentPath.node;
     
     replaceWith(parentPath, JSXFragment(JSXOpeningFragment(), JSXClosingFragment(), children));
 };
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     if (path.node.attributes.length)
         return false;
     

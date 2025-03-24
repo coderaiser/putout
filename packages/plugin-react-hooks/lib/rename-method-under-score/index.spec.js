@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as renameMethodUnderScore from './index.js';
 
-const {createTest} = require('@putout/test');
-const renameMethodUnderScore = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['rename-method-under-score', renameMethodUnderScore],
     ],

@@ -1,18 +1,18 @@
-'use strict';
+import {types} from 'putout';
 
 const {
     isIdentifier,
     isObjectPattern,
-} = require('putout').types;
+} = types;
 
-module.exports.report = () => 'useState should be used instead of Component';
+export const report = () => 'useState should be used instead of Component';
 
-module.exports.fix = ({node}) => {
+export const fix = ({node}) => {
     node.key.name = 'useState';
     node.value.name = 'useState';
 };
 
-module.exports.find = (ast, {traverse}) => {
+export const find = (ast, {traverse}) => {
     const places = [];
     
     traverse(ast, {

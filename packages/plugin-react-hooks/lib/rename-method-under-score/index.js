@@ -1,18 +1,16 @@
-'use strict';
+import {traverseClass} from '../common.js';
 
-const {traverseClass} = require('../common');
-
-module.exports.report = ({node}) => {
+export const report = ({node}) => {
     const {name} = node;
     return `name of method "${name}" should not start from under score`;
 };
 
-module.exports.fix = ({node}) => {
+export const fix = ({node}) => {
     const {name} = node;
     node.name = name.replace(/^_/, '');
 };
 
-module.exports.find = (ast, {push, traverse}) => {
+export const find = (ast, {push, traverse}) => {
     traverseClass(traverse, ast, {
         ClassMethod(path) {
             const keyPath = path.get('key');

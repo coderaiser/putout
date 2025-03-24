@@ -1,17 +1,15 @@
-'use strict';
-
-const {operator} = require('putout');
-const {traverseClass} = require('../common');
+import {operator} from 'putout';
+import {traverseClass} from '../common.js';
 
 const {remove} = operator;
 
-module.exports.report = () => 'bind should not be used';
+export const report = () => 'bind should not be used';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.find = (ast, {traverse, push}) => {
+export const find = (ast, {traverse, push}) => {
     traverseClass(traverse, ast, {
         CallExpression(path) {
             const isBind = path.get('callee.property').isIdentifier({

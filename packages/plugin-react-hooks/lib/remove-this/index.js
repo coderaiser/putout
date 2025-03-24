@@ -1,16 +1,15 @@
-'use strict';
+import {operator} from 'putout';
+import {traverseClass} from '../common.js';
 
-const {replaceWith} = require('putout').operator;
+const {replaceWith} = operator;
 
-const {traverseClass} = require('../common');
+export const report = ({name}) => `should be used "${name}" instead of "this.${name}"`;
 
-module.exports.report = ({name}) => `should be used "${name}" instead of "this.${name}"`;
-
-module.exports.fix = ({path}) => {
+export const fix = ({path}) => {
     replaceWith(path, path.get('property'));
 };
 
-module.exports.find = (ast, {push, traverse}) => {
+export const find = (ast, {push, traverse}) => {
     traverseClass(traverse, ast, {
         ThisExpression({parentPath}) {
             const propertyPath = parentPath.get('property');

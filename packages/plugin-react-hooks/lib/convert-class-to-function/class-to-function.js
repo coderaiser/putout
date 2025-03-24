@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith, remove} = operator;
 
@@ -10,7 +8,7 @@ const {
     functionDeclaration,
 } = types;
 
-module.exports = (path) => {
+export default (path) => {
     const {node} = path;
     const {body} = node;
     

@@ -1,10 +1,7 @@
-'use strict';
-
-const {operator, types} = require('putout');
-
-const {traverseClass} = require('../common');
-const stateToHooks = require('./state-to-hooks');
-const setStateToHooks = require('./set-state-to-hooks');
+import {operator, types} from 'putout';
+import {traverseClass} from '../common.js';
+import stateToHooks from './state-to-hooks.js';
+import setStateToHooks from './set-state-to-hooks.js';
 
 const {
     isIdentifier,
@@ -15,7 +12,7 @@ const {
 
 const {remove} = operator;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     if (isAssignmentExpression(path))
         return 'hooks should be used instead of this.state';
     
@@ -25,7 +22,7 @@ module.exports.report = (path) => {
     return 'hooks should be used instead of this.setState';
 };
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     if (isAssignmentExpression(path))
         return stateToHooks(path);
     
@@ -35,7 +32,7 @@ module.exports.fix = (path) => {
     return setStateToHooks(path);
 };
 
-module.exports.find = (ast, {push, traverse}) => {
+export const find = (ast, {push, traverse}) => {
     traverseClass(traverse, ast, {
         AssignmentExpression: (path) => {
             if (!path.get('left').isMemberExpression())

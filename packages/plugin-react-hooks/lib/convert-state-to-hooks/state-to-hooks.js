@@ -1,6 +1,4 @@
-'use strict';
-
-const {template, operator} = require('putout');
+import {template, operator} from 'putout';
 
 const {replaceWithMultiple} = operator;
 
@@ -8,7 +6,7 @@ const buildHooks = template(`
     const [NAME, SETTER] = useState(VALUE);
 `);
 
-module.exports = (path) => {
+export default (path) => {
     const {right} = path.node;
     const nodes = [];
     

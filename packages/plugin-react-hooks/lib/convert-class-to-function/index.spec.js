@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertClassToFunction from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertClassToFunction = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-class-to-function', convertClassToFunction],
     ],

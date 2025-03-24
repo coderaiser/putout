@@ -1,17 +1,15 @@
-'use strict';
+import * as applyShortFragment from './apply-short-fragment/index.js';
+import * as declare from './declare/index.js';
+import * as renameMethodUnderScore from './rename-method-under-score/index.js';
+import * as convertStateToHooks from './convert-state-to-hooks/index.js';
+import * as removeBind from './remove-bind/index.js';
+import * as removeThis from './remove-this/index.js';
+import * as removeReact from './remove-react/index.js';
+import * as convertClassToFunction from './convert-class-to-function/index.js';
+import * as convertComponentToUseState from './convert-component-to-use-state/index.js';
+import * as convertImportComponentToUseState from './convert-import-component-to-use-state/index.js';
 
-const applyShortFragment = require('./apply-short-fragment');
-const declare = require('./declare');
-const renameMethodUnderScore = require('./rename-method-under-score');
-const convertStateToHooks = require('./convert-state-to-hooks');
-const removeBind = require('./remove-bind');
-const removeThis = require('./remove-this');
-const removeReact = require('./remove-react');
-const convertClassToFunction = require('./convert-class-to-function');
-const convertComponentToUseState = require('./convert-component-to-use-state');
-const convertImportComponentToUseState = require('./convert-import-component-to-use-state');
-
-module.exports.rules = {
+export const rules = {
     'apply-short-fragment': applyShortFragment,
     declare,
     'rename-method-under-score': renameMethodUnderScore,

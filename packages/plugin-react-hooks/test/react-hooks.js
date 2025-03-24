@@ -1,11 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import rmUnused from '@putout/plugin-remove-unused-variables';
+import * as reactHooks from '../lib/react-hooks.js';
 
-const {createTest} = require('@putout/test');
-
-const rmUnused = require('@putout/plugin-remove-unused-variables');
-const reactHooks = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['react-hooks', reactHooks],
     ],

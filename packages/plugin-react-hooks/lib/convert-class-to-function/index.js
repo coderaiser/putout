@@ -1,21 +1,18 @@
-'use strict';
-
-const {types} = require('putout');
-
-const classToFunction = require('./class-to-function');
-const {traverseClass} = require('../common');
+import {types} from 'putout';
+import classToFunction from './class-to-function.js';
+import {traverseClass} from '../common.js';
 
 const {isIdentifier, isClassMethod} = types;
 
-module.exports.report = ({name}) => {
+export const report = ({name}) => {
     return `class ${name} should be a function`;
 };
 
-module.exports.fix = ({path}) => {
+export const fix = ({path}) => {
     classToFunction(path);
 };
 
-module.exports.find = (ast, {push, traverse}) => {
+export const find = (ast, {push, traverse}) => {
     traverseClass(traverse, ast, {
         Identifier(path) {
             const {name} = path.node;

@@ -1,13 +1,11 @@
-'use strict';
+export const report = () => 'useState should be used instead of Component';
 
-module.exports.report = () => 'useState should be used instead of Component';
-
-module.exports.fix = ({node}) => {
+export const fix = ({node}) => {
     node.imported.name = 'useState';
     node.local.name = 'useState';
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ImportDeclaration(path) {
         const {source} = path.node;
         
