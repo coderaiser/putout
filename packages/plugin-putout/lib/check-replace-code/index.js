@@ -8,7 +8,6 @@ import {
 import generateCode from './generate-code/index.js';
 
 const noop = () => {};
-
 const {
     compare,
     extract,
@@ -66,7 +65,12 @@ function getProperties(path) {
         return [];
     }
     
-    return path.get(`right.body.properties`);
+    const bodyPath = path.get('right.body');
+    
+    if (bodyPath.isObjectExpression())
+        return bodyPath.get(`properties`);
+    
+    return [];
 }
 
 const createTraverseReplacer = ({once, push}) => (path) => {

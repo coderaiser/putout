@@ -171,3 +171,8 @@ test('plugin-putout: check-replace-code: no report: return', (t) => {
     t.noReport('return');
     t.end();
 });
+
+test('plugin-putout: check-replace-code: no report: return-commonjs', (t) => {
+    t.noReport('return-commonjs');
+    t.end();
+});
