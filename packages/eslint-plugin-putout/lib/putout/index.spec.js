@@ -248,7 +248,7 @@ parserTester.run('putout', rule, {
         code: `a = is() ? a : b`,
         options: [{
             rules: {
-                'convert-assignment-to-declaration': 'off',
+                'assignment/convert-to-declaration': 'off',
             },
         }],
         output: montag`

@@ -5,6 +5,7 @@ const MOCHA_TIMEOUT = 20_000;
 
 const env = {
     SUPERTAPE_LOAD_LOOP_TIMEOUT,
+    SUPERTAPE_PROGRESS_BAR_MIN: 10,
 };
 
 const lintEnv = {
@@ -13,9 +14,9 @@ const lintEnv = {
 
 export default {
     'wisdom': () => run(['lint:all', 'coverage']),
-    'test': () => `tape 'test/**/*.mjs' 'lib/config/*.spec.*'`,
+    'test': () => [env, `tape 'test/**/*.mjs' 'lib/config/*.spec.*'`],
     'test:all': () => [env, `mocha --timeout ${MOCHA_TIMEOUT} 'test/**/*.mjs' 'lib/putout/*.spec.js' 'lib/**/*.spec.js'`],
-    'watch:test': async () => `nodemon -w rules -x "${await run('test')}"`,
+    'watch:test': async () => [env, `nodemon -w rules -x "${await cutEnv('test')}"`],
     'lint': () => 'putout .',
     'lint:all': () => run(['lint', 'lint:safe']),
     'lint:safe': () => [lintEnv, 'putout eslint-fixture'],

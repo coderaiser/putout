@@ -2141,7 +2141,6 @@ It has a lot of plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-split-assignment-expressions`](/packages/plugin-split-assignment-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-assignment-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-assignment-expressions) |
 | [`@putout/plugin-split-call-with-destructuring`](/packages/plugin-split-call-with-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-call-with-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-call-with-destructuring) |
 | [`@putout/plugin-split-variable-declarations`](/packages/plugin-split-variable-declarations#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-variable-declarations.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-variable-declarations) |
 | [`@putout/plugin-split-nested-destructuring`](/packages/plugin-split-nested-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-nested-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-nested-destructuring) |
@@ -2158,7 +2157,6 @@ It has a lot of plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-convert-arguments-to-rest`](/packages/plugin-convert-arguments-to-rest#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-arguments-to-rest.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-arguments-to-rest) |
-| [`@putout/plugin-convert-assignment-to-declaration`](/packages/plugin-convert-assignment-to-declaration#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-declaration.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-assignment-to-declaration) |
 | [`@putout/plugin-convert-apply-to-spread`](/packages/plugin-convert-apply-to-spread#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-apply-to-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-apply-to-spread) |
 | [`@putout/plugin-convert-expression-to-params`](/packages/plugin-convert-expression-to-params#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-expression-to-params.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-expression-to-params) |
 | [`@putout/plugin-convert-quotes-to-backticks`](/packages/plugin-convert-quotes-to-backticks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-quotes-to-backticks) |
@@ -2166,10 +2164,8 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-convert-array-copy-to-slice`](/packages/plugin-convert-array-copy-to-slice#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-array-copy-to-slice.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-array-copy-to-slice) |
 | [`@putout/plugin-convert-template-to-string`](/packages/plugin-convert-template-to-string#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-template-to-string.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-template-to-string) |
 | [`@putout/plugin-convert-index-of-to-includes`](/packages/plugin-convert-index-of-to-includes#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-index-of-to-includes.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-index-of-to-includes) |
-| [`@putout/plugin-convert-to-arrow-function`](/packages/plugin-convert-to-arrow-function#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-to-arrow-function.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-to-arrow-function) |
 | [`@putout/plugin-convert-object-assign-to-merge-spread`](/packages/plugin-convert-object-assign-to-merge-spread#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-assign-to-merge-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-assign-to-merge-spread) |
 | [`@putout/plugin-convert-assignment-to-arrow-function`](/packages/plugin-convert-assignment-to-arrow-function#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-arrow-function.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-assignment-to-arrow-function) |
-| [`@putout/plugin-convert-assignment-to-comparison`](/packages/plugin-convert-assignment-to-comparison#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-comparison.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-assignment-to-comparison) |
 | [`@putout/plugin-convert-const-to-let`](/packages/plugin-convert-const-to-let#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-const-to-let.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-const-to-let) |
 | [`@putout/plugin-convert-object-entries-to-array-entries`](/packages/plugin-convert-object-entries-to-array-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-entries-to-array-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-entries-to-array-entries) |
 
@@ -2211,7 +2207,6 @@ It has a lot of plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-simplify-assignment`](/packages/plugin-simplify-assignment#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-assignment.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-assignment) |
 | [`@putout/plugin-simplify-ternary`](/packages/plugin-simplify-ternary#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-ternary) |
 
 ### Declarators
@@ -2225,6 +2220,7 @@ It has a lot of plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-assignment`](/packages/plugin-assignment#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-assignment.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-assignment) |
 | [`@putout/plugin-conditions`](/packages/plugin-conditions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-conditions) |
 | [`@putout/plugin-esm`](/packages/plugin-esm#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-esm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-esm) |
 | [`@putout/plugin-filesystem`](/packages/plugin-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-filesystem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-filesystem) |

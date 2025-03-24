@@ -99,7 +99,6 @@ test('putout: config: markdown', (t) => {
         'conditions/convert-comparison-to-boolean': 'off',
         'conditions/remove-constant': 'off',
         'maybe': 'off',
-        'convert-assignment-to-declaration': 'off',
         'convert-quotes-to-backticks': 'off',
         'remove-unused-expressions': 'off',
         'labels/remove-unused': 'off',

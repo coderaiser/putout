@@ -1,0 +1,65 @@
+{
+  "name": "@putout/plugin-assignment",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "🐊Putout plugin adds ability to transform code related to assignment",
+  "homepage": "https://github.com/coderaiser/putout/tree/v38.5.7/packages/plugin-assignment#readme",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./strict-mode": "./lib/strict-mode/index.js",
+    "./convert-esm-to-commonjs": "./lib/convert-esm-to-commonjs/index.js",
+    "./convert-commonjs-to-esm": "./lib/convert-commonjs-to-esm.js"
+  },
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "assignment"
+  ],
+  "devDependencies": {
+    "@putout/eslint-flat": "^3.0.0",
+    "@putout/plugin-declare": "*",
+    "@putout/plugin-declare-before-reference": "*",
+    "@putout/plugin-putout": "*",
+    "@putout/plugin-reuse-duplicate-init": "*",
+    "@putout/plugin-typescript": "*",
+    "@putout/test": "^13.0.0",
+    "c8": "^10.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-n": "^17.0.0",
+    "eslint-plugin-putout": "^26.0.0",
+    "madrun": "^11.0.0",
+    "montag": "^1.2.1",
+    "nodemon": "^3.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=39"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
