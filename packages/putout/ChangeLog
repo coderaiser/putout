@@ -1,3 +1,22 @@
+2025.03.24, v39.0.12
+
+fix:
+- 997d6ae86 @putout/plugin-react-hooks: react-hooks -> index
+
+feature:
+- d272ebf7b putout: @putout/plugin-madrun v21.0.0
+- 20c97bf8c @putout/plugin-assignment: convert to ESM
+- e3ffee0d5 @putout/plugin-assignment: add
+- ea21d12ab @putout/plugin-madrun: drop support of node < 20
+- 69b322eea @putout/plugin-putout: apply-namespace-specifier: external
+- 11202d1b8 @putout/plugin-cloudcmd: convert to ESM
+- 98acaf81b @putout/plugin-react-hook-form: drop support of node < 20
+- 18c666b04 @putout/plugin-react-hooks: convert to ESM
+- da7e1be4a @putout/engine-parser: hermes-parser v0.27.0
+- d3e6231e0 @putout/test: v13
+- 9dd1cd659 @putout/test: drop support of node < 20
+- aafcc9bbc putout: supertape v11.0.2
+
 2025.03.23, v39.0.11
 
 feature:
