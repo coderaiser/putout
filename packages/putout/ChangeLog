@@ -1,3 +1,16 @@
+2025.03.25, v39.0.13
+
+fix:
+- a4a02f14a @putout/plugin-nodejs: declare: json -> esm
+
+feature:
+- 165818035 putout: @putout/plugin-putout-config v9.0.0
+- 6df798018 @putout/plugin-putout-config: apply-assignment: add
+- 2f86e89b1 @putout/plugin-putout-config: drop support of 🐊 < 39
+- c948d5f1c @putout/plugin-putout: apply-exports: add
+- 52e17b11a @putout/plugin-nodejs: convert-exports-to-module-exports: declared
+- 3e10bd2e5 @putout/plugin-putout: check-replace-code: commonjs
+
 2025.03.24, v39.0.12
 
 fix:
