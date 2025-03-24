@@ -1,3 +1,4 @@
+import * as applyAssignment from './apply-assignment/index.js';
 import * as applyConditions from './apply-conditions/index.js';
 import * as applyEsm from './apply-esm/index.js';
 import * as applyOptionalChaining from './apply-optional-chaining/index.js';
@@ -17,6 +18,7 @@ import * as MoveFormatterUp from './move-formatter-up/index.js';
 import * as removeEmptyFile from './remove-empty-file/index.js';
 
 export const rules = {
+    'apply-assignment': applyAssignment,
     'apply-conditions': applyConditions,
     'apply-esm': applyEsm,
     'apply-for-of': applyForOf,

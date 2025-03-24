@@ -95,6 +95,7 @@ test('putout: config: markdown', (t) => {
     
     const expected = {
         'apply-arrow': 'off',
+        'assignment/convert-to-declaration': 'off',
         'conditions/apply-consistent-blocks': 'off',
         'conditions/convert-comparison-to-boolean': 'off',
         'conditions/remove-constant': 'off',

@@ -13,6 +13,7 @@ npm i @putout/plugin-putout-config -D
 
 ## Rules
 
+- ✅ [apply-assignment](#apply-assignment);
 - ✅ [apply-conditions](#apply-conditions);
 - ✅ [apply-esm](#apply-esm);
 - ✅ [apply-return](#apply-return);
@@ -37,6 +38,7 @@ npm i @putout/plugin-putout-config -D
 ```json
 {
     "rules": {
+        "putout-config/apply-assignment": "on",
         "putout-config/apply-conditions": "on",
         "putout-config/apply-esm": "on",
         "putout-config/apply-for-of": "on",
@@ -55,6 +57,29 @@ npm i @putout/plugin-putout-config -D
         "putout-config/remove-empty-file": "off",
         "putout-config/rename-rules": "on"
     }
+}
+```
+
+## apply-assignment
+
+Apply [`assignment`](https://github.com/coderaiser/putout/tree/master/packages/plugin-assignment#readme) according to:
+
+- 🐊[**Putout v39**](https://github.com/coderaiser/putout/releases/tag/v39.0.0):
+
+```diff
+{
+    "rules": {
+-       "split-assignment-expressions": "off",
+-       "simplify-assignments": "off",
+-       "convert-assignment-to-arrow-function": "off",
+-       "convert-assignment-to-comparisson": "off",
+-       "convert-assignment-to-declaration": "off"
++       "assignment/split": "off",
++       "assignment/simplify": "off",
++       "assignment/convert-to-arrow-function": "off"
++       "assignment/convert-to-comparisson": "off",
++       "assignment/convert-to-declaration": "off"
+  }
 }
 ```
 
