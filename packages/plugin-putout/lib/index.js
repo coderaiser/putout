@@ -1,3 +1,4 @@
+import * as applyExports from './apply-exports/index.js';
 import * as applyExportsToRenameFiles from './apply-exports-to-rename-files/index.js';
 import * as applyExportsToMatchFiles from './apply-exports-to-match-files/index.js';
 import * as applyProcessorsDestructuring from './apply-processors-destructuring/index.js';
@@ -136,4 +137,5 @@ export const rules = {
     'apply-report': applyReport,
     'apply-exports-to-match-files': applyExportsToMatchFiles,
     'apply-exports-to-rename-files': applyExportsToRenameFiles,
+    'apply-exports': applyExports,
 };

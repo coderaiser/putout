@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: apply-exports-to-rename-files: report', (t) => {
-    t.report('apply-exports-to-rename-files', `Apply 'exports' to 'renameFiles()`);
+    t.report('apply-exports-to-rename-files', `Apply exports to 'renameFiles()'`);
     t.end();
 });
 

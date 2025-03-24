@@ -1,1 +1,1 @@
-export default addArgs(__args)
+export default addArgs({})

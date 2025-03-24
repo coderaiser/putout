@@ -1,12 +1,14 @@
-export const report = () => `Apply 'exports' to 'matchFiles()'`;
+import {createApplyExports} from '../create-apply-exports.js';
 
-export const replace = () => ({
-    'export default matchFiles(__args)': `{
-    	const {report, fix, scan} = matchFiles(__args);
-        export {
-            report,
-            fix,
-            scan,
-        };
-    }`,
+const {report, replace} = createApplyExports({
+    matchFiles: [
+        'report',
+        'fix',
+        'scan',
+    ],
 });
+
+export {
+    report,
+    replace,
+};

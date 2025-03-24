@@ -25,6 +25,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-create-test](#apply-create-test);
 - ✅ [apply-create-nested-directory](#apply-create-nested-directory);
 - ✅ [apply-declare](#apply-declare);
+- ✅ [apply-exports](#apply-exports);
 - ✅ [apply-exports-to-add-args](#apply-exports-to-add-args);
 - ✅ [apply-exports-to-match-files](#apply-exports-to-match-files);
 - ✅ [apply-exports-to-rename-files](#apply-exports-to-rename-files);
@@ -99,6 +100,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-create-nested-directory": "on",
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
+        "putout/apply-exports": "on",
         "putout/apply-exports-to-add-args": "on",
         "putout/apply-exports-to-match-files": "on",
         "putout/apply-exports-to-rename-files": "on",
@@ -460,6 +462,53 @@ module.exports.declare = () => ({
     tryCatch: `import tryCatch from 'try-catch'`,
     tryToCatch: `import tryToCatch from 'try-to-catch'`,
 });
+```
+
+## apply-exports
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/cf35de5e80e8f7aad866358a50c5eded/0af6142fc9c9e71ac2a2aa96cb85613dd95c9fbf).
+Possible configuration:
+
+```json
+{
+    "rules": {
+        "putout/apply-exports": {
+            "addArgs": [
+                "report",
+                "fix",
+                "scan"
+            ]
+        }
+    }
+}
+```
+
+### ❌ Example of incorrect code
+
+```js
+export default createRenameProperty([
+    ...v32,
+    ...v29,
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+const {
+    report,
+    fix,
+    scan,
+} = createRenameProperty([
+    ...v32,
+    ...v29,
+]);
+
+export {
+    report,
+    fix,
+    scan,
+};
 ```
 
 ## apply-exports-to-add-args

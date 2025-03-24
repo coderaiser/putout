@@ -334,3 +334,8 @@ test('plugin-putout: transform: apply-exports-to-rename-files', (t) => {
     t.transform('apply-exports-to-rename-files');
     t.end();
 });
+
+test('plugin-putout: transform: apply-exports', (t) => {
+    t.transform('apply-exports');
+    t.end();
+});

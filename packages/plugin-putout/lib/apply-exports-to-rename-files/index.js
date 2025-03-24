@@ -1,12 +1,14 @@
-export const report = () => `Apply 'exports' to 'renameFiles()`;
+import {createApplyExports} from '../create-apply-exports.js';
 
-export const replace = () => ({
-    'export default renameFiles(__args)': `{
-    	const {report, fix, scan} = renameFiles(__args);
-        export {
-            report,
-            fix,
-            scan,
-        };
-    }`,
+const {report, replace} = createApplyExports({
+    renameFiles: [
+        'report',
+        'fix',
+        'scan',
+    ],
 });
+
+export {
+    report,
+    replace,
+};

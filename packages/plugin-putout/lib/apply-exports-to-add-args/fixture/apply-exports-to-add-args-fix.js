@@ -3,7 +3,7 @@
         report,
         fix,
         traverse,
-    } = addArgs(__args);
+    } = addArgs({});
     export {
         report,
         fix,
