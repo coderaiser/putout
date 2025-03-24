@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, template} = require('putout');
+import {types, template} from 'putout';
 
 const {
     JSXExpressionContainer,
@@ -15,9 +13,9 @@ const ARROW = template(`({field}) => {
     return (%%expression%%);
 }`);
 
-module.exports.report = () => `Use 'render' instead of 'as' in '<Control/>' elements`;
+export const report = () => `Use 'render' instead of 'as' in '<Control/>' elements`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '<Controller __jsx_attributes/>': ({__jsx_attributes}) => {
         for (const attr of __jsx_attributes) {
             if (isJSXSpreadAttribute(attr))
@@ -31,7 +29,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [`
     <Controller
       as={__a}

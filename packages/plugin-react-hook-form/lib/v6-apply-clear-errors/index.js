@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {rename} = operator;
 
-module.exports.report = () => `Use 'clearErrors' instead of 'clearError'`;
+export const report = () => `Use 'clearErrors' instead of 'clearError'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const program = path.scope.getProgramParent().path;
     rename(program, 'clearError', 'clearErrors');
 };
 
-module.exports.include = () => [
+export const include = () => [
     'clearError(__args)',
 ];

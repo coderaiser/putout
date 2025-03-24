@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeValueFromControl from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeValueFromControl = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-value-from-control', removeValueFromControl],
     ],

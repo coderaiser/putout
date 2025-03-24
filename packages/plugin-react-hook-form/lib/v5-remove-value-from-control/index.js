@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Remove 'value property' from 'control' attribute`;
 
-module.exports.report = () => `Remove 'value property' from 'control' attribute`;
-
-module.exports.match = () => ({
+export const match = () => ({
     '({value: __a})': (vars, path) => {
         if (!path.parentPath.parentPath.isJSXExpressionContainer())
             return false;
@@ -16,6 +14,6 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '({value: __a})': '__a',
 });

@@ -1,22 +1,21 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     objectProperty,
     isRestElement,
     objectPattern,
 } = types;
 
-module.exports.report = () => `Use 'formState.errors' instead of 'errors'`;
+export const report = () => `Use 'formState.errors' instead of 'errors'`;
 
 const COMPUTED = false;
 const SHORTHAND = true;
 
-module.exports.exclude = () => [
+export const exclude = () => [
     'const __object = formState',
 ];
 
-module.exports.match = () => ({
+export const match = () => ({
     'const __object = __a': ({__object}, path) => {
         const bindings = path.scope.getAllBindings();
         
@@ -35,7 +34,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __object = __a': ({__object}, path) => {
         for (const property of __object.properties) {
             if (isRestElement(property))

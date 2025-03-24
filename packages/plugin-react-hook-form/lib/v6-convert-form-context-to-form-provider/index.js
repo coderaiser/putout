@@ -1,16 +1,15 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {rename} = operator;
 
-module.exports.report = () => `Use '<FormProvider/>' instead of '<FormContext/>'`;
+export const report = () => `Use '<FormProvider/>' instead of '<FormContext/>'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     rename(path, 'FormContext', 'FormProvider');
 };
 
-module.exports.include = () => [
+export const include = () => [
     '<FormContext __jsx_attributes>__jsx_children</FormContext>',
 ];
 
-module.exports.filter = (path) => path.scope.getAllBindings().FormContext;
+export const filter = (path) => path.scope.getAllBindings().FormContext;

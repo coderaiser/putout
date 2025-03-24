@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertAsToRender from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertAsToRender = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-trigger-validation-to-trigger', convertAsToRender],
     ],

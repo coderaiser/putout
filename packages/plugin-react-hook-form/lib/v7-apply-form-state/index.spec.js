@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as apply from './index.js';
 
-const {createTest} = require('@putout/test');
-const apply = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['apply-form-state', apply],
     ],

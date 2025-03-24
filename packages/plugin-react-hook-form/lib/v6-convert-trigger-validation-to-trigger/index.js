@@ -1,19 +1,18 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {rename} = operator;
 
-module.exports.report = () => `Use 'trigger()' instead of 'triggerValidation()'`;
+export const report = () => `Use 'trigger()' instead of 'triggerValidation()'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     rename(path, 'triggerValidation', 'trigger');
 };
 
-module.exports.include = () => [
+export const include = () => [
     'triggerValidation(__args)',
 ];
 
-module.exports.filter = ({scope}) => {
+export const filter = ({scope}) => {
     const bindings = scope.getAllBindings();
     return bindings.triggerValidation;
 };

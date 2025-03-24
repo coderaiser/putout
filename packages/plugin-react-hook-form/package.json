@@ -1,11 +1,11 @@
 {
   "name": "@putout/plugin-react-hook-form",
   "version": "5.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to migrate to latest version of React Hook Form",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-react-hook-form#readme",
-  "main": "lib/react-hook-form.js",
+  "main": "lib/index.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -47,7 +47,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
