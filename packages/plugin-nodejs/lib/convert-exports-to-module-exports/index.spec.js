@@ -16,3 +16,8 @@ test('packages: convert-exports-to-module-exports: transform', (t) => {
     t.transform('convert-exports-to-module-exports');
     t.end();
 });
+
+test('packages: convert-exports-to-module-exports: no report: declared', (t) => {
+    t.noReport('declared');
+    t.end();
+});
