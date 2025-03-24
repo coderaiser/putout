@@ -1,18 +1,27 @@
-import {createRequire} from 'node:module';
-
-const require = createRequire(import.meta.url);
+import child_process from './modules/child_process.js';
+import util from './modules/util.js';
+import url from './modules/url.js';
+import zlib from './modules/zlib.js';
+import os from './modules/os.js';
+import stream from './modules/stream.js';
+import module from './modules/module.js';
+import process from './modules/process.js';
+import path from './modules/path.js';
+import fsPromises from './modules/fs-promises.js';
+import fs from './modules/fs.js';
+import events from './modules/events.js';
 
 export const declare = () => ({
-    ...require('./modules/events'),
-    ...require('./modules/fs'),
-    ...require('./modules/fs-promises'),
-    ...require('./modules/path'),
-    ...require('./modules/process'),
-    ...require('./modules/module'),
-    ...require('./modules/stream'),
-    ...require('./modules/os'),
-    ...require('./modules/zlib'),
-    ...require('./modules/url'),
-    ...require('./modules/util'),
-    ...require('./modules/child_process'),
+    ...events,
+    ...fs,
+    ...fsPromises,
+    ...path,
+    ...process,
+    ...module,
+    ...stream,
+    ...os,
+    ...zlib,
+    ...url,
+    ...util,
+    ...child_process,
 });
