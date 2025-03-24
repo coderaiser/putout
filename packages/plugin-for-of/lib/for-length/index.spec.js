@@ -1,4 +1,4 @@
-import removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
 import {createTest} from '@putout/test';
 import * as convertForToForOf from './index.js';
 

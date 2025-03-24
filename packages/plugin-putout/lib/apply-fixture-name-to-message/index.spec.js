@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import pluginTape from '@putout/plugin-tape';
+import * as pluginTape from '@putout/plugin-tape';
 import * as plugin from './index.js';
 
 const removeOnly = pluginTape.rules['remove-only'];

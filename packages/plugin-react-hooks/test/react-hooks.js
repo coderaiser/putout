@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import rmUnused from '@putout/plugin-remove-unused-variables';
+import * as rmUnused from '@putout/plugin-remove-unused-variables';
 import * as reactHooks from '../lib/index.js';
 
 const test = createTest(import.meta.url, {

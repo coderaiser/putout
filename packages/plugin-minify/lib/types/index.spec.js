@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import conditions from '@putout/plugin-conditions';
+import * as conditions from '@putout/plugin-conditions';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {

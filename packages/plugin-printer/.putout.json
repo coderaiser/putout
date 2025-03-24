@@ -1,5 +1,8 @@
 {
     "match": {
+        "declare/index.js": {
+            "putout/apply-namespace-specifier": "off"
+        },
         "*.md{js}": {
             "putout": "off"
         }

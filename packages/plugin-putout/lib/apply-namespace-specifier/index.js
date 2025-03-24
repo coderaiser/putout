@@ -17,6 +17,7 @@ export const traverse = ({push, listStore, pathStore}) => ({
         pathStore,
         push,
         names: [
+            '@putout/plugin-',
             './index.js',
             '../lib/index.js',
         ],
@@ -64,7 +65,7 @@ const createImportVisitor = ({push, names, pathStore = noop}) => ({
             return;
         
         for (const name of names) {
-            if (value === name || name === 'any') {
+            if (value === name || value.startsWith(name) || name === 'any') {
                 push({
                     path,
                     first,

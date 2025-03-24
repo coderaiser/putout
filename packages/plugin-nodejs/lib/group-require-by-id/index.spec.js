@@ -1,6 +1,6 @@
 import {createTest} from '@putout/test';
-import declareBeforeReference from '@putout/plugin-declare-before-reference';
-import reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
+import * as declareBeforeReference from '@putout/plugin-declare-before-reference';
+import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {

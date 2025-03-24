@@ -1,6 +1,6 @@
 import {createTest} from '@putout/test';
-import declareBeforeReference from '@putout/plugin-declare-before-reference';
-import removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
+import * as declareBeforeReference from '@putout/plugin-declare-before-reference';
+import * as removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
