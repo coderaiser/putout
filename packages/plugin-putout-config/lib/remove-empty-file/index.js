@@ -1,18 +1,17 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     readFileContent,
     removeFile,
 } = operator;
 
-module.exports.report = () => `Remove empty '.putout.json'`;
+export const report = () => `Remove empty '.putout.json'`;
 
-module.exports.fix = (filePath) => {
+export const fix = (filePath) => {
     removeFile(filePath);
 };
 
-module.exports.scan = (path, {push, trackFile}) => {
+export const scan = (path, {push, trackFile}) => {
     for (const file of trackFile(path, '.putout.json')) {
         const data = readFileContent(file);
         

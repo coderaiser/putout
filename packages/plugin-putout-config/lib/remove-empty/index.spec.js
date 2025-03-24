@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeEmpty from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeEmpty = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['putout-config/remove-empty', removeEmpty],
     ],

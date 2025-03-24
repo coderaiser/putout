@@ -1,6 +1,5 @@
-'use strict';
+import {createRenameProperty} from '../rename-property.js';
 
-const {createRenameProperty} = require('../rename-property');
 const v29 = [
     ['declare-undefined-variables', 'declare'],
     ['apply-array-at', 'array-at'],
@@ -12,7 +11,17 @@ const v26 = [
     ['strict-mode/remove', 'strict-mode/remove-useless'],
 ];
 
-module.exports = createRenameProperty([
+const {
+    report,
+    fix,
+    traverse,
+} = createRenameProperty([
     ...v29,
     ...v26,
 ]);
+
+export {
+    report,
+    fix,
+    traverse,
+};

@@ -1,6 +1,4 @@
-'use strict';
-
-const {createRenameProperty} = require('../rename-property');
+import {createRenameProperty} from '../rename-property.js';
 
 const v37 = [
     ['convert-optional-to-logical/assign', 'optional-chaining/convert-optional-assign-to-logical'],
@@ -9,4 +7,14 @@ const v37 = [
     ['apply-optional-chaining/use', 'optional-chaining/convert-logical-to-optional'],
 ];
 
-module.exports = createRenameProperty(v37);
+const {
+    report,
+    fix,
+    traverse,
+} = createRenameProperty(v37);
+
+export {
+    report,
+    fix,
+    traverse,
+};

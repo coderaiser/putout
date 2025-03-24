@@ -1,10 +1,18 @@
-'use strict';
+import {createRenameProperty} from '../rename-property.js';
 
-const {createRenameProperty} = require('../rename-property');
-
-module.exports = createRenameProperty([
+const {
+    report,
+    fix,
+    traverse,
+} = createRenameProperty([
     ['apply-early-return', 'return/apply-early'],
     ['remove-useless-return', 'return/remove-useless'],
     ['simplify-boolean-return', 'return/simplify-boolean'],
     ['convert-break-to-return', 'return/convert-from-break'],
 ]);
+
+export {
+    report,
+    fix,
+    traverse,
+};

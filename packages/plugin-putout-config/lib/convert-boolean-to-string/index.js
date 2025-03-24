@@ -1,20 +1,18 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith} = operator;
 const {stringLiteral} = types;
 
-module.exports.report = () => `Use 'String (on/off)' instead of 'Boolean (true/false)'`;
+export const report = () => `Use 'String (on/off)' instead of 'Boolean (true/false)'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {value} = path.node;
     const newValue = stringLiteral(value ? 'on' : 'off');
     
     replaceWith(path, newValue);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '__putout_processor_json(__object)'(path) {
         const objectPath = path.get('arguments.0');
         

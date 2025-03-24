@@ -1,4 +1,13 @@
 {
+    "rules": {
+        "putout/apply-exports": ["on", {
+            "createRenameProperty": [
+                "report",
+                "fix",
+                "traverse"
+            ]
+        }]
+    },
     "match": {
         "*.md{json}": {
             "putout-config": "off"

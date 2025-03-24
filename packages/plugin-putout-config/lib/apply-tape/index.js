@@ -1,7 +1,15 @@
-'use strict';
+import {createRenameProperty} from '../rename-property.js';
 
-const {createRenameProperty} = require('../rename-property');
-
-module.exports = createRenameProperty([
+const {
+    report,
+    fix,
+    traverse,
+} = createRenameProperty([
     ['convert-mock-require-to-mock-import', 'tape/convert-mock-require-to-mock-import'],
 ]);
+
+export {
+    report,
+    fix,
+    traverse,
+};

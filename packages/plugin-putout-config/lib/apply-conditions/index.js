@@ -1,6 +1,4 @@
-'use strict';
-
-const {createRenameProperty} = require('../rename-property');
+import {createRenameProperty} from '../rename-property.js';
 
 const v32 = [
     ['remove-useless-else', 'conditions/remove-useless-else'],
@@ -19,7 +17,19 @@ const v29 = [
     ['remove-boolean-from-assertions', 'conditions/remove-boolean'],
 ];
 
-module.exports = createRenameProperty([
+const versions = [
     ...v32,
     ...v29,
-]);
+];
+
+const {
+    report,
+    fix,
+    traverse,
+} = createRenameProperty(versions);
+
+export {
+    report,
+    fix,
+    traverse,
+};

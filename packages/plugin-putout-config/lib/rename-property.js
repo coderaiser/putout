@@ -1,13 +1,12 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     traverseProperties,
     __json,
     setLiteralValue,
 } = operator;
 
-module.exports.createRenameProperty = (tuples) => ({
+export const createRenameProperty = (tuples) => ({
     report,
     fix,
     traverse: createTraverse(tuples),

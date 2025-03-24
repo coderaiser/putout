@@ -1,8 +1,10 @@
-'use strict';
+import {createRenameProperty} from '../rename-property.js';
 
-const {createRenameProperty} = require('../rename-property');
-
-module.exports = createRenameProperty([
+const {
+    report,
+    fix,
+    traverse,
+} = createRenameProperty([
     ['convert-for-to-for-of', 'for-of/for'],
     ['convert-for-each-to-for-of', 'for-of/for-each'],
     ['convert-for-in-to-for-of', 'for-of/for-in'],
@@ -13,3 +15,9 @@ module.exports = createRenameProperty([
     ['remove-useless-array-from', 'for-of/remove-useless-array-from'],
     ['remove-useless-variables/for-of', 'for-of/remove-useless-variables"'],
 ]);
+
+export {
+    report,
+    fix,
+    traverse,
+};

@@ -1,20 +1,19 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => 'Avoid empty property values';
+export const report = () => 'Avoid empty property values';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path.parentPath);
 };
 
-module.exports.include = () => [
+export const include = () => [
     'ObjectExpression',
     'ArrayExpression',
 ];
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const {parentPath, node} = path;
     
     const {properties, elements} = node;

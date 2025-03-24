@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {objectProperty} = types;
 const {
     insertAfter,
@@ -9,9 +8,9 @@ const {
     __json,
 } = operator;
 
-module.exports.report = () => `Move 'formatter' up`;
+export const report = () => `Move 'formatter' up`;
 
-module.exports.match = () => ({
+export const match = () => ({
     [__json]: (vars, path) => {
         const objectPath = path.get('arguments.0');
         const {
@@ -36,7 +35,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [__json]: (vars, path) => {
         const objectPath = path.get('arguments.0');
         const {

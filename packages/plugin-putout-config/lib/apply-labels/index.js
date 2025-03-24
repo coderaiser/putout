@@ -1,8 +1,16 @@
-'use strict';
+import {createRenameProperty} from '../rename-property.js';
 
-const {createRenameProperty} = require('../rename-property');
-
-module.exports = createRenameProperty([
+const {
+    report,
+    fix,
+    traverse,
+} = createRenameProperty([
     ['remove-unused-labels', 'labels/remove-unused'],
     ['convert-label-to-object', 'labels/convert-to-object'],
 ]);
+
+export {
+    report,
+    fix,
+    traverse,
+};
