@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.report = () => 'IO.copy should be used instead of IO.cp';
+export const report = () => 'IO.copy should be used instead of IO.cp';
 
 const cpFrom = `
     IO.cp({
@@ -12,6 +10,6 @@ const cpFrom = `
 
 const cpTo = 'IO.copy(__a, __b, __c)';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [cpFrom]: cpTo,
 });

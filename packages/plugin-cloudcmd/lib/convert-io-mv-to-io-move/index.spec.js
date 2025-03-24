@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertIoMvToIoMove from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertIoMvToIoMove = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['cloudcmd/convert-io-mv-to-io-move', convertIoMvToIoMove],
     ],

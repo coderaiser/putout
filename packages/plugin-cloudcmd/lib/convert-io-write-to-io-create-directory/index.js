@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'IO.createDirectory should be used instead of IO.write';
 
-module.exports.report = () => 'IO.createDirectory should be used instead of IO.write';
-
-module.exports.match = () => ({
+export const match = () => ({
     'IO.write("__a")': ({__a}) => {
         return __a.value.endsWith('?dir');
     },
@@ -11,7 +9,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'IO.write(`${__a}?dir`)': 'IO.createDirectory(__a)',
     'IO.write("__a")': ({__a}) => {
         const value = __a.value.replace(/\?dir$/, '');

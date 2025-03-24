@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.report = () => 'IO.move should be used instead of IO.mv';
+export const report = () => 'IO.move should be used instead of IO.mv';
 
 const mvFrom = `
     IO.mv({
@@ -12,6 +10,6 @@ const mvFrom = `
 
 const mvTo = 'IO.move(__a, __b, __c)';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [mvFrom]: mvTo,
 });

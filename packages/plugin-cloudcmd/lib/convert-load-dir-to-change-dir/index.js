@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {rename, remove} = operator;
 
 const renameAll = (path) => {
     rename(path, 'loadDir', 'changeDir');
 };
 
-module.exports.report = () => `Use 'CloudCmd.changeDir()' instead of 'CloudCmd.loadDir()'`;
+export const report = () => `Use 'CloudCmd.changeDir()' instead of 'CloudCmd.loadDir()'`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'CloudCmd.loadDir({path})': 'CloudCmd.changeDir(path)',
     'CloudCmd.loadDir({path: __a})': 'CloudCmd.changeDir(__a)',
     'CloudCmd.loadDir(__object)': (vars, path) => {
