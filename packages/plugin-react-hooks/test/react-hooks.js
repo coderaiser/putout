@@ -1,6 +1,6 @@
 import {createTest} from '@putout/test';
 import rmUnused from '@putout/plugin-remove-unused-variables';
-import * as reactHooks from '../lib/react-hooks.js';
+import * as reactHooks from '../lib/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
