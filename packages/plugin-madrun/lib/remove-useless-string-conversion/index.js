@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Remove useless String conversion`;
 
-module.exports.report = () => `Remove useless String conversion`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '[__a, String(await __b(__args))]': '[__a, await __b(__args)]',
 });

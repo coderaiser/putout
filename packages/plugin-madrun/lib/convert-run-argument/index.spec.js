@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertRunArgument from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertRunArgument = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['madrun/convert-run-argument', convertRunArgument],
     ],

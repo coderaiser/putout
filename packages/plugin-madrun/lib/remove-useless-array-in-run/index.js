@@ -1,14 +1,13 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isArrayExpression,
     isStringLiteral,
 } = types;
 
-module.exports.report = () => `Avoid useless array when pass arguments to 'run()'`;
+export const report = () => `Avoid useless array when pass arguments to 'run()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'run(__args)': ({__args}) => {
         if (__args.length !== 1)
             return false;
@@ -30,7 +29,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'run(__args)': ({__args}, path) => {
         const {elements} = __args[0];
         

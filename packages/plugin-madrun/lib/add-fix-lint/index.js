@@ -1,10 +1,8 @@
-'use strict';
-
-const {
+import {
     types,
     operator,
     template,
-} = require('putout');
+} from 'putout';
 
 const {stringLiteral, objectProperty} = types;
 const {
@@ -16,13 +14,13 @@ const fixLintScript = template.ast(`
     () => run('lint', '--fix')
 `);
 
-module.exports.report = () => `fix:lint should exist`;
+export const report = () => `fix:lint should exist`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     replaceWithMultiple(path, [path.node, objectProperty(stringLiteral('fix:lint'), fixLintScript)]);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'module.exports = __object'(path) {
         const rightPath = path.get('right');
         const lint = getProperty(rightPath, 'lint');

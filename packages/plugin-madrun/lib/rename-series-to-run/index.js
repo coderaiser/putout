@@ -1,10 +1,10 @@
-'use strict';
+import {types} from 'putout';
 
-const {isIdentifier} = require('putout').types;
+const {isIdentifier} = types;
 
-module.exports.report = () => `"run" should be called instead of "series"`;
+export const report = () => `"run" should be called instead of "series"`;
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     CallExpression(path) {
         if (!isIdentifier(path.node.callee, {name: 'series'}))
             return;
@@ -13,6 +13,6 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.node.callee.name = 'run';
 };

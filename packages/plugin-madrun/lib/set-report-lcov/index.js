@@ -1,18 +1,16 @@
-'use strict';
-
-const {template, operator} = require('putout');
+import {template, operator} from 'putout';
 
 const {getProperty, replaceWith} = operator;
 
 const REPORT_SCRIPT = '"c8 report --reporter=lcov"';
 
-module.exports.report = () => 'Report should use "lcov" instead of "text-lcov"';
+export const report = () => 'Report should use "lcov" instead of "text-lcov"';
 
-module.exports.fix = ({path}) => {
+export const fix = ({path}) => {
     replaceWith(path, template.ast(REPORT_SCRIPT));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'export default __object'(path) {
         const rightPath = path.get('declaration');
         const reportPath = getProperty(rightPath, 'report');

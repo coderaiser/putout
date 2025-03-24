@@ -1,12 +1,9 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as strictMode from '@putout/plugin-nodejs/strict-mode';
+import * as removeUnusedExpressions from '@putout/plugin-remove-unused-expressions';
+import * as addRun from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const strictMode = require('@putout/plugin-nodejs/strict-mode');
-const removeUnusedExpressions = require('@putout/plugin-remove-unused-expressions');
-const addRun = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['add-run', addRun],
     ],

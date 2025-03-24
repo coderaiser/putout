@@ -1,18 +1,17 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     getExportDefault,
     getProperty,
 } = operator;
 
-module.exports.report = () => `Call 'await cutEnv(script)' instead of 'script'`;
+export const report = () => `Call 'await cutEnv(script)' instead of 'script'`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '[__a, __b]': '[__a, cutEnv(__b)]',
 });
 
-module.exports.match = () => ({
+export const match = () => ({
     '[__a, __b]': ({__b}, path) => {
         const exportDefault = getExportDefault(path);
         

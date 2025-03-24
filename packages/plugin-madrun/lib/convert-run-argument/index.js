@@ -1,14 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {replaceWith} = require('putout').operator;
+const {replaceWith} = operator;
 
-module.exports.report = () => `First "run" argument should be string, if it is single`;
+export const report = () => `First "run" argument should be string, if it is single`;
 
-module.exports.fix = ({path, element}) => {
+export const fix = ({path, element}) => {
     replaceWith(path, element);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     CallExpression(path) {
         if (!path.get('callee').isIdentifier({name: 'run'}))
             return;

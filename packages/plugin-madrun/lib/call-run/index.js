@@ -1,4 +1,4 @@
-'use strict';
+import {types} from 'putout';
 
 const {
     isStringLiteral,
@@ -6,13 +6,13 @@ const {
     identifier,
     callExpression,
     arrayExpression,
-} = require('putout').types;
+} = types;
 
-module.exports.report = ({name}) => {
+export const report = ({name}) => {
     return `"run" should be called in script: "${name}"`;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ArrowFunctionExpression(path) {
         const {body} = path.node;
         
@@ -32,7 +32,7 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-module.exports.fix = ({path, value}) => {
+export const fix = ({path, value}) => {
     const [line, arg] = value.split(' -- ');
     const scripts = getScripts(line);
     

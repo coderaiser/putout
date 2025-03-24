@@ -1,15 +1,14 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isStringLiteral} = types;
 
 const replace = (a) => a
     .replace('eslint', 'putout')
     .replace(/\s--ignore.*/, '');
 
-module.exports.report = () => `"putout" should be used instead of "eslint"`;
+export const report = () => `"putout" should be used instead of "eslint"`;
 
-module.exports.fix = ({node}) => {
+export const fix = ({node}) => {
     const {type, value} = node;
     
     switch(type) {
@@ -21,7 +20,7 @@ module.exports.fix = ({node}) => {
     }
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'module.exports = __object'(path) {
         const properties = path.get('right.properties');
         

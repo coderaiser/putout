@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     isObjectExpression,
@@ -9,9 +7,9 @@ const {
 
 const {extract} = operator;
 
-module.exports.report = () => `Pass an array when you want to run a list of scripts`;
+export const report = () => `Pass an array when you want to run a list of scripts`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'run(__args)': ({__args}, path) => {
         const [, ...names] = __args;
         
@@ -25,7 +23,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'run(__args)': 'run([__args])',
 });
 

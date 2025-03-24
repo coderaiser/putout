@@ -1,19 +1,17 @@
-'use strict';
-
-const {template, operator} = require('putout');
+import {template, operator} from 'putout';
 
 const {replaceWith, getProperty} = operator;
 
-module.exports.report = () => {
+export const report = () => {
     return `Use 'c8' instead of 'nyc' to get code coverage`;
 };
 
-module.exports.fix = ({path, line}) => {
+export const fix = ({path, line}) => {
     const c8 = line.replace('nyc', 'c8');
     replaceWith(path, template.ast(c8));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'module.exports = __object': addAll('right', push),
     'export default __object': addAll('declaration', push),
 });

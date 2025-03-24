@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith, traverse} = operator;
 
@@ -9,14 +7,14 @@ const {
     awaitExpression,
 } = types;
 
-module.exports.report = () => 'Use async function';
+export const report = () => 'Use async function';
 
-module.exports.exclude = () => [
+export const exclude = () => [
     'await run(__args)',
     '() => run(__a)',
 ];
 
-module.exports.match = () => ({
+export const match = () => ({
     'run(__args)': ({__args}, path) => {
         if (!path.parentPath.isFunction())
             return true;
@@ -30,7 +28,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'run(__args)': (vars, path) => {
         traverse(path, {
             'run(__args)'(path) {

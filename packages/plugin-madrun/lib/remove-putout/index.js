@@ -1,16 +1,15 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {remove} = operator;
 const {isStringLiteral} = types;
 
-module.exports.report = () => `scripts should not have a name "putout", because "putout" is "lint"`;
+export const report = () => `scripts should not have a name "putout", because "putout" is "lint"`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'module.exports = __object'(path) {
         const properties = path.get('right.properties');
         

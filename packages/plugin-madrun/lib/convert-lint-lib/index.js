@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     replaceWith,
@@ -10,9 +8,9 @@ const {
 
 const {stringLiteral} = types;
 
-module.exports.report = () => `'lint' should be used instead of 'lint:lib'`;
+export const report = () => `'lint' should be used instead of 'lint:lib'`;
 
-module.exports.fix = ({lintLib, fixLint, lint}) => {
+export const fix = ({lintLib, fixLint, lint}) => {
     replaceWith(lintLib.get('key'), lint.node.key);
     remove(lint);
     
@@ -21,7 +19,7 @@ module.exports.fix = ({lintLib, fixLint, lint}) => {
     body.arguments[0] = stringLiteral('lint');
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'module.exports = __object'(path) {
         const rightPath = path.get('right');
         

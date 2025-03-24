@@ -1,17 +1,15 @@
-'use strict';
-
-const {template, operator} = require('putout');
+import {template, operator} from 'putout';
 
 const {replaceWith, getProperty} = operator;
 
-module.exports.report = () => 'test: "-d" can be removed, duplicates checked by default';
+export const report = () => 'test: "-d" can be removed, duplicates checked by default';
 
-module.exports.fix = ({path, line}) => {
+export const fix = ({path, line}) => {
     const c8 = line.replace('tape -d', 'tape');
     replaceWith(path, template.ast(c8));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'export default __object'(path) {
         const declarationPath = path.get('declaration');
         const testPath = getProperty(declarationPath, 'test');

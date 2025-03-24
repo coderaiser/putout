@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     isArrayExpression,
@@ -12,9 +10,9 @@ const {
     getProperty,
 } = operator;
 
-module.exports.report = () => `Use 'cutEnv()' instead of 'run()'`;
+export const report = () => `Use 'cutEnv()' instead of 'run()'`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'run(__a)': (vars, path) => {
         const {body} = path.scope.block;
         
@@ -27,7 +25,7 @@ module.exports.replace = () => ({
     },
 });
 
-module.exports.match = () => ({
+export const match = () => ({
     'run(__a)': getTuple,
 });
 

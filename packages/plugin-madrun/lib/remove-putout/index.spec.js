@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removePutout from './index.js';
 
-const {createTest} = require('@putout/test');
-const removePutout = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['madrun/remove-putout', removePutout],
     ],

@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as setReportLcov from './index.js';
 
-const {createTest} = require('@putout/test');
-const setReportLcov = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['set-report-lcov', setReportLcov],
     ],

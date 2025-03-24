@@ -1,29 +1,27 @@
-'use strict';
+import * as addFunction from './add-function/index.js';
+import * as addFixLint from './add-fix-lint/index.js';
+import * as addRun from './add-run/index.js';
+import * as addCutEnv from './add-cut-env/index.js';
+import * as callRun from './call-run/index.js';
+import * as renameSeriesToRun from './rename-series-to-run/index.js';
+import * as convertRunArgument from './convert-run-argument/index.js';
+import * as convertLintLib from './convert-lint-lib/index.js';
+import * as renameEslintToPutout from './rename-eslint-to-putout/index.js';
+import * as removePutout from './remove-putout/index.js';
+import * as setLintDot from './set-lint-dot/index.js';
+import * as convertToAsync from './convert-to-async/index.js';
+import * as convertNycToC8 from './convert-nyc-to-c8/index.js';
+import * as convertRunToCutEnv from './convert-run-to-cut-env/index.js';
+import * as convertCutEnvToRun from './convert-cut-env-to-run/index.js';
+import * as setReportLcov from './set-report-lcov/index.js';
+import * as removeCheckDuplicatesFromTest from './remove-check-duplicates-from-test/index.js';
+import * as declare from './declare/index.js';
+import * as convertArgsToScripts from './convert-args-to-scripts/index.js';
+import * as removeUselessArrayInRun from './remove-useless-array-in-run/index.js';
+import * as removeUselessStringConversion from './remove-useless-string-conversion/index.js';
+import * as addMissingQuotesToWatcher from './add-missing-quotes-to-watcher/index.js';
 
-const addFunction = require('./add-function');
-const addFixLint = require('./add-fix-lint');
-const addRun = require('./add-run');
-const addCutEnv = require('./add-cut-env');
-const callRun = require('./call-run');
-const renameSeriesToRun = require('./rename-series-to-run');
-const convertRunArgument = require('./convert-run-argument');
-const convertLintLib = require('./convert-lint-lib');
-const renameEslintToPutout = require('./rename-eslint-to-putout');
-const removePutout = require('./remove-putout');
-const setLintDot = require('./set-lint-dot');
-const convertToAsync = require('./convert-to-async');
-const convertNycToC8 = require('./convert-nyc-to-c8');
-const convertRunToCutEnv = require('./convert-run-to-cut-env');
-const convertCutEnvToRun = require('./convert-cut-env-to-run');
-const setReportLcov = require('./set-report-lcov');
-const removeCheckDuplicatesFromTest = require('./remove-check-duplicates-from-test');
-const declare = require('./declare');
-const convertArgsToScripts = require('./convert-args-to-scripts');
-const removeUselessArrayInRun = require('./remove-useless-array-in-run');
-const removeUselessStringConversion = require('./remove-useless-string-conversion');
-const addMissingQuotesToWatcher = require('./add-missing-quotes-to-watcher');
-
-module.exports.rules = {
+export const rules = {
     'add-function': addFunction,
     'add-fix-lint': addFixLint,
     'add-run': addRun,

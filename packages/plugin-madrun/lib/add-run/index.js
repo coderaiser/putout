@@ -1,23 +1,21 @@
-'use strict';
-
-const {
+import {
     operator,
     template,
     types,
-} = require('putout');
+} from 'putout';
 
 const {isProgram} = types;
 const {findBinding} = operator;
 
 const node = template.ast(`const {run} = require('madrun')`);
 
-module.exports.report = () => 'run should be declared';
+export const report = () => 'run should be declared';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.node.body.unshift(node);
 };
 
-module.exports.traverse = ({push}) => {
+export const traverse = ({push}) => {
     let added = false;
     
     return {

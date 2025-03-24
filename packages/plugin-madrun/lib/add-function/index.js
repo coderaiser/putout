@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith, extract} = operator;
 const {
@@ -9,13 +7,13 @@ const {
     arrowFunctionExpression,
 } = types;
 
-module.exports.report = ({name}) => `Use 'function' instead of 'string' in script: '${name}'`;
+export const report = ({name}) => `Use 'function' instead of 'string' in script: '${name}'`;
 
-module.exports.fix = ({path}) => {
+export const fix = ({path}) => {
     replaceWith(path, arrowFunctionExpression([], path.node));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'export default __object'(path) {
         const properties = path.get('declaration.properties');
         

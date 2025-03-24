@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     isStringLiteral,
@@ -16,9 +14,9 @@ const {
 const dotLine = 'putout .';
 const isDot = (a) => a.includes(dotLine);
 
-module.exports.report = () => `Use 'lint' to check current drectory`;
+export const report = () => `Use 'lint' to check current drectory`;
 
-module.exports.fix = ({lintPath}) => {
+export const fix = ({lintPath}) => {
     const {node} = lintPath;
     
     if (isStringLiteral(node))
@@ -52,7 +50,7 @@ function getValue(bodyPath) {
     return [bodyPath, ''];
 }
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'export default __object'(path) {
         const declarationPath = path.get('declaration');
         const lintPath = getLintPath(declarationPath);

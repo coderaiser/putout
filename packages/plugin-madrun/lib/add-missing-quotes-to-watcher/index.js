@@ -1,14 +1,13 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isCallExpression,
     isTemplateLiteral,
 } = types;
 
-module.exports.report = () => `Add missing quotes to watcher`;
+export const report = () => `Add missing quotes to watcher`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'await run("test")': (vars, {parentPath}) => {
         if (isTemplateLiteral(parentPath)) {
             const {quasis} = parentPath.node;
@@ -27,7 +26,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'await run("test")': (vars, path) => {
         const {parentPath} = path;
         
