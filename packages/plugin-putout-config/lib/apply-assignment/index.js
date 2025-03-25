@@ -4,7 +4,7 @@ const v39 = [
     ['split-assignment-expressions', 'assignment/split'],
     ['simplify-assignments', 'assignment/simplify'],
     ['convert-assignment-to-arrow-function', 'assignment/convert-to-arrow-function'],
-    ['convert-assignment-to-comparisson', 'assignment/convert-to-comparisson'],
+    ['convert-assignment-to-comparison', 'assignment/convert-to-comparison'],
     ['convert-assignment-to-declaration', 'assignment/convert-to-declaration'],
 ];
 
