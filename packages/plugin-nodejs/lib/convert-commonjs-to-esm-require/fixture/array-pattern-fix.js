@@ -1,1 +1,1 @@
-import {'1' as tsx} from './ts.js';
+import {'1' as tsx} from './ts';

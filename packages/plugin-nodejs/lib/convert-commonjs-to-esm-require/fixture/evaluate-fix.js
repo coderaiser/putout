@@ -1,2 +1,2 @@
 const dir = '../';
-import a from '../config.js';
+import a from '../config';
