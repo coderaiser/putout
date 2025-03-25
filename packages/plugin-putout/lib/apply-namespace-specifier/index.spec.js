@@ -37,6 +37,11 @@ test('packages: apply-namaspace-specifier: transform: external', (t) => {
     t.end();
 });
 
+test('packages: apply-namaspace-specifier: transform: parent', (t) => {
+    t.transform('parent');
+    t.end();
+});
+
 test('packages: apply-namaspace-specifier: no report: alot', (t) => {
     t.noReport('alot');
     t.end();

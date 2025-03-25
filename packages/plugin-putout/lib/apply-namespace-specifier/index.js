@@ -20,6 +20,7 @@ export const traverse = ({push, listStore, pathStore}) => ({
             '@putout/plugin-',
             './index.js',
             '../lib/index.js',
+            '../',
         ],
     }),
     'Program': {
