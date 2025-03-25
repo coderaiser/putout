@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('madrun: convert-cut-env-to-run: report: cut-env', (t) => {
-    t.report('cut-env', `Use 'cutEnv()' instead of 'run()'`);
+    t.report('cut-env', `Use 'run()' instead of 'cutEnv()'`);
     t.end();
 });
 

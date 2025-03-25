@@ -7,7 +7,7 @@ const {
     getProperty,
 } = operator;
 
-export const report = () => `Use 'cutEnv()' instead of 'run()'`;
+export const report = () => `Use 'run()' instead of 'cutEnv()'`;
 
 export const replace = () => ({
     'cutEnv(__a)': 'run(__a)',
