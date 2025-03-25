@@ -1,15 +1,15 @@
-'use strict';
-
-const regexpTree = require('regexp-tree');
-const {compare} = require('putout').operator;
-const {
+import regexpTree from 'regexp-tree';
+import {operator} from 'putout';
+import {
     isDisjunction,
     isParentDisjunction,
-} = require('../types');
+} from '../types.js';
 
-module.exports.report = ({from, to}) => `Remove useless group from RegExp ${from}, use ${to}`;
+const {compare} = operator;
 
-module.exports.exclude = () => [
+export const report = ({from, to}) => `Remove useless group from RegExp ${from}, use ${to}`;
+
+export const exclude = () => [
     '__.match(__)',
     '__.split(__)',
     '__.exec(__)',
@@ -18,7 +18,7 @@ module.exports.exclude = () => [
     'const __a = /__b/',
 ];
 
-module.exports.fix = ({path, to}) => {
+export const fix = ({path, to}) => {
     const [, pattern] = to.split('/');
     
     path.node.pattern = pattern;
@@ -26,7 +26,7 @@ module.exports.fix = ({path, to}) => {
     path.node.extra.raw = to;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     RegExpLiteral(path) {
         if (!includes(path))
             return;

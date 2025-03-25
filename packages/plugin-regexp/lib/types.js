@@ -1,8 +1,6 @@
-'use strict';
-
 const getType = (a) => (a.node || a).type;
 
-module.exports.isDisjunction = (a) => getType(a) === 'Disjunction';
-module.exports.isParentDisjunction = ({parentPath}) => parentPath?.parent?.type === 'Disjunction';
-module.exports.isChar = (a) => getType(a) === 'Char';
-module.exports.isAlternative = (a) => getType(a) === 'Alternative';
+export const isDisjunction = (a) => getType(a) === 'Disjunction';
+export const isParentDisjunction = ({parentPath}) => parentPath?.parent?.type === 'Disjunction';
+export const isChar = (a) => getType(a) === 'Char';
+export const isAlternative = (a) => getType(a) === 'Alternative';

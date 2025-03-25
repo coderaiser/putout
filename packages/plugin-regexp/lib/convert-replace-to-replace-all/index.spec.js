@@ -1,11 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertReplaceToReplaceAll from './index.js';
+import * as optimize from '../optimize/index.js';
 
-const {createTest} = require('@putout/test');
-
-const convertReplaceToReplaceAll = require('.');
-const optimize = require('../optimize');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['regexp/convert-replace-to-replace-all', convertReplaceToReplaceAll],
     ],

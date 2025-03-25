@@ -1,8 +1,5 @@
-'use strict';
-
-const tryCatch = require('try-catch');
-
-const {optimize} = require('regexp-tree');
+import tryCatch from 'try-catch';
+import regexpTree from 'regexp-tree';
 
 const cutSlashes = (a) => a
     .split('/')
@@ -19,17 +16,25 @@ const options = {
     blacklist,
 };
 
-module.exports.report = ({pattern, to}) => `RegExp /${pattern}/ can be optimized to /${to}/`;
+export const report = ({pattern, to}) => `RegExp /${pattern}/ can be optimized to /${to}/`;
 
-module.exports.fix = ({path, to, flags}) => {
+export const fix = ({path, to, flags}) => {
     path.node.raw = `/${to}/${flags}`;
     path.node.pattern = to;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     RegExpLiteral(path) {
         const {pattern, flags} = path.node;
-        const [error, result] = tryCatch(optimize, RegExp(pattern, flags), whitelist, options);
+        const [error, result] = tryCatch(
+            regexpTree.optimize,
+            RegExp(
+                pattern,
+                flags,
+            ),
+            whitelist,
+            options,
+        );
         
         if (error)
             return;

@@ -1,12 +1,9 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessEscape from '@putout/plugin-remove-useless-escape';
+import * as applyLiteralNotation from './index.js';
+import * as removeUselessGroup from '../remove-useless-group/index.js';
 
-const {createTest} = require('@putout/test');
-
-const removeUselessEscape = require('@putout/plugin-remove-useless-escape');
-const applyLiteralNotation = require('.');
-const removeUselessGroup = require('../remove-useless-group');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['regexp/apply-literal-notation', applyLiteralNotation],
     ],

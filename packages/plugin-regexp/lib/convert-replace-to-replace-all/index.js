@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {stringLiteral} = types;
 
@@ -23,9 +21,9 @@ const decode = (a) => {
         .replaceAll('\\\\', '\\');
 };
 
-module.exports.report = () => `Use 'replaceAll()' instead of 'replace()'`;
+export const report = () => `Use 'replaceAll()' instead of 'replace()'`;
 
-module.exports.fix = ({path, pattern}) => {
+export const fix = ({path, pattern}) => {
     const regExpPath = path.get('arguments.0');
     const calleePath = path.get('callee.property');
     
@@ -35,7 +33,7 @@ module.exports.fix = ({path, pattern}) => {
     return path;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '__a.replace(/__b/g, __c)': (path) => {
         const {__b} = getTemplateValues(path, '__a.replace(/__b/g, __c)');
         

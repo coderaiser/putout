@@ -1,15 +1,13 @@
-'use strict';
+import * as applyLiteralNotation from './apply-literal-notation/index.js';
+import * as applyStartsWith from './apply-starts-with/index.js';
+import * as applyEndsWith from './apply-ends-with/index.js';
+import * as optimize from './optimize/index.js';
+import * as convertToString from './convert-to-string/index.js';
+import * as convertReplaceToReplaceAll from './convert-replace-to-replace-all/index.js';
+import * as removeUselessGroup from './remove-useless-group/index.js';
+import * as removeUselessRegexp from './remove-useless-regexp/index.js';
 
-const applyLiteralNotation = require('./apply-literal-notation');
-const applyStartsWith = require('./apply-starts-with');
-const applyEndsWith = require('./apply-ends-with');
-const optimize = require('./optimize');
-const convertToString = require('./convert-to-string');
-const convertReplaceToReplaceAll = require('./convert-replace-to-replace-all');
-const removeUselessGroup = require('./remove-useless-group');
-const removeUselessRegexp = require('./remove-useless-regexp');
-
-module.exports.rules = {
+export const rules = {
     'apply-literal-notation': applyLiteralNotation,
     'apply-starts-with': applyStartsWith,
     'apply-ends-with': applyEndsWith,

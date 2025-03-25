@@ -1,30 +1,26 @@
-'use strict';
-
-const regexpTree = require('regexp-tree');
-
-const {
+import regexpTree from 'regexp-tree';
+import {
     template,
     types,
     operator,
-} = require('putout');
-
-const {isAlternative, isChar} = require('../types');
+} from 'putout';
+import {isAlternative, isChar} from '../types.js';
 
 const {replaceWith} = operator;
 const {stringLiteral} = types;
 
-module.exports.report = () => `Remove useless RegExp, use strict equal operator instead`;
+export const report = () => `Remove useless RegExp, use strict equal operator instead`;
 
 const build = template(`A === B`);
 
-module.exports.fix = ({path, to, arg}) => {
+export const fix = ({path, to, arg}) => {
     replaceWith(path, build({
         A: arg,
         B: stringLiteral(to),
     }));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '/__a/.test(__b)'(path) {
         const regExpNode = path.node.callee.object;
         const {raw} = regExpNode.extra;

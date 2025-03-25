@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as optimize from './index.js';
 
-const {createTest} = require('@putout/test');
-const optimize = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['regexp/apply-ends-with', optimize],
     ],

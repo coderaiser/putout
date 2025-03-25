@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith} = operator;
 
@@ -9,19 +7,19 @@ const {
     regExpLiteral,
 } = types;
 
-const match = ({__a}) => isStringLiteral(__a);
+const check = ({__a}) => isStringLiteral(__a);
 
-module.exports.report = () => `Use RegExp literal notation`;
+export const report = () => `Use RegExp literal notation`;
 
-module.exports.match = () => ({
-    'new RegExp(__a)': match,
-    'new RegExp(__a, __b)': match,
+export const match = () => ({
+    'new RegExp(__a)': check,
+    'new RegExp(__a, __b)': check,
     
-    'RegExp(__a)': match,
-    'RegExp(__a, __b)': match,
+    'RegExp(__a)': check,
+    'RegExp(__a, __b)': check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'new RegExp(__a)': oneArgumentReplace,
     'new RegExp(__a, __b)': twoArgumentsReplace,
     

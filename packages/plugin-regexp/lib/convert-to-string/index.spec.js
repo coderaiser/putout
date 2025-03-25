@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertToString from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertToString = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['regexp/convert-to-string', convertToString],
     ],

@@ -1,11 +1,10 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isRegExpLiteral} = types;
 
-module.exports.report = () => `Use '.endsWith()' instead of '.test()'`;
+export const report = () => `Use '.endsWith()' instead of '.test()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '__a.test(__b)': ({__a}) => {
         if (!isRegExpLiteral(__a))
             return false;
@@ -22,7 +21,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a.test(__b)': ({__a}) => {
         const str = __a
             .raw

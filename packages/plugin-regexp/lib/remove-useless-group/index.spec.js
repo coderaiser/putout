@@ -1,12 +1,9 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessGroup from './index.js';
+import * as applyLiteralNotation from '../apply-literal-notation/index.js';
+import * as optimize from '../optimize/index.js';
 
-const {createTest} = require('@putout/test');
-const removeUselessGroup = require('.');
-const applyLiteralNotation = require('../apply-literal-notation');
-
-const optimize = require('../optimize');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['regexp/remove-useless-group', removeUselessGroup],
     ],

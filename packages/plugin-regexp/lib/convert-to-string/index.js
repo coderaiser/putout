@@ -1,12 +1,21 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith, isSimpleRegExp} = operator;
-
 const {stringLiteral} = types;
 
-const match = (flags) => ({__b}) => {
+export const report = () => 'String should be used instead of RegExp';
+
+export const match = () => ({
+    '__a.replace(/__b/, __c)': check(''),
+    '__a.replaceAll(/__b/g, __c)': check('g'),
+});
+
+export const replace = () => ({
+    '__a.replace(/__b/, __c)': transform,
+    '__a.replaceAll(/__b/g, __c)': transform,
+});
+
+const check = (flags) => ({__b}) => {
     if (__b.flags === flags) {
         const {raw} = __b.extra;
         return isSimpleRegExp(raw);
@@ -15,7 +24,7 @@ const match = (flags) => ({__b}) => {
     return false;
 };
 
-const replace = ({__b}, path) => {
+const transform = ({__b}, path) => {
     const {pattern} = __b;
     const regExpPath = path.get('arguments.0');
     
@@ -23,15 +32,3 @@ const replace = ({__b}, path) => {
     
     return path;
 };
-
-module.exports.report = () => 'String should be used instead of RegExp';
-
-module.exports.match = () => ({
-    '__a.replace(/__b/, __c)': match(''),
-    '__a.replaceAll(/__b/g, __c)': match('g'),
-});
-
-module.exports.replace = () => ({
-    '__a.replace(/__b/, __c)': replace,
-    '__a.replaceAll(/__b/g, __c)': replace,
-});
