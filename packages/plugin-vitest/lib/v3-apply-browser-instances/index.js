@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     objectProperty,
     identifier,
@@ -17,9 +16,9 @@ const {
 const DEFINE_CONFIG = 'defineConfig(__object)';
 const getNode = (path) => path.node;
 
-module.exports.report = () => `Use 'browser.instances'`;
+export const report = () => `Use 'browser.instances'`;
 
-module.exports.fix = ({path, properties}) => {
+export const fix = ({path, properties}) => {
     const nodes = properties.map(getNode);
     const value = arrayExpression([
         objectExpression(nodes),
@@ -32,7 +31,7 @@ module.exports.fix = ({path, properties}) => {
     path.node.value.properties = [property];
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'defineConfig(__object)': (path) => {
         const {__object} = getTemplateValues(path, DEFINE_CONFIG);
         const [instancesPath] = traverseProperties(__object, 'instances');

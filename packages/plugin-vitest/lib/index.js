@@ -1,9 +1,7 @@
-'use strict';
+import * as v3ApplyOptionsAsSecondArgument from './v3-apply-options-as-second-argument/index.js';
+import * as v3ApplyBrowserInstances from './v3-apply-browser-instances/index.js';
 
-const v3ApplyOptionsAsSecondArgument = require('./v3-apply-options-as-second-argument');
-const v3ApplyBrowserInstances = require('./v3-apply-browser-instances');
-
-module.exports.rules = {
+export const rules = {
     'v3-apply-options-as-second-argument': v3ApplyOptionsAsSecondArgument,
     'v3-apply-browser-instances': v3ApplyBrowserInstances,
 };
