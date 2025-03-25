@@ -34,6 +34,7 @@ npm i @putout/plugin-eslint -D
 - ✅ [declare](#declare);
 - ✅ [move-putout-to-end-of-extends](#move-putout-to-end-of-extends);
 - ✅ [remove-no-missing](#remove-no-missing);
+- ✅ [remove-useless-define-config](#remove-useless-define-config);
 - ✅ [remove-no-unpublished-require](#remove-no-unpublished-require);
 - ✅ [remove-no-unsupported-features](#remove-no-unsupported-features);
 - ✅ [remove-overrides-with-empty-rules](#remove-overrides-with-empty-rules);
@@ -73,6 +74,7 @@ npm i @putout/plugin-eslint -D
         "eslint/remove-no-unsupported-features": "on",
         "eslint/remove-overrides-with-empty-rules": "on",
         "eslint/remove-useless-slice": "on",
+        "eslint/remove-useless-define-config": "on",
         "eslint/remove-useless-properties": "on",
         "eslint/remove-useless-match-to-flat": "on",
         "eslint/remove-parser-options": "on",
@@ -647,6 +649,22 @@ module.exports = x.slice();
 export default x;
 
 module.exports = x;
+```
+
+## remove-useless-define-config
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/732e388d14c2e1cd346928d93ea36a3b/84722e7793e6043c473644176dce2d1371f90a61).
+
+### ❌ Example of incorrect code
+
+```js
+export default defineConfig([safeAlign]);
+```
+
+## ✅ Example of correct code
+
+```js
+export default safeAlign;
 ```
 
 ## remove-useless-properties
