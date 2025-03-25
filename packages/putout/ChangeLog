@@ -1,3 +1,18 @@
+2025.03.25, v39.0.14
+
+fix:
+- 16e21ad1d @putout/plugin-madrun: convert-cut-env-to-run: report
+- 5bf53b94e @putout/plugin-putout-config: comparisson -> comparison
+
+feature:
+- fdc7bad66 putout: @putout/plugin-eslint v13.0.0
+- ce8bab41d @putout/plugin-eslint: remove-useless-define-config: add
+- e71ea95e9 @putout/plugin-eslint: convert to ESM
+- f420043c4 putout: @putout/plugin-regexp v11.0.0
+- bb86eb8a8 @putout/plugin-regexp: drop support of 🐊 < 39
+- 7c97b5734 @putout/plugin-putout: apply-namespace-specifier: parent directory
+- ef569b43d @putout/plugin-nodejs: convert-commonjs-to-esm-require: do not add extension
+
 2025.03.25, v39.0.13
 
 fix:
