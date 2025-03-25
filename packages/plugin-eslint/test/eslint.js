@@ -146,3 +146,8 @@ test('plugin-eslint: transform: apply-define-config', (t) => {
     t.transform('apply-define-config');
     t.end();
 });
+
+test('plugin-eslint: transform: remove-useless-define-config', (t) => {
+    t.transform('remove-useless-define-config');
+    t.end();
+});

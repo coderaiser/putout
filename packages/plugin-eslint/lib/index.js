@@ -1,3 +1,4 @@
+import * as removeUselessDefineConfig from './remove-useless-define-config/index.js';
 import * as convertRcToFlat from './convert-rc-to-flat/index.js';
 import * as declare from './declare/index.js';
 import * as removeNoMissing from './remove-no-missing/index.js';
@@ -54,4 +55,5 @@ export const rules = {
     'remove-create-eslint-config-with-one-argument': removeCreateEslintConfigWithOneArgument,
     'remove-useless-match-to-flat': removeUselessMatchToFlat,
     'apply-define-config': applyDefineConfig,
+    'remove-useless-define-config': removeUselessDefineConfig,
 };
