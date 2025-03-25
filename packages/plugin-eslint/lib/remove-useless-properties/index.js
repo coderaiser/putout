@@ -1,6 +1,4 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {
     isObjectProperty,
@@ -9,12 +7,12 @@ const {
 
 const {extract, remove} = operator;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     const names = getPropertyNames(path);
     return `Remove useless properties: ${names.join(', ')}`;
 };
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {parentPath} = path.parentPath;
     
     if (!parentPath.node)
@@ -23,7 +21,7 @@ module.exports.fix = (path) => {
     remove(parentPath);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ObjectExpression(path) {
         if (path.node.properties.length)
             return;

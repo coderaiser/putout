@@ -1,10 +1,8 @@
-'use strict';
-
-const {
+import {
     template,
     operator,
     types,
-} = require('putout');
+} from 'putout';
 
 const {
     identifier,
@@ -23,13 +21,13 @@ const {
     __json,
 } = operator;
 
-module.exports.report = () => `Apply 'matchToFlat()'`;
+export const report = () => `Apply 'matchToFlat()'`;
 
 const createMatchToFlat = template('export const match = %%match%%');
 
-module.exports.exclude = () => [__json];
+export const exclude = () => [__json];
 
-module.exports.fix = ({objects}) => {
+export const fix = ({objects}) => {
     const statementPath = objects[0].find(isStatement);
     const match = objectExpression([]);
     let added = false;
@@ -55,7 +53,7 @@ module.exports.fix = ({objects}) => {
     }));
 };
 
-module.exports.traverse = ({push, pathStore, store}) => ({
+export const traverse = ({push, pathStore, store}) => ({
     ObjectExpression(path) {
         if (!path.parentPath.isArrayExpression())
             return;

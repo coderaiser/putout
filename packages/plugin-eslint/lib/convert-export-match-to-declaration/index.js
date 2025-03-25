@@ -1,6 +1,5 @@
-'use strict';
+import {operator, template} from 'putout';
 
-const {operator, template} = require('putout');
 const {
     replaceWith,
     insertAfter,
@@ -10,12 +9,12 @@ const {
 const MATCH = 'module.exports.match = __object';
 const DEFAULT = 'module.exports = __a';
 
-module.exports.report = () => `Export 'match' at end of file in CommonJS`;
+export const report = () => `Export 'match' at end of file in CommonJS`;
 
 const declareMatch = template('const match = %%match%%');
 const exportMatch = template.ast('module.exports.match = match');
 
-module.exports.fix = ({path, moduleExports}) => {
+export const fix = ({path, moduleExports}) => {
     const {right} = path.node;
     
     replaceWith(path, declareMatch({
@@ -25,7 +24,7 @@ module.exports.fix = ({path, moduleExports}) => {
     insertAfter(moduleExports, exportMatch);
 };
 
-module.exports.traverse = ({pathStore, push}) => ({
+export const traverse = ({pathStore, push}) => ({
     [MATCH]: storeIfWasNot({
         pathStore,
     }),

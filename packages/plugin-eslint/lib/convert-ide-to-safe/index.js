@@ -1,13 +1,11 @@
-'use strict';
-
-const {operator} = require('putout');
-const {getExtends} = require('../get.js');
+import {operator} from 'putout';
+import {getExtends} from '../get.js';
 
 const {__json} = operator;
 
-module.exports.report = () => 'Use "putout/safe" instead of "putout/ide"';
+export const report = () => 'Use "putout/safe" instead of "putout/ide"';
 
-module.exports.match = () => ({
+export const match = () => ({
     [__json]: ({__object}) => {
         const elements = getExtends(__object);
         
@@ -20,7 +18,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [__json]: ({__object}, path) => {
         const elements = getExtends(__object);
         

@@ -1,10 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as plugin from './index.js';
+import * as match from '../convert-export-match-to-declaration/index.js';
 
-const {createTest} = require('@putout/test');
-const plugin = require('.');
-const match = require('../convert-export-match-to-declaration');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-slice', plugin],
     ],

@@ -1,18 +1,17 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     traverseProperties,
     replaceWith,
 } = operator;
 
-module.exports.report = () => `Avoid "parserOptions" in FlatConfig`;
+export const report = () => `Avoid "parserOptions" in FlatConfig`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     replaceWith(path.parentPath, path.node.value);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     __object(path) {
         const [languageOptionsPath] = traverseProperties(path, 'languageOptions');
         

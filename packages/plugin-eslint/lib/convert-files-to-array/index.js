@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     isArrayExpression,
     isObjectExpression,
@@ -13,7 +12,7 @@ const {
     compare,
 } = operator;
 
-module.exports.report = ({main}) => {
+export const report = ({main}) => {
     const message = `Convert 'files' to an array`;
     
     if (isObjectExpression(main))
@@ -22,11 +21,11 @@ module.exports.report = ({main}) => {
     return `${message} to simplify migrating to FlatConfig`;
 };
 
-module.exports.fix = ({path, value}) => {
+export const fix = ({path, value}) => {
     path.node.value = arrayExpression([value]);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     __object: traverseFiles(push, 'flat'),
     [__json]: traverseFiles(push),
 });

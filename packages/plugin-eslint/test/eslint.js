@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as eslint from '../lib/index.js';
 
-const {createTest} = require('@putout/test');
-const eslint = require('../lib/index.js');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['eslint', eslint],
     ],

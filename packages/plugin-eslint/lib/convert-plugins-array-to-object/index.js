@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     objectExpression,
     isObjectProperty,
@@ -13,9 +12,9 @@ const {extract, replaceWith} = operator;
 const COMPUTED = false;
 const SHORTHAND = true;
 
-module.exports.report = () => `Convert 'plugins' array to object`;
+export const report = () => `Convert 'plugins' array to object`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {elements} = path.node;
     const properties = [];
     
@@ -26,7 +25,7 @@ module.exports.fix = (path) => {
     replaceWith(path, objectExpression(properties));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ArrayExpression(path) {
         if (!isObjectProperty(path.parentPath))
             return;

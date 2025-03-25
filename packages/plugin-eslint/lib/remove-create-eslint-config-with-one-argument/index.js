@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Remove 'createESLintConfig()' with one argument`;
 
-module.exports.report = () => `Remove 'createESLintConfig()' with one argument`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'export default createESLintConfig([__a])': 'export default __a',
 });

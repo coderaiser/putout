@@ -1,9 +1,7 @@
-'use strict';
+import eslintFlat from './eslint-flat.js';
+import configHelpers from './config-helpers.js';
 
-const eslintFlat = require('./eslint-flat');
-const configHelpers = require('./config-helpers');
-
-module.exports.declare = () => ({
+export const declare = () => ({
     ...eslintFlat,
     ...configHelpers,
     safeAlign: `import {safeAlign} from 'eslint-plugin-putout'`,

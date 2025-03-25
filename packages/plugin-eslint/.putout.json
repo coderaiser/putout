@@ -1,7 +1,4 @@
 {
-    "rules": {
-        "putout/apply-namespace-specifier": "off"
-    },
     "match": {
         "*.md": {
             "putout/convert-match-to-function": "off",

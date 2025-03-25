@@ -1,10 +1,8 @@
-'use strict';
-
-const {
+import {
     template,
     types,
     operator,
-} = require('putout');
+} from 'putout';
 
 const {stringify} = JSON;
 const {getProperties, __json} = operator;
@@ -22,9 +20,9 @@ const createIgnoresLegacy = (list) => template.ast(`({
     "ignorePatterns": ${stringify(list)},
 })`);
 
-module.exports.report = () => `Ignore 'fixture'`;
+export const report = () => `Ignore 'fixture'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'module.exports = __a': isId,
     'export default __a': isId,
     [__json]: (vars, path) => {
@@ -35,7 +33,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = ({options}) => {
+export const replace = ({options}) => {
     const {ignores = DEFAULT} = options;
     
     return {

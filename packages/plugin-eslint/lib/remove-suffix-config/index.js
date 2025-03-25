@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Avoid suffix config when import from 'eslint-plugin-putout'`;
 
-module.exports.report = () => `Avoid suffix config when import from 'eslint-plugin-putout'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'import __imports from "eslint-plugin-putout/config"': `import __imports from 'eslint-plugin-putout'`,
 });

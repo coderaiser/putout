@@ -1,12 +1,10 @@
-'use strict';
+export const report = () => `Use 'import' in ESM`;
 
-module.exports.report = () => `Use 'import' in ESM`;
-
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.node.key.value = 'node/no-missing-import';
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ObjectProperty(path) {
         if (path.node.key.value === 'node/no-missing-require')
             push(path);

@@ -1,10 +1,8 @@
-'use strict';
-
-const {
+import {
     operator,
     types,
     template,
-} = require('putout');
+} from 'putout';
 
 const {
     objectProperty,
@@ -22,9 +20,9 @@ const {
 
 const createFlatConfig = template(`export default %%flatConfig%%`);
 
-module.exports.report = () => 'Use FlatConfig instead of ESLintRC';
+export const report = () => 'Use FlatConfig instead of ESLintRC';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [__json]: (__json, path) => {
         const __jsonPath = path.get('arguments.0');
         const {

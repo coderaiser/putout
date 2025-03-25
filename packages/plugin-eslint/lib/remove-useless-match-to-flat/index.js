@@ -1,17 +1,16 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compare, remove} = operator;
 
-module.exports.report = () => `Avoid useless 'matchToFlat()'`;
+export const report = () => `Avoid useless 'matchToFlat()'`;
 
 const EXPORT_LET_MATCH = 'export let match';
 
-module.exports.match = () => ({
+export const match = () => ({
     'matchToFlat(match)': (vars, path) => getExportLetMatch(path),
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'matchToFlat(match)': (vars, path) => {
         const letMatch = getExportLetMatch(path);
         remove(letMatch);

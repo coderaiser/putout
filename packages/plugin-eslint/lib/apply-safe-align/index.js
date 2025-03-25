@@ -1,13 +1,11 @@
-'use strict';
-
-const {operator} = require('putout');
-const {getRules, getExtends} = require('../get.js');
+import {operator} from 'putout';
+import {getRules, getExtends} from '../get.js';
 
 const {remove, __json} = operator;
 
-module.exports.report = () => 'Use "putout/safe+align" instead of "putout/safe"';
+export const report = () => 'Use "putout/safe+align" instead of "putout/safe"';
 
-module.exports.match = () => ({
+export const match = () => ({
     [__json]: ({__object}) => {
         const elements = getExtends(__object);
         
@@ -27,7 +25,7 @@ const isRules = (path) => path.get('key').isStringLiteral({
     value: 'rules',
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [__json]: ({__object}, path) => {
         const elements = getExtends(__object);
         const rules = getRules(__object);

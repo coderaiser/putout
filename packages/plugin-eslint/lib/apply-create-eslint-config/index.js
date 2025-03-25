@@ -1,12 +1,11 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {isSpreadElement} = types;
 
-module.exports.report = () => `Use 'createESLintConfig()' instead of spread ('...')`;
+export const report = () => `Use 'createESLintConfig()' instead of spread ('...')`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'module.exports = __array': hasSpreads({
         selector: 'right.elements',
     }),
@@ -15,7 +14,7 @@ module.exports.match = () => ({
     }),
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'module.exports = __array': extractSpreads({
         selector: 'right.elements',
         template: 'module.exports = createESLintConfig(__array)',
