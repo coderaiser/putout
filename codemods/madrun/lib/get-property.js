@@ -1,4 +1,4 @@
-export default (path, name) => {
+export const getProperty = (path, name) => {
     const propertyPaths = path.get(`properties`);
     
     for (const propertyPath of propertyPaths) {

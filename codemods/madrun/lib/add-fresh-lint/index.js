@@ -3,7 +3,7 @@ import {
     operator,
     template,
 } from 'putout';
-import getProperty from '../get-property.js';
+import {getProperty} from '../get-property.js';
 
 const {replaceWithMultiple} = operator;
 

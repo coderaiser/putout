@@ -110,6 +110,7 @@ test('putout: config: markdown', (t) => {
         'return/remove-useless': 'off',
         'remove-empty': 'off',
         'for-of/remove-unused-variables': 'off',
+        'putout/apply-namespace-specifier': 'off',
         'remove-console': 'off',
         'remove-unreachable-code': 'off',
         'declare': 'off',
