@@ -1,13 +1,11 @@
-'use strict';
-
-const {
+import {
     operator,
     parse,
     transform,
     print,
-} = require('putout');
+} from 'putout';
 
-const getImportsPlugin = require('./get-imports');
+import * as getImportsPlugin from './get-imports.js';
 
 const {
     readFileContent,
@@ -16,9 +14,9 @@ const {
     writeFileContent,
 } = operator;
 
-module.exports.report = (file, {from, to}) => `Rename '${from}' to '${to}'`;
+export const report = (file, {from, to}) => `Rename '${from}' to '${to}'`;
 
-module.exports.fix = (file, {from, to, ast, content, mainFile}) => {
+export const fix = (file, {from, to, ast, content, mainFile}) => {
     renameFile(mainFile, to);
     
     transform(ast, content, {
@@ -37,7 +35,7 @@ module.exports.fix = (file, {from, to, ast, content, mainFile}) => {
     writeFileContent(file, code);
 };
 
-module.exports.scan = (path, {push, options}) => {
+export const scan = (path, {push, options}) => {
     const {from, to} = options;
     
     if (!from || !to)

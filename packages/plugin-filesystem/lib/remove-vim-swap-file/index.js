@@ -1,5 +1,13 @@
-'use strict';
+import {createRemoveFiles} from '../create-remove-files.js';
 
-const {createRemoveFiles} = require('../create-remove-files');
+const {
+    report,
+    fix,
+    scan,
+} = createRemoveFiles('*.swp');
 
-module.exports = createRemoveFiles('*.swp');
+export {
+    report,
+    fix,
+    scan,
+};

@@ -1,12 +1,9 @@
-'use strict';
+import tryCatch from 'try-catch';
+import {createTest} from '@putout/test';
+import {minify} from './minify.spec.js';
+import * as plugin from './index.js';
 
-const tryCatch = require('try-catch');
-const {createTest} = require('@putout/test');
-
-const {minify} = require('./minify.spec');
-const plugin = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['bundle-css', plugin],
     ],

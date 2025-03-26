@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 const {removeFile, getFilename} = operator;
@@ -11,7 +10,7 @@ const fix = (file) => {
     removeFile(file);
 };
 
-module.exports.createRemoveFiles = (defaultNames) => ({
+export const createRemoveFiles = (defaultNames) => ({
     report,
     fix,
     scan: createScan(defaultNames),

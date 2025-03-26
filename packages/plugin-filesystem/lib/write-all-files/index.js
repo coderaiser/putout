@@ -1,19 +1,18 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     writeFileContent,
     readFileContent,
 } = operator;
 
-module.exports.report = () => `Write all files`;
+export const report = () => `Write all files`;
 
-module.exports.fix = (file) => {
+export const fix = (file) => {
     const content = readFileContent(file);
     writeFileContent(file, content);
 };
 
-module.exports.scan = (root, {push, trackFile}) => {
+export const scan = (root, {push, trackFile}) => {
     for (const file of trackFile(root, ['*'])) {
         push(file);
     }

@@ -1,8 +1,6 @@
-'use strict';
+import Clean from 'clean-css';
 
-const Clean = require('clean-css');
-
-module.exports.minify = (data, config) => {
+export const minify = (data, config) => {
     const {
         styles,
         errors,

@@ -1,25 +1,23 @@
-'use strict';
+import * as renameFile from './rename-file/index.js';
+import * as removeFiles from './remove-files/index.js';
+import * as removeVimSwapFile from './remove-vim-swap-file/index.js';
+import * as renameSpecToTest from './rename-spec-to-test/index.js';
+import * as renameTestToSpec from './rename-test-to-spec/index.js';
+import * as renameReferencedFile from './rename-referenced-file/index.js';
+import * as moveReferencedFile from './move-referenced-file/index.js';
+import * as convertSimpleFilesystemToFilesystem from './convert-simple-filesystem-to-filesystem/index.cjs';
+import * as convertFilesystemToSimpleFilesystem from './convert-filesystem-to-simple-filesystem/index.cjs';
+import * as convertJsonToJs from './convert-json-to-js/index.js';
+import * as bundle from './bundle/index.js';
+import * as replaceCwd from './replace-cwd/index.js';
+import * as readAllFiles from './read-all-files/index.js';
+import * as writeAllFiles from './write-all-files/index.js';
+import * as convertJsToJson from './convert-js-to-json/index.js';
+import * as removeNycOutputFiles from './remove-nyc-output-files/index.js';
+import * as removeTravisYmlFile from './remove-travis-yml-file/index.js';
+import * as removeEmptyDirectory from './remove-empty-directory/index.js';
 
-const renameFile = require('./rename-file');
-const removeFiles = require('./remove-files');
-const removeVimSwapFile = require('./remove-vim-swap-file');
-const renameSpecToTest = require('./rename-spec-to-test');
-const renameTestToSpec = require('./rename-test-to-spec');
-const renameReferencedFile = require('./rename-referenced-file');
-const moveReferencedFile = require('./move-referenced-file');
-const convertSimpleFilesystemToFilesystem = require('./convert-simple-filesystem-to-filesystem');
-const convertFilesystemToSimpleFilesystem = require('./convert-filesystem-to-simple-filesystem');
-const convertJsonToJs = require('./convert-json-to-js');
-const bundle = require('./bundle');
-const replaceCwd = require('./replace-cwd');
-const readAllFiles = require('./read-all-files');
-const writeAllFiles = require('./write-all-files');
-const convertJsToJson = require('./convert-js-to-json');
-const removeNycOutputFiles = require('./remove-nyc-output-files');
-const removeTravisYmlFile = require('./remove-travis-yml-file');
-const removeEmptyDirectory = require('./remove-empty-directory');
-
-module.exports.rules = {
+export const rules = {
     'remove-vim-swap-file': removeVimSwapFile,
     'remove-files': ['off', removeFiles],
     'rename-file': ['off', renameFile],
