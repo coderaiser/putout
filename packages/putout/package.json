@@ -57,7 +57,7 @@
     "@putout/cli-keypress": "^2.0.0",
     "@putout/cli-match": "^2.0.0",
     "@putout/cli-process-file": "^2.0.0",
-    "@putout/cli-ruler": "^3.0.0",
+    "@putout/cli-ruler": "^4.0.0",
     "@putout/cli-staged": "^1.0.0",
     "@putout/cli-validate-args": "^2.0.0",
     "@putout/compare": "^17.0.0",
