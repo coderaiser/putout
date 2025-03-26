@@ -20,6 +20,15 @@ Which are drastically simplifies [`try...catch`](https://developer.mozilla.org/e
 npm i @putout/plugin-try-catch
 ```
 
+## Rules
+
+- ✅ [await](#await);
+- ✅ [args](#args);
+- ✅ [declare](#declare);
+- ✅ [expand-arguments](#expand-args);
+- ✅ [sync](#sync);
+- ✅ [async](#async);
+
 ## Rule
 
 ```json
@@ -116,7 +125,7 @@ import tryCatch from 'try-catch';
 const [error] = tryCatch(fs.readFileSync, 'hello.txt');
 ```
 
-## expand-arguments
+## expand-args
 
 ### ❌ Example of incorrect code
 

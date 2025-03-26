@@ -1,18 +1,17 @@
-'use strict';
+import {types} from 'putout';
+import {applyTryCatch} from '../apply-try-catch.js';
 
-const {types} = require('putout');
-const applyTryCatch = require('../apply-try-catch');
 const {isCallExpression} = types;
 
-module.exports.report = () => 'Use tryCatch instead of try-catch block';
+export const report = () => 'Use tryCatch instead of try-catch block';
 
-module.exports.fix = applyTryCatch('tryCatch');
+export const fix = applyTryCatch('tryCatch');
 
-module.exports.include = () => [
+export const include = () => [
     'TryStatement',
 ];
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const {node} = path;
     const {block, finalizer} = node;
     const {length} = block.body;

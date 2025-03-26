@@ -1,20 +1,17 @@
-'use strict';
-
-const {types} = require('putout');
-
-const applyTryCatch = require('../apply-try-catch');
+import {types} from 'putout';
+import {applyTryCatch} from '../apply-try-catch.js';
 
 const {isAwaitExpression} = types;
 
-module.exports.report = () => `Use 'await tryToCatch()' instead of 'await' in 'try-catch' block`;
+export const report = () => `Use 'await tryToCatch()' instead of 'await' in 'try-catch' block`;
 
-module.exports.fix = applyTryCatch('tryToCatch');
+export const fix = applyTryCatch('tryToCatch');
 
-module.exports.include = () => [
+export const include = () => [
     'TryStatement',
 ];
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const {node} = path;
     
     const {block, finalizer} = node;

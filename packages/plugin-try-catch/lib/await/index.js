@@ -1,11 +1,10 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {awaitExpression} = types;
 
-module.exports.report = () => `Use await with 'tryToCatch'`;
+export const report = () => `Use await with 'tryToCatch'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'tryToCatch(__args)': (vars, path) => {
         if (path.parentPath.isAwaitExpression())
             return false;
@@ -17,7 +16,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'await tryCatch(__args)': 'await tryToCatch(__args)',
     'tryToCatch(__args)': (vars, path) => {
         const fn = path.getFunctionParent();
