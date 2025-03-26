@@ -1,14 +1,9 @@
 'use strict';
 
 const {operator} = require('putout');
-const {
-    renameFile,
-    findFile,
-    getFilename,
-    __filesystem,
-} = operator;
+const {renameFile, getFilename} = operator;
 
-const report = ({mask, from, to}) => {
+const report = (path, {mask, from, to}) => {
     if (!mask)
         return `Rename '${from}' to '${to}'`;
     
@@ -19,7 +14,7 @@ module.exports.renameFileByMask = ({mask, from, to} = {}) => {
     return {
         fix,
         report,
-        traverse: traverse({
+        scan: createScan({
             mask,
             from,
             to,
@@ -27,14 +22,14 @@ module.exports.renameFileByMask = ({mask, from, to} = {}) => {
     };
 };
 
-function fix({path, from, to}) {
+function fix(path, {from, to}) {
     const filename = getFilename(path);
     const newFilename = filename.replace(from, to);
     
     renameFile(path, newFilename);
 }
 
-const traverse = (baseOptions) => ({push, options}) => {
+const createScan = (baseOptions) => (rootPath, {push, options, trackFile}) => {
     const from = options.from || baseOptions.from;
     const to = options.to || baseOptions.to;
     const mask = options.mask || baseOptions.mask;
@@ -42,18 +37,11 @@ const traverse = (baseOptions) => ({push, options}) => {
     if (!from || !to)
         return {};
     
-    return {
-        [__filesystem](path) {
-            const files = findFile(path, mask || from);
-            
-            for (const file of files) {
-                push({
-                    path: file,
-                    from,
-                    to,
-                    mask,
-                });
-            }
-        },
-    };
+    for (const file of trackFile(rootPath, mask || from)) {
+        push(file, {
+            from,
+            to,
+            mask,
+        });
+    }
 };
