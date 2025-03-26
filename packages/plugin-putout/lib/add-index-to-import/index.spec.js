@@ -16,3 +16,8 @@ test('packages: add-index-to-import: transform: add-index-to-import', (t) => {
     t.transform('add-index-to-import');
     t.end();
 });
+
+test('packages: add-index-to-import: no report: cjs', (t) => {
+    t.noReport('cjs');
+    t.end();
+});
