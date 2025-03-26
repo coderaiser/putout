@@ -35,6 +35,9 @@ export const traverse = ({push, listStore}) => ({
 const createImportVisitor = (push) => (path) => {
     const {value} = path.node.source;
     
+    if (value.endsWith('.cjs'))
+        return;
+    
     if (value.endsWith('index.js'))
         return;
     
