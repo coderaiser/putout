@@ -6,13 +6,12 @@ import * as ruleProcessor from './rule-processor.js';
 const cwd = process.cwd();
 
 const {parse, stringify} = JSON;
+const defaultData = stringify({
+    rules: {},
+});
 
 export async function ruler(places, {disable, disableAll, enable, enableAll, readFile, writeFile}) {
     const name = join(cwd, '.putout.json');
-    
-    const defaultData = stringify({
-        rules: {},
-    });
     
     const [, data = defaultData] = await tryToCatch(readFile, name, 'utf8');
     const object = parse(data);
