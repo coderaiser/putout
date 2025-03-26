@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as tryCatch from './index.js';
 
-const {createTest} = require('@putout/test');
-const tryCatch = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['try-catch', tryCatch],
     ],

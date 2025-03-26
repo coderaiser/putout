@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "try-catch": "off"
+    },
     "match": {
         "*.md{js}": {
             "try-catch": "off"

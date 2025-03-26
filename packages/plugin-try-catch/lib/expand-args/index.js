@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => 'try-catch arguments should be expanded';
+export const report = () => `Expand 'tryCatch()' arguments`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'tryCatch(__args)': ({__args}, path) => {
         const [fn] = __args;
         const {name} = fn;
@@ -25,7 +24,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'tryCatch(__args)': ({__args}, path) => {
         const [fn] = __args;
         const {name} = fn;

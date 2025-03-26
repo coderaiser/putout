@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isIdentifier,
     memberExpression,
@@ -12,9 +11,9 @@ const checkMemberExpression = ({__b}) => !isIdentifier(__b, {
     name: 'bind',
 });
 
-module.exports.report = () => `Pass 'fn', then 'args' split by coma`;
+export const report = () => `Pass 'fn', then 'args' split by coma`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'tryCatch(__a.__b(__args))': checkMemberExpression,
     'tryToCatch(__a.__b(__args))': checkMemberExpression,
     
@@ -22,7 +21,7 @@ module.exports.match = () => ({
     'tryToCatch(__a(__args))': checkIdentifier,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'tryCatch(__a.__b(__args))': convertMemberExpressionCallee,
     'tryToCatch(__a.__b(__args))': convertMemberExpressionCallee,
     

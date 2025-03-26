@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     awaitExpression,
     arrayPattern,
@@ -13,7 +12,7 @@ const {
 
 const {replaceWithMultiple} = operator;
 
-module.exports = (tryName) => (path) => {
+export const applyTryCatch = (tryName) => (path) => {
     const expression = parseExpression(path);
     
     const callNode = callExpression(identifier(tryName), [
