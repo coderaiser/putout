@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('packages: rename-test-to-spec: report', (t) => {
-    t.report('rename-test-to-spec', `Rename '*.test.*' to '.spec.*'`);
+    t.report('rename-test-to-spec', `Rename '*.test.*' to '*.spec.*'`);
     t.end();
 });
 
