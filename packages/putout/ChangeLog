@@ -1,3 +1,13 @@
+2025.03.26, v39.2.0
+
+feature:
+- bf0738e89 putout: @putout/cli-process-file v3.0.0
+- a3fa76ab2 putout: @putout/plugin-try-catch v5.0.0
+- f7b1d7af4 @putout/cli-process-file: samadhi v3.0.0
+- e82bb9da2 @putout/cli-process-file: drop support of node < 20
+- 82756c1c3 @putout/cli-process-file: samadhi v3.0.0
+- b4c81b687 @putout/plugin-try-catch: convert to ESM
+
 2025.03.26, v39.1.0
 
 fix:
