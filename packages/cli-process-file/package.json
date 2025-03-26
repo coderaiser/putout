@@ -52,11 +52,11 @@
     "supertape": "^11.0.3"
   },
   "peerDependencies": {
-    "putout": ">=38"
+    "putout": ">=39"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
