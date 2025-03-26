@@ -1,3 +1,16 @@
+2025.03.26, v39.1.0
+
+fix:
+- 78591b068 @putout/plugin-filesystem: convert to ESM
+
+feature:
+- f639fc14e putout: @putout/cli-ruler v4.0.0
+- a73365e22 @putout/cli-ruler: drop support of node < 20
+- 526801988 @putout/cli-ruler: move out stringify
+- 581eee976 @putout/plugin-putout: add-index-to-import: cjs
+- 419b65277 @putout/plugin-filesystem: rename-test-to-spec: simplify
+- 8da42e75b @putout/plugin-vitest: drop support of 🐊 < 39
+
 2025.03.25, v39.0.14
 
 fix:
