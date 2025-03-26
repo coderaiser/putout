@@ -1,5 +1,4 @@
 import {test} from 'supertape';
-
 import * as toSimple from '@putout/plugin-filesystem/to-simple';
 import * as fromSimple from '@putout/plugin-filesystem/from-simple';
 import * as readAllFiles from '@putout/plugin-filesystem/read-all-files';

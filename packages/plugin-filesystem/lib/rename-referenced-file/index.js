@@ -4,7 +4,6 @@ import {
     transform,
     print,
 } from 'putout';
-
 import * as getImportsPlugin from './get-imports.js';
 
 const {
