@@ -1,19 +1,17 @@
-'use strict';
-
-const {
+import {
     basename,
     dirname,
     join,
-} = require('node:path');
+} from 'node:path';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     setLiteralValue,
     getProperties,
 } = operator;
 
-module.exports.report = (path, {from, to}) => `Replace '${from}' to '${to}'`;
-module.exports.fix = (file, {from, to}) => {
+export const report = (path, {from, to}) => `Replace '${from}' to '${to}'`;
+export const fix = (file, {from, to}) => {
     const {filenamePath} = getProperties(file, ['filename']);
     const value = maybeCutSlash(filenamePath.node.value.value);
     
@@ -37,7 +35,7 @@ module.exports.fix = (file, {from, to}) => {
     setLiteralValue(filenamePath.get('value'), name);
 };
 
-module.exports.scan = (path, {push, options, trackFile}) => {
+export const scan = (path, {push, options, trackFile}) => {
     let {from, to} = options;
     
     if (!from || !to)

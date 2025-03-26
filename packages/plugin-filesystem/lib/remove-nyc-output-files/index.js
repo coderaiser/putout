@@ -1,5 +1,13 @@
-'use strict';
+import {createRemoveFiles} from '../create-remove-files.js';
 
-const {createRemoveFiles} = require('../create-remove-files');
+const {
+    report,
+    fix,
+    scan,
+} = createRemoveFiles('.nyc_output');
 
-module.exports = createRemoveFiles('.nyc_output');
+export {
+    report,
+    fix,
+    scan,
+};

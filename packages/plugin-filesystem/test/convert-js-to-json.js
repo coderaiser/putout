@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as filesystem from '../lib/index.js';
 
-const {createTest} = require('@putout/test');
-const filesystem = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     rules: {
         'filesystem/convert-js-to-json': ['on', {
             filename: 'package.json',

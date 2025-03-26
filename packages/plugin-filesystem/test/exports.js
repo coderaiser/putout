@@ -1,19 +1,15 @@
-'use strict';
+import {test} from 'supertape';
 
-const {test} = require('supertape');
-const toSimple = require('@putout/plugin-filesystem/to-simple');
-const fromSimple = require('@putout/plugin-filesystem/from-simple');
-const readAllFiles = require('@putout/plugin-filesystem/read-all-files');
-const writeAllFiles = require('@putout/plugin-filesystem/write-all-files');
-const replaceCwd = require('@putout/plugin-filesystem/replace-cwd');
-
-const convertFilesystemToSimpleFilesystem = require('../lib/convert-filesystem-to-simple-filesystem');
-const convertSimpleFilesystemToFilesystem = require('../lib/convert-simple-filesystem-to-filesystem');
-
-const readAllFilesOriginal = require('../lib/read-all-files');
-const writeAllFilesOriginal = require('../lib/write-all-files');
-
-const replaceCwdOriginal = require('../lib/replace-cwd');
+import * as toSimple from '@putout/plugin-filesystem/to-simple';
+import * as fromSimple from '@putout/plugin-filesystem/from-simple';
+import * as readAllFiles from '@putout/plugin-filesystem/read-all-files';
+import * as writeAllFiles from '@putout/plugin-filesystem/write-all-files';
+import * as replaceCwd from '@putout/plugin-filesystem/replace-cwd';
+import * as convertFilesystemToSimpleFilesystem from '../lib/convert-filesystem-to-simple-filesystem/index.cjs';
+import * as convertSimpleFilesystemToFilesystem from '../lib/convert-simple-filesystem-to-filesystem/index.cjs';
+import * as readAllFilesOriginal from '../lib/read-all-files/index.js';
+import * as writeAllFilesOriginal from '../lib/write-all-files/index.js';
+import * as replaceCwdOriginal from '../lib/replace-cwd/index.js';
 
 test('@putout/plugin-filesystem: exports: toSimple', (t) => {
     t.equal(toSimple, convertFilesystemToSimpleFilesystem);

@@ -1,9 +1,17 @@
-'use strict';
+import {renameFileByMask} from '../rename-file-by-mask.js';
 
-const {renameFileByMask} = require('../rename-file-by-mask');
-
-module.exports = renameFileByMask({
+const {
+    report,
+    fix,
+    scan,
+} = renameFileByMask({
     mask: '*.spec.*',
     from: 'spec',
     to: 'test',
 });
+
+export {
+    report,
+    fix,
+    scan,
+};

@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {renameFile, getFilename} = operator;
 
 const report = (path, {mask, from, to}) => {
@@ -10,7 +9,7 @@ const report = (path, {mask, from, to}) => {
     return `Rename '${mask}' to '${mask.replace(from, to)}'`;
 };
 
-module.exports.renameFileByMask = ({mask, from, to} = {}) => {
+export const renameFileByMask = ({mask, from, to} = {}) => {
     return {
         fix,
         report,

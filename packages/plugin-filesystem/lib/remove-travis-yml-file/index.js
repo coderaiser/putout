@@ -1,5 +1,13 @@
-'use strict';
+import {createRemoveFiles} from '../create-remove-files.js';
 
-const {createRemoveFiles} = require('../create-remove-files');
+const {
+    report,
+    fix,
+    scan,
+} = createRemoveFiles('.travis.yml');
 
-module.exports = createRemoveFiles('.travis.yml');
+export {
+    report,
+    fix,
+    scan,
+};

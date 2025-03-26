@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     readDirectory,
     getFileType,
@@ -8,16 +7,16 @@ const {
     removeEmptyDirectory,
 } = operator;
 
-module.exports.report = (dirPath) => {
+export const report = (dirPath) => {
     const name = getFilename(dirPath);
     return `Remove empty directory '${name}'`;
 };
 
-module.exports.fix = (dirPath) => {
+export const fix = (dirPath) => {
     removeEmptyDirectory(dirPath);
 };
 
-module.exports.scan = (path, {push, trackFile}) => {
+export const scan = (path, {push, trackFile}) => {
     for (const dirPath of trackFile(path, '*')) {
         const type = getFileType(dirPath);
         

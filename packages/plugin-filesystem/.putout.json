@@ -1,4 +1,18 @@
 {
+    "rules": {
+        "putout/apply-exports": ["on", {
+            "renameFileByMask": [
+                "report",
+                "fix",
+                "scan"
+            ],
+            "createRemoveFiles": [
+                "report",
+                "fix",
+                "scan"
+            ]
+        }]
+    },
     "match": {
         "*.md": {
             "putout-config/remove-empty": "off"

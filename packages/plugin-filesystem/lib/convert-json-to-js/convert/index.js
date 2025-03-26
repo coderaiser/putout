@@ -1,10 +1,9 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {__json} = operator;
 
-module.exports.report = () => `Convert '*.json' to '*.js'`;
+export const report = () => `Convert '*.json' to '*.js'`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [__json]: 'export default __object',
 });

@@ -1,15 +1,15 @@
 {
   "name": "@putout/plugin-filesystem",
   "version": "9.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin operates with filesystem",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-filesystem#readme",
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
-    "./to-simple": "./lib/convert-filesystem-to-simple-filesystem/index.js",
-    "./from-simple": "./lib/convert-simple-filesystem-to-filesystem/index.js",
+    "./to-simple": "./lib/convert-filesystem-to-simple-filesystem/index.cjs",
+    "./from-simple": "./lib/convert-simple-filesystem-to-filesystem/index.cjs",
     "./read-all-files": "./lib/read-all-files/index.js",
     "./write-all-files": "./lib/write-all-files/index.js",
     "./replace-cwd": "./lib/replace-cwd/index.js"

@@ -1,18 +1,15 @@
-'use strict';
-
-const {
+import {
     join,
     dirname,
     relative,
     basename,
-} = require('node:path');
-
-const {
+} from 'node:path';
+import {
     operator,
     parse,
     transform,
     print,
-} = require('putout');
+} from 'putout';
 
 const {
     readFileContent,
@@ -52,9 +49,9 @@ const getImportsPlugin = {
     }),
 };
 
-module.exports.report = (file, {mainFilename, nextName}) => `Move '${mainFilename}' to '${nextName}'`;
+export const report = (file, {mainFilename, nextName}) => `Move '${mainFilename}' to '${nextName}'`;
 
-module.exports.fix = (file, {cwd, nextName, mainFile, mainDirectory, mainFilename, ast, content}) => {
+export const fix = (file, {cwd, nextName, mainFile, mainDirectory, mainFilename, ast, content}) => {
     moveFile(mainFile, mainDirectory);
     
     transform(ast, content, {
@@ -74,7 +71,7 @@ module.exports.fix = (file, {cwd, nextName, mainFile, mainDirectory, mainFilenam
     writeFileContent(file, code);
 };
 
-module.exports.scan = (path, {push, options}) => {
+export const scan = (path, {push, options}) => {
     const {name, directory} = options;
     
     if (!name || !directory)

@@ -1,7 +1,6 @@
-'use strict';
+import {basename} from 'node:path';
+import {operator} from 'putout';
 
-const {basename} = require('node:path');
-const {operator} = require('putout');
 const id = (a) => a;
 
 const {
@@ -18,8 +17,8 @@ const maybeArray = (a) => isArray(a) ? a : [a];
 const {entries} = Object;
 const {isArray} = Array;
 
-module.exports.report = () => `Minify css`;
-module.exports.fix = (rootPath, {dist, fileGroups}) => {
+export const report = () => `Minify css`;
+export const fix = (rootPath, {dist, fileGroups}) => {
     const distDirectory = createDirectory(rootPath, dist);
     
     for (const [name, content] of entries(fileGroups)) {
@@ -46,7 +45,7 @@ const mark = (a) => a.__putout_filesystem_processed = true;
 const isMarked = (a) => a.__putout_filesystem_processed;
 const process = (file, transform, config) => transform(readFileContent(file), config);
 
-module.exports.scan = (rootPath, {push, options}) => {
+export const scan = (rootPath, {push, options}) => {
     const {
         transform = id,
         groups = [],

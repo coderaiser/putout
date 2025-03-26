@@ -1,5 +1,13 @@
-'use strict';
+import {renameFileByMask} from '../rename-file-by-mask.js';
 
-const {renameFileByMask} = require('../rename-file-by-mask');
+const {
+    report,
+    fix,
+    scan,
+} = renameFileByMask();
 
-module.exports = renameFileByMask();
+export {
+    report,
+    fix,
+    scan,
+};

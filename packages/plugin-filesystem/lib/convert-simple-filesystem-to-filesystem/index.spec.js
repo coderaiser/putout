@@ -1,14 +1,12 @@
-'use strict';
-
-const tryCatch = require('try-catch');
-const {createTest} = require('@putout/test');
-const plugin = require('.');
+import tryCatch from 'try-catch';
+import {createTest} from '@putout/test';
+import * as plugin from './index.cjs';
 
 const CHECK_ASSERTIONS_COUNT = {
     checkAssertionsCount: false,
 };
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-simple-filesystem-to-filesystem', plugin],
     ],
