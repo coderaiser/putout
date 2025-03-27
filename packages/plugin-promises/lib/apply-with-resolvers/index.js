@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove, getBindingPath} = operator;
 
 const PROMISE = `
@@ -10,9 +9,9 @@ const PROMISE = `
     });
 `;
 
-module.exports.report = () => `Apply 'Promise.withResolvers()'`;
+export const report = () => `Apply 'Promise.withResolvers()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     [PROMISE]: ({__c, __d}, path) => {
         if (!getBindingPath(path, __c.name))
             return false;
@@ -21,7 +20,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [PROMISE]: ({__c, __d, __p, __a, __b}, path) => {
         remove(getBindingPath(path, __c.name));
         remove(getBindingPath(path, __d.name));

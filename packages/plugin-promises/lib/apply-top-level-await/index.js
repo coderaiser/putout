@@ -1,7 +1,7 @@
-'use strict';
+import fullstore from 'fullstore';
+import {operator} from 'putout';
 
-const fullstore = require('fullstore');
-const {replaceWithMultiple} = require('putout').operator;
+const {replaceWithMultiple} = operator;
 
 const add = ({push, isImports, isExports}) => (path) => {
     const calleePath = path.get('callee');
@@ -17,14 +17,14 @@ const add = ({push, isImports, isExports}) => (path) => {
     push(path);
 };
 
-module.exports.report = () => `Use top level 'await'`;
+export const report = () => `Use top level 'await'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {body} = path.get('callee.body').node;
     replaceWithMultiple(path, body);
 };
 
-module.exports.traverse = ({push}) => {
+export const traverse = ({push}) => {
     const isExports = fullstore();
     const isImports = fullstore();
     

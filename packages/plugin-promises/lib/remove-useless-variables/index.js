@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove, rename} = operator;
 
-module.exports.report = () => `'Promise.resolve()' has no sense in async function`;
+export const report = () => `'Promise.resolve()' has no sense in async function`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {node} = path;
     const [declaratorPath, declarationPath] = parseParent(path);
     
@@ -17,7 +16,7 @@ module.exports.fix = (path) => {
     remove(declarationPath);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     AwaitExpression(path) {
         const argumentPath = path.get('argument');
         const declaratorPath = path.parentPath;

@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith} = operator;
 const {
@@ -8,9 +6,9 @@ const {
     awaitExpression,
 } = types;
 
-module.exports.report = () => `Use 'await' near 'import' call`;
+export const report = () => `Use 'await' near 'import' call`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'import(__a)'(vars, path) {
         if (!path.parentPath.isVariableDeclarator())
             return false;
@@ -19,7 +17,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'import(__a)'(vars, path) {
         const fnPath = path.findParent(isFunction);
         

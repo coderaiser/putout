@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as applyTopLevelAwait from './index.js';
 
-const {createTest} = require('@putout/test');
-const applyTopLevelAwait = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['apply-top-level-await', applyTopLevelAwait],
     ],

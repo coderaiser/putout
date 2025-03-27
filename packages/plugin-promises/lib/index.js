@@ -1,18 +1,16 @@
-'use strict';
+import * as removeUselessResolve from './remove-useless-resolve/index.js';
+import * as convertRejectToThrow from './convert-reject-to-throw/index.js';
+import * as convertNewPromiseToAsync from './convert-new-promise-to-async/index.js';
+import * as addMissingAwait from './add-missing-await/index.js';
+import * as addMissingAsync from './add-missing-async/index.js';
+import * as applyAwaitImport from './apply-await-import/index.js';
+import * as applyTopLevelAwait from './apply-top-level-await/index.js';
+import * as removeUselessAsync from './remove-useless-async/index.js';
+import * as removeUselessAwait from './remove-useless-await/index.js';
+import * as removeUselessVariables from './remove-useless-variables/index.js';
+import * as applyWithResolvers from './apply-with-resolvers/index.js';
 
-const removeUselessResolve = require('./remove-useless-resolve');
-const convertRejectToThrow = require('./convert-reject-to-throw');
-const convertNewPromiseToAsync = require('./convert-new-promise-to-async');
-const addMissingAwait = require('./add-missing-await');
-const addMissingAsync = require('./add-missing-async');
-const applyAwaitImport = require('./apply-await-import');
-const applyTopLevelAwait = require('./apply-top-level-await');
-const removeUselessAsync = require('./remove-useless-async');
-const removeUselessAwait = require('./remove-useless-await');
-const removeUselessVariables = require('./remove-useless-variables');
-const applyWithResolvers = require('./apply-with-resolvers');
-
-module.exports.rules = {
+export const rules = {
     'remove-useless-resolve': removeUselessResolve,
     'convert-reject-to-throw': convertRejectToThrow,
     'convert-new-promise-to-async': convertNewPromiseToAsync,

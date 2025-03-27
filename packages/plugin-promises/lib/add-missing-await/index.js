@@ -1,14 +1,13 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isIdentifier,
     awaitExpression,
 } = types;
 
-module.exports.report = () => `Call async functions using 'await'`;
+export const report = () => `Call async functions using 'await'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '__a(__args)': ({__a}, path) => {
         if (!isIdentifier(__a))
             return false;
@@ -41,7 +40,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a(__args)': (vars, path) => {
         const fnPath = path.getFunctionParent();
         

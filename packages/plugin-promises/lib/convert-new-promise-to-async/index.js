@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     returnStatement,
     throwStatement,
@@ -18,9 +17,9 @@ const isPassedToFn = (path) => {
     return parentPath.get('callee') !== path;
 };
 
-module.exports.report = () => `Async functions should be used instead of 'new Promise()'`;
+export const report = () => `Async functions should be used instead of 'new Promise()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'return new Promise(__a)': (vars, path) => {
         const {scope} = path.get('argument.arguments.0');
         const {resolve, reject} = scope.bindings;
@@ -48,7 +47,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'return new Promise(__a)'({__a}, path) {
         const {scope} = path.get('argument.arguments.0');
         

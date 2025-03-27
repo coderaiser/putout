@@ -1,12 +1,10 @@
-'use strict';
+export const report = () => `Add missing 'async'`;
 
-module.exports.report = () => `Add missing 'async'`;
-
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.node.async = true;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     AwaitExpression(path) {
         const fnPath = path.getFunctionParent();
         

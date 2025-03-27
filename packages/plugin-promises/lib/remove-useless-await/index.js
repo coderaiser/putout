@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {traverse} = operator;
 
-module.exports.report = () => `Avoid useless 'await'`;
+export const report = () => `Avoid useless 'await'`;
 
-module.exports.exclude = () => [
+export const exclude = () => [
     'await new Promise(__args)',
     'await __a.__b?.(__args)',
     'await __a?.(__args)',
@@ -15,12 +14,12 @@ module.exports.exclude = () => [
     'await import(__a, __b)',
 ];
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'await await __a': 'await __a',
     'await __a': '__a',
 });
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const argumentPath = path.get('argument');
     
     if (argumentPath.isTaggedTemplateExpression())
