@@ -1,3 +1,23 @@
+2025.03.27, v39.3.0
+
+fix:
+- 08a13b0e4 @putout/plugin-filesystem: convert to ESM
+
+feature:
+- e3f030a24 putout: @putout/plugin-promises v17.0.0
+- c30003a77 @putout/plugin-promises: convert to ESM
+- c96e6ba57 putout: @putout/cli-process-file v3.0.0
+- c8cf25c26 putout: @putout/plugin-try-catch v5.0.0
+- eba82d546 @putout/cli-process-file: samadhi v3.0.0
+- 6fcd1a664 @putout/cli-process-file: drop support of node < 20
+- 00a6beba7 @putout/cli-process-file: samadhi v3.0.0
+- b2bf47047 @putout/plugin-try-catch: convert to ESM
+- b6ec47eeb putout: @putout/cli-ruler v4.0.0
+- a524b64a7 @putout/cli-ruler: drop support of node < 20
+- ab358222f @putout/cli-ruler: move out stringify
+- 02e6f8fdd @putout/plugin-putout: add-index-to-import: cjs
+- 299a85ed0 @putout/plugin-filesystem: rename-test-to-spec: simplify
+
 2025.03.26, v39.2.0
 
 feature:
