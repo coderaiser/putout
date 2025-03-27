@@ -1,7 +1,5 @@
-'use strict';
+import * as replacePluginWithCreator from './replace-plugin-with-creator/index.js';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
-
-module.exports.rules = getRule('replace-plugin-with-creator');
+export const rules = {
+    'replace-plugin-with-creator': replacePluginWithCreator,
+};

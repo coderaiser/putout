@@ -1,10 +1,8 @@
-'use strict';
-
-const {
+import {
     operator,
     template,
     types,
-} = require('putout');
+} from 'putout';
 
 const {
     objectExpression,
@@ -17,9 +15,9 @@ const {traverse, insertAfter} = operator;
 
 const booleanExport = template.ast('module.exports.postcss = true');
 
-module.exports.report = () => 'creator should be used instead of plugin';
+export const report = () => 'creator should be used instead of plugin';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'module.exports = __(__a, __b)': ({__a, __b}, path) => {
         path.node.right = __b;
         

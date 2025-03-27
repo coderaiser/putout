@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as replacePluginWithCreator from './index.js';
 
-const {createTest} = require('@putout/test');
-const replacePluginWithCreator = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['postcss/replace-plugin-with-creator', replacePluginWithCreator],
     ],
