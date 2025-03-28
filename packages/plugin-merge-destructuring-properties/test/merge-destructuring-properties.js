@@ -50,6 +50,16 @@ test('plugin-merge-destructuring-properties: no report: no-init', (t) => {
     t.end();
 });
 
+test('plugin-merge-destructuring-properties: transform: assignment', (t) => {
+    t.transform('assignment');
+    t.end();
+});
+
+test('plugin-merge-destructuring-properties: no report: assignment-rest', (t) => {
+    t.noReport('assignment-rest');
+    t.end();
+});
+
 test('plugin-merge-destructuring-properties: transform: putout-declare', (t) => {
     t.transform('putout-declare', {
         'putout/declare': declare,

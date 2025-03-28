@@ -1,0 +1,5 @@
+({
+    from,
+    to,
+    names,
+} = data);

@@ -14,10 +14,23 @@ export const report = () => 'Merge object properties when destructuring';
 export const fix = ({path, places}) => {
     const {node} = path;
     
+    if (path.isVariableDeclarator()) {
+        for (const place of places) {
+            node.id.properties = [
+                ...node.id.properties,
+                ...place.node.id.properties,
+            ];
+            
+            remove(place);
+        }
+        
+        return;
+    }
+    
     for (const place of places) {
-        node.id.properties = [
-            ...node.id.properties,
-            ...place.node.id.properties,
+        node.left.properties = [
+            ...node.left.properties,
+            ...place.node.left.properties,
         ];
         
         remove(place);
@@ -30,6 +43,19 @@ export const traverse = ({push, store}) => {
     });
     
     return {
+        AssignmentExpression(path) {
+            const {left, right} = path.node;
+            
+            if (!isObjectPattern(left))
+                return;
+            
+            for (const property of left.properties) {
+                if (isRestElement(property))
+                    return;
+            }
+            
+            add(path, right);
+        },
         VariableDeclarator(path) {
             const {id, init} = path.node;
             
@@ -58,8 +84,9 @@ export const traverse = ({push, store}) => {
 
 const createUID = (path) => {
     const {uid} = path.scope;
+    const name = path.isVariableDeclarator() ? 'init' : 'right';
     
-    const str = `${uid}-${path.get('init').toString()}`;
+    const str = `${uid}-${path.get(name).toString()}`;
     
     return str.replace(/['"`]/g, '*');
 };
@@ -85,9 +112,16 @@ const addVariable = ({store}) => (path, node) => {
     if (currentPath.parentPath.removed)
         return;
     
-    const is = compare(currentPath.node.init, node);
+    let is;
     
-    if (is && sameKind(path, currentPath))
+    if (currentPath.isVariableDeclarator()) {
+        is = compare(currentPath.node.init, node);
+        is = is && sameKind(path, currentPath);
+    } else {
+        is = compare(currentPath.node.right, node);
+    }
+    
+    if (is)
         currentVar.places.push(path);
 };
 
