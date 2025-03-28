@@ -11,7 +11,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-merge-destructuring-properties: report: object', (t) => {
-    t.report('object', 'Object properties should be merged when destructuring');
+    t.report('object', 'Merge object properties when destructuring');
     t.end();
 });
 

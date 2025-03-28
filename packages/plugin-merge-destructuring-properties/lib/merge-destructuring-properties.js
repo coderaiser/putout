@@ -9,7 +9,7 @@ const {
 
 const notEmptyPlaces = (a) => a.places.length;
 
-export const report = () => 'Object properties should be merged when destructuring';
+export const report = () => 'Merge object properties when destructuring';
 
 export const fix = ({path, places}) => {
     const {node} = path;
