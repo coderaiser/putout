@@ -1,4 +1,5 @@
 const {assign: a} = Object, g = null;
+
 function b() {}
 
 function c() {
@@ -13,6 +14,7 @@ var A = {
     context: void 0,
     registry: void 0,
 };
+
 function f(e) {
     A.context = e;
 }
@@ -29,6 +31,7 @@ function i() {
 }
 
 const [j] = h(!1);
+
 function k() {
     return [j, i];
 }

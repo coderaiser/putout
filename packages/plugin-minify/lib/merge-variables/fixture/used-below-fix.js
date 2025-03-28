@@ -1,4 +1,5 @@
 const {assign} = Object;
+
 function workLoop() {}
 
 function flushWork() {

@@ -8,7 +8,7 @@ function A() {
     function e() {
         return A;
     }
-
+    
     const f = 55;
     
     return a;
