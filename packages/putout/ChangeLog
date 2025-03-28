@@ -1,3 +1,15 @@
+2025.03.28, v39.4.0
+
+feature:
+- b3c0a7b37 putout: @putout/plugin-merge-destructuring-properties v11.0.0
+- a4c99901c @putout/plugin-merge-destructuring-properties: AssignmentExpression
+- 3078ca324 @putout/plugin-merge-destructuring-properties: assignment
+- 67a6096e9 @putout/plugin-merge-destructuring-properties: report
+- 881fc650a @putout/plugin-merge-destructuring-properties: migrate to ESM
+- be1a24f36 @putout/test: @putout/cli-process-file v3.0.0
+- 02d3ad659 @putout/plugin-react-router: convert to ESM
+- 0febc6c13 @putout/plugin-postcss: convert tot ESM
+
 2025.03.27, v39.3.0
 
 fix:
