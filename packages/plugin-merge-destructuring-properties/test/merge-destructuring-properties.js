@@ -1,13 +1,12 @@
-'use strict';
+import {createTest} from '@putout/test';
+import {rules} from '@putout/plugin-putout';
+import * as tape from '@putout/plugin-tape';
+import * as convert from '@putout/plugin-nodejs/convert-commonjs-to-esm';
+import * as mergeDestructuringProperties from '../lib/merge-destructuring-properties.js';
 
-const {createTest} = require('@putout/test');
-const {declare} = require('@putout/plugin-putout').rules;
-const tape = require('@putout/plugin-tape');
-const convert = require('@putout/plugin-nodejs/convert-commonjs-to-esm');
+const {declare} = rules;
 
-const mergeDestructuringProperties = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     'merge-destructuring-properties': mergeDestructuringProperties,
 });
 

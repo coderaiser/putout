@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {compare, remove} = operator;
 
 const {
@@ -10,9 +9,9 @@ const {
 
 const notEmptyPlaces = (a) => a.places.length;
 
-module.exports.report = () => 'Object properties should be merged when destructuring';
+export const report = () => 'Object properties should be merged when destructuring';
 
-module.exports.fix = ({path, places}) => {
+export const fix = ({path, places}) => {
     const {node} = path;
     
     for (const place of places) {
@@ -25,7 +24,7 @@ module.exports.fix = ({path, places}) => {
     }
 };
 
-module.exports.traverse = ({push, store}) => {
+export const traverse = ({push, store}) => {
     const add = addVariable({
         store,
     });
