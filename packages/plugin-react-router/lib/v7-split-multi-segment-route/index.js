@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     stringLiteral,
     identifier,
@@ -15,9 +14,9 @@ const {
     getProperties,
 } = operator;
 
-module.exports.report = () => `Split multi-segment splat <Route`;
+export const report = () => `Split multi-segment splat <Route`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '<Route path="__a" element={__b} />': ({__a}) => {
         const {value} = __a;
         
@@ -41,7 +40,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '<Route path="__a" element={__b} />': ({__a}) => {
         const [name, mask] = __a.value.split(`/`);
         

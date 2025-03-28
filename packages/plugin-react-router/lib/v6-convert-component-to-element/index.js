@@ -1,17 +1,16 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     JSXIdentifier,
     JSXOpeningElement,
     JSXElement,
 } = types;
 
-module.exports.report = () => `Use 'element' instead of 'component'`;
+export const report = () => `Use 'element' instead of 'component'`;
 
 const SELF_CLOSING = true;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     for (const attr of path.node.attributes) {
         if (attr.name.name !== 'component')
             continue;
@@ -28,7 +27,7 @@ module.exports.fix = (path) => {
     }
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     JSXOpeningElement(path) {
         if (path.node.name.name !== 'Route')
             return;

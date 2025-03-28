@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {rename} = operator;
 
-module.exports.report = () => `Use 'Routes' instead of 'Switch'`;
+export const report = () => `Use 'Routes' instead of 'Switch'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     rename(path, 'Switch', 'Routes');
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     Program(path) {
         const {Switch} = path.scope.bindings;
         
