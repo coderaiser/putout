@@ -5,36 +5,25 @@ const {compare, remove} = operator;
 const {
     isObjectPattern,
     isRestElement,
+    isAssignmentExpression,
 } = types;
 
 const notEmptyPlaces = (a) => a.places.length;
 
+const LEFT = {
+    VariableDeclarator: 'id',
+    AssignmentExpression: 'left',
+};
+
+const RIGHT = {
+    VariableDeclarator: 'init',
+    AssignmentExpression: 'right',
+};
+
 export const report = () => 'Merge object properties when destructuring';
 
 export const fix = ({path, places}) => {
-    const {node} = path;
-    
-    if (path.isVariableDeclarator()) {
-        for (const place of places) {
-            node.id.properties = [
-                ...node.id.properties,
-                ...place.node.id.properties,
-            ];
-            
-            remove(place);
-        }
-        
-        return;
-    }
-    
-    for (const place of places) {
-        node.left.properties = [
-            ...node.left.properties,
-            ...place.node.left.properties,
-        ];
-        
-        remove(place);
-    }
+    merge(path, places);
 };
 
 export const traverse = ({push, store}) => {
@@ -43,8 +32,11 @@ export const traverse = ({push, store}) => {
     });
     
     return {
-        AssignmentExpression(path) {
-            const {left, right} = path.node;
+        'VariableDeclarator|AssignmentExpression'(path) {
+            const {left, right} = split(path);
+            
+            if (!right)
+                return;
             
             if (!isObjectPattern(left))
                 return;
@@ -55,22 +47,6 @@ export const traverse = ({push, store}) => {
             }
             
             add(path, right);
-        },
-        VariableDeclarator(path) {
-            const {id, init} = path.node;
-            
-            if (!init)
-                return;
-            
-            if (!isObjectPattern(id))
-                return;
-            
-            for (const property of id.properties) {
-                if (isRestElement(property))
-                    return;
-            }
-            
-            add(path, init);
         },
         Program: {
             exit() {
@@ -84,7 +60,8 @@ export const traverse = ({push, store}) => {
 
 const createUID = (path) => {
     const {uid} = path.scope;
-    const name = path.isVariableDeclarator() ? 'init' : 'right';
+    const {type} = path;
+    const name = RIGHT[type];
     
     const str = `${uid}-${path.get(name).toString()}`;
     
@@ -112,17 +89,14 @@ const addVariable = ({store}) => (path, node) => {
     if (currentPath.parentPath.removed)
         return;
     
-    let is;
+    const {type} = currentPath;
+    const name = RIGHT[type];
     
-    if (currentPath.isVariableDeclarator()) {
-        is = compare(currentPath.node.init, node);
-        is = is && sameKind(path, currentPath);
-    } else {
-        is = compare(currentPath.node.right, node);
-    }
+    if (isAssignmentExpression(currentPath) && compare(currentPath.node[name], node))
+        return currentVar.places.push(path);
     
-    if (is)
-        currentVar.places.push(path);
+    if (sameKind(path, currentPath))
+        return currentVar.places.push(path);
 };
 
 function sameKind(path1, path2) {
@@ -130,4 +104,32 @@ function sameKind(path1, path2) {
     const kind2 = path2.parentPath.node.kind;
     
     return kind1 === kind2;
+}
+
+function split(path) {
+    const {type} = path;
+    const leftName = LEFT[type];
+    const rightName = RIGHT[type];
+    const left = path.node[leftName];
+    const right = path.node[rightName];
+    
+    return {
+        left,
+        right,
+    };
+}
+
+function merge(path, places) {
+    const {node, type} = path;
+    
+    const name = LEFT[type];
+    
+    for (const place of places) {
+        node[name].properties = [
+            ...node[name].properties,
+            ...place.node[name].properties,
+        ];
+        
+        remove(place);
+    }
 }
