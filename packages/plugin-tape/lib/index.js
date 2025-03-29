@@ -1,49 +1,46 @@
-'use strict';
+import * as applyStub from './apply-stub/index.js';
+import * as applyDestructuring from './apply-destructuring/index.js';
+import * as applyWithName from './apply-with-name/index.js';
+import * as addAwaitToReImport from './add-await-to-re-import/index.js';
+import * as jest from './jest/index.js';
+import * as syncWithName from './sync-with-name/index.js';
+import * as convertTapeToSupertape from './convert-tape-to-supertape/index.js';
+import * as convertThrowsToTryCatch from './convert-throws-to-try-catch/index.js';
+import * as convertDoesNotThrowToTryCatch from './convert-does-not-throw-to-try-catch/index.js';
+import * as convertCalledWithToCalledWithNoArgs from './convert-called-with-to-called-with-no-args/index.js';
+import * as convertCalledWithArgs from './convert-called-with-args/index.js';
+import * as convertCalledWithNoArgsToCalledWith from './convert-called-with-no-args-to-called-with/index.js';
+import * as convertEmitterToPromise from './convert-emitter-to-promise/index.js';
+import * as convertOkToMatch from './convert-ok-to-match/index.js';
+import * as convertOkToCalledWith from './convert-ok-to-called-with/index.js';
+import * as convertMatchRegexpToString from './convert-match-regexp-to-string/index.js';
+import * as convertEqualToNotOk from './convert-equal-to-not-ok/index.js';
+import * as convertEqualToDeepEqual from './convert-equal-to-deep-equal/index.js';
+import * as convertEqualToOk from './convert-equal-to-ok/index.js';
+import * as convertEqualToCalledOnce from './convert-equal-to-called-once/index.js';
+import * as convertDeepEqualToEqual from './convert-deep-equal-to-equal/index.js';
+import * as convertMockRequireToMockImport from './convert-mock-require-to-mock-import/index.js';
+import * as addArgs from './add-args/index.js';
+import * as declare from './declare/index.js';
+import * as removeDefaultMessages from './remove-default-messages/index.js';
+import * as removeUselessNotCalledArgs from './remove-useless-not-called-args/index.js';
+import * as switchExpectedWithResult from './switch-expected-with-result/index.js';
+import * as addTEnd from './add-t-end/index.js';
+import * as addStopAll from './add-stop-all/index.js';
+import * as removeStopAll from './remove-stop-all/index.js';
+import * as removeUselessTEnd from './remove-useless-t-end/index.js';
+import * as removeOnly from './remove-only/index.js';
+import * as removeSkip from './remove-skip/index.js';
+import * as convertEqualsToEqual from './convert-equals-to-equal/index.js';
+import * as addNodePrefixToMockRequire from './add-node-prefix-to-mock-require/index.js';
 
-const applyStub = require('./apply-stub');
-const applyDestructuring = require('./apply-destructuring');
-const applyWithName = require('./apply-with-name');
-const addAwaitToReImport = require('./add-await-to-re-import');
-const jest = require('./jest');
-const syncWithName = require('./sync-with-name');
-const convertTapeToSupertape = require('./convert-tape-to-supertape');
-const convertThrowsToTryCatch = require('./convert-throws-to-try-catch');
-const convertDoesNotThrowToTryCatch = require('./convert-does-not-throw-to-try-catch');
-const convertCalledWithToCalledWithNoArgs = require('./convert-called-with-to-called-with-no-args');
-const convertCalledWithArgs = require('./convert-called-with-args');
-const convertCalledWithNoArgsToCalledWith = require('./convert-called-with-no-args-to-called-with');
-const convertEmitterToPromise = require('./convert-emitter-to-promise');
-const convertOkToMatch = require('./convert-ok-to-match');
-const convertOkToCalledWith = require('./convert-ok-to-called-with');
-const convertMatchRegexpToString = require('./convert-match-regexp-to-string');
-const convertEqualToNotOk = require('./convert-equal-to-not-ok');
-const convertEqualToDeepEqual = require('./convert-equal-to-deep-equal');
-const convertEqualToOk = require('./convert-equal-to-ok');
-const convertEqualToCalledOnce = require('./convert-equal-to-called-once');
-const convertDeepEqualToEqual = require('./convert-deep-equal-to-equal');
-const convertMockRequireToMockImport = require('./convert-mock-require-to-mock-import');
-const addArgs = require('./add-args');
-const declare = require('./declare');
-const removeDefaultMessages = require('./remove-default-messages');
-const removeUselessNotCalledArgs = require('./remove-useless-not-called-args');
-const switchExpectedWithResult = require('./switch-expected-with-result');
-const addTEnd = require('./add-t-end');
-const addStopAll = require('./add-stop-all');
-const removeStopAll = require('./remove-stop-all');
-const removeUselessTEnd = require('./remove-useless-t-end');
-const removeOnly = require('./remove-only');
-const removeSkip = require('./remove-skip');
-const convertEqualsToEqual = require('./convert-equals-to-equal');
-const addNodePrefixToMockRequire = require('./add-node-prefix-to-mock-require');
-
-module.exports.rules = {
+export const rules = {
     'convert-mock-require-to-mock-import': ['off', convertMockRequireToMockImport],
-    
     'apply-stub': applyStub,
     'apply-destructuring': applyDestructuring,
     'apply-with-name': applyWithName,
     'add-await-to-re-import': addAwaitToReImport,
-    jest,
+    'jest': jest,
     'sync-with-name': syncWithName,
     'convert-tape-to-supertape': convertTapeToSupertape,
     'convert-throws-to-try-catch': convertThrowsToTryCatch,
@@ -62,7 +59,7 @@ module.exports.rules = {
     'convert-equals-to-equal': convertEqualsToEqual,
     'convert-deep-equal-to-equal': convertDeepEqualToEqual,
     'add-args': addArgs,
-    declare,
+    'declare': declare,
     'remove-default-messages': removeDefaultMessages,
     'remove-useless-not-called-args': removeUselessNotCalledArgs,
     'switch-expected-with-result': switchExpectedWithResult,

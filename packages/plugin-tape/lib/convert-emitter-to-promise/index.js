@@ -1,11 +1,9 @@
-'use strict';
-
-const {
+import {
     generate,
     operator,
     template,
     types,
-} = require('putout');
+} from 'putout';
 
 const {
     compare,
@@ -22,14 +20,14 @@ const onceEnd = template(`await once(%%emitter%%, 'end')`);
 const onceError = template(`const [%%error%%] = await once(%%emitter%%, 'error')`);
 const onceAnyNoResult = template(`await once(%%emitter%%, %%event%%)`);
 
-module.exports.report = () => '"await once" should be used';
+export const report = () => '"await once" should be used';
 
-module.exports.match = () => ({
+export const match = () => ({
     'test(__a, (__args) => __body)': doMatch,
     'test(__a, async (__args) => __body)': doMatch,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'test(__a, (__args) => __body)': doReplace,
     'test(__a, async (__args) => __body)': doReplace,
 });

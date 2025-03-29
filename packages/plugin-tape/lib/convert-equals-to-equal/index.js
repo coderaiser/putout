@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Use 't.equal()' instead of 't.equals()''`;
 
-module.exports.report = () => `Use 't.equal()' instead of 't.equals()''`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     't.equals(__a, __b, __c)': 't.equal(__a, __b, __c)',
 });

@@ -1,11 +1,10 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isFunction} = types;
 
-module.exports.report = () => `Call 'reImport()' using await`;
+export const report = () => `Call 'reImport()' using await`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'reImport(__a)': (vars, path) => {
         const {parentPath} = path;
         
@@ -13,7 +12,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'reImport(__a)': (vars, path) => {
         const fnPath = path.findParent(isFunction);
         

@@ -1,27 +1,25 @@
-'use strict';
-
-const {
+import {
     types,
     template,
     operator,
-} = require('putout');
+} from 'putout';
 
 const {compare, traverse} = operator;
 const {expressionStatement} = types;
 
-module.exports.report = () => `'t.end()' is missing at the end of the test`;
+export const report = () => `'t.end()' is missing at the end of the test`;
 
-module.exports.match = () => ({
-    'test(__a, (t) => __body)': match,
-    'test(__a, async (t) => __body)': match,
+export const match = () => ({
+    'test(__a, (t) => __body)': check,
+    'test(__a, async (t) => __body)': check,
 });
 
-module.exports.replace = () => ({
-    'test(__a, (t) => __body)': replace,
-    'test(__a, async (t) => __body)': replace,
+export const replace = () => ({
+    'test(__a, (t) => __body)': transform,
+    'test(__a, async (t) => __body)': transform,
 });
 
-function match({__body}, path) {
+function check({__body}, path) {
     const {body} = __body;
     const {length} = body;
     
@@ -49,7 +47,7 @@ function match({__body}, path) {
     return !found;
 }
 
-function replace({__body}, path) {
+function transform({__body}, path) {
     __body.body.push(expressionStatement(template.ast('t.end()')));
     return path;
 }

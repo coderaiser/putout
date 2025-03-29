@@ -1,7 +1,5 @@
-'use strict';
-
-const {isBuiltin} = require('node:module');
-const {operator, types} = require('putout');
+import {isBuiltin} from 'node:module';
+import {operator, types} from 'putout';
 
 const {isStringLiteral} = types;
 const {
@@ -9,16 +7,16 @@ const {
     setLiteralValue,
 } = operator;
 
-module.exports.report = ({__a}) => `Add 'node:' prefix: '${__a.value}' -> 'node:${__a.value}'`;
+export const report = ({__a}) => `Add 'node:' prefix: '${__a.value}' -> 'node:${__a.value}'`;
 
-module.exports.fix = ({__a}) => {
+export const fix = ({__a}) => {
     setLiteralValue(__a, `node:${__a.value}`);
 };
 
 const MOCK_REQUIRE = 'mockRequire(__a, __b)';
 const MOCK_IMPORT = 'mockImport(__a, __b)';
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [MOCK_REQUIRE]: createTraverser(push, MOCK_REQUIRE),
     [MOCK_IMPORT]: createTraverser(push, MOCK_IMPORT),
 });

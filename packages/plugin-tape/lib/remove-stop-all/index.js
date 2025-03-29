@@ -1,25 +1,22 @@
-'use strict';
-
-const {operator} = require('putout');
-
-const {
+import {operator} from 'putout';
+import {
     TEST,
     TEST_ONLY,
     TEST_SKIP,
     TEST_ASYNC,
     TEST_ASYNC_ONLY,
     TEST_ASYNC_SKIP,
-} = require('../test-signatures');
+} from '../test-signatures.js';
 
-const {traverse, remove} = operator;
+const {remove} = operator;
 
-module.exports.report = () => `Remove 'stopAll()' when you not calling 'reImport()'`;
+export const report = () => `Remove 'stopAll()' when you not calling 'reImport()'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [TEST]: createTraverse(push),
     [TEST_ONLY]: createTraverse(push),
     [TEST_SKIP]: createTraverse(push),
@@ -52,7 +49,7 @@ function check(path) {
     let hasMockImport = false;
     let stopAllPath = null;
     
-    traverse(path, {
+    operator.traverse(path, {
         'reImport(__a)': () => {
             hasReImport = true;
         },

@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'Avoid passing default messages to operators';
 
-module.exports.report = () => 'Avoid passing default messages to operators';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     't.ok(__a, "should be truthy")': 't.ok(__a)',
     't.notOk(__a, "should be falsy")': 't.notOk(__a)',
     't.match(__a, __b, "should match")': 't.match(__a, __b)',

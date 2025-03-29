@@ -1,10 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertMockRequireToMockImport from './index.js';
+import * as tape from '../index.js';
 
-const {createTest} = require('@putout/test');
-const convertMockRequireToMockImport = require('.');
-const tape = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-mock-require-to-mock-import', convertMockRequireToMockImport],
     ],

@@ -1,18 +1,16 @@
-'use strict';
-
-const {template, operator} = require('putout');
+import {template, operator} from 'putout';
 
 const {replaceWith} = operator;
 
-module.exports.report = () => `'stub().withName()' should be used`;
+export const report = () => `'stub().withName()' should be used`;
 
-module.exports.match = () => ({
+export const match = () => ({
     't.calledBefore(__a, __b)': checkStubs,
     't.calledAfter(__a, __b)': checkStubs,
     't.calledInOrder(__array)': checkStubsArray,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.calledBefore(__a, __b)': applyWithName,
     't.calledAfter(__a, __b)': applyWithName,
     't.calledInOrder(__array)': applyWithNameToArray,

@@ -4,5 +4,8 @@
             "declare": "off",
             "regexp/apply-literal-notation": "off"
         }
+    },
+    "rules": {
+        "tape": "off"
     }
 }

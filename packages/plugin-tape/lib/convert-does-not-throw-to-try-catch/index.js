@@ -1,11 +1,10 @@
-'use strict';
+import {template, operator} from 'putout';
 
-const {template, operator} = require('putout');
 const {insertBefore} = operator;
 
-module.exports.report = () => 'try-catch should be used instead of t.doesNotThrow';
+export const report = () => 'try-catch should be used instead of t.doesNotThrow';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.doesNotThrow(__a, __b)': ({__a}, path) => {
         const tryCatchNode = template.ast.fresh(`
             const [error] = tryCatch(__a)

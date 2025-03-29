@@ -1,16 +1,15 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compare} = operator;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     if (compare(path, 't.ok(__args)'))
         return `Use 't.calledWith()' instead of 't.ok()'`;
     
     return `Use 't.notCalledWith()' instead of 't.notOk()'`;
 };
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.ok(__a.calledWith(__args))': 't.calledWith(__a, [__args])',
     't.ok(__a.calledWith(__args), __b)': 't.calledWith(__a, [__args], __b)',
     

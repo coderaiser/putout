@@ -1,14 +1,13 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isIdentifier,
     isArrayExpression,
 } = types;
 
-module.exports.report = () => `Use an array as args to 'calledWith()'`;
+export const report = () => `Use an array as args to 'calledWith()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     't.calledWith(__a, __b)': ({__b}) => {
         if (isIdentifier(__b))
             return false;
@@ -17,7 +16,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.calledWith(__a, __b)': 't.calledWith(__a, [__b])',
     't.calledWith(__a, [...__b], __c)': 't.calledWith(__a, __b, __c)',
 });

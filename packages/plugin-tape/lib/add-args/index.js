@@ -1,9 +1,11 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {addArgs} = operator;
-
-module.exports = addArgs({
+const {
+    report,
+    fix,
+    traverse,
+} = addArgs({
     t: ['t', [
         'test("__a", (__args) => __body)',
         'test("__a", async (__args) => __body)',
@@ -13,3 +15,9 @@ module.exports = addArgs({
         'test.skip("__a", async (__args) => __body)',
     ]],
 });
+
+export {
+    report,
+    fix,
+    traverse,
+};

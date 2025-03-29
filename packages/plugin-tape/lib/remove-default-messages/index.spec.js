@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeDefaultMessages from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeDefaultMessages = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['tape/remove-default-messages', removeDefaultMessages],
     ],

@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => '"supertape" should be used';
 
-module.exports.report = () => '"supertape" should be used';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'const tryTo = __': '',
     'const tryToTape = __': '',
     'tryTo(__a)': '__a',

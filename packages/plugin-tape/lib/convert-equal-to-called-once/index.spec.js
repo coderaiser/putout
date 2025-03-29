@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertEqualToCalledOnce from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertEqualToCalledOnce = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['tape/convert-equal-to-called-once', convertEqualToCalledOnce],
     ],

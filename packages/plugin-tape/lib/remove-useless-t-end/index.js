@@ -1,21 +1,20 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
-const {traverse, remove} = operator;
+const {remove} = operator;
 
-module.exports.report = () => `Avoid useless 't.end()'`;
+export const report = () => `Avoid useless 't.end()'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
 const TEST = 'test("__a", (t) => __body)';
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [TEST]: (path) => {
         const paths = [];
         
-        traverse(path, {
+        operator.traverse(path, {
             't.end()': (path) => {
                 paths.push(path);
             },

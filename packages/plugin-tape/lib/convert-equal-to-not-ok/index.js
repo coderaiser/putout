@@ -1,6 +1,4 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const isNumber = (a) => typeof a === 'number';
 const isString = (a) => typeof a === 'string';
@@ -13,12 +11,12 @@ const {
     isNumericLiteral,
 } = types;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     const arg = path.get('arguments.0');
     return `Use 't.notOk(${arg})' instead of '${path}'`;
 };
 
-module.exports.match = () => ({
+export const match = () => ({
     't.equal(__a, __b)': ({__b}, path) => {
         if (isBooleanLiteral(__b, {value: false}))
             return true;
@@ -47,7 +45,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.equal(__a, __b)': 't.notOk(__a)',
     't.equal(__a, null, __b)': 't.notOk(__a, __b)',
     't.equal(__a, false, __b)': 't.notOk(__a, __b)',

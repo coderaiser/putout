@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => 'Remove useless "notCalled" args';
 
-module.exports.report = () => 'Remove useless "notCalled" args';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     't.notCalled(__a, __array)': 't.notCalled(__a)',
 });

@@ -1,6 +1,4 @@
-'use strict';
-
-const {template, types} = require('putout');
+import {template, types} from 'putout';
 
 const {
     isUnaryExpression,
@@ -10,9 +8,9 @@ const {
 
 const REJECTS = template('stub().rejects(A)');
 
-module.exports.report = () => `Use 'stub()' instead of creating a function`;
+export const report = () => `Use 'stub()' instead of creating a function`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'async () => __a': ({__a}, path) => {
         if (!path.parentPath.isVariableDeclarator())
             return false;
@@ -27,7 +25,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'async () => __a': ({__a}) => {
         if (isUnaryExpression(__a, {operator: 'throw'}))
             return REJECTS({

@@ -1,10 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as putout from '@putout/plugin-putout';
+import * as addTEnd from './index.js';
 
-const {createTest} = require('@putout/test');
-const putout = require('@putout/plugin-putout');
-const addTEnd = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['tape/add-t-end', addTEnd],
     ],

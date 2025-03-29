@@ -1,12 +1,10 @@
-'use strict';
+export const report = () => `'stub().withName(name)' should synced with variable name`;
 
-module.exports.report = () => `'stub().withName(name)' should synced with variable name`;
-
-module.exports.match = () => ({
+export const match = () => ({
     'const __a = stub().withName(__b)': ({__a, __b}) => __b.value !== __a.name,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __a = stub().withName(__b)': ({__a, __b}, path) => {
         __b.value = __a.name;
         return path;

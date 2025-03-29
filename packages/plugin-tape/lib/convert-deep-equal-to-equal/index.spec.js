@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertDeepEqualToEqual from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertDeepEqualToEqual = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['tape/convert-deep-equal-to-equal', convertDeepEqualToEqual],
     ],

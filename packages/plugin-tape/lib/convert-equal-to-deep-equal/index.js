@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {compare} = operator;
 const {
     isArrayExpression,
@@ -8,14 +7,14 @@ const {
     isObjectExpression,
 } = types;
 
-module.exports.report = () => `Use 't.deepEqual()' when comparing Objects an Arrays`;
+export const report = () => `Use 't.deepEqual()' when comparing Objects an Arrays`;
 
-module.exports.match = () => ({
+export const match = () => ({
     't.equal(__a, __b)': check,
     't.notEqual(__a, __b)': check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.equal(__a, __b)': 't.deepEqual(__a, __b)',
     't.notEqual(__a, __b)': 't.notDeepEqual(__a, __b)',
 });

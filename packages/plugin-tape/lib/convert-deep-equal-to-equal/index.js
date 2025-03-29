@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const isNull = (a) => !a && typeof a === 'object';
 const isUndefined = (a) => typeof a === 'undefined';
@@ -16,7 +14,7 @@ const {
     isIdentifier,
 } = types;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     const args = path.get('arguments');
     
     if (args.length === 2)
@@ -45,12 +43,12 @@ const check = ({__b}, path) => {
     return is && isPrimitive(value);
 };
 
-module.exports.match = () => ({
+export const match = () => ({
     't.deepEqual(__a, __b)': check,
     't.deepEqual(__a, __b, __c)': check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.deepEqual(__a, __b)': 't.equal(__a, __b)',
     't.deepEqual(__a, __b, __c)': 't.equal(__a, __b, __c)',
 });

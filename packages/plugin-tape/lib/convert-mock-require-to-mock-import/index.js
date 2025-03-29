@@ -1,6 +1,4 @@
-'use strict';
-
-const {operator, template} = require('putout');
+import {operator, template} from 'putout';
 
 const {
     remove,
@@ -10,9 +8,9 @@ const {
 
 const initStopAll = template.ast(`const {stopAll} = createMockImport(import.meta.url)`);
 
-module.exports.report = () => '"mockImport" should be used instead of "mockRequire"';
+export const report = () => '"mockImport" should be used instead of "mockRequire"';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'mockRequire(__a, __b)': 'mockImport(__a, __b)',
     'reRequire(__a)': (vars, path) => {
         const {scope} = path;

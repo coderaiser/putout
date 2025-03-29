@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as applyStub from './index.js';
 
-const {createTest} = require('@putout/test');
-const applyStub = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['tape/apply-destructuring', applyStub],
     ],

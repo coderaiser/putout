@@ -1,38 +1,31 @@
-'use strict';
-
-const {
+import {
     types,
     operator,
     template,
-} = require('putout');
-
-const {
+} from 'putout';
+import {
     TEST,
     TEST_ONLY,
     TEST_SKIP,
     TEST_ASYNC,
     TEST_ASYNC_ONLY,
     TEST_ASYNC_SKIP,
-} = require('../test-signatures');
+} from '../test-signatures.js';
 
-const {
-    traverse,
-    compare,
-    insertBefore,
-} = operator;
+const {compare, insertBefore} = operator;
 
 const {expressionStatement} = types;
 
-module.exports.report = () => `Call 'stopAll()' at the end of test when 'mockImport()' used`;
+export const report = () => `Call 'stopAll()' at the end of test when 'mockImport()' used`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const assertionPath = getAssertionsPath(path);
     const stopAllNode = template.ast('stopAll()');
     
     insertBefore(assertionPath, expressionStatement(stopAllNode));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [TEST]: createTraverse(push),
     [TEST_ONLY]: createTraverse(push),
     [TEST_SKIP]: createTraverse(push),
@@ -65,7 +58,7 @@ function check(path) {
     let hasMockImport = false;
     let hasAssertions = false;
     
-    traverse(path, {
+    operator.traverse(path, {
         'mockImport(__a, __b)': () => {
             hasMockImport = true;
         },

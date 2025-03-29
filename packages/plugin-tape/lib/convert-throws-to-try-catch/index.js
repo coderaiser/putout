@@ -1,11 +1,10 @@
-'use strict';
+import {template, operator} from 'putout';
 
-const {template, operator} = require('putout');
 const {insertBefore} = operator;
 
-module.exports.report = () => 'try-catch should be used instead of t.throws';
+export const report = () => 'try-catch should be used instead of t.throws';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     't.throws(__a, __b)': ({__a}, path) => {
         putTryCatch(__a, path);
         return `t.ok(error, __b)`;

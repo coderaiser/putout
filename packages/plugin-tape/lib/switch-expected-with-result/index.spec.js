@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as switchExpectedWithResult from './index.js';
 
-const {createTest} = require('@putout/test');
-const switchExpectedWithResult = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['tape/switch-expected-with-result', switchExpectedWithResult],
     ],

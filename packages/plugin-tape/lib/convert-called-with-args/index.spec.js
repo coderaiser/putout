@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertCalledWithArguments from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertCalledWithArguments = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['tape/convert-called-with-arguments', convertCalledWithArguments],
     ],
