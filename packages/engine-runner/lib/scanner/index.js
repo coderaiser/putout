@@ -15,7 +15,7 @@ const log = require('debug')('putout:runner:scanner');
 const fromSimple = require('@putout/plugin-filesystem/from-simple');
 const toSimple = require('@putout/plugin-filesystem/to-simple');
 
-module.exports = ({rule, plugin, msg, options}, {progress}) => {
+module.exports.scan = ({rule, plugin, msg, options}, {progress}) => {
     const {
         scan,
         report,

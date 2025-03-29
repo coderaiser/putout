@@ -7,13 +7,14 @@ const debug = require('debug')('putout:runner:find');
 const runFix = require('./run-fix');
 const mergeVisitors = require('./merge-visitors');
 const superFind = require('./super-find');
-const include = require('./include');
-const replace = require('./replace');
-const declare = require('./declare');
-const scanner = require('./scanner');
-const template = require('./template');
+const template = require('./template/index.js');
 const {createProgress} = require('./progress');
 const {tryThrowWithReason} = require('./try-throw-with-reason');
+
+const {include} = require('./includer/index.js');
+const {replace, clearWatermark} = require('./replacer/index.js');
+const {declare} = require('./declarator/index.js');
+const {scan} = require('./scanner/index.js');
 
 const {getPath, getPosition} = require('./get-position');
 
@@ -47,7 +48,7 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount = 2, plugins, progress
         if (!fix || !places.length)
             return places;
         
-        replace.clearWatermark(ast);
+        clearWatermark(ast);
     }
     
     return places;
@@ -182,7 +183,7 @@ function splitPlugins(plugins, {progress}) {
         }
         
         if (plugin.scan) {
-            pluginsTraverse.push(scanner(item, {
+            pluginsTraverse.push(scan(item, {
                 progress,
             }));
             continue;

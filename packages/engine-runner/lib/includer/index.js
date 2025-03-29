@@ -1,13 +1,13 @@
 'use strict';
 
 const log = require('debug')('putout:runner:include');
-const maybeArray = require('./maybe-array');
-const {validate} = require('./validate');
+const maybeArray = require('../maybe-array');
+const {validate} = require('../validate');
 
 const stub = () => [];
 const good = () => true;
 
-module.exports = ({rule, plugin, msg, options}) => {
+module.exports.include = ({rule, plugin, msg, options}) => {
     const {
         fix,
         report,

@@ -46,7 +46,7 @@ const stubMatch = () => ({});
 const packKeys = (a) => () => keys(a);
 const isObject = (a) => typeof a === 'object';
 
-module.exports = ({rule, plugin, msg, options}) => {
+module.exports.replace = ({rule, plugin, msg, options}) => {
     const maybeMatch = plugin.match || stubMatch;
     const match = maybeMatch({
         options,

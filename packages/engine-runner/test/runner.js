@@ -728,7 +728,7 @@ test('putout: runner: debug: replace', (t) => {
     const debug = stub().returns(debugFn);
     
     mockRequire('debug', debug);
-    reRequire('../lib/replace');
+    reRequire('../lib/replacer/index.js');
     
     const {runPlugins} = reRequire('..');
     const putout = reRequire('putout');
