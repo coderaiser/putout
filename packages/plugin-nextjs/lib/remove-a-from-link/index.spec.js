@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeAFromLink from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeAFromLink = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-a-from-link', removeAFromLink],
     ],

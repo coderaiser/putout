@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     arrayExpression,
     stringLiteral,
@@ -11,9 +10,9 @@ const {getProperty, __json} = operator;
 
 const getValue = (a) => a.value;
 
-module.exports.report = () => `Update 'tsconfig.json'`;
+export const report = () => `Update 'tsconfig.json'`;
 
-module.exports.fix = ({path, propertyInclude}) => {
+export const fix = ({path, propertyInclude}) => {
     if (!propertyInclude) {
         propertyInclude = objectProperty(stringLiteral('include'), arrayExpression([]));
         path.node.properties.push(propertyInclude);
@@ -22,7 +21,7 @@ module.exports.fix = ({path, propertyInclude}) => {
     propertyInclude.value.elements.push(stringLiteral('./dist/types/**/*.ts'), stringLiteral('./next-env.d.ts'));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [__json](path) {
         const __objectPath = path.get('arguments.0');
         const propertyInclude = getProperty(__objectPath, 'include');

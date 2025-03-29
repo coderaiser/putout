@@ -1,19 +1,18 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     findFile,
     getParentDirectory,
     createDirectory,
 } = operator;
 
-module.exports.report = () => `Create 'app' directory`;
+export const report = () => `Create 'app' directory`;
 
-module.exports.fix = (filePath) => {
+export const fix = (filePath) => {
     createDirectory(getParentDirectory(filePath, 'app'), 'app');
 };
 
-module.exports.scan = (path, {push}) => {
+export const scan = (path, {push}) => {
     const [filePath] = findFile(path, 'package.json');
     const [appPath] = findFile(path, 'app');
     

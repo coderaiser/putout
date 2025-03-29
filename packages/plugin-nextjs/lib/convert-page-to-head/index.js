@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove, traverse} = operator;
 
-module.exports.report = () => `Use 'Head' instead of 'Page'`;
+export const report = () => `Use 'Head' instead of 'Page'`;
 
-module.exports.include = () => [
+export const include = () => [
     '<Head>__</Head>',
 ];
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {node} = path.parentPath;
     
     node.children = path.node.children;

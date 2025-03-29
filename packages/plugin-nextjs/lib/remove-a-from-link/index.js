@@ -1,11 +1,10 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isJSXElement} = types;
 
-module.exports.report = () => `Remove '<a>' from <Link>, it always renders under the hood`;
+export const report = () => `Remove '<a>' from <Link>, it always renders under the hood`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '<Link href="__a">__jsx_children</Link>': ({__jsx_children}, path) => {
         for (const node of __jsx_children) {
             if (!isJSXElement(node))

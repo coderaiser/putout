@@ -1,11 +1,17 @@
-'use strict';
-
-const {operator} = require('putout');
-
-const updateTSConfig = require('../update-tsconfig');
+import {operator} from 'putout';
+import * as updateTSConfig from '../update-tsconfig/index.js';
 
 const {matchFiles} = operator;
-
-module.exports = matchFiles({
+const {
+    report,
+    fix,
+    scan,
+} = matchFiles({
     'tsconfig.json': updateTSConfig,
 });
+
+export {
+    report,
+    fix,
+    scan,
+};
