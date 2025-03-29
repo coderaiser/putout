@@ -88,6 +88,7 @@ const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
         const trackFile = createTrackFile(fileProgress);
         
         runSimple(fromSimple, {
+            shouldConvert: true,
             path,
             rootPath,
             isSimple,
@@ -105,7 +106,7 @@ const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
         });
         
         runSimple(toSimple, {
-            condition: isSimple(),
+            shouldConvert: isSimple(),
             path,
             rootPath,
             isSimple,
@@ -120,10 +121,10 @@ const runFix = ({fix, isSimple}) => (...a) => {
     return fix(...a);
 };
 
-function runSimple(plugin, {path, isSimple, condition = true}) {
+function runSimple(plugin, {path, isSimple, shouldConvert = true}) {
     const {traverse, fix} = plugin;
     
-    if (!condition)
+    if (!shouldConvert)
         return;
     
     const push = runFix({
