@@ -1,12 +1,13 @@
 'use strict';
 
 const tryCatch = require('try-catch');
-const debug = require('debug')('putout:runner:fix');
-const {enabled} = debug;
+const {createDebug} = require('./debug');
+
 const {stringify} = JSON;
 
 const isFn = (a) => typeof a === 'function';
 const getPath = (path) => path.path || path;
+const debug = createDebug('putout:runner:fix');
 
 const chooseFixArgs = ({path, pathOptions, options}) => {
     if (pathOptions)
@@ -51,7 +52,7 @@ module.exports = (is, fix, {path, pathOptions, rule, position, options}) => {
     if (!is)
         return;
     
-    if (enabled)
+    if (debug.enabled)
         debug(`fix: ${rule}`, position, getPath(path).toString());
     
     validate('fix', fix);

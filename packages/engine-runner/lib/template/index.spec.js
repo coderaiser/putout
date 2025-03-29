@@ -3,11 +3,8 @@
 const {test, stub} = require('supertape');
 
 const putout = require('putout');
-const mockRequire = require('mock-require');
-
 const {runPlugins} = require('..');
-
-const {reRequire, stopAll} = mockRequire;
+const {_log} = require('.');
 
 test('putout: plugin: traverse: template', (t) => {
     const exp = {
@@ -440,28 +437,27 @@ test('putout: plugin: traverse: template: log', (t) => {
 
 test('putout: engine: runner: template: log', (t) => {
     const debug = stub();
+    const {__putout_debug} = global;
     
-    mockRequire('debug', stub().returns(debug));
-    const {_log} = reRequire('.');
+    global.__putout_debug = stub().returns(debug);
     
     _log();
-    stopAll();
+    global.__putout_debug = __putout_debug;
     
     t.notCalled(debug, 'should call debug');
     t.end();
 });
 
 test('putout: engine: runner: template: log: enabled', (t) => {
+    const {__putout_debug} = global;
     const debug = stub();
     
     debug.enabled = true;
-    
-    mockRequire('debug', stub().returns(debug));
-    const {_log} = reRequire('.');
+    global.__putout_debug = debug;
     
     _log('rule', 'path');
-    stopAll();
+    global.__putout_debug = __putout_debug;
     
-    t.calledWith(debug, ['rule', 'path'], 'should call debug');
+    t.calledWith(debug, ['putout:runner:template', 'rule', 'path'], 'should call debug');
     t.end();
 });

@@ -11,10 +11,15 @@ const {
     setValues,
 } = require('@putout/compare');
 
-const debug = require('debug')('putout:runner:replace');
 const maybeArray = require('../maybe-array');
-
 const watermark = require('./watermark');
+const {createDebug} = require('../debug');
+const debug = createDebug('putout:runner:replace');
+
+const log = (from, path) => {
+    debug.enabled && debug(`${from} -> ${path}\n`);
+};
+
 const {
     isExpression,
     isStatement,
@@ -33,10 +38,6 @@ const PRINT_OPTIONS = {
 };
 
 const isString = (a) => typeof a === 'string';
-
-const log = (from, path) => {
-    debug.enabled && debug(`${from} -> ${path}\n`);
-};
 
 const {keys, entries} = Object;
 const {stringify} = JSON;

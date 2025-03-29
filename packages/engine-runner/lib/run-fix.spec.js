@@ -1,15 +1,10 @@
 'use strict';
 
-const mockRequire = require('mock-require');
-
 const {test, stub} = require('supertape');
-
 const tryCatch = require('try-catch');
 const fix = require('./run-fix');
 
-const {stopAll, reRequire} = mockRequire;
-
-test('fix: error', (t) => {
+test('engine-runner: fix: error', (t) => {
     const remove = () => {
         throw Error('hello');
     };
@@ -40,9 +35,8 @@ test('fix: error: nested path: debug', (t) => {
     const debugFn = stub();
     
     debugFn.enabled = true;
-    const debug = stub().returns(debugFn);
     
-    mockRequire('debug', debug);
+    global.__putout_debug = stub().returns(debugFn);
     
     const remove = () => {
         throw Error('hello');
@@ -60,26 +54,25 @@ test('fix: error: nested path: debug', (t) => {
     };
     
     const is = true;
-    const fix = reRequire('./run-fix');
     
     const [e] = tryCatch(fix, is, fn, {
         path,
         position,
     });
     
-    stopAll();
+    delete global.__putout_debug;
     
     t.equal(e.loc, position);
     t.end();
 });
 
 test('fix: error: nested path: debug: nested path', (t) => {
+    const {__putout_debug} = global;
     const debugFn = stub();
     
     debugFn.enabled = true;
-    const debug = stub().returns(debugFn);
     
-    mockRequire('debug', debug);
+    global.__putout_debug = stub().returns(debugFn);
     
     const remove = () => {
         throw Error('hello');
@@ -99,14 +92,13 @@ test('fix: error: nested path: debug: nested path', (t) => {
     };
     
     const is = true;
-    const fix = reRequire('./run-fix');
     
     const [e] = tryCatch(fix, is, fn, {
         path,
         position,
     });
     
-    stopAll();
+    global.__putout_debug = __putout_debug;
     
     t.equal(e.loc, position);
     t.end();

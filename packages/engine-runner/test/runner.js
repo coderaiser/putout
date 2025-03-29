@@ -5,13 +5,11 @@ const montag = require('montag');
 const tryCatch = require('try-catch');
 const {test, stub} = require('supertape');
 const putout = require('putout');
-const mockRequire = require('mock-require');
 const {loadPlugins} = require('@putout/engine-loader');
 
 const {readFixtures} = require('./fixture');
 const {runPlugins} = require('..');
 const noop = () => {};
-const {reRequire, stopAll} = mockRequire;
 const {parse} = putout;
 
 const fixture = readFixtures([
@@ -693,13 +691,8 @@ test('putout: runner: debug', (t) => {
     const debugFn = stub();
     
     debugFn.enabled = true;
-    const debug = stub().returns(debugFn);
     
-    mockRequire('debug', debug);
-    reRequire('../lib/run-fix');
-    
-    const {runPlugins} = reRequire('..');
-    const putout = reRequire('putout');
+    global.__putout_debug = stub().returns(debugFn);
     
     const {code} = putout(fixture.debug, {
         fix: true,
@@ -711,7 +704,7 @@ test('putout: runner: debug', (t) => {
     
     process.env.DEBUG = DEBUG;
     
-    stopAll();
+    delete process.env.__putout_debug;
     
     t.equal(code, expected);
     t.end();
@@ -720,30 +713,25 @@ test('putout: runner: debug', (t) => {
 test('putout: runner: debug: replace', (t) => {
     const {DEBUG} = process.env;
     
-    process.env.DEBUG = 'putout:runner:fix';
-    
     const debugFn = stub();
     
     debugFn.enabled = true;
-    const debug = stub().returns(debugFn);
+    global.__putout_debug = debugFn;
     
-    mockRequire('debug', debug);
-    reRequire('../lib/replacer/index.js');
-    
-    const {runPlugins} = reRequire('..');
-    const putout = reRequire('putout');
+    process.env.DEBUG = 'putout:runner:fix';
     
     putout('debugger', {
         fix: true,
-        runPlugins,
         plugins: ['remove-debugger'],
     });
     
-    const expected = [`debugger -> ''\n`];
+    const expected = [
+        'putout:runner:replace',
+        `debugger -> ''\n`,
+    ];
     
     process.env.DEBUG = DEBUG;
-    
-    stopAll();
+    delete global.__putout_debug;
     
     t.calledWith(debugFn, expected);
     t.end();

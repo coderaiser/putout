@@ -10,7 +10,8 @@ const {
 } = require('@putout/compare');
 
 const maybeArray = require('../maybe-array');
-const debug = require('debug')('putout:runner:template');
+const {createDebug} = require('../debug');
+const debug = createDebug('putout:runner:template');
 
 const {entries} = Object;
 const isFn = (a) => typeof a === 'function';
