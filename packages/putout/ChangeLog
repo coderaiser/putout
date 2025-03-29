@@ -1,3 +1,14 @@
+2025.03.29, v39.5.0
+
+feature:
+- 531478f73 putout: @putout/plugin-tape v18.0.0
+- 8c24505e1 @putout/plugin-tape: convert to ESM
+- 0ec1b47f0 @putout/plugin-nextjs: convert to ESM
+- 72dea8119 @putout/engine-runner: scanner: condition -> shouldConvert
+- a43e4084c @putout/engine-runner: get rid of mock-require
+- 8cdfb8ff8 @putout/plugin-nodejs: declare: process: env
+- 56feadc53 @putout/engine-runner: add directories
+
 2025.03.28, v39.4.0
 
 feature:
