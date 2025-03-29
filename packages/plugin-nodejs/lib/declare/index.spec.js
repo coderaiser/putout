@@ -38,13 +38,13 @@ test('putout: plugin: nodejs: declare: no report after transform: join', (t) => 
     t.end();
 });
 
-test('putout: plugin: nodejs: declare: node-js-fs', (t) => {
-    t.transform('node-js-fs');
+test('putout: plugin: nodejs: declare: fs', (t) => {
+    t.transform('fs');
     t.end();
 });
 
-test('putout: plugin: nodejs: declare: node-js-zlib', (t) => {
-    t.transform('node-js-zlib');
+test('putout: plugin: nodejs: declare: zlib', (t) => {
+    t.transform('zlib');
     t.end();
 });
 
@@ -88,11 +88,21 @@ test('putout: plugin: nodejs: declare: nodejs: util', (t) => {
     t.end();
 });
 
-test('putout: plugin: nodejs: declare: node-js: process', (t) => {
+test('putout: plugin: nodejs: declare: process: cwd', (t) => {
     t.transformCode(`cwd();`, montag`
         import {cwd} from 'process';
         
         cwd();
+    
+    `);
+    t.end();
+});
+
+test('putout: plugin: nodejs: declare: process: env', (t) => {
+    t.transformCode(`const a = env.DEBUG;`, montag`
+        import {env} from 'process';
+        
+        const a = env.DEBUG;
     
     `);
     t.end();
@@ -103,17 +113,12 @@ test('putout: plugin: nodejs: declare: no transform: promises', (t) => {
     t.end();
 });
 
-test('putout: plugin: nodejs: declare: node-js: no transform: version', (t) => {
+test('putout: plugin: nodejs: declare: no transform: version', (t) => {
     t.noTransformCode(`version;\n`);
     t.end();
 });
 
-test('putout: plugin: nodejs: declare: node-js: no transform: env', (t) => {
-    t.noTransformCode(`env;\n`);
-    t.end();
-});
-
-test('putout: plugin: nodejs: declare: node-js: events', (t) => {
+test('putout: plugin: nodejs: declare: events', (t) => {
     t.transformCode(`new EventEmitter();`, montag`
         import {EventEmitter} from 'events';
         

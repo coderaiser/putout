@@ -35,6 +35,7 @@ export default {
     umask: `import {umask} from 'process'`,
     chdir: `import {chdir} from 'process'`,
     cwd: `import {cwd} from 'process'`,
+    env: `import {env} from 'process'`,
     initgroups: `import {initgroups} from 'process'`,
     setgroups: `import {setgroups} from 'process'`,
     setegid: `import {setegid} from 'process'`,
