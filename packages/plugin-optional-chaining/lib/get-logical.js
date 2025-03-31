@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.getLogical = (path, {assign} = {}) => {
+export const getLogical = (path, {assign} = {}) => {
     const list = path
         .toString()
         .split('?.');

@@ -1,23 +1,21 @@
-'use strict';
+import {template, operator} from 'putout';
+import {getLogical} from '../get-logical.js';
 
-const {template, operator} = require('putout');
-const {getLogical} = require('../get-logical');
-
-module.exports.report = () => `Use Logical Expression instead of Optional Chaining`;
+export const report = () => `Use Logical Expression instead of Optional Chaining`;
 
 const {replaceWith} = operator;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const logical = getLogical(path);
     replaceWith(path, template.ast(logical));
 };
 
-module.exports.include = () => [
+export const include = () => [
     'OptionalMemberExpression',
     'OptionalCallExpression',
 ];
 
-module.exports.filter = ({parentPath}) => {
+export const filter = ({parentPath}) => {
     if (parentPath.isOptionalMemberExpression())
         return false;
     

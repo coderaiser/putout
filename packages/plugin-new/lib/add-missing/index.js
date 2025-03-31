@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Add missing operator 'new'`;
 
-module.exports.report = () => `Add missing operator 'new'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'Set(__args)': 'new Set(__args)',
     'WeakSet(__args)': 'new WeakSet(__args)',
     'Map(__args)': 'new Map(__args)',

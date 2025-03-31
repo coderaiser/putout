@@ -1,13 +1,11 @@
-'use strict';
+import {template, operator} from 'putout';
+import {getLogical} from '../get-logical.js';
 
-const {template, operator} = require('putout');
-
-const {getLogical} = require('../get-logical');
 const {replaceWith} = operator;
 
-module.exports.report = () => `Use Logical Expression ('a && a.b = c') instead of Optional Chaining ('a?.b = c')`;
+export const report = () => `Use Logical Expression ('a && a.b = c') instead of Optional Chaining ('a?.b = c')`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const logical = getLogical(path, {
         assign: true,
     });
@@ -18,7 +16,7 @@ module.exports.fix = (path) => {
     replaceWith(path.parentPath, logicalNode);
 };
 
-module.exports.traverse = ({push, listStore}) => ({
+export const traverse = ({push, listStore}) => ({
     'OptionalMemberExpression|OptionalCallExpression'(path) {
         if (!path.parentPath.isAssignmentExpression())
             return;

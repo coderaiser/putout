@@ -1,9 +1,7 @@
-'use strict';
+import * as addMissing from './add-missing/index.js';
+import * as removeUseless from './remove-useless/index.js';
 
-const addMissing = require('./add-missing');
-const removeUseless = require('./remove-useless');
-
-module.exports.rules = {
+export const rules = {
     'add-missing': addMissing,
     'remove-useless': removeUseless,
 };

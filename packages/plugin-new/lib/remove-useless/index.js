@@ -1,11 +1,10 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {objectExpression} = types;
 
-module.exports.report = () => `Avoid useless operator 'new'`;
+export const report = () => `Avoid useless operator 'new'`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'new new __a': 'new __a',
     'new Error(__args)': 'Error(__args)',
     'new TypeError(__args)': 'TypeError(__args)',

@@ -1,11 +1,9 @@
-'use strict';
+import * as convertLogicalAssignToOptional from './convert-logical-assign-to-optional/index.js';
+import * as convertLogicalToOptional from './convert-logical-to-optional/index.js';
+import * as convertOptionalAssignToLogical from './convert-optional-assign-to-logical/index.js';
+import * as convertOptionalToLogical from './convert-optional-to-logical/index.js';
 
-const convertLogicalAssignToOptional = require('./convert-logical-assign-to-optional');
-const convertLogicalToOptional = require('./convert-logical-to-optional');
-const convertOptionalAssignToLogical = require('./convert-optional-assign-to-logical');
-const convertOptionalToLogical = require('./convert-optional-to-logical');
-
-module.exports.rules = {
+export const rules = {
     'convert-logical-assign-to-optional': ['off', convertLogicalAssignToOptional],
     'convert-logical-to-optional': convertLogicalToOptional,
     'convert-optional-assign-to-logical': convertOptionalAssignToLogical,

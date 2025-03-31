@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Use optional expression ('a?.b = c') instead of 'condition' ('a && a.b = c')`;
 
-module.exports.report = () => `Use optional expression ('a?.b = c') instead of 'condition' ('a && a.b = c')`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'if (__a) {__a.__b = __c}': '__a?.__b = __c',
     'if (__a) __a.__b = __c': '__a?.__b = __c',
     '__a && (__a.__b = __c)': '__a?.__b = __c',

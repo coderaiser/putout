@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'Use optional chaining';
 
-module.exports.report = () => 'Use optional chaining';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a && __a.__b && __a.__b.__c && __a.__b.__c.__d && __a.__b.__c.__d.__e': '__a?.__b?.__c?.__d?.__e',
     '__a && __a.__b && __a.__b.__c && __a.__b.__c.__d': '__a?.__b?.__c?.__d',
     '__a && __a.__b && __a.__b.__c': '__a?.__b?.__c',
