@@ -16,3 +16,8 @@ test('eslint: remove-suffix-config: transform', (t) => {
     t.transform('remove-suffix-config');
     t.end();
 });
+
+test('eslint: remove-suffix-config: transform: commonjs', (t) => {
+    t.transform('commonjs');
+    t.end();
+});
