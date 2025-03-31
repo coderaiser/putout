@@ -1,3 +1,11 @@
+2025.03.31, v39.6.0
+
+feature:
+- 751537f78 putout: @putout/plugin-new v4.0.0
+- 9d8d469bc putout: @putout/plugin-optional-chaining v2.0.0
+- c0cc06e33 @putout/plugin-new: convert to ESM
+- 060716f67 @putout/plugin-optional-chaining: convert to ESM
+
 2025.03.29, v39.5.0
 
 feature:
