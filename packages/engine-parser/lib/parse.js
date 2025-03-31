@@ -1,6 +1,6 @@
 'use strict';
 
-const toBabel = require('estree-to-babel');
+const {estreeToBabel} = require('estree-to-babel');
 const customParser = require('./custom-parser');
 const {tryThrowWithReason} = require('./try-throw-with-reason');
 const {assign} = Object;
@@ -32,7 +32,7 @@ const getParser = ({parser = 'babel', isTS, isJSX, printer}) => ({
                 convertParens: false,
             });
         
-        const ast = toBabel(customParser(source, parser, {
+        const ast = estreeToBabel(customParser(source, parser, {
             isTS,
             isJSX,
             printer,
