@@ -15,6 +15,7 @@ npm i @putout/cli-keypress
 
 ```js
 import {keypress} from 'keypress';
+
 const {isStop} = keypress();
 
 // do some stuff until ctrl+c pressed
