@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Use '.flatMap()' instead of '.map().flat()'`;
 
-module.exports.report = () => `Use '.flatMap()' instead of '.map().flat()'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a.map(__b).flat()': '__a.flatMap(__b)',
 });

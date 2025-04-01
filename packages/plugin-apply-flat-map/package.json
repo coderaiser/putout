@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-apply-flat-map",
   "version": "2.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to apply 'flatMap()'",
   "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-apply-flat-map#readme",
@@ -32,7 +32,6 @@
     "flat-map"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
     "@putout/test": "^13.0.0",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
@@ -42,11 +41,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=28"
+    "putout": ">=39"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
