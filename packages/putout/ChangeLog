@@ -1,3 +1,16 @@
+2025.04.01, v39.7.0
+
+feature:
+- 30aab90cc putout: @putout/engine-reporter v4.0.0
+- 9fae392f7 @putout/engine-reporter: drop support of node < 20
+- a9993f599 @putout/engine-reporter: @putout/cli-keypress v3.0.0
+- f62697b27 putout: @putout/cli-keypress v3.0.0
+- 2d063cb10 putout: @putout/plugin-apply-flat-map v3.0.0
+- ff4fb02f4 @putout/cli-keypress: migrate to ESM
+- b465fb4e6 @putout/plugin-apply-flat-map: migrate to ESM
+- 38327a9dd @putout/engine-parser: estree-to-babel v11.0.0
+- 3b6864c1c @putout/plugin-eslint: remove-suffix-config: add support of CommonJS
+
 2025.03.31, v39.6.0
 
 feature:
