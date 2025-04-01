@@ -1,9 +1,7 @@
-'use strict';
-
-const process = require('node:process');
-const readline = require('node:readline');
-const fullstore = require('fullstore');
-const {isCI} = require('ci-info');
+import process from 'node:process';
+import readline from 'node:readline';
+import fullstore from 'fullstore';
+import {isCI as _isCI} from 'ci-info';
 
 const isStop = fullstore(false);
 
@@ -18,8 +16,13 @@ const isSet = (a, b) => a
     .filter(isKeypress)
     .length;
 
-module.exports = (stream = process.stdin) => {
-    if (!stream.isTTY || isCI && KEYPRESS !== '1')
+export const keypress = (stream = process.stdin, overrides = {}) => {
+    const {
+        isCI = _isCI,
+        keypress = KEYPRESS,
+    } = overrides;
+    
+    if (!stream.isTTY || isCI && keypress !== '1')
         return {
             isHandlerSet: IS_NOT_SET,
             isStop,
@@ -44,4 +47,4 @@ const onKeyPress = (isStop) => function __keypress(str, key) {
         isStop(true);
 };
 
-module.exports._onKeyPress = onKeyPress;
+export const _onKeyPress = onKeyPress;

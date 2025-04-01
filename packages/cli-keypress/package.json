@@ -1,7 +1,7 @@
 {
   "name": "@putout/cli-keypress",
   "version": "2.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "handle keypress",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-keypress#readme",
@@ -34,7 +34,6 @@
     "gitignore"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-n": "^17.0.0",
@@ -47,7 +46,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

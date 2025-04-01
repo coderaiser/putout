@@ -1935,7 +1935,6 @@ test('putout: cli: get files: was stop', async (t) => {
     
     mockRequire('./get-options', getOptions);
     mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-keypress', keypress);
     
     reRequire('./runner/writer.js');
     reRequire('./runner/runner.js');
@@ -1945,6 +1944,7 @@ test('putout: cli: get files: was stop', async (t) => {
         cli,
         argv,
         halt,
+        keypress,
     });
     
     stopAll();
@@ -2407,6 +2407,7 @@ async function runCli(options) {
         cli = _cli,
         readFile = stub().returns(''),
         writeFile = stub(),
+        keypress,
     } = options;
     
     await cli({
@@ -2418,5 +2419,6 @@ async function runCli(options) {
         readFile,
         writeFile,
         isStop,
+        keypress,
     });
 }

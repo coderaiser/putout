@@ -1,11 +1,8 @@
-'use strict';
+import process from 'node:process';
+import {Readable} from 'node:stream';
+import {test, stub} from 'supertape';
+import {keypress, _onKeyPress} from './keypress.js';
 
-const process = require('node:process');
-const {Readable} = require('node:stream');
-const {test, stub} = require('supertape');
-const mockRequire = require('mock-require');
-
-const {reRequire, stopAll} = mockRequire;
 const {assign} = Object;
 
 test('putout: cli: on halt: no isTTY', (t) => {
@@ -13,8 +10,7 @@ test('putout: cli: on halt: no isTTY', (t) => {
     
     process.stdin.isTTY = false;
     
-    const onHalt = reRequire('./keypress');
-    const {isHandlerSet} = onHalt();
+    const {isHandlerSet} = keypress();
     
     process.stdin.isTTY = isTTY;
     
@@ -27,18 +23,13 @@ test('putout: cli: on halt: isTTY', (t) => {
     
     process.env.CI = true;
     
-    mockRequire('ci-info', {
+    const stream = createStream();
+    
+    const {isHandlerSet} = keypress(stream, {
         isCI: false,
     });
     
-    const onHalt = reRequire('./keypress');
-    
-    const stream = createStream();
-    const {isHandlerSet} = onHalt(stream);
-    
     process.env.CI = CI;
-    
-    stopAll();
     
     t.ok(isHandlerSet(), 'should set handler');
     t.end();
@@ -49,52 +40,34 @@ test('putout: cli: on halt: isTTY: double call', (t) => {
     
     process.env.CI = true;
     
-    mockRequire('ci-info', {
+    const stream = createStream();
+    const {isHandlerSet} = keypress(stream, {
         isCI: false,
     });
     
-    const onHalt = reRequire('./keypress');
-    
-    const stream = createStream();
-    const {isHandlerSet} = onHalt(stream);
-    
-    onHalt(stream);
+    keypress(stream);
     process.env.CI = CI;
-    
-    stopAll();
     
     t.ok(isHandlerSet(), 'should set handler');
     t.end();
 });
 
 test('putout: cli: on halt: CI, KEYPRESS', (t) => {
-    const {KEYPRESS} = process.env;
-    
-    process.env.KEYPRESS = '1';
-    
-    mockRequire('ci-info', {
+    const stream = createStream();
+    const {isHandlerSet} = keypress(stream, {
         isCI: true,
+        keypress: '1',
     });
     
-    const onHalt = reRequire('./keypress');
-    const stream = createStream();
-    const {isHandlerSet} = onHalt(stream);
-    
-    onHalt(stream);
-    process.env.KEYPRESS = KEYPRESS;
-    
-    stopAll();
+    keypress(stream);
     
     t.ok(isHandlerSet(), 'should set handler');
     t.end();
 });
 
 test('putout: cli: on halt: onKeyPress: Ctrl+C', (t) => {
-    const {_onKeyPress} = reRequire('./keypress');
     const isStop = stub();
-    
     const fn = _onKeyPress(isStop);
-    
     const str = '^c';
     
     const key = {
@@ -109,7 +82,6 @@ test('putout: cli: on halt: onKeyPress: Ctrl+C', (t) => {
 });
 
 test('putout: cli: on halt: onKeyPress: not Ctrl+C', (t) => {
-    const {_onKeyPress} = reRequire('./keypress');
     const isStop = stub();
     
     const fn = _onKeyPress(isStop);

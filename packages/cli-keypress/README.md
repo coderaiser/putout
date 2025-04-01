@@ -14,8 +14,8 @@ npm i @putout/cli-keypress
 ## Examples
 
 ```js
-const keyPress = require('keypress');
-const {isStop} = keyPress();
+import {keypress} from 'keypress';
+const {isStop} = keypress();
 
 // do some stuff until ctrl+c pressed
 async function again() {

@@ -15,7 +15,7 @@ const {
     defaultProcessors,
 } = require('@putout/engine-processor');
 
-const keyPress = require('@putout/cli-keypress');
+const {keypress: _keypress} = require('@putout/cli-keypress');
 
 const supportedFiles = require('./supported-files');
 const getOptions = require('./get-options');
@@ -56,17 +56,32 @@ const getExitCode = (wasStop) => wasStop() ? WAS_STOP : OK;
 const isStr = (a) => typeof a === 'string';
 const isNoop = (a) => String(a) === String(noop);
 
-const parseIsStop = (passedIsStop) => {
+const parseIsStop = (passedIsStop, {keypress}) => {
     if (!isNoop(passedIsStop))
         return passedIsStop;
     
-    const {isStop} = keyPress();
+    const {isStop} = keypress();
     
     return isStop;
 };
 
-module.exports = async ({argv, halt, log, write, logError, readFile, writeFile, trace = noop, isStop = noop}) => {
-    isStop = parseIsStop(isStop);
+module.exports = async (overrides = {}) => {
+    const {
+        argv,
+        halt,
+        log,
+        write,
+        logError,
+        readFile,
+        writeFile,
+        trace = noop,
+        keypress = _keypress,
+    } = overrides;
+    
+    const isStop = parseIsStop(overrides.isStop || noop, {
+        keypress,
+    });
+    
     trace('start');
     
     const wasStop = fullstore();
