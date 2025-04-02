@@ -1,18 +1,17 @@
-'use strict';
+import {parseImportSpecifiers} from 'parse-import-specifiers';
+import {operator} from 'putout';
 
-const {parseImportSpecifiers} = require('parse-import-specifiers');
-const {operator} = require('putout');
 const {insertBefore, remove} = operator;
 
-module.exports.report = () => `Sort imports by specifiers count`;
+export const report = () => `Sort imports by specifiers count`;
 
-module.exports.fix = ({path, nextPath}) => {
+export const fix = ({path, nextPath}) => {
     const {node} = nextPath;
     remove(nextPath);
     insertBefore(path, node);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ImportDeclaration(path) {
         const {node} = path;
         const {source, specifiers} = node;

@@ -1,16 +1,13 @@
-'use strict';
-
-const {operator} = require('putout');
-const {createTest} = require('@putout/test');
-
-const nodejs = require('@putout/plugin-nodejs');
-const plugin = require('.');
+import {operator} from 'putout';
+import {createTest} from '@putout/test';
+import * as nodejs from '@putout/plugin-nodejs';
+import * as plugin from './index.js';
 
 const convertEsmToCommonjs = nodejs.rules['convert-esm-to-commonjs'];
 
 const {remove} = operator;
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['declare-imports-first', plugin],
     ],

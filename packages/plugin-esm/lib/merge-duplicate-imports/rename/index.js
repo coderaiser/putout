@@ -1,12 +1,11 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {rename, remove} = operator;
 const {isImportDefaultSpecifier} = types;
 
-module.exports.report = () => 'Avoid duplicate imports';
+export const report = () => 'Avoid duplicate imports';
 
-module.exports.fix = ({path, imports}) => {
+export const fix = ({path, imports}) => {
     const {name} = path.node.specifiers[0].local;
     remove(path);
     
@@ -22,7 +21,7 @@ module.exports.fix = ({path, imports}) => {
     }
 };
 
-module.exports.traverse = ({push, uplist}) => ({
+export const traverse = ({push, uplist}) => ({
     ImportDeclaration: (path) => {
         const {value} = path.node.source;
         const [specifier, ...other] = path.node.specifiers;

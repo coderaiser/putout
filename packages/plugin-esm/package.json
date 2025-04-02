@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-esm",
   "version": "2.3.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin improves ability to transform ESM code",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#readme",
@@ -56,11 +56,11 @@
     "supertape": "^11.0.3"
   },
   "peerDependencies": {
-    "putout": ">=38"
+    "putout": ">=39"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

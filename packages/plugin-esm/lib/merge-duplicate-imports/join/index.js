@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {remove, compareAny} = operator;
 const {values} = Object;
@@ -11,9 +9,9 @@ const {
     isImportDeclaration,
 } = types;
 
-module.exports.report = () => `Avoid duplicate imports`;
+export const report = () => `Avoid duplicate imports`;
 
-module.exports.fix = ({path, imports}) => {
+export const fix = ({path, imports}) => {
     const all = [];
     
     for (const imp of imports) {
@@ -37,7 +35,7 @@ module.exports.fix = ({path, imports}) => {
     path.node.specifiers.push(...all);
 };
 
-module.exports.traverse = ({push, pathStore}) => ({
+export const traverse = ({push, pathStore}) => ({
     ImportDeclaration(path) {
         pathStore(path);
     },

@@ -1,22 +1,21 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => `Avoid empty 'import' statement`;
+export const report = () => `Avoid empty 'import' statement`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
 const isCSS = (a) => /\.css/.test(a);
 const isMin = (a) => /\.min\./.test(a);
 
-module.exports.include = () => [
+export const include = () => [
     'ImportDeclaration',
 ];
 
-module.exports.filter = (path, {options}) => {
+export const filter = (path, {options}) => {
     const {specifiers, source} = path.node;
     
     const {ignore = []} = options;

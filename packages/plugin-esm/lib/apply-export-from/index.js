@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     compare,
@@ -10,11 +8,11 @@ const {
 
 const {exportNamespaceSpecifier} = types;
 
-module.exports.report = () => `Use 'export *' instead of 'import/export'`;
+export const report = () => `Use 'export *' instead of 'import/export'`;
 
 const IMPORT = 'import * as __a from "__b"';
 
-module.exports.fix = ({path, current}) => {
+export const fix = ({path, current}) => {
     const {exported} = current.node.specifiers[0];
     
     current.node.source = path.node.source;
@@ -29,7 +27,7 @@ module.exports.fix = ({path, current}) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [IMPORT]: (path) => {
         const {__a} = getTemplateValues(path, IMPORT);
         const {name} = __a;

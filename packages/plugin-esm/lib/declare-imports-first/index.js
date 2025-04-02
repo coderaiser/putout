@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     isImportDeclaration,
     isExportDeclaration,
@@ -9,9 +8,9 @@ const {
 const {replaceWith} = operator;
 const isESMNode = (a) => isImportDeclaration(a) || isExportDeclaration(a);
 
-module.exports.report = () => `Declare imports first`;
+export const report = () => `Declare imports first`;
 
-module.exports.fix = ({path, importPath}) => {
+export const fix = ({path, importPath}) => {
     let prev = path;
     let preventInfiniteLoop = 500;
     
@@ -29,7 +28,7 @@ module.exports.fix = ({path, importPath}) => {
     }
 };
 
-module.exports.traverse = ({push, pathStore}) => ({
+export const traverse = ({push, pathStore}) => ({
     ImportDeclaration: (path) => {
         pathStore(path);
     },

@@ -1,10 +1,8 @@
-'use strict';
+import {test} from 'supertape';
 
-const {test} = require('supertape');
-
-test('@putout/plugin-esm: exports: merge-duplicate-imports', (t) => {
-    const exported = require('@putout/plugin-esm/merge-duplicate-imports');
-    const internal = require('../lib/merge-duplicate-imports');
+test('@putout/plugin-esm: exports: merge-duplicate-imports', async (t) => {
+    const exported = await import('@putout/plugin-esm/merge-duplicate-imports');
+    const internal = await import('../lib/merge-duplicate-imports/index.js');
     
     t.equal(exported, internal);
     t.end();

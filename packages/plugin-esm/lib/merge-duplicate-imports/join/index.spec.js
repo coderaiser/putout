@@ -1,19 +1,17 @@
-'use strict';
+import {operator} from 'putout';
+import * as declare from '@putout/plugin-declare';
+import * as tape from '@putout/plugin-tape';
+import {createTest} from '@putout/test';
+import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-commonjs';
+import * as convertCommonjsToEsm from '@putout/plugin-nodejs/convert-commonjs-to-esm';
+import * as putoutPlugin from '@putout/plugin-putout';
+import * as merge from './index.js';
 
-const {operator} = require('putout');
-const declare = require('@putout/plugin-declare');
-const tape = require('@putout/plugin-tape');
-const {createTest} = require('@putout/test');
-const convertEsmToCommonjs = require('@putout/plugin-nodejs/convert-esm-to-commonjs');
-const convertCommonjsToEsm = require('@putout/plugin-nodejs/convert-commonjs-to-esm');
-const putoutPlugin = require('@putout/plugin-putout');
-
-const merge = require('.');
 const convertReplaceWith = putoutPlugin.rules['convert-replace-with'];
 const {remove} = operator;
 const noop = () => {};
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['merge-duplicate-imports', merge],
     ],

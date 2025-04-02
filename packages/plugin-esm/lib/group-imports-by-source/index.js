@@ -1,7 +1,6 @@
-'use strict';
+import {isDeepStrictEqual} from 'node:util';
+import {types, operator} from 'putout';
 
-const {isDeepStrictEqual} = require('node:util');
-const {types, operator} = require('putout');
 const {isImportDeclaration} = types;
 
 const {
@@ -9,9 +8,9 @@ const {
     remove,
 } = operator;
 
-module.exports.report = () => `Group imports by source: 'builtins', 'external', 'hashed', 'internal'`;
+export const report = () => `Group imports by source: 'builtins', 'external', 'hashed', 'internal'`;
 
-module.exports.fix = ({grouped}) => {
+export const fix = ({grouped}) => {
     const [first, ...others] = grouped;
     const nodes = [first.node];
     
@@ -24,7 +23,7 @@ module.exports.fix = ({grouped}) => {
     replaceWithMultiple(first, nodes);
 };
 
-module.exports.traverse = ({pathStore, push}) => ({
+export const traverse = ({pathStore, push}) => ({
     ImportDeclaration: pathStore,
     Program: {
         exit(path) {

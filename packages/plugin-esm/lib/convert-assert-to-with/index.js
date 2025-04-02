@@ -1,17 +1,15 @@
-'use strict';
-
 const setImportType = (path, type) => {
     path.node.options.properties[0].key.name = type;
 };
 
-module.exports.report = () => `Use 'with' instead of 'assert'`;
+export const report = () => `Use 'with' instead of 'assert'`;
 
-module.exports.include = () => [
+export const include = () => [
     'ImportDeclaration',
     'import(__a, {assert: {type: "json"}})',
 ];
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     if (path.isImportDeclaration()) {
         delete path.node.extra.deprecatedAssertSyntax;
         return;
@@ -20,7 +18,7 @@ module.exports.fix = (path) => {
     setImportType(path, 'with');
 };
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const {extra} = path.node;
     
     if (path.isImportDeclaration())

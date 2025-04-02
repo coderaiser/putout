@@ -1,19 +1,18 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => 'Remove empty export';
+export const report = () => 'Remove empty export';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.include = () => [
+export const include = () => [
     'ExportNamedDeclaration',
 ];
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const {specifiers, declaration} = path.node;
     
     return !declaration && !specifiers.length;

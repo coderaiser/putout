@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => 'Remove quotes from import assertions';
 
-module.exports.report = () => 'Remove quotes from import assertions';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'import __imports from "__a" with {"type": "__b"}': 'import __imports from "__a" with {type: "__b"}',
 });

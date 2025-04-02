@@ -1,16 +1,14 @@
-'use strict';
+import * as declareImportsFirst from './declare-imports-first/index.js';
+import * as groupImportsBySource from './group-imports-by-source/index.js';
+import * as removeQuotesFromImportAssertions from './remove-quotes-from-import-assertions/index.js';
+import * as sortImportsBySpecifiers from './sort-imports-by-specifiers/index.js';
+import * as removeEmptyImport from './remove-empty-import/index.js';
+import * as removeEmptyExport from './remove-empty-export/index.js';
+import * as mergeDuplicateImports from './merge-duplicate-imports/index.js';
+import * as convertAssertToWith from './convert-assert-to-with/index.js';
+import * as applyExportFrom from './apply-export-from/index.js';
 
-const declareImportsFirst = require('./declare-imports-first');
-const groupImportsBySource = require('./group-imports-by-source');
-const removeQuotesFromImportAssertions = require('./remove-quotes-from-import-assertions');
-const sortImportsBySpecifiers = require('./sort-imports-by-specifiers');
-const removeEmptyImport = require('./remove-empty-import');
-const removeEmptyExport = require('./remove-empty-export');
-const mergeDuplicateImports = require('./merge-duplicate-imports');
-const convertAssertToWith = require('./convert-assert-to-with');
-const applyExportFrom = require('./apply-export-from');
-
-module.exports.rules = {
+export const rules = {
     ...mergeDuplicateImports.rules,
     'declare-imports-first': declareImportsFirst,
     'group-imports-by-source': groupImportsBySource,

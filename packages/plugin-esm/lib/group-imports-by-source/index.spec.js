@@ -1,14 +1,11 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as nodejs from '@putout/plugin-nodejs';
+import * as plugin from './index.js';
+import * as sortImportsBySpecifiers from '../sort-imports-by-specifiers/index.js';
 
-const {createTest} = require('@putout/test');
-
-const nodejs = require('@putout/plugin-nodejs');
-const plugin = require('..');
-
-const sortImportsBySpecifiers = require('../sort-imports-by-specifiers');
 const convertEsmToCommonJS = nodejs.rules['convert-esm-to-commonjs'];
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['group-imports-by-source', plugin],
     ],
