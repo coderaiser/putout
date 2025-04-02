@@ -1,3 +1,9 @@
+2025.04.02, v39.7.1
+
+feature:
+- de3d3173b putout: @putout/plugin-merge-duplicate-functions v3.0.0
+- 94d163aa4 @putout/plugin-merge-duplicate-functions: convert to ESM
+
 2025.04.01, v39.7.0
 
 feature:
