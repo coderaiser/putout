@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     compare,
     remove,
@@ -9,9 +8,9 @@ const {
 
 const {entries, keys} = Object;
 
-module.exports.report = () => 'Avoid duplicate functions';
+export const report = () => 'Avoid duplicate functions';
 
-module.exports.fix = ({path, duplicatePath}) => {
+export const fix = ({path, duplicatePath}) => {
     const {name} = path.get('id').node;
     const {name: duplicateName} = duplicatePath.get('id').node;
     
@@ -19,7 +18,7 @@ module.exports.fix = ({path, duplicatePath}) => {
     remove(duplicatePath);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     Program({scope}) {
         const {bindings} = scope;
         const names = keys(bindings);
