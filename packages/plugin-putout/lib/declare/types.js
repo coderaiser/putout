@@ -656,7 +656,6 @@ export default {
     getOuterBindingIdentifiers: 'const {getOuterBindingIdentifiers} = types',
     identifier: 'const {identifier} = types',
     ifStatement: 'const {ifStatement} = types',
-    import: 'const {import} = types',
     importAttribute: 'const {importAttribute} = types',
     importDeclaration: 'const {importDeclaration} = types',
     importDefaultSpecifier: 'const {importDefaultSpecifier} = types',

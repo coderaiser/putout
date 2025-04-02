@@ -14,6 +14,9 @@ for (const key of getKeys(data, path)) {
     if (key === 'is')
         continue;
     
+    if (key === 'import')
+        continue;
+    
     if (key.toUpperCase() === key)
         continue;
     

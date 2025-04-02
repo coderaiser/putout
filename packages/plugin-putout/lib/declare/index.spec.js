@@ -432,3 +432,8 @@ test('plugin-putout: declare: identifier', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: no transform: import', (t) => {
+    t.noTransformCode(`import('hello');\n`);
+    t.end();
+});
