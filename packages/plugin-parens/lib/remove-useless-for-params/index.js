@@ -1,22 +1,19 @@
-'use strict';
+import putout, {operator} from 'putout';
 
-const {operator} = require('putout');
-
-const putout = require('putout');
 const {hasParens, removeParens} = operator;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     const source = putout.print(path);
     const code = source.slice(1, -1);
     
     return `Avoid useless parens: '${source}' -> '${code}'`;
 };
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     removeParens(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     Function(path) {
         const params = path.get('params');
         

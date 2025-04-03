@@ -1,17 +1,16 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {hasParens} = operator;
 
-module.exports.report = () => `Remove useless parens around 'await'`;
+export const report = () => `Remove useless parens around 'await'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.node.extra = {
         parenthesized: false,
     };
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     AwaitExpression(path) {
         if (!hasParens(path))
             return;

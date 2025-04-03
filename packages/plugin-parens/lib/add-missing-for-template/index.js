@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {addParens} = operator;
 
-module.exports.report = () => `Add missing parens: invalid tagged template on optional chain`;
+export const report = () => `Add missing parens: invalid tagged template on optional chain`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     addParens(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     TaggedTemplateExpression(path) {
         const tagPath = path.get('tag');
         

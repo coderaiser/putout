@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     unaryExpression,
     binaryExpression,
@@ -13,9 +12,9 @@ const {
 
 const {replaceWith, addParens} = operator;
 
-module.exports.report = () => `SyntaxError: Invalid left-hand side in assignment expression`;
+export const report = () => `SyntaxError: Invalid left-hand side in assignment expression`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {
         left,
         right,
@@ -53,7 +52,7 @@ module.exports.fix = (path) => {
     addParens(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     AssignmentExpression(path) {
         if (isLogicalExpression(path.node.left))
             push(path);

@@ -1,12 +1,10 @@
-'use strict';
+import * as addMissingForAwait from './add-missing-for-await/index.js';
+import * as addMissingForTemplate from './add-missing-for-template/index.js';
+import * as addMissingForAssign from './add-missing-for-assign/index.js';
+import * as removeUselessForAwait from './remove-useless-for-await/index.js';
+import * as removeUselessForParams from './remove-useless-for-params/index.js';
 
-const addMissingForAwait = require('./add-missing-for-await');
-const addMissingForTemplate = require('./add-missing-for-template');
-const addMissingForAssign = require('./add-missing-for-assign');
-const removeUselessForAwait = require('./remove-useless-for-await');
-const removeUselessForParams = require('./remove-useless-for-params');
-
-module.exports.rules = {
+export const rules = {
     'add-missing-for-awai': addMissingForAwait,
     'add-missing-for-template': addMissingForTemplate,
     'add-missing-for-assign': addMissingForAssign,

@@ -1,20 +1,18 @@
-'use strict';
-
-const {
+import {
     print,
     types,
     operator,
-} = require('putout');
+} from 'putout';
 
 const {awaitExpression} = types;
 const {replaceWith, addParens} = operator;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     const line = print(path.get('argument.callee'));
     return `TypeError: '${line}' is not a function`;
 };
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {argument} = path.node;
     const newPath = replaceWith(path, argument);
     const objectPath = newPath.get('expression.callee.object');
@@ -24,7 +22,7 @@ module.exports.fix = (path) => {
     addParens(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     AwaitExpression(path) {
         const argPath = path.get('argument');
         
