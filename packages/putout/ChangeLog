@@ -1,3 +1,9 @@
+2025.04.03, v39.7.4
+
+feature:
+- 3434213d1 putout: @putout/plugin-parens v3.0.0
+- d13ee4a48 @putout/plugin-parens: migrate to ESM
+
 2025.04.03, v39.7.3
 
 feature:
