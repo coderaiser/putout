@@ -1,3 +1,9 @@
+2025.04.03, v39.7.3
+
+feature:
+- 4269914dd putout: @putout/plugin-maybe v4.0.0
+- 904b69bf5 @putout/plugin-maybe: migrate to ESM
+
 2025.04.03, v39.7.2
 
 feature:
