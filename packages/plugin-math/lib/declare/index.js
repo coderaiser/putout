@@ -1,5 +1,3 @@
-'use strict';
-
-module.exports.declare = () => ({
+export const declare = () => ({
     round: 'const {round} = Math',
 });

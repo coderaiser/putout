@@ -1,11 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as webpack from '@putout/plugin-webpack';
+import * as applyNumericSeparators from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const webpack = require('@putout/plugin-webpack');
-const applyNumericSeparators = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['math/apply-numeric-separators', applyNumericSeparators],
     ],

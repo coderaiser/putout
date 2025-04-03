@@ -1,15 +1,13 @@
-'use strict';
+export const report = () => `Numeric separators should be used`;
 
-module.exports.report = () => `Numeric separators should be used`;
-
-module.exports.fix = ({node}) => {
+export const fix = ({node}) => {
     const {raw} = node;
     
     node.raw = split(raw);
     node.value = split(raw);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     NumericLiteral(path) {
         const {node} = path;
         

@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     isNumericLiteral,
     isExportNamedDeclaration,
@@ -9,8 +8,8 @@ const {
 
 const {remove} = operator;
 
-module.exports.report = () => 'Avoid unchanged zero declarations';
-module.exports.fix = ({path, referencePaths}) => {
+export const report = () => 'Avoid unchanged zero declarations';
+export const fix = ({path, referencePaths}) => {
     for (const ref of referencePaths) {
         remove(ref);
     }
@@ -18,7 +17,7 @@ module.exports.fix = ({path, referencePaths}) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     VariableDeclarator(path) {
         const {init, id} = path.node;
         

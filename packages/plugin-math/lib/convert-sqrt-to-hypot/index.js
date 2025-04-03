@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Use 'Math.hypot()' instead of 'Math.sqrt()'`;
 
-module.exports.report = () => `Use 'Math.hypot()' instead of 'Math.sqrt()'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'Math.sqrt(__a ** 2)': 'Math.hypot(__a)',
     'Math.sqrt(__a ** 2 + __b ** 2)': 'Math.hypot(__a, __b)',
     'Math.sqrt(__a ** 2 + __b ** 2 + __c ** 2)': 'Math.hypot(__a, __b, __c)',

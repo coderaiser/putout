@@ -1,13 +1,11 @@
-'use strict';
+import * as applyExponentiation from './apply-exponentiation/index.js';
+import * as applyMultiplication from './apply-multiplication/index.js';
+import * as applyNumericSeparators from './apply-numeric-separators/index.js';
+import * as convertSqrtToHypot from './convert-sqrt-to-hypot/index.js';
+import * as declare from './declare/index.js';
+import * as removeUnchangedZeroDeclarations from './remove-unchanged-zero-declarations/index.js';
 
-const applyExponentiation = require('./apply-exponentiation');
-const applyMultiplication = require('./apply-multiplication');
-const applyNumericSeparators = require('./apply-numeric-separators');
-const convertSqrtToHypot = require('./convert-sqrt-to-hypot');
-const declare = require('./declare');
-const removeUnchangedZeroDeclarations = require('./remove-unchanged-zero-declarations');
-
-module.exports.rules = {
+export const rules = {
     'apply-exponentiation': applyExponentiation,
     'apply-multiplication': applyMultiplication,
     'apply-numeric-separators': applyNumericSeparators,
