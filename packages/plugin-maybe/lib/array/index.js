@@ -1,10 +1,8 @@
-'use strict';
+export const report = () => `Use 'maybeArray()'`;
 
-module.exports.report = () => `Use 'maybeArray()'`;
+export const filter = ({parentPath}) => !parentPath.isFunction();
 
-module.exports.filter = ({parentPath}) => !parentPath.isFunction();
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'isArray(__a) ? __a : [__a]': 'maybeArray(__a)',
     'Array.isArray(__a) ? __a : [__a]': 'maybeArray(__a)',
 });

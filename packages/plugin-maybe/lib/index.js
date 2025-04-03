@@ -1,12 +1,10 @@
-'use strict';
+import * as array from './array/index.js';
+import * as emptyArray from './empty-array/index.js';
+import * as fn from './fn/index.js';
+import * as noop from './noop/index.js';
+import * as declare from './declare/index.js';
 
-const array = require('./array');
-const emptyArray = require('./empty-array');
-const fn = require('./fn');
-const noop = require('./noop');
-const declare = require('./declare');
-
-module.exports.rules = {
+export const rules = {
     array,
     'empty-array': emptyArray,
     fn,

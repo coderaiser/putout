@@ -1,9 +1,7 @@
-'use strict';
+export const report = () => `Use 'maybeEmptyArray()'`;
 
-module.exports.report = () => `Use 'maybeEmptyArray()'`;
+export const filter = ({parentPath}) => !parentPath.isFunction();
 
-module.exports.filter = ({parentPath}) => !parentPath.isFunction();
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '!__a ? [] :__a': 'maybeEmptyArray(__a)',
 });

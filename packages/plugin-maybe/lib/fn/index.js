@@ -1,12 +1,10 @@
-'use strict';
+export const report = () => `Use 'maybeFn()'`;
 
-module.exports.report = () => `Use 'maybeFn()'`;
-
-module.exports.exclude = () => [
+export const exclude = () => [
     'const maybeFn = isFn(__a) ? __a : noop',
     'const maybeFn = __',
 ];
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'isFn(__a) ? __a : noop': 'maybeFn(__a)',
 });

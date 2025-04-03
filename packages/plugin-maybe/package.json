@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-maybe",
   "version": "3.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin applies Maybe monad",
   "homepage": "https://github.com/coderaiser/maybe/tree/master/packages/plugin-maybe#readme",
@@ -32,7 +32,6 @@
     "maybe"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
     "@putout/test": "^13.0.0",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
@@ -43,11 +42,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=38"
+    "putout": ">=39"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

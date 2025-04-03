@@ -1,20 +1,19 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isBlockStatement} = types;
 
-module.exports.report = () => `Use 'noop()'`;
+export const report = () => `Use 'noop()'`;
 
-module.exports.exclude = () => [
+export const exclude = () => [
     'const __a = () => {}',
 ];
 
-module.exports.match = () => ({
+export const match = () => ({
     '() => __body': ({__body}) => {
         return isBlockStatement(__body) && !__body.body.length;
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '() => __body': 'noop',
 });
