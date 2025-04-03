@@ -1,3 +1,10 @@
+2025.04.03, v39.7.2
+
+feature:
+- 8a4d4c6f3 putout: @putout/plugin-esm v3.0.0
+- 54b1f9f0a @putout/plugin-esm: migrate to ESM
+- 91efff3de @putout/plugin-putout: declare: types: exclude: import
+
 2025.04.02, v39.7.1
 
 feature:
