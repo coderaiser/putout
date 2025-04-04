@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Use array destructuring`;
 
-module.exports.report = () => `Use array destructuring`;
-
-module.exports.exclude = () => [
+export const exclude = () => [
     'const __object = __[0]',
     'const __array = __[0]',
     '({__} = __[0])',
@@ -10,7 +8,7 @@ module.exports.exclude = () => [
     '__a[0] = __b[0]',
 ];
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a = __b[0]': '[__a] = __b',
     '__a = __b[1]': '[, __a] = __b',
     'const __a = __b[0]': convertTo('const [__a] = __b'),

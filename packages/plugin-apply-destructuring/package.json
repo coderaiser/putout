@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-apply-destructuring",
   "version": "8.0.1",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability use destructuring on variable declarations",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-destructuring#readme",
@@ -31,7 +31,6 @@
     "destructuring"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
     "@putout/test": "^13.0.0",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
@@ -41,11 +40,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=38"
+    "putout": ">=39"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

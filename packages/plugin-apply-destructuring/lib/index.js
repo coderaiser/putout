@@ -1,10 +1,8 @@
-'use strict';
+import * as object from './object/index.js';
+import * as array from './array/index.js';
+import * as falsy from './falsy/index.js';
 
-const object = require('./object');
-const array = require('./array');
-const falsy = require('./falsy');
-
-module.exports.rules = {
+export const rules = {
     object,
     array,
     falsy,
