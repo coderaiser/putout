@@ -2,15 +2,13 @@
 
 const montag = require('montag');
 const {test, stub} = require('supertape');
-const mockRequire = require('mock-require');
 
 const parseOptions = require('putout/parse-options');
-const putout = require('putout');
+
 const processFile = require('./process-file');
 
 const {assign} = Object;
 const noop = () => {};
-const {reRequire, stopAll} = mockRequire;
 const {stringify} = JSON;
 
 test('putout: cli: process-file: eslint', async (t) => {
@@ -22,13 +20,9 @@ test('putout: cli: process-file: eslint', async (t) => {
     const log = stub();
     const write = stub();
     
-    mockRequire('@putout/eslint', eslint);
-    
     const options = {
         dir: '.',
     };
-    
-    const processFile = reRequire('./process-file');
     
     const fn = processFile({
         fix,
@@ -42,9 +36,8 @@ test('putout: cli: process-file: eslint', async (t) => {
         index: 0,
         length: 1,
         options,
+        eslint,
     });
-    
-    stopAll();
     
     const expected = {
         code: source,
@@ -65,13 +58,9 @@ test('putout: cli: process-file: ts from preProcessor', async (t) => {
     const log = stub();
     const write = stub();
     
-    mockRequire('@putout/eslint', eslint);
-    
     const options = {
         dir: '.',
     };
-    
-    const processFile = reRequire('./process-file');
     
     const fn = processFile({
         fix,
@@ -85,9 +74,8 @@ test('putout: cli: process-file: ts from preProcessor', async (t) => {
         index: 0,
         length: 1,
         options,
+        eslint,
     });
-    
-    stopAll();
     
     const expected = {
         code: source,
@@ -109,8 +97,6 @@ test('putout: cli: process-file: tsx from preProcessor', async (t) => {
     const options = {
         dir: '.',
     };
-    
-    const processFile = reRequire('./process-file');
     
     const fn = processFile({
         fix,
@@ -156,10 +142,6 @@ test('putout: cli: process-file: options for inner data', async (t) => {
         plugins: ['putout-config'],
     };
     
-    mockRequire('@putout/eslint', eslint);
-    
-    const processFile = reRequire('./process-file');
-    
     const fn = processFile({
         fix,
         log,
@@ -172,9 +154,8 @@ test('putout: cli: process-file: options for inner data', async (t) => {
         index: 0,
         length: 1,
         options,
+        eslint,
     });
-    
-    stopAll();
     
     const expected = [{
         message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
@@ -223,13 +204,9 @@ test('putout: cli: process-file: ruler', async (t) => {
         plugins: ['putout-config'],
     };
     
-    mockRequire('@putout/eslint', eslint);
-    
     const ruler = {
         enableAll: true,
     };
-    
-    const processFile = reRequire('./process-file');
     
     const fn = processFile({
         fix,
@@ -243,10 +220,9 @@ test('putout: cli: process-file: ruler', async (t) => {
         source,
         index: 0,
         length: 1,
+        eslint,
         options,
     });
-    
-    stopAll();
     
     const expected = [{
         message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
@@ -280,15 +256,9 @@ test('putout: cli: process-file: configurePrinter', async (t) => {
     const log = stub();
     const write = stub();
     
-    mockRequire('putout', {
-        putoutAsync,
-    });
-    
     const options = {
         dir: '.',
     };
-    
-    const processFile = reRequire('./process-file');
     
     const fn = processFile({
         fix,
@@ -304,9 +274,8 @@ test('putout: cli: process-file: configurePrinter', async (t) => {
         length: 1,
         
         source,
+        putoutAsync,
     });
-    
-    stopAll();
     
     const expected = ['log123("hello")', {
         dir: '.',
@@ -342,11 +311,6 @@ test('putout: cli: process-file: configurePrinter: overrides', async (t) => {
     const log = stub();
     const write = stub();
     
-    mockRequire('putout', {
-        ...putout,
-        putoutAsync,
-    });
-    
     const options = {
         dir: '.',
         printer: ['putout', {
@@ -355,8 +319,6 @@ test('putout: cli: process-file: configurePrinter: overrides', async (t) => {
             },
         }],
     };
-    
-    const processFile = reRequire('./process-file');
     
     const fn = processFile({
         fix,
@@ -372,9 +334,8 @@ test('putout: cli: process-file: configurePrinter: overrides', async (t) => {
         length: 1,
         
         source,
+        putoutAsync,
     });
-    
-    stopAll();
     
     const expected = [
         source, {
@@ -408,18 +369,9 @@ test('putout: cli: process-file: plugin not found', async (t) => {
     const log = stub();
     const write = stub();
     
-    mockRequire('putout', {
-        ...putout,
-        putoutAsync,
-    });
-    
     const options = {
         dir: '.',
     };
-    
-    reRequire('@putout/eslint');
-    
-    const processFile = reRequire('./process-file');
     
     const fn = processFile({
         fix,
@@ -435,9 +387,8 @@ test('putout: cli: process-file: plugin not found', async (t) => {
         length: 1,
         
         source,
+        putoutAsync,
     });
-    
-    stopAll();
     
     const expected = {
         code: `__putout_processor_yaml({hello: 'world'});`,
@@ -734,13 +685,6 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
         lint,
     });
     
-    mockRequire('./simple-import', {
-        simpleImport,
-    });
-    
-    reRequire('putout');
-    const processFile = reRequire('./process-file');
-    
     const fn = processFile({
         fix,
         log,
@@ -755,6 +699,7 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
         options: {
             dir: '.',
         },
+        simpleImport,
     });
     
     const expected = {
@@ -775,8 +720,6 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
             rule: 'parser (eslint)',
         }],
     };
-    
-    stopAll();
     
     t.deepEqual(result, expected);
     t.end();

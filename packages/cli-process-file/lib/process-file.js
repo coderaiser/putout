@@ -2,11 +2,11 @@
 
 const process = require('node:process');
 const tryToCatch = require('try-to-catch');
-const eslint = require('@putout/eslint');
+const _eslint = require('@putout/eslint');
 const {parseMatch} = require('putout/parse-match');
 const {mergeOptions} = require('putout/merge-options');
 const parseError = require('putout/parse-error');
-const {putoutAsync} = require('putout');
+const {putoutAsync: _putoutAsync} = require('putout');
 const once = require('once');
 
 const {simpleImport: _simpleImport} = require('./simple-import');
@@ -29,6 +29,8 @@ module.exports = ({fix, fixCount, logError, raw}) => async function processFile(
         again,
         env = getEnv(),
         simpleImport = _simpleImport,
+        eslint = _eslint,
+        putoutAsync = _putoutAsync,
     } = overrides;
     
     const {configurePrinter} = await import('./printer/printer.mjs');

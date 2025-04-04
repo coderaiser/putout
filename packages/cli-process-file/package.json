@@ -37,15 +37,12 @@
     "cli"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
     "@putout/operate": "^13.0.0",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^26.0.0",
     "madrun": "^11.0.0",
-    "mock-import": "^4.2.1",
-    "mock-require": "^3.0.3",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
     "putout": "*",
