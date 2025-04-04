@@ -1,3 +1,9 @@
+2025.04.04, v39.7.6
+
+feature:
+- dd57a7b57 putout: @putout/plugin-apply-destructuring v9.0.0
+- c3373261a @putout/plugin-apply-destructuring: convert to ESM
+
 2025.04.03, v39.7.5
 
 feature:
