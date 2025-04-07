@@ -2,13 +2,16 @@ import {operator} from 'putout';
 
 const {setLiteralValue} = operator;
 
-export const report = () => `Add 'index.js' to nested import`;
+export const report = (path) => {
+    const {value} = path.node.source;
+    return `Add 'index.js' to import: '${value}' -> '${value}/index.js'`;
+};
 
 export const fix = (path) => {
     const {source} = path.node;
     const {value} = source;
     
-    if (value.endsWith('js')) {
+    if (value.endsWith('.js')) {
         setLiteralValue(source, value.replace('.js', '/index.js'));
         return;
     }
