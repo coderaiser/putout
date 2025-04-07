@@ -7,7 +7,7 @@ module.exports.createDebug = (namespace) => {
     
     return new Proxy(log, {
         apply(target, thisArg, args) {
-            global.__putout_debug(namespace, ...args);
+            global.__putout_debug?.(namespace, ...args);
             return target(...args);
         },
         get(target, prop) {
