@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     restElement,
     objectPattern,
@@ -8,9 +7,9 @@ const {
     objectProperty,
 } = types;
 
-module.exports.report = () => `Avoid useless 'forwardRef' in react > 19`;
+export const report = () => `Avoid useless 'forwardRef' in react > 19`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'forwardRef(__a)': ({__a}) => {
         __a.params = buildParams(__a);
         

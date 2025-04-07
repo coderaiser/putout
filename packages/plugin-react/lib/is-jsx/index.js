@@ -1,7 +1,3 @@
-'use strict';
-
-const noop = () => {};
-
-module.exports.report = () => '';
-module.exports.fix = noop;
-module.exports.include = () => ['JSXElement'];
+export const report = () => '';
+export const fix = () => {};
+export const include = () => ['JSXElement'];

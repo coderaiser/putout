@@ -1,13 +1,11 @@
-'use strict';
+import * as removeUselessProvider from './remove-useless-provider/index.js';
+import * as removeImplicitRefReturn from './remove-implicit-ref-return/index.js';
+import * as removeUselessForwardRef from './remove-useless-forward-ref/index.js';
+import * as applyCreateRoot from './apply-create-root/index.js';
+import * as renameFileJsToJsx from './rename-file-js-to-jsx/index.js';
+import * as renameFileJsxToJs from './rename-file-jsx-to-js/index.js';
 
-const removeUselessProvider = require('./remove-useless-provider');
-const removeImplicitRefReturn = require('./remove-implicit-ref-return');
-const removeUselessForwardRef = require('./remove-useless-forward-ref');
-const applyCreateRoot = require('./apply-create-root');
-const renameFileJsToJsx = require('./rename-file-js-to-jsx');
-const renameFileJsxToJs = require('./rename-file-jsx-to-js');
-
-module.exports.rules = {
+export const rules = {
     'remove-useless-provider': removeUselessProvider,
     'remove-implicit-ref-return': removeImplicitRefReturn,
     'remove-useless-forward-ref': removeUselessForwardRef,

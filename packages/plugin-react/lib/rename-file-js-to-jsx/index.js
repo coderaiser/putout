@@ -1,13 +1,20 @@
-'use strict';
+import {operator} from 'putout';
+import * as isJSX from '../is-jsx/index.js';
 
-const {operator} = require('putout');
-
-const isJSX = require('../is-jsx');
 const {matchFiles} = operator;
-
-module.exports = matchFiles({
+const {
+    report,
+    fix,
+    scan,
+} = matchFiles({
     filename: '*.js',
     files: {
         '__name.js -> __name.jsx': isJSX,
     },
 });
+
+export {
+    report,
+    fix,
+    scan,
+};

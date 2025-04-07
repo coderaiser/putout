@@ -1,16 +1,16 @@
-'use strict';
+import {operator} from 'putout';
 
-const {replaceWith} = require('putout').operator;
+const {replaceWith} = operator;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     return `Remove useless 'Provider': '${path}' -> '${path.node.object.name}'`;
 };
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     replaceWith(path, path.node.object);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     JSXIdentifier(path) {
         if (path.node.name !== 'Provider')
             return;
