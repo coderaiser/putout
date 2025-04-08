@@ -140,7 +140,7 @@
     "@putout/plugin-parens": "^3.0.0",
     "@putout/plugin-promises": "^17.0.0",
     "@putout/plugin-putout": "^25.0.0",
-    "@putout/plugin-putout-config": "^9.0.1",
+    "@putout/plugin-putout-config": "^10.0.0",
     "@putout/plugin-regexp": "^11.0.0",
     "@putout/plugin-remove-console": "^6.0.0",
     "@putout/plugin-remove-constant-conditions": "^4.0.0",
