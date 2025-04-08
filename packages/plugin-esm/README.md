@@ -73,7 +73,6 @@ import addAction from './add-action/index.js';
 export const rules = {};
 ```
 
-
 ### apply-export-from
 
 > The `export` declaration is used to export values from a JavaScript module.
