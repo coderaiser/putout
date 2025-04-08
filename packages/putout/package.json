@@ -139,7 +139,7 @@
     "@putout/plugin-package-json": "^9.0.0",
     "@putout/plugin-parens": "^3.0.0",
     "@putout/plugin-promises": "^17.0.0",
-    "@putout/plugin-putout": "^24.0.0",
+    "@putout/plugin-putout": "^25.0.0",
     "@putout/plugin-putout-config": "^9.0.0",
     "@putout/plugin-regexp": "^11.0.0",
     "@putout/plugin-remove-console": "^6.0.0",
