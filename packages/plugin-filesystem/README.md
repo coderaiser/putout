@@ -541,7 +541,7 @@ putout(filesystem, {
 });
 ```
 
-Concreate files:
+Concut files:
 
 ```json
 {
