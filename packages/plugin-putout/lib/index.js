@@ -43,7 +43,6 @@ import * as includer from './includer/index.js';
 import * as createTest from './create-test/index.js';
 import * as applyNamespaceSpecifier from './apply-namespace-specifier/index.js';
 import * as convertGetRuleToRequire from './convert-get-rule-to-require/index.js';
-import * as addIndexToImport from './add-index-to-import/index.js';
 import * as applyRename from './apply-rename/index.js';
 import * as applyShortProcessors from './apply-short-processors/index.js';
 import * as addTrackFile from './add-track-file/index.js';
@@ -111,7 +110,6 @@ export const rules = {
     'create-test': createTest,
     'apply-namespace-specifier': applyNamespaceSpecifier,
     'convert-get-rule-to-require': convertGetRuleToRequire,
-    'add-index-to-import': addIndexToImport,
     'apply-rename': applyRename,
     'apply-short-processors': applyShortProcessors,
     'convert-traverse-to-scan': convertTraverseToScan,

@@ -23,6 +23,21 @@ test('packages: add-index-to-import: no report: cjs', (t) => {
     t.end();
 });
 
+test('packages: add-index-to-import: no report: mjs', (t) => {
+    t.noReport('mjs');
+    t.end();
+});
+
+test('packages: add-index-to-import: no report: json', (t) => {
+    t.noReport('json');
+    t.end();
+});
+
+test('packages: add-index-to-import: no report: external', (t) => {
+    t.noReport('external');
+    t.end();
+});
+
 test('packages: add-index-to-import: no report after transform: convert-commonjs-to-esm', (t) => {
     t.noReportAfterTransform('convert-commonjs-to-esm', {
         convertCommonjsToESM,

@@ -1,3 +1,4 @@
+import * as addIndexToImport from './add-index-to-import/index.js';
 import * as declareImportsFirst from './declare-imports-first/index.js';
 import * as groupImportsBySource from './group-imports-by-source/index.js';
 import * as removeQuotesFromImportAssertions from './remove-quotes-from-import-assertions/index.js';
@@ -9,13 +10,14 @@ import * as convertAssertToWith from './convert-assert-to-with/index.js';
 import * as applyExportFrom from './apply-export-from/index.js';
 
 export const rules = {
-    ...mergeDuplicateImports.rules,
+    'add-index-to-import': addIndexToImport,
+    'apply-export-from': applyExportFrom,
+    'convert-assert-to-with': convertAssertToWith,
     'declare-imports-first': declareImportsFirst,
     'group-imports-by-source': groupImportsBySource,
+    ...mergeDuplicateImports.rules,
     'remove-quotes-from-import-assertions': removeQuotesFromImportAssertions,
     'remove-empty-import': removeEmptyImport,
     'remove-empty-export': removeEmptyExport,
     'sort-imports-by-specifiers': sortImportsBySpecifiers,
-    'convert-assert-to-with': convertAssertToWith,
-    'apply-export-from': applyExportFrom,
 };

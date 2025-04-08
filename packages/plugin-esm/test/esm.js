@@ -7,6 +7,11 @@ const test = createTest(import.meta.url, {
     ],
 });
 
+test('putout: plugin: esm: transform: add-index-to-import', (t) => {
+    t.transform('add-index-to-import');
+    t.end();
+});
+
 test('putout: plugin: esm: merge-duplicate-imports: declare-imports-first: transform', (t) => {
     t.transform('declare-imports-first');
     t.end();

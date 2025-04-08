@@ -14,7 +14,6 @@ npm i @putout/plugin-putout -D
 ## Rules
 
 - ✅ [add-await-to-progress](#add-await-to-progress);
-- ✅ [add-index-to-import](#add-index-to-import);
 - ✅ [add-places-to-compare-places](#add-places-to-compare-places);
 - ✅ [add-path-arg-to-fix](#add-path-arg-to-fix);
 - ✅ [add-path-arg-to-visitors](#add-path-arg-to-visitors);
@@ -95,7 +94,6 @@ npm i @putout/plugin-putout -D
         "putout/add-traverse-args": "on",
         "putout/add-track-file": "on",
         "putout/add-await-to-progress": "on",
-        "putout/add-index-to-import": "on",
         "putout/apply-create-test": "on",
         "putout/apply-create-nested-directory": "on",
         "putout/apply-async-formatter": "on",
@@ -1434,29 +1432,6 @@ export const scan = (root, {push, progress}) => {
 export const scan = (root, {push, progress, trackFile}) => {
     trackFile();
 };
-```
-
-## add-index-to-import
-
-ESM doesn't add `index.js`, so it can be left after [`@putout/plugin-convert-esm-to-commonjs`](https://github.com/coderaiser/putout/blob/master/packages/plugin-convert-esm-to-commonjs#readme).
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b7c489710767efee95ecf3dd16e232a2/9f974f0a345ef4d0cb39b011097dff82e6c32b75).
-
-### ❌ Example of incorrect code
-
-```js
-import insertRust from './insert-rust.js';
-import addAction from './add-action.js';
-
-export const rules = {};
-```
-
-### ✅ Example of correct code
-
-```js
-import insertRust from './insert-rust/index.js';
-import addAction from './add-action/index.js';
-
-export const rules = {};
 ```
 
 ## convert-add-argument-to-add-args
