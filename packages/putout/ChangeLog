@@ -1,3 +1,8 @@
+2025.04.08, v40.0.1
+
+feature:
+- 93aab7f93 putout: @putout/plugin-putout-config v10.0.0
+
 2025.04.08, v40.0.0
 
 fix:
