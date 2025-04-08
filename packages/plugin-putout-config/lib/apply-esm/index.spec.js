@@ -16,3 +16,8 @@ test('putout-config: apply-esm: transform', (t) => {
     t.transform('apply-esm');
     t.end();
 });
+
+test('putout-config: apply-esm: transform: v40', (t) => {
+    t.transform('v40');
+    t.end();
+});

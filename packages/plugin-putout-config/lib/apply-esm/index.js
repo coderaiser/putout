@@ -1,5 +1,9 @@
 import {createRenameProperty} from '../rename-property.js';
 
+const v40 = [
+    ['putout/apply-index-to-import', 'esm/apply-index-to-import'],
+];
+
 const v37 = [
     ['convert-assert-to-with', 'esm/convert-assert-to-with'],
     ['remove-empty/import', 'esm/remove-empty-import'],
@@ -11,11 +15,16 @@ const v37 = [
     ['merge-duplicate-imports', 'esm/merge-duplicate-imports'],
 ];
 
+const versions = [
+    ...v37,
+    ...v40,
+];
+
 const {
     report,
     fix,
     traverse,
-} = createRenameProperty(v37);
+} = createRenameProperty(versions);
 
 export {
     report,

@@ -108,6 +108,17 @@ Apply [`return`](https://github.com/coderaiser/putout/tree/master/packages/plugi
 
 Apply [`esm`](https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#readme) according to:
 
+- 🐊[**Putout v40**](https://github.com/coderaiser/putout/releases/tag/v40.0.0):
+
+```diff
+{
+    "rules": {
+-       "putout/add-index-to-import": "on"
++       "esm/add-index-to-import": "on"
+  }
+}
+```
+
 - 🐊[**Putout v37**](https://github.com/coderaiser/putout/releases/tag/v37.0.0):
 
 ```diff
