@@ -1,3 +1,26 @@
+2025.04.08, v40.0.0
+
+fix:
+- d10f9fa21 @putout/engine-runner: debug
+
+feature:
+- 6942cd54d putout: @putout/processor-css v11.0.0
+- 9445b251a @putout/processor-html: @putout/processor-css v11.0.0
+- 8bc1be871 @putout/processor-html: drop support of 🐊 < 40
+- c2e3e7a84 @putout/processor-css: drop support of 🐊 < 40
+- a34dbec14 @putout/processor-css: stylelint-config-standard v38.0.0
+- 269dfb2c8 putout: @putout/plugin-esm v4.0.0
+- b25ea5b76 putout: @putout/plugin-putout-config v9.0.1
+- 32eb6602c putout: @putout/plugin-putout v25.0.0
+- 13b71602a @putout/plugin-esm: drop support of 🐊 < 40
+- 8978a19e2 @putout/plugin-putout-config: drop support of 🐊 < 40
+- a5fa3a3c5 @putout/plugin-putout: drop support of 🐊 < 40
+- 57ae12d38 @putout/plugin-putout-config: apply-esm: v40
+- 41ea5055e @putout/plugin-esm: add-index-to-import: putout -> esm
+- 3100343b0 @putout/plugin-react: convert to ESM
+- 70a057292 @putout/plugin-putout: add-index-to-import: js -> .js
+- 5c9bc3d5e @putout/cli-process-file: get rid of mock-require
+
 2025.04.04, v39.7.6
 
 feature:
