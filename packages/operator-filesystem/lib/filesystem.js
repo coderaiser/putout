@@ -43,6 +43,9 @@ const toBase64 = (content) => {
 };
 
 const fromBase64 = (content) => {
+    if (content.includes(' '))
+        return content;
+    
     const [e, decoded] = tryCatch(atob, content);
     
     if (!e)

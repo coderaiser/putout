@@ -1047,6 +1047,20 @@ test('putout: operator: filesystem: readFileContent: no content: should create: 
     t.end();
 });
 
+test('putout: operator: filesystem: readFileContent: literal', (t) => {
+    const content = `export default 5\n`;
+    const ast = parseFilesystem([
+        '/',
+        ['/a.js', content],
+    ]);
+    
+    const [filePath] = findFile(ast, 'a.js');
+    const result = readFileContent(filePath);
+    
+    t.equal(result, content);
+    t.end();
+});
+
 test('putout: operator: filesystem: createFile', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
