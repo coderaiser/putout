@@ -129,6 +129,7 @@ function createTest(dir, maybeOptions) {
         reportWithOptions: reportWithOptions(dir, lint, options),
         noReportWithOptions: noReportWithOptions(dir, lint, options),
         reportCode: reportCode(lint, options),
+        noReportCode: noReportCode(lint, options),
         format: formatSave(dir, options),
         formatMany: formatManySave(dir, options),
         noFormat: noFormat(dir, options),

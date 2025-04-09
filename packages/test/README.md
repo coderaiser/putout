@@ -200,6 +200,17 @@ test('plugin-putout: check-replace-code: no report: typescript', (t) => {
 });
 ```
 
+### `noReportCode(filename)`
+
+Check error message of a plugin not produces
+
+```js
+test('plugin-putout: check-replace-code: no report: import', (t) => {
+    t.noReportCode(`import a from 'a'`);
+    t.end();
+});
+```
+
 ### `noReportAfterTransform(filename)`
 
 Check error message of a plugin not produced

@@ -53,6 +53,11 @@ test('putout: test: noReportAfterTransform', (t) => {
     t.end();
 });
 
+test('putout: test: noReportCode', (t) => {
+    t.noReportCode('const a = 5');
+    t.end();
+});
+
 test('putout: test: noReportWithOptions', (t) => {
     const cache = new Map();
     
