@@ -27,6 +27,7 @@ npm i putout @putout/plugin-esm -D
 - ✅ [remove-empty-import](#remove-empty-import);
 - ✅ [remove-empty-export](#remove-empty-export);
 - ✅ [sort-imports-by-specifiers](#sort-imports-by-specifiers);
+- ✅ [resolve-imported-file](#resolve-imported-file);
 
 ## Config
 
@@ -43,7 +44,8 @@ npm i putout @putout/plugin-esm -D
         "esm/remove-empty-import": ["on", {
             "ignore": []
         }],
-        "esm/sort-imports-by-specifiers": "on"
+        "esm/sort-imports-by-specifiers": "on",
+        "esm/resolve-imported-file": "on"
     }
 }
 ```
@@ -302,6 +304,37 @@ import('foo.json', {
         type: 'json',
     },
 });
+```
+
+### resolve-imported-file
+
+Check out in 🐊**Putout Editor**:
+
+- ✅ [`resolve-imported-file`](https://putout.cloudcmd.io/#/gist/241489cb2781dd37ec96baf0115cde4e/83c2f2e9f490850b7fda432f8d25ae6a64ed07e3);
+- ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/ee10100fed86e4db926885dd54298668/7538bca7a9ae006d976f41261c0ed4c0e1902ace);
+- ✅ [`change-imports`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
+
+Let's consider file structure:
+
+```
+/
+|-- lib/
+|  `-- index.js
+|  `-- a.js
+```
+
+In this case `index.js` can be fixed:
+
+#### ❌ Example of incorrect code
+
+```js
+import a from './a';
+```
+
+#### ✅ Example of correct code
+
+```js
+import a from './a.js';
 ```
 
 ## License

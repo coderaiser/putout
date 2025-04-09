@@ -1,3 +1,4 @@
+import * as resolveImportedFile from './resolve-imported-file/index.js';
 import * as addIndexToImport from './add-index-to-import/index.js';
 import * as declareImportsFirst from './declare-imports-first/index.js';
 import * as groupImportsBySource from './group-imports-by-source/index.js';
@@ -20,4 +21,5 @@ export const rules = {
     'remove-empty-import': removeEmptyImport,
     'remove-empty-export': removeEmptyExport,
     'sort-imports-by-specifiers': sortImportsBySpecifiers,
+    'resolve-imported-file': ['off', resolveImportedFile],
 };
