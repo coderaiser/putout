@@ -56,3 +56,8 @@ test('plugin-esm: transform: apply-export-from', (t) => {
     t.transform('apply-export-from');
     t.end();
 });
+
+test('plugin-esm: no report: resolve-imported-file', (t) => {
+    t.noReport('resolve-imported-file');
+    t.end();
+});

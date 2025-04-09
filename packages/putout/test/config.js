@@ -128,6 +128,7 @@ test('putout: config: filesystem', (t) => {
     const result = match['.filesystem.json'];
     
     const expected = {
+        'esm/resolve-imported-file': 'on',
         'nodejs/cjs-file': 'on',
         'nodejs/mjs-file': 'on',
         'nodejs/rename-file-cjs-to-js': 'on',

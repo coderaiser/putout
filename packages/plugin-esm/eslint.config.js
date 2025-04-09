@@ -6,6 +6,7 @@ export const match = {
     '*.md{js}': {
         'n/no-deprecated-api': 'off',
         'n/no-unsupported-features/node-builtins': 'off',
+        'putout/no-unresolved': 'off',
     },
 };
 
