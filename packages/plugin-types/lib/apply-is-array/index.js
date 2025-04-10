@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Use 'Array.isArray()' instead of 'instanceof'`;
 
-module.exports.report = () => `Use 'Array.isArray()' instead of 'instanceof'`;
-
-module.exports.replace = ({options}) => {
+export const replace = ({options}) => {
     const {inline} = options;
     
     return {

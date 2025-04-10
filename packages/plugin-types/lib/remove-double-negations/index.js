@@ -1,10 +1,8 @@
-'use strict';
+export const report = () => `Avoid double negations in conditions`;
 
-module.exports.report = () => `Avoid double negations in conditions`;
+export const filter = ({parentPath}) => !parentPath.isJSXExpressionContainer();
 
-module.exports.filter = ({parentPath}) => !parentPath.isJSXExpressionContainer();
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'if (!!__a) __b': 'if (__a) __b',
     '!!__a ? __b : __c': '__a ? __b : __c',
     '!!__a && __b': '__a && __b',

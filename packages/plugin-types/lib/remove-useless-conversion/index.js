@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Avoid useless type conversion`;
 
-module.exports.report = () => `Avoid useless type conversion`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'Boolean(__a.includes(__b))': '__a.includes(__b)',
     'String(typeof __a)': 'typeof __a',
     'if (Boolean(__a)) __b': 'if (__a) __b',

@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessTypeof from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeUselessTypeof = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-typeof', removeUselessTypeof],
     ],

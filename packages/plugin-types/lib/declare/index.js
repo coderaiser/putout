@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.declare = () => ({
+export const declare = () => ({
     isString: `const isString = (a) => typeof a === 'string'`,
     isEmptyString: `const isEmptyString = (a) => !a && isString(a)`,
     isNumber: `const isNumber = (a) => !Number.isNaN(a) && typeof a === 'number'`,

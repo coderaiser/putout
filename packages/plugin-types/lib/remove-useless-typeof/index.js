@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Avoid useless 'typeof'`;
 
-module.exports.report = () => `Avoid useless 'typeof'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'typeof typeof __a': 'typeof __a',
 });

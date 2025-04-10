@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compare, getBindingPath} = operator;
 
 const NAMES = {
@@ -50,8 +49,8 @@ const NOT_BODIES = {
     equalUndefined: '__a !== undefined',
 };
 
-module.exports.report = () => `Use function to check type instead of 'typeof' or 'instanceof'`;
-module.exports.match = () => ({
+export const report = () => `Use function to check type instead of 'typeof' or 'instanceof'`;
+export const match = () => ({
     [EQUAL]: check,
     [NOT_EQUAL]: check,
     [EQUAL_INSTANCE_OF]: check,
@@ -60,7 +59,7 @@ module.exports.match = () => ({
     [NOT_EQUAL_UNDEFINED]: check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [BODIES.function]: 'isFn(__a)',
     [BODIES.string]: 'isString(__a)',
     [BODIES.number]: 'isNumber(__a)',

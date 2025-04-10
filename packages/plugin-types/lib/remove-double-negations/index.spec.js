@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeDoubleNegations from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeDoubleNegations = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['types: remove-double-negations', removeDoubleNegations],
     ],
