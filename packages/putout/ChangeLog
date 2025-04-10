@@ -1,3 +1,10 @@
+2025.04.10, v40.0.3
+
+feature:
+- d64a2a7b1 putout: @putout/plugin-types v8.0.0
+- 965852122 @putout/plugin-types: migrate to ESM
+- 41f7b1c24 @putout/plugin-esm: add resolve-imported-file
+
 2025.04.09, v40.0.2
 
 fix:
