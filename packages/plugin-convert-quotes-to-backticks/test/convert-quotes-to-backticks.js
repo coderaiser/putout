@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertQuotesToBacktics from '../lib/convert-quotes-to-backticks.js';
 
-const {createTest} = require('@putout/test');
-const convertQuotesToBacktics = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-quotes-to-backtics', convertQuotesToBacktics],
     ],

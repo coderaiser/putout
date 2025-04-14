@@ -1,14 +1,13 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require(`putout`);
 const {
     templateElement,
     templateLiteral,
 } = types;
 
-module.exports.report = () => `Use backticks instead of quotes`;
+export const report = () => `Use backticks instead of quotes`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const value = path
         .node
         .value
@@ -27,7 +26,7 @@ module.exports.fix = (path) => {
 
 const {replaceWith} = operator;
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     StringLiteral(path) {
         const {value} = path.node;
         
