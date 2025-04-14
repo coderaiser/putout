@@ -1,10 +1,8 @@
-'use strict';
-
-const {
+import {
     types,
     operator,
     template,
-} = require('putout');
+} from 'putout';
 
 const {
     returnStatement,
@@ -20,8 +18,8 @@ const {replaceWith} = operator;
 
 const createOverrides = template('const %%overrides%% = overrides');
 
-module.exports.report = () => `Use variable 'overrides' instead of destructuring function argument`;
-module.exports.fix = (path) => {
+export const report = () => `Use variable 'overrides' instead of destructuring function argument`;
+export const fix = (path) => {
     const {node, parentPath} = path;
     const {right} = node;
     
@@ -37,7 +35,7 @@ module.exports.fix = (path) => {
     }));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     Function(path) {
         const params = path.get('params');
         const {length} = params;
