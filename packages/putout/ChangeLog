@@ -1,3 +1,10 @@
+2025.04.14, v40.0.4
+
+feature:
+- bc32c601d putout: @putout/plugin-apply-overrides v3.0.0
+- 845a0764e @putout/plugin-apply-overrides: convert to ESM
+- a09f6f0f6 @putout/engine-parser: hermes-parser v0.28.0
+
 2025.04.10, v40.0.3
 
 feature:
