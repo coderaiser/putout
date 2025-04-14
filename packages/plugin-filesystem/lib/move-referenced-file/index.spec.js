@@ -7,7 +7,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('packages: move-referenced-file: report', (t) => {
+test('putout: plugin-filesystem: move-referenced-file: report', (t) => {
     t.reportWithOptions('move-referenced-file', `Move '/src/hello.js' to '/lib/hello.js'`, {
         name: '/src/hello.js',
         directory: 'lib',
@@ -15,7 +15,7 @@ test('packages: move-referenced-file: report', (t) => {
     t.end();
 });
 
-test('packages: move-referenced-file: transform: long path', (t) => {
+test('putout: plugin-filesystem: move-referenced-file: transform: long path', (t) => {
     t.transformWithOptions('move-referenced-file', {
         name: '/src/hello.js',
         directory: 'lib',
