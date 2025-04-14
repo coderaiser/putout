@@ -1,3 +1,13 @@
+2025.04.15, v40.0.5
+
+fix:
+- a02d1ceb6 @putout/plugin-convert-quotes-to-backtics: esm
+
+feature:
+- bcc141e41 putout: @putout/plugin-convert-quotes-to-backticks v5.0.0
+- 18cc92029 @putout/plugin-convert-quotes-to-backticks: convert to ESM
+- 2d1387d9c @putout/plugin-convert-quotes-to-backticks: exclude: backtick
+
 2025.04.14, v40.0.4
 
 feature:
