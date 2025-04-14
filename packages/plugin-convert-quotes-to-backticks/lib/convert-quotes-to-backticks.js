@@ -34,6 +34,9 @@ module.exports.traverse = ({push}) => ({
         if (value.includes('${'))
             return;
         
+        if (value.includes('`'))
+            return;
+        
         if (value.includes(`'`))
             push(path);
     },

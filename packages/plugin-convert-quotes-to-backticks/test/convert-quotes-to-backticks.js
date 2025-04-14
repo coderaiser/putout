@@ -38,3 +38,8 @@ test('plugin-convert-quotes-to-backtics: transform: backslash', (t) => {
     t.transform('backslash');
     t.end();
 });
+
+test('plugin-convert-quotes-to-backtics: no report: backtick', (t) => {
+    t.noReport('backtick');
+    t.end();
+});
