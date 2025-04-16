@@ -1,4 +1,13 @@
 {
+    "rules": {
+        "putout/apply-exports": ["on", {
+            "convertFrom": [
+                "report",
+                "traverse",
+                "fix"
+            ]
+        }]
+    },
     "match": {
         "*.md": {
             "return": "off"

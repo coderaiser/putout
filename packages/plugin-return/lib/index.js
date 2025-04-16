@@ -1,13 +1,11 @@
-'use strict';
+import * as applyEarly from './apply-early/index.js';
+import * as convertFromContinue from './convert-from-continue/index.js';
+import * as convertFromBreak from './convert-from-break/index.js';
+import * as mergeWithNextSibling from './merge-with-next-sibling/index.js';
+import * as removeUseless from './remove-useless/index.js';
+import * as simplifyBoolean from './simplify-boolean/index.js';
 
-const applyEarly = require('./apply-early');
-const convertFromContinue = require('./convert-from-continue');
-const convertFromBreak = require('./convert-from-break');
-const mergeWithNextSibling = require('./merge-with-next-sibling');
-const removeUseless = require('./remove-useless');
-const simplifyBoolean = require('./simplify-boolean');
-
-module.exports.rules = {
+export const rules = {
     'apply-early': applyEarly,
     'convert-from-continue': convertFromContinue,
     'convert-from-break': convertFromBreak,

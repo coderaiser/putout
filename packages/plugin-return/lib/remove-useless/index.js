@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {
     isIdentifier,
@@ -8,20 +7,20 @@ const {
     isAssignmentPattern,
 } = types;
 
-module.exports.report = () => `Avoid useless 'return'`;
+export const report = () => `Avoid useless 'return'`;
 
-module.exports.include = () => [
+export const include = () => [
     'ArrowFunctionExpression',
 ];
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const bodyPath = path.get('body');
     const returnPath = bodyPath.get('body.0');
     
     replaceWith(bodyPath, returnPath.node.argument);
 };
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const bodyPath = path.get('body');
     
     if (!bodyPath.isBlockStatement())

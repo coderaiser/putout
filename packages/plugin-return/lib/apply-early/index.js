@@ -1,11 +1,9 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {isIdentifier} = types;
 const {compare, remove} = operator;
 
-module.exports.report = () => `Apply early return`;
+export const report = () => `Apply early return`;
 
 const FROM = `
     if (__a)
@@ -21,7 +19,7 @@ const TO = `{
     return __e;
 }`;
 
-module.exports.match = () => ({
+export const match = () => ({
     [FROM]: ({__b}, path) => {
         if (!isIdentifier(__b))
             return;
@@ -32,7 +30,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     [FROM]: (vars, path) => {
         remove(path.getNextSibling());
         

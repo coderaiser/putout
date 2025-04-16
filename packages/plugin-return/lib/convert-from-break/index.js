@@ -1,5 +1,13 @@
-'use strict';
+import {convertFrom} from '../convert-from.js';
 
-const {convertFrom} = require('../convert-from');
+const {
+    report,
+    traverse,
+    fix,
+} = convertFrom('break');
 
-module.exports = convertFrom('break');
+export {
+    report,
+    traverse,
+    fix,
+};

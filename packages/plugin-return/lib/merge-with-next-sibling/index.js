@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     objectExpression,
     objectProperty,
@@ -8,9 +7,9 @@ const {
 
 const {remove} = operator;
 
-module.exports.report = () => `Merge 'return' with next sibling`;
+export const report = () => `Merge 'return' with next sibling`;
 
-module.exports.fix = ({path, nextPath}) => {
+export const fix = ({path, nextPath}) => {
     let {node} = nextPath;
     
     if (!nextPath.isBlockStatement()) {
@@ -29,7 +28,7 @@ module.exports.fix = ({path, nextPath}) => {
     path.node.argument = node;
     remove(nextPath);
 };
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ReturnStatement(path) {
         if (path.node.argument)
             return false;

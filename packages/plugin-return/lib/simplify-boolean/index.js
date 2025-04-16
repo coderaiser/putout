@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     unaryExpression,
     isUnaryExpression,
@@ -13,13 +12,13 @@ const {
     remove,
 } = operator;
 
-module.exports.report = () => `Simplify boolean return`;
+export const report = () => `Simplify boolean return`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'if (__a) return __bool__a;': checkNext,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'if (__a) return __bool__a;'({__a, __bool__a}, path) {
         const next = path.getNextSibling();
         

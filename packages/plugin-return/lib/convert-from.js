@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {
     isLabeledStatement,
@@ -13,7 +12,7 @@ const fix = (path) => {
     replaceWith(path, returnStatement());
 };
 
-module.exports.convertFrom = (name) => {
+export const convertFrom = (name) => {
     const visitor = name[0].toUpperCase() + name.slice(1) + `Statement`;
     
     return {

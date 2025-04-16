@@ -1,10 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import * as simplifyBoolean from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
-const simplifyBoolean = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['simplify-boolean', simplifyBoolean],
     ],
