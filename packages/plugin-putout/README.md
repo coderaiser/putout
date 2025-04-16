@@ -98,7 +98,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-create-nested-directory": "on",
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
-        "putout/apply-exports": "on",
+        "putout/apply-exports": "off",
         "putout/apply-exports-to-add-args": "on",
         "putout/apply-exports-to-match-files": "on",
         "putout/apply-exports-to-rename-files": "on",
@@ -470,13 +470,13 @@ Possible configuration:
 ```json
 {
     "rules": {
-        "putout/apply-exports": {
+        "putout/apply-exports": ["on", {
             "addArgs": [
                 "report",
                 "fix",
                 "scan"
             ]
-        }
+        }]
     }
 }
 ```

@@ -135,5 +135,5 @@ export const rules = {
     'apply-report': applyReport,
     'apply-exports-to-match-files': applyExportsToMatchFiles,
     'apply-exports-to-rename-files': applyExportsToRenameFiles,
-    'apply-exports': applyExports,
+    'apply-exports': ['off', applyExports],
 };
