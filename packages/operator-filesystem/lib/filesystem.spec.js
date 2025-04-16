@@ -946,6 +946,34 @@ test('putout: operator: filesystem: readFileContent', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: readFileContent: malformed', (t) => {
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+            content: btoa('a%AFc'),
+        }],
+    });
+    
+    const [filePath] = findFile(ast, 'README.md');
+    readFileContent(filePath);
+    
+    const expected = {
+        type: 'directory',
+        filename: '/hello/world',
+        files: [{
+            type: 'file',
+            filename: '/hello/world/README.md',
+            content: 'YSVBRmM=',
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: readFileContent: encoded', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
@@ -1039,7 +1067,7 @@ test('putout: operator: filesystem: readFileContent: no content: should create: 
         files: [{
             type: 'file',
             filename: '/hello/world/README.md',
-            content: 'JUYwJTlGJTkwJUI4',
+            content: 'JXVEODNEJXVEQzM4',
         }],
     };
     
@@ -1250,7 +1278,7 @@ test('putout: operator: filesystem: writeFileContent: emoji: getFileContent', (t
     
     writeFileContent(filePath, 'hello 💾\n');
     const content = getFileContent(filePath);
-    const expected = [true, 'aGVsbG8lMjAlRjAlOUYlOTIlQkUlMEE='];
+    const expected = [true, 'aGVsbG8lMjAldUQ4M0QldURDQkUlMEE='];
     
     t.deepEqual(content, expected);
     t.end();

@@ -37,7 +37,7 @@ const toBase64 = (content) => {
     const [e, result] = tryCatch(btoa, content);
     
     if (e)
-        return btoa(encodeURI(content));
+        return btoa(escape(content));
     
     return result;
 };
@@ -49,7 +49,7 @@ const fromBase64 = (content) => {
     const [e, decoded] = tryCatch(atob, content);
     
     if (!e)
-        return decodeURI(decoded);
+        return unescape(decoded);
     
     return content;
 };
