@@ -119,7 +119,7 @@
     "@putout/plugin-extract-keywords-from-variables": "^2.0.0",
     "@putout/plugin-extract-object-properties": "^9.0.0",
     "@putout/plugin-extract-sequence-expressions": "^3.0.0",
-    "@putout/plugin-filesystem": "^9.0.0",
+    "@putout/plugin-filesystem": "^10.0.0",
     "@putout/plugin-for-of": "^9.0.0",
     "@putout/plugin-generators": "^1.0.0",
     "@putout/plugin-github": "^15.0.0",
