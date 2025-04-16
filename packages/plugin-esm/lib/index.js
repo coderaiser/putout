@@ -1,3 +1,4 @@
+import * as applyNamespaceImportToFile from './apply-namespace-import-to-file/index.js';
 import * as resolveImportedFile from './resolve-imported-file/index.js';
 import * as addIndexToImport from './add-index-to-import/index.js';
 import * as declareImportsFirst from './declare-imports-first/index.js';
@@ -22,4 +23,5 @@ export const rules = {
     'remove-empty-export': removeEmptyExport,
     'sort-imports-by-specifiers': sortImportsBySpecifiers,
     'resolve-imported-file': ['off', resolveImportedFile],
+    'apply-namespace-import-to-file': ['off', applyNamespaceImportToFile],
 };

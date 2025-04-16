@@ -45,7 +45,8 @@
             "typescript/rename-file-cts-to-ts": "on",
             "typescript/rename-file-mts-to-ts": "on",
             "putout-config/remove-empty-file": "on",
-            "esm/resolve-imported-file": "on"
+            "esm/resolve-imported-file": "on",
+            "esm/apply-namespace-import-to-file": "on"
         },
         "*.md": {
             "apply-arrow": "off",

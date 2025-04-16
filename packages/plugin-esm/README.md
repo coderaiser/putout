@@ -27,6 +27,10 @@ npm i putout @putout/plugin-esm -D
 - ✅ [remove-empty-import](#remove-empty-import);
 - ✅ [remove-empty-export](#remove-empty-export);
 - ✅ [sort-imports-by-specifiers](#sort-imports-by-specifiers);
+
+## File rules
+
+- ✅ [apply-namespace-import-file](#resolve-imported-file);
 - ✅ [resolve-imported-file](#resolve-imported-file);
 
 ## Config
@@ -305,6 +309,44 @@ import('foo.json', {
     },
 });
 ```
+
+## File Rules
+
+### apply-namespace-import-to-file
+
+Check out in 🐊**Putout Editor**:
+
+- ✅ [`apply-namespace-import-to-file`](https://putout.cloudcmd.io/#/gist/1492d584559e5798325047de679222a0/c6a37a803b80823de1b64ab944f2427aecefb51b);
+- ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/5d7687215e9fbdf705935c444503dded/75a98d2db9d3847c73017e41637924b1cfd5a598);
+- ✅ [`has-export-default`](https://putout.cloudcmd.io/#/gist/b50ccfe5cc8c0c97e2fc98b37903ade4/fbc026e6f1027581f7aa4879dcafcaa7754bf8f4);
+- ✅ [`apply-namespace-import`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
+
+Let's consider file structure:
+
+```
+/
+|-- lib/
+|  `-- index.js "import a from './a.js';"
+|  `-- a.js "export const x = 2;"
+```
+
+In this case `index.js` can be fixed:
+
+#### ❌ Example of incorrect code
+
+```js
+import a from './a.js';
+```
+
+#### ✅ Example of correct code
+
+```js
+import * as a from './a.js';
+```
+
+## License
+
+MIT
 
 ### resolve-imported-file
 
