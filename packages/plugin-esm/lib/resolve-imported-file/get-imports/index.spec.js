@@ -3,21 +3,21 @@ import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['get-imports-source', plugin],
+        ['get-imports', plugin],
     ],
 });
 
-test('putout: esm: resolve-imported-file: report: get-imports', (t) => {
+test('putout: esm: resolve-imported-file: get-imports: report: get-imports', (t) => {
     t.report('get-imports', `./a`);
     t.end();
 });
 
-test('putout: esm: resolve-imported-file: no report: external', (t) => {
+test('putout: esm: resolve-imported-file: get-imports: no report: external', (t) => {
     t.noReportCode(`import a from 'a'`);
     t.end();
 });
 
-test('putout: esm: resolve-imported-file: no report: js', (t) => {
+test('putout: esm: resolve-imported-file: get-imports: no report: js', (t) => {
     t.noReportCode(`import a from './a.js'`);
     t.end();
 });

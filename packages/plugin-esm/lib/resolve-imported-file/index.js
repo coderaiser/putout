@@ -5,7 +5,7 @@ import {
     transform,
     operator,
 } from 'putout';
-import * as getImportsSource from './get-imports-source/index.js';
+import * as getImports from './get-imports/index.js';
 import * as changeImports from './change-imports/index.js';
 
 const {
@@ -52,7 +52,7 @@ export const scan = (rootPath, {push, trackFile}) => {
         
         const places = transform(ast, content, {
             plugins: [
-                ['get-imports-source', getImportsSource],
+                ['get-imports-source', getImports],
             ],
         });
         
