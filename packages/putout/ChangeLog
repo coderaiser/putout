@@ -1,3 +1,16 @@
+2025.04.17, v40.0.8
+
+feature:
+- 8a04fbba7 putout: @putout/plugin-filesystem v10.0.0
+- f4f5cde58 @putout/plugin-filesystem: @putout/operator-filesystem v8.0.0
+- 7fe764f01 @putout/processor-filesystem: @putout/operator-filesystem v8.0.0
+- 3d35dc68d putout: @putout/operator-rename-files v4.0.0
+- 4a717f29c @putout/operator-rename-files: drop support of 🐊 < 40
+- 424aeb02d @putout/operator-rename-files: @putout/operator-filesystem v8.0.0
+- 0abca7109 putout: @putout/operator-match-files v8.0.0
+- 13d1c83f3 @putout/operator-match-files: @putout/operator-filesystem v8.0.0
+- 2febbf5d2 @putout/engine-runner: @putout/operator-filesystem v8.0.0
+
 2025.04.17, v40.0.7
 
 feature:
