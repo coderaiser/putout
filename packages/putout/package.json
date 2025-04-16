@@ -83,7 +83,7 @@
     "@putout/operator-ignore": "^2.0.0",
     "@putout/operator-json": "^2.0.0",
     "@putout/operator-keyword": "^2.0.0",
-    "@putout/operator-match-files": "^7.0.0",
+    "@putout/operator-match-files": "^8.0.0",
     "@putout/operator-parens": "^1.0.0",
     "@putout/operator-regexp": "^1.0.0",
     "@putout/operator-rename-files": "^3.0.0",
