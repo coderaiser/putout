@@ -1,3 +1,13 @@
+2025.04.16, v40.0.6
+
+fix:
+- fe72c7142 @putout/plugin-esm: resolve-imported-file: rename
+- e64e93ccd @putout/plugin-putout: apply-exports: off
+
+feature:
+- ea8f874c6 putout: @putout/plugin-return v2.0.0
+- 766298d13 @putout/plugin-return: convert to ESM
+
 2025.04.15, v40.0.5
 
 fix:
