@@ -1,3 +1,12 @@
+2025.04.17, v40.0.7
+
+feature:
+- a30b87a25 putout: @putout/operator-filesystem v8.0.0
+- 40dee9474 @putout/plugin-putout: includer: ESM support
+- d04aa9077 @putout/operator-filesystem: drop support of 🐊 < 40
+- 6a6f09a13 @putout/operator-filesystem: encodeURIComponent -> escape
+- 2fe66e096 @putout/plugin-esm: apply-namespace-to-import: add
+
 2025.04.16, v40.0.6
 
 fix:
