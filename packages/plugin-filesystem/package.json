@@ -34,7 +34,7 @@
   "dependencies": {
     "@putout/babel": "^3.0.0",
     "@putout/operate": "^13.0.0",
-    "@putout/operator-filesystem": "^7.0.0",
+    "@putout/operator-filesystem": "^8.0.0",
     "@putout/operator-json": "^2.0.0"
   },
   "keywords": [
@@ -58,7 +58,7 @@
     "try-catch": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=39"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
