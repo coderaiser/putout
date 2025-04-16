@@ -1631,32 +1631,32 @@ module.exports.include = [
 module.exports.exclude = [
     'var __a = __b',
 ];
+
+export const include = [
+    'cons __a = __b',
+];
+
+export const exclude = [
+    'var __a = __b',
+];
 ```
 
 ### ✅ Example of correct code
 
 ```js
 module.exports.include = () => [
-    'cons __a = __b',
+    'const __a = __b',
 ];
 
 module.exports.exclude = () => [
     'var __a = __b',
 ];
 
-module.exports.include = () => [
+export const include = () => [
     'cons __a = __b',
 ];
 
-module.exports.exclude = () => [
-    'var __a = __b',
-];
-
-module.exports.include = () => [
-    'cons __a = __b',
-];
-
-module.exports.exclude = () => [
+export const exclude = () => [
     'var __a = __b',
 ];
 ```

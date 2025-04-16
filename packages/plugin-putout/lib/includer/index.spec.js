@@ -17,6 +17,11 @@ test('plugin-putout: includer: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: includer: transform: esm', (t) => {
+    t.transform('esm');
+    t.end();
+});
+
 test('plugin-putout: includer: transform: not-fn', (t) => {
     t.transform('not-fn');
     t.end();
