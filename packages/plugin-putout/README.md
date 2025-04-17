@@ -660,6 +660,22 @@ const dirPath = createNestedDirectory(path, '/hello/world');
 const dirPath2 = createDirectory(path, 'world');
 ```
 
+## apply-namespace-specifier
+
+Most likely what you need is [`esm/resolve-imported-file`](https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#resolve-imported-file).
+
+### ❌ Example of incorrect code
+
+```js
+import rmUnused from '@putout/plugin-remove-unused-variables';
+```
+
+### ✅ Example of correct code
+
+```js
+import * as rmUnused from '@putout/plugin-remove-unused-variables';
+```
+
 ## apply-for-of-to-track-file
 
 > The **Generator** object is returned by a `generator function` and it conforms to both the iterable protocol and the `iterator` protocol.

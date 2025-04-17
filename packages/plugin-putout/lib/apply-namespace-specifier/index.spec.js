@@ -37,11 +37,6 @@ test('packages: apply-namaspace-specifier: transform: external', (t) => {
     t.end();
 });
 
-test('packages: apply-namaspace-specifier: transform: parent', (t) => {
-    t.transform('parent');
-    t.end();
-});
-
 test('packages: apply-namaspace-specifier: no report: alot', (t) => {
     t.noReport('alot');
     t.end();
@@ -54,5 +49,15 @@ test('packages: apply-namaspace-specifier: no report: exists', (t) => {
 
 test('packages: apply-namaspace-specifier: no report: no-spec', (t) => {
     t.noReport('no-spec');
+    t.end();
+});
+
+test('packages: apply-namaspace-specifier: no report: parent', (t) => {
+    t.noReport('parent');
+    t.end();
+});
+
+test('packages: apply-namaspace-specifier: no report: dot', (t) => {
+    t.noReport('dot');
     t.end();
 });

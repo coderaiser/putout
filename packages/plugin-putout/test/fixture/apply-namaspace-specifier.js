@@ -1,4 +1,4 @@
-import a from './index.js';
+import a from '@putout/plugin-remove-unused-variables';
 import b from '../lib/index.js';
 
 import * as c from '/x';
