@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compare, remove} = operator;
 
-module.exports.report = () => 'Avoid using duplicates in Union';
+export const report = () => 'Avoid using duplicates in Union';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push, pathStore}) => ({
+export const traverse = ({push, pathStore}) => ({
     TSUnionType(path) {
         const types = path.get('types');
         

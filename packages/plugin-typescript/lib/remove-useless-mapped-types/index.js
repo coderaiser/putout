@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'Avoid useless mapped types';
 
-module.exports.report = () => 'Avoid useless mapped types';
-
-module.exports.exclude = () => [
+export const exclude = () => [
     'type __a = {readonly [__b in keyof __c]: __c[__b];}',
     'type __a = {-readonly [__b in keyof __c]: __c[__b];}',
     'type __a = {[__b in keyof __c]?: __c[__b];}',
@@ -10,6 +8,6 @@ module.exports.exclude = () => [
     'type __a = {[__b in keyof __c]-?: __c[__b];}',
 ];
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'type __a = {[__b in keyof __c]: __c[__b];}': 'type __a = __c',
 });

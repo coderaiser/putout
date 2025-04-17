@@ -1,14 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {replaceWith} = require('putout').operator;
+const {replaceWith} = operator;
 
-module.exports.report = (path) => `Avoid useless non null expression: '${path.parentPath}' -> '${path}'`;
+export const report = (path) => `Avoid useless non null expression: '${path.parentPath}' -> '${path}'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     replaceWith(path, path.node.expression);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     TSNonNullExpression(path) {
         const expressionPath = path.get('expression');
         

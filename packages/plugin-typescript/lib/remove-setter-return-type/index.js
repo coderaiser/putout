@@ -1,12 +1,10 @@
-'use strict';
+export const report = () => 'Avoid setter return type';
 
-module.exports.report = () => 'Avoid setter return type';
-
-module.exports.fix = (path) => {
+export const fix = (path) => {
     delete path.node.returnType;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     TSMethodSignature(path) {
         const {kind} = path.node;
         

@@ -1,10 +1,17 @@
-'use strict';
+import {operator} from 'putout';
+import * as convertCommonjsToEsm from '../convert-commonjs-to-esm/index.js';
 
-const {operator} = require('putout');
-
-const convertCommonjsToEsm = require('../convert-commonjs-to-esm');
 const {matchFiles} = operator;
-
-module.exports = matchFiles({
+const {
+    report,
+    fix,
+    scan,
+} = matchFiles({
     '*.mts': convertCommonjsToEsm,
 });
+
+export {
+    report,
+    fix,
+    scan,
+};

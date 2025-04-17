@@ -1,12 +1,10 @@
-'use strict';
+export const report = () => 'Avoid getter arguments';
 
-module.exports.report = () => 'Avoid getter arguments';
-
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.node.params = [];
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     TSMethodSignature(path) {
         const {kind} = path.node;
         

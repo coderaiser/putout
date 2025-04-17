@@ -1,12 +1,11 @@
-'use strict';
+import {operator} from 'putout';
+import {createTest} from '@putout/test';
+import * as removeDuplicatesFromUnion from './index.js';
 
-const {operator} = require('putout');
-const {createTest} = require('@putout/test');
-const removeDuplicatesFromUnion = require('.');
 const noop = () => {};
 const {remove} = operator;
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-duplicates-from-union', removeDuplicatesFromUnion],
     ],

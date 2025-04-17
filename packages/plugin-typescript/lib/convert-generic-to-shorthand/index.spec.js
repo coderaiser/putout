@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertGenericToShorthand from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertGenericToShorthand = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['typescript/convert-generic-to-shorthand', convertGenericToShorthand],
     ],

@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = ({node}) => `"${node.id.name}" is defined but never used`;
+export const report = ({node}) => `"${node.id.name}" is defined but never used`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push, upstore}) => ({
+export const traverse = ({push, upstore}) => ({
     TSTypeAliasDeclaration(path) {
         if (path.parentPath.isExportNamedDeclaration())
             return;

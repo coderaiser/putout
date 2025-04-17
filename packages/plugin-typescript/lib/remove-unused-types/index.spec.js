@@ -1,10 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUnusedTypes from './index.js';
+import * as removeUselessTypes from '../remove-useless-types/index.js';
 
-const {createTest} = require('@putout/test');
-const removeUnusedTypes = require('.');
-const removeUselessTypes = require('..').rules['remove-useless-types'];
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['typescript/remove-unused-types', removeUnusedTypes],
     ],

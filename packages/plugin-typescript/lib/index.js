@@ -1,9 +1,7 @@
-'use strict';
+import typescript from './typescript.js';
+import filesystem from './filesystem.js';
 
-const typescript = require('./typescript');
-const filesystem = require('./filesystem');
-
-module.exports.rules = {
+export const rules = {
     ...typescript,
     ...filesystem,
 };

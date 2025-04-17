@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => `Avoid useless type declaration`;
+export const report = () => `Avoid useless type declaration`;
 
-module.exports.fix = ({name, path, nodes}) => {
+export const fix = ({name, path, nodes}) => {
     for (const node of nodes) {
         node.name = name;
     }
@@ -13,7 +12,7 @@ module.exports.fix = ({name, path, nodes}) => {
     remove(path);
 };
 
-module.exports.traverse = ({push, store}) => ({
+export const traverse = ({push, store}) => ({
     TSTypeAliasDeclaration(path) {
         const typePath = path.get('typeAnnotation');
         const isGeneric = typePath.get('typeArguments').node;

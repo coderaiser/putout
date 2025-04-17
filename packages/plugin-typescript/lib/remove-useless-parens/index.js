@@ -1,16 +1,15 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {hasParens, removeParens} = operator;
 
-module.exports.report = () => 'Avoid useless parens';
+export const report = () => 'Avoid useless parens';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     removeParens(path);
     return;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     TSTypeReference(path) {
         if (!hasParens(path))
             return;

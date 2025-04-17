@@ -1,19 +1,17 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {TSAsExpression} = types;
 const {replaceWith} = operator;
 
-module.exports.report = () => '"as" should be used for type assertions';
+export const report = () => '"as" should be used for type assertions';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const typeName = path.get('typeAnnotation').node;
     const expression = path.get('expression').node;
     
     replaceWith(path, TSAsExpression(expression, typeName));
 };
 
-module.exports.include = () => [
+export const include = () => [
     'TSTypeAssertion',
 ];

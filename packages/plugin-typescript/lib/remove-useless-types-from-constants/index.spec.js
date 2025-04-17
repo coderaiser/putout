@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessTypesFromConstants from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeUselessTypesFromConstants = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-types-from-constants', removeUselessTypesFromConstants],
     ],

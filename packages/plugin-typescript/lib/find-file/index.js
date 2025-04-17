@@ -1,7 +1,5 @@
-'use strict';
-
-const {operator} = require('putout');
-const typescript = require('../typescript');
+import {operator} from 'putout';
+import typescript from '../typescript.js';
 
 const {matchFiles} = operator;
 const plugin = {
@@ -16,7 +14,7 @@ const {
     '*.ts': plugin,
 });
 
-module.exports = {
+export {
     scan,
     fix,
     report,

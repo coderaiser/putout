@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {compare} = operator;
 
 const {
@@ -20,14 +19,14 @@ const {
     isTSUnionType,
 } = types;
 
-module.exports.report = () => 'Remove useless type when declaring constant with primitive value';
+export const report = () => 'Remove useless type when declaring constant with primitive value';
 
-module.exports.match = () => ({
+export const match = () => ({
     'const __a: __ = __b': checkType,
     'let __a: __ = __b': checkType,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __a: __ = __b': removeType,
     'let __a: __ = __b': removeType,
 });

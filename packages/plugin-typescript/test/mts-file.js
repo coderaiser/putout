@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as typescript from '../lib/index.js';
 
-const {createTest} = require('@putout/test');
-const typescript = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     rules: {
         'typescript/mts-file': 'on',
     },

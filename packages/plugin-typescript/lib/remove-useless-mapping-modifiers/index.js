@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'Avoid useless mapping modifiers';
 
-module.exports.report = () => 'Avoid useless mapping modifiers';
-
-module.exports.fix = ({node}) => {
+export const fix = ({node}) => {
     const {optional, readonly} = node;
     
     if (optional === '+')
@@ -12,7 +10,7 @@ module.exports.fix = ({node}) => {
         node.readonly = true;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     TSMappedType(path) {
         const {optional, readonly} = path.node;
         

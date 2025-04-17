@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {
     tsArrayType,
@@ -8,9 +7,9 @@ const {
     isTSFunctionType,
 } = types;
 
-module.exports.report = () => `Use shorthand '[]' instead of generic 'Array'`;
+export const report = () => `Use shorthand '[]' instead of generic 'Array'`;
 
-module.exports.fix = ({path, typeReference}) => {
+export const fix = ({path, typeReference}) => {
     if (isTSFunctionType(typeReference) || isTSUnionType(typeReference)) {
         const ref = tsArrayType(typeReference);
         
@@ -25,7 +24,7 @@ module.exports.fix = ({path, typeReference}) => {
     replaceWith(path, tsArrayType(typeReference));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     TSTypeReference(path) {
         if (!path.get('typeName').isIdentifier({name: 'Array'}))
             return;

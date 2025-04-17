@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'Apply utility types';
 
-module.exports.report = () => 'Apply utility types';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'type __a = {readonly [__b in keyof __c]: __c[__b];}': 'type __a = Readonly<__c>',
     'type __a = {[__b in keyof __c]?: __c[__b];}': 'type __a = Partial<__c>',
     'type __a = {[__b in keyof __c]-?: __c[__b];}': 'type __a = Required<__c>',

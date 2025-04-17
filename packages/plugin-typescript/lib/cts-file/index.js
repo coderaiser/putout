@@ -1,10 +1,17 @@
-'use strict';
+import {operator} from 'putout';
+import * as plugin from '../convert-esm-to-commonjs/index.js';
 
-const {operator} = require('putout');
-
-const plugin = require('../convert-esm-to-commonjs');
 const {matchFiles} = operator;
-
-module.exports = matchFiles({
+const {
+    report,
+    fix,
+    scan,
+} = matchFiles({
     '*.cts': plugin,
 });
+
+export {
+    report,
+    fix,
+    scan,
+};

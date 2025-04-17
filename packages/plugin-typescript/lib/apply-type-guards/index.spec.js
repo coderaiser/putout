@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as applyUtilityTypes from './index.js';
 
-const {createTest} = require('@putout/test');
-const applyUtilityTypes = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['apply-guards', applyUtilityTypes],
     ],
