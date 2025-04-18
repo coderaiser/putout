@@ -315,6 +315,10 @@ import('foo.json', {
 
 ### apply-namespace-import-to-file
 
+The rule fixes:
+
+> `SyntaxError: The requested module './a.js' does not provide an export named 'default'`
+
 Check out in 🐊**Putout Editor**:
 
 - ✅ [`apply-namespace-import-to-file`](https://putout.cloudcmd.io/#/gist/1492d584559e5798325047de679222a0/c6a37a803b80823de1b64ab944f2427aecefb51b);
