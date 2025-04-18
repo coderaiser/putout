@@ -1,17 +1,16 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {objectProperty, objectPattern} = types;
 const COMPUTED = false;
 const SHORTHAND = true;
 
-module.exports.report = () => `Use 'externals({context, request}, callback){...}'`;
+export const report = () => `Use 'externals({context, request}, callback){...}'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'function externals(__args) {}': ({__args}) => __args.length === 3,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'function externals(__args) {}': ({__args}, path) => {
         const node = objectPattern([]);
         

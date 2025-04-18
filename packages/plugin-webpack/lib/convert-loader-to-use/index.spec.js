@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertLoaderToUse from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertLoaderToUse = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['webpack/convert-loader-to-use', convertLoaderToUse],
     ],

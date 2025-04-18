@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertNodeToResolveFallback from './index.js';
 
-const {createTest} = require('@putout/test');
-const convertNodeToResolveFallback = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['webpack/convert-node-to-resolve-fallback', convertNodeToResolveFallback],
     ],

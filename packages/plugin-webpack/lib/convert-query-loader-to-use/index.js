@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     objectExpression,
     identifier,
@@ -14,9 +13,9 @@ const {
 
 const {replaceWith} = operator;
 
-module.exports.report = () => `"use" should be used instead of query in loaders`;
+export const report = () => `"use" should be used instead of query in loaders`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {node} = path;
     
     node.key.name = 'use';
@@ -28,7 +27,7 @@ module.exports.fix = (path) => {
     replaceWith(valuePath, arrayExpression([object]));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ObjectExpression(path) {
         const properties = path.get('properties');
         

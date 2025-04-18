@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     identifier,
     objectProperty,
@@ -10,9 +9,9 @@ const {
 
 const {replaceWith} = operator;
 
-module.exports.report = () => '"resolve.fallback" should be used instead of "node"';
+export const report = () => '"resolve.fallback" should be used instead of "node"';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const valuePath = path.get('value');
     const valueNode = valuePath.node;
     
@@ -27,7 +26,7 @@ module.exports.fix = (path) => {
     ]));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'module.exports = __object'(path) {
         const properties = path.get('right.properties');
         
