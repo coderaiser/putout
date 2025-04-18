@@ -4,7 +4,7 @@ const {
     report,
     fix,
     scan,
-} = createRemoveFiles('*.swp');
+} = createRemoveFiles(['*.swp', '*.swo']);
 
 export {
     report,
