@@ -345,10 +345,6 @@ import a from './a.js';
 import * as a from './a.js';
 ```
 
-## License
-
-MIT
-
 ### resolve-imported-file
 
 Check out in 🐊**Putout Editor**:
