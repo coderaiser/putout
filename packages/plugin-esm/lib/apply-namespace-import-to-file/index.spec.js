@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('esm: apply-namespace-import-to-file: report', (t) => {
-    t.report('apply-namespace-import-to-file', `Use 'import * as dotdot from './b/index.js'`);
+    t.report('apply-namespace-import-to-file', `Use 'import * as dotdot from './b/index.js' in '/lib/index.js'`);
     t.end();
 });
 

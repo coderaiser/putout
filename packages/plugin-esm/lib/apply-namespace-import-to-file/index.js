@@ -5,6 +5,7 @@ import putout, {
     transform,
     operator,
 } from 'putout';
+
 import * as isESMPlugin from './is-esm/index.js';
 import * as hasExportDefaultPlugin from './has-export-default/index.js';
 import * as applyNamespaceImportPlugin from './apply-namespace-import/index.js';
@@ -21,7 +22,11 @@ const getMessage = (a) => a.message;
 const isESM = (a) => a.rule === 'is-esm';
 const hasExportDefault = (a) => a.rule === 'has-export-default';
 
-export const report = (file, {name, source}) => `Use 'import * as ${name} from '${source}'`;
+export const report = (file, {name, source}) => {
+    const filename = getFilename(file);
+    return `Use 'import * as ${name} from '${source}' in '${filename}'`;
+};
+
 export const fix = (file, {name, source, content, ast}) => {
     transform(ast, content, {
         rules: {
