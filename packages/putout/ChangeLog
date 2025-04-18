@@ -1,3 +1,12 @@
+2025.04.18, v40.0.10
+
+feature:
+- bb6971df1 putout: @putout/plugin-labels v2.0.0
+- 44576acd2 @putout/plugin-label: migrate to ESM
+- ba3a5627e @putout/plugin-filesystem: remove-vim-swap-file: .swo
+- 068e8d19a @putout/plugin-esm: apply-namespace-import-to-file: add filename
+- 0b705be30 @putout/plugin-webpack: migrate to ESM
+
 2025.04.17, v40.0.9
 
 feature:
