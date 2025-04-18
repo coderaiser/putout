@@ -5,7 +5,6 @@ import putout, {
     transform,
     operator,
 } from 'putout';
-
 import * as isESMPlugin from './is-esm/index.js';
 import * as hasExportDefaultPlugin from './has-export-default/index.js';
 import * as applyNamespaceImportPlugin from './apply-namespace-import/index.js';
