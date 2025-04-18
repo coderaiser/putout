@@ -1,16 +1,15 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {isReturnStatement} = types;
-const {traverse, replaceWith} = operator;
+const {replaceWith} = operator;
 
-module.exports.report = ({name}) => `Label '${name}' is defined but never used`;
+export const report = ({name}) => `Label '${name}' is defined but never used`;
 
-module.exports.fix = ({path}) => {
+export const fix = ({path}) => {
     replaceWith(path, path.node.body);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     LabeledStatement(path) {
         const {label} = path.node;
         const {name} = label;
@@ -42,7 +41,7 @@ function usedLabel({path, name}) {
         currentPath.stop();
     };
     
-    traverse(path, {
+    path.traverse({
         ContinueStatement: checkLabel,
         BreakStatement: checkLabel,
     });

@@ -1,9 +1,7 @@
-'use strict';
+import * as convertToObject from './convert-to-object/index.js';
+import * as removeUnused from './remove-unused/index.js';
 
-const convertToObject = require('./convert-to-object');
-const removeUnused = require('./remove-unused');
-
-module.exports.rules = {
+export const rules = {
     'convert-to-object': convertToObject,
     'remove-unused': removeUnused,
 };

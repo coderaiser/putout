@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-labels",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin helps with labels",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-labels#readme",
@@ -34,7 +34,6 @@
     "commonjs"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
     "@putout/test": "^13.0.0",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
@@ -44,11 +43,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=37"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     objectExpression,
     isLabeledStatement,
@@ -9,9 +8,9 @@ const {
 
 const {replaceWith} = operator;
 
-module.exports.report = () => `Convert 'label' to 'object'`;
+export const report = () => `Convert 'label' to 'object'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '(__args) => __body': ({__body}) => {
         if (!__body.body.length)
             return false;
@@ -25,7 +24,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '(__args) => __body': ({__body}, path) => {
         const properties = [];
         
