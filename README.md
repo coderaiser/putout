@@ -2704,7 +2704,7 @@ putout --rulesdir ./rules
 
 This way you can keep rules specific for your project and run them on each lint.
 
-☝️ *Remember: if you want to exclude file from loading, add prefix `not-rule-` and 🐊**Putout** will ignore it (in the same way as he does for `node_modules`).*
+☝️ *Remember: if you want to exclude file from loading, add prefix `not-rule-` and 🐊**Putout** will ignore it (in the same way as he does with `node_modules`).*
 
 ## ⏣ Integration with ESLint
 
