@@ -2804,16 +2804,14 @@ const [source, places] = await eslint({
 If you want to apply 🐊**Putout** transformations using [`putout/putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme) **ESLint** rule, enable 🐊**Putout** with the same called flag lowercased:
 
 ```js
+import {recommended} from 'eslint-plugin-putout';
+
 const [source, places] = await eslint({
     name: 'hello.js',
     code: `const t = 'hi'\n`,
     fix: true,
     putout: true,
-    config: {
-        extends: [
-            'plugin:putout/recommended',
-        ],
-    },
+    config: recommended,
 });
 ```
 
