@@ -58,6 +58,18 @@ const test = createTest(import.meta.url, {
 });
 ```
 
+You can also pass extensions to read from `fixture` directory:
+
+```js
+const test = createTest(import.meta.url, {
+    ext: '.wast',
+    lint: putout,
+    plugins: [
+        ['remove-unused-variables', rmVars],
+    ],
+});
+```
+
 ### `report(filename, message: string | string[], plugins?: PutoutPlugin[])`
 
 Check error message (or messages) of a plugin:

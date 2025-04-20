@@ -1,4 +1,4 @@
-export const report = () => `Use 'local.set' instead of set_local`;
+export const report = () => `Use 'local.set' instead of 'set_local'`;
 
 export const fix = (path) => {
     path.node.id = 'set';

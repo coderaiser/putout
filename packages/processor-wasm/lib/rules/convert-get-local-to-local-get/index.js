@@ -1,4 +1,4 @@
-export const report = () => `Use 'local.get' instead of get_local`;
+export const report = () => `Use 'local.get' instead of 'get_local'`;
 
 export const fix = (path) => {
     path.node.id = 'get';

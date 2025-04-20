@@ -6,7 +6,9 @@ export const files = [
 ];
 
 export const find = (source) => {
-    const result = lint(source);
+    const result = lint(source, {
+        fix: false,
+    });
     
     return result.places;
 };

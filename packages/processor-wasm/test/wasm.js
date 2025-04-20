@@ -29,14 +29,14 @@ test('putout: processor: wasm: parser error', async ({comparePlaces}) => {
 
 test('putout: processor: wasm: places: set-local', async ({comparePlaces}) => {
     await comparePlaces('set-local.wast', [{
-        message: `Use 'local.set' instead of set_local`,
+        message: `Use 'local.set' instead of 'set_local'`,
         position: {
             column: 5,
             line: 5,
         },
         rule: 'convert-set-local-to-local-set (wasm)',
     }, {
-        message: `Use 'local.set' instead of set_local`,
+        message: `Use 'local.set' instead of 'set_local'`,
         position: {
             column: 5,
             line: 6,
@@ -47,14 +47,14 @@ test('putout: processor: wasm: places: set-local', async ({comparePlaces}) => {
 
 test('putout: processor: wasm: places: get-local', async ({comparePlaces}) => {
     await comparePlaces('get-local.wast', [{
-        message: `Use 'local.get' instead of get_local`,
+        message: `Use 'local.get' instead of 'get_local'`,
         position: {
             column: 5,
             line: 5,
         },
         rule: 'convert-get-local-to-local-get (wasm)',
     }, {
-        message: `Use 'local.get' instead of get_local`,
+        message: `Use 'local.get' instead of 'get_local'`,
         position: {
             column: 5,
             line: 6,

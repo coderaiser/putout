@@ -4,7 +4,7 @@ import {parse} from '@webassemblyjs/wast-parser';
 import {print} from '@webassemblyjs/wast-printer';
 import {rules} from './rules/index.js';
 
-export const lint = (source, {fix} = {}) => {
+export const lint = (source, {fix = true} = {}) => {
     const [error, ast] = tryCatch(parse, source);
     
     if (error)

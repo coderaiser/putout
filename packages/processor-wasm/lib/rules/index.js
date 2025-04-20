@@ -1,5 +1,5 @@
-import * as convertGetLocalToLocalGet from './convert-get-local-to-local-get.js';
-import * as convertSetLocalToLocalSet from './convert-set-local-to-local-set.js';
+import * as convertGetLocalToLocalGet from './convert-get-local-to-local-get/index.js';
+import * as convertSetLocalToLocalSet from './convert-set-local-to-local-set/index.js';
 
 export const rules = [
     ['convert-get-local-to-local-get', convertGetLocalToLocalGet],

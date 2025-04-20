@@ -92,7 +92,7 @@ test('putout: test: noReport', (t) => {
         plugins,
     };
     
-    const noReport = _createNoReport(dir, putout, options);
+    const noReport = _createNoReport(dir, {lint: putout}, options);
     const deepEqual = stub();
     
     const mockTest = {
@@ -146,7 +146,7 @@ test('putout: test: noReportAfterTransform: internal', (t) => {
         plugins,
     };
     
-    const noReportAfterTransform = _createNoReportAfterTransform(dir, putout, options);
+    const noReportAfterTransform = _createNoReportAfterTransform(dir, {lint: putout}, options);
     const deepEqual = stub();
     
     const mockTest = {
@@ -202,7 +202,7 @@ test('putout: test: noReportAfterTransformWithOptions: internal', (t) => {
         plugins,
     };
     
-    const noReportAfterTransformWithOptions = _createNoReportAfterTransformWithOptions(dir, putout, options);
+    const noReportAfterTransformWithOptions = _createNoReportAfterTransformWithOptions(dir, {lint: putout}, options);
     const deepEqual = stub();
     
     const mockTest = {
