@@ -57,11 +57,11 @@
     }
   },
   "peerDependencies": {
-    "putout": ">=32"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
