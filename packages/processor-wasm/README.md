@@ -51,6 +51,26 @@ npm i @putout/processor-wasm -D
 +local.set $a
 ```
 
+### apply-nesting
+
+#### ❌ Example of incorrect code
+
+```wast
+(func (param $a i32) (param $b i32)
+    (get_local $a)
+    (get_local $b)
+    (i32.add)
+)
+```
+
+#### ✅ Example of correct code
+
+```wast
+(func (param $a i32) (param $b i32)
+    (i32.add (get_local $a) (get_local $b))
+)
+```
+
 ## License
 
 MIT

@@ -2,9 +2,12 @@ import tryCatch from 'try-catch';
 import {traverse} from '@webassemblyjs/ast';
 import {parse} from '@webassemblyjs/wast-parser';
 import {print} from '@webassemblyjs/wast-printer';
-import {rules} from './rules/index.js';
 
-export const lint = (source, {fix = true} = {}) => {
+const {entries} = Object;
+const {isArray} = Array;
+
+export const lint = (source, overrides = {}) => {
+    const {fix = true, plugins} = overrides;
     const [error, ast] = tryCatch(parse, source);
     
     if (error)
@@ -16,7 +19,7 @@ export const lint = (source, {fix = true} = {}) => {
     
     const allPlaces = [];
     
-    for (const [rule, plugin] of rules) {
+    for (const [rule, plugin] of parsePlugins(plugins)) {
         const places = [];
         const push = places.push.bind(places);
         
@@ -42,6 +45,21 @@ export const lint = (source, {fix = true} = {}) => {
         code: print(ast),
     };
 };
+
+function parsePlugins(plugins) {
+    const result = [];
+    
+    for (const plugin of plugins) {
+        if (isArray(plugin)) {
+            result.push(plugin);
+            continue;
+        }
+        
+        result.push(...entries(plugin));
+    }
+    
+    return result;
+}
 
 const parseError = ({message}) => ({
     rule: 'wasm-parser-error (wasm)',

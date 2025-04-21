@@ -12,6 +12,10 @@ test('putout: processor: wasm: set-local', async ({process}) => {
     await process('set-local.wast');
 });
 
+test('putout: processor: wasm: apply-nesting', async ({process}) => {
+    await process('apply-nesting.wast');
+});
+
 test('putout: processor: wasm: local: wat', async ({noProcess}) => {
     await noProcess('local.wat');
 });
@@ -42,6 +46,13 @@ test('putout: processor: wasm: places: set-local', async ({comparePlaces}) => {
             line: 6,
         },
         rule: 'convert-set-local-to-local-set (wasm)',
+    }, {
+        message: `Apply nesting for 'i32.add'`,
+        position: {
+            column: 5,
+            line: 7,
+        },
+        rule: 'apply-nesting (wasm)',
     }]);
 });
 
@@ -49,15 +60,15 @@ test('putout: processor: wasm: places: get-local', async ({comparePlaces}) => {
     await comparePlaces('get-local.wast', [{
         message: `Use 'local.get' instead of 'get_local'`,
         position: {
-            column: 5,
-            line: 5,
+            column: 9,
+            line: 6,
         },
         rule: 'convert-get-local-to-local-get (wasm)',
     }, {
         message: `Use 'local.get' instead of 'get_local'`,
         position: {
-            column: 5,
-            line: 6,
+            column: 9,
+            line: 7,
         },
         rule: 'convert-get-local-to-local-get (wasm)',
     }]);

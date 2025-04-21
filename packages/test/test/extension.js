@@ -4,6 +4,8 @@ const fs = require('node:fs');
 const {stub} = require('supertape');
 const {lint} = require('@putout/processor-wasm/lint');
 const tryCatch = require('try-catch');
+
+const {rules} = require('@putout/processor-wasm/plugin');
 const {createUpdate} = require('./update');
 
 const {createTest} = require('..');
@@ -19,17 +21,13 @@ const {writeFileSync} = fs;
 const test = createTest(__dirname, {
     lint,
     extension: 'wast',
-    plugins: [
-        ['wasm', require('@putout/processor-wasm/plugin')],
-    ],
+    plugins: rules,
 });
 
 const test2 = createTest(__dirname, {
     extension: 'wast',
     lint,
-    plugins: [
-        ['wasm', require('@putout/processor-wasm/plugin')],
-    ],
+    plugins: rules,
 });
 
 test('transform: ext: with UPDATE env variable', (t) => {

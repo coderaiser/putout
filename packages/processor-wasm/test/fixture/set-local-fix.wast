@@ -2,9 +2,7 @@
   ;; this is simple function that adds a couple of parameters
 
   (func $add (param $a i32) (param $b i32) (result i32)
-    (local.set $a)
-    (local.set $b)
-    (i32.add)
+    (i32.add (local.set $a) (local.set $b))
   )
   ;; this statement exports the function to the host environment
 
