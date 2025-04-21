@@ -17,15 +17,15 @@ const update = createUpdate();
 const {writeFileSync} = fs;
 
 const test = createTest(__dirname, {
-    ext: '.wast',
     lint,
+    extension: 'wast',
     plugins: [
         ['wasm', require('@putout/processor-wasm/plugin')],
     ],
 });
 
 const test2 = createTest(__dirname, {
-    ext: ['.wast'],
+    extension: 'wast',
     lint,
     plugins: [
         ['wasm', require('@putout/processor-wasm/plugin')],

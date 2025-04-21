@@ -62,7 +62,7 @@ You can also pass extensions to read from `fixture` directory:
 
 ```js
 const test = createTest(import.meta.url, {
-    ext: '.wast',
+    extension: 'wast',
     lint: putout,
     plugins: [
         ['remove-unused-variables', rmVars],

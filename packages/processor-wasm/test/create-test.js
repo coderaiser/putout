@@ -3,7 +3,7 @@ import {lint} from '../lib/lint.js';
 
 export const createTest = (url, options) => {
     return createPutoutTest(url, {
-        ext: '.wast',
+        extension: 'wast',
         lint,
         ...options,
     });

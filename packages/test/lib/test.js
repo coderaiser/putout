@@ -11,7 +11,6 @@ const {
     unlinkSync,
 } = require('node:fs');
 
-const tryCatch = require('try-catch');
 const test = require('supertape');
 const putout = require('putout');
 const currify = require('currify');
@@ -19,7 +18,13 @@ const {createProgress} = require('@putout/engine-runner/progress');
 
 const {createError} = require('./create-error');
 const {preTest} = require('./pre-test');
-const maybeArray = (a) => isArray(a) ? a : [a];
+
+const {
+    readFixture,
+    writeFixture,
+    rmFixture,
+} = require('./fixture');
+
 const {isArray} = Array;
 const isString = (a) => typeof a === 'string';
 const isObject = (a) => typeof a === 'object';
@@ -43,68 +48,6 @@ const fail = (t, message) => {
     return __putout_test_fail(message);
 };
 
-const TS = {
-    ENABLED: true,
-    DISABLED: false,
-};
-
-const readFixture = (name, ext) => {
-    const {readFileSync} = global.__putout_test_fs;
-    const [eTS, dataTS] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
-    
-    if (!eTS)
-        return [
-            dataTS,
-            TS.ENABLED,
-            '.ts',
-        ];
-    
-    const [eJS, dataJS] = tryCatch(readFileSync, `${name}.js`, 'utf8');
-    
-    if (!eJS)
-        return [
-            dataJS,
-            TS.DISABLED,
-            '.js',
-        ];
-    
-    for (const currentExt of maybeArray(ext)) {
-        const [e, data] = tryCatch(readFileSync, `${name}${currentExt}`, 'utf8');
-        
-        if (!e)
-            return [
-                data,
-                TS.DISABLED,
-                currentExt,
-            ];
-    }
-    
-    throw eJS;
-};
-
-const writeFixture = ({full, code, currentExt}) => {
-    writeSourceFixture({
-        full: `${full}-fix`,
-        code,
-        currentExt,
-    });
-};
-
-const writeSourceFixture = ({full, code, currentExt}) => {
-    const {writeFileSync} = global.__putout_test_fs;
-    writeFileSync(`${full}${currentExt}`, code);
-};
-
-const rmFixture = (name) => {
-    const {unlinkSync} = global.__putout_test_fs;
-    
-    if (!isUpdate())
-        return;
-    
-    tryCatch(unlinkSync, `${name}.js`);
-    tryCatch(unlinkSync, `${name}.ts`);
-};
-
 module.exports = createTest;
 module.exports.createTest = createTest;
 
@@ -119,7 +62,7 @@ function createTest(dir, maybeOptions) {
     dir = join(dir, 'fixture');
     
     const {
-        ext = [],
+        extension = [],
         lint = putout,
         ...options
     } = parseOptions(maybeOptions);
@@ -128,7 +71,7 @@ function createTest(dir, maybeOptions) {
     
     const linterOptions = {
         lint,
-        ext,
+        extension,
     };
     
     preTest(test, plugin);
@@ -353,11 +296,11 @@ const progressWithOptions = (dir, options) => (t) => async (name, pluginOptions,
 };
 
 const transform = currify((dir, linterOptions, options, t, name, transformed = null, addons = {}) => {
-    const {lint, ext} = linterOptions;
+    const {lint, extension} = linterOptions;
     const {plugins} = options;
     const full = join(dir, name);
     const isStr = isString(transformed);
-    const [input, isTS, currentExt] = readFixture(full, ext);
+    const [input, isTS] = readFixture(full, extension);
     
     if (!isStr)
         addons = transformed;
@@ -380,22 +323,21 @@ const transform = currify((dir, linterOptions, options, t, name, transformed = n
         writeFixture({
             full,
             code,
-            
-            currentExt,
+            extension,
         });
         return t.pass('fixed fixture updated');
     }
     
-    const [output] = isStr ? [transformed] : readFixture(`${full}-fix`, ext);
+    const [output] = isStr ? [transformed] : readFixture(`${full}-fix`, extension);
     
     return t.equal(code, output);
 });
 
 const transformWithOptions = currify((dir, linterOptions, options, t, name, pluginOptions) => {
-    const {lint, ext} = linterOptions;
+    const {lint, extension} = linterOptions;
     
     const full = join(dir, name);
-    const [input, isTS, currentExt] = readFixture(full, ext);
+    const [input, isTS] = readFixture(full, extension);
     
     const rule = parseRule(options);
     
@@ -413,12 +355,12 @@ const transformWithOptions = currify((dir, linterOptions, options, t, name, plug
         writeFixture({
             full,
             code,
-            currentExt,
+            extension,
         });
         return t.pass('fixed fixture updated');
     }
     
-    const [output] = readFixture(`${full}-fix`, ext);
+    const [output] = readFixture(`${full}-fix`, extension);
     
     return t.equal(code, output);
 });
@@ -430,9 +372,9 @@ const parseRule = ({plugins}) => {
 };
 
 const noTransformWithOptions = currify((dir, linterOptions, options, t, name, ruleOptions) => {
-    const {lint, ext} = linterOptions;
+    const {lint, extension} = linterOptions;
     const full = join(dir, name);
-    const [input, isTS, currentExt] = readFixture(full, ext);
+    const [input, isTS] = readFixture(full, extension);
     
     rmFixture(`${full}-fix`);
     
@@ -448,11 +390,10 @@ const noTransformWithOptions = currify((dir, linterOptions, options, t, name, ru
     });
     
     if (isUpdate()) {
-        writeSourceFixture({
+        writeFixture({
             full,
             code,
-            
-            currentExt,
+            extension,
         });
         
         return t.pass('source fixture updated');
@@ -462,14 +403,14 @@ const noTransformWithOptions = currify((dir, linterOptions, options, t, name, ru
 });
 
 const noTransform = currify((dir, linterOptions, options, t, name, addons = {}) => {
-    const {lint, ext} = linterOptions;
+    const {lint, extension} = linterOptions;
     const full = join(dir, name);
-    const [fixture] = readFixture(full, ext);
+    const [fixture] = readFixture(full, extension);
     
     rmFixture(`${full}-fix`);
     
     const {plugins} = options;
-    const [input, isTS, currentExt] = readFixture(full, ext);
+    const [input, isTS] = readFixture(full, extension);
     
     const {code} = lint(input, {
         isTS,
@@ -481,10 +422,10 @@ const noTransform = currify((dir, linterOptions, options, t, name, addons = {}) 
     });
     
     if (isUpdate()) {
-        writeSourceFixture({
+        writeFixture({
             full,
             code,
-            currentExt,
+            extension,
         });
         
         return t.pass('source fixture updated');
@@ -513,11 +454,11 @@ const noTransformCode = currify((linterOptions, options, t, input) => {
 const getMessage = ({message}) => message;
 
 const report = (dir, linterOptions, options) => (t) => (name, message, plugins) => {
-    const {lint, ext} = linterOptions;
+    const {lint, extension} = linterOptions;
     checkReport(name, message);
     
     const full = join(dir, name);
-    const [source, isTS] = readFixture(full, ext);
+    const [source, isTS] = readFixture(full, extension);
     
     const addT = reportCode(lint, {
         isTS,
@@ -530,9 +471,9 @@ const report = (dir, linterOptions, options) => (t) => (name, message, plugins) 
 };
 
 const noReport = currify((dir, linterOptions, options, t, name) => {
-    const {lint, ext} = linterOptions;
+    const {lint, extension} = linterOptions;
     const full = join(dir, name);
-    const [source, isTS] = readFixture(full, ext);
+    const [source, isTS] = readFixture(full, extension);
     
     rmFixture(`${full}-fix`);
     
@@ -545,9 +486,9 @@ const noReport = currify((dir, linterOptions, options, t, name) => {
 module.exports._createNoReport = noReport;
 
 const noReportAfterTransform = currify((dir, linterOptions, options, t, name, addons = {}) => {
-    const {lint, ext} = linterOptions;
+    const {lint, extension} = linterOptions;
     const full = join(dir, name);
-    const [source, isTS] = readFixture(full, ext);
+    const [source, isTS] = readFixture(full, extension);
     
     return noReportCodeAfterTransform(lint, {
         isTS,
@@ -558,9 +499,9 @@ const noReportAfterTransform = currify((dir, linterOptions, options, t, name, ad
 module.exports._createNoReportAfterTransform = noReportAfterTransform;
 
 const noReportAfterTransformWithOptions = currify((dir, linterOptions, options, t, name, ruleOptions) => {
-    const {lint, ext} = linterOptions;
+    const {lint, extension} = linterOptions;
     const full = join(dir, name);
-    const [source, isTS] = readFixture(full, ext);
+    const [source, isTS] = readFixture(full, extension);
     const rule = parseRule(options);
     
     const rules = {
@@ -580,9 +521,9 @@ const noReportAfterTransformWithOptions = currify((dir, linterOptions, options, 
 module.exports._createNoReportAfterTransformWithOptions = noReportAfterTransformWithOptions;
 
 const reportWithOptions = currify((dir, linterOptions, options, t, name, message, ruleOptions) => {
-    const {lint, ext} = linterOptions;
+    const {lint, extension} = linterOptions;
     const full = join(dir, name);
-    const [source, isTS] = readFixture(full, ext);
+    const [source, isTS] = readFixture(full, extension);
     
     const rule = parseRule(options);
     
@@ -602,9 +543,9 @@ const reportWithOptions = currify((dir, linterOptions, options, t, name, message
 });
 
 const noReportWithOptions = currify((dir, linterOptions, options, t, name, ruleOptions) => {
-    const {lint, ext} = linterOptions;
+    const {lint, extension} = linterOptions;
     const full = join(dir, name);
-    const [source, isTS] = readFixture(full, ext);
+    const [source, isTS] = readFixture(full, extension);
     
     rmFixture(`${full}-fix`);
     
