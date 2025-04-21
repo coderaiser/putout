@@ -330,11 +330,22 @@ function get() {
 
 </details>
 
-<details><summary>Argument name clash</summary>
+<details><summary>argument name clash</summary>
 
 ```diff
 -const a = ({b, b, ...c}) => {};
 +const a = ({b, ...c}) => {};
+```
+
+</details>
+
+<details><summary>convert colon to comma</summary>
+
+```diff
+export const rules = [
+-   ['apply-nesting': applyNesting],
++   ['apply-nesting', applyNesting],
+];
 ```
 
 </details>
