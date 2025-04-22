@@ -1,7 +1,8 @@
 import tryCatch from 'try-catch';
-import {traverse} from '@webassemblyjs/ast';
 import {parse} from '@webassemblyjs/wast-parser';
 import {print} from '@webassemblyjs/wast-printer';
+import {traverse} from './traverser.js';
+import {find} from './finder.js';
 
 const {entries} = Object;
 const {isArray} = Array;
@@ -23,9 +24,9 @@ export const lint = (source, overrides = {}) => {
         const places = [];
         const push = places.push.bind(places);
         
-        traverse(ast, plugin.traverse({
+        run(ast, plugin, {
             push,
-        }));
+        });
         
         if (!places.length)
             continue;
@@ -45,6 +46,18 @@ export const lint = (source, overrides = {}) => {
         code: print(ast),
     };
 };
+
+function run(ast, plugin, {push}) {
+    if (plugin.traverse)
+        return traverse(ast, plugin, {
+            push,
+        });
+    
+    return find(ast, plugin, {
+        push,
+        traverse,
+    });
+}
 
 function parsePlugins(plugins) {
     const result = [];
