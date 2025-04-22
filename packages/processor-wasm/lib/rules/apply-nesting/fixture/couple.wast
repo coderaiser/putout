@@ -1,0 +1,18 @@
+(func $Moore (export "Moore")
+    (param $upLeft i32) (param $up i32) (param $upRight i32)
+    (param $right i32) (param $downRight i32) (param $down i32)
+    (param $downLeft i32) (param $left i32)
+    (result i32)
+    
+    (local.get $upLeft)
+    (local.get $up)
+    (local.get $upRight)
+    (local.get $right)
+    (local.get $downRight)
+    (local.get $down)
+    (local.get $downLeft)
+    (local.get $left)
+    
+    (i32.add) (i32.add) (i32.add) (i32.add)
+    (i32.add) (i32.add) (i32.add)
+)

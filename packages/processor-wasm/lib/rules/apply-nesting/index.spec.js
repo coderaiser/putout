@@ -21,3 +21,8 @@ test('putout: processor-wasm: apply-nesting: no report: nested', (t) => {
     t.noReport('nested');
     t.end();
 });
+
+test('putout: processor-wasm: apply-nesting: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
