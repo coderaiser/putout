@@ -1,3 +1,14 @@
+2025.04.22, v40.0.11
+
+fix:
+- 5547e4c38 @putout/test: ext -> extension
+
+feature:
+- 0d7a08058 putout: @putout/plugin-webpack v4.0.0
+- 25abc610c @putout/processor-wasm: apply-nesting (xtuc/webassemblyjs#1208)
+- 0bb7573f1 @putout/processor-wasm: drop support of 🐊 < 40
+- 115d824d0 @putout/test: add ability to override ext
+
 2025.04.18, v40.0.10
 
 feature:
