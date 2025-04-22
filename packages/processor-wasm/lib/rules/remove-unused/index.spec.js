@@ -17,12 +17,17 @@ test('putout: processor-wasm: remove-unused: transform', (t) => {
     t.end();
 });
 
-test('putout: processor-wasm: remove-unused: no report: exported', (t) => {
-    t.noReport('exported');
+test('putout: processor-wasm: remove-unused: no report: export', (t) => {
+    t.noReport('export');
     t.end();
 });
 
-test('putout: processor-wasm: remove-unused: no report: called', (t) => {
-    t.noReport('called');
+test('putout: processor-wasm: remove-unused: no report: call', (t) => {
+    t.noReport('call');
+    t.end();
+});
+
+test('putout: processor-wasm: remove-unused: no report: export-inside', (t) => {
+    t.noReport('export-inside');
     t.end();
 });
