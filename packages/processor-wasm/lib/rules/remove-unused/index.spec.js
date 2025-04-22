@@ -21,3 +21,8 @@ test('putout: processor-wasm: remove-unused: no report: exported', (t) => {
     t.noReport('exported');
     t.end();
 });
+
+test('putout: processor-wasm: remove-unused: no report: called', (t) => {
+    t.noReport('called');
+    t.end();
+});

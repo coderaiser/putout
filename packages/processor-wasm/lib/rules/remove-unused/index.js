@@ -18,6 +18,10 @@ export const find = (ast, {push, traverse}) => {
             const {value} = path.node.descr.id;
             delete funcs[value];
         },
+        CallInstruction(path) {
+            const {value} = path.node.index;
+            delete funcs[value];
+        },
     });
     
     for (const [, path] of entries(funcs)) {
