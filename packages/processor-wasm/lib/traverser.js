@@ -7,4 +7,3 @@ export const traverse = (ast, plugin, {push}) => {
     
     traverseWast(ast, visitors);
 };
-
