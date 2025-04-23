@@ -1,3 +1,14 @@
+2025.04.23, v40.0.12
+
+fix:
+- 8295aed4c @putout/processor-wasm: rules: apply-nesting: exclude couple
+
+feature:
+- b55e781e4 putout: @putout/plugin-reuse-duplicate-init v8.0.0
+- 0445a713c @putout/plugin-reuse-duplicate-init: migrate to ESM
+- 804a1b657 @putout/processor-wasm: rules: remove-unused: exclude called
+- a7e955e27 @putout/processor-wasm: rules: remove-unused: add
+
 2025.04.22, v40.0.11
 
 fix:
