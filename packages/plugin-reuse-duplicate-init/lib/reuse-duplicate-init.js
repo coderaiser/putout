@@ -1,19 +1,18 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {replaceWith} = operator;
 
-module.exports.report = () => 'Reuse duplicate init';
+export const report = () => 'Reuse duplicate init';
 
-module.exports.fix = ({path, newPath}) => {
+export const fix = ({path, newPath}) => {
     replaceWith(path.get('declarations.0.init'), newPath);
 };
 
-module.exports.exclude = () => [
+export const exclude = () => [
     'const __a = __identifier',
 ];
 
-module.exports.traverse = ({push, store}) => ({
+export const traverse = ({push, store}) => ({
     'const __identifier = __b'(path) {
         const idPath = path.get('declarations.0.id');
         const initPath = path.get('declarations.0.init');
