@@ -12,6 +12,14 @@ test('putout: processor: wasm: set-local', async ({process}) => {
     await process('set-local.wast');
 });
 
+test('putout: processor: wasm: remove-useless-args', async ({process}) => {
+    await process('remove-useless-args.wast');
+});
+
+test('putout: processor: wasm: remove-unused', async ({process}) => {
+    await process('remove-unused.wast');
+});
+
 test('putout: processor: wasm: apply-nesting', async ({process}) => {
     await process('apply-nesting.wast');
 });

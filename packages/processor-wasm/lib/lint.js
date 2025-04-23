@@ -83,11 +83,18 @@ const parseError = ({message}) => ({
     },
 });
 
+const parsePath = (path) => path.path || path;
+
 function convertPlaces(rule, rawPlaces, plugin) {
     const places = [];
     
     for (const path of rawPlaces) {
-        const {line, column} = path.node.loc.start;
+        const currentPath = parsePath(path);
+        
+        const {line, column} = currentPath.node.loc?.start || {
+            line: 0,
+            column: 0,
+        };
         
         places.push({
             rule: `${rule} (wasm)`,
