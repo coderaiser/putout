@@ -23,7 +23,7 @@ test('putout: plugin-filesystem: move-referenced-file: transform: long path', (t
     t.end();
 });
 
-test('packages: move-referenced-file: transform', (t) => {
+test('putout: plugin-filesystem: move-referenced-file: transform', (t) => {
     t.noReportAfterTransformWithOptions('move-referenced-file', {
         name: 'hello.js',
         directory: 'lib',
@@ -31,7 +31,7 @@ test('packages: move-referenced-file: transform', (t) => {
     t.end();
 });
 
-test('packages: move-referenced-file: no transform: no-name', (t) => {
+test('putout: plugin-filesystem: move-referenced-file: no transform: no-name', (t) => {
     t.noTransform('no-name');
     t.end();
 });
