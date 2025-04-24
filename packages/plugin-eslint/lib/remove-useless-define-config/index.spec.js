@@ -21,3 +21,8 @@ test('eslint: remove-useless-define-config: transform: empty', (t) => {
     t.transform('empty');
     t.end();
 });
+
+test('eslint: remove-useless-define-config: transform: commonjs', (t) => {
+    t.transform('commonjs');
+    t.end();
+});

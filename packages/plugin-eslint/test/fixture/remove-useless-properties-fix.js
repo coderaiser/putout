@@ -1,9 +1,9 @@
 import {safeAlign} from 'eslint-plugin-putout';
 import {defineConfig} from 'eslint/config';
 
-module.exports = defineConfig([safeAlign]);
+module.exports = safeAlign;
 
-module.exports = defineConfig([safeAlign]);
+module.exports = safeAlign;
 
 module.exports = defineConfig([
     safeAlign, {
