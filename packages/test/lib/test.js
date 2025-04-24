@@ -300,7 +300,7 @@ const transform = currify((dir, linterOptions, options, t, name, transformed = n
     const {plugins} = options;
     const full = join(dir, name);
     const isStr = isString(transformed);
-    const [input, isTS] = readFixture(full, extension);
+    const [input, isTS, currentExtension] = readFixture(full, extension);
     
     if (!isStr)
         addons = transformed;
@@ -323,7 +323,7 @@ const transform = currify((dir, linterOptions, options, t, name, transformed = n
         writeFixture({
             full,
             code,
-            extension,
+            extension: currentExtension,
         });
         return t.pass('fixed fixture updated');
     }
@@ -337,7 +337,7 @@ const transformWithOptions = currify((dir, linterOptions, options, t, name, plug
     const {lint, extension} = linterOptions;
     
     const full = join(dir, name);
-    const [input, isTS] = readFixture(full, extension);
+    const [input, isTS, currentExtension] = readFixture(full, extension);
     
     const rule = parseRule(options);
     
@@ -355,7 +355,7 @@ const transformWithOptions = currify((dir, linterOptions, options, t, name, plug
         writeFixture({
             full,
             code,
-            extension,
+            extension: currentExtension,
         });
         return t.pass('fixed fixture updated');
     }
@@ -374,7 +374,7 @@ const parseRule = ({plugins}) => {
 const noTransformWithOptions = currify((dir, linterOptions, options, t, name, ruleOptions) => {
     const {lint, extension} = linterOptions;
     const full = join(dir, name);
-    const [input, isTS] = readFixture(full, extension);
+    const [input, isTS, currentExtension] = readFixture(full, extension);
     
     rmFixture(`${full}-fix`);
     
@@ -393,7 +393,7 @@ const noTransformWithOptions = currify((dir, linterOptions, options, t, name, ru
         writeFixture({
             full,
             code,
-            extension,
+            extension: currentExtension,
         });
         
         return t.pass('source fixture updated');

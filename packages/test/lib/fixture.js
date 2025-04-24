@@ -17,6 +17,7 @@ module.exports.readFixture = (name, extension) => {
         return [
             dataTS,
             TS.ENABLED,
+            'ts',
         ];
     
     const [eJS, dataJS] = tryCatch(readFileSync, `${name}.js`, 'utf8');
@@ -25,6 +26,7 @@ module.exports.readFixture = (name, extension) => {
         return [
             dataJS,
             TS.DISABLED,
+            'js',
         ];
     
     if (extension) {
@@ -34,6 +36,7 @@ module.exports.readFixture = (name, extension) => {
             return [
                 data,
                 TS.DISABLED,
+                extension,
             ];
     }
     
