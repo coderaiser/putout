@@ -22,6 +22,7 @@ const {preTest} = require('./pre-test');
 const {
     readFixture,
     writeFixture,
+    writeFixFixture,
     rmFixture,
 } = require('./fixture');
 
@@ -320,7 +321,7 @@ const transform = currify((dir, linterOptions, options, t, name, transformed = n
         return fail(t, `'input' === 'output', use 'noTransform()'`);
     
     if (isUpdate() && !isStr) {
-        writeFixture({
+        writeFixFixture({
             full,
             code,
             extension: currentExtension,
@@ -352,7 +353,7 @@ const transformWithOptions = currify((dir, linterOptions, options, t, name, plug
     });
     
     if (isUpdate()) {
-        writeFixture({
+        writeFixFixture({
             full,
             code,
             extension: currentExtension,
@@ -410,7 +411,7 @@ const noTransform = currify((dir, linterOptions, options, t, name, addons = {}) 
     rmFixture(`${full}-fix`);
     
     const {plugins} = options;
-    const [input, isTS] = readFixture(full, extension);
+    const [input, isTS, currentExtension] = readFixture(full, extension);
     
     const {code} = lint(input, {
         isTS,
@@ -425,7 +426,7 @@ const noTransform = currify((dir, linterOptions, options, t, name, addons = {}) 
         writeFixture({
             full,
             code,
-            extension,
+            extension: currentExtension,
         });
         
         return t.pass('source fixture updated');
