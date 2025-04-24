@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('eslint: remove-useless-define-config: report', (t) => {
-    t.report('remove-useless-define-config', `Avoid useless defineConfig()`);
+    t.report('remove-useless-define-config', `Avoid useless 'defineConfig()'`);
     t.end();
 });
 
