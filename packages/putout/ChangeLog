@@ -1,3 +1,16 @@
+2025.04.24, v40.0.13
+
+fix:
+- 15de821b5 @putout/test: extension
+- 3c46a6b1f @putout/test: UPDATE
+
+feature:
+- 943d36b25 putout: @putout/plugin-eslint v14.0.0
+- 76cc3bbd2 @putout/plugin-eslint: drop support of 🐊 < 40
+- 7234f64e6 @putout/plugin-eslint: remove-useless-define-config: CommonJS: add support
+- 71f06ca77 @putout/compare: __identifier: check
+- fe1296189 @putout/processor-wasm: rules: remove-useless-args: add
+
 2025.04.23, v40.0.12
 
 fix:
