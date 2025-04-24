@@ -14,6 +14,7 @@ const {runTopLevelComparators} = require('./top-level-comparators');
 
 const {
     isStr,
+    isId,
     isPath,
     isEqualType,
     isTemplate,
@@ -76,6 +77,9 @@ function compare(path, template, options = {}, equal = noop) {
     const templateNode = extractExpression(parseNode(template));
     
     equal(node, templateNode);
+    
+    if (isId(node, templateNode))
+        return true;
     
     if (node.type === template)
         return true;

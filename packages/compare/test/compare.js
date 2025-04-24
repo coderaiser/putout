@@ -633,6 +633,13 @@ test('compare: __identifier', (t) => {
     t.end();
 });
 
+test('compare: __identifier: same', (t) => {
+    const result = compare('__identifier', '__identifier');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: __identifier__a: only', (t) => {
     const result = compare('temp', '__identifier__a');
     
