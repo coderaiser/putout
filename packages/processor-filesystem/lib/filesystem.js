@@ -23,7 +23,7 @@ export const branch = (rawSource) => {
 };
 
 export const merge = (rawSource, list) => {
-    filesystem.deinit(filesystemCLI);
+    filesystem.deinit();
     
     const [source] = list.filter(isFilesystem);
     

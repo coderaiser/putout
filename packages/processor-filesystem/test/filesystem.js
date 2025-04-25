@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {test} from 'supertape';
 import montag from 'montag';
 import {fromJS, __filesystem} from '@putout/operator-json';
+import filesystem from '@putout/operator-filesystem';
 import {merge, branch} from '../lib/filesystem.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -40,6 +41,8 @@ test('putout: processor: filesystem: branch', (t) => {
     }, null, 4);
     
     const result = branch(rawSource);
+    filesystem.deinit();
+    
     const source = montag`
         __putout_processor_filesystem({
             "filename": "/",
@@ -122,6 +125,8 @@ test('putout: processor: filesystem: branch: big', (t) => {
     ));
     
     const [{source}] = branch(rawSource);
+    
+    filesystem.deinit();
     
     const result = parse(fromJS(
         source,
