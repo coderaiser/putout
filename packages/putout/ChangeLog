@@ -1,3 +1,13 @@
+2025.04.25, v40.0.14
+
+fix:
+- 3abef1518 @putout/plugin-eslint: report
+
+feature:
+- 5d06e9a63 putout: @putout/plugin-nodejs v16.0.0
+- e72073916 @putout/plugin-nodejs: drop support of 🐊 < 40
+- ddae66cc0 @putout/plugin-nodejs: convert-commonjs-to-esm: exclude logical
+
 2025.04.24, v40.0.13
 
 fix:
