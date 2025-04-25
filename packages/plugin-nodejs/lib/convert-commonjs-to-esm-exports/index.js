@@ -11,7 +11,10 @@ const {replaceWith} = operator;
 
 export const report = () => `Use 'ESM' instead of 'CommonJS'`;
 
-export const exclude = () => ['__, __'];
+export const exclude = () => [
+    '__, __',
+    '__ && __',
+];
 
 export const match = () => ({
     'module.exports.__a = __b': ({__a, __b}, path) => {
