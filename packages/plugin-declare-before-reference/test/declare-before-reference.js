@@ -131,3 +131,8 @@ test('plugin-declare-before-reference: transform: convert-traverse-to-scan', (t)
     });
     t.end();
 });
+
+test('plugin-declare-before-reference: no report: cross-reference', (t) => {
+    t.noReport('cross-reference');
+    t.end();
+});

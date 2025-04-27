@@ -4,6 +4,7 @@ const {types, operator} = require('putout');
 const {
     remove,
     compare,
+    compareAny,
     insertBefore,
     getPathAfterRequires,
 } = operator;
@@ -19,6 +20,7 @@ const {entries} = Object;
 const isTopScope = (a) => isFunction(a) || isProgram(a);
 const getTopUID = (a) => a.find(isTopScope).scope.uid;
 const getBlockUID = (a) => a.find(isBlockStatement)?.scope.uid;
+const getKey = (a) => a.key;
 
 module.exports.report = ({name}) => {
     return `Declare '${name}' before referencing to avoid 'ReferenceError'`;
@@ -74,16 +76,25 @@ module.exports.traverse = ({push}) => ({
                 break;
             
             for (const referencePath of referencePaths) {
+                const referenceParentPath = referencePath.parentPath;
                 const referenceUid = getTopUID(referencePath);
                 const blockUid = getBlockUID(referencePath);
                 
                 if (uid !== referenceUid && uid !== blockUid)
                     continue;
                 
-                if (referencePath.parentPath.isExportDefaultDeclaration())
+                if (referenceParentPath.isExportDefaultDeclaration())
                     break;
                 
                 if (referencePath.isExportDeclaration())
+                    break;
+                
+                const initPath = path.get('init');
+                
+                if (compareAny(getName(initPath), getKeys(referenceParentPath)))
+                    break;
+                
+                if (compareAny(getName(referenceParentPath), getKeys(path)))
                     break;
                 
                 const [own, pathLoc] = getLoc(path);
@@ -123,4 +134,25 @@ function getLoc(path) {
     }
     
     return [own, loc];
+}
+
+function getName(path) {
+    do {
+        if (!path.isMemberExpression())
+            return path;
+    } while (path = path.get('object'));
+}
+
+function getKeys(path) {
+    const {id} = path.node;
+    
+    if (!id)
+        return [];
+    
+    const {properties} = id;
+    
+    if (!properties)
+        return [];
+    
+    return properties.map(getKey);
 }
