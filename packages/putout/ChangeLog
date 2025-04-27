@@ -1,3 +1,10 @@
+2025.04.28, v40.0.15
+
+feature:
+- d4ae50367 putout: @putout/plugin-declare-before-reference v7.0.0
+- 54bb36538 @putout/plugin-declare-before-reference: migtrate to ESM
+- 610b43b47 @putout/plugin-declare-before-reference: cross-references
+
 2025.04.25, v40.0.14
 
 fix:
