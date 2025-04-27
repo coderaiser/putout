@@ -1,9 +1,10 @@
 'use strict';
 
 import {types} from 'putout';
+import {operator} from 'putout';
 
 const {ExportNamedDeclaration} = types;
-const {replaceWith} = require('putout').operator;
+const {replaceWith} = operator;
 const {Identifier} = types;
 const {VariableDeclarator} = types;
 const {VariableDeclaration} = types;

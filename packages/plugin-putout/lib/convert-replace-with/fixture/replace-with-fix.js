@@ -1,7 +1,5 @@
 'use strict';
 
-const {replaceWith} = require('putout').operator;
-
 module.exports.fix = ({name, path, rightPath}) => {
     const {parentPath} = path;
     const {node} = rightPath;
