@@ -7,16 +7,10 @@ const plugin = {
 
 const {matchFiles} = operator;
 
-const {
+export const {
     scan,
     report,
     fix,
 } = matchFiles({
     'package.json': plugin,
 });
-
-export {
-    scan,
-    report,
-    fix,
-};

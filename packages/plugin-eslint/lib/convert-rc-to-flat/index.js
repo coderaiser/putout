@@ -3,7 +3,8 @@ import * as rcToFlat from './rc-to-flat/index.js';
 import * as declare from '../declare/index.js';
 
 const {matchFiles} = operator;
-const {
+
+export const {
     report,
     fix,
     scan,
@@ -20,9 +21,3 @@ const {
         ],
     },
 });
-
-export {
-    report,
-    fix,
-    scan,
-};

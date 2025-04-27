@@ -5,7 +5,7 @@ const v24 = [
     ['convert-top-level-return', 'nodejs/convert-top-level-return'],
 ];
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -16,9 +16,3 @@ const {
     ['convert-esm-to-commonjs', 'nodejs/convert-esm-to-commonjs'],
     ['convert-commonjs-to-esm', 'nodejs/convert-commonjs-to-esm'],
 ]);
-
-export {
-    report,
-    fix,
-    traverse,
-};

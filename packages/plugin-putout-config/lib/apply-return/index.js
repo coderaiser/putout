@@ -1,6 +1,6 @@
 import {createRenameProperty} from '../rename-property.js';
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -10,9 +10,3 @@ const {
     ['simplify-boolean-return', 'return/simplify-boolean'],
     ['convert-break-to-return', 'return/convert-from-break'],
 ]);
-
-export {
-    report,
-    fix,
-    traverse,
-};

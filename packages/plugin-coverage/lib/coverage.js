@@ -1,7 +1,8 @@
 import {operator} from 'putout';
 
 const {ignore, __json} = operator;
-const {
+
+export const {
     match,
     replace,
     report,
@@ -12,9 +13,3 @@ const {
         '**/*.config.*',
     ],
 });
-
-export {
-    match,
-    replace,
-    report,
-};

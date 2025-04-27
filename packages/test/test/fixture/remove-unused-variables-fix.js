@@ -1,5 +1,5 @@
-const {types, operator} = require('putout');
-const {replaceWith} = operator;
+const {types} = require('putout');
+
 const {
     ObjectExpression,
     ObjectProperty,

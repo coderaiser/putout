@@ -6,16 +6,10 @@ const plugin = {
     rules: typescript,
 };
 
-const {
+export const {
     scan,
     fix,
     report,
 } = matchFiles({
     '*.ts': plugin,
 });
-
-export {
-    scan,
-    fix,
-    report,
-};

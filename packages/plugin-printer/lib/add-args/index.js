@@ -11,7 +11,7 @@ const parents = [
     'function __(path, __object) {}',
 ];
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -25,9 +25,3 @@ const {
     traverse: ['{traverse}', parents],
     store: ['{store}', parents],
 });
-
-export {
-    report,
-    fix,
-    traverse,
-};

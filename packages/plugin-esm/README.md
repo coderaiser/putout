@@ -23,6 +23,7 @@ npm i putout @putout/plugin-esm -D
 - ✅ [declare-imports-first](#declare-imports-first);
 - ✅ [group-imports-by-source](#group-imports-by-source);
 - ✅ [merge-duplicate-imports](#merge-duplicate-imports);
+- ✅ [merge-declaration-with-export](#merge-declaration-with-export);
 - ✅ [remove-quotes-from-import-assertions](#remove-quotes-from-import-assertions);
 - ✅ [remove-empty-import](#remove-empty-import);
 - ✅ [remove-empty-export](#remove-empty-export);
@@ -43,6 +44,7 @@ npm i putout @putout/plugin-esm -D
         "esm/declare-imports-first": "on",
         "esm/group-imports-by-source": "on",
         "esm/merge-duplicate-imports": "on",
+        "esm/merge-declaration-with-export": "on",
         "esm/remove-quotes-from-import-assertions": "on",
         "esm/remove-empty-export": "on",
         "esm/remove-empty-import": ["on", {
@@ -160,6 +162,36 @@ import d from '../hello.js';
 import ss from '../../bb/ss.js';
 
 const c = 5;
+```
+
+### merge-declaration-with-export
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3fad517d76942d0a1f51d7f58a2799af/7a052ab18a31fa382228d6513c412be37091cfb8).
+
+#### ❌ Example of incorrect code
+
+```js
+const {
+    report,
+    fix,
+    scan,
+} = createRemoveFiles(['*.swp', '*.swo']);
+
+export {
+    report,
+    fix,
+    scan,
+};
+```
+
+##### ✅ Example of correct code
+
+```js
+export const {
+    report,
+    fix,
+    scan,
+} = createRemoveFiles(['*.swp', '*.swo']);
 ```
 
 ### merge-duplicate-imports

@@ -22,14 +22,8 @@ const versions = [
     ...v29,
 ];
 
-const {
+export const {
     report,
     fix,
     traverse,
 } = createRenameProperty(versions);
-
-export {
-    report,
-    fix,
-    traverse,
-};

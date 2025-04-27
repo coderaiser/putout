@@ -1,6 +1,6 @@
 import {updateActions} from './update-actions.js';
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -15,9 +15,3 @@ const {
     'coverallsapp/github-action': 'v2',
     'EndBug/add-and-commit': 'v9',
 });
-
-export {
-    report,
-    fix,
-    traverse,
-};

@@ -2,7 +2,7 @@ import {operator} from 'putout';
 
 const {renameFiles} = operator;
 
-const {
+export const {
     report,
     fix,
     scan,
@@ -13,9 +13,3 @@ const {
         return name.replace(/cjs$/, 'js');
     },
 });
-
-export {
-    report,
-    fix,
-    scan,
-};

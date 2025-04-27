@@ -1,6 +1,6 @@
 import {renameFileByMask} from '../rename-file-by-mask.js';
 
-const {
+export const {
     report,
     fix,
     scan,
@@ -9,9 +9,3 @@ const {
     from: 'spec',
     to: 'test',
 });
-
-export {
-    report,
-    fix,
-    scan,
-};

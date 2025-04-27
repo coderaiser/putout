@@ -1,6 +1,6 @@
 import {createRenameProperty} from '../rename-property.js';
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -15,9 +15,3 @@ const {
     ['remove-useless-array-from', 'for-of/remove-useless-array-from'],
     ['remove-useless-variables/for-of', 'for-of/remove-useless-variables"'],
 ]);
-
-export {
-    report,
-    fix,
-    traverse,
-};

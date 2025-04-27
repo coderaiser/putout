@@ -493,7 +493,7 @@ export default createRenameProperty([
 ### ✅ Example of correct code
 
 ```js
-const {
+export const {
     report,
     fix,
     scan,
@@ -501,12 +501,6 @@ const {
     ...v32,
     ...v29,
 ]);
-
-export {
-    report,
-    fix,
-    scan,
-};
 ```
 
 ## apply-exports-to-add-args
@@ -522,17 +516,11 @@ export default addArgs(__args);
 ### ✅ Example of correct code
 
 ```js
-const {
+export const {
     report,
     fix,
     traverse,
 } = addArgs(__args);
-
-export {
-    report,
-    fix,
-    traverse,
-};
 ```
 
 ## apply-exports-to-match-files
@@ -550,19 +538,13 @@ export default matchFiles({
 ### ✅ Example of correct code
 
 ```js
-const {
+export const {
     report,
     fix,
     scan,
 } = matchFiles({
     '*.cjs': plugin,
 });
-
-export {
-    report,
-    fix,
-    scan,
-};
 ```
 
 ## apply-exports-to-rename-files
@@ -584,7 +566,7 @@ export default renameFiles({
 ### ✅ Example of correct code
 
 ```js
-const {
+export const {
     report,
     fix,
     scan,
@@ -595,12 +577,6 @@ const {
         return name.replace(/mjs$/, 'js');
     },
 });
-
-export {
-    report,
-    fix,
-    scan,
-};
 ```
 
 ## apply-async-formatter

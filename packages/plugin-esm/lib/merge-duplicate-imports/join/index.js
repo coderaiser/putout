@@ -1,6 +1,6 @@
 import {types, operator} from 'putout';
 
-const {remove, compareAny} = operator;
+const {remove} = operator;
 const {values} = Object;
 
 const {
@@ -22,9 +22,6 @@ export const fix = ({path, imports}) => {
                 path.node.specifiers.unshift(spec);
                 continue;
             }
-            
-            if (compareAny(spec, path.node.specifiers))
-                continue;
             
             all.push(spec);
         }

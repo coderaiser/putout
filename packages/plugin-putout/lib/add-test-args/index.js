@@ -2,7 +2,7 @@ import {operator} from 'putout';
 
 const {addArgs} = operator;
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -28,9 +28,3 @@ const {
         'test.only("__a", async (__args) => __body)',
     ]],
 });
-
-export {
-    report,
-    fix,
-    traverse,
-};

@@ -4,14 +4,8 @@ const v37 = [
     ['add-missing-parens', 'parens/add-missing'],
 ];
 
-const {
+export const {
     report,
     fix,
     traverse,
 } = createRenameProperty(v37);
-
-export {
-    report,
-    fix,
-    traverse,
-};

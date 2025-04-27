@@ -66,3 +66,8 @@ test('plugin-esm: no transform: apply-namespace-import-to-file', (t) => {
     t.noTransform('apply-namespace-import-to-file');
     t.end();
 });
+
+test('plugin-esm: transform: merge-declaration-with-export', (t) => {
+    t.transform('merge-declaration-with-export');
+    t.end();
+});

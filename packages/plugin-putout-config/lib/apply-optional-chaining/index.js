@@ -7,14 +7,8 @@ const v37 = [
     ['apply-optional-chaining/use', 'optional-chaining/convert-logical-to-optional'],
 ];
 
-const {
+export const {
     report,
     fix,
     traverse,
 } = createRenameProperty(v37);
-
-export {
-    report,
-    fix,
-    traverse,
-};

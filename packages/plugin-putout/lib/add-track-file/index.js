@@ -2,7 +2,7 @@ import {operator} from 'putout';
 
 const {addArgs} = operator;
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -12,9 +12,3 @@ const {
         '(__a) => __body',
     ]],
 });
-
-export {
-    report,
-    fix,
-    traverse,
-};

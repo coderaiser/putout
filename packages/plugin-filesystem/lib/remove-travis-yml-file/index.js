@@ -1,13 +1,7 @@
 import {createRemoveFiles} from '../create-remove-files.js';
 
-const {
+export const {
     report,
     fix,
     scan,
 } = createRemoveFiles('.travis.yml');
-
-export {
-    report,
-    fix,
-    scan,
-};

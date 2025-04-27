@@ -1,6 +1,6 @@
 import {createRenameProperty} from '../rename-property.js';
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -8,9 +8,3 @@ const {
     ['remove-unused-labels', 'labels/remove-unused'],
     ['convert-label-to-object', 'labels/convert-to-object'],
 ]);
-
-export {
-    report,
-    fix,
-    traverse,
-};

@@ -2,7 +2,8 @@ import {operator} from 'putout';
 import * as isJSX from '../is-jsx/index.js';
 
 const {matchFiles} = operator;
-const {
+
+export const {
     report,
     fix,
     scan,
@@ -12,9 +13,3 @@ const {
         '__name.js -> __name.jsx': isJSX,
     },
 });
-
-export {
-    report,
-    fix,
-    scan,
-};

@@ -1,7 +1,8 @@
 import {operator} from 'putout';
 
 const {renameFiles} = operator;
-const {
+
+export const {
     report,
     fix,
     scan,
@@ -12,9 +13,3 @@ const {
         return name.replace(/mts$/, 'ts');
     },
 });
-
-export {
-    report,
-    fix,
-    scan,
-};

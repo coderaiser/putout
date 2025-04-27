@@ -11,7 +11,7 @@ const v26 = [
     ['strict-mode/remove', 'strict-mode/remove-useless'],
 ];
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -19,9 +19,3 @@ const {
     ...v29,
     ...v26,
 ]);
-
-export {
-    report,
-    fix,
-    traverse,
-};

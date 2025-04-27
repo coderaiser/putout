@@ -1,6 +1,6 @@
 import {createRenameProperty} from '../rename-property.js';
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -11,9 +11,3 @@ const {
     ['apply-is-array', 'types/apply-is-array'],
     ['remove-useless-type-conversion/with-double-negations', 'types/remove-double-negations'],
 ]);
-
-export {
-    report,
-    fix,
-    traverse,
-};

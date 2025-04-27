@@ -1,13 +1,7 @@
 import {convertFrom} from '../convert-from.js';
 
-const {
+export const {
     report,
     traverse,
     fix,
 } = convertFrom('break');
-
-export {
-    report,
-    traverse,
-    fix,
-};

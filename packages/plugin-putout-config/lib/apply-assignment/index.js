@@ -8,14 +8,8 @@ const v39 = [
     ['convert-assignment-to-declaration', 'assignment/convert-to-declaration'],
 ];
 
-const {
+export const {
     report,
     fix,
     traverse,
 } = createRenameProperty(v39);
-
-export {
-    report,
-    fix,
-    traverse,
-};

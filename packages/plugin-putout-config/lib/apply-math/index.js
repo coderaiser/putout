@@ -1,6 +1,6 @@
 import {createRenameProperty} from '../rename-property.js';
 
-const {
+export const {
     report,
     fix,
     traverse,
@@ -10,9 +10,3 @@ const {
     ['convert-imul-to-multiplication', 'math/apply-multiplication'],
     ['convert-sqrt-to-hypot', 'math/convert-sqrt-to-hypot'],
 ]);
-
-export {
-    report,
-    fix,
-    traverse,
-};
