@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     remove,
     compare,
@@ -22,11 +21,11 @@ const getTopUID = (a) => a.find(isTopScope).scope.uid;
 const getBlockUID = (a) => a.find(isBlockStatement)?.scope.uid;
 const getKey = (a) => a.key;
 
-module.exports.report = ({name}) => {
+export const report = ({name}) => {
     return `Declare '${name}' before referencing to avoid 'ReferenceError'`;
 };
 
-module.exports.fix = ({path, referencePath}) => {
+export const fix = ({path, referencePath}) => {
     const {node} = path.parentPath;
     const programPath = path.scope.getProgramParent().path;
     
@@ -55,7 +54,7 @@ module.exports.fix = ({path, referencePath}) => {
     path.__putout_declare_before_reference = true;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'Program|BlockStatement'(path) {
         const {bindings} = path.scope;
         

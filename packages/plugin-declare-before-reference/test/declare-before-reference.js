@@ -1,17 +1,14 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as putout from '@putout/plugin-putout';
+import * as tryCatch from '@putout/plugin-try-catch';
+import * as promises from '@putout/plugin-promises';
+import * as printer from '@putout/plugin-printer';
+import * as removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
+import * as nodejs from '@putout/plugin-nodejs';
+import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
+import * as declare from '../lib/declare-before-reference.js';
 
-const {createTest} = require('@putout/test');
-
-const putout = require('@putout/plugin-putout');
-const tryCatch = require('@putout/plugin-try-catch');
-const promises = require('@putout/plugin-promises');
-const printer = require('@putout/plugin-printer');
-const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
-const nodejs = require('@putout/plugin-nodejs');
-const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
-const declare = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['declare-before-reference', declare],
     ],
