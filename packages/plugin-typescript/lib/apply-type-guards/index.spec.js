@@ -21,3 +21,8 @@ test('plugin-apply-guards: no report: exists', (t) => {
     t.noReport('exists');
     t.end();
 });
+
+test('plugin-apply-guards: transform: fn', (t) => {
+    t.transform('fn');
+    t.end();
+});

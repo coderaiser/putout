@@ -4,8 +4,8 @@ import {
     template,
 } from 'putout';
 
-const {replaceWith} = operator;
 const {identifier} = types;
+const {replaceWith} = operator;
 
 const create = template('(__a): __a is __c => typeof __a === "__b"', {
     placeholderPattern: /__/,
@@ -19,12 +19,21 @@ export const match = () => ({
 
 export const replace = () => ({
     '(__a) => typeof __a === "__b"': ({__a, __b}, path) => {
+        const __c = parseGuard(__b);
+        
         replaceWith(path, create({
             __a,
             __b,
-            __c: identifier(__b.value),
+            __c,
         }));
         
         return path;
     },
 });
+
+function parseGuard({value}) {
+    if (value === 'function')
+        return identifier('Function');
+    
+    return identifier(value);
+}
