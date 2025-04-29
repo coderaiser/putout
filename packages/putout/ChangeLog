@@ -1,3 +1,11 @@
+2025.04.29, v40.0.16
+
+feature:
+- f1c9d86b1 putout: @putout/plugin-split-variable-declarations v5.0.0
+- 74fc41ea3 @putout/plugin-split-variable-declarations: migrate to ESM
+- 39a8a51db @putout/plugin-esm: merge-declaration-with-export: add
+- 1e780c495 @putout/plugin-putou: convert-replace-with: rm declaration
+
 2025.04.28, v40.0.15
 
 feature:
