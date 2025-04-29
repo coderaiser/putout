@@ -179,7 +179,7 @@
     "@putout/plugin-simplify-ternary": "^7.0.0",
     "@putout/plugin-split-call-with-destructuring": "^1.0.0",
     "@putout/plugin-split-nested-destructuring": "^3.0.0",
-    "@putout/plugin-split-variable-declarations": "^4.0.0",
+    "@putout/plugin-split-variable-declarations": "^5.0.0",
     "@putout/plugin-tape": "^18.0.0",
     "@putout/plugin-try-catch": "^5.0.0",
     "@putout/plugin-types": "^8.0.0",
