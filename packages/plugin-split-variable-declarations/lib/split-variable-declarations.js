@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     isForStatement,
@@ -12,16 +10,16 @@ const {
     isKeyword,
 } = operator;
 
-module.exports.report = () => 'Variables should be declared separately';
+export const report = () => 'Variables should be declared separately';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {node} = path;
     const varNodes = getVarNodes(node);
     
     replaceWithMultiple(path, varNodes);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     VariableDeclaration(path) {
         const {
             node,
