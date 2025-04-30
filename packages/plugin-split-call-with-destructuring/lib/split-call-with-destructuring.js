@@ -1,11 +1,10 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isIdentifier} = types;
 
-module.exports.report = () => `Split call with destructuring`;
+export const report = () => `Split call with destructuring`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a(__args)({__c} = __d)': `{
         __a(__args);
         ({__c} = __d);

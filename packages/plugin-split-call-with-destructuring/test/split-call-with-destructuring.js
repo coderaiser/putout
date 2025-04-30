@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as plugin from '../lib/split-call-with-destructuring.js';
 
-const {createTest} = require('@putout/test');
-const plugin = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['split-call-with-destructuring', plugin],
     ],
