@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as splitDestructuring from '../lib/split-nested-destructuring.js';
 
-const {createTest} = require('@putout/test');
-const splitDestructuring = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['split-destructuring', splitDestructuring],
     ],

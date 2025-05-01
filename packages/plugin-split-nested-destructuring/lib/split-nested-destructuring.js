@@ -1,6 +1,5 @@
-'use strict';
+import {types, template} from 'putout';
 
-const {types, template} = require('putout');
 const {
     objectProperty,
     isObjectPattern,
@@ -11,14 +10,14 @@ const buildDeclaration = template(`
     const %%__b%% = %%__a%%
 `);
 
-module.exports.report = () => 'Avoid nested destructuring';
+export const report = () => 'Avoid nested destructuring';
 
-module.exports.match = () => ({
+export const match = () => ({
     'const {__a: {__b}} = __c': matchConst,
     'const {__a: {__b: __c}} = __d': matchConst,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const {__a: {__b}} = __c': 'const {__a} = __c, {__b} = __a',
     'const {__a: {__b: __c}} = __d': 'const {__a} = __d, {__b: __c} = __a',
     'const {__a: {__b = __c}} = __d': 'const {__a} = __d, {__b = __c} = __a',
