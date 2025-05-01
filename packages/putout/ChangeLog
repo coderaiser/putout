@@ -1,3 +1,10 @@
+2025.05.02, v40.0.18
+
+feature:
+- 67d6dc5a6 putout: @putout/plugin-tape v19.0.0
+- 8b4e6b4e5 @putout/plugin-tape: drop support of 🐊 < 40
+- 561eb070b @putout/plugin-tape: add-t-end: speed up
+
 2025.05.01, v40.0.17
 
 feature:
