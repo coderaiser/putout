@@ -1,3 +1,11 @@
+2025.05.01, v40.0.17
+
+feature:
+- d165fa712 putout: @putout/plugin-split-nested-destructuring v4.0.0
+- aa014b627 @putout/plugin-split-nested-destructuring: migrate to ESM
+- 4b2c37d30 @putout/plugin-split-call-with-destructuring: migrate to ESM
+- 96d22a08f @putout/plugin-typescript: apply-type-guards: function
+
 2025.04.29, v40.0.16
 
 feature:
