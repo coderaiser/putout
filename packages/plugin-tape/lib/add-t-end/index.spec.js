@@ -40,8 +40,8 @@ test('plugin-tape: add-t-end: transform: putout', (t) => {
     t.end();
 });
 
-test('plugin-tape: add-t-end: no transform: contains', (t) => {
-    t.noTransform('contains');
+test('plugin-tape: add-t-end: transform: contains', (t) => {
+    t.transform('contains');
     t.end();
 });
 

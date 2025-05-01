@@ -4,8 +4,12 @@ import {
     operator,
 } from 'putout';
 
-const {compare, traverse} = operator;
-const {expressionStatement} = types;
+const {compare} = operator;
+const {
+    expressionStatement,
+    isCallExpression,
+    isFunction,
+} = types;
 
 export const report = () => `'t.end()' is missing at the end of the test`;
 
@@ -19,32 +23,29 @@ export const replace = () => ({
     'test(__a, async (t) => __body)': transform,
 });
 
-function check({__body}, path) {
+function check({__body}) {
     const {body} = __body;
     const {length} = body;
     
     if (!length)
         return true;
     
-    for (const element of body) {
-        if (compare(element, 't.end()'))
-            return false;
+    const last = body.at(-1);
+    
+    if (compare(last, 't.end()'))
+        return false;
+    
+    if (compare(last, 'await t.__(__args)'))
+        return false;
+    
+    const {expression} = last;
+    
+    if (isCallExpression(expression)) {
+        const lastArg = expression.arguments.at(-1);
+        return !isFunction(lastArg);
     }
     
-    let found = false;
-    
-    traverse(path, {
-        'await t.__(__args)': () => {
-            found = true;
-            path.stop();
-        },
-        't.end()': (path) => {
-            found = true;
-            path.stop();
-        },
-    });
-    
-    return !found;
+    return true;
 }
 
 function transform({__body}, path) {
