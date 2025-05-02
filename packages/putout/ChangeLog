@@ -1,3 +1,9 @@
+2025.05.02, v40.0.19
+
+feature:
+- c39ab6d2d putout: @putout/plugin-simplify-ternary v8.0.0
+- b90099e4b @putout/plugin-simplify-ternary: drop support of 🐊 < 40
+
 2025.05.02, v40.0.18
 
 feature:
