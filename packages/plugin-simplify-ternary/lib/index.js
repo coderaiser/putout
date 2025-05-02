@@ -1,9 +1,7 @@
-'use strict';
+import * as value from './value/index.js';
+import * as spread from './spread/index.js';
 
-const value = require('./value');
-const spread = require('./spread');
-
-module.exports.rules = {
+export const rules = {
     value,
     spread,
 };

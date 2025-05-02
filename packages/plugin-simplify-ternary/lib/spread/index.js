@@ -1,21 +1,20 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isNullLiteral,
     isObjectExpression,
     logicalExpression,
 } = types;
 
-module.exports.report = () => 'Simplify ternary';
+export const report = () => 'Simplify ternary';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {test, consequent} = path.node.argument;
     
     path.node.argument = logicalExpression('&&', test, consequent);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     SpreadElement(path) {
         const argPath = path.get('argument');
         
