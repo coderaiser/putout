@@ -22,6 +22,7 @@ export const rules = {
         },
     }],
     'no-delete-var': 'off',
+    'no-prototype-builtins': 'off',
     'no-unused-labels': 'off',
     'no-else-return': ['error', {
         allowElseIf: false,

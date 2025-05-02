@@ -66,6 +66,10 @@ test('eslint-config: object-shorthand', async ({comparePlaces}) => {
     await comparePlaces('object-shorthand', []);
 });
 
+test('eslint-config: no-prototype-builtins', async ({comparePlaces}) => {
+    await comparePlaces('no-prototype-builtins', []);
+});
+
 test('eslint-config: no-delete-var', async ({comparePlaces}) => {
     await comparePlaces('no-delete-var', [], {
         rules: {
