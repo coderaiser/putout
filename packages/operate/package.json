@@ -36,6 +36,7 @@
   "devDependencies": {
     "@putout/engine-runner": "*",
     "@putout/eslint-flat": "^3.0.0",
+    "@putout/plugin-esm": "*",
     "@putout/plugin-minify": "*",
     "@putout/plugin-remove-unreferenced-variables": "*",
     "c8": "^10.0.0",

@@ -5,11 +5,16 @@ const {toExpression} = require('./to-expression');
 const {isSequenceExpression} = require('@putout/babel').types;
 
 module.exports.replaceWithMultiple = (path, nodes) => {
-    const parentComments = path.parentPath.node.comments;
+    const {node} = path;
     const {
+        trailingComments,
         comments,
         leadingComments,
-    } = path.node;
+    } = node;
+    
+    delete path.node.trailingComments;
+    
+    const parentComments = path.parentPath.node.comments;
     
     const newNodes = nodes
         .filter(Boolean)
@@ -27,6 +32,7 @@ module.exports.replaceWithMultiple = (path, nodes) => {
         delete newPath[0].node.leadingComments;
     
     newPath[0].node.comments = comments || parentComments;
+    newPath.at(-1).node.trailingComments = trailingComments;
     
     return newPath;
 };

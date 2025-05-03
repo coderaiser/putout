@@ -4,11 +4,13 @@ const putout = require('putout');
 
 const {test} = require('supertape');
 const {types} = require('@putout/babel');
+const esm = require('@putout/plugin-esm');
 const {replaceWithMultiple} = require('./replace-with-multiple');
 const {readFixtures} = require('../../test/fixture');
 
 const {CallExpression} = types;
 const fixture = readFixtures(__dirname);
+const groupImportsBySource = esm.rules['group-imports-by-source'];
 
 test('putout: operate: replace-with: replaceWithMultiple', (t) => {
     const source = fixture.replaceWithMultipleLeadingComment;
@@ -105,6 +107,20 @@ test('putout: operate: replace-with: replaceWithMultiple: comments', (t) => {
     });
     
     const expected = fixture.replaceWithMultipleLeadingCommentConstFix;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operate: replace-with: replaceWithMultiple: trailing comments', (t) => {
+    const source = fixture.replaceWithMultipleTrailingComment;
+    const {code} = putout(source, {
+        plugins: [
+            ['group-imports-by-source', groupImportsBySource],
+        ],
+    });
+    
+    const expected = fixture.replaceWithMultipleTrailingCommentFix;
     
     t.equal(code, expected);
     t.end();
