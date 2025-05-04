@@ -1,13 +1,11 @@
-'use strict';
+import * as rename from './rename/index.js';
+import * as remove from './remove/index.js';
+import * as destruct from './destruct/index.js';
+import * as declaration from './declaration/index.js';
+import * as duplicate from './duplicate/index.js';
+import * as assignment from './assignment/index.js';
 
-const rename = require('./rename');
-const remove = require('./remove');
-const destruct = require('./destruct');
-const declaration = require('./declaration');
-const duplicate = require('./duplicate');
-const assignment = require('./assignment');
-
-module.exports.rules = {
+export const rules = {
     rename,
     remove,
     destruct,

@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove, compare} = operator;
 
 const isNestedMemberExpression = (path) => {
     return path.isMemberExpression() && path.get('object').isMemberExpression();
 };
 
-module.exports.report = ({idName}) => `Useless variable declaration with name "${idName}"`;
+export const report = ({idName}) => `Useless variable declaration with name "${idName}"`;
 
-module.exports.fix = ({mainPath, path}) => {
+export const fix = ({mainPath, path}) => {
     const {init} = path.node;
     remove(path);
     
@@ -21,7 +20,7 @@ module.exports.fix = ({mainPath, path}) => {
     mainPath.node.init = init;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     AssignmentExpression(mainPath) {
         const leftPath = mainPath.get('left');
         const rightPath = mainPath.get('right');

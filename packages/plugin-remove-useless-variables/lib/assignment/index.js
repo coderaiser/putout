@@ -1,13 +1,11 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {getBinding} = operator;
 const {isIdentifier} = types;
 
-module.exports.report = () => `Avoid useless assignment`;
+export const report = () => `Avoid useless assignment`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '(__a = __b).__c': ({__a}, path) => {
         if (!isIdentifier(__a))
             return false;
@@ -23,6 +21,6 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '(__a = __b).__c': '__b.__c',
 });

@@ -1,18 +1,16 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {remove, rename} = operator;
 const {isIdentifier} = types;
 
-module.exports.report = ({idName}) => `Useless variable declaration with name "${idName}"`;
+export const report = ({idName}) => `Useless variable declaration with name "${idName}"`;
 
-module.exports.fix = ({path, bindingPath, initName, idName}) => {
+export const fix = ({path, bindingPath, initName, idName}) => {
     rename(bindingPath, initName, idName);
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     VariableDeclarator(path) {
         const {node, parentPath} = path;
         

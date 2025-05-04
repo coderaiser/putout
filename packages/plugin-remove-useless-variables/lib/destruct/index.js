@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     isIdentifier,
@@ -26,11 +24,11 @@ const getKeyLength = (a) => {
 
 const sum = (a, b) => a + getKeyLength(b);
 
-module.exports.report = (path) => {
+export const report = (path) => {
     return `Remove useless variable '${path.node.declarations[0].init.name}'`;
 };
 
-module.exports.match = () => ({
+export const match = () => ({
     'const __object = __a': ({__a, __object}, path) => {
         const {parentPath} = path.parentPath;
         
@@ -68,7 +66,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __object = __a': ({__object}, path) => {
         replaceWith(path.parentPath.parentPath.get('params.0'), __object);
     },

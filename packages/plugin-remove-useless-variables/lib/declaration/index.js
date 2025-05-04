@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     compare,
     remove,
@@ -15,9 +14,9 @@ const getBody = (path) => {
     return body.body || body;
 };
 
-module.exports.report = () => `Avoid useless declarations`;
+export const report = () => `Avoid useless declarations`;
 
-module.exports.match = ({options}) => ({
+export const match = ({options}) => ({
     'return __a': ({__a}, path) => {
         const binding = path.scope.getAllBindings()[__a.name];
         
@@ -95,7 +94,7 @@ module.exports.match = ({options}) => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'return __a': ({__a}, path) => {
         const binding = path.scope.getAllBindings()[__a.name];
         const [ref] = binding.referencePaths;

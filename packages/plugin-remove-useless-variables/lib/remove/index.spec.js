@@ -1,11 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
+import * as remove from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
-const remove = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-variables/remove', remove],
     ],
