@@ -1,7 +1,10 @@
 import {types} from 'putout';
 import {applyTryCatch} from '../apply-try-catch.js';
 
-const {isCallExpression} = types;
+const {
+    isCallExpression,
+    isMemberExpression,
+} = types;
 
 export const report = () => 'Use tryCatch instead of try-catch block';
 
@@ -26,5 +29,10 @@ export const filter = (path) => {
     if (length !== 1)
         return false;
     
-    return isCallExpression(first.expression);
+    const {expression} = first;
+    
+    if (!isCallExpression(expression))
+        return false;
+    
+    return !isMemberExpression(expression.callee);
 };

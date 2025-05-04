@@ -22,11 +22,6 @@ test('plugin-apply-try-catch: try-catch: transform: couple', (t) => {
     t.end();
 });
 
-test('plugin-apply-try-catch: try-catch: transform: no-error', (t) => {
-    t.transform('no-error');
-    t.end();
-});
-
 test('plugin-apply-try-catch: try-catch: no transform: no-call', (t) => {
     t.noTransform('no-call');
     t.end();
@@ -34,5 +29,10 @@ test('plugin-apply-try-catch: try-catch: no transform: no-call', (t) => {
 
 test('plugin-apply-try-catch: try-catch: no transform: finally', (t) => {
     t.noTransform('finally');
+    t.end();
+});
+
+test('plugin-apply-try-catch: try-catch: no report: member', (t) => {
+    t.noReport('member');
     t.end();
 });
