@@ -1,3 +1,11 @@
+2025.05.05, v40.0.22
+
+feature:
+- 1e936a6c5 putout: @putout/plugin-try-catch v6.0.0
+- 2349b690f @putout/plugin-try-catch: drop support of 🐊 < 40
+- 76ba37ade @putout/plugin-try-catch: sync: report
+- 325d1c940 @putout/plugin-try-catch: exclude MemberExpression
+
 2025.05.04, v40.0.21
 
 feature:
