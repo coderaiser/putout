@@ -177,7 +177,7 @@
     "@putout/plugin-return": "^2.0.0",
     "@putout/plugin-reuse-duplicate-init": "^8.0.0",
     "@putout/plugin-simplify-ternary": "^8.0.0",
-    "@putout/plugin-split-call-with-destructuring": "^1.0.0",
+    "@putout/plugin-split-call-with-destructuring": "^2.0.0",
     "@putout/plugin-split-nested-destructuring": "^4.0.0",
     "@putout/plugin-split-variable-declarations": "^5.0.0",
     "@putout/plugin-tape": "^19.0.0",
