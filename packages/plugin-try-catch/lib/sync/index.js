@@ -6,7 +6,7 @@ const {
     isMemberExpression,
 } = types;
 
-export const report = () => 'Use tryCatch instead of try-catch block';
+export const report = () => `Use 'tryCatch()' instead of 'try..catch' block`;
 
 export const fix = applyTryCatch('tryCatch');
 

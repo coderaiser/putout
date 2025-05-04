@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-try-catch: report: try-catch', (t) => {
-    t.report('try-catch', 'Use tryCatch instead of try-catch block');
+    t.report('try-catch', `Use 'tryCatch()' instead of 'try..catch' block`);
     t.end();
 });
 
