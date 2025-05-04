@@ -471,7 +471,8 @@ const report = (dir, linterOptions, options) => (t) => (name, message, plugins) 
     return run(source, message, plugins);
 };
 
-const noReport = currify((dir, linterOptions, options, t, name) => {
+const noReport = (dir, linterOptions, options) => (t) => (name, addons = []) => {
+    const {plugins} = options;
     const {lint, extension} = linterOptions;
     const full = join(dir, name);
     const [source, isTS] = readFixture(full, extension);
@@ -481,8 +482,12 @@ const noReport = currify((dir, linterOptions, options, t, name) => {
     return noReportCode(lint, {
         isTS,
         ...options,
+        plugins: [{
+            ...toObject(plugins),
+            ...toObject(addons),
+        }],
     }, t, source);
-});
+};
 
 module.exports._createNoReport = noReport;
 

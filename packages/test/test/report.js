@@ -92,14 +92,16 @@ test('putout: test: noReport', (t) => {
         plugins,
     };
     
-    const noReport = _createNoReport(dir, {lint: putout}, options);
+    const initReport = _createNoReport(dir, {lint: putout}, options);
     const deepEqual = stub();
     
     const mockTest = {
         deepEqual,
     };
     
-    noReport(mockTest, 'remove-import');
+    const noReport = initReport(mockTest);
+    
+    noReport('remove-import');
     
     const place = {
         message: 'hello',
@@ -114,6 +116,65 @@ test('putout: test: noReport', (t) => {
     
     const expected = [
         [place],
+        [],
+        message,
+    ];
+    
+    t.calledWith(deepEqual, expected);
+    t.end();
+});
+
+test('putout: test: noReport: addons', (t) => {
+    const dir = join(__dirname, 'fixture');
+    const removeImport1 = ['remove-import1', {
+        report: () => 'hello',
+        include: () => ['ImportDeclaration'],
+    }];
+    
+    const removeImport2 = ['remove-import2', {
+        report: () => 'hello',
+        include: () => ['ImportDeclaration'],
+    }];
+    
+    const plugins = [removeImport1];
+    
+    const options = {
+        plugins,
+    };
+    
+    const initNoReport = _createNoReport(dir, {lint: putout}, options);
+    const deepEqual = stub();
+    
+    const mockTest = {
+        deepEqual,
+    };
+    
+    const noReport = initNoReport(mockTest);
+    
+    noReport('remove-import', [removeImport2]);
+    
+    const place1 = {
+        message: 'hello',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'remove-import1',
+    };
+    
+    const place2 = {
+        message: 'hello',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'remove-import2',
+    };
+    
+    const message = 'should not report';
+    
+    const expected = [
+        [place1, place2],
         [],
         message,
     ];

@@ -201,13 +201,24 @@ test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', 
 });
 ```
 
-### `noReport(filename)`
+### `noReport(filename [, plugins])`
 
 Check error message of a plugin not produces
 
 ```js
 test('plugin-putout: check-replace-code: no report: typescript', (t) => {
     t.noReport('typescript');
+    t.end();
+});
+```
+
+with plugins:
+
+```js
+test('plugin-putout: check-replace-code: no report: hello', (t) => {
+    t.noReport('typescript', [
+        ['plugin', plugin],
+    ]);
     t.end();
 });
 ```
