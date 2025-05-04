@@ -1,3 +1,12 @@
+2025.05.04, v40.0.20
+
+feature:
+- 36dc454f8 putout: @putout/plugin-split-call-with-destructuring v2.0.0
+- e70b148c4 putout: @putout/plugin-remove-useless-variables v14.0.0
+- 62dc1ff0e @putout/plugin-remove-useless-variabes: migrate to ESM
+- 8b8ee4ffc @putout/operate: replaceWithMultiple: trailing comments
+- 458f18b47 @putout/eslint-config: no-prototype-builtins: off
+
 2025.05.02, v40.0.19
 
 feature:
