@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-declare-before-reference",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability move declarations before references",
