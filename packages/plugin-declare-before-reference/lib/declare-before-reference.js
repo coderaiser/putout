@@ -145,8 +145,11 @@ function getName(path) {
     } while (path = path.get('object'));
 }
 
-function getKeys(path) {
-    const {id} = path.node;
+function getKeys({node}) {
+    if (!node)
+        return [];
+    
+    const {id} = node;
     
     if (!id)
         return [];

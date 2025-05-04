@@ -7,6 +7,8 @@ import * as removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
 import * as nodejs from '@putout/plugin-nodejs';
 import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
 import * as tape from '@putout/plugin-tape';
+import * as removeUselessVariables from '@putout/plugin-remove-useless-variables';
+import * as removeUselessArguments from '@putout/plugin-remove-useless-arguments';
 import * as declare from '../lib/declare-before-reference.js';
 
 const addTEnd = tape.rules['add-t-end'];
@@ -141,5 +143,13 @@ test('plugin-declare-before-reference: transform: add-t-end', (t) => {
 
 test('plugin-declare-before-reference: no report: cross-reference', (t) => {
     t.noReport('cross-reference');
+    t.end();
+});
+
+test('plugin-declare-before-reference: transform: remove-useless-variables', (t) => {
+    t.transform('remove-useless-variables', {
+        'remove': removeUselessVariables.rules.remove,
+        'remove-useless-arguments': removeUselessArguments,
+    });
     t.end();
 });
