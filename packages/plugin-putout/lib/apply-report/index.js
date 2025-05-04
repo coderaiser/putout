@@ -19,6 +19,9 @@ export const report = (path) => {
     return `Use 't.${TYPES[name]}()' instead of 't.${name}()'`;
 };
 
+export const exclude = () => [
+    't.noReport(__a, __array)',
+];
 export const replace = () => ({
     't.noReport(__a, __object)': 't.noReportWithOptions(__a, __object)',
     't.noReport(__a, __b)': 't.noReport(__a)',

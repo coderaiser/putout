@@ -36,3 +36,8 @@ test('putout: apply-report: report: no-report', (t) => {
     t.report('no-report', `Use 't.noReport(__a)' instead of 't.noReport(__a, __b)'`);
     t.end();
 });
+
+test('putout: apply-report: no report: no-report-with-plugins', (t) => {
+    t.noReport('no-report-with-plugins');
+    t.end();
+});
