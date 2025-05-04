@@ -132,6 +132,9 @@ function getLoc(path) {
         own = false;
     }
     
+    if (isBlockStatement(path))
+        own = true;
+    
     return [own, loc];
 }
 

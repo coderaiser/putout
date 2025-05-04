@@ -6,7 +6,10 @@ import * as printer from '@putout/plugin-printer';
 import * as removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
 import * as nodejs from '@putout/plugin-nodejs';
 import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
+import * as tape from '@putout/plugin-tape';
 import * as declare from '../lib/declare-before-reference.js';
+
+const addTEnd = tape.rules['add-t-end'];
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -125,6 +128,13 @@ test('plugin-declare-before-reference: transform: convert-traverse-to-scan', (t)
     t.transform('convert-traverse-to-scan', {
         'convert-esm-to-commonjs': nodejs.rules['convert-esm-to-commonjs'],
         'putout/declare': putout.rules.declare,
+    });
+    t.end();
+});
+
+test('plugin-declare-before-reference: transform: add-t-end', (t) => {
+    t.transform('add-t-end', {
+        'add-t-end': addTEnd,
     });
     t.end();
 });
