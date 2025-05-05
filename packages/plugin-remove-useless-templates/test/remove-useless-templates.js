@@ -1,16 +1,14 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessTemplates from '../lib/remove-useless-templates.js';
 
-const {createTest} = require('@putout/test');
-const removeUselessTemplates = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-templates', removeUselessTemplates],
     ],
 });
 
 test('plugin-remove-useless-templates: report: template', (t) => {
-    t.report('template', 'Template string with only one variable should not be used');
+    t.report('template', 'Avoid using single-expression templates');
     t.end();
 });
 

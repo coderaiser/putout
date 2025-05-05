@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => 'Avoid using single-expression templates';
 
-module.exports.report = () => 'Template string with only one variable should not be used';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '`${__a}`': '__a',
 });
