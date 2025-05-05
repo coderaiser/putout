@@ -123,3 +123,11 @@ test('putout: engine-parser: parse: set extra.__putout_printer: babel', (t) => {
     t.equal(__putout_printer, 'babel');
     t.end();
 });
+
+test('putout: engine-parser: parse: tuple', (t) => {
+    const source = [`const hello = 'world';`];
+    const [error] = tryCatch(parse, source);
+    
+    t.equal(error.message, `☝️ Looks like type of 'source' is not 'string', but 'object'`);
+    t.end();
+});

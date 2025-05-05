@@ -4,8 +4,11 @@ const {estreeToBabel} = require('estree-to-babel');
 const customParser = require('./custom-parser');
 const {tryThrowWithReason} = require('./try-throw-with-reason');
 const {assign} = Object;
+const isString = (a) => typeof a === 'string';
 
 module.exports = (source, options) => {
+    check(source);
+    
     const {
         parser,
         printer = 'putout',
@@ -41,3 +44,8 @@ const getParser = ({parser = 'babel', isTS, isJSX, printer}) => ({
         return ast;
     },
 });
+
+function check(source) {
+    if (!isString(source))
+        throw Error(`☝️ Looks like type of 'source' is not 'string', but '${typeof source}'`);
+}
