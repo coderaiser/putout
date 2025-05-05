@@ -4,7 +4,7 @@ import {safe, safeRules} from '../../lib/index.mjs';
 const test = createTest(import.meta.url, safe);
 
 test('eslint-plugin-putout: safe: no-remove-useless-declaration', async ({process}) => {
-    await process('no-remove-useless-declaration', {
+    await process('remove-useless-declaration', {
         rules: {
             'putout/putout': ['error', {
                 ignore: ['!**/fixture'],
@@ -16,8 +16,8 @@ test('eslint-plugin-putout: safe: no-remove-useless-declaration', async ({proces
     });
 });
 
-test('eslint-plugin-putout: safe: no-merge-duplicate-functions', async ({noProcess}) => {
-    await noProcess('no-merge-duplicate-functions', {
+test('eslint-plugin-putout: safe: merge-duplicate-functions: off', async ({noProcess}) => {
+    await noProcess('merge-duplicate-functions', {
         rules: {
             'putout/putout': ['error', {
                 ignore: ['!**/fixture'],
@@ -29,8 +29,21 @@ test('eslint-plugin-putout: safe: no-merge-duplicate-functions', async ({noProce
     });
 });
 
-test('eslint-plugin-putout: safe: no-remoe-useless-push', async ({noProcess}) => {
-    await noProcess('no-remove-useless-push', {
+test('eslint-plugin-putout: safe: remove-useless-push: off', async ({noProcess}) => {
+    await noProcess('remove-useless-push', {
+        rules: {
+            'putout/putout': ['error', {
+                ignore: ['!**/fixture'],
+                rules: {
+                    ...safeRules,
+                },
+            }],
+        },
+    });
+});
+
+test('eslint-plugin-putout: safe: convert-template-to-string: off', async ({noProcess}) => {
+    await noProcess('convert-template-to-string', {
         rules: {
             'putout/putout': ['error', {
                 ignore: ['!**/fixture'],

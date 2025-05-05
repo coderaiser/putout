@@ -71,6 +71,7 @@ export const recommended = [
 
 export const safeRules = {
     'apply-template-literals': 'off',
+    'convert-template-to-string': 'off',
     'remove-empty': 'off',
     'merge-duplicate-functions': 'off',
     'nodejs/remove-process-exit': 'off',

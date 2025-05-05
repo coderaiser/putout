@@ -172,6 +172,7 @@ Disabled **ESLint** rules:
 Disabled 🐊**Putout** rules:
 
 - ❌ [`apply-template-literals`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-empty#readme);
+- ❌ [`convert-template-to-string`](https://github.com/coderaiser/putout/tree/v40.0.0/packages/convert-template-to-string#readme);
 - ❌ [`remove-empty`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-empty#readme);
 - ❌ [`merge-duplicate-functions`](https://github.com/coderaiser/putout/tree/v37.12.0/packages/plugin-merge-duplicate-functions#readme);
 - ❌ [`nodejs/remove-process-exit`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-nodejs#remove-process-exit#readme);
