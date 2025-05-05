@@ -1,3 +1,12 @@
+2025.05.05, v40.0.23
+
+feature:
+- 304f3a4e6 putout: @putout/plugin-convert-template-to-string v3.0.0
+- da994b2cc @putout/plugin-convert-template-to-string: migrate to ESM
+- e78d8bc39 eslint-plugin-putout: safe rules: convert-template-to-string
+- 8a8b5e042 @putout/plugin-remove-useless-templates: migrate to ESM
+- b16f61038 @putout/plugin-declare-before-reference: remove-useless-arguments
+
 2025.05.05, v40.0.22
 
 feature:
