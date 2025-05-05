@@ -1,15 +1,13 @@
-'use strict';
+import {createTest} from '@putout/test';
+import {operator} from 'putout';
+import * as plugin from '../lib/apply-arrow.js';
 
-const {createTest} = require('@putout/test');
-const {operator} = require('putout');
-
-const plugin = require('..');
 const {
     compare,
     getTemplateValues,
 } = operator;
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['apply-arrow', plugin],
     ],

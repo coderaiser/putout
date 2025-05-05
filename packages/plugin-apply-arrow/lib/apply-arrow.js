@@ -1,6 +1,5 @@
-'use strict';
+import {print, types} from 'putout';
 
-const {print, types} = require('putout');
 const {
     isFunction,
     isProgram,
@@ -11,9 +10,9 @@ const {
 
 const isTopScope = (a) => isFunction(a) || isProgram(a);
 
-module.exports.report = () => `Use 'Arrow Function' instead of 'Function Declaration`;
+export const report = () => `Use 'Arrow Function' instead of 'Function Declaration`;
 
-module.exports.match = ({options}) => ({
+export const match = ({options}) => ({
     'function __a(__args) {return __b}': ({__a, __b}, path) => {
         const {maxSize = 30} = options;
         
@@ -45,7 +44,7 @@ module.exports.match = ({options}) => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'function __a(__args) {return __b}': 'const __a = (__args) => __b',
 });
 

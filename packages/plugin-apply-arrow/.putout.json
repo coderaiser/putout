@@ -4,5 +4,8 @@
             "apply-arrow": "off",
             "putout/check-replace-code": "off"
         }
+    },
+    "rules": {
+        "apply-arrow": "off"
     }
 }
