@@ -1,3 +1,9 @@
+2025.05.05, v40.0.24
+
+feature:
+- bcb6d533c putout: @putout/plugin-apply-arrow v3.0.0
+- d4c8be5f9 @putout/plugin-apply-arrow: migrate to ESM
+
 2025.05.05, v40.0.23
 
 feature:
