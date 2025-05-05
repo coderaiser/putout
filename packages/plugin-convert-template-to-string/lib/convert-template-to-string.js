@@ -1,14 +1,12 @@
-'use strict';
+export const report = () => 'Avoid using Template string with only one expression';
 
-module.exports.report = () => 'Avoid using Template string with only one expression';
-
-module.exports.match = () => ({
+export const match = () => ({
     '`${__a}`': (vars, path) => {
         const {parentPath} = path;
         return !parentPath.isTaggedTemplateExpression();
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '`${__a}`': 'String(__a)',
 });
