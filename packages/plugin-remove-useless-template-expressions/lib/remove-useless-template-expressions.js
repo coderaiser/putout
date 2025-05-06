@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => `Avoid useless template expressions`;
+export const report = () => `Avoid useless template expressions`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const expressions = path.get('expressions');
     const quasis = path.get('quasis');
     const {length} = expressions;
@@ -27,7 +26,7 @@ module.exports.fix = (path) => {
     }
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     TemplateLiteral(path) {
         const expressions = path.get('expressions');
         const {length} = expressions;
