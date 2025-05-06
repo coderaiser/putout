@@ -1,3 +1,10 @@
+2025.05.06, v40.0.25
+
+feature:
+- 6ee1a8678 putout: @putout/plugin-remove-useless-template-expressions v3.0.0
+- 50b3218f4 @putout/plugin-remove-useless-template-expressions
+- 440ff85b4 @putout/engine-parser: handle absense of source
+
 2025.05.05, v40.0.24
 
 feature:
