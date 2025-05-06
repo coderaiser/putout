@@ -232,7 +232,7 @@ test('putout: config: .github/**/*.yml', (t) => {
             versions: [
                 '20.x',
                 '22.x',
-                '23.x',
+                '24.x',
             ],
         }],
         'remove-useless-escape': 'off',
