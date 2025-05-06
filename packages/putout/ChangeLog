@@ -1,3 +1,10 @@
+2025.05.06, v40.0.26
+
+feature:
+- 22cf96144 putout: @putout/plugin-github v16.0.0
+- 0f674d55f @putout/plugin-github: set-node-versions: v24 (https://nodejs.org/en/blog/release/v24.0.0)
+- 0fb5a7506 @putout/plugin-nodejs: convert-buffer-to-buffer-alloc: call
+
 2025.05.06, v40.0.25
 
 feature:
