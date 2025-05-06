@@ -6,15 +6,6 @@ const isNumber = (a) => typeof a === 'number';
 
 export const report = () => `Use 'Buffer.alloc()' or 'Buffer.from()' instead of 'Buffer()' and 'new Buffer()'`;
 
-export const match = () => ({
-    'new Buffer(__a)': (vars, path) => {
-        const __aPath = path.get('arguments.0');
-        const [is] = compute(__aPath);
-        
-        return is;
-    },
-});
-
 export const replace = () => ({
     'new Buffer(__a)': transform,
     'new Buffer(__a, __b)': transform,
