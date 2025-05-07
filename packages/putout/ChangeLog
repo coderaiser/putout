@@ -1,3 +1,9 @@
+2025.05.07, v40.0.27
+
+feature:
+- e40d89706 putout: @putout/plugin-remove-useless-spread v13.0.0
+- 32f1ff087 @putout/plugin-remove-useless-spread: migrate to ESM
+
 2025.05.06, v40.0.26
 
 feature:
