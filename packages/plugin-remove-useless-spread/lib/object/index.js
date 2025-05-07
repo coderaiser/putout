@@ -34,4 +34,3 @@ export const filter = (path) => {
     
     return isReturnStatement(path.parentPath);
 };
-
