@@ -1,10 +1,8 @@
-'use strict';
+import * as array from './array/index.js';
+import * as object from './object/index.js';
+import * as nested from './nested/index.js';
 
-const array = require('./array');
-const object = require('./object');
-const nested = require('./nested');
-
-module.exports.rules = {
+export const rules = {
     array,
     object,
     nested,

@@ -1,15 +1,23 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isCallExpression,
     isReturnStatement,
     isSpreadElement,
 } = types;
 
-module.exports.report = () => `Avoid useless spread '...'`;
+export const report = () => `Avoid useless spread '...'`;
 
-module.exports.filter = (path) => {
+export const exclude = () => [
+    '({...__b && {__c: __d}})',
+    '__a = {...__a}',
+];
+
+export const replace = () => ({
+    '({...__a})': '__a',
+});
+
+export const filter = (path) => {
     const {node, parentPath} = path;
     const [first] = node.properties;
     
@@ -27,11 +35,3 @@ module.exports.filter = (path) => {
     return isReturnStatement(path.parentPath);
 };
 
-module.exports.exclude = () => [
-    '({...__b && {__c: __d}})',
-    '__a = {...__a}',
-];
-
-module.exports.replace = () => ({
-    '({...__a})': '__a',
-});

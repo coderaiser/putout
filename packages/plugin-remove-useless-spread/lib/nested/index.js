@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove, insertAfter} = operator;
 
-module.exports.report = () => `Remove useless nested spread`;
+export const report = () => `Remove useless nested spread`;
 
-module.exports.fix = ({path, argPath}) => {
+export const fix = ({path, argPath}) => {
     const elements = argPath.get('elements');
     
     for (const element of elements.reverse())
@@ -14,7 +13,7 @@ module.exports.fix = ({path, argPath}) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     SpreadElement(path) {
         const {parentPath} = path;
         const argPath = path.get('argument');
