@@ -171,3 +171,8 @@ test('plugin-convert-commonjs-to-esm: require: transform: array-pattern', (t) =>
     t.transform('array-pattern');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: require: transform: expression-declared', (t) => {
+    t.transform('expression-declared');
+    t.end();
+});

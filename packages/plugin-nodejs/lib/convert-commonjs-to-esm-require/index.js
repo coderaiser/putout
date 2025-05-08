@@ -1,9 +1,9 @@
+import justCamelCase from 'just-camel-case';
 import {
     types,
     operator,
     template,
 } from 'putout';
-import justCamelCase from 'just-camel-case';
 
 const {
     awaitExpression,
@@ -63,12 +63,23 @@ export const match = () => ({
 });
 
 export const replace = () => ({
+    'const __a = require(__b).__c': ({__c}, path) => {
+        const {name} = __c;
+        
+        if (name === 'default')
+            return 'import __a from "__b"';
+        
+        const bindingPath = path.scope.bindings[name];
+        
+        if (bindingPath)
+            return 'const __a = __c';
+        
+        return `{
+            const {__c} = require(__b);
+            const __a = __c;
+        }`;
+    },
     'const __a = require(".")': 'import __a from "./index.js"',
-    'const __a = require("__b").default': 'import __a from "__b"',
-    'const __a = require(__b).__c': `{
-        const {__c} = require(__b);
-        const __a = __c;
-    }`,
     'require("__a")': 'import("__a")',
     'const __a = require(__b)': ({__a}, path) => {
         const {value} = path.get(__B).evaluate();
