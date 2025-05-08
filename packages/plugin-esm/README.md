@@ -139,7 +139,6 @@ export function sum(a, b) {
 }
 ```
 
-
 ### remove-useless-export-specifiers
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e5c3ea469437ade0f4467323dcec9a36/7c298c7078b004ae3aba2a29e38579bf8f48a098).
