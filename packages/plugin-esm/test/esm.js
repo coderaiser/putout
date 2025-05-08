@@ -71,3 +71,8 @@ test('plugin-esm: transform: merge-declaration-with-export', (t) => {
     t.transform('merge-declaration-with-export');
     t.end();
 });
+
+test('plugin-esm: transform: inline-export', (t) => {
+    t.transform('inline-export');
+    t.end();
+});

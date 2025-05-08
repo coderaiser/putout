@@ -28,6 +28,7 @@ npm i putout @putout/plugin-esm -D
 - ✅ [remove-empty-import](#remove-empty-import);
 - ✅ [remove-empty-export](#remove-empty-export);
 - ✅ [sort-imports-by-specifiers](#sort-imports-by-specifiers);
+- ✅ [inline-export](#inline-export);
 
 ## File rules
 
@@ -52,7 +53,8 @@ npm i putout @putout/plugin-esm -D
         }],
         "esm/sort-imports-by-specifiers": "on",
         "esm/resolve-imported-file": "off",
-        "esm/apply-namespace-of-file": "off"
+        "esm/apply-namespace-of-file": "off",
+        "esm/inline-export": "off"
     }
 }
 ```
@@ -104,6 +106,35 @@ export {
 
 ```js
 export * as ns from 'x';
+```
+
+### inline-export
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/##/gist/c9a3983d269745da89c1c7560f3b7fac/3ecb9aa6b910ce3816605bae11c8dd86bdc457e5).
+
+#### ❌ Example of incorrect code
+
+```js
+const stack = [];
+
+function sum(a, b) {
+    i32.add(local.get(), local.get());
+}
+
+export {
+    sum,
+    stack,
+};
+```
+
+#### ✅ Example of correct code
+
+```js
+export const stack = [];
+
+export function sum(a, b) {
+    i32.add(local.get(), local.get());
+}
 ```
 
 ### declare-imports-first

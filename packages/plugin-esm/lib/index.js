@@ -1,3 +1,4 @@
+import * as inlineExport from './inline-export/index.js';
 import * as applyNamespaceImportToFile from './apply-namespace-import-to-file/index.js';
 import * as resolveImportedFile from './resolve-imported-file/index.js';
 import * as addIndexToImport from './add-index-to-import/index.js';
@@ -26,4 +27,5 @@ export const rules = {
     'resolve-imported-file': ['off', resolveImportedFile],
     'apply-namespace-import-to-file': ['off', applyNamespaceImportToFile],
     'merge-declaration-with-export': mergeDeclarationWithExport,
+    'inline-export': inlineExport,
 };
