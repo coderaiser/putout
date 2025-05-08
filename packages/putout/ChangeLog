@@ -1,3 +1,10 @@
+2025.05.09, v40.1.0
+
+feature:
+- 1d627a9b3 @putout/plugin-remove-useless-export-specifiers: add
+- ce3a5441e @putout/plugin-esm: inline-export
+- 369229cf3 @putout/plugin-nodejs: convert-commonjs-to-esm: require: expression: declared
+
 2025.05.07, v40.0.27
 
 feature:
