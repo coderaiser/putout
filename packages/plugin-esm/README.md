@@ -27,6 +27,7 @@ npm i putout @putout/plugin-esm -D
 - ✅ [remove-quotes-from-import-assertions](#remove-quotes-from-import-assertions);
 - ✅ [remove-empty-import](#remove-empty-import);
 - ✅ [remove-empty-export](#remove-empty-export);
+- ✅ [remove-useless-export-specifiers](#remove-useless-export-specifiers);
 - ✅ [sort-imports-by-specifiers](#sort-imports-by-specifiers);
 - ✅ [inline-export](#inline-export);
 
@@ -54,7 +55,8 @@ npm i putout @putout/plugin-esm -D
         "esm/sort-imports-by-specifiers": "on",
         "esm/resolve-imported-file": "off",
         "esm/apply-namespace-of-file": "off",
-        "esm/inline-export": "off"
+        "esm/inline-export": "off",
+        "esm/remove-useless-export-specifiers": "off"
     }
 }
 ```
@@ -134,6 +136,20 @@ export const stack = [];
 
 export function sum(a, b) {
     i32.add(local.get(), local.get());
+}
+```
+
+
+### remove-useless-export-specifiers
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e5c3ea469437ade0f4467323dcec9a36/7c298c7078b004ae3aba2a29e38579bf8f48a098).
+
+#### ❌ Example of incorrect code
+
+```diff
+export const hello = () => 'world';
+export const {
+-    hello,
 }
 ```
 

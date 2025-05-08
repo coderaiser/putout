@@ -76,3 +76,8 @@ test('plugin-esm: transform: inline-export', (t) => {
     t.transform('inline-export');
     t.end();
 });
+
+test('plugin-esm: transform: remove-useless-export-specifiers', (t) => {
+    t.transform('remove-useless-export-specifiers');
+    t.end();
+});

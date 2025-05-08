@@ -62,6 +62,7 @@
             "remove-useless-escape": "off",
             "remove-useless-variables": "off",
             "remove-useless-push": "off",
+            "esm/remove-useless-export-specifiers": "off",
             "return/remove-useless": "off",
             "remove-empty": "off",
             "for-of/remove-unused-variables": "off",

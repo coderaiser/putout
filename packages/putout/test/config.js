@@ -117,6 +117,7 @@ test('putout: config: markdown', (t) => {
         'nodejs/declare': 'off',
         'typescript/remove-unused-types': 'off',
         'remove-nested-blocks': 'off',
+        'esm/remove-useless-export-specifiers': 'off',
     };
     
     t.deepEqual(result, expected);

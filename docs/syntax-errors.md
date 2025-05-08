@@ -349,3 +349,15 @@ export const rules = [
 ```
 
 </details>
+
+
+<details><summary>remove useless export specifier</summary>
+
+```diff
+export const hello = () => 'world';
+export const {
+-    hello,
+}
+```
+
+</details>
