@@ -1,3 +1,9 @@
+2025.05.09, v40.1.1
+
+feature:
+- 7649f07fb putout: @putout/plugin-remove-useless-replace v2.0.0
+- f672bdd23 @putout/plugin-remove-useless-replace: migrate to ESM
+
 2025.05.09, v40.1.0
 
 feature:
