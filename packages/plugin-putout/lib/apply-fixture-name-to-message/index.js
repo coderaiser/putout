@@ -20,6 +20,7 @@ export const report = () => `Apply 'fixture' name to 'message'`;
 
 export const match = () => ({
     't.noReport(__a)': check,
+    't.noReportAfterTransform(__a)': check,
     't.report(__a, __b)': check,
     't.transform(__a)': check,
     't.transform(__a, __b)': check,
@@ -32,6 +33,7 @@ export const replace = () => ({
     't.transform(__a)': transform,
     't.transform(__a, __b)': transform,
     't.noTransform(__a)': transform,
+    't.noReportAfterTransform(__a)': transform,
 });
 
 const isTest = (path) => compare(path, 'test(__a, (t) => __body)', {

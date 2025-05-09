@@ -51,3 +51,8 @@ test('putout: apply-fixture-name-to-message: options', (t) => {
     t.transform('options');
     t.end();
 });
+
+test('putout: apply-fixture-name-to-message: no-report-after-transform', (t) => {
+    t.transform('no-report-after-transform');
+    t.end();
+});
