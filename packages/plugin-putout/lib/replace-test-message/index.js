@@ -13,10 +13,11 @@ export const fix = ({path, incorrect, correct}) => {
 };
 
 const INCORRECT = {
-    TRANSFORM: /: (no transform|report|no report)/,
-    NO_TRANSFORM: /: (transform|report|no report)/,
-    REPORT: /: (no report|transform|no transform)/,
-    NO_REPORT: /: (report|transform|no transform)/,
+    TRANSFORM: /: (no report after transform|no transform|report|no report)/,
+    NO_TRANSFORM: /: (no report after transform|transform|report|no report)/,
+    REPORT: /: (no report after transform|no report|transform|no transform)/,
+    NO_REPORT: /: (no report after transform|report|transform|no transform)/,
+    NO_REPORT_AFTER_TRANSFORM: /: (report|transform|no transform|no report)/,
 };
 
 export const traverse = ({push}) => ({
@@ -45,12 +46,18 @@ export const traverse = ({push}) => ({
         incorrect: INCORRECT.NO_REPORT,
         correct: ': no report',
     }),
+    't.noReportAfterTransform(__a)': convert({
+        push,
+        incorrect: INCORRECT.NO_REPORT_AFTER_TRANSFORM,
+        correct: ': no report after transform',
+    }),
 });
 
 const convert = ({push, correct, incorrect}) => (path) => {
     const [is, messagePath] = isCorrect({
         incorrect,
         path,
+        correct,
     });
     
     if (is)
@@ -66,7 +73,7 @@ const convert = ({push, correct, incorrect}) => (path) => {
 
 const CORRECT = true;
 
-function isCorrect({path, incorrect}) {
+function isCorrect({path, correct, incorrect}) {
     const calleePath = path.findParent(isCallExpression);
     
     if (!calleePath)
@@ -78,6 +85,10 @@ function isCorrect({path, incorrect}) {
         return [CORRECT];
     
     const {value} = messagePath.node;
+    
+    if (value.includes(correct))
+        return [CORRECT];
+    
     const is = !incorrect.test(value);
     
     return [is, messagePath];

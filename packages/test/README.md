@@ -239,7 +239,7 @@ test('plugin-putout: check-replace-code: no report: import', (t) => {
 Check error message of a plugin not produced
 
 ```js
-test('test: no report after transform', (t) => {
+test('test: no report after transform: file', (t) => {
     t.noReportAfterTransform('file');
     t.end();
 });

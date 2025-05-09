@@ -51,3 +51,8 @@ test('plugin-putout: replace-test-message: transform: transform-with-plugins', (
     t.transform('transform-with-plugins');
     t.end();
 });
+
+test('plugin-putout: replace-test-message: transform: no-report-after-transform', (t) => {
+    t.transform('no-report-after-transform');
+    t.end();
+});

@@ -64,7 +64,7 @@ test('plugin-remove-useless-escape: transform: quote', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-escape: no report after transform', (t) => {
+test('plugin-remove-useless-escape: no report after transform: quote', (t) => {
     t.noReportAfterTransform('quote');
     t.end();
 });

@@ -40,12 +40,12 @@ test('plugin-regexp/optimize: transform: replace-all', (t) => {
     t.end();
 });
 
-test('plugin-regexp/optimize: escape', (t) => {
+test('plugin-regexp/optimize: no transform: escape', (t) => {
     t.noTransform('escape');
     t.end();
 });
 
-test('plugin-regexp/optimize: false positive after fix', (t) => {
+test('plugin-regexp/optimize: no-report-after-transform: after-fix', (t) => {
     t.noReportAfterTransform('after-fix');
     t.end();
 });

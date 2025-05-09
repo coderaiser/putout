@@ -147,7 +147,7 @@ test('plugin-putout: check-replace-code: report: __json: json-left', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: no report: after-transform: once', (t) => {
+test('plugin-putout: check-replace-code: no report after transform: after-transform: once', (t) => {
     t.noReportAfterTransform('after-transform');
     t.end();
 });

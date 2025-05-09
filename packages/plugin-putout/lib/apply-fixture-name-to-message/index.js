@@ -14,6 +14,7 @@ const NAMES = [
     ...FIXTURE,
     'no report',
     'no transform',
+    'no report after transform',
 ];
 
 export const report = () => `Apply 'fixture' name to 'message'`;

@@ -48,7 +48,7 @@ test('putout: test: reportWithOptions', (t) => {
     t.end();
 });
 
-test('putout: test: noReportAfterTransform', (t) => {
+test('putout: test: no report after transform: remove-import', (t) => {
     t.noReportAfterTransform('remove-import');
     t.end();
 });
