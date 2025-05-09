@@ -170,7 +170,7 @@
     "@putout/plugin-remove-useless-map": "^1.0.0",
     "@putout/plugin-remove-useless-operand": "^2.0.0",
     "@putout/plugin-remove-useless-push": "^1.0.0",
-    "@putout/plugin-remove-useless-replace": "^1.0.1",
+    "@putout/plugin-remove-useless-replace": "^2.0.0",
     "@putout/plugin-remove-useless-spread": "^13.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^3.0.0",
     "@putout/plugin-remove-useless-variables": "^14.0.0",
