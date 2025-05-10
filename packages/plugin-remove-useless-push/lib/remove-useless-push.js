@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove, getBinding} = operator;
 
-module.exports.report = () => `Avoid useless 'push()' to array `;
+export const report = () => `Avoid useless 'push()' to array `;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '__a.push(__args)': (path) => {
         const __a = path.get('callee.object').node;
         const binding = getBinding(path, __a.name);
