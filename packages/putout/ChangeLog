@@ -1,3 +1,9 @@
+2025.05.11, v40.1.3
+
+feature:
+- b42303a64 putout: @putout/plugin-remove-useless-map v2.0.0
+- 94fe6182f @putout/plugin-remove-useless-map: migrate to ESM
+
 2025.05.10, v40.1.2
 
 feature:
