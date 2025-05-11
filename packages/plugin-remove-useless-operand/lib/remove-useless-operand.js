@@ -1,18 +1,17 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isNumericLiteral,
     isIdentifier,
 } = types;
 
-module.exports.report = () => 'Avoid useless operand';
+export const report = () => 'Avoid useless operand';
 
-module.exports.match = () => ({
+export const match = () => ({
     '__a = __b + __a': check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a += 1': '++__a',
     '__a -= 1': '--__a',
     
