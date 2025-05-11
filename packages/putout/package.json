@@ -168,7 +168,7 @@
     "@putout/plugin-remove-useless-escape": "^7.0.0",
     "@putout/plugin-remove-useless-functions": "^4.0.0",
     "@putout/plugin-remove-useless-map": "^2.0.0",
-    "@putout/plugin-remove-useless-operand": "^2.0.0",
+    "@putout/plugin-remove-useless-operand": "^3.0.0",
     "@putout/plugin-remove-useless-push": "^2.0.0",
     "@putout/plugin-remove-useless-replace": "^2.0.0",
     "@putout/plugin-remove-useless-spread": "^13.0.0",
