@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessMap from '../lib/remove-useless-map.js';
 
-const {createTest} = require('@putout/test');
-const removeUselessMap = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-map', removeUselessMap],
     ],

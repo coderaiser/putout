@@ -1,10 +1,10 @@
-'use strict';
+import {types} from 'putout';
 
-const {isIdentifier} = require('putout').types;
+const {isIdentifier} = types;
 
-module.exports.report = () => 'Avoid useless map';
+export const report = () => 'Avoid useless map';
 
-module.exports.match = () => ({
+export const match = () => ({
     'const [__a] = __b.map((__c) => __d)': ({__a, __c}, path) => {
         if (!isIdentifier(__a))
             return false;
@@ -19,7 +19,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a.map((__b) => __b)': '__a',
     'const [__a] = __b.map((__c) => __d)': ({__a, __c}) => {
         return ` {
