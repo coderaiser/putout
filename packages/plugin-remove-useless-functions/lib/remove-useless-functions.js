@@ -1,14 +1,6 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isIdentifier} = types;
-
-module.exports.report = () => 'Avoid useless functions';
-
-module.exports.exclude = () => [
-    '(__args__a) => __a.__b(__args__a)',
-    '(__args__a) => {__a.__b(__args__a)}',
-];
 
 const NAMES = [
     'filter',
@@ -18,7 +10,14 @@ const NAMES = [
     'every',
 ];
 
-module.exports.match = () => ({
+export const report = () => 'Avoid useless functions';
+
+export const exclude = () => [
+    '(__args__a) => __a.__b(__args__a)',
+    '(__args__a) => {__a.__b(__args__a)}',
+];
+
+export const match = () => ({
     '(__a) => __a': (vars, path) => {
         const {parentPath} = path;
         
@@ -44,7 +43,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '(__a) => Boolean(__a)': 'Boolean',
     '(__a) => __a': 'Boolean',
     '(__a) => __a !== undefined': 'Boolean',

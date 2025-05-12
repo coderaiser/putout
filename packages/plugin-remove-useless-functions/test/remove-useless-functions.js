@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessFunctions from '../lib/remove-useless-functions.js';
 
-const {createTest} = require('@putout/test');
-const removeUselessFunctions = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-functions', removeUselessFunctions],
     ],
