@@ -1,3 +1,9 @@
+2025.05.12, v40.1.5
+
+feature:
+- ff1ce52ec putout: @putout/plugin-remove-useless-functions v5.0.0
+- b4cacc8c0 @putout/plugin-remove-useless-functions: migrate to ESM
+
 2025.05.11, v40.1.4
 
 feature:
