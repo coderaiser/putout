@@ -1,14 +1,11 @@
-'use strict';
-
-const {createTest} = require('@putout/test');
-
-const madrun = require('@putout/plugin-madrun');
-const regexp = require('@putout/plugin-regexp');
-const removeUselessEscape = require('..');
+import {createTest} from '@putout/test';
+import * as madrun from '@putout/plugin-madrun';
+import * as regexp from '@putout/plugin-regexp';
+import * as removeUselessEscape from '../lib/remove-useless-escape.js';
 
 const addFixLint = madrun.rules['add-fix-lint'];
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-escape', removeUselessEscape],
     ],

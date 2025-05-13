@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-remove-useless-escape",
   "version": "7.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to find and remove useless escape",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-escape#readme",
@@ -47,11 +47,11 @@
     "madrun": "^11.0.0"
   },
   "peerDependencies": {
-    "putout": ">=38"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

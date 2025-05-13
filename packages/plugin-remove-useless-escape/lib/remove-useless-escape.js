@@ -1,16 +1,13 @@
-'use strict';
-
-const emojiRegex = require('emoji-regex');
-
-const {types, operator} = require('putout');
+import emojiRegex from 'emoji-regex';
+import {types, operator} from 'putout';
 
 const {replaceWith} = operator;
 const {regExpLiteral} = types;
 const {assign} = Object;
 
-module.exports.report = () => 'Unnecessary escape character';
+export const report = () => 'Unnecessary escape character';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     if (path.isStringLiteral()) {
         const {raw} = path.node;
         
@@ -44,7 +41,7 @@ module.exports.fix = (path) => {
     }
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'RegExpLiteral'(path) {
         const {raw} = path.node;
         
