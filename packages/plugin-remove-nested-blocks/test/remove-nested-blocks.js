@@ -1,15 +1,13 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as tape from '@putout/plugin-tape';
+import * as removeEmpty from '@putout/plugin-remove-empty';
+import * as forOf from '@putout/plugin-for-of';
+import * as removeNestedBlocks from '../lib/remove-nested-blocks.js';
 
-const {createTest} = require('@putout/test');
+const {declare} = tape.rules;
+const convertReduceToForOf = forOf.rules.reduce;
 
-const {declare} = require('@putout/plugin-tape').rules;
-const removeEmpty = require('@putout/plugin-remove-empty');
-
-const removeNestedBlocks = require('..');
-
-const convertReduceToForOf = require('@putout/plugin-for-of').rules.reduce;
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-nested-blocks', removeNestedBlocks],
     ],

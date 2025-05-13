@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     isReturnStatement,
     isExportNamedDeclaration,
@@ -9,17 +8,17 @@ const {
 const {replaceWithMultiple} = operator;
 const {keys} = Object;
 
-module.exports.report = () => 'Avoid nested blocks';
+export const report = () => 'Avoid nested blocks';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     replaceWithMultiple(path, path.node.body);
 };
 
-module.exports.include = () => [
+export const include = () => [
     'BlockStatement',
 ];
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const prev = path.getPrevSibling();
     
     if (isExportNamedDeclaration(prev))
