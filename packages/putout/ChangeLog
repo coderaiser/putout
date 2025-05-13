@@ -1,3 +1,9 @@
+2025.05.13, v40.1.6
+
+feature:
+- be5610bf5 putout: @putout/plugin-remove-useless-escape v8.0.0
+- d77e9fff5 @putout/plugin-remove-useless-escape: migrate to ESM
+
 2025.05.12, v40.1.5
 
 feature:
