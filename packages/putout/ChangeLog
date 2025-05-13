@@ -1,3 +1,9 @@
+2025.05.14, v40.1.7
+
+feature:
+- 0ada7a2a9 putout: @putout/plugin-remove-nested-blocks v9.0.0
+- da18bb28e @putout/plugin-remove-nested-blocks: migrate to ESM
+
 2025.05.13, v40.1.6
 
 feature:
