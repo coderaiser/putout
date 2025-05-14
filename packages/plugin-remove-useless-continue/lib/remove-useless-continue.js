@@ -1,17 +1,16 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
 const isLoop = (path) => path.isLoop() || path.parentPath.isLoop();
 
-module.exports.report = () => `Avoid useless 'continue'`;
+export const report = () => `Avoid useless 'continue'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ContinueStatement(path) {
         const {parentPath} = path;
         

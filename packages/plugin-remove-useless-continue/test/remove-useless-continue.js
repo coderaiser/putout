@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessContinue from '../lib/remove-useless-continue.js';
 
-const {createTest} = require('@putout/test');
-const removeUselessContinue = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-continue', removeUselessContinue],
     ],
