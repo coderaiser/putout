@@ -1,3 +1,11 @@
+2025.05.14, v40.1.10
+
+feature:
+- fdf23cd88 putout: @putout/plugin-merge-duplicate-functions v4.0.0
+- a7e59046d @putout/plugin-merge-duplicate-functions: exclude ExportNamedDeclaration
+- ba0009166 @putout/plugin-merge-duplicate-functions: drop support of 🐊 < 40
+- c17cc4903 @putout/engine-runner: replacer: extract expression
+
 2025.05.14, v40.1.9
 
 feature:
