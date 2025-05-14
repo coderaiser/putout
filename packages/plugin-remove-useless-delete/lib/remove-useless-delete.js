@@ -1,16 +1,15 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {isMemberExpression} = types;
 const {remove} = operator;
 
-module.exports.report = () => `Avoid useless 'delete'`;
+export const report = () => `Avoid useless 'delete'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     UnaryExpression(path) {
         const {argument, operator} = path.node;
         
