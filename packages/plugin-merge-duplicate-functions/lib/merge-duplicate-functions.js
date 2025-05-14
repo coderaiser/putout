@@ -1,10 +1,12 @@
-import {operator} from 'putout';
+import {types, operator} from 'putout';
 
 const {
     compare,
     remove,
     rename,
 } = operator;
+
+const {isExportNamedDeclaration} = types;
 
 const {entries, keys} = Object;
 
@@ -34,6 +36,15 @@ export const traverse = ({push}) => ({
                 
                 const fnPath1 = bindings[fn1].path;
                 const fnPath2 = bindings[fn2].path;
+                
+                const parentPath1 = fnPath1.parentPath.parentPath;
+                const parentPath2 = fnPath2.parentPath.parentPath;
+                
+                if (isExportNamedDeclaration(parentPath1))
+                    continue;
+                
+                if (isExportNamedDeclaration(parentPath2))
+                    continue;
                 
                 if (!fnPath1.isVariableDeclarator())
                     continue;
