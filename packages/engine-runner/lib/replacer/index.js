@@ -92,6 +92,13 @@ module.exports.clearWatermark = (ast) => {
 
 const isFn = (a) => typeof a === 'function';
 
+const parseExpression = (nodeFrom, {node}) => {
+    if (nodeFrom.type !== node.type && isExpressionStatement(node))
+        return node.expression;
+    
+    return node;
+};
+
 const fix = (from, to, path) => {
     const nodeFrom = template.ast(from);
     const mark = watermark(from, to, path);
@@ -102,7 +109,7 @@ const fix = (from, to, path) => {
         return;
     
     const waysFrom = findVarsWays(nodeFrom);
-    const {node} = path;
+    const node = parseExpression(nodeFrom, path);
     
     const values = getValues({
         waysFrom,

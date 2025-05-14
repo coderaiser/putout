@@ -1097,3 +1097,35 @@ test('putout: runner: replace: match: couple checks', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: runner: replace: expression statement', (t) => {
+    const convert = {
+        report: noop,
+        replace: () => ({
+            'return __a': '__a',
+            '__a + __b': 'i32.add(local.get(__a), local.get(__b))',
+        }),
+    };
+    
+    const source = montag`
+        function x(a, b) {
+            return a + b;
+        }
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+        function x(a, b) {
+            i32.add(local.get(a), local.get(b));
+        }\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
