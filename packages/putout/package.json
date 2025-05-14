@@ -164,7 +164,7 @@
     "@putout/plugin-remove-useless-assign": "^1.0.0",
     "@putout/plugin-remove-useless-constructor": "^2.0.0",
     "@putout/plugin-remove-useless-continue": "^2.0.0",
-    "@putout/plugin-remove-useless-delete": "^1.0.1",
+    "@putout/plugin-remove-useless-delete": "^2.0.0",
     "@putout/plugin-remove-useless-escape": "^8.0.0",
     "@putout/plugin-remove-useless-functions": "^5.0.0",
     "@putout/plugin-remove-useless-map": "^2.0.0",
