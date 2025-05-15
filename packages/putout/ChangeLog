@@ -1,3 +1,9 @@
+2025.05.15, v40.1.11
+
+feature:
+- 3e6d99bbd putout: @putout/plugin-remove-useless-constructor v3.0.0
+- 711f83189 @putout/plugin-remove-useless-constructor: migrate to ESM
+
 2025.05.14, v40.1.10
 
 feature:
