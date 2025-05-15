@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessConstructor from '../lib/remove-useless-constructor.js';
 
-const {createTest} = require('@putout/test');
-const removeUselessConstructor = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-constructor', removeUselessConstructor],
     ],
@@ -16,5 +14,10 @@ test('plugin-remove-useless-constructor: report: constructor', (t) => {
 
 test('plugin-remove-useless-constructor: transform: constructor', (t) => {
     t.transform('constructor');
+    t.end();
+});
+
+test('plugin-remove-useless-constructor: no report: not-constructor', (t) => {
+    t.noReport('not-constructor');
     t.end();
 });
