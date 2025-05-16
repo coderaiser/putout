@@ -1,16 +1,15 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isSpreadElement} = types;
 
-module.exports.report = () => `Avoid useless 'Object.assign()'`;
+export const report = () => `Avoid useless 'Object.assign()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'Object.assign(__a)': ({__a}) => !isSpreadElement(__a),
     'assign(__a)': ({__a}) => !isSpreadElement(__a),
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'Object.assign(__a)': '__a',
     'Object.assign(__a, {})': '__a',
     'assign(__a)': '__a',

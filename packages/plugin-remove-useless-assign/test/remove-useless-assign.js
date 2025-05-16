@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessAssign from '../lib/remove-useless-assign.js';
 
-const {createTest} = require('@putout/test');
-const removeUselessAssign = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-assign', removeUselessAssign],
     ],
