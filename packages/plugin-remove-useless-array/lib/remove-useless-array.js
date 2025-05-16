@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Avoid array inside property accessors`;
 
-module.exports.report = () => `Avoid array inside property accessors`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a[[__b]]': '__a[__b]',
 });
