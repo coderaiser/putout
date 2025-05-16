@@ -1,3 +1,9 @@
+2025.05.16, v40.1.12
+
+feature:
+- 372f9419c putout: @putout/plugin-remove-useless-assign v2.0.0
+- e1379cf0a @putout/plugin-remove-useless-assign: migrate to ESM
+
 2025.05.15, v40.1.11
 
 feature:
