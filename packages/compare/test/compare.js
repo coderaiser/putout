@@ -200,6 +200,16 @@ test('compare: template var', (t) => {
     t.end();
 });
 
+test('compare: template var: number', (t) => {
+    const a = '5';
+    const b = '__a';
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: __object: root', (t) => {
     const result = compare('({})', '__object');
     
