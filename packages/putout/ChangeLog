@@ -1,3 +1,11 @@
+2025.05.18, v40.1.13
+
+feature:
+- 8f8dfa34e @putout/compare: __a: NumericLiteral
+- cb05e654d putout: @putout/plugin-remove-useless-array-entries v2.0.0
+- 72ba7f663 @putout/plugin-remove-useless-array-entries: migrate to ESM
+- e67ca90dc @putout/plugin-remove-useless-array: migrate to ESM
+
 2025.05.16, v40.1.12
 
 feature:
