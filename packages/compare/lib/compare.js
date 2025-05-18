@@ -18,7 +18,6 @@ const {
     isPath,
     isEqualType,
     isTemplate,
-    isLinkedNode,
     parseTemplate,
 } = require('./is');
 
@@ -80,9 +79,6 @@ function compare(path, template, options = {}, equal = noop) {
     equal(node, templateNode);
     
     if (isId(node, templateNode))
-        return true;
-    
-    if (isLinkedNode(templateNode))
         return true;
     
     if (node.type === template)
