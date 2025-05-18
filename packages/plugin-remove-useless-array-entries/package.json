@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-remove-useless-array-entries",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to remove useless array.entries()",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-array-entries#readme",
@@ -43,11 +43,11 @@
     "madrun": "^11.0.0"
   },
   "peerDependencies": {
-    "putout": ">=23"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
