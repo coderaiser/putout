@@ -1,3 +1,9 @@
+2025.05.19, v40.1.14
+
+feature:
+- 1be13c9ec putout: @putout/plugin-remove-useless-array v2.0.0
+- ed39406c7 @putout/compare: revert __a: NumericLiteral: has no sense
+
 2025.05.18, v40.1.13
 
 feature:
