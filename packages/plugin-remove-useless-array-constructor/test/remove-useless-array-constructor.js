@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUselessArrayConstructor from '../lib/remove-useless-array-constructor.js';
 
-const {createTest} = require('@putout/test');
-const removeUselessArrayConstructor = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-useless-array-constructor', removeUselessArrayConstructor],
     ],

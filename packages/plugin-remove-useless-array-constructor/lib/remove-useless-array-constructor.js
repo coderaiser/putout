@@ -1,11 +1,10 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isSpreadElement} = types;
 
-module.exports.report = () => `Avoid array constructor, use '[]' instead`;
+export const report = () => `Avoid array constructor, use '[]' instead`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'Array(__args)': ({__args}) => {
         const [first] = __args;
         
@@ -16,7 +15,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'Array(...__a)': '[__a]',
     'Array.of(__args)': '[__args]',
     'Array(__args)': '[__args]',
