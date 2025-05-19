@@ -1,3 +1,12 @@
+2025.05.19, v40.1.15
+
+fix:
+- 653c7d593 putout: package: node v20.19 (#233)
+
+feature:
+- 4a9207c6e putout: @putout/plugin-remove-useless-array-constructor v3.0.0
+- 125606104 @putout/plugin-remove-useless-array-constructor: migrate to ESM
+
 2025.05.19, v40.1.14
 
 feature:
