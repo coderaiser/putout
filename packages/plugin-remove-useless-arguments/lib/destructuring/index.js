@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     isIdentifier,
@@ -11,17 +9,17 @@ const {findBinding, remove} = operator;
 
 const getKey = ({key}) => key;
 
-module.exports.report = ({path, name}) => {
+export const report = ({path, name}) => {
     const {key} = path.node;
     
     return `Avoid useless argument '${key.name}' of a function '${name}()'`;
 };
 
-module.exports.fix = ({path}) => {
+export const fix = ({path}) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '__(__object)': processUseless({
         push,
         index: 0,

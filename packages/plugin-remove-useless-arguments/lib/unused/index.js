@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {remove} = operator;
 const {values} = Object;
 
@@ -12,13 +11,13 @@ const {
 
 const isTop = (a) => isFunction(a) || isProgram(a);
 
-module.exports.report = (path) => `Avoid useless argument: '${path.node.name}'`;
+export const report = (path) => `Avoid useless argument: '${path.node.name}'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     Function(path) {
         if (path.parentPath.isExportDeclaration())
             return;

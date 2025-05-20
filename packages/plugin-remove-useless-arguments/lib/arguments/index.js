@@ -1,23 +1,21 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {isFunction} = types;
 
 const {findBinding, remove} = operator;
 
-module.exports.report = ({node}) => {
+export const report = ({node}) => {
     if (isFunction(node))
         return 'Avoid useless argument';
     
     return `Avoid useless argument '${node.name}'`;
 };
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '__(__args)': (path) => {
         const {name} = path.node.callee;
         const binding = findBinding(path, name);

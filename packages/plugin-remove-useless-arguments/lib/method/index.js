@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {compare} = operator;
 
 const {
@@ -12,16 +11,16 @@ const {
     isClassPrivateProperty,
 } = types;
 
-module.exports.report = ({methodNode}) => {
+export const report = ({methodNode}) => {
     return `Avoid useless arguments from method '${methodNode.key.name}()'`;
 };
 
-module.exports.fix = ({path, methodNode}) => {
+export const fix = ({path, methodNode}) => {
     const n = path.node.arguments.length - methodNode.params.length;
     path.node.arguments = path.node.arguments.slice(n);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '__a.__b(__args)': (path) => {
         const fnParent = path.scope.getFunctionParent();
         
