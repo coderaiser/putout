@@ -1,3 +1,9 @@
+2025.05.20, v40.1.16
+
+feature:
+- 5109aeb6a putout: @putout/plugin-remove-useless-arguments v12.0.0
+- bbedee3ac @putout/plugin-remove-useless-arguments: migrate to ESM
+
 2025.05.19, v40.1.15
 
 fix:
