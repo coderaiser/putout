@@ -1,7 +1,5 @@
-'use strict';
-
-const test = require('supertape');
-const transform = require('../lib/transform');
+import test from 'supertape';
+import transform from '../lib/transform.js';
 
 test('remove-unused-variables: transform: empty', (t) => {
     const result = transform([]);

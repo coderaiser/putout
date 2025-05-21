@@ -1,7 +1,5 @@
-'use strict';
-
-const test = require('supertape');
-const getUnused = require('../lib/get-unused');
+import test from 'supertape';
+import getUnused from '../lib/get-unused.js';
 
 test('remove-unused-variables: get-unused', (t) => {
     const result = getUnused([{

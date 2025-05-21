@@ -1,14 +1,11 @@
-'use strict';
-
-const test = require('supertape');
-const {
+import test from 'supertape';
+import {
     parse,
     traverse,
     template,
-} = require('putout');
-
-const getVarsOriginal = require('../lib/get-vars');
-const {readFixtures} = require('./fixture');
+} from 'putout';
+import getVarsOriginal from '../lib/get-vars/index.js';
+import {readFixtures} from './fixture.js';
 
 const fixture = readFixtures([
     'arguments-nested',

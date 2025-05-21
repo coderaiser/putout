@@ -1,20 +1,17 @@
-'use strict';
-
-const {types} = require('putout');
-const getVars = require('./get-vars');
-
-const {
+import {types} from 'putout';
+import getVars from './get-vars.js';
+import {
     useParamsBeforeLastUsed,
     useParamsBeforeAssign,
     usePropertiesBeforeRest,
-} = require('./use-params');
+} from './use-params.js';
 
 const {
     isClassDeclaration,
     isFunctionDeclaration,
 } = types;
 
-module.exports = (ast, opts) => {
+export default (ast, opts) => {
     const vars = {};
     const allParams = [];
     

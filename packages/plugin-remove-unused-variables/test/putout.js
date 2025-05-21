@@ -1,11 +1,7 @@
-'use strict';
-
-const test = require('supertape');
-
-const _putout = require('putout');
-const {readFixtures} = require('./fixture');
-
-const removeUnusedVariables = require('..');
+import test from 'supertape';
+import _putout from 'putout';
+import {readFixtures} from './fixture.js';
+import * as removeUnusedVariables from '../lib/remove-unused-variables.js';
 
 const putout = (code, options = {}) => {
     return _putout(code, {

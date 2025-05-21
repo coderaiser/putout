@@ -1,12 +1,11 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isIdentifier,
     isTSModuleDeclaration,
 } = types;
 
-module.exports = ({use, declare}) => ({
+export default ({use, declare}) => ({
     'TSClassImplements|TSInterfaceHeritage'(path) {
         const {expression} = path.node;
         const {type} = expression;

@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isArrayPattern,
     isRestElement,
@@ -9,7 +8,7 @@ const {
     isVariableDeclaration,
 } = types;
 
-module.exports.createExportNamedDeclaration = ({use}) => (path) => {
+export const createExportNamedDeclaration = ({use}) => (path) => {
     const declarationPath = path.get('declaration');
     const {declaration, specifiers} = path.node;
     

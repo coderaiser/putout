@@ -1,4 +1,4 @@
-'use strict';
+import {types} from 'putout';
 
 const {
     isIdentifier,
@@ -6,9 +6,9 @@ const {
     isObjectPattern,
     isTemplateLiteral,
     isAssignmentPattern,
-} = require('putout').types;
+} = types;
 
-const traverseObjectPattern = ({use, declare}) => {
+export const traverseObjectPattern = ({use, declare}) => {
     const traverseAssign = traverseAssignmentPattern({
         use,
     });
@@ -39,9 +39,7 @@ const traverseObjectPattern = ({use, declare}) => {
     };
 };
 
-module.exports.traverseObjectPattern = traverseObjectPattern;
-
-const processObjectPattern = ({use, declare}) => (propertiesPaths) => {
+export const processObjectPattern = ({use, declare}) => (propertiesPaths) => {
     for (const path of propertiesPaths) {
         const {
             key,
@@ -85,9 +83,7 @@ const processObjectPattern = ({use, declare}) => (propertiesPaths) => {
     }
 };
 
-module.exports.processObjectPattern = processObjectPattern;
-
-const traverseObjectExpression = (use) => {
+export const traverseObjectExpression = (use) => {
     const traverseTmpl = traverseTemplateLiteral(use);
     
     return (propertiesPaths) => {
@@ -122,9 +118,7 @@ const traverseObjectExpression = (use) => {
     };
 };
 
-module.exports.traverseObjectExpression = traverseObjectExpression;
-
-const traverseArrayExpression = (use) => {
+export const traverseArrayExpression = (use) => {
     const traverseObjExpression = traverseObjectExpression(use);
     
     return (elementsPaths) => {
@@ -137,9 +131,7 @@ const traverseArrayExpression = (use) => {
     };
 };
 
-module.exports.traverseArrayExpression = traverseArrayExpression;
-
-const traverseAssignmentExpression = ({use, declare}) => {
+export const traverseAssignmentExpression = ({use, declare}) => {
     const traverseObjPattern = traverseObjectPattern({
         use,
         declare,
@@ -168,18 +160,14 @@ const traverseAssignmentExpression = ({use, declare}) => {
     };
 };
 
-module.exports.traverseAssignmentExpression = traverseAssignmentExpression;
-
-const traverseTemplateLiteral = (use) => (path, expressions) => {
+export const traverseTemplateLiteral = (use) => (path, expressions) => {
     for (const exp of expressions) {
         if (isIdentifier(exp))
             use(path, exp.name);
     }
 };
 
-module.exports.traverseTemplateLiteral = traverseTemplateLiteral;
-
-const traverseAssignmentPattern = ({use}) => (path) => {
+export const traverseAssignmentPattern = ({use}) => (path) => {
     const {node} = path;
     const {right} = node;
     
@@ -189,5 +177,3 @@ const traverseAssignmentPattern = ({use}) => (path) => {
     if (isIdentifier(right))
         use(path, right.name);
 };
-
-module.exports.traverseAssignmentPattern = traverseAssignmentPattern;

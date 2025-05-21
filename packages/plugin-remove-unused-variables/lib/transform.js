@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = (items) => {
+export default (items) => {
     const result = [];
     
     for (const item of items) {

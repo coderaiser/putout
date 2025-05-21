@@ -1,19 +1,15 @@
-'use strict';
-
-const {operator, types} = require('putout');
-
-const jsx = require('./jsx');
-const typescript = require('./typescript');
-
-const {
+import {operator, types} from 'putout';
+import jsx from './jsx.js';
+import typescript from './typescript.js';
+import {createExportNamedDeclaration} from './visitors/export-named-declaration.js';
+import {
     traverseObjectExpression,
     processObjectPattern,
     traverseArrayExpression,
     traverseAssignmentExpression,
     traverseTemplateLiteral,
-} = require('./traverse');
+} from './traverse.js';
 
-const {createExportNamedDeclaration} = require('./visitors/export-named-declaration.js');
 const {assign} = Object;
 const {isKeyword} = operator;
 
@@ -29,7 +25,7 @@ const {
     isRestElement,
 } = types;
 
-module.exports = ({use, declare, addParams}) => {
+export default ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
     
     const processObj = processObjectPattern({

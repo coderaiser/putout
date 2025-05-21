@@ -1,12 +1,9 @@
-'use strict';
+import {join} from 'node:path';
+import {readFileSync} from 'node:fs';
+import tryCatch from 'try-catch';
+import camelCase from 'just-camel-case';
 
-const {join} = require('node:path');
-const {readFileSync} = require('node:fs');
-
-const tryCatch = require('try-catch');
-const camelCase = require('just-camel-case');
-
-const dirFixture = join(__dirname, 'fixture');
+const dirFixture = new URL('fixture', import.meta.url).pathname;
 
 const readFixture = (name) => {
     const longName = join(dirFixture, name);
@@ -18,7 +15,7 @@ const readFixture = (name) => {
     return readFileSync(`${longName}.js`, 'utf8');
 };
 
-module.exports.readFixtures = (names) => {
+export const readFixtures = (names) => {
     const result = {};
     
     for (const name of names) {

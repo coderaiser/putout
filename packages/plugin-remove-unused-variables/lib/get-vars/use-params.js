@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isIdentifier,
     isObjectPattern,
@@ -8,7 +7,7 @@ const {
     isAssignmentPattern,
 } = types;
 
-module.exports.usePropertiesBeforeRest = ({use}) => ({path, params}) => {
+export const usePropertiesBeforeRest = ({use}) => ({path, params}) => {
     for (const param of params) {
         if (!isObjectPattern(param))
             continue;
@@ -22,7 +21,7 @@ module.exports.usePropertiesBeforeRest = ({use}) => ({path, params}) => {
     };
 };
 
-module.exports.useParamsBeforeAssign = ({use}) => ({path, params}) => {
+export const useParamsBeforeAssign = ({use}) => ({path, params}) => {
     const last = params.at(-1);
     const usedParams = params.slice(0, -1);
     
@@ -59,7 +58,7 @@ function traverseProperties(use, path, properties) {
     }
 }
 
-module.exports.useParamsBeforeLastUsed = ({use, isUsed}) => ({path, params}) => {
+export const useParamsBeforeLastUsed = ({use, isUsed}) => ({path, params}) => {
     let i = params.length;
     
     while (--i > 0) {

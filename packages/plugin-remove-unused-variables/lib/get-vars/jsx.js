@@ -1,12 +1,11 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isIdentifier,
     isJSXIdentifier,
 } = types;
 
-module.exports = (use) => ({
+export default (use) => ({
     JSXOpeningElement(path) {
         const {node} = path;
         const {name} = node;

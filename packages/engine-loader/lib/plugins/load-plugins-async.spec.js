@@ -7,14 +7,14 @@ const {loadPluginsAsync} = require('./load-plugins-async');
 test('@putout/engine-loader: loadPluginsAsync', async (t) => {
     const result = await loadPluginsAsync({
         pluginNames: [
-            'remove-unused-variables',
+            'remove-debugger',
         ],
     });
     
-    const plugin = (await import('@putout/plugin-remove-unused-variables')).default;
+    const plugin = (await import('@putout/plugin-remove-debugger')).default;
     const expected = [{
         msg: '',
-        rule: 'remove-unused-variables',
+        rule: 'remove-debugger',
         options: {},
         plugin,
     }];

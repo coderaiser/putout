@@ -1,7 +1,5 @@
-'use strict';
-
 const onlyDeclared = ({declared, used}) => declared && !used;
 
-module.exports = (items) => {
+export default (items) => {
     return items.filter(onlyDeclared);
 };
