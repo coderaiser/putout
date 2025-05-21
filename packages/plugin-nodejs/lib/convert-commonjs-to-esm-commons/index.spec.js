@@ -36,3 +36,8 @@ test('plugin-convert-commonjs-to-esm: commons: no transform', (t) => {
     t.noTransformCode('const a = 5;\n');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: commons: no report: object', (t) => {
+    t.noReport('object');
+    t.end();
+});

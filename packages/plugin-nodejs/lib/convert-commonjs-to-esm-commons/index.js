@@ -27,7 +27,11 @@ export const include = () => [
     'require',
 ];
 
-export const filter = ({scope}) => {
+export const filter = (path) => {
+    if (path.parentPath.isObjectProperty())
+        return false;
+    
+    const {scope} = path;
     const isDirname = scope.hasBinding('__dirname');
     const isFilename = scope.hasBinding('__filename');
     const isRequire = scope.hasBinding('require');
