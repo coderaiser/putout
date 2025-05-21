@@ -41,3 +41,13 @@ test('putout: apply-report: no report: no-report-with-plugins', (t) => {
     t.noReport('no-report-with-plugins');
     t.end();
 });
+
+test('putout: apply-report: report: with-options', (t) => {
+    t.report('with-options', [`Use 't.noReportWithOptions()' instead of 't.noReport()'`]);
+    t.end();
+});
+
+test('putout: apply-report: transform: object', (t) => {
+    t.transform('object');
+    t.end();
+});
