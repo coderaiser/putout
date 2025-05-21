@@ -17,18 +17,18 @@ test('packages: apply-namaspace-specifier: transform', (t) => {
     t.end();
 });
 
-test('packages: apply-namaspace-specifier: transform: rules', (t) => {
-    t.transform('rules');
+test('packages: apply-namaspace-specifier: no transform: rules', (t) => {
+    t.noTransform('rules');
     t.end();
 });
 
-test('packages: apply-namaspace-specifier: transform: rules-couple', (t) => {
-    t.transform('rules-couple');
+test('packages: apply-namaspace-specifier: no transform: rules-couple', (t) => {
+    t.noTransform('rules-couple');
     t.end();
 });
 
-test('packages: apply-namaspace-specifier: transform: create-test', (t) => {
-    t.transform('create-test');
+test('packages: apply-namaspace-specifier: no transform: create-test', (t) => {
+    t.noTransform('create-test');
     t.end();
 });
 
@@ -37,8 +37,8 @@ test('packages: apply-namaspace-specifier: transform: external', (t) => {
     t.end();
 });
 
-test('packages: apply-namaspace-specifier: no report: alot', (t) => {
-    t.noReport('alot');
+test('packages: apply-namaspace-specifier: transform: alot', (t) => {
+    t.transform('alot');
     t.end();
 });
 
@@ -54,6 +54,11 @@ test('packages: apply-namaspace-specifier: no report: no-spec', (t) => {
 
 test('packages: apply-namaspace-specifier: no report: parent', (t) => {
     t.noReport('parent');
+    t.end();
+});
+
+test('packages: apply-namaspace-specifier: no report: internal', (t) => {
+    t.noReport('internal');
     t.end();
 });
 

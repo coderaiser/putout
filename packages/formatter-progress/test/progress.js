@@ -1,4 +1,4 @@
-import rmVars from '@putout/plugin-remove-unused-variables';
+import * as rmVars from '@putout/plugin-remove-unused-variables';
 import {createTest} from '@putout/test';
 import progress from '../lib/progress.js';
 

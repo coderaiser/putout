@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import rmVars from '@putout/plugin-remove-unused-variables';
+import * as rmVars from '@putout/plugin-remove-unused-variables';
 import dump from '../lib/dump.js';
 
 const test = createTest(import.meta.url, {

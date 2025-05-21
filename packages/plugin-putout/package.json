@@ -33,7 +33,6 @@
   "dependencies": {
     "fullstore": "^3.0.0",
     "just-camel-case": "^6.2.0",
-    "parse-import-specifiers": "^1.0.2",
     "try-catch": "^3.0.0"
   },
   "keywords": [
