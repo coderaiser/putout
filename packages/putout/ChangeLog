@@ -1,3 +1,11 @@
+2025.05.21, v40.1.17
+
+feature:
+- 9ada6a7de putout: @putout/plugin-remove-unused-variables v13.0.0
+- c12facb18 @putout/plugin-putout: apply-namespace-specifier: drop counts check
+- 9d58a5ad8 @putout/plugin-nodejs: convert-commonjs-to-esm: commons: exclude ObjectProperty
+- 22ec7f065 @putout/plugin-remove-unused-variables: migrate to esm
+
 2025.05.20, v40.1.16
 
 feature:
