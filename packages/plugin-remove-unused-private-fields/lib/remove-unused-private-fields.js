@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = ({name}) => `Avoid unused private field "#${name}"`;
+export const report = ({name}) => `Avoid unused private field "#${name}"`;
 
-module.exports.fix = ({path}) => {
+export const fix = ({path}) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => {
+export const traverse = ({push}) => {
     const vars = [];
     const addVar = addVariable(vars);
     const rmVar = removeVariable(vars);
