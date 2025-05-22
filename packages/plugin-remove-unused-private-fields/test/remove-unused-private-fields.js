@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as rm from '../lib/remove-unused-private-fields.js';
 
-const {createTest} = require('@putout/test');
-const rm = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-unused-private-fields', rm],
     ],
