@@ -1,3 +1,10 @@
+2025.05.22, v40.1.18
+
+feature:
+- 33b471dac putout: @putout/plugin-remove-unused-private-fields v4.0.0
+- 2379ee563 @putout/plugin-remove-unused-private-fields: migrate to ESM
+- e24f0be5a 2putout/plugin-putout: apply-report: improve
+
 2025.05.21, v40.1.17
 
 feature:
