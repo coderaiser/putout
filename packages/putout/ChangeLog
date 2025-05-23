@@ -1,3 +1,14 @@
+2025.05.23, v40.2.0
+
+feature:
+- c1c87903d putout: @putout/operator-declare v13.0.0
+- 0494488d4 @putout/engine-runner: @putout/operator-declare v13.0.0
+- 44f049d32 @putout/operator-declare: drop support of 🐊 < 40
+- a19e44449 @putout/operator-declare: exclude: TSQualifiedName
+- 7ad67452e putout: @putout/plugin-remove-unused-private-fields v4.0.0
+- 84c9d5aca @putout/plugin-remove-unused-private-fields: migrate to ESM
+- 7807100f2 @putout/plugin-putout: apply-report: improve
+
 2025.05.22, v40.1.18
 
 feature:
