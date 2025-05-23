@@ -1079,3 +1079,26 @@ test('putout: operator: declare: insert before require', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: declare: ts: TSQualifiedName', (t) => {
+    const declarations = {
+        StringLiteral: `const {StringLiteral} = 'types'`,
+    };
+    
+    const source = montag`
+        const moduleName = (statement.moduleSpecifier as ts.StringLiteral).text;
+    `;
+    
+    const {places} = putout(source, {
+        fix: false,
+        isTS: true,
+        plugins: [
+            ['declare', declare(declarations)],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
