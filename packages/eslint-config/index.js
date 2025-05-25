@@ -77,10 +77,9 @@ export const rules = {
     '@stylistic/space-infix-ops': ['error', {
         int32Hint: false,
     }],
-    '@stylistic/indent': [
-        'error',
-        4,
-    ],
+    '@stylistic/indent': ['error', 4, {
+        SwitchCase: 0,
+    }],
     '@stylistic/space-in-parens': 'error',
     '@stylistic/space-before-blocks': 'error',
     '@stylistic/space-before-function-paren': ['error', {

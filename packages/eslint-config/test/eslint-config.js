@@ -70,6 +70,10 @@ test('eslint-config: no-prototype-builtins', async ({comparePlaces}) => {
     await comparePlaces('no-prototype-builtins', []);
 });
 
+test('eslint-config: indent-switch', async ({comparePlaces}) => {
+    await comparePlaces('indent-switch', []);
+});
+
 test('eslint-config: no-delete-var', async ({comparePlaces}) => {
     await comparePlaces('no-delete-var', [], {
         rules: {
