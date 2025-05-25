@@ -1,3 +1,9 @@
+2025.05.25, v40.2.1
+
+feature:
+- d955aa538 putout: @putout/plugin-remove-unused-expressions v12.0.0
+- 78559abbf @putout/plugin-remove-unused-expressions: migrate to ESM
+
 2025.05.23, v40.2.0
 
 feature:
