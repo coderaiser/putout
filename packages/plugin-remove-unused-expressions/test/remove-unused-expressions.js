@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUnusedExpression from '../lib/remove-unused-expressions.js';
 
-const {createTest} = require('@putout/test');
-const removeUnusedExpression = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-unused-expression', removeUnusedExpression],
     ],

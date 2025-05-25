@@ -1,19 +1,18 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {remove, isSimple} = operator;
 const {
     isReturnStatement,
     isBlockStatement,
 } = types;
 
-module.exports.report = () => 'Avoid unused expression statements';
+export const report = () => 'Avoid unused expression statements';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     DirectiveLiteral(path) {
         if (path.node.value === 'use strict')
             return;
