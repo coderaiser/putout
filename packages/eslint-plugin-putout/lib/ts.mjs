@@ -2,14 +2,14 @@ import {rules} from '@putout/eslint-config';
 import parser from '@typescript-eslint/parser';
 import tseslint from 'typescript-eslint';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
-import stylisticTs from '@stylistic/eslint-plugin-ts';
+import stylistic from '@stylistic/eslint-plugin';
 import {jsx} from './jsx.mjs';
 import * as plugin from './plugin.mjs';
 
 const {assign} = Object;
 
 const reEnable = (rule) => ({
-    [`@stylistic/ts/${rule}`]: 'error',
+    [`@stylistic/${rule}`]: 'error',
 });
 
 const warnOnUnsupportedTypeScriptVersion = false;
@@ -26,7 +26,7 @@ const handled = {
 };
 
 const broken = {
-    '@stylistic/ts/indent': 'off',
+    '@stylistic/indent': 'off',
 };
 
 const slow = {
@@ -42,24 +42,19 @@ const extensionRules = {
     'no-undef': 'off',
     'no-var': 'off',
     
-    '@stylistic/ts/comma-spacing': 'error',
+    '@stylistic/comma-spacing': 'error',
     
-    '@stylistic/ts/lines-between-class-members': 'off',
+    '@stylistic/lines-between-class-members': 'off',
     
-    '@stylistic/js/padding-line-between-statements': 'off',
-    '@stylistic/ts/padding-line-between-statements': convertPaddingLines(rules['@stylistic/js/padding-line-between-statements']),
+    '@stylistic/padding-line-between-statements': convertPaddingLines(rules['@stylistic/padding-line-between-statements']),
     
-    '@stylistic/js/object-curly-spacing': 'off',
-    '@stylistic/ts/object-curly-spacing': rules['@stylistic/js/object-curly-spacing'],
+    '@stylistic/object-curly-spacing': rules['@stylistic/object-curly-spacing'],
     
-    '@stylistic/js/semi': 'off',
-    '@stylistic/ts/semi': rules['@stylistic/js/semi'],
+    '@stylistic/semi': rules['@stylistic/semi'],
     
-    '@stylistic/js/no-extra-parens': 'off',
-    '@stylistic/ts/no-extra-parens': rules['@stylistic/js/no-extra-parens'],
+    '@stylistic/no-extra-parens': rules['@stylistic/no-extra-parens'],
     
-    '@stylistic/js/space-before-function-paren': 'off',
-    '@stylistic/ts/space-before-function-paren': rules['@stylistic/js/space-before-function-paren'],
+    '@stylistic/space-before-function-paren': rules['@stylistic/space-before-function-paren'],
     
     ...reEnable('object-curly-spacing'),
     ...reEnable('func-call-spacing'),
@@ -99,7 +94,7 @@ const ts = {
     },
     plugins: {
         '@typescript-eslint': tsPlugin,
-        '@stylistic/ts': stylisticTs,
+        '@stylistic': stylistic,
         'putout': plugin,
     },
     rules: {
@@ -109,7 +104,7 @@ const ts = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/ban-types': 'off',
         '@typescript-eslint/no-empty-function': 'off',
-        '@stylistic/ts/type-annotation-spacing': 'error',
+        '@stylistic/type-annotation-spacing': 'error',
     },
 };
 

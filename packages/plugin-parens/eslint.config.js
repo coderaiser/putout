@@ -6,7 +6,7 @@ export const match = {
     '*.md{ts}': {
         '@typescript-eslint/no-unused-expressions': 'off',
         'no-unsafe-optional-chaining': 'off',
-        '@stylistic/ts/no-extra-parens': 'off',
+        '@stylistic/no-extra-parens': 'off',
         '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
     },
 };

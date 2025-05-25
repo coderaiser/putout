@@ -7,7 +7,7 @@ import {jsx} from './jsx.mjs';
 const [ts, tsx] = tsConfig;
 
 const commonRules = {
-    '@stylistic/js/eol-last': [
+    '@stylistic/eol-last': [
         'error',
         'never',
     ],
@@ -96,7 +96,7 @@ export default [{
     name: 'putout: md: json',
     files: ['**/*.md{json}'],
     rules: {
-        '@stylistic/js/eol-last': [
+        '@stylistic/eol-last': [
             'error',
             'never',
         ],

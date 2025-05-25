@@ -127,14 +127,14 @@ test('eslint-plugin-putout: ts: keyword-spacing', async ({comparePlaces}) => {
             column: 9,
             line: 1,
         },
-        rule: '@stylistic/ts/object-curly-spacing (eslint)',
+        rule: '@stylistic/object-curly-spacing (eslint)',
     }, {
         message: `There should be no space before '}'.`,
         position: {
             column: 11,
             line: 1,
         },
-        rule: '@stylistic/ts/object-curly-spacing (eslint)',
+        rule: '@stylistic/object-curly-spacing (eslint)',
     }]);
 });
 

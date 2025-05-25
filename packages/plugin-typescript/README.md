@@ -464,8 +464,8 @@ type SuperType = {
 
 ```ts
 interface Hello {
-    'hello': any;
-    'hello': string;
+    hello: any;
+    hello: string;
 }
 ```
 
@@ -473,7 +473,7 @@ interface Hello {
 
 ```ts
 interface Hello {
-    'hello': string;
+    hello: string;
 }
 ```
 

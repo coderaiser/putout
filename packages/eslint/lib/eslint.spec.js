@@ -17,7 +17,7 @@ test('putout: eslint: places', async (t) => {
     });
     
     const expected = [{
-        rule: '@stylistic/js/semi (eslint)',
+        rule: '@stylistic/semi (eslint)',
         message: 'Missing semicolon.',
         position: {
             line: 1,
@@ -327,7 +327,7 @@ test('putout: eslint: output', async (t) => {
 test('putout: eslint: output: config', async (t) => {
     const config = {
         rules: {
-            '@stylistic/js/semi': 'off',
+            '@stylistic/semi': 'off',
         },
     };
     

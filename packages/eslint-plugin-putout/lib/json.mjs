@@ -1,4 +1,4 @@
-import stylisticJs from '@stylistic/eslint-plugin-js';
+import stylistic from '@stylistic/eslint-plugin';
 import * as putout from './plugin.mjs';
 
 export default [{
@@ -9,31 +9,31 @@ export default [{
     ],
     rules: {
         'no-undef': 'off',
-        '@stylistic/js/quotes': [
+        '@stylistic/quotes': [
             'error',
             'double',
         ],
-        '@stylistic/js/quote-props': [
+        '@stylistic/quote-props': [
             'error',
             'always',
         ],
-        '@stylistic/js/comma-dangle': [
+        '@stylistic/comma-dangle': [
             'error',
             'never',
         ],
-        '@stylistic/js/comma-spacing': 'off',
-        '@stylistic/js/function-paren-newline': 'off',
-        '@stylistic/js/eol-last': [
+        '@stylistic/comma-spacing': 'off',
+        '@stylistic/function-paren-newline': 'off',
+        '@stylistic/eol-last': [
             'error',
             'always',
         ],
-        '@stylistic/js/no-multi-spaces': 'off',
+        '@stylistic/no-multi-spaces': 'off',
     },
 }, {
     name: 'putout: json: package.json',
     files: ['**/package.json'],
     rules: {
-        '@stylistic/js/indent': [
+        '@stylistic/indent': [
             'error',
             2,
         ],
@@ -42,25 +42,25 @@ export default [{
     name: 'putout: json: ignore',
     files: ['**/*ignore{json}'],
     rules: {
-        '@stylistic/js/comma-dangle': 'off',
+        '@stylistic/comma-dangle': 'off',
     },
 }, {
     name: 'putout: json: yaml',
     files: ['**/*.{yml,yaml}{json}'],
     plugins: {
-        '@stylistic': stylisticJs,
+        '@stylistic': stylistic,
         putout,
     },
     rules: {
         'putout/objects-braces-inside-array': 'off',
-        '@stylistic/js/indent': 'off',
+        '@stylistic/indent': 'off',
         'comma-spacing': 'off',
     },
 }, {
     name: 'putout: json: filesystem',
     files: ['**/.filesystem.json'],
     plugins: {
-        '@stylistic': stylisticJs,
+        '@stylistic': stylistic,
         putout,
     },
     rules: {

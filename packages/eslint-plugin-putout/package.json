@@ -44,9 +44,7 @@
     "@putout/eslint": "^4.0.0",
     "@putout/eslint-config": "^11.0.0",
     "@putout/eslint-flat": "^3.0.0",
-    "@stylistic/eslint-plugin-js": "^4.0.1",
-    "@stylistic/eslint-plugin-jsx": "^4.0.1",
-    "@stylistic/eslint-plugin-ts": "^4.0.1",
+    "@stylistic/eslint-plugin": "^4.4.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
     "align-spaces": "^2.0.0",
@@ -78,7 +76,7 @@
   },
   "peerDependencies": {
     "eslint": ">=9",
-    "putout": ">=39"
+    "putout": ">=40"
   },
   "license": "MIT",
   "publishConfig": {
