@@ -146,7 +146,7 @@
     "@putout/plugin-remove-constant-conditions": "^4.0.0",
     "@putout/plugin-remove-debugger": "^7.0.0",
     "@putout/plugin-remove-duplicate-case": "^3.0.0",
-    "@putout/plugin-remove-duplicate-keys": "^7.0.0",
+    "@putout/plugin-remove-duplicate-keys": "^8.0.0",
     "@putout/plugin-remove-empty": "^14.0.0",
     "@putout/plugin-remove-iife": "^4.0.0",
     "@putout/plugin-remove-nested-blocks": "^9.0.0",
