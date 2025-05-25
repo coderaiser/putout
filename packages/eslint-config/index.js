@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import stylisticJs from '@stylistic/eslint-plugin-js';
+import stylistic from '@stylistic/eslint-plugin';
 import globals from 'globals';
 
 export const rules = {
@@ -51,17 +51,17 @@ export const rules = {
         'below',
     ],
     'lines-around-directive': 'error',
-    '@stylistic/js/array-bracket-spacing': 'error',
-    '@stylistic/js/arrow-spacing': 'error',
-    '@stylistic/js/brace-style': 'error',
-    '@stylistic/js/comma-dangle': ['error', 'always-multiline'],
-    '@stylistic/js/comma-spacing': 'error',
-    '@stylistic/js/eol-last': [
+    '@stylistic/array-bracket-spacing': 'error',
+    '@stylistic/arrow-spacing': 'error',
+    '@stylistic/brace-style': 'error',
+    '@stylistic/comma-dangle': ['error', 'always-multiline'],
+    '@stylistic/comma-spacing': 'error',
+    '@stylistic/eol-last': [
         'error',
         'always',
     ],
-    '@stylistic/js/func-call-spacing': 'error',
-    '@stylistic/js/operator-linebreak': ['error', 'after', {
+    '@stylistic/func-call-spacing': 'error',
+    '@stylistic/operator-linebreak': ['error', 'after', {
         overrides: {
             '=': 'none',
             '|': 'before',
@@ -71,52 +71,52 @@ export const rules = {
             '?': 'before',
         },
     }],
-    '@stylistic/js/function-paren-newline': ['error', 'multiline-arguments'],
-    '@stylistic/js/key-spacing': 'error',
-    '@stylistic/js/newline-per-chained-call': 'error',
-    '@stylistic/js/space-infix-ops': ['error', {
+    '@stylistic/function-paren-newline': ['error', 'multiline-arguments'],
+    '@stylistic/key-spacing': 'error',
+    '@stylistic/newline-per-chained-call': 'error',
+    '@stylistic/space-infix-ops': ['error', {
         int32Hint: false,
     }],
-    '@stylistic/js/indent': [
+    '@stylistic/indent': [
         'error',
         4,
     ],
-    '@stylistic/js/space-in-parens': 'error',
-    '@stylistic/js/space-before-blocks': 'error',
-    '@stylistic/js/space-before-function-paren': ['error', {
+    '@stylistic/space-in-parens': 'error',
+    '@stylistic/space-before-blocks': 'error',
+    '@stylistic/space-before-function-paren': ['error', {
         anonymous: 'never',
         named: 'never',
         asyncArrow: 'always',
     }],
-    '@stylistic/js/implicit-arrow-linebreak': 'error',
-    '@stylistic/js/quotes': ['error', 'single', {
+    '@stylistic/implicit-arrow-linebreak': 'error',
+    '@stylistic/quotes': ['error', 'single', {
         allowTemplateLiterals: true,
     }],
-    '@stylistic/js/quote-props': ['error', 'consistent-as-needed'],
-    '@stylistic/js/semi': 'error',
-    '@stylistic/js/no-extra-semi': 'error',
-    '@stylistic/js/object-curly-spacing': 'error',
-    '@stylistic/js/no-extra-parens': ['error', 'all', {
+    '@stylistic/quote-props': ['error', 'consistent-as-needed'],
+    '@stylistic/semi': 'error',
+    '@stylistic/no-extra-semi': 'error',
+    '@stylistic/object-curly-spacing': 'error',
+    '@stylistic/no-extra-parens': ['error', 'all', {
         enforceForSequenceExpressions: false,
     }],
-    '@stylistic/js/no-multi-spaces': 'error',
-    '@stylistic/js/no-trailing-spaces': ['error', {
+    '@stylistic/no-multi-spaces': 'error',
+    '@stylistic/no-trailing-spaces': ['error', {
         skipBlankLines: true,
     }],
-    '@stylistic/js/no-multiple-empty-lines': ['error', {
+    '@stylistic/no-multiple-empty-lines': ['error', {
         max: 1,
         maxBOF: 0,
     }],
-    '@stylistic/js/lines-between-class-members': 'off',
-    '@stylistic/js/linebreak-style': [
+    '@stylistic/lines-between-class-members': 'off',
+    '@stylistic/linebreak-style': [
         'error',
         'unix',
     ],
-    '@stylistic/js/padded-blocks': [
+    '@stylistic/padded-blocks': [
         'error',
         'never',
     ],
-    '@stylistic/js/padding-line-between-statements': [
+    '@stylistic/padding-line-between-statements': [
         'error',
         ...getPaddingExport(),
         ...getPaddingCjsExport(),
@@ -148,7 +148,7 @@ export default [{
     name: '@putout/eslint-config',
     rules,
     plugins: {
-        '@stylistic/js': stylisticJs,
+        '@stylistic': stylistic,
     },
     languageOptions: {
         ecmaVersion: 2025,
