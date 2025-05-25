@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     compare,
@@ -35,13 +33,13 @@ const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStrin
     value,
 });
 
-module.exports.report = () => 'Avoid duplicate keys';
+export const report = () => 'Avoid duplicate keys';
 
-module.exports.fix = ({path, newProperties}) => {
+export const fix = ({path, newProperties}) => {
     path.node.properties = newProperties;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     __object: (path) => {
         let is = false;
         const newProperties = [];

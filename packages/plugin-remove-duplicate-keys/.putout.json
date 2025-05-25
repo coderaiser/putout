@@ -3,5 +3,8 @@
         "*.md": {
             "remove-duplicate-keys": "off"
         }
+    },
+    "rules": {
+        "remove-duplicate-keys": "off"
     }
 }

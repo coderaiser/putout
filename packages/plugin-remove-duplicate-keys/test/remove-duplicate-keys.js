@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeDuplicateKeys from '../lib/remove-duplicate-keys.js';
 
-const {createTest} = require('@putout/test');
-const removeDuplicateKeys = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-duplicate-keys', removeDuplicateKeys],
     ],
