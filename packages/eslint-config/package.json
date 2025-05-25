@@ -42,7 +42,7 @@
     "@putout/test": "^13.0.0",
     "c8": "^10.0.0",
     "eslint-plugin-n": "^17.0.0",
-    "eslint-plugin-putout": "^26.0.0",
+    "eslint-plugin-putout": "^27.0.0",
     "madrun": "^11.0.0",
     "putout": "*"
   },
