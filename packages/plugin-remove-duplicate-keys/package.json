@@ -23,9 +23,7 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {
-    "fullstore": "^3.0.0"
-  },
+  "dependencies": {},
   "keywords": [
     "putout",
     "putout-plugin",

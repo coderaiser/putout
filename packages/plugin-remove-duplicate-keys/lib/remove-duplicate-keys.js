@@ -1,7 +1,7 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const fullstore = require('fullstore');
+
 const {
     compare,
     traverseProperties,
@@ -35,24 +35,17 @@ const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStrin
     value,
 });
 
-const store = fullstore([]);
-
 module.exports.report = () => 'Avoid duplicate keys';
 
-module.exports.replace = () => ({
-    __object: ({__object}) => {
-        __object.properties = store();
-        store([]);
-        
-        return __object;
-    },
-});
+module.exports.fix = ({path, newProperties}) => {
+    path.node.properties = newProperties;
+};
 
-module.exports.match = () => ({
-    __object: ({__object}, path) => {
+module.exports.traverse = ({push}) => ({
+    __object: (path) => {
         let is = false;
         const newProperties = [];
-        const {properties} = __object;
+        const {properties} = path.node;
         
         const reversed = properties
             .slice()
@@ -126,9 +119,10 @@ module.exports.match = () => ({
         }
         
         if (is)
-            store(newProperties);
-        
-        return is;
+            push({
+                path,
+                newProperties,
+            });
     },
 });
 
