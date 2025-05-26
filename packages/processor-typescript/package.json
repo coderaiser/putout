@@ -43,11 +43,11 @@
     "putout": "*"
   },
   "peerDependencies": {
-    "putout": ">=36"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
