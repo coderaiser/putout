@@ -1,13 +1,12 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => 'Avoid unreferenced variables';
+export const report = () => 'Avoid unreferenced variables';
 
-module.exports.fix = (path) => remove(path);
+export const fix = (path) => remove(path);
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'return __a'(path) {
         const arg = path.get('argument');
         
