@@ -1,3 +1,11 @@
+2025.05.27, v40.2.3
+
+feature:
+- b0a09ca23 putout: @putout/plugin-remove-unreferenced-variables v6.0.0
+- e298cc882 @putout/plugin-remove-unreferenced-variables: migrate to ESM
+- f19441af5 @putout/processor-typescript: drop support of 🐊 < 20
+- dd551a19e @putout/processor-typescript: ts-morph v26.0.0
+
 2025.05.25, v40.2.2
 
 feature:
