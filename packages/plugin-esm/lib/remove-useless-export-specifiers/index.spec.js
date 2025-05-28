@@ -34,3 +34,8 @@ test('esm: remove-useless-export-specifiers: no report: namespace', (t) => {
     t.noReport('namespace');
     t.end();
 });
+
+test('esm: remove-useless-export-specifiers: no report: declare', (t) => {
+    t.noReport('declare');
+    t.end();
+});

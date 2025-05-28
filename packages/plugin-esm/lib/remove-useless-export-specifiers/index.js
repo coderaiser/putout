@@ -4,6 +4,7 @@ const {remove} = operator;
 const {
     isExportNamedDeclaration,
     isTSModuleBlock,
+    isTSDeclareFunction,
 } = types;
 
 export const report = () => `Avoid useless export specifier`;
@@ -22,6 +23,11 @@ export const traverse = ({push}) => ({
             return;
         
         if (path.parentPath.node.source)
+            return;
+        
+        const prev = path.parentPath.getPrevSibling();
+        
+        if (isTSDeclareFunction(prev))
             return;
         
         const binding = scope.bindings[name];
