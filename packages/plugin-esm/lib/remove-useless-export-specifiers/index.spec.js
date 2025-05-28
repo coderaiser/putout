@@ -29,3 +29,8 @@ test('esm: remove-useless-export-specifiers: no report: export-from', (t) => {
     t.noReport('export-from');
     t.end();
 });
+
+test('esm: remove-useless-export-specifiers: no report: namespace', (t) => {
+    t.noReport('namespace');
+    t.end();
+});
