@@ -24,3 +24,8 @@ test('esm: remove-useless-export-specifiers: transform: apply-export-from', (t) 
     });
     t.end();
 });
+
+test('esm: remove-useless-export-specifiers: no report: export-from', (t) => {
+    t.noReport('export-from');
+    t.end();
+});

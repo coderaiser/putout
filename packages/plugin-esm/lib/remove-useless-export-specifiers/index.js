@@ -15,6 +15,9 @@ export const traverse = ({push}) => ({
         const {local} = node;
         const {name} = local;
         
+        if (path.parentPath.node.source)
+            return;
+        
         const binding = scope.bindings[name];
         
         if (binding) {
