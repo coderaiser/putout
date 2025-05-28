@@ -1,3 +1,9 @@
+2025.05.28, v40.2.4
+
+feature:
+- 0abe10a74 putout: @putout/plugin-remove-unreachable-code v3.0.0
+- 4a9697e84 @putout/plugin-remove-unreachable-code: migrate to ESM
+
 2025.05.27, v40.2.3
 
 feature:
