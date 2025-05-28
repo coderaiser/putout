@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-remove-unreachable-code",
   "version": "2.2.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to find and remove unreachable code",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unreachable-code#readme",
@@ -43,11 +43,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=37"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

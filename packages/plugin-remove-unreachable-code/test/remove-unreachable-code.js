@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUnreachableCode from '../lib/remove-unreachable-code.js';
 
-const {createTest} = require('@putout/test');
-const removeUnreachableCode = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-unreachable-code', removeUnreachableCode],
     ],

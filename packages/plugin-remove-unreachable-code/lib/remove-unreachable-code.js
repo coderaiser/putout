@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {remove} = operator;
 
 const {
@@ -11,13 +10,13 @@ const {
 
 const not = (fn) => (...a) => !fn(...a);
 
-module.exports.report = () => `Avoid unreachable code`;
+export const report = () => `Avoid unreachable code`;
 
-module.exports.fix = ({siblings}) => {
+export const fix = ({siblings}) => {
     siblings.map(remove);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'ReturnStatement|ThrowStatement'(path) {
         let nextPath = path;
         
