@@ -1,12 +1,11 @@
-import fullstore from 'fullstore';
 import {operator} from 'putout';
 
 const {replaceWithMultiple} = operator;
 
-const add = ({push, isImports, isExports}) => (path) => {
+const add = ({push, store}) => (path) => {
     const calleePath = path.get('callee');
     
-    if (!isImports() && !isExports())
+    if (!store('is-imports') && !store('is-exports'))
         return;
     
     const {id} = calleePath.node;
@@ -24,25 +23,21 @@ export const fix = (path) => {
     replaceWithMultiple(path, body);
 };
 
-export const traverse = ({push}) => {
-    const isExports = fullstore();
-    const isImports = fullstore();
-    
+export const traverse = ({push, store}) => {
     const addPath = add({
         push,
-        isImports,
-        isExports,
+        store,
     });
     
     return {
         'import __ from "__"'() {
-            isImports(true);
+            store('is-imports', true);
         },
         ExportNamedDeclaration() {
-            isExports(true);
+            store('is-exports', true);
         },
         ExportDefaultDeclaration() {
-            isExports(true);
+            store('is-exports', true);
         },
         '(async function __() {})()': (path) => {
             if (!isAsyncParent(path))

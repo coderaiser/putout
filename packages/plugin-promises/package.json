@@ -24,14 +24,12 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "fullstore": "^3.0.0"
   },
   "keywords": [
     "putout",
     "putout-plugin",
     "plugin",
-    "esm",
-    "commonjs"
+    "promises"
   ],
   "devDependencies": {
     "@putout/test": "^13.0.0",
