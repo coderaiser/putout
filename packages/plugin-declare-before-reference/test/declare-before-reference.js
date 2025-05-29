@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import {template, types} from 'putout';
 import * as putout from '@putout/plugin-putout';
 import * as tryCatch from '@putout/plugin-try-catch';
 import * as promises from '@putout/plugin-promises';
@@ -10,6 +11,8 @@ import * as tape from '@putout/plugin-tape';
 import * as removeUselessVariables from '@putout/plugin-remove-useless-variables';
 import * as removeUselessArguments from '@putout/plugin-remove-useless-arguments';
 import * as declare from '../lib/declare-before-reference.js';
+
+const {expressionStatement} = types;
 
 const addTEnd = tape.rules['add-t-end'];
 
@@ -143,6 +146,24 @@ test('plugin-declare-before-reference: transform: add-t-end', (t) => {
 
 test('plugin-declare-before-reference: no report: cross-reference', (t) => {
     t.noReport('cross-reference');
+    t.end();
+});
+
+test('plugin-declare-before-reference: transform: tape', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            'test(__a, (t) => __body)': ({__body}, path) => {
+                __body.body.push(expressionStatement(template.ast('t.end()')));
+                return path;
+            },
+        }),
+    };
+    
+    t.transform('tape', {
+        tape,
+        'tape/add-t-end': plugin,
+    });
     t.end();
 });
 

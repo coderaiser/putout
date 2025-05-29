@@ -124,11 +124,17 @@ export const traverse = ({push}) => ({
 });
 
 function getLoc(path) {
-    let loc = null;
+    let {node} = path;
+    let loc = {
+        start: {},
+        end: {},
+    };
+    
     let own = true;
     
-    while (!(loc = path.node.loc)) {
+    while (!(loc = node.loc)) {
         path = path.parentPath;
+        node = path.node || {};
         own = false;
     }
     
