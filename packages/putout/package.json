@@ -138,7 +138,7 @@
     "@putout/plugin-optional-chaining": "^2.0.0",
     "@putout/plugin-package-json": "^9.0.0",
     "@putout/plugin-parens": "^3.0.0",
-    "@putout/plugin-promises": "^17.0.0",
+    "@putout/plugin-promises": "^18.0.0",
     "@putout/plugin-putout": "^25.0.0",
     "@putout/plugin-putout-config": "^10.0.0",
     "@putout/plugin-regexp": "^11.0.0",
