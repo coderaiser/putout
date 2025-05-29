@@ -35,6 +35,9 @@ function check({__body}) {
     if (compare(last, 't.end()'))
         return false;
     
+    if (compare(last, 'const __a = t.end()'))
+        return false;
+    
     if (compare(last, 'await t.__(__args)'))
         return false;
     

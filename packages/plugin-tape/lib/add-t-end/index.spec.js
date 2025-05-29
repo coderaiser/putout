@@ -49,3 +49,8 @@ test('plugin-tape: add-t-end: no report: callback', (t) => {
     t.noReport('callback');
     t.end();
 });
+
+test('plugin-tape: add-t-end: no report: assign', (t) => {
+    t.noReport('assign');
+    t.end();
+});
