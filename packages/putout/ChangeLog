@@ -1,3 +1,13 @@
+2025.05.29, v40.2.6
+
+feature:
+- 1798c9f63 putout: @putout/plugin-promises v18.0.0
+- d29e9838b @putout/plugin-promises: drop support of 🐊 < 40
+- 972db92fe @putout/plugin-promises: apply-top-level-await: get rid of fullstore
+- 79ee8d323 @putout/plugin-esm: remove-useless-export-specifier: exclude declare
+- e0e8bcecc @putout/plugin-esm: remove-useless-export-specifier: exclude namespace
+- 0a18cadd7 @putout/plugin-esm: remove-useless-export-specifier: exclude source
+
 2025.05.28, v40.2.5
 
 feature:
