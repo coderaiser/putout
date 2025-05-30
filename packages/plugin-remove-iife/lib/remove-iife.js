@@ -1,13 +1,11 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWithMultiple} = operator;
 const {isReturnStatement} = types;
 
-module.exports.report = () => 'Avoid IIFE';
+export const report = () => 'Avoid IIFE';
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const {callee} = path.node;
     const {body} = callee.body;
     
@@ -26,7 +24,7 @@ module.exports.filter = (path) => {
     return !isReturnStatement(latest);
 };
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '((__args__a) => __f(__args__a))(__args__b)': '__f(__args__b)',
     '(() => __body)()': '__body',
     '(function() {})()': (vars, path) => {

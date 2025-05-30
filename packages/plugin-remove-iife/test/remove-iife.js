@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeIife from '../lib/remove-iife.js';
 
-const {createTest} = require('@putout/test');
-const removeIife = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-iife', removeIife],
     ],
