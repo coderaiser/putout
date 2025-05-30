@@ -1,3 +1,12 @@
+2025.05.30, v40.2.7
+
+feature:
+- eb80a0fa0 putout: @putout/plugin-remove-iife v5.0.0
+- 875961dcd @putout/plugin-remove-iife: migrate to ESM
+- db728bc9d @putout/plugin-tape: add-t-end: assign
+- c94e8788c @putout/plugin-declare-before-reference: no loc
+- 990085acd @putout/plugin-putout: convert-node-to-path-in-get-template-values: exclude getPrevSibling
+
 2025.05.29, v40.2.6
 
 feature:
