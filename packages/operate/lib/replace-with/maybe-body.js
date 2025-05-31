@@ -4,8 +4,8 @@ const {types} = require('@putout/babel');
 const {
     isStatement,
     isBlockStatement,
-    BlockStatement,
-    ExpressionStatement,
+    blockStatement,
+    expressionStatement,
 } = types;
 
 module.exports.maybeBody = (path, node) => {
@@ -16,8 +16,8 @@ module.exports.maybeBody = (path, node) => {
             currentPath: path,
         };
     
-    parentPath.node.body = BlockStatement([
-        ExpressionStatement(path.node),
+    parentPath.node.body = blockStatement([
+        expressionStatement(path.node),
     ]);
     
     return {

@@ -123,8 +123,21 @@ function parseBinaryExpression(path) {
     return [COMPUTED, fn(left, operator, right)];
 }
 
+function getReferences(path) {
+    const {referencesSet} = path.scope;
+    
+    if (!referencesSet)
+        return {};
+    
+    const entries = referencesSet.entries();
+    
+    return Object.fromEntries(entries);
+}
+
 function usedInAssignment(path) {
-    const [name] = Object.keys(path.scope.references);
+    const references = getReferences(path);
+    
+    const [name] = Object.keys(references);
     const binding = path.scope.bindings[name];
     
     if (!binding)

@@ -3,8 +3,8 @@
 const {types} = require('@putout/babel');
 const {
     isExpression,
-    ExpressionStatement,
     toStatement,
+    expressionStatement,
 } = types;
 
 module.exports.toExpression = (el) => {
@@ -18,7 +18,7 @@ module.exports.toExpression = (el) => {
         return el;
     
     if (isExpression(el))
-        return ExpressionStatement(el);
+        return expressionStatement(el);
     
     return toStatement(el);
 };

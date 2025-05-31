@@ -19,17 +19,17 @@ const {
 const fixture = readFixtures(__dirname);
 
 const {
-    BlockStatement,
-    ContinueStatement,
-    ReturnStatement,
-    ExpressionStatement,
-    Identifier,
-    StringLiteral,
-    SequenceExpression,
-    CallExpression,
-    ObjectExpression,
-    ObjectProperty,
-    DebuggerStatement,
+    debuggerStatement,
+    expressionStatement,
+    continueStatement,
+    identifier,
+    stringLiteral,
+    sequenceExpression,
+    callExpression,
+    objectExpression,
+    objectProperty,
+    returnStatement,
+    blockStatement,
 } = types;
 
 test('putout: operate: insertAfter', (t) => {
@@ -96,7 +96,7 @@ test('putout: operate: insertAfter: trailingComments', (t) => {
     
     traverse(ast, {
         ImportDeclaration(path) {
-            operate.insertAfter(path, DebuggerStatement());
+            operate.insertAfter(path, debuggerStatement());
         },
     });
     
@@ -203,8 +203,8 @@ test('putout: operate: replaceWithMultiple: for-of-return', (t) => {
     traverse(ast, {
         ReturnStatement(path) {
             operate.replaceWithMultiple(path, [
-                ExpressionStatement(path.node.argument),
-                ContinueStatement(),
+                expressionStatement(path.node.argument),
+                continueStatement(),
             ]);
         },
     });
@@ -221,7 +221,7 @@ test('putout: operate: replaceWithMultiple: for-of: empty return', (t) => {
     
     traverse(ast, {
         ReturnStatement(path) {
-            operate.replaceWithMultiple(path, [path.node.argument, ContinueStatement()]);
+            operate.replaceWithMultiple(path, [path.node.argument, continueStatement()]);
         },
     });
     
@@ -435,15 +435,15 @@ test('operate: replaceWithMultiple: to expressions', (t) => {
     traverse(ast, {
         VariableDeclaration(path) {
             operate.replaceWithMultiple(path, [
-                Identifier('hello'),
-                StringLiteral('world'),
-                SequenceExpression([
-                    Identifier('a'),
-                    Identifier('b'),
+                identifier('hello'),
+                stringLiteral('world'),
+                sequenceExpression([
+                    identifier('a'),
+                    identifier('b'),
                 ]),
-                CallExpression(Identifier('hello'), []),
-                ObjectExpression([
-                    ObjectProperty(StringLiteral('a'), StringLiteral('b')),
+                callExpression(identifier('hello'), []),
+                objectExpression([
+                    objectProperty(stringLiteral('a'), stringLiteral('b')),
                 ]),
             ]);
         },
@@ -471,8 +471,8 @@ test('operate: replaceWithMultiple: to expressions: ignore', (t) => {
     traverse(ast, {
         ObjectProperty(path) {
             operate.replaceWithMultiple(path, [
-                ObjectProperty(StringLiteral('a'), StringLiteral('b')),
-                ObjectProperty(StringLiteral('c'), StringLiteral('d')),
+                objectProperty(stringLiteral('a'), stringLiteral('b')),
+                objectProperty(stringLiteral('c'), stringLiteral('d')),
             ]);
             
             path.stop();
@@ -769,7 +769,7 @@ test('putout: operate: replaceWith: body of ArrowFunctionExpression: Expression 
     
     traverse(ast, {
         CallExpression(path) {
-            operate.replaceWith(path, ReturnStatement());
+            operate.replaceWith(path, returnStatement());
             path.stop();
         },
     });
@@ -785,7 +785,7 @@ test('putout: operate: replaceWith: body of ArrowFunctionExpression: Expression 
     
     traverse(ast, {
         CallExpression(path) {
-            operate.replaceWith(path, Identifier('hello'));
+            operate.replaceWith(path, identifier('hello'));
             path.stop();
         },
     });
@@ -802,7 +802,7 @@ test('putout: operate: replaceWithMultiple: body of ArrowFunctionExpression: Exp
     traverse(ast, {
         CallExpression(path) {
             operate.replaceWithMultiple(path, [
-                ReturnStatement(),
+                returnStatement(),
             ]);
             path.stop();
         },
@@ -819,7 +819,7 @@ test('putout: operate: replaceWith: body of ArrowFunctionExpression: BlockStatem
     
     traverse(ast, {
         BlockStatement(path) {
-            operate.replaceWith(path, BlockStatement([]));
+            operate.replaceWith(path, blockStatement([]));
             path.stop();
         },
     });

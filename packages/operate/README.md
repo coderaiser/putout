@@ -104,7 +104,7 @@ const {operator, types} = require('putout');
 const {replaceWith} = operator;
 const {ContinueStatement} = types;
 
-replaceWith(path, ContinueStatement());
+replaceWith(path, continueStatement());
 ```
 
 ### `replaceWithMultiple(path, nodes)`
@@ -114,12 +114,12 @@ const {operator, types} = require('putout');
 
 const {replaceWithMultiple} = operator;
 const {
-    ExpressionStatement,
-    ContinueStatement,
+    expressionStatement,
+    continueStatement,
 } = types;
 
 replaceWithMultiple(path, [
-    ExpressionStatement(path.node.argument),
+    expressionStatement(path.node.argument),
     ContinueStatement,
 ]);
 ```

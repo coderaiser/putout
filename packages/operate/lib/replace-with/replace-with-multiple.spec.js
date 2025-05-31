@@ -3,12 +3,13 @@
 const putout = require('putout');
 
 const {test} = require('supertape');
-const {types} = require('@putout/babel');
+
 const esm = require('@putout/plugin-esm');
+
 const {replaceWithMultiple} = require('./replace-with-multiple');
 const {readFixtures} = require('../../test/fixture');
-
-const {CallExpression} = types;
+const {types} = putout;
+const {callExpression} = types;
 const fixture = readFixtures(__dirname);
 const groupImportsBySource = esm.rules['group-imports-by-source'];
 
@@ -25,7 +26,7 @@ test('putout: operate: replace-with: replaceWithMultiple', (t) => {
                     const nodes = [];
                     
                     for (const element of elements) {
-                        nodes.push(CallExpression(callee, [element]));
+                        nodes.push(callExpression(callee, [element]));
                     }
                     
                     replaceWithMultiple(path, nodes);

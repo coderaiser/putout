@@ -28,11 +28,11 @@ const {
 } = require('./replace-with');
 
 const {
-    ExpressionStatement,
     matchesPattern,
     isImportDeclaration,
     isExportDeclaration,
     isStatement,
+    expressionStatement,
 } = types;
 
 module.exports.getBinding = getBinding;
@@ -68,7 +68,7 @@ module.exports.insertAfter = (path, node) => {
         delete node.trailingComments;
     
     if (isStatement(path) && !isStatement(node))
-        path.insertAfter(ExpressionStatement(node));
+        path.insertAfter(expressionStatement(node));
     else
         path.insertAfter(node);
     
