@@ -4,7 +4,6 @@ module.exports.fix = ({path}) => {
     removeFile(path);
 };
 
-
 module.exports.traverse = ({push, options}) => ({
     [__filesystem](path) {
         const {names} = options;

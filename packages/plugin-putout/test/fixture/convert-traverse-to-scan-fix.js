@@ -1,5 +1,7 @@
 import {operator} from 'putout';
+import {types} from 'putout';
 
+const {file} = types;
 const {findFile} = operator;
 const {__filesystem} = operator;
 const {removeFile} = operator;
