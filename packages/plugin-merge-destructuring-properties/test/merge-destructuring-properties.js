@@ -1,7 +1,10 @@
 import {createTest} from '@putout/test';
 import {rules} from '@putout/plugin-putout';
 import * as tape from '@putout/plugin-tape';
+import * as putout from '@putout/plugin-putout';
+import * as nodejs from '@putout/plugin-nodejs';
 import * as convert from '@putout/plugin-nodejs/convert-commonjs-to-esm';
+import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-commonjs';
 import * as mergeDestructuringProperties from '../lib/merge-destructuring-properties.js';
 
 const {declare} = rules;
@@ -88,6 +91,15 @@ test('plugin-merge-destructuring-properties: transform: tape', (t) => {
 test('plugin-merge-destructuring-properties: transform: exports', (t) => {
     t.transform('exports', {
         'node/convert-commonjs-to-esm': convert,
+    });
+    t.end();
+});
+
+test('plugin-merge-destructuring-properties: transform: putout-nodejs', (t) => {
+    t.transform('putout-nodejs', {
+        'putout/declare': putout.rules.declare,
+        'nodejs/convert-esm-to-commonjs': convertEsmToCommonjs,
+        'nodejs/group-require-by-id': nodejs.rules['group-require-by-id'],
     });
     t.end();
 });

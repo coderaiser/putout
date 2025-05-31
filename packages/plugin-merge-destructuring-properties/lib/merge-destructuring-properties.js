@@ -82,14 +82,14 @@ const addVariable = ({store}) => (path, node) => {
     }
     
     const currentPath = currentVar.path;
+    const {parentPath, type} = currentPath;
     
     if (path === currentPath || currentPath.removed)
         return;
     
-    if (currentPath.parentPath.removed)
+    if (parentPath.removed || !parentPath.node)
         return;
     
-    const {type} = currentPath;
     const name = RIGHT[type];
     
     if (isAssignmentExpression(currentPath) && compare(currentPath.node[name], node))
