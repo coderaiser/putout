@@ -42,7 +42,7 @@ export default ({use, declare, addParams}) => {
     const traverseArray = traverseArrayExpression(use);
     
     return {
-        'ObjectExpression|RecordExpression'(path) {
+        'ObjectExpression'(path) {
             traverseObj(path.get('properties'));
         },
         SequenceExpression(path) {
@@ -204,7 +204,7 @@ export default ({use, declare, addParams}) => {
                 use(rightPath, rightPath.node.name);
         },
         
-        'ArrayExpression|TupleExpression'(path) {
+        'ArrayExpression'(path) {
             const {elements} = path.node;
             
             for (const el of elements) {
