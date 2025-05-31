@@ -137,6 +137,7 @@ const ignore = [
     'trailingComments',
     'importKind',
     'exportKind',
+    '__putout_runner_replace',
 ];
 
 function superCompareIterate(node, template) {

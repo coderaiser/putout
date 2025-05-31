@@ -13,6 +13,8 @@ const {
     parseTemplate,
 } = require('..');
 
+const {assign} = Object;
+
 const {expressionStatement} = types;
 
 test('compare: base is string', (t) => {
@@ -1061,6 +1063,20 @@ test('compare: different literals', (t) => {
     const result = compare('/.tsx?$/.test(name) || /{tsx?}$/.test(name)', '__a || __a');
     
     t.notOk(result);
+    t.end();
+});
+
+test('compare: exclude: __putout_runner_replace', (t) => {
+    const node = template.ast(`import {operator} from 'putout'`);
+    const templateNode = template.ast.fresh(`import {operator} from 'putout'`);
+    
+    assign(templateNode, {
+        __putout_runner_replace: 'xx',
+    });
+    
+    const result = compare(node, templateNode);
+    
+    t.ok(result);
     t.end();
 });
 
