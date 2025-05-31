@@ -1,11 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertCommonjsToEsm from '@putout/plugin-nodejs/convert-commonjs-to-esm';
+import * as plugin from '../lib/extract-keywords-from-variables.js';
 
-const {createTest} = require('@putout/test');
-
-const convertCommonjsToEsm = require('@putout/plugin-nodejs/convert-commonjs-to-esm');
-const plugin = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['extract-keywords-from-variables', plugin],
     ],

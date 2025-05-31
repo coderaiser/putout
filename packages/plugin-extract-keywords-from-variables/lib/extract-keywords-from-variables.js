@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     ifStatement,
     importDefaultSpecifier,
@@ -72,14 +71,14 @@ const builders = {
     if: buildIf,
 };
 
-module.exports.report = ({name}) => `Extract '${name}' from variable`;
+export const report = ({name}) => `Extract '${name}' from variable`;
 
-module.exports.fix = ({name, path, nextPath}) => {
+export const fix = ({name, path, nextPath}) => {
     builders[name](nextPath, path);
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     VariableDeclarator(path) {
         const {name} = path.node.id;
         
