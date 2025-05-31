@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-generators",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin improves code related to generators",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-generators#readme",
@@ -44,11 +44,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=35"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

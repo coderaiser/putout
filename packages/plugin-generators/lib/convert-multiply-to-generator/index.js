@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     insertAfter,
@@ -11,9 +9,9 @@ const {
 const {isStatement} = types;
 const MULTIPLY = '__a * __b';
 
-module.exports.report = () => `Use 'if condition' instead of 'ternary expression'`;
+export const report = () => `Use 'if condition' instead of 'ternary expression'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const a = path.find(isStatement);
     const {__a, __b} = getTemplateValues(path, MULTIPLY);
     
@@ -22,7 +20,7 @@ module.exports.fix = (path) => {
     __b.generator = true;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [MULTIPLY]: (path) => {
         const rightPath = path.get('right');
         

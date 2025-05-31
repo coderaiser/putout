@@ -1,26 +1,22 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
-const {remove, replaceWith} = operator;
+const {replaceWith} = operator;
 const {yieldExpression} = types;
 
 const DELEGATE = true;
 
-module.exports.report = () => `Add missing '*' in generator function`;
+export const report = () => `Add missing '*' in generator function`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const fnPath = path.getFunctionParent();
     
     fnPath.node.generator = true;
     
     if (path.parentPath.isExpressionStatement()) {
         const next = path.parentPath.getNextSibling();
-        const {expression} = next.node;
         
-        replaceWith(path, yieldExpression(expression));
-        remove(next);
-        
-        return;
+        if (!next.node)
+            return;
     }
     
     const {parentPath} = path;
@@ -29,7 +25,13 @@ module.exports.fix = (path) => {
     replaceWith(parentPath, yieldExpression(right, DELEGATE));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
+    YieldExpression(path) {
+        const fnPath = path.getFunctionParent();
+        
+        if (!fnPath.node.generator)
+            push(path);
+    },
     Identifier(path) {
         if (path.node.name !== 'yield')
             return;
@@ -38,10 +40,5 @@ module.exports.traverse = ({push}) => ({
             push(path);
             return;
         }
-        
-        if (!path.parentPath.isExpressionStatement())
-            return;
-        
-        push(path);
     },
 });

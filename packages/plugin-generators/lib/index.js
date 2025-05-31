@@ -1,9 +1,7 @@
-'use strict';
+import * as addMissingStar from './add-missing-star/index.js';
+import * as convertMultiplyToGenerator from './convert-multiply-to-generator/index.js';
 
-const addMissingStar = require('./add-missing-star');
-const convertMultiplyToGenerator = require('./convert-multiply-to-generator');
-
-module.exports.rules = {
+export const rules = {
     'add-missing-star': addMissingStar,
     'convert-multiply-to-generator': convertMultiplyToGenerator,
 };
