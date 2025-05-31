@@ -7,10 +7,7 @@
   "homepage": "https://github.com/coderaiser/putout/tree/v38.5.7/packages/plugin-assignment#readme",
   "main": "lib/index.js",
   "exports": {
-    ".": "./lib/index.js",
-    "./strict-mode": "./lib/strict-mode/index.js",
-    "./convert-esm-to-commonjs": "./lib/convert-esm-to-commonjs/index.js",
-    "./convert-commonjs-to-esm": "./lib/convert-commonjs-to-esm.js"
+    ".": "./lib/index.js"
   },
   "release": false,
   "tag": false,
