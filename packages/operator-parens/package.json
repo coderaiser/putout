@@ -49,6 +49,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@putout/babel": "^3.0.0"
+    "@putout/babel": "^4.0.1"
   }
 }
