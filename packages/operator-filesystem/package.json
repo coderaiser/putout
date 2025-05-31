@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@putout/babel": "^4.0.1",
-    "@putout/operate": "^13.0.0",
+    "@putout/operate": "^14.0.0",
     "fullstore": "^3.0.0",
     "try-catch": "^3.0.1"
   },
