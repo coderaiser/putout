@@ -96,7 +96,7 @@
     "@putout/plugin-apply-shorthand-properties": "^6.0.0",
     "@putout/plugin-apply-starts-with": "^1.0.0",
     "@putout/plugin-apply-template-literals": "^4.0.0",
-    "@putout/plugin-assignment": "^1.0.2",
+    "@putout/plugin-assignment": "^2.0.0",
     "@putout/plugin-browserlist": "^2.0.0",
     "@putout/plugin-conditions": "^8.0.0",
     "@putout/plugin-convert-apply-to-spread": "^4.0.0",
