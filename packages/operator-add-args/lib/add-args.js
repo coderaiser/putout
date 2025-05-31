@@ -4,13 +4,13 @@ const {compareAny} = require('@putout/compare');
 const {template} = require('@putout/engine-parser');
 const {types} = require('@putout/babel');
 const {
-    ObjectPattern,
-    ObjectProperty,
     isBlockStatement,
     isFunction,
     isLabeledStatement,
     isObjectPattern,
     isCallExpression,
+    objectPattern,
+    objectProperty,
 } = types;
 
 const {entries} = Object;
@@ -103,7 +103,7 @@ const traverse = (args) => ({push, options}) => {
                     declaration,
                     path,
                     params,
-                    pattern: ObjectPattern([]),
+                    pattern: objectPattern([]),
                 });
             }
         },
@@ -113,12 +113,12 @@ const traverse = (args) => ({push, options}) => {
 function createProperty(node) {
     if (!isLabeledStatement(node)) {
         const {expression} = node;
-        return ObjectProperty(expression, expression, !COMPUTED, SHORTHAND);
+        return objectProperty(expression, expression, !COMPUTED, SHORTHAND);
     }
     
     const {label, body} = node;
     
-    return ObjectProperty(label, body.expression, !COMPUTED, SHORTHAND);
+    return objectProperty(label, body.expression, !COMPUTED, SHORTHAND);
 }
 
 function getObjectPattern(params) {
