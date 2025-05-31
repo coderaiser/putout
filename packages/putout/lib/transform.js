@@ -2,7 +2,7 @@
 
 const tryCatch = require('try-catch');
 
-const {validateRules} = require('@putout/engine-loader');
+const {validateRulesRelations} = require('@putout/engine-loader');
 const {defaultOptions} = require('./default-options');
 const {cutShebang} = require('./shebang');
 const parseError = require('./parse-error');
@@ -33,8 +33,7 @@ module.exports.transform = (ast, source, opts) => {
     } = opts;
     
     const [, shebang] = cutShebang(source);
-    
-    const [validationError] = tryCatch(validateRules, {
+    const [validationError] = tryCatch(validateRulesRelations, {
         rules,
         pluginNames,
     });
@@ -76,7 +75,7 @@ module.exports.transformAsync = async (ast, source, opts) => {
     
     const [, shebang] = cutShebang(source);
     
-    const [validationError] = tryCatch(validateRules, {
+    const [validationError] = tryCatch(validateRulesRelations, {
         rules,
         pluginNames,
     });

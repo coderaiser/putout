@@ -3,7 +3,7 @@
 const tryCatch = require('try-catch');
 const test = require('supertape');
 const {loadPlugins} = require('.');
-const {validateRules} = require('./index');
+const {validateRulesRelations} = require('./index');
 
 test('engine-loader: load-plugins', (t) => {
     const result = loadPlugins({
@@ -25,7 +25,7 @@ test('engine-loader: validate-rules: exports', (t) => {
         'estrace/trace': 'off',
     };
     
-    const [error] = tryCatch(validateRules, {
+    const [error] = tryCatch(validateRulesRelations, {
         pluginNames,
         rules,
     });
