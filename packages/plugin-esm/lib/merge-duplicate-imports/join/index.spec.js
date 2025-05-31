@@ -98,3 +98,11 @@ test('plugin-merge-duplicate-imports: join: transform: duplicate-specifier', (t)
     });
     t.end();
 });
+
+test('plugin-merge-duplicate-imports: join: transform: convert-commonjs-to-esm', (t) => {
+    t.transform('convert-commonjs-to-esm', {
+        'nodejs/convert-commonjs-to-esm': convertCommonjsToEsm,
+        'putout/declare': putoutPlugin.rules.declare,
+    });
+    t.end();
+});

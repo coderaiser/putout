@@ -1,6 +1,6 @@
 import {types, operator} from 'putout';
 
-const {remove} = operator;
+const {remove, compareAny} = operator;
 const {values} = Object;
 
 const {
@@ -57,7 +57,6 @@ function processImports(push, imports) {
             continue;
         
         const count = importDefaults.get(value) || 0;
-        
         const importDefaultCount = count + specifiers.filter(isImportDefaultSpecifier).length;
         
         importDefaults.set(value, importDefaultCount);
@@ -82,6 +81,9 @@ function processImports(push, imports) {
             continue;
         
         const [path, ...imports] = list;
+        
+        if (compareAny(path, imports))
+            continue;
         
         push({
             path,
