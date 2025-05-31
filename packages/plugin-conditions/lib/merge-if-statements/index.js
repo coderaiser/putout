@@ -1,13 +1,11 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith} = operator;
 const {logicalExpression} = types;
 
-module.exports.report = () => `Merge 'if' statements`;
+export const report = () => `Merge 'if' statements`;
 
-module.exports.fix = ({path, consequentPath}) => {
+export const fix = ({path, consequentPath}) => {
     const testPath = path.get('test');
     const left = testPath.node;
     const right = consequentPath.node.test;
@@ -37,7 +35,7 @@ const getConsequent = (path) => {
     return null;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'if (__) __': onIfStatement({
         push,
     }),

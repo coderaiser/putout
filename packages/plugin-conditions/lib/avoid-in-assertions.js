@@ -1,12 +1,11 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isBinaryExpression,
     isJSXExpressionContainer,
 } = types;
 
-module.exports.createAvoidInAssertions = (value) => ({
+export const createAvoidInAssertions = (value) => ({
     report: createReport(value),
     match: createMatch(value),
     replace: createReplace(value),

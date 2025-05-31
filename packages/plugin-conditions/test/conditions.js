@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as conditions from '../lib/index.js';
 
-const {createTest} = require('@putout/test');
-const conditions = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['conditions', conditions],
     ],

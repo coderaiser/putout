@@ -1,7 +1,5 @@
-'use strict';
-
-const {runInNewContext} = require('node:vm');
-const {types, operator} = require('putout');
+import {runInNewContext} from 'node:vm';
+import {types, operator} from 'putout';
 
 const {
     replaceWith,
@@ -11,9 +9,9 @@ const {
 
 const {isIdentifier} = types;
 
-module.exports.report = () => 'Avoid constant conditions';
+export const report = () => 'Avoid constant conditions';
 
-module.exports.fix = ({path, result}) => {
+export const fix = ({path, result}) => {
     const {alternate, consequent} = path.node;
     
     const {body = [consequent]} = consequent;
@@ -27,7 +25,7 @@ module.exports.fix = ({path, result}) => {
     replaceWith(path, alternate);
 };
 
-module.exports.traverse = ({push, generate}) => ({
+export const traverse = ({push, generate}) => ({
     IfStatement(path) {
         const testPath = path.get('test');
         

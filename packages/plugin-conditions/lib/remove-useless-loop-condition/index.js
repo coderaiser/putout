@@ -1,6 +1,5 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {
     getTemplateValues,
     compare,
@@ -8,9 +7,9 @@ const {
 
 const LOOP = 'while (__c = __d) __body';
 
-module.exports.report = () => `Avoid useless loop condition`;
+export const report = () => `Avoid useless loop condition`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'if (!__a) __b': ({__a}, path) => {
         const {parentPath} = path.parentPath;
         
@@ -23,6 +22,6 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'if (!__a) __b': '',
 });

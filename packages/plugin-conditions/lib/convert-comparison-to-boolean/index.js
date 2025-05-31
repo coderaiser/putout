@@ -1,18 +1,16 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith, compute} = operator;
 
 const {isIdentifier, booleanLiteral} = types;
 
-module.exports.report = () => 'Avoid constant conditions';
+export const report = () => 'Avoid constant conditions';
 
-module.exports.fix = ({path, value}) => {
+export const fix = ({path, value}) => {
     replaceWith(path, booleanLiteral(value));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     BinaryExpression(path) {
         const {
             left,

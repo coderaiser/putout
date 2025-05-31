@@ -1,25 +1,23 @@
-'use strict';
+import * as applyConsistentBlocks from './apply-consistent-blocks/index.js';
+import * as applyComparisonOrder from './apply-comparison-order/index.js';
+import * as applyIf from './apply-if/index.js';
+import * as evaluate from './evaluate/index.js';
+import * as convertComparisonToBoolean from './convert-comparison-to-boolean/index.js';
+import * as convertEqualToStrictEqual from './convert-equal-to-strict-equal/index.js';
+import * as mergeIfStatements from './merge-if-statements/index.js';
+import * as removeBoolean from './remove-boolean/index.js';
+import removeZero from './remove-zero/index.js';
+import * as removeUselessElse from './remove-useless-else/index.js';
+import * as simplify from './simplify/index.js';
+import * as removeSameValuesCondition from './remove-same-values-condition/index.js';
+import * as addReturn from './add-return/index.js';
+import * as convertArrowToCondition from './convert-arrow-to-condition/index.js';
+import * as reverseCondition from './reverse-condition/index.js';
+import * as wrapWithBlock from './wrap-with-block/index.js';
+import * as removeUselessLoopCondition from './remove-useless-loop-condition/index.js';
+import * as mergeIfWithElse from './merge-if-with-else/index.js';
 
-const applyConsistentBlocks = require('./apply-consistent-blocks');
-const applyComparisonOrder = require('./apply-comparison-order');
-const applyIf = require('./apply-if');
-const evaluate = require('./evaluate');
-const convertComparisonToBoolean = require('./convert-comparison-to-boolean');
-const convertEqualToStrictEqual = require('./convert-equal-to-strict-equal');
-const mergeIfStatements = require('./merge-if-statements');
-const removeBoolean = require('./remove-boolean');
-const removeZero = require('./remove-zero');
-const removeUselessElse = require('./remove-useless-else');
-const simplify = require('./simplify');
-const removeSameValuesCondition = require('./remove-same-values-condition');
-const addReturn = require('./add-return');
-const convertArrowToCondition = require('./convert-arrow-to-condition');
-const reverseCondition = require('./reverse-condition');
-const wrapWithBlock = require('./wrap-with-block');
-const removeUselessLoopCondition = require('./remove-useless-loop-condition');
-const mergeIfWithElse = require('./merge-if-with-else');
-
-module.exports.rules = {
+export const rules = {
     'apply-comparison-order': applyComparisonOrder,
     'apply-consistent-blocks': applyConsistentBlocks,
     'apply-if': applyIf,

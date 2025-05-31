@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as applyIf from './index.js';
 
-const {createTest} = require('@putout/test');
-const applyIf = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['conditions/apply-if-condition', applyIf],
     ],

@@ -1,14 +1,11 @@
-'use strict';
-
-const {createTest} = require('@putout/test');
-
-const forOf = require('@putout/plugin-for-of');
-const convertComparisonToBoolean = require('.');
+import {createTest} from '@putout/test';
+import * as forOf from '@putout/plugin-for-of';
+import * as convertComparisonToBoolean from './index.js';
 
 const convertForEachToForOf = forOf.rules['for-each'];
 const removeUselessVariables = forOf.rules['remove-useless-variables'];
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['conditions/convert-comparison-to-boolean', convertComparisonToBoolean],
     ],

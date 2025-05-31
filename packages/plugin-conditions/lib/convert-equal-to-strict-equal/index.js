@@ -1,13 +1,11 @@
-'use strict';
+export const report = () => `Use strict equal ('===') instead of equal ('==')`;
 
-module.exports.report = () => `Use strict equal ('===') instead of equal ('==')`;
-
-module.exports.exclude = () => [
+export const exclude = () => [
     '__ == null',
     '__ != null',
 ];
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a == __b': '__a === __b',
     '__a != __b': '__a !== __b',
 });

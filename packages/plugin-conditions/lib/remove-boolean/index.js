@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'Avoid boolean in assertions';
 
-module.exports.report = () => 'Avoid boolean in assertions';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'return __a === true': 'return Boolean(__a)',
     'return __a == true': 'return Boolean(__a)',
     'const __a = __b === true': 'const __a = __b',

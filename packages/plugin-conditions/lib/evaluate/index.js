@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'Avoid useless conditions';
 
-module.exports.report = () => 'Avoid useless conditions';
-
-module.exports.match = () => ({
+export const match = () => ({
     'if (__a) __b': (vars, path) => {
         const testPath = path.get('test');
         const {confident} = testPath.evaluate();
@@ -11,7 +9,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'if (__a) __b': (vars, path) => {
         const testPath = path.get('test');
         const {value} = testPath.evaluate();

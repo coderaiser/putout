@@ -1,15 +1,15 @@
-'use strict';
+import {types} from 'putout';
 
 const {
     isReturnStatement,
     isBlockStatement,
     isContinueStatement,
     isBreakStatement,
-} = require('putout').types;
+} = types;
 
-module.exports.report = () => `Avoid useless 'else'`;
+export const report = () => `Avoid useless 'else'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'if (__a) __b; else __c': ({__b}) => {
         if (!isBlockStatement(__b))
             return isReturnLike(__b);
@@ -20,7 +20,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'if (__a) __b; else __c': `{
         if (__a) __b;
         __c;

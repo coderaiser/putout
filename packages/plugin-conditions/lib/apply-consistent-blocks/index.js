@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {replaceWith} = operator;
 const {
     isBlockStatement,
@@ -8,9 +7,9 @@ const {
     blockStatement,
 } = types;
 
-module.exports.report = () => `Use consistent blocks`;
+export const report = () => `Use consistent blocks`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const paths = getAllNodes(path);
     
     if (isAllBlocks(paths))
@@ -51,11 +50,11 @@ function isAllBlocks(paths) {
     return false;
 }
 
-module.exports.include = () => [
+export const include = () => [
     'IfStatement',
 ];
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const {consequent, alternate} = path.node;
     
     if (!alternate && !consequent.body?.length)

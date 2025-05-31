@@ -1,12 +1,12 @@
-'use strict';
+import {operator} from 'putout';
 
-module.exports.report = ({leftPath, rightPath}) => {
+const {replaceWith} = operator;
+
+export const report = ({leftPath, rightPath}) => {
     return `Swap '${leftPath.toString()}' with '${rightPath}'`;
 };
 
-const {replaceWith} = require('putout').operator;
-
-module.exports.fix = ({path, leftPath, rightPath, operator}) => {
+export const fix = ({path, leftPath, rightPath, operator}) => {
     const leftNode = leftPath.node;
     const rightNode = rightPath.node;
     
@@ -16,7 +16,7 @@ module.exports.fix = ({path, leftPath, rightPath, operator}) => {
     path.node.operator = convertOperator(operator);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     BinaryExpression: (path) => {
         const {operator} = path.node;
         

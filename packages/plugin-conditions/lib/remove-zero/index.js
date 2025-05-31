@@ -1,5 +1,3 @@
-'use strict';
+import {createAvoidInAssertions} from '../avoid-in-assertions.js';
 
-const {createAvoidInAssertions} = require('../avoid-in-assertions');
-
-module.exports = createAvoidInAssertions(0);
+export default createAvoidInAssertions(0);

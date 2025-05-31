@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove, replaceWith} = operator;
 
-module.exports.report = () => 'Avoid empty statement in if condition';
+export const report = () => 'Avoid empty statement in if condition';
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const nextPath = path.getNextSibling();
     
     if (!nextPath.node)
@@ -14,11 +13,11 @@ module.exports.filter = (path) => {
     return path.get('consequent').isEmptyStatement();
 };
 
-module.exports.include = () => [
+export const include = () => [
     'IfStatement',
 ];
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const nextPath = path.getNextSibling();
     const consequentPath = path.get('consequent');
     

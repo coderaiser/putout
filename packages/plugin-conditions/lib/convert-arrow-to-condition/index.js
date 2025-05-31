@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Use 'condition' instead of 'arrow function'`;
 
-module.exports.report = () => `Use 'condition' instead of 'arrow function'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'if (__a => __b) __c': 'if (__a >= __b) __c',
 });

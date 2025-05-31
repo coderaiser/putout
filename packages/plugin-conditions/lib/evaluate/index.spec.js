@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as evaluate from './index.js';
 
-const {createTest} = require('@putout/test');
-const evaluate = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['conditions/evaluate', evaluate],
     ],

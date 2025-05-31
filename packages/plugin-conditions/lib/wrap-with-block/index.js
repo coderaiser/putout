@@ -1,13 +1,11 @@
-'use strict';
+export const report = () => `Lexical declaration cannot appear in single-statement-context`;
 
-module.exports.report = () => `Lexical declaration cannot appear in single-statement-context`;
-
-module.exports.match = () => ({
+export const match = () => ({
     'const __a = __b': (vars, path) => {
         return path.parentPath.isIfStatement();
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __a = __b': '{const __a = __b}',
 });

@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeBoolean from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeBoolean = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['conditions/remove-boolean', removeBoolean],
     ],
