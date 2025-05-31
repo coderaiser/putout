@@ -2,7 +2,7 @@
 
 const {types} = require('@putout/babel');
 const {traverseProperties} = require('@putout/operate');
-const {StringLiteral} = types;
+const {stringLiteral} = types;
 const getValue = ({value}) => value;
 
 module.exports.ignore = (type, {name, property, list}) => {
@@ -68,7 +68,7 @@ const createReplace = ({type, property, collector, list}) => ({options}) => {
             
             for (const name of newNames) {
                 if (!list.includes(name))
-                    elements.push(StringLiteral(name));
+                    elements.push(stringLiteral(name));
             }
             
             return path;

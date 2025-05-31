@@ -14,9 +14,9 @@ const noop = () => {};
 const {print, types} = putout;
 
 const {
-    StringLiteral,
-    ReturnStatement,
     isStringLiteral,
+    stringLiteral,
+    returnStatement,
 } = types;
 
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
@@ -292,7 +292,7 @@ test('putout: runner: replace: same function: should produce same result', (t) =
     
     const push = (pattern) => {
         const fn = ({__a}, path) => {
-            __a.elements.push(StringLiteral(pattern));
+            __a.elements.push(stringLiteral(pattern));
             return path;
         };
         
@@ -730,7 +730,7 @@ test('putout: runner: replace: jsx: attribute', (t) => {
         report: () => '',
         replace: () => ({
             [from]: ({__b}) => {
-                return StringLiteral(__b.value);
+                return stringLiteral(__b.value);
             },
         }),
     };
@@ -972,7 +972,7 @@ test('putout: runner: replace: callstack', (t) => {
                 
                 const {argument} = __a;
                 
-                return ReturnStatement(argument);
+                return returnStatement(argument);
             },
         }),
     };

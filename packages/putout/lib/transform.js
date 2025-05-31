@@ -33,6 +33,7 @@ module.exports.transform = (ast, source, opts) => {
     } = opts;
     
     const [, shebang] = cutShebang(source);
+    
     const [validationError] = tryCatch(validateRulesRelations, {
         rules,
         pluginNames,
