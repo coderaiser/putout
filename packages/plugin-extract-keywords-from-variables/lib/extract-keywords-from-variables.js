@@ -14,6 +14,7 @@ const {
     isAssignmentExpression,
     isExportNamedDeclaration,
     isIdentifier,
+    isImportDeclaration,
     isMemberExpression,
     isBlockStatement,
     arrowFunctionExpression,
@@ -127,7 +128,12 @@ module.exports.traverse = ({push}) => ({
         if (isExportDeclaration(path.parentPath.parentPath)) {
             const nextPath = path.parentPath.parentPath.getNextSibling();
             
-            if (isBlockStatement(nextPath))
+            if (!isBlockStatement(nextPath))
+                return;
+            
+            const count = nextPath.node.body.filter(isImportDeclaration).length;
+            
+            if (!count)
                 push({
                     name: kind,
                     path,

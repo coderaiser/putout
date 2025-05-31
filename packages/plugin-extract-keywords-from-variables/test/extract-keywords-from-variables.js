@@ -1,6 +1,8 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+
+const convertCommonjsToEsm = require('@putout/plugin-nodejs/convert-commonjs-to-esm');
 const plugin = require('..');
 
 const test = createTest(__dirname, {
@@ -61,6 +63,13 @@ test('putout: extract-keywords-from-variables: transform: member', (t) => {
 
 test('putout: extract-keywords-from-variables: transform: arrow', (t) => {
     t.transform('arrow');
+    t.end();
+});
+
+test('putout: extract-keywords-from-variables: transform: convert-commonjs-to-esm', (t) => {
+    t.transform('convert-commonjs-to-esm', {
+        convertCommonjsToEsm,
+    });
     t.end();
 });
 
