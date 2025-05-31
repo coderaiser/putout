@@ -1,14 +1,13 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => 'Avoid useless empty static blocks';
+export const report = () => 'Avoid useless empty static blocks';
 
-module.exports.fix = (path) => remove(path);
+export const fix = (path) => remove(path);
 
-module.exports.filter = (path) => !path.node.body.length;
+export const filter = (path) => !path.node.body.length;
 
-module.exports.include = () => [
+export const include = () => [
     'StaticBlock',
 ];

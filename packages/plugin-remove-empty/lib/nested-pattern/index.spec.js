@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeNestedPattern from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeNestedPattern = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-empty/nested-pattern', removeNestedPattern],
     ],

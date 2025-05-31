@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {replaceWith, remove} = operator;
 
@@ -17,9 +15,9 @@ const {
     isProgram,
 } = types;
 
-module.exports.report = () => 'Avoid useless empty blocks';
+export const report = () => 'Avoid useless empty blocks';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const alternatePath = path.get('alternate');
     const testPath = path.get('test');
     const {alternate} = path.node;
@@ -55,7 +53,7 @@ module.exports.fix = (path) => {
     replaceWith(testPath, unaryExpression('!', testPath.node));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     BlockStatement(path) {
         const {node, parentPath} = path;
         

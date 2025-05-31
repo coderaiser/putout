@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const isNull = (a) => !a && typeof a === 'object';
 
 const {
@@ -8,9 +7,9 @@ const {
     isArrayPattern,
 } = types;
 
-module.exports.report = () => 'Avoid empty patterns';
+export const report = () => 'Avoid empty patterns';
 
-module.exports.match = () => ({
+export const match = () => ({
     'for (const __array of __a) __body': checkArray,
     '(__array) => __a': check,
     'const __array = __': check,
@@ -23,7 +22,7 @@ module.exports.match = () => ({
     'async (__args) => __a': checkArgs,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'for (const __array of __a) __body': replaceArray,
     'const __array = __': '',
     'let __array = __': '',

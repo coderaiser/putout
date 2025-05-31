@@ -1,11 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
+import * as removeEmptyBlock from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
-const removeEmptyBlock = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-empty-block', removeEmptyBlock],
     ],

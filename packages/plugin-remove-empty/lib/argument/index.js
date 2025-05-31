@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     isObjectPattern,
     isArrayPattern,
@@ -8,13 +7,13 @@ const {
 
 const {remove} = operator;
 
-module.exports.report = () => 'Avoid empty destructuring argument';
+export const report = () => 'Avoid empty destructuring argument';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     Function: search({
         push,
     }),

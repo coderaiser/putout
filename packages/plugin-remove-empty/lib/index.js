@@ -1,12 +1,10 @@
-'use strict';
+import * as block from './block/index.js';
+import * as staticBlock from './static-block/index.js';
+import * as pattern from './pattern/index.js';
+import * as nestedPattern from './nested-pattern/index.js';
+import * as argument from './argument/index.js';
 
-const block = require('./block');
-const staticBlock = require('./static-block');
-const pattern = require('./pattern');
-const nestedPattern = require('./nested-pattern');
-const argument = require('./argument');
-
-module.exports.rules = {
+export const rules = {
     block,
     'static-block': staticBlock,
     pattern,
