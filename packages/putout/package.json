@@ -147,7 +147,7 @@
     "@putout/plugin-remove-debugger": "^7.0.0",
     "@putout/plugin-remove-duplicate-case": "^3.0.0",
     "@putout/plugin-remove-duplicate-keys": "^8.0.0",
-    "@putout/plugin-remove-empty": "^14.0.0",
+    "@putout/plugin-remove-empty": "^15.0.0",
     "@putout/plugin-remove-iife": "^5.0.0",
     "@putout/plugin-remove-nested-blocks": "^9.0.0",
     "@putout/plugin-remove-unreachable-code": "^3.0.0",
