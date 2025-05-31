@@ -3,10 +3,9 @@
 const {test, stub} = require('supertape');
 
 const mockRequire = require('mock-require');
-const {Identifier} = require('putout').types;
-
+const {types} = require('putout');
 const {_parseValue} = require('./log');
-
+const {identifier} = types;
 const {assign} = Object;
 
 const {reRequire, stopAll} = mockRequire;
@@ -46,7 +45,7 @@ test('putout: compare: run-plugins: template: log: array', (t) => {
     
     const log = reRequire('./log');
     
-    log([Identifier('hello')], [Identifier('world')]);
+    log([identifier('hello')], [identifier('world')]);
     const expected = `Identifier: ["hello"] = Identifier: ["world"]`;
     
     stopAll();
@@ -68,7 +67,7 @@ test('putout: compare: log: object', (t) => {
     
     const log = reRequire('./log');
     
-    log(Identifier('hello'), Identifier('world'));
+    log(identifier('hello'), identifier('world'));
     const expected = `Identifier: "hello" = Identifier: "world"`;
     
     stopAll();

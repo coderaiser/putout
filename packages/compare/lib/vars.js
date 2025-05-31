@@ -27,7 +27,7 @@ const {
     isJSXAttribute,
     isStringLiteral,
     isTemplateLiteral,
-    TemplateElement,
+    templateElement,
 } = types;
 
 const {extractExpression} = template;
@@ -154,7 +154,7 @@ function setValues({waysTo, values, path}) {
             if (isStringLiteral(values[name]) && isTemplateLiteral(node)) {
                 const {value} = values[name];
                 
-                const element = TemplateElement({
+                const element = templateElement({
                     raw: makeRaw(value),
                 });
                 

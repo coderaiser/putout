@@ -13,7 +13,7 @@ const {
     parseTemplate,
 } = require('..');
 
-const {ExpressionStatement} = types;
+const {expressionStatement} = types;
 
 test('compare: base is string', (t) => {
     const a = template.ast('const a = "hello"');
@@ -749,7 +749,7 @@ test('compare: undefined', (t) => {
 
 test('compare: member expression', (t) => {
     const node = template.ast('expect(root.toSource()).to.equal(`hello`)');
-    const result = compare(ExpressionStatement(node), 'expect(root.toSource()).to.equal(__d)');
+    const result = compare(expressionStatement(node), 'expect(root.toSource()).to.equal(__d)');
     
     t.ok(result);
     t.end();

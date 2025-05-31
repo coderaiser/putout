@@ -14,9 +14,9 @@ const noop = () => {};
 const {types, generate} = putout;
 
 const {
-    RegExpLiteral,
-    StringLiteral,
     isExpression,
+    stringLiteral,
+    regExpLiteral,
 } = types;
 
 test('putout: compare: vars: getTemplateValues', (t) => {
@@ -541,7 +541,7 @@ test('putout: compare: vars: regexp', (t) => {
                 const {pattern} = __b;
                 const regExpPath = path.get('arguments.0');
                 
-                regExpPath.replaceWith(StringLiteral(pattern));
+                regExpPath.replaceWith(stringLiteral(pattern));
                 
                 return path;
             },
@@ -590,7 +590,7 @@ test('putout: compare: vars: "__a"', (t) => {
                 const value = __b.raw.slice(1, -1);
                 
                 const regexp = {
-                    ...RegExpLiteral('xx', 'g'),
+                    ...regExpLiteral('xx', 'g'),
                     extra: {
                         raw: `/${escape(value)}/g`,
                     },
