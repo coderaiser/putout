@@ -15,7 +15,6 @@ const {readFixtures} = require('./fixture');
 const {traverse} = putout;
 
 const fixture = readFixtures([
-    'babel-record',
     'export-default-declaration',
     'export-default-declaration-fix',
     'debugger',
@@ -38,8 +37,6 @@ const fixture = readFixtures([
     'jsx-not-react',
     'printer-babel',
     'printer-babel-fix',
-    'record',
-    'recast-record',
     'strict-mode',
     'strict-mode-fix',
     'parens-typescript',
@@ -261,36 +258,6 @@ test('putout: parser: jsx: not react', (t) => {
     const [error] = tryCatch(parse, fixture.jsxNotReact);
     
     t.notOk(error);
-    t.end();
-});
-
-test('putout: parser: babel: record', (t) => {
-    const node = parse(fixture.babelRecord);
-    const code = print(node, {
-        printer: 'babel',
-    });
-    
-    const expected = fixture.babelRecord;
-    
-    t.equal(`${code}\n`, expected);
-    t.end();
-});
-
-test('putout: parser: recast: record: print', (t) => {
-    const node = parse(fixture.recastRecord);
-    const code = print(node);
-    const expected = fixture.recastRecord;
-    
-    t.equal(code, expected);
-    t.end();
-});
-
-test('putout: parser: record: print', (t) => {
-    const node = parse(fixture.record);
-    const code = print(node);
-    const expected = fixture.record;
-    
-    t.equal(code, expected);
     t.end();
 });
 

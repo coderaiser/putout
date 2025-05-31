@@ -1,3 +1,0 @@
-const record = #{
-    a: 'b',
-};

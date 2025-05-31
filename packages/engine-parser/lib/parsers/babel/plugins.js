@@ -12,7 +12,6 @@ module.exports = [
     'destructuringPrivate',
     'exportDefaultFrom',
     'throwExpressions',
-    'recordAndTuple',
     'explicitResourceManagement',
     'deferredImportEvaluation',
     'sourcePhaseImports',

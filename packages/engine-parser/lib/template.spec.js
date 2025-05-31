@@ -5,14 +5,14 @@ const test = require('supertape');
 const {types} = require('@putout/babel');
 const template = require('./template');
 
-const {Identifier, StringLiteral} = types;
+const {identifier, stringLiteral} = types;
 
 test('parser: template', (t) => {
     const buildOnce = template(`await once(%%emitter%%, %%event%%)`);
     
     const result = buildOnce({
-        emitter: Identifier('copymitter'),
-        event: StringLiteral('end'),
+        emitter: identifier('copymitter'),
+        event: stringLiteral('end'),
     });
     
     t.equal(result.type, 'AwaitExpression');
@@ -25,8 +25,8 @@ test('parser: template: statement', (t) => {
     `);
     
     const ast = buildRequire({
-        importName: Identifier('myModule'),
-        source: StringLiteral('my-module'),
+        importName: identifier('myModule'),
+        source: stringLiteral('my-module'),
     });
     
     t.notOk(ast.expression);
@@ -111,8 +111,8 @@ test('parser: template: program', (t) => {
     `);
     
     const ast = buildRequire({
-        importName: Identifier('myModule'),
-        source: StringLiteral('my-module'),
+        importName: identifier('myModule'),
+        source: stringLiteral('my-module'),
     });
     
     t.equal(ast.type, 'Program');
@@ -123,7 +123,7 @@ test('parser: template: expression', (t) => {
     const buildArrow = template('() => %%x%%');
     
     const ast = buildArrow({
-        x: StringLiteral('my-module'),
+        x: stringLiteral('my-module'),
     });
     
     t.equal(ast.type, 'ArrowFunctionExpression');

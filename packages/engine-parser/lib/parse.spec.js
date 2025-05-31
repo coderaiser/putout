@@ -26,15 +26,6 @@ test('putout: engine-parser: using', (t) => {
     t.end();
 });
 
-test('putout: engine-parser: tuple', (t) => {
-    const source = 'const a = #[1];\n';
-    const ast = parse(source);
-    const code = print(ast);
-    
-    t.equal(code, source);
-    t.end();
-});
-
 test('putout: engine-parser: babel: decoratorAutoAccessors', (t) => {
     const source = montag`
         class SomeClass {
