@@ -2,8 +2,8 @@
 
 const {types} = require('@putout/babel');
 const {
-    TSParenthesizedType,
     parenthesizedExpression,
+    tsParenthesizedType,
 } = types;
 
 module.exports.hasParens = hasParens;
@@ -26,7 +26,7 @@ module.exports.addParens = (path) => {
     const {node} = path;
     
     if (path.type.startsWith('TS'))
-        return path.replaceWith(TSParenthesizedType(node));
+        return path.replaceWith(tsParenthesizedType(node));
     
     path.replaceWith(parenthesizedExpression(node));
     

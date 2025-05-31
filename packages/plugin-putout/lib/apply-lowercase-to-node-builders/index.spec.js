@@ -21,3 +21,8 @@ test('putout: apply-lowercase-to-node-builders: no report: not-builder', (t) => 
     t.noReport('not-builder');
     t.end();
 });
+
+test('putout: apply-lowercase-to-node-builders: transform: ts', (t) => {
+    t.transform('ts');
+    t.end();
+});

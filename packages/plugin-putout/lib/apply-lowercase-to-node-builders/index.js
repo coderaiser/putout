@@ -5,8 +5,17 @@ const {isIdentifier} = types;
 export const report = () => `Use lowercased node builders`;
 
 export const fix = (path) => {
-    const [first] = path.node.name;
-    const other = path.node.name.slice(1);
+    const {name} = path.node;
+    
+    if (name.startsWith('TS')) {
+        const other = name.slice(2);
+        
+        path.node.name = `ts${other}`;
+        return;
+    }
+    
+    const [first] = name;
+    const other = name.slice(1);
     
     path.node.name = first.toLowerCase() + other;
 };
@@ -24,7 +33,7 @@ export const traverse = ({push}) => ({
         if (!/[A-Z]/.test(first))
             return;
         
-        if (!/[a-z]/.test(second))
+        if (!/[a-z]/.test(second) && !name.startsWith('TS'))
             return;
         
         if (!types[name])
