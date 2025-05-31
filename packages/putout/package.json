@@ -63,7 +63,7 @@
     "@putout/compare": "^18.0.0",
     "@putout/engine-loader": "^16.0.0",
     "@putout/engine-parser": "^14.0.0",
-    "@putout/engine-processor": "^13.0.0",
+    "@putout/engine-processor": "^14.0.0",
     "@putout/engine-reporter": "^4.0.0",
     "@putout/engine-runner": "^25.0.0",
     "@putout/formatter-codeframe": "^9.0.0",
