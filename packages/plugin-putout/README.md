@@ -165,7 +165,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fe78f6e489
 ### ❌ Example of incorrect code
 
 ```js
-path.node = Identifier('x');
+path.node = identifier('x');
 ```
 
 ### ✅ Example of correct code
@@ -789,7 +789,7 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 
 ```js
 module.exports.fix = (path) => {
-    path.replaceWith(Identifier('hello'));
+    path.replaceWith(identifier('hello'));
 };
 ```
 
@@ -799,7 +799,7 @@ module.exports.fix = (path) => {
 const {replaceWith} = require('putout').operator;
 
 module.exports.fix = (path) => {
-    replaceWith(path, Identifier('hello'));
+    replaceWith(path, identifier('hello'));
 };
 ```
 
@@ -810,7 +810,7 @@ module.exports.fix = (path) => {
 ```js
 module.exports.fix = (path) => {
     path.replaceWithMultiple([
-        Identifier('hello'),
+        identifier('hello'),
     ]);
 };
 ```
@@ -822,7 +822,7 @@ const {replaceWithMultiple} = require('putout').operator;
 
 module.exports.fix = (path) => {
     replaceWithMultiple(path, [
-        Identifier('hello'),
+        identifier('hello'),
     ]);
 };
 ```
