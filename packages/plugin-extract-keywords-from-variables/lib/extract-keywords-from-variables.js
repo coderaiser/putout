@@ -130,6 +130,9 @@ export const traverse = ({push}) => ({
             if (!isBlockStatement(nextPath))
                 return;
             
+            if (!nextPath.node.body.length)
+                return;
+            
             const count = nextPath.node.body.filter(isImportDeclaration).length;
             
             if (!count)

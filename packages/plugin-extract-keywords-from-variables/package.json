@@ -33,8 +33,9 @@
     "keywords"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-nodejs": "*",
+    "@putout/plugin-putout": "*",
+    "@putout/plugin-remove-unused-variables": "*",
     "@putout/test": "^13.0.0",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",

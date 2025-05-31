@@ -1,5 +1,7 @@
 import {createTest} from '@putout/test';
 import * as convertCommonjsToEsm from '@putout/plugin-nodejs/convert-commonjs-to-esm';
+import * as putout from '@putout/plugin-putout';
+import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
 import * as plugin from '../lib/extract-keywords-from-variables.js';
 
 const test = createTest(import.meta.url, {
@@ -66,6 +68,8 @@ test('putout: extract-keywords-from-variables: transform: arrow', (t) => {
 test('putout: extract-keywords-from-variables: transform: convert-commonjs-to-esm', (t) => {
     t.transform('convert-commonjs-to-esm', {
         convertCommonjsToEsm,
+        putout,
+        removeUnusedVariables,
     });
     t.end();
 });

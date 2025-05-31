@@ -1,9 +1,14 @@
-export const report = ({leftPath, rightPath}) => {
+import {operator} from 'putout';
+
+const {replaceWith} = operator;
+
+export const report = ({}) => {
     return `Swap`;
 };
 
-{
-    import {operator} from 'putout';
-
-    const {replaceWith} = operator;
-}
+{}
+export const fix = ({leftPath, rightPath}) => {
+    const rightNode = rightPath.node;
+    
+    replaceWith(leftPath, rightNode);
+};
