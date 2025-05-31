@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     expressionStatement,
     blockStatement,
@@ -15,9 +14,9 @@ const {
     insertBefore,
 } = operator;
 
-module.exports.report = () => 'Avoid sequence expressions';
+export const report = () => 'Avoid sequence expressions';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {parentPath} = path;
     
     if (isArgs(path)) {
@@ -52,6 +51,8 @@ module.exports.fix = (path) => {
             insertBefore(path.parentPath, expressionStatement(path.node.expressions.shift()));
         }
         
+        remove(path);
+        
         return;
     }
     
@@ -74,7 +75,7 @@ const isFn = ({parentPath}) => parentPath.isArrowFunctionExpression();
 const isExpr = ({parentPath}) => parentPath.isExpressionStatement();
 const isRet = ({parentPath}) => parentPath.isReturnStatement();
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     SequenceExpression(path) {
         if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path) || isRet(path)) {
             push(path);

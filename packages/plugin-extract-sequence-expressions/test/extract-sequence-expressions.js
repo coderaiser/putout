@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as extractSequenceExpressions from '../lib/extract-sequence-expressions.js';
 
-const {createTest} = require('@putout/test');
-const extractSequenceExpressions = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['extract-sequence-expressions', extractSequenceExpressions],
     ],
@@ -81,5 +79,10 @@ test('plugin-extract-sequence-expressions: transform: await', (t) => {
 
 test('plugin-extract-sequence-expressions: transform: if', (t) => {
     t.transform('if');
+    t.end();
+});
+
+test('plugin-extract-sequence-expressions: no report after transform: if', (t) => {
+    t.noReportAfterTransform('if');
     t.end();
 });
