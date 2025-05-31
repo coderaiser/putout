@@ -14,6 +14,7 @@ const {
     isIfStatement,
     isTryStatement,
     unaryExpression,
+    isProgram,
 } = types;
 
 module.exports.report = () => 'Avoid useless empty blocks';
@@ -85,6 +86,9 @@ module.exports.traverse = ({push}) => ({
         
         if (blockIsAlternate(node, parentNode))
             return push(parentPath);
+        
+        if (isProgram(parentPath))
+            return push(path);
         
         push(parentPath);
     },

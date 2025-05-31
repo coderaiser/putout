@@ -86,6 +86,11 @@ test('plugin-remove-empty: block: block-fn', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: block: top-level', (t) => {
+    t.transform('top-level');
+    t.end();
+});
+
 test('plugin-remove-empty: block: transform: remove-nested-blocks', (t) => {
     t.transform('remove-nested-blocks', {
         removeNestedBlocks,
