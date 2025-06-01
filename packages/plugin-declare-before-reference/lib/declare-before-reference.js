@@ -50,8 +50,6 @@ export const fix = ({path, referencePath}) => {
         
         programPath.node.body.unshift(node);
     }
-    
-    path.__putout_declare_before_reference = true;
 };
 
 export const traverse = ({push}) => ({
@@ -70,9 +68,6 @@ export const traverse = ({push}) => ({
             
             if (path.isClassDeclaration())
                 continue;
-            
-            if (path.__putout_declare_before_reference)
-                break;
             
             for (const referencePath of referencePaths) {
                 const referenceParentPath = referencePath.parentPath;
@@ -134,7 +129,7 @@ function getLoc(path) {
     
     while (!(loc = node.loc)) {
         path = path.parentPath;
-        node = path.node || {};
+        ({node} = path);
         own = false;
     }
     
@@ -152,9 +147,6 @@ function getName(path) {
 }
 
 function getKeys({node}) {
-    if (!node)
-        return [];
-    
     const {id} = node;
     
     if (!id)
