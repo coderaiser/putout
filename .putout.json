@@ -32,11 +32,12 @@
         }
     },
     "rules": {
-        "putout/apply-lowercase-to-node-builders": "on",
-        "putout/declare": "on",
+        "putout/apply-lowercase-to-node-builders": "off",
+        "putout/declare": "off",
         "remove-useless-spread/object": ["off", {
             "exclude": "module.exports.rules = __"
-        }]
+        }],
+        "github/convert-npm-to-bun": "off"
     },
     "ignore": [
         ".husky",
