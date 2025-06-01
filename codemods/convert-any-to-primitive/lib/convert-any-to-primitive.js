@@ -9,8 +9,8 @@ const {
     isIdentifier,
     isBigIntLiteral,
     TSAnyKeyword,
-    TSUndefinedKeyword,
-    TSSymbolKeyword,
+    tsUndefinedKeyword,
+    tsSymbolKeyword,
 } = types;
 
 const isPrimitiveType = (node) => getType(node) !== TSAnyKeyword;
@@ -35,10 +35,10 @@ export const replace = () => ({
 
 function getTypeAnnotation(node) {
     if (isIdentifier(node, {name: 'undefined'}))
-        return TSUndefinedKeyword();
+        return tsUndefinedKeyword();
     
     if (compare(node, 'Symbol()'))
-        return TSSymbolKeyword();
+        return tsSymbolKeyword();
     
     const type = getType(node);
     const method = `TS${type}Keyword`;
