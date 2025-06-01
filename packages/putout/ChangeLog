@@ -1,3 +1,103 @@
+2025.06.01, v40.2.8
+
+feature:
+- 7f158e461 putout: @putout/plugin-convert-const-to-let v5.0.0
+- 8183ab3d3 @putout/plugin-convert-const-to-let: migrate to ESM
+- 3635ea7fe @putout/plugin-convert-const-to-let: rm unused
+- 56bd00857 @putout/plugin-declare-before-reference: rm unused
+- 973e69650 @putout/plugin-nodejs: convert-promisify-to-fs-promises-lowercase
+- 359615b63 @putout/plugin-typescript: types
+- 6ca57b462 @putout/compare: @putout/engine-parser v14.0.1
+- c85510a71 putout: @putout/traverse v14.0.0
+- ec8c0258b @putout/traverse: @putout/compare v18.0.1
+- 306e4c34d putout: @putout/engine-reporter v5.0.0
+- 5ac649224 @putout/engine-reporter: @putout/engine-loader v16.0.0
+- dc5773dff putout: @putout/operator-add-args v12.0.0
+- 50670f105 @putout/operator-add-args: @putout/compare v18.0.1
+- 66aabd7f1 @putout/operator-add-args: @putout/engine-parser v14.0.1
+- 13fe9a664 @putout/operator-match-files: @putout/operator-filesystem v9.0.1
+- 6ba05e935 putout: @putout/operator-rename-files v5.0.0
+- ab365532e @putout/operator-rename-files: @putout/operator-filesystem v9.0.1
+- d4c45c74e @putout/processor-filesystem: @putout/operator-filesystem v9.0.1
+- 9884c102c putout: @putout/operator-parens v2.0.0
+- 9b52af41c @putout/plugin-putout: apply-lowercase-to-node-builders: add support of TS
+- 32d6dba1b putout: @putout/plugin-remove-unused-variables v14.0.0
+- f05ea49fb @putout/plugin-remove-unused-variables: get rid of record and tuple
+- 059aa8534 @putout/operator-filesystem: @putout/engine-parser v14.0.1
+- b11ac96b8 @putout/test: @putout/cli-process-file v4.0.0
+- 1fb7b34d3 putout: @putout/operator-match-files v9.0.0
+- a040b23a7 @putout/operator-match-files: @putout/operator-filesystem v9.0.0
+- 9f921fff7 @putout/operator-match-files: @putout/engine-parser v14.0.1
+- bcde2238c putout: @putout/processor-filesystem v7.0.0
+- 3bfeb756f @putout/plugin-filesystem: @putout/operator-filesystem v9.0.0
+- 867f95eb6 @putout/processor-filesystem: @putout/operator-filesystem v9.0.0
+- daa16c1c2 putout: @putout/engine-processor v14.0.0
+- caa56adc8 @putout/engine-processor: @putout/engine-loader v16.0.0
+- 9683a3688 @putout/engine-runner: @putout/operator-filesystem v9.0.0
+- 7b41c319c putout: @putout/formatter-frame v8.0.0
+- 39598c790 @putout/formatter-frame: drop support of 🐊 < 40
+- eb0b22087 @putout/formatter-frame: @putout/formatter-codeframe v9.0.0
+- 0df600e88 putout: @putout/cli-process-file v4.0.0
+- dfca07357 @putout/cli-process-file: @putout/operate *
+- c9c77bce9 @putout/cli-process-file: drop support of 🐊 < 40
+- 0621ac03d @putout/compare: @putout/operate v14.0.0
+- 61574712f @putout/engine-runner: @putout/operator-declare v14.0.0
+- 658463e82 putout: @putout/operator-declare v14.0.0
+- d232d2f5c @putout/operator-declare: @putout/engine-parser v14.0.1
+- be860e2cf @putout/operator-declare: @putout/operate v14.0.0
+- e5da6462c @putout/operator-declare: @putout/compare v18.0.0
+- 8d227c0c0 putout: @putout/operator-filesystem v9.0.0
+- 5d68bdabe @putout/operator-filesystem: @putout/operate v14.0.0
+- 25087a05c putout: @putout/operator-ignore v3.0.0
+- 5b8f642ba @putout/operator-ignore: drop support of node < 20
+- 631dc5be9 @putout/operator-ignore: @putout/operate v14.0.0
+- 71a68b74a @putout/engine-runner: @putout/plugin-filesystem v11.0.0
+- d4be7a9ea putout: @putout/plugin-filesystem v11.0.0
+- daa04e84d @putout/plugin-filesystem: @putout/operate v14.0.0
+- 0fa259b4b putout: @putout/formatter-codeframe v9.0.0
+- 90879bd43 @putout/formatter-codeframe: drop supprot of 🐊 < 40
+- 8bfb1856e putout: @putout/engine-runner v25.0.0
+- 65d560908 @putout/engine-runner: @putout/operate v14.0.0
+- fdf135e2b @putout/engine-runner: @putout/engine-parser v14.0.1
+- f5300a151 @putout/engine-runner: @putout/compare v18.0.0
+- c36c05115 putout: @putout/engine-loader v16.0.0
+- 83093c1f3 @putout/engine-loader: drop support of node < 20
+- 4985d322f putout: @putout/plugin-assignment v2.0.0
+- c8939536a putout: @putout/plugin-merge-destructuring-properties v12.0.0
+- b09c0d136 putout: @putout/operate v14.0.0
+- de14155fb @putout/engine-parser: @putout/printer v15.0.0
+- ec7a2f96f eslint-plugin-putout: @putout/engine-parser v14.0.0
+- 412d2e54e putout: @putout/plugin-generators v2.0.0
+- ef6329880 putout: @putout/compare v18.0.0
+- be3b3a080 putout: @putout/engine-parser v14.0.0
+- def12ad59 @putout/engine-parser: estree-to-babel v11.0.3
+- b9f71a407 putout: @putout/plugin-extract-sequence-expressions v4.0.0
+- 373000fde putout: @putout/plugin-extract-keywords-from-variables v3.0.0
+- 11a57f2cf putout: @putout/plugin-remove-empty v15.0.0
+- acbe17bab putout: @putout/plugin-conditions v8.0.0
+- 08fb85bdc @putout/plugin-conditions: migrate to ESM
+- 7109bb3a6 @putout/plugin-remove-empty: migrate to ESM
+- ecfa031c5 @putout/plugin-remove-empty: block: top-level
+- b7f41e4ba @putout/plugin-extract-keywords-from-variables: exclude empty BlockStatement
+- e15627daa @putout/compare: ignore list: __putout_runner_replace
+- 0d582693d @putout/plugin-esm: merge-duplicate-imports: join: exclude same
+- 33441a959 @putout/plugin-extract-keywords-from-variables: migrate to ESM
+- 425e0f1e7 @putout/plugin-extract-keywords-from-variables: ImportDeclaration
+- 5596d78e3 @putout/plugin-extract-sequence-expressions: migrate to ESM
+- 3c1807848 @putout/plugin-generators: drop support of 🐊 < 40
+- 758c4796c @putout/compare: lowercase
+- 3c9e536a0 @putout/operator-add-args: drop support of node < 20
+- 681dc998e @putout/operator-add-args: lowercase
+- 2760b1d9e @putout/operate: drop support of node < 20
+- f83b7de44 @putout/operate: getReferences
+- 2e45e6244 @putout/plugin-merge-destructuring-properties: putout/declare with nodejs/convert-esm-to-commonjs
+- 8b7dc644a @putout/plugin-merge-destructuring-properties: drop support of 🐊 < 40
+- 71ab7be83 @putout/plugin-assignment: drop support of 🐊 < 40
+- 3fc8d737d @putout/engine-loader: loadProcessorsAsync, validateRulesRelations: move out
+- e128e7f27 @putout/engine-loader: loadPluginsAsync: use one rule of a plugin
+- 1f2300f8b @putout/engine-parser: get rid of records and tuples
+- f85f9c9d4 @putout/engine-parser: @putout/babel v4.0.1
+
 2025.05.30, v40.2.7
 
 feature:
