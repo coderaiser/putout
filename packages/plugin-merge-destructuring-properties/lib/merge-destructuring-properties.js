@@ -1,6 +1,6 @@
 import {types, operator} from 'putout';
 
-const {compare, remove} = operator;
+const {remove, compare} = operator;
 
 const {
     isObjectPattern,
@@ -39,6 +39,9 @@ export const traverse = ({push, store}) => {
                 return;
             
             if (!isObjectPattern(left))
+                return;
+            
+            if (!path.node.loc)
                 return;
             
             for (const property of left.properties) {
@@ -82,14 +85,7 @@ const addVariable = ({store}) => (path, node) => {
     }
     
     const currentPath = currentVar.path;
-    const {parentPath, type} = currentPath;
-    
-    if (path === currentPath || currentPath.removed)
-        return;
-    
-    if (parentPath.removed || !parentPath.node)
-        return;
-    
+    const {type} = currentPath;
     const name = RIGHT[type];
     
     if (isAssignmentExpression(currentPath) && compare(currentPath.node[name], node))
@@ -121,7 +117,6 @@ function split(path) {
 
 function merge(path, places) {
     const {node, type} = path;
-    
     const name = LEFT[type];
     
     for (const place of places) {

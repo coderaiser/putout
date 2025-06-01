@@ -40,6 +40,7 @@
     "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-declare": "*",
     "@putout/plugin-declare-before-reference": "*",
+    "@putout/plugin-merge-destructuring-properties": "*",
     "@putout/plugin-nodejs": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-reuse-duplicate-init": "*",
