@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isBlockStatement,
     isProgram,
@@ -17,13 +16,13 @@ const isKeyword = (a) => [
 
 const isInsideBlock = ({parentPath}) => isProgram(parentPath) || isBlockStatement(parentPath);
 
-module.exports.report = () => `Use 'let' when reassign`;
+export const report = () => `Use 'let' when reassign`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.node.kind = 'let';
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     VariableDeclaration: (path) => {
         if (path.parentPath.isTSModuleBlock())
             return;

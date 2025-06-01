@@ -1,7 +1,4 @@
 {
-    "rules": {
-        "convert-const-to-let": "on"
-    },
     "match": {
         "*.md": {
             "convert-const-to-let": "off",

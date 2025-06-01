@@ -1,11 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as splitVariableDeclarations from '@putout/plugin-split-variable-declarations';
+import * as plugin from '../lib/convert-const-to-let.js';
 
-const {createTest} = require('@putout/test');
-const splitVariableDeclarations = require('@putout/plugin-split-variable-declarations');
-
-const plugin = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-const-to-let', plugin],
     ],
