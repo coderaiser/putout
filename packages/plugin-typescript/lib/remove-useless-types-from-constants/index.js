@@ -9,14 +9,14 @@ const {
     isBooleanLiteral,
     isIdentifier,
     isBigIntLiteral,
-    TSNumberKeyword,
-    TSStringKeyword,
-    TSNullKeyword,
     TSAnyKeyword,
-    TSBooleanKeyword,
-    TSBigIntKeyword,
-    TSSymbolKeyword,
     isTSUnionType,
+    tsNumberKeyword,
+    tsNullKeyword,
+    tsStringKeyword,
+    tsBooleanKeyword,
+    tsBigIntKeyword,
+    tsSymbolKeyword,
 } = types;
 
 export const report = () => 'Remove useless type when declaring constant with primitive value';
@@ -33,25 +33,25 @@ export const replace = () => ({
 
 function getType(node) {
     if (isNumericLiteral(node))
-        return TSNumberKeyword();
+        return tsNumberKeyword();
     
     if (isNullLiteral(node))
-        return TSNullKeyword();
+        return tsNullKeyword();
     
     if (isStringLiteral(node))
-        return TSStringKeyword();
+        return tsStringKeyword();
     
     if (isBooleanLiteral(node))
-        return TSBooleanKeyword();
+        return tsBooleanKeyword();
     
     if (isBigIntLiteral(node))
-        return TSBigIntKeyword();
+        return tsBigIntKeyword();
     
     if (isIdentifier(node, {name: 'undefined'}))
-        return TSNullKeyword();
+        return tsNullKeyword();
     
     if (compare(node, 'Symbol()'))
-        return TSSymbolKeyword();
+        return tsSymbolKeyword();
     
     return TSAnyKeyword;
 }
