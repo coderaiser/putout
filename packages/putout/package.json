@@ -103,7 +103,7 @@
     "@putout/plugin-convert-arguments-to-rest": "^3.0.0",
     "@putout/plugin-convert-array-copy-to-slice": "^3.0.0",
     "@putout/plugin-convert-concat-to-flat": "^1.0.0",
-    "@putout/plugin-convert-const-to-let": "^4.0.0",
+    "@putout/plugin-convert-const-to-let": "^5.0.0",
     "@putout/plugin-convert-expression-to-params": "^1.0.0",
     "@putout/plugin-convert-index-of-to-includes": "^2.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^6.0.0",
