@@ -1,7 +1,10 @@
-import {
-    types as t,
-    operator,
-} from 'putout';
+import {types, operator} from 'putout';
+
+const {
+    objectProperty,
+    identifier,
+    objectPattern,
+} = types;
 
 const {replaceWith, remove} = operator;
 
@@ -17,9 +20,9 @@ export const fix = ({path, promisified}) => {
         const [declarator] = path.node.declarations;
         const {name} = declarator.id;
         
-        props.push(t.ObjectProperty(
-            t.Identifier(name),
-            t.Identifier(name),
+        props.push(objectProperty(
+            identifier(name),
+            identifier(name),
             NOT_COMPUTED,
             SHORTHAND,
         ));
@@ -30,7 +33,7 @@ export const fix = ({path, promisified}) => {
     
     init.arguments[0].value = 'fs/promises';
     
-    replaceWith(path.get('id'), t.ObjectPattern(props));
+    replaceWith(path.get('id'), objectPattern(props));
 };
 
 export const find = (ast, {push, traverse}) => {

@@ -32,8 +32,7 @@
         }
     },
     "rules": {
-        "putout/apply-lowercase-to-node-builders": "off",
-        "putout/declare": "off",
+        "putout/apply-lowercase-to-node-builders": "on",
         "remove-useless-spread/object": ["off", {
             "exclude": "module.exports.rules = __"
         }],
