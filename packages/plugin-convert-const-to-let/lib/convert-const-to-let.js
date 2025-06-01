@@ -44,9 +44,6 @@ module.exports.traverse = ({push}) => ({
             if (isLoop(parentPath) && binding.constant)
                 continue;
             
-            if (!parentPath.node)
-                continue;
-            
             if (!binding.path.isVariableDeclarator())
                 continue;
             
