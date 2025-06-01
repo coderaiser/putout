@@ -682,7 +682,7 @@ module.exports.scan = (path, {push, trackFile}) => {
 
 ## create-test
 
-Add properties to `createTest` options, here is exmample of `.putout.json`:
+Add properties to `createTest` options, here is example of `.putout.json`:
 
 ```json
 {
