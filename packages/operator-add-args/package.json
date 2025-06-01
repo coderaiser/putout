@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@putout/babel": "^4.0.1",
-    "@putout/compare": "^17.0.0",
+    "@putout/compare": "^18.0.1",
     "@putout/engine-parser": "^14.0.1"
   },
   "keywords": [
