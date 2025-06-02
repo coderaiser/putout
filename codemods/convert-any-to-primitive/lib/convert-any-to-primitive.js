@@ -8,12 +8,12 @@ const {
     isBooleanLiteral,
     isIdentifier,
     isBigIntLiteral,
-    TSAnyKeyword,
+    tsAnyKeyword,
     tsUndefinedKeyword,
     tsSymbolKeyword,
 } = types;
 
-const isPrimitiveType = (node) => getType(node) !== TSAnyKeyword;
+const isPrimitiveType = (node) => getType(node) !== tsAnyKeyword;
 
 export const report = (path) => {
     const {node} = path.get('declarations.0.init');
