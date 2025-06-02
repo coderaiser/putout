@@ -26,3 +26,8 @@ test('putout: apply-lowercase-to-node-builders: transform: ts', (t) => {
     t.transform('ts');
     t.end();
 });
+
+test('putout: apply-lowercase-to-node-builders: transform: referenced', (t) => {
+    t.transform('referenced');
+    t.end();
+});

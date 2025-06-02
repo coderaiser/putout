@@ -1,7 +1,5 @@
 import {types} from 'putout';
 
-const {isIdentifier} = types;
-
 export const report = () => `Use lowercased node builders`;
 
 export const fix = (path) => {
@@ -21,13 +19,8 @@ export const fix = (path) => {
 };
 
 export const traverse = ({push}) => ({
-    CallExpression(path) {
-        const calleePath = path.get('callee');
-        
-        if (!isIdentifier(calleePath))
-            return;
-        
-        const {name} = calleePath.node;
+    ReferencedIdentifier(path) {
+        const {name} = path.node;
         const [first, second] = name;
         
         if (!/[A-Z]/.test(first))
@@ -39,6 +32,6 @@ export const traverse = ({push}) => ({
         if (!types[name])
             return;
         
-        push(calleePath);
+        push(path);
     },
 });
