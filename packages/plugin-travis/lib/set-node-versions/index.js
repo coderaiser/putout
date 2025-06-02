@@ -1,8 +1,8 @@
 import {types, operator} from 'putout';
 import deepEqual from 'fast-deep-equal';
 
+const {numericLiteral} = types;
 const {__yaml} = operator;
-const {NumericLiteral} = types;
 
 const isNodeJS = (property) => property.key.value === 'node_js';
 const getValue = ({value}) => value;
@@ -33,7 +33,7 @@ export const replace = () => ({
     [__yaml]({__object}, path) {
         const nodeJS = __object.properties.find(isNodeJS);
         
-        nodeJS.value.elements = defaultVersions.map(one(NumericLiteral));
+        nodeJS.value.elements = defaultVersions.map(one(numericLiteral));
         
         return path;
     },
