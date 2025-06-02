@@ -18,7 +18,8 @@
             "promises/convert-reject-to-throw": "off",
             "promises/add-missing-await": "off",
             "promises/remove-useless-async": "off",
-            "putout/declare": "off"
+            "putout/declare": "off",
+            "putout/apply-lowercase-to-node-builders": "off"
         },
         ".filesystem.json": {
             "filesystem/remove-files": ["on", {
