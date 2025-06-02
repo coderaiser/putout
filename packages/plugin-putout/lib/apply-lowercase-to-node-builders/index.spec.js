@@ -41,3 +41,8 @@ test('putout: apply-lowercase-to-node-builders: transform: jsx', (t) => {
     t.transform('jsx');
     t.end();
 });
+
+test('putout: apply-lowercase-to-node-builders: no report: import', (t) => {
+    t.noReport('import');
+    t.end();
+});

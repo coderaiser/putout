@@ -1,5 +1,5 @@
-const {
+import {
     TSParenthesizedType,
-} = types;
+} from 'x';
 
 TSParenthesizedType();

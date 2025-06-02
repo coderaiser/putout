@@ -1,1 +1,3 @@
+const {tsParenthesizedType} = types;
+
 tsParenthesizedType();
