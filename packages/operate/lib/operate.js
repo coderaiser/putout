@@ -9,7 +9,7 @@ const {compute} = require('./compute');
 const {remove} = require('./remove');
 const {getExportDefault} = require('./get-export-default');
 const {rename} = require('./rename');
-const {renameProperty} = require('./rename-property');
+const {renameProperty} = require('./rename/rename-property');
 const {setLiteralValue} = require('./set-literal-value');
 const {getPathAfterRequires} = require('./get-path-after-requires');
 

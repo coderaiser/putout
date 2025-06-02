@@ -8,7 +8,7 @@ const {
     traverse,
 } = require('putout');
 
-const {rename} = require('./rename.js');
+const {rename} = require('./index.js');
 
 test('putout: operate: rename: assignment pattern', (t) => {
     const ast = parse('const {hello: x} = c; hello();');
