@@ -61,3 +61,8 @@ test('putout: apply-fixture-name-to-message: no-report-after-transform', (t) => 
     t.transform('no-report-after-transform');
     t.end();
 });
+
+test('putout: apply-fixture-name-to-message: undefined', (t) => {
+    t.noReport('undefined');
+    t.end();
+});

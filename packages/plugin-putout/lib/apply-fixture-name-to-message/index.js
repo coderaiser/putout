@@ -56,6 +56,9 @@ const check = ({__a}, path) => {
     if (!value)
         return false;
     
+    if (!name)
+        return;
+    
     if (name.includes(')'))
         return false;
     
