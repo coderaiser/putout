@@ -610,7 +610,7 @@ test('putout: loader: enable part of rule: async', async (t) => {
         message: `Use lowercased node builders`,
         position: {
             column: 0,
-            line: 1,
+            line: 2,
         },
         rule: 'putout/apply-lowercase-to-node-builders',
     }];
