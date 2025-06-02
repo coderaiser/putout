@@ -1,3 +1,14 @@
+2025.06.02, v40.3.0
+
+feature:
+- fdd539c23 putout: @putout/plugin-logical-expressions v8.0.0
+- 084d941b0 @putout/plugin-logical-expressions: migrate to ESM
+- befec0d6b @putout/plugin-putout: apply-lowercase-to-node-builders: rename
+- b91540e40 @putout/plugin-travis: drop support of node < 20
+- cd3b0569d @putout/plugin-travis: apply lowercase
+- ebb094d25 @putout/plugin-putout: apply-lowercase-to-node-builders: referenced identifier
+- 5fb97aabf @putout/plugin-merge-destructuring-properties: no loc
+
 2025.06.01, v40.2.8
 
 feature:
