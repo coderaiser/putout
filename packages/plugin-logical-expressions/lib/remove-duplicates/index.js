@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'Avoid duplicates in logical expressions';
 
-module.exports.report = () => 'Avoid duplicates in logical expressions';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a || __a': '__a',
     '__a && __a': '__a',
     

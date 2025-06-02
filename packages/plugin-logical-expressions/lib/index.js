@@ -1,11 +1,9 @@
-'use strict';
+import * as simplify from './simplify/index.js';
+import * as removeBoolean from './remove-boolean/index.js';
+import * as removeDuplicates from './remove-duplicates/index.js';
+import * as convertBitwiseToLogical from './convert-bitwise-to-logical/index.js';
 
-const simplify = require('./simplify');
-const removeBoolean = require('./remove-boolean');
-const removeDuplicates = require('./remove-duplicates');
-const convertBitwiseToLogical = require('./convert-bitwise-to-logical');
-
-module.exports.rules = {
+export const rules = {
     simplify,
     'remove-boolean': removeBoolean,
     'remove-duplicates': removeDuplicates,

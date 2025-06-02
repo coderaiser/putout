@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => '"true" and "false" has no sense in logical expressions';
 
-module.exports.report = () => '"true" and "false" has no sense in logical expressions';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'true && false': 'false',
     'false && true': 'false',
     '__a && true': 'Boolean(__a)',

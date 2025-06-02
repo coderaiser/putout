@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => 'Avoid using logical operator as operand of bitwise operator';
 
-module.exports.report = () => 'Avoid using logical operator as operand of bitwise operator';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a | !__b': '__a || !__b',
     '!__a | __b': '!__a || __b',
 });

@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as logicalExpressions from '../lib/index.js';
 
-const {createTest} = require('@putout/test');
-const logicalExpressions = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['logical-expressions', logicalExpressions],
     ],

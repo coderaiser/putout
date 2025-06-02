@@ -1,11 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {isSimple, replaceWith} = operator;
 
-module.exports.report = () => 'Simplify logical expression';
+export const report = () => 'Simplify logical expression';
 
-module.exports.match = () => ({
+export const match = () => ({
     '__a(__args) && __b': ({__a, __b}, path) => {
         if (path.parentPath.isJSXExpressionContainer())
             return false;
@@ -20,7 +19,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'Boolean(__a) || __b': '__a || __b',
     '__a(__args) && __b': ({__a}, path) => {
         if (__a.name === 'Boolean') {
