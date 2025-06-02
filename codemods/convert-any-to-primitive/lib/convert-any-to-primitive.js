@@ -41,7 +41,7 @@ function getTypeAnnotation(node) {
         return tsSymbolKeyword();
     
     const type = getType(node);
-    const method = `TS${type}Keyword`;
+    const method = `ts${type}Keyword`;
     
     return types[method]();
 }
