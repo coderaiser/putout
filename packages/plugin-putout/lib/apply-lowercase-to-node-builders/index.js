@@ -8,6 +8,11 @@ const getNewName = (name) => {
         return `ts${other}`;
     }
     
+    if (name.startsWith('JSX')) {
+        const other = name.slice(3);
+        return `jsx${other}`;
+    }
+    
     const [first] = name;
     const other = name.slice(1);
     
@@ -33,7 +38,7 @@ export const traverse = ({push}) => ({
         if (!/[A-Z]/.test(first))
             return;
         
-        if (!/[a-z]/.test(second) && !name.startsWith('TS'))
+        if (!/[a-z]/.test(second) && !/^(TS|JSX)/.test(name))
             return;
         
         if (!types[name])

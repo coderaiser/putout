@@ -1,9 +1,9 @@
 import {types} from 'putout';
 
 const {
-    JSXIdentifier,
-    JSXOpeningElement,
-    JSXElement,
+    jsxIdentifier,
+    jsxOpeningElement,
+    jsxElement,
 } = types;
 
 export const report = () => `Use 'element' instead of 'component'`;
@@ -19,8 +19,8 @@ export const fix = (path) => {
         
         const {name} = attr.value.expression;
         
-        attr.value.expression = JSXElement(JSXOpeningElement(
-            JSXIdentifier(name),
+        attr.value.expression = jsxElement(jsxOpeningElement(
+            jsxIdentifier(name),
             [],
             SELF_CLOSING,
         ), null, []);

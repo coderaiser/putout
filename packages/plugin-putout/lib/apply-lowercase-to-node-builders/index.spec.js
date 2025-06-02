@@ -36,3 +36,8 @@ test('putout: apply-lowercase-to-node-builders: transform: declared', (t) => {
     t.transform('declared');
     t.end();
 });
+
+test('putout: apply-lowercase-to-node-builders: transform: jsx', (t) => {
+    t.transform('jsx');
+    t.end();
+});
