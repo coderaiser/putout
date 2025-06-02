@@ -170,8 +170,7 @@ parserTester.run('putout: tape', rule, {
         output: montag`
             import {createMockImport} from 'mock-import';
             
-            const {reImport} = createMockImport(import.meta.url);
-            const {mockImport} = createMockImport(import.meta.url);
+            const {mockImport, reImport} = createMockImport(import.meta.url);
             
             mockImport('tape', check);
             await reImport('./index.js');\n
@@ -235,8 +234,7 @@ parserTester.run('putout', rule, {
         output: montag`
             import {createMockImport} from 'mock-import';
             
-            const {reImport} = createMockImport(import.meta.url);
-            const {mockImport} = createMockImport(import.meta.url);
+            const {mockImport, reImport} = createMockImport(import.meta.url);
             
             mockImport('hello', world);
             await reImport('./index.js');\n
