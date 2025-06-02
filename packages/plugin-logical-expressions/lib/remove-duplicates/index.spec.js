@@ -1,11 +1,11 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const LogicalExpression = require('.');
+const removeDuplicates = require('.');
 
 const test = createTest(__dirname, {
     plugins: [
-        ['-logical-expression', LogicalExpression],
+        ['logical-expression/remove-duplicates', removeDuplicates],
     ],
 });
 

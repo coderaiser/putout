@@ -9,7 +9,7 @@ const {
     isBooleanLiteral,
     isIdentifier,
     isBigIntLiteral,
-    TSAnyKeyword,
+    tsAnyKeyword,
     isTSUnionType,
     tsNumberKeyword,
     tsNullKeyword,
@@ -53,7 +53,7 @@ function getType(node) {
     if (compare(node, 'Symbol()'))
         return tsSymbolKeyword();
     
-    return TSAnyKeyword;
+    return tsAnyKeyword;
 }
 
 const checkType = ({__a, __b}) => {
@@ -69,7 +69,7 @@ const checkType = ({__a, __b}) => {
 const isPrimitiveType = (node) => {
     const type = getType(node);
     
-    return type !== TSAnyKeyword;
+    return type !== tsAnyKeyword;
 };
 
 const removeType = ({__a}, path) => {
