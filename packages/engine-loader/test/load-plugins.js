@@ -593,6 +593,7 @@ test('putout: loader: similar names', (t) => {
 
 test('putout: loader: enable part of rule: async', async (t) => {
     const code = montag`
+        const {Identifier} = types;
         Identifier('x');
     `;
     
