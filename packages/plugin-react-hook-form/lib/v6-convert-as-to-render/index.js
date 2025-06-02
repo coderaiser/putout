@@ -1,10 +1,10 @@
 import {types, template} from 'putout';
 
 const {
-    JSXExpressionContainer,
-    JSXIdentifier,
+    jsxExpressionContainer,
+    jsxIdentifier,
     isJSXSpreadAttribute,
-    JSXAttribute,
+    jsxAttribute,
     identifier,
 } = types;
 
@@ -60,8 +60,8 @@ export const replace = () => ({
                 
                 const {expression} = attr.value;
                 
-                const onChangeAttribute = JSXAttribute(JSXIdentifier('onChange'), JSXExpressionContainer(identifier('onChange')));
-                const nameAttribute = JSXAttribute(JSXIdentifier('name'), JSXExpressionContainer(identifier('name')));
+                const onChangeAttribute = jsxAttribute(jsxIdentifier('onChange'), jsxExpressionContainer(identifier('onChange')));
+                const nameAttribute = jsxAttribute(jsxIdentifier('name'), jsxExpressionContainer(identifier('name')));
                 
                 expression.openingElement.attributes.unshift(nameAttribute, onChangeAttribute);
                 

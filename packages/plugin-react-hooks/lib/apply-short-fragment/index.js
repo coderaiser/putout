@@ -1,9 +1,9 @@
 import {types, operator} from 'putout';
 
 const {
-    JSXClosingFragment,
-    JSXOpeningFragment,
-    JSXFragment,
+    jsxClosingFragment,
+    jsxOpeningFragment,
+    jsxFragment,
 } = types;
 
 const {replaceWith} = operator;
@@ -18,7 +18,7 @@ export const fix = (path) => {
     const {parentPath} = path;
     const {children} = path.parentPath.node;
     
-    replaceWith(parentPath, JSXFragment(JSXOpeningFragment(), JSXClosingFragment(), children));
+    replaceWith(parentPath, jsxFragment(jsxOpeningFragment(), jsxClosingFragment(), children));
 };
 
 export const filter = (path) => {
