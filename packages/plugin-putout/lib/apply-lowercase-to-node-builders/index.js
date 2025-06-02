@@ -1,21 +1,28 @@
-import {types} from 'putout';
+import {types, operator} from 'putout';
+
+const {rename} = operator;
+
+const getNewName = (name) => {
+    if (name.startsWith('TS')) {
+        const other = name.slice(2);
+        return `ts${other}`;
+    }
+    
+    const [first] = name;
+    const other = name.slice(1);
+    
+    return first.toLowerCase() + other;
+};
 
 export const report = () => `Use lowercased node builders`;
 
 export const fix = (path) => {
     const {name} = path.node;
     
-    if (name.startsWith('TS')) {
-        const other = name.slice(2);
-        
-        path.node.name = `ts${other}`;
-        return;
-    }
+    const newName = getNewName(name);
     
-    const [first] = name;
-    const other = name.slice(1);
-    
-    path.node.name = first.toLowerCase() + other;
+    rename(path, name, newName);
+    path.node.name = newName;
 };
 
 export const traverse = ({push}) => ({

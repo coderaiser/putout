@@ -41,9 +41,6 @@ export const traverse = ({push, store}) => {
             if (!isObjectPattern(left))
                 return;
             
-            if (!path.node.loc)
-                return;
-            
             for (const property of left.properties) {
                 if (isRestElement(property))
                     return;
@@ -85,7 +82,15 @@ const addVariable = ({store}) => (path, node) => {
     }
     
     const currentPath = currentVar.path;
-    const {type} = currentPath;
+    
+    const {parentPath, type} = currentPath;
+    
+    if (path === currentPath || currentPath.removed)
+        return;
+    
+    if (parentPath.removed || !parentPath.node)
+        return;
+    
     const name = RIGHT[type];
     
     if (isAssignmentExpression(currentPath) && compare(currentPath.node[name], node))
