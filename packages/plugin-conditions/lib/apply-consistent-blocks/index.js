@@ -60,6 +60,9 @@ export const filter = (path) => {
     if (!alternate && !consequent.body?.length)
         return false;
     
+    if (isBlockStatement(consequent) && !consequent.body.length)
+        return false;
+    
     if (path === path.parentPath.get('alternate'))
         return false;
     
