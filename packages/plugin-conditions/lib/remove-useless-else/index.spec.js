@@ -41,3 +41,8 @@ test('plugin-remove-useless-else: no transform: no-return', (t) => {
     t.noTransform('no-return');
     t.end();
 });
+
+test('plugin-remove-useless-else: transform: empty-body', (t) => {
+    t.transform('empty-body');
+    t.end();
+});
