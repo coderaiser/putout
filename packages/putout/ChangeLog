@@ -1,3 +1,20 @@
+2025.06.11, v40.3.1
+
+feature:
+- b4417d187 putout: @putout/plugin-extract-object-properties v10.0.0
+- d98aca738 @putout/plugin-extract-object-properties: migrate to ESM
+- 6c78d14ac @putout/plugin-putout: apply-lowercase-to-node-builders: exclude not types
+- f97aa7649 @putout/plugin-putout: apply-lowercase-to-node-builders: exclude require
+- f2ce71aed @putout/plugin-conditions: apply-consistent-blocks: exclude empty consequent body
+- 082597010 @putout/plugin-condition: remove-useless-else: empty-body
+- d6dd9cc00 @putout/plugin-putout: apply-lowercase-to-node-builders: exclude ImportDeclaration
+- f97b7c3cb @putout/operate: rename-specifier
+- 1abe47971 @putout/plugin-putout: apply-fixture-name-to-message: undefined
+- ae0d48984 @putout/plugin-putout: apply-fixture-to-message: exclude brace
+- d806a1ca6 @putout/plugin-react-hooks: drop support of 🐊 < 40
+- 695be7172 @putout/plugin-react-hooks: lowercase
+- f47e43428 @putout/plugin-putout: apply-lowercase-to-node-builders: JSX
+
 2025.06.02, v40.3.0
 
 feature:
