@@ -1,12 +1,11 @@
 import {types, operator} from 'putout';
 
-const {
-    rename,
-    compare,
-    getBindingPath,
-} = operator;
+const {rename, getBindingPath} = operator;
 
-const {isVariableDeclarator} = types;
+const {
+    isVariableDeclarator,
+    isIdentifier,
+} = types;
 
 const getNewName = (name) => {
     if (name.startsWith('TS')) {
@@ -46,7 +45,7 @@ export const traverse = ({push}) => ({
         if (!isVariableDeclarator(bindingPath))
             return;
         
-        if (compare(bindingPath.node.init, 'require(__a)'))
+        if (!isIdentifier(bindingPath.node.init, {name: 'types'}))
             return;
         
         if (!/[A-Z]/.test(first))

@@ -51,3 +51,8 @@ test('putout: apply-lowercase-to-node-builders: no report: require', (t) => {
     t.noReport('require');
     t.end();
 });
+
+test('putout: apply-lowercase-to-node-builders: no report: not-types', (t) => {
+    t.noReport('not-types');
+    t.end();
+});
