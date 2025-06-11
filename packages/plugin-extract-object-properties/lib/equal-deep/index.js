@@ -1,11 +1,9 @@
-'use strict';
-
-const {
+import {
     template,
     generate,
     types,
     operator,
-} = require('putout');
+} from 'putout';
 
 const {
     findBinding,
@@ -18,13 +16,13 @@ const {
     isCallExpression,
 } = types;
 
-module.exports.report = () => `Extract object properties into variables`;
+export const report = () => `Extract object properties into variables`;
 
 const buildAst = template(`
     const {PROPERTY} = OBJECT;
 `);
 
-module.exports.fix = ({items}) => {
+export const fix = ({items}) => {
     const names = [];
     
     for (const item of items) {
@@ -45,7 +43,7 @@ module.exports.fix = ({items}) => {
     }
 };
 
-module.exports.traverse = ({uplist, push}) => ({
+export const traverse = ({uplist, push}) => ({
     'const __object = __a.__b': (fullPath) => {
         const {__a, __b} = getTemplateValues(fullPath, 'const __object = __a.__b');
         const initPath = fullPath.get('declarations.0.init');

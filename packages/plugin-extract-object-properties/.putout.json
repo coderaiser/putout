@@ -3,5 +3,8 @@
         "*.md": {
             "extract-object-properties": "off"
         }
+    },
+    "rules": {
+        "extract-object-properties": "off"
     }
 }

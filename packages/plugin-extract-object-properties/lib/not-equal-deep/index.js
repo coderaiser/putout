@@ -1,6 +1,4 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {objectProperty} = types;
 
@@ -9,16 +7,16 @@ const {replaceWith, compare} = operator;
 const SHORTHAND = true;
 const COMPUTED = false;
 
-module.exports.report = () => `Extract object properties into variables`;
+export const report = () => `Extract object properties into variables`;
 
-module.exports.fix = ({path, expandPath, property}) => {
+export const fix = ({path, expandPath, property}) => {
     const newProperty = objectProperty(property, property, COMPUTED, SHORTHAND);
     
     expandPath.node.properties.push(newProperty);
     replaceWith(path, property);
 };
 
-module.exports.traverse = ({listStore, push}) => ({
+export const traverse = ({listStore, push}) => ({
     'const __object = __a.__b': save({
         listStore,
     }),

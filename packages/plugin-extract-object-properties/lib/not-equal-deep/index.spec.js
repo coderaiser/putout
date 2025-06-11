@@ -1,13 +1,10 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as applyDestructuring from '@putout/plugin-apply-destructuring';
+import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import * as putout from '@putout/plugin-putout';
+import * as extractObjectProperties from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const applyDestructuring = require('@putout/plugin-apply-destructuring');
-const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
-const putout = require('@putout/plugin-putout');
-const extractObjectProperties = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['extract-object-properties', extractObjectProperties],
     ],
