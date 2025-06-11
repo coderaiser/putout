@@ -46,3 +46,8 @@ test('putout: apply-lowercase-to-node-builders: no report: import', (t) => {
     t.noReport('import');
     t.end();
 });
+
+test('putout: apply-lowercase-to-node-builders: no report: require', (t) => {
+    t.noReport('require');
+    t.end();
+});

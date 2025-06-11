@@ -1,6 +1,10 @@
 import {types, operator} from 'putout';
 
-const {rename, getBindingPath} = operator;
+const {
+    rename,
+    compare,
+    getBindingPath,
+} = operator;
 
 const {isVariableDeclarator} = types;
 
@@ -40,6 +44,9 @@ export const traverse = ({push}) => ({
         const bindingPath = getBindingPath(path, name);
         
         if (!isVariableDeclarator(bindingPath))
+            return;
+        
+        if (compare(bindingPath.node.init, 'require(__a)'))
             return;
         
         if (!/[A-Z]/.test(first))
