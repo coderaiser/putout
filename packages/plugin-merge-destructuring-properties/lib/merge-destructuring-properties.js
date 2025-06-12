@@ -85,7 +85,7 @@ const addVariable = ({store}) => (path, node) => {
     
     const {parentPath, type} = currentPath;
     
-    if (path === currentPath || currentPath.removed)
+    if (currentPath.removed || !currentPath.node)
         return;
     
     if (parentPath.removed || !parentPath.node)
