@@ -10,6 +10,7 @@ import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
 import * as tape from '@putout/plugin-tape';
 import * as removeUselessVariables from '@putout/plugin-remove-useless-variables';
 import * as removeUselessArguments from '@putout/plugin-remove-useless-arguments';
+import * as mergeDestructuringProperties from '@putout/plugin-merge-destructuring-properties';
 import * as declare from '../lib/declare-before-reference.js';
 
 const {expressionStatement} = types;
@@ -171,6 +172,15 @@ test('plugin-declare-before-reference: transform: remove-useless-variables', (t)
     t.transform('remove-useless-variables', {
         'remove': removeUselessVariables.rules.remove,
         'remove-useless-arguments': removeUselessArguments,
+    });
+    t.end();
+});
+
+test('plugin-merge-destructuring-properties: transform: merge-destructuring-properties', (t) => {
+    t.transform('merge-destructuring-properties', {
+        'printer/declare': printer.rules.declare,
+        'nodejs/declare-after-require': nodejs.rules['declare-after-require'],
+        'merge-destructuring-properties': mergeDestructuringProperties,
     });
     t.end();
 });

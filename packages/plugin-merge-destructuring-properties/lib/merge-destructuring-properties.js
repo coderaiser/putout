@@ -52,11 +52,18 @@ export const traverse = ({push, store}) => {
             exit() {
                 store()
                     .filter(notEmptyPlaces)
+                    .filter(checkPlaces)
                     .map(push);
             },
         },
     };
 };
+
+function checkPlaces({places}) {
+    return places.filter(hasParentNode).length;
+}
+
+const hasParentNode = (path) => Boolean(path.parentPath.node);
 
 const createUID = (path) => {
     const {uid} = path.scope;
