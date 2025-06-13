@@ -19,7 +19,10 @@ const JSON = {
 };
 
 const PACKAGE = {
-    ...JSON,
+    semantics: {
+        ...JSON.semantics,
+        maxElementsInOneLine: 0,
+    },
     format: {
         ...JSON.format,
         indent: '  ',

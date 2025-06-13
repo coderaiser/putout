@@ -61,6 +61,7 @@ test('putout: cli: printer: json: package.json', (t) => {
             indent: '  ',
         },
         semantics: {
+            maxElementsInOneLine: 0,
             trailingComma: false,
         },
     }];
