@@ -24,6 +24,7 @@ module.exports = ({fix, fixCount, logError, raw}) => async function processFile(
     const {
         name = '<input>',
         source,
+        
         startLine,
         options = {},
         again,
