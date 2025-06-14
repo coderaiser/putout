@@ -34,6 +34,7 @@
     "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-convert-mock-require-to-mock-import": "*",
     "@putout/plugin-declare": "*",
+    "@putout/plugin-declare-before-reference": "*",
     "@putout/plugin-minify": "*",
     "@putout/plugin-nodejs": "*",
     "@putout/plugin-putout": "*",
