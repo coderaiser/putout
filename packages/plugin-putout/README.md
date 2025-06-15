@@ -1724,7 +1724,6 @@ test('hello', (t) => {
 });
 ```
 
-
 ## remove-unused-get-properties-argument
 
 Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fc32ff87e91fd28f26a03f55eba0663e/3423926ba0a80d30beafe2ac66c70c517df173e1).
