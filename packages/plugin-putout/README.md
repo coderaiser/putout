@@ -74,6 +74,7 @@ npm i @putout/plugin-putout -D
 - ✅ [includer](#includer);
 - ✅ [move-require-on-top-level](#move-require-on-top-level);
 - ✅ [remove-empty-array-from-process](#remove-empty-array-from-process);
+- ✅ [remove-empty-object-from-transform](#remove-empty-object-from-transform);
 - ✅ [remove-unused-get-properties-argument](#remove-unused-get-properties-argument);
 - ✅ [remove-useless-printer-option](#remove-useless-printer-option);
 - ✅ [rename-operate-to-operator](#rename-operate-to-operator);
@@ -152,6 +153,7 @@ npm i @putout/plugin-putout -D
         "putout/replace-test-message": "on",
         "putout/remove-unused-get-properties-argument": "on",
         "putout/remove-empty-array-from-process": "on",
+        "putout/remove-empty-object-from-transform": "on",
         "putout/remove-useless-printer-option": "on",
         "putout/simplify-replace-template": "on"
     }
@@ -1701,6 +1703,27 @@ await process('input', []);
 ```js
 await process('input');
 ```
+
+## remove-empty-object-from-transform
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f6e8710edf3501a8883f769c82a93048/8060cb8e1505324bb13de511a67d051217a2c39c).
+
+### ❌ Example of incorrect code
+
+```js
+test('hello', (t) => {
+    t.transform('nested-labels', {});
+});
+```
+
+### ✅ Example of correct code
+
+```js
+test('hello', (t) => {
+    t.transform('nested-labels');
+});
+```
+
 
 ## remove-unused-get-properties-argument
 

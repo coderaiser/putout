@@ -334,3 +334,8 @@ test('plugin-putout: transform: apply-exports', (t) => {
     t.transform('apply-exports');
     t.end();
 });
+
+test('plugin-putout: transform: remove-empty-object-from-transform', (t) => {
+    t.transform('remove-empty-object-from-transform');
+    t.end();
+});

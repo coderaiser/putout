@@ -1,3 +1,4 @@
+import * as removeEmptyObjectFromTransform from './remove-empty-object-from-transform/index.js';
 import * as applyExports from './apply-exports/index.js';
 import * as applyExportsToRenameFiles from './apply-exports-to-rename-files/index.js';
 import * as applyExportsToMatchFiles from './apply-exports-to-match-files/index.js';
@@ -136,4 +137,5 @@ export const rules = {
     'apply-exports-to-match-files': applyExportsToMatchFiles,
     'apply-exports-to-rename-files': applyExportsToRenameFiles,
     'apply-exports': ['off', applyExports],
+    'remove-empty-object-from-transform': removeEmptyObjectFromTransform,
 };
