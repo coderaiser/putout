@@ -113,7 +113,7 @@ test('plugin-declare-before-reference: no report: different-scopes', (t) => {
     t.end();
 });
 
-test('plugin-declare-before-reference: no report: apply-types', (t) => {
+test('plugin-declare-before-reference: no report after transform: apply-types', (t) => {
     t.noReportAfterTransform('apply-types', {
         'apply-types': printer.rules['apply-types'],
         'declare-before-reference': declare,

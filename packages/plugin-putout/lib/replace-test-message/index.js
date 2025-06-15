@@ -51,6 +51,11 @@ export const traverse = ({push}) => ({
         incorrect: INCORRECT.NO_REPORT_AFTER_TRANSFORM,
         correct: ': no report after transform',
     }),
+    't.noReportAfterTransform(__a, __b)': convert({
+        push,
+        incorrect: INCORRECT.NO_REPORT_AFTER_TRANSFORM,
+        correct: ': no report after transform',
+    }),
 });
 
 const convert = ({push, correct, incorrect}) => (path) => {

@@ -43,7 +43,7 @@ test('putout: group-imports-by-source: transform: convert-esm-to-commonjs', (t) 
     t.end();
 });
 
-test('putout: group-imports-by-source: transform: sort-imports-by-specifiers', (t) => {
+test('putout: group-imports-by-source: no report after transform: sort-imports-by-specifiers', (t) => {
     t.noReportAfterTransform('sort-imports-by-specifiers', {
         sortImportsBySpecifiers,
     });

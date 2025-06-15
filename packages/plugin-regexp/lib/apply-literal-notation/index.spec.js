@@ -52,7 +52,7 @@ test('plugin-regexp/apply-literal-notation: transform: \\', (t) => {
     t.end();
 });
 
-test('plugin-regexp/apply-literal-notation: transform: remove-useless-group', (t) => {
+test('plugin-regexp/apply-literal-notation: no report after transform: remove-useless-group', (t) => {
     t.noReportAfterTransform('remove-useless-group', {
         'regexp/remove-useless-group': removeUselessGroup,
     });
