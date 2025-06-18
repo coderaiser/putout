@@ -1129,3 +1129,31 @@ test('putout: runner: replace: expression statement', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: runner: replace: no label', (t) => {
+    const convert = {
+        report: noop,
+        replace: () => ({
+            'let __a: i8 = __b': '__a.db = __b',
+        }),
+    };
+    
+    const source = montag`
+        let minline: i8 = 0;
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        isTS: true,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+        minline.db = 0;\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
