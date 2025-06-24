@@ -1,3 +1,18 @@
+2025.06.24, v40.3.2
+
+fix:
+- 3e133cc12 @putout/plugin-merge-destructuring-properties: exclude place when no parentPath.node
+- 357193f1a @putout/plugin-merge-destructuring-properties: sameKind
+
+feature:
+- 401db54ac putout: @putout/plugin-putout v26.0.0
+- bea4e763f @putout/plugin-putout: convert-replace-with-multiple: simplify
+- f7640b98b @putout/plugin-merge-destructuring-properties: Container is falsy
+- ef2e1ce51 @putout/plugin-putout: replate-test-message: no-report-after-transform: plugins
+- 725865854 @putout/plugin-printer: remove-empty-object-from-transform: add
+- 4f44985a5 @putout/plugin-merge-destructuring-properties: declare-before-reference
+- 0e5d60b21 @putout/cli-process-file: printer: package.json: maxPropertiesInOneLine: 0
+
 2025.06.11, v40.3.1
 
 feature:
