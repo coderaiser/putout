@@ -1,5 +1,12 @@
 import {createTest} from '@putout/test';
+import * as nodejs from '@putout/plugin-nodejs';
+import * as esm from '@putout/plugin-esm';
+import * as mergeDestructuringProperties from '@putout/plugin-merge-destructuring-properties';
 import * as replaceWithMultiple from './index.js';
+import * as replaceOperateWithOperator from '../replace-operate-with-operator/index.js';
+
+const convertCommonjsToEsmRequire = nodejs.rules['convert-commonjs-to-esm-require'];
+const declareImportsFirst = esm.rules['declare-imports-first'];
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -29,5 +36,15 @@ test('plugin-putout: replace-with-multiple: transform: replaceWith: replace-with
 
 test('plugin-putout: replace-with-multiple: transform: insertAfter: insert-after-exists', (t) => {
     t.transform('insert-after-exists');
+    t.end();
+});
+
+test('plugin-putout: replace-with-multiple: transform: insertAfter: container-is-falsy', (t) => {
+    t.transform('container-is-falsy', {
+        replaceOperateWithOperator,
+        convertCommonjsToEsmRequire,
+        declareImportsFirst,
+        mergeDestructuringProperties,
+    });
     t.end();
 });

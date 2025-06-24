@@ -6,6 +6,8 @@ const {
     isObjectPattern,
     isRestElement,
     isAssignmentExpression,
+    isVariableDeclaration,
+    isExpressionStatement,
 } = types;
 
 const notEmptyPlaces = (a) => a.places.length;
@@ -63,7 +65,12 @@ function checkPlaces({places}) {
     return places.filter(hasParentNode).length;
 }
 
-const hasParentNode = (path) => Boolean(path.parentPath.node);
+const hasParentNode = ({parentPath}) => {
+    if (!parentPath.node)
+        return false;
+    
+    return isVariableDeclaration(parentPath) || isExpressionStatement(parentPath);
+};
 
 const createUID = (path) => {
     const {uid} = path.scope;

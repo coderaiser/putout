@@ -43,6 +43,8 @@
   ],
   "devDependencies": {
     "@putout/eslint-flat": "^3.0.0",
+    "@putout/plugin-esm": "*",
+    "@putout/plugin-merge-destructuring-properties": "*",
     "@putout/plugin-nodejs": "*",
     "@putout/plugin-tape": "*",
     "@putout/test": "^13.0.0",

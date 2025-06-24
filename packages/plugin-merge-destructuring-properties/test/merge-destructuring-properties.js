@@ -6,9 +6,13 @@ import * as nodejs from '@putout/plugin-nodejs';
 import * as convert from '@putout/plugin-nodejs/convert-commonjs-to-esm';
 import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-commonjs';
 import * as declareBeforeReference from '@putout/plugin-declare-before-reference';
+import * as esm from '@putout/plugin-esm';
 import * as mergeDestructuringProperties from '../lib/merge-destructuring-properties.js';
 
 const {declare} = rules;
+
+const convertCommonjsToEsmRequire = nodejs.rules['convert-commonjs-to-esm-require'];
+const declareImportsFirst = esm.rules['declare-imports-first'];
 
 const test = createTest(import.meta.url, {
     'merge-destructuring-properties': mergeDestructuringProperties,
@@ -116,6 +120,16 @@ test('plugin-merge-destructuring-properties: transform: mock-require', (t) => {
 test('plugin-merge-destructuring-properties: transform: declare-before-reference', (t) => {
     t.transform('declare-before-reference', {
         'declare-before-reference': declareBeforeReference,
+    });
+    t.end();
+});
+
+test('plugin-merge-destructuring-properties: transform: container-is-falsy', (t) => {
+    t.transform('container-is-falsy', {
+        replaceOperateWithOperator: putout.rules['replace-operate-with-operator'],
+        convertCommonjsToEsmRequire,
+        declareImportsFirst,
+        mergeDestructuringProperties,
     });
     t.end();
 });
