@@ -1,9 +1,6 @@
 import {operator} from 'putout';
 
-const {
-    replaceWithMultiple,
-    rename,
-} = operator;
+const {rename} = operator;
 
 replaceWithMultiple(path, statements);
 

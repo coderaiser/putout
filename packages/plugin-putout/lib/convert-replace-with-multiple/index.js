@@ -1,47 +1,15 @@
-import {
-    operator,
-    template,
-    types,
-} from 'putout';
+import {operator} from 'putout';
 
-const {objectProperty, identifier} = types;
-const {replaceWith, insertBefore} = operator;
+const {replaceWith} = operator;
 
 export const report = () => {
-    return `"operate.replaceWithMultiple" should be called instead of "path.replaceWithMultiple"`;
+    return `Use 'operator.replaceWithMultiple()' instead of 'path.replaceWithMultiple()'`;
 };
 
-const replaceWithAST = template.ast(`
-    const {replaceWithMultiple} = require('putout').operate;
-`);
-
-export const fix = ({path, calleePath, property, object, program}) => {
-    const first = program.get('body.0');
-    const {bindings} = program.scope;
-    
+export const fix = ({path, calleePath, property, object}) => {
     replaceWith(calleePath, property);
     path.node.arguments.unshift(object);
-    
-    if (bindings.replaceWithMultiple)
-        return;
-    
-    if (!bindings.replaceWith && !bindings.insertAfter)
-        return insertBefore(first, replaceWithAST);
-    
-    const id = identifier('replaceWithMultiple');
-    const varPath = getVarPath(bindings);
-    
-    varPath.node.id.properties.push(objectProperty(id, id, false, true));
 };
-
-function getVarPath(bindings) {
-    const {replaceWith, insertAfter} = bindings;
-    
-    if (replaceWith)
-        return replaceWith.path;
-    
-    return insertAfter.path;
-}
 
 export const traverse = ({push}) => ({
     CallExpression(path) {

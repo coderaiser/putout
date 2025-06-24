@@ -15,7 +15,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-putout: replace-with-multiple: report', (t) => {
-    t.report('replace-with-multiple', `"operate.replaceWithMultiple" should be called instead of "path.replaceWithMultiple"`);
+    t.report('replace-with-multiple', `Use 'operator.replaceWithMultiple()' instead of 'path.replaceWithMultiple()'`);
     t.end();
 });
 
