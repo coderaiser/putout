@@ -712,7 +712,6 @@ test('putout: runner: debug', (t) => {
 
 test('putout: runner: debug: replace', (t) => {
     const {DEBUG} = process.env;
-    
     const debugFn = stub();
     
     debugFn.enabled = true;

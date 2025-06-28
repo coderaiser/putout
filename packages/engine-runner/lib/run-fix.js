@@ -53,7 +53,7 @@ module.exports = (is, fix, {path, pathOptions, rule, position, options}) => {
         return;
     
     if (debug.enabled)
-        debug(`fix: ${rule}`, position, getPath(path).toString());
+        debug(`${rule}:`, position, getPath(path).toString());
     
     validate('fix', fix);
     
