@@ -162,13 +162,14 @@ function convertPaddingLines([state, ...lines]) {
 
 function getOperatorLinebreak(options) {
     const [error, after, {overrides}] = options;
+    const newOverrides = assign({}, overrides);
     
-    delete overrides['='];
+    delete newOverrides['='];
     
     return [
         error,
         after, {
-            overrides,
+            overrides: newOverrides,
         },
     ];
 }
