@@ -60,7 +60,7 @@ export const rules = {
         'error',
         'always',
     ],
-    '@stylistic/func-call-spacing': 'error',
+    '@stylistic/function-call-spacing': 'error',
     '@stylistic/operator-linebreak': ['error', 'after', {
         overrides: {
             '=': 'none',
