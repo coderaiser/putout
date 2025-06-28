@@ -46,6 +46,7 @@ const extensionRules = {
     
     '@stylistic/lines-between-class-members': 'off',
     
+    '@stylistic/operator-linebreak': getOperatorLinebreak(rules['@stylistic/operator-linebreak']),
     '@stylistic/padding-line-between-statements': convertPaddingLines(rules['@stylistic/padding-line-between-statements']),
     
     '@stylistic/object-curly-spacing': rules['@stylistic/object-curly-spacing'],
@@ -57,7 +58,7 @@ const extensionRules = {
     '@stylistic/space-before-function-paren': rules['@stylistic/space-before-function-paren'],
     
     ...reEnable('object-curly-spacing'),
-    ...reEnable('func-call-spacing'),
+    ...reEnable('function-call-spacing'),
     '@typescript-eslint/no-array-constructor': 'off',
     '@typescript-eslint/no-implied-eval': 'off',
     
@@ -156,5 +157,18 @@ function convertPaddingLines([state, ...lines]) {
     return [
         state,
         ...newLines,
+    ];
+}
+
+function getOperatorLinebreak(options) {
+    const [error, after, {overrides}] = options;
+    
+    delete overrides['='];
+    
+    return [
+        error,
+        after, {
+            overrides,
+        },
     ];
 }

@@ -6,7 +6,7 @@ const montag = require('montag');
 const {createPlugin} = require('@putout/eslint/create-plugin');
 const rule = createPlugin(require('.'));
 
-const ruleTester = new RuleTester({
+const ruleTesterBabel = new RuleTester({
     languageOptions: {
         parser: require('@babel/eslint-parser/experimental-worker'),
         parserOptions: {
@@ -18,7 +18,7 @@ const ruleTester = new RuleTester({
     },
 });
 
-ruleTester.run('add-newlines-between-types-in-union', rule, {
+ruleTesterBabel.run('add-newlines-between-types-in-union', rule, {
     valid: [
         montag`
             type a = {
@@ -41,6 +41,51 @@ ruleTester.run('add-newlines-between-types-in-union', rule, {
         `,
     ],
     
+    invalid: [{
+        code: montag`
+            type a = string | boolean | number | object;
+        `,
+        output: montag`
+            type a = 
+                | string
+                | boolean
+                | number
+                | object;
+        `,
+        errors: [{
+            message: 'Add newlines between types in union',
+            type: 'TSUnionType',
+        }],
+    }],
+});
+
+const ruleTesterTypescript = new RuleTester({
+    languageOptions: {
+        parser: require('@typescript-eslint/parser'),
+        parserOptions: {
+            warnOnUnsupportedTypeScriptVersion: false,
+            ecmaFeatures: {
+                jsx: false,
+            },
+        },
+    },
+});
+
+ruleTesterTypescript.run('add-newlines-between-types-in-union: typescript-eslint', rule, {
+    valid: [
+        montag`
+            type a = {
+                x: string | boolean | number | object
+            }
+        `,
+        montag`
+            type a =
+                | string
+                | boolean
+                | object
+                | number;
+        `,
+    ],
     invalid: [{
         code: montag`
             type a = string | boolean | number | object;
