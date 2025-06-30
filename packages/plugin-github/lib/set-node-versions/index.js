@@ -47,6 +47,17 @@ export const traverse = ({push, options}) => ({
             if (isDeepStrictEqual(versions, nodeVersions))
                 continue;
             
+            for (const version of nodeVersions) {
+                const [nodeVersion] = version.split('.');
+                
+                for (const currentVersion of versions) {
+                    const [current] = currentVersion.split('.');
+                    
+                    if (current === nodeVersion)
+                        return;
+                }
+            }
+            
             push(nodeVersionPath.get('value'));
         }
     },

@@ -4,10 +4,7 @@ __putout_processor_yaml({
             "runs-on": "ubuntu-latest",
             "strategy": {
                 "matrix": {
-                    "node-version": [
-                        "18.x",
-                        "22.x"
-                    ]
+                    "node-version": ["18.x", "22.x"]
                 }
             }
         }

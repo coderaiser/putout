@@ -31,3 +31,10 @@ test('plugin-github: set node versions: no transform: no-version', (t) => {
     t.noTransform('no-version');
     t.end();
 });
+
+test('plugin-github: set node versions: no report after transform: intersects', (t) => {
+    t.noReportWithOptions('intersects', {
+        versions: ['24.x'],
+    });
+    t.end();
+});
