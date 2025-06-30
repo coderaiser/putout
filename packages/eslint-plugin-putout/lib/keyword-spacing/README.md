@@ -35,7 +35,7 @@ async () => {
 
 ```js
 try {
-}catch {
+} catch {
 }
 
 try {

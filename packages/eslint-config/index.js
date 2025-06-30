@@ -86,6 +86,7 @@ export const rules = {
         anonymous: 'never',
         named: 'never',
         asyncArrow: 'always',
+        catch: 'never',
     }],
     '@stylistic/implicit-arrow-linebreak': 'error',
     '@stylistic/quotes': ['error', 'single', {
