@@ -148,7 +148,7 @@ module.exports = async (overrides = {}) => {
     }
     
     if (args.help) {
-        const help = require('./help');
+        const {help} = await import('./help.mjs');
         log(help());
         
         return exit();

@@ -16,8 +16,8 @@ test('putout: bin: cli: -v', (t) => {
     t.end();
 });
 
-test('putout: bin: cli: -h', (t) => {
-    const help = require('../lib/cli/help');
+test('putout: bin: cli: -h', async (t) => {
+    const {help} = await import('../lib/cli/help.mjs');
     const {stdout} = spawnSync(cliPath, ['-h'], {
         encoding: 'utf8',
     });
