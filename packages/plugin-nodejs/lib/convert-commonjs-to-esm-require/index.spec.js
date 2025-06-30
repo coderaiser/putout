@@ -32,8 +32,8 @@ test('plugin-convert-commonjs-to-esm: require: transform: relative', (t) => {
     t.end();
 });
 
-test('plugin-convert-commonjs-to-esm: require: no transform: json (🐌 DISABLED FEATURE: IMPORT TYPE "JSON" https: json', (t) => {
-    t.noTransform('json');
+test('plugin-convert-commonjs-to-esm: require: transform: json', (t) => {
+    t.transform('json');
     t.end();
 });
 

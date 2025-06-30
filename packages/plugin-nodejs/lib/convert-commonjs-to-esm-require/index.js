@@ -38,10 +38,6 @@ const isPackage = ({value}) => /package(\.json)?$/.test(value);
 
 export const match = () => ({
     'const __a = require(__b)': ({__b}, path) => {
-        // exclude jsons while not supported
-        if (/\.json/.test(__b.value))
-            return false;
-        
         if (path.scope.getBinding('require'))
             return false;
         
@@ -91,12 +87,8 @@ export const replace = () => ({
             return applyDynamicImport(path);
         }
         
-        // disabled while not supported
-        // https://babeljs.io/blog/2023/05/26/7.22.0#import-attributes-15536-15620
-        //
-        // const isJSON = /\.json$/.test(value);
-        // const assertion = !isJSON ? '' : 'with { type: "json" }';
-        const assertion = '';
+        const isJSON = /\.json$/.test(value);
+        const assertion = !isJSON ? '' : 'with { type: "json" }';
         
         if (isObjectPattern(__a)) {
             const imports = [];
