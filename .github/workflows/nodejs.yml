@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Redrun
-        run: bun install redrun yarn -g --no-save
+        run: bun install redrun -g --no-save
       - name: Install
         run: bun i -f --no-save
       - name: Lint
