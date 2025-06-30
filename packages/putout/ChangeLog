@@ -1,3 +1,19 @@
+2025.06.30, v40.4.0
+
+fix:
+- 3645b9c4c eslint-plugin-putout: ts: operator-linebreak: overrides
+
+feature:
+- 61f2d5035 putout: @putout/plugin-nodejs v17.0.0
+- 6942e672f putout: help: commonjs -> esm
+- cf2050037 @putout/plugin-nodejs: convert-commonjs-to-esm: assertions
+- 192ece116 eslint-config: space-before-function-paren: catch: never
+- 551d76a2a eslint-plugin-putout: @stylistic/eslint-plugin v5.0.0
+- 8bfa5b7a7 @putout/eslint-config: @stylistic/eslint-plugin v5.0.0
+- 28ab2a130 @putout/eslint-flat: @eslint/config-helpers v0.3.0
+- b7f6a0288 @putout/engine-parser: hermes-parser v0.29.1
+- 5c9da3482 @putout/engine-runner: debug log: simplify
+
 2025.06.24, v40.3.2
 
 fix:
