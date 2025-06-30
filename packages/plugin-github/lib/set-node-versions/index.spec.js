@@ -32,7 +32,7 @@ test('plugin-github: set node versions: no transform: no-version', (t) => {
     t.end();
 });
 
-test('plugin-github: set node versions: no report after transform: intersects', (t) => {
+test('plugin-github: set node versions: no report with options: intersects', (t) => {
     t.noReportWithOptions('intersects', {
         versions: ['24.x'],
     });
