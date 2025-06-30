@@ -18,6 +18,7 @@ const INCORRECT = {
     REPORT: /: (no report after transform|no report|transform|no transform)/,
     NO_REPORT: /: (no report after transform|report|transform|no transform)/,
     NO_REPORT_AFTER_TRANSFORM: /: (report|transform|no transform|no report)/,
+    NO_REPORT_WITH_OPTIONS: /: (report|transform|no transform|no report)/,
 };
 
 export const traverse = ({push}) => ({
@@ -54,6 +55,11 @@ export const traverse = ({push}) => ({
     't.noReportAfterTransform(__a, __b)': convert({
         push,
         incorrect: INCORRECT.NO_REPORT_AFTER_TRANSFORM,
+        correct: ': no report after transform',
+    }),
+    't.noReportWithOptions(__a, __b)': convert({
+        push,
+        incorrect: INCORRECT.NO_REPORT_WITH_OPTIONS,
         correct: ': no report after transform',
     }),
 });
