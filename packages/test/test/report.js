@@ -58,7 +58,7 @@ test('putout: test: noReportCode', (t) => {
     t.end();
 });
 
-test('putout: test: noReportWithOptions', (t) => {
+test('putout: test: no report with options: remove-import', (t) => {
     const cache = new Map();
     
     t.noReportWithOptions('remove-import', {

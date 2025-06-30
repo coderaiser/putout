@@ -1,11 +1,10 @@
-'use strict';
+import * as putout from '@putout/plugin-putout';
+import * as extractObjectProperties from '@putout/plugin-extract-object-properties';
+import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import {createTest} from '../lib/test.mjs';
+import * as removeConsole from './fixture/remove-console.js';
 
-const putout = require('@putout/plugin-putout');
-
-const {createTest} = require('..');
-const removeConsole = require('./fixture/remove-console');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-console', removeConsole],
     ],
@@ -75,8 +74,8 @@ test('test: transform: plugin', (t) => {
 
 test('test: transform: rule of a plugin: remove-unused-variables', (t) => {
     t.transform('remove-unused-variables', {
-        'extract-object-properties': require('@putout/plugin-extract-object-properties'),
-        'remove': require('@putout/plugin-remove-unused-variables'),
+        'extract-object-properties': extractObjectProperties,
+        'remove': removeUnusedVariables,
         'putout/convert-replace-with': putout.rules['convert-replace-with'],
     });
     t.end();
