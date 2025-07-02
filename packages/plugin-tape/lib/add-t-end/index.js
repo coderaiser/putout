@@ -4,7 +4,7 @@ import {
     operator,
 } from 'putout';
 
-const {compare} = operator;
+const {compare, compareAny} = operator;
 const {
     expressionStatement,
     isCallExpression,
@@ -32,7 +32,7 @@ function check({__body}) {
     
     const last = body.at(-1);
     
-    if (compare(last, 't.end()'))
+    if (compareAny('t.end()', body))
         return false;
     
     if (compare(last, 'const __a = t.end()'))

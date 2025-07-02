@@ -40,8 +40,8 @@ test('plugin-tape: add-t-end: transform: putout', (t) => {
     t.end();
 });
 
-test('plugin-tape: add-t-end: transform: contains', (t) => {
-    t.transform('contains');
+test('plugin-tape: add-t-end: no report: contains', (t) => {
+    t.noReport('contains');
     t.end();
 });
 
@@ -52,5 +52,10 @@ test('plugin-tape: add-t-end: no report: callback', (t) => {
 
 test('plugin-tape: add-t-end: no report: assign', (t) => {
     t.noReport('assign');
+    t.end();
+});
+
+test('plugin-tape: add-t-end: no report: exists', (t) => {
+    t.noReport('exists');
     t.end();
 });
