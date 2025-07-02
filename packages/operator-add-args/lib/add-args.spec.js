@@ -657,3 +657,32 @@ test('putout: operator: add-args: three args: no object', (t) => {
     t.equal(code, source);
     t.end();
 });
+
+test('putout: operator: add-args: three args: exclude', (t) => {
+    const args = {
+        print: [
+            '{print}',
+            'module.exports.__a = (__args) => __body',
+            [
+                '(__a, __b, __c, __object) => __body',
+            ],
+        ],
+    };
+    
+    const source = montag`
+        module.exports.printTrailingCommentLine = (path, printer, semantics, {printComment}) => {
+            printComment();
+            print.breakline();
+        };\n
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    t.equal(code, source);
+    t.end();
+});

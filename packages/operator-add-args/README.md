@@ -54,6 +54,36 @@ Plugin supports options, so you can pass it in `.putout.json`:
 }
 ```
 
+### Exclude
+
+If you want exclude `index.spec.js`:
+
+```diff
+test('', (path, printer, semantics, {printComment} => {
+    comparePlaces();
+});
+```
+
+You can use `exclude` list:
+
+```json
+{
+    "rules": {
+        "tape/add-args": ["on", {
+            "args": {
+                "comparePlaces": [
+                    "{comparePlaces}",
+                    "test('__a', (__args) => __body)",
+                    [
+                        "(__a, __b, __c, __object) => __object"
+                    ]
+                ]
+            }
+        }]
+    }
+}
+```
+
 ## License
 
 MIT

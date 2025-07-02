@@ -58,7 +58,7 @@ const traverse = (args) => ({push, options}) => {
     
     return {
         ReferencedIdentifier(path) {
-            for (const [name, [declaration, pattern]] of entries(allArgs)) {
+            for (const [name, [declaration, pattern, exclude]] of entries(allArgs)) {
                 if (path.node.name !== name)
                     continue;
                 
@@ -78,8 +78,10 @@ const traverse = (args) => ({push, options}) => {
                 if (!compareAny(path.scope.path, pattern))
                     continue;
                 
-                const {params} = block;
+                if (compareAny(path.scope.path, exclude))
+                    continue;
                 
+                const {params} = block;
                 const [index, lastParam] = getObjectPattern(params);
                 
                 if (isObjectPattern(lastParam)) {
