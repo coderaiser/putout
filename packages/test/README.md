@@ -148,7 +148,7 @@ test('putout: test: reportWithOptions', (t) => {
 Check no report of `filename.js` with `options`:
 
 ```js
-test('putout: test: no report with options with options: remove-import', (t) => {
+test('putout: test: no report with options: remove-import', (t) => {
     const cache = new Map();
     
     t.noReportWithOptions('remove-import', {

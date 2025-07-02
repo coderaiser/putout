@@ -18,7 +18,7 @@ const INCORRECT = {
     REPORT: /: (no report after transform|no report|transform|no transform)/,
     NO_REPORT: /: (no report after transform|report|transform|no transform)/,
     NO_REPORT_AFTER_TRANSFORM: /: (report|transform|no transform|no report)/,
-    NO_REPORT_WITH_OPTIONS: /: (no report after transform|report|transform|no transform|no report)/,
+    NO_REPORT_WITH_OPTIONS: /: (no report after transform(\swith options)?|report|transform|no transform|no report)/,
 };
 
 export const traverse = ({push}) => ({
