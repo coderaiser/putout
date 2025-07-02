@@ -32,6 +32,11 @@ test('plugin-printer: add-args: transform: semantics', (t) => {
     t.end();
 });
 
+test('plugin-printer: add-args: no report: semantics: print-comment', (t) => {
+    t.noReport('print-comment');
+    t.end();
+});
+
 test('plugin-printer: add-args: no transform: three-args-no-object', (t) => {
     t.noTransform('three-args-no-object');
     t.end();
