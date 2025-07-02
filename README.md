@@ -2572,7 +2572,7 @@ const ast = template.ast(`
 `);
 
 module.exports.fix = (path) => {
-    // wrong
+// wrong
     path.replaceWith(ast);
     // correct
     replaceWith(path, ast);
