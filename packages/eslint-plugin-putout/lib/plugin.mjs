@@ -19,7 +19,6 @@ export const rules = {
     ...getWrapRule('long-properties-destructuring'),
     ...getWrapRule('destructuring-as-function-argument'),
     ...getWrapRule('align-spaces'),
-    ...getWrapRule('keyword-spacing'),
     ...getWrapRule('newline-function-call-arguments'),
     ...getWrapRule('function-declaration-paren-newline'),
     ...getWrapRule('add-newlines-between-types-in-union'),

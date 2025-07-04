@@ -1,0 +1,4 @@
+try {
+    fn();
+} catch(error) {
+}

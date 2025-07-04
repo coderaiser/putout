@@ -83,7 +83,6 @@ Then configure the rules you want to use under the rules section.
         "putout/long-properties-destructuring": "error",
         "putout/destructuring-as-function-argument": "error",
         "putout/align-spaces": "error",
-        "putout/keyword-spacing": "error",
         "putout/newline-function-call-arguments": "error",
         "putout/function-declaration-paren-newline": "error",
         "putout/remove-newline-after-default-import": "error",
@@ -139,7 +138,6 @@ Then configure the rules you want to use under the rules section.
 - ✅ [For-of multiple properties destructuring](/packages/eslint-plugin-putout/lib/for-of-multiple-properties-destructuring#readme)
 - ✅ [Long properties destructuring](/packages/eslint-plugin-putout/lib/long-properties-destructuring#readme)
 - ✅ [Destructuring as function argument](/packages/eslint-plugin-putout/lib/destructuring-as-function-argument#readme)
-- ✅ [Keyword spacing](/packages/eslint-plugin-putout/lib/keyword-spacing#readme)
 - ✅ [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments#readme)
 - ✅ [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline#readme)
 - ✅ [Remove newline between declarations](/packages/eslint-plugin-putout/lib/remove-newline-between-declarations#readme)

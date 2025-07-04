@@ -252,6 +252,10 @@ test('eslint-plugin-putout: long-properties-destructuring', async ({process}) =>
     await process('long-properties-destructuring');
 });
 
+test('eslint-plugin-putout: space-before-function-paren', async ({process}) => {
+    await process('space-before-function-paren');
+});
+
 test('eslint-plugin-putout: no-extra-non-null-assertion', async ({comparePlaces}) => {
     await comparePlaces('no-extra-non-null-assertion', []);
 });

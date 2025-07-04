@@ -25,7 +25,6 @@ const putoutConfig = [{
         'putout/long-properties-destructuring': 'error',
         'putout/destructuring-as-function-argument': 'error',
         'putout/align-spaces': 'error',
-        'putout/keyword-spacing': 'error',
         'putout/newline-function-call-arguments': 'error',
         'putout/function-declaration-paren-newline': 'error',
         'putout/add-newlines-between-types-in-union': 'error',
