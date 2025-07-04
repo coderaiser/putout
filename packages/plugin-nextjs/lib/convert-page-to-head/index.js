@@ -14,8 +14,7 @@ export const fix = (path) => {
     node.children = path.node.children;
     path.scope.block.id.name = 'Head';
     
-    traverse(path
-        .scope
+    traverse(path.scope
         .getProgramParent().path, {
         'import Head from "next/head"': (path) => {
             remove(path);

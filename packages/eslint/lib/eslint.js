@@ -90,8 +90,7 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
     const [report] = results;
     const {output = code} = report;
     
-    const places = report
-        .messages
+    const places = report.messages
         .map(convertToPlace)
         .filter(Boolean);
     

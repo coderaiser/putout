@@ -55,8 +55,7 @@ export const replace = () => ({
 const buildRequire = template(`const NAME = REQUIRE`);
 
 function declareRequire({__a, __b}, path) {
-    const shortName = __a.value || __a
-        .name
+    const shortName = __a.value || __a.name
         .split('/')
         .pop();
     

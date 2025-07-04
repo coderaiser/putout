@@ -25,8 +25,7 @@ const createAligner = (i) => Array(i + 1).join(' ');
 const getValue = (a) => a.value;
 
 function evaluate({__array}, path) {
-    const str = __array
-        .elements
+    const str = __array.elements
         .map(getValue)
         .join('\n');
     

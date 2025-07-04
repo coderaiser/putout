@@ -20,8 +20,7 @@ export const match = () => ({
 
 export const replace = () => ({
     '__a.test(__b)': ({__a}) => {
-        const str = __a
-            .raw
+        const str = __a.raw
             .slice(1, -1)
             .replace('^', '');
         

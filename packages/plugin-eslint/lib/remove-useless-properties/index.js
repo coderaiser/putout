@@ -50,8 +50,7 @@ function getPropertyNames(path) {
     if (!node)
         return [];
     
-    const names = node
-        .properties
+    const names = node.properties
         .filter(isObjectProperty)
         .map(getName);
     

@@ -139,8 +139,7 @@ const fix = (from, to, path) => {
     }
     
     mark.add();
-    path
-        .scope
+    path.scope
         .getBlockParent()
         .crawl();
     
