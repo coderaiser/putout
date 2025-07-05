@@ -433,6 +433,15 @@ test('plugin-putout: declare: identifier', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: print', (t) => {
+    t.transformCode(`print('hello');`, montag`
+        import {print} from 'putout';
+        
+        print('hello');\n
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: no transform: import', (t) => {
     t.noTransformCode(`import('hello');\n`);
     t.end();

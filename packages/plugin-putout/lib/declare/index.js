@@ -9,4 +9,5 @@ export const declare = () => ({
     createTest: `import {createTest} from '@putout/test'`,
     ...operator,
     getRule: `const getRule = ${getRule.toString()};`,
+    print: `import {print} from 'putout'`,
 });
