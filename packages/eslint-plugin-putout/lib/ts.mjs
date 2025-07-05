@@ -25,10 +25,6 @@ const handled = {
     '@stylistic/brace-style': 'off', // putout/object-property-newline instead
 };
 
-const broken = {
-    '@stylistic/indent': 'off',
-};
-
 const slow = {
     '@typescript-eslint/dot-notation': 'off',
     '@typescript-eslint/require-await': 'off',
@@ -37,7 +33,6 @@ const slow = {
 const extensionRules = {
     ...noFix,
     ...handled,
-    ...broken,
     ...slow,
     'no-undef': 'off',
     'no-var': 'off',

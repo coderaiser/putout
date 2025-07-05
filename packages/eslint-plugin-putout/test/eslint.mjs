@@ -108,6 +108,10 @@ test('eslint-plugin-putout: ts: semi', async ({process}) => {
     await process('semi');
 });
 
+test('eslint-plugin-putout: ts: indent', async ({process}) => {
+    await process('indent');
+});
+
 test('eslint-plugin-putout: space-in-parens', async ({process}) => {
     await process('space-in-parens');
 });
