@@ -33,7 +33,7 @@
   "dependencies": {
     "fullstore": "^3.0.0",
     "just-camel-case": "^6.2.0",
-    "just-snake-case": "^3.2.0",
+    "just-kebab-case": "^4.2.0",
     "try-catch": "^3.0.0"
   },
   "keywords": [

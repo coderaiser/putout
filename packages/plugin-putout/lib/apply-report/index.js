@@ -1,5 +1,5 @@
 import {operator, types} from 'putout';
-import toSnakeCase from 'just-snake-case';
+import toKebabCase from 'just-kebab-case';
 
 const {
     arrayExpression,
@@ -56,7 +56,7 @@ export const replace = () => ({
         if (isArrayExpression(value))
             return 't.noReportWithOptions(__a, __b)';
         
-        const name = toSnakeCase(value.name);
+        const name = toKebabCase(value.name);
         
         path.node.arguments[1] = arrayExpression([
             arrayExpression([stringLiteral(name), value]),
