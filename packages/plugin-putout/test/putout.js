@@ -339,3 +339,8 @@ test('plugin-putout: transform: remove-empty-object-from-transform', (t) => {
     t.transform('remove-empty-object-from-transform');
     t.end();
 });
+
+test('plugin-putout: transform: convert-plugins-element-to-tuple', (t) => {
+    t.transform('convert-plugins-element-to-tuple');
+    t.end();
+});

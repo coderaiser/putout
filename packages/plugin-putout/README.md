@@ -57,6 +57,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-process-to-find](#convert-process-to-find);
 - ✅ [convert-progress-to-track-file](#convert-progress-to-track-file);
 - ✅ [convert-putout-test-to-create-test](#convert-putout-test-to-create-test);
+- ✅ [convert-plugins-element-to-tuple](#convert-plugins-element-to-tuple);
 - ✅ [convert-replace-to-function](#convert-replace-to-function);
 - ✅ [convert-replace-with](#convert-replace-with);
 - ✅ [convert-replace-with-multiple](#convert-replace-with-multiple);
@@ -143,6 +144,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-report-to-function": "on",
         "putout/convert-get-rule-to-require": "on",
         "putout/convert-progress-to-track-file": "on",
+        "putout/convert-plugins-element-to-tuple": "on",
         "putout/create-test": "on",
         "putout/shorten-imports": "on",
         "putout/declare": "on",
@@ -759,6 +761,28 @@ import {createTest} from '@putout/test';
 const test = createTest(__dirname, {
     'remove-unused-variables': rmVars,
 });
+```
+
+## convert-plugins-element-to-tuple
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/abcc9f79469db69849b6d6efd3e85a8a/0536c9f780a0c9db2feed3be92299a22f06b9720).
+
+### ❌ Example of incorrect code
+
+```js
+t.transform('nested-not-block', [
+    ['convert-if-to-jmp', convertIfToJmp],
+    convertDoWhileToJnz,
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+t.transform('nested-not-block', [
+    ['convert-if-to-jmp', convertIfToJmp],
+    ['convert-do-while-to-jnz', convertDoWhileToJnz],
+]);
 ```
 
 ## convert-to-no-transform-code

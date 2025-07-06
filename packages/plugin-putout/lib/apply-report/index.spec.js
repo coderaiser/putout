@@ -51,3 +51,8 @@ test('putout: apply-report: transform: object', (t) => {
     t.transform('object');
     t.end();
 });
+
+test('putout: apply-report: transform: mixed', (t) => {
+    t.transform('mixed');
+    t.end();
+});
