@@ -17,7 +17,7 @@ test('plugin-github: set node versions: transform: github', (t) => {
     t.end();
 });
 
-test('plugin-github: set node versions: transform: options', (t) => {
+test('plugin-github: set node versions: transform with options: options', (t) => {
     t.transformWithOptions('options', {
         versions: [
             '18.x',

@@ -6,7 +6,9 @@
             "putout/convert-url-to-dirname": "off"
         },
         "test": {
-            "promises/apply-top-level-await": "off"
+            "promises/apply-top-level-await": "off",
+            "putout/replace-test-message": "off",
+            "putout/apply-fixture-name-to-message": "off"
         }
     },
     "rules": {

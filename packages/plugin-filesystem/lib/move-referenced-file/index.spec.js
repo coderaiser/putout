@@ -15,7 +15,7 @@ test('putout: plugin-filesystem: move-referenced-file: report', (t) => {
     t.end();
 });
 
-test('putout: plugin-filesystem: move-referenced-file: transform: long path', (t) => {
+test('putout: plugin-filesystem: move-referenced-file: transform with options: long path', (t) => {
     t.transformWithOptions('move-referenced-file', {
         name: '/src/hello.js',
         directory: 'lib',

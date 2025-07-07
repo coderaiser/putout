@@ -21,7 +21,7 @@ test('filesystem: replace-cwd: no report', (t) => {
     t.end();
 });
 
-test('filesystem: replace-cwd: transform', (t) => {
+test('filesystem: replace-cwd: transform with options', (t) => {
     t.transformWithOptions('replace-cwd', {
         from: '/home/coderaiser/putout',
         to: '/',
@@ -29,7 +29,7 @@ test('filesystem: replace-cwd: transform', (t) => {
     t.end();
 });
 
-test('filesystem: replace-cwd: transform: home', (t) => {
+test('filesystem: replace-cwd: transform with options: home', (t) => {
     t.transformWithOptions('home', {
         from: '/home/coderaiser/putout',
         to: '/home',
@@ -37,7 +37,7 @@ test('filesystem: replace-cwd: transform: home', (t) => {
     t.end();
 });
 
-test('filesystem: replace-cwd: transform: from-root', (t) => {
+test('filesystem: replace-cwd: transform with options: from-root', (t) => {
     t.transformWithOptions('from-root', {
         from: '/',
         to: '/home',

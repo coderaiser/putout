@@ -163,7 +163,7 @@ test('putout: test: no report with options: remove-import', (t) => {
 Check transform of `filename.js` with `options`:
 
 ```js
-test('putout: plugin: declare-undefined-variables: transform: parse', (t) => {
+test('putout: plugin: declare-undefined-variables: transform with options: parse', (t) => {
     t.transformWithOptions('parse', {
         dismiss: [
             'assign',

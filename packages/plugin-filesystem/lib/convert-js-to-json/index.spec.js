@@ -14,21 +14,21 @@ test('@putout/plugin-filesystem: convert-js-to-json: report', (t) => {
     t.end();
 });
 
-test('@putout/plugin-filesystem: convert-js-to-json: transform', (t) => {
+test('@putout/plugin-filesystem: convert-js-to-json: transform with options', (t) => {
     t.transformWithOptions('convert-js-to-json', {
         filename: 'package.js',
     });
     t.end();
 });
 
-test('@putout/plugin-filesystem: convert-js-to-json: transform: cjs', (t) => {
+test('@putout/plugin-filesystem: convert-js-to-json: transform with options: cjs', (t) => {
     t.transformWithOptions('cjs', {
         filename: 'package.js',
     });
     t.end();
 });
 
-test('@putout/plugin-filesystem: convert-js-to-json: transform: strict', (t) => {
+test('@putout/plugin-filesystem: convert-js-to-json: transform with options: strict', (t) => {
     t.transformWithOptions('strict', {
         filename: 'package.js',
     });

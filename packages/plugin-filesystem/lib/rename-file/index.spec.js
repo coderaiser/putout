@@ -20,7 +20,7 @@ test('packages: rename-file: no report: no-options', (t) => {
     t.end();
 });
 
-test('packages: rename-file: transform', (t) => {
+test('packages: rename-file: transform with options', (t) => {
     t.transformWithOptions('rename-file', {
         from: 'README.md',
         to: 'readme.md',
@@ -28,7 +28,7 @@ test('packages: rename-file: transform', (t) => {
     t.end();
 });
 
-test('packages: rename-file: transform: mask', (t) => {
+test('packages: rename-file: transform with options: mask', (t) => {
     t.transformWithOptions('mask', {
         mask: '*.test.*',
         from: 'test',

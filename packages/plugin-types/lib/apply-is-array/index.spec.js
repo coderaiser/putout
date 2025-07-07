@@ -17,7 +17,7 @@ test('plugin-apply-is-array: transform: instanceof', (t) => {
     t.end();
 });
 
-test('plugin-apply-is-array: transform: inline', (t) => {
+test('plugin-apply-is-array: transform with options: inline', (t) => {
     t.transformWithOptions('inline', {
         inline: true,
     });

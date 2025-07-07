@@ -20,7 +20,7 @@ test('putout: esm: resolve-imported-file: report: change-imports', (t) => {
     t.end();
 });
 
-test('putout: esm: resolve-imported-file: transform: change-imports', (t) => {
+test('putout: esm: resolve-imported-file: transform with options: change-imports', (t) => {
     t.transformWithOptions('change-imports', {
         from: './a',
         to: './a.js',

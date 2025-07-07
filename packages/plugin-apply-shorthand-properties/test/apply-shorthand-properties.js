@@ -29,7 +29,7 @@ test('plugin-apply-shorthand-properties: no report: shorthand', (t) => {
     t.end();
 });
 
-test('plugin-apply-shorthand-properties: transform', (t) => {
+test('plugin-apply-shorthand-properties: transform with options: object', (t) => {
     t.transformWithOptions('object', {
         rename: true,
     });
@@ -106,7 +106,7 @@ test('plugin-apply-shorthand-properties: no transform: import-declaration', (t) 
     t.end();
 });
 
-testWithRemove('plugin-apply-shorthand-properties: transform: assign', (t) => {
+testWithRemove('plugin-apply-shorthand-properties: transform with options: assign', (t) => {
     t.transformWithOptions('assign', {
         rename: true,
     });

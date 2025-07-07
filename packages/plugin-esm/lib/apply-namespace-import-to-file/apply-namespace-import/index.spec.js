@@ -15,7 +15,7 @@ test('putout: plugin-esm: apply-namespace-import-to-file: apply-namespace-import
     t.end();
 });
 
-test('putout: plugin-esm: apply-namespace-import-to-file: apply-namespace-import: transform', (t) => {
+test('putout: plugin-esm: apply-namespace-import-to-file: apply-namespace-import: transform with options', (t) => {
     t.transformWithOptions('apply-namespace-import', {
         name: 'a',
         source: './a.js',

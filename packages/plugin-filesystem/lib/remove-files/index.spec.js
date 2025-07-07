@@ -19,7 +19,7 @@ test('packages: remove-files: report', (t) => {
     t.end();
 });
 
-test('packages: remove-files: transform', (t) => {
+test('packages: remove-files: transform with options', (t) => {
     t.transformWithOptions('remove-files', {
         names: ['*.swp'],
     });

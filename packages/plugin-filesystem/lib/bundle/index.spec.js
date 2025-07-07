@@ -49,7 +49,7 @@ test('packages: bundle-css: no report: has-dist', (t) => {
     t.end();
 });
 
-test('packages: bundle-css: transform', (t) => {
+test('packages: bundle-css: transform with options', (t) => {
     t.transformWithOptions('bundle-css', {
         transform: minify,
         groups: [

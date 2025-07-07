@@ -20,7 +20,7 @@ test('packages: rename-referenced-file: report', (t) => {
     t.end();
 });
 
-test('packages: rename-referenced-file: transform', (t) => {
+test('packages: rename-referenced-file: transform with options', (t) => {
     t.transformWithOptions('rename-referenced-file', {
         from: 'hello.js',
         to: 'world.js',

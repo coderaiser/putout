@@ -18,7 +18,7 @@ test('putout: apply-exports: report', (t) => {
     t.end();
 });
 
-test('putout: apply-exports: transform', (t) => {
+test('putout: apply-exports: transform with options', (t) => {
     t.transformWithOptions('apply-exports', {
         createRenameProperty: [
             'report',

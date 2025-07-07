@@ -70,7 +70,7 @@ test('putout: plugin-for-of: remove-useless-variables transform with: array-from
     t.end();
 });
 
-test('putout: plugin-for-of: remove-useless-variables transform with options: multiple', (t) => {
+test('putout: plugin-for-of: remove-useless-variables transform with options: for-of-options', (t) => {
     t.transformWithOptions('for-of-options', {
         maxProperties: Infinity,
     });

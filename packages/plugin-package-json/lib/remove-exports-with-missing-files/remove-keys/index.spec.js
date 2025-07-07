@@ -14,14 +14,14 @@ test('putout: package-json: remove-exports-with-missing-files: remove-keys: repo
     t.end();
 });
 
-test('putout: package-json: remove-exports-with-missing-files: remove-keys: transform', (t) => {
+test('putout: package-json: remove-exports-with-missing-files: remove-keys: transform with options', (t) => {
     t.transformWithOptions('remove-keys', {
         keys: ['./loader'],
     });
     t.end();
 });
 
-test('putout: package-json: remove-exports-with-missing-files: remove-keys: transform: nested', (t) => {
+test('putout: package-json: remove-exports-with-missing-files: remove-keys: transform with options: nested', (t) => {
     t.transformWithOptions('nested', {
         keys: ['.+require'],
     });

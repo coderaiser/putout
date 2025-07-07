@@ -27,7 +27,7 @@ test('plugin-github: update-actions: transform: cache', (t) => {
     t.end();
 });
 
-test('plugin-github: update-actions: transform: options', (t) => {
+test('plugin-github: update-actions: transform with options: options', (t) => {
     t.transformWithOptions('options', {
         actions: {
             hello: 'v13',

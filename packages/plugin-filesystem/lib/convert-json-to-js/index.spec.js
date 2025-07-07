@@ -14,7 +14,7 @@ test('eslint: convert-json-to-js: report', (t) => {
     t.end();
 });
 
-test('eslint: convert-json-to-js: transform', (t) => {
+test('eslint: convert-json-to-js: transform with options', (t) => {
     t.transformWithOptions('convert-json-to-js', {
         filename: 'package.json',
     });

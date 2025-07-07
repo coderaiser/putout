@@ -22,7 +22,7 @@ test('plugin-npmignore: transform: config', (t) => {
     t.end();
 });
 
-test('plugin-npmignore: transform: options', (t) => {
+test('plugin-npmignore: transform with options: options', (t) => {
     t.transformWithOptions('options', {
         dismiss: ['coverage'],
     });

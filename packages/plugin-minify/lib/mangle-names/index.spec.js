@@ -67,7 +67,7 @@ test('plugin-minify: mangle-names: transform: export', (t) => {
     t.end();
 });
 
-test('plugin-minify: mangle-names: transform: mangleClassNames', (t) => {
+test('plugin-minify: mangle-names: transform with options: mangle-class-names', (t) => {
     t.transformWithOptions('mangle-class-names', {
         mangleClassNames: false,
     });

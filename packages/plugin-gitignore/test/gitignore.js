@@ -27,7 +27,7 @@ test('plugin-gitignore: transform: vim-files', (t) => {
     t.end();
 });
 
-test('plugin-gitignore: transform: options', (t) => {
+test('plugin-gitignore: transform with options: options', (t) => {
     t.transformWithOptions('options', {
         dismiss: ['coverage'],
     });

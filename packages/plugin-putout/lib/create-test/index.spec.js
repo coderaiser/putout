@@ -21,7 +21,7 @@ test('plugin-putout: create-test: no options: no transform: create-test-no-optio
     t.end();
 });
 
-test('plugin-putout: create-test: transform', (t) => {
+test('plugin-putout: create-test: transform with options', (t) => {
     t.transformWithOptions('create-test', {
         add: [
             ['printer', 'putout'],
@@ -31,7 +31,7 @@ test('plugin-putout: create-test: transform', (t) => {
     t.end();
 });
 
-test('plugin-putout: create-test: transform: id-id', (t) => {
+test('plugin-putout: create-test: transform with options: id-id', (t) => {
     t.transformWithOptions('id-id', {
         add: [
             ['printer', 'putout'],
@@ -41,7 +41,7 @@ test('plugin-putout: create-test: transform: id-id', (t) => {
     t.end();
 });
 
-test('plugin-putout: create-test: transform: esm', (t) => {
+test('plugin-putout: create-test: transform with options: esm', (t) => {
     t.transformWithOptions('esm', {
         add: [
             ['printer', 'putout'],

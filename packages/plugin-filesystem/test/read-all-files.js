@@ -10,7 +10,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-filesystem: transform: read-all-files', (t) => {
+test('plugin-filesystem: transform with options: read-all-files', (t) => {
     t.transformWithOptions('read-all-files', {
         mask: '*.js',
     });
