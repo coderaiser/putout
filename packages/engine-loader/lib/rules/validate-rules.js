@@ -21,21 +21,23 @@ module.exports.validateRules = ({items, rules}) => {
     for (const rule of ruleItems) {
         let isName = false;
         let isWithSlash = false;
+        let isIncludes = false;
         
         for (const [pluginName, plugin = {}] of items) {
             const parsedPluginName = parsePluginName(pluginName);
             
             isName = parsedPluginName === rule;
             isWithSlash = parsedPluginName === parseSlashes(rule);
+            isIncludes = rule.includes(parsedPluginName);
             
             if (isName && plugin.rules)
                 throw Error(`Rule '${rule}' cannot be applied to nested plugin '${pluginName}'`);
             
-            if (isName || isWithSlash)
+            if (isName || isWithSlash || isIncludes)
                 break;
         }
         
-        if (!isName && !isWithSlash)
+        if (!isName && !isWithSlash && !isIncludes)
             throw Error(`No plugin found for a rule: '${rule}'`);
     }
 };
