@@ -12,7 +12,6 @@ module.exports = [
     'destructuringPrivate',
     'exportDefaultFrom',
     'throwExpressions',
-    'explicitResourceManagement',
     'deferredImportEvaluation',
     'sourcePhaseImports',
     ['optionalChainingAssign', {
