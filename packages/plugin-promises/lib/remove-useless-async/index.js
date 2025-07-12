@@ -15,4 +15,9 @@ export const include = () => [
     'async (__args) => __body',
 ];
 
-export const filter = (path) => !contains(path, ['throw __', 'await __', 'for await (__ of __) __']);
+export const filter = (path) => !contains(path, [
+    'throw __',
+    'await __',
+    'for await (__ of __) __',
+    'await using __ = __',
+]);
