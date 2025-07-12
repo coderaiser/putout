@@ -97,3 +97,7 @@ test('eslint-config: no-delete-var', async ({comparePlaces}) => {
 test('eslint-config: space-before-function-paren', async ({process}) => {
     await process('space-before-function-paren');
 });
+
+test('eslint-config: using', async ({comparePlaces}) => {
+    await comparePlaces('using', []);
+});

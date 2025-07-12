@@ -151,7 +151,7 @@ export default [{
         '@stylistic': stylistic,
     },
     languageOptions: {
-        ecmaVersion: 2025,
+        ecmaVersion: 'latest',
         sourceType: 'module',
         globals: {
             ...globals.browser,
