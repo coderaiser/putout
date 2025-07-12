@@ -5,15 +5,18 @@ export const fix = (path) => {
 };
 
 export const traverse = ({push}) => ({
-    AwaitExpression(path) {
-        const fnPath = path.getFunctionParent();
-        
-        if (!fnPath)
-            return;
-        
-        if (fnPath.node.async)
-            return;
-        
-        push(fnPath);
-    },
+    'await using __ = __': check(push),
+    'AwaitExpression': check(push),
 });
+
+export const check = (push) => (path) => {
+    const fnPath = path.getFunctionParent();
+    
+    if (!fnPath)
+        return;
+    
+    if (fnPath.node.async)
+        return;
+    
+    push(fnPath);
+};

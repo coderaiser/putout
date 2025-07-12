@@ -17,6 +17,11 @@ test('plugin-add-missing-async: transform: add-missing-async', (t) => {
     t.end();
 });
 
+test('plugin-add-missing-async: transform: using', (t) => {
+    t.transform('using');
+    t.end();
+});
+
 test('plugin-add-missing-async: no report: block', (t) => {
     t.noReport('block');
     t.end();
