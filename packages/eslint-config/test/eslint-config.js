@@ -101,3 +101,7 @@ test('eslint-config: space-before-function-paren', async ({process}) => {
 test('eslint-config: using', async ({comparePlaces}) => {
     await comparePlaces('using', []);
 });
+
+test('eslint-config: keyword-spacing', async ({process}) => {
+    await process('keyword-spacing');
+});

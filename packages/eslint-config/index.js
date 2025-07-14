@@ -61,6 +61,13 @@ export const rules = {
         'always',
     ],
     '@stylistic/function-call-spacing': 'error',
+    '@stylistic/keyword-spacing': ['error', {
+        overrides: {
+            switch: {
+                after: false,
+            },
+        },
+    }],
     '@stylistic/operator-linebreak': ['error', 'after', {
         overrides: {
             '=': 'none',
