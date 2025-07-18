@@ -1,4 +1,6 @@
-import helpDescription from '../../help.json' with {type: 'json'};
+import helpDescription from '../../help.json' with {
+    type: 'json',
+};
 
 const {entries} = Object;
 

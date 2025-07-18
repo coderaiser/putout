@@ -218,7 +218,11 @@ test('putout: compare: vars: __imports: set', (t) => {
         }],
     });
     
-    const expected = `import json from './mod.json' with { type: 'json' };\n`;
+    const expected = montag`
+        import json from './mod.json' with {
+            type: 'json',
+        };\n
+    `;
     
     t.equal(code, expected);
     t.end();

@@ -1,1 +1,3 @@
-import json from './mod.json' with { type: 'json' };
+import json from './mod.json' with {
+    type: 'json',
+};

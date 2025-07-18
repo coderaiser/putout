@@ -6,6 +6,7 @@ export default defineConfig([
         rules: {
             'no-useless-return': 'off',
             '@typescript-eslint/array-type': 'off',
+            '@stylistic/no-extra-parens': 'off',
         },
     },
 ]);

@@ -1,1 +1,3 @@
-import info from './help.json' with { type: 'json' };
+import info from './help.json' with {
+    type: 'json',
+};
