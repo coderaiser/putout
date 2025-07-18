@@ -7,31 +7,16 @@ const {
     isIdentifier,
 } = types;
 
-const getNewName = (name) => {
-    if (name.startsWith('TS')) {
-        const other = name.slice(2);
-        return `ts${other}`;
-    }
-    
-    if (name.startsWith('JSX')) {
-        const other = name.slice(3);
-        return `jsx${other}`;
-    }
-    
-    const [first] = name;
-    const other = name.slice(1);
-    
-    return first.toLowerCase() + other;
-};
-
 export const report = () => `Use lowercased node builders`;
 
 export const fix = (path) => {
     const {name} = path.node;
-    
     const newName = getNewName(name);
+    const bindings = path.scope.getAllBindings();
     
-    rename(path, name, newName);
+    if (!bindings[newName])
+        rename(path, name, newName);
+    
     path.node.name = newName;
 };
 
@@ -60,3 +45,20 @@ export const traverse = ({push}) => ({
         push(path);
     },
 });
+
+const getNewName = (name) => {
+    if (name.startsWith('TS')) {
+        const other = name.slice(2);
+        return `ts${other}`;
+    }
+    
+    if (name.startsWith('JSX')) {
+        const other = name.slice(3);
+        return `jsx${other}`;
+    }
+    
+    const [first] = name;
+    const other = name.slice(1);
+    
+    return first.toLowerCase() + other;
+};

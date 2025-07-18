@@ -1,5 +1,6 @@
 import {createTest} from '@putout/test';
 import * as plugin from './index.js';
+import * as declare from '../declare/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -54,5 +55,12 @@ test('putout: apply-lowercase-to-node-builders: no report: require', (t) => {
 
 test('putout: apply-lowercase-to-node-builders: no report: not-types', (t) => {
     t.noReport('not-types');
+    t.end();
+});
+
+test('putout: apply-lowercase-to-node-builders: transform: declared-low', (t) => {
+    t.transform('declared-low', {
+        declare,
+    });
     t.end();
 });
