@@ -369,7 +369,7 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6c8717
 
 ```ts
 const m: X[] = [];
-const z: (X | Y) = 5;
+const z: X | Y = 5;
 const f: X = 5;
 ```
 

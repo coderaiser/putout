@@ -320,13 +320,13 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f9f34acddb
 #### ❌ Example of incorrect code
 
 ```js
-import json from './mod.json' with { type: 'json' };
+import json from './mod.json' with {type: 'json'};
 ```
 
 #### ✅ Example of correct code
 
 ```js
-import json from './mod.json' with { type: 'json' };
+import json from './mod.json' with {type: 'json'};
 ```
 
 ### sort-imports-by-specifiers
@@ -368,7 +368,7 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9f85897b9
 #### ❌ Example of incorrect code
 
 ```js
-import json from './foo.json' assert { type: 'json' };
+import json from './foo.json' assert {type: 'json'};
 
 import('foo.json', {
     assert: {
@@ -380,7 +380,7 @@ import('foo.json', {
 #### ✅ Example of correct code
 
 ```js
-import json from './foo.json' with { type: 'json' };
+import json from './foo.json' with {type: 'json'};
 
 import('foo.json', {
     with: {
