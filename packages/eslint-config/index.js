@@ -97,7 +97,7 @@ export const rules = {
     }],
     '@stylistic/implicit-arrow-linebreak': 'error',
     '@stylistic/quotes': ['error', 'single', {
-        allowTemplateLiterals: true,
+        allowTemplateLiterals: 'always',
     }],
     '@stylistic/quote-props': ['error', 'consistent-as-needed'],
     '@stylistic/semi': 'error',
