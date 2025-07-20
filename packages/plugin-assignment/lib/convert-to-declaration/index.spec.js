@@ -26,3 +26,8 @@ test('putout: plugin-assignment: convert-to-declaration: transform', (t) => {
     t.transform('convert-to-declaration');
     t.end();
 });
+
+test('putout: plugin-assignment: convert-to-declaration: no report: same-operand', (t) => {
+    t.noReport('same-operand');
+    t.end();
+});

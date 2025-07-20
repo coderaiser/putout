@@ -4,12 +4,14 @@ const {
     variableDeclarator,
     isIdentifier,
     variableDeclaration,
+    isBinaryExpression,
 } = types;
 
 const {
     replaceWith,
     getBinding,
     isKeyword,
+    compareAny,
 } = operator;
 
 export const report = (path) => {
@@ -37,9 +39,12 @@ export const traverse = ({push}) => ({
                 return;
         }
         
-        const {left} = path.node;
+        const {left, right} = path.node;
         
         if (!isIdentifier(left))
+            return;
+        
+        if (isSameOperand({left, right}))
             return;
         
         const {name} = left;
@@ -53,3 +58,13 @@ export const traverse = ({push}) => ({
         push(path);
     },
 });
+
+function isSameOperand({left, right}) {
+    if (!isBinaryExpression(right))
+        return false;
+    
+    return compareAny(left, [
+        right.left,
+        right.right,
+    ]);
+}
