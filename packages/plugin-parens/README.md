@@ -99,7 +99,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/ef3f1e198a8
 
 ### ❌ Example of incorrect code
 
-```ts
+```
 getConsoleLog?.()``;
 String?.raw``;
 String?.raw!``;
