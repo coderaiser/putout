@@ -1,3 +1,38 @@
+2025.07.22, v40.4.1
+
+fix:
+- b53bd3363 eslint-plugin-putout: jsx
+- a583e0d54 @putout/engine-parser: babel: plugins: explicitResourceManagement: remove, since it is enabled by default
+- bc94c3556 @putout/plugin-putout: apply-report: toSnakeCase -> toKebabCase
+- 7f2df8de7 @putout/plugin-putout: replace-test-message
+
+feature:
+- 2ffda9a2d putout: @putout/plugin-parens v4.0.0
+- e94146a03 @putout/plugin-parens: drop support of 🐊 < 40
+- f2236851f @putout/plugin-assignment: convert-to-declaration: same operand: exclude
+- cb6065970 eslint-plugin-putout: jsx: @stylistic/jsx-indent -> @stylistic/indent
+- 2293e196f @putout/eslint-config: @stylistic/quotes: allowTemplateLiterals
+- 8b025666c @putout/plugin-putout: apply-lowercase-to-node-builders: declared lowercase
+- 694a5c69b @putout/eslint-config: keyword-spacing: add
+- 4a10832be @putout/plugin-promises: add-missing-assync: await using: add support
+- bc34c6af4 @putout/plugin-promises: remove-useless-async: exclude await using
+- c21071d86 @putout/eslint-config: langugeOptions: latest: add support of using
+- 53646aaa1 @putout/engine-loader: validate-rules-relations: namespace: improve support
+- 4e3e4f04f @putout/plugin-putout: replace-test-message: transformWithOptions
+- be5c36cfe @putout/pluginputout: apply-fixture-name-to-message
+- 7a27a8396 @putout/plugin-putout: convert-plugins-element-to-tuple: add
+- bc29cb5b5 eslint-plugin-putout: ts: indent: enable
+- b645b8563 @putout/plugin-putout: declare: print
+- c6dc07d42 root: eslint-plugin-putout v28.0.0
+- 63ddb539e eslint-plugin-putout: keyword-spacing -> space-before-function-paren
+- a5aaf2569 @putout/plugin-printer: drop support of 🐊 < 40
+- dd63096e8 @putout/operator-add-args: exclude
+- 4020ab614 @putout/plugin-printer: addArgs: exclude last argument ObjectPattern
+- fc23b464a @putout/plugin-tape: add-t-end: false positive
+- ac571c21e @putout/plugin-putout: replace-test-message: no-report-with-options
+- 6273be926 @putout/plugin-github: set-node-versions
+- a138c49ee @putout/plugin-putout: apply-fixture-name-to-message: noReportWithOptions
+
 2025.06.30, v40.4.0
 
 fix:
