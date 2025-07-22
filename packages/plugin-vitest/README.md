@@ -7,7 +7,7 @@
 >
 > (c) [vitest.dev](https://vitest.dev/)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to migrate to [migrate to latest version of vitest](https://vitest.dev/guide/migration.html#migration-guide).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to [migrate to latest version of vitest](https://vitest.dev/guide/migration.html#migration-guide).
 
 ## Install
 
