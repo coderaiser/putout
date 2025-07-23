@@ -1,3 +1,9 @@
+2025.07.23, v40.4.2
+
+feature:
+- d9035f6d6 putout: spec: match ts
+- b66d1b1c8 @putout/plugin-remove-unused-variables: TSModuleBlock
+
 2025.07.22, v40.4.1
 
 fix:
