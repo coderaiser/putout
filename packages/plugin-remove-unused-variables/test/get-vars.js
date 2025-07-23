@@ -79,6 +79,7 @@ const fixture = readFixtures([
     'tagged-template-expression',
     'throw-statement',
     'try-catch',
+    'ts-module-block',
     'undeclared-vars',
     'unary-expression',
     'update-expression',
@@ -1780,6 +1781,24 @@ test('remove-unused-variables: get-vars: typescript: types', (t) => {
     
     const result = getVars(ast).map(dutify);
     const expected = [];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: ts-module-block', (t) => {
+    const ast = parse(fixture.tsModuleBlock, {
+        isTS,
+    });
+    
+    const result = getVars(ast);
+    
+    const expected = [{
+        al: {
+            declared: true,
+            used: true,
+        },
+    }];
     
     t.deepEqual(result, expected);
     t.end();

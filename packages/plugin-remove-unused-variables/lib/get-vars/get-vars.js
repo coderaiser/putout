@@ -102,12 +102,15 @@ export default ({use, declare, addParams}) => {
             const {init} = node;
             const idPath = path.get('id');
             const isForIn = path.parentPath.parentPath.isForInStatement();
+            const isTSModule = path.parentPath.parentPath.isTSModuleBlock();
             
             /* istanbul ignore else */
             if (isIdentifier(node.id)) {
                 if (!isKeyword(node.id.name)) {
                     declare(path, node.id.name);
-                    isForIn && use(path, node.id.name);
+                    
+                    if (isForIn || isTSModule)
+                        use(path, node.id.name);
                 }
             } else if (isObjectPattern(node.id)) {
                 idPath.traverse({
