@@ -256,3 +256,15 @@ test('putout: config: .eslintrc{*,.json}', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: config: spec', (t) => {
+    const {match} = putoutConfig;
+    const result = match['{test,*.spec.{js,mjs,cjs,ts}}'];
+    
+    const expected = {
+        tape: 'on',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

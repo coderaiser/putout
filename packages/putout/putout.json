@@ -129,7 +129,7 @@
             "remove-console": "off",
             "esm/remove-empty-import": "off"
         },
-        "{test,*.spec.{js,mjs,cjs}}": {
+        "{test,*.spec.{js,mjs,cjs,ts}}": {
             "tape": "on"
         },
         "*.mjs": {
