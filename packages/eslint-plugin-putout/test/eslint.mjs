@@ -263,3 +263,7 @@ test('eslint-plugin-putout: space-before-function-paren', async ({process}) => {
 test('eslint-plugin-putout: no-extra-non-null-assertion', async ({comparePlaces}) => {
     await comparePlaces('no-extra-non-null-assertion', []);
 });
+
+test('eslint-plugin-putout: no-namespace', async ({comparePlaces}) => {
+    await comparePlaces('no-namespace', []);
+});
