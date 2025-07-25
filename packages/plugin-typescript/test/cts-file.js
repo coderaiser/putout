@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import * as typescript from '../lib/index.js';
+import * as typescript from '../lib/export.js';
 
 const test = createTest(import.meta.url, {
     rules: {

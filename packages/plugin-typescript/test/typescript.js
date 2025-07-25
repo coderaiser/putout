@@ -126,3 +126,8 @@ test('plugin-typescript: transform: remove-useless-non-null-expressions', (t) =>
     t.transform('remove-useless-non-null-expressions');
     t.end();
 });
+
+test('plugin-typescript: transform: convert-namespace-to-global', (t) => {
+    t.transform('convert-namespace-to-global');
+    t.end();
+});

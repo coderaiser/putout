@@ -23,6 +23,7 @@ npm i putout @putout/plugin-typescript -D
 - ✅ [convert-commonjs-to-esm](#convert-commonjs-to-esm);
 - ✅ [convert-esm-to-commonjs](#convert-esm-to-commonjs);
 - ✅ [convert-generic-to-shorthand](#convert-generic-to-shorthand);
+- ✅ [convert-namespace-to-global](#convert-namespace-to-global);
 - ✅ [cts-file](#cts-file);
 - ✅ [find-file](#find-file);
 - ✅ [mts-file](#mts-file);
@@ -53,6 +54,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/convert-generic-to-shorthand": "on",
         "typescript/convert-commonjs-to-esm": "off",
         "typescript/convert-esm-to-commonjs": "off",
+        "typescript/convert-namespace-to-global": "off",
         "typescript/remove-duplicates-from-union": "on",
         "typescript/remove-duplicates-interface-keys": "on",
         "typescript/remove-duplicates-exports": "on",
@@ -198,6 +200,35 @@ export default 5;
 ```ts
 import foo = require('foo');
 export = 5;
+```
+
+## convert-namespace-to-global
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7b4036c8f4f7c02799e2fb5bcce865c8/f945baf6553ba7a9d0c95b7448bca4b82f7236e3).
+
+### ❌ Example of incorrect code
+
+```ts
+declare namespace global {
+    var al: any;
+}
+```
+
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-namespace-to-global) | ✅
+⏣ **ESLint** | [`@typescript-eslint/no-namespace`](https://typescript-eslint.io/rules/no-namespace/) | ❌
+
+## convert-commonjs-to-esm
+
+### ✅ Example of correct code
+
+```ts
+declare global {
+    var al: any;
+}
 ```
 
 ## remove-duplicates-from-union
