@@ -67,7 +67,7 @@ test('remove useless variables: declaration: transform: max-length', (t) => {
     t.end();
 });
 
-test('remove useless variables: declaration: no transform: max length disabled', (t) => {
+test('remove useless variables: declaration: no transform with options: max length disabled', (t) => {
     t.noTransformWithOptions('max-length-disabled', {
         maxLength: 10,
     });

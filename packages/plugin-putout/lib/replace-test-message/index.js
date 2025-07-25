@@ -13,13 +13,14 @@ export const fix = ({path, incorrect, correct}) => {
 };
 
 const INCORRECT = {
-    TRANSFORM: /: (no report after transform|no transform|report|no report)/,
-    TRANSFORM_WITH_OPTIONS: /: (no report after transform|transform|no transform|report|no report)/,
-    NO_TRANSFORM: /: (no report after transform|transform|report|no report)/,
     REPORT: /: (no report after transform|no report|transform|no transform)/,
     NO_REPORT: /: (no report after transform|report|transform|no transform)/,
     NO_REPORT_AFTER_TRANSFORM: /: (report|transform|no transform|no report)/,
     NO_REPORT_WITH_OPTIONS: /: (no report after transform(\swith options)?|report|transform|no transform|no report)/,
+    TRANSFORM: /: (no report after transform|no transform|report|no report)/,
+    NO_TRANSFORM: /: (no report after transform|transform|report|no report)/,
+    TRANSFORM_WITH_OPTIONS: /: (no report after transform|transform|no transform|report|no report)/,
+    NO_TRANSFORM_WITH_OPTIONS: /: (no report after transform|transform(\swith options)?|no transform|report|no report)/,
 };
 
 export const traverse = ({push}) => ({
@@ -37,6 +38,11 @@ export const traverse = ({push}) => ({
         push,
         incorrect: INCORRECT.TRANSFORM_WITH_OPTIONS,
         correct: ': transform with options',
+    }),
+    't.noTransformWithOptions(__a, __b)': convert({
+        push,
+        incorrect: INCORRECT.NO_TRANSFORM_WITH_OPTIONS,
+        correct: ': no transform with options',
     }),
     't.noTransform(__a)': convert({
         push,

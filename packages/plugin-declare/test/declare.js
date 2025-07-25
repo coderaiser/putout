@@ -31,7 +31,7 @@ test('putout: plugin: declare: transform: values', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare: transform: assign-dismiss', (t) => {
+test('putout: plugin: declare: no transform with options: assign-dismiss', (t) => {
     t.noTransformWithOptions('assign-dismiss', {
         dismiss: [
             'assign',
