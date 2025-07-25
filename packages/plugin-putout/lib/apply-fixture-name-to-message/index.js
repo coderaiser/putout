@@ -13,6 +13,7 @@ const FIXTURE = [
 const NAMES = [
     ...FIXTURE,
     'transform with options',
+    'no transform with options',
     'no report',
     'no transform',
     'no report after transform',
@@ -28,6 +29,7 @@ export const match = () => ({
     't.transform(__a)': check,
     't.transform(__a, __b)': check,
     't.transformWithOptions(__a, __b)': check,
+    't.noTransformWithOptions(__a, __b)': check,
     't.noTransform(__a)': check,
     't.noReportWithOptions(__a, __b)': check,
 });
@@ -38,6 +40,7 @@ export const replace = () => ({
     't.transform(__a)': transform,
     't.transform(__a, __b)': transform,
     't.transformWithOptions(__a, __b)': transform,
+    't.noTransformWithOptions(__a, __b)': transform,
     't.noTransform(__a)': transform,
     't.noReportAfterTransform(__a)': transform,
     't.noReportWithOptions(__a, __b)': transform,

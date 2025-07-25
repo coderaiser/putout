@@ -68,7 +68,7 @@ test('plugin-apply-shorthand-properties: no transform: not-valid', (t) => {
     t.end();
 });
 
-test('plugin-apply-shorthand-properties: no transform with options: destructuring', (t) => {
+test('plugin-apply-shorthand-properties: no transform with options: destr', (t) => {
     t.noTransformWithOptions('destr', {
         rename: true,
     });
@@ -82,14 +82,14 @@ test('plugin-apply-shorthand-properties: no transform with options: import', (t)
     t.end();
 });
 
-test('plugin-apply-shorthand-properties: no transform with options: name exists', (t) => {
+test('plugin-apply-shorthand-properties: no transform with options: name-exists', (t) => {
     t.noTransformWithOptions('name-exists', {
         rename: true,
     });
     t.end();
 });
 
-test('plugin-apply-shorthand-properties: no transform with options: names overlap', (t) => {
+test('plugin-apply-shorthand-properties: no transform with options: overlap', (t) => {
     t.noTransformWithOptions('overlap', {
         rename: true,
     });
