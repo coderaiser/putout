@@ -173,7 +173,7 @@ true;
 
 ##### __body
 
-Any `BlockStatement`.
+Any `BlockStatement`, `TSModuleBlock` and `ClassBody`.
 
 ```js
 compare('const a = () => 0', 'const a = () => __body');
@@ -189,6 +189,10 @@ compare('function a(b) {return b;}', 'function __(__args) {__body}');
 true;
 
 compare(`class a {hello: 'world'}`, 'class __a {__body}');
+// returns
+true;
+
+compare(`declare global {var al: any}`, 'declare global {__body}');
 // returns
 true;
 ```

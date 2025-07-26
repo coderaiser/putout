@@ -517,6 +517,19 @@ test('compare: __body', (t) => {
     t.end();
 });
 
+test('compare: __body: TSModuleBlock', (t) => {
+    const a = template.ast(montag`
+        declare namespace global { var al: any;}
+    `);
+    
+    const b = template.ast('declare namespace global {__body}');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: __body: inside FunctionDeclaration', (t) => {
     const a = `function hello() {return 'world'}`;
     const b = 'function __a() {__body}';

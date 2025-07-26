@@ -7,6 +7,7 @@ const {template} = require('@putout/engine-parser');
 
 const {replaceWith, extract} = require('@putout/operate');
 
+const {prepareBodyWay} = require('./prepare-body-way');
 const {
     is,
     isArgsStr,
@@ -18,7 +19,7 @@ const {
     isInsideTypeReference,
     isInsideTypeParameter,
     isBodyStr,
-} = require('./is');
+} = require('../is');
 
 const {
     isIdentifier,
@@ -38,8 +39,6 @@ const isString = (a) => typeof a === 'string';
 
 const parseNode = (a) => a.node || a;
 const {stringify} = JSON;
-
-const BODY_AND_CLASS_REG = /\.body\.0(\.key)?$/;
 
 module.exports.getTemplateValues = (node, str) => {
     if (!isString(str))
@@ -119,7 +118,7 @@ function getValues({waysFrom, node}) {
                 way = way.replace(/\.expression$/, '');
             
             if (isBodyStr(name))
-                way = way.replace(BODY_AND_CLASS_REG, '');
+                way = prepareBodyWay(way);
             
             result[name] = result[name] || extractExpression(jessy(way, node));
         }
@@ -163,7 +162,7 @@ function setValues({waysTo, values, path}) {
             }
             
             if (isBodyStr(name))
-                way = way.replace(BODY_AND_CLASS_REG, '');
+                way = prepareBodyWay(way);
             
             const {extra} = jessy(way, node);
             

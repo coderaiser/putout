@@ -4,6 +4,7 @@ const {template} = require('@putout/engine-parser');
 const {types} = require('@putout/babel');
 const {
     isBlockStatement,
+    isTSModuleBlock,
     isBooleanLiteral,
     isIdentifier,
     isLiteral,
@@ -97,7 +98,10 @@ const isFunctionDeclarationBody = (a) => {
     if (isBody(a))
         return true;
     
-    return isBlockStatement(a) && isBody(a.body[0].expression);
+    if (!isBlockStatement(a) && !isTSModuleBlock(a))
+        return false;
+    
+    return isBody(a.body[0].expression);
 };
 
 const isNop = (a) => isIdentifier(a, {
@@ -304,7 +308,9 @@ module.exports.isEqualFunctionDeclarationBody = (node, templateNode) => {
     if (!isFunctionDeclarationBody(templateNode))
         return false;
     
-    return node.type === 'BlockStatement';
+    const {type} = node;
+    
+    return /BlockStatement|TSModuleBlock/.test(type);
 };
 
 module.exports.isEqualNop = (node, templateNode) => {

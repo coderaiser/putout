@@ -107,6 +107,38 @@ test('putout: compare: vars: getTemplateValues: setValues: Statement', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: getTemplateValues: __body: TSModuleBlock', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            'declare namespace global {__body}': 'declare global {__body}',
+        }),
+    };
+    
+    const input = montag`
+        declare namespace global {
+            var al: any;
+        }
+    `;
+    
+    const {code} = putout(input, {
+        fix: true,
+        isTS: true,
+        plugins: [{
+            convert,
+        }],
+    });
+    
+    const expected = montag`
+        declare global {
+            var al: any;
+        }\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: compare: vars: getTemplateValues: no template', (t) => {
     const node = template.ast('const [] = array');
     const [error] = tryCatch(getTemplateValues, node);
