@@ -16,3 +16,8 @@ test('typescript: convert-namespace-to-global: transform', (t) => {
     t.transform('convert-namespace-to-global');
     t.end();
 });
+
+test('typescript: convert-namespace-to-global: no report: not-global', (t) => {
+    t.noReport('not-global');
+    t.end();
+});
