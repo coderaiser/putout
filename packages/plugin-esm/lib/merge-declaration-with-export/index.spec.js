@@ -1,6 +1,7 @@
 import {createTest} from '@putout/test';
 import * as plugin from './index.js';
 import * as applyExportFrom from '../apply-export-from/index.js';
+import * as removeUselessExportSpecifiers from '../remove-useless-export-specifiers/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -40,3 +41,9 @@ test('esm: inline-export: transform: apply-export-from', (t) => {
     t.end();
 });
 
+test('esm: inline-export: transform: remove-useless-export-specifiers', (t) => {
+    t.transform('remove-useless-export-specifiers', {
+        removeUselessExportSpecifiers,
+    });
+    t.end();
+});

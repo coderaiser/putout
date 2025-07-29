@@ -18,6 +18,11 @@ test('esm: remove-useless-export-specifiers: transform', (t) => {
     t.end();
 });
 
+test('esm: remove-useless-export-specifiers: transform: named', (t) => {
+    t.transform('named');
+    t.end();
+});
+
 test('esm: remove-useless-export-specifiers: transform: apply-export-from', (t) => {
     t.transform('apply-export-from', {
         applyExportFrom,

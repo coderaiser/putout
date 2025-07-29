@@ -8,6 +8,7 @@ const {
     isFunctionDeclaration,
     isImportSpecifier,
     isImportDefaultSpecifier,
+    isExportNamedDeclaration,
 } = types;
 
 export const report = () => `Inline export`;
@@ -32,6 +33,9 @@ export const filter = (path) => {
             return false;
         
         const bindingPath = binding.path;
+        
+        if (isExportNamedDeclaration(bindingPath.parentPath.parentPath))
+            return false;
         
         if (isImportSpecifier(bindingPath))
             return false;
