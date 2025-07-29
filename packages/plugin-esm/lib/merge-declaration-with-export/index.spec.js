@@ -21,3 +21,8 @@ test('esm: merge-declaration-with-export: no report: import', (t) => {
     t.noReport('import');
     t.end();
 });
+
+test('esm: merge-declaration-with-export: no report: rename', (t) => {
+    t.noReport('rename');
+    t.end();
+});

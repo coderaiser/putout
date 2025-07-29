@@ -29,9 +29,13 @@ export const traverse = ({push}) => ({
             if (!isExportSpecifier(spec))
                 return;
             
-            const {local} = spec;
+            const {local, exported} = spec;
             
             const {name} = local;
+            
+            if (name !== exported.name)
+                return;
+            
             const binding = path.scope.bindings[name];
             
             if (!binding)
