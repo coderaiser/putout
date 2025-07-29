@@ -112,7 +112,7 @@ export * as ns from 'x';
 
 ### inline-export
 
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/##/gist/c9a3983d269745da89c1c7560f3b7fac/3ecb9aa6b910ce3816605bae11c8dd86bdc457e5).
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c9a3983d269745da89c1c7560f3b7fac/3ecb9aa6b910ce3816605bae11c8dd86bdc457e5).
 
 #### ❌ Example of incorrect code
 
