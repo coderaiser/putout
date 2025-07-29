@@ -21,8 +21,12 @@ export const filter = (path) => {
     const specifiers = path.get('specifiers');
     
     for (const spec of specifiers) {
-        const {local} = spec.node;
+        const {local, exported} = spec.node;
         const {name} = local;
+        
+        if (name !== exported.name)
+            return false;
+        
         const binding = scope.bindings[name];
         
         if (!binding)
