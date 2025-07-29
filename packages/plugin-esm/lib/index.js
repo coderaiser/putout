@@ -1,5 +1,5 @@
 import * as removeUselessExportSpecifiers from './remove-useless-export-specifiers/index.js';
-import * as inlineExport from './inline-export/index.js';
+import * as mergeDeclarationWithExport from './merge-declaration-with-export/index.js';
 import * as applyNamespaceImportToFile from './apply-namespace-import-to-file/index.js';
 import * as resolveImportedFile from './resolve-imported-file/index.js';
 import * as addIndexToImport from './add-index-to-import/index.js';
@@ -10,7 +10,6 @@ import * as sortImportsBySpecifiers from './sort-imports-by-specifiers/index.js'
 import * as removeEmptyImport from './remove-empty-import/index.js';
 import * as removeEmptyExport from './remove-empty-export/index.js';
 import * as mergeDuplicateImports from './merge-duplicate-imports/index.js';
-import * as mergeDeclarationWithExport from './merge-declaration-with-export/index.js';
 import * as convertAssertToWith from './convert-assert-to-with/index.js';
 import * as applyExportFrom from './apply-export-from/index.js';
 
@@ -28,6 +27,5 @@ export const rules = {
     'resolve-imported-file': ['off', resolveImportedFile],
     'apply-namespace-import-to-file': ['off', applyNamespaceImportToFile],
     'merge-declaration-with-export': mergeDeclarationWithExport,
-    'inline-export': inlineExport,
     'remove-useless-export-specifiers': removeUselessExportSpecifiers,
 };

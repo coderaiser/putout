@@ -29,7 +29,6 @@ npm i putout @putout/plugin-esm -D
 - ✅ [remove-empty-export](#remove-empty-export);
 - ✅ [remove-useless-export-specifiers](#remove-useless-export-specifiers);
 - ✅ [sort-imports-by-specifiers](#sort-imports-by-specifiers);
-- ✅ [inline-export](#inline-export);
 
 ## File rules
 
@@ -46,7 +45,7 @@ npm i putout @putout/plugin-esm -D
         "esm/declare-imports-first": "on",
         "esm/group-imports-by-source": "on",
         "esm/merge-duplicate-imports": "on",
-        "esm/merge-declaration-with-export": "on",
+        "esm/merge-declaration-with-export": "off",
         "esm/remove-quotes-from-import-assertions": "on",
         "esm/remove-empty-export": "on",
         "esm/remove-empty-import": ["on", {
@@ -55,7 +54,6 @@ npm i putout @putout/plugin-esm -D
         "esm/sort-imports-by-specifiers": "on",
         "esm/resolve-imported-file": "off",
         "esm/apply-namespace-of-file": "off",
-        "esm/inline-export": "off",
         "esm/remove-useless-export-specifiers": "off"
     }
 }
@@ -110,9 +108,25 @@ export {
 export * as ns from 'x';
 ```
 
-### inline-export
+### merge-declaration-with-export
 
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c9a3983d269745da89c1c7560f3b7fac/3ecb9aa6b910ce3816605bae11c8dd86bdc457e5).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3fad517d76942d0a1f51d7f58a2799af/7a052ab18a31fa382228d6513c412be37091cfb8).
+
+#### ❌ Example of incorrect code
+
+```js
+const {
+    report,
+    fix,
+    scan,
+} = createRemoveFiles(['*.swp', '*.swo']);
+
+export {
+    report,
+    fix,
+    scan,
+};
+```
 
 #### ❌ Example of incorrect code
 
@@ -137,6 +151,12 @@ export const stack = [];
 export function sum(a, b) {
     i32.add(local.get(), local.get());
 }
+
+export const {
+    report,
+    fix,
+    scan,
+} = createRemoveFiles(['*.swp', '*.swo']);
 ```
 
 ### remove-useless-export-specifiers
@@ -208,36 +228,6 @@ import d from '../hello.js';
 import ss from '../../bb/ss.js';
 
 const c = 5;
-```
-
-### merge-declaration-with-export
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3fad517d76942d0a1f51d7f58a2799af/7a052ab18a31fa382228d6513c412be37091cfb8).
-
-#### ❌ Example of incorrect code
-
-```js
-const {
-    report,
-    fix,
-    scan,
-} = createRemoveFiles(['*.swp', '*.swo']);
-
-export {
-    report,
-    fix,
-    scan,
-};
-```
-
-##### ✅ Example of correct code
-
-```js
-export const {
-    report,
-    fix,
-    scan,
-} = createRemoveFiles(['*.swp', '*.swo']);
 ```
 
 ### merge-duplicate-imports

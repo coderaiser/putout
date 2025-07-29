@@ -1,61 +1,70 @@
-import {operator, types} from 'putout';
+import {types, operator} from 'putout';
 
 const {remove, replaceWith} = operator;
 const {
-    exportNamedDeclaration,
-    isExportSpecifier,
+    variableDeclaration,
     isVariableDeclarator,
+    exportNamedDeclaration,
+    isFunctionDeclaration,
+    isImportSpecifier,
+    isImportDefaultSpecifier,
 } = types;
 
-export const report = () => `Merge declaration with export`;
+export const report = () => `Inline export`;
+export const include = () => [
+    'export {__exports}',
+];
 
-export const fix = ({path, bindingPath}) => {
-    const {parentPath} = bindingPath;
-    const {node} = parentPath;
+export const filter = (path) => {
+    const {scope} = path;
+    const specifiers = path.get('specifiers');
     
-    replaceWith(parentPath, exportNamedDeclaration(node));
-    remove(path);
+    for (const spec of specifiers) {
+        const {local, exported} = spec.node;
+        const {name} = local;
+        
+        if (name !== exported.name)
+            return false;
+        
+        const binding = scope.bindings[name];
+        
+        if (!binding)
+            return false;
+        
+        const bindingPath = binding.path;
+        
+        if (isImportSpecifier(bindingPath))
+            return false;
+        
+        if (isImportDefaultSpecifier(bindingPath))
+            return false;
+    }
+    
+    return true;
 };
-export const traverse = ({push}) => ({
-    ExportNamedDeclaration(path) {
-        const {specifiers} = path.node;
+
+export const fix = (path) => {
+    const {scope} = path;
+    const specifiers = path.get('specifiers');
+    
+    for (const spec of specifiers) {
+        const {local} = spec.node;
+        const {name} = local;
         
-        if (!specifiers.length)
-            return;
+        const binding = scope.bindings[name];
+        const bindingPath = binding.path;
         
-        const bindingPaths = [];
-        
-        for (const spec of specifiers) {
-            if (!isExportSpecifier(spec))
-                return;
-            
-            const {local, exported} = spec;
-            const {name} = local;
-            
-            if (name !== exported.name)
-                return;
-            
-            const binding = path.scope.bindings[name];
-            
-            if (!binding)
-                return;
-            
-            const {path: bindingPath} = binding;
-            
-            if (!isVariableDeclarator(bindingPath))
-                return;
-            
-            if (!bindingPaths.length) {
-                bindingPaths.push(bindingPath);
-                continue;
-            }
+        if (isFunctionDeclaration(bindingPath)) {
+            replaceWith(bindingPath, exportNamedDeclaration(bindingPath.node));
+            continue;
         }
         
-        const [bindingPath] = bindingPaths;
-        
-        push({
-            path,
-            bindingPath,
-        });
-    },
-});
+        if (isVariableDeclarator(bindingPath)) {
+            const declaration = variableDeclaration('const', [bindingPath.node]);
+            replaceWith(bindingPath.parentPath, exportNamedDeclaration(declaration));
+            continue;
+        }
+    }
+    
+    remove(path);
+};

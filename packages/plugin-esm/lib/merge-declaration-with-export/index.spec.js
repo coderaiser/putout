@@ -1,28 +1,42 @@
 import {createTest} from '@putout/test';
 import * as plugin from './index.js';
+import * as applyExportFrom from '../apply-export-from/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['merge-declaration-with-export', plugin],
+        ['inline-export', plugin],
     ],
 });
 
-test('esm: merge-declaration-with-export: report', (t) => {
-    t.report('merge-declaration-with-export', `Merge declaration with export`);
+test('esm: inline-export: report', (t) => {
+    t.report('inline-export', `Inline export`);
     t.end();
 });
 
-test('esm: merge-declaration-with-export: transform', (t) => {
-    t.transform('merge-declaration-with-export');
+test('esm: inline-export: transform', (t) => {
+    t.transform('inline-export');
     t.end();
 });
 
-test('esm: merge-declaration-with-export: no report: import', (t) => {
+test('esm: inline-export: transform: const', (t) => {
+    t.transform('const');
+    t.end();
+});
+
+test('esm: inline-export: no report: import', (t) => {
     t.noReport('import');
     t.end();
 });
 
-test('esm: merge-declaration-with-export: no report: rename', (t) => {
+test('esm: inline-export: no report: rename', (t) => {
     t.noReport('rename');
     t.end();
 });
+
+test('esm: inline-export: transform: apply-export-from', (t) => {
+    t.transform('apply-export-from', {
+        applyExportFrom,
+    });
+    t.end();
+});
+
