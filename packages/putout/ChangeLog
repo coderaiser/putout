@@ -1,3 +1,23 @@
+2025.07.29, v40.4.3
+
+fix:
+- 580c401f7 @putout/plugin-esm: merge-declaration-with-export: report
+
+feature:
+- 04ce26932 putout: @putout/plugin-esm v5.0.0
+- 9518677c2 @putout/plugin-esm: merge-declaration-with-export: improve support of remove-useless-export-specifiers
+- a63047f53 @putout/plugin-esm: merge inline-export with merge-declaration-with-export
+- d59390080 @putout/plugin-esm: inline-export: rename (#234)
+- de4f98147 @putout/plugin-esm: merge-declaration-with-export: exclude rename (#234)
+- e5ff0d0b2 @putout/plugin-typescript: convert-namespace-to-global: Traverser -> Replacer
+- 171fc1113 @putout/compare: __body: TSModuleBlock
+- eac352dd8 @putout/plugin-putout: replace-test-message: transform-with-options: no transform with options
+- e27ce7cb4 eslint-plugin-putout: ts: no-namespace -> @putout/plugin-typescript: convert-namespace-to-global
+- 82d64dec0 @putout/plugin-typescript: convert-namespace-to-global: add
+- e54649e37 @putout/plugin-putout: replace-test-message: noTransformWithOptions: add
+- 5e63172a7 @putout/engine-parser: hermes-parser v0.30.0
+- a55c25afb @putout/processor-css: @stylistic/stylelint-plugin v4.0.0
+
 2025.07.23, v40.4.2
 
 feature:
