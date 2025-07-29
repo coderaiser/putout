@@ -486,6 +486,7 @@ test('putout: operator: declare: esm for esm', (t) => {
     
     const expected = montag`
         const simport = createSimport(import.meta.url);
+        
         export const hi = 'world';
         simport('fs');\n
     `;

@@ -10,6 +10,7 @@ const {matchFiles} = operator;
     } = matchFiles({
         '*.cjs': plugin,
     });
+    
     export {
         report,
         fix,

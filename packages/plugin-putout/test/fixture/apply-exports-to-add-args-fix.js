@@ -7,6 +7,7 @@ const {addArgs} = operator;
         fix,
         traverse,
     } = addArgs(__args);
+    
     export {
         report,
         fix,

@@ -14,6 +14,7 @@ const {renameFiles} = operator;
             return name.replace(/mjs$/, 'js');
         },
     });
+    
     export {
         report,
         fix,

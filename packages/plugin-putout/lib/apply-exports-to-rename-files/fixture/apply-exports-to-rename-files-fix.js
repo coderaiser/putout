@@ -10,6 +10,7 @@
             return name.replace(/mjs$/, 'js');
         },
     });
+    
     export {
         report,
         fix,

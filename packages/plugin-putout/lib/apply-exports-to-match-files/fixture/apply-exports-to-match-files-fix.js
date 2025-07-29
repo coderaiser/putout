@@ -6,6 +6,7 @@
     } = matchFiles({
         '*.cjs': plugin,
     });
+    
     export {
         report,
         fix,
