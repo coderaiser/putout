@@ -7,7 +7,7 @@ const {
     isVariableDeclarator,
 } = types;
 
-export const report = () => `Use 'if condition' instead of 'ternary expression'`;
+export const report = () => `Merge declaration with export`;
 
 export const fix = ({path, bindingPath}) => {
     const {parentPath} = bindingPath;

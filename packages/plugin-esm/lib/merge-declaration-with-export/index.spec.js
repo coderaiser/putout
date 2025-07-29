@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('esm: merge-declaration-with-export: report', (t) => {
-    t.report('merge-declaration-with-export', `Use 'if condition' instead of 'ternary expression'`);
+    t.report('merge-declaration-with-export', `Merge declaration with export`);
     t.end();
 });
 
