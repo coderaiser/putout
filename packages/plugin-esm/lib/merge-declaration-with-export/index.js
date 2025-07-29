@@ -30,7 +30,6 @@ export const traverse = ({push}) => ({
                 return;
             
             const {local, exported} = spec;
-            
             const {name} = local;
             
             if (name !== exported.name)
