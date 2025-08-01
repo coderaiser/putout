@@ -46,6 +46,19 @@ test('putout: engine-parser: babel: decoratorAutoAccessors', (t) => {
     t.end();
 });
 
+test('putout: engine-parser: babel: discard binding', (t) => {
+    const source = montag`
+        {
+            using void = new AcquireLock(mutex);
+        }
+    `;
+    
+    const [error] = tryCatch(parse, source);
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('putout: engine-parser: babel: sourcePhaseImports', (t) => {
     const source = montag`
         import source x from 'x';

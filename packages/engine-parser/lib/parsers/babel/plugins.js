@@ -13,6 +13,9 @@ module.exports = [
     'exportDefaultFrom',
     'throwExpressions',
     'deferredImportEvaluation',
+    ['discardBinding', {
+        syntaxType: 'void',
+    }],
     'sourcePhaseImports',
     ['optionalChainingAssign', {
         version: '2023-07',
