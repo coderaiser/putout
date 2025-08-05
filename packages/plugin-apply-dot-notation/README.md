@@ -28,7 +28,7 @@ npm i @putout/plugin-apply-dot-notation
 ## ❌ Example of incorrect code
 
 ```js
-a.hello.world;
+a.hello['world'];
 ```
 
 ## ✅ Example of correct code

@@ -1,7 +1,7 @@
 {
     "match": {
-        "README.md": {
-            "apply-at": "off"
+        "*.md": {
+            "apply-dot-notation": "off"
         }
     }
 }

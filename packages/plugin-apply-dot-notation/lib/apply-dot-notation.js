@@ -1,24 +1,23 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isStringLiteral,
     isValidIdentifier,
     identifier,
 } = types;
 
-module.exports.report = ({value}) => {
+export const report = ({value}) => {
     return `Use dot notation: '["${value}"]' -> '.${value}'`;
 };
 
-module.exports.fix = ({value, path}) => {
+export const fix = ({value, path}) => {
     const {node} = path;
     
     node.property = identifier(value);
     node.computed = false;
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     MemberExpression(path) {
         const {node} = path;
         const {property} = node;
