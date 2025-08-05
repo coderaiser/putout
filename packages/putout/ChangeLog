@@ -1,3 +1,14 @@
+2025.08.05, v40.5.0
+
+feature:
+- c003cda1e putout: @putout/plugin-apply-dot-notation v3.0.0
+- f8767e134 @putout/plugin-apply-dot-notation: migrate to ESM
+- 433056da8 @putout/eslint-config: disable dot-notation, use apply-dot-notation instead
+- bd11ed8e3 eslint-plugin-putout: eslint-plugin-eslint-plugin v7.0.0
+- ef397446e @putout/engine-parser: babel: discardBinding
+- 33d4613f7 @putout/engine-parser: hermes-parser v0.31.0
+- ee73209b7 @putout/processor-css: stylelint-config-standard v39.0.0
+
 2025.07.29, v40.4.3
 
 fix:
