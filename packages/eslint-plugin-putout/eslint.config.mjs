@@ -17,7 +17,7 @@ export const match = {
     },
 };
 export default defineConfig([
-    eslintPlugin.configs['flat/recommended'],
+    eslintPlugin.configs.recommended,
     safeAlign,
     matchToFlat(match),
 ]);
