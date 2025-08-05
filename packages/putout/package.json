@@ -90,7 +90,7 @@
     "@putout/plugin-apply-arrow": "^3.0.0",
     "@putout/plugin-apply-at": "^2.0.0",
     "@putout/plugin-apply-destructuring": "^9.0.0",
-    "@putout/plugin-apply-dot-notation": "^2.0.0",
+    "@putout/plugin-apply-dot-notation": "^3.0.0",
     "@putout/plugin-apply-flat-map": "^3.0.0",
     "@putout/plugin-apply-overrides": "^3.0.0",
     "@putout/plugin-apply-shorthand-properties": "^6.0.0",
