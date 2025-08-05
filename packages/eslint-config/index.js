@@ -8,7 +8,7 @@ export const rules = {
         'error',
         'always',
     ],
-    'dot-notation': 'error',
+    'dot-notation': 'off',
     'no-global-assign': 'off',
     'object-shorthand': 'off',
     'prefer-arrow-callback': 'error',

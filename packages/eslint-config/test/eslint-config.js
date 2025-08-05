@@ -105,3 +105,7 @@ test('eslint-config: using', async ({comparePlaces}) => {
 test('eslint-config: keyword-spacing', async ({process}) => {
     await process('keyword-spacing');
 });
+
+test('eslint-config: dot-notation', async ({comparePlaces}) => {
+    await comparePlaces('dot-notation', []);
+});
