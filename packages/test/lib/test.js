@@ -18,6 +18,7 @@ const {createProgress} = require('@putout/engine-runner/progress');
 
 const {createError} = require('./create-error');
 const {preTest} = require('./pre-test');
+
 const {
     format,
     noFormat,
