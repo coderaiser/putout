@@ -70,7 +70,7 @@
     "@putout/formatter-dump": "^6.0.0",
     "@putout/formatter-frame": "^8.0.0",
     "@putout/formatter-json": "^2.0.0",
-    "@putout/formatter-json-lines": "^3.0.0",
+    "@putout/formatter-json-lines": "^4.0.0",
     "@putout/formatter-memory": "^4.0.0",
     "@putout/formatter-progress": "^5.0.0",
     "@putout/formatter-progress-bar": "^4.0.0",
