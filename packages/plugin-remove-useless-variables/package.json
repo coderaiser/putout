@@ -38,7 +38,7 @@
     "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-remove-useless-array-from": "*",
     "@putout/plugin-reuse-duplicate-init": "*",
-    "@putout/test": "^13.0.0",
+    "@putout/test": "^14.0.0",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-n": "^17.0.0",
