@@ -45,11 +45,11 @@
     "madrun": "^11.0.0"
   },
   "peerDependencies": {
-    "putout": ">=35"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
