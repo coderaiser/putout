@@ -43,7 +43,9 @@ export default ({name, places, index, count, filesCount, errorsCount}) => {
         ].join('\n'));
     }
     
-    output.push(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
+    const maybeS = errorsCount === 1 ? '' : 's';
+    
+    output.push(bold(redBright(`✖ ${errorsCount} error${maybeS} in ${filesCount} file${maybeS}`)));
     output.push(bold(redBright('  fixable with the `--fix` option')));
     
     return output.join('\n') + '\n';
