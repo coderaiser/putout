@@ -48,6 +48,16 @@ module.exports.writeFixFixture = ({full, code, extension}) => {
     writeFileSync(`${full}-fix.${extension}`, code);
 };
 
+module.exports.writeFormatFixture = (full, code) => {
+    const {writeFileSync} = global.__putout_test_fs;
+    writeFileSync(`${full}-format`, code);
+};
+
+module.exports.readFormatFixture = (full) => {
+    const {readFileSync} = global.__putout_test_fs;
+    return readFileSync(`${full}-format`, 'utf8');
+};
+
 module.exports.writeFixture = ({full, code, extension}) => {
     const {writeFileSync} = global.__putout_test_fs;
     writeFileSync(`${full}.${extension}`, code);

@@ -24,6 +24,10 @@ test('test: format: no update', async ({format}) => {
     update();
 });
 
+test('test: format: many', async ({formatMany}) => {
+    await formatMany(formatter, ['empty', 'empty']);
+});
+
 test('test: format: options', async ({format}) => {
     update(1);
     await format(formatterProgress, 'var', {

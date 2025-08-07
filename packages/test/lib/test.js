@@ -18,6 +18,11 @@ const {createProgress} = require('@putout/engine-runner/progress');
 
 const {createError} = require('./create-error');
 const {preTest} = require('./pre-test');
+const {
+    format,
+    noFormat,
+    formatMany,
+} = require('./format');
 
 const {
     readFixture,
@@ -97,147 +102,11 @@ function createTest(dir, maybeOptions) {
         noReportWithOptions: noReportWithOptions(dir, linterOptions, options),
         reportCode: reportCode(lint, options),
         noReportCode: noReportCode(lint, options),
-        format: formatSave(dir, options),
-        formatMany: formatManySave(dir, options),
+        format: format(dir, options),
+        formatMany: formatMany(dir, options),
         noFormat: noFormat(dir, options),
     });
 }
-
-const format = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
-    const full = join(dir, name);
-    const outputName = `${full}-format`;
-    const [input, isTS] = readFixture(full);
-    const [expected] = readFixture(outputName);
-    
-    const {places} = putout(input, {
-        fixCount: 1,
-        isTS,
-        ...options,
-    });
-    
-    const report = putout.initReport();
-    
-    const result = await report(formatter, {
-        formatterOptions,
-        name,
-        source: input,
-        places,
-    });
-    
-    const {is, output} = t.equal(result, expected);
-    
-    return {
-        is,
-        output,
-        result,
-    };
-});
-
-const noFormat = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
-    const full = join(dir, name);
-    const [input] = readFixture(full);
-    const {places} = putout(input, options);
-    
-    const report = putout.initReport();
-    
-    const result = await report(formatter, {
-        name,
-        places,
-        formatterOptions,
-    });
-    
-    const {is, output} = t.equal(result, '', 'should not format');
-    
-    return {
-        is,
-        output,
-        result,
-    };
-});
-
-const formatMany = currify((dir, options, t) => async (formatter, names, formatterOptions = {}) => {
-    const joinTwo = (a) => (b) => join(a, b);
-    
-    if (!isArray(names))
-        throw Error(`☝️ Looks like 'formatMany()' received 'names' with type: '${typeof names}', expected: 'array'`);
-    
-    const fullNames = names.map(joinTwo(dir));
-    
-    let result = '';
-    
-    const count = names.length;
-    const report = putout.initReport();
-    
-    for (let index = 0; index < count; index++) {
-        const name = names[index];
-        const full = fullNames[index];
-        const [input] = readFixture(full);
-        
-        const {places} = putout(input, {
-            fixCount: 1,
-            ...options,
-        });
-        
-        result += await report(formatter, {
-            name,
-            formatterOptions,
-            source: input,
-            places,
-            index,
-            count,
-        });
-    }
-    
-    const outputName = join(dir, `${names.join('-')}-format`);
-    const [expected] = readFixture(outputName);
-    
-    const {is, output} = t.equal(result, expected);
-    
-    return {
-        is,
-        output,
-        result,
-    };
-});
-
-const formatManySave = currify((dir, options, t) => async (formatter, names, formatterOptions = {}) => {
-    const runFormat = await formatMany(dir, options, t);
-    
-    if (!isUpdate())
-        return await runFormat(formatter, names, formatterOptions);
-    
-    const {writeFileSync} = global.__putout_test_fs;
-    
-    if (!isArray(names))
-        throw Error(`☝️ Looks like 'formatMany()' received 'names' with type: '${typeof names}', expected: 'array'`);
-    
-    const name = `${names.join('-')}-format.js`;
-    const outputName = join(dir, name);
-    
-    const {result} = await runFormat(formatter, names, formatterOptions);
-    
-    writeFileSync(outputName, result);
-    
-    return t.pass('fixed fixture updated');
-});
-
-const formatSave = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
-    const runFormat = format(dir, options, t);
-    
-    if (!isUpdate())
-        return await runFormat(formatter, name, formatterOptions);
-    
-    const {writeFileSync} = global.__putout_test_fs;
-    
-    const full = join(dir, name);
-    const outputName = `${full}-format.js`;
-    
-    const {result} = await runFormat(formatter, name, formatterOptions);
-    
-    writeFileSync(outputName, result);
-    
-    return t.pass('fixed fixture updated');
-});
 
 const toObject = (array) => {
     const result = {};

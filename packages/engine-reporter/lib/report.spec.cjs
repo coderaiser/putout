@@ -93,7 +93,7 @@ test('putout: report: dump', async (t) => {
         hello
          1:1  error   hello  remove-hello 
         
-        ✖ 1 errors in 1 files
+        ✖ 1 error in 1 file
           fixable with the \`--fix\` option
     
     `;
