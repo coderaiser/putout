@@ -14,6 +14,10 @@ test('formatter: dump: no', async ({noFormat}) => {
     await noFormat(dump, 'no');
 });
 
-test('formatter: dump: many', async ({formatMany}) => {
+test('formatter: dump: couple files', async ({formatMany}) => {
     await formatMany(dump, ['var', 'var']);
+});
+
+test('formatter: dump: errors', async ({format}) => {
+    await format(dump, 'errors');
 });
