@@ -1,3 +1,33 @@
+2025.08.07, v40.5.1
+
+feature:
+- 7709af4ec @putout/formatter-codeframe: @putout/formatter-json v3.0.0
+- 2715c3382 @putout/formatter-dump: @putout/formatter-json v3.0.0
+- e2ecdb120 @putout/formatter-eslint: @putout/formatter-json v3.0.0
+- 76285c864 @putout/formatter-progress-bar: @putout/formatter-dump v6.0.0
+- 6a3f85c94 @putout/formatter-progress: @putout/formatter-dump v6.0.0
+- 5a6fa4606 @putout/formatter-memory: @putout/formatter-dump v6.0.0
+- 49a6e9499 @putout/formatter-time: @putout/formatter-dump v6.0.0
+- 2cad74a08 putout: @putout/formatter-time v4.0.0
+- a036b2d27 putout: @putout/formatter-stream v6.0.0
+- 0ff35befa putout: @putout/formatter-progress v6.0.0
+- 08a59dd8c putout: @putout/formatter-progress-bar v5.0.0
+- a411a7092 putout: @putout/formatter-memory v5.0.0
+- e8086831a putout: @putout/formatter-json v3.0.0
+- 70f993bb3 putout: @putout/formatter-json-lines v4.0.0
+- 870504198 putout: @putout/formatter-dump v6.0.0
+- cb8749d0c root: @putout/test v14.0.0
+- 1104920b4 @putout/formatter-json-lines: drop support of 🐊 < 40
+- 2c3b6603f @putout/formatter-json: drop support of 🐊 < 40
+- 67d061218 @putout/formatter-memory: drop support of 🐊 < 40
+- c13f19b2d @putout/formatter-progress-bar: drop support of 🐊 < 40
+- 2cdf2dd8c @putout/formatter-progress: drop support of 🐊 < 40
+- 07e43c658 @putout/formatter-stream: drop support of 🐊 < 40
+- 2c4494c73 @putout/formatter-time: drop support of 🐊 < 40
+- 433eac2a1 @putout/formatter-dump: errors, files -> error, file: when 1 file
+- 236e3db67 @putout/formatter-dump: drop support of 🐊 < 40
+- 4a0a2c4dd @putout/test: format: fixture
+
 2025.08.05, v40.5.0
 
 feature:
