@@ -51,11 +51,11 @@
     "mock-require": "^3.0.3"
   },
   "peerDependencies": {
-    "putout": ">=35"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
