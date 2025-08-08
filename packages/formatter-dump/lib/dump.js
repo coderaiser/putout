@@ -43,9 +43,10 @@ export default ({name, places, index, count, filesCount, errorsCount}) => {
         ].join('\n'));
     }
     
-    const maybeS = errorsCount === 1 ? '' : 's';
+    const maybeErrors = errorsCount === 1 ? 'error' : 'errors';
+    const maybeFiles = filesCount === 1 ? 'file' : 'files';
     
-    output.push(bold(redBright(`✖ ${errorsCount} error${maybeS} in ${filesCount} file${maybeS}`)));
+    output.push(bold(redBright(`✖ ${errorsCount} ${maybeErrors} in ${filesCount} ${maybeFiles}`)));
     output.push(bold(redBright('  fixable with the `--fix` option')));
     
     return output.join('\n') + '\n';
