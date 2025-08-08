@@ -15,9 +15,25 @@ export const include = () => [
     'async (__args) => __body',
 ];
 
-export const filter = (path) => !contains(path, [
-    'throw __',
-    'await __',
-    'for await (__ of __) __',
-    'await using __ = __',
-]);
+export const filter = (path) => {
+    if (hasAwaitUsing(path))
+        return false;
+    
+    return !contains(path, ['throw __', 'await __', 'for await (__ of __) __']);
+};
+
+function hasAwaitUsing(path) {
+    let is = false;
+    
+    path.traverse({
+        VariableDeclaration(path) {
+            if (path.node.kind !== 'await using')
+                return;
+            
+            is = true;
+            path.stop();
+        },
+    });
+    
+    return is;
+}
