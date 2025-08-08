@@ -2928,6 +2928,7 @@ import {OK} from 'putout/exit-codes';
 - [**Bundler**](https://github.com/putoutjs/bundler#) - Simplest possible bundler.
 - [**OpenRewrite**](https://docs.openrewrite.org/) - an open-source automated refactoring ecosystem for source code, enabling developers to effectively eliminate technical debt within their repositories.
 - [**ishvara**](https://github.com/putoutjs/bundle) - compile JavaScript to WASM and Fasm.
+- [**EsJS**](https://es.js.org) - JavaScript con sintaxis en Español.
 
 Are you also use 🐊**Putout** in your application? Please open a Pull Request to include it here. We would love to have it in our list.
 
