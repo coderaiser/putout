@@ -41,6 +41,13 @@ let a;
 let b;
 ```
 
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`remove-debugger`](https://github.com/coderaiser/putout/tree/master/packages/plugin-split-variable-declarations#readme) | ✅
+⏣ **ESLint** | [`no-var`](https://eslint.org/docs/latest/rules/one-var) | ✅
+
 ## License
 
 MIT
