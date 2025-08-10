@@ -7,7 +7,7 @@
 That's awesome 👏! Check out [`good first issues`](https://github.com/coderaiser/putout/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22),
 most likely you can do some contribution using web interface, otherwise worry not 😏.
 
-Install [bun](https://bun.sh/) (and maybe `lerna@6` globally, to have ability to use `lerna bootstrap`).
+Install [bun](https://bun.sh/).
 Make fork of a repo, clone it and run:
 
 ```
