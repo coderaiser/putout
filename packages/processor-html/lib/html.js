@@ -14,7 +14,7 @@ export const branch = (rawSource) => {
     }];
 };
 
-export const merge = (rawSource, [first]) => fromJS(first);
+export const merge = (rawSource, [first]) => fromJS(first).replaceAll('className', 'class');
 
 const SUFFIX = ';\n';
 

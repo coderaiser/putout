@@ -15,3 +15,14 @@ test('putout: processor: html', async ({process}) => {
         }],
     ]);
 });
+
+test('putout: processor: html: class', async ({process}) => {
+    await process('class', [
+        ['remove-button', {
+            report: () => '',
+            replace: () => ({
+                '<button>__a</button>': '',
+            }),
+        }],
+    ]);
+});
