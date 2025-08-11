@@ -37,7 +37,7 @@ test('putout: test: processor: process', async ({process}) => {
 });
 
 test('putout: test: processor: no process', async ({noProcess}) => {
-    await noProcess('empty-script.html', null, ['html']);
+    await noProcess('empty-script.html', null, ['svelte']);
 });
 
 test('putout: test: processor: no process: UPDATE', async ({noProcess, calledWith}) => {
@@ -45,7 +45,7 @@ test('putout: test: processor: no process: UPDATE', async ({noProcess, calledWit
     
     update(1);
     global.unlink = unlink;
-    await noProcess('empty-script.html', null, ['html']);
+    await noProcess('empty-script.html', null, ['svelte']);
     delete global.unlink;
     update(0);
     
@@ -55,7 +55,7 @@ test('putout: test: processor: no process: UPDATE', async ({noProcess, calledWit
 
 test('putout: test: processor: no process: UPDATE: not clean', async ({noProcess, ok}) => {
     update(1);
-    await noProcess('empty-script.html', null, ['html']);
+    await noProcess('empty-script.html', null, ['svelte']);
     update(0);
     
     const name = join(__dirname, 'fixture/empty-script-fix.html');

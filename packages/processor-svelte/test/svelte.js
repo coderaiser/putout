@@ -2,10 +2,10 @@ import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
     extension: 'html',
-    processors: ['html'],
+    processors: ['svelte'],
 });
 
-test('putout: processor: html', async ({process}) => {
+test('putout: processor: svelte', async ({process}) => {
     await process('html', ['remove-unused-variables']);
 });
 
