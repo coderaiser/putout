@@ -1,1 +1,1 @@
-/@babel/plugin-|babel-plugin-/;
+x.replace(/["-<>/]/g, '');

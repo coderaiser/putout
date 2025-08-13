@@ -1,10 +1,12 @@
 import tryCatch from 'try-catch';
 import regexpTree from 'regexp-tree';
 
-const cutSlashes = (a) => a
-    .split('/')
-    .slice(1, -1)
-    .join('/');
+const cutSlashes = (a) => {
+    return a
+        .split('/')
+        .slice(1, -1)
+        .join('/');
+};
 
 const whitelist = [];
 
@@ -26,15 +28,13 @@ export const fix = ({path, to, flags}) => {
 export const traverse = ({push}) => ({
     RegExpLiteral(path) {
         const {pattern, flags} = path.node;
-        const [error, result] = tryCatch(
-            regexpTree.optimize,
-            RegExp(
-                pattern,
-                flags,
-            ),
-            whitelist,
-            options,
-        );
+        
+        if (pattern.includes('/'))
+            return;
+        
+        const reg = RegExp(pattern, flags);
+        
+        const [error, result] = tryCatch(regexpTree.optimize, reg, whitelist, options);
         
         if (error)
             return;

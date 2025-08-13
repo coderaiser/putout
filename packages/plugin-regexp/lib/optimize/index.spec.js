@@ -45,6 +45,11 @@ test('plugin-regexp/optimize: no transform: escape', (t) => {
     t.end();
 });
 
+test('plugin-regexp/optimize: no report: slash', (t) => {
+    t.noReport('slash');
+    t.end();
+});
+
 test('plugin-regexp/optimize: no-report-after-transform: after-fix', (t) => {
     t.noReportAfterTransform('after-fix');
     t.end();
