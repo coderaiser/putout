@@ -46,3 +46,8 @@ test('plugin-regexp: transform: apply-ends-with', (t) => {
     t.transform('apply-ends-with');
     t.end();
 });
+
+test('plugin-regexp: transform: apply-global-regexp-to-replace-all', (t) => {
+    t.transform('apply-global-regexp-to-replace-all');
+    t.end();
+});

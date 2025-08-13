@@ -360,3 +360,12 @@ export const {
 ```
 
 </details>
+
+<details><summary><code>replaceAll()</code> called with a non-global <code>RegExp</code>argument</summary>
+
+```diff
+-'hello'.replaceAll(/hello/, 'world')
++'hello'.replaceAll(/hello/g, 'world')
+```
+
+</details>

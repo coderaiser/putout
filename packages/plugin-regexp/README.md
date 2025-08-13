@@ -18,6 +18,7 @@ npm i @putout/plugin-regexp -D
 ## Rules
 
 - ✅ [apply-ends-with](#apply-ends-with);
+- ✅ [apply-global-regexp-to-replace-al](#apply-global-regexp-to-replace-all);
 - ✅ [apply-literal-notation](#apply-literal-notation);
 - ✅ [apply-starts-with](#apply-starts-with);
 - ✅ [convert-replace-to-replace-all](#convert-replace-to-replace-all);
@@ -32,6 +33,7 @@ npm i @putout/plugin-regexp -D
 ```json
 {
     "rules": {
+        "regexp/apply-global-regexp-to-replace-all": "on",
         "regexp/apply-literal-notation": "on",
         "regexp/apply-starts-with": "on",
         "regexp/apply-ends-with": "on",
@@ -56,6 +58,28 @@ const a = /(ab|ab)/;
 
 ```js
 const a = /(ab)/;
+```
+
+## apply-global-regexp-to-replace-all
+
+> `Uncaught TypeError: String.prototype.replaceAll called with a non-global RegExp argument`
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Requires_global_RegExp)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8c759e3c8d19d660ddb01bda04d75c8b/f1d0f3a6d491f034308f5f3a375900b0a620a3b3).
+
+### ❌ Example of incorrect code
+
+```js
+'s'.replaceAll(/hello/, 's');
+'abc'.matchAll(/./);
+```
+
+### ✅ Example of correct code
+
+```js
+'s'.replaceAll(/hello/g, 's');
+'abc'.matchAll(/./g);
 ```
 
 ## apply-literal-notation
