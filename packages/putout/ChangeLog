@@ -1,3 +1,19 @@
+2025.08.13, v40.5.2
+
+fix:
+- 12afb0c4c @putout/processor-html: className -> class
+
+feature:
+- 4d48fe596 putout: @putout/plugin-regexp v12.0.0
+- 77b50073d @putout/plugin-regexp: drop support of 🐊 < 40
+- c533146ab @putout/plugin-regexp: apply-global-regexp-to-replace-all
+- c24961870 @putout/plugin-putout: replace-test-message: transformWithOptions -> noReport
+- 8ac6f70fe @putout/processor-html: renamed to svelte
+- 8c3986b64 @putout/processor-html: svelte -> jsx
+- 8b7c9aa9e @putout/cli-process-file: @putout/formatter-eslint: rm unused
+- f7d9ab69f @putout/plugin-promise: remove-useless-async: await using couple
+- 8181b990e @putout/formattet-dump: 1 files -> 1 file
+
 2025.08.07, v40.5.1
 
 feature:
