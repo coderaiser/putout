@@ -51,3 +51,8 @@ test('plugin-regexp: transform: apply-global-regexp-to-replace-all', (t) => {
     t.transform('apply-global-regexp-to-replace-all');
     t.end();
 });
+
+test('plugin-regexp: transform: apply-character-class', (t) => {
+    t.transform('apply-character-class');
+    t.end();
+});

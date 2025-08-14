@@ -6,7 +6,7 @@ const {stringLiteral} = types;
 const getValue = ({value}) => value;
 
 module.exports.ignore = (type, {name, property, list}) => {
-    const [, collector] = type.split(/\(|\)/);
+    const [, collector] = type.split(/[()]/);
     
     return {
         report: createReport(name),

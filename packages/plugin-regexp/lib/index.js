@@ -1,3 +1,4 @@
+import * as applyCharacterClass from './apply-character-class/index.js';
 import * as applyGlobalRegexpToReplaceAll from './apply-global-regexp-to-replace-all/index.js';
 import * as applyLiteralNotation from './apply-literal-notation/index.js';
 import * as applyStartsWith from './apply-starts-with/index.js';
@@ -18,4 +19,5 @@ export const rules = {
     'remove-useless-group': removeUselessGroup,
     'remove-useless-regexp': removeUselessRegexp,
     'apply-global-regexp-to-replace-all': applyGlobalRegexpToReplaceAll,
+    'apply-character-class': applyCharacterClass,
 };

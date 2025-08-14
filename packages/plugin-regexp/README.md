@@ -17,6 +17,7 @@ npm i @putout/plugin-regexp -D
 
 ## Rules
 
+- ✅ [apply-character-class](#apply-character-class);
 - ✅ [apply-ends-with](#apply-ends-with);
 - ✅ [apply-global-regexp-to-replace-al](#apply-global-regexp-to-replace-all);
 - ✅ [apply-literal-notation](#apply-literal-notation);
@@ -33,6 +34,7 @@ npm i @putout/plugin-regexp -D
 ```json
 {
     "rules": {
+        "regexp/apply-character-class": "on",
         "regexp/apply-global-regexp-to-replace-all": "on",
         "regexp/apply-literal-notation": "on",
         "regexp/apply-starts-with": "on",
@@ -58,6 +60,24 @@ const a = /(ab|ab)/;
 
 ```js
 const a = /(ab)/;
+```
+
+## apply-character-class
+
+Checkout in [AST Explorer](https://astexplorer.net/#/gist/86288d07002d1151c7eac529c0b85f1e/ad57c586193f19e56d07b1d18725ec969388dde2).
+
+### ❌ Example of incorrect code
+
+```js
+/a|b/g;
+/[ab]|c/g;
+```
+
+### ✅ Example of correct code
+
+```js
+/[ab]/g;
+/[abc]/g;
 ```
 
 ## apply-global-regexp-to-replace-all
