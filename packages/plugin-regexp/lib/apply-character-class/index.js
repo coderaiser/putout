@@ -54,6 +54,9 @@ function applyCharacterClass(str) {
             if (left.type !== 'Char' || left.value.length !== 1)
                 return;
             
+            if (!left.escaped)
+                return;
+            
             is = true;
             left.escaped = false;
             right.escaped = false;

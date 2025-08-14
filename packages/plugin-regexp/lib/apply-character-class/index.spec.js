@@ -16,3 +16,8 @@ test('regexp: apply-character-class: transform', (t) => {
     t.transform('apply-character-class');
     t.end();
 });
+
+test('regexp: apply-character-class: no report: not-escaped', (t) => {
+    t.noReport('not-escaped');
+    t.end();
+});

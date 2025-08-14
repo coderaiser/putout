@@ -69,15 +69,13 @@ Checkout in [AST Explorer](https://astexplorer.net/#/gist/86288d07002d1151c7eac5
 ### ❌ Example of incorrect code
 
 ```js
-/a|b/g;
-/[ab]|c/g;
+/\)|\(/g;
 ```
 
 ### ✅ Example of correct code
 
 ```js
-/[ab]/g;
-/[abc]/g;
+/[)(]/g;
 ```
 
 ## apply-global-regexp-to-replace-all
