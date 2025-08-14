@@ -43,7 +43,7 @@
   ],
   "devDependencies": {
     "@putout/eslint-flat": "^3.0.0",
-    "@putout/formatter-progress": "^5.0.0",
+    "@putout/formatter-progress": "^6.0.1",
     "c8": "^10.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-n": "^17.0.0",
