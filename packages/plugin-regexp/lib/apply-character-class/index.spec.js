@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('regexp: apply-character-class: report', (t) => {
-    t.report('apply-character-class', `Use character class instead of single character alternation: '/a|b/g' -> '/[ab]/g'`);
+    t.report('apply-character-class', `Use character class instead of single character alternation: '/\\(|\\)|\\)/g' -> '/[()]|\\)/g'`);
     t.end();
 });
 

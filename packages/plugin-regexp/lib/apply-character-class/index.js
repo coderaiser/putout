@@ -40,6 +40,8 @@ function applyCharacterClass(str) {
             if (left.type === 'CharacterClass') {
                 is = true;
                 
+                right.escaped = false;
+                
                 return path.replace({
                     type: 'CharacterClass',
                     expressions: [
@@ -53,6 +55,8 @@ function applyCharacterClass(str) {
                 return;
             
             is = true;
+            left.escaped = false;
+            right.escaped = false;
             path.replace({
                 type: 'CharacterClass',
                 expressions: [left, right],
