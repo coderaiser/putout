@@ -1,3 +1,4 @@
+import * as removeDuplicatesFromCharacterClass from './remove-duplicates-from-character-class/index.js';
 import * as applyCharacterClass from './apply-character-class/index.js';
 import * as applyGlobalRegexpToReplaceAll from './apply-global-regexp-to-replace-all/index.js';
 import * as applyLiteralNotation from './apply-literal-notation/index.js';
@@ -20,4 +21,5 @@ export const rules = {
     'remove-useless-regexp': removeUselessRegexp,
     'apply-global-regexp-to-replace-all': applyGlobalRegexpToReplaceAll,
     'apply-character-class': applyCharacterClass,
+    'remove-duplicates-from-character-class': removeDuplicatesFromCharacterClass,
 };

@@ -3,7 +3,7 @@ import * as regexp from './regexp.js';
 
 const {transformRegExp} = operator;
 
-export const report = ({from, to}) => `Use character class instead of single character alternation: '${from}' -> '${to}'`;
+export const report = ({from, to}) => `Remove duplicates from character class: '${from}' -> '${to}'`;
 
 export const fix = ({path, to}) => {
     const [, pattern] = to.split('/');

@@ -64,7 +64,10 @@ const a = /(ab)/;
 
 ## apply-character-class
 
-Checkout in [AST Explorer](https://astexplorer.net/#/gist/86288d07002d1151c7eac529c0b85f1e/ad57c586193f19e56d07b1d18725ec969388dde2).
+Checkout in:
+
+- 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/af6302761114152dee215625ff411825/fb2a0589b29d80a7c76fb05eb9ace66511a5e8bb).
+- [AST Explorer](https://astexplorer.net/#/gist/86288d07002d1151c7eac529c0b85f1e/ad57c586193f19e56d07b1d18725ec969388dde2).
 
 ### ❌ Example of incorrect code
 
