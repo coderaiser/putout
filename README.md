@@ -78,7 +78,7 @@ Check out couple variants of plugins that does the same: [**linting debugger sta
 ```js
 export const report = () => `Unexpected 'debugger' statement`;
 
-exports const replace = () => ({
+export const replace = () => ({
     debugger: '',
 });
 ```
