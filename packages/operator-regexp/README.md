@@ -36,6 +36,16 @@ isSimpleRegExp(/^hello/);
 false;
 ```
 
+### transformRegExp(regexp: String, plugin: Traverser)
+
+```js
+transformRegExp('[aab]', {
+    report,
+    fix,
+    traverse,
+});
+```
+
 ## License
 
 MIT
