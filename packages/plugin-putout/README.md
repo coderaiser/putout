@@ -169,7 +169,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fe78f6e489
 ### ❌ Example of incorrect code
 
 ```js
-path.node = identifier('x');
+path.node = Identifier('x');
 ```
 
 ### ✅ Example of correct code
