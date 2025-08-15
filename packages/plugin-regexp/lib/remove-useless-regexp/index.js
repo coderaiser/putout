@@ -1,13 +1,20 @@
-import regexpTree from 'regexp-tree';
 import {
     template,
     types,
     operator,
 } from 'putout';
-import {isAlternative, isChar} from '../types.js';
+import * as regexp from './regexp.js';
 
-const {replaceWith} = operator;
+const {
+    replaceWith,
+    transformRegExp,
+} = operator;
 const {stringLiteral} = types;
+
+const cut = (a) => a.slice(START, END);
+const wrap = (a) => `/${a}/`;
+const START = 1;
+const END = -1;
 
 export const report = () => `Remove useless RegExp, use strict equal operator instead`;
 
@@ -33,42 +40,15 @@ export const traverse = ({push}) => ({
         
         const [arg] = path.node.arguments;
         const to = cut(str);
-        const is = isOnlyChars(wrap(to));
+        const [, places] = transformRegExp(wrap(to), regexp);
         
-        if (is)
-            push({
-                path,
-                arg,
-                to,
-            });
+        if (!places.length)
+            return;
+        
+        push({
+            path,
+            arg,
+            to,
+        });
     },
 });
-
-const not = (f) => (...a) => !f(...a);
-const START = 1;
-const END = -1;
-const cut = (a) => a.slice(START, END);
-const wrap = (a) => `/${a}/`;
-
-function isOnlyChars(str) {
-    const ast = regexpTree.parse(str);
-    let is = false;
-    
-    regexpTree.traverse(ast, {
-        RegExp({node}) {
-            const {body} = node;
-            
-            if (isChar(body) && !body.value.includes('\\')) {
-                is = true;
-                return;
-            }
-            
-            if (isAlternative(body)) {
-                is = !body.expressions.filter(not(isChar)).length;
-                return;
-            }
-        },
-    });
-    
-    return is;
-}
