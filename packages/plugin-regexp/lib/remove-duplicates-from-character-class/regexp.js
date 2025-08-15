@@ -1,3 +1,5 @@
+const isChar = ({type}) => type === 'Char';
+
 export const report = () => 'Remove duplicates from character class';
 export const fix = ({path, j}) => delete path.node.expressions[j];
 export const traverse = ({push}) => ({
@@ -10,6 +12,9 @@ export const traverse = ({push}) => ({
                     continue;
                 
                 if (!a || !b)
+                    continue;
+                
+                if (!isChar(a) || !isChar(b))
                     continue;
                 
                 if (a.value === b.value)

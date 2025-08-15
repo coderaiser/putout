@@ -16,3 +16,8 @@ test('regexp: remove-duplicates-from-character-class: transform', (t) => {
     t.transform('remove-duplicates-from-character-class');
     t.end();
 });
+
+test('regexp: remove-duplicates-from-character-class: no report: class-range', (t) => {
+    t.noReport('class-range');
+    t.end();
+});

@@ -1,11 +1,10 @@
-import regexpTree from 'regexp-tree';
 import {operator} from 'putout';
-import {
-    isDisjunction,
-    isParentDisjunction,
-} from '../types.js';
+import * as regexp from './regexp.js';
 
-const {compare} = operator;
+const {
+    compare,
+    transformRegExp,
+} = operator;
 
 export const report = ({from, to}) => `Remove useless group from RegExp ${from}, use ${to}`;
 
@@ -32,73 +31,22 @@ export const traverse = ({push}) => ({
             return;
         
         const from = path.node.extra.raw;
-        const [is, to] = removeUselessGroup(from);
+        const [to, places] = transformRegExp(from, regexp);
         
-        if (is)
-            push({
-                path,
-                from,
-                to,
-            });
+        if (!places.length)
+            return;
+        
+        push({
+            path,
+            from,
+            to,
+        });
     },
 });
-
-function removeUselessGroup(str) {
-    const ast = regexpTree.parse(str);
-    let is = false;
-    
-    regexpTree.traverse(ast, {
-        Group(path) {
-            const {type} = path.parent;
-            
-            if (!/RegExp|Alternative/.test(type))
-                return;
-            
-            const nextNode = getNextSibling(path);
-            
-            if (nextNode?.type === 'Repetition')
-                return;
-            
-            const {node} = path;
-            
-            if (node.name)
-                return;
-            
-            if (!node.expression)
-                return;
-            
-            if (isParentDisjunction(path))
-                return;
-            
-            if (isDisjunction(node.expression))
-                return;
-            
-            is = true;
-            path.replace(node.expression);
-        },
-    });
-    
-    return [is, regexpTree.generate(ast)];
-}
 
 function includes({parentPath}) {
     if (compare(parentPath.parentPath, '/__a/.test(__b)'))
         return true;
     
     return compare(parentPath, '__.search(/__a/)');
-}
-
-function getNextSibling(path) {
-    let found = false;
-    const {expressions = []} = path.parent;
-    
-    for (const current of expressions) {
-        if (found)
-            return current;
-        
-        if (current === path.node)
-            found = true;
-    }
-    
-    return null;
 }
