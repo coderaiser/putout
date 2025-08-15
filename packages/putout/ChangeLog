@@ -1,3 +1,21 @@
+2025.08.16, v40.6.0
+
+fix:
+- 0ecbe9720 @putout/plugin-regexp: optimize: exclude RegExp with slash (DmitrySoshnikov/regexp-tree#273)
+
+feature:
+- 51588604c putout: @putout/operator-regexp v2.0.0
+- 114aeec46 @putout/plugin-putout: transformRegExp: add
+- f026eb3b8 @putout/plugin-regexp: remove-useless-regexp: transformRegExp
+- 056a8dce0 @putout/plugin-regexp: remove-useless-group: transformRegExp
+- d3e9731de @putout/plugin-regexp: remove-duplicates-from-character-class: add
+- 53a2dd161 @putout/operator-regexp: transformRegExp: add
+- a33f11522 @putout/operator-regexp: transformRegExp: add
+- ad17b375e @putout/engine-reporter: @putout/formatter-progress v6.0.1
+- a1dfa278d @putout/plugin-regexp: apply-character-class: exclude not escaped
+- 9bdb516dd @putout/plugin-regexp: apply-character-class: escaped
+- 41e9fe2aa @putout/plugin-regexp: apply-character-class: add
+
 2025.08.13, v40.5.2
 
 fix:
