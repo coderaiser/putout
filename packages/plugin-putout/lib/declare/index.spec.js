@@ -413,6 +413,26 @@ test('plugin-putout: declare: transform: removeParens', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: transformRegExp', (t) => {
+    t.transformCode(`transformRegExp(str, regexp);`, montag`
+        import {operator} from 'putout';
+        
+        const {transformRegExp} = operator;
+        transformRegExp(str, regexp);\n
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: isSimpleRegExp', (t) => {
+    t.transformCode(`isSimpleRegExp(/[ab]/);`, montag`
+        import {operator} from 'putout';
+        
+        const {isSimpleRegExp} = operator;
+        isSimpleRegExp(/[ab]/);\n
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: hasParens', (t) => {
     t.transformCode(`hasParens(path);`, montag`
         import {operator} from 'putout';

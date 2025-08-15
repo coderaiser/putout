@@ -2,12 +2,14 @@ import filesystem from './filesystem.js';
 import json from './json.js';
 import keyword from './keyword.js';
 import parens from './parens.js';
+import regexp from './regexp.js';
 
 export default {
     ...filesystem,
     ...json,
     ...keyword,
     ...parens,
+    ...regexp,
     operator: `import {operator} from 'putout'`,
     compare: 'const {compare} = operator',
     compareAll: 'const {compareAll} = operator',
@@ -24,7 +26,6 @@ export default {
     getBinding: 'const {getBinding} = operator',
     getBindingPath: 'const {getBindingPath} = operator',
     traverse: 'const {traverse} = operator',
-    isSimpleRegExp: 'const {isSimpleRegExp} = operator',
     getTemplateValues: 'const {getTemplateValues} = operator',
     addArgs: 'const {addArgs} = operator',
     insertBefore: 'const {insertBefore} = operator',
