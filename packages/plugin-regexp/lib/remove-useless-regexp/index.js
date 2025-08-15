@@ -9,6 +9,7 @@ const {
     replaceWith,
     transformRegExp,
 } = operator;
+
 const {stringLiteral} = types;
 
 const cut = (a) => a.slice(START, END);
