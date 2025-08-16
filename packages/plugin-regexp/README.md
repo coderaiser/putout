@@ -27,7 +27,7 @@ npm i @putout/plugin-regexp -D
 - ✅ [optimize](#optimize);
 - ✅ [remove-useless-group](#remove-useless-group);
 - ✅ [remove-useless-regexp](#remove-useless-regexp);
-- ✅ [types.js](#types.js);
+- ✅ [remove-duplicates-from-character-class](#remove-duplicates-from-character-class);
 
 ## Config
 
@@ -43,7 +43,8 @@ npm i @putout/plugin-regexp -D
         "regexp/convert-to-string": "on",
         "regexp/convert-replace-to-replace-all": "on",
         "regexp/remove-useless-group": "on",
-        "regexp/remove-useless-regexp": "on"
+        "regexp/remove-useless-regexp": "on",
+        "regexp/remove-duplicates-from-character-class": "on"
     }
 }
 ```
@@ -227,6 +228,20 @@ const a = /^\.hello$/.test(str);
 
 ```js
 const a = str === '.hello';
+```
+
+## remove-duplicates-from-character-class
+
+### ❌ Example of incorrect code
+
+```js
+/[aaabb]/.test(str);
+```
+
+### ✅ Example of correct code
+
+```js
+/[ab]/.test(str);
 ```
 
 ## License
