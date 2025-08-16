@@ -232,6 +232,8 @@ const a = str === '.hello';
 
 ## remove-duplicates-from-character-class
 
+Checkout in [AST Explorer](https://astexplorer.net/#/gist/634783e99f6a9432e375ac8ad96647d9/a889735af932bd9f88f953596bec80d3a714415f).
+
 ### ❌ Example of incorrect code
 
 ```js
