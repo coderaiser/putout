@@ -1,13 +1,15 @@
 import htmlToJsx from 'node-html-to-jsx';
 
 const DIV_OPEN = 5;
-const DIV_CLOSE = -7;
+const DIV_CLOSE = -6;
 
 export const files = ['*.html'];
 
 export const branch = (rawSource) => {
     const content = htmlToJsx(rawSource);
-    const source = content.slice(DIV_OPEN, DIV_CLOSE);
+    const source = content
+        .trim()
+        .slice(DIV_OPEN, DIV_CLOSE);
     
     return [{
         source,
