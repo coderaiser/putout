@@ -25,6 +25,17 @@ test('putout: loader: parse rules: tuple: two: array', (t) => {
     t.end();
 });
 
+test('putout: loader: parse rules: array', (t) => {
+    const [error] = tryCatch(parseRules, [
+        ['on', {}],
+    ]);
+    
+    const expected = `☝️Looks like type of 'rules' passed to @putout/engine-loader is 'array', expected: 'object'.`;
+    
+    t.equal(error.message, expected);
+    t.end();
+});
+
 test('putout: loader: parse rules: tuple: two: boolean', (t) => {
     const [{state}] = parseRules({
         hello: [false, {}],

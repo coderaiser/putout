@@ -29,6 +29,8 @@ module.exports.parseRules = (rules) => {
     const plugin = null;
     const msg = '';
     
+    check(rules);
+    
     for (const [rule, value] of entries(rules)) {
         if (isStr(value)) {
             result.push({
@@ -128,3 +130,8 @@ module.exports.enableNestedRules = (rules) => {
     
     return newRules;
 };
+
+function check(rules) {
+    if (isArray(rules))
+        throw Error(`☝️Looks like type of 'rules' passed to @putout/engine-loader is 'array', expected: 'object'.`);
+}
