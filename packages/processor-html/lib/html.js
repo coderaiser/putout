@@ -19,5 +19,8 @@ export const merge = (rawSource, [first]) => fromJS(first).replaceAll('className
 const SUFFIX = ';\n';
 
 function fromJS(source) {
+    if (!source.endsWith(SUFFIX))
+        return source;
+    
     return source.slice(0, -SUFFIX.length);
 }
