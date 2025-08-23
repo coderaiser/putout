@@ -1,3 +1,17 @@
+2025.08.24, v40.6.1
+
+fix:
+- 9514e40fd @putout/plugin-nodejs: declare: util: types
+- e3fecb830 @putout/processor-html: branch: trim
+
+feature:
+- 708aa2fb2 @putout/formatter-dump: get rid of chalk
+- 740818804 @putout/formatter-codeframe: get rid of chalk
+- e1d707d0e @putout/plugin-nodejs: declare: util: styleText
+- e539beba6 putout: get rid of chalk
+- 436dbd95f @putout/engine-loader: rules: parse-rules: throw if passed array instead of object
+- 2c6077ed9 @putout/processor-html: no semicolon
+
 2025.08.16, v40.6.0
 
 fix:
