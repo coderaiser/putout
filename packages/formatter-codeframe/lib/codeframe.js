@@ -1,12 +1,6 @@
+import {styleText} from 'node:util';
 import {jsonFormatter} from '@putout/formatter-json';
 import {codeFrameColumns} from '@putout/babel';
-import chalk from 'chalk';
-
-const {
-    bold,
-    gray,
-    redBright,
-} = chalk;
 
 const MOVE_MESSAGE_WHEN_NO_PLACE = 1;
 
@@ -43,15 +37,15 @@ export default ({name, source, places, index, count, filesCount, errorsCount}) =
             const result = codeFrameColumns(source, location, {
                 highlightCode: true,
                 forceColor: true,
-                message: `${message} ${gray(`(${rule})`)}`,
+                message: `${message} ${styleText('gray', `(${rule})`)}`,
             });
             
             output.push(`${name}:${line}:${column}\n${result}\n`);
         }
     }
     
-    output.push(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
-    output.push(bold(redBright('  fixable with the `--fix` option')));
+    output.push(styleText(['bold', 'redBright'], `✖ ${errorsCount} errors in ${filesCount} files`));
+    output.push(styleText(['bold', 'redBright'], '  fixable with the `--fix` option'));
     
     return output.join('\n') + '\n';
 };
