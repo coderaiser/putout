@@ -80,9 +80,19 @@ test('putout: plugin: nodejs: declare: nodejs: url', (t) => {
 
 test('putout: plugin: nodejs: declare: nodejs: util', (t) => {
     t.transformCode(`promisify(fn);`, montag`
-        import {promisify} from 'util';
+        import {promisify} from 'node:util';
         
         promisify(fn);
+    
+    `);
+    t.end();
+});
+
+test('putout: plugin: nodejs: declare: nodejs: styleText', (t) => {
+    t.transformCode(`styleText('red', 'hello');`, montag`
+        import {styleText} from 'node:util';
+        
+        styleText('red', 'hello');
     
     `);
     t.end();
