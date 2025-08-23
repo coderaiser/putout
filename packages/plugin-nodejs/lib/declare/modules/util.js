@@ -33,5 +33,4 @@ export default {
     toUSVString: `import {toUSVString} from 'node:util'`,
     transferableAbortController: `import {transferableAbortController} from 'node:util'`,
     transferableAbortSignal: `import {transferableAbortSignal} from 'node:util'`,
-    types: `import {types} from 'node:util'`,
 };

@@ -147,3 +147,8 @@ test('putout: plugin: nodejs: declare: process', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: nodejs: declare: no report: types', (t) => {
+    t.noReportCode(`const {x} = types`);
+    t.end();
+});
