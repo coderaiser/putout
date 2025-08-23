@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import chalk from '../lib/cli/chalk.mjs';
 
 export const onDebuggerExit = ({log, process, inspector}) => {
     const {pid} = process;

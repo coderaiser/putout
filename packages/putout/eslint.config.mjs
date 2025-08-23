@@ -9,6 +9,9 @@ export const match = {
     '**/register.mjs': {
         'n/no-unsupported-features/node-builtins': 'off',
     },
+    '**/chalk.mjs': {
+        'n/no-unsupported-features/node-builtins': 'off',
+    },
 };
 
 export default defineConfig([
