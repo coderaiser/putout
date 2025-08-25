@@ -1,12 +1,18 @@
 import {types} from 'putout';
 
-const {isLabeledStatement} = types;
+const {
+    isIfStatement,
+    isLabeledStatement,
+} = types;
 
 export const report = () => `Use 'var' instead of 'let' inside label`;
 
 export const match = () => ({
     'let __b = __c': (vars, path) => {
-        return isLabeledStatement(path.parentPath);
+        if (isLabeledStatement(path.parentPath))
+            return true;
+        
+        return isIfStatement(path.parentPath);
     },
 });
 

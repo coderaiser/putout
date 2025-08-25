@@ -4,7 +4,8 @@
             "split-variable-declarations": "off",
             "assignment/split": "off",
             "convert-template-to-string": "off",
-            "conditions/convert-equal-to-strict-equal": "off"
+            "conditions/convert-equal-to-strict-equal": "off",
+            "conditions/evaluate": "off"
         }
     }
 }
