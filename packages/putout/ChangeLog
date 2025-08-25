@@ -1,3 +1,12 @@
+2025.08.25, v40.6.2
+
+feature:
+- 7800fce99 putout: @putout/plugin-convert-arguments-to-rest v4.0.0
+- 7a9310e1c @putout/plugin-convert-arguments-to-rest: migrate to ESM
+- ddaf705ad @putout/plugin-minify: merge-variables: include let
+- fc958785e @putout/plugin-minify: convert-const-to-var -> convert-const-to-let
+- 059d0195e @putout/engine-parser: hermes-parser v0.32.0
+
 2025.08.24, v40.6.1
 
 fix:
