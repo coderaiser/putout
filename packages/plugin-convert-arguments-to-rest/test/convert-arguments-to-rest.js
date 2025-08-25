@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertArgumentsToRest from '../lib/convert-arguments-to-rest.js';
 
-const {createTest} = require('@putout/test');
-const convertArgumentsToRest = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-arguments-to-rest', convertArgumentsToRest],
     ],

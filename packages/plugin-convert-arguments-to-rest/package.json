@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-convert-arguments-to-rest",
   "version": "3.1.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to convert arguments to rest",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-arguments-to-rest#readme",
@@ -42,11 +42,11 @@
     "madrun": "^11.0.0"
   },
   "peerDependencies": {
-    "putout": ">=36"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"

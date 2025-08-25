@@ -1,15 +1,14 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     identifier,
     isFunction,
     spreadElement,
 } = types;
 
-module.exports.report = () => `Use 'rest parameters' instead of 'arguments'`;
+export const report = () => `Use 'rest parameters' instead of 'arguments'`;
 
-module.exports.fix = ({path, paths}) => {
+export const fix = ({path, paths}) => {
     path.node.params = [
         spreadElement(identifier('args')),
     ];
@@ -19,7 +18,7 @@ module.exports.fix = ({path, paths}) => {
     }
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'FunctionExpression|FunctionDeclaration': (path) => {
         const {directives} = path.node.body;
         

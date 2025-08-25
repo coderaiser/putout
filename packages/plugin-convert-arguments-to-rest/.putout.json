@@ -1,7 +1,5 @@
 {
-    "match": {
-        "*.md": {
-            "convert-arguments-to-rest": "off"
-        }
+    "rules": {
+        "convert-arguments-to-rest": "off"
     }
 }
