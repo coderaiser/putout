@@ -1,5 +1,5 @@
 export function mergeProps() {
-    var n = a();
+    let n = a();
     
     if (n) {
         n();

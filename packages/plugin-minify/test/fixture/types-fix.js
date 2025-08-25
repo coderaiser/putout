@@ -1,1 +1,3 @@
-var a, b = !0, c = !1;
+let a;
+let b = !0;
+let c = !1;

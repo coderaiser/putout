@@ -1,11 +1,13 @@
 async function a(A) {
-    var b = A.target, e = document.getElementById(b.dataset.resultElement);
+    let b = A.target;
     
     let c = b.value;
     
     type == 'email' && (c = c.split('@')[1]);
     
-    var d = await checkDomain(c);
+    let d = await checkDomain(c);
+    
+    let e = document.getElementById(b.dataset.resultElement);
     
     e.innerHTML = `Result: ${d.data}`;
 }

@@ -79,13 +79,13 @@ test('plugin-minify: transform: simplify-floor', (t) => {
     t.end();
 });
 
-test('plugin-minify: transform: convert-const-to-var', (t) => {
-    t.transform('convert-const-to-var');
+test('plugin-minify: transform: convert-const-to-let', (t) => {
+    t.transform('convert-const-to-let');
     t.end();
 });
 
-test('plugin-minify: transform: convert-const-to-var: convert-const-to-var-overlap', (t) => {
-    t.transform('convert-const-to-var-overlap');
+test('plugin-minify: transform: convert-const-to-var: convert-const-to-let-overlap', (t) => {
+    t.transform('convert-const-to-let-overlap');
     t.end();
 });
 

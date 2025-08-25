@@ -1,11 +1,15 @@
 function A() {
-    var a = 5, b = 7, c = 8, d = 'hello';
+    let a = 5;
+    let b = 7;
+    let c = 8;
+    
+    let d = 'hello';
     
     function e() {
         return A;
     }
     
-    var f = 55;
+    let f = 55;
     
     return a;
 }

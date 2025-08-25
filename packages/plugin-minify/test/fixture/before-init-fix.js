@@ -4,5 +4,5 @@ function c(e, n) {
     return assign({}, b, n);
 }
 
-var d = c(!q);
+let d = c(!q);
 console.log(d[q] && d);

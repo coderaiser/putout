@@ -7,7 +7,7 @@ const {
     isForStatement,
 } = types;
 
-export const report = () => `Use 'var' instead of 'const'`;
+export const report = () => `Use 'let' instead of 'const'`;
 
 export const match = () => ({
     'const __a = __b': ({__a}, path) => {
@@ -26,7 +26,7 @@ export const match = () => ({
 });
 
 export const replace = () => ({
-    'const __a = __b': 'var __a = __b',
+    'const __a = __b': 'let __a = __b',
 });
 
 function hasOverlap(path, name) {

@@ -1,13 +1,14 @@
 if (x)
     return;
 
-var x = () => m, y = () => m();
+let x = () => m;
+let y = () => m();
 
 function z() {
     return hello;
 }
 
-var m = function A() {
+let m = function A() {
     return hello;
 };
 

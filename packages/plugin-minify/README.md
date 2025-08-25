@@ -16,7 +16,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-template-literal](#apply-template-literal);
 - ✅ [apply-ternary](#apply-ternary);
 - ✅ [convert-array-from-to-spread](#convert-array-from-to-spread);
-- ✅ [convert-const-to-var](#convert-const-to-var);
+- ✅ [convert-const-to-let](#convert-const-to-let);
 - ✅ [convert-if-to-logical](#convert-if-to-logical);
 - ✅ [convert-return-to-sequence-expression](#convert-return-to-sequence-expression);
 - ✅ [convert-strict-equal-to-equal](#convert-strict-equal-to-equal);
@@ -149,7 +149,7 @@ b && (console.log('hello'), console.log('world'));
 a ? (console.log(1), console.log(2)) : (console.log(3), console.log(4));
 ```
 
-## convert-const-to-var
+## convert-const-to-let
 
 ### ❌ Example of incorrect code
 
@@ -160,7 +160,7 @@ const a = 5;
 ### ✅ Example of correct code
 
 ```js
-var a = 5;
+let a = 5;
 ```
 
 ## convert-return-to-sequence-expression

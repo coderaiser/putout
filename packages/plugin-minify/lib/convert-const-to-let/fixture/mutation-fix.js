@@ -5,7 +5,7 @@ async function a(A) {
     
     type == 'email' && (c = c.split('@')[1]);
     
-    var d = await checkDomain(c);
+    let d = await checkDomain(c);
     
     e.innerHTML = `Result: ${d.data}`;
 }

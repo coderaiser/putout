@@ -1,6 +1,6 @@
 import * as applyTernary from './apply-ternary/index.js';
 import * as applyTemplateLiteral from './apply-template-literal/index.js';
-import * as convertConstToVar from './convert-const-to-var/index.js';
+import * as convertConstToLet from './convert-const-to-let/index.js';
 import * as convertIfToLogical from './convert-if-to-logical/index.js';
 import * as convertStrictEqualToEqual from './convert-strict-equal-to-equal/index.js';
 import * as extractBody from './extract-body/index.js';
@@ -21,7 +21,7 @@ import * as mergeAssignmentExpressions from './merge-assignment-expressions/inde
 export const rules = {
     'apply-ternary': applyTernary,
     'apply-template-literal': applyTemplateLiteral,
-    'convert-const-to-var': convertConstToVar,
+    'convert-const-to-let': convertConstToLet,
     'convert-if-to-logical': convertIfToLogical,
     'convert-strict-equal-to-equal': convertStrictEqualToEqual,
     'extract-body': extractBody,
