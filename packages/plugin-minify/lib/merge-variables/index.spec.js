@@ -78,6 +78,11 @@ test('plugin-minify: merge-variables: no report: for-of', (t) => {
     t.end();
 });
 
+test('plugin-minify: merge-variables: transform: let-couple', (t) => {
+    t.transform('let-couple');
+    t.end();
+});
+
 test('plugin-minify: merge-variables: transform: remove-unreferenced-variables', (t) => {
     t.transform('remove-unreferenced-variables', {
         'remove-unreferenced-variables': removeUnreferencedVariables,

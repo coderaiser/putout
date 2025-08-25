@@ -1,8 +1,7 @@
 if (x)
     return;
 
-let x = () => m;
-let y = () => m();
+let x = () => m, y = () => m();
 
 function z() {
     return hello;

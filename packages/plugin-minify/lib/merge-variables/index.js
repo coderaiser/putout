@@ -18,9 +18,6 @@ export const traverse = ({push, uplist}) => ({
         if (path.parentPath.node.declarations.length !== 1)
             return;
         
-        if (path.parentPath.node.kind === 'let')
-            return;
-        
         const initPath = path.get('init');
         
         if (initPath.isAwaitExpression())

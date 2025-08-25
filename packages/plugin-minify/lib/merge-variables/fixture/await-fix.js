@@ -1,6 +1,5 @@
 async function onChange(a) {
-    var b = a.target, e = document.getElementById(target);
-    let c = b.value;
+    var b = a.target, c = b.value, e = document.getElementById(target);
     
     type == 'email' && (c = c.split('@')[1]);
     

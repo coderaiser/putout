@@ -1,6 +1,5 @@
-const {defineProperty: a, keys: b} = Object;
-let c = null;
-let d = 1073741823;
+const {defineProperty: a} = Object;
+let c = null, d = 1073741823, {keys: b} = Object;
 
 function A(...e) {
     if (n)
