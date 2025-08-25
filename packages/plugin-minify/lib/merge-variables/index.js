@@ -7,6 +7,7 @@ const {
 
 const {remove} = operator;
 const getNode = (a) => a.node;
+const maybeStartLine = (a) => a.node.loc?.start.line || 0;
 
 export const report = () => `Merge variables`;
 
@@ -51,7 +52,7 @@ export const traverse = ({push, uplist}) => ({
                 const [path, ...vars] = allVars;
                 const {kind} = path.parentPath.node;
                 const {bindings} = path.scope;
-                const startLine = path.node.loc?.start.line;
+                const startLine = maybeStartLine(path);
                 
                 for (const [index, path] of vars.entries()) {
                     const {node} = path;
@@ -60,7 +61,7 @@ export const traverse = ({push, uplist}) => ({
                     if (isCallExpression(init) && isMemberExpression(init.callee)) {
                         const binding = bindings[init.callee.object.name];
                         
-                        if (binding && startLine && startLine !== path.node.loc.start.line - index) {
+                        if (binding && startLine && startLine !== maybeStartLine(path) - index) {
                             vars.splice(index, 2);
                             continue;
                         }
