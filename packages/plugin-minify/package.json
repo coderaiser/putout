@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-minify",
-  "version": "10.0.0",
+  "version": "11.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin contains minifiers",
@@ -51,11 +51,11 @@
     "supertape": "^11.0.3"
   },
   "peerDependencies": {
-    "putout": ">=38"
+    "putout": ">=40"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
