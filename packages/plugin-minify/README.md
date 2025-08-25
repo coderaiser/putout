@@ -17,6 +17,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-ternary](#apply-ternary);
 - ✅ [convert-array-from-to-spread](#convert-array-from-to-spread);
 - ✅ [convert-const-to-let](#convert-const-to-let);
+- ✅ [convert-let-to-var-inside-label](#convert-let-to-var-inside-label);
 - ✅ [convert-if-to-logical](#convert-if-to-logical);
 - ✅ [convert-return-to-sequence-expression](#convert-return-to-sequence-expression);
 - ✅ [convert-strict-equal-to-equal](#convert-strict-equal-to-equal);
@@ -41,7 +42,8 @@ npm i @putout/plugin-putout -D
     "rules": {
         "minify/apply-ternary": "on",
         "minify/apply-template-literal": "on",
-        "minify/convert-var-to-const": "on",
+        "minify/convert-const-to-let": "on",
+        "minify/convert-let-to-var-inside-label": "on",
         "minify/convert-if-to-logical": "on",
         "minify/convert-strict-equal-to-equal": "on",
         "minify/convert-array-from-to-spread": "on",
@@ -161,6 +163,26 @@ const a = 5;
 
 ```js
 let a = 5;
+```
+
+## convert-let-to-var-inside-label
+
+> `Lexical declaration cannot appear in a single-statement context`
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b92716be2c378e440e0ba963bb284803/da777584a3382012787a8216e089f6bc84b98abe).
+
+### ❌ Example of incorrect code
+
+```
+javascript: let a = 3;
+```
+
+### ✅ Example of correct code
+
+```js
+javascript: var a = 3;
 ```
 
 ## convert-return-to-sequence-expression

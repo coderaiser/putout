@@ -1,3 +1,4 @@
+import * as convertLetToVarInsideLabel from './convert-let-to-var-inside-label/index.js';
 import * as applyTernary from './apply-ternary/index.js';
 import * as applyTemplateLiteral from './apply-template-literal/index.js';
 import * as convertConstToLet from './convert-const-to-let/index.js';
@@ -38,4 +39,5 @@ export const rules = {
     'join-continued-strings': joinContinuedStrings,
     'convert-return-to-sequence-expression': convertReturnToSequenceExpression,
     'merge-assignment-expressions': mergeAssignmentExpressions,
+    'convert-let-to-var-inside-label': convertLetToVarInsideLabel,
 };

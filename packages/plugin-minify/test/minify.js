@@ -156,3 +156,8 @@ test('plugin-minify: transform: merge-destructuring-properties', (t) => {
     });
     t.end();
 });
+
+test('plugin-minify: transform: convert-let-to-var-inside-label', (t) => {
+    t.transform('convert-let-to-var-inside-label');
+    t.end();
+});
