@@ -83,6 +83,11 @@ test('plugin-minify: merge-variables: transform: let-couple', (t) => {
     t.end();
 });
 
+test('plugin-minify: merge-variables: no transform: no-use-before-declare', (t) => {
+    t.noTransform('no-use-before-declare');
+    t.end();
+});
+
 test('plugin-minify: merge-variables: transform: remove-unreferenced-variables', (t) => {
     t.transform('remove-unreferenced-variables', {
         'remove-unreferenced-variables': removeUnreferencedVariables,

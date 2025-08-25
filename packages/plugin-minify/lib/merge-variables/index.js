@@ -1,4 +1,9 @@
-import {operator} from 'putout';
+import {operator, types} from 'putout';
+
+const {
+    isMemberExpression,
+    isCallExpression,
+} = types;
 
 const {remove} = operator;
 const getNode = (a) => a.node;
@@ -48,6 +53,10 @@ export const traverse = ({push, uplist}) => ({
                 
                 for (const [index, path] of vars.entries()) {
                     const {node} = path;
+                    const {init} = node;
+                    
+                    if (isCallExpression(init) && isMemberExpression(init.callee) && path.scope.bindings[init.callee.object.name])
+                        return;
                     
                     if (kind === 'const' && !node.init) {
                         vars.splice(index, 1);
