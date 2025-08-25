@@ -50,13 +50,21 @@ export const traverse = ({push, uplist}) => ({
                 
                 const [path, ...vars] = allVars;
                 const {kind} = path.parentPath.node;
+                const {bindings} = path.scope;
+                const startLine = path.node.loc?.start.line;
                 
                 for (const [index, path] of vars.entries()) {
                     const {node} = path;
                     const {init} = node;
                     
-                    if (isCallExpression(init) && isMemberExpression(init.callee) && path.scope.bindings[init.callee.object.name])
-                        return;
+                    if (isCallExpression(init) && isMemberExpression(init.callee)) {
+                        const binding = bindings[init.callee.object.name];
+                        
+                        if (binding && startLine && startLine !== path.node.loc.start.line - index) {
+                            vars.splice(index, 2);
+                            continue;
+                        }
+                    }
                     
                     if (kind === 'const' && !node.init) {
                         vars.splice(index, 1);
