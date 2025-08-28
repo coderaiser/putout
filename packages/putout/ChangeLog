@@ -1,3 +1,15 @@
+2025.08.28, v40.7.0
+
+fix:
+- d1ec24cb1 @putout/plugin-minify: convert-let-to-var-inside-label -> convert-l
+- 21a971c40 @putout/plugin-minify: merge-variables: no loc
+- 1eadf70ed @putout/plugin-minify: merge-variables: no-use-before-declare
+
+feature:
+- b34698167 @putout/plugin-convert-object-entries-to-object-keys: add
+- 8b9fa1570 @putout/plugin-minify: convert-let-to-var-inside-label: add
+- 0facf1191 @putout/pugin-minify: merge-variables: declared in next line
+
 2025.08.25, v40.6.2
 
 feature:
