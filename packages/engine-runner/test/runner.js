@@ -396,6 +396,42 @@ test('putout: runner: plugins: replace: template: infinite loop', (t) => {
     t.end();
 });
 
+test('putout: runner: plugins: replace: template: nested', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            'for (const [__a] of entries(__b)) __body': 'for (const __a of keys(__b)) __body',
+        }),
+    };
+    
+    const source = montag`
+        for (const [name] of entries(tokens)) {
+            for (const [x] of entries(y)) {
+                console.log(name);
+            }
+        }
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        runPlugins,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = montag`
+        for (const name of keys(tokens)) {
+            for (const x of keys(y)) {
+                console.log(name);
+            }
+        }\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: runner: plugins: replace: template: same', (t) => {
     const applyToSpread = {
         report: () => '',

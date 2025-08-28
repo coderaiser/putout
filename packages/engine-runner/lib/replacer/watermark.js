@@ -60,7 +60,10 @@ function add({path, program, watermark, highWatermark}) {
 
 module.exports.has = has;
 function has({path, program, watermark, highWatermark}) {
-    if (path.node?.[name].has(watermark) || path.findParent(hasWatermark(watermark)))
+    const {node} = path;
+    const {loc} = node;
+    
+    if (node?.[name].has(watermark) || path.findParent(hasWatermark(watermark)) && !loc)
         return true;
     
     return program.node[name].has(highWatermark);
