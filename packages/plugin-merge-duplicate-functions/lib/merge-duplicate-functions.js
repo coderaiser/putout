@@ -8,7 +8,7 @@ const {
 
 const {isExportNamedDeclaration} = types;
 
-const {entries, keys} = Object;
+const {keys} = Object;
 
 export const report = () => 'Avoid duplicate functions';
 
@@ -26,8 +26,8 @@ export const traverse = ({push}) => ({
         const names = keys(bindings);
         const bodies = [];
         
-        for (const [i] of entries(names)) {
-            for (const [j] of entries(names)) {
+        for (const i of keys(names)) {
+            for (const j of keys(names)) {
                 if (i === j)
                     continue;
                 
