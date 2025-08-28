@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: convert-object-entries-to-object-keys: report', (t) => {
-    t.report('convert-object-entries-to-object-keys', `Use 'Object.keys()' instead of 'Object.enries()'`);
+    t.report('convert-object-entries-to-object-keys', `Use 'Object.keys()' instead of 'Object.entries()'`);
     t.end();
 });
 
