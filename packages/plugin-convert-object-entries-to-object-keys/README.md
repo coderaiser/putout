@@ -13,15 +13,13 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `Object.entries()` to `Object.keys()`
 
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f902e1f52d551545cede97db4cfba345/dbae8bfd2c4b0b4ec9612e2002a87c2a5961204d).
-
 ## Install
 
 ```
 npm i @putout/plugin-convert-object-entries-to-object-keys -D
 ```
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/82cf60991515c274d0ba08f2ca36e9e6/bf3021f992f596d4316469c062cafd257c44c487).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/82cf60991515c274d0ba08f2ca36e9e6/a56a4bddfb45007434f2d24e9573a3d7646ea11d).
 
 ## Rule
 
@@ -39,12 +37,20 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/82cf609915
 for (const [name] of Object.entries(tokens)) {
     console.log(name);
 }
+
+for (const [name] of entries(tokens)) {
+    console.log(name);
+}
 ```
 
 ## ✅ Example of correct code
 
 ```js
 for (const name of Object.keys(tokens)) {
+    console.log(name);
+}
+
+for (const name of keys(tokens)) {
     console.log(name);
 }
 ```
