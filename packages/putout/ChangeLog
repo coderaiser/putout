@@ -1,3 +1,10 @@
+2025.08.29, v40.7.1
+
+feature:
+- d4bccaa75 @putout/plugin-convert-object-keys-to-object-entries: add
+- 8b62a1edc @putout/plugin-apply-consistent-blocks: leadingComments: exclude
+- 19abfe5dd @putout/engine-runner: replacer: watermark: false positive
+
 2025.08.28, v40.7.0
 
 fix:
