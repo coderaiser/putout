@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-object-entries-to-object-keys",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to convert 'Object.entries()' to 'Object.keys()'",
