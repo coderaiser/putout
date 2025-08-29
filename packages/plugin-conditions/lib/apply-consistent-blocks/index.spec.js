@@ -67,6 +67,11 @@ test('putout: apply-consistent-blocks: no report: consequent', (t) => {
     t.end();
 });
 
+test('putout: apply-consistent-blocks: no report: comment', (t) => {
+    t.noReport('comment');
+    t.end();
+});
+
 test('putout: apply-consistent-blocks: no report after transform: nested', (t) => {
     t.noReportAfterTransform('nested');
     t.end();

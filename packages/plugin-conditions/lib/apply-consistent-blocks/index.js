@@ -78,6 +78,9 @@ export const filter = (path) => {
             
             if (isVariableDeclaration(first))
                 continue;
+            
+            if (first.leadingComments?.length)
+                continue;
         }
         
         blocks.push(is);
