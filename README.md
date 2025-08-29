@@ -2168,6 +2168,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-convert-const-to-let`](/packages/plugin-convert-const-to-let#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-const-to-let.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-const-to-let) |
 | [`@putout/plugin-convert-object-entries-to-array-entries`](/packages/plugin-convert-object-entries-to-array-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-entries-to-array-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-entries-to-array-entries) |
 | [`@putout/plugin-convert-object-entries-to-object-keys`](/packages/plugin-convert-object-entries-to-object-keys#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-entries-to-object-keys.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-entries-to-object-keys) |
+| [`@putout/plugin-convert-object-keys-to-object-entries`](/packages/plugin-convert-object-keys-to-object-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-keys-to-object-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-keys-to-object-entries) |
 
 ### Removers
 

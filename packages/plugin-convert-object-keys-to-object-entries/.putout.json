@@ -1,0 +1,7 @@
+{
+    "match": {
+        "*.md": {
+            "convert-object-keys-to-object-entries": "off"
+        }
+    }
+}
