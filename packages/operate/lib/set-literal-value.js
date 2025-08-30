@@ -15,7 +15,7 @@ module.exports.setLiteralValue = (path, newValue) => {
         return;
     }
     
-    if (raw) {
+    if (raw || !value) {
         node.raw = `'` + String.raw`${newValue}` + `'`;
         return;
     }

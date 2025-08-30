@@ -107,3 +107,23 @@ test('operate: setLiteralValue: empty double quotes in raw', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('operate: setLiteralValue: empty: no raw', (t) => {
+    const ast = parse(`<a data-name=""></a>`);
+    
+    traverse(ast, {
+        StringLiteral: (path) => {
+            delete path.node.raw;
+            setLiteralValue(path.node, 'hello');
+        },
+    });
+    
+    const result = print(ast);
+    
+    const expected = montag`
+        <a data-name='hello'></a>;\n
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
