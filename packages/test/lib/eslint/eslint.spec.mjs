@@ -88,7 +88,7 @@ test('test: eslint: comparePlaces', async ({comparePlaces}) => {
     await comparePlaces('operator-linebreak', [{
         message: `There should be no line break before or after '='.`,
         position: {
-            column: 1,
+            column: 5,
             line: 2,
         },
         rule: '@stylistic/operator-linebreak (eslint)',
