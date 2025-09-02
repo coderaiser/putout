@@ -27,6 +27,11 @@ test('plugin-promises: convert-reject-to-throw: transform: await', (t) => {
     t.end();
 });
 
+test('plugin-promises: convert-reject-to-throw: transform: async-body', (t) => {
+    t.transform('async-body');
+    t.end();
+});
+
 test('plugin-promises: convert-reject-to-throw: no transform: not-async', (t) => {
     t.noTransform('not-async');
     t.end();

@@ -158,6 +158,8 @@ const hello = 'world';
 
 ## convert-reject-to-throw
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/713b90dbccb014eca7c23c9b2756c31d/3ce19b35a409a455fe1b3cf7bbf8cbed1b594512).
+
 ### ❌ Example of incorrect code
 
 ```js

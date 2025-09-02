@@ -12,4 +12,5 @@ export const filter = (path) => {
 export const replace = () => ({
     'return Promise.reject(__a)': 'throw __a',
     'return await Promise.reject(__a)': 'throw __a',
+    'async () => Promise.reject(__a)': 'async () => {throw __a}',
 });
