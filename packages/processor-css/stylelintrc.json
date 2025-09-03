@@ -17,7 +17,8 @@
         "rule-empty-line-before": null,
         "@stylistic/max-empty-lines": 2,
         "property-no-vendor-prefix": null,
-        "selector-no-vendor-prefix": null
+        "selector-no-vendor-prefix": null,
+        "no-descending-specificity": null
     },
     "plugins": [
         "@stylistic/stylelint-plugin"

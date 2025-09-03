@@ -43,6 +43,10 @@ test('putout: processor: css: template', async ({comparePlaces}) => {
     }]);
 });
 
-test('putout: processor: css: process: template', async ({noProcess}) => {
+test('putout: processor: css: no process: template', async ({noProcess}) => {
     await noProcess('template');
+});
+
+test('putout: processor: css: no process: no-descending-specificity', async ({comparePlaces}) => {
+    await comparePlaces('no-descending-specificity', []);
 });

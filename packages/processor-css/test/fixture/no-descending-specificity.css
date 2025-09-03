@@ -1,0 +1,3 @@
+.menu-item:hover > .menu, .menu-item-selected > .menu  {
+    display: block;
+}
