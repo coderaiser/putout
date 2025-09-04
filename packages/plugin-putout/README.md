@@ -41,6 +41,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-rename](#apply-rename);
 - ✅ [apply-parens](#apply-parens);
 - ✅ [apply-short-processors](#apply-short-processors);
+- ✅ [apply-transform-with-options](#apply-transform-with-options);
 - ✅ [check-match](#check-match);
 - ✅ [check-declare](#check-declare);
 - ✅ [check-replace-code](#check-replace-code);
@@ -109,6 +110,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-rename": "on",
         "putout/apply-parens": "on",
         "putout/apply-remove": "on",
+        "putout/apply-transform-with-options": "on",
         "putout/apply-insert-before": "on",
         "putout/apply-insert-after": "on",
         "putout/apply-vars": "on",
@@ -208,6 +210,28 @@ t.noReport('rename-files-full');
 
 t.report('a', 'Use b');
 t.noReport('a');
+```
+
+## apply-transform-with-options
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/92d40d40c75481816a5b5507e01d8315/bb54e932b4fff4bc0b453d723c72c7a9ed796b98).
+
+### ❌ Example of incorrect code
+
+```js
+t.transform('submenu', {
+    submenuIndex: 1,
+    insideSubmenu: true,
+});
+```
+
+### ✅ Example of correct code
+
+```js
+t.transformWithOptions('submenu', {
+    submenuIndex: 1,
+    insideSubmenu: true,
+});
 ```
 
 ## apply-processors-destructuring

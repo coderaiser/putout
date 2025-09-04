@@ -1,3 +1,4 @@
+import * as applyTransformWithOptions from './apply-transform-with-options/index.js';
 import * as convertPluginsElementToTuple from './convert-plugins-element-to-tuple/index.js';
 import * as removeEmptyObjectFromTransform from './remove-empty-object-from-transform/index.js';
 import * as applyExports from './apply-exports/index.js';
@@ -140,4 +141,5 @@ export const rules = {
     'apply-exports': ['off', applyExports],
     'remove-empty-object-from-transform': removeEmptyObjectFromTransform,
     'convert-plugins-element-to-tuple': convertPluginsElementToTuple,
+    'apply-transform-with-options': applyTransformWithOptions,
 };

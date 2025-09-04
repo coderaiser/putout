@@ -344,3 +344,8 @@ test('plugin-putout: transform: convert-plugins-element-to-tuple', (t) => {
     t.transform('convert-plugins-element-to-tuple');
     t.end();
 });
+
+test('plugin-putout: transform: apply-transform-with-options', (t) => {
+    t.transform('apply-transform-with-options');
+    t.end();
+});
