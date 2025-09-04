@@ -12,6 +12,7 @@ const {
     compare,
     remove,
     insertBefore,
+    replaceWith,
 } = operator;
 
 export const report = () => 'Avoid sequence expressions';
@@ -51,7 +52,7 @@ export const fix = (path) => {
             insertBefore(path.parentPath, expressionStatement(path.node.expressions.shift()));
         }
         
-        remove(path);
+        replaceWith(path, path.node.expressions[0]);
         
         return;
     }
