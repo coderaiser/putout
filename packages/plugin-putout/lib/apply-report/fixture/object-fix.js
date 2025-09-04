@@ -11,3 +11,10 @@ test.only('compiler: move-vars-to-bottom: apply-equality', (t) => {
         plugins: [],
     });
 });
+
+test.only('compiler: move-vars-to-bottom: apply-equality', (t) => {
+    t.noReportWithOptions('submenu', {
+        submenuIndex: 1,
+        insideSubmenu: false,
+    });
+});

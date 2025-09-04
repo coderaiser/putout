@@ -8,6 +8,7 @@ const {
     isTemplateLiteral,
     stringLiteral,
     isArrayExpression,
+    isIdentifier,
 } = types;
 
 const {compare} = operator;
@@ -53,7 +54,7 @@ export const replace = () => ({
         
         const {value} = __b.properties[0];
         
-        if (isArrayExpression(value))
+        if (isArrayExpression(value) || !isIdentifier(value))
             return 't.noReportWithOptions(__a, __b)';
         
         const name = toKebabCase(value.name);
