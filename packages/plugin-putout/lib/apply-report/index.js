@@ -45,6 +45,14 @@ export const match = () => ({
         
         return isObjectExpression(__b);
     },
+    't.report(__a, __b, __c)': ({__c}) => {
+        if (!isObjectExpression(__c))
+            return false;
+        
+        const [first] = __c.properties;
+        
+        return !isIdentifier(first.value);
+    },
 });
 export const replace = () => ({
     't.noReport(__a, "__b")': 't.noReport(__a)',
@@ -66,6 +74,7 @@ export const replace = () => ({
         return path;
     },
     't.report(__a)': 't.noReport(__a)',
+    't.report(__a, __b, __c)': 't.reportWithOptions(__a, __b, __c)',
     't.noReportWithOptions(__a)': 't.noReport(__a)',
     't.noReportWithOptions(__a, __b, __c)': 't.noReportWithOptions(__a, __c)',
 });

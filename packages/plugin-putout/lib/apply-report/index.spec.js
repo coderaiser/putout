@@ -56,3 +56,8 @@ test('putout: apply-report: transform: mixed', (t) => {
     t.transform('mixed');
     t.end();
 });
+
+test('putout: apply-report: transform: report-with-options', (t) => {
+    t.transform('report-with-options');
+    t.end();
+});
