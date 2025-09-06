@@ -16,3 +16,8 @@ test('putout: apply-transform-with-options: transform', (t) => {
     t.transform('apply-transform-with-options');
     t.end();
 });
+
+test('putout: apply-transform-with-options: transform: no-options', (t) => {
+    t.transform('no-options');
+    t.end();
+});

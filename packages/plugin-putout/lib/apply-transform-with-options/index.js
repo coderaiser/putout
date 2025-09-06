@@ -23,4 +23,5 @@ export const match = () => ({
 
 export const replace = () => ({
     't.transform(__a, __b)': 't.transformWithOptions(__a, __b)',
+    't.transformWithOptions(__a)': 't.transform(__a)',
 });
