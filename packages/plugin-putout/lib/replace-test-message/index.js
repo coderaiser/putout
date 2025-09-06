@@ -17,7 +17,7 @@ const INCORRECT = {
     NO_REPORT: /: (no report after transform|report|(transform|no transform)(\swith options)?)/,
     NO_REPORT_AFTER_TRANSFORM: /: (report|transform|no transform|no report)/,
     NO_REPORT_WITH_OPTIONS: /: (no report after transform(\swith options)?|report|transform|no transform|no report)/,
-    TRANSFORM: /: (no report after transform|no transform|report|no report)/,
+    TRANSFORM: /: (transform with options|no report after transform|no transform|report|no report)/,
     NO_TRANSFORM: /: (no report after transform|transform|report|no report)/,
     TRANSFORM_WITH_OPTIONS: /: (no report after transform|transform|no transform(\swith options)?|report|no report)/,
     NO_TRANSFORM_WITH_OPTIONS: /: (no report after transform|transform(\swith options)?|no transform|report|no report)/,
@@ -109,10 +109,19 @@ function isCorrect({path, correct, incorrect}) {
     
     const {value} = messagePath.node;
     
-    if (value.includes(correct))
+    if (containsCorrect(value, correct))
         return [CORRECT];
     
     const is = !incorrect.test(value);
     
     return [is, messagePath];
+}
+
+function containsCorrect(value, correct) {
+    if (!value.includes(correct))
+        return false;
+    
+    const nextIndex = value.indexOf(correct) + correct.length;
+    
+    return value.charAt(nextIndex) !== ' ';
 }

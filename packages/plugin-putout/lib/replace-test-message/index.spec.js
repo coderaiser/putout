@@ -18,7 +18,7 @@ test('plugin-putout: replace-test-message: transform', (t) => {
 });
 
 test('plugin-putout: replace-test-message: no report', (t) => {
-    t.noReport('transform');
+    t.transform('transform');
     t.end();
 });
 

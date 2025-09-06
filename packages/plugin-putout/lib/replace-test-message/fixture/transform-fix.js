@@ -10,8 +10,7 @@ test((t) => {
     t.end();
 });
 
-test('lib: select: transform with options', (t) => {
+test('lib: select: transform', (t) => {
     t.transform('select');
     t.end();
 });
-
