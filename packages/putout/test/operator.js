@@ -154,3 +154,18 @@ test('putout: operate: parens: hasParens', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: operate: hasTagName: hasParens', (t) => {
+    let result = false;
+    const source = '<ul><li>hello</li></ul>';
+    const ast = parse(source);
+    
+    traverse(ast, {
+        JSXElement(path) {
+            result = operator.hasTagName(path, 'li');
+        },
+    });
+    
+    t.ok(result);
+    t.end();
+});

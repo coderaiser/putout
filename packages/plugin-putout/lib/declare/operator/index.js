@@ -1,5 +1,6 @@
 import filesystem from './filesystem.js';
 import json from './json.js';
+import jsx from './jsx.js';
 import keyword from './keyword.js';
 import parens from './parens.js';
 import regexp from './regexp.js';
@@ -7,6 +8,7 @@ import regexp from './regexp.js';
 export default {
     ...filesystem,
     ...json,
+    ...jsx,
     ...keyword,
     ...parens,
     ...regexp,

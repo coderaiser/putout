@@ -466,3 +466,14 @@ test('plugin-putout: declare: no transform: import', (t) => {
     t.noTransformCode(`import('hello');\n`);
     t.end();
 });
+
+test('plugin-putout: declare: transform: jsx: hasTagName', (t) => {
+    t.transformCode(`hasTagName(path, 'li')`, montag`
+        import {operator} from 'putout';
+        
+        const {hasTagName} = operator;
+        hasTagName(path, 'li');
+    
+    `);
+    t.end();
+});

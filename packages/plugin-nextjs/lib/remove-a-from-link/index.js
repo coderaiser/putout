@@ -1,5 +1,6 @@
-import {types} from 'putout';
+import {types, operator} from 'putout';
 
+const {hasTagName} = operator;
 const {isJSXElement} = types;
 
 export const report = () => `Remove '<a>' from <Link>, it always renders under the hood`;
@@ -10,7 +11,7 @@ export const replace = () => ({
             if (!isJSXElement(node))
                 continue;
             
-            if (node.openingElement.name.name !== 'a')
+            if (!hasTagName(node, 'a'))
                 continue;
             
             [__jsx_children[1]] = node.children;
