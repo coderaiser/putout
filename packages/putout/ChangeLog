@@ -1,3 +1,25 @@
+2025.09.07, v40.8.0
+
+fix:
+- 41b1b9d96 @putout/eslint-plugin-putout: no-extra-parens false positive deprecation notice (eslint-stylistic/eslint-stylistice#965)
+- 6176cc384 @putout/eslint-config: no-extra-parens false positive deprecation notice (eslint-stylistic/eslint-stylistice#965)
+
+feature:
+- 54150706b putout: @putout/plugin-putout v27.0.0
+- 76433dc30 @putout/plugin-putout: declare: operator: hasTagName: add
+- a149577b6 @putout/operator-regexp: add
+- 78f050bdf @putout/engine-loader: estrace v6.0.0
+- a8bd4d2ed @putout/plugin-putout: replace-test-message: no report with options -> no report
+- 0dd6576ee @putout/plugin-putout: replace-test-message: transform with options -> transform
+- 414251eff @putout/plugin-putout: apply-transform-with-options: no options
+- 57e196f67 @putout/plugin-extract-sequence-expressions: inside IfStatement (#236)
+- ad137217a @putout/plugin-putout: apply-report: reportWithOptions
+- 03c944e2a @putout/plugin-putout: apply-transform-with-options: add
+- a36488b1e @putout/plugin-putout: apply-report: not Identifier inside ObjectExpression
+- 2756cd538 @putout/processor-css: no-descending-specificity: off (stylelint/stylelint#8567)
+- cb39280cf @putout/plugin-promises: convert-reject-to-throw: async body
+- d5832c3af @putout/operate: setLiteralValue: no raw, no value
+
 2025.08.29, v40.7.1
 
 feature:
