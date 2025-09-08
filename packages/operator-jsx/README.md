@@ -13,15 +13,28 @@ npm i putout @putout/operator-regexp
 
 ## API
 
-### hasTagName(path: Path)
+### hasTagName(path: Path | Node): boolean
+
+Check `tagName` of given `Path`, for next `jsx`:
+
+```jsx
+<li>hello</li>;
+```
+
+It will work this way:
 
 ```js
-// for next jsx:
-<li>hello</li>;
-// check
 hasTagName(path, 'li');
 // returns
 true;
+```
+
+### getAttributePath(path: Path, name: string): Path | null
+
+Get `path` of an `attribute`
+
+```js
+const classNamePath = getAttributePath(path, 'className');
 ```
 
 ## License
