@@ -13,6 +13,7 @@ const {
     getAttributePath,
     getAttributeNode,
     getAttributeValue,
+    addAttributeValue,
 } = require('./jsx.js');
 
 const {traverse} = operator;
@@ -111,6 +112,28 @@ test('putout: operator: jsx: getAttributeValue: no', (t) => {
     const node = template.ast('<hello className="world"/>');
     const result = getAttributeValue(node, 'data-name');
     const expected = '';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: jsx: addAttributeValue', (t) => {
+    const node = template.ast.fresh('<hello className="world"/>');
+    addAttributeValue(node, 'className', 'abc');
+    
+    const result = print(node);
+    const expected = '<hello className="world abc"/>;\n';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: jsx: addAttributeValue: exists', (t) => {
+    const node = template.ast.fresh('<hello className="world"/>');
+    addAttributeValue(node, 'className', 'world');
+    
+    const result = print(node);
+    const expected = `<hello className="world"/>;\n`;
     
     t.equal(result, expected);
     t.end();

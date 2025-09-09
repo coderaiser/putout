@@ -1,5 +1,6 @@
 'use strict';
 
+const {setLiteralValue} = require('@putout/operate');
 const {types} = require('@putout/babel');
 const {isJSXElement} = types;
 
@@ -39,6 +40,7 @@ function getAttributeNode(path, name) {
     
     return result;
 }
+
 module.exports.getAttributeValue = (path, attributeName) => {
     const attribute = getAttributeNode(path, attributeName);
     
@@ -46,4 +48,13 @@ module.exports.getAttributeValue = (path, attributeName) => {
         return '';
     
     return attribute.value.value;
+};
+
+module.exports.addAttributeValue = (path, name, value) => {
+    const attributeNode = getAttributeNode(path, name);
+    
+    if (attributeNode.value.value.includes(value))
+        return;
+    
+    setLiteralValue(attributeNode.value, `${attributeNode.value.value} ${value}`);
 };

@@ -45,12 +45,20 @@ Get `node` of an `attribute`
 const classNameNode = getAttributeNode(node, 'className');
 ```
 
-### getAttributeValue(path: Path|Node, name: string): string
+### getAttributeValue(path: Path | Node, name: string): string
 
 Get `value` of an `attribute`
 
 ```js
 const className = getAttributeValue(node, 'className');
+```
+
+### addAttributeValue(path: Path | Node, name: string, value: string)
+
+Add `value` to `attribute`
+
+```js
+addAttributeValue(node, 'className', 'hello');
 ```
 
 ## License
