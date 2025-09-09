@@ -121,7 +121,7 @@ test('operate: setLiteralValue: empty: no raw', (t) => {
     const result = print(ast);
     
     const expected = montag`
-        <a data-name='hello'></a>;\n
+        <a data-name="hello"></a>;\n
     `;
     
     t.equal(result, expected);

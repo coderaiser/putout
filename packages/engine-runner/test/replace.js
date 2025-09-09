@@ -713,7 +713,7 @@ test('putout: runner: replace: jsx: children', (t) => {
         ],
     });
     
-    const expected = `<h1 class='y'>hello</h1>;\n`;
+    const expected = `<h1 class="y">hello</h1>;\n`;
     
     t.equal(code, expected);
     t.end();
