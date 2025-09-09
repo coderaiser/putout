@@ -13,9 +13,9 @@ export const report = () => `Use 'CommonJS' instead of 'ESM'`;
 export const replace = () => ({
     'export default __a': 'module.exports = __a',
     [`export ${CLASS}`]: `module.exports.__a = ${CLASS}`,
-    [`export ${FN}`]: `module.epxorts.__a = ${FN}`,
-    [`export ${ASYNC_FN}`]: `module.epxorts.__a = ${ASYNC_FN}`,
-    [`export ${GEN_FN}`]: `module.epxorts.__a = ${GEN_FN}`,
+    [`export ${FN}`]: `module.exports.__a = ${FN}`,
+    [`export ${ASYNC_FN}`]: `module.exports.__a = ${ASYNC_FN}`,
+    [`export ${GEN_FN}`]: `module.exports.__a = ${GEN_FN}`,
     'export const __a = __b': 'module.exports.__a = __b',
     'export {__exports}': ({__exports}) => {
         let result = 'module.exports = {\n';
