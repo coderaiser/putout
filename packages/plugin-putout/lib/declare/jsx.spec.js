@@ -51,3 +51,14 @@ test('plugin-putout: declare: transform: jsx: getAttributeValue', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: jsx: addAttributeValue', (t) => {
+    t.transformCode(`addAttributeValue(path, 'className', 'hello')`, montag`
+        import {operator} from 'putout';
+        
+        const {addAttributeValue} = operator;
+        addAttributeValue(path, 'className', 'hello');
+    
+    `);
+    t.end();
+});
