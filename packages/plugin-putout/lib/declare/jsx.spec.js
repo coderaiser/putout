@@ -40,3 +40,14 @@ test('plugin-putout: declare: transform: jsx: getAttributeNode', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: jsx: getAttributeValue', (t) => {
+    t.transformCode(`getAttributeValue(path, 'className')`, montag`
+        import {operator} from 'putout';
+        
+        const {getAttributeValue} = operator;
+        getAttributeValue(path, 'className');
+    
+    `);
+    t.end();
+});
