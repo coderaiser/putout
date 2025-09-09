@@ -23,7 +23,8 @@ module.exports.getAttributePath = (path, name) => {
     return null;
 };
 
-module.exports.getAttributeNode = (path, name) => {
+module.exports.getAttributeNode = getAttributeNode;
+function getAttributeNode(path, name) {
     let result = null;
     
     const node = path.node || path;
@@ -37,4 +38,12 @@ module.exports.getAttributeNode = (path, name) => {
     }
     
     return result;
+}
+module.exports.getAttributeValue = (path, attributeName) => {
+    const attribute = getAttributeNode(path, attributeName);
+    
+    if (!attribute)
+        return '';
+    
+    return attribute.value.value;
 };

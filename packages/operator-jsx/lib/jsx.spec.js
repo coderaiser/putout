@@ -12,6 +12,7 @@ const {
     hasTagName,
     getAttributePath,
     getAttributeNode,
+    getAttributeValue,
 } = require('./jsx.js');
 
 const {traverse} = operator;
@@ -94,5 +95,23 @@ test('putout: operator: jsx: getAttributeNode: no', (t) => {
     const node = getAttributeNode(ast, 'data-name');
     
     t.notOk(node);
+    t.end();
+});
+
+test('putout: operator: jsx: getAttributeValue', (t) => {
+    const node = template.ast('<hello className="world"/>');
+    const result = getAttributeValue(node, 'className');
+    const expected = 'world';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: jsx: getAttributeValue: no', (t) => {
+    const node = template.ast('<hello className="world"/>');
+    const result = getAttributeValue(node, 'data-name');
+    const expected = '';
+    
+    t.equal(result, expected);
     t.end();
 });
