@@ -22,3 +22,19 @@ module.exports.getAttributePath = (path, name) => {
     
     return null;
 };
+
+module.exports.getAttributeNode = (path, name) => {
+    let result = null;
+    
+    const node = path.node || path;
+    const {attributes} = node.openingElement;
+    
+    for (const attr of attributes) {
+        if (attr.name.name === name) {
+            result = attr;
+            break;
+        }
+    }
+    
+    return result;
+};

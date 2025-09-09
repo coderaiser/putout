@@ -37,6 +37,14 @@ Get `path` of an `attribute`
 const classNamePath = getAttributePath(path, 'className');
 ```
 
+### getAttributeNode(path: Path|Node, name: string): Node | null
+
+Get `node` of an `attribute`
+
+```js
+const classNameNode = getAttributeNode(node, 'className');
+```
+
 ## License
 
 MIT
