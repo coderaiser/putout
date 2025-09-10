@@ -84,3 +84,58 @@ test('plugin-putout: declare: transform: jsx: setAttributeValue', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: jsx: getClassName', (t) => {
+    t.transformCode(`getClassName(path, 'hello')`, montag`
+        import {operator} from 'putout';
+        
+        const {getClassName} = operator;
+        getClassName(path, 'hello');
+    
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: jsx: addClassName', (t) => {
+    t.transformCode(`addClassName(path, 'hello')`, montag`
+        import {operator} from 'putout';
+        
+        const {addClassName} = operator;
+        addClassName(path, 'hello');
+    
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: jsx: removeClassName', (t) => {
+    t.transformCode(`removeClassName(path, 'hello')`, montag`
+        import {operator} from 'putout';
+        
+        const {removeClassName} = operator;
+        removeClassName(path, 'hello');
+    
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: jsx: containsClassName', (t) => {
+    t.transformCode(`containsClassName(path, 'hello')`, montag`
+        import {operator} from 'putout';
+        
+        const {containsClassName} = operator;
+        containsClassName(path, 'hello');
+    
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: jsx: hasDataName', (t) => {
+    t.transformCode(`hasDataName(path, 'hello')`, montag`
+        import {operator} from 'putout';
+        
+        const {hasDataName} = operator;
+        hasDataName(path, 'hello');
+    
+    `);
+    t.end();
+});
