@@ -76,7 +76,6 @@ Works this way:
 +<section className="world"/>
 ```
 
-
 ## License
 
 MIT
