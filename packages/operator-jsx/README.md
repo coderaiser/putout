@@ -76,6 +76,21 @@ Works this way:
 +<section className="world"/>
 ```
 
+### setAttributeValue(path: Path | Node, name: string, value: string)
+
+Set `attribute` value:
+
+```js
+setAttributeValue(node, 'className', 'hello');
+```
+
+Works this way:
+
+```diff
+-<section className="world"/>
++<section className="hello"/>
+```
+
 ## License
 
 MIT

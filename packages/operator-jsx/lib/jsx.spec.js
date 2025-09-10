@@ -16,6 +16,7 @@ const {
     getAttributeNode,
     getAttributeValue,
     addAttributeValue,
+    setAttributeValue,
     removeAttributeValue,
 } = require('./jsx.js');
 
@@ -164,6 +165,17 @@ test('putout: operator: jsx: removeAttributeValue', (t) => {
     
     const result = print(node);
     const expected = `<hello className="hello"/>;\n`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: jsx: setAttributeValue', (t) => {
+    const node = template.ast.fresh('<hello className="hello"/>');
+    setAttributeValue(node, 'className', 'world');
+    
+    const result = print(node);
+    const expected = `<hello className="world"/>;\n`;
     
     t.equal(result, expected);
     t.end();
