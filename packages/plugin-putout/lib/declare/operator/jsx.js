@@ -5,4 +5,5 @@ export default {
     getAttributeValue: 'const {getAttributeValue} = operator',
     addAttributeValue: 'const {addAttributeValue} = operator',
     removeAttributeValue: 'const {removeAttributeValue} = operator',
+    setAttributeValue: 'const {setAttributeValue} = operator',
 };

@@ -73,3 +73,14 @@ test('plugin-putout: declare: transform: jsx: removeAttributeValue', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: jsx: setAttributeValue', (t) => {
+    t.transformCode(`setAttributeValue(path, 'className', 'hello')`, montag`
+        import {operator} from 'putout';
+        
+        const {setAttributeValue} = operator;
+        setAttributeValue(path, 'className', 'hello');
+    
+    `);
+    t.end();
+});
