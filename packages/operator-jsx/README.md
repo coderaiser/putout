@@ -61,6 +61,22 @@ Add `value` to `attribute`
 addAttributeValue(node, 'className', 'hello');
 ```
 
+### removeAttributeValue(path: Path | Node, name: string)
+
+Remove `attribute` value:
+
+```js
+removeAttributeValue(node, 'className', 'hello');
+```
+
+Works this way:
+
+```diff
+-<section className="hello world"/>
++<section className="world"/>
+```
+
+
 ## License
 
 MIT

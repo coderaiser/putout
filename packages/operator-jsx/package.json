@@ -16,6 +16,7 @@
   "scripts": {
     "test": "madrun test",
     "watch:test": "madrun watch:test",
+    "watch:coverage": "madrun watch:coverage",
     "lint": "madrun lint",
     "fresh:lint": "madrun fresh:lint",
     "lint:fresh": "madrun lint:fresh",
@@ -42,7 +43,8 @@
     "madrun": "^11.0.0",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
-    "supertape": "^11.0.3"
+    "supertape": "^11.0.3",
+    "try-catch": "^3.0.1"
   },
   "peerDependencies": {
     "putout": ">=40"

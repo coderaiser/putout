@@ -58,3 +58,16 @@ module.exports.addAttributeValue = (path, name, value) => {
     
     setLiteralValue(attributeNode.value, `${attributeNode.value.value} ${value}`);
 };
+
+module.exports.removeAttributeValue = (path, name, attributeValue) => {
+    if (!path)
+        return;
+    
+    const node = path.node || path;
+    const classAttribute = getAttributeNode(node, name);
+    
+    const {value} = classAttribute.value;
+    
+    if (value.includes(attributeValue))
+        setLiteralValue(classAttribute.value, value.replace(RegExp(`\\s?${attributeValue}`), ''));
+};

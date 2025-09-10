@@ -8,12 +8,15 @@ const {
     print,
 } = require('putout');
 
+const tryCatch = require('try-catch');
+
 const {
     hasTagName,
     getAttributePath,
     getAttributeNode,
     getAttributeValue,
     addAttributeValue,
+    removeAttributeValue,
 } = require('./jsx.js');
 
 const {traverse} = operator;
@@ -133,8 +136,42 @@ test('putout: operator: jsx: addAttributeValue: exists', (t) => {
     addAttributeValue(node, 'className', 'world');
     
     const result = print(node);
-    const expected = `<hello className="world"/>;\n`;
+    const expected = '<hello className="world"/>;\n';
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: jsx: removeAttributeValue: path', (t) => {
+    const ast = template.ast.fresh('<section><hello className="hello world"/></section>');
+    
+    traverse(ast, {
+        JSXElement(path) {
+            removeAttributeValue(path, 'className', 'world');
+        },
+    });
+    
+    const result = print(ast);
+    const expected = `<section><hello className="hello"/></section>;\n`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: jsx: removeAttributeValue', (t) => {
+    const node = template.ast.fresh('<hello className="hello world"/>');
+    removeAttributeValue(node, 'className', 'world');
+    
+    const result = print(node);
+    const expected = `<hello className="hello"/>;\n`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: jsx: removeAttributeValue: no path', (t) => {
+    const [error] = tryCatch(removeAttributeValue, null, 'className', 'world');
+    
+    t.notOk(error);
     t.end();
 });
