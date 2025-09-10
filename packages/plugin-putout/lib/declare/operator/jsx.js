@@ -4,4 +4,5 @@ export default {
     getAttributeNode: 'const {getAttributeNode} = operator',
     getAttributeValue: 'const {getAttributeValue} = operator',
     addAttributeValue: 'const {addAttributeValue} = operator',
+    removeAttributeValue: 'const {removeAttributeValue} = operator',
 };
