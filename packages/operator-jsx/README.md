@@ -91,6 +91,84 @@ Works this way:
 +<section className="hello"/>
 ```
 
+### addClassName(path: Path | Node, value: string)
+
+Add `className`:
+
+```js
+addClassName(node, 'hello');
+```
+
+Works this way:
+
+```diff
+-<section className="world"/>
++<section className="hello"/>
+```
+
+### removeClassName(path: Path | Node, value: string)
+
+Remove `className`:
+
+```js
+removeClassName(node, 'hello');
+```
+
+Works this way:
+
+```diff
+-<section className="hello world"/>
++<section className="world"/>
+```
+
+### getClassName(path: Path | Node): string
+
+For next jsx:
+
+```jsx
+<section className="world"/>;
+```
+
+get `className`:
+
+```js
+getClassName(node);
+// returns
+'world';
+```
+
+### containsClassName(path: Path | Node, name: string): boolean
+
+For next jsx:
+
+```jsx
+<section className="hello world"/>;
+```
+
+check:
+
+```js
+containsClassName(node, 'hello');
+// returns
+true;
+```
+
+### hasDataName(path: Path | Node, name: string): boolean
+
+For next jsx:
+
+```jsx
+<section data-name="hello"/>;
+```
+
+check:
+
+```js
+hasDataName(node, 'hello');
+// returns
+true;
+```
+
 ## License
 
 MIT

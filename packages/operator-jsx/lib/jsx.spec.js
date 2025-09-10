@@ -11,6 +11,10 @@ const {
 const tryCatch = require('try-catch');
 
 const {
+    addClassName,
+    removeClassName,
+    containsClassName,
+    hasDataName,
     hasTagName,
     getAttributePath,
     getAttributeNode,
@@ -181,9 +185,54 @@ test('putout: operator: jsx: setAttributeValue', (t) => {
     t.end();
 });
 
+test('putout: operator: jsx: setAttributeValue: no', (t) => {
+    const [error] = tryCatch(setAttributeValue, null, 'className', 'world');
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('putout: operator: jsx: removeAttributeValue: no path', (t) => {
     const [error] = tryCatch(removeAttributeValue, null, 'className', 'world');
     
     t.notOk(error);
+    t.end();
+});
+
+test('putout: operator: jsx: addClassName', (t) => {
+    const node = template.ast.fresh('<hello className="hello"/>');
+    addClassName(node, 'world');
+    
+    const result = print(node);
+    const expected = `<hello className="hello world"/>;\n`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: jsx: removeClassName', (t) => {
+    const node = template.ast.fresh('<hello className="hello world"/>');
+    removeClassName(node, 'world');
+    
+    const result = print(node);
+    const expected = `<hello className="hello"/>;\n`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: jsx: containsClassName', (t) => {
+    const node = template.ast.fresh('<hello className="hello world"/>');
+    const result = containsClassName(node, 'world');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: jsx: hasDataName', (t) => {
+    const node = template.ast.fresh('<hello data-name="hello"/>');
+    const result = hasDataName(node, 'hello');
+    
+    t.ok(result);
     t.end();
 });
