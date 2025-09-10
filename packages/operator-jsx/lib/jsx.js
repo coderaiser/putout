@@ -53,6 +53,7 @@ function getAttributeValue(path, attributeName) {
     
     return attribute.value.value;
 }
+
 module.exports.addAttributeValue = addAttributeValue;
 function addAttributeValue(path, name, value) {
     const attributeNode = getAttributeNode(path, name);
@@ -62,6 +63,7 @@ function addAttributeValue(path, name, value) {
     
     setLiteralValue(attributeNode.value, `${attributeNode.value.value} ${value}`);
 }
+
 module.exports.removeAttributeValue = removeAttributeValue;
 function removeAttributeValue(path, name, attributeValue) {
     if (!path)
@@ -75,6 +77,7 @@ function removeAttributeValue(path, name, attributeValue) {
     if (value.includes(attributeValue))
         setLiteralValue(classAttribute.value, value.replace(RegExp(`\\s?${attributeValue}`), ''));
 }
+
 module.exports.setAttributeValue = (node, name, value) => {
     const attributeNode = getAttributeNode(node, name);
     
