@@ -125,7 +125,8 @@ async function runWriter(options) {
     const {
         raw = false,
         rulesdir = '',
-        formatterOptions = {},
+        formatterOptions = {
+        },
         noConfig = false,
         transform = '',
         plugins = [],
