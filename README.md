@@ -2931,6 +2931,7 @@ import {OK} from 'putout/exit-codes';
 - [**ishvara**](https://github.com/putoutjs/bundle) - compile JavaScript to WASM and Fasm.
 - [**EsJS**](https://es.js.org) - JavaScript con sintaxis en Español.
 - [**tsre**](https://github.com/lafkpages/tsre) - a JavaScript and TypeScript reverse engineering tool.
+- [**aleman**](https://github.com/putoutjs/aleman) - 🐊Putout-based framework for web.
 
 Are you also use 🐊**Putout** in your application? Please open a Pull Request to include it here. We would love to have it in our list.
 
