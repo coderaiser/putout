@@ -31,3 +31,8 @@ test('conditions: reverse-condition: transform: not-or', (t) => {
     t.transform('not-or');
     t.end();
 });
+
+test('conditions: reverse-condition: transform: less-equal', (t) => {
+    t.transform('less-equal');
+    t.end();
+});
