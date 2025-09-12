@@ -60,7 +60,6 @@ function getUseless({path, index}) {
     const {name} = path.node.callee;
     
     const argument = path.get('arguments').at(index);
-    
     const argProps = argument.get('properties').filter(isObjectProperty);
     
     const refPath = findBinding(path, name);
