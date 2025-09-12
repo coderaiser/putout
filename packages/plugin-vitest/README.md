@@ -17,6 +17,7 @@ npm i @putout/plugin-vitest -D
 
 ## Rules
 
+- ✅ [apply-hoisted](#apply-hoisted);
 - ✅ [v3-apply-options-as-second-argument](#v3-apply-options-as-second-argument);
 - ✅ [v3-apply-browser-instances](#v3-apply-browser-instances);
 
@@ -25,11 +26,49 @@ npm i @putout/plugin-vitest -D
 ```json
 {
     "rules": {
+        "vitest/apply-hoisted": "on",
         "vitest/v3-apply-options-as-second-argument": "on",
         "vitest/v3-apply-browser-instances": "on"
     },
     "plugins": ["vitest"]
 }
+```
+
+## apply-hoisted
+
+> All static import statements in ES modules are hoisted to the top of the file, so any code that is defined before the imports will actually be executed after imports are evaluated.
+>
+> (c) [vitest.dev](https://vitest.dev/api/vi.html#vi-hoisted)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/1ce501a96baced5c46b07aac1cbdb1ff/70d2710641f57c20781208a28a81cf3a04c79a37).
+
+### ❌ Example of incorrect code
+
+```js
+let hello;
+let world;
+
+it('hello', () => {
+    hello.calledWith();
+});
+```
+
+### ✅ Example of correct code
+
+```js
+const hoisted = vi.hoisted({
+    hello: vi.fn(),
+    world: vi.fn(),
+});
+
+beforeEach(() => {
+    hello.mockClear();
+    world.mockClear();
+});
+
+it('hello', () => {
+    hoisted.hello.calledWith();
+});
 ```
 
 ## v3-apply-options-as-second-argument

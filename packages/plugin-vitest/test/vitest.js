@@ -16,3 +16,8 @@ test('plugin-vitest: transform: v3-apply-browser-instances', (t) => {
     t.transform('v3-apply-browser-instances');
     t.end();
 });
+
+test('plugin-vitest: transform: apply-hoisted', (t) => {
+    t.transform('apply-hoisted');
+    t.end();
+});
