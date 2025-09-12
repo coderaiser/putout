@@ -16,3 +16,8 @@ test('putout: convert-push-object-to-push-path: transform', (t) => {
     t.transform('convert-push-object-to-push-path');
     t.end();
 });
+
+test('putout: convert-push-object-to-push-path: no report: multiple', (t) => {
+    t.noReport('multiple');
+    t.end();
+});
