@@ -813,11 +813,15 @@ t.transform('nested-not-block', [
 
 ## convert-push-object-to-push-path
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/abcc9f79469db69849b6d6efd3e85a8a/0536c9f780a0c9db2feed3be92299a22f06b9720).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fc54c923cb3cc4095c3c1d84d7ae7982/7de8eace54c8068be4ec5954ad4dde6d52ec6ca6).
 
 ### ❌ Example of incorrect code
 
 ```js
+export const fix = ({path}) => {
+    removeClassName(path, SELECTED);
+};
+
 push({
     path: child,
 });
@@ -826,6 +830,10 @@ push({
 ### ✅ Example of correct code
 
 ```js
+export const fix = (path) => {
+    removeClassName(path, SELECTED);
+};
+
 push(child);
 ```
 
