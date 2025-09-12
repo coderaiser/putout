@@ -349,3 +349,8 @@ test('plugin-putout: transform: apply-transform-with-options', (t) => {
     t.transform('apply-transform-with-options');
     t.end();
 });
+
+test('plugin-putout: transform: convert-push-object-to-push-path', (t) => {
+    t.transform('convert-push-object-to-push-path');
+    t.end();
+});

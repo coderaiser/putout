@@ -1,0 +1,3 @@
+push({
+    path: child,
+});
