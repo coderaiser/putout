@@ -21,3 +21,8 @@ test('plugin-vitest: transform: apply-hoisted', (t) => {
     t.transform('apply-hoisted');
     t.end();
 });
+
+test('plugin-vitest: transform: convert-jest-to-vitest', (t) => {
+    t.transform('convert-jest-to-vitest');
+    t.end();
+});

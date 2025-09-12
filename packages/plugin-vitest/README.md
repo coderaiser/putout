@@ -18,6 +18,7 @@ npm i @putout/plugin-vitest -D
 ## Rules
 
 - ✅ [apply-hoisted](#apply-hoisted);
+- ✅ [convert-jest-to-vitest](#convert-jest-to-vitest);
 - ✅ [v3-apply-options-as-second-argument](#v3-apply-options-as-second-argument);
 - ✅ [v3-apply-browser-instances](#v3-apply-browser-instances);
 
@@ -27,6 +28,7 @@ npm i @putout/plugin-vitest -D
 {
     "rules": {
         "vitest/apply-hoisted": "on",
+        "vitest/convert-jest-to-vitest": "on",
         "vitest/v3-apply-options-as-second-argument": "on",
         "vitest/v3-apply-browser-instances": "on"
     },
@@ -69,6 +71,28 @@ beforeEach(() => {
 it('hello', () => {
     hoisted.hello.calledWith();
 });
+```
+
+## convert-jest-to-vitest
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b0e8f88c13ada02f3ce296948d9eac96/26277e77ec3bd28d2f7568e55cedfb0961c3f2ea).
+
+### ❌ Example of incorrect code
+
+```js
+jest.mock('hello', {
+    ...jest.requireActual('hello'),
+    abc: jest.fn(),
+});
+```
+
+### ✅ Example of correct code
+
+```js
+vi.mock('hello', async () => ({
+    ...await vi.importActual('hello'),
+    abc: vi.fn(),
+}));
 ```
 
 ## v3-apply-options-as-second-argument

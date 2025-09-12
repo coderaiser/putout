@@ -17,6 +17,7 @@ const {
     objectProperty,
     identifier,
 } = types;
+
 const {entries} = Object;
 
 const createHoisted = template('const hoisted = vi.hoisted({})');
