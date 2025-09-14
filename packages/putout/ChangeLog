@@ -1,3 +1,34 @@
+2025.09.14, v40.8.1
+
+fix:
+- 994ace879 @putout/plugin-putout: convert-push-object-to-push-path: destructuring -> path
+- f5259d092 @putout/plugin-nodejs: convert-esm-to-commonjs: epxorts -> exports
+
+feature:
+- cb02cf3bc putout: @putout/plugin-declare v6.0.0
+- 5b36b75f5 @putout/plugin-declare: migrate to ESM
+- d26dc8a80 @putout/plugin-declare: jessy: add
+- c04be2e03 @putout/plugin-vitest: convert-jest-to-vitest: add
+- b67a6d251 @putout/plugin-vitest: drop support of 🐊 < 40
+- 2173a52c1 @putout/plugin-vitest: apply-hoisted: add
+- f5c2553ca @putout/plugin-putout: convert-push-object-to-push-path: exclude fix when push multiple
+- f1fc66e57 @putout/plugin-putout: convert-push-object-to-push-path: add
+- 1d66597e7 @putout/plugin-conditions: reverse-condition: !(__a <= __b) -> __a > __b
+- a718f94b7 @putout/plugin-putout: declare: operator: jsx: className: add
+- 1cf78871c @putout/operator-jsx: className
+- ecc1e584f @putout/plugin-putout: declare: operator: jsx
+- 127e7a2e4 @putout/operator-jsx: setAttributeValue
+- 2acf74fa5 @putout/plugin-putout: declare: operator: jsx: removeAttributeValue
+- 8219b51f6 @putout/operator-jsx: removeAttributeValue: add
+- fb80d03fa @putout/plugin-putout: declare: jsx: addAttributeValue
+- 3845163b6 @putout/operator-jsx: addAttributeValue: add
+- 3baf00ed9 @putout/plugin-putout: declare: jsx: getAttributeValue: add
+- bde5b9728 @putout/operator-jsx: getAttributeValue: add
+- 4b89ae419 @putout/plugin-putout: declare: jsx: getAttributeNode: add
+- 90d2eb8a4 @putout/operator-jsx: getAttributeNode: add
+- b8025f519 @putout/plugin-putout: declare: jsx: getAttributePath: add
+- e0aced6e0 @putout/operator-jsx: getAttributePath: add
+
 2025.09.07, v40.8.0
 
 fix:
