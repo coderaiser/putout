@@ -1,11 +1,13 @@
-'use strict';
+import object from './object.json' with {
+    type: 'json',
+};
+import wrap from './wrap.js';
+import freshImport from './fresh-import.js';
+import fixtures from './fixtures.json' with {
+    type: 'json',
+};
 
-const object = require('./object');
-const wrap = require('./wrap');
-const freshImport = require('./fresh-import');
-const fixtures = require('./fixtures');
-
-module.exports.declare = () => ({
+export const declare = () => ({
     ...object,
     ...wrap,
     ...freshImport,

@@ -1,11 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import montag from 'montag';
+import * as declare from '../lib/index.js';
 
-const {createTest} = require('@putout/test');
-const montag = require('montag');
-
-const declare = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['declare', declare],
     ],
