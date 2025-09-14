@@ -16,6 +16,7 @@ module.exports.declare = () => ({
     noop: 'const noop = () => {}',
     
     once: `import once from 'once'`,
+    jessy: `import jessy from 'jessy'`,
     putout: `import putout from 'putout'`,
     eslint: `import eslint from 'putout/eslint'`,
     currify: `import currify from 'currify'`,

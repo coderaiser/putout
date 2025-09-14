@@ -201,3 +201,11 @@ test('putout: plugin: declare: wait', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare: jessy', (t) => {
+    t.transformCode(`jessy(object, 'hello');`, montag`
+        import jessy from 'jessy';\n
+        jessy(object, 'hello');\n
+    `);
+    t.end();
+});
