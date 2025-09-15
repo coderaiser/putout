@@ -17,7 +17,17 @@ test('putout: convert-push-object-to-push-path: transform', (t) => {
     t.end();
 });
 
-test('putout: convert-push-object-to-push-path: no report: multiple', (t) => {
-    t.noReport('multiple');
+test('putout: convert-push-object-to-push-path: no report: multiple-push', (t) => {
+    t.noReport('multiple-push');
+    t.end();
+});
+
+test('putout: convert-push-object-to-push-path: no report: multiple-fix', (t) => {
+    t.noReport('multiple-fix');
+    t.end();
+});
+
+test('putout: convert-push-object-to-push-path: transform: no-rename', (t) => {
+    t.transform('no-rename');
     t.end();
 });
