@@ -10,7 +10,7 @@ export const match = () => ({
         const programPath = path.scope.getProgramParent().path;
         
         traverse(programPath, {
-            'export const fix = ({path}) => __body': () => {
+            'export const fix = (path) => __body': () => {
                 is = true;
             },
         });
@@ -22,6 +22,9 @@ export const match = () => ({
         
         traverse(parentPath, {
             'push({path: __a})': () => {
+                is = true;
+            },
+            'push({path})': () => {
                 is = true;
             },
         });

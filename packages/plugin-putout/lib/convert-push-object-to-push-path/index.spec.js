@@ -31,3 +31,8 @@ test('putout: convert-push-object-to-push-path: transform: no-rename', (t) => {
     t.transform('no-rename');
     t.end();
 });
+
+test('putout: convert-push-object-to-push-path: transform: single', (t) => {
+    t.transform('single');
+    t.end();
+});
