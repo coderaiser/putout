@@ -30,7 +30,7 @@ module.exports.preTest = function preTest(test, plugin) {
         scan,
     }] = maybeEntries(plugin);
     
-    if (isArray(plugin)) {}
+    isArray(plugin);
     
     const options = {
         checkDuplicates: false,
