@@ -107,3 +107,8 @@ module.exports.hasDataName = (path, value = '') => {
     const attribute = getAttributeValue(path, 'data-name');
     return attribute === value;
 };
+
+module.exports.hasAttributeValue = (path, name, value = '') => {
+    const attribute = getAttributeValue(path, name);
+    return attribute === value;
+};

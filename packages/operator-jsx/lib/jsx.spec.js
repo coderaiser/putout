@@ -16,6 +16,7 @@ const {
     containsClassName,
     hasDataName,
     hasTagName,
+    hasAttributeValue,
     getAttributePath,
     getAttributeNode,
     getAttributeValue,
@@ -232,6 +233,14 @@ test('putout: operator: jsx: containsClassName', (t) => {
 test('putout: operator: jsx: hasDataName', (t) => {
     const node = template.ast.fresh('<hello data-name="hello"/>');
     const result = hasDataName(node, 'hello');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: jsx: hasAttribute', (t) => {
+    const node = template.ast.fresh('<hello data-menu-index="1"/>');
+    const result = hasAttributeValue(node, 'data-menu-index', '1');
     
     t.ok(result);
     t.end();

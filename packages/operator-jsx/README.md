@@ -169,6 +169,22 @@ hasDataName(node, 'hello');
 true;
 ```
 
+### hasAttributeValue(path: Path | Node, name: string, value: string): boolean
+
+For next jsx:
+
+```jsx
+<section data-menu-index="1"/>;
+```
+
+check:
+
+```js
+hasAttributeValue(node, 'data-menu-index', '1');
+// returns
+true;
+```
+
 ## License
 
 MIT
