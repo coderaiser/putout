@@ -65,11 +65,11 @@ const parsePlugin = (plugins) => {
     return plugins;
 };
 
-function createTest(dir, maybeOptions) {
+function createTest(dir, maybeOptions, maybeExtends = {}) {
     dir = join(dir, 'fixture');
     
     const {
-        extension = [],
+        extension = '',
         lint = putout,
         ...options
     } = parseOptions(maybeOptions);
@@ -106,6 +106,7 @@ function createTest(dir, maybeOptions) {
         format: format(dir, options),
         formatMany: formatMany(dir, options),
         noFormat: noFormat(dir, options),
+        ...maybeExtends,
     });
 }
 
@@ -211,7 +212,6 @@ const transformWithOptions = currify((dir, linterOptions, options, t, name, plug
     const [input, isTS, currentExtension] = readFixture(full, extension);
     
     const rule = parseRule(options);
-    
     const rules = {
         [rule]: ['on', pluginOptions],
     };

@@ -4,9 +4,9 @@ import create from './test.js';
 
 export default create;
 
-export const createTest = (url, plugins) => {
+export const createTest = (url, plugins, maybeExtends) => {
     const __filename = fileURLToPath(url);
     const __dirname = dirname(__filename);
     
-    return create(__dirname, plugins);
+    return create(__dirname, plugins, maybeExtends);
 };

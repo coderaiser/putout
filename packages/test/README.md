@@ -70,6 +70,20 @@ const test = createTest(import.meta.url, {
 });
 ```
 
+And apply new [operators](https://github.com/coderaiser/supertape?tab=readme-ov-file#operators):
+
+```js
+const test = createTest(import.meta.url, {
+    extension: 'wast',
+    lint: putout,
+    plugins: [
+        ['remove-unused-variables', rmVars],
+    ],
+}, {
+    render: (operator) => (name) => operator.transform,
+});
+```
+
 ### `report(filename, message: string | string[], plugins?: PutoutPlugin[])`
 
 Check error message (or messages) of a plugin:
