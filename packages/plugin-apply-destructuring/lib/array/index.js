@@ -11,6 +11,7 @@ export const exclude = () => [
 export const replace = () => ({
     '__a = __b[0]': '[__a] = __b',
     '__a = __b[1]': '[, __a] = __b',
+    'const __a = __b[1]': 'const [, __a] = __b',
     'const __a = __b[0]': convertTo('const [__a] = __b'),
     'let __a = __b[0]': convertTo('let [__a] = __b'),
 });
