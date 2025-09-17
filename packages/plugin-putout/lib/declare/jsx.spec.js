@@ -139,3 +139,14 @@ test('plugin-putout: declare: transform: jsx: hasDataName', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: jsx: hasAttribute', (t) => {
+    t.transformCode(`hasAttributeValue(path, 'data-menu-index', '1')`, montag`
+        import {operator} from 'putout';
+        
+        const {hasAttributeValue} = operator;
+        hasAttributeValue(path, 'data-menu-index', '1');
+    
+    `);
+    t.end();
+});
