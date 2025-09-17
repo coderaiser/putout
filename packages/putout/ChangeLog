@@ -1,3 +1,13 @@
+2025.09.17, v40.8.2
+
+feature:
+- d89296032 putout: @putout/plugin-apply-destructuring v10.0.0
+- b2d864e3a @putout/plugin-apply-destructuring: drop support of 🐊 < 40
+- dffcc06e1 @putout/plugin-apply-destructuring: array: second
+- 64af1a557 @putout/plugin-nodejs: declare: isArray: rm: deprecated
+- 634b43e1e @putout/plugin-putout: convert-push-object-to-push-path: single
+- 0dc30a8ab @putout/plugin-putout: convert-push-object-to-push-path: multiple fix
+
 2025.09.14, v40.8.1
 
 fix:
