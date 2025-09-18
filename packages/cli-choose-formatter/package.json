@@ -46,10 +46,10 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "putout": ">=35"
+    "putout": ">=40"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
