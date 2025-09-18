@@ -16,6 +16,7 @@ npm i @putout/plugin-conditions -D
 - ✅ [add-return](#add-return);
 - ✅ [apply-comparison-order](#apply-comparison-order);
 - ✅ [apply-consistent-blocks](#apply-consistent-blocks);
+- ✅ [apply-equal](#apply-equal);
 - ✅ [apply-if](#apply-if);
 - ✅ [convert-comparison-to-boolean](#convert-comparison-to-boolean);
 - ✅ [convert-equal-to-strict-equal](#convert-equal-to-strict-equal);
@@ -40,6 +41,7 @@ npm i @putout/plugin-conditions -D
     "rules": {
         "conditions/apply-consistent-blocks": "on",
         "conditions/apply-comparison-order": "on",
+        "conditions/apply-equal": "on",
         "conditions/apply-if": "on",
         "conditions/add-return": "on",
         "conditions/convert-comparison-to-boolean": "on",
@@ -140,6 +142,22 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`conditions/apply-comparison-order`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions/#apply-comparison-order)| ✅
 ⏣ **ESLint** | [`yoda`](https://eslint.org/docs/rules/yoda) | ½
+
+## apply-equal
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7ec940ad79df7e12a1d9111136b4a168/2ccea607e3232721eb950c18195168f8d9b4ef6a).
+
+### ❌ Example of incorrect code
+
+```js
+return a.b = c;
+```
+
+### ✅ Example of correct code
+
+```js
+return a.b === c;
+```
 
 ## apply-if
 

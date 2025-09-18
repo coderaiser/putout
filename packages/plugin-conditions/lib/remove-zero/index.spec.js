@@ -1,9 +1,9 @@
 import {createTest} from '@putout/test';
-import removeBoolean from './index.js';
+import * as removeZero from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['conditions/remove-zero', removeBoolean],
+        ['conditions/remove-zero', removeZero],
     ],
 });
 

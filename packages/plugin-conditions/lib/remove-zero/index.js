@@ -1,3 +1,7 @@
 import {createAvoidInAssertions} from '../avoid-in-assertions.js';
 
-export default createAvoidInAssertions(0);
+export const {
+    report,
+    match,
+    replace,
+} = createAvoidInAssertions(0);

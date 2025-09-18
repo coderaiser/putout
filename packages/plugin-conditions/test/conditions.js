@@ -96,3 +96,8 @@ test('plugin-conditions: transform: merge-if-with-else', (t) => {
     t.transform('merge-if-with-else');
     t.end();
 });
+
+test('plugin-conditions: transform: apply-equal', (t) => {
+    t.transform('apply-equal');
+    t.end();
+});

@@ -1,3 +1,4 @@
+import * as applyEqual from './apply-equal/index.js';
 import * as applyConsistentBlocks from './apply-consistent-blocks/index.js';
 import * as applyComparisonOrder from './apply-comparison-order/index.js';
 import * as applyIf from './apply-if/index.js';
@@ -6,7 +7,7 @@ import * as convertComparisonToBoolean from './convert-comparison-to-boolean/ind
 import * as convertEqualToStrictEqual from './convert-equal-to-strict-equal/index.js';
 import * as mergeIfStatements from './merge-if-statements/index.js';
 import * as removeBoolean from './remove-boolean/index.js';
-import removeZero from './remove-zero/index.js';
+import * as removeZero from './remove-zero/index.js';
 import * as removeUselessElse from './remove-useless-else/index.js';
 import * as simplify from './simplify/index.js';
 import * as removeSameValuesCondition from './remove-same-values-condition/index.js';
@@ -36,4 +37,5 @@ export const rules = {
     'wrap-with-block': wrapWithBlock,
     'remove-useless-loop-condition': removeUselessLoopCondition,
     'merge-if-with-else': mergeIfWithElse,
+    'apply-equal': applyEqual,
 };
