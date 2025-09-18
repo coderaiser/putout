@@ -16,7 +16,7 @@ module.exports.addDeclarationForESLint = (name, path) => {
     const programPath = getProgramParentPath(path);
     maybeInit(prefix, programPath);
     
-    return programPath[prefix][name] = true;
+    programPath[prefix][name] = true;
 };
 
 module.exports.setModuleType = (type, path) => {
