@@ -1,3 +1,19 @@
+2025.09.18, v40.9.0
+
+feature:
+- bf43aac64 @putout/cli-choose-formatter: find-up v8.0.0
+- a4d1eb257 putout: find-up v8.0.0
+- c748bbb19 putout: @putout/plugin-madrun v22.0.0
+- e377dbae6 putout: @putout/cli-choose-formatter v5.0.0
+- fcfd87195 @putout/cli-choose-formater: drop support of 🐊< 40
+- 905230faa @putout/operator-declare: record: rm useless return
+- 095747c08 @putout/plugin-madrun: drop support of 🐊 < 40
+- 7674dbef2 @putout/plugin-madrun: rename-eslint-to-putout: report
+- 9f795f45d @putout/plugin-conditions: apply-equal: add
+- ab025e1a5 @putout/test: add ability to extend with operators
+- 7f3818b22 @putout/plugin-putout: declare: hasAttributeValue: add
+- 5fb4415c4 @putout/operator-jsx: hasAttribute: add
+
 2025.09.17, v40.8.2
 
 feature:
