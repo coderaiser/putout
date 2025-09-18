@@ -6,17 +6,19 @@ const replace = (a) => a
     .replace('eslint', 'putout')
     .replace(/\s--ignore.*/, '');
 
-export const report = () => `"putout" should be used instead of "eslint"`;
+export const report = () => `Use "putout" instead of "eslint"`;
 
 export const fix = ({node}) => {
     const {type, value} = node;
     
     switch(type) {
     case 'StringLiteral':
-        return node.value = replace(value);
+        node.value = replace(value);
+        break;
     
     case 'TemplateElement':
-        return node.value.raw = replace(value.raw);
+        node.value.raw = replace(value.raw);
+        break;
     }
 };
 

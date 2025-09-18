@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('madrun: rename-eslint-to-putout: report: eslint', (t) => {
-    t.report('eslint', `"putout" should be used instead of "eslint"`);
+    t.report('eslint', `Use "putout" instead of "eslint"`);
     t.end();
 });
 
