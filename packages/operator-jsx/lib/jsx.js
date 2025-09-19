@@ -2,10 +2,17 @@
 
 const {setLiteralValue} = require('@putout/operate');
 const {types} = require('@putout/babel');
-const {isJSXElement} = types;
+const {
+    isJSXElement,
+    jsxAttribute,
+    jsxIdentifier,
+    stringLiteral,
+} = types;
+
+const getNode = (a) => a.node || a;
 
 module.exports.hasTagName = (path, name) => {
-    const node = path.node || path;
+    const node = getNode(path);
     
     if (!isJSXElement(path))
         return false;
@@ -27,11 +34,7 @@ module.exports.getAttributePath = (path, name) => {
 module.exports.getAttributeNode = getAttributeNode;
 function getAttributeNode(path, name) {
     let result = null;
-    
-    if (!path)
-        return result;
-    
-    const node = path.node || path;
+    const node = getNode(path);
     const {attributes} = node.openingElement;
     
     for (const attr of attributes) {
@@ -58,10 +61,24 @@ module.exports.addAttributeValue = addAttributeValue;
 function addAttributeValue(path, name, value) {
     const attributeNode = getAttributeNode(path, name);
     
+    if (!attributeNode)
+        return addAttribute(path, name, value);
+    
     if (attributeNode.value.value.includes(value))
         return;
     
     setLiteralValue(attributeNode.value, `${attributeNode.value.value} ${value}`);
+}
+
+module.exports.addAttribute = addAttribute;
+function addAttribute(path, name, value) {
+    const node = getNode(path);
+    let attributeNode = getAttributeNode(node, name);
+    
+    if (!attributeNode) {
+        attributeNode = jsxAttribute(jsxIdentifier(name), stringLiteral(value));
+        node.openingElement.attributes.push(attributeNode);
+    }
 }
 
 module.exports.removeAttributeValue = removeAttributeValue;
@@ -78,11 +95,13 @@ function removeAttributeValue(path, name, attributeValue) {
         setLiteralValue(classAttribute.value, value.replace(RegExp(`\\s?${attributeValue}`), ''));
 }
 
-module.exports.setAttributeValue = (node, name, value) => {
-    const attributeNode = getAttributeNode(node, name);
+module.exports.setAttributeValue = (path, name, value) => {
+    const attributeNode = getAttributeNode(path, name);
     
-    if (attributeNode)
-        setLiteralValue(attributeNode.value, value);
+    if (!attributeNode)
+        return addAttribute(path, name, value);
+    
+    setLiteralValue(attributeNode.value, value);
 };
 
 module.exports.addClassName = (path, name) => {

@@ -12,6 +12,7 @@ const tryCatch = require('try-catch');
 
 const {
     addClassName,
+    addAttribute,
     removeClassName,
     containsClassName,
     hasDataName,
@@ -137,6 +138,17 @@ test('putout: operator: jsx: addAttributeValue', (t) => {
     t.end();
 });
 
+test('putout: operator: jsx: addAttributeValue: no attribute', (t) => {
+    const node = template.ast.fresh('<hello/>');
+    addAttributeValue(node, 'className', 'abc');
+    
+    const result = print(node);
+    const expected = '<hello className="abc"/>;\n';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('putout: operator: jsx: addAttributeValue: exists', (t) => {
     const node = template.ast.fresh('<hello className="world"/>');
     addAttributeValue(node, 'className', 'world');
@@ -187,9 +199,14 @@ test('putout: operator: jsx: setAttributeValue', (t) => {
 });
 
 test('putout: operator: jsx: setAttributeValue: no', (t) => {
-    const [error] = tryCatch(setAttributeValue, null, 'className', 'world');
+    const node = template.ast.fresh('<hello/>');
     
-    t.notOk(error);
+    setAttributeValue(node, 'className', 'world');
+    
+    const result = print(node);
+    const expected = `<hello className="world"/>;\n`;
+    
+    t.equal(result, expected);
     t.end();
 });
 
@@ -241,6 +258,17 @@ test('putout: operator: jsx: hasDataName', (t) => {
 test('putout: operator: jsx: hasAttribute', (t) => {
     const node = template.ast.fresh('<hello data-menu-index="1"/>');
     const result = hasAttributeValue(node, 'data-menu-index', '1');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: jsx: addAtribute', (t) => {
+    const node = template.ast.fresh('<hello/>');
+    
+    addAttribute(node, 'data-menu-index', '1');
+    
+    const result = print(node);
     
     t.ok(result);
     t.end();

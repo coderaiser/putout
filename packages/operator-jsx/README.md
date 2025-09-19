@@ -185,6 +185,26 @@ hasAttributeValue(node, 'data-menu-index', '1');
 true;
 ```
 
+### addAttribute(path: Path | Node, name: string, value: string)
+
+For next jsx:
+
+```jsx
+<section/>;
+```
+
+check:
+
+```js
+addAttribute(node, 'data-menu-index', '1');
+```
+
+result is:
+
+```jsx
+<section data-menu-index="1"/>;
+```
+
 ## License
 
 MIT
