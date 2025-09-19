@@ -263,7 +263,7 @@ test('putout: operator: jsx: hasAttribute', (t) => {
     t.end();
 });
 
-test('putout: operator: jsx: addAtribute', (t) => {
+test('putout: operator: jsx: addAttribute', (t) => {
     const node = template.ast.fresh('<hello/>');
     
     addAttribute(node, 'data-menu-index', '1');
