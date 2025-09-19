@@ -8,6 +8,7 @@ export default {
     removeAttributeValue: 'const {removeAttributeValue} = operator',
     setAttributeValue: 'const {setAttributeValue} = operator',
     addClassName: 'const {addClassName} = operator',
+    addAttribute: 'const {addAttribute} = operator',
     getClassName: 'const {getClassName} = operator',
     removeClassName: 'const {removeClassName} = operator',
     containsClassName: 'const {containsClassName} = operator',

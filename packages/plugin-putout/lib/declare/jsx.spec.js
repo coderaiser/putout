@@ -150,3 +150,14 @@ test('plugin-putout: declare: transform: jsx: hasAttribute', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: jsx: addAttribute', (t) => {
+    t.transformCode(`addAttribute(path, 'data-menu-index', '1')`, montag`
+        import {operator} from 'putout';
+        
+        const {addAttribute} = operator;
+        addAttribute(path, 'data-menu-index', '1');
+    
+    `);
+    t.end();
+});
