@@ -187,6 +187,17 @@ test('putout: operator: jsx: removeAttributeValue', (t) => {
     t.end();
 });
 
+test('putout: operator: jsx: removeAttributeValue: no', (t) => {
+    const node = template.ast.fresh('<hello className="hello world"/>');
+    removeAttributeValue(node, 'className', 'abc');
+    
+    const result = print(node);
+    const expected = `<hello className="hello world"/>;\n`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('putout: operator: jsx: setAttributeValue', (t) => {
     const node = template.ast.fresh('<hello className="hello"/>');
     setAttributeValue(node, 'className', 'world');
@@ -245,6 +256,17 @@ test('putout: operator: jsx: removeClassName: first', (t) => {
     
     const result = print(node);
     const expected = `<hello className="world"/>;\n`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: jsx: removeClassName: middle', (t) => {
+    const node = template.ast.fresh('<hello className="hello world abc"/>');
+    removeClassName(node, 'world');
+    
+    const result = print(node);
+    const expected = `<hello className="hello abc"/>;\n`;
     
     t.equal(result, expected);
     t.end();
