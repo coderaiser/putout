@@ -21,3 +21,8 @@ test('plugin-tape: convert-called-with-no-args-to-called-with: transform: identi
     t.transform('identifier');
     t.end();
 });
+
+test('plugin-tape: convert-called-with-no-args-to-called-with: transform: message-object', (t) => {
+    t.transform('message-object');
+    t.end();
+});

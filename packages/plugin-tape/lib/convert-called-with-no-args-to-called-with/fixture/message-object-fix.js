@@ -1,0 +1,3 @@
+t.calledWith(beforeHide, [{
+    state,
+}]);
