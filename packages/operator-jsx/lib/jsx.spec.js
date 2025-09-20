@@ -239,6 +239,17 @@ test('putout: operator: jsx: removeClassName', (t) => {
     t.end();
 });
 
+test('putout: operator: jsx: removeClassName: first', (t) => {
+    const node = template.ast.fresh('<hello className="hello world"/>');
+    removeClassName(node, 'hello');
+    
+    const result = print(node);
+    const expected = `<hello className="world"/>;\n`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('putout: operator: jsx: containsClassName', (t) => {
     const node = template.ast.fresh('<hello className="hello world"/>');
     const result = containsClassName(node, 'world');

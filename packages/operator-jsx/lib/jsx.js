@@ -92,7 +92,7 @@ function removeAttributeValue(path, name, attributeValue) {
     const {value} = classAttribute.value;
     
     if (value.includes(attributeValue))
-        setLiteralValue(classAttribute.value, value.replace(RegExp(`\\s?${attributeValue}`), ''));
+        setLiteralValue(classAttribute.value, value.replace(RegExp(`\\s?${attributeValue}\\s?`), ''));
 }
 
 module.exports.setAttributeValue = (path, name, value) => {
