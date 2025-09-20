@@ -97,6 +97,7 @@ function removeAttributeValue(path, name, attributeValue) {
     const newValue = value
         .replace(RegExp(`\\s?${attributeValue}`), '')
         .trim();
+    
     setLiteralValue(classAttribute.value, newValue);
 }
 
