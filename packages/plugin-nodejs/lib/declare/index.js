@@ -10,6 +10,7 @@ import path from './modules/path.js';
 import fsPromises from './modules/fs-promises.js';
 import fs from './modules/fs.js';
 import events from './modules/events.js';
+import timers from './modules/timers.js';
 
 export const declare = () => ({
     ...events,
@@ -24,4 +25,5 @@ export const declare = () => ({
     ...url,
     ...util,
     ...child_process,
+    ...timers,
 });

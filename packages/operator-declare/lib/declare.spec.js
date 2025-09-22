@@ -748,11 +748,11 @@ test('putout: operator: declare: couple consts', (t) => {
 
 test('putout: operator: declare: merge', (t) => {
     const declarations = {
-        dirname: `import {dirname} from 'path'`,
+        dirname: `import {dirname} from 'node:path'`,
     };
     
     const source = montag`
-        const {join} = require('path');
+        const {join} = require('node:path');
         join(dirname('/package.json', 'node_modules'));
     `;
     
@@ -773,7 +773,7 @@ test('putout: operator: declare: merge', (t) => {
     const expected = montag`
        'use strict';
        
-       const {join, dirname: dirname} = require('path');
+       const {join, dirname: dirname} = require('node:path');
        join(dirname('/package.json', 'node_modules'));\n
     `;
     

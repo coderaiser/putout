@@ -1,5 +1,5 @@
-import {createTest} from 'node:@putout/test';
-import * as declare from 'node:./index.js';
+import {createTest} from '@putout/test';
+import * as declare from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
