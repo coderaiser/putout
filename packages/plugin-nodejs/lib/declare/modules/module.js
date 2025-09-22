@@ -1,10 +1,10 @@
 export default {
-    builtinModules: `import {builtinModules} from 'module'`,
-    globalPaths: `import {globalPaths} from 'module'`,
-    createRequire: `import {createRequire} from 'module'`,
-    syncBuiltinESMExports: `import {syncBuiltinESMExports} from 'module'`,
-    Module: `import {Module} from 'module'`,
-    runMain: `import {runMain} from 'module'`,
-    findSourceMap: `import {findSourceMap} from 'module'`,
-    SourceMap: `import {SourceMap} from 'module'`,
+    builtinModules: `import {builtinModules} from 'node:module'`,
+    globalPaths: `import {globalPaths} from 'node:module'`,
+    createRequire: `import {createRequire} from 'node:module'`,
+    syncBuiltinESMExports: `import {syncBuiltinESMExports} from 'node:module'`,
+    Module: `import {Module} from 'node:module'`,
+    runMain: `import {runMain} from 'node:module'`,
+    findSourceMap: `import {findSourceMap} from 'node:module'`,
+    SourceMap: `import {SourceMap} from 'node:module'`,
 };

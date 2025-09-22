@@ -1,8 +1,8 @@
-import {readFile} from 'fs/promises';
-import {writeFile} from 'fs/promises';
-import {readFileSync} from 'fs';
-import {writeFileSync} from 'fs';
-import {mkdirSync} from 'fs';
+import {readFile} from 'node:fs/promises';
+import {writeFile} from 'node:fs/promises';
+import {readFileSync} from 'node:fs';
+import {writeFileSync} from 'node:fs';
+import {mkdirSync} from 'node:fs';
 
 readFile();
 writeFile();

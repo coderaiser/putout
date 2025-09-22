@@ -1,3 +1,3 @@
-import {createBrotliCompress} from 'zlib';
+import {createBrotliCompress} from 'node:zlib';
 
 createBrotliCompress();

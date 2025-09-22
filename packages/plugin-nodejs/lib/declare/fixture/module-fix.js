@@ -1,3 +1,3 @@
-import {createRequire} from 'module';
+import {createRequire} from 'node:module';
 
 const {resolve} = createRequire(import.meta.url);

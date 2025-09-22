@@ -70,7 +70,7 @@ test('putout: plugin: nodejs: declare: stream', (t) => {
 
 test('putout: plugin: nodejs: declare: nodejs: url', (t) => {
     t.transformCode(`pathToFileURL(path);`, montag`
-        import {pathToFileURL} from 'url';
+        import {pathToFileURL} from 'node:url';
         
         pathToFileURL(path);
     
@@ -100,7 +100,7 @@ test('putout: plugin: nodejs: declare: nodejs: styleText', (t) => {
 
 test('putout: plugin: nodejs: declare: process: cwd', (t) => {
     t.transformCode(`cwd();`, montag`
-        import {cwd} from 'process';
+        import {cwd} from 'node:process';
         
         cwd();
     
@@ -110,7 +110,7 @@ test('putout: plugin: nodejs: declare: process: cwd', (t) => {
 
 test('putout: plugin: nodejs: declare: process: env', (t) => {
     t.transformCode(`const a = env.DEBUG;`, montag`
-        import {env} from 'process';
+        import {env} from 'node:process';
         
         const a = env.DEBUG;
     
@@ -130,7 +130,7 @@ test('putout: plugin: nodejs: declare: no transform: version', (t) => {
 
 test('putout: plugin: nodejs: declare: events', (t) => {
     t.transformCode(`new EventEmitter();`, montag`
-        import {EventEmitter} from 'events';
+        import {EventEmitter} from 'node:events';
         
         new EventEmitter();
     
@@ -140,7 +140,7 @@ test('putout: plugin: nodejs: declare: events', (t) => {
 
 test('putout: plugin: nodejs: declare: process', (t) => {
     t.transformCode(`process.exit();`, montag`
-        import process from 'process';
+        import process from 'node:process';
         
         process.exit();
     

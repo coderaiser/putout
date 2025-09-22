@@ -1,6 +1,6 @@
-import {extname} from 'path';
-import {basename} from 'path';
-import {dirname} from 'path';
+import {extname} from 'node:path';
+import {basename} from 'node:path';
+import {dirname} from 'node:path';
 
 extname(path);
 basename(path);

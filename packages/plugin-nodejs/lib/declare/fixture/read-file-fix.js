@@ -1,3 +1,3 @@
-import {readFile} from 'fs/promises';
+import {readFile} from 'node:fs/promises';
 
 await readFile('./README.md', 'utf8');

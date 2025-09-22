@@ -1,6 +1,6 @@
 'use strict';
 
-import {Readable} from 'stream';
+import {Readable} from 'node:stream';
 
 test('cloudcmd: route: content length', async (t) => {
     const path = '';
