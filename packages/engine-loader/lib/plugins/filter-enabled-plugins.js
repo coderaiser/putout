@@ -19,7 +19,7 @@ module.exports.filterEnabledPlugins = ({plugins, cookedRules}) => {
         
         const [status, currentPlugin] = maybeTuple(plugin);
         
-        if (!isExectRuleEnabled(name, status, cookedRules))
+        if (!isExactRuleEnabled(name, status, cookedRules))
             continue;
         
         result.push(mergeRules(
@@ -31,7 +31,7 @@ module.exports.filterEnabledPlugins = ({plugins, cookedRules}) => {
     return result;
 };
 
-function isExectRuleEnabled(name, status, rules) {
+function isExactRuleEnabled(name, status, rules) {
     if (status === 'on')
         return true;
     
