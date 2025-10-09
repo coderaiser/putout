@@ -1,3 +1,23 @@
+2025.10.09, v40.10.0
+
+fix:
+- eb371068f @putout/engine-loader: typo
+- 4ce369fb0 @putout/operator-jsx: removeClassName: middle
+- 3bd8dd428 @putout/operator-jsx: removeClassName: space
+
+feature:
+- 13f36e88b putout: @putout/plugin-convert-object-assign-to-merge-spread v7.0.0
+- 6b9b30bb8 @putout/plugin-convert-object-assign-to-merge-spread: drop support of 🐊 < 40
+- cdbed49da @putout/plugin-convert-object-assign-to-merge-spread: spead -> spread
+- 038df3bc5 @putout/eslint-flat: @eslint/config-helpers v0.4.0
+- 2a15e9f31 @putout/plugin-nodejs: declare: timers: add
+- 195a5d295 @putout/plugin-nodejs: declare: prefix node
+- 1b3073b21 @putout/plugin-tape: convert-called-with-no-args-to-called-with: second arg object
+- 0445129a1 @putout/engine-reporter: @putout/cli-choose-formatter v5.0.1
+- 6849754ae @putout/processor-typescript: ts-morph v27.0.0
+- b10b7459c @putout/plugin-putout: declare: addAttribute: add
+- e913c1e73 @putout/operator-jsx: addAttribute
+
 2025.09.18, v40.9.0
 
 feature:
