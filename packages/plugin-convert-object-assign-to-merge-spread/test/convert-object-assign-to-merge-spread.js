@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertObjectAssignToMergeSpread from '../lib/convert-object-assign-to-merge-spread.js';
 
-const {createTest} = require('@putout/test');
-const convertObjectAssignToMergeSpread = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-object-assign-to-merge-spread', convertObjectAssignToMergeSpread],
     ],

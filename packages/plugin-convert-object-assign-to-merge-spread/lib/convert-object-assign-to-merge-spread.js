@@ -1,6 +1,5 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {
     objectExpression,
     isObjectExpression,
@@ -10,9 +9,9 @@ const {
 
 const {compare, replaceWith} = operator;
 
-module.exports.report = () => `Use merge spread instead of 'Object.assign()'`;
+export const report = () => `Use merge spread instead of 'Object.assign()'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     let properties = [];
     const args = path.node.arguments;
     
@@ -28,15 +27,15 @@ module.exports.fix = (path) => {
     replaceWith(path, objectExpression(properties));
 };
 
-module.exports.include = () => [
+export const include = () => [
     'Object.assign(__args)',
 ];
 
-module.exports.exclude = () => [
+export const exclude = () => [
     'Object.assign({}, __)',
 ];
 
-module.exports.filter = ({node}) => {
+export const filter = ({node}) => {
     const [first] = node.arguments;
     
     if (!compare(first, '__object'))
