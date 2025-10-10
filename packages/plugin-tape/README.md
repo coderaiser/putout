@@ -47,7 +47,7 @@ npm i @putout/plugin-tape -D
 - ✅ [remove-default-messages](#remove-default-messages);
 - ✅ [remove-only](#remove-only);
 - ✅ [remove-skip](#remove-skip);
-- ✅ [remove-stop-all](# [remove-stop-all);
+- ✅ [remove-stop-all](#remove-stop-all);
 - ✅ [remove-useless-not-called-args](#remove-useless-not-called-args);
 - ✅ [remove-useless-t-end](#remove-useless-t-end);
 - ✅ [switch-expected-with-result](#switch-expected-with-result);
