@@ -11,7 +11,7 @@ const {getExportDefault} = require('./get-export-default');
 
 const {traverse} = operator;
 
-test('operate: getExportDefault', (t) => {
+test('operate: getExportDefault: found', (t) => {
     const ast = parse(`export default {}`);
     
     traverse(ast, {

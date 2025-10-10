@@ -27,7 +27,7 @@ const output = JSON.stringify(result, null, 4) + '\n';
 
 if (outputFile) {
     await writeFile(outputFile, output);
-    process.stdout.write(`✅ ${name}: ${path}: ${outputFile}: updated seccessfully\n`);
+    process.stdout.write(`✅ ${name}: ${path}: ${outputFile}: updated successfully\n`);
     process.exit(0);
 }
 

@@ -644,49 +644,49 @@ test('operate: getPathAfterImports: couple imports', (t) => {
     t.end();
 });
 
-test('opreate: getBinding', (t) => {
+test('operate: getBinding', (t) => {
     const {getBinding} = require('../lib/get-binding');
     
     t.equal(operate.getBinding, getBinding);
     t.end();
 });
 
-test('opreate: getBindingPath', (t) => {
+test('operate: getBindingPath', (t) => {
     const {getBindingPath} = require('../lib/get-binding');
     
     t.equal(operate.getBindingPath, getBindingPath);
     t.end();
 });
 
-test('opreate: extract', (t) => {
+test('operate: extract', (t) => {
     const {extract} = require('../lib/extract');
     
     t.equal(operate.extract, extract);
     t.end();
 });
 
-test('opreate: compute', (t) => {
+test('operate: compute', (t) => {
     const {compute} = require('../lib/compute');
     
     t.equal(operate.compute, compute);
     t.end();
 });
 
-test('opreate: getProperties', (t) => {
+test('operate: getProperties', (t) => {
     const {getProperties} = require('../lib/properties');
     
     t.equal(operate.getProperties, getProperties);
     t.end();
 });
 
-test('opreate: getProperty', (t) => {
+test('operate: getProperty', (t) => {
     const {getProperty} = require('../lib/properties');
     
     t.equal(operate.getProperty, getProperty);
     t.end();
 });
 
-test('opreate: getExportDefault', (t) => {
+test('operate: getExportDefault', (t) => {
     const {getExportDefault} = require('../lib/get-export-default');
     
     t.equal(operate.getExportDefault, getExportDefault);

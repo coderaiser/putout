@@ -26,7 +26,7 @@ const output = `export default ${JSON.stringify(result, null, 4) + '\n'}`;
 
 if (outputFile) {
     await writeFile(outputFile, output);
-    process.stdout.write(`✅ ${name}: ${outputFile}: updated seccessfully\n`);
+    process.stdout.write(`✅ ${name}: ${outputFile}: updated successfully\n`);
     process.exit(0);
 }
 

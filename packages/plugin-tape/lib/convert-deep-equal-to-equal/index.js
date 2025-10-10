@@ -20,7 +20,7 @@ export const report = (path) => {
     if (args.length === 2)
         return `Use 't.equal(${args[0]}, ${args[1]})' instead of '${path}' when comparing with primitive`;
     
-    return `Use 't.equal(${args[0]}, ${args[1]}, ${args[2]})' instead of '${path} when comparin with primitive'`;
+    return `Use 't.equal(${args[0]}, ${args[1]}, ${args[2]})' instead of '${path} when comparing with primitive'`;
 };
 
 const check = ({__b}, path) => {

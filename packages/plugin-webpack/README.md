@@ -30,7 +30,7 @@ npm i @putout/plugin-webpack -D
 
 ## convert-loader-to-use
 
-Fixes webpack comilation error: `Compiling RuleSet failed: Exclamation mark separated loader lists has been removed in favor of the 'use' property with arrays (at ruleSet[1].rules[1].loader: style-loader!css-loader!clean-css-loader)`
+Fixes webpack compilation error: `Compiling RuleSet failed: Exclamation mark separated loader lists has been removed in favor of the 'use' property with arrays (at ruleSet[1].rules[1].loader: style-loader!css-loader!clean-css-loader)`
 
 ### ❌ Example of incorrect code
 
@@ -56,7 +56,7 @@ const rules = [{
 
 ## convert-query-loader-to-use
 
-Fixes webpack comilation error: `Compiling RuleSet failed: Query arguments on 'loader' has been removed in favor of the 'options' property`.
+Fixes webpack compilation error: `Compiling RuleSet failed: Query arguments on 'loader' has been removed in favor of the 'options' property`.
 
 ### ❌ Example of incorrect code
 
@@ -83,7 +83,7 @@ const rules = [{
 
 ## convert-node-to-resolve-fallback
 
-Fixes webpack comilation error:
+Fixes webpack compilation error:
 
 ```
 Module not found: Error: Can't resolve 'path'`
@@ -116,7 +116,7 @@ module.exports = {
 
 ## convert-externals
 
-Fixes webpack comilation error:
+Fixes webpack compilation error:
 
 ```
 [DEP_WEBPACK_EXTERNALS_FUNCTION_PARAMETERS] DeprecationWarning: The externals-function should be defined like ({context, request}, cb) => { ... }

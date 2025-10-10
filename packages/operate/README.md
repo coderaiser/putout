@@ -13,7 +13,7 @@ Manipulate with `path` nodes and keep `comments` and `loc` information.
 npm i @putout/operate
 ```
 
-If you write plugin for `putout` you already have `operator` in `putout`, all exampes will get `operator` from `putout`, but you can use direct `require('@putout/operate')` as well.
+If you write plugin for `putout` you already have `operator` in `putout`, all examples will get `operator` from `putout`, but you can use direct `require('@putout/operate')` as well.
 
 ## API
 

@@ -258,7 +258,7 @@ function say(...vegatables) {}
 
 "Tell me please something about it!".
 
-"Well, **SpreadElement** takes any [**Expression**](#expression-and-statement) as an `argument`, and takes items that metters from `animals` and put them to `funny`, or call a **FunctionExpression** `say` and passing `vegatables` as an `arguments`. It can even collect all `arguments` into a variable `vegatable` with help of **RestElement**.
+"Well, **SpreadElement** takes any [**Expression**](#expression-and-statement) as an `argument`, and takes items that metters from `animals` and put them to `funny`, or call a **FunctionExpression** `say` and passing `vegatables` as an `arguments`. It can even collect all `arguments` into a variable `vegetable` with help of **RestElement**.
 "Nice!", said Rabbit keeping eating carrots, "Now things got more clear to me! Take a carrot, friend, they so sweet I can't break away!".
 
 "Thank you to, Rabbit", Putout answered and take carrot, he loved fruits and vegatables and was always happy to eat it.

@@ -61,7 +61,7 @@ npm i @putout/plugin-for-of
 >
 > (c) MDN
 
-Chechout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/68d114f01384084cc3bec0a5d75f2dfa/0bb5201d36ed27f74728921aca95a04efa35c82d).
+Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/68d114f01384084cc3bec0a5d75f2dfa/0bb5201d36ed27f74728921aca95a04efa35c82d).
 
 ### ❌ Example of incorrect code
 

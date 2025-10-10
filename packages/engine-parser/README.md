@@ -47,7 +47,7 @@ const code = print(ast, {
 
 print(ast, {
     printer: ['babel', {
-        alginSpaces: false, // when you don't want to add spaces on empty lines
+        alignSpaces: false, // when you don't want to add spaces on empty lines
     }],
 });
 ```
