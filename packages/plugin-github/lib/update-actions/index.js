@@ -5,7 +5,7 @@ export const {
     fix,
     traverse,
 } = updateActions({
-    'actions/checkout': 'v4',
+    'actions/checkout': 'v5',
     'actions/cache': 'v4',
     'actions/setup-node': 'v4',
     'docker/setup-buildx-action': 'v3',
