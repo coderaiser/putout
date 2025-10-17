@@ -1,3 +1,15 @@
+2025.10.17, v40.11.0
+
+feature:
+- d64c3c754 putout: @putout/cli-cache v6.0.0
+- 2e89f7b03 @putout/cli-cache: drop support of node < 20
+- 1fbe5909a putout: @putout/plugin-github v17.0.0
+- 02a2ec796 @putout/plugin-github: set-node-versions: improve
+- dc0a7efb8 putout: github: set-node-versions: v25 (https://nodejs.org/en/blog/release/v25.0.0)
+- b0d89c8f3 @putout/cli-cache: file-entry-cache v11.1.0
+- 929317c78 @putout/plugin-github: set-node-version: v25
+- c83b90943 @putout/plugin-convert-object-assign-to-merge-spread v7.0.0
+
 2025.10.09, v40.10.0
 
 fix:
