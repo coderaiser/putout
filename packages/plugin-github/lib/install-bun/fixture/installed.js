@@ -5,7 +5,7 @@ __putout_processor_yaml({
         "build": {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": "actions/checkout@v4"
+                "uses": "actions/checkout@v1"
             }, {
                 "uses": "oven-sh/setup-bun@v2",
                 "with": {
@@ -13,13 +13,13 @@ __putout_processor_yaml({
                 }
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
-                "uses": "actions/setup-node@v4",
+                "uses": "actions/setup-node@v1",
                 "with": {
                     "node-version": "${{ matrix.node-version }}"
                 }
             }, {
                 "name": "Install Redrun",
-                "run": "bun i redrun -g --no-save"
+                "run": "npm i redrun -g"
             }]
         }
     }
@@ -32,21 +32,21 @@ __putout_processor_yaml({
         "build": {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": "actions/checkout@v4"
+                "uses": "actions/checkout@v1"
             }, {
-                "uses": "oven-sh/setup-bun@v2",
+                "uses": "oven-sh/setup-bun@v1",
                 "with": {
                     "bun-version": "latest"
                 }
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
-                "uses": "actions/setup-node@v4",
+                "uses": "actions/setup-node@v1",
                 "with": {
                     "node-version": "${{ matrix.node-version }}"
                 }
             }, {
                 "name": "Install Redrun",
-                "run": "bun i redrun -g --no-save"
+                "run": "npm i redrun -g"
             }]
         }
     }

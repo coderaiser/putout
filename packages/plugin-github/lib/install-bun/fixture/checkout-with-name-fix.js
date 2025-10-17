@@ -8,7 +8,7 @@ __putout_processor_yaml({
                 "name": "Checkout",
                 "uses": "actions/checkout@v1"
             }, {
-                "uses": "oven-sh/setup-bun@v1",
+                "uses": "oven-sh/setup-bun@v2",
                 "with": {
                     "bun-version": "latest"
                 }

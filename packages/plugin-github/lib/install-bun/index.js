@@ -6,10 +6,10 @@ const {
     __yaml,
 } = operator;
 
-const BUN_USES = 'oven-sh/setup-bun@v1';
+const BUN_USES = 'oven-sh/setup-bun';
 
 const BUN = template.ast(`({
-    "uses": "${BUN_USES}",
+    "uses": "${BUN_USES}@v2",
     "with": {
         "bun-version": "latest"
     }

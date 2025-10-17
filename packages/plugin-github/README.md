@@ -200,7 +200,7 @@ steps:
     uses: actions/setup-node@v3
     with:
       node-version: ${{ matrix.node-version }}
-+  - uses: oven-sh/setup-bun@v1
++  - uses: oven-sh/setup-bun@v2
 +    with:
 +      bun-version: latest
 ```
