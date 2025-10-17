@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "escalade": "^3.2.0",
-    "file-entry-cache": "^10.0.2",
+    "file-entry-cache": "^11.1.0",
     "find-cache-dir": "^5.0.0",
     "imurmurhash": "^0.1.4",
     "json-stable-stringify-without-jsonify": "^1.0.1",
