@@ -32,6 +32,16 @@ test('plugin-github: set node versions: no transform: no-version', (t) => {
     t.end();
 });
 
+test('plugin-github: set node versions: transform: overlap', (t) => {
+    t.transform('overlap');
+    t.end();
+});
+
+test('plugin-github: set node versions: report: overlap', (t) => {
+    t.report('overlap', ['Use latest version of node']);
+    t.end();
+});
+
 test('plugin-github: set node versions: no report with options: intersects', (t) => {
     t.noReportWithOptions('intersects', {
         versions: ['24.x'],

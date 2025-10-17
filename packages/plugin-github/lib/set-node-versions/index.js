@@ -38,6 +38,7 @@ export const traverse = ({push, options}) => ({
         const {__object} = getTemplateValues(path, __yaml);
         
         for (const nodeVersionPath of traverseProperties(__object, 'node-version')) {
+            let is = false;
             const valueStr = nodeVersionPath.get('value').toString();
             
             const versions = parse(valueStr);
@@ -54,12 +55,15 @@ export const traverse = ({push, options}) => ({
                 for (const currentVersion of versions) {
                     const [current] = currentVersion.split('.');
                     
-                    if (current === nodeVersion)
-                        return;
+                    if (current !== nodeVersion) {
+                        is = true;
+                        break;
+                    }
                 }
             }
             
-            push(nodeVersionPath.get('value'));
+            if (is)
+                push(nodeVersionPath.get('value'));
         }
     },
 });
