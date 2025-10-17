@@ -175,6 +175,14 @@ You can override versions with:
 +      uses: EndBug/add-and-commit@v9
 ```
 
+`oven-sh/setup-bun@v1`:
+
+```diff
+  steps:
+-      uses: oven-sh/setup-bun@v1
++      uses: oven-sh/setup-bun@v2
+```
+
 ## install-bun
 
 > Bun is an all-in-one toolkit for JavaScript and TypeScript apps. It ships as a single executable called bun.
@@ -234,5 +242,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e03cc6ff4d
 -    run: npm install
 +    run: bun i --no-save
 ```
+
+## License
 
 MIT

@@ -14,4 +14,5 @@ export const {
     'docker/setup-qemu-action': 'v3',
     'coverallsapp/github-action': 'v2',
     'EndBug/add-and-commit': 'v9',
+    'oven-sh/setup-bun': 'v2',
 });

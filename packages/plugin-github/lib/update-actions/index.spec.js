@@ -27,6 +27,11 @@ test('plugin-github: update-actions: transform: cache', (t) => {
     t.end();
 });
 
+test('plugin-github: update-actions: transform: bun', (t) => {
+    t.transform('bun');
+    t.end();
+});
+
 test('plugin-github: update-actions: transform with options: options', (t) => {
     t.transformWithOptions('options', {
         actions: {
