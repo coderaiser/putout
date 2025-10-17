@@ -125,7 +125,7 @@
     "@putout/plugin-filesystem": "^11.0.0",
     "@putout/plugin-for-of": "^9.0.0",
     "@putout/plugin-generators": "^2.0.0",
-    "@putout/plugin-github": "^16.0.0",
+    "@putout/plugin-github": "^17.0.0",
     "@putout/plugin-gitignore": "^6.0.0",
     "@putout/plugin-labels": "^2.0.0",
     "@putout/plugin-logical-expressions": "^8.0.0",
