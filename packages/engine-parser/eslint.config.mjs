@@ -7,4 +7,8 @@ export const match = {
         'n/no-unpublished-require': 'off',
     },
 };
-export default defineConfig([safeAlign, matchToFlat(match)]);
+
+export default defineConfig([
+    safeAlign,
+    matchToFlat(match),
+]);
