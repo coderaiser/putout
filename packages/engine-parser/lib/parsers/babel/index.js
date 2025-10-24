@@ -23,7 +23,6 @@ module.exports.parse = function babelParse(source, overrides) {
     const parserOptions = {
         sourceFileName,
         sourceType: 'module',
-        tokens: true,
         ...options,
         errorRecovery: isRecovery,
         plugins: clean([
@@ -39,6 +38,7 @@ module.exports.parse = function babelParse(source, overrides) {
     if (printer === 'babel')
         assign(parserOptions, {
             createParenthesizedExpressions: true,
+            tokens: true,
         });
     
     const ast = parse(source, parserOptions);

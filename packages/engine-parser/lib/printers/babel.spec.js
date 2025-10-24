@@ -26,7 +26,9 @@ test('putout: parser: print: printer: babel: preserve format', (t) => {
         }\n
     `;
     
-    const ast = parse(source);
+    const ast = parse(source, {
+        printer: 'babel',
+    });
     
     const result = print(ast, {
         printer: 'babel',
@@ -55,7 +57,9 @@ test('putout: parser: print: printer: babel: preserve format: trim', (t) => {
         }\n
     `;
     
-    const ast = parse(source);
+    const ast = parse(source, {
+        printer: 'babel',
+    });
     
     transform(ast, source, {
         plugins: ['remove-unused-variables'],
@@ -80,7 +84,9 @@ test('putout: parser: print: printer: babel: preserve format: align-spaces: off'
         }
     `;
     
-    const ast = parse(source);
+    const ast = parse(source, {
+        printer: 'babel',
+    });
     
     transform(ast, source, {
         plugins: ['remove-unused-variables'],
@@ -115,6 +121,7 @@ test('putout: parser: print: printer: babel: preserve format: parens: parser: no
     `;
     
     const ast = parse(source, {
+        printer: 'babel',
         isTS: true,
     });
     
