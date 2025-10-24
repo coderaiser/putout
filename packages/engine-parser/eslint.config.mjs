@@ -8,7 +8,4 @@ export const match = {
     },
 };
 
-export default defineConfig([
-    safeAlign,
-    matchToFlat(match),
-]);
+export default defineConfig([safeAlign, matchToFlat(match)]);
