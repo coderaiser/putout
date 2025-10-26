@@ -5,21 +5,20 @@ const {join} = require('node:path');
 const fs = require('node:fs');
 
 const {stub} = require('supertape');
-const {reRequire} = require('mock-require');
 
 const {createUpdate} = require('./update');
-const {writeFileSync} = fs;
 
 fs.writeFileSync = stub();
-const update = createUpdate();
+
+const test = require('..')(__dirname, {
+    'remove-console': require('@putout/plugin-remove-console'),
+});
 
 const NO_CHECK_ASSERTIONS_COUNT = {
     checkAssertionsCount: false,
 };
-
-const test = reRequire('..')(__dirname, {
-    'remove-console': require('@putout/plugin-remove-console'),
-});
+const update = createUpdate();
+const {writeFileSync} = fs;
 
 test('transform: input and output are equal', (t) => {
     const fail = stub().returns({
