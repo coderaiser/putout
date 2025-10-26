@@ -92,7 +92,7 @@ If you want to override `type` to avoid detecting, set it to `esm|commonjs`:
 - ✅ [declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme)
 - ✅ [tape/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#declare)
 - ✅ [putout/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-putout#declare)
-- ✅ [nodejs/declare](https://github.com/coderaiser/putout/blob/master/packages/plugin-montag/#declare)
+- ✅ [nodejs/declare](https://github.com/coderaiser/putout/blob/master/packages/plugin-nodejs/#declare)
 - ✅ [react-hooks/declare](https://github.com/coderaiser/putout/blob/master/packages/plugin-react-hooks/README.md#declare)
 - ✅ [try-catch/declare](https://github.com/coderaiser/putout/blob/master/packages/plugin-try-catch/#declare)
 - ✅ [montag/declare](https://github.com/coderaiser/putout/blob/master/packages/plugin-montag/#declare)
