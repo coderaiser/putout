@@ -17,6 +17,7 @@ const test = require('..')(__dirname, {
 const NO_CHECK_ASSERTIONS_COUNT = {
     checkAssertionsCount: false,
 };
+
 const update = createUpdate();
 const {writeFileSync} = fs;
 
