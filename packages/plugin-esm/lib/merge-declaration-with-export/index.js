@@ -5,6 +5,7 @@ const {
     replaceWith,
     compare,
 } = operator;
+
 const {
     variableDeclaration,
     isVariableDeclarator,
