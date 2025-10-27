@@ -34,6 +34,11 @@ test('esm: inline-export: no report: rename', (t) => {
     t.end();
 });
 
+test('esm: inline-export: no report: require', (t) => {
+    t.noReport('require');
+    t.end();
+});
+
 test('esm: inline-export: transform: apply-export-from', (t) => {
     t.transform('apply-export-from', {
         applyExportFrom,
