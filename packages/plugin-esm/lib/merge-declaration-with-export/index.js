@@ -1,6 +1,10 @@
 import {types, operator} from 'putout';
 
-const {remove, replaceWith} = operator;
+const {
+    remove,
+    replaceWith,
+    compare,
+} = operator;
 const {
     variableDeclaration,
     isVariableDeclarator,
@@ -41,6 +45,9 @@ export const filter = (path) => {
             return false;
         
         if (isImportDefaultSpecifier(bindingPath))
+            return false;
+        
+        if (compare(bindingPath, 'const __a = require(__b)'))
             return false;
     }
     
