@@ -10,7 +10,12 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-array-copy-to-slice: report: spread', (t) => {
-    t.report('spread', 'Array should be copied using slice');
+    t.report('spread', `Copy array with '.slice()'`);
+    t.end();
+});
+
+test('plugin-convert-array-copy-to-slice: no report: ternary', (t) => {
+    t.noReport('ternary');
     t.end();
 });
 

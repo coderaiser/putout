@@ -9,11 +9,12 @@ const {
 
 const {compare} = operator;
 
-module.exports.report = () => `Array should be copied using slice`;
+module.exports.report = () => `Copy array with '.slice()'`;
 
 module.exports.exclude = () => [
     '[...new Set(__a)]',
     'new Set([...__a])',
+    '[...(__a ? __b : __c)]',
 ];
 
 module.exports.match = () => ({
