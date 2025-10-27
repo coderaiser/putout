@@ -42,6 +42,7 @@
     "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-declare": "*",
     "@putout/plugin-declare-before-reference": "*",
+    "@putout/plugin-esm": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-reuse-duplicate-init": "*",
     "@putout/plugin-typescript": "*",

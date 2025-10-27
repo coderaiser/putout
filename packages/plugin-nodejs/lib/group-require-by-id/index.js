@@ -1,5 +1,7 @@
 import {isDeepStrictEqual} from 'node:util';
-import {operator} from 'putout';
+import {operator, types} from 'putout';
+
+const {isVariableDeclaration} = types;
 
 const {
     replaceWithMultiple,
@@ -36,7 +38,7 @@ export const traverse = ({pathStore, push}) => ({
             const external = [];
             const internal = [];
             const builtin = [];
-            const all = pathStore();
+            const all = pathStore().filter(isVariableDeclaration);
             
             for (const current of all) {
                 const [declaration] = current.node.declarations;
