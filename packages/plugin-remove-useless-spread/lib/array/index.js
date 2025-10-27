@@ -30,6 +30,7 @@ export const match = () => ({
 });
 
 export const replace = () => ({
+    '[...(__a ? __b : __c)]': '__a ? __b : __c',
     '[...Array(__a)]': 'Array(__a)',
     'for (const __a of [...__b]) __c': 'for (const __a of __b) __c',
     'Array.from([...__a])': 'Array.from(__a)',

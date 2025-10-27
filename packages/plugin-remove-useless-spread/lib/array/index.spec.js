@@ -57,6 +57,11 @@ test('plugin-remove-useless-spread: array: transform: set', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-spread: array: transform: ternary', (t) => {
+    t.transform('ternary');
+    t.end();
+});
+
 test('plugin-remove-useless-spread: array: no transform: values', (t) => {
     t.noTransform('values');
     t.end();
