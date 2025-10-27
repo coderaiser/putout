@@ -1,3 +1,18 @@
+2025.10.27, v40.12.0
+
+feature:
+- a6bdae7aa putout: @putout/plugin-convert-array-copy-to-slice v4.0.0
+- 386ef04d7 @putout/plugin-convert-array-copy-to-slice: drop support of 🐊 < 40
+- 30cec8e4f @putout/plugin-convert-array-copy-to-slice: exclude ternary
+- 2f08e264b @putout/plugin-remove-useless-spread: array: ternary
+- fa9e004ff @putout/plugin-esm: merge-declaration-with-export: exclude: require
+- bf9521819 @putout/plugin-nodejs: group-require-by-id: esm/merge-declaration-with-export: improve support
+- dc8b16b5d @putout/engine-parser: do not produce tokens without a need
+- b19a9ef4d @putout/plugin-github: setup-node: v6
+- beceab4b0 @putout/plugin-github: update-actions: checkout: v5
+- 0eecd1c21 @putout/plugin-github: install-bun: update to v2
+- e9aee85e1 @putout/plugin-github: update-actions: oven-sh/setup-bun
+
 2025.10.17, v40.11.0
 
 feature:
