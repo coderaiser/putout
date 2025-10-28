@@ -119,7 +119,12 @@ function isTakesOneLine(binding) {
     if (!binding.path.node.init)
         return false;
     
-    const {start, end} = binding.path.node.init.loc;
+    const {loc} = binding.path.node.init;
+    
+    if (!loc)
+        return false;
+    
+    const {start, end} = loc;
     
     return start.line === end.line;
 }

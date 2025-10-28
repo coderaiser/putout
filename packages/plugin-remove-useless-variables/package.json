@@ -36,6 +36,8 @@
   ],
   "devDependencies": {
     "@putout/eslint-flat": "^3.0.0",
+    "@putout/plugin-declare": "*",
+    "@putout/plugin-maybe": "*",
     "@putout/plugin-remove-useless-array-from": "*",
     "@putout/plugin-reuse-duplicate-init": "*",
     "@putout/test": "^14.0.0",

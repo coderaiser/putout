@@ -1,4 +1,6 @@
 import {createTest} from '@putout/test';
+import * as declare from '@putout/plugin-declare';
+import * as maybe from '@putout/plugin-maybe';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -101,5 +103,13 @@ test('remove useless variables: declaration: no transform: re-assign', (t) => {
 
 test('remove useless variables: declaration: no transform: re-assign-member', (t) => {
     t.noTransform('re-assign-member');
+    t.end();
+});
+
+test('remove useless variables: declaration: transform: no-loc', (t) => {
+    t.transform('no-loc', {
+        declare,
+        maybe,
+    });
     t.end();
 });
