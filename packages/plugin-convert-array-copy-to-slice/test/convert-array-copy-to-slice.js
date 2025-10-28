@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertArrayCopyToSlice from '../lib/convert-array-copy-to-slice.js';
 
-const {createTest} = require('@putout/test');
-const convertArrayCopyToSlice = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-array-copy-to-slice', convertArrayCopyToSlice],
     ],

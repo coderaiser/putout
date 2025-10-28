@@ -1,6 +1,4 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {types, operator} from 'putout';
 
 const {
     isIdentifier,
@@ -9,15 +7,15 @@ const {
 
 const {compare} = operator;
 
-module.exports.report = () => `Copy array with '.slice()'`;
+export const report = () => `Copy array with '.slice()'`;
 
-module.exports.exclude = () => [
+export const exclude = () => [
     '[...new Set(__a)]',
     'new Set([...__a])',
     '[...(__a ? __b : __c)]',
 ];
 
-module.exports.match = () => ({
+export const match = () => ({
     '[...__a]': ({__a}, path) => {
         if (isCallExpression(__a))
             return false;
@@ -36,7 +34,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '[...__a]': '__a.slice()',
     '__a.map((a) => a)': '__a.slice()',
 });
