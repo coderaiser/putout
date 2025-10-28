@@ -72,6 +72,11 @@ test('remove duplicate-keys: no report: object-pattern-rename', (t) => {
     t.end();
 });
 
+test('remove duplicate-keys: no report: call', (t) => {
+    t.noReport('call');
+    t.end();
+});
+
 test('remove duplicate-keys: no report: object-pattern-nested', (t) => {
     t.noReport('object-pattern-nested');
     t.end();

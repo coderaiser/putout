@@ -13,6 +13,7 @@ const {
     isObjectProperty,
     isStringLiteral,
     isObjectPattern,
+    isCallExpression,
 } = types;
 
 const isSpreadId = (name) => (a) => isSpreadElement(a) && isIdentifier(a.argument, {
@@ -94,6 +95,9 @@ export const traverse = ({push}) => ({
             }
             
             if (isObjectProperty(prop) && isMemberExpression(prop.key)) {
+                if (isCallExpression(prop.key.object))
+                    continue;
+                
                 const {computed} = prop;
                 const name = extract(prop.key);
                 
