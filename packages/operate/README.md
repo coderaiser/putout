@@ -86,6 +86,7 @@ Extract node value according to it's type::
 - if it is `TSTypeParameter` return `name`;
 - if it is `MemberExpression` return `object.property`;
 - if it is `ArrayExpression` return `element1,element2,...,elementN`;
+- if it is `TSAsExpression` return `key.expression`;
 - `throw` in other cases
 
 ### `insertAfter(path, node)`

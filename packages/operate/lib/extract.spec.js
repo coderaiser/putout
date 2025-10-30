@@ -2,6 +2,7 @@
 
 const tryCatch = require('try-catch');
 const {test} = require('supertape');
+const {parse} = require('putout');
 
 const {extract} = require('./extract');
 
@@ -248,8 +249,28 @@ test('operate: extract: unknown', (t) => {
     };
     
     const [error] = tryCatch(extract, node);
-    const expected = `'operator.extract(node)' understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, ArrayExpression, MemberExpression, JSXIdentifier, JSXAttribute, JSXText, TSTypeParameter and TSTypeReference🤷, found: UnknownStatement`;
+    const expected = `'operator.extract(node)' understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, ArrayExpression, MemberExpression, JSXIdentifier, JSXAttribute, JSXText, TSTypeParameter, TSAsExpression and TSTypeReference🤷, found: UnknownStatement`;
     
     t.equal(error.message, expected);
+    t.end();
+});
+
+test('operate: extract: TSAsExpression', (t) => {
+    const source = `
+        const a = {
+            [x as keyof typeof y]: 1,
+        };
+    `;
+    
+    const ast = parse(source, {
+        isTS: true,
+    });
+    
+    const {key} = ast.program.body[0].declarations[0].init.properties[0];
+    
+    const result = extract(key);
+    const expected = 'x';
+    
+    t.equal(result, expected);
     t.end();
 });
