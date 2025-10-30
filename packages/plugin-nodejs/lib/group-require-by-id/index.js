@@ -1,12 +1,16 @@
 import {isDeepStrictEqual} from 'node:util';
-import {operator, types} from 'putout';
-
-const {isVariableDeclaration} = types;
+import {operator} from 'putout';
 
 const {
     replaceWithMultiple,
     remove,
+    compare,
 } = operator;
+
+const REQUIRE = 'const __ = require(__)';
+
+const compareWith = (a) => (b) => compare(b, a);
+const compareWithRequire = compareWith(REQUIRE);
 
 export const report = () => 'Group require by id';
 
@@ -27,18 +31,18 @@ export const fix = ({grouped}) => {
 };
 
 export const traverse = ({pathStore, push}) => ({
-    'const __ = require(__)': (path) => {
+    [REQUIRE]: (path) => {
         if (!path.parentPath.isProgram())
             return;
         
         pathStore(path);
     },
-    'Program': {
+    Program: {
         exit(path) {
             const external = [];
             const internal = [];
             const builtin = [];
-            const all = pathStore().filter(isVariableDeclaration);
+            const all = pathStore().filter(compareWithRequire);
             
             for (const current of all) {
                 const [declaration] = current.node.declarations;

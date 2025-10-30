@@ -54,6 +54,20 @@ test('nodejs: group-require-by-id: merge-declaration-with-export', (t) => {
     t.end();
 });
 
+test('nodejs: group-require-by-id: no-argument', (t) => {
+    const replacer = {
+        report: () => `Replace`,
+        replace: () => ({
+            'const __a = require(__b)': 'const __a = () => {}',
+        }),
+    };
+    
+    t.transform('no-argument', {
+        replacer,
+    });
+    t.end();
+});
+
 test('nodejs: group-require-by-id: merge', (t) => {
     const merge = {
         report: () => `Inline export`,
