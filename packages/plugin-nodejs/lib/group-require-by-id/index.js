@@ -30,50 +30,45 @@ export const fix = ({grouped}) => {
     replaceWithMultiple(first, nodes);
 };
 
-export const traverse = ({pathStore, push}) => ({
-    [REQUIRE]: (path) => {
-        if (!path.parentPath.isProgram())
+export const traverse = ({push}) => ({
+    Program(path) {
+        const external = [];
+        const internal = [];
+        const builtin = [];
+        const all = path.get('body').filter(compareWithRequire);
+        
+        if (!all.length)
             return;
         
-        pathStore(path);
-    },
-    Program: {
-        exit(path) {
-            const external = [];
-            const internal = [];
-            const builtin = [];
-            const all = pathStore().filter(compareWithRequire);
+        for (const current of all) {
+            const [declaration] = current.node.declarations;
+            const {value} = declaration.init.arguments[0];
             
-            for (const current of all) {
-                const [declaration] = current.node.declarations;
-                const {value} = declaration.init.arguments[0];
-                
-                if (!value || value.startsWith('.')) {
-                    internal.push(current);
-                    continue;
-                }
-                
-                if (value.startsWith('node:')) {
-                    builtin.push(current);
-                    continue;
-                }
-                
-                external.push(current);
+            if (!value || value.startsWith('.')) {
+                internal.push(current);
+                continue;
             }
             
-            const grouped = [
-                ...builtin,
-                ...external,
-                ...internal,
-            ];
+            if (value.startsWith('node:')) {
+                builtin.push(current);
+                continue;
+            }
             
-            if (isDeepStrictEqual(all, grouped))
-                return;
-            
-            push({
-                path,
-                grouped,
-            });
-        },
+            external.push(current);
+        }
+        
+        const grouped = [
+            ...builtin,
+            ...external,
+            ...internal,
+        ];
+        
+        if (isDeepStrictEqual(all, grouped))
+            return;
+        
+        push({
+            path,
+            grouped,
+        });
     },
 });
