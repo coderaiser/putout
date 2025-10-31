@@ -4,4 +4,10 @@ const {
     },
 } = abc;
 
+const {
+    hello: {
+        m = {},
+    },
+} = abc;
+
 const hello = 'world';

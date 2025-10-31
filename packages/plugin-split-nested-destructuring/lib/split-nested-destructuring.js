@@ -15,6 +15,7 @@ export const report = () => 'Avoid nested destructuring';
 export const match = () => ({
     'const {__a: {__b}} = __c': matchConst,
     'const {__a: {__b: __c}} = __d': matchConst,
+    'const {__a: {__b = __c}} = __d': matchConst,
 });
 
 export const replace = () => ({
