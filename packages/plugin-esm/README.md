@@ -20,6 +20,7 @@ npm i putout @putout/plugin-esm -D
 
 - ✅ [add-index-to-import](#add-index-to-import);
 - ✅ [apply-export-from](#apply-export-from);
+- ✅ [convert-assert-to-with](#convert-assert-to-with);
 - ✅ [declare-imports-first](#declare-imports-first);
 - ✅ [group-imports-by-source](#group-imports-by-source);
 - ✅ [merge-duplicate-imports](#merge-duplicate-imports);
