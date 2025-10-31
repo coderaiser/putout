@@ -70,8 +70,8 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b7c4897107
 #### ❌ Example of incorrect code
 
 ```js
-import insertRust from './insert-rust.js';
-import addAction from './add-action.js';
+import insertRust from './insert-rust';
+import addAction from './add-action';
 
 export const rules = {};
 ```
