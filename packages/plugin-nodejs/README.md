@@ -19,7 +19,7 @@ npm i putout @putout/plugin-nodejs -D
 
 - ✅ [add-node-prefix](#add-node-prefix);
 - ✅ [add-missing-strict-mode](#add-missing-strict-mode);
-- ✅ [convert-buffer-to-buffer-alloc](#convert-buffer-to-buffer-alloc); 
+- ✅ [convert-buffer-to-buffer-alloc](#convert-buffer-to-buffer-alloc);
 - ✅ [convert-commonjs-to-esm](#convert-commonjs-to-esm);
 - ✅ [convert-dirname-to-url](#convert-dirname-to-url);
 - ✅ [convert-esm-to-commonjs](#convert-esm-to-commonjs);
