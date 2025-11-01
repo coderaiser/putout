@@ -1,5 +1,7 @@
 const {maxElementsInOneLine} = options;
 
-const {[maxElementsInOneLine]: a} = {
+const {
+    [maxElementsInOneLine]: a,
+} = {
     options,
 };
