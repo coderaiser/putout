@@ -23,54 +23,51 @@ export const fix = ({grouped}) => {
     replaceWithMultiple(first, nodes);
 };
 
-export const traverse = ({pathStore, push}) => ({
-    ImportDeclaration: pathStore,
-    Program: {
-        exit(path) {
-            const external = [];
-            const internal = [];
-            const builtin = [];
-            const hashed = [];
-            const all = pathStore().filter(isImportDeclaration);
+export const traverse = ({push}) => ({
+    Program(path) {
+        const external = [];
+        const internal = [];
+        const builtin = [];
+        const hashed = [];
+        const all = path.get('body').filter(isImportDeclaration);
+        
+        if (!all.length)
+            return;
+        
+        for (const current of all) {
+            const {value} = current.node.source;
             
-            if (!all.length)
-                return;
-            
-            for (const current of all) {
-                const {value} = current.node.source;
-                
-                if (value.startsWith('.')) {
-                    internal.push(current);
-                    continue;
-                }
-                
-                if (value.startsWith('node:')) {
-                    builtin.push(current);
-                    continue;
-                }
-                
-                if (value.startsWith('#')) {
-                    hashed.push(current);
-                    continue;
-                }
-                
-                external.push(current);
+            if (value.startsWith('.')) {
+                internal.push(current);
+                continue;
             }
             
-            const grouped = [
-                ...builtin,
-                ...external,
-                ...hashed,
-                ...internal,
-            ];
+            if (value.startsWith('node:')) {
+                builtin.push(current);
+                continue;
+            }
             
-            if (isDeepStrictEqual(all, grouped))
-                return;
+            if (value.startsWith('#')) {
+                hashed.push(current);
+                continue;
+            }
             
-            push({
-                path,
-                grouped,
-            });
-        },
+            external.push(current);
+        }
+        
+        const grouped = [
+            ...builtin,
+            ...external,
+            ...hashed,
+            ...internal,
+        ];
+        
+        if (isDeepStrictEqual(all, grouped))
+            return;
+        
+        push({
+            path,
+            grouped,
+        });
     },
 });
