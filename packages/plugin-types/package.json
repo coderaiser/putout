@@ -32,6 +32,7 @@
   ],
   "devDependencies": {
     "@putout/eslint-flat": "^3.0.0",
+    "@putout/plugin-declare-before-reference": "*",
     "@putout/plugin-putout": "*",
     "@putout/test": "^14.0.0",
     "c8": "^10.0.0",

@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import * as declareBeforeReference from '@putout/plugin-declare-before-reference';
 import * as convertTypeofToIsType from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -79,5 +80,12 @@ test('plugin-convert-typeof-to-is-type: no transform: export', (t) => {
 
 test('plugin-convert-typeof-to-is-type: no transform: not-declared', (t) => {
     t.noTransform('not-declared');
+    t.end();
+});
+
+test('plugin-convert-typeof-to-is-type: no report: declare-before-reference', (t) => {
+    t.noReport('declare-before-reference', [
+        ['declare-before-reference', declareBeforeReference],
+    ]);
     t.end();
 });

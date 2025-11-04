@@ -1,6 +1,10 @@
 import {operator} from 'putout';
 
-const {compare, getBindingPath} = operator;
+const {
+    compare,
+    getBindingPath,
+    extract,
+} = operator;
 
 const NAMES = {
     function: 'isFn',
@@ -10,6 +14,7 @@ const NAMES = {
     undefined: 'isUndefined',
     symbol: 'isSymbol',
     bigint: 'isBigInt',
+    Object: 'isObject',
 };
 
 const EQUAL = 'typeof __a === "__b"';
@@ -53,10 +58,11 @@ export const report = () => `Use function to check type instead of 'typeof' or '
 export const match = () => ({
     [EQUAL]: check,
     [NOT_EQUAL]: check,
-    [EQUAL_INSTANCE_OF]: check,
+    
     [NOT_EQUAL_INSTANCE_OF]: check,
     [EQUAL_UNDEFINED]: check,
     [NOT_EQUAL_UNDEFINED]: check,
+    [EQUAL_INSTANCE_OF]: check,
 });
 
 export const replace = () => ({
@@ -88,7 +94,7 @@ function check({__a, __b}, path) {
     if (path.parentPath.isFunction())
         return false;
     
-    if (__b && isBind(path, __b.value))
+    if (__b && isBind(path, extract(__b)))
         return false;
     
     return getBindingPath(path, __a);
@@ -103,7 +109,13 @@ function isBind(path, name) {
         return false;
     
     if (bindingPath.isVariableDeclarator()) {
-        const {body} = bindingPath.node.init;
+        const initPath = bindingPath.get('init');
+        
+        if (!initPath.isFunction())
+            return true;
+        
+        const {body} = initPath.node;
+        
         return !compare(body, fnBody);
     }
     
