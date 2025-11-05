@@ -12,7 +12,7 @@ export const report = () => `Use consistent blocks`;
 export const fix = (path) => {
     const paths = getAllNodes(path);
     
-    if (isAllBlocks(paths))
+    if (isAllBlocks(paths)) {
         for (const path of paths) {
             if (isBlockStatement(path))
                 continue;
@@ -20,14 +20,17 @@ export const fix = (path) => {
             const {node} = path;
             replaceWith(path, blockStatement([node]));
         }
-    else
-        for (const path of paths) {
-            if (!isBlockStatement(path))
-                continue;
-            
-            const [node] = path.node.body;
-            replaceWith(path, node);
-        }
+        
+        return;
+    }
+    
+    for (const path of paths) {
+        if (!isBlockStatement(path))
+            continue;
+        
+        const [node] = path.node.body;
+        replaceWith(path, node);
+    }
 };
 
 function isAllBlocks(paths) {
@@ -80,7 +83,7 @@ export const filter = (path) => {
                 continue;
             
             if (first.leadingComments?.length)
-                continue;
+                return false;
         }
         
         blocks.push(is);
