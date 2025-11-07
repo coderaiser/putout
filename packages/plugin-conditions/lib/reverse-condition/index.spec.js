@@ -36,3 +36,8 @@ test('conditions: reverse-condition: transform: less-equal', (t) => {
     t.transform('less-equal');
     t.end();
 });
+
+test('conditions: reverse-condition: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
