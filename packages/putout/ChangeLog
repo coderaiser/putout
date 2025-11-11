@@ -1,3 +1,29 @@
+2025.11.11, v40.13.0
+
+feature:
+- 36debe452 putout: @putout/plugin-for-of v10.0.0
+- 14987188b @putout/for-of: drop support of 🐊< 40
+- c20effb78 @putout/plugin-for-of: for-each: improve TS support
+- 80702610a @putout/plugin-conditions: reverse-conditions: couple
+- b2e9bbd4b @putout/plugin-conditions: apply-consistent-blocks: leading comments
+- 8fa454406 @putout/plugin-types: convert-typeof-to-is-type: declared
+- e033dab75 @putout/plugin-esm: group-imports-by-source: sort-imports-by-specifiers: couple
+- 1df9617b6 @putout/plugin-putout: replace-test-message: noReport: couple args
+- 126311175 @putout/plugin-putout: apply-fixture-name-to-message: noReport: couple args
+- 9d7157876 @putout/plugin-split-nested-destructuring: exclude declared
+- ff91ae4f8 @putout/plugin-nodejs: group-require-by-id: traverse Program instead of using pathStore
+- 480c80b9b @putout/operate: extract: TSAsExpression: add support
+- cbf5429b6 @putout/plugin-nodejs: group-require-by-id: changed node before exit: add support
+- 5e5371ddc @putout/plugin-remove-useless-variables: declaration: no loc support
+- 4f1d0917f @putout/plugin-remove-duplicate-keys: CallExpression: exclude
+- f177caddd @putout/plugin-convert-array-copy-to-slice: migrate to ESM
+- 536aff41c putout: @putout/plugin-convert-array-copy-to-slice v4.0.0
+- b6b7ca858 @putout/plugin-convert-array-copy-to-slice: drop support of 🐊 < 40
+- 6b32df6b9 @putout/plugin-convert-array-copy-to-slice: exclude ternary
+- 6c83b9e9f @putout/plugin-remove-useless-spread: array: ternary
+- 70bd9804c @putout/plugin-esm: merge-declaration-with-export: exclude: require
+- 2daedf48a @putout/plugin-nodejs: group-require-by-id: esm/merge-declaration-with-export: improve support
+
 2025.10.27, v40.12.0
 
 feature:
