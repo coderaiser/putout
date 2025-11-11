@@ -1,6 +1,9 @@
 import {operator} from 'putout';
 
-const {replaceWithMultiple} = operator;
+const {
+    replaceWithMultiple,
+    compare,
+} = operator;
 
 const add = ({push, store}) => (path) => {
     const calleePath = path.get('callee');
@@ -54,11 +57,13 @@ export const traverse = ({push, store}) => {
     };
 };
 
+const isInsideUseEffect = (a) => compare(a, 'useEffect(__args)');
+
 function isAsyncParent(path) {
     const {parentPath} = path.parentPath.parentPath;
     
-    if (!parentPath)
-        return true;
+    if (path.find(isInsideUseEffect))
+        return false;
     
-    return !parentPath.isFunction() || parentPath.node.async;
+    return !parentPath;
 }

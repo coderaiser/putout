@@ -1,5 +1,7 @@
 import {createTest} from '@putout/test';
+import * as declare from '@putout/plugin-declare';
 import * as applyTopLevelAwait from './index.js';
+import * as addMissingAsync from '../add-missing-async/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -54,5 +56,13 @@ test('plugin-promises: apply-top-level-await: no report: iife', (t) => {
 
 test('plugin-promises: apply-top-level-await: transform: iife-async', (t) => {
     t.transform('iife-async');
+    t.end();
+});
+
+test('plugin-add-missing-await: transform: use-effect', (t) => {
+    t.transform('use-effect', {
+        addMissingAsync,
+        declare,
+    });
     t.end();
 });

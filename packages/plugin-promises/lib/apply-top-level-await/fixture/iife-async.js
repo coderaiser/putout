@@ -1,5 +1,5 @@
 export default () => {
-    useEffect(async () => {
+    useEffect(() => {
         (async () => {
             const t = await fs.promises.readFile('hello');
         })();
@@ -7,7 +7,7 @@ export default () => {
 };
 
 export const hello = () => {
-    useEffect(async function() {
+    useEffect(function() {
         (async function() {
             const t = await fs.promises.readFile('hello');
         })();
