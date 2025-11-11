@@ -129,6 +129,11 @@ test('plugin-for-of: no report: ternary', (t) => {
     t.end();
 });
 
+test('plugin-for-of: transform: types', (t) => {
+    t.transform('types');
+    t.end();
+});
+
 test('plugin-for-of: transform: end-return', (t) => {
     t.transform('end-return', {
         'remove-useless-continue': removeUselessContinue,

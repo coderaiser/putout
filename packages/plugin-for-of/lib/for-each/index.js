@@ -34,12 +34,15 @@ export const replace = () => ({
     '__.forEach.call(__a, (__b) => __body)': 'for (const __b of __a) __body',
     '__.forEach(__args)': (vars, path) => {
         const {params, body} = path.node.arguments[0];
-        
         const item = getItem(params);
         
         delete item.typeAnnotation;
         
         const {length} = params;
+        
+        for (const param of params) {
+            delete param.typeAnnotation;
+        }
         
         const thisPassed = isIdentifier(params[0], {
             name: 'this',
@@ -104,8 +107,7 @@ export const match = () => ({
         if (path.node.arguments.length === 2 && !path.get('arguments.1').isThisExpression())
             return false;
         
-        // this is the case when "i" declared and "this"
-        if (params.length >= 3 && params[0].isIdentifier({name: 'this'}))
+        if (isIndexWithThis(params))
             return false;
         
         const [paramPath] = params;
@@ -197,4 +199,15 @@ function isForBeforeFnUp(path) {
     }
     
     return true;
+}
+
+function isIndexWithThis(params) {
+    if (params.length < 3)
+        return false;
+    
+    const [first] = params;
+    
+    return first.isIdentifier({
+        name: 'this',
+    });
 }
