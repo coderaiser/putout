@@ -1,5 +1,6 @@
 import {createTest} from '@putout/test';
 import * as plugin from './index.js';
+import * as argumentsPlugin from '../arguments/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -49,6 +50,13 @@ test('remove-useless-arguments: unused: no report: not-object', (t) => {
 
 test('remove-useless-arguments: unused: no report: export', (t) => {
     t.noReport('export');
+    t.end();
+});
+
+test('remove-useless-arguments: unused: transform: used', (t) => {
+    t.transform('used', {
+        argumentsPlugin,
+    });
     t.end();
 });
 

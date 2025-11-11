@@ -71,8 +71,6 @@ function isArguments(path) {
             
             if (name === 'arguments')
                 is = true;
-            
-            path.stop();
         },
     });
     
