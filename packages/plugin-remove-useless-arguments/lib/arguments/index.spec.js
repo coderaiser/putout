@@ -48,6 +48,11 @@ test('plugin-remove-useless-arguments: arguments: transform: used', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-arguments: arguments: transform: arguments-not-referenced', (t) => {
+    t.transform('arguments-not-referenced');
+    t.end();
+});
+
 test('plugin-remove-useless-arguments: arguments: transform: unused', (t) => {
     t.transform('unused', {
         unused,
