@@ -65,12 +65,14 @@ function checkParams(path) {
 function isArguments(path) {
     let is = false;
     
-    path.traverse({
-        Identifier({node}) {
+    operator.traverse(path, {
+        ReferencedIdentifier({node}) {
             const {name} = node;
             
-            if (name === 'arguments')
+            if (name === 'arguments') {
                 is = true;
+                path.stop();
+            }
         },
     });
     
