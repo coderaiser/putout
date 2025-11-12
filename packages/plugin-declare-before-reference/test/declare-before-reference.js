@@ -150,6 +150,11 @@ test('plugin-declare-before-reference: no report: cross-reference', (t) => {
     t.end();
 });
 
+test('plugin-declare-before-reference: no report: type', (t) => {
+    t.noReport('type');
+    t.end();
+});
+
 test('plugin-declare-before-reference: transform: tape', (t) => {
     const plugin = {
         report: () => '',

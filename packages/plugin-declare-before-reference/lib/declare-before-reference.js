@@ -77,6 +77,9 @@ export const traverse = ({push}) => ({
                 if (uid !== referenceUid && uid !== blockUid)
                     continue;
                 
+                if (referenceParentPath.isTSTypeAliasDeclaration())
+                    break;
+                
                 if (referenceParentPath.isExportDefaultDeclaration())
                     break;
                 
