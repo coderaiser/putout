@@ -91,3 +91,8 @@ test('plugin-remove-useless: no report: block', (t) => {
     t.noReport('block');
     t.end();
 });
+
+test('plugin-remove-useless: transform: object', (t) => {
+    t.transform('object');
+    t.end();
+});
