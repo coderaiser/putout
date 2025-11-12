@@ -46,3 +46,8 @@ test('remove iife: no transform: var', (t) => {
     t.noTransform('var');
     t.end();
 });
+
+test('remove iife: no report: jsx', (t) => {
+    t.noReport('jsx');
+    t.end();
+});

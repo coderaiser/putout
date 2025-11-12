@@ -6,6 +6,11 @@ const {isReturnStatement} = types;
 export const report = () => 'Avoid IIFE';
 
 export const filter = (path) => {
+    const {parentPath} = path;
+    
+    if (parentPath.isJSXExpressionContainer())
+        return false;
+    
     const {callee} = path.node;
     const {body} = callee.body;
     
