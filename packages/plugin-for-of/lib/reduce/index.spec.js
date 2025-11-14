@@ -24,6 +24,11 @@ test('plugin-convert-reduce-to-for-of: transform: two', (t) => {
     t.end();
 });
 
+test('plugin-convert-reduce-to-for-of: no report: export', (t) => {
+    t.noReport('export');
+    t.end();
+});
+
 test('plugin-convert-reduce-to-for-of: transform: initial', (t) => {
     t.transform('initial', {
         'remove-nested-blocks': removeNestedBlocks,

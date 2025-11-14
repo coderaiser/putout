@@ -4,12 +4,16 @@ const {
     isBlockStatement,
     isArrayExpression,
     isCallExpression,
+    isExportNamedDeclaration,
 } = types;
 
 export const report = () => `Use 'for...of' instead of '.reduce()'`;
 
 export const match = () => ({
-    'const __a = __b.reduce((__c, __d) => __e)': ({__b, __e}) => {
+    'const __a = __b.reduce((__c, __d) => __e)': ({__b, __e}, path) => {
+        if (isExportNamedDeclaration(path.parentPath))
+            return false;
+        
         if (isArrayExpression(__b))
             return false;
         
@@ -18,13 +22,21 @@ export const match = () => ({
         
         return !isBlockStatement(__e);
     },
-    'const __a = __b.reduceRight((__c, __d) => __e)': ({__b, __e}) => {
+    'const __a = __b.reduceRight((__c, __d) => __e)': ({__b, __e}, path) => {
+        if (isExportNamedDeclaration(path.parentPath))
+            return false;
+        
         if (isArrayExpression(__b))
             return false;
         
         return !isBlockStatement(__e);
     },
-    'const __a = __b.reduce((__c, __d) => __e, __f)': ({__e}) => !isBlockStatement(__e),
+    'const __a = __b.reduce((__c, __d) => __e, __f)': ({__e}, path) => {
+        if (isExportNamedDeclaration(path.parentPath))
+            return false;
+        
+        return !isBlockStatement(__e);
+    },
 });
 
 export const replace = () => ({
