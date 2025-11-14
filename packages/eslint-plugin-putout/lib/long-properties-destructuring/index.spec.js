@@ -40,6 +40,9 @@ ruleTester.run('long-properties-destructuring', rule, {
         for (const {Hello, HelloWorld} of Words) {}
         `,
         `
+        const {0: a, 1: b} = c;
+        `,
+        `
         const {a, b, c, d} = e;
         `, {
             code: montag`

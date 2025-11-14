@@ -5,6 +5,9 @@ const {isCorrectLoc} = require('../common');
 const {
     isImportDeclaration,
     isForOfStatement,
+    isIdentifier,
+    isSpreadElement,
+    isRestElement,
 } = types;
 
 const parseOptions = (options) => {
@@ -76,6 +79,9 @@ module.exports.filter = ({node}, options) => {
 
 function isCorrectPropertiesLength(properties, {maxLength}) {
     for (const prop of properties) {
+        if (!isIdentifier(prop.key) && !isSpreadElement(prop) && !isRestElement(prop))
+            return true;
+        
         const {name} = prop.key || prop.argument;
         
         if (name.length >= maxLength)
