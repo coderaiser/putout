@@ -1,3 +1,18 @@
+2025.11.14, v40.14.0
+
+feature:
+- a9f96b87c putout: @putout/plugin-apply-shorthand-properties v7.0.0
+- d8228f3f7 @putout/plugin-apply-shorthand-properties: computed: exclude
+- ecee7cba4 @putout/plugin-apply-shorthand-properties: drop support of 🐊 < 40
+- bf128ff63 @putout/plugin-apply-destructuring: convert-object-to-array: add
+- 40be918da @putout/plugin-conditions: apply-consistent-blocks: empty
+- 0d52dd72f eslint-plugin-putout: long-properties-destructuring: NumericLiteral
+- 0a0856f22 @putout/plugin-declare-before-reference: exclude TSTypeAliasDeclaration
+- 07e59f135 @putout/plugin-remove-iife: exclude JSXExpressionContainer
+- 3eb8065b0 @putout/plugin/remove-useless-arguments: arguments: traverse: Identifier -> ReferencedIdentifier
+- 788edc362 @putout/plugin-remove-useless-arguments: arguments: crawl
+- 4d54d9a49 @putout/plugin-promises: apply-to-level-await: useEffect: exclude
+
 2025.11.11, v40.13.0
 
 feature:
