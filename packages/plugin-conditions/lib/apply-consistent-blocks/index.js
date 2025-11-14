@@ -97,7 +97,14 @@ export const filter = (path) => {
     const couple = [];
     
     for (const path of paths) {
-        const is = isBlockStatement(path) && path.node.body.length > 1;
+        if (!isBlockStatement(path)) {
+            couple.push(false);
+            continue;
+        }
+        
+        const {length} = path.node.body;
+        const is = length > 1 || !length;
+        
         couple.push(is);
     }
     
