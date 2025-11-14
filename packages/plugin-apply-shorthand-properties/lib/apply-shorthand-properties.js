@@ -26,9 +26,12 @@ export const traverse = ({push, options}) => ({
     },
     '__object'(path) {
         for (const propPath of path.get('properties')) {
-            const {shorthand} = propPath.node;
+            const {computed, shorthand} = propPath.node;
             
             if (shorthand)
+                continue;
+            
+            if (computed)
                 continue;
             
             const valuePath = propPath.get('value');

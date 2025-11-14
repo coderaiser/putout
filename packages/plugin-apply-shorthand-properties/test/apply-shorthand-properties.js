@@ -104,6 +104,11 @@ test('plugin-apply-shorthand-properties: no transform: import-declaration', (t) 
     t.end();
 });
 
+test('plugin-apply-shorthand-properties: no report: computed', (t) => {
+    t.noReport('computed');
+    t.end();
+});
+
 testWithRemove('plugin-apply-shorthand-properties: transform with options: assign', (t) => {
     t.transformWithOptions('assign', {
         rename: true,
