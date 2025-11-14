@@ -16,6 +16,10 @@ export const replace = () => ({
     [`export ${FN}`]: `module.exports.__a = ${FN}`,
     [`export ${ASYNC_FN}`]: `module.exports.__a = ${ASYNC_FN}`,
     [`export ${GEN_FN}`]: `module.exports.__a = ${GEN_FN}`,
+    'export const __object = __b': `{
+        const __object = __b;
+        module.exports = __object;
+    }`,
     'export const __a = __b': 'module.exports.__a = __b',
     'export {__exports}': ({__exports}) => {
         let result = 'module.exports = {\n';

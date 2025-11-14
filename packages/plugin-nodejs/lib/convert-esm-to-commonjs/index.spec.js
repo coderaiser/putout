@@ -91,6 +91,11 @@ test('plugin-convert-esm-to-commonjs: transform: export: export-multiple', (t) =
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: transform: export: destructuring', (t) => {
+    t.transform('destructuring');
+    t.end();
+});
+
 test('plugin-convert-esm-to-commonjs: transform: export: no-arg', (t) => {
     t.transform('no-arg', {
         'add-path-arg-to-fix': putout.rules['add-path-arg-to-fix'],
