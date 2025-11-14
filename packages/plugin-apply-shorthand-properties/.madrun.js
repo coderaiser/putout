@@ -1,8 +1,6 @@
-'use strict';
+import {run} from 'madrun';
 
-const {run} = require('madrun');
-
-module.exports = {
+export default {
     'publishOnly': () => run('lint'),
     'test': () => `tape 'test/*.js'`,
     'watch:test': async () => `nodemon -w lib -w test -x "${await run('test')}"`,
