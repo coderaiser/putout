@@ -1,8 +1,8 @@
 'use strict';
 
 const montag = require('montag');
-const babel = require('@babel/eslint-parser/experimental-worker');
-const typescript = require('@typescript-eslint/parser');
+const babel = require('#babel/eslint-parser/experimental-worker');
+const typescript = require('#typescript-eslint/parser');
 
 const {RuleTester} = require('eslint');
 
