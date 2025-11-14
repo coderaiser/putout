@@ -51,3 +51,8 @@ test('plugin-apply-destructuring: transform: falsy', (t) => {
     t.transform('falsy');
     t.end();
 });
+
+test('plugin-apply-destructuring: transform: convert-object-to-array', (t) => {
+    t.transform('convert-object-to-array');
+    t.end();
+});

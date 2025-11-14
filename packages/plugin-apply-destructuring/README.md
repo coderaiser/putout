@@ -20,6 +20,7 @@ npm i @putout/plugin-apply-destructuring
 - ✅ [object](#object);
 - ✅ [array](#array);
 - ✅ [falsy](#falsy);
+- ✅ [convert-object-to-array](#convert-object-to-array);
 
 ## Config
 
@@ -93,6 +94,22 @@ const {maxElementsInOneLine} = {
 
 ```js
 const {maxElementsInOneLine} = options;
+```
+
+## convert-object-to-array
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a1d26daf8bb83ee3ea1c0b62a6ad3afd/cef9b4d27c9dbb0d413a935b0359a6fe9b50364f).
+
+## ❌ Example of incorrect code
+
+```js
+const {0: a, 1: b} = c;
+```
+
+## ✅ Example of correct code
+
+```js
+const [a, b] = c;
 ```
 
 ## License
