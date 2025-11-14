@@ -8,7 +8,7 @@ const rule = createPlugin(require('.'));
 
 const ruleTesterBabel = new RuleTester({
     languageOptions: {
-        parser: require('@babel/eslint-parser/experimental-worker'),
+        parser: require('#babel/eslint-parser/experimental-worker'),
         parserOptions: {
             requireConfigFile: false,
             babelOptions: {
@@ -60,7 +60,7 @@ ruleTesterBabel.run('add-newlines-between-types-in-union', rule, {
 
 const ruleTesterTypescript = new RuleTester({
     languageOptions: {
-        parser: require('@typescript-eslint/parser'),
+        parser: require('#typescript-eslint/parser'),
         parserOptions: {
             warnOnUnsupportedTypeScriptVersion: false,
             ecmaFeatures: {

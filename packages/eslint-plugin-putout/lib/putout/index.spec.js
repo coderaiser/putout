@@ -5,8 +5,8 @@ const {readFileSync} = require('node:fs');
 
 const {RuleTester} = require('eslint');
 const montag = require('montag');
-const babel = require('@babel/eslint-parser/experimental-worker');
-const typescript = require('@typescript-eslint/parser');
+const babel = require('#babel/eslint-parser/experimental-worker');
+const typescript = require('#typescript-eslint/parser');
 
 const rule = require('./index');
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), 'utf8');

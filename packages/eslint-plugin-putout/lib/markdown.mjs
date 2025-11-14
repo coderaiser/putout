@@ -1,6 +1,6 @@
 import parserOpts from '@putout/engine-parser/babel/options';
 import parserPlugins from '@putout/engine-parser/babel/plugins';
-import babel from '@babel/eslint-parser/experimental-worker';
+import babel from '#babel/eslint-parser/experimental-worker';
 import tsConfig from './ts.mjs';
 import {jsx} from './jsx.mjs';
 

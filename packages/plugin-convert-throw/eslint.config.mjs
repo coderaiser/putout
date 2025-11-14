@@ -1,5 +1,5 @@
 import {safeAlign} from 'eslint-plugin-putout';
-import babel from '@babel/eslint-parser';
+import babel from 'eslint-plugin-putout/babel';
 import {defineConfig} from 'eslint/config';
 
 export default defineConfig([
