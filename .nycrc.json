@@ -12,7 +12,6 @@
         "packages/*/bin",
         "packages/*/test",
         "**/eslint-v10",
-        "packages/plugin-putout/lib/declare/index.js",
         "packages/engine-reporter",
         "coverage",
         "**/eslint.config.js",
