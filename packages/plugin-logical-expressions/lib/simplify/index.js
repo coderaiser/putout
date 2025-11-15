@@ -5,6 +5,7 @@ const {isSimple, replaceWith} = operator;
 export const report = () => 'Simplify logical expression';
 
 export const match = () => ({
+    'Boolean(__a) || __b': (vars, path) => !path.parentPath.isJSXExpressionContainer(),
     '__a(__args) && __b': ({__a, __b}, path) => {
         if (path.parentPath.isJSXExpressionContainer())
             return false;
