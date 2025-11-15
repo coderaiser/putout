@@ -1,16 +1,15 @@
-'use strict';
+import {types, operator} from 'putout';
 
-const {types, operator} = require('putout');
 const {traverseProperties} = operator;
 const {booleanLiteral} = types;
 
-module.exports.report = () => `Turn off schema`;
+export const report = () => `Turn off schema`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.node.value = booleanLiteral(false);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ObjectExpression(path) {
         const [schema] = traverseProperties(path, 'schema');
         

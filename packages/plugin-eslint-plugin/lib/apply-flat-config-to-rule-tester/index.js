@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     objectExpression,
     identifier,
@@ -9,9 +8,9 @@ const {
 
 const {traverseProperties} = operator;
 
-module.exports.report = () => `Use FlatConfig in RuleTester`;
+export const report = () => `Use FlatConfig in RuleTester`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {properties} = path.node;
     
     path.node.properties = [
@@ -19,7 +18,7 @@ module.exports.fix = (path) => {
     ];
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ObjectExpression(path) {
         const {parentPath} = path;
         

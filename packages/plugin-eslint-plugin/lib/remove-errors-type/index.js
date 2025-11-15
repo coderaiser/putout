@@ -1,17 +1,15 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {isIdentifier} = types;
 const {remove} = operator;
 
-module.exports.report = () => `Remove 'type' field`;
+export const report = () => `Remove 'type' field`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ObjectProperty(path) {
         const {key} = path.node;
         

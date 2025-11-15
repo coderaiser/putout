@@ -1,13 +1,11 @@
-'use strict';
+export const report = () => `Convert 'require.resolve()' to 'require()'`;
 
-module.exports.report = () => `Convert 'require.resolve()' to 'require()'`;
-
-module.exports.match = () => ({
+export const match = () => ({
     'require.resolve(__a)': (vars, path) => {
         return path.parentPath.isObjectProperty();
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'require.resolve(__a)': 'require(__a)',
 });

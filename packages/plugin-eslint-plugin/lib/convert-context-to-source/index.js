@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Use 'source' instead of 'context'`;
 
-module.exports.report = () => `Use 'source' instead of 'context'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'context.getSourceCode()': 'context.sourceCode',
     
     'context.getAncestors': 'sourceCode.getAncestors',
