@@ -54,21 +54,18 @@ ruleTester.run('single-property-destructuring', rule, {
         output: 'const {hello} = world',
         errors: [{
             message: 'Keep curly braces on one line when you have one destructuring property',
-            type: 'VariableDeclarator',
         }],
     }, {
         code: `const {\n    hello: h\n} = world`,
         output: 'const {hello: h} = world',
         errors: [{
             message: 'Keep curly braces on one line when you have one destructuring property',
-            type: 'VariableDeclarator',
         }],
     }, {
         code: `const {\n    ...tap\n} = require('./tap')`,
         output: `const {...tap} = require('./tap')`,
         errors: [{
             message: 'Keep curly braces on one line when you have one destructuring property',
-            type: 'VariableDeclarator',
         }],
     }, {
         code: montag`
@@ -79,7 +76,6 @@ ruleTester.run('single-property-destructuring', rule, {
         output: `import {x} from './tap'`,
         errors: [{
             message: 'Keep curly braces on one line when you have one destructuring property',
-            type: 'ImportDeclaration',
         }],
     }, {
         code: montag`
@@ -90,7 +86,6 @@ ruleTester.run('single-property-destructuring', rule, {
         output: `import {x} from './tap'`,
         errors: [{
             message: 'Keep curly braces on one line when you have one destructuring property',
-            type: 'ImportDeclaration',
         }],
     }, {
         code: montag`
@@ -111,7 +106,6 @@ ruleTester.run('single-property-destructuring', rule, {
         `,
         errors: [{
             message: 'Keep curly braces on one line when you have one destructuring property',
-            type: 'ImportDeclaration',
         }],
     }],
 });

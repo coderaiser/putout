@@ -65,7 +65,6 @@ ruleTester.run('remove-empty-newline-after-import', rule, {
         `,
         errors: [{
             message: 'Remove empty newline after import',
-            type: 'ImportDeclaration',
         }],
     }, {
         code: montag`
@@ -79,7 +78,6 @@ ruleTester.run('remove-empty-newline-after-import', rule, {
         `,
         errors: [{
             message: 'Remove empty newline after import',
-            type: 'ImportDeclaration',
         }],
     }, {
         code: montag`
@@ -93,7 +91,6 @@ ruleTester.run('remove-empty-newline-after-import', rule, {
         `,
         errors: [{
             message: 'Remove empty newline after import',
-            type: 'ImportDeclaration',
         }],
     }],
 });

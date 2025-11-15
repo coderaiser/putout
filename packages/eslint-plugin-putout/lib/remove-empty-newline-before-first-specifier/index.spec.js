@@ -50,7 +50,6 @@ ruleTester.run('remove-empty-newline-before-first-specifier', rule, {
         `,
         errors: [{
             message: 'Remove newline before first specifier',
-            type: 'ImportDeclaration',
         }],
     }, {
         code: montag`
@@ -68,7 +67,6 @@ ruleTester.run('remove-empty-newline-before-first-specifier', rule, {
         `,
         errors: [{
             message: 'Remove newline before first specifier',
-            type: 'ObjectExpression',
         }],
     }],
 });

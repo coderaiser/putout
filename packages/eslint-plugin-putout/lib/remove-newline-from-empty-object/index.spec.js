@@ -47,7 +47,6 @@ ruleTester.run('remove-empty-newline-from-empty-object', rule, {
         `,
         errors: [{
             message: 'Remove newline from empty object',
-            type: 'ObjectExpression',
         }],
     }],
 });

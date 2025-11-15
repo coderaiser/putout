@@ -58,14 +58,12 @@ ruleTester.run('remove-newline-after-default-import', rule, {
         `,
         errors: [{
             message: 'Remove newline before t.end()',
-            type: 'CallExpression',
         }],
     }, {
         code: readFixture('trimmed'),
         output: readFixture('trimmed-fix'),
         errors: [{
             message: 'Remove newline before t.end()',
-            type: 'CallExpression',
         }],
     }],
 });

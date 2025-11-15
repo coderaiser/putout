@@ -64,7 +64,6 @@ ruleTester.run('long-properties-destructuring', rule, {
         `,
         errors: [{
             message,
-            type: 'VariableDeclarator',
         }],
     }, {
         code: `const {a, ...isMagicIdentifier} = b;`,
@@ -76,7 +75,6 @@ ruleTester.run('long-properties-destructuring', rule, {
         `,
         errors: [{
             message,
-            type: 'VariableDeclarator',
         }],
     }, {
         code: montag`
@@ -100,7 +98,6 @@ ruleTester.run('long-properties-destructuring', rule, {
         `,
         errors: [{
             message,
-            type: 'VariableDeclarator',
         }],
     }, {
         code: montag`
@@ -114,7 +111,6 @@ ruleTester.run('long-properties-destructuring', rule, {
         `,
         errors: [{
             message,
-            type: 'ImportDeclaration',
         }],
     }],
 });

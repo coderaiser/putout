@@ -92,7 +92,6 @@ ruleTester.run('new-line-function-call-arguments', rule, {
             'getDescription\n);\n        ',
         errors: [{
             message: 'Add new line before and after arguments in a function call',
-            type: 'CallExpression',
         }],
     }],
 });

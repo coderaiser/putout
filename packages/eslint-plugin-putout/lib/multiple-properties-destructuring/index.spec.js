@@ -50,14 +50,12 @@ ruleTester.run('multiple-properties-destructuring', rule, {
         }],
         errors: [{
             message,
-            type: 'VariableDeclarator',
         }],
     }, {
         code: `const {a, b, c} = world;`,
         output: `const {\na,\n b,\n c\n} = world;`,
         errors: [{
             message,
-            type: 'VariableDeclarator',
         }],
     }, {
         code: `
@@ -81,21 +79,18 @@ ruleTester.run('multiple-properties-destructuring', rule, {
         `,
         errors: [{
             message,
-            type: 'VariableDeclarator',
         }],
     }, {
         code: `import {a, b, c} from 'world';`,
         output: `import {\na,\n b,\n c\n} from 'world';`,
         errors: [{
             message,
-            type: 'ImportDeclaration',
         }],
     }, {
         code: `import x, {m as b, z, d} from 'y';`,
         output: `import x,\n {\nm as b,\n z,\n d\n} from 'y';`,
         errors: [{
             message,
-            type: 'ImportDeclaration',
         }],
     }],
 });

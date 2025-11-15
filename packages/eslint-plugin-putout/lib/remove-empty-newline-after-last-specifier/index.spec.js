@@ -50,7 +50,6 @@ ruleTester.run('remove-empty-newline-after-last-specifier', rule, {
         `,
         errors: [{
             message: 'Remove newline after last specifier',
-            type: 'ImportDeclaration',
         }],
     }, {
         code: montag`
@@ -68,7 +67,6 @@ ruleTester.run('remove-empty-newline-after-last-specifier', rule, {
         `,
         errors: [{
             message: 'Remove newline after last specifier',
-            type: 'ObjectExpression',
         }],
     }],
 });

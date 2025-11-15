@@ -26,7 +26,6 @@ ruleTester.run('destructuring-as-function-argument', rule, {
             `,
         errors: [{
             message: 'Keep curly braces on one line when you use destructuring as function argument',
-            type: 'ObjectPattern',
         }],
     }, {
         code: `
@@ -40,7 +39,6 @@ ruleTester.run('destructuring-as-function-argument', rule, {
             `,
         errors: [{
             message: 'Keep curly braces on one line when you use destructuring as function argument',
-            type: 'ObjectPattern',
         }],
     }, {
         code: `
@@ -53,7 +51,6 @@ ruleTester.run('destructuring-as-function-argument', rule, {
             `,
         errors: [{
             message: 'Keep curly braces on one line when you use destructuring as function argument',
-            type: 'ObjectPattern',
         }],
     }],
 });

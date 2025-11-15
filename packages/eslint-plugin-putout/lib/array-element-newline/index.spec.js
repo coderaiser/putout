@@ -113,7 +113,6 @@ ruleTester.run('array-element-newline', rule, {
         `,
         errors: [{
             message: 'Add newlines between array elements',
-            type: 'ArrayExpression',
         }],
     }, {
         code: montag`
@@ -122,7 +121,6 @@ ruleTester.run('array-element-newline', rule, {
         output: `const a = [\n'a',\n 'b',\n 'c',\n 'd',\n 'e'\n];`,
         errors: [{
             message: 'Add newlines between array elements',
-            type: 'ArrayExpression',
         }],
     }, {
         code: montag`
@@ -131,7 +129,6 @@ ruleTester.run('array-element-newline', rule, {
         output: `const a = [\na,\n b,\n c,\n d,\n e\n];`,
         errors: [{
             message: 'Add newlines between array elements',
-            type: 'ArrayExpression',
         }],
     }, {
         code: montag`
@@ -140,7 +137,6 @@ ruleTester.run('array-element-newline', rule, {
         output: `module.exports.include = () => [\n'FunctionDeclaration',\n 'FunctionExpression',\n 'ArrowFunctionExpression'\n];`,
         errors: [{
             message: 'Add newlines between array elements',
-            type: 'ArrayExpression',
         }],
     }, {
         code: montag`
@@ -151,7 +147,6 @@ ruleTester.run('array-element-newline', rule, {
         output: 'const a = {\n    "plugins": [\n"n",\n "putout"\n]\n};',
         errors: [{
             message: 'Add newlines between array elements',
-            type: 'ArrayExpression',
         }],
     }],
 });

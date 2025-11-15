@@ -43,3 +43,8 @@ test('plugin-eslint-plugin: transform: update-ecma-version', (t) => {
     t.transform('update-ecma-version');
     t.end();
 });
+
+test('plugin-eslint-plugin: transform: remove-errors-type', (t) => {
+    t.transform('remove-errors-type');
+    t.end();
+});

@@ -35,7 +35,6 @@ ruleTester.run('remove-empty-empty-specifiers', rule, {
         `,
         errors: [{
             message: 'Remove empty import specifiers',
-            type: 'ImportDeclaration',
         }],
     }, {
         code: montag`
@@ -46,7 +45,6 @@ ruleTester.run('remove-empty-empty-specifiers', rule, {
         `,
         errors: [{
             message: 'Remove empty import specifiers',
-            type: 'ImportDeclaration',
         }],
     }],
 });

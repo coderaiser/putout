@@ -37,7 +37,6 @@ ruleTester.run('align-spaces', rule, {
         ].join('\n'),
         errors: [{
             message: 'Keep whitespaces in blank lines',
-            type: 'Program',
         }],
     }],
 });

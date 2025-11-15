@@ -39,7 +39,6 @@ ruleTester.run('remove-empty-newline-after-last-element', rule, {
         `,
         errors: [{
             message: 'Remove newline after last element',
-            type: 'ArrayExpression',
         }],
     }],
 });

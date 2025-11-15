@@ -26,35 +26,30 @@ ruleTester.run('no-unresolved', rule, {
         output: `import * as strictMode from '../index.js';`,
         errors: [{
             message,
-            type: 'ImportDeclaration',
         }],
     }, {
         code: `import hello from './hello'`,
         output: `import hello from './hello.js'`,
         errors: [{
             message,
-            type: 'ImportDeclaration',
         }],
     }, {
         code: `import('./dynamic')`,
         output: `import('./dynamic.js')`,
         errors: [{
             message,
-            type: 'ImportExpression',
         }],
     }, {
         code: `export * from './hello'`,
         output: `export * from './hello.js'`,
         errors: [{
             message,
-            type: 'ExportAllDeclaration',
         }],
     }, {
         code: `export {x} from './hello'`,
         output: `export {x} from './hello.js'`,
         errors: [{
             message,
-            type: 'ExportNamedDeclaration',
         }],
     }],
 });

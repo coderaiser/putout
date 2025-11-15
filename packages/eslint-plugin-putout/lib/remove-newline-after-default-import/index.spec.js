@@ -36,7 +36,6 @@ ruleTester.run('remove-newline-after-default-import', rule, {
         `,
         errors: [{
             message: 'Keep opening curly brace on one line with default import',
-            type: 'ImportDeclaration',
         }],
     }],
 });

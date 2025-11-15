@@ -32,7 +32,6 @@ ruleTester.run('multiple-properties-destructuring', rule, {
         }],
         errors: [{
             message,
-            type: 'VariableDeclarator',
         }],
     }, {
         code: `for (const { \nx,\ny\n } of screen){}`,
@@ -42,7 +41,6 @@ ruleTester.run('multiple-properties-destructuring', rule, {
         }],
         errors: [{
             message,
-            type: 'VariableDeclarator',
         }],
     }],
 });

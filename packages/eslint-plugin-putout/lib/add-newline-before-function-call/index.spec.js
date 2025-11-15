@@ -129,7 +129,6 @@ ruleTester.run('add-newline-before-function-call', rule, {
         
         errors: [{
             message: 'Add newline before expression',
-            type: 'CallExpression',
         }],
     }, {
         code: montag`
@@ -152,28 +151,24 @@ ruleTester.run('add-newline-before-function-call', rule, {
             '});',
         errors: [{
             message: 'Add newline before expression',
-            type: 'CallExpression',
         }],
     }, {
         code: readFixture('assignment'),
         output: readFixture('assignment-fix'),
         errors: [{
             message: 'Add newline before expression',
-            type: 'AssignmentExpression',
         }],
     }, {
         code: readFixture('before-newline'),
         output: readFixture('before-newline-fix'),
         errors: [{
             message: 'Add newline before expression',
-            type: 'CallExpression',
         }],
     }, {
         code: readFixture('top-level'),
         output: readFixture('top-level-fix'),
         errors: [{
             message: 'Add newline before expression',
-            type: 'CallExpression',
         }],
     }],
 });

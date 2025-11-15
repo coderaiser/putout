@@ -97,7 +97,6 @@ ruleTester.run('add-newline-after-function-call', rule, {
         
         errors: [{
             message: 'Add newline after function call',
-            type: 'CallExpression',
         }],
     }, {
         code: montag`
@@ -121,7 +120,6 @@ ruleTester.run('add-newline-after-function-call', rule, {
         `,
         errors: [{
             message: 'Add newline after function call',
-            type: 'CallExpression',
         }],
     }, {
         code: montag`
@@ -146,7 +144,6 @@ ruleTester.run('add-newline-after-function-call', rule, {
             '});',
         errors: [{
             message: 'Add newline after function call',
-            type: 'CallExpression',
         }],
     }, {
         code: montag`
@@ -171,7 +168,6 @@ ruleTester.run('add-newline-after-function-call', rule, {
             '});',
         errors: [{
             message: 'Add newline after function call',
-            type: 'CallExpression',
         }],
     }],
 });

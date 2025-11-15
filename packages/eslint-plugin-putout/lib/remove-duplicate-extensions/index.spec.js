@@ -26,28 +26,24 @@ ruleTester.run('remove-duplicate-extension', rule, {
         output: `import hello from './index.js'`,
         errors: [{
             message,
-            type: 'ImportDeclaration',
         }],
     }, {
         code: `import('./index.js.js')`,
         output: `import('./index.js')`,
         errors: [{
             message,
-            type: 'ImportExpression',
         }],
     }, {
         code: `export * from './index.js.js'`,
         output: `export * from './index.js'`,
         errors: [{
             message,
-            type: 'ExportAllDeclaration',
         }],
     }, {
         code: `export {x} from './index.js.js'`,
         output: `export {x} from './index.js'`,
         errors: [{
             message,
-            type: 'ExportNamedDeclaration',
         }],
     }],
 });

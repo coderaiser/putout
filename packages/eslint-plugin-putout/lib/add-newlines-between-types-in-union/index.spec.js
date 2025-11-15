@@ -54,7 +54,6 @@ ruleTesterBabel.run('add-newlines-between-types-in-union', rule, {
         `,
         errors: [{
             message: 'Add newlines between types in union',
-            type: 'TSUnionType',
         }],
     }],
 });
@@ -99,7 +98,6 @@ ruleTesterTypescript.run('add-newlines-between-types-in-union: typescript-eslint
         `,
         errors: [{
             message: 'Add newlines between types in union',
-            type: 'TSUnionType',
         }],
     }],
 });

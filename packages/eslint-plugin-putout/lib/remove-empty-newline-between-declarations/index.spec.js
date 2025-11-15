@@ -50,7 +50,6 @@ ruleTester.run('remove-empty-newline-between-declarations', rule, {
         `,
         errors: [{
             message: 'Remove empty newline between declarations',
-            type: 'VariableDeclaration',
         }],
     }],
 });

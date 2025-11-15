@@ -34,21 +34,18 @@ ruleTester.run('object-property-newline', rule, {
         output: `const a = {\n    b\n}`,
         errors: [{
             message,
-            type: 'VariableDeclarator',
         }],
     }, {
         code: 'const options = {img: {maxSize: 512}};',
         output: 'const options = {\n    img: {\n    maxSize: 512\n}\n};',
         errors: [{
             message,
-            type: 'VariableDeclarator',
         }],
     }, {
         code: `module.exports = {start: () => 'react-scripts start'}`,
         output: `module.exports = {\n    start: () => 'react-scripts start'\n}`,
         errors: [{
             message,
-            type: 'AssignmentExpression',
         }],
     }],
 });
@@ -88,7 +85,6 @@ babelParserTester.run('object-property-newline: babel: ts', rule, {
         output: `type a = {\n    b\n}`,
         errors: [{
             message,
-            type: 'TSTypeAliasDeclaration',
         }],
     }, {
         code: montag`
@@ -100,14 +96,12 @@ babelParserTester.run('object-property-newline: babel: ts', rule, {
         output: 'type a = {\n    b,\n    c,\n    d: any,\n}',
         errors: [{
             message,
-            type: 'TSTypeAliasDeclaration',
         }],
     }, {
         code: `interface a {b}`,
         output: `interface a {\n    b\n}`,
         errors: [{
             message,
-            type: 'TSInterfaceDeclaration',
         }],
     }],
 });
@@ -126,14 +120,12 @@ tsParserTester.run('object-property-newline: typescript', rule, {
         output: `type a = {\n    b\n}`,
         errors: [{
             message,
-            type: 'TSTypeAliasDeclaration',
         }],
     }, {
         code: `interface a {b}`,
         output: `interface a {\n    b\n}`,
         errors: [{
             message,
-            type: 'TSInterfaceDeclaration',
         }],
     }],
 });

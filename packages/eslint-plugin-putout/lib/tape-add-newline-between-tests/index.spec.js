@@ -73,7 +73,6 @@ ruleTester.run('remove-newline-after-default-import', rule, {
         `,
         errors: [{
             message: 'Add newline between tests',
-            type: 'CallExpression',
         }],
     }],
 });

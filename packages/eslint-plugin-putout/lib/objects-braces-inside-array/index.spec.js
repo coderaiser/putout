@@ -44,7 +44,6 @@ ruleTester.run('objects-braces-inside-array', rule, {
         `,
         errors: [{
             message,
-            type: 'ArrayExpression',
         }],
     }, {
         code: montag`
@@ -65,7 +64,6 @@ ruleTester.run('objects-braces-inside-array', rule, {
         `,
         errors: [{
             message,
-            type: 'ArrayExpression',
         }],
     }, {
         code: montag`
@@ -89,7 +87,6 @@ ruleTester.run('objects-braces-inside-array', rule, {
         `,
         errors: [{
             message,
-            type: 'ArrayExpression',
         }],
     }, {
         code: montag`
@@ -116,7 +113,6 @@ ruleTester.run('objects-braces-inside-array', rule, {
         `,
         errors: [{
             message,
-            type: 'ArrayExpression',
         }],
     }, {
         code: montag`
@@ -140,7 +136,6 @@ ruleTester.run('objects-braces-inside-array', rule, {
         `,
         errors: [{
             message,
-            type: 'ArrayExpression',
         }],
     }, {
         code: montag`
@@ -168,7 +163,6 @@ ruleTester.run('objects-braces-inside-array', rule, {
         `,
         errors: [{
             message,
-            type: 'ArrayExpression',
         }],
     }],
 });

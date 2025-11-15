@@ -22,6 +22,7 @@ npm i @putout/plugin-eslint-plugin -D
 - ✅ [convert-require-resolve-to-require](#convert-require-resolve-to-require);
 - ✅ [turn-off-schema](#turn-off-schema);
 - ✅ [update-ecma-version](#update-ecma-version);
+- ✅ [remove-errors-type](#remove-errors-type);
 
 ## Config
 
@@ -34,7 +35,8 @@ npm i @putout/plugin-eslint-plugin -D
         "eslint-plugin/turn-off-schema": "on",
         "eslint-plugin/update-ecma-version": ["on", {
             "ecmaVersion": 2024
-        }]
+        }],
+        "eslint/remove-errors-type": "on"
     }
 }
 ```
@@ -263,6 +265,39 @@ const ruleTester = new RuleTester({
             sourceType: 'module',
         },
     },
+});
+```
+
+## remove-errors-type
+
+> In ESLint v10.0.0, the deprecated nodeType property on LintMessage objects has been removed. Correspondingly, RuleTester no longer accepts the deprecated type property in errors of invalid test cases.
+>
+> (c) [eslint.org](https://eslint.org/blog/2025/11/eslint-v10.0.0-alpha.0-released/#removed-deprecated-lintmessage%23nodetype-and-testcaseerror%23type-properties)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bec61b7973acba2d84a076789a2c5c8b/42a7d4a9e58f219d6039389c4e295a4530fcff19).
+
+### ❌ Example of incorrect code
+
+```js
+ruleTester.run('remove-newline-after-default-import', rule, {
+    invalid: [{
+        errors: [{
+            message: 'Remove newline before t.end()',
+            type: 'CallExpression',
+        }],
+    }],
+});
+```
+
+## ✅ Example of correct code
+
+```js
+ruleTester.run('remove-newline-after-default-import', rule, {
+    invalid: [{
+        errors: [{
+            message: 'Remove newline before t.end()',
+        }],
+    }],
 });
 ```
 

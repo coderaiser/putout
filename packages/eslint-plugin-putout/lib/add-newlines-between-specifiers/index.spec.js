@@ -47,7 +47,6 @@ ruleTester.run('add-newlines-between-specifiers', rule, {
         
         errors: [{
             message: 'Add newlines between specifiers',
-            type: 'ExportNamedDeclaration',
         }],
     }, {
         code: montag`
@@ -68,7 +67,6 @@ ruleTester.run('add-newlines-between-specifiers', rule, {
         
         errors: [{
             message: 'Add newlines between specifiers',
-            type: 'ExportNamedDeclaration',
         }],
     }],
 });
