@@ -34,8 +34,8 @@ function addGlobals(names) {
         /* c8 ignore start */
         if (variable)
             continue;
-        /* c8 ignore start */
         
+        /* c8 ignore start */
         variable = new eslintScope.Variable(name, globalScope);
         
         globalScope.variables.push(variable);
