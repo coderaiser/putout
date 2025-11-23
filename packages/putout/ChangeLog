@@ -1,3 +1,20 @@
+2025.11.24, v40.15.0
+
+fix:
+- 4ea622ea5 putout: rm useless debug
+
+feature:
+- 71234600f @putout/engine-runner: debug -> obug
+- 70a0d257a @putout/plugin-apply-shorthand-properties: spread
+- 7dc73dcec @putout/compare: debug -> odebug
+- 6e7a44cdb @putout/plugin-apply-shorthand-properties: computed
+- 4c643415e root: eslint v10.0.0-alpha.0 (https://eslint.org/blog/2025/11/eslint-v10.0.0-alpha.0-released)
+- 18f4ddd69 @putout/plugin-logical-expressions: simplify: JSXContainerExpression: exclude
+- 41c8458aa @putout/plugin-eslint-plugin: drop support of 🐊 < 40
+- 97bb82778 @putout/plugin-eslint-plugin: remove-errors-type: add
+- ea07075a5 @putout/plugin-for-of: reduce: inside ExportNamedDeclaration
+- 2f6f665b4 @putout/plugin-nodejs: convert-esm-to-commonjs: destructuring
+
 2025.11.14, v40.14.0
 
 feature:
