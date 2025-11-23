@@ -60,6 +60,9 @@ export const traverse = ({push, options}) => ({
             const from = getName(valuePath);
             const to = getName(keyPath);
             
+            if (!from)
+                continue;
+            
             if (ignore.includes(from))
                 continue;
             
