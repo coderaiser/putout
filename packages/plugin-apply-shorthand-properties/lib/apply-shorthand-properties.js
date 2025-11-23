@@ -13,7 +13,7 @@ const {
 
 export const report = () => `Use shorthand properties`;
 
-export const fix = ({path, from, to, toRename}) => {
+export const fix = ({path, from, to, keyPath, toRename}) => {
     if (isImportSpecifier(path)) {
         path.node.imported = path.node.local;
         return;
@@ -23,8 +23,6 @@ export const fix = ({path, from, to, toRename}) => {
         rename(path, from, to);
     
     path.node.shorthand = true;
-    
-    const keyPath = path.get('key');
     
     if (keyPath.isStringLiteral()) {
         replaceWith(keyPath, identifier(keyPath.node.value));
@@ -46,16 +44,17 @@ export const traverse = ({push, options}) => ({
             if (shorthand)
                 continue;
             
-            const valuePath = propPath.get('value');
             const keyPath = propPath.get('key');
+            const keyIsString = keyPath.isStringLiteral();
             
-            if (computed && !keyPath.isStringLiteral())
+            if (computed && !keyIsString)
                 continue;
             
-            if (!computed && keyPath.isStringLiteral())
+            if (!computed && keyIsString)
                 continue;
             
             const {rename, ignore = []} = options;
+            const valuePath = propPath.get('value');
             
             const from = getName(valuePath);
             const to = getName(keyPath);
@@ -75,6 +74,7 @@ export const traverse = ({push, options}) => ({
                         path: propPath,
                         from,
                         to,
+                        keyPath,
                     });
                 
                 continue;
@@ -98,6 +98,7 @@ export const traverse = ({push, options}) => ({
                 path: propPath,
                 from,
                 to,
+                keyPath,
                 toRename: true,
             });
         }
