@@ -104,8 +104,8 @@ test('plugin-apply-shorthand-properties: no transform: import-declaration', (t) 
     t.end();
 });
 
-test('plugin-apply-shorthand-properties: no report: computed', (t) => {
-    t.noReport('computed');
+test('plugin-apply-shorthand-properties: transform: computed', (t) => {
+    t.transform('computed');
     t.end();
 });
 

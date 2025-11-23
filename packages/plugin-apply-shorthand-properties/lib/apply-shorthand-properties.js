@@ -1,7 +1,15 @@
 import {types, operator} from 'putout';
 
-const {findBinding, rename} = operator;
-const {isImportSpecifier} = types;
+const {
+    findBinding,
+    rename,
+    replaceWith,
+} = operator;
+
+const {
+    isImportSpecifier,
+    identifier,
+} = types;
 
 export const report = () => `Use shorthand properties`;
 
@@ -15,6 +23,13 @@ export const fix = ({path, from, to, toRename}) => {
         rename(path, from, to);
     
     path.node.shorthand = true;
+    
+    const keyPath = path.get('key');
+    
+    if (keyPath.isStringLiteral()) {
+        replaceWith(keyPath, identifier(keyPath.node.value));
+        path.node.computed = false;
+    }
 };
 
 export const traverse = ({push, options}) => ({
@@ -31,19 +46,19 @@ export const traverse = ({push, options}) => ({
             if (shorthand)
                 continue;
             
-            if (computed)
-                continue;
-            
             const valuePath = propPath.get('value');
             const keyPath = propPath.get('key');
+            
+            if (computed && !keyPath.isStringLiteral())
+                continue;
+            
+            if (!computed && keyPath.isStringLiteral())
+                continue;
             
             const {rename, ignore = []} = options;
             
             const from = getName(valuePath);
             const to = getName(keyPath);
-            
-            if (!to)
-                continue;
             
             if (ignore.includes(from))
                 continue;
@@ -91,6 +106,9 @@ function getName(path) {
     
     if (path.isIdentifier())
         return node.name;
+    
+    if (path.isStringLiteral())
+        return node.value;
     
     return '';
 }
