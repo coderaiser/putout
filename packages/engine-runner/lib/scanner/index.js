@@ -10,10 +10,10 @@ const {
     start,
 } = require('@putout/operator-filesystem');
 
-const log = require('debug')('putout:runner:scanner');
-
 const fromSimple = require('@putout/plugin-filesystem/from-simple');
 const toSimple = require('@putout/plugin-filesystem/to-simple');
+const {createDebug} = require('../debug');
+const log = createDebug('putout:runner:scanner');
 
 module.exports.scan = ({rule, plugin, msg, options}, {progress}) => {
     const {

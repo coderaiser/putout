@@ -1,9 +1,10 @@
 'use strict';
 
-const log = require('debug')('putout:runner:include');
+const {createDebug} = require('../debug');
+
 const maybeArray = require('../maybe-array');
 const {validate} = require('../validate');
-
+const log = createDebug('putout:runner:include');
 const stub = () => [];
 const good = () => true;
 

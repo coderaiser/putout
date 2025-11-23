@@ -36,10 +36,10 @@
     "@putout/operator-filesystem": "^9.0.0",
     "@putout/operator-json": "^2.0.0",
     "@putout/plugin-filesystem": "^11.0.0",
-    "debug": "^4.1.1",
     "fullstore": "^3.0.0",
     "jessy": "^4.0.0",
     "nessy": "^5.2.0",
+    "obug": "^2.1.1",
     "once": "^1.4.0",
     "try-catch": "^3.0.0",
     "wraptile": "^3.0.0"
@@ -68,7 +68,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.19"
   },
   "publishConfig": {
     "access": "public"
