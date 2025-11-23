@@ -2,77 +2,62 @@
 
 const {test, stub} = require('supertape');
 
-const mockRequire = require('mock-require');
 const {types} = require('putout');
-const {_parseValue} = require('./log');
+const log = require('./log');
 const {identifier} = types;
-const {assign} = Object;
 
-const {reRequire, stopAll} = mockRequire;
+const {_parseValue} = log;
 
 test('putout: compare: log', (t) => {
-    const namespace = stub();
+    const debug = stub();
     
-    assign(namespace, {
-        enabled: true,
-    });
-    
-    const debug = stub().returns(namespace);
-    
-    mockRequire('debug', debug);
-    
-    const log = reRequire('./log');
-    
+    debug.enabled = true;
+    global.__putout_debug = debug;
     log('hello', 'world');
-    const expected = `string: "hello" = string: "world"`;
+    delete global.__putout_debug;
     
-    stopAll();
+    const expected = [
+        'putout:compare',
+        `string: "hello" = string: "world"`,
+    ];
     
-    t.calledWith(namespace, [expected]);
+    t.calledWith(debug, expected);
     t.end();
 });
 
 test('putout: compare: run-plugins: template: log: array', (t) => {
-    const namespace = stub();
+    const debug = stub();
     
-    assign(namespace, {
-        enabled: true,
-    });
-    
-    const debug = stub().returns(namespace);
-    
-    mockRequire('debug', debug);
-    
-    const log = reRequire('./log');
+    debug.enabled = true;
+    global.__putout_debug = debug;
     
     log([identifier('hello')], [identifier('world')]);
-    const expected = `Identifier: ["hello"] = Identifier: ["world"]`;
+    delete global.__putout_debug;
     
-    stopAll();
+    const expected = [
+        'putout:compare',
+        `Identifier: ["hello"] = Identifier: ["world"]`,
+    ];
     
-    t.calledWith(namespace, [expected]);
+    t.calledWith(debug, expected);
     t.end();
 });
 
 test('putout: compare: log: object', (t) => {
-    const namespace = stub();
+    const debug = stub();
     
-    assign(namespace, {
-        enabled: true,
-    });
-    
-    const debug = stub().returns(namespace);
-    
-    mockRequire('debug', debug);
-    
-    const log = reRequire('./log');
+    debug.enabled = true;
+    global.__putout_debug = debug;
     
     log(identifier('hello'), identifier('world'));
-    const expected = `Identifier: "hello" = Identifier: "world"`;
+    delete global.__putout_debug;
     
-    stopAll();
+    const expected = [
+        'putout:compare',
+        `Identifier: "hello" = Identifier: "world"`,
+    ];
     
-    t.calledWith(namespace, [expected]);
+    t.calledWith(debug, expected);
     t.end();
 });
 

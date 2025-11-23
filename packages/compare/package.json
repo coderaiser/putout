@@ -27,9 +27,9 @@
     "@putout/babel": "^4.0.1",
     "@putout/engine-parser": "^14.0.1",
     "@putout/operate": "^14.0.0",
-    "debug": "^4.1.1",
     "jessy": "^4.1.0",
-    "nessy": "^5.1.0"
+    "nessy": "^5.1.0",
+    "obug": "^2.1.1"
   },
   "keywords": [
     "putout",
@@ -51,7 +51,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.19"
   },
   "publishConfig": {
     "access": "public"

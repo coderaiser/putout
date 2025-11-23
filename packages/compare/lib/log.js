@@ -1,6 +1,7 @@
 'use strict';
 
-const debug = require('debug')('putout:compare');
+const {createDebug} = require('./debug');
+const debug = createDebug('putout:compare');
 
 const {isArray} = Array;
 const isObject = (a) => a && typeof a === 'object';
