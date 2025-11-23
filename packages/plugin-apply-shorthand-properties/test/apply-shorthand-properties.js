@@ -109,6 +109,11 @@ test('plugin-apply-shorthand-properties: transform: computed', (t) => {
     t.end();
 });
 
+test('plugin-apply-shorthand-properties: no report: spread', (t) => {
+    t.noReport('spread');
+    t.end();
+});
+
 testWithRemove('plugin-apply-shorthand-properties: transform with options: assign', (t) => {
     t.transformWithOptions('assign', {
         rename: true,
