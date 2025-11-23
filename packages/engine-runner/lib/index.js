@@ -2,7 +2,7 @@
 
 const {traverse: defaultTraverse} = require('@putout/babel');
 const once = require('once');
-const debug = require('debug')('putout:runner:find');
+const {createDebug} = require('./debug');
 
 const runFix = require('./run-fix');
 const mergeVisitors = require('./merge-visitors');
@@ -17,7 +17,7 @@ const {declare} = require('./declarator/index.js');
 const {scan} = require('./scanner/index.js');
 
 const {getPath, getPosition} = require('./get-position');
-
+const debug = createDebug('putout:runner:find');
 const isRemoved = (a) => a?.removed;
 
 module.exports.runPlugins = ({ast, shebang, fix, fixCount = 2, plugins, progress = createProgress(), traverse = defaultTraverse}) => {
