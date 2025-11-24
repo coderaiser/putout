@@ -46,3 +46,8 @@ test('putout: sort-imports-by-specifiers: external-hashed', (t) => {
     t.noReport('external-hashed');
     t.end();
 });
+
+test('putout: sort-imports-by-specifiers: lots', (t) => {
+    t.transform('lots');
+    t.end();
+});
