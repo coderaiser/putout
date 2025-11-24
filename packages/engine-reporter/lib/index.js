@@ -1,11 +1,11 @@
 import module from 'node:module';
 import tryCatch from 'try-catch';
-import getOptions from 'putout/cli/get-options';
+import _getOptions from 'putout/cli/get-options';
 import {
     INTERACTIVE_CANCELED,
     INVALID_CONFIG,
 } from 'putout/exit-codes';
-import {getFormatter} from './formatter/formatter.cjs';
+import {getFormatter as _getFormatter} from './formatter/formatter.cjs';
 import Report from './report.cjs';
 
 const {createRequire} = module;
@@ -15,7 +15,16 @@ const {dependencies} = require('putout/package.json');
 
 const {keys} = Object;
 
-export const createReport = async ({args, cwd, exit}) => {
+export const createReport = async (overrides = {}) => {
+    const {
+        args,
+        cwd,
+        exit,
+        getOptions = _getOptions,
+        cliChooseFormatter = '@putout/cli-choose-formatter',
+        getFormatter = _getFormatter,
+    } = overrides;
+    
     const {interactive, format} = args;
     
     const report = Report();
@@ -34,7 +43,7 @@ export const createReport = async ({args, cwd, exit}) => {
     let newFormatter;
     
     if (interactive) {
-        const {chooseFormatter} = await import('@putout/cli-choose-formatter');
+        const {chooseFormatter} = await import(cliChooseFormatter);
         
         [newFormatter] = await chooseFormatter(defaultFormatter, keys(dependencies));
         

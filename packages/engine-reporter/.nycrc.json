@@ -7,9 +7,7 @@
         "test",
         "coverage",
         ".*.*",
-        "**/index.js",
         "**/subscribe.js",
-        "**/simple-import.*js",
         "**/*.config.*"
     ],
     "branches": 100,
