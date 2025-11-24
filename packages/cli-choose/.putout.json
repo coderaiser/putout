@@ -4,5 +4,8 @@
         "example.js": {
             "remove-unused-expressions": "off"
         }
+    },
+    "rules": {
+        "esm/remove-empty-import": "off"
     }
 }

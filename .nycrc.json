@@ -13,6 +13,7 @@
         "packages/*/bin",
         "packages/*/test",
         "packages/engine-reporter",
+        "packages/cli-choose/**/keypress*",
         "coverage",
         "**/eslint.config.js",
         "**/load-plugins-async.js",
