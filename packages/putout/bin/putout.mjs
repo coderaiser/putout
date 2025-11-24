@@ -12,6 +12,7 @@ import cli from '../lib/cli/index.js';
 import {parseArgs} from '../lib/cli/parse-args.js';
 import {createExit} from '../lib/cli/exit.mjs';
 import {onDebuggerExit} from './debugger-exit.mjs';
+import {dropInteractive} from './drop-interactive.mjs';
 
 const halt = process.exit;
 const logError = console.error;
@@ -62,7 +63,7 @@ workerData.push(...[
 await cli({
     write,
     halt,
-    argv: workerData.slice(2),
+    argv: dropInteractive(workerData.slice(2)),
     log,
     logError,
     readFile,

@@ -9,6 +9,7 @@ import process, {
 import {subscribe} from '@putout/engine-reporter/subscribe';
 import {parseArgs} from '../lib/cli/parse-args.js';
 import {createExit} from '../lib/cli/exit.mjs';
+import {dropInteractive} from './drop-interactive.mjs';
 
 const args = parseArgs(process.argv.slice(2));
 const write = stdout.write.bind(stdout);
@@ -35,16 +36,3 @@ await subscribe({
         logError: console.error,
     }),
 });
-
-function dropInteractive(argv) {
-    const result = [];
-    
-    for (const arg of argv) {
-        if (arg === '-i' || arg === '--interactive')
-            continue;
-        
-        result.push(arg);
-    }
-    
-    return result;
-}
