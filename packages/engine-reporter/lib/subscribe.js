@@ -1,7 +1,7 @@
-import {keypress} from '@putout/cli-keypress';
-import {createReport} from './index.js';
+import {keypress as _keypress} from '@putout/cli-keypress';
+import {createReport as _createReport} from './index.js';
 
-export const subscribe = async ({write, cwd, args, worker, exit}) => {
+export const subscribe = async ({write, cwd, args, worker, exit, createReport = _createReport, keypress = _keypress}) => {
     const {isStop} = keypress();
     const report = await createReport({
         args,

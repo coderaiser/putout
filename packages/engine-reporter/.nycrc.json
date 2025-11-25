@@ -7,7 +7,6 @@
         "test",
         "coverage",
         ".*.*",
-        "**/subscribe.js",
         "**/*.config.*"
     ],
     "branches": 100,
