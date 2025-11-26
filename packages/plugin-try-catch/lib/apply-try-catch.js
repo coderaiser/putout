@@ -31,6 +31,8 @@ export const applyTryCatch = (tryName) => (path) => {
         return;
     }
     
+    delete param.typeAnnotation;
+    
     const ifNode = body.body.length ? [
         ifStatement(param, body),
     ] : body.body;
