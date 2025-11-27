@@ -9,6 +9,7 @@ const {
 const {
     isImportSpecifier,
     identifier,
+    isStringLiteral,
 } = types;
 
 export const report = () => `Use shorthand properties`;
@@ -38,7 +39,12 @@ export const traverse = ({push, options}) => ({
             });
     },
     '__object'(path) {
-        for (const propPath of path.get('properties')) {
+        const properties = path.get('properties');
+        
+        if (hasDefault(properties))
+            return;
+        
+        for (const propPath of properties) {
             const {computed, shorthand} = propPath.node;
             
             if (shorthand)
@@ -115,4 +121,13 @@ function getName(path) {
         return node.value;
     
     return '';
+}
+
+function hasDefault(properties) {
+    for (const property of properties) {
+        if (isStringLiteral(property.node.value, {value: 'default'}))
+            return true;
+    }
+    
+    return false;
 }
