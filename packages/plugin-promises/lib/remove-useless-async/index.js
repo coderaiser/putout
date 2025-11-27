@@ -8,7 +8,10 @@ export const fix = (path) => {
     path.node.async = false;
 };
 
-export const exclude = () => ['__nop'];
+export const exclude = () => [
+    '__nop',
+    'async (__args): Promise<__b> => __body',
+];
 
 export const include = () => [
     'async function __(__args) {}',
