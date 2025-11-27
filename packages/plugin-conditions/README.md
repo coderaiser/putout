@@ -520,17 +520,16 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/256b1b6a90
 
 ### ❌ Example of incorrect code
 
-```js
-const a = 5;
-
-if (a) {}
+```
+if (a)
+   const b = 5;
 ```
 
 ### ✅ Example of correct code
 
 ```js
 if (a) {
-    const a = 5;
+    const b = 5;
 }
 ```
 
