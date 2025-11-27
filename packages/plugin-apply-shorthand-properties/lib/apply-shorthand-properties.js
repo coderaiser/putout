@@ -51,7 +51,13 @@ export const traverse = ({push, options}) => ({
                 continue;
             
             const keyPath = propPath.get('key');
+            const valuePath = propPath.get('value');
+            
             const keyIsString = keyPath.isStringLiteral();
+            const valueIsString = valuePath.isStringLiteral();
+            
+            if (valueIsString)
+                continue;
             
             if (computed && !keyIsString)
                 continue;
@@ -60,7 +66,6 @@ export const traverse = ({push, options}) => ({
                 continue;
             
             const {rename, ignore = []} = options;
-            const valuePath = propPath.get('value');
             
             const from = getName(valuePath);
             const to = getName(keyPath);

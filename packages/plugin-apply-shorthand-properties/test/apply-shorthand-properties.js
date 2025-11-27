@@ -119,6 +119,11 @@ test('plugin-apply-shorthand-properties: no report: default', (t) => {
     t.end();
 });
 
+test('plugin-apply-shorthand-properties: no report: string', (t) => {
+    t.noReport('string');
+    t.end();
+});
+
 testWithRemove('plugin-apply-shorthand-properties: transform with options: assign', (t) => {
     t.transformWithOptions('assign', {
         rename: true,
