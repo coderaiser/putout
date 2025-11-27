@@ -3,6 +3,8 @@
 const moduleDeclarations = [
     'import',
     'export',
+    'assert',
+    'with',
 ];
 
 const declarations = [

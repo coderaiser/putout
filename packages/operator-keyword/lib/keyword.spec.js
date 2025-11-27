@@ -184,3 +184,17 @@ test('putout: operator: isKeyword: default', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: operator: isKeyword: assert', (t) => {
+    const result = isKeyword('assert');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: isKeyword: with', (t) => {
+    const result = isKeyword('with');
+    
+    t.ok(result);
+    t.end();
+});
