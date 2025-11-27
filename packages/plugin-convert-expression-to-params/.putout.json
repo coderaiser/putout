@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md": {
-            "convert-apply-to-spread": "off"
+            "convert-expression-to-params": "off"
         }
     }
 }
