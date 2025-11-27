@@ -28,10 +28,10 @@ npm i @putout/plugin-convert-expression-to-params -D
 
 ## ❌ Example of incorrect code
 
-```js
-(__a, __b) => __b + __a;
-(__a, __b) => __b + __a;
-(__a, hello, world) => __a;
+```
+(__a(hello, world)) => (__b + __a);
+(__a + __b) => (__b + __a);
+(__a || __b) => (__b + __a);
 ```
 
 ## ✅ Example of correct code
