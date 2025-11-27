@@ -55,7 +55,7 @@ const createRegExp = a = RegExp(a, 'g');
 const createRegExp = (a) => RegExp(a, 'g');
 ```
 
-## convert-to-comparison]
+## convert-to-comparison
 
 > You should almost never have an `if...else` with an assignment like `a = b` as a condition.
 >
