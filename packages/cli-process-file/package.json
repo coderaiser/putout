@@ -36,7 +36,7 @@
     "cli"
   ],
   "devDependencies": {
-    "@putout/operate": "^15.0.0",
+    "@putout/operate": "*",
     "c8": "^10.0.0",
     "eslint": "v10.0.0-alpha.0",
     "eslint-plugin-n": "^17.0.0",
