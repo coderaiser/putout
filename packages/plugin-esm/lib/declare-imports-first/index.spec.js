@@ -2,10 +2,11 @@ import {operator} from 'putout';
 import {createTest} from '@putout/test';
 import * as nodejs from '@putout/plugin-nodejs';
 import * as putout from '@putout/plugin-putout';
-import * as mergeDestructuringProperties from '@putout/plugin-merge-destructuring-properties';
+import * as destructuring from '@putout/plugin-destructuring';
 import * as plugin from './index.js';
 
 const convertEsmToCommonjs = nodejs.rules['convert-esm-to-commonjs'];
+const mergeDestructuringProperties = destructuring.rules['merge-properties'];
 
 const {remove} = operator;
 

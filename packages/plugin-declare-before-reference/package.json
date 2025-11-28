@@ -33,7 +33,7 @@
   ],
   "devDependencies": {
     "@putout/eslint-flat": "^3.0.0",
-    "@putout/plugin-merge-destructuring-properties": "*",
+    "@putout/plugin-destructuring": "*",
     "@putout/plugin-nodejs": "*",
     "@putout/plugin-printer": "*",
     "@putout/plugin-promises": "*",

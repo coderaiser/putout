@@ -33,7 +33,7 @@
   ],
   "devDependencies": {
     "@putout/eslint-flat": "^3.0.0",
-    "@putout/plugin-apply-destructuring": "*",
+    "@putout/plugin-destructuring": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/test": "^14.0.0",

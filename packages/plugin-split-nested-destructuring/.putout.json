@@ -1,7 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "split-nested-destructuring": "off"
-        }
-    }
-}

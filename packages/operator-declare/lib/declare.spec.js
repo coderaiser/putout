@@ -762,10 +762,12 @@ test('putout: operator: declare: merge', (t) => {
             'nodejs/add-node-prefix': 'off',
             'nodejs/convert-commonjs-to-esm': 'off',
             'nodejs/convert-esm-to-commonjs': 'on',
+            'destructuring': 'off',
+            'destructuring/merge-properties': 'on',
         },
         plugins: [
             'nodejs',
-            'merge-destructuring-properties',
+            'destructuring',
             ['declare', declare(declarations)],
         ],
     });

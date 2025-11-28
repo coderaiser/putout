@@ -1,7 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "split-call-with-destructuring": "off"
-        }
-    }
-}

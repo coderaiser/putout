@@ -1,12 +1,13 @@
 import {createTest} from '@putout/test';
 import * as nodejs from '@putout/plugin-nodejs';
 import * as esm from '@putout/plugin-esm';
-import * as mergeDestructuringProperties from '@putout/plugin-merge-destructuring-properties';
+import * as destructuring from '@putout/plugin-destructuring';
 import * as replaceWithMultiple from './index.js';
 import * as replaceOperateWithOperator from '../replace-operate-with-operator/index.js';
 
 const convertCommonjsToEsmRequire = nodejs.rules['convert-commonjs-to-esm-require'];
 const declareImportsFirst = esm.rules['declare-imports-first'];
+const mergeDestructuringProperties = destructuring.rules['merge-properties'];
 
 const test = createTest(import.meta.url, {
     plugins: [

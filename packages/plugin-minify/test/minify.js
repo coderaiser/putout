@@ -1,7 +1,9 @@
 import {createTest} from '@putout/test';
-import * as mergeDestructuringProperties from '@putout/plugin-merge-destructuring-properties';
+import * as destructuring from '@putout/plugin-destructuring';
 import * as declare from '@putout/plugin-declare';
 import * as minify from '../lib/index.js';
+
+const mergeDestructuringProperties = destructuring.rules['merge-properties'];
 
 const test = createTest(import.meta.url, {
     plugins: [

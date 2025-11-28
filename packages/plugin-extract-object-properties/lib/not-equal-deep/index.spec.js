@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import * as applyDestructuring from '@putout/plugin-apply-destructuring';
+import * as destructuring from '@putout/plugin-destructuring';
 import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
 import * as putout from '@putout/plugin-putout';
 import * as extractObjectProperties from './index.js';
@@ -54,7 +54,7 @@ test('plugin-extract-object-properties: not-equal-deep: no transform: different-
 
 test('plugin-extract-object-properties: not-equal-deep: transform: no-scope', (t) => {
     t.transform('no-scope', {
-        'apply-destructuring': applyDestructuring,
+        destructuring,
     });
     t.end();
 });

@@ -2131,7 +2131,6 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-apply-dot-notation`](/packages/plugin-apply-dot-notation#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-dot-notation.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-dot-notation) |
 | [`@putout/plugin-apply-starts-with`](/packages/plugin-apply-starts-with#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-starts-with.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-starts-with) |
 | [`@putout/plugin-apply-flat-map`](/packages/plugin-apply-flat-map#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-flat-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-flat-map) |
-| [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-template-literals`](/packages/plugin-apply-template-literals#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-template-literals.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-template-literals) |
 | [`@putout/plugin-apply-overrides`](/packages/plugin-apply-overrides#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-overrides.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-overrides) |
 | [`@putout/plugin-apply-shorthand-properties`](/packages/plugin-apply-shorthand-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-shorthand-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-shorthand-properties) |
@@ -2140,15 +2139,12 @@ It has a lot of plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-split-call-with-destructuring`](/packages/plugin-split-call-with-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-call-with-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-call-with-destructuring) |
 | [`@putout/plugin-split-variable-declarations`](/packages/plugin-split-variable-declarations#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-variable-declarations.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-variable-declarations) |
-| [`@putout/plugin-split-nested-destructuring`](/packages/plugin-split-nested-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-nested-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-nested-destructuring) |
 
 ### Mergers
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-merge-destructuring-properties`](/packages/plugin-merge-destructuring-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-destructuring-properties) |
 | [`@putout/plugin-merge-duplicate-functions`](/packages/plugin-merge-duplicate-functions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-functions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-duplicate-functions) |
 
 ### Converters
@@ -2222,6 +2218,7 @@ It has a lot of plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-assignment`](/packages/plugin-assignment#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-assignment.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-assignment) |
 | [`@putout/plugin-conditions`](/packages/plugin-conditions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-conditions) |
+| [`@putout/plugin-destructuring`](/packages/plugin-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-destructuring) |
 | [`@putout/plugin-esm`](/packages/plugin-esm#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-esm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-esm) |
 | [`@putout/plugin-filesystem`](/packages/plugin-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-filesystem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-filesystem) |
 | [`@putout/plugin-for-of`](/packages/plugin-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-for-of) |

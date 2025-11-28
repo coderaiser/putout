@@ -10,8 +10,10 @@ import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
 import * as tape from '@putout/plugin-tape';
 import * as removeUselessVariables from '@putout/plugin-remove-useless-variables';
 import * as removeUselessArguments from '@putout/plugin-remove-useless-arguments';
-import * as mergeDestructuringProperties from '@putout/plugin-merge-destructuring-properties';
+import * as destructuring from '@putout/plugin-destructuring';
 import * as declare from '../lib/declare-before-reference.js';
+
+const mergeDestructuringProperties = destructuring.rules['merge-properties'];
 
 const {expressionStatement} = types;
 
