@@ -83,3 +83,8 @@ test('plugin-remove-nested-blocks: no report: arrow', (t) => {
     t.noReport('arrow');
     t.end();
 });
+
+test('plugin-remove-nested-blocks: no report: import-assert', (t) => {
+    t.noReport('import-assert');
+    t.end();
+});

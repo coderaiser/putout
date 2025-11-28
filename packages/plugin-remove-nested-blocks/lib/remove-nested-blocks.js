@@ -3,6 +3,7 @@ import {types, operator} from 'putout';
 const {
     isReturnStatement,
     isExportNamedDeclaration,
+    isIdentifier,
 } = types;
 
 const {replaceWithMultiple} = operator;
@@ -25,6 +26,9 @@ export const filter = (path) => {
         return false;
     
     if (isReturnWithoutArg(path))
+        return false;
+    
+    if (isImportAssert(path))
         return false;
     
     const {parentPath} = path;
@@ -65,3 +69,14 @@ const isIntersect = (path, bindings) => {
     
     return false;
 };
+
+function isImportAssert(path) {
+    const prev = path.getPrevSibling();
+    
+    if (!prev.isExpressionStatement())
+        return false;
+    
+    return isIdentifier(prev.node.expression, {
+        name: 'assert',
+    });
+}
