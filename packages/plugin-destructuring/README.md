@@ -23,6 +23,7 @@ npm i @putout/plugin-destructuring
 - ✅ [convert-object-to-array](#convert-object-to-array);
 - ✅ [split-nested](#split-nested);
 - ✅ [split-call](#split-call);
+- ✅ [merge-properties](#merge-properties);
 
 ## Config
 
@@ -32,7 +33,10 @@ npm i @putout/plugin-destructuring
         "destructuring/apply-object": "on",
         "destructuring/apply-array": "on",
         "destructuring/remove-useless-object": "on",
-        "destructuring/convert-object-to-array": "on"
+        "destructuring/convert-object-to-array": "on",
+        "destructuring/split-nested": "on",
+        "destructuring/split-call": "on",
+        "destructuring/merge-properties": "on"
     }
 }
 ```
