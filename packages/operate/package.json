@@ -25,7 +25,7 @@
     "wisdom": "madrun wisdom"
   },
   "dependencies": {
-    "@putout/babel": "^4.0.1"
+    "@putout/babel": "^5.0.0"
   },
   "keywords": [
     "ast",
