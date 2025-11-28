@@ -1,9 +1,9 @@
 import {createTest} from '@putout/test';
-import * as removeDebugger from '../lib/remove-unused-variables.js';
+import * as removeUnusedVariables from '../lib/remove-unused-variables.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['remove-debugger', removeDebugger],
+        ['remove-unused-variables', removeUnusedVariables],
     ],
 });
 

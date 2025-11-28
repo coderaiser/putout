@@ -488,7 +488,6 @@ export default ({use, declare, addParams}) => {
             for (const specPath of specifierPaths) {
                 const {local} = specPath.node;
                 
-                /* istanbul ignore else */
                 if (isIdentifier(local))
                     declare(specPath, local.name);
             }
