@@ -36,7 +36,7 @@
     "filesystem"
   ],
   "devDependencies": {
-    "@putout/engine-parser": "^14.0.1",
+    "@putout/engine-parser": "^15.0.1",
     "@putout/eslint-flat": "^3.0.0",
     "@putout/operator-json": "^2.0.0",
     "@putout/test": "^14.0.0",
