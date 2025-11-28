@@ -65,7 +65,7 @@
     "@putout/engine-parser": "^15.0.1",
     "@putout/engine-processor": "^14.0.0",
     "@putout/engine-reporter": "^5.0.0",
-    "@putout/engine-runner": "^25.0.0",
+    "@putout/engine-runner": "^26.0.0",
     "@putout/formatter-codeframe": "^9.0.0",
     "@putout/formatter-dump": "^6.0.0",
     "@putout/formatter-frame": "^8.0.0",
