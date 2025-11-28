@@ -195,7 +195,7 @@
     "@putout/processor-json": "^9.0.0",
     "@putout/processor-markdown": "^12.0.0",
     "@putout/processor-yaml": "^8.0.0",
-    "@putout/traverse": "^14.0.0",
+    "@putout/traverse": "^15.0.0",
     "ajv": "^8.8.2",
     "ci-info": "^4.0.0",
     "deepmerge": "^4.0.0",
