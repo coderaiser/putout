@@ -60,7 +60,7 @@
     "@putout/cli-ruler": "^4.0.0",
     "@putout/cli-staged": "^1.0.0",
     "@putout/cli-validate-args": "^2.0.0",
-    "@putout/compare": "^18.0.0",
+    "@putout/compare": "^19.0.0",
     "@putout/engine-loader": "^16.0.0",
     "@putout/engine-parser": "^15.0.1",
     "@putout/engine-processor": "^14.0.0",
