@@ -4,6 +4,9 @@ const {remove, isSimple} = operator;
 const {
     isReturnStatement,
     isBlockStatement,
+    isImportDeclaration,
+    isIdentifier,
+    isStringLiteral,
 } = types;
 
 export const report = () => 'Avoid unused expression statements';
@@ -26,6 +29,9 @@ export const traverse = ({push}) => ({
         const expressionPath = path.get('expression');
         
         if (isPrevReturnWithoutArg(path))
+            return;
+        
+        if (isImportAssert(path))
             return;
         
         if (isUselessLogical(expressionPath))
@@ -101,4 +107,17 @@ function isPrevReturnWithoutArg(path) {
     }
     
     return false;
+}
+
+function isImportAssert(path) {
+    const {expression} = path.node;
+    
+    if (isIdentifier(expression, {name: 'assert'})) {
+        const prev = path.getPrevSibling();
+        return isImportDeclaration(prev);
+    }
+    
+    return isStringLiteral(expression, {
+        value: 'json',
+    });
 }

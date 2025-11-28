@@ -90,3 +90,8 @@ test('remove unused expression: no report: return-no-args', (t) => {
     t.noReport('return-no-args');
     t.end();
 });
+
+test('remove unused expression: no report: import-assert', (t) => {
+    t.noReport('import-assert');
+    t.end();
+});
