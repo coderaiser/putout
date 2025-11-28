@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/formatter-codeframe": "^9.0.0"
+    "@putout/formatter-codeframe": "^10.0.0"
   },
   "keywords": [
     "putout",
@@ -33,7 +33,6 @@
     "frame"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/test": "^14.0.0",
     "c8": "^10.0.0",
@@ -43,7 +42,7 @@
     "madrun": "^11.0.0"
   },
   "peerDependencies": {
-    "putout": ">=40"
+    "putout": ">=41"
   },
   "license": "MIT",
   "engines": {
