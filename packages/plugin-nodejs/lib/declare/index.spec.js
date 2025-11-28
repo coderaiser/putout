@@ -152,3 +152,8 @@ test('putout: plugin: nodejs: declare: no report: types', (t) => {
     t.noReportCode(`const {x} = types`);
     t.end();
 });
+
+test('putout: plugin: nodejs: declare: no report: assert', (t) => {
+    t.noReportCode(`assert`);
+    t.end();
+});

@@ -22,7 +22,6 @@ export default {
     getegid: `import {getegid} from 'node:process'`,
     getgroups: `import {getgroups} from 'node:process'`,
     allowedNodeEnvironmentFlags: `import {allowedNodeEnvironmentFlags} from 'node:process'`,
-    assert: `import {assert} from 'node:process'`,
     features: `import {features} from 'node:process'`,
     setUncaughtExceptionCaptureCallback: `import {setUncaughtExceptionCaptureCallback} from 'node:process'`,
     hasUncaughtExceptionCaptureCallback: `import {hasUncaughtExceptionCaptureCallback} from 'node:process'`,
