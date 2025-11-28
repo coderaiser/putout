@@ -258,7 +258,6 @@
         "convert-object-entries-to-object-keys",
         "convert-object-keys-to-object-entries",
         "convert-to-arrow-function",
-        "convert-array-copy-to-slice",
         "convert-template-to-string",
         "convert-index-of-to-includes",
         "convert-quotes-to-backticks",
