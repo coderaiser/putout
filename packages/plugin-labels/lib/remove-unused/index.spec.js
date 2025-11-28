@@ -26,3 +26,8 @@ test('putout: remove-unused: no report: return', (t) => {
     t.noReport('return');
     t.end();
 });
+
+test('putout: remove-unused: no report: import-assert', (t) => {
+    t.noReport('import-assert');
+    t.end();
+});

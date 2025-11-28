@@ -1,6 +1,9 @@
 import {operator, types} from 'putout';
 
-const {isReturnStatement} = types;
+const {
+    isReturnStatement,
+    isIdentifier,
+} = types;
 const {replaceWith} = operator;
 
 export const report = ({name}) => `Label '${name}' is defined but never used`;
@@ -15,6 +18,9 @@ export const traverse = ({push}) => ({
         const {name} = label;
         
         if (isPrevReturnWithoutArg(path))
+            return;
+        
+        if (isPrevImportAssert(path))
             return;
         
         if (!usedLabel({path, name}))
@@ -56,4 +62,15 @@ function isPrevReturnWithoutArg({parentPath}) {
         return false;
     
     return !retPath.node.argument;
+}
+
+function isPrevImportAssert({parentPath}) {
+    const prev = parentPath.getPrevSibling();
+    
+    if (!prev.isExpressionStatement())
+        return false;
+    
+    return isIdentifier(prev.node.expression, {
+        name: 'assert',
+    });
 }
