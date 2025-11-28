@@ -4,6 +4,7 @@ const {
     isReturnStatement,
     isIdentifier,
 } = types;
+
 const {replaceWith} = operator;
 
 export const report = ({name}) => `Label '${name}' is defined but never used`;
