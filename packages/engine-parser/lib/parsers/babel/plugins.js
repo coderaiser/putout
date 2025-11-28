@@ -3,7 +3,6 @@
 module.exports = [
     'importMeta',
     'importAttributes',
-    'deprecatedImportAssert',
     'dynamicImport',
     'bigInt',
     'classProperties',
