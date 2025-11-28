@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-destructuring.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-destructuring"npm"
 
-> The **destructuring** assignment syntax is a **JavaScript** expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+> The **destructuring** assignment syntax is a **JavaScript** expression that makes it possible to unpack values from `arrays`, or `properties` from `objects`, into distinct `variables`.
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
@@ -162,10 +162,6 @@ console.log('hello');
 ```
 
 ## merge-properties
-
-> The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from `arrays`, or `properties` from `objects`, into distinct `variables`.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/11c8cfa59f87e46238309b857448b9c5/688f10ad8fd7c0e4d9e9e0c74c399f1edb3ba29e).
 
