@@ -1,0 +1,2 @@
+import a from 'a' assert {type: 'json'}
+a();

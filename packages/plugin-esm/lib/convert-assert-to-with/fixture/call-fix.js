@@ -1,0 +1,5 @@
+import a from 'a' with {
+    type: 'json',
+};
+
+a();

@@ -1,6 +1,11 @@
-const setImportType = (path, type) => {
-    path.node.options.properties[0].key.name = type;
-};
+import {operator, types} from 'putout';
+
+const {
+    importAttribute,
+    identifier,
+} = types;
+
+const {compare, remove} = operator;
 
 export const report = () => `Use 'with' instead of 'assert'`;
 
@@ -10,19 +15,38 @@ export const include = () => [
 ];
 
 export const fix = (path) => {
-    if (path.isImportDeclaration()) {
-        delete path.node.extra.deprecatedAssertSyntax;
+    if (path.isImportExpression()) {
+        path.node.options.properties[0].key.name = 'with';
         return;
     }
     
-    setImportType(path, 'with');
+    const next = path.getNextSibling();
+    const nextNext = next.getNextSibling();
+    const nextNextNext = nextNext.getNextSibling();
+    const {body} = nextNext.node.body[0];
+    
+    remove(next);
+    remove(nextNext);
+    
+    if (nextNextNext.isEmptyStatement())
+        remove(nextNextNext);
+    
+    path.node.attributes = [
+        importAttribute(identifier('type'), body.expression),
+    ];
 };
 
 export const filter = (path) => {
-    const {extra} = path.node;
+    if (path.isImportDeclaration()) {
+        const next = path.getNextSibling();
+        
+        if (!compare(next, 'assert;'))
+            return false;
+        
+        const nextNext = next.getNextSibling();
+        
+        return compare(nextNext, '{type: "__";}');
+    }
     
-    if (path.isImportDeclaration())
-        return extra?.deprecatedAssertSyntax;
-    
-    return true;
+    return path.isImportExpression();
 };

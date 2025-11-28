@@ -362,7 +362,7 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9f85897b9
 
 #### ❌ Example of incorrect code
 
-```js
+```
 import json from './foo.json' assert {
     type: 'json',
 };
