@@ -1,0 +1,11 @@
+__putout_processor_json({
+    rules: {
+        "apply-destructuring": "off",
+        "apply-destructuring/falsy": "off",
+        "apply-destructuring/array": "off",
+        "apply-destructuring/object": "off",
+        "split-call-with-destructuring": "off",
+        "merge-destructuring-properties": "off",
+        "split-nested-destructuring": "off"
+    }
+});

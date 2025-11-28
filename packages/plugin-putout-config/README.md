@@ -15,6 +15,7 @@ npm i @putout/plugin-putout-config -D
 
 - ✅ [apply-assignment](#apply-assignment);
 - ✅ [apply-conditions](#apply-conditions);
+- ✅ [apply-destructuring](#apply-destructuring);
 - ✅ [apply-esm](#apply-esm);
 - ✅ [apply-return](#apply-return);
 - ✅ [apply-parens](#apply-parens);
@@ -40,6 +41,7 @@ npm i @putout/plugin-putout-config -D
     "rules": {
         "putout-config/apply-assignment": "on",
         "putout-config/apply-conditions": "on",
+        "putout-config/apply-destructuring": "on",
         "putout-config/apply-esm": "on",
         "putout-config/apply-for-of": "on",
         "putout-config/apply-labels": "on",
@@ -140,6 +142,33 @@ Apply [`esm`](https://github.com/coderaiser/putout/tree/master/packages/plugin-e
 +       "esm/remove-quotes-from-import-assertions": "on",
 +       "esm/merge-duplicate-imports": "on",
 +       "esm/sort-imports-by-specifiers": "on"
+  }
+}
+```
+
+## apply-destructuring
+
+Apply [`destructuring`](https://github.com/coderaiser/putout/tree/master/packages/plugin-destructuring#readme) according to:
+
+- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
+
+```diff
+{
+    "rules": {
+-       "apply-destructuring": "off",
+-       "apply-destructuring/falsy": "off",
+-       "apply-destructuring/array": "off",
+-       "apply-destructuring/object": "off",
+-       "split-call-with-destructuring": "off",
+-       "merge-destructuring-properties": "off",
+-       "split-nested-destructuring": "off"
++       "destructuring": "off",
++       "destructuring/remove-useless-object": "off",
++       "destructuring/apply-array": "off",
++       "destructuring/apply-object": "off",
++       "destructuring/split-call": "off",
++       "destructuring/merge-properties": "off",
++       "destructuring/split-nested": "off"
   }
 }
 ```
