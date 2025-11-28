@@ -10,9 +10,7 @@ const v41 = [
     ['split-nested-destructuring', 'destructuring/split-nested'],
 ];
 
-const versions = [
-    ...v41,
-];
+const versions = [...v41];
 
 export const {
     report,
