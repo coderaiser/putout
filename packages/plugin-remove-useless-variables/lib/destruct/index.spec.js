@@ -41,3 +41,8 @@ test('remove-useless-variables: destruct: no transform: assign', (t) => {
     t.noTransform('assign');
     t.end();
 });
+
+test('remove-useless-variables: destruct: no report: types', (t) => {
+    t.noReport('types');
+    t.end();
+});

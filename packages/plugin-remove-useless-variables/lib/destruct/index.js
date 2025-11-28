@@ -57,7 +57,12 @@ export const match = () => ({
         if (__a.name !== first.name)
             return false;
         
-        if (path.scope.bindings[first.name].references > 1)
+        const binding = path.scope.bindings[first.name];
+        
+        if (binding.path.node.typeAnnotation)
+            return false;
+        
+        if (binding.references > 1)
             return false;
         
         const namesLength = __object.properties.reduce(sum, 0);
