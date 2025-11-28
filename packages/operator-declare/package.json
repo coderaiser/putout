@@ -27,7 +27,7 @@
     "@putout/babel": "^5.0.0",
     "@putout/compare": "^19.0.0",
     "@putout/engine-parser": "^15.0.1",
-    "@putout/operate": "^14.0.0"
+    "@putout/operate": "^15.0.0"
   },
   "keywords": [
     "putout",
