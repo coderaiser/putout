@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@putout/babel": "^5.0.0",
-    "@putout/engine-parser": "^14.0.1",
+    "@putout/engine-parser": "^15.0.1",
     "@putout/operator-filesystem": "^9.0.1",
     "@putout/operator-json": "^2.0.0"
   },
