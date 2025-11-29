@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('eslint-plugin: update-ecma-version: report', (t) => {
-    t.report('update-ecma-version', `Set 'ecmaVersion' to: 2024`);
+    t.report('update-ecma-version', `Set 'ecmaVersion' to: 2025`);
     t.end();
 });
 

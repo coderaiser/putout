@@ -12,7 +12,7 @@ export const fix = ({path, ecmaVersion}) => {
 
 export const traverse = ({push, options}) => ({
     ObjectProperty(path) {
-        const {ecmaVersion = 2024} = options;
+        const {ecmaVersion = 2025} = options;
         const {name} = path.node.key;
         
         if (name !== 'ecmaVersion')

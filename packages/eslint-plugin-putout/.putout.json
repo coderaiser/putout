@@ -3,7 +3,10 @@
         "putout": "off",
         "eslint/apply-ignores": "off",
         "eslint/add-putout": "off",
-        "eslint/convert-file-to-array": "on"
+        "eslint/convert-file-to-array": "on",
+        "eslint-plugin/update-ecma-version": ["on", {
+            "ecmaVersion": 2025
+        }]
     },
     "plugins": [
         "eslint-plugin"

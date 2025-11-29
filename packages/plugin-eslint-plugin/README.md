@@ -40,7 +40,7 @@ npm i @putout/plugin-eslint-plugin -D
         "eslint-plugin/convert-require-resolve-to-require": "on",
         "eslint-plugin/turn-off-schema": "on",
         "eslint-plugin/update-ecma-version": ["on", {
-            "ecmaVersion": 2024
+            "ecmaVersion": 2025
         }],
         "eslint/remove-errors-type": "on"
     }
