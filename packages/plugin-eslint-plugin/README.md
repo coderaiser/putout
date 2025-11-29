@@ -18,19 +18,22 @@ npm i @putout/plugin-eslint-plugin -D
 ## Rules
 
 - ✅ [apply-flat-config-to-rule-tester](#apply-flat-config-to-rule-tester);
+- ✅ [apply-get-token-before](#apply-get-token-before);
 - ✅ [convert-context-to-source](#convert-context-to-source);
 - ✅ [convert-require-resolve-to-require](#convert-require-resolve-to-require);
 - ✅ [turn-off-schema](#turn-off-schema);
 - ✅ [update-ecma-version](#update-ecma-version);
 - ✅ [remove-errors-type](#remove-errors-type);
 
+
 ## Config
 
 ```json
 {
     "rules": {
-        "eslint-plugin/convert-context-to-source": "on",
         "eslint-plugin/apply-flat-config-to-rule-tester": "on",
+        "eslint-plugin/apply-get-token-before": "on",
+        "eslint-plugin/convert-context-to-source": "on",
         "eslint-plugin/convert-require-resolve-to-require": "on",
         "eslint-plugin/turn-off-schema": "on",
         "eslint-plugin/update-ecma-version": ["on", {
@@ -39,6 +42,65 @@ npm i @putout/plugin-eslint-plugin -D
         "eslint/remove-errors-type": "on"
     }
 }
+```
+
+## apply-flat-config-to-rule-tester
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/51bc804a64700c235746915f082a926d/d5f3c107eedf8c3ccec62550c1b4a0a6ea1db4ac).
+
+### ❌ Example of incorrect code
+
+```js
+const parserTester = new RuleTester({
+    parser: require.resolve('@babel/eslint-parser/experimental-worker'),
+    parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+            plugins: ['@babel/plugin-syntax-typescript'],
+        },
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+const parserTester = new RuleTester({
+    parser: require.resolve('@babel/eslint-parser/experimental-worker'),
+    parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+            plugins: ['@babel/plugin-syntax-typescript'],
+        },
+    },
+});
+```
+
+## apply-get-token-before
+
+> The following deprecated SourceCode methods have been removed in ESLint v10.0.0: `getTokenOrCommentBefore()`.
+>
+> (c) [eslint.org](https://eslint.org/docs/next/use/migrate-to-10.0.0#sourcecode-methods-removed)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/700a2bd89917e6fd9471eea8d5dec588/61f93534a821d37ae5c909ef4c8d85231e6c2ab2).
+
+### ❌ Example of incorrect code
+
+```js
+source.getTokenOrCommentBefore(token);
+source.getTokenOrCommentBefore(token, x);
+```
+
+### ✅ Example of correct code
+
+```js
+source.getTokenBefore(token, {
+    includeComments: true,
+});
+source.getTokenBefore(token, {
+    skip: x,
+    includeComments: true,
+});
 ```
 
 ## convert-context-to-source
@@ -122,38 +184,6 @@ sourceCode.getTokensAfter();
 sourceCode.getTokensBefore();
 sourceCode.getTokensBetween();
 sourceCode.parserServices;
-```
-
-## apply-flat-config-to-rule-tester
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/51bc804a64700c235746915f082a926d/d5f3c107eedf8c3ccec62550c1b4a0a6ea1db4ac).
-
-### ❌ Example of incorrect code
-
-```js
-const parserTester = new RuleTester({
-    parser: require.resolve('@babel/eslint-parser/experimental-worker'),
-    parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-            plugins: ['@babel/plugin-syntax-typescript'],
-        },
-    },
-});
-```
-
-### ✅ Example of correct code
-
-```js
-const parserTester = new RuleTester({
-    parser: require.resolve('@babel/eslint-parser/experimental-worker'),
-    parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-            plugins: ['@babel/plugin-syntax-typescript'],
-        },
-    },
-});
 ```
 
 ## convert-require-resolve-to-require

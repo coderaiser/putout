@@ -46,3 +46,8 @@ test('plugin-eslint-plugin: transform: remove-errors-type', (t) => {
     t.transform('remove-errors-type');
     t.end();
 });
+
+test('plugin-eslint-plugin: transform: apply-get-token-before', (t) => {
+    t.transform('apply-get-token-before');
+    t.end();
+});
