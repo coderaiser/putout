@@ -328,7 +328,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/42748dc7b0
 const ruleTester = new RuleTester({
     languageOptions: {
         parserOptions: {
-            ecmaVersion: 2022,
+            ecmaVersion: 2024,
             sourceType: 'module',
         },
     },
@@ -341,7 +341,7 @@ const ruleTester = new RuleTester({
 const ruleTester = new RuleTester({
     languageOptions: {
         parserOptions: {
-            ecmaVersion: 2024,
+            ecmaVersion: 2025,
             sourceType: 'module',
         },
     },
