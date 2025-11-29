@@ -51,3 +51,8 @@ test('plugin-eslint-plugin: transform: apply-get-token-before', (t) => {
     t.transform('apply-get-token-before');
     t.end();
 });
+
+test('plugin-eslint-plugin: transform: apply-get-token-after', (t) => {
+    t.transform('apply-get-token-after');
+    t.end();
+});

@@ -19,12 +19,12 @@ npm i @putout/plugin-eslint-plugin -D
 
 - ✅ [apply-flat-config-to-rule-tester](#apply-flat-config-to-rule-tester);
 - ✅ [apply-get-token-before](#apply-get-token-before);
+- ✅ [apply-get-token-after](#apply-get-token-after);
 - ✅ [convert-context-to-source](#convert-context-to-source);
 - ✅ [convert-require-resolve-to-require](#convert-require-resolve-to-require);
 - ✅ [turn-off-schema](#turn-off-schema);
 - ✅ [update-ecma-version](#update-ecma-version);
 - ✅ [remove-errors-type](#remove-errors-type);
-
 
 ## Config
 
@@ -33,6 +33,7 @@ npm i @putout/plugin-eslint-plugin -D
     "rules": {
         "eslint-plugin/apply-flat-config-to-rule-tester": "on",
         "eslint-plugin/apply-get-token-before": "on",
+        "eslint-plugin/apply-get-token-after": "on",
         "eslint-plugin/convert-context-to-source": "on",
         "eslint-plugin/convert-require-resolve-to-require": "on",
         "eslint-plugin/turn-off-schema": "on",
@@ -98,6 +99,33 @@ source.getTokenBefore(token, {
     includeComments: true,
 });
 source.getTokenBefore(token, {
+    skip: x,
+    includeComments: true,
+});
+```
+
+## apply-get-token-after
+
+> The following deprecated SourceCode methods have been removed in ESLint v10.0.0: `getTokenOrCommentAfter()`.
+>
+> (c) [eslint.org](https://eslint.org/docs/next/use/migrate-to-10.0.0#sourcecode-methods-removed)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/17b21726d45eb4e351ad9061468739d9/a71d26c904a574db2102bede63d4a189a56d97c2).
+
+### ❌ Example of incorrect code
+
+```js
+source.getTokenOrCommentAfter(token);
+source.getTokenOrCommentAfter(token, x);
+```
+
+### ✅ Example of correct code
+
+```js
+source.getTokenAfter(token, {
+    includeComments: true,
+});
+source.getTokenAfter(token, {
     skip: x,
     includeComments: true,
 });

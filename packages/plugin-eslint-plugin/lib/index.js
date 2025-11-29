@@ -1,3 +1,4 @@
+import * as applyGetTokenAfter from './apply-get-token-after/index.js';
 import * as applyGetTokenBefore from './apply-get-token-before/index.js';
 import * as removeErrorsType from './remove-errors-type/index.js';
 import * as convertContextToSource from './convert-context-to-source/index.js';
@@ -14,4 +15,5 @@ export const rules = {
     'update-ecma-version': updateEcmaVersion,
     'remove-errors-type': removeErrorsType,
     'apply-get-token-before': applyGetTokenBefore,
+    'apply-get-token-after': applyGetTokenAfter,
 };
