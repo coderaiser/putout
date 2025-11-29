@@ -1,0 +1,1 @@
+isSpaceBetween(first, second);

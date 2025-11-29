@@ -56,3 +56,8 @@ test('plugin-eslint-plugin: transform: apply-get-token-after', (t) => {
     t.transform('apply-get-token-after');
     t.end();
 });
+
+test('plugin-eslint-plugin: transform: apply-is-space-between', (t) => {
+    t.transform('apply-is-space-between');
+    t.end();
+});

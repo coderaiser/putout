@@ -1,3 +1,4 @@
+import * as applyIsSpaceBetween from './apply-is-space-between/index.js';
 import * as applyGetTokenAfter from './apply-get-token-after/index.js';
 import * as applyGetTokenBefore from './apply-get-token-before/index.js';
 import * as removeErrorsType from './remove-errors-type/index.js';
@@ -16,4 +17,5 @@ export const rules = {
     'remove-errors-type': removeErrorsType,
     'apply-get-token-before': applyGetTokenBefore,
     'apply-get-token-after': applyGetTokenAfter,
+    'apply-is-space-between': applyIsSpaceBetween,
 };

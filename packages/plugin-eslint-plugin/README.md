@@ -20,6 +20,7 @@ npm i @putout/plugin-eslint-plugin -D
 - ✅ [apply-flat-config-to-rule-tester](#apply-flat-config-to-rule-tester);
 - ✅ [apply-get-token-before](#apply-get-token-before);
 - ✅ [apply-get-token-after](#apply-get-token-after);
+- ✅ [apply-is-space-between](#apply-is-space-between);
 - ✅ [convert-context-to-source](#convert-context-to-source);
 - ✅ [convert-require-resolve-to-require](#convert-require-resolve-to-require);
 - ✅ [turn-off-schema](#turn-off-schema);
@@ -34,6 +35,7 @@ npm i @putout/plugin-eslint-plugin -D
         "eslint-plugin/apply-flat-config-to-rule-tester": "on",
         "eslint-plugin/apply-get-token-before": "on",
         "eslint-plugin/apply-get-token-after": "on",
+        "eslint-plugin/apply-is-space-between": "on",
         "eslint-plugin/convert-context-to-source": "on",
         "eslint-plugin/convert-require-resolve-to-require": "on",
         "eslint-plugin/turn-off-schema": "on",
@@ -129,6 +131,26 @@ source.getTokenAfter(token, {
     skip: x,
     includeComments: true,
 });
+```
+
+## apply-is-space-between
+
+> The following deprecated SourceCode methods have been removed in ESLint v10.0.0: `isSpaceBetweenTokens()`.
+>
+> (c) [eslint.org](https://eslint.org/docs/next/use/migrate-to-10.0.0#sourcecode-methods-removed)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/025255fed985b168a60c1ea7f37ec3fb/31e8e077c1a175efc2f8d3f3f4cb8e2e88ef7192).
+
+### ❌ Example of incorrect code
+
+```js
+isSpaceBetweenTokens(first, second);
+```
+
+### ✅ Example of correct code
+
+```js
+isSpaceBetween(first, second);
 ```
 
 ## convert-context-to-source
