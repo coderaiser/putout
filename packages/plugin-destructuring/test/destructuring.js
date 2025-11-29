@@ -7,17 +7,17 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-destructuring: report: object', (t) => {
-    t.report('object', 'Use object destructuring');
+test('plugin-destructuring: report: apply-object', (t) => {
+    t.report('apply-object', 'Use object destructuring');
     t.end();
 });
 
-test('plugin-destructuring: transform: object', (t) => {
-    t.transform('object');
+test('plugin-destructuring: transform: apply-object', (t) => {
+    t.transform('apply-object');
     t.end();
 });
 
-test('plugin-destructuring: transform: array', (t) => {
+test('plugin-destructuring: transform: apply-array', (t) => {
     const code = 'const name = array[0];';
     const fix = 'const [name] = array;\n';
     
@@ -25,7 +25,7 @@ test('plugin-destructuring: transform: array', (t) => {
     t.end();
 });
 
-test('plugin-destructuring: transform: array: destructuring', (t) => {
+test('plugin-destructuring: transform: apply-array: destructuring', (t) => {
     const code = 'const {name} = array[0];\n';
     
     t.noTransformCode(code);
@@ -47,8 +47,8 @@ test('plugin-destructuring: transform: multiple', (t) => {
     t.end();
 });
 
-test('plugin-destructuring: transform: falsy', (t) => {
-    t.transform('falsy');
+test('plugin-destructuring: transform: remove-useless-object', (t) => {
+    t.transform('remove-useless-object');
     t.end();
 });
 
