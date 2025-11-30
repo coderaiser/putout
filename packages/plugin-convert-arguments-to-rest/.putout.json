@@ -1,5 +1,0 @@
-{
-    "rules": {
-        "convert-arguments-to-rest": "off"
-    }
-}

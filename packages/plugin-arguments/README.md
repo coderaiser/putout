@@ -13,6 +13,7 @@ npm i @putout/plugin-arguments
 
 ## Rules
 
+- ✅ [apply-rest](#apply-rest);
 - ✅ [remove-useless](#remove-useless);
 - ✅ [remove-useless-from-method](#remove-useless-from-method);
 - ✅ [destructuring](#destructring);
@@ -24,6 +25,7 @@ npm i @putout/plugin-arguments
 ```json
 {
     "rules": {
+        "arguments/apply-rest": "on",
         "arguments/remove-useless": "on",
         "arguments/remove-useless-from-method": "on",
         "arguments/destructuring": "on",
@@ -126,6 +128,32 @@ import {operator} from 'putout';
 const {fromJS} = operator;
 JSON.parse(fromJS(print(ast)));
 ```
+
+## apply-rest
+
+> The rest parameter syntax allows a function to accept an indefinite number of arguments as an `array`, providing a way to represent variadic functions in JavaScript.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+
+### ❌ Example of incorrect code
+
+```js
+function hello() {
+    console.log(arguments);
+}
+```
+
+### ✅ Example of correct code
+
+```js
+function hello(...args) {
+    console.log(args);
+}
+```
+
+## License
+
+MIT
 
 ## License
 
