@@ -6,6 +6,7 @@ __putout_processor_json({
         "destructuring/apply-object": "off",
         "destructuring/split-call": "off",
         "destructuring/merge-properties": "off",
-        "destructuring/split-nested": "off"
+        "destructuring/split-nested": "off",
+        "destructuring/remove-useless-arguments": "off"
     }
 });

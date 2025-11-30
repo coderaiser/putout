@@ -162,13 +162,15 @@ Apply [`destructuring`](https://github.com/coderaiser/putout/tree/master/package
 -       "split-call-with-destructuring": "off",
 -       "merge-destructuring-properties": "off",
 -       "split-nested-destructuring": "off"
+-       "remove-useless-arguments/destructuring": "off"
 +       "destructuring": "off",
 +       "destructuring/remove-useless-object": "off",
 +       "destructuring/apply-array": "off",
 +       "destructuring/apply-object": "off",
 +       "destructuring/split-call": "off",
 +       "destructuring/merge-properties": "off",
-+       "destructuring/split-nested": "off"
++       "destructuring/split-nested": "off",
++       "destructuring/remove-useless-arguments": "off"
   }
 }
 ```

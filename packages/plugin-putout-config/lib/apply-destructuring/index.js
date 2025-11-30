@@ -8,6 +8,7 @@ const v41 = [
     ['merge-destructuring-properties', 'destructuring/merge-properties'],
     ['split-call-with-destructuring', 'destructuring/split-call'],
     ['split-nested-destructuring', 'destructuring/split-nested'],
+    ['remove-useless-arguments/destructuring', 'destructuring/remove-useless-arguments'],
 ];
 
 const versions = [...v41];
