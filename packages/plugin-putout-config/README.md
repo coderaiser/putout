@@ -161,7 +161,7 @@ Apply [`destructuring`](https://github.com/coderaiser/putout/tree/master/package
 -       "apply-destructuring/object": "off",
 -       "split-call-with-destructuring": "off",
 -       "merge-destructuring-properties": "off",
--       "split-nested-destructuring": "off"
+-       "split-nested-destructuring": "off",
 -       "remove-useless-arguments/destructuring": "off"
 +       "destructuring": "off",
 +       "destructuring/remove-useless-object": "off",
