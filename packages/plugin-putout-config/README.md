@@ -13,7 +13,7 @@ npm i @putout/plugin-putout-config -D
 
 ## Rules
 
-- ✅ [apply-arguments](#apply-assignment);
+- ✅ [apply-arguments](#apply-arguments);
 - ✅ [apply-assignment](#apply-assignment);
 - ✅ [apply-conditions](#apply-conditions);
 - ✅ [apply-destructuring](#apply-destructuring);
