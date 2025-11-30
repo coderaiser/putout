@@ -1,3 +1,5 @@
+import * as applyArguments from './apply-arguments/index.js';
+import * as applyDestructuring from './apply-destructuring/index.js';
 import * as applyAssignment from './apply-assignment/index.js';
 import * as applyConditions from './apply-conditions/index.js';
 import * as applyEsm from './apply-esm/index.js';
@@ -18,6 +20,8 @@ import * as MoveFormatterUp from './move-formatter-up/index.js';
 import * as removeEmptyFile from './remove-empty-file/index.js';
 
 export const rules = {
+    'apply-arguments': applyArguments,
+    'apply-destructuring': applyDestructuring,
     'apply-assignment': applyAssignment,
     'apply-conditions': applyConditions,
     'apply-esm': applyEsm,

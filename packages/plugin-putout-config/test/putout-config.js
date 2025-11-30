@@ -87,6 +87,16 @@ test('plugin-putout-config: transform: move-formatter-up', (t) => {
     t.end();
 });
 
+test('plugin-putout-config: transform: apply-destructuring', (t) => {
+    t.transform('apply-destructuring');
+    t.end();
+});
+
+test('plugin-putout-config: transform: apply-arguments', (t) => {
+    t.transform('apply-arguments');
+    t.end();
+});
+
 test('plugin-putout-config: no transform: remove-empty-file', (t) => {
     t.noTransform('remove-empty-file');
     t.end();

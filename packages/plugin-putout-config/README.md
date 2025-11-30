@@ -13,6 +13,7 @@ npm i @putout/plugin-putout-config -D
 
 ## Rules
 
+- ✅ [apply-arguments](#apply-assignment);
 - ✅ [apply-assignment](#apply-assignment);
 - ✅ [apply-conditions](#apply-conditions);
 - ✅ [apply-destructuring](#apply-destructuring);
@@ -39,6 +40,7 @@ npm i @putout/plugin-putout-config -D
 ```json
 {
     "rules": {
+        "putout-config/apply-arguments": "on",
         "putout-config/apply-assignment": "on",
         "putout-config/apply-conditions": "on",
         "putout-config/apply-destructuring": "on",
@@ -142,6 +144,29 @@ Apply [`esm`](https://github.com/coderaiser/putout/tree/master/packages/plugin-e
 +       "esm/remove-quotes-from-import-assertions": "on",
 +       "esm/merge-duplicate-imports": "on",
 +       "esm/sort-imports-by-specifiers": "on"
+  }
+}
+```
+
+## apply-arguments
+
+Apply [`arguments`](https://github.com/coderaiser/putout/tree/master/packages/plugin-arguments#readme) according to:
+
+- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
+
+```diff
+{
+    "rules": {
+-       "convert-arguments-to-rest": "off",
+-       "remove-useless-arguments/arguments": "on",
+-       "remove-useless-arguments/method": "on",
+-       "remove-useless-arguments/unused": "on",
+-       "remove-useless-arguments/json-parse": "on"
++       "arguments/apply-rest": "on",
++       "arguments/remove-useless": "on",
++       "arguments/remove-useless-from-method": "on",
++       "arguments/remove-unused": "on",
++       "arguments/apply-json-parse": "on"
   }
 }
 ```
