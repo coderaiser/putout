@@ -154,7 +154,3 @@ function hello(...args) {
 ## License
 
 MIT
-
-## License
-
-MIT
