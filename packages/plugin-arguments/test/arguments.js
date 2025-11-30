@@ -37,8 +37,8 @@ test('plugin-remove-useless-arguments: transform: unused', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-arguments: transform: json-parse', (t) => {
-    t.transform('json-parse');
+test('plugin-remove-useless-arguments: transform: apply-json-parse', (t) => {
+    t.transform('apply-json-parse');
     t.end();
 });
 

@@ -13,25 +13,73 @@ npm i @putout/plugin-arguments
 
 ## Rules
 
+- ✅ [apply-json-parse](#apply-json-parse);
 - ✅ [apply-rest](#apply-rest);
 - ✅ [remove-useless](#remove-useless);
 - ✅ [remove-useless-from-method](#remove-useless-from-method);
 - ✅ [destructuring](#destructring);
 - ✅ [remove-unused](#remove-unused);
-- ✅ [json-parse](#json-parse);
 
 ## Config
 
 ```json
 {
     "rules": {
+        "arguments/apply-json-parse": "on",
         "arguments/apply-rest": "on",
         "arguments/remove-useless": "on",
         "arguments/remove-useless-from-method": "on",
         "arguments/destructuring": "on",
-        "arguments/remove-unused": "on",
-        "arguments/json-parse": "on"
+        "arguments/remove-unused": "on"
     }
+}
+```
+
+### apply-json-parse
+
+> The `JSON.parse()` static method parses a JSON string, constructing the JavaScript value or object described by the string. An optional reviver function can be provided to perform a transformation on the resulting object before it is returned.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/efdb0e3d0ab937f7901ce3047626b5fd/580aa27e4fb61fbfe3eead0cd21971a6ff084174).
+
+### ❌ Example of incorrect code
+
+```js
+import {operator} from 'putout';
+
+const {fromJS} = operator;
+JSON.parse(fromJS(print(ast)), null, 4);
+```
+
+### ✅ Example of correct code
+
+```js
+import {operator} from 'putout';
+
+const {fromJS} = operator;
+JSON.parse(fromJS(print(ast)));
+```
+
+## apply-rest
+
+> The rest parameter syntax allows a function to accept an indefinite number of arguments as an `array`, providing a way to represent variadic functions in JavaScript.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+
+### ❌ Example of incorrect code
+
+```js
+function hello() {
+    console.log(arguments);
+}
+```
+
+### ✅ Example of correct code
+
+```js
+function hello(...args) {
+    console.log(args);
 }
 ```
 
@@ -100,54 +148,6 @@ member += compute(list[i]);
 
 function compute(current) {
     return String(current);
-}
-```
-
-### json-parse
-
-> The `JSON.parse()` static method parses a JSON string, constructing the JavaScript value or object described by the string. An optional reviver function can be provided to perform a transformation on the resulting object before it is returned.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
-
-Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/efdb0e3d0ab937f7901ce3047626b5fd/580aa27e4fb61fbfe3eead0cd21971a6ff084174).
-
-### ❌ Example of incorrect code
-
-```js
-import {operator} from 'putout';
-
-const {fromJS} = operator;
-JSON.parse(fromJS(print(ast)), null, 4);
-```
-
-### ✅ Example of correct code
-
-```js
-import {operator} from 'putout';
-
-const {fromJS} = operator;
-JSON.parse(fromJS(print(ast)));
-```
-
-## apply-rest
-
-> The rest parameter syntax allows a function to accept an indefinite number of arguments as an `array`, providing a way to represent variadic functions in JavaScript.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
-
-### ❌ Example of incorrect code
-
-```js
-function hello() {
-    console.log(arguments);
-}
-```
-
-### ✅ Example of correct code
-
-```js
-function hello(...args) {
-    console.log(args);
 }
 ```
 
