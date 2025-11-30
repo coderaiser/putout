@@ -2151,7 +2151,6 @@ It has a lot of plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-convert-arguments-to-rest`](/packages/plugin-convert-arguments-to-rest#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-arguments-to-rest.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-arguments-to-rest) |
 | [`@putout/plugin-convert-apply-to-spread`](/packages/plugin-convert-apply-to-spread#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-apply-to-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-apply-to-spread) |
 | [`@putout/plugin-convert-expression-to-params`](/packages/plugin-convert-expression-to-params#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-expression-to-params.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-expression-to-params) |
 | [`@putout/plugin-convert-quotes-to-backticks`](/packages/plugin-convert-quotes-to-backticks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-quotes-to-backticks) |
@@ -2182,7 +2181,6 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-remove-useless-constructor`](/packages/plugin-remove-useless-constructor#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-constructor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-constructor) |
 | [`@putout/plugin-remove-useless-continue`](/packages/plugin-remove-useless-continue#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-continue.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-continue) |
 | [`@putout/plugin-remove-useless-operand`](/packages/plugin-remove-useless-operand#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-operand.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-operand) |
-| [`@putout/plugin-remove-useless-arguments`](/packages/plugin-remove-useless-arguments#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-arguments.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-arguments) |
 | [`@putout/plugin-remove-useless-array`](/packages/plugin-remove-useless-array#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array) |
 | [`@putout/plugin-remove-useless-array-constructor`](/packages/plugin-remove-useless-array-constructor#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-constructor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-constructor) |
 | [`@putout/plugin-remove-useless-array-entries`](/packages/plugin-remove-useless-array-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-entries) |
@@ -2216,6 +2214,7 @@ It has a lot of plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-arguments`](/packages/plugin-arguments#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-arguments.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-arguments) |
 | [`@putout/plugin-assignment`](/packages/plugin-assignment#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-assignment.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-assignment) |
 | [`@putout/plugin-conditions`](/packages/plugin-conditions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-conditions) |
 | [`@putout/plugin-destructuring`](/packages/plugin-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-destructuring) |

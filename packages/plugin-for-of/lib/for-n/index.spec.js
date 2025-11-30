@@ -1,8 +1,9 @@
-import {createRequire} from 'node:module';
 import {createTest} from '@putout/test';
+import * as destructuring from '@putout/plugin-destructuring';
+import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
 import * as forN from './index.js';
 
-const require = createRequire(import.meta.url);
+const removeUselessArguments = destructuring.rules['remove-useless-arguments'];
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -37,8 +38,8 @@ test('plugin-for-of: for-n: for-no transform: no-name', (t) => {
 
 test('plugin-for-of: for-n: transform: remove-useless-arguments', (t) => {
     t.transform('remove-useless-arguments', {
-        'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
-        'remove-useless-arguments': require('@putout/plugin-remove-useless-arguments'),
+        removeUnusedVariables,
+        removeUselessArguments,
     });
     t.end();
 });

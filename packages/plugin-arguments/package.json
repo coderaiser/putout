@@ -1,10 +1,10 @@
 {
-  "name": "@putout/plugin-remove-useless-arguments",
-  "version": "12.1.1",
+  "name": "@putout/plugin-arguments",
+  "version": "1.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to find and remove useless arguments",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#readme",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-arguments#readme",
   "main": "lib/index.js",
   "release": false,
   "tag": false,
@@ -33,7 +33,6 @@
     "arguments"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
     "@putout/test": "^14.0.0",
     "c8": "^10.0.0",
     "eslint": "v10.0.0-alpha.0",
@@ -42,7 +41,7 @@
     "madrun": "^11.0.0"
   },
   "peerDependencies": {
-    "putout": ">=40"
+    "putout": ">=41"
   },
   "license": "MIT",
   "engines": {

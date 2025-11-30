@@ -39,7 +39,7 @@
     "@putout/plugin-promises": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-remove-nested-blocks": "*",
-    "@putout/plugin-remove-useless-arguments": "*",
+    "@putout/plugin-arguments": "*",
     "@putout/plugin-remove-useless-variables": "*",
     "@putout/plugin-reuse-duplicate-init": "*",
     "@putout/plugin-tape": "*",

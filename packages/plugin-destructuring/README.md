@@ -19,8 +19,9 @@ npm i @putout/plugin-destructuring
 
 - ✅ [apply-object](#apply-object);
 - ✅ [apply-array](#apply-array);
-- ✅ [remove-useless-object](#remove-useless-object);
 - ✅ [convert-object-to-array](#convert-object-to-array);
+- ✅ [remove-useless-object](#remove-useless-object);
+- ✅ [remove-useless-arguments](#remove-useless-arguments);
 - ✅ [split-nested](#split-nested);
 - ✅ [split-call](#split-call);
 - ✅ [merge-properties](#merge-properties);
@@ -32,8 +33,9 @@ npm i @putout/plugin-destructuring
     "rules": {
         "destructuring/apply-object": "on",
         "destructuring/apply-array": "on",
-        "destructuring/remove-useless-object": "on",
         "destructuring/convert-object-to-array": "on",
+        "destructuring/remove-useless-object": "on",
+        "destructuring/remove-useless-arguments": "on",
         "destructuring/split-nested": "on",
         "destructuring/split-call": "on",
         "destructuring/merge-properties": "on"
@@ -190,6 +192,31 @@ const {one, two} = require('numbers');
     to,
     names,
 } = data);
+```
+
+### remove-useless-arguments
+
+### ❌ Example of incorrect code
+
+```js
+onIfStatement({
+    push,
+    generate,
+    abc,
+    helloworld,
+});
+
+function onIfStatement({push}) {}
+```
+
+### ✅ Example of correct code
+
+```js
+onIfStatement({
+    push,
+});
+
+function onIfStatement({push}) {}
 ```
 
 ## License

@@ -71,3 +71,8 @@ test('plugin-destructuring: transform: merge-properties', (t) => {
     t.transform('merge-properties');
     t.end();
 });
+
+test('plugin-destructuring: transform: remove-useless-arguments', (t) => {
+    t.transform('remove-useless-arguments');
+    t.end();
+});
