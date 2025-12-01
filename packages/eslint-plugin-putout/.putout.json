@@ -20,7 +20,7 @@
             "typescript/remove-unused-types": "off",
             "remove-unused-variables": "off",
             "remove-unused-expressions": "off",
-            "remove-useless-arguments": "off",
+            "arguments": "off",
             "remove-useless-variables/rename": "off",
             "remove-useless-variables/declaration": "off",
             "spread": "off",
