@@ -483,8 +483,10 @@ test('putout: overlap', (t) => {
         rules: {
             'arguments': 'off',
             'arguments/apply-rest': 'on',
+            'spread': 'off',
+            'spread/convert-apply-to-spread': 'on',
         },
-        plugins: ['arguments', 'convert-apply-to-spread'],
+        plugins: ['arguments', 'spread'],
     });
     
     t.deepEqual(result.code, fixture.overlapFix);

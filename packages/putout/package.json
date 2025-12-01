@@ -99,7 +99,6 @@
     "@putout/plugin-assignment": "^2.0.0",
     "@putout/plugin-browserlist": "^2.0.0",
     "@putout/plugin-conditions": "^8.0.0",
-    "@putout/plugin-convert-apply-to-spread": "^4.0.0",
     "@putout/plugin-arguments": "^1.0.0",
     "@putout/plugin-convert-concat-to-flat": "^1.0.0",
     "@putout/plugin-convert-const-to-let": "^5.0.0",

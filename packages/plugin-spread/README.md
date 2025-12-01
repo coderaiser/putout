@@ -17,6 +17,7 @@ npm i @putout/plugin-spread
 
 ## Rules
 
+- ✅ [convert-apply-to-spread](#convert-apply-to-spread);
 - ✅ [simplify-nested](#simplify-nested);
 - ✅ [remove-useless-array](#remove-useless-array);
 - ✅ [remove-useless-object](#remove-useless-object);
@@ -26,6 +27,7 @@ npm i @putout/plugin-spread
 ```json
 {
     "rules": {
+        "spread/convert-apply-to-spread": "on",
         "spread/remove-useless-array": "on",
         "spread/remove-useless-object": "on",
         "spread/simplify-nested": "on"
@@ -102,6 +104,24 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/60e5a99112
     ...b,
     ...x,
 ];
+```
+
+## convert-apply-to-spread
+
+> Spread syntax (`...`) allows an array expression to be expanded in places where zero or more arguments are expected.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+### ❌ Example of incorrect code
+
+```js
+console.apply(null, arguments);
+```
+
+### ✅ Example of correct code
+
+```js
+console.log(...arguments);
 ```
 
 ## License
