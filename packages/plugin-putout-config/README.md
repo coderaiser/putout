@@ -18,9 +18,10 @@ npm i @putout/plugin-putout-config -D
 - ✅ [apply-conditions](#apply-conditions);
 - ✅ [apply-destructuring](#apply-destructuring);
 - ✅ [apply-esm](#apply-esm);
-- ✅ [apply-return](#apply-return);
-- ✅ [apply-parens](#apply-parens);
 - ✅ [apply-for-of](#apply-for-of);
+- ✅ [apply-parens](#apply-parens);
+- ✅ [apply-return](#apply-return);
+- ✅ [apply-spread](#apply-spread);
 - ✅ [apply-labels](#apply-labels);
 - ✅ [apply-math](#apply-math);
 - ✅ [apply-nodejs](#apply-nodejs);
@@ -51,10 +52,11 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-nodejs": "on",
         "putout-config/apply-optional-chaining": "on",
         "putout-config/apply-parens": "on",
+        "putout-config/apply-promises": "on",
         "putout-config/apply-return": "on",
+        "putout-config/apply-spread": "on",
         "putout-config/apply-tape": "on",
         "putout-config/apply-types": "on",
-        "putout-config/apply-promises": "on",
         "putout-config/convert-boolean-to-string": "on",
         "putout-config/move-formatter-up": "on",
         "putout-config/remove-empty": "on",
@@ -232,6 +234,27 @@ Apply [`optional-chaining`](https://github.com/coderaiser/putout/tree/master/pac
 -       "apply-optional-chaining/use": "on"
 +       "optional-chaining/convert-logical-assign-to-optional": "off",
 +       "optional-chaining/convert-logical-to-optional": "off"
+  }
+}
+```
+
+## apply-spread
+
+Apply [`spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-spread#readme) according to:
+
+- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
+
+```diff
+{
+    "rules": {
+-       "remove-useless-spread": "on",
+-       "remove-useless-spread/array": "on",
+-       "remove-useless-spread/object": "on",
+-       "remove-useless-spread/nested": "on"
++       "spread": "on",
++       "spread/remove-useless-array": "on",
++       "spread/remove-useless-object": "on",
++       "spread/simplify-nested": "on"
   }
 }
 ```

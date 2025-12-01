@@ -97,6 +97,11 @@ test('plugin-putout-config: transform: apply-arguments', (t) => {
     t.end();
 });
 
+test('plugin-putout-config: transform: apply-spread', (t) => {
+    t.transform('apply-spread');
+    t.end();
+});
+
 test('plugin-putout-config: no transform: remove-empty-file', (t) => {
     t.noTransform('remove-empty-file');
     t.end();

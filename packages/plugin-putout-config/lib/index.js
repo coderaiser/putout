@@ -11,6 +11,7 @@ import * as applyLabels from './apply-labels/index.js';
 import * as applyMath from './apply-math/index.js';
 import * as applyNodejs from './apply-nodejs/index.js';
 import * as applyPromises from './apply-promises/index.js';
+import * as applySpread from './apply-spread/index.js';
 import * as applyTape from './apply-tape/index.js';
 import * as applyTypes from './apply-types/index.js';
 import * as convertBooleanToString from './convert-boolean-to-string/index.js';
@@ -33,6 +34,7 @@ export const rules = {
     'apply-parens': applyParens,
     'apply-promises': applyPromises,
     'apply-return': applyReturn,
+    'apply-spread': applySpread,
     'apply-tape': applyTape,
     'apply-types': applyTypes,
     'convert-boolean-to-string': convertBooleanToString,
