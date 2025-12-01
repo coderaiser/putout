@@ -159,16 +159,18 @@ Apply [`arguments`](https://github.com/coderaiser/putout/tree/master/packages/pl
 ```diff
 {
     "rules": {
--       "convert-arguments-to-rest": "off",
+-       "remove-useless-arguments": "off",
 -       "remove-useless-arguments/arguments": "on",
 -       "remove-useless-arguments/method": "on",
 -       "remove-useless-arguments/unused": "on",
 -       "remove-useless-arguments/json-parse": "on"
-+       "arguments/apply-rest": "on",
+-       "convert-arguments-to-rest": "off"
++       "arguments": "off",
 +       "arguments/remove-useless": "on",
 +       "arguments/remove-useless-from-method": "on",
 +       "arguments/remove-unused": "on",
-+       "arguments/apply-json-parse": "on"
++       "arguments/apply-json-parse": "on",
++       "arguments/apply-rest": "on"
   }
 }
 ```

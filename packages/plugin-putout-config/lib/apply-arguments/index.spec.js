@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout-config: apply-arguments: report', (t) => {
-    t.report('apply-arguments', `Rename property: 'remove-useless-arguments/arguments' -> 'arguments/remove-useless'`);
+    t.report('apply-arguments', `Rename property: 'remove-useless-arguments' -> 'arguments'`);
     t.end();
 });
 
