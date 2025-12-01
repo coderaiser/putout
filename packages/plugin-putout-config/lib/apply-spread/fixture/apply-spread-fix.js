@@ -3,6 +3,7 @@ __putout_processor_json({
         "spread": "off",
         "spread/simplify-nested": "off",
         "spread/remove-useless-array": "off",
-        "spread/remove-useless-object": "off"
+        "spread/remove-useless-object": "off",
+        "spread/convert-apply-to-spread": "off"
     }
 });

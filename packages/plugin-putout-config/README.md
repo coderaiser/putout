@@ -252,11 +252,13 @@ Apply [`spread`](https://github.com/coderaiser/putout/tree/master/packages/plugi
 -       "remove-useless-spread": "on",
 -       "remove-useless-spread/array": "on",
 -       "remove-useless-spread/object": "on",
--       "remove-useless-spread/nested": "on"
+-       "remove-useless-spread/nested": "on",
+-       "convert-apply-to-spread": "on"
 +       "spread": "on",
 +       "spread/remove-useless-array": "on",
 +       "spread/remove-useless-object": "on",
-+       "spread/simplify-nested": "on"
++       "spread/simplify-nested": "on",
++       "spread/convert-apply-to-spread": "on"
   }
 }
 ```
