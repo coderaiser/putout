@@ -18,6 +18,7 @@ npm i @putout/plugin-spread
 ## Rules
 
 - ✅ [convert-apply-to-spread](#convert-apply-to-spread);
+- ✅ [convert-convert-object-assign-to-merge-spread](#convert-object-assign-to-merge-spread);
 - ✅ [simplify-nested](#simplify-nested);
 - ✅ [remove-useless-array](#remove-useless-array);
 - ✅ [remove-useless-object](#remove-useless-object);
@@ -28,12 +29,51 @@ npm i @putout/plugin-spread
 {
     "rules": {
         "spread/convert-apply-to-spread": "on",
+        "spread/convert-object-assign-to-merge-spread": "on",
         "spread/remove-useless-array": "on",
         "spread/remove-useless-object": "on",
         "spread/simplify-nested": "on"
     }
 }
 ```
+
+## convert-object-assign-to-merge-spread
+
+> The [`Object.assign()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) method copies all enumerable own properties from one or more source objects to a target object and returns the modified target object.
+>
+> [**Spread**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) syntax (`...`) allows an object expression to be expanded in places where zero or more key-value pairs are expected.
+>
+> (c) MDN
+
+Convert `Object.assign()` to merge **spread** since it shorter but does (mostly) the same.
+
+### ❌ Example of incorrect code
+
+```js
+function merge(a) {
+    return Object.assign({}, a, {
+        hello: 'world',
+    });
+}
+```
+
+### ✅ Example of correct code
+
+```js
+function merge(a) {
+    return {
+        ...a,
+        hello: 'world',
+    };
+}
+```
+
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`spread/convert-object-assign-to-merge-spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-spread#convert-object-assign-to-merge-spread) | ✅
+⏣ **ESLint** | [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread) | ✅
 
 ## remove-useless-array
 

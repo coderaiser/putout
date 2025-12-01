@@ -31,3 +31,8 @@ test('plugin-remove-useless-spread: transform: convert-apply-to-spread', (t) => 
     t.transform('convert-apply-to-spread');
     t.end();
 });
+
+test('plugin-remove-useless-spread: transform: convert-object-assign-to-merge-spread', (t) => {
+    t.transform('convert-object-assign-to-merge-spread');
+    t.end();
+});
