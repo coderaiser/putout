@@ -1,10 +1,10 @@
 {
-  "name": "@putout/plugin-remove-useless-spread",
-  "version": "13.1.0",
+  "name": "@putout/plugin-spread",
+  "version": "1.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to remove useless spread",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-spread#readme",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-spread#readme",
   "main": "lib/index.js",
   "release": false,
   "tag": false,

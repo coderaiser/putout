@@ -1635,9 +1635,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/38336fcc5b
 ### ❌ Example of incorrect code
 
 ```js
-module.exports.rules = {
-    ...getRule('remove-unused-variables'),
-};
+module.exports.rules = getRule('remove-unused-variables');
 ```
 
 ### ✅ Example of correct code

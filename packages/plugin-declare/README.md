@@ -175,7 +175,7 @@ if (isFn(fn))
 ### ❌ Example of incorrect code
 
 ```js
-const a = [...maybeArray(b)];
+const a = maybeArray(b);
 ```
 
 ### ✅ Example of correct code
@@ -184,7 +184,7 @@ const a = [...maybeArray(b)];
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 
-const a = [...maybeArray(b)];
+const a = maybeArray(b);
 ```
 
 ## `entries`

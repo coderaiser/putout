@@ -81,9 +81,7 @@ const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
         includeComments,
     });
     
-    transform(ast, text, {
-        ...resultOptions,
-    });
+    transform(ast, text, resultOptions);
     
     const [, last] = lastToken.range;
     const code = print(ast);

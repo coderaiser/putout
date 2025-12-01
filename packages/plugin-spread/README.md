@@ -1,33 +1,39 @@
-# @putout/plugin-remove-useless-spread [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/plugin-spread [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-spread.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-spread "npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-spread.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-spread "npm"
 
 > **Spread** syntax can be used when all elements from an object or array need to be included in a list of some kind.
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless **spread** syntax.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to transform **spread** syntax.
 
 ## Install
 
 ```
-npm i @putout/plugin-remove-useless-spread
+npm i @putout/plugin-spread
 ```
+
+## Rules
+
+- ✅ [simplify-nested](#simplify-nested);
+- ✅ [remove-useless-array](#remove-useless-array);
+- ✅ [remove-useless-object](#remove-useless-object);
 
 ## Rule
 
 ```json
 {
     "rules": {
-        "remove-useless-spread/array": "on",
-        "remove-useless-spread/object": "on",
-        "remove-useless-spread/nested": "on"
+        "spread/remove-useless-array": "on",
+        "spread/remove-useless-object": "on",
+        "spread/simplify-nested": "on"
     }
 }
 ```
 
-## array
+## remove-useless-array
 
 The thing is `[...b]` can be used for:
 
@@ -56,7 +62,7 @@ const places = getPlaces();
 [...Array(5)].map(Number);
 ```
 
-## object
+## remove-useless-object
 
 ### ❌ Example of incorrect code
 

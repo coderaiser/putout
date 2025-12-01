@@ -13,12 +13,14 @@ module.exports.print = (ast, options) => {
         ...options,
     };
     
-    let {code} = generate(ast, {
-        ...source && {
+    let {code} = generate(
+        ast,
+        source && {
             experimental_preserveFormat: true,
             retainLines: true,
         },
-    }, source);
+        source,
+    );
     
     if (code[0] === '\n')
         code = code.trimStart();

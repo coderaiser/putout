@@ -137,9 +137,7 @@ const createRule = (a) => ({
     [a]: createPlugin(require(`./${a}`)),
 });
 
-module.exports.rules = {
-    ...createRule('remove-duplicate-extensions'),
-};
+module.exports.rules = createRule('remove-duplicate-extensions');
 ```
 
 Or just:
