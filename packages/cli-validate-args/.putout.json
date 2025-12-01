@@ -2,7 +2,7 @@
     "printer": "putout",
     "match": {
         "lib/index.js": {
-            "remove-useless-spread/object": "off"
+            "spread/remove-useless-object": "off"
         }
     }
 }

@@ -34,7 +34,7 @@
     },
     "rules": {
         "putout/apply-lowercase-to-node-builders": "on",
-        "remove-useless-spread/object": ["off", {
+        "spread/remove-useless-object": ["off", {
             "exclude": "module.exports.rules = __"
         }],
         "github/convert-npm-to-bun": "off"

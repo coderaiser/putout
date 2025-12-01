@@ -2,7 +2,7 @@
     "match": {
         "*.md": {
             "declare": "off",
-            "remove-useless-spread/array": "off"
+            "spread/remove-useless-array": "off"
         }
     }
 }

@@ -7,9 +7,7 @@ const v41 = [
     ['remove-useless-spread/object', 'spread/remove-useless-object'],
 ];
 
-const versions = [
-    ...v41,
-];
+const versions = [...v41];
 
 export const {
     report,
