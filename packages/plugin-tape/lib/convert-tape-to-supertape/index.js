@@ -1,4 +1,4 @@
-export const report = () => '"supertape" should be used';
+export const report = () => `Use 'supertape' instead of 'tape'`;
 
 export const replace = () => ({
     'const tryTo = __': '',

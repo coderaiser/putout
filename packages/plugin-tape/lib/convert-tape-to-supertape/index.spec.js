@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-tape: convert-tape-to-supertape: report: try-to', (t) => {
-    t.report('try-to', '"supertape" should be used');
+    t.report('try-to', `Use 'supertape' instead of 'tape'`);
     t.end();
 });
 
