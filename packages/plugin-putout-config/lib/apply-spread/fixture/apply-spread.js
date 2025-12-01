@@ -5,5 +5,6 @@ __putout_processor_json({
         "remove-useless-spread/array": "off",
         "remove-useless-spread/object": "off",
         "convert-apply-to-spread": "off",
+        "convert-object-assign-to-merge-spread": "off",
     }
 });
