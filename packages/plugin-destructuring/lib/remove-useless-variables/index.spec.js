@@ -1,23 +1,23 @@
 import {createTest} from '@putout/test';
-import * as destruct from './index.js';
+import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['remove-useless-variables/destruct', destruct],
+        ['destructuring/remove-useless-variables', plugin],
     ],
 });
 
-test('remove-useless-variables: destruct: report', (t) => {
-    t.report('destruct', `Remove useless variable 'args'`);
+test('putout: plugin-destructuring: remove-useless-variables: report: destruct', (t) => {
+    t.report('destruct', `Avoid useless variable 'args'`);
     t.end();
 });
 
-test('remove-useless-variables: destruct: transform', (t) => {
+test('putout: plugin-destructuring: remove-useless-variables: transform: destruct', (t) => {
     t.transform('destruct');
     t.end();
 });
 
-test('remove-useless-variables: destruct: no transform: references', (t) => {
+test('putout: plugin-destructuring: remove-useless-variables: no transform: references', (t) => {
     t.noTransform('references');
     t.end();
 });

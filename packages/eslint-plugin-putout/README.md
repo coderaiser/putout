@@ -177,7 +177,7 @@ Disabled 🐊**Putout** rules:
 - ❌ [`remove-unused-variables`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-unused-variables#readme);
 - ❌ [`typescript/remove-unused-types`](https://github.com/coderaiser/putout/tree/v24.0.2/packages/plugin-typescript#remove-unused-types#readme);
 - ❌ [`remove-unused-expressions`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-unused-expressions#readme);
-- ❌ [`remove-unreferenced-variables`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-unreferenced-variables#readme);
+- ❌ [`variables`](https://github.com/coderaiser/putout/tree/v41.0.0/packages/plugin-variables#readme);
 - ❌ [`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#readme);
 - ❌ [`return/remove-useless`](https://github.com/coderaiser/putout/tree/v38.0.0/packages/plugin-return#remove-useless);
 - ❌ [`remove-useless-spread`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-useless-spread/#readme);

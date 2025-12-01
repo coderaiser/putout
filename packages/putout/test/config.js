@@ -105,7 +105,6 @@ test('putout: config: markdown', (t) => {
         'labels/remove-unused': 'off',
         'remove-unused-variables': 'off',
         'remove-useless-escape': 'off',
-        'remove-useless-variables': 'off',
         'remove-useless-push': 'off',
         'return/remove-useless': 'off',
         'remove-empty': 'off',
@@ -118,6 +117,8 @@ test('putout: config: markdown', (t) => {
         'typescript/remove-unused-types': 'off',
         'remove-nested-blocks': 'off',
         'esm/remove-useless-export-specifiers': 'off',
+        'destructuring/remove-useless-variables': 'off',
+        'variables/remove-useless': 'off',
     };
     
     t.deepEqual(result, expected);

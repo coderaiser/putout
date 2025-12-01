@@ -6,7 +6,7 @@ const isNestedMemberExpression = (path) => {
     return path.isMemberExpression() && path.get('object').isMemberExpression();
 };
 
-export const report = ({idName}) => `Useless variable declaration with name "${idName}"`;
+export const report = ({idName}) => `Avoid useless variable declaration with name '${idName}'`;
 
 export const fix = ({mainPath, path}) => {
     const {init} = path.node;

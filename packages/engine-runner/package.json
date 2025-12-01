@@ -52,6 +52,7 @@
     "@putout/engine-loader": "*",
     "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-minify": "*",
+    "@putout/plugin-variables": "*",
     "c8": "^10.0.0",
     "eslint": "v10.0.0-alpha.0",
     "eslint-plugin-n": "^17.0.0",

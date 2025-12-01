@@ -22,6 +22,7 @@ npm i @putout/plugin-destructuring
 - ✅ [convert-object-to-array](#convert-object-to-array);
 - ✅ [remove-useless-object](#remove-useless-object);
 - ✅ [remove-useless-arguments](#remove-useless-arguments);
+- ✅ [remove-useless-variables](#remove-useless-variables);
 - ✅ [split-nested](#split-nested);
 - ✅ [split-call](#split-call);
 - ✅ [merge-properties](#merge-properties);
@@ -36,6 +37,7 @@ npm i @putout/plugin-destructuring
         "destructuring/convert-object-to-array": "on",
         "destructuring/remove-useless-object": "on",
         "destructuring/remove-useless-arguments": "on",
+        "destructuring/remove-useless-variables": "on",
         "destructuring/split-nested": "on",
         "destructuring/split-call": "on",
         "destructuring/merge-properties": "on"
@@ -217,6 +219,22 @@ onIfStatement({
 });
 
 function onIfStatement({push}) {}
+```
+
+## remove-useless-variables
+
+### ❌ Example of incorrect code
+
+```js
+function hi(c) {
+    const {a, b} = c;
+}
+```
+
+### ✅ Example of correct code
+
+```js
+function hi({a, b}) {}
 ```
 
 ## License

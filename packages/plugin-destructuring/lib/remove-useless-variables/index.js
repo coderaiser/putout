@@ -25,7 +25,7 @@ const getKeyLength = (a) => {
 const sum = (a, b) => a + getKeyLength(b);
 
 export const report = (path) => {
-    return `Remove useless variable '${path.node.declarations[0].init.name}'`;
+    return `Avoid useless variable '${path.node.declarations[0].init.name}'`;
 };
 
 export const match = () => ({

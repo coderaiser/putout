@@ -56,7 +56,7 @@ ruleTester.run('putout', rule, {
         errors: [{
             message: `Add missing 'use strict' directive on top of CommonJS (nodejs/add-missing-strict-mode)`,
         }, {
-            message: 'Useless variable declaration with name "t" (remove-useless-variables/remove)',
+            message: `Avoid useless variable declaration with name 't' (variables/remove-useless)`,
         }],
     }, {
         options: [{
@@ -198,7 +198,7 @@ parserTester.run('putout: tape', rule, {
             });\n
         `,
         errors: [{
-            message: `Remove useless variable 'path' (remove-useless-variables/destruct)`,
+            message: `Avoid useless variable 'path' (destructuring/remove-useless-variables)`,
         }],
     }],
 });

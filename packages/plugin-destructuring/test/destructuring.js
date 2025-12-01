@@ -76,3 +76,8 @@ test('plugin-destructuring: transform: remove-useless-arguments', (t) => {
     t.transform('remove-useless-arguments');
     t.end();
 });
+
+test('plugin-destructuring: transform: remove-useless-variables', (t) => {
+    t.transform('remove-useless-variables');
+    t.end();
+});

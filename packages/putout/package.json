@@ -169,7 +169,7 @@
     "@putout/plugin-remove-useless-push": "^2.0.0",
     "@putout/plugin-remove-useless-replace": "^2.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^3.0.0",
-    "@putout/plugin-remove-useless-variables": "^14.0.0",
+    "@putout/plugin-variables": "^1.0.0",
     "@putout/plugin-return": "^2.0.0",
     "@putout/plugin-reuse-duplicate-init": "^8.0.0",
     "@putout/plugin-simplify-ternary": "^8.0.0",

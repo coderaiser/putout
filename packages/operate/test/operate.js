@@ -247,8 +247,12 @@ test('putout: operate: remove: comment', (t) => {
 
 test('putout: operate: remove: not-top-comment', (t) => {
     const {code} = putout(fixture.notTopComments, {
+        rules: {
+            'variables': 'off',
+            'variables/remove-useless': 'on',
+        },
         plugins: [
-            'remove-useless-variables',
+            'variables',
         ],
     });
     
@@ -976,8 +980,12 @@ test('putout: operate: remove: already removed', async (t) => {
     
     const {code} = putout(source, {
         printer: 'putout',
+        rules: {
+            'variables': 'off',
+            'variables/remove-unreferenced': 'on',
+        },
         plugins: [
-            'remove-unreferenced-variables',
+            'variables',
             ['minify', minify],
         ],
     });

@@ -1,38 +1,36 @@
-# @putout/plugin-remove-useless-variables [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/plugin-variables [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-variables.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-variables "npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-variables.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-variables "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove `useless variables`.
 
 ## Install
 
 ```
-npm i @putout/plugin-remove-useless-variables -D
+npm i @putout/plugin-variables -D
 ```
 
 ## Rules
 
-- ✅ [assignment](#assignmentn);
-- ✅ [declaration](#declaration);
-- ✅ [destruct](#destruct);
-- ✅ [duplicate](#duplicate);
-- ✅ [remove](#remove);
-- ✅ [rename](#rename);
+- ✅ [remove-useless-assignment](#remove-useless-assignmenn);
+- ✅ [remove-useless-declaration](#remove-useless-declaration);
+- ✅ [remove-useless-duplicate](#remove-useless-duplicate);
+- ✅ [remove-useless-variables](#remove-useless-variables);
+- ✅ [remove-useless-rename](#remove-useless-rename);
 
 ## Config
 
 ```json
 {
     "rules": {
-        "remove-useless-variables/assignment": "on",
-        "remove-useless-variables/rename": "on",
-        "remove-useless-variables/remove": "on",
-        "remove-useless-variables/destruct": "on",
-        "remove-useless-variables/declaration": ["on", {
+        "variables/remove-useless-assignment": "on",
+        "variables/remove-useless-declaration": ["on", {
             "maxLength": 20
         }],
-        "remove-useless-variables/duplicate": "on"
+        "variables/remove-useless-duplicate": "on",
+        "variables/remove-useless-rename": "on",
+        "variables/remove-useless-remove": "on"
     }
 }
 ```
@@ -53,7 +51,7 @@ while (!(files = readDirectory(parentDir)).length) {}
 while (!readDirectory(parentDir).length) {}
 ```
 
-## rename
+## remove-useless-rename
 
 ### ❌ Example of incorrect code
 
@@ -67,22 +65,6 @@ function hi(a) {
 
 ```js
 function hi(b) {}
-```
-
-## destruct
-
-### ❌ Example of incorrect code
-
-```js
-function hi(c) {
-    const {a, b} = c;
-}
-```
-
-### ✅ Example of correct code
-
-```js
-function hi({a, b}) {}
 ```
 
 ## remove
@@ -124,7 +106,7 @@ const b = 5;
 d = 5;
 ```
 
-### declaration
+### remove-useless-declaration
 
 Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/32177535829956ef4c7b51587a8853c3/1fe071ff6542dc66ffad55f4776733903ab07241).
 
@@ -151,7 +133,7 @@ function x() {
 b.c = b.c.replace('x', 'y');
 ```
 
-### duplicate
+### remove-useless-duplicate
 
 Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/32177535829956ef4c7b51587a8853c3/52f19ab0e467ad7cc54fa8c554c3b0804de9d1ca).
 

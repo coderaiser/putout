@@ -326,7 +326,10 @@ test('putout: runner: plugins: traverse: pathStore', (t) => {
 
 test('putout: runner: uplist: removed node', async (t) => {
     const minify = await import('@putout/plugin-minify');
+    const variables = await import('@putout/plugin-variables');
+    
     const mergeVariables = minify.rules['merge-variables'];
+    const removeUnreferenced = variables.rules['remove-unreferenced'];
     
     const source = `
         let a;
@@ -338,14 +341,12 @@ test('putout: runner: uplist: removed node', async (t) => {
         console.log(a);
     `;
     
-    const remove = 'remove-unreferenced-variables';
-    const merge = ['merge-variables', mergeVariables];
-    
-    const plugins = [remove, merge];
-    
     const {code} = putout(source, {
         printer: 'putout',
-        plugins,
+        plugins: [
+            ['remove-unreferenced', removeUnreferenced],
+            ['merge-variables', mergeVariables],
+        ],
     });
     
     const expected = montag`

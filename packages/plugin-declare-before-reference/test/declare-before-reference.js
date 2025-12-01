@@ -8,12 +8,13 @@ import * as removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
 import * as nodejs from '@putout/plugin-nodejs';
 import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
 import * as tape from '@putout/plugin-tape';
-import * as removeUselessVariables from '@putout/plugin-remove-useless-variables';
+import * as variables from '@putout/plugin-variables';
 import * as args from '@putout/plugin-arguments';
 import * as destructuring from '@putout/plugin-destructuring';
 import * as declare from '../lib/declare-before-reference.js';
 
 const mergeDestructuringProperties = destructuring.rules['merge-properties'];
+const removeUselessVariables = variables.rules['remove-useless'];
 
 const {expressionStatement} = types;
 
@@ -177,7 +178,7 @@ test('plugin-declare-before-reference: transform: tape', (t) => {
 
 test('plugin-declare-before-reference: transform: remove-useless-variables', (t) => {
     t.transform('remove-useless-variables', {
-        remove: removeUselessVariables.rules.remove,
+        remove: removeUselessVariables,
         arguments: args,
     });
     t.end();

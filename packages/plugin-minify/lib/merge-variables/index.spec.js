@@ -1,8 +1,10 @@
 import {createTest} from '@putout/test';
-import * as removeUnreferencedVariables from '@putout/plugin-remove-unreferenced-variables';
+import * as variables from '@putout/plugin-variables';
 import * as declare from '@putout/plugin-declare';
 import * as plugin from './index.js';
 import * as shortenNames from '../shorten-names/index.js';
+
+const removeUnreferencedVariables = variables.rules['remove-unreferenced'];
 
 const test = createTest(import.meta.url, {
     plugins: [

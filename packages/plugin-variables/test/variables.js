@@ -1,9 +1,9 @@
 import {createTest} from '@putout/test';
-import * as removeUselessVariables from '../lib/index.js';
+import * as variables from '../lib/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['remove-useless-variables', removeUselessVariables],
+        ['variables', variables],
     ],
 });
 
@@ -19,11 +19,6 @@ test('remove useless variables: transform: function', (t) => {
 
 test('remove useless variables: no transform: global', (t) => {
     t.noTransform('global');
-    t.end();
-});
-
-test('remove useless variables: transform: destructure', (t) => {
-    t.transform('destructure');
     t.end();
 });
 
@@ -62,8 +57,8 @@ test('remove useless variables: no transform: var', (t) => {
     t.end();
 });
 
-test('remove useless variables: transform: destruct', (t) => {
-    t.transform('destruct');
+test('remove useless variables: transform: destructure', (t) => {
+    t.transform('destructure');
     t.end();
 });
 
