@@ -1,13 +1,13 @@
-import {createRequire} from 'node:module';
 import {createTest} from '@putout/test';
-import * as removeUselessVariables from '@putout/plugin-remove-useless-variables';
+import * as variables from '@putout/plugin-variables';
+import * as tape from '@putout/plugin-tape';
 import * as reuseDuplicateInit from '../lib/reuse-duplicate-init.js';
 
-const require = createRequire(import.meta.url);
-const convertTapeToSupertape = require('@putout/plugin-tape').rules['convert-tape-to-supertape'];
-const applyDestructuring = require('@putout/plugin-tape').rules['apply-destructuring'];
+const convertTapeToSupertape = tape.rules['convert-tape-to-supertape'];
+const applyDestructuring = tape.rules['apply-destructuring'];
+const declareStub = tape.rules.declare;
 
-const declareStub = require('@putout/plugin-tape').rules.declare;
+const removeUselessVariables = variables.rules['remove-useless'];
 
 const test = createTest(import.meta.url, {
     plugins: [

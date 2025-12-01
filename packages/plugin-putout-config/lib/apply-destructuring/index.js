@@ -9,6 +9,7 @@ const v41 = [
     ['split-call-with-destructuring', 'destructuring/split-call'],
     ['split-nested-destructuring', 'destructuring/split-nested'],
     ['remove-useless-arguments/destructuring', 'destructuring/remove-useless-arguments'],
+    ['remove-useless-variables/destruct', 'destructuring/remove-useless-variables'],
 ];
 
 const versions = [...v41];

@@ -2,7 +2,7 @@
     "match": {
         "*.md": {
             "convert-const-to-let": "off",
-            "remove-unreferenced-variables": "off"
+            "variables/remove-unreferenced": "off"
         }
     }
 }

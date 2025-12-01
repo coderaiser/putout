@@ -8,5 +8,6 @@ __putout_processor_json({
         'merge-destructuring-properties': 'off',
         'split-nested-destructuring': 'off',
         'remove-useless-arguments/destructuring': 'off',
+        'remove-useless-variables/destruct': 'off',
     },
 });
