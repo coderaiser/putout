@@ -29,6 +29,7 @@ npm i @putout/plugin-putout-config -D
 - ✅ [apply-promises](#apply-promises);
 - ✅ [apply-tape](#apply-tape);
 - ✅ [apply-types](#apply-types);
+- ✅ [apply-variables](#apply-variables);
 - ✅ [convert-boolean-to-string](#convert-boolean-to-string);
 - ✅ [move-formatter-up](#move-formatter-up);
 - ✅ [remove-empty](#remove-empty);
@@ -57,6 +58,7 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-spread": "on",
         "putout-config/apply-tape": "on",
         "putout-config/apply-types": "on",
+        "putout-config/apply-variables": "on",
         "putout-config/convert-boolean-to-string": "on",
         "putout-config/move-formatter-up": "on",
         "putout-config/remove-empty": "on",
@@ -263,6 +265,33 @@ Apply [`spread`](https://github.com/coderaiser/putout/tree/master/packages/plugi
 +       "spread/simplify-nested": "on",
 +       "spread/convert-apply-to-spread": "on",
 +       "spread/convert-object-assign-to-merge-spread": "on"
+  }
+}
+```
+
+## apply-variables
+
+Apply [`variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-variables#readme) according to:
+
+- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
+
+```diff
+{
+    "rules": {
+-       "remove-useless-variables": "off",
+-       "remove-useless-variables/remove": "on",
+-       "remove-useless-variables/assignment": "on",
+-       "remove-useless-arguments/declaration": "on",
+-       "remove-useless-arguments/duplicate": "on",
+-       "remove-useless-arguments/rename": "on",
+-       "remove-unreferenced-variables": "on"
++       "variables": "off",
++       "variables/remove-useless": "on",
++       "variables/remove-useless-assignment": "on",
++       "variables/remove-useless-declarations": "on",
++       "variables/remove-useless-duplicates": "on",
++       "variables/remove-useless-rename": "on",
++       "variables/remove-unreferenced": "on"
   }
 }
 ```

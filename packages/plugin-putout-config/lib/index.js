@@ -14,6 +14,7 @@ import * as applyPromises from './apply-promises/index.js';
 import * as applySpread from './apply-spread/index.js';
 import * as applyTape from './apply-tape/index.js';
 import * as applyTypes from './apply-types/index.js';
+import * as applyVariables from './apply-variables/index.js';
 import * as convertBooleanToString from './convert-boolean-to-string/index.js';
 import * as renameRules from './rename-rules/index.js';
 import * as removeEmpty from './remove-empty/index.js';
@@ -37,6 +38,7 @@ export const rules = {
     'apply-spread': applySpread,
     'apply-tape': applyTape,
     'apply-types': applyTypes,
+    'apply-variables': applyVariables,
     'convert-boolean-to-string': convertBooleanToString,
     'move-formatter-up': MoveFormatterUp,
     'rename-rules': renameRules,
