@@ -3,6 +3,7 @@ import * as removeUselessAssignment from './remove-useless-assignment/index.js';
 import * as removeUselessDeclarations from './remove-useless-declarations/index.js';
 import * as removeUselessDuplicates from './remove-useless-duplicates/index.js';
 import * as removeUselessRename from './remove-useless-rename/index.js';
+import * as removeUnreferenced from './remove-unreferenced/index.js';
 
 export const rules = {
     'remove-useless': removeUseless,
@@ -10,4 +11,5 @@ export const rules = {
     'remove-useless-declarations': removeUselessDeclarations,
     'remove-useless-duplicates': removeUselessDuplicates,
     'remove-useless-rename': removeUselessRename,
+    'remove-unreferenced': removeUnreferenced,
 };

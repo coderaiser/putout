@@ -155,6 +155,34 @@ function DestructuringErrors(a, b) {
 bc = b.c.replace('x', 'y');
 ```
 
+## remove-unreferenced
+
+> A **variable** is a named reference to a **value**.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Variable)
+
+### ❌ Example of incorrect code
+
+```js
+let a;
+let b;
+
+a = 5;
+b = 6;
+
+console.log(a);
+```
+
+### ✅ Example of correct code
+
+```js
+let a;
+
+a = 5;
+
+console.log(a);
+```
+
 ## License
 
 MIT

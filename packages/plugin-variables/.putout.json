@@ -2,7 +2,8 @@
     "match": {
         "*.md": {
             "putout/declare": "off",
-            "promises/remove-useless-async": "off"
+            "promises/remove-useless-async": "off",
+            "variables": "off"
         }
     }
 }

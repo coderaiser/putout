@@ -1,7 +1,9 @@
 import {createTest} from '@putout/test';
 import * as removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
-import * as removeUnreferencedVariables from '@putout/plugin-remove-unreferenced-variables';
+import * as variables from '@putout/plugin-variables';
 import * as convertMapToForOf from './index.js';
+
+const removeUnreferencedVariables = variables.rules['remove-unreferenced'];
 
 const test = createTest(import.meta.url, {
     plugins: [
