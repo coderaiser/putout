@@ -251,9 +251,7 @@ test('putout: operate: remove: not-top-comment', (t) => {
             'variables': 'off',
             'variables/remove-useless': 'on',
         },
-        plugins: [
-            'variables',
-        ],
+        plugins: ['variables'],
     });
     
     const expected = fixture.notTopCommentsFix;
