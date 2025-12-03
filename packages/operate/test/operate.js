@@ -234,9 +234,7 @@ test('putout: operate: replaceWithMultiple: for-of: empty return', (t) => {
 
 test('putout: operate: remove: comment', (t) => {
     const {code} = putout(fixture.comment, {
-        plugins: [
-            'variables',
-        ],
+        plugins: ['variables'],
     });
     
     const expected = fixture.commentFix;
@@ -262,9 +260,7 @@ test('putout: operate: remove: not-top-comment', (t) => {
 
 test('putout: operate: remove: comment: if', (t) => {
     const {code} = putout(fixture.commentIf, {
-        plugins: [
-            'variables',
-        ],
+        plugins: ['variables'],
     });
     
     const expected = fixture.commentIfFix;
@@ -275,9 +271,7 @@ test('putout: operate: remove: comment: if', (t) => {
 
 test('putout: operate: remove: comment: after remove', (t) => {
     const {code} = putout(fixture.commentAfterRemove, {
-        plugins: [
-            'variables',
-        ],
+        plugins: ['variables'],
     });
     
     const expected = fixture.commentAfterRemoveFix;

@@ -549,9 +549,7 @@ putout(source, {
         'variables': 'off',
         'variables/remove-unused': 'on',
     },
-    plugins: [
-        'variables',
-    ],
+    plugins: ['variables'],
 });
 
 // returns
@@ -576,9 +574,7 @@ putout(source, {
         'variables': 'off',
         'variables/remove-unused': 'on',
     },
-    plugins: [
-        'variables',
-    ],
+    plugins: ['variables'],
 });
 
 // returns
