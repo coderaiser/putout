@@ -24,6 +24,7 @@ npm i @putout/plugin-variables -D
 - ✅ [remove-useless-duplicate](#remove-useless-duplicate);
 - ✅ [remove-useless-variables](#remove-useless-variables);
 - ✅ [remove-useless-rename](#remove-useless-rename);
+- ✅ [remove-unused](#remove-unused);
 - ✅ [split-declarations](#split-declarations);
 
 ## Config
@@ -40,6 +41,7 @@ npm i @putout/plugin-variables -D
         "variables/remove-useless-duplicate": "on",
         "variables/remove-useless-rename": "on",
         "variables/remove-useless-remove": "on",
+        "variables/remove-unused": "on",
         "variables/split-declarations": "on"
     }
 }
