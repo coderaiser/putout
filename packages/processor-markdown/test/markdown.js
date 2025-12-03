@@ -9,7 +9,7 @@ const test = createTest(import.meta.url, {
         'json',
     ],
     plugins: [
-        'remove-unused-variables',
+        'variables',
         'eslint',
     ],
 });

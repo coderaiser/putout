@@ -1,13 +1,13 @@
 import {createTest} from '@putout/test';
-import * as removeUnusedVariables from '../lib/remove-unused-variables.js';
+import * as removeUnusedVariables from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['remove-unused-variables', removeUnusedVariables],
+        ['variables/remove-unused', removeUnusedVariables],
     ],
 });
 
-test('remove-unused-variables: report', (t) => {
+test('putout: plugin-variables: remove-unused: report', (t) => {
     t.reportCode('const a = 5', `'a' is defined but never used`);
     t.end();
 });

@@ -26,3 +26,8 @@ function notDeclared() {
     }
     console.log(files);
 }
+
+notDeclared();
+notIdentifier();
+referenced();
+notReferenced();

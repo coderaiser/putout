@@ -5,3 +5,7 @@ function get({update}) {
         create,
     };
 }
+
+get({
+    update: false,
+});

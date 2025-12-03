@@ -1,7 +1,7 @@
 import test from 'supertape';
-import transform from '../lib/transform.js';
+import transform from './transform.js';
 
-test('remove-unused-variables: transform: empty', (t) => {
+test('putout: plugin-variables: remove-unused: transform: empty', (t) => {
     const result = transform([]);
     const expected = [];
     
@@ -9,7 +9,7 @@ test('remove-unused-variables: transform: empty', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: transform: 1', (t) => {
+test('putout: plugin-variables: remove-unused: transform: 1', (t) => {
     const result = transform([{
         str: {
             count: 1,

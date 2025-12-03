@@ -4,7 +4,7 @@ import {
     traverse,
     template,
 } from 'putout';
-import getVarsOriginal from '../lib/get-vars/index.js';
+import getVarsOriginal from './get-vars/index.js';
 import {readFixtures} from './fixture.js';
 
 const fixture = readFixtures([

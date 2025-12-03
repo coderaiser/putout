@@ -1,5 +1,7 @@
-import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import * as variables from '@putout/plugin-variables';
 import {createTest} from '../lib/test.mjs';
+
+const removeUnusedVariables = variables.rules['remove-unused'];
 
 const plugins = {
     removeUnusedVariables,

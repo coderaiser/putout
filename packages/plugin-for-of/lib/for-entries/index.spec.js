@@ -1,6 +1,8 @@
-import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import * as variables from '@putout/plugin-variables';
 import {createTest} from '@putout/test';
 import * as forEntries from './index.js';
+
+const removeUnusedVariables = variables.rules['remove-unused'];
 
 const test = createTest(import.meta.url, {
     plugins: [

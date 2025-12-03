@@ -8,3 +8,4 @@ function getImportDefaultVar(name, node) {
     });
 }
 
+getImportDefaultVar('hello', 'world');

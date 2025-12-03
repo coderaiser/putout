@@ -31,14 +31,13 @@
     "for-of"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^3.0.3",
     "@putout/plugin-conditions": "*",
     "@putout/plugin-convert-const-to-let": "*",
     "@putout/plugin-destructuring": "*",
     "@putout/plugin-remove-console": "*",
     "@putout/plugin-remove-empty": "*",
     "@putout/plugin-remove-nested-blocks": "*",
-    "@putout/plugin-remove-unused-variables": "*",
     "@putout/plugin-remove-useless-continue": "*",
     "@putout/plugin-variables": "*",
     "@putout/test": "^14.0.0",

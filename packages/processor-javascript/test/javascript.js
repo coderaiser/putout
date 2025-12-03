@@ -5,13 +5,13 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: processor: javascript', async ({process}) => {
-    await process('simple.js', ['remove-unused-variables']);
+    await process('simple.js', ['variables']);
 });
 
 test('putout: processor: javascript: cts', async ({process}) => {
-    await process('simple.cts', ['remove-unused-variables']);
+    await process('simple.cts', ['variables']);
 });
 
 test('putout: processor: javascript: mts', async ({process}) => {
-    await process('simple.mts', ['remove-unused-variables']);
+    await process('simple.mts', ['variables']);
 });

@@ -29,7 +29,7 @@ ruleTester.run('putout', rule, {
         'fn(/(?<foo>a)/)', {
             options: [{
                 rules: {
-                    'remove-unused-variables': 'off',
+                    'variables/remove-unused': 'off',
                 },
             }],
             code: `const t = 'hi';`,
@@ -43,7 +43,7 @@ ruleTester.run('putout', rule, {
         code: `const m = 'hi'`,
         output: '\n',
         errors: [{
-            message: `'m' is defined but never used (remove-unused-variables)`,
+            message: `'m' is defined but never used (variables/remove-unused)`,
         }],
     }, {
         code: `const t = 'hi'; module.exports = t`,
@@ -78,7 +78,7 @@ ruleTester.run('putout', rule, {
         errors: [{
             line: 2,
             column: 7,
-            message: `'m' is defined but never used (remove-unused-variables)`,
+            message: `'m' is defined but never used (variables/remove-unused)`,
         }],
     }],
 });
@@ -108,7 +108,7 @@ parserTester.run('putout: typescript', rule, {
     valid: [{
         options: [{
             rules: {
-                'remove-unused-variables': 'off',
+                'variables/remove-unused': 'off',
             },
         }],
         code: `
@@ -130,7 +130,7 @@ parserTester.run('putout: typescript', rule, {
         errors: [{
             line: 1,
             column: 1,
-            message: `'A' is defined but never used (remove-unused-variables)`,
+            message: `'A' is defined but never used (variables/remove-unused)`,
         }, {
             line: 2,
             column: 8,
@@ -282,7 +282,7 @@ tsParserTester.run('typescript-eslint: comments', rule, {
         output: readFixture('typescript-eslint-parent-fix'),
         options: [{
             rules: {
-                'remove-unused-variables': 'off',
+                'variables/remove-unused': 'off',
                 'typescript/remove-unused-types': 'off',
                 'typescript/remove-duplicates-from-union': 'on',
             },
@@ -444,7 +444,7 @@ ruleTester.run('putout: async: ignore', rule, {
         code: `const m = 'hi'`,
         output: '\n',
         errors: [{
-            message: `'m' is defined but never used (remove-unused-variables)`,
+            message: `'m' is defined but never used (variables/remove-unused)`,
         }],
     }],
 });

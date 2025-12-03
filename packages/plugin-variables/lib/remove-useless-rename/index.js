@@ -3,7 +3,7 @@ import {operator, types} from 'putout';
 const {remove, rename} = operator;
 const {isIdentifier} = types;
 
-export const report = ({idName}) => `Useless variable declaration with name "${idName}"`;
+export const report = ({idName}) => `Avoid useless variable declaration with name '${idName}'`;
 
 export const fix = ({path, bindingPath, initName, idName}) => {
     rename(bindingPath, initName, idName);

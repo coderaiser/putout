@@ -46,7 +46,7 @@ const fixture = readFixtures([
 test('putout: parser: export default declaration: acorn', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         parser: 'acorn',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.exportDefaultDeclarationFix;
@@ -58,7 +58,7 @@ test('putout: parser: export default declaration: acorn', (t) => {
 test('putout: parser: acorn: parens-typescript', (t) => {
     const {code} = putout(fixture.parensTypescript, {
         parser: 'acorn',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.parensTypescriptFix;
@@ -70,7 +70,7 @@ test('putout: parser: acorn: parens-typescript', (t) => {
 test('putout: parser: export default declaration: esprima', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         parser: 'esprima',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.exportDefaultDeclarationFix;
@@ -82,7 +82,7 @@ test('putout: parser: export default declaration: esprima', (t) => {
 test('putout: parser: export default declaration: custom parser', (t) => {
     const [e] = tryCatch(putout, fixture.exportDefaultDeclaration, {
         parser: 'custom',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     t.match(e.message, `Cannot find module 'custom'`);
@@ -105,7 +105,7 @@ test('putout: parser: use strict: parser: espree: debugger', (t) => {
 test('putout: parser: export default declaration: tenko: export default', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         parser: 'tenko',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.exportDefaultDeclarationFix;
@@ -116,7 +116,7 @@ test('putout: parser: export default declaration: tenko: export default', (t) =>
 
 test('putout: parser: export default declaration: tenko: throw', (t) => {
     const {code} = putout(fixture.throw, {
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = '\n';
@@ -176,7 +176,7 @@ test('putout: parser: generate', (t) => {
 
 test('putout: parser: flow', (t) => {
     const {code} = putout(fixture.flow, {
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.flowFix;
@@ -202,7 +202,7 @@ test('putout: parser: broken', (t) => {
 test('putout: parser: typescript', (t) => {
     const {code} = putout(fixture.typescript, {
         isTS: true,
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.typescriptFix;
@@ -214,7 +214,7 @@ test('putout: parser: typescript', (t) => {
 test('putout: parser: decorator', (t) => {
     const {code} = putout(fixture.decorator, {
         isTS: true,
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.decorator;
@@ -226,7 +226,7 @@ test('putout: parser: decorator', (t) => {
 test('putout: parser: decorator-legacy', (t) => {
     const {code} = putout(fixture.decoratorLegacy, {
         isTS: true,
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.decoratorLegacy;
@@ -263,7 +263,7 @@ test('putout: parser: jsx: not react', (t) => {
 
 test('putout: parser: strict mode', (t) => {
     const {code} = putout(fixture.strictMode, {
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     t.equal(code, fixture.strictModeFix);
@@ -439,7 +439,7 @@ test('putout: parser: esprima', (t) => {
 test('putout: parser: printer: babel', (t) => {
     const {code} = putout(fixture.printerBabel, {
         printer: 'babel',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.printerBabelFix;

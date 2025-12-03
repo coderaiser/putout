@@ -1,8 +1,10 @@
 import {createTest} from '@putout/test';
-import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import * as variables from '@putout/plugin-variables';
 import * as removeConsole from '@putout/plugin-remove-console';
 import * as removeUselessArrayFrom from '../remove-useless-array-from/index.js';
 import * as plugin from './index.js';
+
+const removeUnusedVariables = variables.rules['remove-unused'];
 
 const test = createTest(import.meta.url, {
     plugins: [

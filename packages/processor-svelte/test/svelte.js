@@ -6,7 +6,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: processor: svelte', async ({process}) => {
-    await process('html', ['remove-unused-variables']);
+    await process('html', ['variables']);
 });
 
 test('putout: processor: html: css: no fix', async ({comparePlaces}) => {
@@ -35,7 +35,7 @@ test('putout: processor: html: css: no fix', async ({comparePlaces}) => {
 });
 
 test('putout: processor: html: css: fix', async ({process}) => {
-    await process('style', ['remove-unused-variables']);
+    await process('style', ['variables']);
 });
 
 test('putout: processor: html: css: template', async ({comparePlaces}) => {

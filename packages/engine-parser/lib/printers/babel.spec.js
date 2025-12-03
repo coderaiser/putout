@@ -62,7 +62,7 @@ test('putout: parser: print: printer: babel: preserve format: trim', (t) => {
     });
     
     transform(ast, source, {
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const result = print(ast, {
@@ -89,7 +89,7 @@ test('putout: parser: print: printer: babel: preserve format: align-spaces: off'
     });
     
     transform(ast, source, {
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const result = print(ast, {

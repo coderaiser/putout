@@ -40,7 +40,8 @@
     "@putout/plugin-for-of": "*",
     "@putout/plugin-maybe": "*",
     "@putout/plugin-minify": "*",
-    "@putout/plugin-remove-unused-variables": "*",
+    "@putout/plugin-nodejs": "*",
+    "@putout/plugin-putout": "*",
     "@putout/plugin-remove-useless-array-from": "*",
     "@putout/plugin-reuse-duplicate-init": "*",
     "@putout/test": "^14.0.0",
@@ -48,8 +49,11 @@
     "eslint": "v10.0.0-alpha.0",
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^29.0.0",
+    "just-camel-case": "^6.2.0",
     "madrun": "^11.0.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "supertape": "^11.3.1",
+    "try-catch": "^3.0.1"
   },
   "peerDependencies": {
     "putout": ">=41"

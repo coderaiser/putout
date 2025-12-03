@@ -296,8 +296,8 @@ So, if you want to convert it to [`ESM`](https://developer.mozilla.org/en-US/doc
 `putout index.js --disable-all` will find next errors:
 
 ```sh
- 1:4   error   'unused' is defined but never used                        remove-unused-variables
- 7:23  error   'a' is defined but never used                             remove-unused-variables
+ 1:4   error   'unused' is defined but never used                        variables/remove-unused
+ 7:23  error   'a' is defined but never used                             variables/remove-unused
  3:0   error   Use arrow function                                        convert-to-arrow-function
  1:0   error   Add missing 'use strict' directive on top of CommonJS     nodejs/dd-missing-strict-cmode
  8:4   error   Reject is useless in async functions, use throw instead   promises/convert-reject-to-throw
@@ -310,7 +310,7 @@ It will create config file `.putout.json`:
 ```json
 {
     "rules": {
-        "remove-unused-variables": "off",
+        "variables/remove-unused": "off",
         "convert-to-arrow-function": "off",
         "nodejs/add-missing-strict-mode": "off",
         "promises/convert-reject-to-throw": "off",
@@ -325,7 +325,7 @@ Then running `putout index.js --enable nodejs/convert-commonjs-to-esm` will upda
 ```diff
 {
     "rules": {
-        "remove-unused-variables": "off",
+        "variables/remove-unused": "off",
         "convert-to-arrow-function": "off",
         "nodejs/add-missing-strict-mode": "off",
         "promises/convert-reject-to-throw": "off",
@@ -541,12 +541,16 @@ const source = `
 
 #### Plugins
 
-🐊**Putout** supports dynamic loading of plugins from `node_modules`. Let's consider example of using the [remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables/README.md#readme) plugin:
+🐊**Putout** supports dynamic loading of plugins from `node_modules`. Let's consider example of using the [variables/remove-unused](https://github.com/coderaiser/putout/tree/master/packages/plugin-variables/README.md#remove-unused) plugin:
 
 ```js
 putout(source, {
+    rules: {
+        'variables': 'off',
+        'variables/remove-unused': 'on',
+    },
     plugins: [
-        'remove-unused-variables',
+        'variables',
     ],
 });
 
@@ -568,8 +572,12 @@ In the following example redundant variables are found without making changes to
 ```js
 putout(source, {
     fix: false,
+    rules: {
+        'variables': 'off',
+        'variables/remove-unused': 'on',
+    },
     plugins: [
-        'remove-unused-variables',
+        'variables',
     ],
 });
 
@@ -577,7 +585,7 @@ putout(source, {
 ({
     code: '\n' + `    const hello = 'world';\n` + `    const hi = 'there';\n` + '    \n' + '    console.log(hello);\n',
     places: [{
-        rule: 'remove-unused-variables',
+        rule: 'variables/remove-unused',
         message: '"hi" is defined but never used',
         position: {
             line: 3,
@@ -2159,7 +2167,6 @@ It has a lot of plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-remove-unused-variables`](/packages/plugin-remove-unused-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-variables) |
 | [`@putout/plugin-remove-unreferenced-variables`](/packages/plugin-remove-unreferenced-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unreferenced-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unreferenced-variables) |
 | [`@putout/plugin-remove-duplicate-keys`](/packages/plugin-remove-duplicate-keys#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-keys.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-keys) |
 | [`@putout/plugin-remove-duplicate-case`](/packages/plugin-remove-duplicate-case#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-case.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-case) |
@@ -2362,7 +2369,7 @@ You can disable rules using `"off"`, or enable them (in `match` section) using `
 ```json
 {
     "rules": {
-        "remove-unused-variables": "off"
+        "variables/remove-unused": "off"
     }
 }
 ```
@@ -2372,7 +2379,7 @@ Or pass options using `rules` section:
 ```json
 {
     "rules": {
-        "remove-unused-variables": ["on", {
+        "variables/remove-unused": ["on", {
             "exclude": "const global = __"
         }]
     }
@@ -2387,7 +2394,7 @@ Pass an array when you have a couple templates to exclude:
 ```json
 {
     "rules": {
-        "remove-unused-variables": ["on", {
+        "variables/remove-unused": ["on", {
             "exclude": [
                 "VariableDeclaration"
             ]
@@ -2670,7 +2677,7 @@ If you don't want to publish a **plugin** you developed, you can pass it to 🐊
 ```js
 putout('const a = 5', {
     plugins: [
-        ['remove-unused-variables', require('@putout/plugin-remove-unused-variables')],
+        ['variables', require('@putout/plugin-variables')],
     ],
 });
 ```
@@ -2814,7 +2821,7 @@ Just create `.babelrc.json` file with configuration you need.
     "plugins": [
         ["putout", {
             "rules": {
-                "remove-unused-variables": "off"
+                "variables/remove-unused": "off"
             }
         }]
     ]

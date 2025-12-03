@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import * as removeUnusedVariables from '../remove-unused/index.js';
 import * as splitVariableDeclarations from './index.js';
 
 const test = createTest(import.meta.url, {

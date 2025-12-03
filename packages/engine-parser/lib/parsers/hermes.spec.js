@@ -10,7 +10,7 @@ const fixture = readFixtures(__dirname, ['hermes', 'hermes-fix']);
 test('putout: parser: hermes', (t) => {
     const {code} = putout(fixture.hermes, {
         parser: 'hermes',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.hermesFix;

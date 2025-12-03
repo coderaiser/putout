@@ -1,7 +1,7 @@
 import test from 'supertape';
 import _putout from 'putout';
 import {readFixtures} from './fixture.js';
-import * as removeUnusedVariables from '../lib/remove-unused-variables.js';
+import * as removeUnusedVariables from './index.js';
 
 const putout = (code, options = {}) => {
     return _putout(code, {

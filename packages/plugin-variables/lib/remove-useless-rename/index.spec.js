@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('remove-useless-variables: rename: report: function', (t) => {
-    t.report('function', 'Useless variable declaration with name "b"');
+    t.report('function', `Avoid useless variable declaration with name 'b'`);
     t.end();
 });
 

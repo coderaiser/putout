@@ -26,7 +26,7 @@ test('putout: runner: run plugins', (t) => {
     const result = putout(fixture.import, {
         runPlugins,
         plugins: [
-            'remove-unused-variables',
+            'variables',
             'esm',
         ],
     });
@@ -41,11 +41,11 @@ test('putout: runner: run plugins: disable, using "off"', (t) => {
     const result = putout(fixture.import, {
         runPlugins,
         rules: {
-            'remove-unused-variables': 'off',
+            'variables': 'off',
             'remove-empty': 'off',
         },
         plugins: [
-            'remove-unused-variables',
+            'variables',
             'remove-empty',
         ],
     });
@@ -665,7 +665,7 @@ module.exports.replace = () => ({
 
 test('putout: runner: root vars: no parent', (t) => {
     const result = putout(fixture.noParent, {
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = {
@@ -710,7 +710,11 @@ test('putout: runner: parser: no loc', (t) => {
 
 test('putout: runner: shebang', (t) => {
     const {code} = putout(fixture.shebang, {
-        plugins: ['remove-unused-variables'],
+        rules: {
+            'variables': 'off',
+            'variables/remove-unused': 'on',
+        },
+        plugins: ['variables'],
     });
     
     const expected = fixture.shebangFix;
@@ -733,7 +737,7 @@ test('putout: runner: debug', (t) => {
     const {code} = putout(fixture.debug, {
         fix: true,
         runPlugins,
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = '\n';

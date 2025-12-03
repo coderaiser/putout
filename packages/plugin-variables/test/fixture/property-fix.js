@@ -1,3 +1,5 @@
-const {id, init} = node;
+const {id} = node;
 
 const PROPERTY = id;
+
+fn(PROPERTY);

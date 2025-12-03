@@ -1,7 +1,7 @@
 import test from 'supertape';
-import getUnused from '../lib/get-unused.js';
+import getUnused from './get-unused.js';
 
-test('remove-unused-variables: get-unused', (t) => {
+test('putout: plugin-variables: remove-unused: get-unused', (t) => {
     const result = getUnused([{
         name: 'a',
         declared: true,

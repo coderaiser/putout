@@ -42,7 +42,7 @@ test('putout: config: match: svelte', (t) => {
     const result = match['*.svelte'];
     
     const expected = {
-        'remove-unused-variables': 'off',
+        'variables/remove-unused': 'off',
     };
     
     t.deepEqual(result, expected);
@@ -103,7 +103,7 @@ test('putout: config: markdown', (t) => {
         'convert-quotes-to-backticks': 'off',
         'remove-unused-expressions': 'off',
         'labels/remove-unused': 'off',
-        'remove-unused-variables': 'off',
+        'variables/remove-unused': 'off',
         'remove-useless-escape': 'off',
         'remove-useless-push': 'off',
         'return/remove-useless': 'off',

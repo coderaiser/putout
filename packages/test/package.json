@@ -65,7 +65,7 @@
     "@putout/plugin-extract-object-properties": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-remove-console": "*",
-    "@putout/plugin-remove-unused-variables": "*",
+    "@putout/plugin-variables": "*",
     "@putout/processor-wasm": "*",
     "c8": "^10.0.0",
     "eslint": "v10.0.0-alpha.0",

@@ -57,7 +57,7 @@
             "maybe": "off",
             "convert-quotes-to-backticks": "off",
             "remove-unused-expressions": "off",
-            "remove-unused-variables": "off",
+            "variables/remove-unused": "off",
             "labels/remove-unused": "off",
             "remove-useless-escape": "off",
             "variables/remove-useless": "off",
@@ -76,7 +76,7 @@
             "putout/apply-namespace-specifier": "off"
         },
         "*.svelte": {
-            "remove-unused-variables": "off"
+            "variables/remove-unused": "off"
         },
         "{*rc,*.{json,yml}}": {
             "convert-quotes-to-backticks": "off",
@@ -220,7 +220,6 @@
         "remove-iife",
         "remove-console",
         "remove-empty",
-        "remove-unused-variables",
         "remove-unused-private-fields",
         "remove-unused-expressions",
         "remove-useless-assign",

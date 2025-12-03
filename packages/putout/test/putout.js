@@ -75,7 +75,7 @@ test('putout: no vars: nested', (t) => {
 
 test('putout: root vars', (t) => {
     const result = putout(fixture.rootVars, {
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = {
@@ -89,7 +89,7 @@ test('putout: root vars', (t) => {
 
 test('putout: root vars: no parent', (t) => {
     const result = putout(fixture.noParent, {
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = {
@@ -103,7 +103,7 @@ test('putout: root vars: no parent', (t) => {
 
 test('putout: await outside function', (t) => {
     const result = putout(fixture.awaitOutsideFunc, {
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = {
@@ -118,7 +118,7 @@ test('putout: await outside function', (t) => {
 test('putout: run plugins', (t) => {
     const result = putout(fixture.import, {
         plugins: [
-            'remove-unused-variables',
+            'variables',
             'esm',
         ],
     });
@@ -132,11 +132,11 @@ test('putout: run plugins', (t) => {
 test('putout: run plugins: disable, using "off"', (t) => {
     const result = putout(fixture.import, {
         rules: {
-            'remove-unused-variables': 'off',
+            'variables': 'off',
             'remove-empty': 'off',
         },
         plugins: [
-            'remove-unused-variables',
+            'variables',
             'remove-empty',
         ],
     });
@@ -175,7 +175,11 @@ test('putout: comment', (t) => {
 
 test('putout: shebang', (t) => {
     const {code} = putout(fixture.shebang, {
-        plugins: ['remove-unused-variables'],
+        rules: {
+            'variables': 'off',
+            'variables/remove-unused': 'on',
+        },
+        plugins: ['variables'],
     });
     
     const expected = fixture.shebangFix;
@@ -187,7 +191,11 @@ test('putout: shebang', (t) => {
 test('putout: shebang: recast', (t) => {
     const {code} = putout(fixture.shebangRecast, {
         printer: 'recast',
-        plugins: ['remove-unused-variables'],
+        rules: {
+            'variables': 'off',
+            'variables/remove-unused': 'on',
+        },
+        plugins: ['variables'],
     });
     
     const expected = fixture.shebangRecastFix;
@@ -199,7 +207,7 @@ test('putout: shebang: recast', (t) => {
 test('putout: flow', (t) => {
     const {places} = putout(fixture.flow, {
         printer: 'recast',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = [];
@@ -211,7 +219,7 @@ test('putout: flow', (t) => {
 test('putout: typescript', (t) => {
     const {code} = putout(fixture.typescript, {
         isTS: true,
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     t.equal(code, '\n');
@@ -221,7 +229,7 @@ test('putout: typescript', (t) => {
 test('putout: shebang: message', (t) => {
     const {places} = putout(fixture.shebang, {
         fixCount: 1,
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const {position} = places[0];
@@ -237,7 +245,7 @@ test('putout: shebang: message', (t) => {
 
 test('putout: export default declaration', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.exportDefaultDeclarationFix;
@@ -249,7 +257,7 @@ test('putout: export default declaration', (t) => {
 test('putout: export default declaration: espree', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         parser: 'espree',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.exportDefaultDeclarationFix;
@@ -262,11 +270,15 @@ test('putout: export default declaration: espree: places: shebang', (t) => {
     const {places} = putout(fixture.shebang, {
         parser: 'espree',
         fix: false,
-        plugins: ['remove-unused-variables'],
+        rules: {
+            'variables': 'off',
+            'variables/remove-unused': 'on',
+        },
+        plugins: ['variables'],
     });
     
     const expected = [{
-        rule: 'remove-unused-variables',
+        rule: 'variables/remove-unused',
         message: `'b' is defined but never used`,
         position: {
             line: 6,
@@ -281,7 +293,7 @@ test('putout: export default declaration: espree: places: shebang', (t) => {
 test('putout: use strict', (t) => {
     const {code} = putout(fixture.strictMode, {
         fixCount: 1,
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.strictModeFix;
@@ -294,7 +306,7 @@ test('putout: use strict: @putout/printer', (t) => {
     const {code} = putout(fixture.shebangPrinter, {
         printer: 'putout',
         fixCount: 1,
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.shebangPrinterFix;
@@ -306,7 +318,7 @@ test('putout: use strict: @putout/printer', (t) => {
 test('putout: use strict: fixCount', (t) => {
     const {code} = putout(fixture.strictMode, {
         fixCount: 10,
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.strictModeFixCount;
@@ -772,7 +784,7 @@ test('putout: no source', (t) => {
 test('putout: printer: putout', (t) => {
     const {code} = putout(fixture.printerPutout, {
         printer: 'putout',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.printerPutoutFix;
@@ -788,7 +800,7 @@ test('putout: printer: putout: options', (t) => {
                 indent: '  ',
             },
         }],
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.printerPutoutOptionsFix;
@@ -800,7 +812,7 @@ test('putout: printer: putout: options', (t) => {
 test('putout: printer: babel', (t) => {
     const {code} = putout(fixture.printerBabel, {
         printer: 'babel',
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = fixture.printerBabelFix;
@@ -843,9 +855,7 @@ test('putout: loader: no plugin found', (t) => {
         rules: {
             'remove-unused-labels': 'off',
         },
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['variables'],
     });
     
     const expected = [{
@@ -861,7 +871,7 @@ test('putout: loader: no plugin found', (t) => {
             column: 6,
             line: 1,
         },
-        rule: 'remove-unused-variables',
+        rule: 'variables/remove-unused',
     }];
     
     t.deepEqual(places, expected);

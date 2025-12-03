@@ -1,9 +1,10 @@
 'use strict';
 
-const removeUnused = require('@putout/plugin-remove-unused-variables');
+const variables = require('@putout/plugin-variables');
 const removeConsole = require('./fixture/remove-console');
 
 const {createTest} = require('..');
+const removeUnused = variables.rules['remove-unused'];
 
 const test = createTest(__dirname, {
     plugins: {

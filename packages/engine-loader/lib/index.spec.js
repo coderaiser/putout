@@ -7,7 +7,7 @@ const {validateRulesRelations} = require('./index');
 
 test('engine-loader: load-plugins', (t) => {
     const result = loadPlugins({
-        pluginNames: ['remove-unused-variables'],
+        pluginNames: ['remove-debugger'],
     });
     
     t.equal(result.length, 1);

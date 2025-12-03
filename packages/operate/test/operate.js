@@ -235,7 +235,7 @@ test('putout: operate: replaceWithMultiple: for-of: empty return', (t) => {
 test('putout: operate: remove: comment', (t) => {
     const {code} = putout(fixture.comment, {
         plugins: [
-            'remove-unused-variables',
+            'variables',
         ],
     });
     
@@ -263,7 +263,7 @@ test('putout: operate: remove: not-top-comment', (t) => {
 test('putout: operate: remove: comment: if', (t) => {
     const {code} = putout(fixture.commentIf, {
         plugins: [
-            'remove-unused-variables',
+            'variables',
         ],
     });
     
@@ -276,7 +276,7 @@ test('putout: operate: remove: comment: if', (t) => {
 test('putout: operate: remove: comment: after remove', (t) => {
     const {code} = putout(fixture.commentAfterRemove, {
         plugins: [
-            'remove-unused-variables',
+            'variables',
         ],
     });
     

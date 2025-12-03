@@ -1,7 +1,9 @@
 import process from 'node:process';
 import {createTest} from '@putout/test';
-import * as rmUnused from '@putout/plugin-remove-unused-variables';
+import * as variables from '@putout/plugin-variables';
 import eslint from '../lib/eslint.js';
+
+const rmUnused = variables.rules['remove-unused'];
 
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmUnused,

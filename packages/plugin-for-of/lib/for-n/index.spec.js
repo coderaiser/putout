@@ -1,8 +1,9 @@
 import {createTest} from '@putout/test';
 import * as destructuring from '@putout/plugin-destructuring';
-import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import * as variables from '@putout/plugin-variables';
 import * as forN from './index.js';
 
+const removeUnusedVariables = variables.rules['remove-unused'];
 const removeUselessArguments = destructuring.rules['remove-useless-arguments'];
 
 const test = createTest(import.meta.url, {

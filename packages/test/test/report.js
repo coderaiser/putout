@@ -6,7 +6,7 @@ const montag = require('montag');
 const tryCatch = require('try-catch');
 const {stub} = require('supertape');
 const putout = require('putout');
-const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
+const variables = require('@putout/plugin-variables');
 
 const {
     createTest,
@@ -15,6 +15,7 @@ const {
     _createNoReportAfterTransformWithOptions,
 } = require('..');
 
+const removeUnusedVariables = variables.rules['remove-unused'];
 const {template} = putout;
 
 const test = createTest(__dirname, {

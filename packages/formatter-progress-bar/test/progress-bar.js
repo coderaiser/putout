@@ -1,10 +1,11 @@
 import process from 'node:process';
 import {createTest} from '@putout/test';
-import * as rmVars from '@putout/plugin-remove-unused-variables';
+import * as variables from '@putout/plugin-variables';
 import progress from '../lib/progress-bar.js';
 
 const createFreshImport = (count = 0) => (name) => import(`${name}?count=${++count}`);
 const freshImport = createFreshImport();
+const rmVars = variables.rules['remove-unused'];
 
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmVars,

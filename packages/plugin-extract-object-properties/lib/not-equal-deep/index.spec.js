@@ -1,8 +1,10 @@
 import {createTest} from '@putout/test';
 import * as destructuring from '@putout/plugin-destructuring';
-import * as removeUnusedVariables from '@putout/plugin-remove-unused-variables';
+import * as variables from '@putout/plugin-variables';
 import * as putout from '@putout/plugin-putout';
 import * as extractObjectProperties from './index.js';
+
+const removeUnusedVariables = variables.rules['remove-unused'];
 
 const test = createTest(import.meta.url, {
     plugins: [

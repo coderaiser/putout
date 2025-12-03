@@ -1,6 +1,8 @@
 import {createTest} from '@putout/test';
-import * as rmVars from '@putout/plugin-remove-unused-variables';
+import * as variables from '@putout/plugin-variables';
 import dump from '../lib/dump.js';
+
+const rmVars = variables.rules['remove-unused'];
 
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmVars,

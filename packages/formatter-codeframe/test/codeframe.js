@@ -1,7 +1,9 @@
 import * as strictMode from '@putout/plugin-nodejs/strict-mode';
-import * as rmUnused from '@putout/plugin-remove-unused-variables';
+import * as variables from '@putout/plugin-variables';
 import {createTest} from '@putout/test';
 import codeframe from '../lib/codeframe.js';
+
+const rmUnused = variables.rules['remove-unused'];
 
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmUnused,

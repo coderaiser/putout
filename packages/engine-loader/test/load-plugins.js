@@ -19,7 +19,7 @@ const fixture = readFixtures(['shebang', 'shebang-fix']);
 
 test('putout: loader: user plugin', (t) => {
     const {_findPath} = Module;
-    const rmVars = 'remove-unused-variables';
+    const rmVars = 'remove-debugger';
     
     const rmUnusedVars = require(`@putout/plugin-${rmVars}`);
     
@@ -39,7 +39,7 @@ test('putout: loader: user plugin', (t) => {
         return _findPath(name, paths);
     });
     
-    const {code} = putout(`const t = 'hello'`, {
+    const {code} = putout(`debugger`, {
         loadPlugins,
         plugins: [rmVars],
     });
@@ -63,7 +63,7 @@ test('putout: loader: can not find', (t) => {
 });
 
 test('putout: loader: function', (t) => {
-    const rmVars = 'remove-unused-variables';
+    const rmVars = 'remove-debugger';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
     mockRequire(`@putout/plugin-${rmVars}`, null);
@@ -71,7 +71,7 @@ test('putout: loader: function', (t) => {
     reRequire('..');
     const putout = reRequire('putout');
     
-    const {code} = putout(`const t = 'hello'`, {
+    const {code} = putout(`debugger;`, {
         plugins: [{
             [rmVars]: rmVarsPlugin,
         }],
@@ -84,7 +84,7 @@ test('putout: loader: function', (t) => {
 });
 
 test('putout: loader: function: rules', (t) => {
-    const rmVars = 'remove-unused-variables';
+    const rmVars = 'remove-debugger';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
     mockRequire(`@putout/plugin-${rmVars}`, null);
@@ -92,7 +92,7 @@ test('putout: loader: function: rules', (t) => {
     reRequire('..');
     const putout = reRequire('putout');
     
-    const {code} = putout(`const t = 'hello'`, {
+    const {code} = putout(`debugger`, {
         plugins: [{
             'brand-new-rule': {
                 rules: {
@@ -109,7 +109,7 @@ test('putout: loader: function: rules', (t) => {
 });
 
 test('putout: loader: disabled rule', (t) => {
-    const rmVars = 'remove-unused-variables';
+    const rmVars = 'remove-debugger';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
     mockRequire(`@putout/plugin-${rmVars}`, null);
@@ -117,7 +117,7 @@ test('putout: loader: disabled rule', (t) => {
     reRequire('..');
     const putout = reRequire('putout');
     
-    const {code} = putout(`const t = 'hello'`, {
+    const {code} = putout(`debugger`, {
         rules: {
             [rmVars]: false,
         },
@@ -128,7 +128,7 @@ test('putout: loader: disabled rule', (t) => {
     
     stopAll();
     
-    t.equal(code, `const t = 'hello';\n`);
+    t.equal(code, `debugger;\n`);
     t.end();
 });
 
@@ -155,7 +155,7 @@ test('putout: loader: disabled rule from multi rule plugin', (t) => {
 });
 
 test('putout: loader: plugins: array', (t) => {
-    const rmVars = 'remove-unused-variables';
+    const rmVars = 'remove-debugger';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
     mockRequire(`@putout/plugin-${rmVars}`, null);
@@ -163,18 +163,18 @@ test('putout: loader: plugins: array', (t) => {
     reRequire('..');
     const putout = reRequire('putout');
     
-    const {code} = putout(`const t = 'hello'`, {
+    const {code} = putout(`debugger;`, {
         rules: {
             [rmVars]: false,
         },
         plugins: [
-            ['remove-unused-variables', rmVarsPlugin],
+            ['remove-debugger', rmVarsPlugin],
         ],
     });
     
     stopAll();
     
-    t.equal(code, `const t = 'hello';\n`);
+    t.equal(code, `debugger;\n`);
     t.end();
 });
 
@@ -182,10 +182,10 @@ test('putout: loader: nested rules', (t) => {
     const {code} = putout(fixture.shebang, {
         rules: {
             'putout/convert-babel-types': 'off',
-            'remove-unused-variables': 'off',
+            'variables': 'off',
         },
         plugins: [
-            'remove-unused-variables',
+            'variables',
             'putout',
         ],
     });

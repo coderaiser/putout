@@ -1,9 +1,11 @@
 import {createTest} from '@putout/test';
-import * as rmVars from '@putout/plugin-remove-unused-variables';
+import * as variables from '@putout/plugin-variables';
 import stream from '../lib/stream.js';
 
+const rmUnused = variables.rules['remove-unused'];
+
 const test = createTest(import.meta.url, {
-    'remove-unused-variables': rmVars,
+    'remove-unused-variables': rmUnused,
 });
 
 test('formatter: stream', async ({format}) => {

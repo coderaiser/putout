@@ -7,13 +7,13 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('putout: plugin-variables: report: function', (t) => {
-    t.report('function', 'Useless variable declaration with name "b"');
+test('putout: plugin-variables: report: remove-useless-rename', (t) => {
+    t.report('remove-useless-rename', `Avoid useless variable declaration with name 'b'`);
     t.end();
 });
 
-test('putout: plugin-variables: transform: function', (t) => {
-    t.transform('function');
+test('putout: plugin-variables: transform: remove-useless-rename', (t) => {
+    t.transform('remove-useless-rename');
     t.end();
 });
 
@@ -22,8 +22,8 @@ test('putout: plugin-variables: no transform: global', (t) => {
     t.end();
 });
 
-test('putout: plugin-variables: transform: shorthand', (t) => {
-    t.transform('shorthand');
+test('putout: plugin-variables: no report: shorthand', (t) => {
+    t.noReport('shorthand');
     t.end();
 });
 
@@ -32,8 +32,8 @@ test('putout: plugin-variables: transform: property', (t) => {
     t.end();
 });
 
-test('putout: plugin-variables: transform: uppercase', (t) => {
-    t.transform('uppercase');
+test('putout: plugin-variables: no report: uppercase', (t) => {
+    t.noReport('uppercase');
     t.end();
 });
 
@@ -57,23 +57,18 @@ test('putout: plugin-variables: no transform: var', (t) => {
     t.end();
 });
 
-test('putout: plugin-variables: transform: destructure', (t) => {
-    t.transform('destructure');
+test('putout: plugin-variables: transform: remove-useless-declarations', (t) => {
+    t.transform('remove-useless-declarations');
     t.end();
 });
 
-test('putout: plugin-variables: transform: declaration', (t) => {
-    t.transform('declaration');
+test('putout: plugin-variables: transform: remove-useless-duplicates', (t) => {
+    t.transform('remove-useless-duplicates');
     t.end();
 });
 
-test('putout: plugin-variables: transform: duplicate', (t) => {
-    t.transform('duplicate');
-    t.end();
-});
-
-test('plugin-putout: plugin-variables: transform: assignment', (t) => {
-    t.transform('assignment');
+test('plugin-putout: plugin-variables: transform: remove-useless-assignment', (t) => {
+    t.transform('remove-useless-assignment');
     t.end();
 });
 
@@ -89,5 +84,10 @@ test('plugin-putout: plugin-variables: transform: convert-const-to-let', (t) => 
 
 test('plugin-putout: plugin-variables: transform: split-declarations', (t) => {
     t.transform('split-declarations');
+    t.end();
+});
+
+test('plugin-putout: plugin-variables: transform: remove-unused', (t) => {
+    t.transform('remove-unused');
     t.end();
 });

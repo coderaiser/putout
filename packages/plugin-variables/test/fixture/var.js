@@ -1,1 +1,2 @@
-const get = (before = true) => {};
+const get = (before = true) => before;
+get(false);

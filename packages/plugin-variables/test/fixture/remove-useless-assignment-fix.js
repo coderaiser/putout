@@ -1,6 +1,4 @@
 function notReferenced() {
-    let files = [];
-    
     while (!readDirectory(parentDir).length) {}}
 
 function referenced() {
@@ -21,3 +19,8 @@ function notDeclared() {
     
     console.log(files);
 }
+
+notDeclared();
+notIdentifier();
+referenced();
+notReferenced();

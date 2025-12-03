@@ -5,3 +5,4 @@ const {
 
 const PROPERTY = id;
 
+fn(PROPERTY);

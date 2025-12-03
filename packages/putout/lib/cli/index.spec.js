@@ -135,7 +135,7 @@ test('putout: cli: --format: ci', async (t) => {
     
     const process = stub().returns({
         places: [{
-            rule: 'remove-unused-variables',
+            rule: 'variables/remove-unused',
             message: 'hello',
             position: {
                 line: 1,
@@ -181,7 +181,7 @@ test('putout: cli: -i', async (t) => {
     
     const process = stub().returns({
         places: [{
-            rule: 'remove-unused-variables',
+            rule: 'variables/remove-unused',
             message: 'hello',
             position: {
                 line: 1,
@@ -235,7 +235,7 @@ test('putout: cli: -i: cancel', async (t) => {
     
     const process = stub().returns({
         places: [{
-            rule: 'remove-unused-variables',
+            rule: 'variables/remove-unused',
             message: 'hello',
             position: {
                 line: 1,
@@ -1422,7 +1422,7 @@ test('putout: cli: --plugins', async (t) => {
     const argv = [
         name,
         '--plugins',
-        'remove-unused-variables,remove-debugger',
+        'variables,remove-debugger',
         '--no-config',
         '--format',
         'json',
@@ -1454,7 +1454,7 @@ test('putout: cli: --plugins', async (t) => {
             name,
             source,
             places: [{
-                rule: 'remove-unused-variables',
+                rule: 'variables/remove-unused',
                 message: `'a' is defined but never used`,
                 position: {
                     line: 1,

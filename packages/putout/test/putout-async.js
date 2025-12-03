@@ -28,9 +28,7 @@ test('putout: exports: transformAsync', async (t) => {
     const ast = parse(source);
     
     await transformAsync(ast, source, {
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['variables'],
     });
     
     const result = print(ast);
@@ -45,9 +43,7 @@ test('putout: exports: findPlacesAsync', async (t) => {
     const ast = parse(source);
     
     const places = await findPlacesAsync(ast, source, {
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['variables'],
     });
     
     const expected = [{
@@ -56,7 +52,7 @@ test('putout: exports: findPlacesAsync', async (t) => {
             column: 6,
             line: 1,
         },
-        rule: 'remove-unused-variables',
+        rule: 'variables/remove-unused',
     }];
     
     t.deepEqual(places, expected);
@@ -69,9 +65,7 @@ test('putoutAsync: loader: no plugin found', async (t) => {
         rules: {
             'remove-unused-labels': 'off',
         },
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['variables'],
     });
     
     const expected = [{
@@ -87,7 +81,7 @@ test('putoutAsync: loader: no plugin found', async (t) => {
             column: 6,
             line: 1,
         },
-        rule: 'remove-unused-variables',
+        rule: 'variables/remove-unused',
     }];
     
     t.deepEqual(places, expected);

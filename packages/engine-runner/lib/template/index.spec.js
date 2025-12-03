@@ -326,11 +326,11 @@ test('putout: plugin: traverse: template: exclude: places', (t) => {
         runPlugins,
         fix: false,
         rules: {
-            'remove-unused-variables': ['on', {
+            'variables/remove-unused': ['on', {
                 exclude: ['const t = __'],
             }],
         },
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = [{
@@ -339,7 +339,7 @@ test('putout: plugin: traverse: template: exclude: places', (t) => {
             column: 22,
             line: 1,
         },
-        rule: 'remove-unused-variables',
+        rule: 'variables/remove-unused',
     }];
     
     t.deepEqual(places, expected);
@@ -351,14 +351,14 @@ test('putout: plugin: traverse: template: exclude: multiple', (t) => {
         runPlugins,
         fix: false,
         rules: {
-            'remove-unused-variables': ['on', {
+            'variables/remove-unused': ['on', {
                 exclude: [
                     'const t = __',
                     'const m = __',
                 ],
             }],
         },
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = [];
@@ -372,11 +372,11 @@ test('putout: plugin: traverse: template: exclude: fn', (t) => {
         runPlugins,
         fix: false,
         rules: {
-            'remove-unused-variables': ['on', {
+            'variables/remove-unused': ['on', {
                 exclude: ['const __ = () => {}'],
             }],
         },
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = [];
@@ -390,11 +390,11 @@ test('putout: plugin: traverse: template: exclude: fn: FunctionDeclaration', (t)
         runPlugins,
         fix: false,
         rules: {
-            'remove-unused-variables': ['on', {
+            'variables/remove-unused': ['on', {
                 exclude: ['function __() {}'],
             }],
         },
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = [{
@@ -403,7 +403,7 @@ test('putout: plugin: traverse: template: exclude: fn: FunctionDeclaration', (t)
             column: 6,
             line: 1,
         },
-        rule: 'remove-unused-variables',
+        rule: 'variables/remove-unused',
     }];
     
     t.deepEqual(places, expected);
@@ -415,11 +415,11 @@ test('putout: plugin: traverse: template: log', (t) => {
         runPlugins,
         fix: false,
         rules: {
-            'remove-unused-variables': ['on', {
+            'variables/remove-unused': ['on', {
                 exclude: ['function __() {}'],
             }],
         },
-        plugins: ['remove-unused-variables'],
+        plugins: ['variables'],
     });
     
     const expected = [{
@@ -428,7 +428,7 @@ test('putout: plugin: traverse: template: log', (t) => {
             column: 6,
             line: 1,
         },
-        rule: 'remove-unused-variables',
+        rule: 'variables/remove-unused',
     }];
     
     t.deepEqual(places, expected);
