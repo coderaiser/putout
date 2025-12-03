@@ -14,6 +14,10 @@ const SAFE = {
     },
 };
 
+test('eslint-plugin-putout: safe: no remove-unused-variables', async ({noProcess}) => {
+    await noProcess('remove-unused-variables', SAFE);
+});
+
 test('eslint-plugin-putout: safe: no-remove-useless-declaration', async ({process}) => {
     await process('remove-useless-declaration', SAFE);
 });
