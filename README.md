@@ -2135,12 +2135,6 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-apply-overrides`](/packages/plugin-apply-overrides#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-overrides.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-overrides) |
 | [`@putout/plugin-apply-shorthand-properties`](/packages/plugin-apply-shorthand-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-shorthand-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-shorthand-properties) |
 
-### Splitters
-
-| Package | Version |
-|--------|-------|
-| [`@putout/plugin-split-variable-declarations`](/packages/plugin-split-variable-declarations#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-variable-declarations.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-variable-declarations) |
-
 ### Mergers
 
 | Package | Version |

@@ -40,6 +40,7 @@
     "@putout/plugin-for-of": "*",
     "@putout/plugin-maybe": "*",
     "@putout/plugin-minify": "*",
+    "@putout/plugin-remove-unused-variables": "*",
     "@putout/plugin-remove-useless-array-from": "*",
     "@putout/plugin-reuse-duplicate-init": "*",
     "@putout/test": "^14.0.0",

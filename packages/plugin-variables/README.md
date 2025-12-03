@@ -18,6 +18,7 @@ npm i @putout/plugin-variables -D
 - ✅ [remove-useless-duplicate](#remove-useless-duplicate);
 - ✅ [remove-useless-variables](#remove-useless-variables);
 - ✅ [remove-useless-rename](#remove-useless-rename);
+- ✅ [split-declarations](#split-declarations);
 
 ## Config
 
@@ -30,7 +31,8 @@ npm i @putout/plugin-variables -D
         }],
         "variables/remove-useless-duplicate": "on",
         "variables/remove-useless-rename": "on",
-        "variables/remove-useless-remove": "on"
+        "variables/remove-useless-remove": "on",
+        "variables/split-declarations": "on"
     }
 }
 ```
@@ -182,6 +184,36 @@ a = 5;
 
 console.log(a);
 ```
+
+## split-declarations
+
+> - The [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) statement declares a block-scoped local variable, optionally initializing it to a value.
+> - [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) statements are also block-scoped. The value of a constant can't be changed through reassignment, and it can't be redeclared. However, if a constant is an **object** or **array** its properties or items can be updated or removed.
+>
+> (c) MDN
+
+Add ability to find and split variable declarations because (re)moving a line is simpler and less error prone then changing coma (`,`) to colon (`;`).
+For the same reason, **diff** of changed declarations are more comfortable to read.
+
+## ❌ Example of incorrect code
+
+```js
+let a, b;
+```
+
+## ✅ Example of correct code
+
+```js
+let a;
+let b;
+```
+
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`remove-debugger`](https://github.com/coderaiser/putout/tree/master/packages/plugin-split-variable-declarations#readme) | ✅
+⏣ **ESLint** | [`no-var`](https://eslint.org/docs/latest/rules/one-var) | ✅
 
 ## License
 

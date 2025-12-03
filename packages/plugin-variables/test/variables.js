@@ -81,3 +81,8 @@ test('plugin-putout: plugin-variables: transform: remove-unreferenced', (t) => {
     t.transform('remove-unreferenced');
     t.end();
 });
+
+test('plugin-putout: plugin-variables: transform: split-declarations', (t) => {
+    t.transform('split-declarations');
+    t.end();
+});

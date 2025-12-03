@@ -1,7 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "split-variable-declarations": "off"
-        }
-    }
-}
