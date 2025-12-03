@@ -207,7 +207,6 @@
         "arguments",
         "assignment",
         "destructuring",
-        "extract-keywords-from-variables",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",

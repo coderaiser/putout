@@ -115,7 +115,6 @@
     "@putout/plugin-destructuring": "^1.0.0",
     "@putout/plugin-eslint": "^14.0.0",
     "@putout/plugin-esm": "^6.0.0",
-    "@putout/plugin-extract-keywords-from-variables": "^3.0.0",
     "@putout/plugin-extract-object-properties": "^10.0.0",
     "@putout/plugin-extract-sequence-expressions": "^4.0.0",
     "@putout/plugin-filesystem": "^12.0.0",

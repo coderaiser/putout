@@ -91,3 +91,8 @@ test('plugin-putout: plugin-variables: transform: remove-unused', (t) => {
     t.transform('remove-unused');
     t.end();
 });
+
+test('plugin-putout: plugin-variables: transform: extract-keywords', (t) => {
+    t.transform('extract-keywords');
+    t.end();
+});

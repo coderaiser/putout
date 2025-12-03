@@ -17,6 +17,8 @@ npm i @putout/plugin-variables -D
 
 ## Rules
 
+- ✅ [convert-const-to-let](#convert-const-to-let');
+- ✅ [extract-keywords](#extract-keywords');
 - ✅ [remove-useless-assignment](#remove-useless-assignmenn);
 - ✅ [remove-useless-declaration](#remove-useless-declaration);
 - ✅ [remove-useless-duplicate](#remove-useless-duplicate);
@@ -29,6 +31,8 @@ npm i @putout/plugin-variables -D
 ```json
 {
     "rules": {
+        "variables/convert-const-to-let": "on",
+        "variables/extract-keywords": "on",
         "variables/remove-useless-assignment": "on",
         "variables/remove-useless-declaration": ["on", {
             "maxLength": 20
@@ -279,6 +283,28 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`remove-unused-variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables#readme)| ✅
 ⏣ **ESLint** | [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars) | ❌
+
+## extract-keywords
+
+> The JavaScript exceptions "unexpected token" occur when the parser does not see a token it recognizes at the given position, so it cannot make sense of the structure of the program. This might be a simple typo.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Unexpected_token)
+
+Extract `keywords` from variables. Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fcaedaa9daf7f3a771274aca0da9ab1b/00850a5d28aec86b1b4083ba2ef9f81bd49aaaac).
+
+```diff
+-export const isTemplateMiddle = (a) => a?.type === 'TemplateMiddle',
++export const isTemplateMiddle = (a) => a?.type === 'TemplateMiddle';
+export const isTemplateTail = (a) => a?.type === 'TemplateTail';
+
+-const a 5;
++const a = 5;
+
+-export const packContent = (content) {
++export const packContent = (content) => {
+    console.log(a);
+}
+```
 
 ## License
 
