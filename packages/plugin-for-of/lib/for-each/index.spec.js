@@ -1,12 +1,12 @@
-import {createRequire} from 'node:module';
 import {createTest} from '@putout/test';
-import * as convertConstToLet from '@putout/plugin-convert-const-to-let';
+import * as variables from '@putout/plugin-variables';
 import * as removeUselessContinue from '@putout/plugin-remove-useless-continue';
+import * as conditions from '@putout/plugin-conditions';
 import * as plugin from './index.js';
 import * as removeUselessVariables from '../remove-useless-variables/index.js';
 
-const require = createRequire(import.meta.url);
-const convertComparisonToBoolean = require('@putout/plugin-conditions').rules['convert-comparison-to-boolean'];
+const convertComparisonToBoolean = conditions.rules['convert-comparison-to-boolean'];
+const convertConstToLet = variables.rules['convert-const-to-let'];
 
 const test = createTest(import.meta.url, {
     plugins: [

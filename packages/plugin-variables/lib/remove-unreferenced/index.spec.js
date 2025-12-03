@@ -75,3 +75,8 @@ test('putout: plugin-variables: remove-unreferenced: transform: for-of-reduce', 
     });
     t.end();
 });
+
+test('putout: plugin-variables: remove-unreferenced: no report: inside-for-of', (t) => {
+    t.noReport('inside-for-of');
+    t.end();
+});

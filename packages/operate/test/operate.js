@@ -288,9 +288,11 @@ test('putout: operate: remove: comment: after remove', (t) => {
 
 test('putout: operate: replaceWithMultiple: parent comment', (t) => {
     const {code} = putout(fixture.parentComment, {
-        plugins: [
-            'split-variable-declarations',
-        ],
+        rules: {
+            'variables': 'off',
+            'variables/split-declarations': 'on',
+        },
+        plugins: ['variables'],
     });
     
     const expected = fixture.parentCommentFix;

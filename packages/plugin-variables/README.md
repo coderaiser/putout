@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-variables.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-variables "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove `useless variables`.
+> A **variable** is a named reference to a **value**.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Variable)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to transform `variables`.
 
 ## Install
 
@@ -159,10 +163,6 @@ bc = b.c.replace('x', 'y');
 
 ## remove-unreferenced
 
-> A **variable** is a named reference to a **value**.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Variable)
-
 ### ❌ Example of incorrect code
 
 ```js
@@ -195,25 +195,50 @@ console.log(a);
 Add ability to find and split variable declarations because (re)moving a line is simpler and less error prone then changing coma (`,`) to colon (`;`).
 For the same reason, **diff** of changed declarations are more comfortable to read.
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 let a, b;
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 let a;
 let b;
 ```
 
-## Comparison
+### Comparison
 
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout** | [`remove-debugger`](https://github.com/coderaiser/putout/tree/master/packages/plugin-split-variable-declarations#readme) | ✅
 ⏣ **ESLint** | [`no-var`](https://eslint.org/docs/latest/rules/one-var) | ✅
+
+## convert-const-to-let
+
+> The `TypeError` object represents an error when attempting to modify a value that cannot be changed.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
+
+Convert `const` to `let` to avoid `TypeError`.
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/61ffff64a356c47e66af4ea17a9a755d/e7f5fa455c208a7faa9319d94130996d39afcbf7).
+
+### ❌ Example of incorrect code
+
+```js
+let a = 5;
+
+a = 3;
+```
+
+### ✅ Example of correct code
+
+```js
+let a = 5;
+
+a = 3;
+```
 
 ## License
 

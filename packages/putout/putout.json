@@ -246,7 +246,6 @@
         "reuse-duplicate-init",
         "spread",
         "simplify-ternary",
-        "convert-const-to-let",
         "convert-expression-to-params",
         "convert-concat-to-flat",
         "convert-object-entries-to-object-keys",

@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md": {
-            "split-variable-declarations": "off",
+            "variables/split-declarations": "off",
             "assignment/split": "off",
             "convert-template-to-string": "off",
             "conditions/convert-equal-to-strict-equal": "off",

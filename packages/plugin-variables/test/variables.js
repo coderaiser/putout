@@ -82,6 +82,11 @@ test('plugin-putout: plugin-variables: transform: remove-unreferenced', (t) => {
     t.end();
 });
 
+test('plugin-putout: plugin-variables: transform: convert-const-to-let', (t) => {
+    t.transform('convert-const-to-let');
+    t.end();
+});
+
 test('plugin-putout: plugin-variables: transform: split-declarations', (t) => {
     t.transform('split-declarations');
     t.end();

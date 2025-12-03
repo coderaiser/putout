@@ -4,7 +4,9 @@ const {remove} = operator;
 
 export const report = () => 'Avoid unreferenced variables';
 
-export const fix = (path) => remove(path);
+export const fix = (path) => {
+    remove(path);
+};
 
 export const traverse = ({push}) => ({
     'return __a'(path) {
@@ -95,4 +97,9 @@ function getPropertyPath(path, name) {
     return propPath;
 }
 
-const isInsideForOf = (path) => path.__putout_for_of_reduce;
+function isInsideForOf(path) {
+    if (path.isForOfStatement())
+        return true;
+    
+    return path.__putout_for_of_reduce;
+}

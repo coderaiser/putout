@@ -1,3 +1,4 @@
+import * as convertConstToLet from './convert-const-to-let/index.js';
 import * as removeUseless from './remove-useless/index.js';
 import * as removeUselessAssignment from './remove-useless-assignment/index.js';
 import * as removeUselessDeclarations from './remove-useless-declarations/index.js';
@@ -7,6 +8,7 @@ import * as removeUnreferenced from './remove-unreferenced/index.js';
 import * as splitDeclarations from './split-declarations/index.js';
 
 export const rules = {
+    'convert-const-to-let': convertConstToLet,
     'remove-useless': removeUseless,
     'remove-useless-assignment': removeUselessAssignment,
     'remove-useless-declarations': removeUselessDeclarations,
