@@ -117,7 +117,7 @@ Format of the commit message: **type: scope: subject**
 
 **Scope**:
 Scope could be anything specifying place of the commit change.
-For example [`@putout/plugin-remove-unused-variables`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json), [`@putout/cli-ruler`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json), [`putout`](https://github.com/coderaiser/putout/blob/master/packages/putout/) etc...
+For example [`@putout/plugin-variables`](https://github.com/coderaiser/putout/blob/master/packages/@putout/plugin-variables), [`@putout/cli-ruler`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json), [`putout`](https://github.com/coderaiser/putout/blob/master/packages/@putout/plugin-cli-ruler) etc...
 
 **Subject text**:
 
