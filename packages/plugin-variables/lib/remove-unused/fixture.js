@@ -28,8 +28,10 @@ export const readFixtures = (names) => {
 
 const handler = {
     get(obj, prop) {
+        /* c8 ignore start */
         if (!obj[prop])
             throw Error(`"${prop}" not found!`);
+        /* c8 ignore end */
         
         return obj[prop];
     },
