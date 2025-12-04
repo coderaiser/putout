@@ -31,8 +31,8 @@ const handler = {
         /* c8 ignore start */
         if (!obj[prop])
             throw Error(`"${prop}" not found!`);
-        /* c8 ignore end */
         
+        /* c8 ignore end */
         return obj[prop];
     },
 };
