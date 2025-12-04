@@ -23,6 +23,9 @@ export const fix = (path) => {
 
 export const traverse = ({push}) => ({
     ObjectExpression(path) {
+        if (path.node.innerComments)
+            return;
+        
         if (path.node.properties.length)
             return;
         

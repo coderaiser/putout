@@ -13,6 +13,11 @@ test('eslint: remove-useless-properties: report', (t) => {
     t.end();
 });
 
+test('eslint: remove-useless-properties: no report: comments', (t) => {
+    t.noReport('comments');
+    t.end();
+});
+
 test('eslint: remove-useless-properties: transform', (t) => {
     t.transform('remove-useless-properties');
     t.end();
