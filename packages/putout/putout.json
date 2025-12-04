@@ -207,7 +207,6 @@
         "arguments",
         "assignment",
         "destructuring",
-        "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",
         "maybe",

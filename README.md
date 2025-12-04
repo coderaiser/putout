@@ -2249,7 +2249,6 @@ It has a lot of plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-extract-sequence-expressions`](/packages/plugin-extract-sequence-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-extract-sequence-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-extract-sequence-expressions) |
-| [`@putout/plugin-extract-object-properties`](/packages/plugin-extract-object-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-extract-object-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-extract-object-properties) |
 
 ### Reusers
 

@@ -1,5 +1,5 @@
 import * as putout from '@putout/plugin-putout';
-import * as extractObjectProperties from '@putout/plugin-extract-object-properties';
+import * as destructuring from '@putout/plugin-destructuring';
 import * as variables from '@putout/plugin-variables';
 import {createTest} from '../lib/test.mjs';
 import * as removeConsole from './fixture/remove-console.js';
@@ -10,6 +10,8 @@ const test = createTest(import.meta.url, {
         ['remove-console', removeConsole],
     ],
 });
+
+const extractObjectProperties = destructuring.rules['extract-properties-equal-deep'];
 
 test('test: report: property-identifier', (t) => {
     t.report('property-identifier', `Avoid 'console' call`);

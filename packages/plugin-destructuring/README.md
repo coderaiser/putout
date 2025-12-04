@@ -20,6 +20,7 @@ npm i @putout/plugin-destructuring
 - ✅ [apply-object](#apply-object);
 - ✅ [apply-array](#apply-array);
 - ✅ [convert-object-to-array](#convert-object-to-array);
+- ✅ [extract-properties](#extract-properties);
 - ✅ [remove-useless-object](#remove-useless-object);
 - ✅ [remove-useless-arguments](#remove-useless-arguments);
 - ✅ [remove-useless-variables](#remove-useless-variables);
@@ -35,6 +36,7 @@ npm i @putout/plugin-destructuring
         "destructuring/apply-object": "on",
         "destructuring/apply-array": "on",
         "destructuring/convert-object-to-array": "on",
+        "destructuring/extract-properties": "on",
         "destructuring/remove-useless-object": "on",
         "destructuring/remove-useless-arguments": "on",
         "destructuring/remove-useless-variables": "on",
@@ -235,6 +237,42 @@ function hi(c) {
 
 ```js
 function hi({a, b}) {}
+```
+
+## extract-properties
+
+### Equal Deep
+
+#### ❌ Example of incorrect code
+
+```js
+const {replaceWith} = a.operate;
+const {isIdentifier} = a.types;
+```
+
+#### ✅ Example of correct code
+
+```js
+const {operator, types} = a;
+
+const {replaceWith} = operator;
+const {isIdentifier} = types;
+```
+
+### Not Equal Deep
+
+#### ❌ Example of incorrect code
+
+```js
+const {replaceWith} = a;
+const {isIdentifier} = a.types;
+```
+
+#### ✅ Example of correct code
+
+```js
+const {replaceWith, types} = a;
+const {isIdentifier} = types;
 ```
 
 ## License

@@ -81,3 +81,13 @@ test('plugin-destructuring: transform: remove-useless-variables', (t) => {
     t.transform('remove-useless-variables');
     t.end();
 });
+
+test('plugin-destructuring: transform: extract-properties-equal-deep', (t) => {
+    t.transform('extract-properties-equal-deep');
+    t.end();
+});
+
+test('plugin-destructuring: transform: extract-properties-not-equal-deep', (t) => {
+    t.transform('extract-properties-not-equal-deep');
+    t.end();
+});
