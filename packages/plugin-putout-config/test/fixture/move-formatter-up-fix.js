@@ -1,7 +1,7 @@
 __putout_processor_json({
     "formatter": "progress-bar",
     "rules": {
-        "remove-unused-variables": "off"
+        "variables/remove-unused": "off"
     }
 });
 
@@ -13,6 +13,6 @@ __putout_processor_json({
     "parser": "babel",
     "formatter": "progress-bar",
     "rules": {
-        "remove-unused-variables": "off"
+        "variables/remove-unused": "off"
     }
 });

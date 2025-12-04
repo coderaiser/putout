@@ -287,19 +287,27 @@ Apply [`variables`](https://github.com/coderaiser/putout/tree/master/packages/pl
 {
     "rules": {
 -       "remove-useless-variables": "off",
+-       "remove-unused-variables": "on",
 -       "remove-useless-variables/remove": "on",
 -       "remove-useless-variables/assignment": "on",
 -       "remove-useless-arguments/declaration": "on",
 -       "remove-useless-arguments/duplicate": "on",
 -       "remove-useless-arguments/rename": "on",
--       "remove-unreferenced-variables": "on"
+-       "remove-unreferenced-variables": "on",
+-       "convert-const-to-let": "on",
+-       "extract-keyword-from-variables": "on"
+-       "split-variable-declarations: "on",
 +       "variables": "off",
++       "variables/remove-unused": "on",
 +       "variables/remove-useless": "on",
 +       "variables/remove-useless-assignment": "on",
 +       "variables/remove-useless-declarations": "on",
 +       "variables/remove-useless-duplicates": "on",
 +       "variables/remove-useless-rename": "on",
-+       "variables/remove-unreferenced": "on"
++       "variables/remove-unreferenced": "on",
++       "variables/convert-const-to-let": "on"
++       "variables/extract-keyword": "on"
++       "variables/split-declarations: "on",
   }
 }
 ```

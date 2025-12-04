@@ -8,6 +8,10 @@ const v41 = [
     ['remove-useless-variables/duplicate', 'variables/remove-useless-duplicate'],
     ['remove-useless-variables/declaration', 'variables/remove-useless-declarations'],
     ['remove-unreferenced-variables', 'variables/remove-unreferenced'],
+    ['convert-const-to-let', 'variables/convert-const-to-let'],
+    ['extract-keyword-from-variables', 'variables/extract-keywords'],
+    ['split-variable-declarations', 'variables/split-declarations'],
+    ['remove-unused-variables', 'variables/remove-unused'],
 ];
 
 const versions = [...v41];
