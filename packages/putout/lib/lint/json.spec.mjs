@@ -22,7 +22,34 @@ test('putout: lint: json', (t) => {
         {
             "formatter": "json",
             "rules": {
-                "remove-unused-variables": "off"
+                "variables/remove-unused": "off"
+            }
+        }\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: lint: json: same', (t) => {
+    const rawSource = stringify({
+        rules: {
+            'remove-debugger': 'off',
+        },
+        formatter: 'json',
+    });
+    
+    const code = lintJSON(rawSource, {
+        plugins: [
+            'putout-config',
+        ],
+    });
+    
+    const expected = montag`
+        {
+            "formatter": "json",
+            "rules": {
+                "remove-debugger": "off"
             }
         }\n
     `;
