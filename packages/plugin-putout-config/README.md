@@ -190,20 +190,28 @@ Apply [`destructuring`](https://github.com/coderaiser/putout/tree/master/package
 -       "apply-destructuring/falsy": "off",
 -       "apply-destructuring/array": "off",
 -       "apply-destructuring/object": "off",
+-       "apply-destructuring/convert-object-to-array": "off",
 -       "split-call-with-destructuring": "off",
 -       "merge-destructuring-properties": "off",
 -       "split-nested-destructuring": "off",
 -       "remove-useless-arguments/destructuring": "off",
--       "remove-useless-variables/destruct": "off"
+-       "remove-useless-variables/destruct": "off",
+-       "extract-object-properties": "off",
+-       "extract-object-properties/equal-deep": "off",
+-       "extract-object-properties/not-equal-deep": "off",
 +       "destructuring": "off",
 +       "destructuring/remove-useless-object": "off",
 +       "destructuring/apply-array": "off",
 +       "destructuring/apply-object": "off",
++       "destructuring/convert-object-to-array": "off",
 +       "destructuring/split-call": "off",
 +       "destructuring/merge-properties": "off",
 +       "destructuring/split-nested": "off",
 +       "destructuring/remove-useless-arguments": "off",
 +       "destructuring/remove-useless-variables": "off"
++       "destructuring/extract-properties": "off",
++       "desturucturing/extract-properties-equal-deep": "off",
++       "destructurigin/extract-properties-not-equal-deep": "off",
   }
 }
 ```
