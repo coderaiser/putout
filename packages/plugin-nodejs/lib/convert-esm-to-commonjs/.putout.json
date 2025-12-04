@@ -1,6 +1,6 @@
 {
     "rules": {
-        "remove-unused-variables": "off",
+        "variables/remove-unused": "off",
         "nodejs/group-require-by-id": "off"
     }
 }
