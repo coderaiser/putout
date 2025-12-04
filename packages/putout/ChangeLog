@@ -1,3 +1,135 @@
+2025.12.04, v41.0.0
+
+fix:
+- 084399683 putout: rm unused @putout/plugin-remove-unused-for-of-variables
+- 14257a26e @putout/plugin-arguments: json-parse -> apply-json-parse
+- cdc1fa8e3 @putout/plugin-nodejs: declare: process: assert: rm
+
+feature:
+- a667092cb @putout/plugin-putout-config: apply-variables: remove-unused-variables -> variables/remove-unused
+- a4ad15127 @putout/plugin-putout-config: apply-destructuring: extract-object-properties, convert-object-to-array
+- f4a184411 @putout/plugin-destructuring: extract-properties: add
+- b6233634b putout: @putout/plugin-eslint v15.0.0
+- e8bb8106e @putout/plugin-eslint: drop support of 🐊 < 41
+- 9e9e9868d @putout/plugin-eslint: remove-useless-properties: innerComments: exclude
+- 01a5578a0 eslint-plugin-putout: safe: remove-unused-variables -> variables
+- de3b458ad @putout/plugin-variables: extract-keywords: add
+- 765537de2 @putout/plugin-variables: remove-unused
+- 6abaa5b14 @putout/plugin-variables: convert-const-to-let: add
+- 552beaa80 @putout/plugin-variables: split-declarations
+- 6695af5a6 @putout/plugin-putout-config: apply-variables: add
+- 77600c7e9 @putout/plugin-variables: remove-unreferenced: add
+- 42df17001 @putout/plugin-putout-config: apply-destructuring: remove-useless-variables: add
+- 72ad83f20 @putout/plugin-variables: add
+- ac6e10719 @putout/plugin-putout-config: apply-spread: convert-object-assign-to-merge-spread: add
+- cb645bea6 @putout/plugin-spread: convert-object-assign-to-merge-spread: add
+- c1fea00e7 @putout/plugin-tape: convert-tape-to-supertape: report
+- d37556050 @putout/plugin-putout-config: apply-spread: convert-apply-to-spread: add
+- 23b4ebf6f @putout/plugin-spread: convert-apply-to-spread: add
+- d6178b8d1 @putout/plugin-putout-config: apply-arguments: remove-useless-arguments -> arguments
+- b8fedb383 @putout/plugin-putout-config: apply-spread: add
+- 6d1db2293 @putout/plugin-spread: add
+- 535b3040e @putout/plugin-putout-config: apply-arguments: add
+- 0e2cc84d2 @putout/plugin-arguments: apply-rest
+- 936f3e998 @putout/plugin-arguments: add
+- b14def625 @putout/plugin-eslint-plugin: update-ecma-version: 2024 -> 2025
+- 96652b029 eslint-plugin-putout: @putout/plugin-eslint-plugin v7.0.0
+- 2542a53cc @putout/plugin-eslint-plugin: apply-is-space-between: add
+- 77c127b45 @putout/plugin-eslint-plugin: apply-get-token-after: add
+- 2b65e8395 @putout/plugin-eslint-plugin: apply-get-token-before: add
+- edfc939e0 @putout/plugin-eslint-plugin: drop support of 🐊 < 41
+- 8c2bb2c1b putout: @putout/plugin-putout-config v11.0.0
+- cca3a727c @putout/plugin-putout-config: drop support of 🐊 < 41
+- 908bc1ccc @putout/plugin-putout-config: apply-destructuring: add
+- 5f76af2a2 @putout/plugin-destructuring: add
+- 41641505e putout: convert-array-copy-to-slice: move out from bundle
+- 7099e5edd @putout/engine-parser: @putout/printer v16.0.0
+- 35b5d0e51 putout: @putout/formatter-frame v9.0.0
+- 6918dfc2f @putout/formatter-frame: @putout/formatter-codeframe v10.0.0
+- d30f02dd7 putout: @putout/formatter-codeframe v10.0.0
+- 742f0b334 @putout/formatter-codeframe: drop support of 🐊 < 41
+- bb6247ac5 root: eslint-plugin-putout v29.0.0
+- 2235647d2 putout: @putout/operator-parens v3.0.0
+- 751b1e1c4 @putout/operator-parens: drop support of node < 20
+- 8d774b677 putout: @putout/operator-add-args v13.0.0
+- 610fa83e5 @putout/operator-add-args: drop support of 🐊 < 41
+- 359a6beca putout: @putout/traverse v15.0.0
+- fcccd0113 putout: @putout/operator-declare v15.0.0
+- 2d14ce95a @putout/engine-runner: @putout/operator-declare v15.0.0
+- 2e59d0d4b @putout/operator-declare: drop support of 🐊 < 41
+- d4f64fd61 putout: @putout/operator-ignore v4.0.0
+- f9a9ac46f @putout/operator-ignore: drop support of 🐊 < 41
+- 952fec385 putout: @putout/operator-jsx v2.0.0
+- fe38192dc @putout/operator-jsx: drop support of 🐊 < 41
+- f6ce8af7b putout: @putout/operator-rename-files v6.0.0
+- e4dc35fa7 @putout/operator-rename-files: drop support of 🐊 < 41
+- 9d0eb68cd putout: @putout/operator-keyword v3.0.0
+- 0889023a3 putout: @putout/operator-match-files v10.0.0
+- a354bb88f @putout/operator-match-files: drop support of 🐊 < 41
+- ef86773bc @putout/engine-runner: @putout/plugin-filesystem v12.0.0
+- 6ac19f16b putout: @putout/plugin-filesystem v12.0.0
+- 567bf1390 @putout/plugin-filesystem: drop support of 🐊 < 41
+- cbce25075 putout: @putout/engine-runner v26.0.0
+- 9089dd204 putout: @putout/operator-filesystem v10.0.0
+- 0136a73d9 @putout/processor-filesystem: @putout/operator-filesystem v10.0.0
+- c1b3ebb85 @putout/plugin-filesystem: @putout/operator-filesystem v10.0.0
+- 4f782c206 @putout/operator-rename-files: @putout/operator-filesystem v10.0.0
+- e8d4337cc @putout/operator-match-files: @putout/operator-filesystem v10.0.0
+- 48083c641 @putout/engine-runner: @putout/operator-filesystem v10.0.0
+- 954aa7792 @putout/operator-filesystem: drop support of 🐊 < 41
+- a52eb3ce7 putout: @putout/operate v15.0.0
+- 1bf0d8cc3 @putout/plugin-filesystem: @putout/operate v15.0.0
+- 577a61bbb @putout/operator-jsx: @putout/operate v15.0.0
+- cc3b7e89e @putout/operator-ignore: @putout/operate v15.0.0
+- deb30cc33 @putout/operator-filesystem: @putout/operate v15.0.0
+- 60c44fd56 @putout/operator-declare: @putout/operate v15.0.0
+- 930596559 @putout/engine-runner: @putout/operate v15.0.0
+- 841bc08c7 @putout/compare: @putout/operate v15.0.0
+- 23ab91c7e @putout/cli-process-file: @putout/operate v15.0.0
+- 432a3ed22 @putout/traverse: @putout/compare v19.0.0
+- b1bda1912 putout: @putout/compare v19.0.0
+- 7375fd114 @putout/operator-declare: @putout/compare v19.0.0
+- 683d77b8e @putout/operator-add-args: @putout/compare v19.0.0
+- dc51b033d @putout/engine-runner: @putout/compare v19.0.0
+- a47128a1a putout: @putout/engine-parser v15.0.1
+- 2a2c04abc @putout/operator-match-files: @putout/engine-parser v15.0.1
+- 525b0ad3b @putout/operator-filesystem: @putout/engine-parser v15.0.1
+- f71e2811c @putout/operator-declare: @putout/engine-parser v15.0.1
+- 4654c8277 @putout/operator-add-args: @putout/engine-parser v15.0.1
+- c15f2e94b eslint-plugin-putout: @putout/engine-parser v15.0.1
+- 703474c39 @putout/engine-runner: @putout/engine-parser v15.0.1
+- f16581ae6 @putout/compare: @putout/engine-parser v15.0.1
+- 5f9824812 @putout/traverse: @putout/babel v5.0.0
+- c7ccd425e putout: @putout/babel v5.0.0
+- c3e47305d @putout/plugin-filesystem: @putout/babel v5.0.0
+- 035207e28 @putout/operator-parens: @putout/babel v5.0.0
+- a9f7a6ab3 @putout/operator-match-files: @putout/babel v5.0.0
+- 6bbc4973a @putout/operator-jsx: @putout/babel v5.0.0
+- 72351a059 @putout/operator-ignore: @putout/babel v5.0.0
+- 0c21cbd5a @putout/operator-filesystem: @putout/babel v5.0.0
+- 6b5f92318 @putout/operator-declare: @putout/babel v5.0.0
+- 9182e6506 @putout/operator-add-args: @putout/babel v5.0.0
+- 136e3afd4 @putout/operate: @putout/babel v5.0.0
+- c9d24a69c @putout/formatter-codeframe: @putout/babel v5.0.0
+- b65e4fd44 @putout/engine-runner: @putout/babel v5.0.0
+- bab8586e0 @putout/compare: @putout/babel v5.0.0
+- 1ebb37f73 @putout/engine-parser: @putout/babel v5.0.0
+- 95f881fa5 putout: @putout/plugin-esm v6.0.0
+- e402a9c4b @putout/plugin-esm: drop support of 🐊 < 41
+- b9d3d8814 @putout/engine-parser: espree v11.0.0
+- b5cdddc0b @putout/plugin-labels: ImportDeclaration: assert: exclude
+- 9b080627a @putout/plugin-remove-nested-blocks: ImportDeclaration: assert: exclude
+- 57a7aa3da @putout/plugin-remove-unused-expressions: exclude ImportDeclaration: assert
+- d58487be2 @putout/plugin-esm: convert-assert-to-with: rm deprecatedImportAssert
+- 48e9c7ec8 @putout/engine-parser: babel: rm deprecatedImportAssert
+- a1ed406d7 @putout/plugin-remove-useless-variables: destruct: typeAnnotation: exclude
+- 8aabd6cf7 @putout/plugin-apply-shorthand-properties: string: exclude
+- 47720a873 @putout/operator-keyword: drop support of node < 20
+- b28077886 @putout/operator-keyword: assert, with: add
+- 11fb65f6f @putout/plugin-promises: remove-useless-async: returnType: exclude Promise
+- 10df9f8c7 @putout/plugin-apply-shorthand-properties: exclude default
+- 190fa5359 @putout/plugin-try-catch: async: types
+
 2025.11.25, v40.15.1
 
 fix:
