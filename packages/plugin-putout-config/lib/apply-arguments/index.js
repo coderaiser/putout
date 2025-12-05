@@ -6,6 +6,7 @@ const v41 = [
     ['remove-useless-arguments/method', 'arguments/remove-useless-from-method'],
     ['remove-useless-arguments/unused', 'arguments/remove-unused'],
     ['remove-useless-arguments/json-parse', 'apply-json-parse'],
+    ['convert-arguments-to-rest', 'arguments/apply-rest'],
 ];
 
 const versions = [...v41];
