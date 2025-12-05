@@ -16,3 +16,8 @@ test('putout-config: apply-variables: transform', (t) => {
     t.transform('apply-variables');
     t.end();
 });
+
+test('putout-config: apply-variables: transform: schema', (t) => {
+    t.transform('schema');
+    t.end();
+});
