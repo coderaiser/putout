@@ -1,3 +1,10 @@
+2025.12.07, v41.0.2
+
+feature:
+- da862372d putout: @putout/operator-regexp v3.0.0
+- 6d26e8008 @putout/operator-regexp: drop support of 🐊 < 41
+- ba4dc1b0a @putout/operator-regexp: transformRegexp: no regExpTransformer
+
 2025.12.07, v41.0.1
 
 fix:
