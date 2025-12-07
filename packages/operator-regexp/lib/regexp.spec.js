@@ -1,5 +1,6 @@
 'use strict';
 
+const tryCatch = require('try-catch');
 const {test} = require('supertape');
 const {
     isSimpleRegExp,
@@ -56,5 +57,12 @@ test('putout: operator: regexp: transformRegExp', (t) => {
     }];
     
     t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: operator: regexp: transformRegExp: no regexp', (t) => {
+    const [error] = tryCatch(transformRegExp, '/[abb]/');
+    
+    t.equal(error.message, '☝️ Looks like RegExpTransformer is missing');
     t.end();
 });

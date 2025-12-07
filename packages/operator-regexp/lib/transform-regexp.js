@@ -2,12 +2,20 @@
 
 const regexpTree = require('regexp-tree');
 
-module.exports.transformRegExp = (str, {report, traverse, fix}) => {
+module.exports.transformRegExp = (str, regExpTransformer) => {
+    check(regExpTransformer);
+    
+    const {
+        report,
+        traverse,
+        fix,
+    } = regExpTransformer;
     const ast = regexpTree.parse(str, {
         captureLocations: true,
     });
     
     const places = [];
+    
     const push = (path) => {
         const {start} = (path.path || path).node.loc;
         
@@ -28,3 +36,8 @@ module.exports.transformRegExp = (str, {report, traverse, fix}) => {
         places,
     ];
 };
+
+function check(regExpTransformer) {
+    if (!regExpTransformer)
+        throw Error('☝️ Looks like RegExpTransformer is missing');
+}
