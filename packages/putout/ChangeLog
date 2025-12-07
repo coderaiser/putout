@@ -1,3 +1,15 @@
+2025.12.07, v41.0.1
+
+fix:
+- 4b3a79108 @putout/plugin-putout-config: apply-arguments: arguments/apply-rest
+
+feature:
+- ebb55c5ca putout: @putout/plugin-remove-useless-escape v9.0.0
+- 416090039 putout: @putout/plugin-regexp v13.0.0
+- 4e279fa3f @putout/plugin-remove-useless-escape: drop support of 🐊 < 41
+- 6df56d676 @putout/plugin-regexp: remove-useless-escape: add
+- 84419ffcc @putout/plugin-regexp: drop support of 🐊 < 41
+
 2025.12.04, v41.0.0
 
 fix:
