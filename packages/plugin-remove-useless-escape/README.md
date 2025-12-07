@@ -27,7 +27,6 @@ npm i @putout/plugin-remove-useless-escape
 const t = 'hello \"world\"';
 const s1 = `hello \"world\"`;
 const s = `hello \'world\'`;
-const reg = /\w\:/g;
 ```
 
 ## ✅ Example of correct code
@@ -36,7 +35,6 @@ const reg = /\w\:/g;
 const t = 'hello "world"';
 const s1 = `hello "world"`;
 const s = `hello 'world'`;
-const reg = /\w:/g;
 ```
 
 ## Comparison

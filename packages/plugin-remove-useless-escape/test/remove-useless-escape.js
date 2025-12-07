@@ -1,6 +1,5 @@
 import {createTest} from '@putout/test';
 import * as madrun from '@putout/plugin-madrun';
-import * as regexp from '@putout/plugin-regexp';
 import * as removeUselessEscape from '../lib/remove-useless-escape.js';
 
 const addFixLint = madrun.rules['add-fix-lint'];
@@ -76,21 +75,6 @@ test('plugin-remove-useless-escape: transform: emoji: emoji-template', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-escape: transform: regexp: regexp-colon', (t) => {
-    t.transform('regexp-colon');
-    t.end();
-});
-
-test('plugin-remove-useless-escape: transform: regexp: regexp-quote', (t) => {
-    t.transform('regexp-quote');
-    t.end();
-});
-
-test('plugin-remove-useless-escape: no transform: regexp-slash', (t) => {
-    t.noTransform('regexp-slash');
-    t.end();
-});
-
 test('plugin-remove-useless-escape: transform: plus', (t) => {
     t.transform('plus');
     t.end();
@@ -124,13 +108,6 @@ test('plugin-remove-useless-escape: transform: h', (t) => {
 test('plugin-remove-useless-escape: transform: no-raw', (t) => {
     t.transform('no-raw', {
         addFixLint,
-    });
-    t.end();
-});
-
-test('plugin-remove-useless-escape: transform: regexp', (t) => {
-    t.transform('regexp', {
-        regexp,
     });
     t.end();
 });

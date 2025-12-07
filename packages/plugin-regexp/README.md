@@ -27,6 +27,7 @@ npm i @putout/plugin-regexp -D
 - ✅ [optimize](#optimize);
 - ✅ [remove-useless-group](#remove-useless-group);
 - ✅ [remove-useless-regexp](#remove-useless-regexp);
+- ✅ [remove-useless-escape](#remove-useless-escape);
 - ✅ [remove-duplicates-from-character-class](#remove-duplicates-from-character-class);
 
 ## Config
@@ -43,6 +44,7 @@ npm i @putout/plugin-regexp -D
         "regexp/convert-to-string": "on",
         "regexp/convert-replace-to-replace-all": "on",
         "regexp/remove-useless-group": "on",
+        "regexp/remove-useless-escape": "on",
         "regexp/remove-useless-regexp": "on",
         "regexp/remove-duplicates-from-character-class": "on"
     }
@@ -215,6 +217,29 @@ Simplify code according to [string-replace-all](https://github.com/tc39/proposal
 ```js
 /hello/.test(str);
 ```
+
+## remove-useless-escape
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/af9d1c774c3691aface974406717b32a/e9fc8a985e0195ecc27d70c748e5d4497be91265).
+
+### ❌ Example of incorrect code
+
+```js
+const cleanText = code.replaceAll(/[,;\(\)]/g, '');
+```
+
+### ✅ Example of correct code
+
+```js
+const cleanText = code.replaceAll(/[,;()]/g, '');
+```
+
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout**| [`regexp/remove-useless-escape`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp/#remove-useless-escape)| ✅
+⏣ **ESLint** | [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape) | ❌
 
 ## remove-useless-regexp
 

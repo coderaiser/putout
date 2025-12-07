@@ -1,0 +1,1 @@
+const badMiddle = /\},\n(s+)?\{/;

@@ -61,3 +61,8 @@ test('plugin-regexp: transform: remove-duplicates-from-character-class', (t) => 
     t.transform('remove-duplicates-from-character-class');
     t.end();
 });
+
+test('plugin-regexp: transform: remove-useless-escape', (t) => {
+    t.transform('remove-useless-escape');
+    t.end();
+});

@@ -1,9 +1,4 @@
 import emojiRegex from 'emoji-regex';
-import {types, operator} from 'putout';
-
-const {replaceWith} = operator;
-const {regExpLiteral} = types;
-const {assign} = Object;
 
 export const report = () => 'Unnecessary escape character';
 
@@ -16,25 +11,6 @@ export const fix = (path) => {
         return;
     }
     
-    if (path.isRegExpLiteral()) {
-        const {pattern, flags} = path.node;
-        
-        const unescaped = unescapeRegExp(pattern);
-        const raw = `/${unescaped}/`;
-        
-        const regExpNode = assign(regExpLiteral(unescaped, flags), {
-            value: unescaped,
-            raw,
-            extra: {
-                raw,
-                rawValue: unescaped,
-            },
-        });
-        
-        replaceWith(path, regExpNode);
-        return;
-    }
-    
     for (const tmpl of path.node.quasis) {
         const {raw} = tmpl.value;
         tmpl.value.raw = unEscape(raw);
@@ -42,12 +18,6 @@ export const fix = (path) => {
 };
 
 export const traverse = ({push}) => ({
-    'RegExpLiteral'(path) {
-        const {raw} = path.node;
-        
-        if (isEscapedRegExp(raw))
-            push(path);
-    },
     '"__"'(path) {
         const {raw} = path.node;
         
@@ -151,25 +121,4 @@ function unEscape(raw) {
     }
     
     return raw;
-}
-
-const unescapeRegExp = (raw) => raw
-    .replaceAll('\\:', ':')
-    .replaceAll('\\+\\/', '+/')
-    .replaceAll('\\,', ',')
-    .replaceAll('\\`', '`');
-
-const is = (a) => (b) => b.includes(`\\${a}`) && !b.includes(`\\\\${a}`);
-const isRegExpColon = is(':');
-const isComa = is(',');
-const isRegExpSlash = (a) => a.includes('\\\\\\\\');
-
-function isEscapedRegExp(raw) {
-    if (raw.includes('\\/'))
-        return false;
-    
-    if (raw.includes('\\`'))
-        return true;
-    
-    return isRegExpColon(raw) || isRegExpSlash(raw) || isComa(raw);
 }

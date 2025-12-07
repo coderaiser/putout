@@ -4,7 +4,7 @@ import {defineConfig} from 'eslint/config';
 export default defineConfig([
     safeAlign, {
         rules: {
-            'no-useless-return': 'off',
+            'no-useless-escape': 'off',
         },
     },
 ]);
