@@ -157,7 +157,7 @@
     "@putout/plugin-remove-useless-constructor": "^3.0.0",
     "@putout/plugin-remove-useless-continue": "^3.0.0",
     "@putout/plugin-remove-useless-delete": "^2.0.0",
-    "@putout/plugin-remove-useless-escape": "^8.0.0",
+    "@putout/plugin-remove-useless-escape": "^9.0.0",
     "@putout/plugin-remove-useless-functions": "^5.0.0",
     "@putout/plugin-remove-useless-map": "^2.0.0",
     "@putout/plugin-remove-useless-operand": "^3.0.0",
