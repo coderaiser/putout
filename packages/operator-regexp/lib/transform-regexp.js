@@ -10,6 +10,7 @@ module.exports.transformRegExp = (str, regExpTransformer) => {
         traverse,
         fix,
     } = regExpTransformer;
+    
     const ast = regexpTree.parse(str, {
         captureLocations: true,
     });
