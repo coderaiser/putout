@@ -1,3 +1,10 @@
+2025.12.10, v41.0.4
+
+feature:
+- dc3e62e3e putout: @putout/plugin-github v18.0.0
+- a11d6c468 @putout/plugin-github: drop support of 🐊 < 41
+- 2731be802 @putout/plugin-github: set-node-versions: exclude not array
+
 2025.12.10, v41.0.3
 
 fix:
