@@ -42,6 +42,11 @@ test('plugin-github: set node versions: report: overlap', (t) => {
     t.end();
 });
 
+test('plugin-github: set node versions: no report: no-matrix', (t) => {
+    t.noReport('no-matrix');
+    t.end();
+});
+
 test('plugin-github: set node versions: no report with options: intersects', (t) => {
     t.noReportWithOptions('intersects', {
         versions: ['24.x'],

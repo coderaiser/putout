@@ -1,6 +1,8 @@
 import {isDeepStrictEqual} from 'node:util';
 import {operator, template} from 'putout';
 
+const {isArray} = Array;
+
 const {
     replaceWith,
     getTemplateValues,
@@ -47,6 +49,9 @@ export const traverse = ({push, options}) => ({
                 continue;
             
             if (isDeepStrictEqual(versions, nodeVersions))
+                continue;
+            
+            if (!isArray(versions))
                 continue;
             
             for (const version of nodeVersions) {
