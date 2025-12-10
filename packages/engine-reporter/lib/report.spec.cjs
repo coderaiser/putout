@@ -1,5 +1,6 @@
 'use strict';
 
+const {stripVTControlCharacters} = require('node:util');
 const tryToCatch = require('try-to-catch');
 const montag = require('montag');
 const {test, stub} = require('supertape');
@@ -86,8 +87,7 @@ test('putout: report: dump', async (t) => {
         places,
     });
     
-    const stripAnsi = await simpleImport('strip-ansi');
-    const result = stripAnsi(formatted);
+    const result = stripVTControlCharacters(formatted);
     
     const expected = montag`
         hello

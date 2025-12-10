@@ -1,5 +1,6 @@
 'use strict';
 
+const {stripVTControlCharacters} = require('node:util');
 const process = require('node:process');
 
 const {join, basename} = require('node:path');
@@ -985,8 +986,7 @@ test('putout: cli: --staged --fix', async (t) => {
     const [allArgCalls] = logError.args;
     const [arg] = allArgCalls;
     
-    const stripAnsi = await simpleImport('strip-ansi');
-    const output = stripAnsi(arg);
+    const output = stripVTControlCharacters(arg);
     const message = `🐊 No files matching the pattern './xxx.js' were found`;
     
     stopAll();
@@ -2388,8 +2388,7 @@ test('putout: processor: invalid config: message', async (t) => {
     const [allArgCalls] = logError.args;
     const [arg] = allArgCalls;
     
-    const stripAnsi = await simpleImport('strip-ansi');
-    const result = stripAnsi(arg);
+    const result = stripVTControlCharacters(arg);
     const expected = '🐊 .putout.json: exclude: must NOT have additional properties';
     
     t.equal(result, expected);

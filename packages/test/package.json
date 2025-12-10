@@ -72,8 +72,7 @@
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^29.0.0",
     "madrun": "^11.0.0",
-    "nodemon": "^3.0.1",
-    "strip-ansi": "^7.1.0"
+    "nodemon": "^3.0.1"
   },
   "license": "MIT",
   "engines": {

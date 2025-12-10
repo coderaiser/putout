@@ -1,6 +1,6 @@
 import {EventEmitter} from 'node:events';
+import {stripVTControlCharacters} from 'node:util';
 import {test, stub} from 'supertape';
-import stripAnsi from 'strip-ansi';
 import {onDebuggerExit} from './debugger-exit.mjs';
 
 const {assign} = Object;
@@ -113,7 +113,7 @@ test('putout: cli: onDebuggerExit: log', (t) => {
     const expected = `node --inspect: 'kill 1337'`;
     
     const [args] = log.args;
-    const result = stripAnsi(args[0]);
+    const result = stripVTControlCharacters(args[0]);
     
     t.equal(result, expected);
     t.end();

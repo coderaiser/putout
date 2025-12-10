@@ -1,5 +1,6 @@
 'use strict';
 
+const {stripVTControlCharacters} = require('node:util');
 const {join} = require('node:path');
 
 const montag = require('montag');
@@ -296,8 +297,7 @@ test('putout: test: noReportAfterTransformWithOptions: internal', (t) => {
     t.end();
 });
 
-test('putout: test: report: with one argument', async (t) => {
-    const {default: strip} = await import('strip-ansi');
+test('putout: test: report: with one argument', (t) => {
     const cache = new Map();
     
     cache.set('x', 'y');
@@ -313,7 +313,7 @@ test('putout: test: report: with one argument', async (t) => {
       ` +
         '\n';
     
-    t.equal(strip(error.message), expected);
+    t.equal(stripVTControlCharacters(error.message), expected);
     t.end();
 }, {
     checkAssertionsCount: false,

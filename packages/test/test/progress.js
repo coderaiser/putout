@@ -1,5 +1,6 @@
 'use strict';
 
+const {stripVTControlCharacters} = require('node:util');
 const readAllFiles = require('@putout/plugin-filesystem/read-all-files');
 const tryToCatch = require('try-to-catch');
 
@@ -28,8 +29,7 @@ testProgress('@putout/test: progress: no name', async ({progress, match}) => {
         rule: 'read-all-files',
     });
     
-    const {default: stripAnsi} = await import('strip-ansi');
-    const result = stripAnsi(error.message);
+    const result = stripVTControlCharacters(error.message);
     
     match(result, `^ ☝️ Looks like you forget to pass the 'name'`);
 }, {

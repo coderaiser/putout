@@ -224,7 +224,6 @@
     "mock-require": "^3.0.2",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
-    "strip-ansi": "^7.0.0",
     "supertape": "^11.0.3"
   },
   "license": "MIT",

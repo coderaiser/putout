@@ -1,7 +1,7 @@
 import {createRequire} from 'node:module';
 import {spawnSync} from 'node:child_process';
+import {stripVTControlCharacters} from 'node:util';
 import {test} from 'supertape';
-import stripAnsi from 'strip-ansi';
 
 const require = createRequire(import.meta.url);
 const cliPath = new URL('putout.mjs', import.meta.url).pathname;
@@ -31,7 +31,7 @@ test('putout: bin: cli: -f: object', (t) => {
         encoding: 'utf8',
     });
     
-    const result = stripAnsi(stderr);
+    const result = stripVTControlCharacters(stderr);
     
     t.equal(result, `🐊 Cannot find package 'putout-formatter-{}'\n`);
     t.end();
