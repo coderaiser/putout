@@ -1,3 +1,12 @@
+2025.12.10, v41.0.3
+
+fix:
+- a7c71c3d3 @putout/plugin-nodejs: npmignore: add scripts
+
+feature:
+- 635f8a2c0 putout: @putout/plugin-nodejs v18.0.0
+- 7427bed8f @putout/plugin-nodejs: drop support of 🐊 < 41
+
 2025.12.07, v41.0.2
 
 feature:
