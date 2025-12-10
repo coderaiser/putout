@@ -129,7 +129,7 @@
     "@putout/plugin-merge-duplicate-functions": "^4.0.0",
     "@putout/plugin-montag": "^4.0.0",
     "@putout/plugin-new": "^4.0.0",
-    "@putout/plugin-nodejs": "^17.0.0",
+    "@putout/plugin-nodejs": "^18.0.0",
     "@putout/plugin-npmignore": "^5.0.0",
     "@putout/plugin-optional-chaining": "^2.0.0",
     "@putout/plugin-package-json": "^9.0.0",
