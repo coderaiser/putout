@@ -352,7 +352,7 @@ const ruleTester = new RuleTester({
 
 > In ESLint v10.0.0, the deprecated nodeType property on LintMessage objects has been removed. Correspondingly, RuleTester no longer accepts the deprecated type property in errors of invalid test cases.
 >
-> (c) [eslint.org](https://eslint.org/blog/2025/11/eslint-v10.0.0-alpha.0-released/#removed-deprecated-lintmessage%23nodetype-and-testcaseerror%23type-properties)
+> (c) [eslint.org](https://eslint.org/blog/2025/11/eslint-^10.0.0-alpha.0-released/#removed-deprecated-lintmessage%23nodetype-and-testcaseerror%23type-properties)
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bec61b7973acba2d84a076789a2c5c8b/42a7d4a9e58f219d6039389c4e295a4530fcff19).
 
