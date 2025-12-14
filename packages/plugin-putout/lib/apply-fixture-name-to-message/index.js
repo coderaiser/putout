@@ -73,10 +73,10 @@ const check = ({__a}, path) => {
     if (name.includes(')'))
         return false;
     
-    const encodedName = encode(name);
+    const safeName = RegExp.escape(name);
     
-    const regEnd = RegExp(`: ${encodedName}$`);
-    const regMiddle = RegExp(`: ${encodedName}: .*`);
+    const regEnd = RegExp(`: ${safeName}$`);
+    const regMiddle = RegExp(`: ${safeName}: .*`);
     
     return !regEnd.test(value) && !regMiddle.test(value);
 };
@@ -117,4 +117,3 @@ const getTestNodeArgument = (path) => {
     return first;
 };
 
-const encode = (a) => a.replaceAll('+', '\\+');
