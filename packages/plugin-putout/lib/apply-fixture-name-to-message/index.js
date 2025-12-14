@@ -73,8 +73,10 @@ const check = ({__a}, path) => {
     if (name.includes(')'))
         return false;
     
-    const regEnd = RegExp(`: ${name}$`);
-    const regMiddle = RegExp(`: ${name}: .*`);
+    const encodedName = encode(name);
+    
+    const regEnd = RegExp(`: ${encodedName}$`);
+    const regMiddle = RegExp(`: ${encodedName}: .*`);
     
     return !regEnd.test(value) && !regMiddle.test(value);
 };
@@ -110,5 +112,9 @@ const getTestNodeArgument = (path) => {
     if (testPath.isExpressionStatement())
         testPath = testPath.get('expression');
     
-    return testPath.node.arguments[0];
+    const [first] = testPath.node.arguments;
+    
+    return first;
 };
+
+const encode = (a) => a.replaceAll('+', '\\+');
