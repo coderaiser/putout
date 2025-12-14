@@ -1,3 +1,10 @@
+2025.12.14, v41.0.5
+
+feature:
+- e22f1c96f putout: @putout/plugin-putout v28.0.0
+- 5d2ba9985 @putout/plugin-putout: drop support of 🐊 < 41
+- 82ea38148 @putout/plugin-putout: apply-fixture-name-to-message: plus
+
 2025.12.10, v41.0.4
 
 feature:
