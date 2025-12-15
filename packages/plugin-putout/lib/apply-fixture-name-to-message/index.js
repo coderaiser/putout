@@ -1,4 +1,9 @@
 import {operator} from 'putout';
+import regexpEscapePolifyll from 'regexp.escape';
+
+const {
+    escape: regexpEscape = regexpEscapePolifyll,
+} = RegExp;
 
 const {
     setLiteralValue,
@@ -73,7 +78,7 @@ const check = ({__a}, path) => {
     if (name.includes(')'))
         return false;
     
-    const safeName = RegExp.escape(name);
+    const safeName = regexpEscape(name);
     
     const regEnd = RegExp(`: ${safeName}$`);
     const regMiddle = RegExp(`: ${safeName}: .*`);
@@ -116,4 +121,3 @@ const getTestNodeArgument = (path) => {
     
     return first;
 };
-
