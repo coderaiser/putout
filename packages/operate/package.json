@@ -38,7 +38,7 @@
     "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-esm": "*",
     "@putout/plugin-minify": "*",
-    "@putout/plugin-remove-unreferenced-variables": "*",
+    "@putout/plugin-variables": "*",
     "c8": "^10.0.0",
     "eslint": "^10.0.0-alpha.0",
     "eslint-plugin-n": "^17.0.0",
