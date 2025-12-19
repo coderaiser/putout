@@ -1,3 +1,12 @@
+2025.12.19, v41.0.6
+
+fix:
+- ac4409f9a @putout/plugin-putout: apply-fixture-name-to-message: RegExp.escape: add polifyll (supported from node v24)
+
+feature:
+- ef1d5fa33 putout: @putout/plugin-for-of v11.0.0
+- 1b8ed9d5c @putout/plugin-for-of: drop support of 🐊 < 41
+
 2025.12.14, v41.0.5
 
 feature:
