@@ -117,7 +117,7 @@
     "@putout/plugin-esm": "^6.0.0",
     "@putout/plugin-extract-sequence-expressions": "^4.0.0",
     "@putout/plugin-filesystem": "^12.0.0",
-    "@putout/plugin-for-of": "^10.0.0",
+    "@putout/plugin-for-of": "^11.0.0",
     "@putout/plugin-generators": "^2.0.0",
     "@putout/plugin-github": "^18.0.0",
     "@putout/plugin-gitignore": "^6.0.0",
