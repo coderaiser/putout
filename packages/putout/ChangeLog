@@ -1,3 +1,9 @@
+2025.12.19, v41.0.7
+
+fix:
+- f777f66d4 putout: rm useless @putout/plugin-remove-constant-conditions
+- d74549f87 putout: rm unused @putout/plugin-remove-unused-labels
+
 2025.12.19, v41.0.6
 
 fix:
