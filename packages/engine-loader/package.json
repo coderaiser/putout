@@ -42,7 +42,6 @@
     "@putout/eslint-flat": "^3.0.0",
     "@putout/formatter-progress": "*",
     "@putout/plugin-apply-nullish-coalescing": "*",
-    "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/plugin-nodejs": "*",
     "@putout/plugin-remove-debugger": "*",
     "@putout/processor-javascript": "*",
