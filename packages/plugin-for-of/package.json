@@ -33,7 +33,6 @@
   "devDependencies": {
     "@putout/eslint-flat": "^3.0.3",
     "@putout/plugin-conditions": "*",
-    "@putout/plugin-convert-const-to-let": "*",
     "@putout/plugin-destructuring": "*",
     "@putout/plugin-remove-console": "*",
     "@putout/plugin-remove-empty": "*",
