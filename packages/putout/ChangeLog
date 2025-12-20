@@ -1,3 +1,11 @@
+2025.12.20, v41.0.8
+
+feature:
+- 9802375a2 putout: @putout/engine-reporter v6.0.0
+- 0b686ec56 @putout/engine-reporter: get rid of mock-require
+- e899de3bf putout: cli: get-options: putout --no-config: do not exit when no plugins passed
+- bf9b31cfe @putout/engine-reporter: do not exit when plugins
+
 2025.12.19, v41.0.7
 
 fix:
