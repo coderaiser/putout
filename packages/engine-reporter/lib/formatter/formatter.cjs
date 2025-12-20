@@ -1,7 +1,7 @@
 'use strict';
 
-const {simpleImport} = require('putout/simple-import');
-const {createAsyncLoader} = require('@putout/engine-loader');
+const {simpleImport: _simpleImport} = require('putout/simple-import');
+const {createAsyncLoader: _createAsyncLoader} = require('@putout/engine-loader');
 
 const tryToCatch = require('try-to-catch');
 const {
@@ -12,7 +12,12 @@ const {
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a, {}];
 
-module.exports.getFormatter = async (formatterOptional, exit) => {
+module.exports.getFormatter = async (formatterOptional, exit, overrides = {}) => {
+    const {
+        createAsyncLoader = _createAsyncLoader,
+        simpleImport = _simpleImport,
+    } = overrides;
+    
     const [formatterName = 'none', formatterOptions] = maybeArray(formatterOptional);
     const loadFormatter = createAsyncLoader('formatter');
     
