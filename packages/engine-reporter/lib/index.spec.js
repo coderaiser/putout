@@ -5,7 +5,7 @@ import {
 } from 'putout/exit-codes';
 import {createReport} from './index.js';
 
-test('putout: engine-reporter: createReport', async (t) => {
+test('putout: engine-reporter: createReport: no plugins', async (t) => {
     const exit = stub();
     const cwd = stub();
     
@@ -13,6 +13,22 @@ test('putout: engine-reporter: createReport', async (t) => {
         args: [],
         cwd,
         exit,
+    });
+    
+    t.notCalled(exit);
+    t.end();
+});
+
+test('putout: engine-reporter: createReport', async (t) => {
+    const getOptions = stub().throws(TypeError('plugins is not iterable'));
+    const cwd = stub();
+    const exit = stub();
+    
+    await createReport({
+        args: [],
+        cwd,
+        exit,
+        getOptions,
     });
     
     t.calledWith(exit, [INVALID_CONFIG, TypeError('plugins is not iterable')]);

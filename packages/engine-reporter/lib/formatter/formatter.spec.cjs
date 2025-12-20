@@ -9,6 +9,7 @@ const {
 } = require('putout/exit-codes/cjs');
 
 const {getFormatter} = require('./formatter.cjs');
+
 const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: formatter: get formatter', async (t) => {
@@ -18,6 +19,17 @@ test('putout: cli: formatter: get formatter', async (t) => {
     
     const result = await getFormatter('progress', exit);
     const expected = [progress, {}];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: formatter: get formatter: none', async (t) => {
+    const exit = stub();
+    
+    const result = await getFormatter(undefined, exit);
+    const expected = [
+        stub(), {}];
     
     t.deepEqual(result, expected);
     t.end();
