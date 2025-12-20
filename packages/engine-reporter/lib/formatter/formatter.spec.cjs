@@ -1,7 +1,6 @@
 'use strict';
 
 const {test, stub} = require('supertape');
-const mockRequire = require('mock-require');
 
 const {
     NO_FORMATTER,
@@ -9,8 +8,6 @@ const {
 } = require('putout/exit-codes/cjs');
 
 const {getFormatter} = require('./formatter.cjs');
-
-const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: formatter: get formatter', async (t) => {
     const exit = stub();
@@ -53,14 +50,9 @@ test('putout: cli: formatter: get formatter: options', async (t) => {
 
 test('putout: cli: formatter: get reporter: exit: NO_FORMATTER', async (t) => {
     const exit = stub();
-    const {getFormatter} = reRequire('./formatter.cjs');
-    
     await getFormatter('xxx', exit);
     
     const expected = [NO_FORMATTER, Error(`Cannot find package 'putout-formatter-xxx'`)];
-    
-    stopAll();
-    reRequire('./formatter.cjs');
     
     t.calledWith(exit, expected, 'should call exit');
     t.end();
@@ -70,17 +62,11 @@ test('putout: cli: formatter: get reporter: exit: CANNOT_LOAD_FORMATTER', async 
     const exit = stub();
     const createAsyncLoader = stub().returns(stub().rejects(Error('@putout/formatter-xxx: Syntax error')));
     
-    mockRequire('@putout/engine-loader', {
+    await getFormatter('xxx', exit, {
         createAsyncLoader,
     });
     
-    const {getFormatter} = reRequire('./formatter.cjs');
-    await getFormatter('xxx', exit);
-    
     const expected = [CANNOT_LOAD_FORMATTER, Error(`@putout/formatter-xxx: Syntax error`)];
-    
-    stopAll();
-    reRequire('./formatter.cjs');
     
     t.calledWith(exit, expected, 'should call exit');
     t.end();
@@ -90,17 +76,11 @@ test('putout: cli: formatter: get reporter: pass load', async (t) => {
     const exit = stub();
     const simpleImport = stub().rejects(Error('simple import'));
     
-    mockRequire('putout/simple-import', {
+    await getFormatter('xxx', exit, {
         simpleImport,
     });
     
-    const {getFormatter} = reRequire('./formatter.cjs');
-    await getFormatter('xxx', exit);
-    
     const expected = [CANNOT_LOAD_FORMATTER, Error(`@putout/formatter-xxx: simple import`)];
-    
-    stopAll();
-    reRequire('./formatter.cjs');
     
     t.calledWith(exit, expected, 'should call exit');
     t.end();
