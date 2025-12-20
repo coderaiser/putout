@@ -42,3 +42,41 @@ test('putout: cli: get-options: PUTOUT_CONFIG_FILE', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: cli: get-options: no plugins', (t) => {
+    const {PUTOUT_CONFIG_FILE} = process.env;
+    
+    process.env.PUTOUT_CONFIG_FILE = './hello-config';
+    
+    const parseOptions = stub().returns({
+        from: 'parse-options',
+        plugins: [],
+    });
+    
+    mockRequire(join(process.cwd(), './hello-config'), {
+        hello: 'world',
+    });
+    
+    const getOptions = reRequire('./get-options');
+    
+    const result = getOptions({
+        parseOptions,
+    });
+    
+    if (!PUTOUT_CONFIG_FILE)
+        delete process.env.PUTOUT_CONFIG_FILE;
+    else
+        process.env.PUTOUT_CONFIG_FILE = PUTOUT_CONFIG_FILE;
+    
+    stopAll();
+    reRequire('./get-options');
+    
+    const expected = {
+        hello: 'world',
+        from: 'parse-options',
+        plugins: [],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

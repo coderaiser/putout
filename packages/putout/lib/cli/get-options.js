@@ -4,7 +4,7 @@ const process = require('node:process');
 const {join, dirname} = require('node:path');
 
 const buildPlugins = require('./build-plugins');
-const parseOptions = require('../parse-options');
+const _parseOptions = require('../parse-options');
 
 const {assign} = Object;
 const {env} = process;
@@ -19,7 +19,16 @@ PUTOUT_CONFIG_FILE && assign(maybeConfig, require(join(
     PUTOUT_CONFIG_FILE,
 )));
 
-module.exports = ({noConfig, plugins, name, transform, rulesdir}) => {
+module.exports = (overrides = {}) => {
+    const {
+        noConfig,
+        plugins = [],
+        name,
+        transform,
+        rulesdir,
+        parseOptions = _parseOptions,
+    } = overrides;
+    
     const transformPlugins = buildPlugins(transform);
     
     if (noConfig)

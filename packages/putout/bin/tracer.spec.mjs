@@ -24,3 +24,12 @@ test('putout: bin: cli: tracer: -h', async (t) => {
     t.equal(stdout, `${help()}\n`);
     t.end();
 });
+
+test('putout: bin: cli: tracer --no-config', (t) => {
+    const {stdout} = spawnSync(cliPath, ['--no-config'], {
+        encoding: 'utf8',
+    });
+    
+    t.equal(stdout, '');
+    t.end();
+});
