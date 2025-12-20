@@ -13,7 +13,7 @@ const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a, {}];
 
 module.exports.getFormatter = async (formatterOptional, exit) => {
-    const [formatterName, formatterOptions] = maybeArray(formatterOptional);
+    const [formatterName = 'none', formatterOptions] = maybeArray(formatterOptional);
     const loadFormatter = createAsyncLoader('formatter');
     
     const [error, formatter] = await tryToCatch(loadFormatter, formatterName, simpleImport);
