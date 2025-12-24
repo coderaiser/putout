@@ -10,6 +10,8 @@ export const rules = {
     ],
     'dot-notation': 'off',
     'no-global-assign': 'off',
+    'no-debugger': 'off',
+    'no-unused-vars': 'off',
     'object-shorthand': 'off',
     'prefer-arrow-callback': 'error',
     'prefer-const': ['error', {

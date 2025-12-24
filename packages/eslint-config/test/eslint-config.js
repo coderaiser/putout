@@ -109,3 +109,11 @@ test('eslint-config: keyword-spacing', async ({process}) => {
 test('eslint-config: dot-notation', async ({comparePlaces}) => {
     await comparePlaces('dot-notation', []);
 });
+
+test('eslint-config: no-debugger', async ({comparePlaces}) => {
+    await comparePlaces('no-debugger', []);
+});
+
+test('eslint-config: no-unused-vars', async ({comparePlaces}) => {
+    await comparePlaces('no-unused-vars', []);
+});
