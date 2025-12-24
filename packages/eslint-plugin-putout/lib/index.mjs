@@ -16,8 +16,6 @@ const putoutConfig = [{
     },
     rules: {
         ...config.rules,
-        'no-debugger': 'off',
-        'no-unused-vars': 'off',
         'putout/array-element-newline': 'error',
         'putout/single-property-destructuring': 'error',
         'putout/multiple-properties-destructuring': 'error',

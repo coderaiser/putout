@@ -267,3 +267,7 @@ test('eslint-plugin-putout: no-extra-non-null-assertion', async ({comparePlaces}
 test('eslint-plugin-putout: no-namespace', async ({comparePlaces}) => {
     await comparePlaces('no-namespace', []);
 });
+
+test('eslint-plugin-putout: no-debugger', async ({comparePlaces}) => {
+    await comparePlaces('no-debugger', []);
+});
