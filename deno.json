@@ -1,0 +1,13 @@
+{
+    "tasks": {
+        "start": "deno run -P=putout packages/putout/bin/tracer.mjs"
+    },
+    "permissions": {
+        "putout": {
+            "env": true,
+            "read": true,
+            "sys": true,
+            "write": true
+        }
+    }
+}
