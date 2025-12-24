@@ -737,6 +737,7 @@ test('remove-unused-variables: get-vars: destr nested vars', (t) => {
         processors: d_,
         obj: du,
         world: d_,
+        pluginsCount: d_,
     }];
     
     t.deepEqual(result, expected);

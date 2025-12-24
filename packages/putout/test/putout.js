@@ -829,10 +829,7 @@ test('putout: progress', async (t) => {
         ]);
     `;
     
-    const [[{
-        pluginsIndex,
-        pluginsCount,
-    }]] = await Promise.all([
+    const [[{pluginsCount}]] = await Promise.all([
         once(progress, 'push'),
         putout(source, {
             progress,

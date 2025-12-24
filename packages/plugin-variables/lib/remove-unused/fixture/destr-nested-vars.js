@@ -14,3 +14,7 @@ const defaultProcessors = [];
 const [error, {
     processors = defaultProcessors,
 }] = getOptions();
+
+const [[{
+    pluginsCount,
+}]] = getOptions();

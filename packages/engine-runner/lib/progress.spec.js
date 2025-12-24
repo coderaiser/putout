@@ -16,10 +16,7 @@ test('putout: runner: progress: start', async (t) => {
         ]);
     `;
     
-    const [[{
-        pluginsIndex,
-        pluginsCount,
-    }]] = await Promise.all([
+    const [[{pluginsCount}]] = await Promise.all([
         once(progress, 'start'),
         putout(source, {
             progress,
@@ -45,10 +42,7 @@ test('putout: runner: progress: end', async (t) => {
         ]);
     `;
     
-    const [[{
-        pluginsIndex,
-        pluginsCount,
-    }]] = await Promise.all([
+    const [[{pluginsCount}]] = await Promise.all([
         once(progress, 'end'),
         putout(source, {
             progress,
@@ -74,10 +68,7 @@ test('putout: runner: progress: push', async (t) => {
         ]);
     `;
     
-    const [[{
-        pluginsIndex,
-        pluginsCount,
-    }]] = await Promise.all([
+    const [[{pluginsCount}]] = await Promise.all([
         once(progress, 'push'),
         putout(source, {
             runPlugins,

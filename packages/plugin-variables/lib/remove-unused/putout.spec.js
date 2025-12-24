@@ -1,5 +1,6 @@
 import test from 'supertape';
 import _putout from 'putout';
+import montag from 'montag';
 import {readFixtures} from './fixture.js';
 import * as removeUnusedVariables from './index.js';
 
@@ -110,7 +111,12 @@ test('remove-unused-variables: putout: destr vars', (t) => {
 
 test('remove-unused-variables: putout: destr nested vars', (t) => {
     const {code} = putout(fixture.destrNestedVars);
-    const expected = 'const [, {}] = getOptions();\n';
+    const expected = montag`
+        const [, {}] = getOptions();
+        
+        const [[{}]] = getOptions();
+   
+   `;
     
     t.equal(code, expected);
     t.end();

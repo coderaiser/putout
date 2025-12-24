@@ -203,10 +203,7 @@ test('operate: traverse-properties: filesystem', async (t) => {
         ]);
     `;
     
-    const [[{
-        pluginsIndex,
-        pluginsCount,
-    }]] = await Promise.all([
+    const [[{pluginsIndex}]] = await Promise.all([
         once(progress, 'push'),
         putout(source, {
             progress,

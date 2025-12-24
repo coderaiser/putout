@@ -40,6 +40,7 @@ export default ({use, declare, addParams}) => {
     
     const traverseTmpl = traverseTemplateLiteral(use);
     const traverseArray = traverseArrayExpression(use);
+    const declareArray = traverseArrayExpression(declare);
     
     return {
         'ObjectExpression'(path) {
@@ -141,6 +142,11 @@ export default ({use, declare, addParams}) => {
                 for (const elPath of elements) {
                     if (elPath.isObjectPattern()) {
                         processObj(elPath.get('properties'));
+                        continue;
+                    }
+                    
+                    if (elPath.isArrayPattern()) {
+                        declareArray(elPath.get('elements'));
                         continue;
                     }
                     
