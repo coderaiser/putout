@@ -9,7 +9,7 @@ if (!name) {
     process.exit(1);
 }
 
-const data = await import(`${name}/promises`);
+const data = await import(String(name));
 const result = {};
 
 for (const key of keys(data)) {
@@ -19,7 +19,7 @@ for (const key of keys(data)) {
     if (key === 'default')
         continue;
     
-    result[key] = `import {${key}} from 'node:${name}/promises'`;
+    result[key] = `import {${key}} from 'node:${name}'`;
 }
 
 const output = `export default ${JSON.stringify(result, null, 4) + '\n'}`;

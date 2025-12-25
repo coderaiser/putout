@@ -1,4 +1,5 @@
 import process from 'node:process';
+import {Buffer} from 'node:buffer';
 import {putoutAsync} from '../putout.js';
 import ignores from '../ignores.js';
 import parseOptions from '../parse-options/index.js';

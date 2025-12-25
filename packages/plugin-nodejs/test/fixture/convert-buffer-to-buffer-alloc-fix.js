@@ -1,3 +1,5 @@
+import {Buffer} from 'node:buffer';
+
 const n = 100;
 const buf = [];
 

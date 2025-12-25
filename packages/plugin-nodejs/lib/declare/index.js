@@ -1,3 +1,4 @@
+import buffer from './modules/buffer.js';
 import child_process from './modules/child_process.js';
 import util from './modules/util.js';
 import url from './modules/url.js';
@@ -13,6 +14,7 @@ import events from './modules/events.js';
 import timers from './modules/timers.js';
 
 export const declare = () => ({
+    ...buffer,
     ...events,
     ...fs,
     ...fsPromises,

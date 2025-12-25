@@ -254,6 +254,7 @@ process.exit();
 
 Add declarations to built-in node.js modules:
 
+- [buffer](https://nodejs.org/dist/latest-v24.x/docs/api/buffer.html);
 - [child_process](https://nodejs.org/dist/latest-v24.x/docs/api/child_process.html);
 - [events](https://nodejs.org/dist/latest-v24.x/docs/api/events.html);
 - [fs](https://nodejs.org/dist/latest-v24.x/docs/api/fs.html);
