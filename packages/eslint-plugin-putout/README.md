@@ -149,7 +149,7 @@ Then configure the rules you want to use under the rules section.
 - ✅ [Remove empty newline after import](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-import#readme)
 - ✅ [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers#readme)
 - ✅ [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme)
-- ✅ [Nonblock statement body newline](/packages/eslint-plugin-putout/lib/non-block-statement-body-newline#readme)
+- ✅ [Nonblock statement body newline](/packages/eslint-plugin-putout/lib/nonblock-statement-body-newline#readme)
 
 ### Safe mode
 
