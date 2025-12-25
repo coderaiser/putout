@@ -96,3 +96,8 @@ test('plugin-filesystem: transform: remove-empty-directory', (t) => {
     t.transform('remove-empty-directory');
     t.end();
 });
+
+test('plugin-filesystem: transform: remove-ds-store-file', (t) => {
+    t.transform('remove-ds-store-file');
+    t.end();
+});

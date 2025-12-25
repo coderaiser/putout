@@ -16,6 +16,7 @@ import * as convertJsToJson from './convert-js-to-json/index.js';
 import * as removeNycOutputFiles from './remove-nyc-output-files/index.js';
 import * as removeTravisYmlFile from './remove-travis-yml-file/index.js';
 import * as removeEmptyDirectory from './remove-empty-directory/index.js';
+import * as removeDsStoreFile from './remove-ds-store-file/index.js';
 
 export const rules = {
     'remove-vim-swap-file': removeVimSwapFile,
@@ -36,4 +37,5 @@ export const rules = {
     'remove-nyc-output-files': removeNycOutputFiles,
     'remove-travis-yml-file': removeTravisYmlFile,
     'remove-empty-directory': removeEmptyDirectory,
+    'remove-ds-store-file': removeDsStoreFile,
 };

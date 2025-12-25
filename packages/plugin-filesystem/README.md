@@ -25,6 +25,7 @@ npm i @putout/plugin-filesystem -D
 - ✅ [remove-travis-yml-file](#remove-travis-yml-file);
 - ✅ [remove-vim-swap-file](#remove-vim-swap-file);
 - ✅ [remove-nyc-output-files](#remove-nyc-output-files);
+- ✅ [remove-ds-store-file](#remove-ds-store-file);
 - ✅ [remove-files](#remove-files);
 - ✅ [rename-referenced-file](#rename-referenced-file);
 - ✅ [rename-spec-to-test](#rename-spec-to-test);
@@ -39,6 +40,7 @@ npm i @putout/plugin-filesystem -D
     "rules": {
         "filesystem/remove-empty-directory": "on",
         "filesystem/remove-travis-yml-file": "on",
+        "filesystem/remove-ds-store-file": "on",
         "filesystem/remove-vim-swap-file": "on",
         "filesystem/remove-nyc-output-files": "on",
         "filesystem/bundle": "off",
@@ -121,6 +123,12 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/52d8126f3e
 -|-- hello/
 -|  `-- abc/
 -|      `-- def/
+```
+
+## remove-ds-store-file
+
+```diff
+-.DS_Store
 ```
 
 ## remove-nyc-output-files
