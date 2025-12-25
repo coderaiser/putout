@@ -14,10 +14,16 @@ export const traverse = ({push}) => ({
             return false;
         
         if (isCharacterClass(parentPath)) {
-            if (!/[()]/.test(symbol))
+            if (/[()]/.test(symbol)) {
+                push(path);
                 return;
+            }
             
-            push(path);
+            if (symbol === '^' && path.index) {
+                push(path);
+                return;
+            }
+            
             return;
         }
         

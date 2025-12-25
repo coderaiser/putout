@@ -19,7 +19,7 @@ export const match = () => ({
         if (raw.includes('\\d'))
             return false;
         
-        return !/[?\^+({*\].]/.test(raw);
+        return !/[?^+({*\].]/.test(raw);
     },
 });
 

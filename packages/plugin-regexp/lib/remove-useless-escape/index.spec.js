@@ -37,6 +37,11 @@ test('regexp: remove-useless-escape: transform: coma', (t) => {
     t.end();
 });
 
+test('regexp: remove-useless-escape: transform: caret', (t) => {
+    t.transform('caret');
+    t.end();
+});
+
 test('regexp: remove-useless-escape: no report: slash', (t) => {
     t.noReport('slash');
     t.end();
