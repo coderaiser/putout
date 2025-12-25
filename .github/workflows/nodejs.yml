@@ -17,6 +17,10 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v6
         with:
@@ -27,6 +31,10 @@ jobs:
         run: bun i -f --no-save
       - name: Lint
         run: redrun fix:lint
+      - name: Oxlint
+        run: redrun lint:oxlint
+      - name: Deno Lint
+        run: deno lint
       - name: Install Rust
         run: rustup update
       - uses: actions/cache@v4
