@@ -87,7 +87,7 @@ export const replace = () => ({
             return applyDynamicImport(path);
         }
         
-        const isJSON = /\.json$/.test(value);
+        const isJSON = value.endsWith('.json');
         const assertion = !isJSON ? '' : 'with { type: "json" }';
         
         if (isObjectPattern(__a)) {

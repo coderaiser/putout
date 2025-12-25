@@ -2360,7 +2360,7 @@ test('putout: processor: invalid config: message', async (t) => {
     mockRequire('./get-options', (args) => {
         const {name} = args;
         
-        if (/\.js$/.test(name))
+        if (name.endsWith('.js'))
             return getOptions(args);
         
         return {

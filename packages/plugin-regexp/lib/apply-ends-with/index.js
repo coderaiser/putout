@@ -9,15 +9,17 @@ export const match = () => ({
         if (!isRegExpLiteral(__a))
             return false;
         
-        const raw = __a.raw.slice(1, -1);
+        let raw = __a.raw.slice(1, -1);
         
         if (!raw.endsWith('$'))
             return false;
         
+        raw = raw.replaceAll('\\.', '');
+        
         if (raw.includes('\\d'))
             return false;
         
-        return !/[\^+({*\].]/.test(raw);
+        return !/[?\^+({*\].]/.test(raw);
     },
 });
 

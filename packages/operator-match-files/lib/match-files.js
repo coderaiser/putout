@@ -137,7 +137,7 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
 };
 
 function magicParse(name, content) {
-    if (/\.json$/.test(name)) {
+    if (name.endsWith('.json')) {
         const js = toJS(content);
         const ast = parse(js);
         
@@ -156,7 +156,7 @@ function magicParse(name, content) {
 }
 
 function magicPrint(name, ast) {
-    if (/\.json$/.test(name)) {
+    if (name.endsWith('.json')) {
         const js = print(ast);
         
         return fromJS(js);
