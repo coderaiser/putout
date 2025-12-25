@@ -1,7 +1,7 @@
 'use strict';
 
 const {isBuiltin} = require('node:module');
-const isLocal = (a) => /^\./.test(a.source.value);
+const isLocal = (a) => a.source.value.startsWith('.');
 const isNode = (a) => isBuiltin(a.source.value);
 
 const isSameGroup = (a, b) => {

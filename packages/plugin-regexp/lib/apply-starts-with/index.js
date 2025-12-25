@@ -9,10 +9,12 @@ export const match = () => ({
         if (!isRegExpLiteral(__a))
             return false;
         
-        const raw = __a.raw.slice(1, -1);
+        let raw = __a.raw.slice(1, -1);
         
         if (!raw.startsWith('^'))
             return false;
+        
+        raw = raw.replaceAll('\\.', '');
         
         return !/[$+({*\].]/.test(raw);
     },
