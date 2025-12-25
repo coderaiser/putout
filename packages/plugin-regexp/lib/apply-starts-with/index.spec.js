@@ -26,3 +26,8 @@ test('putout: plugin-regexp: apply-starts-with: transform: dot', (t) => {
     t.transform('dot');
     t.end();
 });
+
+test('putout: plugin-regexp: apply-starts-with: transform: round-braces', (t) => {
+    t.transform('round-braces');
+    t.end();
+});

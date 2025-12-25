@@ -14,7 +14,10 @@ export const match = () => ({
         if (!raw.startsWith('^'))
             return false;
         
-        raw = raw.replaceAll('\\.', '');
+        raw = raw
+            .replaceAll('\\.', '')
+            .replaceAll('\\(', '')
+            .replaceAll('\\)', '');
         
         return !/[$+({*\].]/.test(raw);
     },
@@ -24,6 +27,7 @@ export const replace = () => ({
     '__a.test(__b)': ({__a}) => {
         const str = __a.raw
             .slice(1, -1)
+            .replaceAll('\\n', '\\\\n')
             .replace('^', '');
         
         return `__b.startsWith('${str}')`;

@@ -1,0 +1,1 @@
+textPeace.startsWith('(\n)');

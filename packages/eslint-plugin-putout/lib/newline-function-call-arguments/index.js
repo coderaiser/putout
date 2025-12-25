@@ -28,7 +28,7 @@ module.exports.filter = ({node, text}) => {
     if (textPeace.length < 60)
         return false;
     
-    const isOpenBracket = /^\(\n/.test(textPeace);
+    const isOpenBracket = textPeace.startsWith('(\n');
     const isCloseBracket = /\n\s*\)$/.test(textPeace);
     
     return !(isOpenBracket && isCloseBracket);
