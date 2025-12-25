@@ -125,6 +125,9 @@ export const traverseArrayExpression = (use) => {
         for (const elementPath of elementsPaths) {
             const {node} = elementPath;
             
+            if (isIdentifier(node))
+                use(elementPath, node.name);
+            
             if (node.properties)
                 traverseObjExpression(elementPath.get('properties'));
         }

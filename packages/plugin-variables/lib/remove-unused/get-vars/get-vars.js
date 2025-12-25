@@ -23,12 +23,12 @@ const {
     isFunctionDeclaration,
     isArrayExpression,
     isRestElement,
+    isArrayPattern,
 } = types;
 
 export default ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
-    
-    const processObj = processObjectPattern({
+    const declareObject = processObjectPattern({
         use,
         declare,
     });
@@ -64,7 +64,7 @@ export default ({use, declare, addParams}) => {
             const param = path.get('param');
             
             if (param.isObjectPattern())
-                return processObj(param.get('properties'));
+                return declareObject(param.get('properties'));
             
             if (!param.isIdentifier())
                 return;
@@ -141,7 +141,7 @@ export default ({use, declare, addParams}) => {
                 
                 for (const elPath of elements) {
                     if (elPath.isObjectPattern()) {
-                        processObj(elPath.get('properties'));
+                        declareObject(elPath.get('properties'));
                         continue;
                     }
                     
@@ -213,7 +213,7 @@ export default ({use, declare, addParams}) => {
                 use(rightPath, rightPath.node.name);
         },
         
-        'ArrayExpression'(path) {
+        ArrayExpression(path) {
             const {elements} = path.node;
             
             for (const el of elements) {
@@ -557,7 +557,12 @@ export default ({use, declare, addParams}) => {
                 
                 /* istanbul ignore else */
                 if (isObjectPattern(node)) {
-                    processObj(paramPath.get('properties'));
+                    declareObject(paramPath.get('properties'));
+                    continue;
+                }
+                
+                if (isArrayPattern(node)) {
+                    declareArray(paramPath.get('elements'));
                     continue;
                 }
             }

@@ -215,7 +215,7 @@ test('remove-unused-variables: get-vars: arguments: array destructuring', (t) =>
         merge: 'd_',
     }, {
         raw: du,
-        source: _u,
+        source: du,
     }];
     
     t.deepEqual(result, expected);
