@@ -44,9 +44,9 @@ test('putout: test: processor: no process: UPDATE', async ({noProcess, calledWit
     const unlink = stub();
     
     update(1);
-    global.unlink = unlink;
+    globalThis.unlink = unlink;
     await noProcess('empty-script.html', null, ['svelte']);
-    delete global.unlink;
+    delete globalThis.unlink;
     update(0);
     
     const name = join(__dirname, 'fixture/empty-script-fix.html');
@@ -69,11 +69,11 @@ test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
     
     const writeFile = stub();
     
-    global.writeFile = writeFile;
+    globalThis.writeFile = writeFile;
     
     await process('eslintrc');
     
-    delete global.writeFile;
+    delete globalThis.writeFile;
     update();
     
     const name = join(__dirname, 'fixture/eslintrc-fix.json');
@@ -110,11 +110,11 @@ test('putout: test: processor: UPDATE: not a number', async ({process, notCalled
     
     const writeFile = stub();
     
-    global.writeFile = writeFile;
+    globalThis.writeFile = writeFile;
     
     await process('eslintrc');
     
-    delete global.writeFile;
+    delete globalThis.writeFile;
     update();
     
     notCalled(writeFile);

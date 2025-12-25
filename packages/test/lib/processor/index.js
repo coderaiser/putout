@@ -19,20 +19,20 @@ const processFile = require('@putout/cli-process-file');
 const {runProcessors} = require('@putout/engine-processor');
 
 const isStr = (a) => typeof a === 'string';
-const isUpdate = () => Number(global.process.env.UPDATE);
+const isUpdate = () => Number(globalThis.process.env.UPDATE);
 
 const update = async (a, b) => {
-    const write = global.writeFile || writeFile;
+    const write = globalThis.writeFile || writeFile;
     await write(a, b);
 };
 
 const remove = async (a) => {
-    const remove = global.unlink || unlink;
+    const remove = globalThis.unlink || unlink;
     await tryToCatch(remove, a);
 };
 
 const read = async (a, b) => {
-    const read = global.readFile || readFile;
+    const read = globalThis.readFile || readFile;
     return await read(a, b);
 };
 
@@ -47,7 +47,7 @@ const addDot = (a) => a ? `.${a}` : '';
 const fail = (t, message) => {
     const {
         __putout_test_fail = t.fail,
-    } = global;
+    } = globalThis;
     
     return __putout_test_fail(message);
 };

@@ -437,26 +437,26 @@ test('putout: plugin: traverse: template: log', (t) => {
 
 test('putout: engine: runner: template: log', (t) => {
     const debug = stub();
-    const {__putout_debug} = global;
+    const {__putout_debug} = globalThis;
     
-    global.__putout_debug = stub().returns(debug);
+    globalThis.__putout_debug = stub().returns(debug);
     
     _log();
-    global.__putout_debug = __putout_debug;
+    globalThis.__putout_debug = __putout_debug;
     
     t.notCalled(debug, 'should call debug');
     t.end();
 });
 
 test('putout: engine: runner: template: log: enabled', (t) => {
-    const {__putout_debug} = global;
+    const {__putout_debug} = globalThis;
     const debug = stub();
     
     debug.enabled = true;
-    global.__putout_debug = debug;
+    globalThis.__putout_debug = debug;
     
     _log('rule', 'path');
-    global.__putout_debug = __putout_debug;
+    globalThis.__putout_debug = __putout_debug;
     
     t.calledWith(debug, ['putout:runner:template', 'rule', 'path'], 'should call debug');
     t.end();

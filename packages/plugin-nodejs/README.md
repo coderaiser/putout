@@ -19,6 +19,7 @@ npm i putout @putout/plugin-nodejs -D
 
 - ✅ [add-node-prefix](#add-node-prefix);
 - ✅ [add-missing-strict-mode](#add-missing-strict-mode);
+- ✅ [apply-global-this](#apply-global-this);
 - ✅ [convert-buffer-to-buffer-alloc](#convert-buffer-to-buffer-alloc);
 - ✅ [convert-commonjs-to-esm](#convert-commonjs-to-esm);
 - ✅ [convert-dirname-to-url](#convert-dirname-to-url);
@@ -45,13 +46,15 @@ npm i putout @putout/plugin-nodejs -D
 ```json
 {
     "rules": {
+        "nodejs/add-missing-strict-mode": "on",
+        "nodejs/add-node-prefix": "on",
+        "nodejs/apply-global-this": "off",
         "nodejs/convert-commonjs-to-esm": "off",
         "nodejs/convert-esm-to-commonjs": "off",
         "nodejs/cjs-file": "off",
         "nodejs/mjs-file": "off",
         "nodejs/rename-file-cjs-to-js": "off",
         "nodejs/rename-file-mjs-to-js": "off",
-        "nodejs/add-node-prefix": "on",
         "nodejs/convert-buffer-to-buffer-alloc": "on",
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
@@ -63,7 +66,6 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/declare-after-require": "on",
         "nodejs/group-require-by-id": "on",
         "nodejs/remove-process-exit": "on",
-        "nodejs/add-missing-strict-mode": "on",
         "nodejs/remove-useless-strict-mode": "on",
         "nodejs/remove-illegal-strict-mode": "on",
         "nodejs/remove-useless-promisify": "on"
@@ -101,8 +103,35 @@ await import('node:path');
 
 Linter | Rule | Fix
 --------|-------|------------|
-🐊 **Putout** | [`apply-node-prefix`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs/apply-node-prefix#readme) | ✅
+🐊 **Putout** | [`add-node-prefix`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs/add-node-prefix#readme) | ✅
 ⏣ **ESLint** | [`prefer-node-protocol`](https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-node-protocol.md#readme)  | ✅
+
+## apply-global-this
+
+> Legacy. Use `globalThis` instead.
+>
+> (c) [nodejs.org](https://nodejs.org/api/globals.html#global)
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/c72c8e1b1d0c2b45fd0d15d837dcae52/c7f33d77d19efe962339debbcf20f68bf2159aee).
+
+### ❌ Example of incorrect code
+
+```js
+global.__putout_debug = debugFn;
+```
+
+### ✅ Example of correct code
+
+```js
+globalThis.__putout_debug = debugFn;
+```
+
+### Comparison
+
+Linter | Rule | Fix
+-------|------|------------|
+🐊 **Putout** | [`apply-global-this`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs/apply-node-prefix#readme) | ✅
+⏣ **ESLint**  | [`no-node-globals`](https://docs.deno.com/lint/rules/no-node-globals/)  | ❌
 
 ## convert-buffer-to-buffer-alloc
 

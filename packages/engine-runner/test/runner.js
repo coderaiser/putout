@@ -732,7 +732,7 @@ test('putout: runner: debug', (t) => {
     
     debugFn.enabled = true;
     
-    global.__putout_debug = stub().returns(debugFn);
+    globalThis.__putout_debug = stub().returns(debugFn);
     
     const {code} = putout(fixture.debug, {
         fix: true,
@@ -755,7 +755,7 @@ test('putout: runner: debug: replace', (t) => {
     const debugFn = stub();
     
     debugFn.enabled = true;
-    global.__putout_debug = debugFn;
+    globalThis.__putout_debug = debugFn;
     
     process.env.DEBUG = 'putout:runner:fix';
     
@@ -770,7 +770,7 @@ test('putout: runner: debug: replace', (t) => {
     ];
     
     process.env.DEBUG = DEBUG;
-    delete global.__putout_debug;
+    delete globalThis.__putout_debug;
     
     t.calledWith(debugFn, expected);
     t.end();

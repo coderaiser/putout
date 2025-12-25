@@ -10,7 +10,7 @@ const TS = {
 };
 
 module.exports.readFixture = (name, extension) => {
-    const {readFileSync} = global.__putout_test_fs;
+    const {readFileSync} = globalThis.__putout_test_fs;
     const [eTS, dataTS] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
     
     if (!eTS)
@@ -44,27 +44,27 @@ module.exports.readFixture = (name, extension) => {
 };
 
 module.exports.writeFixFixture = ({full, code, extension}) => {
-    const {writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = globalThis.__putout_test_fs;
     writeFileSync(`${full}-fix.${extension}`, code);
 };
 
 module.exports.writeFormatFixture = (full, code) => {
-    const {writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = globalThis.__putout_test_fs;
     writeFileSync(`${full}-format`, code);
 };
 
 module.exports.readFormatFixture = (full) => {
-    const {readFileSync} = global.__putout_test_fs;
+    const {readFileSync} = globalThis.__putout_test_fs;
     return readFileSync(`${full}-format`, 'utf8');
 };
 
 module.exports.writeFixture = ({full, code, extension}) => {
-    const {writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = globalThis.__putout_test_fs;
     writeFileSync(`${full}.${extension}`, code);
 };
 
 module.exports.rmFixture = (name, extension) => {
-    const {unlinkSync} = global.__putout_test_fs;
+    const {unlinkSync} = globalThis.__putout_test_fs;
     
     if (!isUpdate())
         return;

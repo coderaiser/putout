@@ -141,11 +141,11 @@ testUpdate('test: formatMany: with UPDATE env variable', async ({ok, formatMany}
 after();
 
 function before() {
-    global.__putout_test_fs.existsSync = existsSyncStub;
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.existsSync = existsSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
 }
 
 function after() {
-    global.__putout_test_fs.existsSync = existsSync;
-    global.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.existsSync = existsSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
 }

@@ -27,10 +27,10 @@ test('transform: input and output are equal', (t) => {
         message: 'should fail when input === output',
     });
     
-    global.__putout_test_fail = fail;
+    globalThis.__putout_test_fail = fail;
     
     t.transform('no-transform');
-    delete global.__putout_test_fail;
+    delete globalThis.__putout_test_fail;
     
     const args = [`'input' === 'output', use 'noTransform()'`];
     
@@ -41,15 +41,15 @@ test('transform: input and output are equal', (t) => {
 test('transform: with UPDATE env variable', (t) => {
     update(1);
     
-    const {writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = globalThis.__putout_test_fs;
     const writeFileSyncStub = stub();
     
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
     
     t.transform('typescript');
     
     update();
-    global.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.ok(writeFileSyncStub.called, 'should write fixture');
     t.end();
@@ -58,18 +58,18 @@ test('transform: with UPDATE env variable', (t) => {
 test('transform: withOptions: with UPDATE env variable: no read', (t) => {
     update(1);
     
-    const {writeFileSync, readFileSync} = global.__putout_test_fs;
+    const {writeFileSync, readFileSync} = globalThis.__putout_test_fs;
     const writeFileSyncStub = stub();
     const readFileSyncStub = stub().returns('const a = 5');
     
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
-    global.__putout_test_fs.readFileSync = readFileSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.readFileSync = readFileSyncStub;
     
     t.transformWithOptions('typescript', {});
     
     update();
-    global.__putout_test_fs.writeFileSync = writeFileSync;
-    global.__putout_test_fs.readFileSync = readFileSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.readFileSync = readFileSync;
     
     const path = join(__dirname, 'fixture/typescript.ts');
     
@@ -80,15 +80,15 @@ test('transform: withOptions: with UPDATE env variable: no read', (t) => {
 test('transform: noTransformWithOptions: with UPDATE env variable', (t) => {
     update(1);
     
-    const {writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = globalThis.__putout_test_fs;
     const writeFileSyncStub = stub();
     
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
     
     t.noTransformWithOptions('no-transform-with-options', {});
     
     update();
-    global.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.ok(writeFileSyncStub.called, 'should write fixture');
     t.end();
@@ -97,15 +97,15 @@ test('transform: noTransformWithOptions: with UPDATE env variable', (t) => {
 test('transform: with UPDATE env variable: pass', (t) => {
     update(1);
     
-    const {writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = globalThis.__putout_test_fs;
     const writeFileSyncStub = stub();
     
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
     
     const result = t.transform('typescript');
     
     update();
-    global.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.equal(result.message, 'fixed fixture updated');
     t.end();
@@ -114,15 +114,15 @@ test('transform: with UPDATE env variable: pass', (t) => {
 test('test: no transform: with UPDATE env variable: pass', (t) => {
     update(1);
     
-    const {writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = globalThis.__putout_test_fs;
     const writeFileSyncStub = stub();
     
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
     
     const result = t.noTransform('no-transform');
     
     update();
-    global.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.equal(result.message, 'source fixture updated');
     t.end();
@@ -131,15 +131,15 @@ test('test: no transform: with UPDATE env variable: pass', (t) => {
 test('transform: with UPDATE env variable: js', (t) => {
     update(1);
     
-    const {writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = globalThis.__putout_test_fs;
     const writeFileSyncStub = stub();
     
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
     
     t.transform('update');
     
     update();
-    global.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.ok(writeFileSyncStub.called, 'should write fixture');
     t.end();
@@ -148,15 +148,15 @@ test('transform: with UPDATE env variable: js', (t) => {
 test('transform: with UPDATE env variable: with arg', (t) => {
     update(1);
     
-    const {writeFileSync} = global.__putout_test_fs;
+    const {writeFileSync} = globalThis.__putout_test_fs;
     const writeFileSyncStub = stub();
     
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
     
     t.transform('typescript', '\n');
     
     update();
-    global.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.notCalled(writeFileSyncStub);
     t.end();
@@ -165,19 +165,19 @@ test('transform: with UPDATE env variable: with arg', (t) => {
 test('noTransform: with UPDATE env variable', (t) => {
     update(1);
     
-    const {writeFileSync, unlinkSync} = global.__putout_test_fs;
+    const {writeFileSync, unlinkSync} = globalThis.__putout_test_fs;
     
     const writeFileSyncStub = stub();
     const unlinkSyncStub = stub();
     
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
-    global.__putout_test_fs.unlinkSync = unlinkSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.unlinkSync = unlinkSyncStub;
     
     t.noTransform('const');
     
     update();
-    global.__putout_test_fs.writeFileSync = writeFileSync;
-    global.__putout_test_fs.unlinkSync = unlinkSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.unlinkSync = unlinkSync;
     
     t.calledOnce(writeFileSyncStub);
     t.end();
@@ -186,19 +186,19 @@ test('noTransform: with UPDATE env variable', (t) => {
 test('transformWithOptions: with UPDATE env variable', (t) => {
     update(1);
     
-    const {writeFileSync, unlinkSync} = global.__putout_test_fs;
+    const {writeFileSync, unlinkSync} = globalThis.__putout_test_fs;
     
     const unlinkSyncStub = stub();
     const writeFileSyncStub = stub();
     
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
-    global.__putout_test_fs.unlinkSync = unlinkSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.unlinkSync = unlinkSyncStub;
     
     t.transformWithOptions('const', {});
     
     update();
-    global.__putout_test_fs.writeFileSync = writeFileSync;
-    global.__putout_test_fs.unlinkSync = unlinkSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.unlinkSync = unlinkSync;
     
     t.ok(writeFileSyncStub.called);
     t.end();
@@ -206,19 +206,19 @@ test('transformWithOptions: with UPDATE env variable', (t) => {
 
 test('transformWithOptions: with UPDATE env variable: pass', (t) => {
     update(1);
-    const {writeFileSync, unlinkSync} = global.__putout_test_fs;
+    const {writeFileSync, unlinkSync} = globalThis.__putout_test_fs;
     
     const unlinkSyncStub = stub();
     const writeFileSyncStub = stub();
     
-    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
-    global.__putout_test_fs.unlinkSync = unlinkSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    globalThis.__putout_test_fs.unlinkSync = unlinkSyncStub;
     
     const result = t.transformWithOptions('const', {});
     
     update();
-    global.__putout_test_fs.writeFileSync = writeFileSync;
-    global.__putout_test_fs.unlinkSync = unlinkSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
+    globalThis.__putout_test_fs.unlinkSync = unlinkSync;
     
     t.equal(result.message, 'fixed fixture updated');
     t.end();

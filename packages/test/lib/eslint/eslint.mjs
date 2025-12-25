@@ -22,7 +22,7 @@ const {isArray} = Array;
 const isUpdate = () => process.env.UPDATE === '1';
 
 const update = (name, data) => {
-    const fn = global.writeFileSync || writeFileSync;
+    const fn = globalThis.writeFileSync || writeFileSync;
     fn(name, data);
 };
 
@@ -31,7 +31,7 @@ const remove = (name) => {
     const base = basename(name, ext);
     const fixtureName = name.replace(base, `${base}-fix`);
     
-    const fn = global.unlinkSync || unlinkSync;
+    const fn = globalThis.unlinkSync || unlinkSync;
     
     tryCatch(fn, String(fixtureName));
 };

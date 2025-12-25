@@ -12,9 +12,9 @@ test('putout: compare: log', (t) => {
     const debug = stub();
     
     debug.enabled = true;
-    global.__putout_debug = debug;
+    globalThis.__putout_debug = debug;
     log('hello', 'world');
-    delete global.__putout_debug;
+    delete globalThis.__putout_debug;
     
     const expected = [
         'putout:compare',
@@ -29,10 +29,10 @@ test('putout: compare: run-plugins: template: log: array', (t) => {
     const debug = stub();
     
     debug.enabled = true;
-    global.__putout_debug = debug;
+    globalThis.__putout_debug = debug;
     
     log([identifier('hello')], [identifier('world')]);
-    delete global.__putout_debug;
+    delete globalThis.__putout_debug;
     
     const expected = [
         'putout:compare',
@@ -47,10 +47,10 @@ test('putout: compare: log: object', (t) => {
     const debug = stub();
     
     debug.enabled = true;
-    global.__putout_debug = debug;
+    globalThis.__putout_debug = debug;
     
     log(identifier('hello'), identifier('world'));
-    delete global.__putout_debug;
+    delete globalThis.__putout_debug;
     
     const expected = [
         'putout:compare',

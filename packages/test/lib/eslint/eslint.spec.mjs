@@ -36,12 +36,12 @@ test('test: eslint: process: UPDATE: stub', async ({process, calledWith}) => {
     update(1);
     const writeFileSync = stub();
     
-    global.writeFileSync = writeFileSync;
+    globalThis.writeFileSync = writeFileSync;
     
     await process('process');
     
     update();
-    delete global.writeFileSync;
+    delete globalThis.writeFileSync;
     
     const name = join(__dirname, 'fixture', 'process-fix.js');
     const data = 'const a = 5;\n\n';
@@ -50,16 +50,16 @@ test('test: eslint: process: UPDATE: stub', async ({process, calledWith}) => {
 }, NOT_CHECK_ASSERTIONS_COUNT);
 
 test('test: eslint: noProcess: UPDATE', async ({noProcess, calledWith}) => {
-    const {unlinkSync} = global;
+    const {unlinkSync} = globalThis;
     const unlinkStub = stub();
     
-    global.unlinkSync = unlinkStub();
+    globalThis.unlinkSync = unlinkStub();
     
     update(1);
     await noProcess('no-process');
     update();
     
-    global.unlinkSync = unlinkSync;
+    globalThis.unlinkSync = unlinkSync;
     
     calledWith(unlinkStub, []);
 }, NOT_CHECK_ASSERTIONS_COUNT);
@@ -68,12 +68,12 @@ test('test: eslint: noProcess: UPDATE: stub', async ({noProcess, calledWith}) =>
     update(1);
     const unlinkSync = stub();
     
-    global.unlinkSync = unlinkSync;
+    globalThis.unlinkSync = unlinkSync;
     
     await noProcess('no-process');
     
     update();
-    delete global.unlinkSync;
+    delete globalThis.unlinkSync;
     
     const name = join(__dirname, 'fixture', 'no-process-fix.js');
     

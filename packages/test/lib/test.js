@@ -38,7 +38,7 @@ const isObject = (a) => typeof a === 'object';
 
 const {keys} = Object;
 
-global.__putout_test_fs = {
+globalThis.__putout_test_fs = {
     readFileSync,
     writeFileSync,
     existsSync,
@@ -50,7 +50,7 @@ const isUpdate = () => Boolean(Number(process.env.UPDATE));
 const fail = (t, message) => {
     const {
         __putout_test_fail = t.fail,
-    } = global;
+    } = globalThis;
     
     return __putout_test_fail(message);
 };

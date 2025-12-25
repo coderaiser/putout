@@ -36,7 +36,7 @@ test('fix: error: nested path: debug', (t) => {
     
     debugFn.enabled = true;
     
-    global.__putout_debug = stub().returns(debugFn);
+    globalThis.__putout_debug = stub().returns(debugFn);
     
     const remove = () => {
         throw Error('hello');
@@ -60,19 +60,19 @@ test('fix: error: nested path: debug', (t) => {
         position,
     });
     
-    delete global.__putout_debug;
+    delete globalThis.__putout_debug;
     
     t.equal(e.loc, position);
     t.end();
 });
 
 test('fix: error: nested path: debug: nested path', (t) => {
-    const {__putout_debug} = global;
+    const {__putout_debug} = globalThis;
     const debugFn = stub();
     
     debugFn.enabled = true;
     
-    global.__putout_debug = stub().returns(debugFn);
+    globalThis.__putout_debug = stub().returns(debugFn);
     
     const remove = () => {
         throw Error('hello');
@@ -98,7 +98,7 @@ test('fix: error: nested path: debug: nested path', (t) => {
         position,
     });
     
-    global.__putout_debug = __putout_debug;
+    globalThis.__putout_debug = __putout_debug;
     
     t.equal(e.loc, position);
     t.end();

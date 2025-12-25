@@ -39,7 +39,7 @@ testProcessor('test: processor: processorRunners: same input and output', async 
         message: 'should fail when input === output',
     });
     
-    global.__putout_test_fail = fail;
+    globalThis.__putout_test_fail = fail;
     
     await process('typos');
     
@@ -47,7 +47,7 @@ testProcessor('test: processor: processorRunners: same input and output', async 
         env.UPDATE = UPDATE;
     
     const args = [`'input' === 'output', use 'noProcess()'`];
-    delete global.__putout_test_fail;
+    delete globalThis.__putout_test_fail;
     
     calledWith(fail, args);
 }, {
