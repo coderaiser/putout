@@ -1,0 +1,11 @@
+{
+    "rules": {
+        "no-unused-expressions": "off",
+        "no-cond-assign": "off",
+        "no-control-regex": "off",
+        "no-unused-vars": "off",
+        "no-useless-spread": "off",
+        "no-unassigned-vars": "off"
+    },
+    "ignorePatterns": ["*fixture"]
+}
