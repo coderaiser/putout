@@ -27,7 +27,6 @@
     "fresh:only:eslint": "madrun fresh:only:eslint",
     "lint:oxlint": "madrun lint:oxlint",
     "lint": "madrun lint",
-    "prelint": "madrun prelint",
     "lint:mark": "madrun lint:mark",
     "memory": "madrun memory",
     "time": "madrun time",

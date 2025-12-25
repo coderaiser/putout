@@ -2,6 +2,20 @@
     "tasks": {
         "start": "deno run -P=putout packages/putout/bin/tracer.mjs"
     },
+    "lint": {
+        "exclude": [
+            "**/*fixture"
+        ],
+        "rules": {
+            "exclude": [
+                "no-unused-vars",
+                "no-cond-assign",
+                "no-control-regex",
+                "no-var",
+                "require-await"
+            ]
+        }
+    },
     "permissions": {
         "putout": {
             "env": true,
