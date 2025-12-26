@@ -1,3 +1,29 @@
+2025.12.26, v41.0.9
+
+feature:
+- 8ea3d2aff putout: @putout/cli-staged v2.0.0
+- 9191746f8 @putout/cli-staged: migrate to ESM
+- ebcefac19 @putout/cli-staged: get rid of mock-require
+- d91e55f21 @putout/plugin-eslint: remove-parser-options: typescript: false positive
+- 710c5f16d @putout/plugin-nodejs: apply-global-this: add
+- 37a32c478 @putout/plugin-filesystem: remove-ds-store-file: add
+- e1c44e536 @putout/plugin-nodejs: declare: buffer: add
+- 0acc4ffc7 @putout/plugin-variables: remove-unused: ArrayPattern: improve support
+- f9d0d6ac5 @putout/plugin-regexp: remove-useless-escape: ^
+- 4daf1bb0f @putout/plugin-regexp: apply-starts-with: \n
+- 62c8c8b28 @putout/plugin-regexp: apply-ends-with: dot
+- 88f6ec881 @putout/plugin-regexp: apply-starts-with: dot
+- 6d4099d45 eslint-plugin-putout: @putout/eslint-config v13.0.0
+- 397531d6a eslint-plugin-putout: rm no-debugger, no-unused-vars
+- 1ac6e8626 @putout/eslint-config: no-debugger, no-unused-vars: off
+- 9e83fcb4d variables: remove-unused: ArrayPattern inside ArrayPattern: add support
+- fa2b4d35e deno config: add
+- b9a7eb0e0 @putout/engine-parser: hermes-parser v0.33.0
+- bcae5b9ce putout: @putout/engine-reporter v6.0.0
+- 333852573 @putout/engine-reporter: get rid of mock-require
+- a3432f746 putout: cli: get-options: putout --no-config: do not exit when no plugins passed
+- 4a45df8f2 @putout/engine-reporter: do not exit when no plugins
+
 2025.12.20, v41.0.8
 
 feature:
