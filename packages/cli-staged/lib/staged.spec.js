@@ -1,8 +1,6 @@
-'use strict';
-
-const tryToCatch = require('try-to-catch');
-const {test, stub} = require('supertape');
-const {get, set} = require('./staged');
+import tryToCatch from 'try-to-catch';
+import {test, stub} from 'supertape';
+import {get, set} from './staged.js';
 
 test('putout: cli: staged', async (t) => {
     const findUp = stub().returns('.');

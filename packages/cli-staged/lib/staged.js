@@ -1,11 +1,7 @@
-'use strict';
-
-const {join} = require('node:path');
-const {spawnSync: _spawnSync} = require('node:child_process');
-
-const _porcelain = require('@putout/git-status-porcelain');
-
-const fullstore = require('fullstore');
+import {join} from 'node:path';
+import {spawnSync as _spawnSync} from 'node:child_process';
+import _porcelain from '@putout/git-status-porcelain';
+import fullstore from 'fullstore';
 
 const namesStore = fullstore([]);
 
@@ -23,7 +19,7 @@ const findGit = async ({findUp}) => {
 
 const joinDir = (a) => (b) => join(a, b);
 
-module.exports.get = async function get(overrides = {}) {
+export const get = async function get(overrides = {}) {
     const {
         findUp,
         isSupported,
@@ -45,7 +41,7 @@ module.exports.get = async function get(overrides = {}) {
     return names.map(joinDir(dir));
 };
 
-module.exports.set = async function set(overrides = {}) {
+export const set = async function set(overrides = {}) {
     const {
         findUp,
         porcelain = _porcelain,
