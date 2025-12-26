@@ -28,6 +28,7 @@ const {
     INVALID_CONFIG,
     CANNOT_LINT_STAGED,
     INTERACTIVE_CANCELED,
+    STAGE,
 } = require('./exit-codes');
 
 const noop = () => {};
@@ -39,7 +40,6 @@ const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: --raw', async (t) => {
     const logError = stub();
-    
     const argv = [
         'xx',
         '--raw',
@@ -47,17 +47,13 @@ test('putout: cli: --raw', async (t) => {
     
     const error = Error('No files matching the pattern "xx" were found');
     
-    mockRequire('./get-files', stub().returns([error]));
-    
-    const cli = reRequire('.');
+    const getFiles = stub().returns([error]);
     
     await runCli({
-        cli,
+        getFiles,
         logError,
         argv,
     });
-    
-    stopAll();
     
     t.calledWith(logError, [error], 'should call logError');
     t.end();
@@ -70,18 +66,13 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     const argv = ['--raw'];
     const error = Error('No files matching the pattern "xx" were found');
     
-    mockRequire('./get-files', stub().returns([error]));
-    reRequire('./runner/reader.js');
-    
-    const cli = reRequire('.');
+    const getFiles = stub().returns([error]);
     
     await runCli({
-        cli,
         logError,
         argv,
+        getFiles,
     });
-    
-    stopAll();
     
     delete process.env.PUTOUT_FILES;
     reRequire('.');
@@ -92,7 +83,6 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
 
 test('putout: cli: --raw: parse error', async (t) => {
     const logError = stub();
-    
     const argv = [
         join(__dirname, 'fixture/parse-error.js'),
         '--raw',
@@ -103,15 +93,7 @@ test('putout: cli: --raw: parse error', async (t) => {
         '--no-cache',
     ];
     
-    reRequire('./runner/reader.js');
-    reRequire('./runner/writer.js');
-    
-    reRequire('./get-files');
-    reRequire('@putout/cli-process-file');
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         logError,
         argv,
         readFile,
@@ -335,10 +317,10 @@ test('putout: cli: no ide', async (t) => {
     const name = basename(__filename);
     const argv = [name, '--fresh'];
     
-    const processFile = stub().returns(stub().returns({
+    const processFile = stub().returns({
         places: [],
         code: '',
-    }));
+    });
     
     const getFormatter = stub().returns(['dump', {}]);
     const report = stub();
@@ -360,16 +342,12 @@ test('putout: cli: no ide', async (t) => {
         setInfo,
     });
     
-    mockRequire('@putout/cli-process-file', processFile);
-    mockRequire('@putout/engine-reporter/formatter', {
-        getFormatter,
-    });
-    mockRequire('@putout/engine-reporter/report', stub().returns(report));
-    mockRequire('./get-files', getFiles);
+    const initProcessFile = stub().returns(processFile);
+    const initReport = stub().returns(report);
     
-    mockRequire('@putout/cli-cache', {
+    const cliCache = {
         createCache,
-    });
+    };
     
     const {
         TERMINAL_EMULATOR,
@@ -379,17 +357,14 @@ test('putout: cli: no ide', async (t) => {
     delete env.TERMINAL_EMULATOR;
     delete env.TERM_PROGRAM;
     
-    reRequire('./runner/reader.js');
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
+        cliCache,
+        getFiles,
+        getFormatter,
+        initReport,
+        initProcessFile,
     });
-    
-    stopAll();
     
     env.TERMINAL_EMULATOR = TERMINAL_EMULATOR;
     env.TERM_PROGRAM = TERM_PROGRAM;
@@ -415,10 +390,10 @@ test('putout: cli: ide: web storm', async (t) => {
     
     process.env.TERMINAL_EMULATOR = 'JetBrains-JediTerm';
     
-    const processFile = stub().returns(stub().returns({
+    const processFile = stub().returns({
         places: [],
         code: '',
-    }));
+    });
     
     const getFormatter = stub().returns(['dump', {}]);
     const report = stub();
@@ -440,26 +415,22 @@ test('putout: cli: ide: web storm', async (t) => {
         setInfo,
     });
     
-    mockRequire('@putout/cli-process-file', processFile);
-    mockRequire('@putout/engine-reporter/formatter', {
-        getFormatter,
-    });
-    mockRequire('@putout/engine-reporter/report', stub().returns(report));
-    mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-cache', {
-        createCache,
-    });
+    const initProcessFile = stub().returns(processFile);
+    const initReport = stub().returns(report);
     
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
+    const cliCache = {
+        createCache,
+    };
     
     await runCli({
-        cli,
+        getFormatter,
+        getFiles,
+        cliCache,
         argv,
+        initReport,
+        initProcessFile,
     });
     
-    stopAll();
     process.env.TERMINAL_EMULATOR = TERMINAL_EMULATOR;
     
     const expected = ['dump', {
@@ -478,17 +449,15 @@ test('putout: cli: ide: web storm', async (t) => {
 
 test('putout: cli: ide: vs code', async (t) => {
     const name = basename(__filename);
-    
     const argv = [name, '--fresh'];
-    
     const {TERM_PROGRAM} = process.env;
     
     process.env.TERM_PROGRAM = 'vscode';
     
-    const processFile = stub().returns(stub().returns({
+    const processFile = stub().returns({
         places: [],
         code: '',
-    }));
+    });
     
     const getFormatter = stub().returns(['dump', {}]);
     
@@ -511,26 +480,22 @@ test('putout: cli: ide: vs code', async (t) => {
         setInfo,
     });
     
-    mockRequire('@putout/cli-process-file', processFile);
-    mockRequire('@putout/engine-reporter/formatter', {
-        getFormatter,
-    });
-    mockRequire('@putout/engine-reporter/report', stub().returns(report));
-    mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-cache', {
-        createCache,
-    });
+    const initProcessFile = stub().returns(processFile);
+    const initReport = stub().returns(report);
     
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
+    const cliCache = {
+        createCache,
+    };
     
     await runCli({
-        cli,
+        cliCache,
+        getFiles,
+        getFormatter,
         argv,
+        initReport,
+        initProcessFile,
     });
     
-    stopAll();
     process.env.TERM_PROGRAM = TERM_PROGRAM;
     
     const expected = ['dump', {
@@ -555,10 +520,12 @@ test('putout: cli: ide: vs code: cache', async (t) => {
     
     process.env.TERM_PROGRAM = 'vscode';
     
-    const processFile = stub().returns(stub().returns({
+    const processFile = stub().returns({
         places: [],
         code: '',
-    }));
+    });
+    
+    const initProcessFile = stub().returns(processFile);
     
     const getFormatter = stub().returns(['dump', {}]);
     const report = stub();
@@ -580,26 +547,21 @@ test('putout: cli: ide: vs code: cache', async (t) => {
         setInfo,
     });
     
-    mockRequire('@putout/cli-process-file', processFile);
-    mockRequire('@putout/engine-reporter/formatter', {
-        getFormatter,
-    });
-    mockRequire('@putout/engine-reporter/report', stub().returns(report));
-    mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-cache', {
-        createCache,
-    });
+    const initReport = stub().returns(report);
     
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
+    const cliCache = {
+        createCache,
+    };
     
     await runCli({
-        cli,
         argv,
+        cliCache,
+        getFiles,
+        initReport,
+        initProcessFile,
+        getFormatter,
     });
     
-    stopAll();
     process.env.TERM_PROGRAM = TERM_PROGRAM;
     
     const expected = ['dump', {
@@ -623,10 +585,12 @@ test('putout: cli: no ide: cache', async (t) => {
     
     process.env.TERMINAL_EMULATOR = 'none';
     
-    const processFile = stub().returns(stub().returns({
+    const processFile = stub().returns({
         places: [],
         code: '',
-    }));
+    });
+    
+    const initProcessFile = stub().returns(processFile);
     
     const getFormatter = stub().returns(['dump', {}]);
     const report = stub();
@@ -648,27 +612,21 @@ test('putout: cli: no ide: cache', async (t) => {
         setInfo,
     });
     
-    mockRequire('@putout/cli-process-file', processFile);
-    mockRequire('@putout/engine-reporter/formatter', {
-        getFormatter,
-    });
-    mockRequire('@putout/engine-reporter/report', stub().returns(report));
-    mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-cache', {
+    const initReport = stub().returns(report);
+    
+    const cliCache = {
         createCache,
-    });
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    
-    const cli = reRequire('.');
+    };
     
     await runCli({
-        cli,
         argv,
+        cliCache,
+        initProcessFile,
+        getFiles,
+        getFormatter,
+        initReport,
     });
     
-    stopAll();
     process.env.TERMINAL_EMULATOR = TERMINAL_EMULATOR;
     
     const expected = ['dump', {
@@ -687,7 +645,6 @@ test('putout: cli: no ide: cache', async (t) => {
 
 test('putout: cli: --fresh', async (t) => {
     const file = join(__dirname, 'fixture/parse-error.js');
-    
     const argv = [
         file,
         '--no-config',
@@ -704,29 +661,15 @@ test('putout: cli: --fresh', async (t) => {
         processors: ['javascript'],
     });
     
-    mockRequire('./simple-import', {
-        simpleImport: async (url) => {
-            if (url === '@putout/cli-cache')
-                return {
-                    createCache,
-                };
-            
-            return await import(url);
-        },
-    });
-    
-    mockRequire('./get-options', getOptions);
-    
-    reRequire('./get-files');
-    
-    const cli = reRequire('.');
+    const cliCache = {
+        createCache,
+    };
     
     await runCli({
-        cli,
         argv,
+        getOptions,
+        cliCache,
     });
-    
-    stopAll();
     
     const expected = {
         fresh: true,
@@ -823,25 +766,20 @@ test('putout: cli: --fix --staged: set', async (t) => {
         code: '',
     });
     
-    const processFile = stub().returns(process);
+    const initProcessFile = stub().returns(process);
     
-    mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-process-file', processFile);
-    
-    mockRequire('@putout/cli-staged', {
+    const cliStaged = {
         get,
         set,
-    });
-    
-    const cli = reRequire('.');
+    };
     
     await runCli({
-        cli,
         argv,
         logError,
+        getFiles,
+        initProcessFile,
+        cliStaged,
     });
-    
-    stopAll();
     
     const {findUp} = await import('find-up');
     
@@ -905,13 +843,11 @@ test('putout: cli: --fix --staged: get', async (t) => {
 });
 
 test('putout: cli: --fix --staged: exit code', async (t) => {
-    const {STAGE} = require('./exit-codes');
     const name = './xxx.js';
     const logError = stub();
     const halt = stub();
     
     const get = stub().returns([name]);
-    
     const set = stub().returns([]);
     
     const argv = [
@@ -929,31 +865,29 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
         code: '',
     });
     
-    const processFile = stub().returns(process);
+    const initProcessFile = stub().returns(process);
     const {_defaultCache} = await import('@putout/cli-cache');
     const createCache = stub().returns(_defaultCache);
     
-    mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-process-file', processFile);
-    mockRequire('@putout/cli-cache', {
+    const cliCache = {
         createCache,
-    });
+    };
     
-    mockRequire('@putout/cli-staged', {
+    const cliStaged = {
         get,
         set,
-    });
-    
-    const cli = reRequire('.');
+    };
     
     await runCli({
         halt,
-        cli,
         argv,
         logError,
+        getFiles,
+        
+        initProcessFile,
+        cliCache,
+        cliStaged,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [STAGE]);
     t.end();
@@ -969,18 +903,15 @@ test('putout: cli: --staged --fix', async (t) => {
         '--fix',
     ];
     
-    mockRequire('@putout/cli-staged', {
+    const cliStaged = {
         get,
         set,
-    });
-    
-    reRequire('./get-files');
-    const cli = reRequire('.');
+    };
     
     await runCli({
-        cli,
         argv,
         logError,
+        cliStaged,
     });
     
     const [allArgCalls] = logError.args;
@@ -988,8 +919,6 @@ test('putout: cli: --staged --fix', async (t) => {
     
     const output = stripVTControlCharacters(arg);
     const message = `🐊 No files matching the pattern './xxx.js' were found`;
-    
-    stopAll();
     
     t.equal(output, message);
     t.end();
@@ -1700,9 +1629,6 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     });
     
     mockRequire('./get-options', getOptions);
-    //mockRequire('@putout/cli-cache', {
-    //    createCache,
-    //});
     mockRequire('./simple-import.js', {
         simpleImport: (name) => {
             if (name === '@putout/cli-cache')
@@ -1874,7 +1800,6 @@ test('putout: cli: readFile: EACCESS', async (t) => {
 
 test('putout: cli: get files: called with ignore option', async (t) => {
     const argv = [__filename, '--no-ci', '--no-cache'];
-    
     const ignore = ['xxx'];
     
     const getOptions = stub().returns({
@@ -1885,17 +1810,11 @@ test('putout: cli: get files: called with ignore option', async (t) => {
     
     const getFiles = stub().returns(['dir', []]);
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./get-files', getFiles);
-    
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
+        getOptions,
+        getFiles,
     });
-    
-    stopAll();
     
     const expected = [
         [__filename], {
@@ -1933,21 +1852,13 @@ test('putout: cli: get files: was stop', async (t) => {
         isStop,
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./get-files', getFiles);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
         halt,
         keypress,
+        getOptions,
+        getFiles,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [WAS_STOP], 'should set WAS_STOP status');
     t.end();
@@ -2407,6 +2318,13 @@ async function runCli(options) {
         readFile = stub().returns(''),
         writeFile = stub(),
         keypress,
+        getOptions,
+        getFiles,
+        cliStaged,
+        cliCache,
+        initProcessFile,
+        getFormatter,
+        initReport,
     } = options;
     
     await cli({
@@ -2419,5 +2337,12 @@ async function runCli(options) {
         writeFile,
         isStop,
         keypress,
+        getOptions,
+        getFiles,
+        cliStaged,
+        cliCache,
+        initProcessFile,
+        getFormatter,
+        initReport,
     });
 }

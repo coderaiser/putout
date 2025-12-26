@@ -8,6 +8,7 @@ const {nanomemoize} = require('nano-memoize');
 const tryCatch = require('try-catch');
 const wraptile = require('wraptile');
 const fullstore = require('fullstore');
+const _cliStaged = require('@putout/cli-staged');
 
 const {
     getFilePatterns,
@@ -15,13 +16,14 @@ const {
     defaultProcessors,
 } = require('@putout/engine-processor');
 
+const _initReport = require('@putout/engine-reporter/report');
 const {keypress: _keypress} = require('@putout/cli-keypress');
 
 const supportedFiles = require('./supported-files');
-const getOptions = require('./get-options');
+const _getOptions = require('./get-options');
 const {argvConfig, parseArgs} = require('./parse-args');
 
-const getFiles = require('./get-files');
+const {getFiles: _getFiles} = require('./get-files.mjs');
 const {version, dependencies} = require('../../package.json');
 const {formatter: defaultFormatter} = require('../../putout.json');
 const {simpleImport} = require('./simple-import');
@@ -46,11 +48,12 @@ const {
 const noop = () => {};
 const {keys} = Object;
 const {isSupported} = supportedFiles;
-const getFormatter = nanomemoize(require('@putout/engine-reporter/formatter').getFormatter);
+const _getFormatter = nanomemoize(require('@putout/engine-reporter/formatter').getFormatter);
 
 const cwd = process.cwd();
-const {PUTOUT_FILES = ''} = process.env;
-const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
+const {env} = process;
+
+const getEnvNames = () => !env.PUTOUT_FILES ? [] : env.PUTOUT_FILES.split(',');
 
 const getExitCode = (wasStop) => wasStop() ? WAS_STOP : OK;
 const isStr = (a) => typeof a === 'string';
@@ -76,6 +79,13 @@ module.exports = async (overrides = {}) => {
         writeFile,
         trace = noop,
         keypress = _keypress,
+        getOptions = _getOptions,
+        getFiles = _getFiles,
+        cliStaged = _cliStaged,
+        cliCache,
+        initProcessFile,
+        initReport = _initReport,
+        getFormatter = _getFormatter,
     } = overrides;
     
     const isStop = parseIsStop(overrides.isStop || noop, {
@@ -212,7 +222,7 @@ module.exports = async (overrides = {}) => {
     const stagedNames = [];
     
     if (staged) {
-        const {get} = require('@putout/cli-staged');
+        const {get} = cliStaged;
         const {findUp} = await simpleImport('find-up');
         
         const [error, names] = await tryToCatch(get, {
@@ -229,7 +239,7 @@ module.exports = async (overrides = {}) => {
     const globFiles = [
         ...stagedNames,
         ...args._.map(String),
-        ...envNames,
+        ...getEnvNames(),
     ];
     
     const [e, names] = await getFiles(globFiles, {
@@ -247,7 +257,7 @@ module.exports = async (overrides = {}) => {
     if (noFiles)
         return exit();
     
-    const {createCache} = await simpleImport('@putout/cli-cache');
+    const {createCache} = cliCache || await simpleImport('@putout/cli-cache');
     
     const fileCache = await createCache({
         version,
@@ -273,7 +283,10 @@ module.exports = async (overrides = {}) => {
         plugins,
     };
     
+    const report = initReport();
+    
     const {places, exited} = await run({
+        report,
         processorRunners,
         trace,
         fix,
@@ -294,6 +307,7 @@ module.exports = async (overrides = {}) => {
         noConfig,
         plugins,
         transform,
+        initProcessFile,
     });
     
     if (exited)
@@ -313,7 +327,7 @@ module.exports = async (overrides = {}) => {
     }
     
     if (fix && staged) {
-        const {set} = require('@putout/cli-staged');
+        const {set} = cliStaged;
         const {findUp} = await simpleImport('find-up');
         
         const stagedNames = await set({

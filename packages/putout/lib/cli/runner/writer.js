@@ -11,8 +11,15 @@ const {runReader} = require('./reader.js');
 
 const isParser = (rule) => rule.startsWith('parser');
 const isParsingError = ({rule}) => isParser(rule);
-const chooseName = (name, resolvedName) => !isIDE ? name : resolvedName;
-const isIDE = /JetBrains/.test(env.TERMINAL_EMULATOR) || env.TERM_PROGRAM === 'vscode';
+
+const chooseName = (name, resolvedName) => !isIDE() ? name : resolvedName;
+
+const isIDE = () => {
+    if (/JetBrains/.test(env.TERMINAL_EMULATOR))
+        return true;
+    
+    return env.TERM_PROGRAM === 'vscode';
+};
 
 const createFormatterProxy = (options) => {
     return new Proxy(options, {

@@ -1,12 +1,10 @@
-'use strict';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {test, stub} from 'supertape';
+import {getFiles} from './get-files.mjs';
 
-const {join} = require('node:path');
-const fs = require('node:fs/promises');
-
-const {test, stub} = require('supertape');
-
-const getFiles = require('./get-files');
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const rmStart = (a) => a.replace('lib/', '');
 
 test('putout: getFiles: error', async (t) => {
@@ -24,9 +22,7 @@ test('putout: getFiles: error: not first', async (t) => {
 });
 
 test('putout: getFiles', async (t) => {
-    const {lstat} = fs;
-    
-    fs.lstat = stub().returns({
+    const lstat = stub().returns({
         isDirectory: stub().returns(false),
     });
     
@@ -35,6 +31,7 @@ test('putout: getFiles', async (t) => {
     const options = {};
     const [, files] = await getFiles(['**/get-files*.js'], options, {
         fastGlob,
+        lstat,
     });
     
     const result = files.map(rmStart);
@@ -43,8 +40,6 @@ test('putout: getFiles', async (t) => {
         'get-files.js',
         'get-files.spec.js',
     ];
-    
-    fs.lstat = lstat;
     
     t.deepEqual(result, expected);
     t.end();

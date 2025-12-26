@@ -1,13 +1,34 @@
 'use strict';
 
-const Report = require('@putout/engine-reporter/report');
-
-const initProcessFile = require('@putout/cli-process-file');
+const _initProcessFile = require('@putout/cli-process-file');
 const {runWriter} = require('./writer.js');
 
-const report = Report();
-
-module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, exit, isStop, wasStop, names, write, log, rulesdir, fix, processorRunners, fileCache, currentFormat, formatterOptions, options, raw, trace}) => {
+module.exports.run = async (overrides) => {
+    const {
+        transform,
+        plugins,
+        noConfig,
+        readFile,
+        writeFile,
+        exit,
+        isStop,
+        wasStop,
+        names,
+        write,
+        log,
+        rulesdir,
+        fix,
+        processorRunners,
+        fileCache,
+        currentFormat,
+        formatterOptions,
+        options,
+        raw,
+        trace,
+        initProcessFile = _initProcessFile,
+        report,
+    } = overrides;
+    
     const processFile = initProcessFile(options);
     const {length} = names;
     const places = [];

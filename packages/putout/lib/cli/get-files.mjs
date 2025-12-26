@@ -1,31 +1,27 @@
-'use strict';
-
-const {normalize} = require('node:path');
-const {lstat: _lstat} = require('node:fs/promises');
-
-const _fastGlob = require('fast-glob');
-const tryToCatch = require('try-to-catch');
-
-const {getSupportedGlob: _getSupportedGlob} = require('./supported-files');
+import {normalize} from 'node:path';
+import {lstat as _lstat} from 'node:fs/promises';
+import _fastGlob from 'fast-glob';
+import tryToCatch from 'try-to-catch';
+import {getSupportedGlob as _getSupportedGlob} from './supported-files.js';
 
 const rmDuplicates = (a) => Array.from(new Set(a));
 const unixifyPath = (a) => !a.includes('\\') ? a : a.replace(/\\/g, '/');
 
-module.exports = async (args, options, overrides = {}) => {
+export const getFiles = async (args, options, overrides = {}) => {
     const {
         fastGlob = _fastGlob,
         lstat = _lstat,
         getSupportedGlob = _getSupportedGlob,
     } = overrides;
     
-    return await tryToCatch(getFiles, args, options, {
+    return await tryToCatch(getFilesProcessor, args, options, {
         fastGlob,
         lstat,
         getSupportedGlob,
     });
 };
 
-async function getFiles(args, options, overrides) {
+async function getFilesProcessor(args, options, overrides) {
     const promises = args.map(addExt(options, overrides));
     const files = await Promise.all(promises);
     const mergedFiles = files.flat();
