@@ -1,15 +1,15 @@
 'use strict';
 
 const {join} = require('node:path');
-const {spawnSync} = require('node:child_process');
+const {spawnSync: _spawnSync} = require('node:child_process');
 
-const porcelain = require('@putout/git-status-porcelain');
-const once = require('once');
+const _porcelain = require('@putout/git-status-porcelain');
+
 const fullstore = require('fullstore');
 
 const namesStore = fullstore([]);
 
-const findGit = once(async ({findUp}) => {
+const findGit = async ({findUp}) => {
     const type = 'directory';
     const gitDir = await findUp('.git', {
         type,
@@ -19,11 +19,17 @@ const findGit = once(async ({findUp}) => {
         throw Error('not git repository');
     
     return gitDir.replace(/\.git$/, '');
-});
+};
 
 const joinDir = (a) => (b) => join(a, b);
 
-module.exports.get = async function get({findUp, isSupported}) {
+module.exports.get = async function get(overrides = {}) {
+    const {
+        findUp,
+        isSupported,
+        porcelain = _porcelain,
+    } = overrides;
+    
     const dir = await findGit({
         findUp,
     });
@@ -39,7 +45,13 @@ module.exports.get = async function get({findUp, isSupported}) {
     return names.map(joinDir(dir));
 };
 
-module.exports.set = async function set({findUp}) {
+module.exports.set = async function set(overrides = {}) {
+    const {
+        findUp,
+        porcelain = _porcelain,
+        spawnSync = _spawnSync,
+    } = overrides;
+    
     const dir = await findGit({
         findUp,
     });
@@ -58,12 +70,14 @@ module.exports.set = async function set({findUp}) {
     }
     
     if (namesToAdd.length)
-        add(namesToAdd.map(joinDir(dir)));
+        add(namesToAdd.map(joinDir(dir)), {
+            spawnSync,
+        });
     
     return staged;
 };
 
-function add(names) {
+function add(names, {spawnSync}) {
     spawnSync('git', [
         'add',
         ...names,
