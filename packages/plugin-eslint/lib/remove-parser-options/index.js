@@ -1,11 +1,13 @@
 import {operator} from 'putout';
 
+const {keys} = Object;
 const {
     traverseProperties,
+    getProperties,
     replaceWith,
 } = operator;
 
-export const report = () => `Avoid "parserOptions" in FlatConfig`;
+export const report = () => `Avoid 'parserOptions' in FlatConfig`;
 
 export const fix = (path) => {
     replaceWith(path.parentPath, path.node.value);
@@ -28,10 +30,18 @@ export const traverse = ({push}) => ({
         if (parserPath)
             return false;
         
-        const [babelOptionsPath] = traverseProperties(parserOptionsPath, 'babelOptions');
-        const [ecmaFeatures] = traverseProperties(parserOptionsPath, 'ecmaFeatures');
+        const names = [
+            'babelOptions',
+            'ecmaFeatures',
+            'projectService',
+            'tsconfigRootDir',
+        ];
         
-        if (ecmaFeatures || babelOptionsPath)
+        const parserOptionsValuePath = parserOptionsPath.get('value');
+        const properties = getProperties(parserOptionsValuePath, names);
+        const count = keys(properties).length;
+        
+        if (count)
             return;
         
         push(parserOptionsPath);

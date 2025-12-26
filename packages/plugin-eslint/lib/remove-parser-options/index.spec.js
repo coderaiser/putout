@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('eslint: remove-parser-options: report', (t) => {
-    t.report('remove-parser-options', `Avoid "parserOptions" in FlatConfig`);
+    t.report('remove-parser-options', `Avoid 'parserOptions' in FlatConfig`);
     t.end();
 });
 
