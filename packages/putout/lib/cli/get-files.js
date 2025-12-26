@@ -1,22 +1,32 @@
 'use strict';
 
 const {normalize} = require('node:path');
-const {lstat} = require('node:fs/promises');
+const {lstat: _lstat} = require('node:fs/promises');
 
-const fastGlob = require('fast-glob');
+const _fastGlob = require('fast-glob');
 const tryToCatch = require('try-to-catch');
 
-const {getSupportedGlob} = require('./supported-files');
+const {getSupportedGlob: _getSupportedGlob} = require('./supported-files');
 
 const rmDuplicates = (a) => Array.from(new Set(a));
 const unixifyPath = (a) => !a.includes('\\') ? a : a.replace(/\\/g, '/');
 
-module.exports = async (args, options) => {
-    return await tryToCatch(getFiles, args, options);
+module.exports = async (args, options, overrides = {}) => {
+    const {
+        fastGlob = _fastGlob,
+        lstat = _lstat,
+        getSupportedGlob = _getSupportedGlob,
+    } = overrides;
+    
+    return await tryToCatch(getFiles, args, options, {
+        fastGlob,
+        lstat,
+        getSupportedGlob,
+    });
 };
 
-async function getFiles(args, options) {
-    const promises = args.map(addExt(options));
+async function getFiles(args, options, overrides) {
+    const promises = args.map(addExt(options, overrides));
     const files = await Promise.all(promises);
     const mergedFiles = files.flat();
     
@@ -28,10 +38,16 @@ const globOptions = {
     dot: true,
 };
 
-const addExt = (options) => async function addExt(a) {
+const addExt = (options, overrides = {}) => async function addExt(a) {
+    const {
+        fastGlob,
+        lstat,
+        getSupportedGlob,
+    } = overrides;
+    
     const [[e], files] = await Promise.all([
         tryToCatch(lstat, a),
-        safeGlob(a, {
+        safeGlob(a, fastGlob, {
             onlyFiles: false,
             ...options,
         }),
@@ -48,7 +64,7 @@ const addExt = (options) => async function addExt(a) {
         
         if (info.isDirectory()) {
             const glob = getSupportedGlob(file);
-            promises.push(await safeGlob(glob, options));
+            promises.push(await safeGlob(glob, fastGlob, options));
             continue;
         }
         
@@ -69,7 +85,7 @@ function throwNotFound(a) {
     throw Error(`No files matching the pattern '${a}' were found`);
 }
 
-async function safeGlob(glob, options) {
+async function safeGlob(glob, fastGlob, options) {
     const result = await fastGlob(unixifyPath(glob), {
         ...options,
         ...globOptions,
