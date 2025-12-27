@@ -12,6 +12,7 @@ const v41 = [
     ['extract-keyword-from-variables', 'variables/extract-keywords'],
     ['split-variable-declarations', 'variables/split-declarations'],
     ['remove-unused-variables', 'variables/remove-unused'],
+    ['reuse-duplicate-init', 'variables/reuse-duplicate-init'],
 ];
 
 const versions = [...v41];

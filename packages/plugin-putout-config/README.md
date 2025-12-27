@@ -297,6 +297,7 @@ Apply [`variables`](https://github.com/coderaiser/putout/tree/master/packages/pl
 -       "convert-const-to-let": "on",
 -       "extract-keyword-from-variables": "on"
 -       "split-variable-declarations: "on",
+-       "reuse-duplicate-init: "on",
 +       "variables": "off",
 +       "variables/remove-unused": "on",
 +       "variables/remove-useless": "on",
@@ -308,6 +309,7 @@ Apply [`variables`](https://github.com/coderaiser/putout/tree/master/packages/pl
 +       "variables/convert-const-to-let": "on"
 +       "variables/extract-keyword": "on"
 +       "variables/split-declarations: "on",
++       "variables/reuse-duplicate-init: "on"
   }
 }
 ```

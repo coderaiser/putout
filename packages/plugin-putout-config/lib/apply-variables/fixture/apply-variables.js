@@ -3,6 +3,7 @@ __putout_processor_json({
         "convert-const-to-let": "off",
         "extract-keyword-from-variables": "off",
         "split-variable-declarations": "off",
+        "reuse-duplicate-init": "off",
         "remove-unused-variables": "off",
         "remove-useless-variables": "off",
         "remove-useless-variables/remove": "on",
