@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/eslint": "^4.0.0",
+    "@putout/eslint": "^5.0.0",
     "deepmerge": "^4.3.1",
     "once": "^1.4.0",
     "samadhi": "^3.0.0",
