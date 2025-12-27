@@ -32,6 +32,11 @@ test('putout: declare-template-variables: transform: arrow-body', (t) => {
     t.end();
 });
 
+test('putout: declare-template-variables: transform: no-args', (t) => {
+    t.transform('no-args');
+    t.end();
+});
+
 test('putout: declare-template-variables: no report: declared', (t) => {
     t.noReport('declared');
     t.end();

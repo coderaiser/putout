@@ -17,8 +17,17 @@ export const report = ({node}) => {
 };
 
 export const fix = ({path, node}) => {
-    const [first] = path.node.params;
+    const {params} = path.node;
     const property = objectProperty(node, node, COMPUTED, SHORTHAND);
+    
+    if (!params.length) {
+        const properties = [property];
+        
+        params.push(objectPattern(properties));
+        return;
+    }
+    
+    const [first] = params;
     
     if (isIdentifier(first)) {
         path.node.params[0] = objectPattern([property]);
@@ -31,6 +40,7 @@ export const fix = ({path, node}) => {
 export const traverse = ({push}) => ({
     '(__a, path) => __b': process(push),
     '(__a) => __b': process(push),
+    '() => __a': process(push),
 });
 
 const process = (push) => (path) => {
