@@ -55,7 +55,7 @@ npm i @putout/plugin-destructuring
 const first = array[0];
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const [first] = array;
@@ -196,7 +196,7 @@ const {one, two} = require('numbers');
 } = data);
 ```
 
-### remove-useless-arguments
+## remove-useless-arguments
 
 ### ❌ Example of incorrect code
 
