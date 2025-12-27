@@ -17,6 +17,7 @@ npm i @putout/plugin-variables -D
 
 ## Rules
 
+- ✅ [apply-declarations-order](#apply-declarations-order);
 - ✅ [convert-const-to-let](#convert-const-to-let');
 - ✅ [extract-keywords](#extract-keywords');
 - ✅ [remove-useless-assignment](#remove-useless-assignmenn);
@@ -32,6 +33,7 @@ npm i @putout/plugin-variables -D
 ```json
 {
     "rules": {
+        "variables/apply-declarations-order": "on",
         "variables/convert-const-to-let": "on",
         "variables/extract-keywords": "on",
         "variables/remove-useless-assignment": "on",
@@ -45,6 +47,24 @@ npm i @putout/plugin-variables -D
         "variables/split-declarations": "on"
     }
 }
+```
+
+## apply-declarations-order
+
+Helps to [reuse duplicate init](#reuse-duplicate-init'). Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/b70ff926b36e1e97ec7129aa0e0458a7/ece0a706de2fd24a66b4671284f7f75017f3c268).
+
+### ❌ Example of incorrect code
+
+```js
+const {env} = require('node:process');
+const process = require('node:process');
+```
+
+### ✅ Example of correct code
+
+```js
+const process = require('node:process');
+const {env} = process;
 ```
 
 ## assignment

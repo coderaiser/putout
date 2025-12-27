@@ -19,7 +19,6 @@ npm i @putout/plugin-destructuring
 
 - ✅ [apply-array](#apply-array);
 - ✅ [apply-object](#apply-object);
-- ✅ [apply-declarations-order](#apply-declarations-order);
 - ✅ [convert-object-to-array](#convert-object-to-array);
 - ✅ [extract-properties](#extract-properties);
 - ✅ [remove-useless-object](#remove-useless-object);
@@ -36,7 +35,6 @@ npm i @putout/plugin-destructuring
     "rules": {
         "destructuring/apply-array": "on",
         "destructuring/apply-object": "on",
-        "destructuring/apply-declarations-order": "on",
         "destructuring/convert-object-to-array": "on",
         "destructuring/extract-properties": "on",
         "destructuring/remove-useless-object": "on",
@@ -79,24 +77,6 @@ hello = world.hello;
 const {name} = user;
 
 ({hello} = world);
-```
-
-## apply-declarations-order
-
-Helps to [extract-properties](#extract-properties'). Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/b70ff926b36e1e97ec7129aa0e0458a7/ece0a706de2fd24a66b4671284f7f75017f3c268).
-
-### ❌ Example of incorrect code
-
-```js
-const {env} = require('node:process');
-const process = require('node:process');
-```
-
-### ✅ Example of correct code
-
-```js
-const process = require('node:process');
-const {env} = process;
 ```
 
 ## remove-useless-object

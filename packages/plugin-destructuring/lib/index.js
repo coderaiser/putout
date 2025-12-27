@@ -1,4 +1,3 @@
-import * as applyDeclarationsOrder from './apply-declarations-order/index.js';
 import * as applyObject from './apply-object/index.js';
 import * as applyArray from './apply-array/index.js';
 import * as extractPropertiesEqualDeep from './extract-properties-equal-deep/index.js';
@@ -14,7 +13,6 @@ import * as mergeProperties from './merge-properties/index.js';
 export const rules = {
     'apply-array': applyArray,
     'apply-object': applyObject,
-    'apply-declarations-order': applyDeclarationsOrder,
     'convert-object-to-array': convertObjectToArray,
     'extract-properties-equal-deep': extractPropertiesEqualDeep,
     'extract-properties-not-equal-deep': extractPropertiesNotEqualDeep,

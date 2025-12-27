@@ -1,3 +1,4 @@
+import * as applyDeclarationsOrder from './apply-declarations-order/index.js';
 import * as convertConstToLet from './convert-const-to-let/index.js';
 import * as extractKeywords from './extract-keywords/index.js';
 import * as removeUseless from './remove-useless/index.js';
@@ -10,6 +11,7 @@ import * as removeUnused from './remove-unused/index.js';
 import * as splitDeclarations from './split-declarations/index.js';
 
 export const rules = {
+    'apply-declarations-order': applyDeclarationsOrder,
     'convert-const-to-let': convertConstToLet,
     'extract-keywords': extractKeywords,
     'remove-useless': removeUseless,

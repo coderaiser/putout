@@ -96,3 +96,8 @@ test('plugin-putout: plugin-variables: transform: extract-keywords', (t) => {
     t.transform('extract-keywords');
     t.end();
 });
+
+test('plugin-putout: plugin-variables: transform: apply-declarations-order', (t) => {
+    t.transform('apply-declarations-order');
+    t.end();
+});

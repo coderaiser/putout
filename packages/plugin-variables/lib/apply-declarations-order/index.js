@@ -10,6 +10,7 @@ const {
 const {
     isVariableDeclaration,
     isIdentifier,
+    isCallExpression,
 } = types;
 
 export const report = () => `Apply declarations order`;
@@ -25,6 +26,9 @@ export const traverse = ({push}) => ({
         const {__a, __b} = getTemplateValues(path, 'const __a = __b');
         
         if (!isIdentifier(__a))
+            return;
+        
+        if (!isCallExpression(__b))
             return;
         
         const prev = path.getAllPrevSiblings();
