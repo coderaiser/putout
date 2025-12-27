@@ -1282,11 +1282,6 @@ test('putout: cli: d.ts', async (t) => {
 
 test('putout: cli: --transform', async (t) => {
     const write = stub();
-    const eslint = stub().resolves({
-        code: '',
-        places: [],
-    });
-    const initProcessFile = stub().returns(eslint);
     
     const name = join(__dirname, 'fixture/transform.js');
     const source = await readFile(name, 'utf8');
@@ -1336,8 +1331,6 @@ test('putout: cli: --transform', async (t) => {
 
 test('putout: cli: --plugins', async (t) => {
     const write = stub();
-    const eslint = stub().resolves(['', []]);
-    const initProcessFile = stub().returns(eslint);
     
     const name = join(__dirname, 'fixture/plugins.js');
     const source = await readFile(name, 'utf8');
