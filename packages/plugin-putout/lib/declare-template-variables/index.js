@@ -29,8 +29,8 @@ export const fix = ({path, node}) => {
 };
 
 export const traverse = ({push}) => ({
-    '(__a, path) => __body': process(push),
-    '(__a) => __body': process(push),
+    '(__a, path) => __b': process(push),
+    '(__a) => __b': process(push),
 });
 
 const process = (push) => (path) => {

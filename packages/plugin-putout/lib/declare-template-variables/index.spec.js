@@ -27,6 +27,11 @@ test('putout: declare-template-variables: transform: one', (t) => {
     t.end();
 });
 
+test('putout: declare-template-variables: transform: arrow-body', (t) => {
+    t.transform('arrow-body');
+    t.end();
+});
+
 test('putout: declare-template-variables: no report: declared', (t) => {
     t.noReport('declared');
     t.end();
