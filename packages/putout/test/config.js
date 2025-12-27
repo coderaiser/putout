@@ -104,6 +104,7 @@ test('putout: config: markdown', (t) => {
         'remove-unused-expressions': 'off',
         'labels/remove-unused': 'off',
         'variables/remove-unused': 'off',
+        'variables/apply-declarations-order': 'off',
         'remove-useless-escape': 'off',
         'remove-useless-push': 'off',
         'return/remove-useless': 'off',

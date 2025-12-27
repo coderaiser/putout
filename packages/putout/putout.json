@@ -61,6 +61,7 @@
             "labels/remove-unused": "off",
             "remove-useless-escape": "off",
             "variables/remove-useless": "off",
+            "variables/apply-declarations-order": "off",
             "destructuring/remove-useless-variables": "off",
             "remove-useless-push": "off",
             "esm/remove-useless-export-specifiers": "off",
