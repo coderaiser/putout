@@ -120,8 +120,6 @@ const [a, b] = c;
 >
 > (c) [Destructuring in JavaScript: the not so good parts](https://goodguydaniel.com/blog/destructuring-not-so-good-parts)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to split nested destructuring.
-
 ### ❌ Example of incorrect code
 
 ```js
