@@ -1,0 +1,40 @@
+import {types, operator} from 'putout';
+
+const {
+    insertAfter,
+    remove,
+    compare,
+    getTemplateValues,
+} = operator;
+
+const {
+    isVariableDeclaration,
+    isIdentifier,
+} = types;
+
+export const report = () => `Apply declarations order`;
+
+export const fix = ({path, current}) => {
+    const {node} = current;
+    remove(current);
+    insertAfter(path, node);
+};
+
+export const traverse = ({push}) => ({
+    'const __a = __b': (path) => {
+        const {__a, __b} = getTemplateValues(path, 'const __a = __b');
+        
+        if (!isIdentifier(__a))
+            return;
+        
+        const prev = path.getAllPrevSiblings();
+        
+        for (const current of prev.filter(isVariableDeclaration)) {
+            if (compare(__b, current.node.declarations[0].init))
+                push({
+                    current,
+                    path,
+                });
+        }
+    },
+});
