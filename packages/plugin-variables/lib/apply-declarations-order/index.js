@@ -11,6 +11,7 @@ const {
     isVariableDeclaration,
     isIdentifier,
     isCallExpression,
+    isObjectPattern,
 } = types;
 
 export const report = () => `Apply declarations order`;
@@ -33,11 +34,8 @@ export const traverse = ({push}) => ({
         
         const prev = path.getAllPrevSiblings();
         
-        for (const current of prev.filter(isVariableDeclaration)) {
-            const {__c, __d} = getTemplateValues(current, 'const __c = __d');
-            
-            if (isIdentifier(__c))
-                continue;
+        for (const current of prev.filter(isObjectDestructuring)) {
+            const {__d} = getTemplateValues(current, 'const __c = __d');
             
             if (compare(__b, __d))
                 push({
@@ -47,3 +45,10 @@ export const traverse = ({push}) => ({
         }
     },
 });
+
+function isObjectDestructuring(path) {
+    if (!isVariableDeclaration(path))
+        return false;
+    
+    return isObjectPattern(path.node.declarations[0].id);
+}
