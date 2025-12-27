@@ -2,12 +2,13 @@
 
 const {join} = require('node:path');
 const process = require('node:process');
-const mockRequire = require('mock-require');
 
 const {test, stub} = require('supertape');
-const eslint = require('./eslint.js');
-
-const {reRequire, stopAll} = mockRequire;
+const {
+    eslint,
+    _noConfigFound,
+    convertToPlace,
+} = require('./eslint.js');
 
 test('putout: eslint: places', async (t) => {
     const [, result] = await eslint({
@@ -45,19 +46,12 @@ test('putout: eslint: places: success', async (t) => {
 test('putout: eslint: no eslint', async (t) => {
     const simpleImport = stub().rejects(Error(''));
     
-    mockRequire('./simple-import', {
-        simpleImport,
-    });
-    
-    const eslint = reRequire('./eslint.js');
-    
     const [, result] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi'\n`,
         fix: false,
+        simpleImport,
     });
-    
-    stopAll();
     
     const expected = [];
     
@@ -105,8 +99,6 @@ test('putout: eslint: fix: cache', async (t) => {
 });
 
 test('putout: eslint: no config error', (t) => {
-    const {_noConfigFound} = reRequire('./eslint');
-    
     const result = _noConfigFound(null, {
         messageTemplate: 'no-config-found',
     });
@@ -116,8 +108,6 @@ test('putout: eslint: no config error', (t) => {
 });
 
 test('putout: eslint: no config', (t) => {
-    const {_noConfigFound} = reRequire('./eslint');
-    
     const config = {
         rules: {},
     };
@@ -129,8 +119,6 @@ test('putout: eslint: no config', (t) => {
 });
 
 test('putout: eslint: ignored file: no rules', (t) => {
-    const {_noConfigFound} = reRequire('./eslint');
-    
     const result = _noConfigFound({});
     
     t.ok(result, 'should not found config');
@@ -178,18 +166,15 @@ test('putout: eslint: config error: plugin missing', async (t) => {
     
     const getESLint = stub().returns(ESLint);
     
-    mockRequire('./simple-import.js', {
-        simpleImport: stub().returns({
-            getESLint,
-        }),
+    const simpleImport = stub().returns({
+        getESLint,
     });
-    
-    const eslint = reRequire('./eslint');
     
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t`,
         fix: false,
+        simpleImport,
     });
     
     const expected = [{
@@ -200,8 +185,6 @@ test('putout: eslint: config error: plugin missing', async (t) => {
             column: 0,
         },
     }];
-    
-    stopAll();
     
     t.deepEqual(places, expected);
     t.end();
@@ -228,23 +211,18 @@ test('putout: eslint: config error: no config found', async (t) => {
     
     const getESLint = stub().returns(ESLint);
     
-    mockRequire('./simple-import.js', {
-        simpleImport: stub().returns({
-            getESLint,
-        }),
+    const simpleImport = stub().returns({
+        getESLint,
     });
-    
-    const eslint = reRequire('./eslint');
     
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t`,
         fix: false,
+        simpleImport,
     });
     
     const expected = [];
-    
-    stopAll();
     
     t.deepEqual(places, expected);
     t.end();
@@ -271,18 +249,15 @@ test('putout: eslint: config error', async (t) => {
     
     const getESLint = stub().returns(ESLint);
     
-    mockRequire('./simple-import.js', {
-        simpleImport: stub().returns({
-            getESLint,
-        }),
+    const simpleImport = stub().returns({
+        getESLint,
     });
-    
-    const eslint = reRequire('./eslint');
     
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t`,
         fix: false,
+        simpleImport,
     });
     
     const expected = [{
@@ -293,8 +268,6 @@ test('putout: eslint: config error', async (t) => {
             column: 0,
         },
     }];
-    
-    stopAll();
     
     t.deepEqual(places, expected);
     t.end();
@@ -381,7 +354,7 @@ test('putout: eslint: empty output', async (t) => {
 });
 
 test('putout: eslint: convertToPlace: control sequences', async (t) => {
-    const result = await eslint.convertToPlace({
+    const result = await convertToPlace({
         ruleId: '@typescript-eslint/naming-convention',
         message: 'Object Literal Property name `\u001a` must match one of the following formats: camelCase, UPPER_CASE',
         line: 281,
@@ -404,8 +377,6 @@ test('putout: eslint: convertToPlace: control sequences', async (t) => {
 test('putout: eslint: get-eslint: config file', async (t) => {
     process.env.ESLINT_CONFIG_FILE = 'abcdef.js';
     
-    const eslint = reRequire('./eslint.js');
-    
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi'\n`,
@@ -416,8 +387,6 @@ test('putout: eslint: get-eslint: config file', async (t) => {
     const {message} = place;
     
     delete process.env.ESLINT_CONFIG_FILE;
-    
-    reRequire('./eslint.js');
     
     t.match(message, 'no such file or directory');
     t.end();
@@ -448,18 +417,15 @@ test('putout: eslint: convert places', async (t) => {
     
     const getESLint = stub().returns(ESLint);
     
-    mockRequire('./simple-import.js', {
-        simpleImport: stub().returns({
-            getESLint,
-        }),
+    const simpleImport = stub().returns({
+        getESLint,
     });
-    
-    const eslint = reRequire('./eslint');
     
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t = 5`,
         fix: false,
+        simpleImport,
     });
     
     const expected = [{
@@ -470,8 +436,6 @@ test('putout: eslint: convert places', async (t) => {
         },
         rule: 'no-unused-vars (eslint)',
     }];
-    
-    stopAll();
     
     t.deepEqual(places, expected);
     t.end();
@@ -493,23 +457,18 @@ test('putout: eslint: config: remove putout', async (t) => {
     
     const getESLint = stub().returns(ESLint);
     
-    mockRequire('./simple-import.js', {
-        simpleImport: stub().returns({
-            getESLint,
-        }),
+    const simpleImport = stub().returns({
+        getESLint,
     });
-    
-    const eslint = reRequire('./eslint');
     
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t = 5`,
         fix: false,
+        simpleImport,
     });
     
     const expected = [];
-    
-    stopAll();
     
     t.deepEqual(places, expected);
     t.end();
@@ -540,27 +499,22 @@ test('putout: eslint: NO_ESLINT_WARNINGS', async (t) => {
     
     const getESLint = stub().returns(ESLint);
     
-    mockRequire('./simple-import.js', {
-        simpleImport: stub().returns({
-            getESLint,
-        }),
+    const simpleImport = stub().returns({
+        getESLint,
     });
     
     process.env.NO_ESLINT_WARNINGS = '1';
-    
-    const eslint = reRequire('./eslint');
     
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t = 5`,
         fix: false,
+        simpleImport,
     });
     
     const expected = [];
     
     delete process.env.NO_ESLINT_WARNINGS;
-    
-    stopAll();
     
     t.deepEqual(places, expected);
     t.end();
@@ -569,7 +523,6 @@ test('putout: eslint: NO_ESLINT_WARNINGS', async (t) => {
 test('putout: eslint: NO_ESLINT', async (t) => {
     process.env.NO_ESLINT = '1';
     
-    const eslint = reRequire('./eslint.js');
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi'\n`,
@@ -577,8 +530,6 @@ test('putout: eslint: NO_ESLINT', async (t) => {
     });
     
     delete process.env.NO_ESLINT;
-    
-    reRequire('./eslint.js');
     
     t.notOk(places.length);
     t.end();
@@ -595,23 +546,18 @@ test('putout: eslint: config: no FlatConfig found', async (t) => {
     
     const getESLint = stub().returns(ESLint);
     
-    mockRequire('./simple-import.js', {
-        simpleImport: stub().returns({
-            getESLint,
-        }),
+    const simpleImport = stub().returns({
+        getESLint,
     });
-    
-    const eslint = reRequire('./eslint');
     
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t = 5`,
         fix: false,
+        simpleImport,
     });
     
     const expected = [];
-    
-    stopAll();
     
     t.deepEqual(places, expected);
     t.end();

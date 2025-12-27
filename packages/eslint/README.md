@@ -29,7 +29,7 @@ NO_ESLINT_WARNINGS=1 putout --fix lib
 **ESLint** begins his work as a formatter when 🐊**Putout** done his transformations. That's why it used a lot in different parts of application, for testing purpose and using **API** in a simplest possible way. You can access it with:
 
 ```js
-import eslint from '@putout/eslint';
+import {eslint} from '@putout/eslint';
 ````
 
 To use it simply write:
@@ -84,17 +84,17 @@ You can also simplify creating of plugins for **ESLint** with help of `createPlu
 So it must contain classic `4` methods:
 
 ```js
-module.exports.report = () => 'debugger statement should not be used';
+export const report = () => 'debugger statement should not be used';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     return '';
 };
 
-module.exports.include = () => [
+export const include = () => [
     'DebuggerStatement',
 ];
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     return true;
 };
 ```
@@ -110,19 +110,19 @@ Take a look at more sophisticated example, rule [`remove-duplicate-extensions`](
 ```js
 const getValue = ({source}) => source?.value;
 
-module.exports.report = () => 'Avoid duplicate extensions in relative imports';
-module.exports.include = () => [
+export const report = () => 'Avoid duplicate extensions in relative imports';
+export const include = () => [
     'ImportDeclaration',
     'ImportExpression',
     'ExportAllDeclaration',
     'ExportNamedDeclaration',
 ];
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text.replace('.js.js', '.js');
 };
 
-module.exports.filter = ({node}) => {
+export const filter = ({node}) => {
     const value = getValue(node);
     return /\.js\.js/.test(value);
 };
@@ -131,7 +131,7 @@ module.exports.filter = ({node}) => {
 To use it just add couple lines to your main plugin file:
 
 ```js
-const {createPlugin} = require('@putout/eslint/create-plugin');
+import {createPlugin} from '@putout/eslint/create-plugin';
 
 const createRule = (a) => ({
     [a]: createPlugin(require(`./${a}`)),
@@ -143,7 +143,7 @@ module.exports.rules = createRule('remove-duplicate-extensions');
 Or just:
 
 ```js
-const {createPlugin} = require('@putout/eslint/create-plugin');
+import {createPlugin} from '@putout/eslint/create-plugin';
 
 module.exports.rules = {
     'remove-duplicate-extensions': createPlugin(require('./remove-duplicate-extensions')),
@@ -155,9 +155,9 @@ module.exports.rules = {
 When you need to run **ESLint** with one plugin (*rule*), just use `lint` it will do the thing.
 
 ```js
-const lint = require('@putout/eslint/lint');
-const {createPlugin} = require('@putout/eslint/create-plugin');
-const removeDebugger = require('./remove-debugger');
+import {lint} from '@putout/eslint/lint';
+import {createPlugin} from '@putout/eslint/create-plugin';
+import * as removeDebugger from 'remove-debugger';
 
 const [code, places] = lint('debugger', {
     fix: true, // default
@@ -170,7 +170,7 @@ const [code, places] = lint('debugger', {
 When you want to skip plugins, and just provide `options` and `filename` you can:
 
 ```js
-const lint = require('@putout/eslint/lint');
+import {lint} from '@putout/eslint/lint';
 
 const [code, places] = lint('debugger', {
     filename: 'index.js',

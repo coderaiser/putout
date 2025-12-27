@@ -3,20 +3,19 @@
 const {join} = require('node:path');
 const process = require('node:process');
 const tryToCatch = require('try-to-catch');
-const once = require('once');
 
-const {simpleImport} = require('./simple-import.js');
+const {simpleImport: _simpleImport} = require('./simple-import.js');
 const {isIgnored} = require('./ignore');
 
 const {keys} = Object;
 const eslintId = ' (eslint)';
 
-const isNoESLint = once(() => process.env.NO_ESLINT);
-const noESLintWarnings = process.env.NO_ESLINT_WARNINGS;
-const {ESLINT_CONFIG_FILE} = process.env;
+const {env} = process;
+const isNoESLint = () => env.NO_ESLINT;
+const isNoESLintWarnings = () => env.NO_ESLINT_WARNINGS;
 
 const dir = process.cwd();
-const overrideConfigFile = parseOverride(dir, ESLINT_CONFIG_FILE);
+const overrideConfigFile = () => parseOverride(dir, env.ESLINT_CONFIG_FILE);
 
 const NO_FLAT_CONFIG_FOUND = 'Could not find config file.';
 const WARNING = 1;
@@ -40,7 +39,15 @@ const noConfigFound = (config, configError) => {
     return !keys(config.rules).length;
 };
 
-module.exports = async ({name, code, fix, config, putout = false}) => {
+module.exports.eslint = async (overrides = {}) => {
+    const {
+        name,
+        code,
+        fix,
+        config,
+        putout = false,
+        simpleImport = _simpleImport,
+    } = overrides;
     const noChanges = [
         code,
         [],
@@ -60,7 +67,7 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         name,
         fix,
         config,
-        overrideConfigFile,
+        overrideConfigFile: overrideConfigFile(),
     });
     
     const [configError, finalConfig] = await tryToCatch(eslint.calculateConfigForFile, name);
@@ -105,7 +112,7 @@ module.exports.convertToPlace = convertToPlace;
 function convertToPlace({ruleId = 'parser', message, line = 0, column = 0, severity}) {
     const rule = `${parseRule(ruleId)}${eslintId}`;
     
-    if (severity === WARNING && noESLintWarnings)
+    if (severity === WARNING && isNoESLintWarnings())
         return null;
     
     if (isIgnored(message))

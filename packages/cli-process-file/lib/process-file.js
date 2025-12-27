@@ -2,7 +2,7 @@
 
 const process = require('node:process');
 const tryToCatch = require('try-to-catch');
-const _eslint = require('@putout/eslint');
+const {eslint: _eslint} = require('@putout/eslint');
 const {parseMatch} = require('putout/parse-match');
 const {mergeOptions} = require('putout/merge-options');
 const parseError = require('putout/parse-error');
