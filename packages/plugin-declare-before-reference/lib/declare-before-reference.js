@@ -98,22 +98,15 @@ export const traverse = ({push}) => ({
                     break;
                 
                 const [own, pathLoc] = getLoc(path);
-                const [referenceOwn, referenceLoc] = getLoc(referencePath);
+                const [, referenceLoc] = getLoc(referencePath);
                 
                 const declarationLine = pathLoc.start.line;
                 const referenceLine = referenceLoc.start.line;
                 
-                if (own && declarationLine > referenceLine)
-                    push({
-                        name,
-                        path,
-                        referencePath,
-                    });
-                
                 if (!own)
-                    return;
+                    break;
                 
-                if (!referenceOwn && declarationLine === referenceLine)
+                if (own && declarationLine > referenceLine)
                     push({
                         name,
                         path,

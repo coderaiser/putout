@@ -185,10 +185,17 @@ test('plugin-declare-before-reference: transform: remove-useless-variables', (t)
     t.end();
 });
 
-test('plugin-merge-destructuring-properties: transform: merge-destructuring-properties', (t) => {
+test('putout: plugin-declare-before-reference: transform: merge-destructuring-properties', (t) => {
     t.transform('merge-destructuring-properties', {
         'printer/declare': printer.rules.declare,
         'nodejs/declare-after-require': nodejs.rules['declare-after-require'],
+        'destructuring/merge-properties': mergeProperties,
+    });
+    t.end();
+});
+
+test('putout: plugin-declare-before-reference: transform: merge-properties', (t) => {
+    t.transform('merge-properties', {
         'destructuring/merge-properties': mergeProperties,
     });
     t.end();
