@@ -1,3 +1,19 @@
+2025.12.27, v41.0.11
+
+fix:
+- 20bd39f5e @putout/cli-staged: rm unused once
+
+feature:
+- cdcc97e93 eslint-plugin-putout: @putout/eslint v5.0.0
+- 07d8299d8 putout: @putout/cli-process-file v5.0.0
+- 000ee519c @putout/test: @putout/eslint v5.0.0
+- b32a4c2ad @putout/cli-process-file: @putout/eslint v5.0.0
+- 558d2db2a @putout/cli-process-file: drop support of 🐊 < 41
+- 97c712254 @putout/eslint: migrate to ESM
+- 628e3761d @putout/eslint: drop support of node < 20
+- 80b0031e1 @putout/eslint: default export -> eslint
+- 30c14a876 @putout/plugin-declare-before-reference: simplify
+
 2025.12.27, v41.0.10
 
 feature:
