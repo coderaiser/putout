@@ -240,7 +240,6 @@
         "remove-unreachable-code",
         "remove-duplicate-keys",
         "return",
-        "reuse-duplicate-init",
         "spread",
         "simplify-ternary",
         "convert-expression-to-params",

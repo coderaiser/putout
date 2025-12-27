@@ -40,7 +40,6 @@
     "@putout/plugin-promises": "*",
     "@putout/plugin-putout": "*",
     "@putout/plugin-remove-nested-blocks": "*",
-    "@putout/plugin-reuse-duplicate-init": "*",
     "@putout/plugin-tape": "*",
     "@putout/plugin-try-catch": "*",
     "@putout/plugin-variables": "*",

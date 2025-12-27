@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
+import * as reuseDuplicateInit from '../reuse-duplicate-init/index.js';
 import * as remove from './index.js';
 
 const test = createTest(import.meta.url, {

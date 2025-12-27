@@ -101,3 +101,8 @@ test('plugin-putout: plugin-variables: transform: apply-declarations-order', (t)
     t.transform('apply-declarations-order');
     t.end();
 });
+
+test('plugin-putout: plugin-variables: transform: reuse-duplicate-init', (t) => {
+    t.transform('reuse-duplicate-init');
+    t.end();
+});

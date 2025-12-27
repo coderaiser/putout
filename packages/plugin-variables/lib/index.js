@@ -1,6 +1,7 @@
 import * as applyDeclarationsOrder from './apply-declarations-order/index.js';
 import * as convertConstToLet from './convert-const-to-let/index.js';
 import * as extractKeywords from './extract-keywords/index.js';
+import * as reuseDuplicateInit from './reuse-duplicate-init/index.js';
 import * as removeUseless from './remove-useless/index.js';
 import * as removeUselessAssignment from './remove-useless-assignment/index.js';
 import * as removeUselessDeclarations from './remove-useless-declarations/index.js';
@@ -14,6 +15,7 @@ export const rules = {
     'apply-declarations-order': applyDeclarationsOrder,
     'convert-const-to-let': convertConstToLet,
     'extract-keywords': extractKeywords,
+    'reuse-duplicate-init': reuseDuplicateInit,
     'remove-useless': removeUseless,
     'remove-useless-assignment': removeUselessAssignment,
     'remove-useless-declarations': removeUselessDeclarations,

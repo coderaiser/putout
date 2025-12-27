@@ -20,6 +20,7 @@ npm i @putout/plugin-variables -D
 - ✅ [apply-declarations-order](#apply-declarations-order);
 - ✅ [convert-const-to-let](#convert-const-to-let');
 - ✅ [extract-keywords](#extract-keywords');
+- ✅ [reuse-duplicate-init](#reuse-duplicate-init);
 - ✅ [remove-useless-assignment](#remove-useless-assignmenn);
 - ✅ [remove-useless-declaration](#remove-useless-declaration);
 - ✅ [remove-useless-duplicate](#remove-useless-duplicate);
@@ -36,6 +37,7 @@ npm i @putout/plugin-variables -D
         "variables/apply-declarations-order": "on",
         "variables/convert-const-to-let": "on",
         "variables/extract-keywords": "on",
+        "variables/reuse-duplicate-init": "on",
         "variables/remove-useless-assignment": "on",
         "variables/remove-useless-declaration": ["on", {
             "maxLength": 20
@@ -81,6 +83,42 @@ while (!(files = readDirectory(parentDir)).length) {}
 
 ```js
 while (!readDirectory(parentDir).length) {}
+```
+
+## reuse-duplicate-init
+
+> Functions are one of the fundamental building blocks it contains set of statements that performs a calculations, takes some input and returns an output. To use a function, you must define it somewhere in the scope from which you wish to call it.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to reuse duplicate init.
+
+### ❌ Example of incorrect code
+
+```js
+const putout = require('putout');
+
+const {
+    a,
+    b,
+    operator,
+} = putout;
+
+const {replaceWith} = operator;
+```
+
+### ✅ Example of correct code
+
+```js
+const putout = require('putout');
+
+const {
+    a,
+    b,
+    operator,
+} = putout;
+
+const {replaceWith} = operator;
 ```
 
 ## remove-useless-rename

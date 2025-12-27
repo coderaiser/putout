@@ -6,7 +6,6 @@ import * as promises from '@putout/plugin-promises';
 import * as printer from '@putout/plugin-printer';
 import * as removeNestedBlocks from '@putout/plugin-remove-nested-blocks';
 import * as nodejs from '@putout/plugin-nodejs';
-import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
 import * as tape from '@putout/plugin-tape';
 import * as variables from '@putout/plugin-variables';
 import * as args from '@putout/plugin-arguments';
@@ -15,6 +14,7 @@ import * as declare from '../lib/declare-before-reference.js';
 
 const mergeDestructuringProperties = destructuring.rules['merge-properties'];
 const removeUselessVariables = variables.rules['remove-useless'];
+const reuseDuplicateInit = variables.rules['reuse-duplicate-init'];
 
 const {expressionStatement} = types;
 

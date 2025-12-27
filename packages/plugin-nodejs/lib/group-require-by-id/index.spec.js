@@ -1,6 +1,6 @@
 import {createTest} from '@putout/test';
 import * as declareBeforeReference from '@putout/plugin-declare-before-reference';
-import * as reuseDuplicateInit from '@putout/plugin-reuse-duplicate-init';
+import * as variables from '@putout/plugin-variables';
 import * as esm from '@putout/plugin-esm';
 import {types, operator} from 'putout';
 import * as convertEsmToCommonjs from '../convert-esm-to-commonjs/index.js';
@@ -14,6 +14,7 @@ const {
 } = types;
 
 const mergeDeclarationWithExport = esm.rules['merge-declaration-with-export'];
+const reuseDuplicateInit = variables.rules['reuse-duplicate-init'];
 
 const test = createTest(import.meta.url, {
     plugins: [

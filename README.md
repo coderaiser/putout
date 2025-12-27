@@ -2250,12 +2250,6 @@ It has a lot of plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-extract-sequence-expressions`](/packages/plugin-extract-sequence-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-extract-sequence-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-extract-sequence-expressions) |
 
-### Reusers
-
-| Package | Version |
-|--------|-------|
-| [`@putout/plugin-reuse-duplicate-init`](/packages/plugin-reuse-duplicate-init#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-reuse-duplicate-init.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-reuse-duplicate-init) |
-
 ### Not bundled
 
 Next packages not bundled with 🐊**Putout** but can be installed separately.

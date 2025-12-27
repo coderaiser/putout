@@ -163,7 +163,6 @@
     "@putout/plugin-remove-useless-replace": "^2.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^3.0.0",
     "@putout/plugin-return": "^2.0.0",
-    "@putout/plugin-reuse-duplicate-init": "^8.0.0",
     "@putout/plugin-simplify-ternary": "^8.0.0",
     "@putout/plugin-spread": "^1.0.0",
     "@putout/plugin-tape": "^19.0.0",

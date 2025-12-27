@@ -26,4 +26,3 @@ test('variables: apply-declarations-order: no report: literal', (t) => {
     t.noReport('literal');
     t.end();
 });
-
