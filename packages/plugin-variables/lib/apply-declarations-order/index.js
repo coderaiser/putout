@@ -34,7 +34,12 @@ export const traverse = ({push}) => ({
         const prev = path.getAllPrevSiblings();
         
         for (const current of prev.filter(isVariableDeclaration)) {
-            if (compare(__b, current.node.declarations[0].init))
+            const {__c, __d} = getTemplateValues(current, 'const __c = __d');
+            
+            if (isIdentifier(__c))
+                continue;
+            
+            if (compare(__b, __d))
                 push({
                     current,
                     path,
