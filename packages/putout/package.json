@@ -111,7 +111,7 @@
     "@putout/plugin-convert-to-arrow-function": "^4.0.0",
     "@putout/plugin-coverage": "^1.0.0",
     "@putout/plugin-declare": "^6.0.0",
-    "@putout/plugin-declare-before-reference": "^8.0.0",
+    "@putout/plugin-declare-before-reference": "^9.0.0",
     "@putout/plugin-destructuring": "^1.0.0",
     "@putout/plugin-eslint": "^15.0.0",
     "@putout/plugin-esm": "^6.0.0",
