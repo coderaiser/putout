@@ -1,12 +1,12 @@
 'use strict';
 
+const {types} = require('@putout/babel');
 const {
     isForOf,
     isCoupleLines,
     exists,
 } = require('../../is');
 
-const {types} = require('@putout/babel');
 const {
     isObjectExpression,
     isIdentifier,

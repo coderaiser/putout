@@ -94,6 +94,9 @@ export const traverse = ({push}) => ({
                 if (compareAny(getName(referenceParentPath), getKeys(path)))
                     break;
                 
+                if (path.key < referencePath.parentPath.parentPath.key)
+                    break;
+                
                 const [own, pathLoc] = getLoc(path);
                 const [referenceOwn, referenceLoc] = getLoc(referencePath);
                 

@@ -12,7 +12,8 @@ import * as args from '@putout/plugin-arguments';
 import * as destructuring from '@putout/plugin-destructuring';
 import * as declare from '../lib/declare-before-reference.js';
 
-const mergeDestructuringProperties = destructuring.rules['merge-properties'];
+const mergeProperties = destructuring.rules['merge-properties'];
+const applyDeclarationsOrder = variables.rules['apply-declarations-order'];
 const removeUselessVariables = variables.rules['remove-useless'];
 const reuseDuplicateInit = variables.rules['reuse-duplicate-init'];
 
@@ -188,7 +189,15 @@ test('plugin-merge-destructuring-properties: transform: merge-destructuring-prop
     t.transform('merge-destructuring-properties', {
         'printer/declare': printer.rules.declare,
         'nodejs/declare-after-require': nodejs.rules['declare-after-require'],
-        'merge-destructuring-properties': mergeDestructuringProperties,
+        'destructuring/merge-properties': mergeProperties,
+    });
+    t.end();
+});
+
+test('plugin-merge-destructuring-properties: no report after transform: apply-declarations-order', (t) => {
+    t.noReportAfterTransform('apply-declarations-order', {
+        'variables/apply-declarations-order': applyDeclarationsOrder,
+        'variables/reuse-duplicate-init': reuseDuplicateInit,
     });
     t.end();
 });
