@@ -1,4 +1,3 @@
-import process from 'node:process';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {stub} from 'supertape';
@@ -118,28 +117,15 @@ test('test: eslint: comparePlaces: overrides: ESM', async ({comparePlaces}) => {
     };
     
     const places = [{
-        message: `☝️ Looks like 'apply-nullish-coalescing' is ESM, extend from 'plugin:putout/esm' (putout)`,
+        message: `Avoid useless argument 'a' (arguments/remove-useless)`,
         position: {
-            column: 1,
-            line: 1,
+            column: 4,
+            line: 4,
         },
         rule: 'putout/putout (eslint)',
     }];
     
-    if (process.version.startsWith('v2')) {
-        const places = [{
-            message: `Avoid useless argument 'a' (arguments/remove-useless)`,
-            position: {
-                column: 4,
-                line: 4,
-            },
-            rule: 'putout/putout (eslint)',
-        }];
-        
-        return await comparePlaces('sync-esm', places, overrides);
-    }
-    
-    await comparePlaces('sync-esm', places, overrides);
+    return await comparePlaces('sync-esm', places, overrides);
 });
 
 test('test: eslint: noProcess: overrides', async ({noProcess}) => {

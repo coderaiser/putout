@@ -1,9 +1,6 @@
-'use strict';
-
-const {test} = require('supertape');
-
-const {createPlugin} = require('../create-plugin');
-const {lint} = require('./index.js');
+import {test} from 'supertape';
+import {createPlugin} from '../create-plugin/index.js';
+import {lint} from './index.js';
 
 test('@putout/eslint: lint: fix', (t) => {
     const plugin = createPlugin({

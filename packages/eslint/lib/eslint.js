@@ -1,11 +1,8 @@
-'use strict';
-
-const {join} = require('node:path');
-const process = require('node:process');
-const tryToCatch = require('try-to-catch');
-
-const {simpleImport: _simpleImport} = require('./simple-import.js');
-const {isIgnored} = require('./ignore');
+import {join} from 'node:path';
+import process from 'node:process';
+import tryToCatch from 'try-to-catch';
+import {simpleImport as _simpleImport} from './simple-import.js';
+import {isIgnored} from './ignore.js';
 
 const {keys} = Object;
 const eslintId = ' (eslint)';
@@ -39,7 +36,7 @@ const noConfigFound = (config, configError) => {
     return !keys(config.rules).length;
 };
 
-module.exports.eslint = async (overrides = {}) => {
+export const eslint = async (overrides = {}) => {
     const {
         name,
         code,
@@ -48,6 +45,7 @@ module.exports.eslint = async (overrides = {}) => {
         putout = false,
         simpleImport = _simpleImport,
     } = overrides;
+    
     const noChanges = [
         code,
         [],
@@ -56,7 +54,7 @@ module.exports.eslint = async (overrides = {}) => {
     if (isNoESLint())
         return noChanges;
     
-    const [, ESLint] = await tryToCatch(simpleImport, './get-eslint.mjs');
+    const [, ESLint] = await tryToCatch(simpleImport, './get-eslint.js');
     
     if (!ESLint)
         return noChanges;
@@ -104,12 +102,11 @@ module.exports.eslint = async (overrides = {}) => {
     return [output, places];
 };
 
-module.exports._noConfigFound = noConfigFound;
+export const _noConfigFound = noConfigFound;
 
 const parseRule = (rule) => rule || 'parser';
 
-module.exports.convertToPlace = convertToPlace;
-function convertToPlace({ruleId = 'parser', message, line = 0, column = 0, severity}) {
+export function convertToPlace({ruleId = 'parser', message, line = 0, column = 0, severity}) {
     const rule = `${parseRule(ruleId)}${eslintId}`;
     
     if (severity === WARNING && isNoESLintWarnings())

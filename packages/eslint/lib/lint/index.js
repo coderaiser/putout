@@ -1,9 +1,7 @@
-'use strict';
+import {Linter} from 'eslint';
+import {convertToPlace} from '../eslint.js';
 
-const {Linter} = require('eslint');
-const {convertToPlace} = require('../eslint.js');
-
-module.exports.lint = (source, {fix = true, plugins, filename, options = []}) => {
+export const lint = (source, {fix = true, plugins, filename, options = []}) => {
     const linter = new Linter({
         configType: 'flat',
     });

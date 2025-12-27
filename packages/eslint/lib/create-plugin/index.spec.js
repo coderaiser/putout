@@ -1,12 +1,9 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-
-const {
+import {test, stub} from 'supertape';
+import {
     createPlugin,
     createGetSpacesAfterNode,
     createGetSpacesBeforeNode,
-} = require('./index.js');
+} from './index.js';
 
 test('@putout/eslint: create-plugin: filter', (t) => {
     const {create} = createPlugin({

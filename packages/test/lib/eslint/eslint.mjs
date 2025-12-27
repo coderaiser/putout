@@ -10,7 +10,7 @@ import {
     basename,
 } from 'node:path';
 import process from 'node:process';
-import eslint from '@putout/eslint';
+import {eslint} from '@putout/eslint';
 import tryToCatch from 'try-to-catch';
 import {extend} from 'supertape';
 import {lint} from '@putout/eslint/lint';

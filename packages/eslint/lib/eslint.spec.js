@@ -1,18 +1,14 @@
-'use strict';
-
-const {join} = require('node:path');
-const process = require('node:process');
-
-const {test, stub} = require('supertape');
-const {
+import process from 'node:process';
+import {test, stub} from 'supertape';
+import {
     eslint,
     _noConfigFound,
     convertToPlace,
-} = require('./eslint.js');
+} from './eslint.js';
 
 test('putout: eslint: places', async (t) => {
     const [, result] = await eslint({
-        name: join(__dirname, 'hello.js'),
+        name: new URL('hello.js', import.meta.url).pathname,
         code: `const t = 'hi'\n`,
         fix: false,
     });
@@ -32,7 +28,7 @@ test('putout: eslint: places', async (t) => {
 
 test('putout: eslint: places: success', async (t) => {
     const [, result] = await eslint({
-        name: join(__dirname, '<input>'),
+        name: new URL('<input>', import.meta.url).pathname,
         code: `const t = 'hi';\n`,
         fix: false,
     });
@@ -61,7 +57,7 @@ test('putout: eslint: no eslint', async (t) => {
 
 test('putout: eslint: fix', async (t) => {
     const [result] = await eslint({
-        name: join(__dirname, 'hello.js'),
+        name: new URL('hello.js', import.meta.url).pathname,
         code: `const t = 'hi'\n`,
         fix: true,
     });
@@ -87,7 +83,7 @@ test('putout: eslint: fix: same', async (t) => {
 
 test('putout: eslint: fix: cache', async (t) => {
     const [result] = await eslint({
-        name: join(__dirname, 'hello.js'),
+        name: new URL('hello.js', import.meta.url).pathname,
         code: `const t = 'hi'\n`,
         fix: true,
     });
@@ -323,7 +319,7 @@ test('putout: eslint: enable putout', async (t) => {
     };
     
     const [source] = await eslint({
-        name: join(__dirname, 'hello.js'),
+        name: new URL('hello.js', import.meta.url).pathname,
         code: `var a = 1; module.exports = a`,
         fix: true,
         putout: true,
@@ -342,7 +338,7 @@ test('putout: eslint: empty output', async (t) => {
     };
     
     const [source] = await eslint({
-        name: join(__dirname, 'hello.js'),
+        name: new URL('hello.js', import.meta.url).pathname,
         code: `var a = 1;`,
         fix: true,
         putout: true,
@@ -576,7 +572,7 @@ test('putout: eslint: ignored: no async', async (t) => {
 
 test('putout: eslint: ignored: no star', async (t) => {
     const [, places] = await eslint({
-        name: __filename,
+        name: 'hello.js',
         code: `function hello() {yield 1;}`,
         fix: false,
     });

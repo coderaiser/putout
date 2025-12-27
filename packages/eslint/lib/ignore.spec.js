@@ -1,7 +1,5 @@
-'use strict';
-
-const {test} = require('supertape');
-const {isIgnored} = require('./ignore');
+import {test} from 'supertape';
+import {isIgnored} from './ignore.js';
 
 test('eslint: isIgnored: await', (t) => {
     const message = `Parsing error: Unexpected reserved word 'await'. (2:4)`;

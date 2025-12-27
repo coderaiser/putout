@@ -1282,7 +1282,11 @@ test('putout: cli: d.ts', async (t) => {
 
 test('putout: cli: --transform', async (t) => {
     const write = stub();
-    const eslint = stub().returns(['', []]);
+    const eslint = stub().resolves({
+        code: '',
+        places: [],
+    });
+    const initProcessFile = stub().returns(eslint);
     
     const name = join(__dirname, 'fixture/transform.js');
     const source = await readFile(name, 'utf8');
@@ -1299,22 +1303,11 @@ test('putout: cli: --transform', async (t) => {
         '--no-cache',
     ];
     
-    mockRequire('@putout/eslint', eslint);
-    
-    reRequire('@putout/cli-process-file');
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
         write,
         readFile,
     });
-    
-    stopAll();
     
     const expected = {
         errors: [{
@@ -1343,7 +1336,8 @@ test('putout: cli: --transform', async (t) => {
 
 test('putout: cli: --plugins', async (t) => {
     const write = stub();
-    const eslint = stub().returns(['', []]);
+    const eslint = stub().resolves(['', []]);
+    const initProcessFile = stub().returns(eslint);
     
     const name = join(__dirname, 'fixture/plugins.js');
     const source = await readFile(name, 'utf8');
@@ -1359,24 +1353,11 @@ test('putout: cli: --plugins', async (t) => {
         '--no-cache',
     ];
     
-    mockRequire('@putout/eslint', eslint);
-    
-    reRequire('@putout/cli-process-file');
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    
-    const cli = reRequire('.');
-    
-    reRequire('@putout/eslint');
-    
     await runCli({
-        cli,
         argv,
         write,
         readFile,
     });
-    
-    stopAll();
     
     const expected = {
         errors: [{
@@ -1866,9 +1847,7 @@ test('putout: cli: get files: was stop', async (t) => {
 
 test('putout: cli: get files: was stop: no', async (t) => {
     const argv = [__filename, '--no-cache', '--no-config'];
-    
     const ignore = ['xxx'];
-    
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',
@@ -1881,27 +1860,13 @@ test('putout: cli: get files: was stop: no', async (t) => {
     ]);
     
     const halt = stub();
-    const isStop = stub().returns(false);
-    
-    const onHalt = stub().returns({
-        isStop,
-    });
-    
-    mockRequire('./get-options', getOptions);
-    mockRequire('./get-files', getFiles);
-    mockRequire('./on-halt', onHalt);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
     
     await runCli({
-        cli,
         argv,
         halt,
+        getFiles,
+        getOptions,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [OK], 'should set OK status');
     t.end();
@@ -1930,22 +1895,14 @@ test('putout: cli: get files: was stop: isStop passed', async (t) => {
         isStop,
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./get-files', getFiles);
-    mockRequire('./on-halt', onHalt);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
         halt,
         isStop,
+        getFiles,
+        getOptions,
+        onHalt,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [OK], 'should set OK status');
     t.end();
@@ -2325,6 +2282,7 @@ async function runCli(options) {
         initProcessFile,
         getFormatter,
         initReport,
+        onHalt,
     } = options;
     
     await cli({
@@ -2344,5 +2302,6 @@ async function runCli(options) {
         initProcessFile,
         getFormatter,
         initReport,
+        onHalt,
     });
 }

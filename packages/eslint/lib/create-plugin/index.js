@@ -1,5 +1,3 @@
-'use strict';
-
 const prepare = (plugin, context, options) => (node) => {
     const {filter, report} = plugin;
     const {sourceCode, filename} = context;
@@ -64,7 +62,7 @@ const prepareFix = (fix, {node, text, getText, filename}) => (fixer) => {
     ];
 };
 
-module.exports.createPlugin = (plugin) => {
+export const createPlugin = (plugin) => {
     const meta = getMeta(plugin);
     
     return {
@@ -108,7 +106,7 @@ function getTraversers(names, plugin) {
     return traversers;
 }
 
-const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) => {
+export const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) => {
     let spaces = '';
     let i = 0;
     
@@ -121,9 +119,7 @@ const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) =>
     return spaces.slice(1);
 };
 
-module.exports.createGetSpacesBeforeNode = createGetSpacesBeforeNode;
-
-const createGetSpacesAfterNode = ({getText}) => (node, text = getText(node)) => {
+export const createGetSpacesAfterNode = ({getText}) => (node, text = getText(node)) => {
     const reg = /^[ \n;]+$/;
     
     if (isLastNodeInBody(node))
@@ -137,8 +133,6 @@ const createGetSpacesAfterNode = ({getText}) => (node, text = getText(node)) => 
     
     return spaces.slice(0, -1);
 };
-
-module.exports.createGetSpacesAfterNode = createGetSpacesAfterNode;
 
 function isLastNodeInBody(node) {
     if (node.parent.body) {
