@@ -1,3 +1,20 @@
+2025.12.27, v41.0.10
+
+feature:
+- c55a476c3 putout: @putout/plugin-declare-before-reference v9.0.0
+- 149a38dac @putout/plugin-variables: remove-unused: ArrayPattern: filter before check
+- 7d776bfce @putout/plugin-declare-before-reference: drop support of 🐊 < 41
+- 14369f390 @putout/plugin-declare-before-reference: variables/apply-declarations-order
+- 4e99f41d2 @putout/plugin-variables: apply-destructuring-order: exclude not ObjectPattern
+- 9d892ab70 putout: config: markdown: variables/apply-declarations-order: disable
+- 9a0cd6899 @putout/plugin-variables: apply-declarations-order: both identifiers
+- b44904377 @putout/plugin-putout-config: apply-variables: reuse-duplicate-init
+- 511db8f32 @putout/plugin-variables: reuse-duplicate-init: add
+- 5af46b3a3 @putout/variables: apply-declarations-order: add
+- a05cea44e @putout/plugin-destructuring: apply-declarations-order: add
+- fbb452f01 @putout/plugin-putout: declare-template-variables: no arguments
+- b8e027497 @putout/plugin-putout: declare-template-variables: ArrowFunction body: expression
+
 2025.12.26, v41.0.9
 
 feature:
