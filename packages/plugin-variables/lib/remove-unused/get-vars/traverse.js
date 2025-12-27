@@ -118,11 +118,13 @@ export const traverseObjectExpression = (use) => {
     };
 };
 
+const exists = ({node}) => Boolean(node);
+
 export const traverseArrayExpression = (use) => {
     const traverseObjExpression = traverseObjectExpression(use);
     
     return (elementsPaths) => {
-        for (const elementPath of elementsPaths) {
+        for (const elementPath of elementsPaths.filter(exists)) {
             const {node} = elementPath;
             
             if (isIdentifier(node))

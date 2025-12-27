@@ -252,6 +252,10 @@ test('remove-unused-variables: get-vars: array pattern', (t) => {
         z: d_,
         array: _u,
         console: _u,
+        filter: _u,
+    }, {
+        v: du,
+        k: d_,
     }];
     
     t.deepEqual(result, expected);
