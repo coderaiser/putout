@@ -5,6 +5,7 @@ const {
     isIdentifier,
     isImportSpecifier,
     exportNamedDeclaration,
+    isObjectExpression,
 } = types;
 
 const {replaceWith} = operator;
@@ -39,7 +40,25 @@ export const match = () => ({
 });
 
 export const replace = () => ({
-    'module.exports = __a': 'export default __a',
+    'module.exports = __a': ({__a}) => {
+        if (!isObjectExpression(__a))
+            return 'export default __a';
+        
+        const result = ['export {'];
+        
+        for (const {key, value} of __a.properties) {
+            if (key.name === value.name) {
+                result.push(`${key.name},`);
+                continue;
+            }
+            
+            result.push(`${key.name} as ${value.name}`);
+        }
+        
+        result.push('};');
+        
+        return result.join('\n');
+    },
     'module.exports.__a = __b': ({__a, __b}, path) => {
         const {name} = __a;
         

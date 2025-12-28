@@ -67,6 +67,11 @@ test('plugin-convert-commonjs-to-esm: exports: transform: import-specifier', (t)
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: exports: transform: object', (t) => {
+    t.transform('object');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: exports: no transform: not-declared', (t) => {
     t.noTransform('not-declared');
     t.end();
