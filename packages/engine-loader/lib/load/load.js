@@ -8,8 +8,10 @@ const once = require('once');
 
 const bigFirst = (a) => `${a[0].toUpperCase()}${a.slice(1)}`;
 
-const load = (type) => ({name, namespace}) => {
-    const [pluginPath, customRequire] = getPath(namespace, type, name);
+const load = (type) => ({name, namespace, getModulePath = _getModulePath}) => {
+    const [pluginPath, customRequire] = getPath(namespace, type, name, {
+        getModulePath,
+    });
     
     if (!pluginPath)
         throw Error(`${bigFirst(type)} "${namespace}-${type}-${name}" could not be found!`);
@@ -25,7 +27,9 @@ const load = (type) => ({name, namespace}) => {
 module.exports.loadPlugin = load('plugin');
 module.exports.loadProcessor = load('processor');
 
-function getPath(namespace, type, name) {
+function getPath(namespace, type, name, overrides) {
+    const {getModulePath} = overrides;
+    
     if (name.startsWith('import:'))
         return getModulePath(name.replace('import:', ''));
     
@@ -54,7 +58,7 @@ const createPutoutRequire = once(() => createRequire(require.resolve('putout')))
 // - declared in module that want to extend 🐊Putout;
 //
 // https://yarnpkg.com/advanced/rulebook#modules-shouldnt-hardcode-node_modules-paths-to-access-other-modules
-function getModulePath(name, {again = false} = {}) {
+function _getModulePath(name, {again = false} = {}) {
     let path;
     
     const customRequire = createCustomRequire();
@@ -68,7 +72,7 @@ function getModulePath(name, {again = false} = {}) {
     [, path] = tryCatch(customRequire.resolve, name);
     
     if (!path && !again)
-        return getModulePath(buildPluginsDir(name), {
+        return _getModulePath(buildPluginsDir(name), {
             again: true,
         });
     

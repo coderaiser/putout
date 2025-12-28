@@ -6,6 +6,8 @@ const tryCatch = require('try-catch');
 const mockRequire = require('mock-require');
 const {test, stub} = require('supertape');
 
+const {loadPlugin} = require('./load');
+
 const {stopAll, reRequire} = mockRequire;
 const {assign} = Object;
 
@@ -95,5 +97,52 @@ test('putout: engine-loader: load: PUTOUT_LOAD_DIR', (t) => {
     const expected = 'hello';
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: engine-loader: load: getPath', (t) => {
+    const getModulePath = stub();
+    
+    tryCatch(loadPlugin, {
+        namespace: 'putout',
+        name: 'hello',
+        getModulePath,
+    });
+    
+    t.calledWith(getModulePath, ['@putout/plugin-hello']);
+    t.end();
+});
+
+test('putout: engine-loader: load: getPath: last', (t) => {
+    const getModulePath = stub().returns([]);
+    
+    tryCatch(loadPlugin, {
+        namespace: 'putout',
+        name: 'hello',
+        getModulePath,
+    });
+    
+    t.calledWith(getModulePath, ['hello']);
+    t.end();
+});
+
+test('putout: engine-loader: load: getPath: second', (t) => {
+    const getModulePath = stub().returns([]);
+    
+    tryCatch(loadPlugin, {
+        namespace: 'putout',
+        name: 'hello',
+        getModulePath,
+    });
+    
+    const {args} = getModulePath;
+    
+    const expected = [
+        ['@putout/plugin-hello'],
+        ['putout-plugin-hello'],
+        ['hello'],
+    ];
+    
+    t.deepEqual(args, expected);
     t.end();
 });
