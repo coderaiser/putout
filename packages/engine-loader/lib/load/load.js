@@ -5,7 +5,6 @@ const {createRequire} = require('node:module');
 const {join} = require('node:path');
 const tryCatch = require('try-catch');
 const once = require('once');
-const {assign} = Object;
 
 const bigFirst = (a) => `${a[0].toUpperCase()}${a.slice(1)}`;
 
@@ -17,14 +16,6 @@ const load = (type) => ({name, namespace}) => {
     
     const [error, result] = tryCatch(customRequire, pluginPath);
     
-    /* c8 ignore start */
-    if (error?.code === 'ERR_REQUIRE_ESM')
-        assign(error, {
-            message: `☝️ Looks like '${name}' is ESM, use 'await putoutAsync()' instead`,
-            name,
-        });
-    
-    /* c8 ignore end */
     if (error)
         throw error;
     
