@@ -3,7 +3,9 @@
 const {createDebug} = require('obug');
 
 module.exports.createDebug = (namespace) => {
-    const log = createDebug(namespace);
+    const log = createDebug(namespace, {
+        useColors: true,
+    });
     
     return new Proxy(log, {
         apply(target, thisArg, args) {
