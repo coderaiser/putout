@@ -3,7 +3,7 @@
 const process = require('node:process');
 const {join} = require('node:path');
 
-const {nanomemoize} = require('nano-memoize');
+const {nanomemoize: _nanomemoize} = require('nano-memoize');
 const tryToCatch = require('try-to-catch');
 const {simpleImport: _simpleImport} = require('./simple-import');
 
@@ -13,6 +13,7 @@ const stub = () => () => {};
 module.exports.createAsyncLoader = (type, overrides = {}) => {
     const {
         simpleImport = _simpleImport,
+        nanomemoize = _nanomemoize,
     } = overrides;
     
     return nanomemoize(async (name) => {

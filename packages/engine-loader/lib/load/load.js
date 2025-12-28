@@ -4,7 +4,6 @@ const process = require('node:process');
 const {createRequire: _createRequire} = require('node:module');
 const {join} = require('node:path');
 const tryCatch = require('try-catch');
-const once = require('once');
 
 const bigFirst = (a) => `${a[0].toUpperCase()}${a.slice(1)}`;
 
@@ -60,11 +59,9 @@ function getPath(namespace, type, name, overrides) {
     return [path, customRequire];
 }
 
-const {
-    PUTOUT_YARN_PNP = 'putout',
-} = process.env;
+const {env} = process;
 
-const createCustomRequire = (createRequire) => createRequire(require.resolve(PUTOUT_YARN_PNP));
+const createCustomRequire = (createRequire) => createRequire(require.resolve(env.PUTOUT_YARN_PNP || 'putout'));
 const createPutoutRequire = (createRequire) => createRequire(require.resolve('putout'));
 
 // That's all for Yarn P'n'P
@@ -97,7 +94,7 @@ function _getModulePath(name, overrides = {}) {
     return [path, customRequire];
 }
 
-const getPutoutLoadDir = once(() => process.env.PUTOUT_LOAD_DIR);
+const getPutoutLoadDir = () => process.env.PUTOUT_LOAD_DIR;
 
 function buildPluginsDir(name) {
     const dir = getPutoutLoadDir();
