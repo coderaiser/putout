@@ -1,14 +1,12 @@
 'use strict';
 
+const {createRequire} = require('node:module');
 const {join} = require('node:path');
 const process = require('node:process');
 const tryCatch = require('try-catch');
-const mockRequire = require('mock-require');
 const {test, stub} = require('supertape');
-
 const {loadPlugin} = require('./load');
 
-const {stopAll, reRequire} = mockRequire;
 const {assign} = Object;
 
 test('putout: engine-loader: load: yarn OnP support', (t) => {
@@ -20,20 +18,13 @@ test('putout: engine-loader: load: yarn OnP support', (t) => {
     
     const createRequire = stub().returns(customRequire);
     
-    mockRequire('node:module', {
-        createRequire,
-    });
-    
-    const {loadPlugin} = reRequire('./load.js');
-    
     const result = loadPlugin({
         name: 'hello',
         namespace: 'putout',
+        createRequire,
     });
     
     const expected = 'plugin';
-    
-    stopAll();
     
     t.equal(result, expected);
     t.end();
@@ -42,7 +33,6 @@ test('putout: engine-loader: load: yarn OnP support', (t) => {
 test('putout: engine-loader: load: env: PUTOUT_YARN_PNP', (t) => {
     process.env.PUTOUT_YARN_PNP = 'hello';
     
-    const {loadPlugin} = reRequire('./load.js');
     const [error] = tryCatch(loadPlugin, {
         name: 'hello',
         namespace: 'putout',
@@ -63,20 +53,11 @@ test('putout: engine-loader: load: createRequire', (t) => {
     
     const createRequire = stub().returns(customRequire);
     
-    mockRequire('node:module', {
-        createRequire,
-    });
-    
-    const {loadPlugin} = reRequire('./load.js');
-    
     tryCatch(loadPlugin, {
         name: '@putout/plugin-remove-debugger',
         namespace: 'putout',
+        createRequire,
     });
-    
-    stopAll();
-    
-    reRequire('./load.js');
     
     t.calledCount(createRequire, 2, 'should call for "putout" and PUTOUT_YARN_PNP');
     t.end();
@@ -85,7 +66,6 @@ test('putout: engine-loader: load: createRequire', (t) => {
 test('putout: engine-loader: load: PUTOUT_LOAD_DIR', (t) => {
     process.env.PUTOUT_LOAD_DIR = join(__dirname, 'fixture');
     
-    const {loadPlugin} = reRequire('./load.js');
     const {report} = loadPlugin({
         namespace: 'putout',
         name: 'hello',
@@ -109,7 +89,11 @@ test('putout: engine-loader: load: getPath', (t) => {
         getModulePath,
     });
     
-    t.calledWith(getModulePath, ['@putout/plugin-hello']);
+    const args = ['@putout/plugin-hello', {
+        createRequire,
+    }];
+    
+    t.calledWith(getModulePath, args);
     t.end();
 });
 
@@ -122,7 +106,11 @@ test('putout: engine-loader: load: getPath: last', (t) => {
         getModulePath,
     });
     
-    t.calledWith(getModulePath, ['hello']);
+    const overrides = {
+        createRequire,
+    };
+    
+    t.calledWith(getModulePath, ['hello', overrides]);
     t.end();
 });
 
@@ -137,10 +125,14 @@ test('putout: engine-loader: load: getPath: second', (t) => {
     
     const {args} = getModulePath;
     
+    const overrides = {
+        createRequire,
+    };
+    
     const expected = [
-        ['@putout/plugin-hello'],
-        ['putout-plugin-hello'],
-        ['hello'],
+        ['@putout/plugin-hello', overrides],
+        ['putout-plugin-hello', overrides],
+        ['hello', overrides],
     ];
     
     t.deepEqual(args, expected);

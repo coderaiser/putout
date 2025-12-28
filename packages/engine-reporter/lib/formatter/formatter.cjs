@@ -19,9 +19,11 @@ module.exports.getFormatter = async (formatterOptional, exit, overrides = {}) =>
     } = overrides;
     
     const [formatterName = 'none', formatterOptions] = maybeArray(formatterOptional);
-    const loadFormatter = createAsyncLoader('formatter');
+    const loadFormatter = createAsyncLoader('formatter', {
+        simpleImport,
+    });
     
-    const [error, formatter] = await tryToCatch(loadFormatter, formatterName, simpleImport);
+    const [error, formatter] = await tryToCatch(loadFormatter, formatterName);
     
     if (formatter)
         return [formatter, formatterOptions];
