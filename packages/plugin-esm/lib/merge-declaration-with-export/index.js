@@ -25,6 +25,9 @@ export const filter = (path) => {
     const {scope} = path;
     const specifiers = path.get('specifiers');
     
+    if (!specifiers.length)
+        return false;
+    
     for (const spec of specifiers) {
         const {local, exported} = spec.node;
         const {name} = local;

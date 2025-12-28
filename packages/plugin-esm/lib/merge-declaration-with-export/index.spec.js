@@ -39,6 +39,11 @@ test('esm: inline-export: no report: require', (t) => {
     t.end();
 });
 
+test('esm: inline-export: no report: empty', (t) => {
+    t.noReport('empty');
+    t.end();
+});
+
 test('esm: inline-export: transform: apply-export-from', (t) => {
     t.transform('apply-export-from', {
         applyExportFrom,
