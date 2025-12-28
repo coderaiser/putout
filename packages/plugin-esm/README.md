@@ -94,6 +94,7 @@ export const rules = {};
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 
 Check out 🐊**Putout Editor**:
+
 - [#1](https://putout.cloudcmd.io/#/gist/c9a3983d269745da89c1c7560f3b7fac/3ecb9aa6b910ce3816605bae11c8dd86bdc457e5);
 - [#2](https://putout.cloudcmd.io/#/gist/9b2a0a51acf477291a6bbcbe7d846ddf/fa21768506f518ca0a1073beb82a9b8b8f5e7c19);
 
