@@ -1,3 +1,4 @@
+import * as mergeExportDeclarations from './merge-export-declarations/index.js';
 import * as removeUselessExportSpecifiers from './remove-useless-export-specifiers/index.js';
 import * as mergeDeclarationWithExport from './merge-declaration-with-export/index.js';
 import * as applyNamespaceImportToFile from './apply-namespace-import-to-file/index.js';
@@ -28,4 +29,5 @@ export const rules = {
     'apply-namespace-import-to-file': ['off', applyNamespaceImportToFile],
     'merge-declaration-with-export': mergeDeclarationWithExport,
     'remove-useless-export-specifiers': removeUselessExportSpecifiers,
+    'merge-export-declarations': mergeExportDeclarations,
 };

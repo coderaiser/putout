@@ -81,3 +81,8 @@ test('plugin-esm: transform: remove-useless-export-specifiers', (t) => {
     t.transform('remove-useless-export-specifiers');
     t.end();
 });
+
+test('plugin-esm: transform: merge-export-declarations', (t) => {
+    t.transform('merge-export-declarations');
+    t.end();
+});

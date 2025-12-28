@@ -25,6 +25,7 @@ npm i putout @putout/plugin-esm -D
 - ✅ [group-imports-by-source](#group-imports-by-source);
 - ✅ [merge-duplicate-imports](#merge-duplicate-imports);
 - ✅ [merge-declaration-with-export](#merge-declaration-with-export);
+- ✅ [merge-export-declarations](#merge-export-declarations);
 - ✅ [remove-quotes-from-import-assertions](#remove-quotes-from-import-assertions);
 - ✅ [remove-empty-import](#remove-empty-import);
 - ✅ [remove-empty-export](#remove-empty-export);
@@ -47,6 +48,7 @@ npm i putout @putout/plugin-esm -D
         "esm/group-imports-by-source": "on",
         "esm/merge-duplicate-imports": "on",
         "esm/merge-declaration-with-export": "off",
+        "esm/merge-export-declaration": "off",
         "esm/remove-quotes-from-import-assertions": "on",
         "esm/remove-empty-export": "on",
         "esm/remove-empty-import": ["on", {
@@ -158,6 +160,30 @@ export const {
     fix,
     scan,
 } = createRemoveFiles(['*.swp', '*.swo']);
+```
+
+### merge-export-declarations
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d3e490352bd4a98033de89db670b4737/3ff4803578bf39f8587cb578a103e5d92dd92050).
+
+#### ❌ Example of incorrect code
+
+```js
+export {
+    loadPlugins,
+};
+export {
+    loadPluginsAsync,
+};
+```
+
+#### ❌ Example of incorrect code
+
+```js
+export {
+    loadPlugins,
+    loadPluginsAsync,
+};
 ```
 
 ### remove-useless-export-specifiers
