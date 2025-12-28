@@ -1,43 +1,78 @@
 import {types, operator} from 'putout';
 
 const {
-    compare,
-    getTemplateValues,
-    remove,
-} = operator;
+    isExportSpecifier,
+    isImportSpecifier,
+    exportNamedDeclaration,
+    exportNamespaceSpecifier,
+    isImportNamespaceSpecifier,
+} = types;
 
-const {exportNamespaceSpecifier} = types;
+const {values} = Object;
+const {remove, insertAfter} = operator;
 
-export const report = () => `Use 'export *' instead of 'import/export'`;
+export const report = () => `Use 'export from' instead of 'import' + 'export'`;
 
-const IMPORT = 'import * as __a from "__b"';
-
-export const fix = ({path, current}) => {
-    const {exported} = current.node.specifiers[0];
+export const fix = ({path, reference}) => {
+    const {parentPath} = path;
+    const parentReference = reference.parentPath;
+    const exportNode = createExport(path, parentReference);
     
-    current.node.source = path.node.source;
-    
-    delete current.node.local;
-    delete current.node.exported;
-    
-    current.node.specifiers = [
-        exportNamespaceSpecifier(exported),
-    ];
-    
-    remove(path);
+    insertAfter(parentPath, exportNode);
+    removeSpecifier(path);
+    removeSpecifier(parentReference);
 };
 
 export const traverse = ({push}) => ({
-    [IMPORT]: (path) => {
-        const {__a} = getTemplateValues(path, IMPORT);
-        const {name} = __a;
+    Program(path) {
+        const {bindings} = path.scope;
+        const imports = values(bindings).filter(isExported);
         
-        for (const current of path.parentPath.get('body')) {
-            if (compare(current, `export {${name} as __b}`))
-                push({
-                    path,
-                    current,
-                });
+        for (const {path, referencePaths} of imports) {
+            const [reference] = referencePaths;
+            
+            push({
+                path,
+                reference,
+            });
         }
     },
 });
+
+function isExported(binding) {
+    const {
+        path,
+        references,
+        referencePaths,
+    } = binding;
+    
+    if (references !== 1)
+        return false;
+    
+    if (!isImportSpecifier(path) && !isImportNamespaceSpecifier(path))
+        return false;
+    
+    const [refPath] = referencePaths;
+    
+    return isExportSpecifier(refPath.parentPath);
+}
+
+function removeSpecifier(path) {
+    if (path.parentPath.node.specifiers.length === 1)
+        remove(path.parentPath);
+    else
+        remove(path);
+}
+
+function createExport(path, parentReference) {
+    const {parentPath} = path;
+    const {source} = parentPath.node;
+    
+    if (isImportSpecifier(path))
+        return exportNamedDeclaration(null, [parentReference.node], source);
+    
+    const {exported} = parentReference.node;
+    const specifier = exportNamespaceSpecifier(exported);
+    
+    return exportNamedDeclaration(null, [specifier], source);
+}

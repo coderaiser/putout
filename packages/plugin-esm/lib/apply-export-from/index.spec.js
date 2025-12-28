@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('esm: apply-export-from: report', (t) => {
-    t.report('apply-export-from', `Use 'export *' instead of 'import/export'`);
+    t.report('apply-export-from', `Use 'export from' instead of 'import' + 'export'`);
     t.end();
 });
 
