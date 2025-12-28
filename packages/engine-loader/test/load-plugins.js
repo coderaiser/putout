@@ -5,7 +5,6 @@ const Module = require('node:module');
 
 const {test, stub} = require('supertape');
 const tryCatch = require('try-catch');
-const mockRequire = require('mock-require');
 const putout = require('putout');
 const montag = require('montag');
 
@@ -14,20 +13,11 @@ const {loadPlugins} = require('..');
 
 const {putoutAsync} = putout;
 
-const {reRequire, stopAll} = mockRequire;
 const fixture = readFixtures(['shebang', 'shebang-fix']);
 
 test('putout: loader: user plugin', (t) => {
     const {_findPath} = Module;
     const rmVars = 'remove-debugger';
-    
-    const rmUnusedVars = require(`@putout/plugin-${rmVars}`);
-    
-    mockRequire(`@putout/plugin-${rmVars}`, null);
-    mockRequire(`putout-plugin-${rmVars}`, rmUnusedVars);
-    
-    reRequire('..');
-    const putout = reRequire('putout');
     
     Module._findPath = stub((name, paths) => {
         if (!name.indexOf(`@putout/plugin-${rmVars}`))
@@ -39,15 +29,14 @@ test('putout: loader: user plugin', (t) => {
         return _findPath(name, paths);
     });
     
-    const {code} = putout(`debugger`, {
+    const [error] = tryCatch(putout, `debugger`, {
         loadPlugins,
         plugins: [rmVars],
     });
     
-    stopAll();
     Module._findPath = _findPath;
     
-    t.equal(code, '\n');
+    t.equal(error.message, `ENOENT: no such file or directory, open 'putout-plugin-remove-debugger'`);
     t.end();
 });
 
@@ -65,11 +54,9 @@ test('putout: loader: can not find', (t) => {
 test('putout: loader: function', (t) => {
     const rmVars = 'remove-debugger';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
+    const {_findPath} = Module;
     
-    mockRequire(`@putout/plugin-${rmVars}`, null);
-    
-    reRequire('..');
-    const putout = reRequire('putout');
+    Module._findPath = stub(createFindPath(rmVars, _findPath));
     
     const {code} = putout(`debugger;`, {
         plugins: [{
@@ -77,7 +64,7 @@ test('putout: loader: function', (t) => {
         }],
     });
     
-    stopAll();
+    Module._findPath = _findPath;
     
     t.equal(code, '\n');
     t.end();
@@ -87,10 +74,9 @@ test('putout: loader: function: rules', (t) => {
     const rmVars = 'remove-debugger';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
-    mockRequire(`@putout/plugin-${rmVars}`, null);
+    const {_findPath} = Module;
     
-    reRequire('..');
-    const putout = reRequire('putout');
+    Module._findPath = stub(createFindPath(rmVars, _findPath));
     
     const {code} = putout(`debugger`, {
         plugins: [{
@@ -102,7 +88,7 @@ test('putout: loader: function: rules', (t) => {
         }],
     });
     
-    stopAll();
+    Module._findPath = _findPath;
     
     t.equal(code, '\n');
     t.end();
@@ -112,10 +98,9 @@ test('putout: loader: disabled rule', (t) => {
     const rmVars = 'remove-debugger';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
-    mockRequire(`@putout/plugin-${rmVars}`, null);
+    const {_findPath} = Module;
     
-    reRequire('..');
-    const putout = reRequire('putout');
+    Module._findPath = stub(createFindPath(rmVars, _findPath));
     
     const {code} = putout(`debugger`, {
         rules: {
@@ -126,7 +111,7 @@ test('putout: loader: disabled rule', (t) => {
         }],
     });
     
-    stopAll();
+    Module._findPath = _findPath;
     
     t.equal(code, `debugger;\n`);
     t.end();
@@ -158,10 +143,9 @@ test('putout: loader: plugins: array', (t) => {
     const rmVars = 'remove-debugger';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
-    mockRequire(`@putout/plugin-${rmVars}`, null);
+    const {_findPath} = Module;
     
-    reRequire('..');
-    const putout = reRequire('putout');
+    Module._findPath = createFindPath(rmVars, _findPath);
     
     const {code} = putout(`debugger;`, {
         rules: {
@@ -172,7 +156,7 @@ test('putout: loader: plugins: array', (t) => {
         ],
     });
     
-    stopAll();
+    Module._findPath = _findPath;
     
     t.equal(code, `debugger;\n`);
     t.end();
@@ -618,3 +602,13 @@ test('putout: loader: enable part of rule: async', async (t) => {
     t.deepEqual(places, expected, 'should disable all but couple of rules in plugin');
     t.end();
 });
+
+const createFindPath = (pluginName, findPath) => (name, paths) => {
+    if (!name.indexOf(`@putout/plugin-${pluginName}`))
+        return false;
+    
+    if (name === `putout-plugin-${pluginName}`)
+        return false;
+    
+    return findPath(name, paths);
+};
