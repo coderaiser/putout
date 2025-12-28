@@ -118,22 +118,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3fad517d76
 #### ❌ Example of incorrect code
 
 ```js
-const {
-    report,
-    fix,
-    scan,
-} = createRemoveFiles(['*.swp', '*.swo']);
-
-export {
-    report,
-    fix,
-    scan,
-};
-```
-
-#### ❌ Example of incorrect code
-
-```js
 const stack = [];
 
 function sum(a, b) {
@@ -287,7 +271,6 @@ import test, {stub} from 'supertape';
 #### rename
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6604936dec6b1eed8ce0d143f2962f15/17b310a6e4d85b0b8615a8b91d0e27414e8af291).
-
 To disable use:
 
 ```json
