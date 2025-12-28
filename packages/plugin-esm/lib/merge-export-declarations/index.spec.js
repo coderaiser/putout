@@ -16,3 +16,13 @@ test('esm: merge-export-declarations: transform', (t) => {
     t.transform('merge-export-declarations');
     t.end();
 });
+
+test('esm: merge-export-declarations: transform: same-sources', (t) => {
+    t.transform('same-sources');
+    t.end();
+});
+
+test('esm: merge-export-declarations: no report: different-sources', (t) => {
+    t.noReport('different-sources');
+    t.end();
+});
