@@ -1,3 +1,15 @@
+2025.12.29, v41.1.1
+
+fix:
+- dcf171531 @putout/engine-loader: improve rollup support
+
+feature:
+- d5f81a1d9 putout: @putout/plugin-return v3.0.0
+- 6fa367791 @putout/plugin-return: drop support of 🐊 < 41
+- 1c4602094 @putout/plugin-return: remove-useless: ObjectExpression: improve support
+- 5546054fb @putout/engine-loader: move out module
+- 221edc107 @putout/engine-loader: rules: add
+
 2025.12.29, v41.1.0
 
 fix:
