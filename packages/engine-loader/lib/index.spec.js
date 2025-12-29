@@ -1,9 +1,9 @@
-'use strict';
-
-const tryCatch = require('try-catch');
-const test = require('supertape');
-const {loadPlugins} = require('.');
-const {validateRulesRelations} = require('./index');
+import tryCatch from 'try-catch';
+import test from 'supertape';
+import {
+    loadPlugins,
+    validateRulesRelations,
+} from './index.js';
 
 test('engine-loader: load-plugins', (t) => {
     const result = loadPlugins({

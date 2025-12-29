@@ -1,15 +1,14 @@
-'use strict';
+import process from 'node:process';
+import {join} from 'node:path';
+import {createRequire} from 'node:module';
+import tryToCatch from 'try-to-catch';
+import {simpleImport as _simpleImport} from './simple-import.js';
 
-const process = require('node:process');
-const {join} = require('node:path');
-
-const tryToCatch = require('try-to-catch');
-const {simpleImport: _simpleImport} = require('./simple-import');
-
+const require = createRequire(import.meta.url);
 const {assign} = Object;
 const stub = () => () => {};
 
-module.exports.createAsyncLoader = (type, overrides = {}) => {
+export const createAsyncLoader = (type, overrides = {}) => {
     const {
         simpleImport = _simpleImport,
     } = overrides;

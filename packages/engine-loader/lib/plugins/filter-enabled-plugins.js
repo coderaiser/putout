@@ -1,6 +1,4 @@
-'use strict';
-
-const {isEnabled, mergeRules} = require('../rules');
+import {isEnabled, mergeRules} from '../rules/index.js';
 
 const {isArray} = Array;
 const maybeTuple = (a) => isArray(a) ? a : ['on', a];
@@ -10,7 +8,7 @@ const maybeTuple = (a) => isArray(a) ? a : ['on', a];
 // but we can't because of a way multi-rule plugins
 // works. We can't determine count and names of all
 // rules of a plugin before load.
-module.exports.filterEnabledPlugins = ({plugins, cookedRules}) => {
+export const filterEnabledPlugins = ({plugins, cookedRules}) => {
     const result = [];
     
     for (const [name, plugin] of plugins) {

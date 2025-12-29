@@ -1,20 +1,14 @@
-'use strict';
-
-const {basename} = require('node:path');
-
-const {isEnabled} = require('../rules');
-
-const {prepareRules} = require('./prepare-rules');
-
-const validatePlugin = require('./validate-plugin');
-const {filterEnabledPlugins} = require('./filter-enabled-plugins');
-
-const {createAsyncLoader} = require('../load/async-loader');
-const {check, checkRule} = require('../check');
+import {basename} from 'node:path';
+import {isEnabled} from '../rules/index.js';
+import {prepareRules} from './prepare-rules.js';
+import validatePlugin from './validate-plugin.js';
+import {filterEnabledPlugins} from './filter-enabled-plugins.js';
+import {createAsyncLoader} from '../load/async-loader.js';
+import {check, checkRule} from '../check/index.js';
 
 const loadPluginAsync = createAsyncLoader('plugin');
 
-module.exports.loadPluginsAsync = async (options) => {
+export const loadPluginsAsync = async (options) => {
     check(options);
     
     const {pluginNames = [], rules = {}} = options;

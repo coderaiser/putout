@@ -1,10 +1,12 @@
-'use strict';
+import process from 'node:process';
+import {
+    createRequire as _createRequire,
+    createRequire,
+} from 'node:module';
+import {join} from 'node:path';
+import tryCatch from 'try-catch';
 
-const process = require('node:process');
-const {createRequire: _createRequire} = require('node:module');
-const {join} = require('node:path');
-const tryCatch = require('try-catch');
-
+const require = createRequire(import.meta.url);
 const bigFirst = (a) => `${a[0].toUpperCase()}${a.slice(1)}`;
 
 const load = (type) => (overrides) => {
@@ -31,8 +33,8 @@ const load = (type) => (overrides) => {
     return result;
 };
 
-module.exports.loadPlugin = load('plugin');
-module.exports.loadProcessor = load('processor');
+export const loadPlugin = load('plugin');
+export const loadProcessor = load('processor');
 
 function getPath(namespace, type, name, overrides) {
     const {getModulePath, createRequire} = overrides;

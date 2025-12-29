@@ -1,11 +1,8 @@
-'use strict';
+import {parsePluginNames} from './parse-plugin-names.js';
+import {enableNestedRules} from '../rules/parse-rules.js';
+import {parseRules, getLoadedRules} from '../rules/index.js';
 
-const {parsePluginNames} = require('./parse-plugin-names');
-const {enableNestedRules} = require('../rules/parse-rules');
-
-const {parseRules, getLoadedRules} = require('../rules');
-
-module.exports.prepareRules = ({rules, pluginNames}) => {
+export const prepareRules = ({rules, pluginNames}) => {
     const enabledRules = enableNestedRules(rules);
     const cookedEnabledRules = parseRules(enabledRules);
     const loadedRules = getLoadedRules(cookedEnabledRules);

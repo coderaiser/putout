@@ -1,9 +1,6 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-const tryToCatch = require('try-to-catch');
-
-const {loadProcessorsAsync} = require('..');
+import {test, stub} from 'supertape';
+import tryToCatch from 'try-to-catch';
+import {loadProcessorsAsync} from '../lib/index.js';
 
 test('putout: engine-loader: load processors', async (t) => {
     const processorJavascript = await import('@putout/processor-javascript');

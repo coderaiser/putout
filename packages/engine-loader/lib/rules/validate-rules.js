@@ -1,5 +1,3 @@
-'use strict';
-
 const parseSlashes = (rule) => {
     if (rule.includes('/'))
         return rule
@@ -15,7 +13,7 @@ const parsePluginName = (a) => {
         .replace('@putout/plugin-', '');
 };
 
-module.exports.validateRules = ({items, rules}) => {
+export const validateRules = ({items, rules}) => {
     const ruleItems = Object.keys(rules);
     
     for (const rule of ruleItems) {

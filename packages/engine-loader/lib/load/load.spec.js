@@ -1,11 +1,8 @@
-'use strict';
-
-const {createRequire} = require('node:module');
-const {join} = require('node:path');
-const process = require('node:process');
-const tryCatch = require('try-catch');
-const {test, stub} = require('supertape');
-const {loadPlugin} = require('./load');
+import {createRequire} from 'node:module';
+import process from 'node:process';
+import tryCatch from 'try-catch';
+import {test, stub} from 'supertape';
+import {loadPlugin} from './load.js';
 
 const {assign} = Object;
 
@@ -64,7 +61,7 @@ test('putout: engine-loader: load: createRequire', (t) => {
 });
 
 test('putout: engine-loader: load: PUTOUT_LOAD_DIR', (t) => {
-    process.env.PUTOUT_LOAD_DIR = join(__dirname, 'fixture');
+    process.env.PUTOUT_LOAD_DIR = new URL('fixture', import.meta.url).pathname;
     
     const {report} = loadPlugin({
         namespace: 'putout',

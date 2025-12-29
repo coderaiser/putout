@@ -1,7 +1,5 @@
-'use strict';
-
-const {test} = require('supertape');
-const {filterEnabledPlugins} = require('./filter-enabled-plugins');
+import {test} from 'supertape';
+import {filterEnabledPlugins} from './filter-enabled-plugins.js';
 
 test('putout: engine-loader: filter-enabled-plugins', (t) => {
     const plugins = [

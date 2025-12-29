@@ -1,8 +1,6 @@
-'use strict';
-
 const defaultOptions = () => Object.create(null);
 
-module.exports.mergeRules = ([rule, plugin], rules) => {
+export const mergeRules = ([rule, plugin], rules) => {
     for (const currentRule of rules) {
         if (currentRule.rule !== rule)
             continue;

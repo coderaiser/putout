@@ -1,8 +1,6 @@
-'use strict';
-
-const tryCatch = require('try-catch');
-const {test} = require('supertape');
-const validatePlugin = require('./validate-plugin');
+import tryCatch from 'try-catch';
+import {test} from 'supertape';
+import validatePlugin from './validate-plugin.js';
 
 test('putout: engine-loader: validate-plugin', (t) => {
     const plugin = {

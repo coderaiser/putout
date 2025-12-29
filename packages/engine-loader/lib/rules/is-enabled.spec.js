@@ -1,8 +1,6 @@
-'use strict';
-
-const test = require('supertape');
-const {parseRules} = require('./parse-rules');
-const {isEnabled} = require('./is-enabled');
+import test from 'supertape';
+import {parseRules} from './parse-rules.js';
+import {isEnabled} from './is-enabled.js';
 
 test('putout: get-plugins: is-enabled', (t) => {
     const name = 'madrun/add-function';

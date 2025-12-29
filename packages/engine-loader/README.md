@@ -27,16 +27,20 @@ Simplest type of plugin support by [`@putout/engine-runner`](https://github.com/
 Nested contains one or more rules:
 
 ```js
-module.exports.rules = {
-    'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
+import * as removeDebugger from '@putout/plugin-remove-debugger';
+
+export const rules = {
+    'remove-debugger': removeDebugger,
 };
 ```
 
 When you want to make it disabled by default, use:
 
 ```js
-module.exports.rules = {
-    'remove-unused-variables': ['off', require('@putout/plugin-remove-unused-variables')],
+import * as removeDebugger from '@putout/plugin-remove-debugger';
+
+export const rules = {
+    'remove-debugger': ['off', removeDebugger],
 };
 ```
 
@@ -45,7 +49,7 @@ So when someone using your plugin, he needs to enable it:
 ```json
 {
     "rules": {
-        "nested/remove-unused-variables": "on"
+        "nested/remove-debugger": "on"
     },
     "plugins": ["nested"]
 }
@@ -63,7 +67,7 @@ If you want to load from custom directory (for Visual Studio Code Extension, for
 ### loadPlugins
 
 ```js
-const {loadPlugins} = require('@putout/engine-loader');
+import {loadPlugins} from '@putout/engine-loader';
 
 const pluginNames = [
     'remove-unusede-variables',
@@ -100,7 +104,7 @@ const plugins = loadPlugins({
 Load **ESM** plugins:
 
 ```js
-const {loadPluginsAsync} = require('@putout/engine-loader');
+import {loadPluginsAsync} from '@putout/engine-loader';
 
 const pluginNames = [
     'remove-unusede-variables',
@@ -170,7 +174,8 @@ Or used inside `.putout.json`:
 ### loadProcessorsAsync
 
 ```js
-const {loadProcessors} = require('@putout/engine-loader');
+import {loadProcessors} from '@putout/engine-loader';
+
 const optionalLoad = async (a) => await import(a);
 
 const plugins = await loadProcessorsAsync({
@@ -186,7 +191,8 @@ const plugins = await loadProcessorsAsync({
 Gives ability to create loader for `processor` or `formatter`.
 
 ```js
-const {createAsyncLoader} = require('@putout/engine-loader');
+import {createAsyncLoader} from '@putout/engine-loader';
+
 const {loadProcessor} = createAsyncLoader('processor');
 
 // load @putout/processor-markdown
@@ -200,7 +206,7 @@ await loadProcess('json', () => {
 ### validateRules
 
 ```js
-const {validateRules} = require('@putout/engine-loader');
+import {validateRules} from '@putout/engine-loader';
 
 const pluginNames = [];
 const rules = {

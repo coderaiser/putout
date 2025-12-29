@@ -1,15 +1,11 @@
-'use strict';
-
-const process = require('node:process');
-const Module = require('node:module');
-
-const {test, stub} = require('supertape');
-const tryCatch = require('try-catch');
-const putout = require('putout');
-const montag = require('montag');
-
-const {readFixtures} = require('./fixture');
-const {loadPlugins} = require('..');
+import process from 'node:process';
+import Module from 'node:module';
+import {test, stub} from 'supertape';
+import tryCatch from 'try-catch';
+import putout from 'putout';
+import montag from 'montag';
+import {readFixtures} from './fixture.js';
+import {loadPlugins} from '../lib/index.js';
 
 const {putoutAsync} = putout;
 
@@ -51,9 +47,9 @@ test('putout: loader: can not find', (t) => {
     t.end();
 });
 
-test('putout: loader: function', (t) => {
+test('putout: loader: function', async (t) => {
     const rmVars = 'remove-debugger';
-    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
+    const rmVarsPlugin = await import(`@putout/plugin-${rmVars}`);
     const {_findPath} = Module;
     
     Module._findPath = stub(createFindPath(rmVars, _findPath));
@@ -70,9 +66,9 @@ test('putout: loader: function', (t) => {
     t.end();
 });
 
-test('putout: loader: function: rules', (t) => {
+test('putout: loader: function: rules', async (t) => {
     const rmVars = 'remove-debugger';
-    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
+    const rmVarsPlugin = await import(`@putout/plugin-${rmVars}`);
     
     const {_findPath} = Module;
     
@@ -94,9 +90,9 @@ test('putout: loader: function: rules', (t) => {
     t.end();
 });
 
-test('putout: loader: disabled rule', (t) => {
+test('putout: loader: disabled rule', async (t) => {
     const rmVars = 'remove-debugger';
-    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
+    const rmVarsPlugin = await import(`@putout/plugin-${rmVars}`);
     
     const {_findPath} = Module;
     
@@ -139,9 +135,9 @@ test('putout: loader: disabled rule from multi rule plugin', (t) => {
     t.end();
 });
 
-test('putout: loader: plugins: array', (t) => {
+test('putout: loader: plugins: array', async (t) => {
     const rmVars = 'remove-debugger';
-    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
+    const rmVarsPlugin = await import(`@putout/plugin-${rmVars}`);
     
     const {_findPath} = Module;
     
@@ -525,9 +521,9 @@ test('putout: loader: disabled rules in plugin: enable', (t) => {
     t.end();
 });
 
-test('putout: loader: disabled rules in plugin: load', (t) => {
+test('putout: loader: disabled rules in plugin: load', async (t) => {
     const source = `const {run} = require('madrun');\n`;
-    const convert = require('@putout/plugin-nodejs/convert-commonjs-to-esm');
+    const convert = await import('@putout/plugin-nodejs/convert-commonjs-to-esm');
     const {code} = putout(source, {
         rules: {
             'nodejs/convert-commonjs-to-esm-require': 'on',

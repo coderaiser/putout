@@ -1,7 +1,7 @@
 {
   "name": "@putout/engine-loader",
   "version": "16.3.1",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "load plugins and prepare them to run",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/engine-loader#readme",

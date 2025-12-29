@@ -1,11 +1,8 @@
-'use strict';
+import {createAsyncLoader} from '../load/async-loader.js';
+import parseProcessorNames from '../processors/parse-processor-names.js';
+import {check} from '../check/index.js';
 
-const {createAsyncLoader} = require('../load/async-loader');
-const parseProcessorNames = require('../processors/parse-processor-names');
-
-const {check} = require('../check');
-
-module.exports.loadProcessorsAsync = async (options, simpleImport) => {
+export const loadProcessorsAsync = async (options, simpleImport) => {
     check(options);
     
     const {processors = []} = options;

@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.getLoadedRules = (rules) => {
+export const getLoadedRules = (rules) => {
     const loadedRules = [];
     
     for (const item of rules) {

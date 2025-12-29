@@ -1,11 +1,7 @@
-'use strict';
-
-const process = require('node:process');
-const {join} = require('node:path');
-const tryToCatch = require('try-to-catch');
-
-const {test, stub} = require('supertape');
-const {createAsyncLoader} = require('./async-loader.js');
+import process from 'node:process';
+import tryToCatch from 'try-to-catch';
+import {test, stub} from 'supertape';
+import {createAsyncLoader} from './async-loader.js';
 
 const {assign} = Object;
 
@@ -65,7 +61,7 @@ test('putout: loader: async-loader: calls load', async (t) => {
 });
 
 test('putout: engine-loader: async-loader: PUTOUT_LOAD_DIR', async (t) => {
-    process.env.PUTOUT_LOAD_DIR = join(__dirname, 'fixture');
+    process.env.PUTOUT_LOAD_DIR = new URL('fixture', import.meta.url).pathname;
     
     const loadAsync = createAsyncLoader('plugin');
     const {report} = await loadAsync('hello');
@@ -80,7 +76,7 @@ test('putout: engine-loader: async-loader: PUTOUT_LOAD_DIR', async (t) => {
 });
 
 test('putout: engine-loader: async-loader: PUTOUT_LOAD_DIR: node_modules', async (t) => {
-    process.env.PUTOUT_LOAD_DIR = join(__dirname, 'fixture');
+    process.env.PUTOUT_LOAD_DIR = new URL('fixture', import.meta.url).pathname;
     
     const loadAsync = createAsyncLoader('plugin');
     

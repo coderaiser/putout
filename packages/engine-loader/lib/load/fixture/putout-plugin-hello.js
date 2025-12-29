@@ -1,1 +1,1 @@
-module.exports.report = () => 'hello';
+export const report = () => 'hello';

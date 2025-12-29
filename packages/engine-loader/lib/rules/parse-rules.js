@@ -1,5 +1,3 @@
-'use strict';
-
 const {isArray} = Array;
 const isBool = (a) => typeof a === 'boolean';
 const isStr = (a) => typeof a === 'string';
@@ -24,7 +22,7 @@ const parseState = (rule, value) => {
     return value;
 };
 
-module.exports.parseRules = (rules) => {
+export const parseRules = (rules) => {
     const result = [];
     const plugin = null;
     const msg = '';
@@ -118,7 +116,7 @@ function validateState(rule, value) {
 
 const cut = (a) => a.split('/')[0];
 
-module.exports.enableNestedRules = (rules) => {
+export const enableNestedRules = (rules) => {
     const newRules = {};
     
     for (const [rule, value] of entries(rules)) {

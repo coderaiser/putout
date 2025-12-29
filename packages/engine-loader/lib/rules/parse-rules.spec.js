@@ -1,9 +1,6 @@
-'use strict';
-
-const test = require('supertape');
-const tryCatch = require('try-catch');
-
-const {parseRules} = require('./parse-rules');
+import test from 'supertape';
+import tryCatch from 'try-catch';
+import {parseRules} from './parse-rules.js';
 
 test('putout: loader: parse rules: not on/off', (t) => {
     const expected = '☝️ hello: state option can be "on" or "off" only, when used as string, received: "abc"';

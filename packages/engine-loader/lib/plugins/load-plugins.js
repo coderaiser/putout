@@ -1,16 +1,15 @@
-'use strict';
+import {createRequire} from 'node:module';
+import validatePlugin from './validate-plugin.js';
+import {prepareRules} from './prepare-rules.js';
+import {isEnabled} from '../rules/index.js';
+import {filterEnabledPlugins} from './filter-enabled-plugins.js';
+import {check, checkRule} from '../check/index.js';
 
-const validatePlugin = require('./validate-plugin');
-const {prepareRules} = require('./prepare-rules');
-
-const {isEnabled} = require('../rules');
-
-const {filterEnabledPlugins} = require('./filter-enabled-plugins');
-const {check, checkRule} = require('../check');
+const require = createRequire(import.meta.url);
 
 const {isArray} = Array;
 
-module.exports.loadPlugins = (options) => {
+export const loadPlugins = (options) => {
     check(options);
     
     const {pluginNames = [], rules = {}} = options;
@@ -90,7 +89,7 @@ function extendRules(rule, plugin) {
 // add support of esm.sh
 // https://github.com/esm-dev/esm.sh/issues/1045
 function loadOnePlugin({name, namespace}) {
-    const {loadPlugin} = require('../load/load');
+    const {loadPlugin} = require('../load/load.js');
     
     return loadPlugin({
         name,

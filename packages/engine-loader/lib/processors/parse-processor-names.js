@@ -1,12 +1,10 @@
-'use strict';
-
 const isStr = (a) => typeof a === 'string';
 const {isArray} = Array;
 
 const isOn = (a) => a === 'on';
 const isOff = (a) => a === 'off';
 
-module.exports = (plugins) => {
+export default (plugins) => {
     const result = [];
     
     for (const plugin of plugins) {

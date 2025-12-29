@@ -1,8 +1,6 @@
-'use strict';
-
-const tryToCatch = require('try-to-catch');
-const test = require('supertape');
-const {loadPluginsAsync} = require('./load-plugins-async');
+import tryToCatch from 'try-to-catch';
+import test from 'supertape';
+import {loadPluginsAsync} from './load-plugins-async.js';
 
 test('@putout/engine-loader: loadPluginsAsync', async (t) => {
     const result = await loadPluginsAsync({

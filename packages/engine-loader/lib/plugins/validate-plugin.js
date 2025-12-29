@@ -1,5 +1,3 @@
-'use strict';
-
 const supportedKeys = [
     'find',
     'traverse',
@@ -11,7 +9,7 @@ const supportedKeys = [
     'scan',
 ];
 
-module.exports = ({plugin, rule}) => {
+export default ({plugin, rule}) => {
     const keys = Object.keys(plugin);
     
     for (const key of supportedKeys) {

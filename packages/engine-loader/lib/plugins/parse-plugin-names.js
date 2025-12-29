@@ -1,10 +1,8 @@
-'use strict';
-
 const isStr = (a) => typeof a === 'string';
 const {isArray} = Array;
 const {entries} = Object;
 
-module.exports.parsePluginNames = (plugins) => {
+export const parsePluginNames = (plugins) => {
     const result = [];
     
     for (const plugin of plugins) {

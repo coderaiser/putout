@@ -1,15 +1,5 @@
-'use strict';
-
-const {parseRules} = require('./parse-rules');
-const {mergeRules} = require('./merge-rules');
-const {validateRules} = require('./validate-rules');
-const {isEnabled} = require('./is-enabled');
-const {getLoadedRules} = require('./get-loaded-rules');
-
-module.exports = {
-    parseRules,
-    mergeRules,
-    validateRules,
-    isEnabled,
-    getLoadedRules,
-};
+export {parseRules} from './parse-rules.js';
+export {mergeRules} from './merge-rules.js';
+export {validateRules} from './validate-rules.js';
+export {isEnabled} from './is-enabled.js';
+export {getLoadedRules} from './get-loaded-rules.js';
