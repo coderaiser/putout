@@ -1,3 +1,28 @@
+2025.12.29, v41.1.0
+
+fix:
+- d65298b76 @putout/engine-reporter: npmignore: fixture
+- b34d2b0a2 @putout/engine-runner: debug: add colors (sxzz/obug#1)
+
+feature:
+- 05d5d72e9 putout: @putout/engine-loader v17.0.0
+- e002589bd putout: @putout/engine-reporter v7.0.1
+- 1f8f92b46 @putout/engine-reporter: @putout/engine-loader v17.0.0
+- 3292c45f5 @putout/engine-runner: @putout/engine-loader v17.0.0
+- b58b46b26 putout: @putout/engine-processor v15.0.0
+- 9f66143d4 @putout/engine-processor: @putout/engine-loader v17.0.0
+- 3a5819c0f putout: @putout/engine-loader v16.3.1
+- 09c3f18e2 @putout/engine-loader: migrate to ESM
+- abf3827e2 @putout/engine-loader: get rid of nano-memoize
+- e2dac8075 @putout/plugin-nodejs: convert-commonjs-to-esm: ObjectExpression
+- 707296d78 @putout/plugin-esm: merge-export-declarations: source
+- 897c01ed4 @putout/plugin-esm: apply-export-from: ImportSpecifier: add support
+- b5a18c474 @putout/plugin-esm: merge-declaration-with-export: empty export: exclude
+- a1bcf1828 @putout/plugin-esm: merge-export-declarations: add
+- 771c3437a @putout/engine-loader: get rid of useless once
+- e198eedb9 @putout/engine-loader: get rid of mock-require
+- 415df3d80 @putout/engine-loader: loader: ERR_REQUIRE_ESM: get rid of handling, since node > 20.19 supports require(esm) (https://nodejs.org/en/blog/release/v20.19.0)'
+
 2025.12.27, v41.0.11
 
 fix:
