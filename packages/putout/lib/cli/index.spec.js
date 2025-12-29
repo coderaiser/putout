@@ -240,31 +240,19 @@ test('putout: cli: --format: specified twice', async (t) => {
         code: '',
     });
     
-    const processFile = stub().returns(process);
-    
+    const initProcessFile = stub().returns(process);
+    const initReport = stub().returns(stub);
     const getFormatter = stub().returns(['dump', {}]);
     
-    const report = stub().returns(stub);
-    
-    mockRequire('@putout/cli-process-file', processFile);
-    mockRequire('@putout/engine-reporter/formatter', {
-        getFormatter,
-    });
-    mockRequire('@putout/engine-reporter/report', report);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
+        initProcessFile,
+        initReport,
+        getFormatter,
     });
     
     const [arg] = getFormatter.args;
     const [first] = arg;
-    
-    stopAll();
     
     t.equal(first, 'none', 'should use last passed formatter');
     t.end();
@@ -769,26 +757,21 @@ test('putout: cli: --fix --staged: get', async (t) => {
         code: '',
     });
     
-    const processFile = stub().returns(process);
+    const initProcessFile = stub().returns(process);
     const {isSupported} = require('./supported-files');
     
-    mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-process-file', processFile);
-    
-    mockRequire('@putout/cli-staged', {
+    const cliStaged = {
         get,
         set,
-    });
-    
-    const cli = reRequire('.');
+    };
     
     await runCli({
-        cli,
         argv,
         logError,
+        getFiles,
+        cliStaged,
+        initProcessFile,
     });
-    
-    stopAll();
     
     const {findUp} = await import('find-up');
     
