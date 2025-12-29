@@ -884,21 +884,13 @@ test('putout: cli: ruler: --enable', async (t) => {
         return await import(url);
     };
     
-    mockRequire('./simple-import', {
-        simpleImport,
-    });
-    
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
         logError,
         readFile,
         writeFile,
+        simpleImport,
     });
-    
-    stopAll();
     
     const places = [];
     
@@ -919,7 +911,7 @@ test('putout: cli: ruler: --enable-all', async (t) => {
     
     const argv = ['--enable-all', __filename];
     
-    const _simpleImport = async (url) => {
+    const simpleImport = async (url) => {
         if (url.includes('ruler'))
             return {
                 ruler,
@@ -928,19 +920,11 @@ test('putout: cli: ruler: --enable-all', async (t) => {
         return await import(url);
     };
     
-    mockRequire('./simple-import', {
-        simpleImport: _simpleImport,
-    });
-    
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
         logError,
+        simpleImport,
     });
-    
-    stopAll();
     
     t.ok(ruler.called);
     t.end();
@@ -955,7 +939,7 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     const rulerError = Error('should call ruler with await');
     const ruler = stub().rejects(rulerError);
     
-    const _simpleImport = async (url) => {
+    const simpleImport = async (url) => {
         if (url.includes('ruler'))
             return {
                 ruler,
@@ -967,22 +951,14 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
         if (url.includes('processor'))
             return await import(url);
         
-        return simpleImport(url);
+        return _simpleImport(url);
     };
     
-    mockRequire('./simple-import', {
-        simpleImport: _simpleImport,
-    });
-    
-    const cli = reRequire('.');
-    
     const [error] = await tryToCatch(runCli, {
-        cli,
         argv,
         logError,
+        simpleImport,
     });
-    
-    stopAll();
     
     t.equal(error, rulerError);
     t.end();
@@ -1160,7 +1136,12 @@ test('putout: cli: tsx', async (t) => {
         join(__dirname, 'fixture', 'view.tsx'),
     ];
     
-    const eslint = stub().returns(['', []]);
+    const processFiles = stub().returns({
+        code: '',
+        places: [],
+    });
+    
+    const initProcessFiles = stub().returns(processFiles);
     
     const getOptions = stub().returns({
         dir: '.',
@@ -1168,19 +1149,12 @@ test('putout: cli: tsx', async (t) => {
         processors: ['javascript'],
     });
     
-    mockRequire('@putout/eslint', eslint);
-    mockRequire('./get-options', getOptions);
-    
-    reRequire('@putout/cli-process-file');
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         write,
         argv,
+        initProcessFiles,
+        getOptions,
     });
-    
-    stopAll();
     
     t.calledWith(write, [''], 'should call logError');
     t.end();
@@ -1203,18 +1177,12 @@ test('putout: cli: d.ts', async (t) => {
     
     const getOptions = stub().returns(options);
     
-    mockRequire('./get-options', getOptions);
-    
-    const cli = reRequire('.');
-    
     await runCli({
         halt,
-        cli,
         argv,
         readFile,
+        getOptions,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [OK]);
     t.end();
@@ -1338,7 +1306,7 @@ test('putout: cli: fix', async (t) => {
         code: 'hello',
     });
     
-    const processFile = stub().returns(process);
+    const initProcessFile = stub().returns(process);
     const writeFile = stub();
     
     const getOptions = stub().returns({
@@ -1347,20 +1315,12 @@ test('putout: cli: fix', async (t) => {
         processors: ['javascript'],
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('@putout/cli-process-file', processFile);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
         writeFile,
+        getOptions,
+        initProcessFile,
     });
-    
-    stopAll();
     
     t.calledWith(writeFile, [__filename, 'hello']);
     t.end();
@@ -1380,7 +1340,7 @@ test('putout: cli: no processors', async (t) => {
     });
     
     const halt = stub();
-    const processFile = stub().returns(process);
+    const initProcessFile = stub().returns(process);
     
     const getOptions = stub().returns({
         dir: __dirname,
@@ -1388,20 +1348,12 @@ test('putout: cli: no processors', async (t) => {
         processors: [],
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('@putout/cli-process-file', processFile);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
         halt,
+        initProcessFile,
+        getOptions,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [NO_PROCESSORS]);
     t.end();
