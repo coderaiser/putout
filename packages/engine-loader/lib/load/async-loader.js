@@ -1,8 +1,10 @@
 import process from 'node:process';
 import {join} from 'node:path';
-import {createRequire} from 'node:module';
+import module from 'node:module';
 import tryToCatch from 'try-to-catch';
 import {simpleImport as _simpleImport} from './simple-import.js';
+
+const {createRequire} = module;
 
 const require = createRequire(import.meta.url);
 const {assign} = Object;

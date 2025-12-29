@@ -44,6 +44,7 @@
     "@putout/plugin-remove-debugger": "*",
     "@putout/processor-javascript": "*",
     "@putout/processor-markdown": "*",
+    "@putout/test": "^14.2.0",
     "c8": "^10.0.0",
     "eslint": "^10.0.0-alpha.0",
     "eslint-plugin-n": "^17.0.0",

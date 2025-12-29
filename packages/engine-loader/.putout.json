@@ -1,7 +1,11 @@
 {
-    "printer": "putout",
     "rules": {
         "eslint/remove-no-unpublished-require": "off",
         "maybe/noop": "off"
+    },
+    "match": {
+        "./rules": {
+            "putout": "on"
+        }
     }
 }

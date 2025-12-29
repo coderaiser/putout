@@ -1,12 +1,11 @@
 import process from 'node:process';
-import {
-    createRequire as _createRequire,
-    createRequire,
-} from 'node:module';
+import module from 'node:module';
 import {join} from 'node:path';
 import tryCatch from 'try-catch';
 
-const require = createRequire(import.meta.url);
+const {createRequire: _createRequire} = module;
+
+const require = _createRequire(import.meta.url);
 const bigFirst = (a) => `${a[0].toUpperCase()}${a.slice(1)}`;
 
 const load = (type) => (overrides) => {

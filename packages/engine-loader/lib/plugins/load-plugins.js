@@ -1,9 +1,11 @@
-import {createRequire} from 'node:module';
+import module from 'node:module';
 import validatePlugin from './validate-plugin.js';
 import {prepareRules} from './prepare-rules.js';
 import {isEnabled} from '../rules/index.js';
 import {filterEnabledPlugins} from './filter-enabled-plugins.js';
 import {check, checkRule} from '../check/index.js';
+
+const {createRequire} = module;
 
 const require = createRequire(import.meta.url);
 
