@@ -1,13 +1,9 @@
 import process from 'node:process';
 import {join} from 'node:path';
-import module from 'node:module';
 import tryToCatch from 'try-to-catch';
+import {createRequire} from '../module.js';
 import {simpleImport as _simpleImport} from './simple-import.js';
 
-const returns = (a) => () => a;
-const noop = () => {};
-
-const {createRequire = returns(noop)} = module;
 const require = createRequire(import.meta.url);
 
 const {assign} = Object;

@@ -1,14 +1,10 @@
-import module from 'node:module';
+import {createRequire} from '../module.js';
 import validatePlugin from './validate-plugin.js';
 import {prepareRules} from './prepare-rules.js';
 import {isEnabled} from '../rules/index.js';
 import {filterEnabledPlugins} from './filter-enabled-plugins.js';
 import {check, checkRule} from '../check/index.js';
 
-const noop = () => {};
-const returns = (a) => () => a;
-
-const {createRequire = returns(noop)} = module;
 const {isArray} = Array;
 
 export const loadPlugins = (options) => {
