@@ -5,10 +5,10 @@ import {isEnabled} from '../rules/index.js';
 import {filterEnabledPlugins} from './filter-enabled-plugins.js';
 import {check, checkRule} from '../check/index.js';
 
-const {createRequire} = module;
+const noop = () => {};
+const returns = (a) => () => a;
 
-const require = createRequire(import.meta.url);
-
+const {createRequire = returns(noop)} = module;
 const {isArray} = Array;
 
 export const loadPlugins = (options) => {
@@ -91,6 +91,7 @@ function extendRules(rule, plugin) {
 // add support of esm.sh
 // https://github.com/esm-dev/esm.sh/issues/1045
 function loadOnePlugin({name, namespace}) {
+    const require = createRequire(import.meta.url);
     const {loadPlugin} = require('../load/load.js');
     
     return loadPlugin({

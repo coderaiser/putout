@@ -4,9 +4,12 @@ import module from 'node:module';
 import tryToCatch from 'try-to-catch';
 import {simpleImport as _simpleImport} from './simple-import.js';
 
-const {createRequire} = module;
+const returns = (a) => () => a;
+const noop = () => {};
 
+const {createRequire = returns(noop)} = module;
 const require = createRequire(import.meta.url);
+
 const {assign} = Object;
 const stub = () => () => {};
 
@@ -22,9 +25,10 @@ export const createAsyncLoader = (type, overrides = {}) => {
         if (name.startsWith('import:')) {
             const shortName = name.replace('import:', '');
             
-            return await cleverLoad([
-                require.resolve(shortName),
-            ], simpleImport);
+            return await cleverLoad([require.resolve(shortName)], {
+                simpleImport,
+                require,
+            });
         }
         
         const namesBase = [
@@ -39,16 +43,21 @@ export const createAsyncLoader = (type, overrides = {}) => {
             ...namesFromPluginsDirs,
         ]));
         
-        return await cleverLoad(names, simpleImport);
+        return await cleverLoad(names, {
+            simpleImport,
+            require,
+        });
     };
 };
 
-async function cleverLoad(names, load) {
+async function cleverLoad(names, overrides) {
+    const {simpleImport, require} = overrides;
+    
     let e;
     let reporter;
     
     for (const name of names) {
-        [e, reporter] = await tryToCatch(load, name);
+        [e, reporter] = await tryToCatch(simpleImport, name);
         
         if (!e)
             return reporter;
@@ -56,7 +65,7 @@ async function cleverLoad(names, load) {
         if (e.code === 'ERR_UNSUPPORTED_DIR_IMPORT') {
             const fullName = require.resolve(name);
             
-            [e, reporter] = await tryToCatch(load, fullName);
+            [e, reporter] = await tryToCatch(simpleImport, fullName);
             
             if (!e)
                 return reporter;

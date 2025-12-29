@@ -56,7 +56,7 @@ test('putout: engine-loader: load: createRequire', (t) => {
         createRequire,
     });
     
-    t.calledCount(createRequire, 2, 'should call for "putout" and PUTOUT_YARN_PNP');
+    t.calledCount(createRequire, 4, 'should call for "putout" and PUTOUT_YARN_PNP');
     t.end();
 });
 

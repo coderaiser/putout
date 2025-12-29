@@ -3,9 +3,11 @@ import module from 'node:module';
 import {join} from 'node:path';
 import tryCatch from 'try-catch';
 
-const {createRequire: _createRequire} = module;
+const returns = (a) => () => a;
+const noop = () => {};
 
-const require = _createRequire(import.meta.url);
+const {createRequire: _createRequire = returns(noop)} = module;
+
 const bigFirst = (a) => `${a[0].toUpperCase()}${a.slice(1)}`;
 
 const load = (type) => (overrides) => {
@@ -62,8 +64,15 @@ function getPath(namespace, type, name, overrides) {
 
 const {env} = process;
 
-const createCustomRequire = (createRequire) => createRequire(require.resolve(env.PUTOUT_YARN_PNP || 'putout'));
-const createPutoutRequire = (createRequire) => createRequire(require.resolve('putout'));
+const createCustomRequire = (createRequire) => {
+    const require = createRequire(import.meta.url);
+    return createRequire(require.resolve(env.PUTOUT_YARN_PNP || 'putout'));
+};
+
+const createPutoutRequire = (createRequire) => {
+    const require = createRequire(import.meta.url);
+    return createRequire(require.resolve('putout'));
+};
 
 // That's all for Yarn P'n'P
 //

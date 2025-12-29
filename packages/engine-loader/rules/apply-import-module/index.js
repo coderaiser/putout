@@ -12,11 +12,11 @@ export const match = () => ({
 export const replace = () => ({
     'import {createRequire} from "node:module"': `{
         import module from "node:module";
-        const {createRequire} = module;
+        const {createRequire = returns(noop)} = module;
     }`,
     'import {createRequire as __a} from "node:module"': `{
         import module from "node:module";
-        const {createRequire: __a} = module;
+        const {createRequire: __a = returns(noop)} = module;
     }`,
 });
 
