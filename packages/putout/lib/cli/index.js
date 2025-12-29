@@ -3,7 +3,7 @@
 const process = require('node:process');
 const tryToCatch = require('try-to-catch');
 
-const {isCI} = require('ci-info');
+const {isCI: _isCI} = require('ci-info');
 const {nanomemoize} = require('nano-memoize');
 const tryCatch = require('try-catch');
 const wraptile = require('wraptile');
@@ -26,7 +26,7 @@ const {argvConfig, parseArgs} = require('./parse-args');
 const {getFiles: _getFiles} = require('./get-files.mjs');
 const {version, dependencies} = require('../../package.json');
 const {formatter: defaultFormatter} = require('../../putout.json');
-const {simpleImport} = require('./simple-import');
+const {simpleImport: _simpleImport} = require('./simple-import');
 const {run} = require('./runner/runner.js');
 
 const {
@@ -86,6 +86,8 @@ module.exports = async (overrides = {}) => {
         initProcessFile,
         initReport = _initReport,
         getFormatter = _getFormatter,
+        isCI = _isCI,
+        simpleImport = _simpleImport,
     } = overrides;
     
     const isStop = parseIsStop(overrides.isStop || noop, {

@@ -31,6 +31,7 @@ const {
     STAGE,
 } = require('./exit-codes');
 
+const _simpleImport = simpleImport;
 const noop = () => {};
 const {env} = process;
 const {assign} = Object;
@@ -128,29 +129,17 @@ test('putout: cli: --format: ci', async (t) => {
         code: '',
     });
     
-    const processFile = stub().returns(process);
+    const initProcessFile = stub().returns(process);
     const getFormatter = stub().returns(['dump', {}]);
-    const report = stub().returns(stub);
-    
-    mockRequire('@putout/cli-process-file', processFile);
-    mockRequire('@putout/engine-reporter/formatter', {
-        getFormatter,
-    });
-    mockRequire('@putout/engine-reporter/report', report);
-    mockRequire('ci-info', {
-        isCI: true,
-    });
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
+    const initReport = stub().returns(stub);
     
     await runCli({
-        cli,
         argv,
+        isCI: true,
+        initReport,
+        getFormatter,
+        initProcessFile,
     });
-    
-    stopAll();
     
     t.calledWith(getFormatter, ['stream', stub()]);
     t.end();
@@ -174,37 +163,28 @@ test('putout: cli: -i', async (t) => {
         code: '',
     });
     
-    const processFile = stub().returns(process);
+    const initProcessFile = stub().returns(process);
     const getFormatter = stub().returns(['dump', {}]);
-    const report = stub().returns(stub);
-    
-    mockRequire('@putout/cli-process-file', processFile);
-    mockRequire('@putout/engine-reporter/formatter', {
-        getFormatter,
-    });
-    mockRequire('@putout/engine-reporter/report', report);
+    const initReport = stub().returns(stub);
     
     const chooseFormatter = stub().resolves(['hello']);
     
-    mockRequire('./simple-import', {
-        simpleImport: async (path) => {
-            if (path === '@putout/cli-choose-formatter')
-                return {
-                    chooseFormatter,
-                };
-            
-            return await simpleImport(path);
-        },
-    });
-    
-    const cli = reRequire('.');
+    const simpleImport = async (path) => {
+        if (path === '@putout/cli-choose-formatter')
+            return {
+                chooseFormatter,
+            };
+        
+        return await _simpleImport(path);
+    };
     
     await runCli({
-        cli,
         argv,
+        simpleImport,
+        initReport,
+        getFormatter,
+        initProcessFile,
     });
-    
-    stopAll();
     
     t.calledWith(getFormatter, ['hello', stub()]);
     t.end();
@@ -216,51 +196,28 @@ test('putout: cli: -i: cancel', async (t) => {
         '-i',
     ];
     
-    const process = stub().returns({
-        places: [{
-            rule: 'variables/remove-unused',
-            message: 'hello',
-            position: {
-                line: 1,
-                column: 1,
-            },
-        }],
-        code: '',
-    });
-    
-    const processFile = stub().returns(process);
     const getFormatter = stub().returns(['dump', {}]);
-    const report = stub().returns(stub);
-    
-    mockRequire('@putout/cli-process-file', processFile);
-    mockRequire('@putout/engine-reporter/formatter', {
-        getFormatter,
-    });
-    mockRequire('@putout/engine-reporter/report', report);
-    
+    const initReport = stub().returns(stub);
     const chooseFormatter = stub().resolves('');
     
-    mockRequire('./simple-import', {
-        simpleImport: async (path) => {
-            if (path === '@putout/cli-choose-formatter')
-                return {
-                    chooseFormatter,
-                };
-            
-            return await simpleImport(path);
-        },
-    });
+    const simpleImport = async (path) => {
+        if (path === '@putout/cli-choose-formatter')
+            return {
+                chooseFormatter,
+            };
+        
+        return await _simpleImport(path);
+    };
     
     const halt = stub();
-    const cli = reRequire('.');
     
     await runCli({
-        cli,
         argv,
         halt,
+        getFormatter,
+        initReport,
+        simpleImport,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [INTERACTIVE_CANCELED]);
     t.end();
@@ -2276,6 +2233,8 @@ async function runCli(options) {
         getFormatter,
         initReport,
         onHalt,
+        isCI,
+        simpleImport,
     } = options;
     
     await cli({
@@ -2296,5 +2255,7 @@ async function runCli(options) {
         getFormatter,
         initReport,
         onHalt,
+        isCI,
+        simpleImport,
     });
 }
