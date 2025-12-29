@@ -23,7 +23,7 @@ module.exports.loadPlugins = (options) => {
         pluginNames,
     });
     
-    const plugins = loadPlugins({
+    const plugins = loadAllPlugins({
         items,
         loadedRules,
     });
@@ -42,7 +42,7 @@ const parseRule = (rule) => rule
 
 const maybeFromTuple = (a) => isArray(a) ? a[1] : a;
 
-function loadPlugins({items, loadedRules}) {
+function loadAllPlugins({items, loadedRules}) {
     const plugins = [];
     
     for (const [rule, itemPlugin] of items) {
@@ -53,7 +53,7 @@ function loadPlugins({items, loadedRules}) {
         const parsedRule = parseRule(rule);
         
         const [name, namespace] = splitRule(rule);
-        const plugin = maybeFromTuple(itemPlugin) || loadPlugin({
+        const plugin = maybeFromTuple(itemPlugin) || loadOnePlugin({
             name,
             namespace,
         });
@@ -89,7 +89,7 @@ function extendRules(rule, plugin) {
 
 // add support of esm.sh
 // https://github.com/esm-dev/esm.sh/issues/1045
-function loadPlugin({name, namespace}) {
+function loadOnePlugin({name, namespace}) {
     const {loadPlugin} = require('../load/load');
     
     return loadPlugin({
