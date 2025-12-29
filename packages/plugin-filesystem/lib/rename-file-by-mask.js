@@ -9,17 +9,15 @@ const report = (path, {mask, from, to}) => {
     return `Rename '${mask}' to '${mask.replace(from, to)}'`;
 };
 
-export const renameFileByMask = ({mask, from, to} = {}) => {
-    return {
-        fix,
-        report,
-        scan: createScan({
-            mask,
-            from,
-            to,
-        }),
-    };
-};
+export const renameFileByMask = ({mask, from, to} = {}) => ({
+    fix,
+    report,
+    scan: createScan({
+        mask,
+        from,
+        to,
+    }),
+});
 
 function fix(path, {from, to}) {
     const filename = getFilename(path);

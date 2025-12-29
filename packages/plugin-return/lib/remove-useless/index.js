@@ -5,6 +5,7 @@ const {
     isIdentifier,
     isLiteral,
     isAssignmentPattern,
+    isObjectExpression,
 } = types;
 
 export const report = () => `Avoid useless 'return'`;
@@ -26,9 +27,6 @@ export const filter = (path) => {
     if (!bodyPath.isBlockStatement())
         return false;
     
-    if (hasComplexParams(path))
-        return false;
-    
     const first = bodyPath.get('body.0');
     
     if (!first)
@@ -43,6 +41,9 @@ export const filter = (path) => {
     const argPath = first.get('argument');
     
     if (!argPath.node)
+        return false;
+    
+    if (hasComplexParams(path) && !isObjectExpression(argPath))
         return false;
     
     if (isChainCall(argPath))

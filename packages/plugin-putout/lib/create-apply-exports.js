@@ -7,12 +7,10 @@ const report = (path) => {
     return `Apply exports to '${name}()'`;
 };
 
-export const createApplyExports = (defaultOptions = {}) => {
-    return {
-        report,
-        replace: createReplace(defaultOptions),
-    };
-};
+export const createApplyExports = (defaultOptions = {}) => ({
+    report,
+    replace: createReplace(defaultOptions),
+});
 
 export const createReplace = (defaultOptions) => ({options}) => {
     const result = {};
