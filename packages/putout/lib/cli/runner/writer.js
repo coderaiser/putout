@@ -5,7 +5,7 @@ const {cwd, env} = require('node:process');
 const {readFileSync} = require('node:fs');
 
 const tryCatch = require('try-catch');
-const getOptions = require('../get-options.js');
+const _getOptions = require('../get-options.js');
 const {INVALID_CONFIG, NO_PROCESSORS} = require('../exit-codes.js');
 const {runReader} = require('./reader.js');
 
@@ -33,7 +33,32 @@ const createFormatterProxy = (options) => {
     });
 };
 
-module.exports.runWriter = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, name, count, trace}) => {
+module.exports.runWriter = async (overrides = {}) => {
+    const {
+        readFile,
+        report,
+        writeFile,
+        exit,
+        raw,
+        write,
+        log,
+        currentFormat,
+        rulesdir,
+        formatterOptions,
+        noConfig,
+        transform,
+        plugins,
+        index,
+        fix,
+        processFile,
+        processorRunners,
+        fileCache,
+        name,
+        count,
+        trace,
+        getOptions = _getOptions,
+    } = overrides;
+    
     const resolvedName = resolve(name).replace(/^\./, cwd);
     const [configError, options] = tryCatch(getOptions, {
         name: resolvedName,

@@ -310,6 +310,7 @@ module.exports = async (overrides = {}) => {
         plugins,
         transform,
         initProcessFile,
+        getOptions,
     });
     
     if (exited)

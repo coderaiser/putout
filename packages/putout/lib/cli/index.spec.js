@@ -1494,28 +1494,20 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
         reconcile,
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./simple-import.js', {
-        simpleImport: (name) => {
-            if (name === '@putout/cli-cache')
-                return {
-                    createCache,
-                };
-            
-            return simpleImport(name);
-        },
-    });
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
+    const simpleImport = (name) => {
+        if (name === '@putout/cli-cache')
+            return {
+                createCache,
+            };
+        
+        return _simpleImport(name);
+    };
     
     await runCli({
-        cli,
         argv,
+        getOptions,
+        simpleImport,
     });
-    
-    stopAll();
     
     const expected = [__filename, options];
     
