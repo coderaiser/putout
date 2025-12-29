@@ -49,7 +49,7 @@
     "putout-engine"
   ],
   "devDependencies": {
-    "@putout/engine-loader": "*",
+    "@putout/engine-loader": "^17.0.0",
     "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-minify": "*",
     "@putout/plugin-variables": "*",
