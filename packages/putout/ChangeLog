@@ -1,3 +1,10 @@
+2025.12.29, v41.1.2
+
+feature:
+- 7986b7f2a putout: @putout/plugin-return v3.0.0
+- c26513ec1 @putout/plugin-return: drop support of 🐊 < 41
+- ce5b9eff8 @putout/plugin-return: remove-useless: ObjectExpression: improve support
+
 2025.12.29, v41.1.1
 
 fix:
