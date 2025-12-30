@@ -14,7 +14,7 @@ const tryToCatch = require('try-to-catch');
 const formatterJSON = require('@putout/formatter-json');
 const parseOptions = require('../parse-options');
 
-const {simpleImport} = require('./simple-import');
+const {simpleImport: _simpleImport} = require('./simple-import');
 const {red} = require('./chalk.mjs');
 
 const cli = require('.');
@@ -35,7 +35,6 @@ const {
     STAGE,
 } = require('./exit-codes');
 
-const _simpleImport = simpleImport;
 const noop = () => {};
 const {env} = process;
 const {assign} = Object;
