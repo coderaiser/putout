@@ -1,13 +1,26 @@
 'use strict';
 
 const tryToCatch = require('try-to-catch');
-const {runProcessors} = require('@putout/engine-processor');
+const {runProcessors: _runProcessors} = require('@putout/engine-processor');
 
 const parseError = require('../../parse-error.js');
 const {simpleImport} = require('../simple-import');
 const ignores = require('../../ignores.js');
 
-module.exports.runReader = async ({raw, log, dir, resolvedName, options, readFile, fix, processFile, processorRunners}) => {
+module.exports.runReader = async (overrides) => {
+    const {
+        raw,
+        log,
+        dir,
+        resolvedName,
+        options,
+        readFile,
+        fix,
+        processFile,
+        processorRunners,
+        runProcessors = _runProcessors,
+    } = overrides;
+    
     let isProcessed = true;
     let places = [];
     let rawSource = '';

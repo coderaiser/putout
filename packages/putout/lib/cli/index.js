@@ -11,7 +11,8 @@ const fullstore = require('fullstore');
 const _cliStaged = require('@putout/cli-staged');
 
 const {
-    getFilePatterns,
+    runProcessors: _runProcessors,
+    getFilePatterns: _getFilePatterns,
     getProcessorRunners,
     defaultProcessors,
 } = require('@putout/engine-processor');
@@ -88,6 +89,7 @@ module.exports = async (overrides = {}) => {
         getFormatter = _getFormatter,
         isCI = _isCI,
         simpleImport = _simpleImport,
+        processor = {},
     } = overrides;
     
     const isStop = parseIsStop(overrides.isStop || noop, {
@@ -211,6 +213,11 @@ module.exports = async (overrides = {}) => {
         processors = defaultProcessors,
     } = config;
     
+    const {
+        runProcessors = _runProcessors,
+        getFilePatterns = _getFilePatterns,
+    } = processor;
+    
     const [currentFormat, formatterOptions] = await getFormatter(newFormatter || format || formatter, exit);
     const [error, processorRunners] = await tryToCatch(getProcessorRunners, processors, simpleImport);
     
@@ -311,6 +318,7 @@ module.exports = async (overrides = {}) => {
         transform,
         initProcessFile,
         getOptions,
+        runProcessors,
     });
     
     if (exited)

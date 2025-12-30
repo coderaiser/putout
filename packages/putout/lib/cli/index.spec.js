@@ -1391,24 +1391,17 @@ test('putout: cli: not fixable', async (t) => {
         setInfo,
     });
     
-    const {getProcessorRunners} = reRequire('@putout/engine-processor');
-    
-    mockRequire('./get-options', getOptions);
-    mockRequire('./file-cache', fileCache);
-    mockRequire('@putout/engine-processor', {
+    const processor = {
         runProcessors,
         getFilePatterns,
-        getProcessorRunners,
-    });
-    
-    const cli = reRequire('.');
+    };
     
     await runCli({
-        cli,
         argv,
+        processor,
+        fileCache,
+        getOptions,
     });
-    
-    stopAll();
     
     t.notCalled(setInfo, 'should not call fileCache.setInfo');
     t.end();
@@ -2162,6 +2155,7 @@ async function runCli(options) {
         onHalt,
         isCI,
         simpleImport,
+        processor,
     } = options;
     
     await cli({
@@ -2184,5 +2178,6 @@ async function runCli(options) {
         onHalt,
         isCI,
         simpleImport,
+        processor,
     });
 }

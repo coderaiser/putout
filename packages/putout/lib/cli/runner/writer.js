@@ -57,6 +57,7 @@ module.exports.runWriter = async (overrides = {}) => {
         count,
         trace,
         getOptions = _getOptions,
+        runProcessors,
     } = overrides;
     
     const resolvedName = resolve(name).replace(/^\./, cwd);
@@ -107,6 +108,7 @@ module.exports.runWriter = async (overrides = {}) => {
         readFile,
         processFile,
         resolvedName,
+        runProcessors,
     });
     
     const line = await report(currentFormat, {

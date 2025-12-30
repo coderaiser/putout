@@ -2,33 +2,32 @@
 
 const {join} = require('node:path');
 const tryToCatch = require('try-to-catch');
-const mockRequire = require('mock-require');
 const {test, stub} = require('supertape');
 
-const {simpleImport} = require('../simple-import');
+const formatter = require('@putout/formatter-json');
+const processorJavaScript = require('@putout/processor-javascript');
 
-const {reRequire, stopAll} = mockRequire;
+const {simpleImport} = require('../simple-import');
 
 test('putout: cli: runner: processor throw: raw', async (t) => {
     const name = join(__dirname, 'fixture/processor.throw');
     const throwProcessor = require('./fixture/processor-throw');
     
-    mockRequire('../get-options', stub().returns({
-        formatter: await simpleImport('@putout/formatter-json'),
+    const getOptions = stub().returns({
+        formatter,
         dir: '.',
         processors: [
             ['throw-processor', throwProcessor],
         ],
-    }));
+    });
     
     const {places} = await runWriter({
         name,
         currentFormat: 'json-lines',
         formatterOptions: {},
         processorRunners: [throwProcessor],
+        getOptions,
     });
-    
-    stopAll();
     
     const expected = [{
         message: 'preProcess',
@@ -46,16 +45,12 @@ test('putout: cli: runner: processor throw: raw', async (t) => {
 test('putout: cli: runner: getOptions: resolve called', async (t) => {
     const getOptions = stub().throws(Error('getOptions error'));
     
-    mockRequire('../get-options', getOptions);
-    const {runWriter} = reRequire('./writer.js');
-    
     await tryToCatch(runWriter, {
         name: '1.js',
         currentFormat: 'json-lines',
         formatterOptions: {},
+        getOptions,
     });
-    
-    stopAll();
     
     const [args] = getOptions.args[0];
     
@@ -64,19 +59,18 @@ test('putout: cli: runner: getOptions: resolve called', async (t) => {
 });
 
 test('putout: cli: runner: ignores', async (t) => {
-    mockRequire('../get-options', stub().returns({
-        formatter: await simpleImport('@putout/formatter-json'),
+    const getOptions = stub().returns({
+        formatter,
         dir: '.',
         ignore: ['fixture'],
-    }));
+    });
     
     const {places} = await runWriter({
         name: 'fixture/1.js',
         currentFormat: 'json-lines',
         formatterOptions: {},
+        getOptions,
     });
-    
-    stopAll();
     
     const expected = [];
     
@@ -86,34 +80,26 @@ test('putout: cli: runner: ignores', async (t) => {
 
 test('putout: cli: runner: processor: load', async (t) => {
     const name = join(__dirname, 'fixture/processor.throw');
-    const processor = await import('@putout/processor-javascript');
-    
-    mockRequire('../get-options', stub().returns({
-        formatter: await simpleImport('@putout/formatter-json'),
+    const getOptions = stub().returns({
+        formatter,
         dir: '.',
         processors: [
-            ['processor-javascript', processor],
+            ['processor-javascript', processorJavaScript],
         ],
-    }));
+    });
     
     const runProcessors = stub().resolves([
         Error('test'),
     ]);
     
-    mockRequire('@putout/engine-processor', {
-        runProcessors,
-    });
-    
-    reRequire('./reader');
-    
     await runWriter({
         name,
         currentFormat: 'json-lines',
         formatterOptions: {},
-        processorRunners: [processor],
+        processorRunners: [processorJavaScript],
+        runProcessors,
+        getOptions,
     });
-    
-    stopAll();
     
     const [args] = runProcessors.args[0];
     
@@ -145,9 +131,11 @@ async function runWriter(options) {
         writeFile = stub(),
         report = stub(),
         fileCache = getFileCache(),
+        getOptions,
+        runProcessors,
     } = options;
     
-    const {runWriter} = reRequire('./writer.js');
+    const {runWriter} = require('./writer.js');
     
     return await runWriter({
         exit,
@@ -171,6 +159,8 @@ async function runWriter(options) {
         readFile,
         writeFile,
         report,
+        getOptions,
+        runProcessors,
     });
 }
 

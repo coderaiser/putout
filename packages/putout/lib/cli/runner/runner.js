@@ -28,6 +28,7 @@ module.exports.run = async (overrides) => {
         initProcessFile = _initProcessFile,
         report,
         getOptions,
+        runProcessors,
     } = overrides;
     
     const processFile = initProcessFile(options);
@@ -66,6 +67,7 @@ module.exports.run = async (overrides) => {
             transform,
             trace,
             getOptions,
+            runProcessors,
         });
         
         places.push(...currentPlaces);
