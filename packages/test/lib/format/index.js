@@ -5,6 +5,7 @@ const {join} = require('node:path');
 
 const putout = require('putout');
 const currify = require('currify');
+const {initReport} = require('@putout/engine-reporter/report');
 
 const {
     readFixture,
@@ -25,7 +26,7 @@ module.exports.format = currify((dir, options, t) => async (formatter, name, for
         ...options,
     });
     
-    const report = putout.initReport();
+    const report = initReport();
     
     const result = await report(formatter, {
         formatterOptions,
@@ -55,7 +56,7 @@ module.exports.noFormat = currify((dir, options, t) => async (formatter, name, f
     const [input] = readFixture(full);
     const {places} = putout(input, options);
     
-    const report = putout.initReport();
+    const report = initReport();
     
     const result = await report(formatter, {
         name,
@@ -83,7 +84,7 @@ module.exports.formatMany = currify((dir, options, t) => async (formatter, names
     let result = '';
     
     const count = names.length;
-    const report = putout.initReport();
+    const report = initReport();
     
     for (let index = 0; index < count; index++) {
         const name = names[index];

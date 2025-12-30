@@ -40,6 +40,7 @@
   "dependencies": {
     "@putout/cli-process-file": "^4.0.0",
     "@putout/engine-processor": "*",
+    "@putout/engine-reporter": "^8.0.1",
     "@putout/engine-runner": "*",
     "@putout/eslint": "^5.0.0",
     "@putout/plugin-filesystem": "*",

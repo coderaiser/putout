@@ -115,7 +115,6 @@ module.exports.traverse = traverse;
 module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;
-module.exports.initReport = require('@putout/engine-reporter/report');
 
 module.exports.operator = {
     ...require('@putout/operate'),
