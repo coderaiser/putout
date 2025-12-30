@@ -2,7 +2,7 @@
 
 const process = require('node:process');
 const test = require('supertape');
-const {reRequire} = require('mock-require');
+const parseSep = require('./parse-sep');
 
 const {defineProperty} = Object;
 
@@ -12,8 +12,6 @@ test('putout: parse-sep: win32', (t) => {
     defineProperty(process, 'platform', {
         value: 'win32',
     });
-    
-    const parseSep = reRequire('./parse-sep');
     
     const result = parseSep('/hello/');
     const expected = '\\\\hello\\\\';
@@ -33,8 +31,6 @@ test('putout: parse-sep: linux', (t) => {
         value: 'linux',
     });
     
-    const parseSep = reRequire('./parse-sep');
-    
     const result = parseSep('/hello');
     const expected = '/hello';
     
@@ -52,8 +48,6 @@ test('putout: parse-sep: complex path: *', (t) => {
     defineProperty(process, 'platform', {
         value: 'linux',
     });
-    
-    const parseSep = reRequire('./parse-sep');
     
     const result = parseSep('/hello/*/*/world');
     const expected = '/hello/.*/.*/world';
@@ -73,8 +67,6 @@ test('putout: parse-sep: complex path: ?', (t) => {
         value: 'linux',
     });
     
-    const parseSep = reRequire('./parse-sep');
-    
     const result = parseSep('/h?ll?');
     const expected = '/h?ll?';
     
@@ -92,8 +84,6 @@ test('putout: parse-sep: complex path: .', (t) => {
     defineProperty(process, 'platform', {
         value: 'linux',
     });
-    
-    const parseSep = reRequire('./parse-sep');
     
     const result = parseSep('/.cache/.putoutcache');
     const expected = '/\\.cache/\\.putoutcache';

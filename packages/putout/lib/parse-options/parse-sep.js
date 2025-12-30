@@ -1,11 +1,11 @@
 'use strict';
 
-const {platform} = require('node:process');
+const process = require('node:process');
 
 module.exports = (a) => {
     a = wild(a);
     
-    if (platform !== 'win32')
+    if (process.platform !== 'win32')
         return a;
     
     return a.replace(/\//g, `\\\\`);

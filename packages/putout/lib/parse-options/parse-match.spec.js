@@ -2,8 +2,6 @@
 
 const process = require('node:process');
 const test = require('supertape');
-const {reRequire} = require('mock-require');
-
 const {parseMatch} = require('./parse-match');
 
 const {defineProperty} = Object;
@@ -79,7 +77,6 @@ test('putout: parse-match: merge', (t) => {
 
 test('putout: parse-match: linux', (t) => {
     const name = '\\bin\\putout.js';
-    
     const rules = {
         'remove-console': 'on',
     };
@@ -94,9 +91,6 @@ test('putout: parse-match: linux', (t) => {
         value: 'linux',
     });
     
-    reRequire('./parse-sep');
-    
-    const {parseMatch} = reRequire('./parse-match');
     const result = parseMatch(name, match);
     
     defineProperty(process, 'platform', {
@@ -128,9 +122,6 @@ test('putout: parse-match: linux: match', (t) => {
         value: 'linux',
     });
     
-    reRequire('./parse-sep');
-    
-    const {parseMatch} = reRequire('./parse-match');
     const result = parseMatch(name, match);
     
     defineProperty(process, 'platform', {
