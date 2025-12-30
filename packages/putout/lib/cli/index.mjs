@@ -1,34 +1,31 @@
-'use strict';
-
-const process = require('node:process');
-const tryToCatch = require('try-to-catch');
-
-const {isCI: _isCI} = require('ci-info');
-const {nanomemoize} = require('nano-memoize');
-const tryCatch = require('try-catch');
-const wraptile = require('wraptile');
-const fullstore = require('fullstore');
-const _cliStaged = require('@putout/cli-staged');
-
-const {
-    runProcessors: _runProcessors,
-    getFilePatterns: _getFilePatterns,
-    getProcessorRunners: _getProcessorRunners,
+import process from 'node:process';
+import {createRequire} from 'node:module';
+import tryToCatch from 'try-to-catch';
+import {isCI as _isCI} from 'ci-info';
+import tryCatch from 'try-catch';
+import wraptile from 'wraptile';
+import fullstore from 'fullstore';
+import nano from 'nano-memoize';
+import * as _cliStaged from '@putout/cli-staged';
+import {initReport as _initReport} from '@putout/engine-reporter/report';
+import {keypress as _keypress} from '@putout/cli-keypress';
+import {getFormatter} from '@putout/engine-reporter/formatter';
+import {
+    runProcessors as _runProcessors,
+    getFilePatterns as _getFilePatterns,
+    getProcessorRunners as _getProcessorRunners,
     defaultProcessors,
-} = require('@putout/engine-processor');
+} from '@putout/engine-processor';
+import supportedFiles from './supported-files.js';
+import _getOptions from './get-options.js';
+import {argvConfig, parseArgs} from './parse-args.js';
+import {getFiles as _getFiles} from './get-files.mjs';
+import {simpleImport as _simpleImport} from './simple-import.js';
+import {run} from './runner/runner.js';
 
-const {initReport: _initReport} = require('@putout/engine-reporter/report');
-const {keypress: _keypress} = require('@putout/cli-keypress');
-
-const supportedFiles = require('./supported-files');
-const _getOptions = require('./get-options');
-const {argvConfig, parseArgs} = require('./parse-args');
-
-const {getFiles: _getFiles} = require('./get-files.mjs');
-const {version, dependencies} = require('../../package.json');
+const require = createRequire(import.meta.url);
 const {formatter: defaultFormatter} = require('../../putout.json');
-const {simpleImport: _simpleImport} = require('./simple-import');
-const {run} = require('./runner/runner.js');
+const {version, dependencies} = require('../../package.json');
 
 const {
     OK,
@@ -46,11 +43,10 @@ const {
     INTERACTIVE_CANCELED,
 } = require('./exit-codes');
 
-const noop = () => {};
-const {keys} = Object;
+const _getFormatter = nano.nanomemoize(getFormatter);
 const {isSupported} = supportedFiles;
-const _getFormatter = nanomemoize(require('@putout/engine-reporter/formatter').getFormatter);
-
+const {keys} = Object;
+const noop = () => {};
 const cwd = process.cwd();
 const {env} = process;
 
@@ -69,7 +65,7 @@ const parseIsStop = (passedIsStop, {keypress}) => {
     return isStop;
 };
 
-module.exports = async (overrides = {}) => {
+export default async (overrides = {}) => {
     const {
         argv,
         halt,
@@ -358,7 +354,8 @@ module.exports = async (overrides = {}) => {
     exit(exitCode);
 };
 
-module.exports._addOnce = addOnce;
+export const _addOnce = addOnce;
+
 function addOnce(emitter, name, fn) {
     if (!emitter.listenerCount(name))
         emitter.on(name, fn);

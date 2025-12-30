@@ -1,23 +1,24 @@
-'use strict';
+import {stripVTControlCharacters} from 'node:util';
+import process from 'node:process';
+import {
+    join,
+    basename,
+    dirname,
+} from 'node:path';
+import {readFile} from 'node:fs/promises';
+import {EventEmitter} from 'node:events';
+import {fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
+import {test, stub} from 'supertape';
+import tryCatch from 'try-catch';
+import tryToCatch from 'try-to-catch';
+import formatterJSON from '@putout/formatter-json';
+import parseOptions from '../parse-options/index.js';
+import {simpleImport as _simpleImport} from './simple-import.js';
+import {red} from './chalk.mjs';
+import cli from './index.mjs';
 
-const {stripVTControlCharacters} = require('node:util');
-const process = require('node:process');
-
-const {join, basename} = require('node:path');
-const {readFile} = require('node:fs/promises');
-const {EventEmitter} = require('node:events');
-
-const {test, stub} = require('supertape');
-const tryCatch = require('try-catch');
-const tryToCatch = require('try-to-catch');
-
-const formatterJSON = require('@putout/formatter-json');
-const parseOptions = require('../parse-options');
-
-const {simpleImport: _simpleImport} = require('./simple-import');
-const {red} = require('./chalk.mjs');
-
-const cli = require('.');
+const require = createRequire(import.meta.url);
 const {version} = require('../../package');
 
 const {
@@ -35,6 +36,8 @@ const {
     STAGE,
 } = require('./exit-codes');
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const noop = () => {};
 const {env} = process;
 const {assign} = Object;
@@ -85,7 +88,7 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
 test('putout: cli: --raw: parse error', async (t) => {
     const logError = stub();
     const argv = [
-        join(__dirname, 'fixture/parse-error.js'),
+        new URL('fixture/parse-error.js', import.meta.url).pathname,
         '--raw',
         '--no-config',
         '--format',
@@ -589,7 +592,7 @@ test('putout: cli: no ide: cache', async (t) => {
 });
 
 test('putout: cli: --fresh', async (t) => {
-    const file = join(__dirname, 'fixture/parse-error.js');
+    const file = new URL('fixture/parse-error.js', import.meta.url).pathname;
     const argv = [
         file,
         '--no-config',
@@ -931,7 +934,7 @@ test('putout: cli: ruler: --enable-all', async (t) => {
 });
 
 test('putout: cli: ruler processor: --disable-all', async (t) => {
-    const name = join(__dirname, 'fixture/plugins.js');
+    const name = new URL('fixture/plugins.js', import.meta.url).pathname;
     const logError = stub();
     
     const argv = ['--disable-all', name];
@@ -984,7 +987,7 @@ test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
 });
 
 test('putout: cli: ruler processor: --enable-all: no path: code', async (t) => {
-    const name = join(__dirname, 'fixture/plugins.js');
+    const name = new URL('fixture/plugins.js', import.meta.url).pathname;
     const logError = stub();
     
     const argv = [
@@ -1007,7 +1010,7 @@ test('putout: cli: ruler processor: --enable-all: no path: code', async (t) => {
 });
 
 test('putout: cli: ruler processor: --enable-all --fix: code', async (t) => {
-    const name = join(__dirname, 'fixture/plugins.js');
+    const name = new URL('fixture/plugins.js', import.meta.url).pathname;
     const logError = stub();
     
     const argv = [
@@ -1030,7 +1033,7 @@ test('putout: cli: ruler processor: --enable-all --fix: code', async (t) => {
 });
 
 test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
-    const name = join(__dirname, 'fixture/plugins.js');
+    const name = new URL('fixture/plugins.js', import.meta.url).pathname;
     const logError = stub();
     
     const argv = [
@@ -1053,7 +1056,7 @@ test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
 });
 
 test('putout: cli: ruler processor: --enable-all --fix', async (t) => {
-    const name = join(__dirname, 'fixture/plugins.js');
+    const name = new URL('fixture/plugins.js', import.meta.url).pathname;
     const logError = stub();
     
     const argv = [
@@ -1165,7 +1168,7 @@ test('putout: cli: d.ts', async (t) => {
 test('putout: cli: --transform', async (t) => {
     const write = stub();
     
-    const name = join(__dirname, 'fixture/transform.js');
+    const name = new URL('fixture/transform.js', import.meta.url).pathname;
     const source = await readFile(name, 'utf8');
     const transform = 'const __a = __b -> const __b = __a';
     
@@ -1214,7 +1217,7 @@ test('putout: cli: --transform', async (t) => {
 test('putout: cli: --plugins', async (t) => {
     const write = stub();
     
-    const name = join(__dirname, 'fixture/plugins.js');
+    const name = new URL('fixture/plugins.js', import.meta.url).pathname;
     const source = await readFile(name, 'utf8');
     
     const argv = [
@@ -1490,7 +1493,7 @@ test('putout: cli: exit code: PLACE', async (t) => {
         formatter: 'dump',
     });
     
-    const name = join(__dirname, './fixture/parse-error.js');
+    const name = new URL('./fixture/parse-error.js', import.meta.url).pathname;
     const source = await readFile(name, 'utf8');
     
     const readFileStub = stub().returns(source);
@@ -1860,7 +1863,7 @@ test('putout: cli: cannot load processor: not found', async (t) => {
 
 test('putout: cli: addOnce', (t) => {
     const fn = stub();
-    const {_addOnce} = require('.');
+    const {_addOnce} = require('./index.mjs');
     const emitter = new EventEmitter();
     
     _addOnce(emitter, 'hello', fn);
@@ -1873,7 +1876,7 @@ test('putout: cli: addOnce', (t) => {
 });
 
 test('putout: processor throw', async (t) => {
-    const file = join(__dirname, 'fixture/processor.throw');
+    const file = new URL('fixture/processor.throw', import.meta.url).pathname;
     const throwProcessor = require('./fixture/processor-throw');
     
     const argv = [
@@ -1909,7 +1912,7 @@ test('putout: processor throw', async (t) => {
 });
 
 test('putout: processor throw: raw', async (t) => {
-    const file = join(__dirname, 'fixture/processor.throw');
+    const file = new URL('fixture/processor.throw', import.meta.url).pathname;
     const throwProcessor = require('./fixture/processor-throw');
     
     const argv = [

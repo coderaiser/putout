@@ -19,7 +19,7 @@
       "import": "./lib/cli/exit-codes.mjs",
       "require": "./lib/cli/exit-codes.js"
     },
-    "./cli": "./lib/cli/index.js",
+    "./cli": "./lib/cli/index.mjs",
     "./cli/get-options": "./lib/cli/get-options.js",
     "./package.json": "./package.json",
     "./putout.json": "./putout.json",

@@ -8,7 +8,7 @@ import {createTrace} from './trace.mjs';
 import {createIsStop} from './is-stop.mjs';
 import {createWrite} from './write.mjs';
 import {createCommunication} from './communication.mjs';
-import cli from '../lib/cli/index.js';
+import cli from '../lib/cli/index.mjs';
 import {parseArgs} from '../lib/cli/parse-args.js';
 import {createExit} from '../lib/cli/exit.mjs';
 import {onDebuggerExit} from './debugger-exit.mjs';
