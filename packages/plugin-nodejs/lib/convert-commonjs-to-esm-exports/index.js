@@ -6,6 +6,7 @@ const {
     isImportSpecifier,
     exportNamedDeclaration,
     isObjectExpression,
+    isStringLiteral,
 } = types;
 
 const {replaceWith} = operator;
@@ -45,7 +46,7 @@ function createDeclaration(name, value) {
 
 export const replace = () => ({
     'module.exports = __a': ({__a}) => {
-        if (!isObjectExpression(__a))
+        if (!isObjectExpression(__a) || isStringLiteral(__a.properties[0].key))
             return 'export default __a';
         
         const result = ['export {'];
