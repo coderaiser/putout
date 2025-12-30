@@ -56,7 +56,7 @@
     "@putout/cli-cache": "^6.0.0",
     "@putout/cli-choose-formatter": "^5.0.0",
     "@putout/cli-keypress": "^3.0.0",
-    "@putout/cli-match": "^2.0.0",
+    "@putout/cli-match": "^2.2.1",
     "@putout/cli-process-file": "^5.0.0",
     "@putout/cli-ruler": "^4.0.0",
     "@putout/cli-staged": "^2.0.0",
