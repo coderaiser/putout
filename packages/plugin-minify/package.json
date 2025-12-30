@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "fullstore": "^3.0.0",
-    "try-catch": "^3.0.0"
+    "try-catch": "^4.0.0"
   },
   "keywords": [
     "putout",

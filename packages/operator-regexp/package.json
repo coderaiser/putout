@@ -42,7 +42,7 @@
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
     "supertape": "^11.0.3",
-    "try-catch": "^3.0.1"
+    "try-catch": "^4.0.0"
   },
   "peerDependencies": {
     "putout": ">=41"

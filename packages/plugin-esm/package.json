@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "parse-import-specifiers": "^1.0.3",
-    "try-catch": "^3.0.1"
+    "try-catch": "^4.0.0"
   },
   "keywords": [
     "putout",

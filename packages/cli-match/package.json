@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "try-catch": "^3.0.0",
+    "try-catch": "^3.0.1",
     "try-to-catch": "^3.0.0"
   },
   "keywords": [

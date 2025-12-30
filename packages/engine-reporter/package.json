@@ -34,7 +34,7 @@
     "@putout/cli-keypress": "^3.0.0",
     "@putout/engine-loader": "^17.0.0",
     "fullstore": "^3.0.0",
-    "try-catch": "^3.0.1",
+    "try-catch": "^4.0.0",
     "try-to-catch": "^3.0.1"
   },
   "keywords": [

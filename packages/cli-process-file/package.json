@@ -28,7 +28,7 @@
     "deepmerge": "^4.3.1",
     "once": "^1.4.0",
     "samadhi": "^3.0.0",
-    "try-catch": "^3.0.0",
+    "try-catch": "^4.0.0",
     "try-to-catch": "^3.0.0"
   },
   "keywords": [
