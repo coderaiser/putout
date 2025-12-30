@@ -1,18 +1,15 @@
-'use strict';
-
-const {simpleImport: _simpleImport} = require('putout/simple-import');
-const {createAsyncLoader: _createAsyncLoader} = require('@putout/engine-loader');
-
-const tryToCatch = require('try-to-catch');
-const {
+import {simpleImport as _simpleImport} from 'putout/simple-import';
+import {createAsyncLoader as _createAsyncLoader} from '@putout/engine-loader';
+import tryToCatch from 'try-to-catch';
+import {
     NO_FORMATTER,
     CANNOT_LOAD_FORMATTER,
-} = require('putout/exit-codes/cjs');
+} from 'putout/exit-codes';
 
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a, {}];
 
-module.exports.getFormatter = async (formatterOptional, exit, overrides = {}) => {
+export const getFormatter = async (formatterOptional, exit, overrides = {}) => {
     const {
         createAsyncLoader = _createAsyncLoader,
         simpleImport = _simpleImport,

@@ -5,7 +5,7 @@ import {
     INTERACTIVE_CANCELED,
     INVALID_CONFIG,
 } from 'putout/exit-codes';
-import {getFormatter as _getFormatter} from './formatter/formatter.cjs';
+import {getFormatter as _getFormatter} from './formatter/formatter.js';
 import {initReport} from './report.js';
 
 const {createRequire} = module;

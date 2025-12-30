@@ -15,8 +15,10 @@
     "./parse-options": "./lib/parse-options/index.js",
     "./parse-match": "./lib/parse-options/parse-match.js",
     "./merge-options": "./lib/parse-options/merge-options.js",
-    "./exit-codes": "./lib/cli/exit-codes.mjs",
-    "./exit-codes/cjs": "./lib/cli/exit-codes.js",
+    "./exit-codes": {
+      "import": "./lib/cli/exit-codes.mjs",
+      "require": "./lib/cli/exit-codes.js"
+    },
     "./cli": "./lib/cli/index.js",
     "./cli/get-options": "./lib/cli/get-options.js",
     "./package.json": "./package.json",

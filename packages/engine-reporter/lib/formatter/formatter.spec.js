@@ -1,13 +1,9 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-
-const {
+import {test, stub} from 'supertape';
+import {
     NO_FORMATTER,
     CANNOT_LOAD_FORMATTER,
-} = require('putout/exit-codes/cjs');
-
-const {getFormatter} = require('./formatter.cjs');
+} from 'putout/exit-codes';
+import {getFormatter} from './formatter.js';
 
 test('putout: cli: formatter: get formatter', async (t) => {
     const exit = stub();

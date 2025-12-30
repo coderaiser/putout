@@ -10,7 +10,7 @@
     ".": "./lib/index.js",
     "./subscribe": "./lib/subscribe.js",
     "./report": "./lib/report.js",
-    "./formatter": "./lib/formatter/formatter.cjs"
+    "./formatter": "./lib/formatter/formatter.js"
   },
   "release": false,
   "tag": false,
