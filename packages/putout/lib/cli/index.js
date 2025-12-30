@@ -13,7 +13,7 @@ const _cliStaged = require('@putout/cli-staged');
 const {
     runProcessors: _runProcessors,
     getFilePatterns: _getFilePatterns,
-    getProcessorRunners,
+    getProcessorRunners: _getProcessorRunners,
     defaultProcessors,
 } = require('@putout/engine-processor');
 
@@ -216,6 +216,7 @@ module.exports = async (overrides = {}) => {
     const {
         runProcessors = _runProcessors,
         getFilePatterns = _getFilePatterns,
+        getProcessorRunners = _getProcessorRunners,
     } = processor;
     
     const [currentFormat, formatterOptions] = await getFormatter(newFormatter || format || formatter, exit);

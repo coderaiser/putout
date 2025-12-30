@@ -8,7 +8,6 @@ const {readFile} = require('node:fs/promises');
 const {EventEmitter} = require('node:events');
 
 const {test, stub} = require('supertape');
-const mockRequire = require('mock-require');
 const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');
 
@@ -18,7 +17,7 @@ const parseOptions = require('../parse-options');
 const {simpleImport} = require('./simple-import');
 const {red} = require('./chalk.mjs');
 
-const _cli = require('.');
+const cli = require('.');
 const {version} = require('../../package');
 
 const {
@@ -41,8 +40,6 @@ const noop = () => {};
 const {env} = process;
 const {assign} = Object;
 const {parse} = JSON;
-
-const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: --raw', async (t) => {
     const logError = stub();
@@ -81,7 +78,6 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     });
     
     delete process.env.PUTOUT_FILES;
-    reRequire('.');
     
     t.calledWith(logError, [error], 'should call logError');
     t.end();
@@ -976,15 +972,11 @@ test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
         '--enable-all',
     ];
     
-    const cli = reRequire('.');
-    
     await tryToCatch(runCli, {
         cli,
         argv,
         logError,
     });
-    
-    stopAll();
     
     const expected = red('🐊 `path` is missing for ruler toggler (`--enable-all`, `--disable-all`)');
     
@@ -1004,16 +996,12 @@ test('putout: cli: ruler processor: --enable-all: no path: code', async (t) => {
     
     const halt = stub();
     
-    const cli = reRequire('.');
-    
     await tryToCatch(runCli, {
         cli,
         argv,
         logError,
         halt,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [RULER_WITH_FIX]);
     t.end();
@@ -1031,16 +1019,12 @@ test('putout: cli: ruler processor: --enable-all --fix: code', async (t) => {
     
     const halt = stub();
     
-    const cli = reRequire('.');
-    
     await tryToCatch(runCli, {
         cli,
         argv,
         logError,
         halt,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [RULER_WITH_FIX]);
     t.end();
@@ -1057,15 +1041,11 @@ test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
         name,
     ];
     
-    const cli = reRequire('.');
-    
     await tryToCatch(runCli, {
         cli,
         argv,
         logError,
     });
-    
-    stopAll();
     
     const expected = red(`🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`);
     
@@ -1085,16 +1065,12 @@ test('putout: cli: ruler processor: --enable-all --fix', async (t) => {
     
     const halt = stub();
     
-    const cli = reRequire('.');
-    
     await tryToCatch(runCli, {
         cli,
         argv,
         logError,
         halt,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [RULER_WITH_FIX]);
     t.end();
@@ -1114,8 +1090,6 @@ test('putout: cli: --match', async (t) => {
     const halt = stub();
     
     const {matchErrors, READ_ERROR} = await import('@putout/cli-match');
-    
-    const cli = reRequire('.');
     
     await runCli({
         cli,
@@ -1753,15 +1727,12 @@ test('putout: cli: invalid option', async (t) => {
     ];
     
     const halt = stub();
-    const cli = reRequire('.');
     
     await runCli({
         cli,
         argv,
         halt,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [INVALID_OPTION], 'should exit with INVALID_OPTION code');
     t.end();
@@ -1817,15 +1788,12 @@ test('putout: cli: invalid option: message', async (t) => {
     ];
     
     const logError = stub();
-    const cli = reRequire('.');
     
     await runCli({
         cli,
         argv,
         logError,
     });
-    
-    stopAll();
     
     const expected = red('🐊 Invalid option `--hello-world`. Perhaps you meant `--help`');
     
@@ -1835,17 +1803,13 @@ test('putout: cli: invalid option: message', async (t) => {
 
 test('putout: cli: invalid option: message: one char', async (t) => {
     const argv = ['-z'];
-    
     const logError = stub();
-    const cli = reRequire('.');
     
     await runCli({
         cli,
         argv,
         logError,
     });
-    
-    stopAll();
     
     const expected = red(`🐊 Invalid option '-z'`);
     
@@ -1877,22 +1841,17 @@ test('putout: cli: cannot load processor: not found', async (t) => {
     const argv = [];
     
     const logError = stub();
-    const loadProcessorsAsync = stub().rejects(Error(`Processor "putout-processor-hello" could not be found!`));
+    const getProcessorRunners = stub().rejects(Error(`Processor "putout-processor-hello" could not be found!`));
     
-    mockRequire('@putout/engine-loader', {
-        loadProcessorsAsync,
-    });
-    
-    reRequire('@putout/engine-processor');
-    const cli = reRequire('.');
+    const processor = {
+        getProcessorRunners,
+    };
     
     await runCli({
-        cli,
         argv,
         logError,
+        processor,
     });
-    
-    stopAll();
     
     const expected = red(`🐊 Processor "putout-processor-hello" could not be found!`);
     
@@ -1902,7 +1861,7 @@ test('putout: cli: cannot load processor: not found', async (t) => {
 
 test('putout: cli: addOnce', (t) => {
     const fn = stub();
-    const {_addOnce} = reRequire('.');
+    const {_addOnce} = require('.');
     const emitter = new EventEmitter();
     
     _addOnce(emitter, 'hello', fn);
@@ -1992,24 +1951,16 @@ test('putout: processor: invalid config', async (t) => {
     const argv = [__filename];
     const halt = stub();
     
-    mockRequire('../../putout.json', {
-        exclude: ['.md'],
-    });
+    const getOptions = stub().throws(Error('invalid config'));
     
-    reRequire('../parse-options');
-    reRequire('./get-options');
-    
-    const cli = reRequire('.');
     const log = stub();
     
     await runCli({
         halt,
-        cli,
         argv,
         log,
+        getOptions,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [INVALID_CONFIG]);
     t.end();
@@ -2019,47 +1970,21 @@ test('putout: processor: invalid config: message', async (t) => {
     const argv = [__filename, '-f', 'dump'];
     const logError = stub();
     
-    mockRequire('../../putout.json', {
-        exclude: ['.md'],
-    });
-    
-    reRequire('../parse-options');
-    
-    const getOptions = reRequire('./get-options');
-    
-    mockRequire('./get-options', (args) => {
-        const {name} = args;
-        
-        if (name.endsWith('.js'))
-            return getOptions(args);
-        
-        return {
-            dir: __dirname,
-            ignore: [],
-        };
-    });
-    
-    reRequire('@putout/engine-processor');
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    
-    const cli = reRequire('.');
+    const getOptions = stub().throws(Error('invalid config'));
     const log = stub();
     
     await runCli({
         logError,
-        cli,
         argv,
         log,
+        getOptions,
     });
-    
-    stopAll();
     
     const [allArgCalls] = logError.args;
     const [arg] = allArgCalls;
     
     const result = stripVTControlCharacters(arg);
-    const expected = '🐊 .putout.json: exclude: must NOT have additional properties';
+    const expected = '🐊 invalid config';
     
     t.equal(result, expected);
     t.end();
@@ -2073,7 +1998,6 @@ async function runCli(options) {
         logError = stub(),
         write = stub(),
         argv = [],
-        cli = _cli,
         readFile = stub().returns(''),
         writeFile = stub(),
         keypress,
