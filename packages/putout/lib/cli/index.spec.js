@@ -11,6 +11,10 @@ const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
 const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');
+
+const formatterJSON = require('@putout/formatter-json');
+const parseOptions = require('../parse-options');
+
 const {simpleImport} = require('./simple-import');
 
 const _cli = require('.');
@@ -597,7 +601,7 @@ test('putout: cli: --fresh', async (t) => {
         '--fresh',
     ];
     
-    const {_defaultCache} = await import('@putout/cli-cache');
+    const {_defaultCache} = require('@putout/cli-cache');
     const createCache = stub().returns(_defaultCache);
     
     const getOptions = stub().returns({
@@ -1165,8 +1169,6 @@ test('putout: cli: d.ts', async (t) => {
     const halt = stub();
     
     const argv = [name];
-    const parseOptions = require('../parse-options');
-    
     const options = parseOptions({
         name,
     });
@@ -1439,24 +1441,17 @@ test('putout: cli: setInfo: crash', async (t) => {
         setInfo,
     });
     
-    const {getProcessorRunners} = require('@putout/engine-processor');
-    
-    mockRequire('./get-options', getOptions);
-    mockRequire('./file-cache', fileCache);
-    mockRequire('@putout/engine-processor', {
+    const processor = {
         runProcessors,
         getFilePatterns,
-        getProcessorRunners,
-    });
-    
-    const cli = reRequire('.');
+    };
     
     await runCli({
-        cli,
         argv,
+        getOptions,
+        fileCache,
+        processor,
     });
-    
-    stopAll();
     
     t.notCalled(setInfo, 'should not call fileCache.setInfo');
     t.end();
@@ -1528,21 +1523,12 @@ test('putout: cli: exit code: PLACE', async (t) => {
     
     const readFileStub = stub().returns(source);
     
-    mockRequire('./get-options', getOptions);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
         halt,
         readFile: readFileStub,
+        getOptions,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [PLACE]);
     t.end();
@@ -1568,20 +1554,12 @@ test('putout: cli: readFile: ENOENT', async (t) => {
     error.code = 'ENOENT';
     const readFileStub = stub().throws(error);
     
-    mockRequire('./get-options', getOptions);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
         halt,
         readFile: readFileStub,
+        getOptions,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [OK]);
     t.end();
@@ -1610,21 +1588,13 @@ test('putout: cli: readFile: EACCESS', async (t) => {
     error.code = 'EACCESS';
     const readFileStub = stub().throws(error);
     
-    mockRequire('./get-options', getOptions);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    const cli = reRequire('.');
-    
     await runCli({
-        cli,
         argv,
         halt,
         readFile: readFileStub,
         write,
+        getOptions,
     });
-    
-    stopAll();
     
     const expected = {
         name: __filename,
@@ -1804,18 +1774,15 @@ test('putout: cli: --staged: error code', async (t) => {
     const halt = stub();
     const get = stub().rejects('not git repository');
     
-    mockRequire('@putout/cli-staged', {
+    const cliStaged = {
         get,
-    });
-    const cli = reRequire('.');
+    };
     
     await runCli({
-        cli,
         argv,
         halt,
+        cliStaged,
     });
-    
-    stopAll();
     
     t.calledWith(halt, [CANNOT_LINT_STAGED]);
     t.end();
@@ -1828,19 +1795,16 @@ test('putout: cli: --staged: error message', async (t) => {
     const get = stub().rejects(Error('not git repository'));
     const logError = stub();
     
-    mockRequire('@putout/cli-staged', {
+    const cliStaged = {
         get,
-    });
-    const cli = reRequire('.');
+    };
     
     await runCli({
-        cli,
         argv,
         halt,
         logError,
+        cliStaged,
     });
-    
-    stopAll();
     
     const {red} = await simpleImport('./chalk.mjs');
     const expected = red('🐊 --staged: not git repository');
@@ -1897,25 +1861,17 @@ test('putout: cli: cannot load processor', async (t) => {
     const argv = [];
     const halt = stub();
     
-    const putoutConfig = require('../../putout.json');
-    const {processors} = putoutConfig;
-    
-    processors.push('hello');
-    
-    mockRequire('../../putout.json', putoutConfig);
-    
-    const cli = reRequire('.');
-    
-    reRequire('../parse-options');
-    reRequire('./get-options');
-    
-    await runCli({
-        cli,
-        argv,
-        halt,
+    const getOptions = stub().returns({
+        formatter: 'dump',
+        dir: '.',
+        processors: ['javascript', 'hello'],
     });
     
-    stopAll();
+    await runCli({
+        argv,
+        halt,
+        getOptions,
+    });
     
     t.calledWith(halt, [CANNOT_LOAD_PROCESSOR], 'should exit with CANNOT_LOAD_PROCESSOR code');
     t.end();
@@ -1977,33 +1933,23 @@ test('putout: processor throw', async (t) => {
     ];
     
     const getOptions = stub().returns({
-        formatter: await simpleImport('@putout/formatter-json'),
+        formatter: formatterJSON,
         dir: '.',
         processors: [
             ['throw-processor', throwProcessor],
         ],
     });
     
-    reRequire('@putout/engine-processor');
-    
-    mockRequire('./get-options', getOptions);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    
-    const cli = reRequire('.');
     const write = stub();
     
     await runCli({
-        cli,
         write,
         argv,
+        getOptions,
     });
     
     const {places} = parse(write.args[0]);
     const [{rule}] = places;
-    
-    stopAll();
     
     t.equal(rule, 'parser');
     t.end();
@@ -2024,33 +1970,24 @@ test('putout: processor throw: raw', async (t) => {
     ];
     
     const getOptions = stub().returns({
-        formatter: await simpleImport('@putout/formatter-json'),
+        formatter: formatterJSON,
         dir: '.',
         processors: [
             ['throw-processor', throwProcessor],
         ],
     });
     
-    reRequire('@putout/engine-processor');
-    mockRequire('./get-options', getOptions);
-    
-    reRequire('./runner/writer.js');
-    reRequire('./runner/runner.js');
-    
-    const cli = reRequire('.');
     const log = stub();
     
     await runCli({
-        cli,
         argv,
         log,
+        getOptions,
     });
     
     const [firstCall] = log.args;
     const [error] = firstCall;
     const {message} = error;
-    
-    stopAll();
     
     t.equal(message, 'preProcess');
     t.end();
