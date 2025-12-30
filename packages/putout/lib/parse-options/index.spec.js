@@ -2,18 +2,16 @@
 
 const process = require('node:process');
 const fs = require('node:fs');
-const os = require('node:os');
+
 const {join} = require('node:path');
 
 const {test, stub} = require('supertape');
-const mockRequire = require('mock-require');
 const tryCatch = require('try-catch');
 
 const parseOptions = require('.');
 
-const {reRequire, stopAll} = mockRequire;
-
 const CWD = process.cwd();
+const empty = {};
 
 test('putout: parse-options: custom options rules overrides default match', (t) => {
     const customOptions = {
@@ -68,7 +66,6 @@ test('putout: parse-options: options rules overrides default match', (t) => {
 
 test('putout: parseOptions: readHomeOptions: __dirname', (t) => {
     const readCodeMods = stub().returns([__dirname, {}]);
-    
     const readOptions = stub().returns([
         __dirname, {
             rules: {
@@ -83,15 +80,17 @@ test('putout: parseOptions: readHomeOptions: __dirname', (t) => {
         },
     });
     
-    mockRequire('../../putout.json', {});
+    const defaultOptions = {};
     
-    const parseOptions = reRequire('.');
+    const overrides = {
+        defaultOptions,
+    };
     
     const result = parseOptions({
         readOptions,
         readHomeOptions,
         readCodeMods,
-    });
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -101,33 +100,31 @@ test('putout: parseOptions: readHomeOptions: __dirname', (t) => {
         },
     };
     
-    stopAll();
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: custom options more important then default match', (t) => {
-    const empty = {};
-    
     const readCodeMods = stub().returns([__dirname, empty]);
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     
-    mockRequire('../../putout.json', {
+    const defaultOptions = {
         match: {
             '*.spec.js': {
                 'remove-only': 'on',
             },
         },
-    });
-    
-    const parseOptions = reRequire('.');
+    };
     
     const options = {
         rules: {
             'remove-only': 'off',
         },
+    };
+    
+    const overrides = {
+        defaultOptions,
     };
     
     const result = parseOptions({
@@ -136,7 +133,7 @@ test('putout: parseOptions: custom options more important then default match', (
         readOptions,
         readHomeOptions,
         readCodeMods,
-    });
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -150,22 +147,16 @@ test('putout: parseOptions: custom options more important then default match', (
         },
     };
     
-    stopAll();
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: custom match more important then custom options', (t) => {
-    const empty = {};
-    
     const readCodeMods = stub().returns([__dirname, empty]);
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     
-    mockRequire('../../putout.json', empty);
-    
-    const parseOptions = reRequire('.');
+    const defaultOptions = empty;
     
     const options = {
         rules: {
@@ -176,6 +167,10 @@ test('putout: parseOptions: custom match more important then custom options', (t
                 'remove-only': 'on',
             },
         },
+    };
+    
+    const overrides = {
+        defaultOptions,
     };
     
     const result = parseOptions({
@@ -184,7 +179,7 @@ test('putout: parseOptions: custom match more important then custom options', (t
         readOptions,
         readHomeOptions,
         readCodeMods,
-    });
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -197,28 +192,18 @@ test('putout: parseOptions: custom match more important then custom options', (t
             'remove-only': 'on',
         },
     };
-    
-    stopAll();
     
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: no code mods directory: .putout', (t) => {
-    const empty = {};
-    
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     
-    mockRequire('../../putout.json', empty);
-    
-    const {readdirSync} = fs;
-    
-    fs.readdirSync = () => {
+    const readdirSync = () => {
         throw 'error';
     };
-    
-    const parseOptions = reRequire('.');
     
     const options = {
         rules: {
@@ -231,12 +216,17 @@ test('putout: parseOptions: no code mods directory: .putout', (t) => {
         },
     };
     
+    const overrides = {
+        readdirSync,
+        defaultOptions: empty,
+    };
+    
     const result = parseOptions({
         name: 'parse-options.spec.js',
         options,
         readOptions,
         readHomeOptions,
-    });
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -250,25 +240,16 @@ test('putout: parseOptions: no code mods directory: .putout', (t) => {
         },
     };
     
-    stopAll();
-    fs.readdirSync = readdirSync;
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: code mods directory: .putout: exclude node_modules', (t) => {
-    const empty = {};
-    
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     
-    mockRequire('../../putout.json', empty);
-    mockRequire('node:fs', {
-        readdirSync: stub().returns(['node_modules']),
-    });
-    
-    const parseOptions = reRequire('.');
+    const defaultOptions = empty;
+    const readdirSync = stub().returns(['node_modules']);
     
     const options = {
         rules: {
@@ -281,12 +262,17 @@ test('putout: parseOptions: code mods directory: .putout: exclude node_modules',
         },
     };
     
+    const overrides = {
+        readdirSync,
+        defaultOptions,
+    };
+    
     const result = parseOptions({
         name: 'parse-options.spec.js',
         options,
         readOptions,
         readHomeOptions,
-    });
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -301,31 +287,18 @@ test('putout: parseOptions: code mods directory: .putout: exclude node_modules',
         },
     };
     
-    stopAll();
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: read rules: putout-plugin', (t) => {
-    const empty = {};
-    
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
     
-    mockRequire('../../putout.json', empty);
+    const defaultOptions = empty;
     
-    const plugin = stub();
-    mockRequire(join(process.cwd(), 'putout-plugin-hello'), plugin);
-    
-    const {readdirSync} = fs;
-    
-    fs.readdirSync = stub().returns(['putout-plugin-hello']);
-    
-    const parseOptions = reRequire('.');
-    
-    fs.readdirSync = readdirSync;
+    const readdirSync = stub().returns(['putout-plugin-hello']);
     
     const options = {
         rules: {
@@ -338,6 +311,11 @@ test('putout: parseOptions: read rules: putout-plugin', (t) => {
         },
     };
     
+    const overrides = {
+        defaultOptions,
+        readdirSync,
+    };
+    
     const result = parseOptions({
         name: 'parse-options.spec.js',
         options,
@@ -345,10 +323,7 @@ test('putout: parseOptions: read rules: putout-plugin', (t) => {
         readHomeOptions,
         readCodeMods,
         rulesdir: '.',
-    });
-    
-    stopAll();
-    reRequire('.');
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -368,21 +343,16 @@ test('putout: parseOptions: read rules: putout-plugin', (t) => {
 });
 
 test('putout: parseOptions: read rules', (t) => {
-    const empty = {};
-    
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
     
-    mockRequire('../../putout.json', empty);
-    mockRequire('node:fs', {
-        readdirSync: stub().returns(['hello']),
-    });
+    const readdirSync = stub().returns(['hello']);
     
-    const plugin = stub();
-    mockRequire(join(process.cwd(), 'hello'), plugin);
-    
-    const parseOptions = reRequire('.');
+    const overrides = {
+        readdirSync,
+        defaultOptions: empty,
+    };
     
     const options = {
         rules: {
@@ -402,7 +372,7 @@ test('putout: parseOptions: read rules', (t) => {
         readHomeOptions,
         readCodeMods,
         rulesdir: '.',
-    });
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -416,29 +386,18 @@ test('putout: parseOptions: read rules', (t) => {
         },
         plugins: [`import:${CWD}/hello`],
     };
-    
-    stopAll();
     
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: read rules: not-rule-', (t) => {
-    const empty = {};
-    
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
     
-    mockRequire('../../putout.json', empty);
-    mockRequire('node:fs', {
-        readdirSync: stub().returns(['not-rule-world', 'hello']),
-    });
-    
-    const plugin = stub();
-    mockRequire(join(process.cwd(), 'hello'), plugin);
-    
-    const parseOptions = reRequire('.');
+    const defaultOptions = empty;
+    const readdirSync = stub().returns(['not-rule-world', 'hello']);
     
     const options = {
         rules: {
@@ -451,6 +410,11 @@ test('putout: parseOptions: read rules: not-rule-', (t) => {
         },
     };
     
+    const overrides = {
+        defaultOptions,
+        readdirSync,
+    };
+    
     const result = parseOptions({
         name: 'parse-options.spec.js',
         options,
@@ -458,7 +422,7 @@ test('putout: parseOptions: read rules: not-rule-', (t) => {
         readHomeOptions,
         readCodeMods,
         rulesdir: '.',
-    });
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -472,29 +436,19 @@ test('putout: parseOptions: read rules: not-rule-', (t) => {
         },
         plugins: [`import:${CWD}/hello`],
     };
-    
-    stopAll();
     
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: read rules: *.md', (t) => {
-    const empty = {};
-    
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
     
-    mockRequire('../../putout.json', empty);
-    mockRequire('node:fs', {
-        readdirSync: stub().returns(['README.md', 'hello']),
-    });
+    const defaultOptions = empty;
+    const readdirSync = stub().returns(['README.md', 'hello']);
     
-    const plugin = stub();
-    mockRequire(join(process.cwd(), 'hello'), plugin);
-    
-    const parseOptions = reRequire('.');
     const options = {
         rules: {
             'remove-only': 'off',
@@ -506,6 +460,11 @@ test('putout: parseOptions: read rules: *.md', (t) => {
         },
     };
     
+    const overrides = {
+        defaultOptions,
+        readdirSync,
+    };
+    
     const result = parseOptions({
         name: 'parse-options.spec.js',
         options,
@@ -513,7 +472,7 @@ test('putout: parseOptions: read rules: *.md', (t) => {
         readHomeOptions,
         readCodeMods,
         rulesdir: '.',
-    });
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -527,29 +486,22 @@ test('putout: parseOptions: read rules: *.md', (t) => {
         },
         plugins: [`import:${CWD}/hello`],
     };
-    
-    stopAll();
     
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: read rules: .', (t) => {
-    const empty = {};
-    
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
     
-    mockRequire('../../putout.json', empty);
-    mockRequire('node:fs', {
-        readdirSync: stub().returns(['.rule-world', 'hello']),
-    });
+    const readdirSync = stub().returns(['.rule-world', 'hello']);
     
-    const plugin = stub();
-    mockRequire(join(process.cwd(), 'hello'), plugin);
-    
-    const parseOptions = reRequire('.');
+    const overrides = {
+        defaultOptions: empty,
+        readdirSync,
+    };
     
     const options = {
         rules: {
@@ -569,7 +521,7 @@ test('putout: parseOptions: read rules: .', (t) => {
         readHomeOptions,
         readCodeMods,
         rulesdir: '.',
-    });
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -584,28 +536,20 @@ test('putout: parseOptions: read rules: .', (t) => {
         plugins: [`import:${CWD}/hello`],
     };
     
-    stopAll();
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: read rules: error', (t) => {
-    const empty = {};
-    
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
     
-    mockRequire('../../putout.json', empty);
-    
-    const {readdirSync} = fs;
-    
-    mockRequire('node:fs', {
-        readdirSync: stub().throws('error'),
-    });
-    
-    const parseOptions = reRequire('.');
+    const readdirSync = stub().throws('error');
+    const overrides = {
+        defaultOptions: empty,
+        readdirSync,
+    };
     
     const options = {
         rules: {
@@ -625,7 +569,7 @@ test('putout: parseOptions: read rules: error', (t) => {
         readHomeOptions,
         readCodeMods,
         rulesdir: '.',
-    });
+    }, overrides);
     
     const expected = {
         dir: __dirname,
@@ -639,7 +583,6 @@ test('putout: parseOptions: read rules: error', (t) => {
         },
     };
     
-    stopAll();
     fs.readdirSync = readdirSync;
     
     t.deepEqual(result, expected);
@@ -647,21 +590,18 @@ test('putout: parseOptions: read rules: error', (t) => {
 });
 
 test('putout: parseOptions: readOptions: do not returns dir, load rules can not read', (t) => {
-    const empty = {};
-    
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
     const readOptions = stub().returns(['', empty]);
     
-    mockRequire('../../putout.json', empty);
-    
-    const {readdirSync} = fs;
-    
-    fs.readdirSync = () => {
+    const readdirSync = () => {
         throw 'error';
     };
     
-    const parseOptions = reRequire('.');
+    const overrides = {
+        defaultOptions: empty,
+        readdirSync,
+    };
     
     const options = {
         rules: {
@@ -681,7 +621,7 @@ test('putout: parseOptions: readOptions: do not returns dir, load rules can not 
         readCodeMods,
         readOptions,
         rulesdir: '.',
-    });
+    }, overrides);
     
     const expected = {
         dir: '',
@@ -695,29 +635,23 @@ test('putout: parseOptions: readOptions: do not returns dir, load rules can not 
         },
     };
     
-    stopAll();
-    fs.readdirSync = readdirSync;
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: readOptions: .putout.json', (t) => {
-    const empty = {};
-    
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
     const readOptions = stub().returns(['../..', {}]);
     
-    mockRequire('../../putout.json', empty);
-    
-    const {readdirSync} = fs;
-    
-    fs.readdirSync = () => {
+    const readdirSync = () => {
         throw 'error';
     };
     
-    const parseOptions = reRequire('.');
+    const overrides = {
+        readdirSync,
+        defaultOptions: empty,
+    };
     
     const options = {
         rules: {
@@ -737,7 +671,7 @@ test('putout: parseOptions: readOptions: .putout.json', (t) => {
         readCodeMods,
         readOptions,
         rulesdir: '.',
-    });
+    }, overrides);
     
     const expected = {
         dir: '../..',
@@ -751,29 +685,23 @@ test('putout: parseOptions: readOptions: .putout.json', (t) => {
         },
     };
     
-    stopAll();
-    fs.readdirSync = readdirSync;
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: can not readd dir', (t) => {
-    const empty = {};
-    
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
     const readOptions = stub().returns(['.', empty]);
     
-    mockRequire('../../putout.json', empty);
-    
-    const {readdirSync} = fs;
-    
-    fs.readdirSync = () => {
+    const readdirSync = () => {
         throw 'error';
     };
     
-    const parseOptions = reRequire('.');
+    const overrides = {
+        readdirSync,
+        defaultOptions: empty,
+    };
     
     const options = {
         rules: {
@@ -793,7 +721,7 @@ test('putout: parseOptions: can not readd dir', (t) => {
         readCodeMods,
         readOptions,
         rulesdir: '.',
-    });
+    }, overrides);
     
     const expected = {
         dir: '.',
@@ -807,16 +735,11 @@ test('putout: parseOptions: can not readd dir', (t) => {
         },
     };
     
-    stopAll();
-    fs.readdirSync = readdirSync;
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: readHomeOptions: .', (t) => {
-    const empty = {};
-    
     const readOptions = stub().returns(['.', {
         rules: {
             'remove-console': 'off',
@@ -825,14 +748,13 @@ test('putout: parseOptions: readHomeOptions: .', (t) => {
     
     const readCodeMods = stub().returns(empty);
     
-    mockRequire('node:fs', {
-        readdirSync: stub().throws('error'),
-    });
+    const readdirSync = stub().throws('error');
+    const defaultOptions = empty;
     
-    mockRequire('./package.json', empty);
-    mockRequire('../../putout.json', empty);
-    
-    const parseOptions = reRequire('.');
+    const overrides = {
+        defaultOptions,
+        readdirSync,
+    };
     
     const options = {
         rules: {
@@ -851,7 +773,7 @@ test('putout: parseOptions: readHomeOptions: .', (t) => {
         readOptions,
         readCodeMods,
         rulesdir: '.',
-    });
+    }, overrides);
     
     const expected = {
         dir: '.',
@@ -866,50 +788,41 @@ test('putout: parseOptions: readHomeOptions: .', (t) => {
         },
     };
     
-    stopAll();
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: no args', (t) => {
-    const empty = {};
-    const {homedir} = os;
-    const read = stub().returns(['', {}]);
+    const recursiveRead = stub().returns(['', {}]);
+    const homedir = stub().returns('/');
+    const escalade = stub();
     
-    os.homedir = stub().returns('/');
+    const info = {};
     
-    mockRequire('./recursive-read', read);
-    mockRequire('./package.json', empty);
-    mockRequire('../../putout.json', empty);
-    mockRequire('escalade/sync', stub());
-    
-    const parseOptions = reRequire('.');
-    const result = parseOptions();
+    const result = parseOptions(info, {
+        homedir,
+        recursiveRead,
+        defaultOptions: {},
+        escalade,
+    });
     
     const expected = {
         dir: '',
     };
-    
-    os.homedir = homedir;
-    
-    stopAll();
     
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: readOptions: package.json', (t) => {
-    const empty = {};
-    
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
-    const read = stub().returns(['', {}]);
+    const recursiveRead = stub().returns(['', {}]);
     
-    mockRequire('../../putout.json', empty);
-    mockRequire('./recursive-read', read);
-    
-    const parseOptions = reRequire('.');
+    const overrides = {
+        recursiveRead,
+        defaultOptions: {},
+    };
     
     const options = {
         rules: {
@@ -927,7 +840,7 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
         options,
         readHomeOptions,
         readCodeMods,
-    });
+    }, overrides);
     
     delete result.dir;
     
@@ -950,27 +863,25 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
         },
     };
     
-    stopAll();
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: readOptions: no options but package.json', (t) => {
-    const empty = {};
-    
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
-    const read = stub().returns(['', {}]);
+    const recursiveRead = stub().returns(['', {}]);
     
-    mockRequire('../../package.json', {
+    const readPackageJson = stub().returns(['../../package.json', {
         type: 'module',
-    });
+    }]);
     
-    mockRequire('../../putout.json', empty);
-    mockRequire('./recursive-read', read);
+    const overrides = {
+        recursiveRead,
+        defaultOptions: empty,
+        readPackageJson,
+    };
     
-    const parseOptions = reRequire('.');
     const options = {};
     
     const result = parseOptions({
@@ -978,7 +889,7 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
         options,
         readHomeOptions,
         readCodeMods,
-    });
+    }, overrides);
     
     delete result.dir;
     
@@ -1003,30 +914,21 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
         },
     };
     
-    stopAll();
-    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: parseOptions: rules dir: no once', (t) => {
-    const empty = {};
-    
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
-    const hello = stub();
     
-    mockRequire('../../putout.json', empty);
+    const readdirSync = stub().returns([]);
+    const overrides = {
+        defaultOptions: empty,
+        readdirSync,
+    };
     
-    const {readdirSync} = fs;
-    const readdirSyncStub = stub().returns([]);
-    
-    fs.readdirSync = readdirSyncStub;
-    
-    mockRequire(join(__dirname, 'hello'), hello);
-    
-    const parseOptions = reRequire('.');
     const options = {
         rules: {
             'remove-only': 'off',
@@ -1045,7 +947,7 @@ test('putout: parseOptions: rules dir: no once', (t) => {
         readHomeOptions,
         readCodeMods,
         rulesdir: 'hello',
-    });
+    }, overrides);
     
     parseOptions({
         name: 'parse-options.spec.js',
@@ -1056,11 +958,7 @@ test('putout: parseOptions: rules dir: no once', (t) => {
         rulesdir: 'world',
     });
     
-    stopAll();
-    fs.readdirSync = readdirSync;
-    reRequire('.');
-    
-    t.calledTwice(readdirSyncStub);
+    t.calledOnce(readdirSync);
     t.end();
 });
 

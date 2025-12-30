@@ -1,24 +1,22 @@
 'use strict';
 
 const process = require('node:process');
-const {homedir} = require('node:os');
+const {homedir: _homedir} = require('node:os');
 const {readdirSync: _readdirSync} = require('node:fs');
 
 const {dirname, join} = require('node:path');
 
 const once = require('once');
 const tryCatch = require('try-catch');
-const escalade = require('escalade/sync');
+const _escalade = require('escalade/sync');
 
 const {parseMatch} = require('./parse-match');
-const defaultOptions = require('../../putout.json');
+const _defaultOptions = require('../../putout.json');
 const {mergeOptions} = require('./merge-options');
-const recursiveRead = require('./recursive-read');
+const _recursiveRead = require('./recursive-read');
 const applyModuleTypeRules = require('./apply-module-type-rules');
 const {validateOptions} = require('./validate-options');
 const {readRules} = require('./read-rules');
-
-const home = homedir();
 
 module.exports = (info = {}, overrides = {}) => {
     const {
@@ -33,10 +31,23 @@ module.exports = (info = {}, overrides = {}) => {
     const {
         cwd = process.cwd(),
         readdirSync = _readdirSync,
+        defaultOptions = _defaultOptions,
+        recursiveRead = _recursiveRead,
+        homedir = _homedir,
+        escalade = _escalade,
+        readPackageJson,
     } = overrides;
     
-    const [dir, customOptions] = readOptions(name);
-    const homeOptions = readHomeOptions();
+    const [dir, customOptions] = readOptions(name, {
+        recursiveRead,
+        escalade,
+        readPackageJson,
+    });
+    
+    const homeOptions = readHomeOptions({
+        homedir,
+    });
+    
     const defaultMatch = parseMatch(name, defaultOptions.match);
     
     const optionsList = [
@@ -64,6 +75,7 @@ module.exports = (info = {}, overrides = {}) => {
         readCodeMods({
             cwd,
             readdirSync,
+            homedir,
         }),
         readRules('./', rulesdir, {
             cwd,
@@ -86,12 +98,32 @@ module.exports = (info = {}, overrides = {}) => {
 
 const includes = (name) => (dir, names) => names.includes(name) && name;
 
-function _readOptions(name) {
-    const [dir, options] = recursiveRead(name, '.putout.json');
+function _readPackageJson(name, overrides) {
+    const {escalade} = overrides;
     const [, packagePath] = tryCatch(escalade, name, includes('package.json'));
     
     if (packagePath)
-        applyModuleTypeRules(require(packagePath), options);
+        return [packagePath, require(packagePath)];
+    
+    return [
+        '',
+        null,
+    ];
+}
+
+function _readOptions(name, overrides = {}) {
+    const {
+        recursiveRead,
+        escalade,
+        readPackageJson = _readPackageJson,
+    } = overrides;
+    const [dir, options] = recursiveRead(name, '.putout.json');
+    const [packagePath, packageJson] = readPackageJson(name, {
+        escalade,
+    });
+    
+    if (packagePath)
+        applyModuleTypeRules(packageJson, options);
     
     if (dir)
         return [dir, options];
@@ -107,14 +139,19 @@ function _readOptions(name) {
     return ['', {}];
 }
 
-const _readHomeOptions = once(() => {
+const _readHomeOptions = once(({homedir}) => {
+    const home = homedir();
     const name = join(home, '.putout.json');
     const [, data = {}] = tryCatch(require, name);
     
     return data;
 });
 
-const _readCodeMods = once(({cwd, readdirSync}) => readRules(home, '.putout', {
-    cwd,
-    readdirSync,
-}));
+const _readCodeMods = ({cwd, readdirSync, homedir}) => {
+    const home = homedir();
+    
+    return readRules(home, '.putout', {
+        cwd,
+        readdirSync,
+    });
+};
