@@ -38,7 +38,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/cli-process-file": "^4.0.0",
+    "@putout/cli-process-file": "^5.0.0",
     "@putout/engine-processor": "*",
     "@putout/engine-reporter": "^8.0.1",
     "@putout/engine-runner": "*",
