@@ -4,6 +4,7 @@ const {normalize} = require('node:path');
 const picomatch = require('picomatch');
 const fullstore = require('fullstore');
 
+const noop = () => {};
 const isMatchStore = fullstore();
 
 let patterns = [];
@@ -24,6 +25,11 @@ module.exports.add = (array) => {
 module.exports.isSupported = (name) => {
     const isMatch = isMatchStore();
     return isMatch(name);
+};
+
+module.exports.clear = () => {
+    isMatchStore(noop);
+    patterns = [];
 };
 
 module.exports.getSupportedGlob = (file) => normalize(`${file}/**/{${patterns.join(',')}}`);
