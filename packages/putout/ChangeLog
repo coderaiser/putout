@@ -1,3 +1,9 @@
+2025.12.30, v41.2.1
+
+feature:
+- 86e2caeab putout: try-catch v4.0.0
+- c18dfa043 @putout/plugin-nodejs: convert-commonjs-to-esm: exports: StringLiterals inside ObjectExpression
+
 2025.12.30, v41.2.0
 
 feature:
