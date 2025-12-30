@@ -16,6 +16,7 @@ const formatterJSON = require('@putout/formatter-json');
 const parseOptions = require('../parse-options');
 
 const {simpleImport} = require('./simple-import');
+const {red} = require('./chalk.mjs');
 
 const _cli = require('.');
 const {version} = require('../../package');
@@ -985,7 +986,6 @@ test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
     
     stopAll();
     
-    const {red} = await simpleImport('./chalk.mjs');
     const expected = red('🐊 `path` is missing for ruler toggler (`--enable-all`, `--disable-all`)');
     
     t.calledWith(logError, [expected]);
@@ -1067,7 +1067,6 @@ test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
     
     stopAll();
     
-    const {red} = await simpleImport('./chalk.mjs');
     const expected = red(`🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`);
     
     t.calledWith(logError, [expected]);
@@ -1806,7 +1805,6 @@ test('putout: cli: --staged: error message', async (t) => {
         cliStaged,
     });
     
-    const {red} = await simpleImport('./chalk.mjs');
     const expected = red('🐊 --staged: not git repository');
     
     t.calledWith(logError, [expected]);
@@ -1829,7 +1827,6 @@ test('putout: cli: invalid option: message', async (t) => {
     
     stopAll();
     
-    const {red} = await simpleImport('./chalk.mjs');
     const expected = red('🐊 Invalid option `--hello-world`. Perhaps you meant `--help`');
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
@@ -1850,7 +1847,6 @@ test('putout: cli: invalid option: message: one char', async (t) => {
     
     stopAll();
     
-    const {red} = await simpleImport('./chalk.mjs');
     const expected = red(`🐊 Invalid option '-z'`);
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
@@ -1898,7 +1894,6 @@ test('putout: cli: cannot load processor: not found', async (t) => {
     
     stopAll();
     
-    const {red} = await simpleImport('./chalk.mjs');
     const expected = red(`🐊 Processor "putout-processor-hello" could not be found!`);
     
     t.calledWith(logError, [expected], 'should show message about invalid option');

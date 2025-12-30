@@ -1,4 +1,4 @@
-import chalk from '../lib/cli/chalk.mjs';
+import {bgBlueBright} from '../lib/cli/chalk.mjs';
 
 export const onDebuggerExit = ({log, process, inspector}) => {
     const {pid} = process;
@@ -11,7 +11,7 @@ export const onDebuggerExit = ({log, process, inspector}) => {
             return;
         
         inspector.close();
-        log(chalk.bgBlueBright(`node --inspect: 'kill ${pid}'`));
+        log(bgBlueBright(`node --inspect: 'kill ${pid}'`));
         process.kill(pid);
     });
 };
