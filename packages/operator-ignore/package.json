@@ -40,8 +40,7 @@
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
     "putout": "*",
-    "supertape": "^11.0.3",
-    "try-catch": "^4.0.0"
+    "supertape": "^11.0.3"
   },
   "license": "MIT",
   "engines": {
