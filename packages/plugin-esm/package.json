@@ -28,7 +28,8 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "parse-import-specifiers": "^1.0.3"
+    "parse-import-specifiers": "^1.0.3",
+    "try-catch": "^3.0.1"
   },
   "keywords": [
     "putout",

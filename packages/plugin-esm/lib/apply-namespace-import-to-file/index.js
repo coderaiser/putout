@@ -1,4 +1,5 @@
 import {join, dirname} from 'node:path';
+import tryCatch from 'try-catch';
 import putout, {
     parse,
     print,
@@ -52,7 +53,13 @@ export const scan = (rootPath, {push, trackFile}) => {
     
     for (const file of trackFile(rootPath, mask)) {
         const content = readFileContent(file);
-        const ast = parse(content);
+        const [error, ast] = tryCatch(parse, content);
+        
+        if (error) {
+            error.message += `\n${content}\n`;
+            throw error;
+        }
+        
         const importsTuples = getImports(file, content, ast);
         
         for (const [name, source, importedFilename] of importsTuples) {
