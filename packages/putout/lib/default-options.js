@@ -1,10 +1,8 @@
-'use strict';
+import * as loader from '@putout/engine-loader';
+import runner from '@putout/engine-runner';
+import {createProgress} from '@putout/engine-runner/progress';
 
-const loader = require('@putout/engine-loader');
-const runner = require('@putout/engine-runner');
-const {createProgress} = require('@putout/engine-runner/progress');
-
-module.exports.defaultOptions = (opts = {}) => {
+export const defaultOptions = (opts = {}) => {
     const {
         parser = 'babel',
         printer = opts.printer || 'putout',

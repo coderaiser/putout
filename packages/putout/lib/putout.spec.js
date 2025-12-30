@@ -1,5 +1,5 @@
 import test from 'supertape';
-import putout from './putout.mjs';
+import putout from './putout.js';
 
 test('putout: esm', (t) => {
     const {code} = putout('const a = 5', {

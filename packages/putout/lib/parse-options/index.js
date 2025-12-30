@@ -1,24 +1,24 @@
-'use strict';
+import process from 'node:process';
+import {homedir as _homedir} from 'node:os';
+import {readdirSync as _readdirSync} from 'node:fs';
+import {dirname, join} from 'node:path';
+import {createRequire} from 'node:module';
+import once from 'once';
+import tryCatch from 'try-catch';
+import _escalade from 'escalade/sync';
+import {parseMatch} from './parse-match.js';
+import _defaultOptions from '../../putout.json' with {
+    type: 'json',
+};
+import {mergeOptions} from './merge-options.js';
+import _recursiveRead from './recursive-read.js';
+import applyModuleTypeRules from './apply-module-type-rules.js';
+import {validateOptions} from './validate-options/index.js';
+import {readRules} from './read-rules.js';
 
-const process = require('node:process');
-const {homedir: _homedir} = require('node:os');
-const {readdirSync: _readdirSync} = require('node:fs');
+const require = createRequire(import.meta.url);
 
-const {dirname, join} = require('node:path');
-
-const once = require('once');
-const tryCatch = require('try-catch');
-const _escalade = require('escalade/sync');
-
-const {parseMatch} = require('./parse-match');
-const _defaultOptions = require('../../putout.json');
-const {mergeOptions} = require('./merge-options');
-const _recursiveRead = require('./recursive-read');
-const applyModuleTypeRules = require('./apply-module-type-rules');
-const {validateOptions} = require('./validate-options');
-const {readRules} = require('./read-rules');
-
-module.exports = (info = {}, overrides = {}) => {
+export const parseOptions = (info = {}, overrides = {}) => {
     const {
         rulesdir,
         name = '',

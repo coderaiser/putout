@@ -1,8 +1,5 @@
-'use strict';
-
-const {join} = require('node:path');
-
-const tryCatch = require('try-catch');
+import {join} from 'node:path';
+import tryCatch from 'try-catch';
 
 const isInclude = (a) => {
     if (a[0] === '.')
@@ -14,7 +11,7 @@ const isInclude = (a) => {
     return !a.endsWith('.md');
 };
 
-module.exports.readRules = (dirOpt, rulesDir, overrides) => {
+export const readRules = (dirOpt, rulesDir, overrides) => {
     if (!rulesDir)
         return {};
     

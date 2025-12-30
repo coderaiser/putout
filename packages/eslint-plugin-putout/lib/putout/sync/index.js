@@ -2,16 +2,16 @@
 
 const process = require('node:process');
 const tryCatch = require('try-catch');
+const {ignores} = require('putout/ignores');
 
 const {
-    ignores,
     findPlaces,
     transform,
     print,
     parse,
 } = require('putout');
 
-const parseOptions = require('putout/parse-options');
+const {parseOptions} = require('putout/parse-options');
 const {parseError} = require('../parse-error');
 
 const cwd = process.cwd();

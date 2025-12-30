@@ -13,10 +13,10 @@ import {test, stub} from 'supertape';
 import tryCatch from 'try-catch';
 import tryToCatch from 'try-to-catch';
 import formatterJSON from '@putout/formatter-json';
-import parseOptions from '../parse-options/index.js';
+import {parseOptions} from '../parse-options/index.js';
 import {simpleImport as _simpleImport} from './simple-import.js';
-import {red} from './chalk.mjs';
-import cli from './index.mjs';
+import {red} from './chalk.js';
+import cli from './index.js';
 
 const require = createRequire(import.meta.url);
 const {version} = require('../../package');
@@ -948,7 +948,7 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
                 ruler,
             };
         
-        if (url === './exit.mjs')
+        if (url === './exit.js')
             return await import(url);
         
         if (url.includes('processor'))
@@ -1863,7 +1863,7 @@ test('putout: cli: cannot load processor: not found', async (t) => {
 
 test('putout: cli: addOnce', (t) => {
     const fn = stub();
-    const {_addOnce} = require('./index.mjs');
+    const {_addOnce} = require('./index.js');
     const emitter = new EventEmitter();
     
     _addOnce(emitter, 'hello', fn);

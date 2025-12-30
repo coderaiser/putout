@@ -1,9 +1,8 @@
-'use strict';
+import {mergeOptions} from './merge-options.js';
 
-const {mergeOptions} = require('./merge-options');
 const {assign} = Object;
 
-module.exports = ({type}, options) => {
+export default ({type}, options) => {
     const config = type === 'module' ? esm() : commonjs();
     assign(options, mergeOptions(options, config));
 };

@@ -3,7 +3,7 @@
 const montag = require('montag');
 const {test, stub} = require('supertape');
 
-const parseOptions = require('putout/parse-options');
+const {parseOptions} = require('putout/parse-options');
 
 const processFile = require('./process-file');
 

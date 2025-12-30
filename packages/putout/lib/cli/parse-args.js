@@ -1,11 +1,10 @@
-'use strict';
+import yargsParser from 'yargs-parser';
 
-const yargsParser = require('yargs-parser');
 const {isArray} = Array;
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
 const maybeArray = (a) => isArray(a) ? a : a.split(',');
 
-const argvConfig = {
+export const argvConfig = {
     configuration: {
         'strip-aliased': true,
         'strip-dashed': true,
@@ -64,5 +63,4 @@ const argvConfig = {
     },
 };
 
-module.exports.argvConfig = argvConfig;
-module.exports.parseArgs = (argv) => yargsParser(argv, argvConfig);
+export const parseArgs = (argv) => yargsParser(argv, argvConfig);

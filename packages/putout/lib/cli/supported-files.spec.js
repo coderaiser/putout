@@ -1,14 +1,11 @@
-'use strict';
-
-const test = require('supertape');
-
-const {
+import test from 'supertape';
+import {
     add,
     clear,
     isSupported,
     getSupportedGlob,
     getPatterns,
-} = require('./supported-files');
+} from './supported-files.js';
 
 test('putout: supported files isSupported', (t) => {
     add(['*.tsx']);

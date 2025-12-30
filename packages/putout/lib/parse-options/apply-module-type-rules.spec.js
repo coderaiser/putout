@@ -1,7 +1,5 @@
-'use strict';
-
-const {test} = require('supertape');
-const applyModuleTypeRules = require('./apply-module-type-rules');
+import {test} from 'supertape';
+import applyModuleTypeRules from './apply-module-type-rules.js';
 
 test('putout: parse-options: apply module type rules: module', (t) => {
     const options = {};

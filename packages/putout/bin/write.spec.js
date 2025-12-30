@@ -1,5 +1,5 @@
 import {test} from 'supertape';
-import {createWrite} from './write.mjs';
+import {createWrite} from './write.js';
 
 const noop = () => {};
 

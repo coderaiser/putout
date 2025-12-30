@@ -1,7 +1,7 @@
 import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {test, stub} from 'supertape';
-import {getFiles} from './get-files.mjs';
+import {getFiles} from './get-files.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -117,11 +117,11 @@ test('putout: getFiles: dir', async (t) => {
 
 test('putout: getFiles: glob', async (t) => {
     const dir = join(__dirname, '..', '..');
-    const [, files] = await getFiles([`${dir}/.madrun.mjs`]);
+    const [, files] = await getFiles([`${dir}/.madrun.js`]);
     const result = files.map(rmStart);
     
     const expected = [
-        join(dir, '.madrun.mjs'),
+        join(dir, '.madrun.js'),
     ];
     
     t.deepEqual(result, expected);

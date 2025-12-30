@@ -1,16 +1,16 @@
-'use strict';
+import {dirname} from 'node:path';
+import {createRequire} from 'node:module';
+import escalade from 'escalade/sync';
+import {mergeOptions} from './merge-options.js';
+import {parseMatch} from './parse-match.js';
 
-const {dirname} = require('node:path');
-const escalade = require('escalade/sync');
+const require = createRequire(import.meta.url);
 
-const {mergeOptions} = require('./merge-options');
-const {parseMatch} = require('./parse-match');
-
-module.exports = (name, configName, overrides) => {
+export default (name, configName, overrides = {}) => {
     if (name === '<input>')
         return ['', {}];
     
-    const customRequire = overrides?.require || require;
+    const customRequire = overrides.require || require;
     const dir = dirname(name);
     
     const [mainDir, optionsList] = getOptionsList({

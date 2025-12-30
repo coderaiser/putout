@@ -5,7 +5,7 @@ const path = require('node:path');
 const {parse, print} = require('@putout/engine-parser');
 const {transform} = require('putout/transform');
 const {findPlaces} = require('putout/find-places');
-const ignores = require('putout/ignores');
+const {ignores} = require('putout/ignores');
 
 const {toJS, fromJS} = require('@putout/operator-json');
 

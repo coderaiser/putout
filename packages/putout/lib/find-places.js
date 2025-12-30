@@ -1,15 +1,13 @@
-'use strict';
+import {transform, transformAsync} from './transform.js';
 
-const {transform, transformAsync} = require('./transform');
-
-module.exports.findPlaces = (ast, source, opts) => {
+export const findPlaces = (ast, source, opts) => {
     return transform(ast, source, {
         ...opts,
         fix: false,
     });
 };
 
-module.exports.findPlacesAsync = async (ast, source, opts) => {
+export const findPlacesAsync = async (ast, source, opts) => {
     return await transformAsync(ast, source, {
         ...opts,
         fix: false,

@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = (e, type = 'parser') => {
+export const parseError = (e, type = 'parser') => {
     const {line, column} = e.loc || {
         line: 1,
         column: 1,

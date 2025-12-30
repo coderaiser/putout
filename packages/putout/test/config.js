@@ -1,8 +1,8 @@
-'use strict';
+import test from 'supertape';
+import putoutConfig from '../putout.json' with {
+    type: 'json',
+};
 
-const test = require('supertape');
-
-const putoutConfig = require('../putout.json');
 const {keys} = Object;
 
 test('putout: config: ignore: .yarn', (t) => {

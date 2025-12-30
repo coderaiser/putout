@@ -1,5 +1,5 @@
 import {test, stub} from 'supertape';
-import {createIsStop} from './is-stop.mjs';
+import {createIsStop} from './is-stop.js';
 
 test('putout: bin: isStop: parentPort', (t) => {
     const on = stub();

@@ -1,11 +1,8 @@
-'use strict';
-
-const tryCatch = require('try-catch');
-
-const {validateRulesRelations} = require('@putout/engine-loader');
-const {defaultOptions} = require('./default-options');
-const {cutShebang} = require('./shebang');
-const parseError = require('./parse-error');
+import tryCatch from 'try-catch';
+import {validateRulesRelations} from '@putout/engine-loader';
+import {defaultOptions} from './default-options.js';
+import {cutShebang} from './shebang.js';
+import {parseError} from './parse-error.js';
 
 const maybeParseError = (a) => !a ? [] : parseError(a, 'loader');
 
@@ -18,7 +15,7 @@ const maybeParseError = (a) => !a ? [] : parseError(a, 'loader');
 // 27         column,¬
 // 28     };¬
 //
-module.exports.transform = (ast, source, opts) => {
+export const transform = (ast, source, opts) => {
     opts = defaultOptions(opts);
     
     const {
@@ -60,7 +57,7 @@ module.exports.transform = (ast, source, opts) => {
     ];
 };
 
-module.exports.transformAsync = async (ast, source, opts) => {
+export const transformAsync = async (ast, source, opts) => {
     opts = defaultOptions(opts);
     
     const {

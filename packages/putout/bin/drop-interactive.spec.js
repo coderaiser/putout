@@ -1,5 +1,5 @@
 import {test} from 'supertape';
-import {dropInteractive} from './drop-interactive.mjs';
+import {dropInteractive} from './drop-interactive.js';
 
 test('putout: bin: dropInteractive', (t) => {
     const result = dropInteractive(['-i']);

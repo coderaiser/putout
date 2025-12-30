@@ -1,8 +1,6 @@
-'use strict';
+import {codeFrameColumns} from '@putout/babel';
 
-const {codeFrameColumns} = require('@putout/babel');
-
-module.exports = ({source, error, highlightCode = true}) => {
+export const codeframe = ({source, error, highlightCode = true}) => {
     const {message, loc} = error;
     
     if (!loc)

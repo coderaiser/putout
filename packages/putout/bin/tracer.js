@@ -8,18 +8,18 @@ import process, {
 } from 'node:process';
 import {subscribe} from '@putout/engine-reporter/subscribe';
 import {parseArgs} from '../lib/cli/parse-args.js';
-import {createExit} from '../lib/cli/exit.mjs';
-import {dropInteractive} from './drop-interactive.mjs';
+import {createExit} from '../lib/cli/exit.js';
+import {dropInteractive} from './drop-interactive.js';
 
 const args = parseArgs(process.argv.slice(2));
 const write = stdout.write.bind(stdout);
 
 if (!args.worker) {
-    await import('./putout.mjs');
+    await import('./putout.js');
     halt();
 }
 
-const slave = new URL('./putout.mjs', import.meta.url);
+const slave = new URL('./putout.js', import.meta.url);
 
 const worker = new Worker(slave, {
     workerData: dropInteractive(process.argv),

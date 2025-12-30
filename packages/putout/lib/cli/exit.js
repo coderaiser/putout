@@ -1,4 +1,4 @@
-import {red} from './chalk.mjs';
+import {red} from './chalk.js';
 
 export const createExit = ({halt, raw, logError}) => (code, e) => {
     if (!code)

@@ -1,11 +1,10 @@
-'use strict';
+import process from 'node:process';
+import {join, dirname} from 'node:path';
+import {createRequire} from 'node:module';
+import buildPlugins from './build-plugins.js';
+import {parseOptions as _parseOptions} from '../parse-options/index.js';
 
-const process = require('node:process');
-const {join, dirname} = require('node:path');
-
-const buildPlugins = require('./build-plugins');
-const _parseOptions = require('../parse-options');
-
+const require = createRequire(import.meta.url);
 const {assign} = Object;
 const {env} = process;
 
@@ -24,7 +23,7 @@ const getMaybeConfig = () => {
     return config;
 };
 
-module.exports = (overrides = {}) => {
+export default (overrides = {}) => {
     const {
         noConfig,
         plugins = [],

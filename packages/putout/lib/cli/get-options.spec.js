@@ -1,11 +1,7 @@
-'use strict';
-
-const process = require('node:process');
-
-const tryCatch = require('try-catch');
-const {test, stub} = require('supertape');
-
-const getOptions = require('./get-options');
+import process from 'node:process';
+import tryCatch from 'try-catch';
+import {test, stub} from 'supertape';
+import getOptions from './get-options.js';
 
 test('putout: cli: get-options: PUTOUT_CONFIG_FILE', (t) => {
     const {PUTOUT_CONFIG_FILE} = process.env;

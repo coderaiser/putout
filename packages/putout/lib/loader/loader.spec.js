@@ -3,7 +3,7 @@ import {test, stub} from 'supertape';
 import {
     load,
     transformSource,
-} from './loader.mjs';
+} from './loader.js';
 
 test('putout: esm: load', async (t) => {
     const nextLoad = stub().returns({

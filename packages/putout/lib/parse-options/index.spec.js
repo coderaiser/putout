@@ -1,15 +1,13 @@
-'use strict';
+import process from 'node:process';
+import fs from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {dirname} from 'node:path';
+import {test, stub} from 'supertape';
+import tryCatch from 'try-catch';
+import {parseOptions} from './index.js';
 
-const process = require('node:process');
-const fs = require('node:fs');
-
-const {join} = require('node:path');
-
-const {test, stub} = require('supertape');
-const tryCatch = require('try-catch');
-
-const parseOptions = require('.');
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const CWD = process.cwd();
 const empty = {};
 
@@ -21,7 +19,7 @@ test('putout: parse-options: custom options rules overrides default match', (t) 
     };
     
     const readOptions = stub().returns([
-        join(__dirname, '..'),
+        new URL('..', import.meta.url).pathname,
         customOptions,
     ]);
     
@@ -49,7 +47,7 @@ test('putout: parse-options: options rules overrides default match', (t) => {
     };
     
     const readOptions = stub().returns([
-        join(__dirname, '..'),
+        new URL('..', import.meta.url).pathname,
         customOptions,
     ]);
     
@@ -819,9 +817,14 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
     const readCodeMods = stub().returns(empty);
     const recursiveRead = stub().returns(['', {}]);
     
+    const readPackageJson = stub().returns(['../../package.json', {
+        type: 'commonjs',
+    }]);
+    
     const overrides = {
         recursiveRead,
         defaultOptions: {},
+        readPackageJson,
     };
     
     const options = {

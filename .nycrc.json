@@ -7,7 +7,7 @@
         "**/*fixture",
         "**/.*.*",
         "**/scripts",
-        "**/register.mjs",
+        "**/register.js",
         "packages/*/coverage",
         "packages/*/bin",
         "packages/*/test",

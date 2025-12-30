@@ -1,8 +1,6 @@
-'use strict';
-
-const tryCatch = require('try-catch');
-const {test} = require('supertape');
-const {validateOptions} = require('./index.js');
+import tryCatch from 'try-catch';
+import {test} from 'supertape';
+import {validateOptions} from './index.js';
 
 test('putout: parse-options: validateOptions: valid', (t) => {
     const [error] = tryCatch(validateOptions, {

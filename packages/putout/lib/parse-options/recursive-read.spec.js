@@ -1,16 +1,15 @@
-'use strict';
+import {fileURLToPath} from 'node:url';
+import {stub, test} from 'supertape';
+import tryCatch from 'try-catch';
+import read from './recursive-read.js';
 
-const {join} = require('node:path');
-
-const {stub, test} = require('supertape');
-const tryCatch = require('try-catch');
-
-const read = require('./recursive-read');
+const __filename = fileURLToPath(import.meta.url);
 
 test('putout: parse-options: recursive read: dir', (t) => {
-    const [dir] = read(__filename, '.putout.json');
+    const [result] = read(__filename, '.putout.json');
+    const expected = new URL('../..', import.meta.url).pathname.slice(0, -1);
     
-    t.equal(dir, join(__dirname, '../..'));
+    t.equal(result, expected);
     t.end();
 });
 

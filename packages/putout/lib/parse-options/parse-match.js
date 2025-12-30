@@ -1,10 +1,8 @@
-'use strict';
-
-const picomatch = require('picomatch');
+import picomatch from 'picomatch';
 
 const {keys, assign} = Object;
 
-module.exports.parseMatch = (name, match) => {
+export const parseMatch = (name, match) => {
     if (!match || !name)
         return {};
     

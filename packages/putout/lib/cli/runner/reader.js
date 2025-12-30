@@ -1,13 +1,10 @@
-'use strict';
+import tryToCatch from 'try-to-catch';
+import {runProcessors as _runProcessors} from '@putout/engine-processor';
+import {parseError} from '../../parse-error.js';
+import {simpleImport} from '../simple-import.js';
+import {ignores} from '../../ignores.js';
 
-const tryToCatch = require('try-to-catch');
-const {runProcessors: _runProcessors} = require('@putout/engine-processor');
-
-const parseError = require('../../parse-error.js');
-const {simpleImport} = require('../simple-import');
-const ignores = require('../../ignores.js');
-
-module.exports.runReader = async (overrides) => {
+export const runReader = async (overrides) => {
     const {
         raw,
         log,

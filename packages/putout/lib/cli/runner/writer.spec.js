@@ -1,17 +1,12 @@
-'use strict';
-
-const {join} = require('node:path');
-const tryToCatch = require('try-to-catch');
-const {test, stub} = require('supertape');
-
-const formatter = require('@putout/formatter-json');
-const processorJavaScript = require('@putout/processor-javascript');
-
-const {simpleImport} = require('../simple-import');
+import tryToCatch from 'try-to-catch';
+import {test, stub} from 'supertape';
+import formatter from '@putout/formatter-json';
+import * as processorJavaScript from '@putout/processor-javascript';
+import {simpleImport} from '../simple-import.js';
 
 test('putout: cli: runner: processor throw: raw', async (t) => {
-    const name = join(__dirname, 'fixture/processor.throw');
-    const throwProcessor = require('./fixture/processor-throw');
+    const name = new URL('fixture/processor.throw', import.meta.url).pathname;
+    const throwProcessor = await import('./fixture/processor-throw.js');
     
     const getOptions = stub().returns({
         formatter,
@@ -79,7 +74,7 @@ test('putout: cli: runner: ignores', async (t) => {
 });
 
 test('putout: cli: runner: processor: load', async (t) => {
-    const name = join(__dirname, 'fixture/processor.throw');
+    const name = new URL('fixture/processor.throw', import.meta.url).pathname;
     const getOptions = stub().returns({
         formatter,
         dir: '.',
@@ -135,7 +130,7 @@ async function runWriter(options) {
         runProcessors,
     } = options;
     
-    const {runWriter} = require('./writer.js');
+    const {runWriter} = await import('./writer.js');
     
     return await runWriter({
         exit,

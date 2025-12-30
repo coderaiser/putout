@@ -1,7 +1,7 @@
-'use strict';
-
-const Ajv = require('ajv');
-const schema = require('./schema.json');
+import Ajv from 'ajv';
+import schema from './schema.json' with {
+    type: 'json',
+};
 
 const ajv = new Ajv({
     strict: true,
@@ -10,7 +10,7 @@ const ajv = new Ajv({
 
 const validate = ajv.compile(schema);
 
-module.exports.validateOptions = (options) => {
+export const validateOptions = (options) => {
     validate(options);
     
     const [error] = validate.errors || [];

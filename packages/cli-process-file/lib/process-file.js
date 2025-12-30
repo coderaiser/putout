@@ -5,7 +5,7 @@ const tryToCatch = require('try-to-catch');
 const {eslint: _eslint} = require('@putout/eslint');
 const {parseMatch} = require('putout/parse-match');
 const {mergeOptions} = require('putout/merge-options');
-const parseError = require('putout/parse-error');
+const {parseError} = require('putout/parse-error');
 const {putoutAsync: _putoutAsync} = require('putout');
 const once = require('once');
 

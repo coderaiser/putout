@@ -3,13 +3,13 @@ import {matchToFlat} from '@putout/eslint-flat';
 import {defineConfig} from 'eslint/config';
 
 export const match = {
-    '**/bin/putout.mjs': {
+    '**/bin/putout.js': {
         'n/hashbang': 'off',
     },
-    '**/register.mjs': {
+    '**/register.js': {
         'n/no-unsupported-features/node-builtins': 'off',
     },
-    '**/chalk.mjs': {
+    '**/chalk.js': {
         'n/no-unsupported-features/node-builtins': 'off',
     },
 };

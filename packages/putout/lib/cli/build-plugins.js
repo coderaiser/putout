@@ -1,9 +1,7 @@
-'use strict';
-
 const name = '[transform]';
 const returns = (a) => () => a;
 
-module.exports = (line) => {
+export default (line) => {
     if (!line)
         return [];
     

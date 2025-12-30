@@ -1,37 +1,36 @@
 {
   "name": "putout",
   "version": "41.1.4",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊 Pluggable and configurable code transformer with built-in ESLint, Babel and support of js, jsx, typescript, flow, markdown, yaml and json",
   "homepage": "http://github.com/coderaiser/putout#readme",
   "main": "./lib/putout.js",
   "exports": {
     ".": {
-      "require": "./lib/putout.js",
-      "import": "./lib/putout.mjs"
+      "require": "./lib/putout.cjs",
+      "import": "./lib/putout.js"
     },
     "./parse-error": "./lib/parse-error.js",
     "./parse-options": "./lib/parse-options/index.js",
     "./parse-match": "./lib/parse-options/parse-match.js",
     "./merge-options": "./lib/parse-options/merge-options.js",
     "./exit-codes": {
-      "import": "./lib/cli/exit-codes.mjs",
-      "require": "./lib/cli/exit-codes.js"
+      "import": "./lib/cli/exit-codes.js",
+      "require": "./lib/cli/exit-codes.cjs"
     },
-    "./cli": "./lib/cli/index.mjs",
     "./cli/get-options": "./lib/cli/get-options.js",
     "./package.json": "./package.json",
     "./putout.json": "./putout.json",
-    "./lint/json": "./lib/lint/json.mjs",
+    "./lint/json": "./lib/lint/json.js",
     "./transform": "./lib/transform.js",
     "./find-places": "./lib/find-places.js",
-    "./register": "./lib/loader/register.mjs",
+    "./register": "./lib/loader/register.js",
     "./ignores": "./lib/ignores.js",
     "./simple-import": "./lib/cli/simple-import.js"
   },
   "bin": {
-    "putout": "bin/tracer.mjs"
+    "putout": "bin/tracer.js"
   },
   "repository": {
     "type": "git",

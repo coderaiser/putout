@@ -1,8 +1,6 @@
-'use strict';
-
-const montag = require('montag');
-const {test} = require('supertape');
-const {cutShebang} = require('./shebang');
+import montag from 'montag';
+import {test} from 'supertape';
+import {cutShebang} from './shebang.js';
 
 test('putout: cut-shebang', (t) => {
     const [, shebang] = cutShebang(montag`

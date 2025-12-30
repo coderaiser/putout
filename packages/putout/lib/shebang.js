@@ -1,13 +1,11 @@
-'use strict';
-
-module.exports.mergeShebang = (shebang, source) => {
+export const mergeShebang = (shebang, source) => {
     if (!shebang)
         return source;
     
     return `${shebang}\n${source}`;
 };
 
-module.exports.cutShebang = (source) => {
+export const cutShebang = (source) => {
     if (source.indexOf('#'))
         return [source, ''];
     

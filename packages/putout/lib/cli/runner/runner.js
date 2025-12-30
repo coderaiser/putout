@@ -1,9 +1,7 @@
-'use strict';
+import _initProcessFile from '@putout/cli-process-file';
+import {runWriter} from './writer.js';
 
-const _initProcessFile = require('@putout/cli-process-file');
-const {runWriter} = require('./writer.js');
-
-module.exports.run = async (overrides) => {
+export const run = async (overrides) => {
     const {
         transform,
         plugins,

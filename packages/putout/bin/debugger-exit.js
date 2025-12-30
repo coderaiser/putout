@@ -1,4 +1,4 @@
-import {bgBlueBright} from '../lib/cli/chalk.mjs';
+import {bgBlueBright} from '../lib/cli/chalk.js';
 
 export const onDebuggerExit = ({log, process, inspector}) => {
     const {pid} = process;

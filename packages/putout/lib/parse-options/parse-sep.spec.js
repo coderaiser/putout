@@ -1,8 +1,6 @@
-'use strict';
-
-const process = require('node:process');
-const test = require('supertape');
-const parseSep = require('./parse-sep');
+import process from 'node:process';
+import test from 'supertape';
+import parseSep from './parse-sep.js';
 
 const {defineProperty} = Object;
 

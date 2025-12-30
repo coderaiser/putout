@@ -1,8 +1,6 @@
-'use strict';
-
-const {normalize} = require('node:path');
-const picomatch = require('picomatch');
-const fullstore = require('fullstore');
+import {normalize} from 'node:path';
+import picomatch from 'picomatch';
+import fullstore from 'fullstore';
 
 const noop = () => {};
 const isMatchStore = fullstore();
@@ -11,7 +9,7 @@ let patterns = [];
 
 const rmDuplicates = (a) => Array.from(new Set(a));
 
-module.exports.add = (array) => {
+export const add = (array) => {
     patterns = rmDuplicates(patterns.concat(array));
     
     const isMatch = picomatch(patterns, {
@@ -22,16 +20,16 @@ module.exports.add = (array) => {
     isMatchStore(isMatch);
 };
 
-module.exports.isSupported = (name) => {
+export const isSupported = (name) => {
     const isMatch = isMatchStore();
     return isMatch(name);
 };
 
-module.exports.clear = () => {
+export const clear = () => {
     isMatchStore(noop);
     patterns = [];
 };
 
-module.exports.getSupportedGlob = (file) => normalize(`${file}/**/{${patterns.join(',')}}`);
+export const getSupportedGlob = (file) => normalize(`${file}/**/{${patterns.join(',')}}`);
 
-module.exports.getPatterns = () => patterns;
+export const getPatterns = () => patterns;

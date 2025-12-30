@@ -1,7 +1,7 @@
 import {EventEmitter} from 'node:events';
 import {stripVTControlCharacters} from 'node:util';
 import {test, stub} from 'supertape';
-import {onDebuggerExit} from './debugger-exit.mjs';
+import {onDebuggerExit} from './debugger-exit.js';
 
 const {assign} = Object;
 

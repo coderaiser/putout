@@ -1,13 +1,10 @@
-'use strict';
-
-const {once} = require('node:events');
-const montag = require('montag');
-const {test, stub} = require('supertape');
-const tryCatch = require('try-catch');
-const {createProgress} = require('@putout/engine-runner/progress');
-
-const putout = require('..');
-const {readFixtures} = require('./fixture');
+import {once} from 'node:events';
+import montag from 'montag';
+import {test, stub} from 'supertape';
+import tryCatch from 'try-catch';
+import {createProgress} from '@putout/engine-runner/progress';
+import putout from '../lib/putout.js';
+import {readFixtures} from './fixture.js';
 
 const noop = () => {};
 

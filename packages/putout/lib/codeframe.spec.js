@@ -1,10 +1,11 @@
-'use strict';
+import {join, dirname} from 'node:path';
+import {readFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import test from 'supertape';
+import {codeframe} from './codeframe.js';
 
-const {join} = require('node:path');
-const {readFile} = require('node:fs/promises');
-
-const test = require('supertape');
-const codeframe = require('./codeframe');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 test('putout: codeframe: undefined', (t) => {
     const result = codeframe({

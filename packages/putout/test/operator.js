@@ -1,8 +1,7 @@
-'use strict';
+import montag from 'montag';
+import test from 'supertape';
+import putout from '../lib/putout.js';
 
-const montag = require('montag');
-const test = require('supertape');
-const putout = require('..');
 const {keys} = Object;
 const {stringify} = JSON;
 

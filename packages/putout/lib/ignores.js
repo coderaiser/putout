@@ -1,12 +1,10 @@
-'use strict';
-
-const {relative} = require('node:path');
-const ignore = require('ignore');
+import {relative} from 'node:path';
+import ignore from 'ignore';
 
 const isNegative = (a) => !a.indexOf('!');
 const positive = (a) => a.replace(/^!/, '');
 
-module.exports = (dirOpt, resolvedName, options = {}) => {
+export const ignores = (dirOpt, resolvedName, options = {}) => {
     const relativeName = relative(dirOpt, resolvedName);
     const ignorer = ignore();
     const ignoreList = mergeIgnores(options.ignore || []);

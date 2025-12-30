@@ -1,6 +1,4 @@
-'use strict';
-
-const deepmerge = require('deepmerge');
+import deepmerge from 'deepmerge';
 
 const {isArray} = Array;
 const isObject = (a) => typeof a === 'object';
@@ -34,7 +32,7 @@ const arrayUnion = (a, b) => {
 
 const arrayMerge = (a, b) => arrayUnion(b, a);
 
-module.exports.mergeOptions = (...args) => {
+export const mergeOptions = (...args) => {
     return deepmerge.all(args, {
         arrayMerge,
     });

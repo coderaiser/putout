@@ -1,7 +1,5 @@
-'use strict';
-
-const test = require('supertape');
-const {mergeOptions} = require('./merge-options');
+import test from 'supertape';
+import {mergeOptions} from './merge-options.js';
 
 test('putout: merge', (t) => {
     const defaultConfig = {

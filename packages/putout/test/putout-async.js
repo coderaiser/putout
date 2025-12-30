@@ -1,13 +1,11 @@
-'use strict';
-
-const test = require('supertape');
-const {
+import test from 'supertape';
+import {
     parse,
     print,
     putoutAsync,
     transformAsync,
     findPlacesAsync,
-} = require('..');
+} from '../lib/putout.js';
 
 test('putout: exports: putoutAsync', async (t) => {
     const source = 'for (const a of b.entries()) {}';

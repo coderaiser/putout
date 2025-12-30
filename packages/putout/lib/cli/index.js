@@ -16,10 +16,10 @@ import {
     getProcessorRunners as _getProcessorRunners,
     defaultProcessors,
 } from '@putout/engine-processor';
-import supportedFiles from './supported-files.js';
+import * as supportedFiles from './supported-files.js';
 import _getOptions from './get-options.js';
 import {argvConfig, parseArgs} from './parse-args.js';
-import {getFiles as _getFiles} from './get-files.mjs';
+import {getFiles as _getFiles} from './get-files.js';
 import {simpleImport as _simpleImport} from './simple-import.js';
 import {run} from './runner/runner.js';
 
@@ -119,7 +119,7 @@ export default async (overrides = {}) => {
         plugins,
     } = args;
     
-    const {createExit} = await simpleImport('./exit.mjs');
+    const {createExit} = await simpleImport('./exit.js');
     
     const exit = createExit({
         raw,
@@ -158,7 +158,7 @@ export default async (overrides = {}) => {
     }
     
     if (args.help) {
-        const {help} = await import('./help.mjs');
+        const {help} = await import('./help.js');
         log(help());
         
         return exit();

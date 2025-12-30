@@ -1,13 +1,10 @@
-'use strict';
-
-const {resolve} = require('node:path');
-const {cwd, env} = require('node:process');
-const {readFileSync} = require('node:fs');
-
-const tryCatch = require('try-catch');
-const _getOptions = require('../get-options.js');
-const {INVALID_CONFIG, NO_PROCESSORS} = require('../exit-codes.js');
-const {runReader} = require('./reader.js');
+import {resolve} from 'node:path';
+import {cwd, env} from 'node:process';
+import {readFileSync} from 'node:fs';
+import tryCatch from 'try-catch';
+import _getOptions from '../get-options.js';
+import {INVALID_CONFIG, NO_PROCESSORS} from '../exit-codes.js';
+import {runReader} from './reader.js';
 
 const isParser = (rule) => rule.startsWith('parser');
 const isParsingError = ({rule}) => isParser(rule);
@@ -33,7 +30,7 @@ const createFormatterProxy = (options) => {
     });
 };
 
-module.exports.runWriter = async (overrides = {}) => {
+export const runWriter = async (overrides = {}) => {
     const {
         readFile,
         report,

@@ -1,9 +1,6 @@
-'use strict';
-
-const test = require('supertape');
-
-const tryCatch = require('try-catch');
-const ignores = require('./ignores');
+import test from 'supertape';
+import tryCatch from 'try-catch';
+import {ignores} from './ignores.js';
 
 test('putout: ignores: empty path error', (t) => {
     const [e] = tryCatch(ignores, 'x/y', 'x/y', {
