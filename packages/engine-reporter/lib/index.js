@@ -6,7 +6,7 @@ import {
     INVALID_CONFIG,
 } from 'putout/exit-codes';
 import {getFormatter as _getFormatter} from './formatter/formatter.cjs';
-import Report from './report.cjs';
+import {initReport} from './report.js';
 
 const {createRequire} = module;
 const require = createRequire(import.meta.url);
@@ -27,7 +27,7 @@ export const createReport = async (overrides = {}) => {
     
     const {interactive, format} = args;
     
-    const report = Report();
+    const report = initReport();
     const noConfig = !args.config;
     
     const [configError, config] = tryCatch(getOptions, {

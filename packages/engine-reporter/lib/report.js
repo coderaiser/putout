@@ -1,9 +1,7 @@
-'use strict';
-
 const {isArray} = Array;
 const noop = () => {};
 
-module.exports = () => {
+export const initReport = () => {
     let filesCount = 0;
     let errorsCount = 0;
     

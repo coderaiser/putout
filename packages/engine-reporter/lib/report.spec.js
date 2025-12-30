@@ -1,12 +1,9 @@
-'use strict';
-
-const {stripVTControlCharacters} = require('node:util');
-const tryToCatch = require('try-to-catch');
-const montag = require('montag');
-const {test, stub} = require('supertape');
-
-const {simpleImport} = require('putout/simple-import');
-const initReport = require('./report.cjs');
+import {stripVTControlCharacters} from 'node:util';
+import tryToCatch from 'try-to-catch';
+import montag from 'montag';
+import {test, stub} from 'supertape';
+import {simpleImport} from 'putout/simple-import';
+import {initReport} from './report.js';
 
 test('putout: report: no places', async (t) => {
     const reporter = stub();

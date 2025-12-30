@@ -9,7 +9,7 @@
   "exports": {
     ".": "./lib/index.js",
     "./subscribe": "./lib/subscribe.js",
-    "./report": "./lib/report.cjs",
+    "./report": "./lib/report.js",
     "./formatter": "./lib/formatter/formatter.cjs"
   },
   "release": false,

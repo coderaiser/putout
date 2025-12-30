@@ -17,7 +17,7 @@ const {
     defaultProcessors,
 } = require('@putout/engine-processor');
 
-const _initReport = require('@putout/engine-reporter/report');
+const {initReport: _initReport} = require('@putout/engine-reporter/report');
 const {keypress: _keypress} = require('@putout/cli-keypress');
 
 const supportedFiles = require('./supported-files');
