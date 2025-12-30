@@ -13,6 +13,7 @@ npm i @putout/engine-reporter
 
 ```js
 import {initReport} from '@putout/engine-reporter/report';
+
 const report = initReport();
 ```
 
