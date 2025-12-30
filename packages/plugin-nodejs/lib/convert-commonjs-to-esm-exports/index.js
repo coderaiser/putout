@@ -39,14 +39,24 @@ export const match = () => ({
     },
 });
 
+function createDeclaration(name, value) {
+    return `export const ${name} = ${value};`;
+}
+
 export const replace = () => ({
     'module.exports = __a': ({__a}) => {
         if (!isObjectExpression(__a))
             return 'export default __a';
         
         const result = ['export {'];
+        const declarations = [];
         
         for (const {key, value} of __a.properties) {
+            if (!isIdentifier(value)) {
+                declarations.push(createDeclaration(key.name, value.value));
+                continue;
+            }
+            
             if (key.name === value.name) {
                 result.push(`${key.name},`);
                 continue;
@@ -57,7 +67,18 @@ export const replace = () => ({
         
         result.push('};');
         
-        return result.join('\n');
+        if (!declarations.length)
+            return result.join('\n');
+        
+        if (declarations.length === __a.properties.length)
+            return `{
+                 ${declarations.join('')}
+             }`;
+        
+        return `{
+             ${declarations.join('\n')}
+             ${result.join('\n')}
+         }`;
     },
     'module.exports.__a = __b': ({__a, __b}, path) => {
         const {name} = __a;
