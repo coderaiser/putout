@@ -8,6 +8,10 @@
   "release": false,
   "tag": false,
   "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaiser/putout.git"
+  },
   "devDependencies": {
     "@babel/core": "^8.0.0-alpha.1",
     "@babel/eslint-plugin-development": "^8.0.0-alpha.1",
@@ -32,14 +36,14 @@
     "report": "madrun report"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=20.19"
   },
   "keywords": [
     "putout",
     "babel-plugin"
   ],
   "peerDependencies": {
-    "putout": ">=29"
+    "putout": ">=41"
   },
   "publishConfig": {
     "access": "public"
