@@ -23,9 +23,7 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {
-    "redput": "^3.6.0"
-  },
+  "dependencies": {},
   "keywords": [
     "putout",
     "putout-plugin",
