@@ -36,7 +36,6 @@
     "declare"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
     "@putout/plugin-nodejs": "*",
     "@putout/test": "^14.0.0",
     "c8": "^10.0.0",
@@ -46,8 +45,7 @@
     "madrun": "^11.0.0",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
-    "supertape": "^11.0.3",
-    "try-catch": "^4.0.0"
+    "supertape": "^11.0.3"
   },
   "peerDependencies": {
     "putout": ">=41"
