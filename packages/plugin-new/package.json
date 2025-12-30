@@ -42,7 +42,7 @@
     "madrun": "^11.0.0"
   },
   "peerDependencies": {
-    "putout": ">=39"
+    "putout": ">=41"
   },
   "license": "MIT",
   "engines": {
