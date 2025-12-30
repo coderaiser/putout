@@ -70,7 +70,6 @@
     "madrun": "^11.0.0",
     "mocha": "^11.0.1",
     "montag": "^1.0.0",
-    "simport": "^1.2.0",
     "supertape": "^11.0.3"
   },
   "imports": {
