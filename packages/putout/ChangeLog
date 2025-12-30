@@ -1,3 +1,12 @@
+2025.12.30, v41.2.0
+
+feature:
+- 7fe065bfe babel-plugin-putout: drop support of 🐊 < 19
+- 4b4d7bdc6 putout: migrate to ESM
+- 29b1533c8 @putout/test: @putout/cli-process-file v5.0.0
+- c13c11a69 putout: parse-options: get rid of mock-require
+- df24380aa @putout/plugin-nodejs: convert-commonjs-to-esm: exports: ObjectExpression: with literal values
+
 2025.12.30, v41.1.4
 
 feature:
