@@ -1,3 +1,15 @@
+2025.12.31, v41.2.2
+
+fix:
+- 56b4b89e1 @putout/plugin-new: dependencies
+
+feature:
+- 899e44a02 putout: @putout/plugin-new v5.0.0
+- 97dac3b12 putout: @putout/processor-yaml v9.0.0
+- 526487186 @putout/plugin-new: drop support of 🐊 < 41
+- ac2d31538 @putout/processor-yaml: drop support of node < 20
+- 87da431e4 @putout/processor-wasm: drop support of 🐊 < 41
+
 2025.12.30, v41.2.1
 
 feature:
