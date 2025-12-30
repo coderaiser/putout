@@ -8,16 +8,21 @@ const _parseOptions = require('../parse-options');
 
 const {assign} = Object;
 const {env} = process;
-const {PUTOUT_CONFIG_FILE} = env;
 
-const maybeConfig = {
-    plugins: [],
+const getMaybeConfig = () => {
+    const config = {
+        plugins: [],
+    };
+    
+    const {PUTOUT_CONFIG_FILE} = env;
+    
+    PUTOUT_CONFIG_FILE && assign(config, require(join(
+        process.cwd(),
+        PUTOUT_CONFIG_FILE,
+    )));
+    
+    return config;
 };
-
-PUTOUT_CONFIG_FILE && assign(maybeConfig, require(join(
-    process.cwd(),
-    PUTOUT_CONFIG_FILE,
-)));
 
 module.exports = (overrides = {}) => {
     const {
@@ -30,6 +35,7 @@ module.exports = (overrides = {}) => {
     } = overrides;
     
     const transformPlugins = buildPlugins(transform);
+    const maybeConfig = getMaybeConfig();
     
     if (noConfig)
         return {
