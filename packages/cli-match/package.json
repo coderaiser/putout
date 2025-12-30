@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "try-catch": "^3.0.1",
+    "try-catch": "^4.0.2",
     "try-to-catch": "^3.0.0"
   },
   "keywords": [
@@ -44,7 +44,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
