@@ -11,7 +11,6 @@ const {
 } = operator;
 
 const defaultVersions = [
-    '20.x',
     '22.x',
     '24.x',
     '25.x',

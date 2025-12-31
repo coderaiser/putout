@@ -233,7 +233,6 @@ test('putout: config: .github/**/*.yml', (t) => {
         'github': 'on',
         'github/set-node-versions': ['on', {
             versions: [
-                '20.x',
                 '22.x',
                 '24.x',
                 '25.x',
