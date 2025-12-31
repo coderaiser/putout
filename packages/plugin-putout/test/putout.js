@@ -354,3 +354,8 @@ test('plugin-putout: transform: convert-push-object-to-push-path', (t) => {
     t.transform('convert-push-object-to-push-path');
     t.end();
 });
+
+test('plugin-putout: transform: apply-engine-node-version', (t) => {
+    t.transform('apply-engine-node-version');
+    t.end();
+});

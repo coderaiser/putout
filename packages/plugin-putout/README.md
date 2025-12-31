@@ -24,6 +24,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-create-test](#apply-create-test);
 - ✅ [apply-create-nested-directory](#apply-create-nested-directory);
 - ✅ [apply-declare](#apply-declare);
+- ✅ [apply-engine-node-version](#apply-engine-node-version);
 - ✅ [apply-exports](#apply-exports);
 - ✅ [apply-exports-to-add-args](#apply-exports-to-add-args);
 - ✅ [apply-exports-to-match-files](#apply-exports-to-match-files);
@@ -102,6 +103,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-create-nested-directory": "on",
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
+        "putout/apply-engine-node-version": "off",
         "putout/apply-exports": "off",
         "putout/apply-exports-to-add-args": "on",
         "putout/apply-exports-to-match-files": "on",
@@ -490,6 +492,24 @@ module.exports.declare = () => ({
     tryCatch: `import tryCatch from 'try-catch'`,
     tryToCatch: `import tryToCatch from 'try-to-catch'`,
 });
+```
+
+## apply-engine-node-version
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7ed4860732476de489ae149c7f09e2fe/d8b6e131596c0888ec8b99d4728cd999b17165c9).
+
+```diff
+{
+    "name": "@putout/plugin-variables",
+    "peerDependencies": {
+        "putout": ">=41"
+    },
+    "license": "MIT",
+    "engines": {
+-       "node": ">=20"
++       "node": ">=22"
+    }
+}
 ```
 
 ## apply-exports

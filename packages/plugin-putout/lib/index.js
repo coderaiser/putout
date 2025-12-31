@@ -1,3 +1,4 @@
+import * as applyEngineNodeVersion from './apply-engine-node-version/index.js';
 import * as convertPushObjectToPushPath from './convert-push-object-to-push-path/index.js';
 import * as applyTransformWithOptions from './apply-transform-with-options/index.js';
 import * as convertPluginsElementToTuple from './convert-plugins-element-to-tuple/index.js';
@@ -144,4 +145,5 @@ export const rules = {
     'convert-plugins-element-to-tuple': convertPluginsElementToTuple,
     'apply-transform-with-options': applyTransformWithOptions,
     'convert-push-object-to-push-path': convertPushObjectToPushPath,
+    'apply-engine-node-version': applyEngineNodeVersion,
 };
