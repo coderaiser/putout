@@ -1,3 +1,10 @@
+2025.12.31, v41.3.0
+
+feature:
+- 7e97f2986 putout: @putout/plugin-try-catch v6.1.0
+- 86003826f @putout/plugin-try-catch: drop support of 🐊 < 41
+- c7a5b5810 @putout/plugin-try-catch: apply-destructuring: add
+
 2025.12.31, v41.2.4
 
 fix:
