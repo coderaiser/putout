@@ -1,5 +1,5 @@
 import {test} from 'supertape';
-import {configurePrinter} from './printer.mjs';
+import {configurePrinter} from './printer.js';
 
 test('putout: cli: printer: recast', (t) => {
     const result = configurePrinter('1.js', 'recast');

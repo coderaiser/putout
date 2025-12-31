@@ -31,7 +31,7 @@ export const initProcessFile = ({fix, fixCount, logError, raw}) => async functio
         putoutAsync = _putoutAsync,
     } = overrides;
     
-    const {configurePrinter} = await import('./printer/printer.mjs');
+    const {configurePrinter} = await import('./printer/printer.js');
     const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
     const {printer, ...matchedOptions} = getMatchedOptions(name, options);
     
