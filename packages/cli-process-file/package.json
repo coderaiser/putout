@@ -5,7 +5,7 @@
   "description": "Run all 🐊Putout linters",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-process-file#readme",
   "main": "lib/process-file.js",
-  "type": "commonjs",
+  "type": "module",
   "release": false,
   "tag": false,
   "changelog": false,

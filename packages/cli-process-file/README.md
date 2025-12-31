@@ -14,7 +14,7 @@ npm i @putout/cli-process-file
 ## Example
 
 ```js
-import initProcessFile from '@putout/cli-process-file';
+import {initProcessFile} from '@putout/cli-process-file';
 
 const processFile = initProcessFile({
     fix: true,

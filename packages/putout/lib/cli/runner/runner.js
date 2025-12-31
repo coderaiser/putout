@@ -1,4 +1,4 @@
-import _initProcessFile from '@putout/cli-process-file';
+import {initProcessFile as _initProcessFile} from '@putout/cli-process-file';
 import {runWriter} from './writer.js';
 
 export const run = async (overrides) => {

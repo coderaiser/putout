@@ -1,12 +1,10 @@
-'use strict';
+import {fileURLToPath} from 'node:url';
+import montag from 'montag';
+import {test, stub} from 'supertape';
+import {parseOptions} from 'putout/parse-options';
+import {initProcessFile} from './process-file.js';
 
-const montag = require('montag');
-const {test, stub} = require('supertape');
-
-const {parseOptions} = require('putout/parse-options');
-
-const processFile = require('./process-file');
-
+const __filename = fileURLToPath(import.meta.url);
 const {assign} = Object;
 const noop = () => {};
 const {stringify} = JSON;
@@ -24,7 +22,7 @@ test('putout: cli: process-file: eslint', async (t) => {
         dir: '.',
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -62,7 +60,7 @@ test('putout: cli: process-file: ts from preProcessor', async (t) => {
         dir: '.',
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -98,7 +96,7 @@ test('putout: cli: process-file: tsx from preProcessor', async (t) => {
         dir: '.',
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -142,7 +140,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
         plugins: ['putout-config'],
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -208,7 +206,7 @@ test('putout: cli: process-file: ruler', async (t) => {
         enableAll: true,
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -260,7 +258,7 @@ test('putout: cli: process-file: configurePrinter', async (t) => {
         dir: '.',
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -320,7 +318,7 @@ test('putout: cli: process-file: configurePrinter: overrides', async (t) => {
         }],
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -373,7 +371,7 @@ test('putout: cli: process-file: plugin not found', async (t) => {
         dir: '.',
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -417,7 +415,7 @@ test('putout: cli: process-file: quick-lint', async (t) => {
         dir: '.',
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -458,7 +456,7 @@ test('putout: cli: process-file: goldstein', async (t) => {
         dir: '.',
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -503,7 +501,7 @@ test('putout: cli: process-file: goldstein: no braces', async (t) => {
         dir: '.',
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -544,7 +542,7 @@ test('putout: cli: process-file: syntax error', async (t) => {
         dir: '.',
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -592,7 +590,7 @@ test('putout: cli: process-file: await without async: ESLint', async (t) => {
         dir: '.',
     };
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -632,7 +630,7 @@ test('putout: cli: process-file: after fixing syntax errors, run 🐊 and ESLint
     
     const options = parseOptions(__filename);
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -685,7 +683,7 @@ test('putout: cli: process-file: recursion: infinite loop', async (t) => {
         lint,
     });
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -742,7 +740,7 @@ test('putout: cli: process-file: syntax errors: startLine', async (t) => {
     
     const options = parseOptions(__filename);
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -781,7 +779,7 @@ test('putout: cli: process-file: transform error', async (t) => {
     const log = stub();
     const write = stub();
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -824,7 +822,7 @@ test('putout: cli: process-file: transform error: no flatlint: reason: traverse'
     const write = stub();
     const simpleImport = stub();
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -866,7 +864,7 @@ test('putout: cli: process-file: transform error: flatlint: env variable FLATLIN
     const write = stub();
     const simpleImport = stub();
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -907,7 +905,7 @@ test('putout: cli: process-file: transform error: no flatlint: reason: fix', asy
     const write = stub();
     const simpleImport = stub();
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -955,7 +953,7 @@ test('putout: cli: process-file: after fixing syntax errors, run 🐊 and ESLint
     
     const options = parseOptions(__filename);
     
-    const fn = processFile({
+    const fn = initProcessFile({
         fix,
         log,
         write,
@@ -983,7 +981,7 @@ test('putout: cli: process-file: after fixing syntax errors, run 🐊 and ESLint
 
 test('putout: cli: process-file: logError', async (t) => {
     const logError = stub();
-    const lint = processFile({
+    const lint = initProcessFile({
         raw: true,
         logError,
         fix: true,
@@ -1011,7 +1009,7 @@ test('putout: cli: process-file: logError', async (t) => {
 
 test('putout: cli: process-file: logError: traverse', async (t) => {
     const logError = stub();
-    const lint = processFile({
+    const lint = initProcessFile({
         raw: true,
         logError,
         fix: true,
@@ -1042,7 +1040,7 @@ test('putout: cli: process-file: logError: traverse', async (t) => {
 
 test('putout: cli: process-file: logError: traverse: no error', async (t) => {
     const logError = stub();
-    const lint = processFile({
+    const lint = initProcessFile({
         raw: true,
         logError,
         fix: true,

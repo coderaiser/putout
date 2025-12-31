@@ -1,15 +1,12 @@
-'use strict';
-
-const process = require('node:process');
-const {tryToCatch} = require('try-to-catch');
-const {eslint: _eslint} = require('@putout/eslint');
-const {parseMatch} = require('putout/parse-match');
-const {mergeOptions} = require('putout/merge-options');
-const {parseError} = require('putout/parse-error');
-const {putoutAsync: _putoutAsync} = require('putout');
-const once = require('once');
-
-const {simpleImport: _simpleImport} = require('./simple-import');
+import process from 'node:process';
+import {tryToCatch} from 'try-to-catch';
+import {eslint as _eslint} from '@putout/eslint';
+import {parseMatch} from 'putout/parse-match';
+import {mergeOptions} from 'putout/merge-options';
+import {parseError} from 'putout/parse-error';
+import {putoutAsync as _putoutAsync} from 'putout';
+import once from 'once';
+import {simpleImport as _simpleImport} from './simple-import.js';
 
 const getMatchedOptions = (name, options) => {
     if (!name.includes('{'))
@@ -20,7 +17,7 @@ const getMatchedOptions = (name, options) => {
 
 const getEnv = once(() => process.env);
 
-module.exports = ({fix, fixCount, logError, raw}) => async function processFile(overrides) {
+export const initProcessFile = ({fix, fixCount, logError, raw}) => async function processFile(overrides) {
     const {
         name = '<input>',
         source,

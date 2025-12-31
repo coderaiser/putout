@@ -1,5 +1,3 @@
-'use strict';
-
-module.exports.simpleImport = async (url) => {
+export const simpleImport = async (url) => {
     return await import(url);
 };
