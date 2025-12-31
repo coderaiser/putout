@@ -1,3 +1,11 @@
+2025.12.31, v41.3.2
+
+fix:
+- f76fb4379 putout: drop support of node < 22
+
+feature:
+- c6d1bf1ac @putout/plugin-github: drop support of node < 22
+
 2025.12.31, v41.3.1
 
 feature:
