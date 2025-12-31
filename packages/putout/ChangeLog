@@ -1,3 +1,12 @@
+2025.12.31, v41.2.4
+
+fix:
+- f34174e45 @putout/plugin-remove-useless-template-expressions: rm unused dependencies
+- 8a0373afb @putout/plugin-remove-useless-array-entries: rm unused dependencies
+
+feature:
+- 68e749ae0 putout: try-to-catch v4.0.0
+
 2025.12.31, v41.2.3
 
 fix:
