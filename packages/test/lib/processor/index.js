@@ -15,7 +15,7 @@ const {
 const {tryToCatch} = require('try-to-catch');
 
 const test = require('supertape');
-const processFile = require('@putout/cli-process-file');
+const {initProcessFile} = require('@putout/cli-process-file');
 const {runProcessors} = require('@putout/engine-processor');
 
 const isStr = (a) => typeof a === 'string';
@@ -156,7 +156,7 @@ async function process(filename, dir, config) {
     } = await runProcessors({
         fix,
         name: inputName,
-        processFile: processFile({
+        processFile: initProcessFile({
             printer,
             fix,
         }),
