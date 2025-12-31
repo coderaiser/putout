@@ -1,3 +1,22 @@
+2025.12.31, v41.3.3
+
+fix:
+- e97d7ef24 putout: package: node v22.12 (https://nodejs.org/ko/blog/release/v22.12.0)
+- 0b84e6492 @putout/eslint: node version
+- f681bc069 eslint-plugin-putout: node version
+- c2cbf3a0a @putout/engine-reporter: node version
+- 4b2faa5ed @putout/engine-processor: node version
+- 849f3d19e @putout/engine-runner: node version
+- 8d093148f @putout/engine-parser: node-version
+- 8f6e0448d @putout/engine-loader: node version
+
+feature:
+- 7c9ebfb0e putout: @putout/cli-process-file v6.0.0
+- 143ac443a @putout/cli-process-file: migrate to ESM
+- e16428684 @putout/cli-process-file: drop support of node < 22
+- a98e710de @putout/cli-process-file: samadhi v3.0.6
+- 13d8735c6 root: redlint v5.0.0
+
 2025.12.31, v41.3.2
 
 fix:
