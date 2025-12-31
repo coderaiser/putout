@@ -12,7 +12,7 @@ const {
     basename,
 } = require('node:path');
 
-const tryToCatch = require('try-to-catch');
+const {tryToCatch} = require('try-to-catch');
 
 const test = require('supertape');
 const processFile = require('@putout/cli-process-file');

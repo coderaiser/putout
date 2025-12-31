@@ -1,7 +1,7 @@
 'use strict';
 
 const {test, stub} = require('supertape');
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const fix = require('./run-fix');
 
 test('engine-runner: fix: error', (t) => {

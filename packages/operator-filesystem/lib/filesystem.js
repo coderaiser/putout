@@ -7,7 +7,7 @@ const {
 } = require('node:path');
 
 const {types} = require('@putout/babel');
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 
 const {
     setLiteralValue,

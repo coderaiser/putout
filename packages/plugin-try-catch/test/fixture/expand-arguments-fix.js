@@ -1,4 +1,4 @@
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 
 test('message', (t) => {
     const [error] = tryCatch(copymitter, '/hello');

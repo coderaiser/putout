@@ -2,7 +2,7 @@
 
 const test = require('supertape');
 const putout = require('putout');
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 
 const {runPlugins} = require('..');
 

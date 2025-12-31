@@ -4,7 +4,7 @@ import {readdirSync as _readdirSync} from 'node:fs';
 import {dirname, join} from 'node:path';
 import {createRequire} from 'node:module';
 import once from 'once';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import _escalade from 'escalade/sync';
 import {parseMatch} from './parse-match.js';
 import _defaultOptions from '../../putout.json' with {

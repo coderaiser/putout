@@ -9,7 +9,7 @@ const {
     join,
 } = require('node:path');
 
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 
 const cwd = process.cwd();
 

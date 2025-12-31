@@ -2,7 +2,7 @@
 
 const {test} = require('supertape');
 const montag = require('montag');
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const putout = require('putout');
 
 test('engine-runner: declare', (t) => {

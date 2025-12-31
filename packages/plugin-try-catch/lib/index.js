@@ -1,3 +1,4 @@
+import * as applyDestructuring from './apply-destructuring/index.js';
 import * as awaitRule from './await/index.js';
 import * as asyncRule from './async/index.js';
 import * as args from './args/index.js';
@@ -12,4 +13,5 @@ export const rules = {
     'declare': declare,
     'expand-args': expandArgs,
     'sync': sync,
+    'apply-destructuring': applyDestructuring,
 };

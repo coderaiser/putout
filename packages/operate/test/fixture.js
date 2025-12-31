@@ -4,7 +4,7 @@ const {join} = require('node:path');
 
 const {readFileSync, readdirSync} = require('node:fs');
 
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const camelCase = require('just-camel-case');
 
 const readFixture = (dir, name) => {

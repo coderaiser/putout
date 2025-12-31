@@ -2,7 +2,7 @@
 
 const {stripVTControlCharacters} = require('node:util');
 const readAllFiles = require('@putout/plugin-filesystem/read-all-files');
-const tryToCatch = require('try-to-catch');
+const {tryToCatch} = require('try-to-catch');
 
 const testProgress = require('..')(__dirname, {
     'read-all-files': readAllFiles,

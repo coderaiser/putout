@@ -1,4 +1,4 @@
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {runProcessors as _runProcessors} from '@putout/engine-processor';
 import {parseError} from '../../parse-error.js';
 import {simpleImport} from '../simple-import.js';

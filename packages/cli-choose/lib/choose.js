@@ -1,4 +1,4 @@
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import enquirer from 'enquirer';
 import actions from 'enquirer/lib/combos.js';
 import {vim} from './vim.js';

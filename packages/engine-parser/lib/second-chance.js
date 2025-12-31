@@ -1,6 +1,6 @@
 'use strict';
 
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 
 module.exports = (fn, source, messages, args) => {
     const [a, ...others] = args;

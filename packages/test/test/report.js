@@ -4,7 +4,7 @@ const {stripVTControlCharacters} = require('node:util');
 const {join} = require('node:path');
 
 const montag = require('montag');
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const {stub} = require('supertape');
 const putout = require('putout');
 const variables = require('@putout/plugin-variables');

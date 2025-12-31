@@ -1,6 +1,6 @@
 'use strict';
 
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 
 const {parse, operator} = require('putout');
 const {test} = require('supertape');

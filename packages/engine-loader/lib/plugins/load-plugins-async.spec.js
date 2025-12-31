@@ -1,4 +1,4 @@
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import test from 'supertape';
 import {loadPluginsAsync} from './load-plugins-async.js';
 

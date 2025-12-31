@@ -1,4 +1,4 @@
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import {createTest} from '@putout/test';
 import * as plugin from './index.cjs';
 

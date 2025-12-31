@@ -1,4 +1,4 @@
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import {validateRulesRelations} from '@putout/engine-loader';
 import {defaultOptions} from './default-options.js';
 import {cutShebang} from './shebang.js';

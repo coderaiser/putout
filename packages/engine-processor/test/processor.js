@@ -2,7 +2,7 @@
 
 const {readFile} = require('node:fs/promises');
 const {join} = require('node:path');
-const tryToCatch = require('try-to-catch');
+const {tryToCatch} = require('try-to-catch');
 
 const {test, stub} = require('supertape');
 const processFile = require('@putout/cli-process-file');

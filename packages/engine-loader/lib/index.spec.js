@@ -1,4 +1,4 @@
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import test from 'supertape';
 import {
     loadPlugins,

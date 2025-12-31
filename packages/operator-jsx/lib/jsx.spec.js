@@ -8,7 +8,7 @@ const {
     print,
 } = require('putout');
 
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 
 const {
     addClassName,

@@ -1,6 +1,6 @@
 import {join} from 'node:path';
 import process from 'node:process';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {simpleImport as _simpleImport} from './simple-import.js';
 import {isIgnored} from './ignore.js';
 

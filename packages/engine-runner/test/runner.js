@@ -2,7 +2,7 @@
 
 const process = require('node:process');
 const montag = require('montag');
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const {test, stub} = require('supertape');
 const putout = require('putout');
 const {loadPlugins} = require('@putout/engine-loader');

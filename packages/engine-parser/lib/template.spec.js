@@ -1,6 +1,6 @@
 'use strict';
 
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const test = require('supertape');
 const {types} = require('@putout/babel');
 const template = require('./template');

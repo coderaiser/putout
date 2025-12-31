@@ -1,5 +1,5 @@
 import module from 'node:module';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import _getOptions from 'putout/cli/get-options';
 import {
     INTERACTIVE_CANCELED,

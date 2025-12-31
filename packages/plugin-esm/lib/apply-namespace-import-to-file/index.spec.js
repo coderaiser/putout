@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {

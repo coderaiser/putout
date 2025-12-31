@@ -1,5 +1,5 @@
 import {test, stub} from 'supertape';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {loadProcessorsAsync} from '../lib/index.js';
 
 test('putout: engine-loader: load processors', async (t) => {

@@ -1,4 +1,4 @@
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import regexpTree from 'regexp-tree';
 
 const cutSlashes = (a) => {

@@ -1,7 +1,7 @@
 'use strict';
 
 const {test, stub} = require('supertape');
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const babel = require('./parsers/babel');
 const customParser = require('./custom-parser');
 

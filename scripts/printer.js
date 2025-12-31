@@ -1,5 +1,5 @@
 import {writeFileSync, readFileSync} from 'node:fs';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 
 const {stringify, parse} = JSON;
 const [, rawConfig = '{}'] = tryCatch(readFileSync, './.putout.json', 'utf8');

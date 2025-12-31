@@ -1,4 +1,4 @@
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {test, stub} from 'supertape';
 import formatter from '@putout/formatter-json';
 import * as processorJavaScript from '@putout/processor-javascript';

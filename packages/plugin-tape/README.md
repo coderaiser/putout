@@ -175,7 +175,7 @@ test('some message', (t) => {
 ### ✅ Example of correct code
 
 ```js
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const test = require('supertape');
 
 test('some message', (t) => {
@@ -203,7 +203,7 @@ test('some message', (t) => {
 
 ```js
 const test = require('supertape');
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 
 test('some test', (t) => {
     const [error] = tryCatch(copymitter);

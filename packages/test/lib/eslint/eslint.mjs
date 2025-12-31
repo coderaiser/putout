@@ -11,10 +11,10 @@ import {
 } from 'node:path';
 import process from 'node:process';
 import {eslint} from '@putout/eslint';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {extend} from 'supertape';
 import {lint} from '@putout/eslint/lint';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 
 const {keys} = Object;
 const {isArray} = Array;

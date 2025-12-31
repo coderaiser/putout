@@ -1,6 +1,6 @@
 import {createRequire} from 'node:module';
 import process from 'node:process';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import {test, stub} from 'supertape';
 import {loadPlugin} from './load.js';
 

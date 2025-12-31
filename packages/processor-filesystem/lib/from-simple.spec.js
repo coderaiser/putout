@@ -1,5 +1,5 @@
 import {test} from 'supertape';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import {fromSimple} from './from-simple.js';
 
 test('@putout/processor-filesystem: fromSimple', (t) => {

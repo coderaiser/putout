@@ -1,4 +1,4 @@
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import {parse} from '@webassemblyjs/wast-parser';
 import {print} from '@webassemblyjs/wast-printer';
 import {traverse} from './traverser.js';

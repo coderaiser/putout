@@ -16,7 +16,7 @@ npm i @putout/cli-staged
 ```js
 import {get, set} from '@putout/cli-staged';
 import {findUp} from 'find-up';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 
 const [error, names] = await tryToCatch(get, {
     findUp,

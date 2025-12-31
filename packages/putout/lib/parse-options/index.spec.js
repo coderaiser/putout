@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {dirname} from 'node:path';
 import {test, stub} from 'supertape';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import {parseOptions} from './index.js';
 
 const __filename = fileURLToPath(import.meta.url);

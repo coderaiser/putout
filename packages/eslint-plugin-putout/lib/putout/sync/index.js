@@ -1,7 +1,7 @@
 'use strict';
 
 const process = require('node:process');
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const {ignores} = require('putout/ignores');
 
 const {

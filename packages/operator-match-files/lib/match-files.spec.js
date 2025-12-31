@@ -1,7 +1,7 @@
 'use strict';
 
 const {types} = require('@putout/babel');
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const test = require('supertape');
 const putout = require('putout');
 

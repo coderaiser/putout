@@ -1,6 +1,6 @@
 import {fileURLToPath} from 'node:url';
 import {stub, test} from 'supertape';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import read from './recursive-read.js';
 
 const __filename = fileURLToPath(import.meta.url);

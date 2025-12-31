@@ -2,7 +2,7 @@ import {dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import process from 'node:process';
 import {test, stub} from 'supertape';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {getESLint} from './get-eslint.js';
 
 const __filename = fileURLToPath(import.meta.url);

@@ -1,4 +1,4 @@
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import {createTest} from '@putout/test';
 import {minify} from './minify.spec.js';
 import * as plugin from './index.js';

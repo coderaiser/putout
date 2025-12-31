@@ -1,6 +1,6 @@
 import {join} from 'node:path';
 import {readFileSync} from 'node:fs';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import camelCase from 'just-camel-case';
 
 const dirFixture = new URL('fixture', import.meta.url).pathname;

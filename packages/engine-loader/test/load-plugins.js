@@ -1,7 +1,7 @@
 import process from 'node:process';
 import Module from 'node:module';
 import {test, stub} from 'supertape';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import putout from 'putout';
 import montag from 'montag';
 import {readFixtures} from './fixture.js';

@@ -4,7 +4,7 @@ import {
     Option,
     CommanderError,
 } from 'commander';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 
 const program = new Command();
 

@@ -1,8 +1,8 @@
 import process from 'node:process';
 import {createRequire} from 'node:module';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {isCI as _isCI} from 'ci-info';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import wraptile from 'wraptile';
 import fullstore from 'fullstore';
 import nano from 'nano-memoize';

@@ -1,5 +1,5 @@
 import test from 'supertape';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import {parseRules} from './parse-rules.js';
 
 test('putout: loader: parse rules: not on/off', (t) => {

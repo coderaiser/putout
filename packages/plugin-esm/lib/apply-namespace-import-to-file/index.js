@@ -1,5 +1,5 @@
 import {join, dirname} from 'node:path';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import putout, {
     parse,
     print,

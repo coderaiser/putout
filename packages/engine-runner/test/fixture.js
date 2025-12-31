@@ -3,7 +3,7 @@
 const {join} = require('node:path');
 const {readFileSync} = require('node:fs');
 
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const camelCase = require('just-camel-case');
 
 const dirFixture = join(__dirname, 'fixture');

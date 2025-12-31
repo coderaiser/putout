@@ -1,4 +1,4 @@
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import justKebabCase from 'just-kebab-case';
 import yaml from 'yaml';
 import {

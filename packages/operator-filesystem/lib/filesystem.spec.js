@@ -1,6 +1,6 @@
 'use strict';
 
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const montag = require('montag');
 const {stub} = require('supertape');
 const {__filesystem_name} = require('@putout/operator-json');

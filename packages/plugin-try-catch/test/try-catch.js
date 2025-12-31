@@ -36,3 +36,8 @@ test('plugin-try-catch: transform: declare', (t) => {
     t.transform('declare');
     t.end();
 });
+
+test('plugin-try-catch: transform: apply-destructuring', (t) => {
+    t.transform('apply-destructuring');
+    t.end();
+});

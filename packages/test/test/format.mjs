@@ -1,6 +1,6 @@
 import {existsSync, writeFileSync} from 'node:fs';
 import {stub} from 'supertape';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import * as removeConsole from '@putout/plugin-remove-console';
 import formatter from '@putout/formatter-dump';
 import formatterProgress from '@putout/formatter-progress';

@@ -1,5 +1,5 @@
 import process from 'node:process';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {test, stub} from 'supertape';
 import {createAsyncLoader} from './async-loader.js';
 

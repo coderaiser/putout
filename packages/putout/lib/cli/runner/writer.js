@@ -1,7 +1,7 @@
 import {resolve} from 'node:path';
 import {cwd, env} from 'node:process';
 import {readFileSync} from 'node:fs';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import _getOptions from '../get-options.js';
 import {INVALID_CONFIG, NO_PROCESSORS} from '../exit-codes.js';
 import {runReader} from './reader.js';

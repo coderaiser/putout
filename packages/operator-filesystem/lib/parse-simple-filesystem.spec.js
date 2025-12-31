@@ -1,6 +1,6 @@
 'use strict';
 
-const tryCatch = require('try-catch');
+const {tryCatch} = require('try-catch');
 const {test} = require('./extend.test');
 const {parseSimpleFilesystem} = require('./parse-simple-filesystem.test');
 

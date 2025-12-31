@@ -1,5 +1,5 @@
 import {join} from 'node:path';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 
 const isInclude = (a) => {
     if (a[0] === '.')

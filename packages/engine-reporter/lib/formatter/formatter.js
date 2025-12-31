@@ -1,6 +1,6 @@
 import {simpleImport as _simpleImport} from 'putout/simple-import';
 import {createAsyncLoader as _createAsyncLoader} from '@putout/engine-loader';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {
     NO_FORMATTER,
     CANNOT_LOAD_FORMATTER,

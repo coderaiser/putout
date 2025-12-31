@@ -1,6 +1,6 @@
 import process from 'node:process';
 import {join} from 'node:path';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import {createRequire as _createRequire} from '../module.js';
 
 const bigFirst = (a) => `${a[0].toUpperCase()}${a.slice(1)}`;

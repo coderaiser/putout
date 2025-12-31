@@ -1,5 +1,5 @@
 import {test, stub} from 'supertape';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import {createTrace} from './trace.js';
 
 test('putout: bin: trace: parentPort', (t) => {

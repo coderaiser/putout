@@ -7,7 +7,7 @@ const {
     readFile,
 } = require('node:fs/promises');
 
-const tryToCatch = require('try-to-catch');
+const {tryToCatch} = require('try-to-catch');
 const {stub} = require('supertape');
 
 const {

@@ -3,7 +3,7 @@ import {
     print,
     transform,
 } from 'putout';
-import tryCatch from 'try-catch';
+import {tryCatch} from 'try-catch';
 import * as pluginGenerate from './plugin-generate.js';
 
 export default (rootPath, source) => {

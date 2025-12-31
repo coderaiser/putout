@@ -1,7 +1,7 @@
 import {normalize} from 'node:path';
 import {lstat as _lstat} from 'node:fs/promises';
 import _fastGlob from 'fast-glob';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {getSupportedGlob as _getSupportedGlob} from './supported-files.js';
 
 const rmDuplicates = (a) => Array.from(new Set(a));
