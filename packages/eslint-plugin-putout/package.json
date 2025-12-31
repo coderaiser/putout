@@ -67,7 +67,7 @@
     "c8": "^10.0.0",
     "eslint": "^10.0.0-alpha.0",
     "eslint-plugin-eslint-plugin": "^7.0.0",
-    "madrun": "^11.0.0",
+    "madrun": "^12.0.0",
     "mocha": "^11.0.1",
     "montag": "^1.0.0",
     "supertape": "^11.0.3"
