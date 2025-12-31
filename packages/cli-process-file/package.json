@@ -27,7 +27,7 @@
     "@putout/eslint": "^5.0.0",
     "deepmerge": "^4.3.1",
     "once": "^1.4.0",
-    "samadhi": "^3.0.0",
+    "samadhi": "^3.0.6",
     "try-catch": "^4.0.0",
     "try-to-catch": "^4.0.0"
   },
