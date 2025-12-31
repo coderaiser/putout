@@ -27,7 +27,7 @@
     "@putout/engine-loader": "^17.0.0",
     "once": "^1.4.0",
     "picomatch": "^4.0.2",
-    "try-to-catch": "^3.0.1"
+    "try-to-catch": "^4.0.0"
   },
   "keywords": [
     "putout",

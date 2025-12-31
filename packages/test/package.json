@@ -49,7 +49,7 @@
     "putout": "*",
     "supertape": "^11.0.3",
     "try-catch": "^4.0.0",
-    "try-to-catch": "^3.0.0"
+    "try-to-catch": "^4.0.0"
   },
   "keywords": [
     "putout",

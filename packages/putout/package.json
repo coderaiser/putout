@@ -193,7 +193,7 @@
     "once": "^1.4.0",
     "picomatch": "^4.0.2",
     "try-catch": "^4.0.0",
-    "try-to-catch": "^3.0.0",
+    "try-to-catch": "^4.0.0",
     "wraptile": "^3.0.0",
     "yargs-parser": "^22.0.0"
   },
