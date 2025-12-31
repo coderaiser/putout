@@ -5,7 +5,7 @@ const {join} = require('node:path');
 const {tryToCatch} = require('try-to-catch');
 
 const {test, stub} = require('supertape');
-const processFile = require('@putout/cli-process-file');
+const {initProcessFile} = require('@putout/cli-process-file');
 
 const {
     getFilePatterns,
@@ -129,7 +129,7 @@ test('putout: engine-processor: markdown: fix', async (t) => {
     const {processedSource} = await runProcessors({
         name,
         fix: true,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix: true,
         }),
@@ -152,7 +152,7 @@ test('putout: engine-processor: markdown: no fix', async (t) => {
     
     const {processedSource} = await runProcessors({
         name,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix: true,
         }),
@@ -175,7 +175,7 @@ test('putout: engine-processor: markdown: no fix: is processed', async (t) => {
     
     const {isProcessed} = await runProcessors({
         name,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix: false,
         }),
@@ -200,7 +200,7 @@ test('putout: engine-processor: markdown: fix: do not return processed places', 
     const {places} = await runProcessors({
         name,
         fix,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix,
         }),
@@ -227,7 +227,7 @@ test('putout: engine-processor: markdown: no fix: return processed places', asyn
     const {places} = await runProcessors({
         name,
         fix,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix,
         }),
@@ -274,7 +274,7 @@ test('putout: engine-processor: markdown: no places no fix', async (t) => {
     const {processedSource} = await runProcessors({
         name,
         fix,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix,
         }),
@@ -299,7 +299,7 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
     
     const {places} = await runProcessors({
         name,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix,
         }),
@@ -334,7 +334,7 @@ test('putout: engine-processor: markdown: no fix: should not change source', asy
     const {processedSource} = await runProcessors({
         fix,
         name,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix,
         }),
@@ -360,7 +360,7 @@ test('putout: engine-processor: markdown: fix: no places', async (t) => {
     const {places} = await runProcessors({
         fix,
         name,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix,
         }),
@@ -388,7 +388,7 @@ test('putout: engine-processor: markdown: js changed', async (t) => {
     const {processedSource} = await runProcessors({
         fix,
         name,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix,
         }),
@@ -412,7 +412,7 @@ test('putout: engine-processor: yaml: no startLine', async (t) => {
     
     const {places} = await runProcessors({
         name,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{json}`,
             fix: false,
         }),
@@ -447,7 +447,7 @@ test('putout: engine: processor: yaml: duplicate: file content', async (t) => {
     
     const {processedSource} = await runProcessors({
         name: inputName,
-        processFile: processFile({
+        processFile: initProcessFile({
             fix: false,
         }),
         options,
@@ -498,7 +498,7 @@ test('putout: engine-processor: yaml: duplicate', async (t) => {
     
     const {places} = await runProcessors({
         name: inputName,
-        processFile: processFile({
+        processFile: initProcessFile({
             fix: false,
         }),
         options,
@@ -535,7 +535,7 @@ test('putout: engine-processor: css', async (t) => {
     const {processedSource} = await runProcessors({
         fix,
         name: inputName,
-        processFile: processFile({
+        processFile: initProcessFile({
             fix,
         }),
         options,
@@ -566,7 +566,7 @@ test('putout: engine-processor: md: json: options', async (t) => {
     
     const {places} = await runProcessors({
         name,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{json}`,
             fix: false,
         }),
@@ -605,7 +605,7 @@ test('putout: engine-processor: lint + js', async (t) => {
     const {processedSource} = await runProcessors({
         fix,
         name: join(__dirname, 'hello.md'),
-        processFile: processFile({
+        processFile: initProcessFile({
             fix,
         }),
         options,
@@ -635,7 +635,7 @@ test('putout: engine-processor: no fix', async (t) => {
     const {processedSource} = await runProcessors({
         fix,
         name: join(__dirname, 'hello.md'),
-        processFile: processFile({
+        processFile: initProcessFile({
             fix,
         }),
         options,
@@ -661,7 +661,7 @@ test('putout: engine-processor: call merge once', async (t) => {
     const {processedSource} = await runProcessors({
         fix: true,
         name,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix: true,
         }),
@@ -685,7 +685,7 @@ test('putout: engine-processor: processorRunners', async (t) => {
     const {places} = await runProcessors({
         fix: true,
         name,
-        processFile: processFile({
+        processFile: initProcessFile({
             name: `${name}{js}`,
             fix: true,
         }),
