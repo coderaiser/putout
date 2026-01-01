@@ -15,6 +15,7 @@ const {
     isIdentifier,
     isStringLiteral,
     importDefaultSpecifier,
+    isProgram,
 } = types;
 
 const {replaceWith, insertBefore} = operator;
@@ -37,6 +38,9 @@ const createFnDeclaration = template('const NAME1 = FN(NAME2)');
 const isPackage = ({value}) => /package(\.json)?$/.test(value);
 
 export const match = () => ({
+    'const __a = require("__b").default': (vars, path) => {
+        return isProgram(path.parentPath);
+    },
     'const __a = require(__b)': ({__b}, path) => {
         if (path.scope.getBinding('require'))
             return false;
@@ -59,12 +63,9 @@ export const match = () => ({
 });
 
 export const replace = () => ({
+    'const __a = require("__b").default': 'import __a from "__b"',
     'const __a = require(__b).__c': ({__c}, path) => {
         const {name} = __c;
-        
-        if (name === 'default')
-            return 'import __a from "__b"';
-        
         const bindingPath = path.scope.bindings[name];
         
         if (bindingPath)
