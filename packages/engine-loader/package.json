@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "diff-match-patch": "^1.0.4",
+    "nano-memoize": "^3.0.16",
     "try-catch": "^4.0.0",
     "try-to-catch": "^4.0.0"
   },

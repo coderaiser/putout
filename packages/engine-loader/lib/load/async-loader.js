@@ -1,8 +1,11 @@
 import process from 'node:process';
 import {join} from 'node:path';
 import {tryToCatch} from 'try-to-catch';
+import nano from 'nano-memoize';
 import {createRequire} from '../module.js';
 import {simpleImport as _simpleImport} from './simple-import.js';
+
+const {nanomemoize} = nano;
 
 const require = createRequire(import.meta.url);
 
@@ -14,7 +17,7 @@ export const createAsyncLoader = (type, overrides = {}) => {
         simpleImport = _simpleImport,
     } = overrides;
     
-    return async (name) => {
+    return nanomemoize(async (name) => {
         if (name === 'none')
             return stub();
         
@@ -43,7 +46,7 @@ export const createAsyncLoader = (type, overrides = {}) => {
             simpleImport,
             require,
         });
-    };
+    });
 };
 
 async function cleverLoad(names, overrides) {
