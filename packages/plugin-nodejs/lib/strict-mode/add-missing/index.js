@@ -1,15 +1,11 @@
 import {types} from 'putout';
 
-const {
-    isExpressionStatement,
-    stringLiteral,
-    expressionStatement,
-} = types;
+const {directiveLiteral} = types;
 
 export const report = () => `Add missing 'use strict' directive on top of CommonJS`;
 
 export const fix = ({node}) => {
-    node.body.unshift(expressionStatement(stringLiteral('use strict')));
+    node.directives.push(directiveLiteral('use strict'));
 };
 
 export const traverse = ({push, store}) => ({
@@ -27,20 +23,18 @@ export const traverse = ({push, store}) => ({
     },
     Program: {
         exit(path) {
-            for (const node of path.node.body)
-                if (isExpressionStatement(node) && node.expression.value === 'use strict')
+            for (const node of path.node.body) {
+                if (store('is-module'))
                     return;
-            
-            if (store('is-module'))
-                return;
-            
-            if (path.node.directives.length)
-                return;
-            
-            if (!store('is-common'))
-                return;
-            
-            push(path);
+                
+                if (path.node.directives.length)
+                    return;
+                
+                if (!store('is-common'))
+                    return;
+                
+                push(path);
+            }
         },
     },
 });

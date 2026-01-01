@@ -1,5 +1,7 @@
 import {createTest} from '@putout/test';
 import * as declare from '@putout/plugin-declare';
+import * as putout from '@putout/plugin-putout';
+import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-commonjs';
 import * as nodejs from '../../index.js';
 import * as add from './index.js';
 
@@ -64,10 +66,15 @@ test('plugin-strict-mode: add: await', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: add-missing: putout', (t) => {
+    t.noReportAfterTransform('putout', {
+        putout,
+        convertEsmToCommonjs,
+    });
+    t.end();
+});
+
 const testNodejs = createTest(import.meta.url, {
-    rules: {
-        'nodejs/convert-commonjs-to-esm': 'off',
-    },
     plugins: [
         ['strict-mode/add', add],
     ],

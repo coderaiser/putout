@@ -16,14 +16,17 @@ export const fix = (path) => {
     remove(path);
 };
 export const traverse = ({push}) => ({
-    DirectiveLiteral(path) {
-        const fnPath = path.parentPath.parentPath.parentPath;
+    DirectiveLiteral({parentPath}) {
+        if (!parentPath.parentPath)
+            return;
+        
+        const fnPath = parentPath.parentPath.parentPath;
         
         if (!isFunction(fnPath))
             return;
         
         if (isIllegal(fnPath))
-            push(path.parentPath);
+            push(parentPath);
     },
 });
 
