@@ -1,3 +1,14 @@
+2026.01.01, v41.4.1
+
+fix:
+- 7624ce5f1 @putout/engine-loader: get back nano-memoize
+
+feature:
+- 6704b8f12 putout: @putout/operator-keyword v4.0.0
+- 65b6758e4 @putout/operator-keyword: migrate to ESM
+- 4636adf25 @putout/operator-keyword: drop support of node < 22
+- 05c7ddb0b @putout/operator-keyword: debugger: add
+
 2026.01.01, v41.4.0
 
 fix:
