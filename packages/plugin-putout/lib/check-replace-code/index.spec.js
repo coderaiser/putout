@@ -123,7 +123,7 @@ test('plugin-putout: check-replace-code: no report: identifier', (t) => {
 });
 
 test('plugin-putout: check-replace-code: report: mismatch', (t) => {
-    t.report('mismatch', 'transform mismatch: "if (__a = __b) __body" -> "if (__a === "__b") __body" !== "if (_temp === _temp2) {}"');
+    t.report('mismatch', `transform mismatch: 'if (__a = __b) __body' -> 'if (__a === "__b") __body' !== 'if (_temp === _temp2) {}'`);
     t.end();
 });
 
@@ -133,12 +133,12 @@ test('plugin-putout: check-replace-code: no report: json: json-object', (t) => {
 });
 
 test('plugin-putout: check-replace-code: report: json', (t) => {
-    t.report('json', 'transform mismatch: "export default __array" -> "__json" !== "export default __array;"');
+    t.report('json', `transform mismatch: 'export default __array' -> '__json' !== 'export default __array;'`);
     t.end();
 });
 
 test('plugin-putout: check-replace-code: report: esm', (t) => {
-    t.report('esm', `transform mismatch: "const __a = reatomComponent(__b)" -> "const __a = reatomComponent(__b, "__a")" !== "const _temp = reatomComponent(_temp2, _temp);"`);
+    t.report('esm', `transform mismatch: 'const __a = reatomComponent(__b)' -> 'const __a = reatomComponent(__b, "__a")' !== 'const _temp = reatomComponent(_temp2, _temp);'`);
     t.end();
 });
 

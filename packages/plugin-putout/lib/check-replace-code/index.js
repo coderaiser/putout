@@ -33,7 +33,7 @@ export const report = ({path, code, error}) => {
     const [, key] = parseKey(path);
     const value = extract(path.node.value);
     
-    return `transform mismatch: "${key}" -> "${value}" !== "${code}"`;
+    return `transform mismatch: '${key}' -> '${value}' !== '${code}'`;
 };
 
 export const fix = ({mainPath}) => {
