@@ -3,13 +3,9 @@
     "match": {
         "*.md": {
             "remove-debugger": "off"
-        },
-        "*.js": {
-            "nodejs/convert-esm-to-commonjs": "on"
         }
     },
     "rules": {
-        "putout/convert-babel-types": "off",
         "maybe/noop": "off"
     }
 }
