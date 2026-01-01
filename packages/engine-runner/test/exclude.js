@@ -1,9 +1,6 @@
-'use strict';
-
-const test = require('supertape');
-const putout = require('putout');
-
-const {runPlugins} = require('..');
+import test from 'supertape';
+import putout from 'putout';
+import {runPlugins} from '../lib/index.js';
 
 test('putout: runner: traverse: exclude', (t) => {
     const rmVar = {

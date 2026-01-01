@@ -1,12 +1,9 @@
-'use strict';
-
-const {once} = require('node:events');
-const montag = require('montag');
-const {test} = require('supertape');
-const putout = require('putout');
-
-const {runPlugins} = require('./index');
-const {createProgress} = require('./progress');
+import {once} from 'node:events';
+import montag from 'montag';
+import {test} from 'supertape';
+import putout from 'putout';
+import {runPlugins} from './index.js';
+import {createProgress} from './progress.js';
 
 test('putout: runner: progress: start', async (t) => {
     const progress = createProgress();

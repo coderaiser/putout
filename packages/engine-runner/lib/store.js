@@ -1,5 +1,3 @@
-'use strict';
-
 const {
     values,
     entries,
@@ -11,10 +9,10 @@ const isNotRemoved = (a) => a.node;
 const notRemoved = (a) => toArray(a).filter(isNotRemoved);
 const id = (a) => a;
 
-module.exports.listStore = createListStore();
-module.exports.pathStore = createListStore(notRemoved);
+export const listStore = createListStore();
+export const pathStore = createListStore(notRemoved);
 
-module.exports.mapStore = createStore({
+export const mapStore = createStore({
     get(map) {
         return values(map);
     },
@@ -23,7 +21,7 @@ module.exports.mapStore = createStore({
     },
 });
 
-module.exports.upStore = createStore({
+export const upStore = createStore({
     get(map) {
         return values(map);
     },
@@ -33,7 +31,7 @@ module.exports.upStore = createStore({
     },
 });
 
-module.exports.upListStore = createStore({
+export const upListStore = createStore({
     get(map) {
         return values(map).map(notRemoved);
     },

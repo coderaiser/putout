@@ -1,10 +1,7 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-
-const putout = require('putout');
-const {runPlugins} = require('..');
-const {_log} = require('.');
+import {test, stub} from 'supertape';
+import putout from 'putout';
+import {runPlugins} from '../index.js';
+import {_log} from './index.js';
 
 test('putout: plugin: traverse: template', (t) => {
     const exp = {

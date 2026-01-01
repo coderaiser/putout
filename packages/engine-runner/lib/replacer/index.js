@@ -1,19 +1,19 @@
-'use strict';
-
-const {template, print} = require('@putout/engine-parser');
-const {remove, replaceWith} = require('@putout/operate');
-const {types} = require('@putout/babel');
-
-const {
+import {template, print} from '@putout/engine-parser';
+import {remove, replaceWith} from '@putout/operate';
+import {types} from '@putout/babel';
+import {
     compare,
     findVarsWays,
     getValues,
     setValues,
-} = require('@putout/compare');
+} from '@putout/compare';
+import maybeArray from '../maybe-array.js';
+import {
+    REPLACE_WATERMARK,
+    watermark,
+} from './watermark.js';
+import {createDebug} from '../debug.js';
 
-const maybeArray = require('../maybe-array');
-const watermark = require('./watermark');
-const {createDebug} = require('../debug');
 const debug = createDebug('putout:runner:replace');
 
 const log = (from, path) => {
@@ -47,7 +47,7 @@ const stubMatch = () => ({});
 const packKeys = (a) => () => keys(a);
 const isObject = (a) => typeof a === 'object';
 
-module.exports.replace = ({rule, plugin, msg, options}) => {
+export const replace = ({rule, plugin, msg, options}) => {
     const maybeMatch = plugin.match || stubMatch;
     const match = maybeMatch({
         options,
@@ -86,8 +86,8 @@ module.exports.replace = ({rule, plugin, msg, options}) => {
     };
 };
 
-module.exports.clearWatermark = (ast) => {
-    delete ast.program[watermark.REPLACE_WATERMARK];
+export const clearWatermark = (ast) => {
+    delete ast.program[REPLACE_WATERMARK];
 };
 
 const isFn = (a) => typeof a === 'function';

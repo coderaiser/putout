@@ -1,9 +1,7 @@
-'use strict';
-
 const {entries} = Object;
 const {isArray} = Array;
 
-module.exports = (parentPath) => {
+export default (parentPath) => {
     let current = {
         parentPath,
     };

@@ -1,7 +1,5 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-const {createDebug} = require('./debug');
+import {tryCatch} from 'try-catch';
+import {createDebug} from './debug.js';
 
 const {stringify} = JSON;
 
@@ -48,7 +46,7 @@ const tryToFix = (fix, {path, pathOptions, position, options}) => {
     throw e;
 };
 
-module.exports = (is, fix, {path, pathOptions, rule, position, options}) => {
+export default (is, fix, {path, pathOptions, rule, position, options}) => {
     if (!is)
         return;
     

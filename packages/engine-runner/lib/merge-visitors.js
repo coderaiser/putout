@@ -1,20 +1,16 @@
-'use strict';
-
-const {traverse} = require('@putout/babel');
-const {generate} = require('@putout/engine-parser');
-
-const runFix = require('./run-fix');
-const {getPosition} = require('./get-position');
-const maybeArray = require('./maybe-array');
-const {validate} = require('./validate');
-
-const {
+import {traverse} from '@putout/babel';
+import {generate} from '@putout/engine-parser';
+import runFix from './run-fix.js';
+import {getPosition} from './get-position.js';
+import maybeArray from './maybe-array.js';
+import {validate} from './validate.js';
+import {
     listStore,
     mapStore,
     upStore,
     upListStore,
     pathStore,
-} = require('./store');
+} from './store.js';
 
 const {merge} = traverse.visitors;
 const {assign} = Object;
@@ -33,7 +29,7 @@ const parse = (name, plugin, options) => {
     return list;
 };
 
-module.exports = (pluginsToMerge, {fix, shebang, template}) => {
+export default (pluginsToMerge, {fix, shebang, template}) => {
     const mergeItems = [];
     const pushed = {};
     

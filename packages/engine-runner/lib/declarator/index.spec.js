@@ -1,9 +1,7 @@
-'use strict';
-
-const {test} = require('supertape');
-const montag = require('montag');
-const {tryCatch} = require('try-catch');
-const putout = require('putout');
+import {test} from 'supertape';
+import montag from 'montag';
+import {tryCatch} from 'try-catch';
+import putout from 'putout';
 
 test('engine-runner: declare', (t) => {
     const {code} = putout(`isString('hello')`, {

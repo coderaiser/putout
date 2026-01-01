@@ -1,16 +1,13 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-
-const {
+import {tryCatch} from 'try-catch';
+import {
     compareAny,
     compareAll,
     parseTemplate,
     isTemplate,
-} = require('@putout/compare');
+} from '@putout/compare';
+import maybeArray from '../maybe-array.js';
+import {createDebug} from '../debug.js';
 
-const maybeArray = require('../maybe-array');
-const {createDebug} = require('../debug');
 const debug = createDebug('putout:runner:template');
 
 const {entries} = Object;
@@ -22,7 +19,7 @@ const log = (rule, path) => {
 
 const {stringify} = JSON;
 
-module.exports._log = log;
+export const _log = log;
 
 const exclude = ({rule, tmpl, fn, nodesExclude}) => {
     if (!isFn(fn) || !nodesExclude.length)
@@ -42,7 +39,7 @@ const exclude = ({rule, tmpl, fn, nodesExclude}) => {
     };
 };
 
-module.exports = ({rule, visitor, options}) => {
+export default ({rule, visitor, options}) => {
     const parsed = [];
     const nodesExclude = maybeArray(options.exclude);
     const nodesInclude = maybeArray(options.include);
@@ -80,8 +77,6 @@ module.exports = ({rule, visitor, options}) => {
     
     return parsed;
 };
-
-module.exports._log = log;
 
 const wrapWithCheck = ({rule, nodesInclude, nodesExclude, fn}) => (path) => {
     log(rule, path);

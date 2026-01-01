@@ -1,8 +1,6 @@
-'use strict';
+import {tryCatch} from 'try-catch';
 
-const {tryCatch} = require('try-catch');
-
-module.exports.tryThrowWithReason = (fn, ...args) => {
+export const tryThrowWithReason = (fn, ...args) => {
     const [error, result] = tryCatch(fn, ...args);
     
     if (error) {

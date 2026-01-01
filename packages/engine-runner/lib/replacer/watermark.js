@@ -1,15 +1,12 @@
-'use strict';
-
-const wraptile = require('wraptile');
-
-const {types} = require('@putout/babel');
-const findPath = require('./find-path');
+import wraptile from 'wraptile';
+import {types} from '@putout/babel';
+import findPath from './find-path.js';
 
 const {isProgram} = types;
 const name = '__putout_runner_replace';
 const hasWatermark = (watermark) => (path) => path.node?.[name]?.has(watermark);
 
-module.exports = (from, to, path) => {
+export const watermark = (from, to, path) => {
     const {watermark, highWatermark} = create(from, to, path);
     const program = path.findParent(isProgram);
     const options = {
@@ -26,10 +23,9 @@ module.exports = (from, to, path) => {
     };
 };
 
-module.exports.REPLACE_WATERMARK = name;
+export const REPLACE_WATERMARK = name;
 
-module.exports.create = create;
-function create(from, to, path) {
+export function create(from, to, path) {
     const watermark = `${from} -> ${to}`;
     const highWatermark = `${findPath(path)}: ${watermark}`;
     
@@ -39,16 +35,14 @@ function create(from, to, path) {
     };
 }
 
-module.exports.init = init;
-function init({path, program}) {
+export function init({path, program}) {
     if (path.node)
         path.node[name] = path.node[name] || new Set();
     
     program.node[name] = program.node[name] || new Set();
 }
 
-module.exports.add = add;
-function add({path, program, watermark, highWatermark}) {
+export function add({path, program, watermark, highWatermark}) {
     init({
         path,
         program,
@@ -58,8 +52,7 @@ function add({path, program, watermark, highWatermark}) {
     program.node[name].add(highWatermark);
 }
 
-module.exports.has = has;
-function has({path, program, watermark, highWatermark}) {
+export function has({path, program, watermark, highWatermark}) {
     const {node} = path;
     const {loc} = node;
     

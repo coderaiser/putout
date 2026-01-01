@@ -1,21 +1,18 @@
-'use strict';
-
-const fullstore = require('fullstore');
-const {compare} = require('@putout/compare');
-const {__filesystem_name} = require('@putout/operator-json');
-
-const {
+import fullstore from 'fullstore';
+import {compare} from '@putout/compare';
+import {__filesystem_name} from '@putout/operator-json';
+import {
     findFile,
     pause,
     start,
-} = require('@putout/operator-filesystem');
+} from '@putout/operator-filesystem';
+import fromSimple from '@putout/plugin-filesystem/from-simple';
+import toSimple from '@putout/plugin-filesystem/to-simple';
+import {createDebug} from '../debug.js';
 
-const fromSimple = require('@putout/plugin-filesystem/from-simple');
-const toSimple = require('@putout/plugin-filesystem/to-simple');
-const {createDebug} = require('../debug');
 const log = createDebug('putout:runner:scanner');
 
-module.exports.scan = ({rule, plugin, msg, options}, {progress}) => {
+export const scan = ({rule, plugin, msg, options}, {progress}) => {
     const {
         scan,
         report,

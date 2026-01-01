@@ -1,22 +1,15 @@
-'use strict';
-
-const {once} = require('node:events');
-
-const test = require('supertape');
-const montag = require('montag');
-const putout = require('putout');
-
-const {__filesystem_name} = require('@putout/operator-json');
-
-const {
+import {once} from 'node:events';
+import test from 'supertape';
+import montag from 'montag';
+import putout from 'putout';
+import {__filesystem_name} from '@putout/operator-json';
+import {
     findFile,
     createFile,
     writeFileContent,
-} = require('@putout/operator-filesystem');
-
-const {createProgress} = require('../progress');
-
-const {runPlugins} = require('..');
+} from '@putout/operator-filesystem';
+import {createProgress} from '../progress.js';
+import {runPlugins} from '../index.js';
 
 test('putout: runner: scanner', (t) => {
     const addFile = {

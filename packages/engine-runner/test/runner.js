@@ -1,14 +1,12 @@
-'use strict';
+import process from 'node:process';
+import montag from 'montag';
+import {tryCatch} from 'try-catch';
+import {test, stub} from 'supertape';
+import putout from 'putout';
+import {loadPlugins} from '@putout/engine-loader';
+import {readFixtures} from './fixture.js';
+import {runPlugins} from '../lib/index.js';
 
-const process = require('node:process');
-const montag = require('montag');
-const {tryCatch} = require('try-catch');
-const {test, stub} = require('supertape');
-const putout = require('putout');
-const {loadPlugins} = require('@putout/engine-loader');
-
-const {readFixtures} = require('./fixture');
-const {runPlugins} = require('..');
 const noop = () => {};
 const {parse} = putout;
 
@@ -656,7 +654,7 @@ test('putout: runner: plugins: replace: match: not found', (t) => {
     t.end();
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __array = __': '',
     'const {} = __': '',
     '([]) => __a': '() => __a',

@@ -1,26 +1,22 @@
-'use strict';
+import {traverse as defaultTraverse} from '@putout/babel';
+import once from 'once';
+import {createDebug} from './debug.js';
+import runFix from './run-fix.js';
+import mergeVisitors from './merge-visitors.js';
+import superFind from './super-find.js';
+import template from './template/index.js';
+import {createProgress} from './progress.js';
+import {tryThrowWithReason} from './try-throw-with-reason.js';
+import {include} from './includer/index.js';
+import {replace, clearWatermark} from './replacer/index.js';
+import {declare} from './declarator/index.js';
+import {scan} from './scanner/index.js';
+import {getPath, getPosition} from './get-position.js';
 
-const {traverse: defaultTraverse} = require('@putout/babel');
-const once = require('once');
-const {createDebug} = require('./debug');
-
-const runFix = require('./run-fix');
-const mergeVisitors = require('./merge-visitors');
-const superFind = require('./super-find');
-const template = require('./template/index.js');
-const {createProgress} = require('./progress');
-const {tryThrowWithReason} = require('./try-throw-with-reason');
-
-const {include} = require('./includer/index.js');
-const {replace, clearWatermark} = require('./replacer/index.js');
-const {declare} = require('./declarator/index.js');
-const {scan} = require('./scanner/index.js');
-
-const {getPath, getPosition} = require('./get-position');
 const debug = createDebug('putout:runner:find');
 const isRemoved = (a) => a?.removed;
 
-module.exports.runPlugins = ({ast, shebang, fix, fixCount = 2, plugins, progress = createProgress(), traverse = defaultTraverse}) => {
+export const runPlugins = ({ast, shebang, fix, fixCount = 2, plugins, progress = createProgress(), traverse = defaultTraverse}) => {
     let places = [];
     
     const merge = once(mergeVisitors);
@@ -54,7 +50,9 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount = 2, plugins, progress
     return places;
 };
 
-module.exports.getPosition = getPosition;
+export {
+    getPosition,
+};
 
 const run = ({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge, traverse}) => [
     ...runWithoutMerge({

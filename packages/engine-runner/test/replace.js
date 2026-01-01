@@ -1,15 +1,14 @@
-'use strict';
+import {readFileSync} from 'node:fs';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import test from 'supertape';
+import montag from 'montag';
+import putout from 'putout';
+import {tryCatch} from 'try-catch';
+import {runPlugins} from '../lib/index.js';
 
-const {readFileSync} = require('node:fs');
-const {join} = require('node:path');
-
-const test = require('supertape');
-const montag = require('montag');
-const putout = require('putout');
-const {tryCatch} = require('try-catch');
-
-const {runPlugins} = require('..');
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const noop = () => {};
 const {print, types} = putout;
 
@@ -475,8 +474,12 @@ test('putout: runner: replace: watermark: when function used', (t) => {
     const {code} = putout(source, {
         runPlugins,
         rules: {
+            'nodejs': 'off',
+            'putout': 'off',
+            'putout/declare': 'on',
+            'putout/apply-lowercase-to-node-builders': 'on',
             'nodejs/convert-esm-to-commonjs': 'on',
-            'nodejs/convert-commonjs-to-esm': 'off',
+            'nodejs/add-missing-strict-mode': 'on',
         },
         plugins: [
             'nodejs',

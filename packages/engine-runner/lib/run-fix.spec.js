@@ -1,8 +1,6 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-const {tryCatch} = require('try-catch');
-const fix = require('./run-fix');
+import {test, stub} from 'supertape';
+import {tryCatch} from 'try-catch';
+import fix from './run-fix.js';
 
 test('engine-runner: fix: error', (t) => {
     const remove = () => {

@@ -1,9 +1,6 @@
-'use strict';
+export const getPath = (item) => item.path || item[0] || item;
 
-const getPath = (item) => item.path || item[0] || item;
-
-module.exports.getPath = getPath;
-module.exports.getPosition = (path, shebang) => {
+export const getPosition = (path, shebang) => {
     const parsedPath = getPath(path);
     
     validatePath(parsedPath);

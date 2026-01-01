@@ -1,12 +1,8 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-const montag = require('montag');
-
-const test = require('supertape');
-const putout = require('putout');
-
-const {runPlugins} = require('..');
+import {tryCatch} from 'try-catch';
+import montag from 'montag';
+import test from 'supertape';
+import putout from 'putout';
+import {runPlugins} from '../lib/index.js';
 
 test('putout: runner: plugins: traverse: listStore', (t) => {
     let result = [];

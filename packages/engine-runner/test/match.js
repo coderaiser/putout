@@ -1,10 +1,7 @@
-'use strict';
-
-const test = require('supertape');
-const putout = require('putout');
-const {tryCatch} = require('try-catch');
-
-const {runPlugins} = require('..');
+import test from 'supertape';
+import putout from 'putout';
+import {tryCatch} from 'try-catch';
+import {runPlugins} from '../lib/index.js';
 
 test('putout: runner: match', (t) => {
     const rm = {

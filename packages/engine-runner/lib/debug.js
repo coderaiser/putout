@@ -1,9 +1,7 @@
-'use strict';
+import * as obug from 'obug';
 
-const {createDebug} = require('obug');
-
-module.exports.createDebug = (namespace) => {
-    const log = createDebug(namespace, {
+export const createDebug = (namespace) => {
+    const log = obug.createDebug(namespace, {
         useColors: true,
     });
     

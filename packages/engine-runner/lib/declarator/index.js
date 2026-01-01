@@ -1,11 +1,9 @@
-'use strict';
-
-const {declare: index} = require('@putout/operator-declare');
+import {declare as index} from '@putout/operator-declare';
 
 const {stringify} = JSON;
 const isFn = (a) => typeof a === 'function';
 
-module.exports.declare = ({rule, plugin, msg, options}) => {
+export const declare = ({rule, plugin, msg, options}) => {
     validateDeclare(plugin.declare);
     
     return {

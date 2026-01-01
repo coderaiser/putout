@@ -1,9 +1,7 @@
-'use strict';
-
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 
-module.exports = (a) => {
+export default (a) => {
     if (!a)
         return [];
     
