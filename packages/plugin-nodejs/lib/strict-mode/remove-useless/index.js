@@ -3,8 +3,6 @@ import {types, operator} from 'putout';
 const {remove} = operator;
 const {isProgram} = types;
 
-const isStrictMode = (a) => a.node.value.value === 'use strict';
-
 export const report = () => `Avoid 'use strict' in ESM`;
 
 export const fix = (path) => remove(path);
@@ -47,3 +45,10 @@ export const traverse = ({push, store}) => ({
         },
     },
 });
+
+const isStrictMode = (a) => {
+    if (!a.node)
+        return false;
+    
+    return a.node.value.value === 'use strict';
+};

@@ -42,6 +42,11 @@ test('plugin-nodejs: strict-mode: remove: transform: couple', (t) => {
     t.end();
 });
 
+test('plugin-nodejs: strict-mode: remove: transform: couple-esm', (t) => {
+    t.transform('couple-esm');
+    t.end();
+});
+
 test('plugin-nodejs: strict-mode: remove: no transform: use-client', (t) => {
     t.noTransform('use-client');
     t.end();

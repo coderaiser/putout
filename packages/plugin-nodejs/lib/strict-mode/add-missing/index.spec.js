@@ -12,7 +12,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-nodejs: strict-mode: add: report: commonjs', (t) => {
-    t.report('commonjs', `Add missing 'use strict' directive on top of CommonJS`);
+    t.report('commonjs', [`Add missing 'use strict' directive on top of CommonJS`]);
     t.end();
 });
 
