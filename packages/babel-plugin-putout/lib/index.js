@@ -29,7 +29,6 @@ module.exports = () => {
         },
         
         generatorOverride(ast) {
-            ast.program.directives = [];
             const code = print(ast, {});
             
             return {
