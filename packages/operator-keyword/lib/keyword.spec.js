@@ -198,3 +198,10 @@ test('putout: operator: isKeyword: with', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: operator: isKeyword: debugger', (t) => {
+    const result = isKeyword('debugger');
+    
+    t.ok(result);
+    t.end();
+});

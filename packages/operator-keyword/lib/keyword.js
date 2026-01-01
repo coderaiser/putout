@@ -45,6 +45,7 @@ const statements = [
     'async',
     'break',
     'continue',
+    'debugger',
     'for',
     'else',
     'from',
