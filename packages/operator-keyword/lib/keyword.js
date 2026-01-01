@@ -1,5 +1,3 @@
-'use strict';
-
 const moduleDeclarations = [
     'import',
     'export',
@@ -63,27 +61,27 @@ const keywords = [
     ...expressions,
 ];
 
-module.exports.isKeyword = (name) => {
+export const isKeyword = (name) => {
     return keywords.includes(name);
 };
 
-module.exports.isDeclarationKeyword = (name) => {
+export const isDeclarationKeyword = (name) => {
     return declarations.includes(name);
 };
 
-module.exports.isModuleDeclarationKeyword = (name) => {
+export const isModuleDeclarationKeyword = (name) => {
     return moduleDeclarations.includes(name);
 };
 
-module.exports.isConditionKeyword = (name) => {
+export const isConditionKeyword = (name) => {
     return conditions.includes(name);
 };
 
-module.exports.isStatementKeyword = (name) => {
+export const isStatementKeyword = (name) => {
     return statements.includes(name);
 };
 
-module.exports.isTSKeyword = (name) => {
+export const isTSKeyword = (name) => {
     const ts = typescript.includes(name);
     const tsReserved = typescriptReserved.includes(name);
     

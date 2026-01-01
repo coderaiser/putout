@@ -1,14 +1,12 @@
-'use strict';
-
-const {test} = require('supertape');
-const {
+import {test} from 'supertape';
+import {
     isKeyword,
     isTSKeyword,
     isDeclarationKeyword,
     isConditionKeyword,
     isModuleDeclarationKeyword,
     isStatementKeyword,
-} = require('./keyword');
+} from './keyword.js';
 
 test('putout: operator: keyword: isKeyword: yes', (t) => {
     const result = isKeyword('if');

@@ -1,7 +1,7 @@
 {
   "name": "@putout/operator-keyword",
   "version": "3.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds ability to check if Identifier is Keyword",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-keyword#readme",
