@@ -1,6 +1,6 @@
 {
   "name": "@putout/engine-loader",
-  "version": "17.0.6",
+  "version": "17.0.7",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "load plugins and prepare them to run",
