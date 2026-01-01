@@ -1,3 +1,22 @@
+2026.01.01, v41.3.4
+
+fix:
+- 946a34d89 @putout/plugin-nodejs: convert-commonjs-to-esm-require: top level blocks
+- d95d66a7c putout: default-options: import engine-runner
+- bf5a7ad51 @putout/cli-process-file: mjs -> js
+
+feature:
+- 23b586eaf putout: fixCount: 4
+- 61a32abf2 @putut/plugin-nodejs: strict-mode: expression -> directive
+- 2003d66c7 @putout/plugin-nodejs: convert-commonjs-to-esm: require: exclude not top level
+- 4329ab1c8 @putout/plugin-putout: check-replace-code: report: quotes
+- 551ec2a0e @putout/cli-process-file: samadhi v4.0.2
+- 2c3e5773e root: madrun v12.0.0
+- 18119c6a2 @putout/plugin-putout: apply-engine-node-version
+- 984e86fd8 putout: @putout/test v15.0.0
+- a65af8cfc @putout/test: drop support of node < 22
+- 6472d0063 @putout/test: @putout/cli-process-file v6.0.0
+
 2025.12.31, v41.3.3
 
 fix:
