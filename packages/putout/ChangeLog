@@ -1,3 +1,14 @@
+2026.01.01, v41.4.0
+
+fix:
+- b8951a913 @putout/declare: record: shorten field name
+- 4d00a0e2d babel-plugin-putout: strict-mode
+- 5896aa7dd @putout/plugin-nodejs: remove-useless-strict-mode: couple in ESM
+
+feature:
+- fe0484ab9 putout: @putout/engine-runner v27.0.0
+- a5a9d85e6 @putout/engine-runner: migrate to ESM
+
 2026.01.01, v41.3.4
 
 fix:
