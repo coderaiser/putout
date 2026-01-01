@@ -1,7 +1,0 @@
-{
-    "printer": "putout",
-    "rules": {
-        "eslint/remove-no-unpublished-require": "off",
-        "nodejs/convert-commonjs-to-esm": "off"
-    }
-}
