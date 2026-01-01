@@ -7,7 +7,7 @@ export const defaultOptions = (opts = {}) => {
         parser = 'babel',
         printer = opts.printer || 'putout',
         fix = true,
-        fixCount = 3,
+        fixCount = 4,
         loadPlugins = loader.loadPlugins,
         loadPluginsAsync = loader.loadPluginsAsync,
         runPlugins = runner.runPlugins,
