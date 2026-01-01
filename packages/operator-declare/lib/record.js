@@ -1,6 +1,6 @@
 'use strict';
 
-const prefix = '__putout_declare_undefined_variables';
+const prefix = '__putout_declare';
 const getProgramParentPath = (path) => path.scope.getProgramParent().path;
 
 const maybeInit = (a, b) => b[a] = b[a] || {};
