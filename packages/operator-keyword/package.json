@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout operator adds ability to check if Identifier is Keyword",
+  "description": "🐊Putout operator adds ability to check if whether Identifier is a keyword or not",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-keyword#readme",
   "main": "lib/keyword.js",
   "release": false,
