@@ -39,7 +39,10 @@ const isPackage = ({value}) => /package(\.json)?$/.test(value);
 
 export const match = () => ({
     'const __a = require("__b").default': (vars, path) => {
-        return isProgram(path.parentPath);
+        if (isProgram(path.parentPath))
+            return true;
+        
+        return isProgram(path.parentPath.parentPath);
     },
     'const __a = require(__b)': ({__b}, path) => {
         if (path.scope.getBinding('require'))
