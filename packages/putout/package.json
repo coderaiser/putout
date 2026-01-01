@@ -84,7 +84,7 @@
     "@putout/operator-ignore": "^4.0.0",
     "@putout/operator-json": "^2.0.0",
     "@putout/operator-jsx": "^2.0.0",
-    "@putout/operator-keyword": "^3.0.0",
+    "@putout/operator-keyword": "^4.0.0",
     "@putout/operator-match-files": "^10.0.0",
     "@putout/operator-parens": "^3.0.0",
     "@putout/operator-regexp": "^3.0.0",
