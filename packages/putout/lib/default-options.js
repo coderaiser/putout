@@ -1,5 +1,5 @@
 import * as loader from '@putout/engine-loader';
-import runner from '@putout/engine-runner';
+import * as runner from '@putout/engine-runner';
 import {createProgress} from '@putout/engine-runner/progress';
 
 export const defaultOptions = (opts = {}) => {
