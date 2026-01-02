@@ -1,3 +1,9 @@
+2026.01.02, v41.4.2
+
+feature:
+- 249be5792 putout: @putout/engine-processor v16.0.0
+- fd80e658f @putout/engine-processor: migrate to ESM
+
 2026.01.01, v41.4.1
 
 fix:
