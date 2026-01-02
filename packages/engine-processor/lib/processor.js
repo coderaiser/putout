@@ -1,18 +1,16 @@
-'use strict';
+import {loadProcessorsAsync} from '@putout/engine-loader';
+import picomatch from 'picomatch';
 
-const {loadProcessorsAsync} = require('@putout/engine-loader');
-const picomatch = require('picomatch');
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 const id = (a) => a;
 const returns = (a) => () => a;
 
-const defaultProcessors = ['javascript'];
+export const defaultProcessors = ['javascript'];
+
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
 
-module.exports.defaultProcessors = defaultProcessors;
-
-module.exports.getFilePatterns = (processors) => {
+export const getFilePatterns = (processors) => {
     const result = [];
     
     for (const {files} of processors) {
@@ -22,7 +20,7 @@ module.exports.getFilePatterns = (processors) => {
     return result;
 };
 
-module.exports.runProcessors = async ({name, fix, processFile, options, rawSource, processorRunners, load}) => {
+export const runProcessors = async ({name, fix, processFile, options, rawSource, processorRunners, load}) => {
     const {
         processors = defaultProcessors,
     } = options;
@@ -161,14 +159,14 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
     };
 }
 
-module.exports.getProcessorRunners = getProcessorRunners;
-async function getProcessorRunners(processors, load) {
+export async function getProcessorRunners(processors, load) {
     return await loadProcessorsAsync({processors}, load);
 }
 
 const addStar = (a) => `**/${a}`;
 
-module.exports._addGlobs = addGlobs;
+export const _addGlobs = addGlobs;
+
 function addGlobs(processor) {
     const {files} = processor;
     const winFiles = maybeArray(files).map(addStar);

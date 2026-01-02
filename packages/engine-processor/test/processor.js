@@ -1,17 +1,17 @@
-'use strict';
-
-const {readFile} = require('node:fs/promises');
-const {join} = require('node:path');
-const {tryToCatch} = require('try-to-catch');
-
-const {test, stub} = require('supertape');
-const {initProcessFile} = require('@putout/cli-process-file');
-
-const {
+import {readFile} from 'node:fs/promises';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {tryToCatch} from 'try-to-catch';
+import {test, stub} from 'supertape';
+import {initProcessFile} from '@putout/cli-process-file';
+import {
     getFilePatterns,
     runProcessors,
     _addGlobs,
-} = require('..');
+} from '../lib/processor.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 test('putout: engine-processor: no processor', async (t) => {
     const name = 'hello.xxx';
@@ -83,7 +83,7 @@ test('putout: engine-processor: javascript: load', async (t) => {
 });
 
 test('putout: engine-processor: markdown: javascript', async (t) => {
-    const name = join(__dirname, 'fixture/js.md');
+    const name = new URL('fixture/js.md', import.meta.url).pathname;
     
     const options = {
         processors: ['markdown'],
@@ -142,7 +142,7 @@ test('putout: engine-processor: markdown: fix', async (t) => {
 });
 
 test('putout: engine-processor: markdown: no fix', async (t) => {
-    const name = join(__dirname, 'fixture/no-fix.md');
+    const name = new URL('fixture/no-fix.md', import.meta.url).pathname;
     
     const options = {
         processors: ['markdown'],
@@ -165,7 +165,7 @@ test('putout: engine-processor: markdown: no fix', async (t) => {
 });
 
 test('putout: engine-processor: markdown: no fix: is processed', async (t) => {
-    const name = join(__dirname, 'fixture/no-js.md');
+    const name = new URL('fixture/no-js.md', import.meta.url).pathname;
     
     const options = {
         processors: ['markdown'],
@@ -188,7 +188,7 @@ test('putout: engine-processor: markdown: no fix: is processed', async (t) => {
 });
 
 test('putout: engine-processor: markdown: fix: do not return processed places', async (t) => {
-    const name = join(__dirname, 'fixture/places.md');
+    const name = new URL('fixture/places.md', import.meta.url).pathname;
     
     const options = {
         processors: ['markdown'],
@@ -215,7 +215,7 @@ test('putout: engine-processor: markdown: fix: do not return processed places', 
 });
 
 test('putout: engine-processor: markdown: no fix: return processed places', async (t) => {
-    const name = join(__dirname, 'fixture/places.md');
+    const name = new URL('fixture/places.md', import.meta.url).pathname;
     
     const options = {
         processors: ['markdown'],
@@ -287,7 +287,7 @@ test('putout: engine-processor: markdown: no places no fix', async (t) => {
 });
 
 test('putout: engine-processor: markdown: no fix: processed places', async (t) => {
-    const name = join(__dirname, 'fixture/places.md');
+    const name = new URL('fixture/places.md', import.meta.url).pathname;
     
     const options = {
         processors: ['markdown'],
@@ -321,7 +321,7 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
 });
 
 test('putout: engine-processor: markdown: no fix: should not change source', async (t) => {
-    const name = join(__dirname, 'fixture/places.md');
+    const name = new URL('fixture/places.md', import.meta.url).pathname;
     
     const options = {
         processors: ['markdown'],
@@ -347,7 +347,7 @@ test('putout: engine-processor: markdown: no fix: should not change source', asy
 });
 
 test('putout: engine-processor: markdown: fix: no places', async (t) => {
-    const name = join(__dirname, 'fixture/places.md');
+    const name = new URL('fixture/places.md', import.meta.url).pathname;
     
     const options = {
         processors: ['markdown'],
@@ -373,8 +373,8 @@ test('putout: engine-processor: markdown: fix: no places', async (t) => {
 });
 
 test('putout: engine-processor: markdown: js changed', async (t) => {
-    const name = join(__dirname, 'fixture/js-changed.md');
-    const fixedName = join(__dirname, 'fixture/js-changed-fix.md');
+    const name = new URL('fixture/js-changed.md', import.meta.url).pathname;
+    const fixedName = new URL('fixture/js-changed-fix.md', import.meta.url).pathname;
     
     const options = {
         processors: ['markdown'],
@@ -401,7 +401,7 @@ test('putout: engine-processor: markdown: js changed', async (t) => {
 });
 
 test('putout: engine-processor: yaml: no startLine', async (t) => {
-    const name = join(__dirname, 'fixture/travis.yml');
+    const name = new URL('fixture/travis.yml', import.meta.url).pathname;
     
     const options = {
         plugins: ['travis'],
@@ -604,7 +604,7 @@ test('putout: engine-processor: lint + js', async (t) => {
     
     const {processedSource} = await runProcessors({
         fix,
-        name: join(__dirname, 'hello.md'),
+        name: new URL('hello.md', import.meta.url).pathname,
         processFile: initProcessFile({
             fix,
         }),
@@ -634,7 +634,7 @@ test('putout: engine-processor: no fix', async (t) => {
     
     const {processedSource} = await runProcessors({
         fix,
-        name: join(__dirname, 'hello.md'),
+        name: new URL('hello.md', import.meta.url).pathname,
         processFile: initProcessFile({
             fix,
         }),
@@ -648,8 +648,8 @@ test('putout: engine-processor: no fix', async (t) => {
 });
 
 test('putout: engine-processor: call merge once', async (t) => {
-    const name = join(__dirname, 'fixture/call-merge-once.md');
-    const nameFix = join(__dirname, 'fixture/call-merge-once-fix.md');
+    const name = new URL('fixture/call-merge-once.md', import.meta.url).pathname;
+    const nameFix = new URL('fixture/call-merge-once-fix.md', import.meta.url).pathname;
     
     const options = {
         processors: ['markdown'],
@@ -674,7 +674,7 @@ test('putout: engine-processor: call merge once', async (t) => {
 });
 
 test('putout: engine-processor: processorRunners', async (t) => {
-    const name = join(__dirname, 'fixture/call-merge-once.md');
+    const name = new URL('fixture/call-merge-once.md', import.meta.url).pathname;
     const typos = {
         files: ['*.*'],
         lint: (code) => [code, []],

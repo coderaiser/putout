@@ -1,7 +1,7 @@
 {
   "name": "@putout/engine-processor",
   "version": "15.0.2",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout engine processor runner",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/engine-processor#readme",
