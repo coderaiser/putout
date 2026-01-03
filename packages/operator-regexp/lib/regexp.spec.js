@@ -1,11 +1,9 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-const {test} = require('supertape');
-const {
+import {tryCatch} from 'try-catch';
+import {test} from 'supertape';
+import {
     isSimpleRegExp,
     transformRegExp,
-} = require('./regexp.js');
+} from './regexp.js';
 
 test('putout: operator: regexp: is-simple-regexp', (t) => {
     const result = isSimpleRegExp(/hello world/);

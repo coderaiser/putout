@@ -1,7 +1,5 @@
-'use strict';
-
-const {test} = require('supertape');
-const isSimpleRegExp = require('./is-simple-regexp');
+import {test} from 'supertape';
+import {isSimpleRegExp} from './is-simple-regexp.js';
 
 test('putout: operator: regexp: is-simple-regexp: simple regexp', (t) => {
     const result = isSimpleRegExp(/hello world/);

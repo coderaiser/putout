@@ -1,10 +1,8 @@
-'use strict';
-
-const regexpTree = require('regexp-tree');
+import regexpTree from 'regexp-tree';
 
 const notSimpleChar = ({type, kind}) => type !== 'Char' || kind !== 'simple';
 
-module.exports = (regexp) => {
+export const isSimpleRegExp = (regexp) => {
     let containsMoreThenSimpleChars = false;
     const ast = regexpTree.parse(regexp);
     

@@ -1,9 +1,2 @@
-'use strict';
-
-const isSimpleRegExp = require('./is-simple-regexp');
-const {transformRegExp} = require('./transform-regexp');
-
-module.exports = {
-    isSimpleRegExp,
-    transformRegExp,
-};
+export {isSimpleRegExp} from './is-simple-regexp.js';
+export {transformRegExp} from './transform-regexp.js';

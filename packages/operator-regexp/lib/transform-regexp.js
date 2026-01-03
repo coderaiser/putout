@@ -1,8 +1,6 @@
-'use strict';
+import regexpTree from 'regexp-tree';
 
-const regexpTree = require('regexp-tree');
-
-module.exports.transformRegExp = (str, regExpTransformer) => {
+export const transformRegExp = (str, regExpTransformer) => {
     check(regExpTransformer);
     
     const {
