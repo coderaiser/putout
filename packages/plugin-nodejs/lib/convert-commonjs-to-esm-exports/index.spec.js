@@ -1,5 +1,6 @@
 import {createTest} from '@putout/test';
 import * as convert from './index.js';
+import * as convertRequireToImport from '../convert-commonjs-to-esm-require/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -74,6 +75,13 @@ test('plugin-convert-commonjs-to-esm: exports: transform: object', (t) => {
 
 test('plugin-convert-commonjs-to-esm: exports: transform: object-literals', (t) => {
     t.transform('object-literals');
+    t.end();
+});
+
+test('plugin-convert-commonjs-to-esm: exports: transform: require-export-overlap', (t) => {
+    t.transform('require-export-overlap', {
+        convertRequireToImport,
+    });
     t.end();
 });
 

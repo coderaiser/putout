@@ -16,6 +16,7 @@ const {
     isStringLiteral,
     importDefaultSpecifier,
     isProgram,
+    isExportNamedDeclaration,
 } = types;
 
 const {replaceWith, insertBefore} = operator;
@@ -45,6 +46,9 @@ export const match = () => ({
         return isProgram(path.parentPath.parentPath);
     },
     'const __a = require(__b)': ({__b}, path) => {
+        if (isExportNamedDeclaration(path.parentPath))
+            return false;
+        
         if (path.scope.getBinding('require'))
             return false;
         
@@ -83,7 +87,6 @@ export const replace = () => ({
     'require("__a")': 'import("__a")',
     'const __a = require(__b)': ({__a}, path) => {
         const {value} = path.get(__B).evaluate();
-        
         const fnPath = path.findParent(isFunction);
         
         if (fnPath) {
