@@ -13,8 +13,8 @@
         "packages/*/test",
         "packages/cli-choose/**/keypress*",
         "coverage",
+        "packages/engine-loader/transforms",
         "**/eslint.config.js",
-        "**/load-plugins-async.js",
         "**/putout-async.js",
         "**/*.config.*"
     ],
