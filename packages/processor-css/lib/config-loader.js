@@ -1,8 +1,11 @@
-import {createRequire} from 'node:module';
+import defaultConfig from '../stylelintrc.json' with {
+    type: 'json',
+};
 
-const require = createRequire(import.meta.url);
+export {
+    defaultConfig,
+};
 
-export const defaultConfig = require('../stylelintrc.json');
 export const createConfigLoader = ({cosmiconfig}) => async () => {
     const explorer = cosmiconfig('stylelint', {
         searchStrategy: 'project',
