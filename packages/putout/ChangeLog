@@ -1,3 +1,11 @@
+2026.01.03, v41.4.3
+
+feature:
+- c75812ccb putout: @putout/operator-regexp v4.0.0
+- 9d51d7472 @putout/operator-regexp: drop support of node < 22
+- c7ed72460 @putout/operator-regexp: migrate to ESM
+- 7fa51f394 @putout/plugin-nodejs: declare: modules: enableCompileCache
+
 2026.01.02, v41.4.2
 
 feature:
