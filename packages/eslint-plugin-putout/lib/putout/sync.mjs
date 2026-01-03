@@ -1,23 +1,19 @@
-'use strict';
-
-const process = require('node:process');
-const {tryCatch} = require('try-catch');
-const {ignores} = require('putout/ignores');
-
-const {
+import process from 'node:process';
+import {tryCatch} from 'try-catch';
+import {ignores} from 'putout/ignores';
+import {parseOptions} from 'putout/parse-options';
+import {
     findPlaces,
     transform,
     print,
     parse,
-} = require('putout');
-
-const {parseOptions} = require('putout/parse-options');
-const {parseError} = require('../parse-error');
+} from 'putout';
+import {parseError} from './parse-error.js';
 
 const cwd = process.cwd();
 const EMPTY_VISITORS = {};
 
-module.exports = ({context, options}) => {
+export const putoutSync = ({context, options}) => {
     const name = context.filename;
     const resultOptions = parseOptions({
         name,
