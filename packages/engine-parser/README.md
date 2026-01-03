@@ -104,6 +104,7 @@ generate(ast, {sourceMaps: true}, {
 
 ```js
 import {parse} from '@putout/engine-parser';
+
 const parser = 'acorn';
 
 const code = parse('var t = "hello"', {
