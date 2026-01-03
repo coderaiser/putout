@@ -1,5 +1,7 @@
 'use strict';
 
+const {putoutSync} = require('./sync.mjs');
+
 const getContextOptions = ({options}) => {
     const [allContextOptions = {}] = options;
     return allContextOptions;
@@ -19,7 +21,6 @@ module.exports = {
     
     create(context) {
         const {esm, ...options} = getContextOptions(context);
-        const putoutSync = require('./sync');
         
         return putoutSync({
             context,
