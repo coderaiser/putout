@@ -1,3 +1,14 @@
+2026.01.03, v41.5.0
+
+feature:
+- bea1d5138 eslint-plugin-putout: migrate putout to ESM
+- 7c4c2adbc putout: migrate to ESM
+- 340a4feba putout: @putout/processor-css v12.0.0
+- 1e529e70d @putout/processor-css: drop support of node < 22
+- 18d6bec9f @putout/plugin-nodejs: convert-commonjs-to-esm: require: export const = require
+- 19a3d1a0a @putout/plugin-esm: merge-export-declarations: improve numbering
+- 451e899de @putout/engine-parser: migrate to ESM
+
 2026.01.03, v41.4.4
 
 fix:
