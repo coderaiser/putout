@@ -8,7 +8,7 @@ const {
     isObjectExpression,
     isStringLiteral,
     isImportDefaultSpecifier,
-    exportDefaultSpecifier,
+    exportNamespaceSpecifier,
 } = types;
 
 const {replaceWith} = operator;
@@ -107,7 +107,10 @@ function addExportToBinding(name, path) {
     if (isImportDefaultSpecifier(bindingPath)) {
         const {local} = bindingPath.node;
         const {source} = bindingPath.parentPath.node;
-        const exportNode = exportNamedDeclaration(null, [exportDefaultSpecifier(local, local)], source);
+        const specifiers = [
+            exportNamespaceSpecifier(local),
+        ];
+        const exportNode = exportNamedDeclaration(null, specifiers, source);
         
         replaceWith(bindingPath.parentPath, exportNode);
         return '';

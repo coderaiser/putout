@@ -1,6 +1,6 @@
 'use strict';
 
-export print from './print';
-export parse from './parse';
-export generate from './generate';
-export template from './template';
+export * as print from './print';
+export * as parse from './parse';
+export * as generate from './generate';
+export * as template from './template';
