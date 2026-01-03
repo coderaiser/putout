@@ -41,8 +41,12 @@ export const traverse = ({push}) => ({
                 if (isSameSources(a, b)) {
                     marked.add(b);
                     
-                    lists[i] = lists[i] || [a];
-                    lists[i].push(b);
+                    if (!lists[i])
+                        lists.push([a]);
+                    
+                    lists
+                        .at(-1)
+                        .push(b);
                 }
             }
         }
