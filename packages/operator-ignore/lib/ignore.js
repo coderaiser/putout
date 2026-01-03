@@ -1,11 +1,10 @@
-'use strict';
+import {types} from '@putout/babel';
+import {traverseProperties} from '@putout/operate';
 
-const {types} = require('@putout/babel');
-const {traverseProperties} = require('@putout/operate');
 const {stringLiteral} = types;
 const getValue = ({value}) => value;
 
-module.exports.ignore = (type, {name, property, list}) => {
+export const ignore = (type, {name, property, list}) => {
     const [, collector] = type.split(/[()]/);
     
     return {

@@ -1,9 +1,7 @@
-'use strict';
+import test from 'supertape';
+import putout from 'putout';
+import {ignore} from './ignore.js';
 
-const test = require('supertape');
-const putout = require('putout');
-
-const {ignore} = require('./ignore');
 const {operator} = putout;
 const {parse, stringify} = JSON;
 

@@ -16,10 +16,15 @@ npm i putout @putout/operator-ignore
 ### `__ignore`
 
 ```js
-const {operator, ignore} = require('putout');
+import {operator, ignore} from 'putout';
+
 const {__ignore} = operator;
 
-module.exports = ignore(__ignore, {
+export const {
+    report,
+    match,
+    replace,
+} = ignore(__ignore, {
     name: '.npmignore',
     field: 'exclude',
     list: [
@@ -34,10 +39,15 @@ module.exports = ignore(__ignore, {
 ### `__json`
 
 ```js
-const {operator, ignore} = require('putout');
-const {__json} = operator;
+import {operator, ignore} from 'putout';
 
-module.exports = ignore(__json, {
+const {__ignore, __json} = operator;
+
+export const {
+    report,
+    match,
+    replace,
+} = ignore(__json, {
     name: '.nycrc.json',
     field: 'exclude',
     list: ['*.config.*'],
