@@ -53,7 +53,7 @@
     "eslint-plugin-putout": "^29.0.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-scope": "^9.0.0",
-    "globals": "^16.0.0",
+    "globals": "^17.0.0",
     "parse-import-specifiers": "^1.0.1",
     "try-catch": "^4.0.0",
     "try-to-catch": "^4.0.0",
