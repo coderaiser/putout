@@ -6,4 +6,4 @@ yarn-error.log
 coverage
 *.config.*
 
-./rules
+./rules/*
