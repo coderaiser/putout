@@ -1,3 +1,14 @@
+2026.01.03, v41.4.4
+
+fix:
+- 0b70abd2b @putout/plugin-nodejs: convert-commonjs-to-esm: exports: ExportDefaultSpecifier -> ExportNamespaceSpecifier: stage 1 (https://github.com/tc39/proposal-export-default-from)
+- 240fcc192 @putout/engine-loader: rules -> transforms
+
+feature:
+- 20baf7495 putout: @putout/operator-ignore v5.0.0
+- bd3ec01ea @putout/operator-ignore: migrate to ESM
+- 34510b1fe @putout/engine-loader: get rid of nano-memoize
+
 2026.01.03, v41.4.3
 
 feature:
