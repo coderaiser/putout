@@ -3,7 +3,13 @@ import montag from 'montag';
 import {test, stub} from 'supertape';
 import {tryCatch} from 'try-catch';
 import {createProgress} from '@putout/engine-runner/progress';
-import putout from '../lib/putout.js';
+import {
+    print,
+    putout,
+    parse,
+    findPlaces,
+    transform,
+} from '../lib/index.js';
 import {readFixtures} from './fixture.js';
 
 const noop = () => {};
@@ -59,7 +65,7 @@ test('putout: no vars', (t) => {
 });
 
 test('putout: no vars: nested', (t) => {
-    const result = putout.putout('');
+    const result = putout('');
     
     const expected = {
         code: '\n',
@@ -519,16 +525,16 @@ test('putout: isJSX: disabled', (t) => {
 });
 
 test('putout: transform', (t) => {
-    const ast = putout.parse(fixture.comment);
+    const ast = parse(fixture.comment);
     
-    putout.transform(ast, fixture.comment, {
+    transform(ast, fixture.comment, {
         rules: {
             'nodejs/convert-commonjs-to-esm': 'on',
         },
         plugins: ['nodejs'],
     });
     
-    const result = putout.print(ast);
+    const result = print(ast);
     const expected = fixture.commentFix;
     
     t.deepEqual(result, expected);
@@ -536,7 +542,7 @@ test('putout: transform', (t) => {
 });
 
 test('putout: plugin: no options (find, push)', (t) => {
-    const ast = putout.parse('var id = 5');
+    const ast = parse('var id = 5');
     
     const plugin = {
         report: () => 'Identifier found',
@@ -549,7 +555,7 @@ test('putout: plugin: no options (find, push)', (t) => {
         },
     };
     
-    const places = putout.findPlaces(ast, fixture.comment, {
+    const places = findPlaces(ast, fixture.comment, {
         plugins: [{
             'find/push': plugin,
         }],
@@ -569,7 +575,7 @@ test('putout: plugin: no options (find, push)', (t) => {
 });
 
 test('putout: plugin: options', (t) => {
-    const ast = putout.parse('var id = 5');
+    const ast = parse('var id = 5');
     
     const plugin = {
         report: () => 'Identifier found',
@@ -585,7 +591,7 @@ test('putout: plugin: options', (t) => {
         },
     };
     
-    const places = putout.findPlaces(ast, fixture.comment, {
+    const places = findPlaces(ast, fixture.comment, {
         rules: {
             'find/push': [true, {
                 ignore: true,
@@ -603,7 +609,7 @@ test('putout: plugin: options', (t) => {
 });
 
 test('putout: plugin: options: off', (t) => {
-    const ast = putout.parse('var id = 5');
+    const ast = parse('var id = 5');
     
     const plugin = {
         report: () => 'Identifier found',
@@ -619,7 +625,7 @@ test('putout: plugin: options: off', (t) => {
         },
     };
     
-    const places = putout.findPlaces(ast, fixture.comment, {
+    const places = findPlaces(ast, fixture.comment, {
         rules: {
             'find/push': ['off', {}],
         },

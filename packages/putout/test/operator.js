@@ -1,15 +1,14 @@
 import montag from 'montag';
 import test from 'supertape';
-import putout from '../lib/putout.js';
+import {
+    putout,
+    operator,
+    traverse,
+    parse,
+} from '../lib/index.js';
 
 const {keys} = Object;
 const {stringify} = JSON;
-
-const {
-    operator,
-    parse,
-    traverse,
-} = putout;
 
 test('putout: operator: compare', (t) => {
     const result = operator.compare('const a = {}', 'const __ = {}');

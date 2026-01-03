@@ -1,6 +1,6 @@
 import {readFileSync} from 'node:fs';
 import test from 'supertape';
-import {transform, findPlaces} from '../lib/putout.js';
+import {transform, findPlaces} from '../lib/index.js';
 
 const {parse} = JSON;
 
