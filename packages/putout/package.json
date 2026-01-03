@@ -8,8 +8,8 @@
   "main": "./lib/putout.js",
   "exports": {
     ".": {
-      "require": "./lib/putout.cjs",
-      "import": "./lib/putout.js"
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.js"
     },
     "./parse-error": "./lib/parse-error.js",
     "./parse-options": "./lib/parse-options/index.js",

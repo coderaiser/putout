@@ -1,5 +1,5 @@
 import test from 'supertape';
-import putout from './putout.js';
+import {putout, parse} from './index.js';
 
 test('putout: esm', (t) => {
     const {code} = putout('const a = 5', {
@@ -11,7 +11,7 @@ test('putout: esm', (t) => {
 });
 
 test('putout: methods', (t) => {
-    const ast = putout.parse('const a = 5');
+    const ast = parse('const a = 5');
     
     t.ok(ast);
     t.end();

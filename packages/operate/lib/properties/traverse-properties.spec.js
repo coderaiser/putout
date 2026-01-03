@@ -1,17 +1,18 @@
 'use strict';
 
 const {once} = require('node:events');
-const putout = require('putout');
 const montag = require('montag');
 const test = require('supertape');
 const {createProgress} = require('@putout/engine-runner/progress');
 
-const {traverseProperties} = require('./traverse-properties');
 const {
     parse,
     template,
     traverse,
-} = putout;
+    putout,
+} = require('putout');
+
+const {traverseProperties} = require('./traverse-properties');
 
 test('operate: traverse-properties', (t) => {
     const object = template.ast('x({"a": "b"})');

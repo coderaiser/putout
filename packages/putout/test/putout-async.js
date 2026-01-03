@@ -5,7 +5,7 @@ import {
     putoutAsync,
     transformAsync,
     findPlacesAsync,
-} from '../lib/putout.js';
+} from '../lib/index.js';
 
 test('putout: exports: putoutAsync', async (t) => {
     const source = 'for (const a of b.entries()) {}';
