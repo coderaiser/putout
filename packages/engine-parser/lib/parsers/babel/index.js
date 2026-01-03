@@ -1,15 +1,12 @@
-'use strict';
+import {parse as babelParse} from '@putout/babel';
+import plugins from './plugins.js';
+import * as options from './options.js';
 
-const once = require('once');
-
-const plugins = require('./plugins');
-const options = require('./options');
 const {assign} = Object;
 const getFlow = (a) => !a.indexOf('// @flow');
 const clean = (a) => a.filter(Boolean);
-const initBabel = once(() => require('@putout/babel'));
 
-module.exports.parse = function babelParse(source, overrides) {
+export const parse = (source, overrides) => {
     const {
         sourceFileName,
         isTS,
@@ -19,7 +16,6 @@ module.exports.parse = function babelParse(source, overrides) {
         printer,
     } = overrides;
     
-    const {parse} = initBabel();
     const parserOptions = {
         sourceFileName,
         sourceType: 'module',
@@ -41,7 +37,7 @@ module.exports.parse = function babelParse(source, overrides) {
             tokens: true,
         });
     
-    const ast = parse(source, parserOptions);
+    const ast = babelParse(source, parserOptions);
     
     ast.program.extra.__putout_printer = printer;
     return ast;

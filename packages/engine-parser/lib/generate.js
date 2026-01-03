@@ -1,9 +1,7 @@
-'use strict';
+import {generate as babelGenerate} from '@putout/babel';
 
-const {generate} = require('@putout/babel');
-
-module.exports = (node, options, sourceMaps) => {
-    return generate(node, {
+export const generate = (node, options, sourceMaps) => {
+    return babelGenerate(node, {
         comments: false,
         ...options,
     }, sourceMaps);

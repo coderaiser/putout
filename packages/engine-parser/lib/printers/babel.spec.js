@@ -1,13 +1,10 @@
-'use strict';
-
-const {test} = require('supertape');
-const montag = require('montag');
-
-const {
+import {test} from 'supertape';
+import montag from 'montag';
+import {
     parse,
     print,
     transform,
-} = require('putout');
+} from 'putout';
 
 test('putout: parser: print: printer: babel: preserve format', (t) => {
     const source = montag`

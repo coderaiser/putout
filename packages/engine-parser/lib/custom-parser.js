@@ -1,19 +1,19 @@
-'use strict';
+import module from 'node:module';
+import * as acorn from './parsers/acorn.cjs';
+import * as babel from './parsers/babel/index.js';
+import * as espree from './parsers/espree.cjs';
+import * as esprima from './parsers/esprima.cjs';
+import * as tenko from './parsers/tenko.cjs';
+import * as hermes from './parsers/hermes.cjs';
+import {secondChance} from './second-chance.js';
 
-const acorn = require('./parsers/acorn');
-const babel = require('./parsers/babel');
-const espree = require('./parsers/espree');
-const esprima = require('./parsers/esprima');
-const tenko = require('./parsers/tenko');
-const hermes = require('./parsers/hermes');
-const secondChance = require('./second-chance');
 const isObject = (a) => typeof a === 'object';
 
 const MESSAGES = [
     'has already been declared',
 ];
 
-module.exports = (source, parser, {isTS, isJSX, printer}) => {
+export default (source, parser, {isTS, isJSX, printer}) => {
     const options = {
         parser,
         printer,
@@ -67,6 +67,8 @@ function customParse(source, {parser, printer, isTS, isJSX, isRecovery}) {
     
     if (parser === 'hermes')
         return hermes.parse(source);
+    
+    const require = module.createRequire(import.meta.url);
     
     return require(parser).parse(source);
 }

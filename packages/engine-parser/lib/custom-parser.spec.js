@@ -1,9 +1,7 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-const {tryCatch} = require('try-catch');
-const babel = require('./parsers/babel');
-const customParser = require('./custom-parser');
+import {test, stub} from 'supertape';
+import {tryCatch} from 'try-catch';
+import * as babel from './parsers/babel/index.js';
+import customParser from './custom-parser.js';
 
 test('putout: parser: custom parser: object', (t) => {
     const source = 'hello';

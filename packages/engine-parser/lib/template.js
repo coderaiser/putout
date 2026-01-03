@@ -1,9 +1,14 @@
-'use strict';
+import {
+    types,
+    template as babelTemplate,
+} from '@putout/babel';
+import nano from 'nano-memoize';
+import plugins from './parsers/babel/plugins.js';
+import * as options from './parsers/babel/options.js';
 
-const {types, template} = require('@putout/babel');
-const {nanomemoize} = require('nano-memoize');
-const plugins = require('./parsers/babel/plugins');
-const options = require('./parsers/babel/options');
+const {
+    nanomemoize = nano,
+} = nano;
 
 const defaults = {
     ...options,
@@ -29,8 +34,8 @@ const extractExpression = (a) => {
     return a;
 };
 
-module.exports = nanomemoize((value, options) => {
-    const fn = template(value, {
+export const template = nanomemoize((value, options) => {
+    const fn = babelTemplate(value, {
         ...defaults,
         ...options,
     });
@@ -41,8 +46,10 @@ module.exports = nanomemoize((value, options) => {
     };
 });
 
-module.exports.ast = nanomemoize((value, options) => {
-    const result = template.ast(value, {
+template.extractExpression = extractExpression;
+
+template.ast = nanomemoize((value, options) => {
+    const result = babelTemplate.ast(value, {
         ...defaults,
         ...options,
     });
@@ -50,8 +57,8 @@ module.exports.ast = nanomemoize((value, options) => {
     return extractExpression(result);
 });
 
-module.exports.program = nanomemoize((value, options) => {
-    const result = template.program(value, {
+template.program = nanomemoize((value, options) => {
+    const result = babelTemplate.program(value, {
         ...defaults,
         ...options,
     });
@@ -59,8 +66,8 @@ module.exports.program = nanomemoize((value, options) => {
     return result;
 });
 
-module.exports.program.ast = nanomemoize((value, options) => {
-    const result = template.program.ast(value, {
+template.program.ast = nanomemoize((value, options) => {
+    const result = babelTemplate.program.ast(value, {
         ...defaults,
         ...options,
     });
@@ -68,13 +75,11 @@ module.exports.program.ast = nanomemoize((value, options) => {
     return result;
 });
 
-module.exports.ast.fresh = (value, options) => {
-    const result = template.ast(value, {
+template.ast.fresh = (value, options) => {
+    const result = babelTemplate.ast(value, {
         ...defaults,
         ...options,
     });
     
     return extractExpression(result);
 };
-
-module.exports.extractExpression = extractExpression;

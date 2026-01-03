@@ -1,8 +1,6 @@
-'use strict';
-
-const {test} = require('supertape');
-const montag = require('montag');
-const putout = require('putout');
+import {test} from 'supertape';
+import montag from 'montag';
+import putout from 'putout';
 
 const {parse, print} = putout;
 

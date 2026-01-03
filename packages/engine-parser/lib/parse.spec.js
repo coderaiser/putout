@@ -1,13 +1,10 @@
-'use strict';
-
-const test = require('supertape');
-const montag = require('montag');
-const {tryCatch} = require('try-catch');
-
-const parse = require('./parse');
-const generate = require('./generate');
-const babel = require('./parsers/babel');
-const print = require('./print');
+import test from 'supertape';
+import montag from 'montag';
+import {tryCatch} from 'try-catch';
+import {parse} from './parse.js';
+import {generate} from './generate.js';
+import * as babel from './parsers/babel/index.js';
+import {print} from './print.js';
 
 test('putout: engine-parser: parse: await without async', (t) => {
     const source = `const hello = () => await world()`;

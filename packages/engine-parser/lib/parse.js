@@ -1,12 +1,11 @@
-'use strict';
+import {estreeToBabel} from 'estree-to-babel';
+import customParser from './custom-parser.js';
+import {tryThrowWithReason} from './try-throw-with-reason.js';
 
-const {estreeToBabel} = require('estree-to-babel');
-const customParser = require('./custom-parser');
-const {tryThrowWithReason} = require('./try-throw-with-reason');
 const {assign} = Object;
 const isString = (a) => typeof a === 'string';
 
-module.exports = (source, options) => {
+export const parse = (source, options) => {
     check(source);
     
     const {

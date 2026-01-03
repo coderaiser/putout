@@ -1,7 +1,3 @@
-'use strict';
-
-module.exports = {
-    allowReturnOutsideFunction: true,
-    allowUndeclaredExports: true,
-    allowImportExportEverywhere: true,
-};
+export const allowReturnOutsideFunction = true;
+export const allowUndeclaredExports = true;
+export const allowImportExportEverywhere = true;

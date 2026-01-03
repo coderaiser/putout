@@ -82,8 +82,8 @@ To generate sourcemap using babel generator, you should use babel parser before.
 This is low level transformation, because `Babel` doesn't preserve any formatting.
 
 ```js
-const {generate} = require('@putout/engine-parser');
-const {parse} = require('@putout/engine-parser/babel');
+import {generate} from '@putout/engine-parser';
+import {parse} from '@putout/engine-parser/babel';
 
 const ast = parse(source, {
     sourceFilename: 'hello.js',
@@ -103,7 +103,7 @@ generate(ast, {sourceMaps: true}, {
 ## Example
 
 ```js
-const {parse} = require('@putout/engine-parser');
+import {parse} from '@putout/engine-parser';
 const parser = 'acorn';
 
 const code = parse('var t = "hello"', {

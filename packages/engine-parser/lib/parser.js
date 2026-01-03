@@ -1,11 +1,5 @@
-'use strict';
+export * from './print.js';
+export * from './parse.js';
+export * from './generate.js';
+export * from './template.js';
 
-const print = require('./print');
-const parse = require('./parse');
-const generate = require('./generate');
-const template = require('./template');
-
-module.exports.print = print;
-module.exports.parse = parse;
-module.exports.generate = generate;
-module.exports.template = template;

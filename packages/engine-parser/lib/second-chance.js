@@ -1,8 +1,6 @@
-'use strict';
+import {tryCatch} from 'try-catch';
 
-const {tryCatch} = require('try-catch');
-
-module.exports = (fn, source, messages, args) => {
+export const secondChance = (fn, source, messages, args) => {
     const [a, ...others] = args;
     const [errorA, resultA] = tryCatch(fn, source, a);
     

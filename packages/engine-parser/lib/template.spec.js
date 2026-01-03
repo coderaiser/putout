@@ -1,9 +1,7 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-const test = require('supertape');
-const {types} = require('@putout/babel');
-const template = require('./template');
+import {tryCatch} from 'try-catch';
+import test from 'supertape';
+import {types} from '@putout/babel';
+import {template} from './template.js';
 
 const {identifier, stringLiteral} = types;
 

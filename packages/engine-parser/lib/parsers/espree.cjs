@@ -1,9 +1,10 @@
 'use strict';
 
 const once = require('once');
+
 const initEspree = once(() => require('espree'));
 
-module.exports.parse = function espreeParse(source) {
+module.exports.parse = (source) => {
     const {parse} = initEspree();
     const preventUsingEsprima = true;
     

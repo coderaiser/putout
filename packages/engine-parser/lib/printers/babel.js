@@ -1,13 +1,11 @@
-'use strict';
-
-const {generate} = require('@putout/babel');
-const align = require('align-spaces');
+import {generate} from '@putout/babel';
+import align from 'align-spaces';
 
 const defaultOptions = {
     alignSpaces: true,
 };
 
-module.exports.print = (ast, options) => {
+export const print = (ast, options) => {
     const {source, alignSpaces} = {
         ...defaultOptions,
         ...options,

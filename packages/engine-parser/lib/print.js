@@ -1,13 +1,11 @@
-'use strict';
-
-const putoutPrinter = require('@putout/printer');
-const babelPrinter = require('./printers/babel');
+import putoutPrinter from '@putout/printer';
+import * as babelPrinter from './printers/babel.js';
 
 const {isArray} = Array;
 
 const maybeArray = (a) => isArray(a) ? a : [a, {}];
 
-module.exports = (ast, options = {}) => {
+export const print = (ast, options = {}) => {
     const [printer = 'putout', printerOptions] = maybeArray(options.printer);
     
     if (printer === 'babel')

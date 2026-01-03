@@ -1,7 +1,7 @@
 {
   "name": "@putout/engine-parser",
   "version": "15.0.4",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout parser",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/engine-parser#readme",
@@ -11,12 +11,12 @@
   "changelog": false,
   "exports": {
     ".": "./lib/parser.js",
-    "./acorn": "./lib/parsers/acorn.js",
+    "./acorn": "./lib/parsers/acorn.cjs",
     "./babel": "./lib/parsers/babel/index.js",
     "./babel/options": "./lib/parsers/babel/options.js",
     "./babel/plugins": "./lib/parsers/babel/plugins.js",
-    "./espree": "./lib/parsers/espree.js",
-    "./esprima": "./lib/parsers/esprima.js"
+    "./espree": "./lib/parsers/espree.cjs",
+    "./esprima": "./lib/parsers/esprima.cjs"
   },
   "repository": {
     "type": "git",

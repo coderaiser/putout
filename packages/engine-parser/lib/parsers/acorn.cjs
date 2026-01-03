@@ -11,7 +11,7 @@ const initAcorn = once(() => {
     return Parser.extend(typescript(), stage3);
 });
 
-module.exports.parse = function acornParse(source) {
+module.exports.parse = (source) => {
     const parser = initAcorn();
     const options = {
         locations: true,

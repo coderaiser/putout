@@ -1,17 +1,14 @@
-'use strict';
-
-const montag = require('montag');
-const test = require('supertape');
-const putout = require('putout');
-const {tryCatch} = require('try-catch');
-
-const {
+import montag from 'montag';
+import test from 'supertape';
+import putout from 'putout';
+import {tryCatch} from 'try-catch';
+import {
     parse,
     generate,
     print,
-} = require('..');
+} from '../lib/parser.js';
+import {readFixtures} from './fixture.js';
 
-const {readFixtures} = require('./fixture');
 const {traverse} = putout;
 
 const fixture = readFixtures([
@@ -235,9 +232,9 @@ test('putout: parser: decorator-legacy', (t) => {
     t.end();
 });
 
-test('putout: parser: jsx', (t) => {
+test('putout: parser: jsx', async (t) => {
     const source = fixture.jsxTemplate;
-    const babel = require('../lib/parsers/babel');
+    const babel = await import('../lib/parsers/babel/index.js');
     const node = babel.parse(source, {
         isJSX: true,
         printer: 'babel',
@@ -388,49 +385,49 @@ test('putout: parser: babel: destructuring private', (t) => {
     t.end();
 });
 
-test('putout: parser: babel/options', (t) => {
-    const result = require('@putout/engine-parser/babel/options');
-    const expected = require('../lib/parsers/babel/options');
+test('putout: parser: babel/options', async (t) => {
+    const result = await import('@putout/engine-parser/babel/options');
+    const expected = await import('../lib/parsers/babel/options.js');
     
     t.equal(result, expected);
     t.end();
 });
 
-test('putout: parser: babel/plugins', (t) => {
-    const result = require('@putout/engine-parser/babel/plugins');
-    const expected = require('../lib/parsers/babel/plugins');
+test('putout: parser: babel/plugins', async (t) => {
+    const result = await import('@putout/engine-parser/babel/plugins');
+    const expected = await import('../lib/parsers/babel/plugins.js');
     
     t.equal(result, expected);
     t.end();
 });
 
-test('putout: parser: babel', (t) => {
-    const result = require('@putout/engine-parser/babel');
-    const expected = require('../lib/parsers/babel');
+test('putout: parser: babel', async (t) => {
+    const result = await import('@putout/engine-parser/babel');
+    const expected = await import('../lib/parsers/babel/index.js');
     
     t.equal(result, expected);
     t.end();
 });
 
-test('putout: parser: acorn', (t) => {
-    const result = require('@putout/engine-parser/acorn');
-    const expected = require('../lib/parsers/acorn');
+test('putout: parser: acorn', async (t) => {
+    const result = await import('@putout/engine-parser/acorn');
+    const expected = await import('../lib/parsers/acorn.cjs');
     
     t.equal(result, expected);
     t.end();
 });
 
-test('putout: parser: espree', (t) => {
-    const result = require('@putout/engine-parser/espree');
-    const expected = require('../lib/parsers/espree');
+test('putout: parser: espree', async (t) => {
+    const result = await import('@putout/engine-parser/espree');
+    const expected = await import('../lib/parsers/espree.cjs');
     
     t.equal(result, expected);
     t.end();
 });
 
-test('putout: parser: esprima', (t) => {
-    const result = require('@putout/engine-parser/esprima');
-    const expected = require('../lib/parsers/esprima');
+test('putout: parser: esprima', async (t) => {
+    const result = await import('@putout/engine-parser/esprima');
+    const expected = await import('../lib/parsers/esprima.cjs');
     
     t.equal(result, expected);
     t.end();

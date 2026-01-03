@@ -1,10 +1,11 @@
-'use strict';
+import {fileURLToPath} from 'node:url';
+import {dirname} from 'node:path';
+import test from 'supertape';
+import putout from 'putout';
+import {readFixtures} from '../../test/fixture.js';
 
-const test = require('supertape');
-const putout = require('putout');
-
-const {readFixtures} = require('../../test/fixture');
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const fixture = readFixtures(__dirname, ['hermes', 'hermes-fix']);
 
 test('putout: parser: hermes', (t) => {
