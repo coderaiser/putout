@@ -3,7 +3,7 @@ import {run} from 'madrun';
 export default {
     'test': () => `tape test/*.js 'lib/**/*.spec.js' 'rules/**/*.spec.js'`,
     'watch:test': async () => `nodemon -w lib -w test -x "${await run('test')}"`,
-    'lint': () => `putout . --rulesdir rules`,
+    'lint': () => `putout . --rulesdir transforms`,
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),

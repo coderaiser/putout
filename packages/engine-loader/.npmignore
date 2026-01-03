@@ -6,4 +6,5 @@ yarn-error.log
 coverage
 *.config.*
 
-./rules/*
+fixture
+transforms
