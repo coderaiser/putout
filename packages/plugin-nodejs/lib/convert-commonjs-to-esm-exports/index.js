@@ -110,6 +110,7 @@ function addExportToBinding(name, path) {
         const specifiers = [
             exportNamespaceSpecifier(local),
         ];
+        
         const exportNode = exportNamedDeclaration(null, specifiers, source);
         
         replaceWith(bindingPath.parentPath, exportNode);
