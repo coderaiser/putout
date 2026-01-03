@@ -176,3 +176,13 @@ test('plugin-convert-commonjs-to-esm: require: transform: expression-declared', 
     t.transform('expression-declared');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: require: transform: export-require', (t) => {
+    t.transform('export-require');
+    t.end();
+});
+
+test('plugin-convert-commonjs-to-esm: require: no report: export-require-references', (t) => {
+    t.noReport('export-require-references');
+    t.end();
+});

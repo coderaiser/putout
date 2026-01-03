@@ -39,6 +39,12 @@ const createFnDeclaration = template('const NAME1 = FN(NAME2)');
 const isPackage = ({value}) => /package(\.json)?$/.test(value);
 
 export const match = () => ({
+    'export const __a = require("__b")': ({__a}, path) => {
+        if (!isIdentifier(__a))
+            return true;
+        
+        return path.scope.bindings[__a.name].references === 1;
+    },
     'const __a = require("__b").default': (vars, path) => {
         if (isProgram(path.parentPath))
             return true;
@@ -158,6 +164,12 @@ export const replace = () => ({
             import ${name} from "__b";
             const __a = ${name}.__c(__args);
         }`;
+    },
+    'export const __a = require("__b")': ({__a}) => {
+        if (isObjectPattern(__a))
+            return 'export __a from "__b"';
+        
+        return 'export * as __a from "__b"';
     },
 });
 
