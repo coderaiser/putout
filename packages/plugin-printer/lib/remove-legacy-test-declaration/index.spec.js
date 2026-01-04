@@ -31,3 +31,8 @@ test('printer: remove-legacy-test-declaration: no report: create-test', (t) => {
     t.noReport('create-test');
     t.end();
 });
+
+test('printer: remove-legacy-test-declaration: no report: esm', (t) => {
+    t.noReport('esm');
+    t.end();
+});

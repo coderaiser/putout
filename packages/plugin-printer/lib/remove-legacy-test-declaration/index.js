@@ -1,7 +1,6 @@
 import {operator} from 'putout';
 
-const {traverse} = operator;
-
+const {compare} = operator;
 const EXTEND = `
     const test = extend({
         print: printExtension,
@@ -25,13 +24,15 @@ export const replace = () => ({
 });
 
 function check(vars, path) {
-    let is = true;
     const programPath = path.scope.getProgramParent().path;
     
-    traverse(programPath, {
-        'module.exports.createTest = (__args) => __body': () => {
-            is = false;
-        },
-    });
-    return is;
+    for (const current of programPath.node.body) {
+        if (compare(current, 'module.exports.createTest = (__args) => __body'))
+            return false;
+        
+        if (compare(current, 'export const createTest = (__args) => __body'))
+            return false;
+    }
+    
+    return true;
 }
