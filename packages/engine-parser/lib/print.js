@@ -1,5 +1,5 @@
-import putoutPrinter from '@putout/printer';
-import * as babelPrinter from './printers/babel.js';
+import {print as putoutPrint} from '@putout/printer';
+import {print as babelPrint} from './printers/babel.js';
 
 const {isArray} = Array;
 
@@ -9,10 +9,10 @@ export const print = (ast, options = {}) => {
     const [printer = 'putout', printerOptions] = maybeArray(options.printer);
     
     if (printer === 'babel')
-        return babelPrinter.print(ast, {
+        return babelPrint(ast, {
             ...options,
             ...printerOptions,
         });
     
-    return putoutPrinter.print(ast, printerOptions);
+    return putoutPrint(ast, printerOptions);
 };

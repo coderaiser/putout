@@ -1,8 +1,10 @@
 import {test} from 'supertape';
 import montag from 'montag';
-import putout from 'putout';
-
-const {parse, print} = putout;
+import {
+    parse,
+    print,
+    putout,
+} from 'putout';
 
 test('putout: parser: print: long lines', (t) => {
     const source = montag`

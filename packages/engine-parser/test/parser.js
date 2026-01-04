@@ -1,6 +1,6 @@
 import montag from 'montag';
 import test from 'supertape';
-import putout from 'putout';
+import {putout, traverse} from 'putout';
 import {tryCatch} from 'try-catch';
 import {
     parse,
@@ -8,8 +8,6 @@ import {
     print,
 } from '../lib/parser.js';
 import {readFixtures} from './fixture.js';
-
-const {traverse} = putout;
 
 const fixture = readFixtures([
     'export-default-declaration',
