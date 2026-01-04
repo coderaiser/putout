@@ -1,3 +1,8 @@
+2026.01.04, v41.5.3
+
+fix:
+- 9548f79ee putout: keep previous behaviour when putout has all the info
+
 2026.01.04, v41.5.2
 
 fix:
