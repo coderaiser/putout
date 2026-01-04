@@ -1,11 +1,8 @@
-'use strict';
-
-const test = require('supertape');
-const putout = require('putout');
-const montag = require('montag');
-const nodejs = require('@putout/plugin-nodejs');
-
-const {declare} = require('./declare.js');
+import test from 'supertape';
+import putout from 'putout';
+import montag from 'montag';
+import * as nodejs from '@putout/plugin-nodejs';
+import {declare} from './declare.js';
 
 test('putout: operator: declare: declare', (t) => {
     const declarations = {

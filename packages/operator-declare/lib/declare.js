@@ -1,18 +1,13 @@
-'use strict';
-
-const {template} = require('@putout/engine-parser');
-const {isESM, insertAfter} = require('@putout/operate');
-
-const {compare} = require('@putout/compare');
-
-const {types} = require('@putout/babel');
-
-const {
+import {template} from '@putout/engine-parser';
+import {isESM, insertAfter} from '@putout/operate';
+import {compare} from '@putout/compare';
+import {types} from '@putout/babel';
+import {
     addDeclarationForESLint,
     checkDeclarationForESLint,
     getModuleType,
     setModuleType,
-} = require('./record');
+} from './record.js';
 
 const {
     isImportDeclaration,
@@ -45,7 +40,7 @@ const TS_EXCLUDE = [
     'TSQualifiedName',
 ];
 
-module.exports.declare = (declarations) => ({
+export const declare = (declarations) => ({
     report,
     include,
     fix: fix(declarations),

@@ -1,25 +1,23 @@
-'use strict';
-
 const prefix = '__putout_declare';
 const getProgramParentPath = (path) => path.scope.getProgramParent().path;
 
 const maybeInit = (a, b) => b[a] = b[a] || {};
 
-module.exports.checkDeclarationForESLint = (name, path) => {
+export const checkDeclarationForESLint = (name, path) => {
     const programPath = getProgramParentPath(path);
     maybeInit(prefix, programPath);
     
     return programPath[prefix][name];
 };
 
-module.exports.addDeclarationForESLint = (name, path) => {
+export const addDeclarationForESLint = (name, path) => {
     const programPath = getProgramParentPath(path);
     maybeInit(prefix, programPath);
     
     programPath[prefix][name] = true;
 };
 
-module.exports.setModuleType = (type, path) => {
+export const setModuleType = (type, path) => {
     const programPath = getProgramParentPath(path);
     maybeInit(prefix, programPath);
     
@@ -28,7 +26,7 @@ module.exports.setModuleType = (type, path) => {
     return type;
 };
 
-module.exports.getModuleType = (path) => {
+export const getModuleType = (path) => {
     const programPath = getProgramParentPath(path);
     maybeInit(prefix, programPath);
     
