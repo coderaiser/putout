@@ -1,14 +1,11 @@
-'use strict';
+import {types} from '@putout/babel';
 
-const {types} = require('@putout/babel');
 const {
     parenthesizedExpression,
     tsParenthesizedType,
 } = types;
 
-module.exports.hasParens = hasParens;
-
-module.exports.addParens = (path) => {
+export const addParens = (path) => {
     const printer = getPrinter(path);
     
     if (hasParens(path, printer))
@@ -33,7 +30,7 @@ module.exports.addParens = (path) => {
     return path;
 };
 
-module.exports.removeParens = (path) => {
+export const removeParens = (path) => {
     const printer = getPrinter(path);
     
     if (!hasParens(path, printer))
@@ -57,7 +54,7 @@ function getPrinter(path) {
     return programPath.node.extra.__putout_printer;
 }
 
-function hasParens(path, printer = getPrinter(path)) {
+export function hasParens(path, printer = getPrinter(path)) {
     if (printer !== 'babel')
         return path.node.extra?.parenthesized;
     

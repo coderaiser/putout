@@ -1,18 +1,14 @@
-'use strict';
-
-const test = require('supertape');
-
-const {
+import test from 'supertape';
+import {
     parse,
     print,
     traverse,
-} = require('putout');
-
-const {
+} from 'putout';
+import {
     addParens,
     removeParens,
     hasParens,
-} = require('./parens');
+} from './parens.js';
 
 test('putout: operator: parens: removeParens: putout', (t) => {
     const source = '(b = 3)';
