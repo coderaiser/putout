@@ -47,7 +47,7 @@
     "montag": "^1.0.0",
     "nodemon": "^3.0.1",
     "putout": "*",
-    "supertape": "^11.0.3"
+    "supertape": "^12.0.0"
   },
   "peerDependencies": {
     "eslint": ">=9"
