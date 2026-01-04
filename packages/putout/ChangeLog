@@ -1,3 +1,21 @@
+2026.01.04, v41.5.1
+
+feature:
+- 84dfaf5fc putout: @putout/operator-parens v4.0.0
+- a912ca593 @putout/operator-parens: migrate to ESM
+- a2f4ba9bd @putout/plugin-nodejs: convert-commonjs-to-esm: exports: value as function
+- e7904d5d9 @putout/plugin-nodejs: convert-commonjs-to-esm: ObjectMethod: improve support
+- f4b0c953d @putout/engine-parser: @putout/printer v17.0.0
+- a9f532346 @putout/plugin-printer: drop support of 🐊 < 41
+- de6a1c375 @putout/plugin-printer: remove-legacy-test-declaration: esm
+- 5769d9b98 @putout/plugin-nodejs: convert-commonjs-to-esm: exports: ObjectMethod: exclude
+- 439a36dee @putout/plugin-nodejs: convert-commonjs-to-esm: exports: exclude spread
+- 394460485 eslint-plugin-putout: globals v17.0.0
+- e0fec513f @putout/eslint-config: globals v17.0.0
+- 3590e41cf @putout/processor-svelte: drop support of 🐊 < 41
+- 1631b0450 eslint-plugin-putout: migrate putout to ESM
+- 665cd60ea putout: migrate to ESM
+
 2026.01.03, v41.5.0
 
 feature:
