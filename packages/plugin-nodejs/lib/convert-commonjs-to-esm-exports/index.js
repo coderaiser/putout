@@ -1,6 +1,11 @@
-import {types, operator} from 'putout';
+import {
+    types,
+    operator,
+    template,
+} from 'putout';
 
 const {
+    arrowFunctionExpression,
     exportSpecifier,
     isIdentifier,
     isImportSpecifier,
@@ -14,6 +19,7 @@ const {
 } = types;
 
 const {replaceWith} = operator;
+const createFn = template('export const NAME = BODY');
 
 export const report = () => `Use 'ESM' instead of 'CommonJS'`;
 
@@ -29,9 +35,6 @@ export const match = () => ({
         
         for (const property of __a.properties) {
             if (isSpreadElement(property))
-                return false;
-            
-            if (isObjectMethod(property))
                 return false;
         }
         
@@ -63,14 +66,27 @@ function createDeclaration(name, value) {
 }
 
 export const replace = () => ({
-    'module.exports = __a': ({__a}) => {
+    'module.exports = __a': ({__a}, path) => {
         if (!isObjectExpression(__a) || isStringLiteral(__a.properties[0].key))
             return 'export default __a';
         
         const result = ['export {'];
         const declarations = [];
+        const programPath = path.scope.getProgramParent().path;
         
-        for (const {key, value} of __a.properties) {
+        for (const [index, property] of __a.properties.entries()) {
+            const {key, value} = property;
+            
+            if (isObjectMethod(property)) {
+                declareFunction({
+                    object: __a,
+                    property,
+                    index,
+                    programPath,
+                });
+                continue;
+            }
+            
             if (!isIdentifier(value)) {
                 declarations.push(createDeclaration(key.name, value.value));
                 continue;
@@ -145,4 +161,15 @@ function parseBindingPath(path) {
         return path.parentPath;
     
     return path;
+}
+
+function declareFunction({index, property, object, programPath}) {
+    const {key, body} = property;
+    const fnNode = createFn({
+        NAME: key,
+        BODY: arrowFunctionExpression([], body),
+    });
+    
+    delete object.properties[index];
+    programPath.node.body.push(fnNode);
 }
