@@ -5,7 +5,6 @@ import {
 } from 'putout';
 
 const {
-    arrowFunctionExpression,
     exportSpecifier,
     isIdentifier,
     isImportSpecifier,
@@ -16,10 +15,11 @@ const {
     exportNamespaceSpecifier,
     isSpreadElement,
     isObjectMethod,
+    isFunction,
 } = types;
 
 const {replaceWith} = operator;
-const createFn = template('export const NAME = BODY');
+const createFn = template('export const NAME = (PARAMS) => BODY');
 
 export const report = () => `Use 'ESM' instead of 'CommonJS'`;
 
@@ -78,11 +78,29 @@ export const replace = () => ({
             const {key, value} = property;
             
             if (isObjectMethod(property)) {
+                const {params, body} = property;
+                
                 declareFunction({
                     object: __a,
                     property,
                     index,
                     programPath,
+                    params,
+                    body,
+                });
+                continue;
+            }
+            
+            if (isFunction(value)) {
+                const {params, body} = property.value;
+                
+                declareFunction({
+                    object: __a,
+                    property,
+                    index,
+                    programPath,
+                    params,
+                    body,
                 });
                 continue;
             }
@@ -163,11 +181,12 @@ function parseBindingPath(path) {
     return path;
 }
 
-function declareFunction({index, property, object, programPath}) {
-    const {key, body} = property;
+function declareFunction({index, property, object, params, body, programPath}) {
+    const {key} = property;
     const fnNode = createFn({
         NAME: key,
-        BODY: arrowFunctionExpression([], body),
+        PARAMS: params,
+        BODY: body,
     });
     
     delete object.properties[index];
