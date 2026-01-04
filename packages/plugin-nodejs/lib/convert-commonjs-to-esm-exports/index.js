@@ -9,6 +9,7 @@ const {
     isStringLiteral,
     isImportDefaultSpecifier,
     exportNamespaceSpecifier,
+    isSpreadElement,
 } = types;
 
 const {replaceWith} = operator;
@@ -21,6 +22,17 @@ export const exclude = () => [
 ];
 
 export const match = () => ({
+    'module.exports = __a': ({__a}) => {
+        if (!isObjectExpression(__a))
+            return true;
+        
+        for (const property of __a.properties) {
+            if (isSpreadElement(property))
+                return false;
+        }
+        
+        return true;
+    },
     'module.exports.__a = __b': ({__a, __b}, path) => {
         const {name} = __a;
         

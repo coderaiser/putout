@@ -99,3 +99,8 @@ test('plugin-convert-commonjs-to-esm: exports: no report: logical', (t) => {
     t.noReport('logical');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: exports: no report: spread', (t) => {
+    t.noReport('spread');
+    t.end();
+});
