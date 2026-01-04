@@ -380,6 +380,8 @@ const args = minimist({
 
 ### exports
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/39dd730c35e488db3e2cf8d4b4df0c5a/feb042a49539e6b4b2165558a1c636b705726c47).
+
 ### ❌ Example of incorrect code
 
 ```js
