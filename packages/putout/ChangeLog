@@ -1,3 +1,12 @@
+2026.01.04, v41.5.2
+
+fix:
+- 641cc8904 putout: rm unused cache
+
+feature:
+- b2fcbe29c putout: @putout/operator-jsx v3.0.0
+- 93db4b95d @putout/operator-jsx: migrate to ESM
+
 2026.01.04, v41.5.1
 
 feature:
