@@ -20,7 +20,6 @@ export const transform = (ast, source, opts) => {
     
     const {
         plugins: pluginNames,
-        cache,
         rules,
         fix,
         fixCount,
@@ -38,7 +37,6 @@ export const transform = (ast, source, opts) => {
     
     const plugins = loadPlugins({
         pluginNames,
-        cache,
         rules,
     });
     
@@ -62,7 +60,6 @@ export const transformAsync = async (ast, source, opts) => {
     
     const {
         plugins: pluginNames,
-        cache,
         rules,
         fix,
         fixCount,
@@ -80,7 +77,6 @@ export const transformAsync = async (ast, source, opts) => {
     
     const plugins = await loadPluginsAsync({
         pluginNames,
-        cache,
         rules,
     });
     
