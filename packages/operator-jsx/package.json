@@ -1,7 +1,7 @@
 {
   "name": "@putout/operator-jsx",
   "version": "2.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds methods that simplifies JSX transformations",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-jsx#readme",
@@ -51,7 +51,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"

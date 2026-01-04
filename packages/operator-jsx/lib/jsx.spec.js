@@ -1,16 +1,11 @@
-'use strict';
-
-const {test} = require('supertape');
-
-const {
+import {test} from 'supertape';
+import {
     template,
     operator,
     print,
-} = require('putout');
-
-const {tryCatch} = require('try-catch');
-
-const {
+} from 'putout';
+import {tryCatch} from 'try-catch';
+import {
     addClassName,
     addAttribute,
     removeClassName,
@@ -24,7 +19,7 @@ const {
     addAttributeValue,
     setAttributeValue,
     removeAttributeValue,
-} = require('./jsx.js');
+} from './jsx.js';
 
 const {traverse} = operator;
 

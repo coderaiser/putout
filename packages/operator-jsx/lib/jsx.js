@@ -1,7 +1,6 @@
-'use strict';
+import {setLiteralValue} from '@putout/operate';
+import {types} from '@putout/babel';
 
-const {setLiteralValue} = require('@putout/operate');
-const {types} = require('@putout/babel');
 const {
     isJSXElement,
     jsxAttribute,
@@ -11,7 +10,7 @@ const {
 
 const getNode = (a) => a.node || a;
 
-module.exports.hasTagName = (path, name) => {
+export const hasTagName = (path, name) => {
     const node = getNode(path);
     
     if (!isJSXElement(path))
@@ -20,7 +19,7 @@ module.exports.hasTagName = (path, name) => {
     return node.openingElement.name.name === name;
 };
 
-module.exports.getAttributePath = (path, name) => {
+export const getAttributePath = (path, name) => {
     const attributes = path.get('openingElement.attributes');
     
     for (const attr of attributes) {
@@ -31,8 +30,7 @@ module.exports.getAttributePath = (path, name) => {
     return null;
 };
 
-module.exports.getAttributeNode = getAttributeNode;
-function getAttributeNode(path, name) {
+export function getAttributeNode(path, name) {
     let result = null;
     const node = getNode(path);
     const {attributes} = node.openingElement;
@@ -47,8 +45,7 @@ function getAttributeNode(path, name) {
     return result;
 }
 
-module.exports.getAttributeValue = getAttributeValue;
-function getAttributeValue(path, attributeName) {
+export function getAttributeValue(path, attributeName) {
     const attribute = getAttributeNode(path, attributeName);
     
     if (!attribute)
@@ -57,8 +54,7 @@ function getAttributeValue(path, attributeName) {
     return attribute.value.value;
 }
 
-module.exports.addAttributeValue = addAttributeValue;
-function addAttributeValue(path, name, value) {
+export function addAttributeValue(path, name, value) {
     const attributeNode = getAttributeNode(path, name);
     
     if (!attributeNode)
@@ -70,8 +66,7 @@ function addAttributeValue(path, name, value) {
     setLiteralValue(attributeNode.value, `${attributeNode.value.value} ${value}`);
 }
 
-module.exports.addAttribute = addAttribute;
-function addAttribute(path, name, value) {
+export function addAttribute(path, name, value) {
     const node = getNode(path);
     let attributeNode = getAttributeNode(node, name);
     
@@ -81,8 +76,7 @@ function addAttribute(path, name, value) {
     }
 }
 
-module.exports.removeAttributeValue = removeAttributeValue;
-function removeAttributeValue(path, name, attributeValue) {
+export function removeAttributeValue(path, name, attributeValue) {
     if (!path)
         return;
     
@@ -101,7 +95,7 @@ function removeAttributeValue(path, name, attributeValue) {
     setLiteralValue(classAttribute.value, newValue);
 }
 
-module.exports.setAttributeValue = (path, name, value) => {
+export const setAttributeValue = (path, name, value) => {
     const attributeNode = getAttributeNode(path, name);
     
     if (!attributeNode)
@@ -110,30 +104,29 @@ module.exports.setAttributeValue = (path, name, value) => {
     setLiteralValue(attributeNode.value, value);
 };
 
-module.exports.addClassName = (path, name) => {
+export const addClassName = (path, name) => {
     addAttributeValue(path, 'className', name);
 };
 
-module.exports.getClassName = getClassName;
-function getClassName(path) {
+export function getClassName(path) {
     return getAttributeValue(path, 'className');
 }
 
-module.exports.removeClassName = (path, name) => {
+export const removeClassName = (path, name) => {
     removeAttributeValue(path, 'className', name);
 };
 
-module.exports.containsClassName = (path, className) => {
+export const containsClassName = (path, className) => {
     const classNameValue = getClassName(path);
     return classNameValue.includes(className);
 };
 
-module.exports.hasDataName = (path, value = '') => {
+export const hasDataName = (path, value = '') => {
     const attribute = getAttributeValue(path, 'data-name');
     return attribute === value;
 };
 
-module.exports.hasAttributeValue = (path, name, value = '') => {
+export const hasAttributeValue = (path, name, value = '') => {
     const attribute = getAttributeValue(path, name);
     return attribute === value;
 };
