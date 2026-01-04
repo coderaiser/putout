@@ -63,7 +63,7 @@ export default {
     'fresh:only:eslint': async () => await run(['lint:only:eslint', 'coverage']),
     'lint:oxlint': () => `oxlint .`,
     'lint': () => `putout . --raw --rulesdir rules`,
-    'prelint': () => `redlint fix`,
+    'prefresh': () => `redlint fix`,
     'lint:mark': () => 'putout **/*.md',
     'memory': async () => await run('lint:fresh', '-f memory'),
     'time': async () => await run('lint:fresh', '-f time'),
