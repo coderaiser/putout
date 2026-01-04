@@ -1,3 +1,11 @@
+2026.01.04, v41.5.4
+
+feature:
+- 2da471e53 @putout/engine-runner: @putout/operator-declare v16.0.0
+- 2fe8e9a77 putout: @putout/operator-declare v16.0.0
+- caa53bf86 @putout/operator-declare: migrate to ESM
+- f959d33aa root: supertape v12.0.0
+
 2026.01.04, v41.5.3
 
 fix:
