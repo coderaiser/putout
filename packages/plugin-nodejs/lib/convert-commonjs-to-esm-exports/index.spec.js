@@ -104,3 +104,8 @@ test('plugin-convert-commonjs-to-esm: exports: no report: spread', (t) => {
     t.noReport('spread');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: exports: no report: object-method', (t) => {
+    t.noReport('object-method');
+    t.end();
+});

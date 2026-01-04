@@ -10,6 +10,7 @@ const {
     isImportDefaultSpecifier,
     exportNamespaceSpecifier,
     isSpreadElement,
+    isObjectMethod,
 } = types;
 
 const {replaceWith} = operator;
@@ -28,6 +29,9 @@ export const match = () => ({
         
         for (const property of __a.properties) {
             if (isSpreadElement(property))
+                return false;
+            
+            if (isObjectMethod(property))
                 return false;
         }
         
