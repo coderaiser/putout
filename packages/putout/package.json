@@ -78,7 +78,7 @@
     "@putout/formatter-stream": "^6.0.0",
     "@putout/formatter-time": "^4.0.0",
     "@putout/operate": "^15.0.0",
-    "@putout/operator-add-args": "^13.0.0",
+    "@putout/operator-add-args": "^14.0.0",
     "@putout/operator-declare": "^16.0.0",
     "@putout/operator-filesystem": "^10.0.0",
     "@putout/operator-ignore": "^5.0.0",
