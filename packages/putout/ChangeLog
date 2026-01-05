@@ -1,3 +1,11 @@
+2026.01.05, v41.5.5
+
+feature:
+- c25c41421 putout: @putout/plugin-simplify-ternary v9.0.0
+- 5e525ece7 @putout/operator-rename-files: migrate to ESM
+- e4c37e099 @putout/plugin-simplify-ternary: drop support of 🐊 < 41
+- b2b414036 @putout/plugin-simplify-ternary: value: isUndefined
+
 2026.01.04, v41.5.4
 
 feature:
