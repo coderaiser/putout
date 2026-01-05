@@ -1,20 +1,16 @@
-'use strict';
-
-const test = require('supertape');
-const {
+import test from 'supertape';
+import {
     __filesystem,
     toJS,
     fromJS,
-} = require('@putout/operator-json');
-
-const {
+} from '@putout/operator-json';
+import {
     parse,
     transform,
     findPlaces,
     print,
-} = require('putout');
-
-const {renameFiles} = require('./rename-files.js');
+} from 'putout';
+import {renameFiles} from './rename-files.js';
 
 const {stringify} = JSON;
 

@@ -1,18 +1,15 @@
-'use strict';
-
-const {join} = require('node:path');
-
-const {
+import {join} from 'node:path';
+import {
     getParentDirectory,
     getFilename,
     readFileContent,
     findFile,
     renameFile,
-} = require('@putout/operator-filesystem');
+} from '@putout/operator-filesystem';
 
 const {parse} = JSON;
 
-module.exports.renameFiles = ({type, mask, rename}) => ({
+export const renameFiles = ({type, mask, rename}) => ({
     report,
     fix,
     scan: scan({
