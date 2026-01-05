@@ -1,3 +1,27 @@
+2026.01.05, v41.5.8
+
+feature:
+- 97d8bd33d @putout/operator-filesystem: @putout/operator-json v3.0.0
+- 8ef9adeee @putout/operator-match-files: @putout/operator-json v3.0.0
+- 209e6b1c1 @putout/operator-rename-files: @putout/operator-json v3.0.0
+- afc61abd5 @putout/plugin-filesystem: @putout/operator-json v3.0.0
+- 68a730f46 @putout/processor-filesystem: @putout/operator-json v3.0.0
+- d61100eef putout: @putout/processor-ignore v7.0.0
+- 8e4cb983a @putout/processor-ignore: @putout/operator-json v3.0.0
+- 4d80a4aac @putout/processor-ignore: drop support of node < 22
+- e7c352a6a @putout/engine-runner: @putout/operator-json v3.0.0
+- 0693344af putout: @putout/processor-json v10.0.0
+- 712de0ad2 @putout/processor-json: @putout/operator-json v3.0.0
+- c44b8407e @putout/processor-json: drop support of node < 22
+- 8f8b7b691 putout: @putout/processor-markdown v13.0.0
+- 343794e50 @putout/processor-markdown: @putout/operator-json v3.0.0
+- 97d95be3a @putout/processor-markdown: drop support of node < 22
+- a6a91822e putout: @putout/processor-yaml v10.0.0
+- 362fcac6c @putout/processor-yaml: @putout/operator-json v3.0.0
+- 8cf9d0059 @putout/processor-yaml: drop support of node < 22
+- f751af81c putout: @putout/operator-json v3.0.0
+- 864f4e08a @putout/operator-json: migrate to ESM
+
 2026.01.05, v41.5.7
 
 fix:
