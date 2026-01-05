@@ -1,9 +1,7 @@
-'use strict';
+import {defineConfig} from 'eslint/config';
+import {safeAlign} from './lib/index.mjs';
 
-const {defineConfig} = require('eslint/config');
-const {safeAlign} = require('./lib/index.mjs');
-
-module.exports = defineConfig([
+export default defineConfig([
     safeAlign, {
         rules: {
             'no-unreachable': 'off',

@@ -9,7 +9,7 @@ const env = {
 };
 
 const lintEnv = {
-    ESLINT_CONFIG_FILE: 'eslint-safe.config.js',
+    ESLINT_CONFIG_FILE: 'eslint-safe.config.mjs',
 };
 
 export default {

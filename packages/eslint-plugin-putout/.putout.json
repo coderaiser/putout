@@ -13,6 +13,8 @@
     ],
     "match": {
         "eslint-fixture": {
+            "esm": "off",
+            "nodejs": "off",
             "apply-template-literals": "off",
             "nodejs/strict-mode": "off",
             "remove-empty": "off",
@@ -20,7 +22,7 @@
             "typescript/remove-unused-types": "off",
             "remove-unused-expressions": "off",
             "arguments": "off",
-            "variables/rename-useless-rename": "off",
+            "variables/remove-useless-rename": "off",
             "variables/remove-useless-declarations": "off",
             "variables/remove-unused": "off",
             "spread": "off",

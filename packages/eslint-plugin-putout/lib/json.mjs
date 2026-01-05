@@ -57,6 +57,18 @@ export default [{
         'comma-spacing': 'off',
     },
 }, {
+    name: 'putout: json: toml',
+    files: ['**/*.toml{json}'],
+    plugins: {
+        '@stylistic': stylistic,
+        putout,
+    },
+    rules: {
+        'putout/objects-braces-inside-array': 'off',
+        '@stylistic/indent': 'off',
+        'comma-spacing': 'off',
+    },
+}, {
     name: 'putout: json: filesystem',
     files: ['**/.filesystem.json'],
     plugins: {

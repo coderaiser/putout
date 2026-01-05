@@ -41,7 +41,6 @@
     },
     "ignore": [
         ".husky",
-        "!**/coverage",
-        "**/eslint-fixture"
+        "!**/coverage"
     ]
 }
