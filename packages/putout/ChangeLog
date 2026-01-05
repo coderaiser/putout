@@ -1,3 +1,9 @@
+2026.01.05, v41.6.0
+
+feature:
+- b083dbd44 @putout/processor-toml: add
+- c1f97f54e @putout/operator-json: __toml
+
 2026.01.05, v41.5.8
 
 feature:
