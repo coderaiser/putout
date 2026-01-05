@@ -1,25 +1,20 @@
-'use strict';
-
-const {types} = require('@putout/babel');
-const {tryCatch} = require('try-catch');
-const test = require('supertape');
-const putout = require('putout');
-
-const convertEsmToCommonjs = require('@putout/plugin-nodejs/convert-esm-to-commonjs');
-
-const {
+import {types} from '@putout/babel';
+import {tryCatch} from 'try-catch';
+import test from 'supertape';
+import putout from 'putout';
+import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-commonjs';
+import {
     __json,
     __filesystem,
     toJS,
     fromJS,
-} = require('@putout/operator-json');
-
-const {
+} from '@putout/operator-json';
+import {
     findFile,
     readFileContent,
-} = require('@putout/operator-filesystem');
+} from '@putout/operator-filesystem';
+import {matchFiles} from './match-files.js';
 
-const {matchFiles} = require('./match-files.js');
 const {stringLiteral, objectProperty} = types;
 
 const {

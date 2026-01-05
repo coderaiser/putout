@@ -1,15 +1,10 @@
-'use strict';
-
-const path = require('node:path');
-
-const {parse, print} = require('@putout/engine-parser');
-const {transform} = require('putout/transform');
-const {findPlaces} = require('putout/find-places');
-const {ignores} = require('putout/ignores');
-
-const {toJS, fromJS} = require('@putout/operator-json');
-
-const {
+import path from 'node:path';
+import {parse, print} from '@putout/engine-parser';
+import {transform} from 'putout/transform';
+import {findPlaces} from 'putout/find-places';
+import {ignores} from 'putout/ignores';
+import {toJS, fromJS} from '@putout/operator-json';
+import {
     readFileContent,
     findFile,
     writeFileContent,
@@ -17,7 +12,7 @@ const {
     createFile,
     removeFile,
     getParentDirectory,
-} = require('@putout/operator-filesystem');
+} from '@putout/operator-filesystem';
 
 const {join} = path;
 
@@ -25,7 +20,7 @@ const isObject = (a) => a && typeof a === 'object';
 const {entries} = Object;
 const report = (path, {message}) => message;
 
-module.exports.matchFiles = (options) => {
+export const matchFiles = (options) => {
     const {filename} = options;
     const files = options.files ?? options;
     const exclude = options.exclude ?? [];
