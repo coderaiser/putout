@@ -13,11 +13,13 @@ const maybeNewline = (a) => a.at(-1) === '\n' ? a : `${a}\n`;
 
 export const __json_name = '__putout_processor_json';
 export const __yaml_name = '__putout_processor_yaml';
+export const __toml_name = '__putout_processor_toml';
 export const __filesystem_name = '__putout_processor_filesystem';
 export const __ignore_name = '__putout_processor_ignore';
 
 export const __json = `${__json_name}(__object)`;
 export const __yaml = `${__yaml_name}(__object)`;
+export const __toml = `${__toml_name}(__object)`;
 export const __filesystem = `${__filesystem_name}(__object)`;
 export const __ignore = `${__ignore_name}(__array)`;
 

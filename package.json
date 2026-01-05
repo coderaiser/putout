@@ -64,5 +64,7 @@
     "rules/*",
     "scripts/*"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "smol-toml": "^1.6.0"
+  }
 }

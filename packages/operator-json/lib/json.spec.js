@@ -4,6 +4,7 @@ import {
     fromJS,
     isJSON,
     __yaml,
+    __toml,
     __json,
     __json_name,
     __filesystem,
@@ -55,6 +56,14 @@ test('putout: operator: json: toJS: __yaml', ({equal}) => {
     const source = '{"hello": "world"}';
     const result = toJS(source, __yaml);
     const expected = `__putout_processor_yaml({"hello": "world"});\n`;
+    
+    equal(result, expected);
+});
+
+test('putout: operator: json: toJS: __toml', ({equal}) => {
+    const source = '{"hello": "world"}';
+    const result = toJS(source, __toml);
+    const expected = `__putout_processor_toml({"hello": "world"});\n`;
     
     equal(result, expected);
 });

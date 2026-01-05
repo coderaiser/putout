@@ -37,6 +37,18 @@ export const traverse = ({push}) => ({
 });
 ```
 
+### `__yaml`
+
+```js
+import {operator} from 'putout';
+
+const {__toml} = operator;
+
+export const traverse = ({push}) => ({
+    [__toml]: push,
+});
+```
+
 ### `__ignore`
 
 ```js
