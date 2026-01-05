@@ -1,7 +1,5 @@
-'use strict';
-
-const {test} = require('supertape');
-const {
+import {test} from 'supertape';
+import {
     toJS,
     fromJS,
     isJSON,
@@ -11,7 +9,7 @@ const {
     __filesystem,
     __ignore,
     __ignore_name,
-} = require('./json.js');
+} from './json.js';
 
 test('putout: operator: json: toJS: filesystem', ({equal}) => {
     const source = '{"hello": "world"}';
