@@ -27,6 +27,11 @@ test('plugin-simplify-ternary: value: false', (t) => {
     t.end();
 });
 
+test('plugin-simplify-ternary: value: is-undefined', (t) => {
+    t.transform('is-undefined');
+    t.end();
+});
+
 test('plugin-simplify-ternary: value: return', (t) => {
     t.noTransform('return');
     t.end();

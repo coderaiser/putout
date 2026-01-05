@@ -27,4 +27,5 @@ export const replace = () => ({
     '__a = __b ? __d : __a': 'if (__b) __a = __d',
     '__a ? __b && __c : __b && __d': '__b && __a ? __c : __d',
     '__a ? __b || __c : __b || __d': '__b || __a ? __c : __d',
+    'isUndefined(__a) ? __b : __a': '__a || __b',
 });
