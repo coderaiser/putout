@@ -1,10 +1,7 @@
-'use strict';
-
-const test = require('supertape');
-const putout = require('putout');
-const montag = require('montag');
-
-const {addArgs} = require('./add-args.js');
+import test from 'supertape';
+import putout from 'putout';
+import montag from 'montag';
+import {addArgs} from './add-args.js';
 
 test('putout: operator: add-args: report', (t) => {
     const args = {

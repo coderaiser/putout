@@ -1,8 +1,7 @@
-'use strict';
+import {compareAny} from '@putout/compare';
+import {template} from '@putout/engine-parser';
+import {types} from '@putout/babel';
 
-const {compareAny} = require('@putout/compare');
-const {template} = require('@putout/engine-parser');
-const {types} = require('@putout/babel');
 const {
     isBlockStatement,
     isFunction,
@@ -26,7 +25,7 @@ const isCall = (path) => {
 
 const report = ({name}) => `Argument '${name}' is missing`;
 
-module.exports.addArgs = (args) => ({
+export const addArgs = (args) => ({
     report,
     fix,
     traverse: traverse(args),
