@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-toml.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/processor-toml "npm"
 
-> **T**om's **O**bvious **M**inimal **L**anguage]
+> **T**om's **O**bvious **M**inimal **L**language]
 >
 > (c) [toml.io](https://toml.io)
 

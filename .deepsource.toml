@@ -1,11 +1,6 @@
 version = 1
-
-test_patterns = [
-  "**/test/**",
-  "*.spec.js"
-]
-
-exclude_patterns = ["**/fixture/**"]
+test_patterns = [ "**/test/**", "*.spec.js" ]
+exclude_patterns = [ "**/fixture/**" ]
 
 [[analyzers]]
 name = "javascript"
