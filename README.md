@@ -23,6 +23,7 @@ The main target is **JavaScript**, but:
 - ✅ JSX;
 - ✅ TypeScript;
 - ✅ Yaml;
+- ✅ TOML;
 - ✅ Markdown;
 - ✅ JSON;
 - ✅ Ignore;
@@ -462,6 +463,7 @@ Here is a list of built-in processors:
 | [`@putout/processor-markdown`](/packages/processor-markdown#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-markdown.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-markdown) |
 | [`@putout/processor-ignore`](/packages/processor-ignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-ignore) |
 | [`@putout/processor-yaml`](/packages/processor-yaml#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-yaml.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-yaml) |
+| [`@putout/processor-toml`](/packages/processor-toml#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-toml.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-toml) |
 | [`@putout/processor-css`](/packages/processor-css#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-css) |
 | [`@putout/processor-filesystem`](/packages/processor-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-filesystem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-filesystem) |
 | [`@putout/processor-html`](/packages/processor-html#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-html.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-html) |
