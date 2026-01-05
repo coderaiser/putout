@@ -164,7 +164,7 @@
     "@putout/plugin-remove-useless-replace": "^2.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^3.0.0",
     "@putout/plugin-return": "^3.0.0",
-    "@putout/plugin-simplify-ternary": "^8.0.0",
+    "@putout/plugin-simplify-ternary": "^9.0.0",
     "@putout/plugin-spread": "^1.0.0",
     "@putout/plugin-tape": "^19.0.0",
     "@putout/plugin-try-catch": "^7.0.0",
