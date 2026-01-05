@@ -28,7 +28,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/operator-json": "^2.0.0",
+    "@putout/operator-json": "^3.0.0",
     "once": "^1.4.0",
     "remark-frontmatter": "^5.0.0",
     "remark-parse": "^11.0.0",
