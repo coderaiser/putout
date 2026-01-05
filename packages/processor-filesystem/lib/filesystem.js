@@ -1,5 +1,5 @@
 import filesystemCLI from '@putout/cli-filesystem';
-import filesystem from '@putout/operator-filesystem';
+import * as filesystem from '@putout/operator-filesystem';
 import {
     fromJS,
     toJS,

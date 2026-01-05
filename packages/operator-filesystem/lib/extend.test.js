@@ -1,14 +1,12 @@
-'use strict';
-
-const {extend} = require('supertape');
-const {parse, print} = require('putout');
-const {
+import {extend} from 'supertape';
+import {parse, print} from 'putout';
+import {
     toJS,
     fromJS,
     __filesystem,
-} = require('@putout/operator-json');
+} from '@putout/operator-json';
+import {parseSimpleFilesystem} from './parse-simple-filesystem.test.js';
 
-const {parseSimpleFilesystem} = require('./parse-simple-filesystem.test');
 const {isArray} = Array;
 const {stringify} = JSON;
 
@@ -22,18 +20,14 @@ const PRINTER = ['putout', {
     },
 }];
 
-module.exports.test = extend({
+export const test = extend({
     equalFilesystems: ({equal}) => (a, b) => {
         return equal(printFilesystem(a), formatFilesystem(b));
     },
     filesystem: ({deepEqual}) => (a, b) => deepEqual(a, b),
 });
 
-module.exports.parseFilesystem = parseFilesystem;
-module.exports.printFilesystem = printFilesystem;
-module.exports.formatFilesystem = formatFilesystem;
-
-function parseFilesystem(fs) {
+export function parseFilesystem(fs) {
     if (isArray(fs))
         fs = parseSimpleFilesystem(fs);
     
@@ -42,7 +36,7 @@ function parseFilesystem(fs) {
     return parse(source);
 }
 
-function printFilesystem(ast) {
+export function printFilesystem(ast) {
     const source = print(ast, {
         printer: PRINTER,
     });
@@ -50,7 +44,7 @@ function printFilesystem(ast) {
     return fromJS(source, __filesystem);
 }
 
-function formatFilesystem(fs) {
+export function formatFilesystem(fs) {
     const source = print(parseFilesystem(fs), {
         printer: PRINTER,
     });

@@ -1,10 +1,10 @@
-'use strict';
+import {dirname} from 'node:path';
+import {operator} from 'putout';
+import {parse, print} from '@putout/engine-parser';
+import {toJS, fromJS} from '@putout/operator-json';
+import {moveFile, findFile} from './filesystem.js';
 
-const {replaceWith} = require('putout').operator;
-const {dirname} = require('node:path');
-const {parse, print} = require('@putout/engine-parser');
-const {toJS, fromJS} = require('@putout/operator-json');
-const {moveFile, findFile} = require('./filesystem');
+const {replaceWith} = operator;
 const {isArray} = Array;
 const {stringify} = JSON;
 
@@ -34,7 +34,7 @@ const createDirectory = (filename) => ({
 
 const parseFirst = (a) => isArray(a) ? a[0] : a;
 
-module.exports.parseSimpleFilesystem = (list) => {
+export const parseSimpleFilesystem = (list) => {
     const files = createFlatFiles(list);
     const js = toJS(stringify(files));
     const ast = parse(js);

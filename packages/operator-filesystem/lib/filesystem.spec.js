@@ -1,19 +1,14 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-const montag = require('montag');
-const {stub} = require('supertape');
-const {__filesystem_name} = require('@putout/operator-json');
-
-const {
+import {tryCatch} from 'try-catch';
+import montag from 'montag';
+import {stub} from 'supertape';
+import {__filesystem_name} from '@putout/operator-json';
+import {
     parse,
     print,
     operator,
-} = require('putout');
-
-const maybeFS = require('./maybe-fs');
-
-const {
+} from 'putout';
+import * as maybeFS from './maybe-fs.js';
+import {
     renameFile,
     removeFile,
     copyFile,
@@ -35,14 +30,13 @@ const {
     deinit,
     start,
     pause,
-} = require('./filesystem');
-
-const {
+} from './filesystem.js';
+import {
     test,
     printFilesystem,
     parseFilesystem,
     formatFilesystem,
-} = require('./extend.test');
+} from './extend.test.js';
 
 const {traverseProperties} = operator;
 

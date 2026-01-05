@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {test} from 'supertape';
 import montag from 'montag';
 import {fromJS, __filesystem} from '@putout/operator-json';
-import filesystem from '@putout/operator-filesystem';
+import * as filesystem from '@putout/operator-filesystem';
 import {merge, branch} from '../lib/filesystem.js';
 
 const __filename = fileURLToPath(import.meta.url);

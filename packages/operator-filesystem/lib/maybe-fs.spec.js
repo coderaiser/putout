@@ -1,13 +1,11 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-const {
+import {test, stub} from 'supertape';
+import {
     start,
     pause,
     writeFileContent,
     init,
     deinit,
-} = require('./maybe-fs');
+} from './maybe-fs.js';
 
 test('@putout/operator-filesystem: pause', (t) => {
     pause();

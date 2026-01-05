@@ -1,28 +1,27 @@
-'use strict';
+import {types} from '@putout/babel';
 
-const {types} = require('@putout/babel');
 const {
     arrayExpression,
     stringLiteral,
     objectProperty,
 } = types;
 
-module.exports.createTypeProperty = (type) => {
+export const createTypeProperty = (type) => {
     const value = stringLiteral(type);
     return createProperty('type', value);
 };
 
-module.exports.createFilesProperty = (files) => {
+export const createFilesProperty = (files) => {
     const value = arrayExpression(files);
     return createProperty('files', value);
 };
 
-module.exports.createFilenameProperty = (filename) => {
+export const createFilenameProperty = (filename) => {
     const value = stringLiteral(filename);
     return createProperty('filename', value);
 };
 
-module.exports.createContentProperty = (content) => {
+export const createContentProperty = (content) => {
     const value = stringLiteral(content);
     return createProperty('content', value);
 };

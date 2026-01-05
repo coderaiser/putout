@@ -1,6 +1,5 @@
-'use strict';
+import fullstore from 'fullstore';
 
-const fullstore = require('fullstore');
 const driverStore = fullstore();
 
 const {assign} = Object;
@@ -18,47 +17,43 @@ const defaultFS = {
 
 const maybeFS = assign({}, defaultFS);
 
-module.exports.renameFile = (oldName, newName) => {
+export const renameFile = (oldName, newName) => {
     maybeFS.renameFile(oldName, newName);
 };
 
-module.exports.removeFile = (name) => {
+export const removeFile = (name) => {
     maybeFS.removeFile(name);
 };
 
-module.exports.copyFile = (from, to) => {
+export const copyFile = (from, to) => {
     maybeFS.copyFile(from, to);
 };
 
-module.exports.createDirectory = (name) => {
+export const createDirectory = (name) => {
     maybeFS.createDirectory(name);
 };
 
-module.exports.readFileContent = (name) => {
+export const readFileContent = (name) => {
     return maybeFS.readFileContent(name);
 };
 
-module.exports.writeFileContent = (name, content) => {
+export const writeFileContent = (name, content) => {
     maybeFS.writeFileContent(name, content);
 };
 
-module.exports.init = init;
-
-function init(fsDriver) {
+export function init(fsDriver) {
     assign(maybeFS, fsDriver);
 }
 
-module.exports.pause = () => {
+export const pause = () => {
     driverStore(maybeFS);
     deinit();
 };
 
-module.exports.start = () => {
+export const start = () => {
     init(driverStore());
 };
 
-module.exports.deinit = deinit;
-
-function deinit() {
+export function deinit() {
     assign(maybeFS, defaultFS);
 }

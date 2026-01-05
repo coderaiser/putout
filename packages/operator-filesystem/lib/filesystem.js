@@ -1,28 +1,22 @@
-'use strict';
-
-const {
+import {
     join,
     basename,
     dirname,
-} = require('node:path');
-
-const {types} = require('@putout/babel');
-const {tryCatch} = require('try-catch');
-
-const {
+} from 'node:path';
+import {types} from '@putout/babel';
+import {tryCatch} from 'try-catch';
+import {
     setLiteralValue,
     getProperty,
     traverseProperties,
-} = require('@putout/operate');
-
-const maybeFS = require('./maybe-fs');
-
-const {
+} from '@putout/operate';
+import * as maybeFS from './maybe-fs.js';
+import {
     createTypeProperty,
     createFilesProperty,
     createFilenameProperty,
     createContentProperty,
-} = require('./property');
+} from './property.js';
 
 const {
     isProgram,
@@ -63,9 +57,7 @@ const getRegExp = (wildcard) => {
     return RegExp(`^${escaped}$`);
 };
 
-module.exports.getParentDirectory = getParentDirectory;
-
-function getParentDirectory(filePath) {
+export function getParentDirectory(filePath) {
     if (!filePath.parentPath)
         return null;
     
@@ -77,8 +69,6 @@ function getParentDirectory(filePath) {
     return parentPath;
 }
 
-module.exports.findFile = findFile;
-
 function isExcluded({name, base, exclude}) {
     for (const currentExclude of exclude) {
         if (name === currentExclude || getRegExp(currentExclude).test(base))
@@ -88,7 +78,7 @@ function isExcluded({name, base, exclude}) {
     return false;
 }
 
-function findFile(node, name, exclude = []) {
+export function findFile(node, name, exclude = []) {
     checkName(name);
     
     const filePaths = [];
@@ -128,21 +118,17 @@ function getFilenamePath(filePath) {
     return filenamePath.get('value');
 }
 
-function getFilename(filePath) {
+export function getFilename(filePath) {
     const {value} = getFilenamePath(filePath).node;
     return value;
 }
 
-module.exports.getFileType = getFileType;
-
-function getFileType(filePath) {
+export function getFileType(filePath) {
     const typePath = getProperty(filePath, 'type');
     return typePath.node.value.value;
 }
 
-module.exports.getFileContent = getFileContent;
-
-function getFileContent(filePath) {
+export function getFileContent(filePath) {
     const content = getProperty(filePath, 'content');
     
     return [
@@ -151,9 +137,7 @@ function getFileContent(filePath) {
     ];
 }
 
-module.exports.getFilename = getFilename;
-
-module.exports.renameFile = (filePath, name) => {
+export const renameFile = (filePath, name) => {
     const oldName = getFilename(filePath);
     const valuePath = getFilenamePath(filePath);
     const baseName = oldName
@@ -170,8 +154,7 @@ module.exports.renameFile = (filePath, name) => {
     maybeFS.renameFile(oldName, newFilename);
 };
 
-module.exports.removeFile = removeFile;
-function removeFile(filePath) {
+export function removeFile(filePath) {
     const filename = getFilename(filePath);
     
     if (!getParentDirectory(filePath))
@@ -181,7 +164,7 @@ function removeFile(filePath) {
     maybeFS.removeFile(filename);
 }
 
-module.exports.removeEmptyDirectory = (dirPath) => {
+export const removeEmptyDirectory = (dirPath) => {
     const type = getFileType(dirPath);
     
     if (type !== 'directory')
@@ -205,7 +188,7 @@ module.exports.removeEmptyDirectory = (dirPath) => {
     }
 };
 
-module.exports.moveFile = (filePath, dirPath) => {
+export const moveFile = (filePath, dirPath) => {
     if (filePath === dirPath)
         return;
     
@@ -229,7 +212,7 @@ module.exports.moveFile = (filePath, dirPath) => {
     maybeFS.renameFile(filename, newFilename);
 };
 
-module.exports.copyFile = (filePath, dirPath) => {
+export const copyFile = (filePath, dirPath) => {
     const dirname = getFilename(dirPath);
     const filename = getFilename(filePath);
     
@@ -272,7 +255,7 @@ function maybeRemoveFile(dirPath, filename) {
     fileToOverwrite.remove();
 }
 
-module.exports.createFile = (dirPath, name, content) => {
+export const createFile = (dirPath, name, content) => {
     maybeRemoveFile(dirPath, name);
     
     const dirPathFiles = getFiles(dirPath);
@@ -300,8 +283,7 @@ module.exports.createFile = (dirPath, name, content) => {
 
 const getFiles = (dirPath) => getProperty(dirPath, 'files');
 
-module.exports.readDirectory = readDirectory;
-function readDirectory(dirPath) {
+export function readDirectory(dirPath) {
     const fileType = getFileType(dirPath);
     
     if (fileType !== 'directory')
@@ -310,9 +292,7 @@ function readDirectory(dirPath) {
     return getFiles(dirPath).get('value.elements');
 }
 
-module.exports.createDirectory = createDirectory;
-
-function createDirectory(dirPath, name) {
+export function createDirectory(dirPath, name) {
     const dirPathFiles = getFiles(dirPath);
     const parentFilename = getFilename(dirPath);
     const filename = join(parentFilename, name);
@@ -332,7 +312,7 @@ function createDirectory(dirPath, name) {
     return dirPathFiles.get('value.elements').at(-1);
 }
 
-module.exports.readFileContent = (filePath) => {
+export const readFileContent = (filePath) => {
     const fileType = getFileType(filePath);
     
     if (fileType === 'directory')
@@ -353,9 +333,7 @@ module.exports.readFileContent = (filePath) => {
     return fileContent;
 };
 
-module.exports.writeFileContent = writeFileContent;
-
-function writeFileContent(filePath, content) {
+export function writeFileContent(filePath, content) {
     const fileType = getFileType(filePath);
     
     if (fileType === 'directory')
@@ -376,7 +354,7 @@ function writeFileContent(filePath, content) {
     filePath.node.properties.push(property);
 }
 
-module.exports.createNestedDirectory = (path, name) => {
+export const createNestedDirectory = (path, name) => {
     const rootPath = getRootDirectory(path);
     const dir = dirname(name);
     
@@ -421,8 +399,7 @@ module.exports.createNestedDirectory = (path, name) => {
     return lastDirectoryPath;
 };
 
-module.exports.getRootDirectory = getRootDirectory;
-function getRootDirectory(path) {
+export function getRootDirectory(path) {
     let currentDirPath = getParentDirectory(path);
     
     if (!currentDirPath)
@@ -437,8 +414,9 @@ function getRootDirectory(path) {
     return prevPath;
 }
 
-module.exports.init = maybeFS.init;
-module.exports.deinit = maybeFS.deinit;
-
-module.exports.pause = maybeFS.pause;
-module.exports.start = maybeFS.start;
+export const {
+    init,
+    deinit,
+    pause,
+    start,
+} = maybeFS;

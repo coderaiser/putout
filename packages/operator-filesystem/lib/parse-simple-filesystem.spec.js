@@ -1,8 +1,6 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-const {test} = require('./extend.test');
-const {parseSimpleFilesystem} = require('./parse-simple-filesystem.test');
+import {tryCatch} from 'try-catch';
+import {test} from './extend.test.js';
+import {parseSimpleFilesystem} from './parse-simple-filesystem.test.js';
 
 test('putout: operator: filesystem: parseFileSystem', (t) => {
     const result = parseSimpleFilesystem([
