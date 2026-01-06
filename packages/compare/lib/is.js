@@ -1,7 +1,6 @@
-'use strict';
+import {template} from '@putout/engine-parser';
+import {types} from '@putout/babel';
 
-const {template} = require('@putout/engine-parser');
-const {types} = require('@putout/babel');
 const {
     isBlockStatement,
     isTSModuleBlock,
@@ -20,7 +19,7 @@ const {
     isTSTypeParameterDeclaration,
 } = types;
 
-const isStr = (a) => typeof a === 'string';
+export const isStr = (a) => typeof a === 'string';
 
 const ANY_OBJECT = '__object';
 const ANY_ARRAY = '__array';
@@ -60,9 +59,9 @@ const ALL = [
     LINKED_BOOL,
 ];
 
-module.exports.isTemplate = (a) => /[(;={.\s]/.test(a) || !/^[A-Z]/.test(a);
+export const isTemplate = (a) => /[(;={.\s]/.test(a) || !/^[A-Z]/.test(a);
 
-module.exports.is = (str, array = ALL) => {
+export const is = (str, array = ALL) => {
     for (const item of array) {
         if (check(str, item))
             return true;
@@ -78,17 +77,17 @@ function check(str, item) {
     return item.test(str);
 }
 
-module.exports.isNameStr = (a) => LINKED_NODE.test(a);
-module.exports.isImportsStr = (a) => a === IMPORTS;
-module.exports.isExportsStr = (a) => a === EXPORTS;
-module.exports.isArgsStr = (a) => a === ARGS || LINKED_ARGS.test(a);
-module.exports.isTypeParamsStr = (a) => a === TYPE_PARAMS;
-module.exports.isJSXChildrenStr = (a) => a === JSX_CHILDREN;
-module.exports.isJSXAttributesStr = (a) => a === JSX_ATTRIBUTES;
-module.exports.isObjectStr = (a) => a === ANY_OBJECT;
-module.exports.isArrayStr = (a) => a === ANY_ARRAY;
-module.exports.isAnyStr = (a) => a === ANY;
-module.exports.isBodyStr = (a) => a === BODY;
+export const isNameStr = (a) => LINKED_NODE.test(a);
+export const isImportsStr = (a) => a === IMPORTS;
+export const isExportsStr = (a) => a === EXPORTS;
+export const isArgsStr = (a) => a === ARGS || LINKED_ARGS.test(a);
+export const isTypeParamsStr = (a) => a === TYPE_PARAMS;
+export const isJSXChildrenStr = (a) => a === JSX_CHILDREN;
+export const isJSXAttributesStr = (a) => a === JSX_ATTRIBUTES;
+export const isObjectStr = (a) => a === ANY_OBJECT;
+export const isArrayStr = (a) => a === ANY_ARRAY;
+export const isAnyStr = (a) => a === ANY;
+export const isBodyStr = (a) => a === BODY;
 
 const isBody = (a) => isIdentifier(a, {
     name: BODY,
@@ -116,28 +115,24 @@ const isAnyArray = (a) => isIdentifier(a, {
     name: ANY_ARRAY,
 });
 
-const isId = (a, b) => {
+export const isId = (a, b) => {
     if (!isIdentifier(b, {name: ID}))
         return false;
     
     return isIdentifier(a);
 };
 
-const isBool = (a, b) => {
+export const isBool = (a, b) => {
     if (!isIdentifier(b, {name: BOOL}))
         return false;
     
     return isBooleanLiteral(a);
 };
 
-const isEqualType = (a, b) => a.type === b.type;
-const {isArray} = Array;
+export const isEqualType = (a, b) => a.type === b.type;
+export const {isArray} = Array;
 
-module.exports.isId = isId;
-module.exports.isBool = isBool;
-module.exports.isEqualType = isEqualType;
-module.exports.isStr = (a) => typeof a === 'string';
-module.exports.isAny = (a) => {
+export const isAny = (a) => {
     if (isIdentifier(a, {name: ANY}))
         return true;
     
@@ -146,14 +141,14 @@ module.exports.isAny = (a) => {
     });
 };
 
-module.exports.isAnyLiteral = (a, b) => {
+export const isAnyLiteral = (a, b) => {
     if (!isLiteral(b, {value: ANY}))
         return false;
     
     return isEqualType(a, b);
 };
 
-module.exports.isArgs = (a) => {
+export const isArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
     
     return isIdentifier(b, {
@@ -173,7 +168,7 @@ const isTypeParams = (node) => {
     });
 };
 
-module.exports.isEqualTypeParams = (a, b) => {
+export const isEqualTypeParams = (a, b) => {
     if (!a)
         return false;
     
@@ -183,12 +178,12 @@ module.exports.isEqualTypeParams = (a, b) => {
     return isEqualType(a, b);
 };
 
-module.exports.isLinkedArgs = (a) => {
+export const isLinkedArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
     return isIdentifier(b) && LINKED_ARGS.test(b.name);
 };
 
-module.exports.isJSXChildren = (a) => {
+export const isJSXChildren = (a) => {
     const b = !isArray(a) ? a : a[0];
     
     return isJSXText(b, {
@@ -196,7 +191,7 @@ module.exports.isJSXChildren = (a) => {
     });
 };
 
-module.exports.isJSXAttributes = (a) => {
+export const isJSXAttributes = (a) => {
     const b = !isArray(a) ? a : a[0];
     
     if (!isJSXAttribute(b))
@@ -207,31 +202,30 @@ module.exports.isJSXAttributes = (a) => {
     });
 };
 
-module.exports.isLinkedId = (a, b) => {
+export const isLinkedId = (a, b) => {
     if (!isIdentifier(b) || !LINKED_ID.test(b.name))
         return false;
     
     return isIdentifier(a);
 };
 
-module.exports.isLinkedBool = (a, b) => {
+export const isLinkedBool = (a, b) => {
     if (!isIdentifier(b) || !LINKED_BOOL.test(b.name))
         return false;
     
     return isBooleanLiteral(a);
 };
 
-module.exports.isLinkedRegExp = (a, b) => {
+export const isLinkedRegExp = (a, b) => {
     if (!isRegExpLiteral(b) || !LINKED_NODE.test(b.pattern))
         return false;
     
     return isRegExpLiteral(a);
 };
 
-module.exports.isPath = (path) => Boolean(path.node);
-module.exports.isArray = isArray;
+export const isPath = (path) => Boolean(path.node);
 
-module.exports.isObject = (a) => {
+export const isObject = (a) => {
     if (!a)
         return false;
     
@@ -241,14 +235,14 @@ module.exports.isObject = (a) => {
     return typeof a === 'object';
 };
 
-module.exports.isArrays = (a, b) => {
+export const isArrays = (a, b) => {
     if (!isArray(a) || !isArray(b))
         return false;
     
     return a.length === b.length;
 };
 
-module.exports.isImports = (a) => {
+export const isImports = (a) => {
     const b = !isArray(a) ? a : a[0];
     
     if (!isImportDefaultSpecifier(b))
@@ -259,7 +253,7 @@ module.exports.isImports = (a) => {
     });
 };
 
-module.exports.isExports = (a) => {
+export const isExports = (a) => {
     const b = !isArray(a) ? a : a[0];
     
     if (!isExportSpecifier(b))
@@ -273,7 +267,7 @@ module.exports.isExports = (a) => {
 const __OBJECT_TYPE = 'ObjectPattern|ObjectExpression';
 const __ARRAY_TYPE = 'ArrayPattern|ArrayExpression';
 
-module.exports.isEqualAnyArray = (node, templateNode) => {
+export const isEqualAnyArray = (node, templateNode) => {
     if (!isAnyArray(templateNode))
         return false;
     
@@ -282,7 +276,7 @@ module.exports.isEqualAnyArray = (node, templateNode) => {
     return __ARRAY_TYPE.includes(type);
 };
 
-module.exports.isEqualAnyObject = (node, templateNode) => {
+export const isEqualAnyObject = (node, templateNode) => {
     if (!isAnyObject(templateNode))
         return false;
     
@@ -291,7 +285,7 @@ module.exports.isEqualAnyObject = (node, templateNode) => {
     return __OBJECT_TYPE.includes(type);
 };
 
-module.exports.isEqualBody = (node, templateNode) => {
+export const isEqualBody = (node, templateNode) => {
     if (!node)
         return false;
     
@@ -301,7 +295,7 @@ module.exports.isEqualBody = (node, templateNode) => {
     return node.type === 'BlockStatement';
 };
 
-module.exports.isEqualFunctionDeclarationBody = (node, templateNode) => {
+export const isEqualFunctionDeclarationBody = (node, templateNode) => {
     if (!node)
         return false;
     
@@ -313,7 +307,7 @@ module.exports.isEqualFunctionDeclarationBody = (node, templateNode) => {
     return /BlockStatement|TSModuleBlock/.test(type);
 };
 
-module.exports.isEqualNop = (node, templateNode) => {
+export const isEqualNop = (node, templateNode) => {
     if (!isNop(templateNode))
         return false;
     
@@ -328,7 +322,7 @@ module.exports.isEqualNop = (node, templateNode) => {
     return !body.body.length;
 };
 
-module.exports.isLinkedNode = (a) => {
+export const isLinkedNode = (a) => {
     if (isIdentifier(a) && LINKED_NODE.test(a.name))
         return true;
     
@@ -347,7 +341,7 @@ module.exports.isLinkedNode = (a) => {
     return isTSTypeReference(a) && LINKED_NODE.test(a.typeName.name);
 };
 
-module.exports.parseTemplate = (tmpl, {program} = {}) => {
+export const parseTemplate = (tmpl, {program} = {}) => {
     const parse = !program ? template.ast : template.program.ast;
     const node = parse(tmpl) || template.ast.fresh(tmpl);
     
@@ -362,5 +356,5 @@ module.exports.parseTemplate = (tmpl, {program} = {}) => {
     return [node, type];
 };
 
-module.exports.isInsideTypeReference = (path) => path.isIdentifier() && path.parentPath?.isTSTypeReference();
-module.exports.isInsideTypeParameter = (path) => path.isIdentifier() && path.parentPath?.isTSTypeParameter();
+export const isInsideTypeReference = (path) => path.isIdentifier() && path.parentPath?.isTSTypeReference();
+export const isInsideTypeParameter = (path) => path.isIdentifier() && path.parentPath?.isTSTypeParameter();

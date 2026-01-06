@@ -1,17 +1,13 @@
-'use strict';
-
-const test = require('supertape');
-const montag = require('montag');
-
-const {template, parse} = require('@putout/engine-parser');
-const {traverse, types} = require('putout');
-
-const {
+import test from 'supertape';
+import montag from 'montag';
+import {template, parse} from '@putout/engine-parser';
+import {traverse, types} from 'putout';
+import {
     compare,
     compareAll,
     compareAny,
     parseTemplate,
-} = require('..');
+} from '../lib/compare.js';
 
 const {assign} = Object;
 

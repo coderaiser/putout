@@ -1,12 +1,11 @@
-'use strict';
+import {createDebug} from './debug.js';
 
-const {createDebug} = require('./debug');
 const debug = createDebug('putout:compare');
 
 const {isArray} = Array;
 const isObject = (a) => a && typeof a === 'object';
 
-module.exports = (a, b) => {
+export default (a, b) => {
     if (!debug.enabled)
         return;
     
@@ -16,7 +15,8 @@ module.exports = (a, b) => {
     return debug(`${parsedValue} = ${parsedPathValue}`);
 };
 
-module.exports._parseValue = parseValue;
+export const _parseValue = parseValue;
+
 function parseValue(a) {
     if (isArray(a) && a[0]) {
         const [{

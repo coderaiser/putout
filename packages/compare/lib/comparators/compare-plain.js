@@ -1,12 +1,10 @@
-'use strict';
-
-const {types} = require('@putout/babel');
-const {isObject, isArrays} = require('../is');
-const {comparePrimitives} = require('./compare-primitives');
+import {types} from '@putout/babel';
+import {isObject, isArrays} from '../is.js';
+import {comparePrimitives} from './compare-primitives.js';
 
 const {isIdentifier} = types;
 
-module.exports.comparePlain = (node, template, {add}) => {
+export const comparePlain = (node, template, {add}) => {
     if (!node && node === template)
         return true;
     

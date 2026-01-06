@@ -1,8 +1,6 @@
-'use strict';
-
-const {test} = require('supertape');
-const {tryCatch} = require('try-catch');
-const {_parseName} = require('./link');
+import {test} from 'supertape';
+import {tryCatch} from 'try-catch';
+import {_parseName} from './link.js';
 
 test('@putout/compare: link: parseName', (t) => {
     const [error] = tryCatch(_parseName, {

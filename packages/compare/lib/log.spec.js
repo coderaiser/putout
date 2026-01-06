@@ -1,12 +1,8 @@
-'use strict';
+import {test, stub} from 'supertape';
+import {types} from 'putout';
+import log, {_parseValue} from './log.js';
 
-const {test, stub} = require('supertape');
-
-const {types} = require('putout');
-const log = require('./log');
 const {identifier} = types;
-
-const {_parseValue} = log;
 
 test('putout: compare: log', (t) => {
     const debug = stub();

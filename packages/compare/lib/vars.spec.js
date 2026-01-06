@@ -1,14 +1,10 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-
-const test = require('supertape');
-const putout = require('putout');
-const montag = require('montag');
-const {parse, template} = require('@putout/engine-parser');
-
-const {compare} = require('./compare');
-const {getTemplateValues} = require('./vars');
+import {tryCatch} from 'try-catch';
+import test from 'supertape';
+import putout from 'putout';
+import montag from 'montag';
+import {parse, template} from '@putout/engine-parser';
+import {compare} from './compare.js';
+import {getTemplateValues} from './vars/index.js';
 
 const noop = () => {};
 const {types, generate} = putout;

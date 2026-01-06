@@ -1,17 +1,13 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-
-const test = require('supertape');
-
-const {
+import {tryCatch} from 'try-catch';
+import test from 'supertape';
+import {
     parseTemplate,
     isNameStr,
     isObjectStr,
     isArrayStr,
     isAnyStr,
     isTemplate,
-} = require('./is');
+} from './is.js';
 
 test('compare: is: parseTemplate: program', (t) => {
     const [node] = parseTemplate('const t = "hi"', {

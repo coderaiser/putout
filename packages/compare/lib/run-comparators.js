@@ -1,11 +1,9 @@
-'use strict';
-
-const {types} = require('@putout/babel');
-
-const log = require('./log');
-const link = require('./link');
-
-const {
+import {types} from '@putout/babel';
+import log from './log.js';
+import link from './link.js';
+import {comparePlain} from './comparators/compare-plain.js';
+import {comparePrimitives} from './comparators/compare-primitives.js';
+import {
     isId,
     isBool,
     isObject,
@@ -28,10 +26,7 @@ const {
     isEqualNop,
     isLinkedNode,
     isLinkedRegExp,
-} = require('./is');
-
-const {comparePlain} = require('./comparators/compare-plain');
-const {comparePrimitives} = require('./comparators/compare-primitives');
+} from './is.js';
 
 const {
     isClassBody,
@@ -72,7 +67,7 @@ const comparators = [
     compareArrays,
 ];
 
-module.exports.runComparators = (node, template, {add, templateStore, plain}) => {
+export const runComparators = (node, template, {add, templateStore, plain}) => {
     let i = -1;
     const n = comparators.length;
     

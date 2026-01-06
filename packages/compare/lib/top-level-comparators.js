@@ -1,7 +1,5 @@
-'use strict';
-
-const {types} = require('@putout/babel');
-const {
+import {types} from '@putout/babel';
+import {
     isEqualBody,
     isEqualAnyObject,
     isEqualAnyArray,
@@ -9,7 +7,7 @@ const {
     isLinkedId,
     isLinkedRegExp,
     isEqualNop,
-} = require('./is');
+} from './is.js';
 
 const {
     isIdentifier,
@@ -27,7 +25,7 @@ const comparators = [
     isEqualBody,
 ];
 
-module.exports.runTopLevelComparators = (node, templateNode) => {
+export const runTopLevelComparators = (node, templateNode) => {
     let i = -1;
     const n = comparators.length;
     

@@ -1,9 +1,7 @@
-'use strict';
-
-const {is} = require('../is');
+import {is} from '../is.js';
 
 const isPrimitive = (a) => typeof a !== 'object' || a === null;
 
-module.exports.comparePrimitives = (node, template) => {
+export const comparePrimitives = (node, template) => {
     return isPrimitive(template) && !is(template) && template === node;
 };

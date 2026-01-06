@@ -1,14 +1,10 @@
-'use strict';
-
-const jessy = require('jessy');
-const nessy = require('nessy');
-const {traverse, types} = require('@putout/babel');
-const {template} = require('@putout/engine-parser');
-
-const {replaceWith, extract} = require('@putout/operate');
-
-const {prepareBodyWay} = require('./prepare-body-way');
-const {
+import jessy from 'jessy';
+import nessy from 'nessy';
+import {traverse, types} from '@putout/babel';
+import {template} from '@putout/engine-parser';
+import {replaceWith, extract} from '@putout/operate';
+import {prepareBodyWay} from './prepare-body-way.js';
+import {
     is,
     isArgsStr,
     isTypeParamsStr,
@@ -19,7 +15,7 @@ const {
     isInsideTypeReference,
     isInsideTypeParameter,
     isBodyStr,
-} = require('../is');
+} from '../is.js';
 
 const {
     isIdentifier,
@@ -40,7 +36,7 @@ const isString = (a) => typeof a === 'string';
 const parseNode = (a) => a.node || a;
 const {stringify} = JSON;
 
-module.exports.getTemplateValues = (node, str) => {
+export const getTemplateValues = (node, str) => {
     if (!isString(str))
         throw Error(`☝️ Looks like argument 'template' of 'getTemplateValues(node, template)': is not a string, but '${stringify(str)}'`);
     
@@ -55,9 +51,7 @@ module.exports.getTemplateValues = (node, str) => {
     });
 };
 
-module.exports.findVarsWays = findVarsWays;
-
-function findVarsWays(node) {
+export function findVarsWays(node) {
     if (isIdentifier(node) && is(node.name))
         return {
             [node.name]: [''],
@@ -102,9 +96,7 @@ function findVarsWays(node) {
     return vars;
 }
 
-module.exports.getValues = getValues;
-
-function getValues({waysFrom, node}) {
+export function getValues({waysFrom, node}) {
     const result = {};
     
     for (const [name, ways] of entries(waysFrom)) {
@@ -129,9 +121,7 @@ function getValues({waysFrom, node}) {
 
 const makeRaw = (a) => a.replace('`', '\\`');
 
-module.exports.setValues = setValues;
-
-function setValues({waysTo, values, path}) {
+export function setValues({waysTo, values, path}) {
     const node = extractExpression(path.node);
     
     for (const [name, ways] of entries(waysTo)) {

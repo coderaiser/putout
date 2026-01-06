@@ -1,6 +1,5 @@
-'use strict';
+import {types} from '@putout/babel';
 
-const {types} = require('@putout/babel');
 const {
     isIdentifier,
     isLiteral,
@@ -33,7 +32,7 @@ const parseName = (node) => {
     throw Error(`☝️ Looks like type of node '${node.type}' not supported by 'compare -> link -> parseName()'`);
 };
 
-module.exports = ({add, value, nodeValue, templateStore}) => {
+export default ({add, value, nodeValue, templateStore}) => {
     const name = parseName(value);
     
     if (isStringLiteral(value) && !isStringLiteral(nodeValue))
@@ -54,4 +53,4 @@ module.exports = ({add, value, nodeValue, templateStore}) => {
     return true;
 };
 
-module.exports._parseName = parseName;
+export const _parseName = parseName;

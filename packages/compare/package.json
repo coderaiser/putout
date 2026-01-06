@@ -1,7 +1,7 @@
 {
   "name": "@putout/compare",
   "version": "19.0.2",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "compare AST-nodes according to 🦎 PutoutScript",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/compare#readme",
@@ -50,7 +50,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=20.19"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"

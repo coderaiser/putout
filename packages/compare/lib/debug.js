@@ -1,9 +1,7 @@
-'use strict';
+import {createDebug as mainCreateDebug} from 'obug';
 
-const {createDebug} = require('obug');
-
-module.exports.createDebug = (namespace) => {
-    const log = createDebug(namespace);
+export const createDebug = (namespace) => {
+    const log = mainCreateDebug(namespace);
     
     return new Proxy(log, {
         apply(target, thisArg, args) {

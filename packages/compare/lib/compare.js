@@ -1,25 +1,21 @@
-'use strict';
+import {template} from '@putout/engine-parser';
 
-const {template} = require('@putout/engine-parser');
-
-const {
-    findVarsWays,
-    getValues,
-    setValues,
+export {
     getTemplateValues,
-} = require('./vars');
-
-const {runComparators} = require('./run-comparators');
-const {runTopLevelComparators} = require('./top-level-comparators');
-
-const {
+    setValues,
+    getValues,
+    findVarsWays,
+} from './vars/index.js';
+import {runComparators} from './run-comparators.js';
+import {runTopLevelComparators} from './top-level-comparators.js';
+import {
     isStr,
     isId,
     isPath,
     isEqualType,
-    isTemplate,
-    parseTemplate,
-} = require('./is');
+} from './is.js';
+
+export {parseTemplate, isTemplate} from './is.js';
 
 const {extractExpression} = template;
 const addWaterMark = (a) => a;
@@ -52,16 +48,7 @@ function parseNode(a) {
     return a.node;
 }
 
-module.exports.compare = compare;
-module.exports.parseTemplate = parseTemplate;
-module.exports.isTemplate = isTemplate;
-
-module.exports.findVarsWays = findVarsWays;
-module.exports.getValues = getValues;
-module.exports.setValues = setValues;
-module.exports.getTemplateValues = getTemplateValues;
-
-function compare(path, template, options = {}, equal = noop) {
+export function compare(path, template, options = {}, equal = noop) {
     const {findUp = true} = options;
     
     if (!path && !template)
@@ -97,7 +84,7 @@ function compare(path, template, options = {}, equal = noop) {
     return superCompareIterate(node, templateNode);
 }
 
-module.exports.compareAny = (path, templateNodes, options) => {
+export const compareAny = (path, templateNodes, options) => {
     templateNodes = maybeArray(templateNodes);
     
     for (const template of templateNodes) {
@@ -108,7 +95,7 @@ module.exports.compareAny = (path, templateNodes, options) => {
     return false;
 };
 
-module.exports.compareAll = (path, templateNodes, options) => {
+export const compareAll = (path, templateNodes, options) => {
     templateNodes = maybeArray(templateNodes);
     
     for (const template of templateNodes) {
