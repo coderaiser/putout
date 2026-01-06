@@ -1,21 +1,20 @@
-'use strict';
-
-const {types, traverse: babelTraverse} = require('@putout/babel');
-
-const {
+import {
+    types,
+    traverse as babelTraverse,
+} from '@putout/babel';
+import {
     compare,
     parseTemplate,
     isTemplate,
     getTemplateValues,
-} = require('@putout/compare');
+} from '@putout/compare';
 
 const {isFile, isProgram} = types;
 const {merge} = babelTraverse.visitors;
 const {entries} = Object;
 
-module.exports.traverse = traverse;
-
 const isPath = (path) => Boolean(path.node);
+
 const createTraverse = (path) => {
     if (isPath(path))
         return path.traverse.bind(path);
@@ -32,7 +31,7 @@ const createTraverse = (path) => {
 
 const getTemplate = ([a]) => a;
 
-function traverse(basePath, visitor) {
+export function traverse(basePath, visitor) {
     const traverse = createTraverse(basePath);
     const items = [];
     const parsedVisitors = entries(visitor);
@@ -74,7 +73,7 @@ const getVisit = ({fn, node, tmpl}) => (path) => {
     fn(path, getTemplateValues(path.node, tmpl));
 };
 
-module.exports.contains = (path, items) => {
+export const contains = (path, items) => {
     let found = false;
     
     const visit = (path) => {

@@ -1,7 +1,7 @@
 {
   "name": "@putout/traverse",
   "version": "15.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "traverse ast-nodes",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/traverse#readme",
@@ -45,7 +45,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"

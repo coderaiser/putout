@@ -16,8 +16,8 @@ npm i @putout/traverse
 ### traverse
 
 ```js
-const {template} = require('@putout/engine-parser');
-const {traverse} = require('@putout/traverse');
+import {template} from '@putout/engine-parser';
+import {traverse} from '@putout/traverse';
 
 const node = template.ast('const a = b');
 
@@ -42,8 +42,8 @@ traverse(node, {
 ### contains
 
 ```js
-const {template} = require('@putout/engine-parser');
-const {contains} = require('@putout/traverse');
+import {template} from '@putout/engine-parser';
+import {contains} from '@putout/traverse';
 
 const node = template.ast('async () => await x');
 

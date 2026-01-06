@@ -1,8 +1,6 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-const {template, parse} = require('putout');
-const {traverse, contains} = require('./traverse');
+import {test, stub} from 'supertape';
+import {template, parse} from 'putout';
+import {traverse, contains} from './traverse.js';
 
 test('putout: traverse', (t) => {
     const node = template.ast(`
