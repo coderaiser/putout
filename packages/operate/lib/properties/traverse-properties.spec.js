@@ -1,18 +1,14 @@
-'use strict';
-
-const {once} = require('node:events');
-const montag = require('montag');
-const test = require('supertape');
-const {createProgress} = require('@putout/engine-runner/progress');
-
-const {
+import {once} from 'node:events';
+import montag from 'montag';
+import test from 'supertape';
+import {createProgress} from '@putout/engine-runner/progress';
+import {
     parse,
     template,
     traverse,
     putout,
-} = require('putout');
-
-const {traverseProperties} = require('./traverse-properties');
+} from 'putout';
+import {traverseProperties} from './traverse-properties.js';
 
 test('operate: traverse-properties', (t) => {
     const object = template.ast('x({"a": "b"})');

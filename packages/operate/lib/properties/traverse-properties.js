@@ -1,7 +1,5 @@
-'use strict';
-
-const {traverse, types} = require('@putout/babel');
-const {extract} = require('../extract');
+import {traverse, types} from '@putout/babel';
+import {extract} from '../extract.js';
 
 const {
     isCallExpression,
@@ -23,7 +21,7 @@ function getNode(path) {
     };
 }
 
-module.exports.traverseProperties = (path, name, {firstLevel = false} = {}) => {
+export const traverseProperties = (path, name, {firstLevel = false} = {}) => {
     const collector = [];
     const node = getNode(path);
     

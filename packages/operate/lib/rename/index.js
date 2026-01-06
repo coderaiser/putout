@@ -1,8 +1,6 @@
-'use strict';
+import {renameProperty} from './rename-property.js';
 
-const {renameProperty} = require('./rename-property');
-
-module.exports.rename = (path, from, to) => {
+export const rename = (path, from, to) => {
     const bindings = path.scope.getAllBindings();
     const bindingCurrent = bindings[from];
     

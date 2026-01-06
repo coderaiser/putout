@@ -1,16 +1,14 @@
-'use strict';
+import {types} from '@putout/babel';
+import {extract} from '../extract.js';
+
+export {traverseProperties} from './traverse-properties.js';
 
 const {
     isObjectExpression,
     isObjectPattern,
-} = require('@putout/babel').types;
+} = types;
 
-const {extract} = require('../extract');
-const {traverseProperties} = require('./traverse-properties');
-
-module.exports.traverseProperties = traverseProperties;
-
-module.exports.getProperties = (path, names) => {
+export const getProperties = (path, names) => {
     const result = {};
     
     for (const propertyPath of path.get('properties')) {
@@ -31,7 +29,7 @@ module.exports.getProperties = (path, names) => {
     return result;
 };
 
-module.exports.getProperty = (path, name) => {
+export const getProperty = (path, name) => {
     if (!isObjectExpression(path) && !isObjectPattern(path))
         throw Error(`☝️Looks like path is not 'ObjectExpression | ObjectPattern', but: '${path.type}' for path: ${path}`);
     

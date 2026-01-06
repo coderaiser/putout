@@ -1,13 +1,13 @@
-'use strict';
+import {fileURLToPath} from 'node:url';
+import {dirname} from 'node:path';
+import putout from 'putout';
+import {test} from 'supertape';
+import * as esm from '@putout/plugin-esm';
+import {replaceWithMultiple} from './replace-with-multiple.js';
+import {readFixtures} from '../../test/fixture.js';
 
-const putout = require('putout');
-
-const {test} = require('supertape');
-
-const esm = require('@putout/plugin-esm');
-
-const {replaceWithMultiple} = require('./replace-with-multiple');
-const {readFixtures} = require('../../test/fixture');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const {types} = putout;
 const {callExpression} = types;
 const fixture = readFixtures(__dirname);

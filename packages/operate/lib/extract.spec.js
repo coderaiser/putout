@@ -1,10 +1,7 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-const {test} = require('supertape');
-const {parse} = require('putout');
-
-const {extract} = require('./extract');
+import {tryCatch} from 'try-catch';
+import {test} from 'supertape';
+import {parse} from 'putout';
+import {extract} from './extract.js';
 
 test('operate: extract: Identifier', (t) => {
     const name = 'hello';

@@ -1,13 +1,10 @@
-'use strict';
-
-const {
+import {
     parse,
     operator,
     print,
-} = require('putout');
-
-const {test} = require('supertape');
-const {getExportDefault} = require('./get-export-default');
+} from 'putout';
+import {test} from 'supertape';
+import {getExportDefault} from './get-export-default.js';
 
 const {traverse} = operator;
 

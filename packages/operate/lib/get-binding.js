@@ -1,6 +1,5 @@
-'use strict';
+import {types} from '@putout/babel';
 
-const {types} = require('@putout/babel');
 const {
     isIdentifier,
     isMemberExpression,
@@ -8,13 +7,12 @@ const {
 
 const isString = (a) => typeof a === 'string';
 
-module.exports.getBinding = getBinding;
-function getBinding(path, node) {
+export function getBinding(path, node) {
     const name = parseName(node);
     return path.scope.getAllBindings()[name];
 }
 
-module.exports.getBindingPath = (path, name) => getBinding(path, name)?.path;
+export const getBindingPath = (path, name) => getBinding(path, name)?.path;
 
 const parseName = (node) => {
     if (isString(node))

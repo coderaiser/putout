@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.renameProperty = (path, from, to) => {
+export const renameProperty = (path, from, to) => {
     path.traverse({
         ObjectProperty(path) {
             const {node} = path;

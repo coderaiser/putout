@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.getExportDefault = (path) => {
+export const getExportDefault = (path) => {
     const programParent = path.scope.getProgramParent();
     const programPath = programParent.path;
     

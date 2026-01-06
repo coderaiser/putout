@@ -1,13 +1,10 @@
-'use strict';
-
-const {getBindingPath} = require('./get-binding');
-const {extract} = require('./extract');
+import {getBindingPath} from './get-binding.js';
+import {extract} from './extract.js';
 
 const NOT_COMPUTED = false;
 const COMPUTED = true;
 
-module.exports.compute = compute;
-function compute(path) {
+export function compute(path) {
     const {node} = path;
     
     if (!path.evaluate)

@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.getPathAfterRequires = (body) => {
+export const getPathAfterRequires = (body) => {
     let path;
     
     for (path of body) {

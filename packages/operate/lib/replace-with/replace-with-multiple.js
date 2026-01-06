@@ -1,10 +1,10 @@
-'use strict';
+import {types} from '@putout/babel';
+import {maybeBody} from './maybe-body.js';
+import {toExpression} from './to-expression.js';
 
-const {maybeBody} = require('./maybe-body');
-const {toExpression} = require('./to-expression');
-const {isSequenceExpression} = require('@putout/babel').types;
+const {isSequenceExpression} = types;
 
-module.exports.replaceWithMultiple = (path, nodes) => {
+export const replaceWithMultiple = (path, nodes) => {
     const {node} = path;
     const {
         trailingComments,

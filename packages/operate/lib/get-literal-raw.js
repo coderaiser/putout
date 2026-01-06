@@ -1,8 +1,6 @@
-'use strict';
-
 const isString = (a) => typeof a === 'string';
 
-module.exports.getLiteralRaw = (path) => {
+export const getLiteralRaw = (path) => {
     const {
         raw,
         extra,

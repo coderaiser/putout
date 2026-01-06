@@ -1,7 +1,5 @@
-'use strict';
-
-const test = require('supertape');
-const {isSimple} = require('./is-simple');
+import test from 'supertape';
+import {isSimple} from './is-simple.js';
 
 test('operate: is-simple: Identifier', (t) => {
     const result = isSimple({

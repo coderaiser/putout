@@ -1,6 +1,5 @@
-'use strict';
+import {maybeBody} from './maybe-body.js';
 
-const {maybeBody} = require('./maybe-body');
 const {assign} = Object;
 
 const parseNode = (a) => {
@@ -12,7 +11,7 @@ const parseNode = (a) => {
     return a;
 };
 
-module.exports.replaceWith = (path, node) => {
+export const replaceWith = (path, node) => {
     node = parseNode(node);
     
     if (path?.parentPath?.isExpressionStatement() && !path.parentPath.isProgram()) {

@@ -1,10 +1,7 @@
-'use strict';
-
-const {parse, operator} = require('putout');
-const {test} = require('supertape');
-const montag = require('montag');
-
-const {getBinding, getBindingPath} = require('./get-binding');
+import {parse, operator} from 'putout';
+import {test} from 'supertape';
+import montag from 'montag';
+import {getBinding, getBindingPath} from './get-binding.js';
 
 const {traverse} = operator;
 

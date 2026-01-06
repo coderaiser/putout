@@ -1,13 +1,10 @@
-'use strict';
-
-const {
+import {
     parse,
     operator,
     print,
-} = require('putout');
-
-const {test} = require('supertape');
-const {getPathAfterRequires} = require('./get-path-after-requires');
+} from 'putout';
+import {test} from 'supertape';
+import {getPathAfterRequires} from './get-path-after-requires.js';
 
 const {traverse} = operator;
 

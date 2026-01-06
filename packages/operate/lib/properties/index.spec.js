@@ -1,20 +1,16 @@
-'use strict';
-
-const {test} = require('supertape');
-const {tryCatch} = require('try-catch');
-
-const {
+import {test} from 'supertape';
+import {tryCatch} from 'try-catch';
+import {
     parse,
     operator,
     print,
     template,
-} = require('putout');
-
-const {
+} from 'putout';
+import {
     getProperty,
     getProperties,
     traverseProperties,
-} = require('.');
+} from './index.js';
 
 const {traverse} = operator;
 

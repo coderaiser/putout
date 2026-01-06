@@ -1,15 +1,12 @@
-'use strict';
-
-const {
+import {test} from 'supertape';
+import montag from 'montag';
+import {
     parse,
     operator,
     print,
     template,
-} = require('putout');
-
-const {test} = require('supertape');
-const montag = require('montag');
-const {setLiteralValue} = require('./set-literal-value');
+} from 'putout';
+import {setLiteralValue} from './set-literal-value.js';
 
 const {traverse} = operator;
 

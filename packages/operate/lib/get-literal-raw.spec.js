@@ -1,8 +1,6 @@
-'use strict';
-
-const {test} = require('supertape');
-const {template} = require('putout');
-const {getLiteralRaw} = require('./get-literal-raw');
+import {test} from 'supertape';
+import {template} from 'putout';
+import {getLiteralRaw} from './get-literal-raw.js';
 
 test('operate: getLiteralRaw: root', (t) => {
     const node = {

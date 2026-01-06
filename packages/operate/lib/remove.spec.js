@@ -1,12 +1,10 @@
-'use strict';
-
-const {test} = require('supertape');
-const {
+import {test} from 'supertape';
+import {
     traverse,
     parse,
     print,
     operator,
-} = require('putout');
+} from 'putout';
 
 const {remove} = operator;
 

@@ -1,10 +1,7 @@
-'use strict';
-
-const {tryCatch} = require('try-catch');
-
-const {parse, operator} = require('putout');
-const {test} = require('supertape');
-const {compute} = require('./compute');
+import {tryCatch} from 'try-catch';
+import {parse, operator} from 'putout';
+import {test} from 'supertape';
+import {compute} from './compute.js';
 
 const {traverse} = operator;
 

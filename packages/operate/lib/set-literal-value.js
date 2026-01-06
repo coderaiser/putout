@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.setLiteralValue = (path, newValue) => {
+export const setLiteralValue = (path, newValue) => {
     const node = path.node || path;
     const {
         raw,

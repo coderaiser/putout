@@ -1,14 +1,11 @@
-'use strict';
-
-const test = require('supertape');
-const montag = require('montag');
-const {
+import test from 'supertape';
+import montag from 'montag';
+import {
     parse,
     print,
     traverse,
-} = require('putout');
-
-const {renameProperty} = require('./rename-property.js');
+} from 'putout';
+import {renameProperty} from './rename-property.js';
 
 test('putout: operate: rename-property: rename', (t) => {
     const ast = parse('const {hello: x} = c; hello();');

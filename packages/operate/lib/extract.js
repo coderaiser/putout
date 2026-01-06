@@ -1,6 +1,5 @@
-'use strict';
+import {types} from '@putout/babel';
 
-const {types} = require('@putout/babel');
 const {
     isArrayExpression,
     isLiteral,
@@ -18,9 +17,7 @@ const {
     isTSAsExpression,
 } = types;
 
-module.exports.extract = extract;
-
-function extract(node) {
+export function extract(node) {
     node = node.node || node;
     
     if (isIdentifier(node))

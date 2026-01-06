@@ -1,6 +1,5 @@
-'use strict';
+import {types} from '@putout/babel';
 
-const {types} = require('@putout/babel');
 const {
     isOptionalMemberExpression,
     isMemberExpression,
@@ -8,7 +7,7 @@ const {
     isLiteral,
 } = types;
 
-module.exports.isSimple = (a) => {
+export const isSimple = (a) => {
     if (isLiteral(a))
         return true;
     

@@ -1,14 +1,11 @@
-'use strict';
-
-const test = require('supertape');
-const montag = require('montag');
-const {
+import test from 'supertape';
+import montag from 'montag';
+import {
     parse,
     print,
     traverse,
-} = require('putout');
-
-const {rename} = require('./index.js');
+} from 'putout';
+import {rename} from './index.js';
 
 test('putout: operate: rename: assignment pattern', (t) => {
     const ast = parse('const {hello: x} = c; hello();');

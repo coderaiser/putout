@@ -1,6 +1,5 @@
-'use strict';
+import {types} from '@putout/babel';
 
-const {types} = require('@putout/babel');
 const {
     isStatement,
     isBlockStatement,
@@ -8,7 +7,7 @@ const {
     expressionStatement,
 } = types;
 
-module.exports.maybeBody = (path, node) => {
+export const maybeBody = (path, node) => {
     const {parentPath} = path;
     
     if (node && !isStatement(node) || isBlockStatement(node) || !parentPath?.isArrowFunctionExpression?.())

@@ -1,31 +1,26 @@
-'use strict';
+import {types} from '@putout/babel';
 
-const {types} = require('@putout/babel');
-
-const {getBinding, getBindingPath} = require('./get-binding');
-const {isSimple} = require('./is-simple');
-const {extract} = require('./extract');
-const {compute} = require('./compute');
-const {remove} = require('./remove');
-const {getExportDefault} = require('./get-export-default');
-const {rename} = require('./rename');
-const {renameProperty} = require('./rename/rename-property');
-const {setLiteralValue} = require('./set-literal-value');
-const {getPathAfterRequires} = require('./get-path-after-requires');
-
-const {
-    getProperty,
-    getProperties,
+export {getBindingPath, getBinding} from './get-binding.js';
+export {isSimple} from './is-simple.js';
+export {extract} from './extract.js';
+export {compute} from './compute.js';
+export {remove} from './remove.js';
+export {getExportDefault} from './get-export-default.js';
+export {rename} from './rename/index.js';
+export {renameProperty} from './rename/rename-property.js';
+export {setLiteralValue} from './set-literal-value.js';
+export {getPathAfterRequires} from './get-path-after-requires.js';
+export {
     traverseProperties,
-} = require('./properties');
-
-const {getLiteralRaw} = require('./get-literal-raw');
-
-const {
-    replaceWith,
-    replaceWithMultiple,
+    getProperties,
+    getProperty,
+} from './properties/index.js';
+export {getLiteralRaw} from './get-literal-raw.js';
+export {
     toExpression,
-} = require('./replace-with');
+    replaceWithMultiple,
+    replaceWith,
+} from './replace-with/index.js';
 
 const {
     matchesPattern,
@@ -35,30 +30,11 @@ const {
     expressionStatement,
 } = types;
 
-module.exports.getBinding = getBinding;
-module.exports.getBindingPath = getBindingPath;
-module.exports.getLiteralRaw = getLiteralRaw;
-module.exports.extract = extract;
-module.exports.compute = compute;
-module.exports.replaceWith = replaceWith;
-module.exports.getExportDefault = getExportDefault;
-module.exports.toExpression = toExpression;
-module.exports.isSimple = isSimple;
-module.exports.rename = rename;
-module.exports.renameProperty = renameProperty;
-module.exports.setLiteralValue = setLiteralValue;
-
-module.exports.getProperty = getProperty;
-module.exports.getProperties = getProperties;
-module.exports.traverseProperties = traverseProperties;
-
-module.exports.replaceWithMultiple = replaceWithMultiple;
-
-module.exports.insertBefore = (path, node) => {
+export const insertBefore = (path, node) => {
     path.insertBefore(node);
 };
 
-module.exports.insertAfter = (path, node) => {
+export const insertAfter = (path, node) => {
     const {comments} = path.node;
     
     if (path.node.trailingComments?.length && path.getNextSibling()?.node?.leadingComments)
@@ -75,13 +51,13 @@ module.exports.insertAfter = (path, node) => {
     path.node.comments = comments;
 };
 
-module.exports.isModuleExports = (path) => {
+export const isModuleExports = (path) => {
     return matchesPattern(path.node || path, 'module.exports');
 };
 
 const isBinding = (name) => (path) => path.scope.bindings[name];
 
-module.exports.findBinding = (path, name) => {
+export const findBinding = (path, name) => {
     const referencePath = path.findParent(isBinding(name));
     
     if (!referencePath)
@@ -90,10 +66,7 @@ module.exports.findBinding = (path, name) => {
     return referencePath.scope.bindings[name];
 };
 
-module.exports.remove = remove;
-
-module.exports.getPathAfterRequires = getPathAfterRequires;
-module.exports.getPathAfterImports = (body) => {
+export const getPathAfterImports = (body) => {
     const n = body.length;
     let i = 0;
     
@@ -103,7 +76,7 @@ module.exports.getPathAfterImports = (body) => {
     return body[i];
 };
 
-module.exports.isESM = (path) => {
+export const isESM = (path) => {
     const scope = path.scope.getProgramParent();
     const programPath = scope.path;
     

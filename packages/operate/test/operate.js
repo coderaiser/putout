@@ -1,12 +1,15 @@
-'use strict';
+import {fileURLToPath} from 'node:url';
+import {dirname} from 'node:path';
+import {createRequire} from 'node:module';
+import {test, stub} from 'supertape';
+import putout from 'putout';
+import montag from 'montag';
+import {readFixtures} from './fixture.js';
+import * as operate from '../lib/operate.js';
 
-const {test, stub} = require('supertape');
-
-const putout = require('putout');
-const montag = require('montag');
-
-const {readFixtures} = require('./fixture');
-const operate = require('..');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const require = createRequire(import.meta.url);
 
 const {
     traverse,

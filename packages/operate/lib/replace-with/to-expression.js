@@ -1,13 +1,12 @@
-'use strict';
+import {types} from '@putout/babel';
 
-const {types} = require('@putout/babel');
 const {
     isExpression,
     toStatement,
     expressionStatement,
 } = types;
 
-module.exports.toExpression = (el) => {
+export const toExpression = (el) => {
     const {type} = el;
     
     const ignore = [

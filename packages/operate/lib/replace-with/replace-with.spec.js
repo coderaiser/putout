@@ -1,9 +1,7 @@
-'use strict';
-
-const putout = require('putout');
-const {test, stub} = require('supertape');
-const montag = require('montag');
-const {replaceWith} = require('./replace-with');
+import putout from 'putout';
+import {test, stub} from 'supertape';
+import montag from 'montag';
+import {replaceWith} from './replace-with.js';
 
 test('putout: operate: replaceWith', (t) => {
     const node = {};

@@ -1,9 +1,7 @@
-'use strict';
-
 const {entries} = Object;
 const isOneDeclaration = ({node}) => node.declarations.length === 1;
 
-module.exports.remove = (path) => {
+export const remove = (path) => {
     if (!path.node)
         return;
     
