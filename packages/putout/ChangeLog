@@ -1,3 +1,10 @@
+2026.01.06, v41.6.1
+
+feature:
+- d429e1758 putout: @putout/traverse v16.0.0
+- 38964f8a1 @putout/traverse: migrate to ESM
+- a2158ea02 eslint-plugin-putout: toml
+
 2026.01.05, v41.6.0
 
 feature:
