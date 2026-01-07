@@ -165,9 +165,9 @@ for (const item of arguments) {
 
 ## reduce
 
-> - The [`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) method executes a user-supplied **reducer** callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+> - The `reduce()` method executes a user-supplied **reducer** callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
 >
-> (c) MDN
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
 
 You should always look at second argument of a **reducer** since it changes logic drastically and should read back and forth a couple times to understand what is going on.
 
@@ -177,13 +177,13 @@ You should always look at second argument of a **reducer** since it changes logi
 
 Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/107751499a4bbdd83b9181444d8bdbbd/8d3b646a3df0025d564e2bb141cc7f6a6bb1b3a5).
 
-## ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const result = list.reduce((a, b) => a + b, 1);
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 let sum = 1;
@@ -267,9 +267,9 @@ for (const x of y) {}
 
 ## for
 
-> The [`for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement to be executed in the loop.
+> The `for` statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement to be executed in the loop.
 >
-> (c) MDN
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
 
 ### for-n
 
