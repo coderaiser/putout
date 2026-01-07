@@ -488,7 +488,7 @@ Let's consider file structure:
 /
 |-- processors/
 |  `-- index.js
-|  `-- parse-prosessor-names.js
+|  `-- parse-processor-names.js
 ```
 
 In this case `index.js` can be fixed:
