@@ -794,8 +794,11 @@ test('putout: parseOptions: no args', (t) => {
     const recursiveRead = stub().returns(['', {}]);
     const homedir = stub().returns('/');
     const escalade = stub();
+    const readHomeOptions = stub().returns({});
     
-    const info = {};
+    const info = {
+        readHomeOptions,
+    };
     
     const result = parseOptions(info, {
         homedir,
