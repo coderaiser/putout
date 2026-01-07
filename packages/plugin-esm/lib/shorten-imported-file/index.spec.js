@@ -1,0 +1,33 @@
+import {createTest} from '@putout/test';
+import * as plugin from './index.js';
+
+const test = createTest(import.meta.url, {
+    plugins: [
+        ['shorten-imported-file', plugin],
+    ],
+});
+
+test('esm: shorten-imported-file: report', (t) => {
+    t.report('shorten-imported-file', `Shorten import source: '../processors/parse-processor-names.js' -> './parse-processor-names.js'`);
+    t.end();
+});
+
+test('esm: shorten-imported-file: transform', (t) => {
+    t.transform('shorten-imported-file');
+    t.end();
+});
+
+test('esm: shorten-imported-file: transform: nested', (t) => {
+    t.transform('nested');
+    t.end();
+});
+
+test('esm: shorten-imported-file: no report: short', (t) => {
+    t.noReport('short');
+    t.end();
+});
+
+test('esm: shorten-imported-file: no report: short-nested', (t) => {
+    t.noReport('short-nested');
+    t.end();
+});

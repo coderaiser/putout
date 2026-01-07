@@ -36,6 +36,7 @@ npm i putout @putout/plugin-esm -D
 
 - ✅ [apply-namespace-import-file](#resolve-imported-file);
 - ✅ [resolve-imported-file](#resolve-imported-file);
+- ✅ [shorten-imported-file](#shorten-imported-file);
 
 ## Config
 
@@ -47,8 +48,8 @@ npm i putout @putout/plugin-esm -D
         "esm/declare-imports-first": "on",
         "esm/group-imports-by-source": "on",
         "esm/merge-duplicate-imports": "on",
-        "esm/merge-declaration-with-export": "off",
-        "esm/merge-export-declaration": "off",
+        "esm/merge-declaration-with-export": "on",
+        "esm/merge-export-declaration": "on",
         "esm/remove-quotes-from-import-assertions": "on",
         "esm/remove-empty-export": "on",
         "esm/remove-empty-import": ["on", {
@@ -56,6 +57,7 @@ npm i putout @putout/plugin-esm -D
         }],
         "esm/sort-imports-by-specifiers": "on",
         "esm/resolve-imported-file": "off",
+        "esm/shorten-imported-file": "off",
         "esm/apply-namespace-of-file": "off",
         "esm/remove-useless-export-specifiers": "off"
     }
@@ -417,6 +419,7 @@ Check out in 🐊**Putout Editor**:
 - ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/5d7687215e9fbdf705935c444503dded/75a98d2db9d3847c73017e41637924b1cfd5a598);
 - ✅ [`has-export-default`](https://putout.cloudcmd.io/#/gist/b50ccfe5cc8c0c97e2fc98b37903ade4/fbc026e6f1027581f7aa4879dcafcaa7754bf8f4);
 - ✅ [`apply-namespace-import`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
+- ✅ [`is-esm`](https://putout.cloudcmd.io/#/gist/fa080be2bf3a6560e289d84b5873c2bc/2601091f6bf97148843767968c3afcb36dde31de);
 
 Let's consider file structure:
 
@@ -447,7 +450,6 @@ Check out in 🐊**Putout Editor**:
 
 - ✅ [`resolve-imported-file`](https://putout.cloudcmd.io/#/gist/241489cb2781dd37ec96baf0115cde4e/83c2f2e9f490850b7fda432f8d25ae6a64ed07e3);
 - ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/ee10100fed86e4db926885dd54298668/7538bca7a9ae006d976f41261c0ed4c0e1902ace);
-- ✅ [`is-esm`](https://putout.cloudcmd.io/#/gist/fa080be2bf3a6560e289d84b5873c2bc/2601091f6bf97148843767968c3afcb36dde31de);
 - ✅ [`change-imports`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
 
 Let's consider file structure:
@@ -471,6 +473,36 @@ import a from './a';
 
 ```js
 import a from './a.js';
+```
+
+### shorten-imported-file
+
+Check out in 🐊**Putout Editor**:
+
+- ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/ee10100fed86e4db926885dd54298668/7538bca7a9ae006d976f41261c0ed4c0e1902ace);
+- ✅ [`change-imports`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
+
+Let's consider file structure:
+
+```
+/
+|-- processors/
+|  `-- index.js
+|  `-- parse-prosessor-names.js
+```
+
+In this case `index.js` can be fixed:
+
+#### ❌ Example of incorrect code
+
+```js
+import {parseProcessorNames} from '../processors/parse-processor-names.js';
+```
+
+#### ✅ Example of correct code
+
+```js
+import {parseProcessorNames} from './parse-processor-names.js';
 ```
 
 ## License

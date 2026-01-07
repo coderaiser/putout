@@ -62,6 +62,11 @@ test('plugin-esm: no report: resolve-imported-file', (t) => {
     t.end();
 });
 
+test('plugin-esm: no report: shorten-imported-file', (t) => {
+    t.noReport('shorten-imported-file');
+    t.end();
+});
+
 test('plugin-esm: no transform: apply-namespace-import-to-file', (t) => {
     t.noTransform('apply-namespace-import-to-file');
     t.end();

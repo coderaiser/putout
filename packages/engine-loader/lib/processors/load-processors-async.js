@@ -1,5 +1,5 @@
 import {createAsyncLoader} from '../load/async-loader.js';
-import parseProcessorNames from '../processors/parse-processor-names.js';
+import parseProcessorNames from './parse-processor-names.js';
 import {check} from '../check/index.js';
 
 export const loadProcessorsAsync = async (options, simpleImport) => {

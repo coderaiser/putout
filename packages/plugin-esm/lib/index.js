@@ -4,6 +4,7 @@ import * as removeUselessExportSpecifiers from './remove-useless-export-specifie
 import * as mergeDeclarationWithExport from './merge-declaration-with-export/index.js';
 import * as applyNamespaceImportToFile from './apply-namespace-import-to-file/index.js';
 import * as resolveImportedFile from './resolve-imported-file/index.js';
+import * as shortenImportedFile from './shorten-imported-file/index.js';
 import * as addIndexToImport from './add-index-to-import/index.js';
 import * as declareImportsFirst from './declare-imports-first/index.js';
 import * as groupImportsBySource from './group-imports-by-source/index.js';
@@ -26,6 +27,7 @@ export const rules = {
     'remove-empty-export': removeEmptyExport,
     'sort-imports-by-specifiers': sortImportsBySpecifiers,
     'resolve-imported-file': ['off', resolveImportedFile],
+    'shorten-imported-file': ['off', shortenImportedFile],
     'apply-namespace-import-to-file': ['off', applyNamespaceImportToFile],
     'merge-declaration-with-export': mergeDeclarationWithExport,
     'remove-useless-export-specifiers': removeUselessExportSpecifiers,
