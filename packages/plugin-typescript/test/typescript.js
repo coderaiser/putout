@@ -131,3 +131,8 @@ test('plugin-typescript: transform: convert-namespace-to-global', (t) => {
     t.transform('convert-namespace-to-global');
     t.end();
 });
+
+test('plugin-typescript: transform: convert-module-to-namespace', (t) => {
+    t.transform('convert-module-to-namespace');
+    t.end();
+});
