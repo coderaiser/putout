@@ -229,7 +229,6 @@ Linter | Rule | Fix
 🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-namespace-to-global) | ✅
 ⏣ **ESLint** | [`@typescript-eslint/no-namespace`](https://typescript-eslint.io/rules/no-namespace/) | ❌
 
-
 ## remove-duplicates-from-union
 
 ### ❌ Example of incorrect code
