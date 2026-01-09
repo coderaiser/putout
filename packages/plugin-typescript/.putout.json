@@ -1,7 +1,4 @@
 {
-    "rules": {
-        "putout/check-replace-code": "off"
-    },
     "match": {
         "*.md{ts}": {
             "typescript": "off"

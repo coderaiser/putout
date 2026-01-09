@@ -7,6 +7,8 @@ const {
     identifier,
     arrayExpression,
     arrayPattern,
+    variableDeclaration,
+    variableDeclarator,
 } = types;
 
 const {replaceWith} = operator;
@@ -66,6 +68,14 @@ export const fix = (path, {options}) => {
             const key = identifier(getVar());
             
             replaceWith(path, key);
+            
+            return;
+        }
+        
+        if (path.parentPath.parentPath.isTSModuleBlock()) {
+            const key = identifier(getVar());
+            
+            replaceWith(path, variableDeclaration('var', [variableDeclarator(key)]));
             
             return;
         }
