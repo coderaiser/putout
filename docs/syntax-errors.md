@@ -320,6 +320,7 @@ function get() {
 +       return;
 }
 ```
+</details>
 
 <details><summary>remove useless <code>parens</code> for params </summary>
 
