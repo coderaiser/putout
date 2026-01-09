@@ -7,7 +7,6 @@ export default defineConfig([
             'no-useless-return': 'off',
             '@typescript-eslint/array-type': 'off',
             '@stylistic/no-extra-parens': 'off',
-            '@typescript-eslint/prefer-namespace-keyword': 'off',
         },
     },
 ]);

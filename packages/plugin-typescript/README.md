@@ -24,7 +24,6 @@ npm i putout @putout/plugin-typescript -D
 - ✅ [convert-esm-to-commonjs](#convert-esm-to-commonjs);
 - ✅ [convert-generic-to-shorthand](#convert-generic-to-shorthand);
 - ✅ [convert-namespace-to-global](#convert-namespace-to-global);
-- ✅ [convert-module-to-namespace](#convert-module-to-namespace);
 - ✅ [cts-file](#cts-file);
 - ✅ [find-file](#find-file);
 - ✅ [mts-file](#mts-file);
@@ -56,7 +55,6 @@ npm i putout @putout/plugin-typescript -D
         "typescript/convert-commonjs-to-esm": "off",
         "typescript/convert-esm-to-commonjs": "off",
         "typescript/convert-namespace-to-global": "off",
-        "typescript/convert-module-to-namespace": "off",
         "typescript/remove-duplicates-from-union": "on",
         "typescript/remove-duplicates-interface-keys": "on",
         "typescript/remove-duplicates-exports": "on",
@@ -231,36 +229,6 @@ Linter | Rule | Fix
 🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-namespace-to-global) | ✅
 ⏣ **ESLint** | [`@typescript-eslint/no-namespace`](https://typescript-eslint.io/rules/no-namespace/) | ❌
 
-## convert-module-to-namespace
-
-> This changes the existing suggestion diagnostic to an error when you write forms like `module foo` or `module foo.bar {`
->
-> (c) [github.com/miscrosoft/typescript](https://github.com/microsoft/TypeScript/pull/62876)
-
-Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/399ab8b441a7566943945d142ba97a37/9fe1eccb7ade1209399ab7e99f657f6849ac0905).
-
-### ❌ Example of incorrect code
-
-```ts
-declare module m {
-    var foo: string;
-}
-```
-
-### ✅ Example of correct code
-
-```ts
-declare namespace m {
-    var foo: string;
-}
-```
-
-### Comparison
-
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-module-to-namespace) | ✅
-⏣ **ESLint** | [`@typescript-eslint/prefer-namespace-keyword`](https://typescript-eslint.io/rules/prefer-namespace-keyword/) | ✅
 
 ## remove-duplicates-from-union
 
