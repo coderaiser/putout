@@ -260,7 +260,7 @@ declare namespace m {
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-module-to-namespace) | ✅
-⏣ **ESLint** | [`@typescript-eslint/prefer-namespace-keyword`](https://typescript-eslint.io/rules/prefer-namespace-keyword/) | ❌
+⏣ **ESLint** | [`@typescript-eslint/prefer-namespace-keyword`](https://typescript-eslint.io/rules/prefer-namespace-keyword/) | ✅
 
 ## remove-duplicates-from-union
 
