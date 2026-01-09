@@ -369,3 +369,14 @@ export const {
 ```
 
 </details>
+
+<details><summary>convert <code>module</code> to <code>namespace</code></summary>
+
+```diff
+-module M {
++namespace M {
+    var x: string;
+}
+```
+
+</details>
