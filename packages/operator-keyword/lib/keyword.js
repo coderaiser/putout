@@ -19,6 +19,7 @@ const typescript = [
     'declare',
     'module',
     'type',
+    'namespace',
 ];
 
 const typescriptReserved = [

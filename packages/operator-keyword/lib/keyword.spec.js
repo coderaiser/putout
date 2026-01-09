@@ -203,3 +203,10 @@ test('putout: operator: isKeyword: debugger', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: operator: isKeyword: namespace', (t) => {
+    const result = isTSKeyword('namespace');
+    
+    t.ok(result);
+    t.end();
+});
