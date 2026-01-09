@@ -1,3 +1,11 @@
+2026.01.09, v41.6.3
+
+feature:
+- 92faf07fe putout: @putout/plugin-typescript v13.0.0
+- 412186cb4 @putout/plugin-typescript: drop support of node < 22
+- f7ccfb437 @putout/plugin-typescript: convert-module-to-namespace: add
+- 74a4963da @putout/plugin-nodejs: convert-commonjs-to-esm: require: improve support of rename
+
 2026.01.07, v41.6.2
 
 feature:
