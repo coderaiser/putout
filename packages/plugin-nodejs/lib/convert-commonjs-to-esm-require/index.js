@@ -77,11 +77,14 @@ export const match = () => ({
 
 export const replace = () => ({
     'const __a = require("__b").default': 'import __a from "__b"',
-    'const __a = require(__b).__c': ({__c}, path) => {
+    'const __a = require(__b).__c': ({__a, __c}, path) => {
         const {name} = __c;
-        const bindingPath = path.scope.bindings[name];
+        const binding = path.scope.bindings[name];
         
-        if (bindingPath)
+        if (binding && isIdentifier(__a))
+            return 'import {__c as __a} from "__b"';
+        
+        if (binding && isObjectPattern(__a))
             return 'const __a = __c';
         
         return `{
