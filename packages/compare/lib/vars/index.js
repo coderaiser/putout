@@ -1,4 +1,4 @@
-import jessy from 'jessy';
+import {jessy} from 'jessy';
 import nessy from 'nessy';
 import {traverse, types} from '@putout/babel';
 import {template} from '@putout/engine-parser';
