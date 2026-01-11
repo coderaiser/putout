@@ -93,7 +93,7 @@ test('putout: plugin: declare: noop', (t) => {
 
 test('putout: plugin: declare: eslint', (t) => {
     t.transformCode('eslint();', montag`
-        import eslint from 'putout/eslint';\n
+        import {eslint} from 'putout/eslint';\n
         eslint();\n
     `);
     t.end();
@@ -129,27 +129,6 @@ test('putout: plugin: declare: pullout', (t) => {
         import pullout from 'pullout';
         
         await pullout(stream);\n
-    `);
-    t.end();
-});
-
-test('putout: plugin: declare: simport: commonjs', (t) => {
-    t.transformCode(`await simport('fs');`, montag`
-        import {createSimport} from 'simport';
-        
-        const simport = createSimport(__filename);
-        await simport('fs');\n
-    `);
-    t.end();
-});
-
-test('putout: plugin: declare: simport: esm', (t) => {
-    t.transformCode(`import {readFile} from 'fs'; await simport('fs');`, montag`
-        import {readFile} from 'fs';
-        import {createSimport} from 'simport';
-        
-        const simport = createSimport(import.meta.url);
-        await simport('fs');\n
     `);
     t.end();
 });

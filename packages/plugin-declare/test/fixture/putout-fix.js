@@ -1,3 +1,3 @@
-import putout from 'putout';
+import {putout} from 'putout';
 
 putout('const a = b');

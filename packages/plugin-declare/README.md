@@ -16,7 +16,6 @@
 - [pipe-io](https://github.com/coderaiser/pipe-io);
 - [pullout](https://github.com/coderaiser/pullout);
 - [wait](https://github.com/iocmd/wait);
-- [simport](https://github.com/coderaiser/simport);
 - [chalk](https://www.npmjs.com/package/chalk);
 - [jessy](https://www.npmjs.com/package/jessy);
 - [table](https://www.npmjs.com/package/table);
@@ -63,8 +62,7 @@ Use options:
                 "values",
                 "stopAll",
                 "once",
-                "putout",
-                "simport"
+                "putout"
             ]
         }]
     }

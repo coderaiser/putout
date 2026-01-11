@@ -19,8 +19,8 @@ export const declare = () => ({
     
     once: `import once from 'once'`,
     jessy: `import jessy from 'jessy'`,
-    putout: `import putout from 'putout'`,
-    eslint: `import eslint from 'putout/eslint'`,
+    putout: `import {putout} from 'putout'`,
+    eslint: `import {eslint} from 'putout/eslint'`,
     currify: `import currify from 'currify'`,
     wraptile: `import wraptile from 'wraptile'`,
     fullstore: `import {fullstore} from 'fullstore'`,
@@ -29,10 +29,4 @@ export const declare = () => ({
     chalk: `import chalk from 'chalk'`,
     table: `import table from 'table'`,
     wait: `import wait from '@iocmd/wait'`,
-    
-    createSimport: `import {createSimport} from 'simport'`,
-    simport: {
-        esm: `const simport = createSimport(import.meta.url)`,
-        commonjs: `const simport = createSimport(__filename)`,
-    },
 });
