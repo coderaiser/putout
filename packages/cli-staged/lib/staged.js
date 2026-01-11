@@ -1,7 +1,7 @@
 import {join} from 'node:path';
 import {spawnSync as _spawnSync} from 'node:child_process';
 import _porcelain from '@putout/git-status-porcelain';
-import fullstore from 'fullstore';
+import {fullstore} from 'fullstore';
 
 const namesStore = fullstore([]);
 

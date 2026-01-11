@@ -4,7 +4,7 @@ import {tryToCatch} from 'try-to-catch';
 import {isCI as _isCI} from 'ci-info';
 import {tryCatch} from 'try-catch';
 import wraptile from 'wraptile';
-import fullstore from 'fullstore';
+import {fullstore} from 'fullstore';
 import nano from 'nano-memoize';
 import * as _cliStaged from '@putout/cli-staged';
 import {initReport as _initReport} from '@putout/engine-reporter/report';

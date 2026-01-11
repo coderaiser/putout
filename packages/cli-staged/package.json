@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@putout/git-status-porcelain": "^3.0.0",
-    "fullstore": "^3.0.0",
+    "fullstore": "^4.0.0",
     "try-to-catch": "^4.0.0"
   },
   "keywords": [

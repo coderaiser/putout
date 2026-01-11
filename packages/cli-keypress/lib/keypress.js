@@ -1,6 +1,6 @@
 import process from 'node:process';
 import readline from 'node:readline';
-import fullstore from 'fullstore';
+import {fullstore} from 'fullstore';
 import {isCI as _isCI} from 'ci-info';
 
 const isStop = fullstore(false);

@@ -1,6 +1,6 @@
 import {normalize} from 'node:path';
 import picomatch from 'picomatch';
-import fullstore from 'fullstore';
+import {fullstore} from 'fullstore';
 
 const noop = () => {};
 const isMatchStore = fullstore();

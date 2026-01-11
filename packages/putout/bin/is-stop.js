@@ -1,4 +1,4 @@
-import fullstore from 'fullstore';
+import {fullstore} from 'fullstore';
 
 const noop = () => {};
 

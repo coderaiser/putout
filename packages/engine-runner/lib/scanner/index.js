@@ -1,4 +1,4 @@
-import fullstore from 'fullstore';
+import {fullstore} from 'fullstore';
 import {compare} from '@putout/compare';
 import {__filesystem_name} from '@putout/operator-json';
 import {

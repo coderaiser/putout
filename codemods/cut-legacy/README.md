@@ -20,7 +20,7 @@ const fullstore = require('fullstore/legacy');
 ## ✅ Example of correct code
 
 ```js
-const fullstore = require('fullstore');
+const {fullstore} = require('fullstore');
 ```
 
 ## License

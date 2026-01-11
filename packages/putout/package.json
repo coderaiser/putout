@@ -187,7 +187,7 @@
     "escalade": "^3.1.1",
     "fast-glob": "^3.2.2",
     "find-up": "^8.0.0",
-    "fullstore": "^3.0.0",
+    "fullstore": "^4.0.0",
     "ignore": "^7.0.0",
     "is-relative": "^1.0.0",
     "nano-memoize": "^3.0.11",
