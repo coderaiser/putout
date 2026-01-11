@@ -37,7 +37,6 @@
     "@putout/operator-json": "^3.0.0",
     "@putout/plugin-filesystem": "^12.0.0",
     "fullstore": "^4.0.0",
-    "nessy": "^5.2.0",
     "obug": "^2.1.1",
     "once": "^1.4.0",
     "try-catch": "^4.0.0",
