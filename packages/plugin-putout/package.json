@@ -31,7 +31,6 @@
     "create:declare:types": "madrun create:declare:types"
   },
   "dependencies": {
-    "fullstore": "^4.0.0",
     "just-camel-case": "^6.2.0",
     "just-kebab-case": "^4.2.0",
     "regexp.escape": "^2.0.1",

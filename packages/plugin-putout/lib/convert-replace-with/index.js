@@ -1,5 +1,4 @@
 import {operator} from 'putout';
-import {fullstore} from 'fullstore';
 
 const {replaceWith} = operator;
 
@@ -12,8 +11,8 @@ export const fix = ({path, calleePath, property, object}) => {
     path.node.arguments.unshift(object);
 };
 
-export const traverse = ({push}) => {
-    const isInserted = fullstore();
+export const traverse = ({push, store}) => {
+    const isInserted = store();
     
     return {
         CallExpression(path) {
