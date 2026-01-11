@@ -18,6 +18,7 @@
 - [wait](https://github.com/iocmd/wait);
 - [chalk](https://www.npmjs.com/package/chalk);
 - [jessy](https://www.npmjs.com/package/jessy);
+- [nessy](https://www.npmjs.com/package/nessy);
 - [table](https://www.npmjs.com/package/table);
 
 ## Install

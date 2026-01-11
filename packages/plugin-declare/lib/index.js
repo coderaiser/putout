@@ -18,7 +18,8 @@ export const declare = () => ({
     noop: 'const noop = () => {}',
     
     once: `import once from 'once'`,
-    jessy: `import jessy from 'jessy'`,
+    jessy: `import {jessy} from 'jessy'`,
+    nessy: `import {nessy} from 'nessy'`,
     putout: `import {putout} from 'putout'`,
     eslint: `import {eslint} from 'putout/eslint'`,
     currify: `import currify from 'currify'`,

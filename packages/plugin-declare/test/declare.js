@@ -180,8 +180,16 @@ test('putout: plugin: declare: wait', (t) => {
 
 test('putout: plugin: declare: jessy', (t) => {
     t.transformCode(`jessy(object, 'hello');`, montag`
-        import jessy from 'jessy';\n
+        import {jessy} from 'jessy';\n
         jessy(object, 'hello');\n
+    `);
+    t.end();
+});
+
+test('putout: plugin: declare: nessy', (t) => {
+    t.transformCode(`nessy(object, 'hello');`, montag`
+        import {nessy} from 'nessy';\n
+        nessy(object, 'hello');\n
     `);
     t.end();
 });
