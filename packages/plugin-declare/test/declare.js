@@ -185,7 +185,7 @@ test('putout: plugin: declare: table', (t) => {
 
 test('putout: plugin: declare: fullstore', (t) => {
     t.transformCode(`fullstore(data);`, montag`
-        import fullstore from 'fullstore';\n
+        import {fullstore} from 'fullstore';\n
         fullstore(data);\n
     `);
     t.end();
