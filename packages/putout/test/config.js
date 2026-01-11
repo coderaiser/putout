@@ -147,6 +147,7 @@ test('putout: config: filesystem', (t) => {
         'typescript/rename-file-mts-to-ts': 'on',
         'putout-config/remove-empty-file': 'on',
         'esm/apply-namespace-import-to-file': 'on',
+        'esm/apply-privately-imported-file': 'on',
     };
     
     t.deepEqual(result, expected);

@@ -35,6 +35,7 @@ npm i putout @putout/plugin-esm -D
 ## File rules
 
 - ✅ [apply-namespace-import-file](#resolve-imported-file);
+- ✅ [apply-privately-imported-file](#apply-privately-imported-file);
 - ✅ [resolve-imported-file](#resolve-imported-file);
 - ✅ [shorten-imported-file](#shorten-imported-file);
 
@@ -59,6 +60,7 @@ npm i putout @putout/plugin-esm -D
         "esm/resolve-imported-file": "off",
         "esm/shorten-imported-file": "off",
         "esm/apply-namespace-of-file": "off",
+        "esm/apply-privately-imported-file": "off",
         "esm/remove-useless-export-specifiers": "off"
     }
 }
@@ -442,6 +444,45 @@ import a from './a.js';
 
 ```js
 import * as a from './a.js';
+```
+
+### apply-privately-imported-to-file
+
+> Entries in the imports field must be strings starting with `#`.
+> Package imports permit mapping to external packages.
+> This field defines subpath imports for the current package.
+>
+> (c) [nodejs.org](https://nodejs.org/api/packages.html#imports)
+
+Check out in 🐊**Putout Editor**:
+
+- ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/5d7687215e9fbdf705935c444503dded/75a98d2db9d3847c73017e41637924b1cfd5a598);
+- ✅ [`change-imports`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
+
+Let's consider file structure:
+
+```
+/
+|-- package.json {"imports": {"#is: {"default": "./lib/tokenize/is.js"}}}
+|-- lib/
+|  `-- tokenize/
+|     `-- is.js "export const isPrev = () => {}"
+|     `-- expressions/
+        `-- spread-element.js "import {isPrev} from '../is.js"
+```
+
+In this case `spread-element.js` can be fixed:
+
+#### ❌ Example of incorrect code
+
+```js
+import {isPrev} from '../is.js';
+```
+
+#### ✅ Example of correct code
+
+```js
+import {isPrev} from '#is';
 ```
 
 ### resolve-imported-file
