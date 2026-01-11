@@ -1,10 +1,9 @@
-'use strict';
+import {RuleTester} from 'eslint';
+import montag from 'montag';
+import {createPlugin} from '@putout/eslint/create-plugin';
+import * as _rule from './index.js';
 
-const {RuleTester} = require('eslint');
-const montag = require('montag');
-
-const {createPlugin} = require('@putout/eslint/create-plugin');
-const rule = createPlugin(require('.'));
+const rule = createPlugin(_rule);
 
 const ruleTester = new RuleTester({
     languageOptions: {
@@ -23,7 +22,7 @@ ruleTester.run('long-properties-destructuring', rule, {
             _getPrefix,
             _initAuth,
             _getIndexPath,
-        } from './cloudcmd.mjs';
+        } from './cloudcmd.js';
         `,
         `const {
             isIdentifier,

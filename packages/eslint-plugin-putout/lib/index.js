@@ -1,11 +1,11 @@
 import config from '@putout/eslint-config';
 import nPlugin from 'eslint-plugin-n';
-import markdown from './markdown.mjs';
-import json from './json.mjs';
-import html from './html.mjs';
-import ts from './ts.mjs';
-import jsxConfig, {jsx} from './jsx.mjs';
-import * as putout from './plugin.mjs';
+import markdown from './markdown.js';
+import json from './json.js';
+import html from './html.js';
+import ts from './ts.js';
+import jsxConfig, {jsx} from './jsx.js';
+import * as putout from './plugin.js';
 
 const n = nPlugin.configs['flat/mixed-esm-and-cjs'];
 

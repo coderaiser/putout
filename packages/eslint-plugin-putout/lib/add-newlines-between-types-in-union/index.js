@@ -1,14 +1,13 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isTSTypeAliasDeclaration} = types;
 
-module.exports.category = 'typescript';
-module.exports.report = () => 'Add newlines between types in union';
+export const category = 'typescript';
+export const report = () => 'Add newlines between types in union';
 
 const regExp = /[^\n]\|\s[A-Za-z]/;
 
-module.exports.filter = ({text, node}) => {
+export const filter = ({text, node}) => {
     if (!isTSTypeAliasDeclaration(node.parent))
         return false;
     
@@ -21,8 +20,8 @@ module.exports.filter = ({text, node}) => {
     return regExp.test(text);
 };
 
-module.exports.fix = ({text}) => '\n    | ' + text.replace(/\s\|/g, '\n    |');
+export const fix = ({text}) => '\n    | ' + text.replace(/\s\|/g, '\n    |');
 
-module.exports.include = () => [
+export const include = () => [
     'TSUnionType',
 ];

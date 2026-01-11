@@ -1,15 +1,14 @@
-'use strict';
-
-const {isImportDeclaration} = require('putout').types;
-const {parseImportSpecifiers} = require('parse-import-specifiers');
-
-const {
+import {types} from 'putout';
+import {parseImportSpecifiers} from 'parse-import-specifiers';
+import {
     isCorrectLoc,
     isCorrectImportLoc,
-} = require('../common');
+} from '../common.js';
 
-module.exports.category = 'destructuring';
-module.exports.report = () => 'Keep each property on separate lines when using multiple destructuring properties';
+const {isImportDeclaration} = types;
+
+export const category = 'destructuring';
+export const report = () => 'Keep each property on separate lines when using multiple destructuring properties';
 
 const parseOptions = (options) => {
     const {minProperties = 2} = options[0] || {};
@@ -19,7 +18,7 @@ const parseOptions = (options) => {
     };
 };
 
-module.exports.include = ({options}) => {
+export const include = ({options}) => {
     const {minProperties} = parseOptions(options);
     
     return [
@@ -28,7 +27,7 @@ module.exports.include = ({options}) => {
     ];
 };
 
-module.exports.filter = ({node}, options) => {
+export const filter = ({node}, options) => {
     const {minProperties} = parseOptions(options);
     const {line} = node.loc.start;
     
@@ -55,7 +54,7 @@ module.exports.filter = ({node}, options) => {
     return !isCorrectLoc(line, properties);
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text
         .replace(/,/g, ',\n')
         .replace('{', '{\n')

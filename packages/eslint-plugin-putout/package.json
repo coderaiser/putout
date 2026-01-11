@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-putout",
   "version": "29.3.0",
-  "type": "commonjs",
+  "type": "module",
   "description": "ESLint plugin for 🐊Putout",
   "release": false,
   "tag": false,
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/coderaiser/putout.git"
   },
   "exports": {
-    ".": "./lib/index.mjs",
+    ".": "./lib/index.js",
     "./babel": "./eslint-v10/babel.js"
   },
   "keywords": [

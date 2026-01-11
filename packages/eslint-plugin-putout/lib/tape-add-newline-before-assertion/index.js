@@ -1,11 +1,9 @@
-'use strict';
-
-module.exports.category = 'tape';
-module.exports.report = () => 'Add newline before assertion';
+export const category = 'tape';
+export const report = () => 'Add newline before assertion';
 
 const regexp = /;\n +?t\..*;\n +?t.end\(\);/;
 
-module.exports.filter = ({text}) => {
+export const filter = ({text}) => {
     if (!/^test(\.only|\.skip)?\(/.test(text))
         return false;
     
@@ -20,11 +18,11 @@ module.exports.filter = ({text}) => {
     return regexp.test(text);
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     const [assertion] = text.match(/\st\..*/);
     return text.replace(assertion, `\n${assertion}`);
 };
 
-module.exports.include = () => [
+export const include = () => [
     'CallExpression',
 ];

@@ -1,14 +1,13 @@
-'use strict';
-
-const {putoutSync} = require('./sync.mjs');
+import {putoutSync} from './sync.js';
 
 const getContextOptions = ({options}) => {
     const [allContextOptions = {}] = options;
     return allContextOptions;
 };
 
-module.exports = {
+export default {
     meta: {
+        messages: [],
         type: 'suggestion',
         docs: {
             description: 'Putout',
@@ -16,6 +15,7 @@ module.exports = {
             recommended: true,
         },
         schema: false,
+        defaultOptions: [],
         fixable: 'code',
     },
     

@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.parseError = ({code, message, name}) => {
+export const parseError = ({code, message, name}) => {
     if (message.includes('buildError'))
         return 'Parser error';
     

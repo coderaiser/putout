@@ -1,6 +1,4 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {
     isCallExpression,
@@ -9,12 +7,12 @@ const {
 
 const {compare} = operator;
 
-module.exports.category = 'tape';
-module.exports.report = () => 'Remove newline before t.end()';
+export const category = 'tape';
+export const report = () => 'Remove newline before t.end()';
 
 const newlineReg = /\n( +)?\n +t.end\(\)/;
 
-module.exports.filter = ({text, node}) => {
+export const filter = ({text, node}) => {
     if (!/^test(\.only|\.skip)?\(/.test(text))
         return false;
     
@@ -44,10 +42,10 @@ module.exports.filter = ({text, node}) => {
     return false;
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text.replace(newlineReg, '\n    t.end()');
 };
 
-module.exports.include = () => [
+export const include = () => [
     'CallExpression',
 ];

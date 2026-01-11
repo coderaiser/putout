@@ -1,9 +1,6 @@
-'use strict';
-
-const {RuleTester} = require('eslint');
-const montag = require('montag');
-
-const rule = require('.');
+import {RuleTester} from 'eslint';
+import montag from 'montag';
+import rule from './index.js';
 
 const ruleTester = new RuleTester({
     languageOptions: {
@@ -35,7 +32,7 @@ ruleTester.run('remove-empty-newline-after-import', rule, {
             
             import _createTest, {
                 createTest,
-            } from './test.mjs';
+            } from './test.js';
             
             import cjsTest from './test.js';
         `,

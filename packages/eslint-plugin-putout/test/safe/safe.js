@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test/eslint';
-import {safe, safeRules} from '../../lib/index.mjs';
+import {safe, safeRules} from '../../lib/index.js';
 
 const test = createTest(import.meta.url, safe);
 

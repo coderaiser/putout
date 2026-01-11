@@ -1,5 +1,5 @@
 import {defineConfig} from 'eslint/config';
-import {safeAlign} from './lib/index.mjs';
+import {safeAlign} from './lib/index.js';
 
 export default defineConfig([
     safeAlign, {

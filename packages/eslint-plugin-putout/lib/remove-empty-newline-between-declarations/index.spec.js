@@ -1,9 +1,6 @@
-'use strict';
-
-const {RuleTester} = require('eslint');
-const montag = require('montag');
-
-const rule = require('.');
+import {RuleTester} from 'eslint';
+import montag from 'montag';
+import rule from './index.js';
 
 const ruleTester = new RuleTester({
     languageOptions: {

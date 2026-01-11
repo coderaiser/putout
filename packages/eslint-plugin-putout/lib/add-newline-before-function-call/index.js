@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isBlockStatement,
     isVariableDeclaration,
@@ -11,9 +10,9 @@ const {
 //const regExp = /^\n( +)?\n( +)?$/;
 const regExp = /^\n(\s+)?\n(\s+)?((\n(\s+)+)?)$/;
 
-module.exports.report = () => 'Add newline before expression';
+export const report = () => 'Add newline before expression';
 
-module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) => {
+export const filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) => {
     if (!isExpressionStatement(node.parent))
         return false;
     
@@ -61,11 +60,11 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
     return false;
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return `\n${text}`;
 };
 
-module.exports.include = () => [
+export const include = () => [
     'CallExpression',
     'AssignmentExpression',
 ];

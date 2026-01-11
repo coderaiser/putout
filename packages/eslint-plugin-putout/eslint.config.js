@@ -15,6 +15,10 @@ export const match = {
     'eslint-fixture/**/*.md{js}': {
         'putout/add-newline-before-return': 'off',
     },
+    '**/putout/index.js': {
+        'eslint-plugin/require-meta-schema': 'off',
+        'eslint-plugin/require-meta-default-options': 'off',
+    },
 };
 export default defineConfig([
     eslintPlugin.configs.recommended,

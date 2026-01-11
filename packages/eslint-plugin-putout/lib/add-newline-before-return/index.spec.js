@@ -1,14 +1,14 @@
-'use strict';
+import {join, dirname} from 'node:path';
+import {readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {RuleTester} from 'eslint';
+import montag from 'montag';
+import {createPlugin} from '@putout/eslint/create-plugin';
+import * as _rule from './index.js';
 
-const {join} = require('node:path');
-
-const {readFileSync} = require('node:fs');
-
-const {RuleTester} = require('eslint');
-const montag = require('montag');
-
-const {createPlugin} = require('@putout/eslint/create-plugin');
-const rule = createPlugin(require('.'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const rule = createPlugin(_rule);
 
 const ruleTester = new RuleTester({
     languageOptions: {

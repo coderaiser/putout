@@ -1,14 +1,14 @@
-'use strict';
+import {join, dirname} from 'node:path';
+import {readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {RuleTester} from 'eslint';
+import montag from 'montag';
+import babel from '#babel/eslint-parser/experimental-worker';
+import typescript from '#typescript-eslint/parser';
+import rule from './index.js';
 
-const {join} = require('node:path');
-const {readFileSync} = require('node:fs');
-
-const {RuleTester} = require('eslint');
-const montag = require('montag');
-const babel = require('#babel/eslint-parser/experimental-worker');
-const typescript = require('#typescript-eslint/parser');
-
-const rule = require('./index');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), 'utf8');
 
 const ruleTester = new RuleTester({

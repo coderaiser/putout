@@ -1,14 +1,13 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isArrayExpression} = types;
 
-module.exports.category = 'object';
-module.exports.report = () => 'Remove newline from empty object';
+export const category = 'object';
+export const report = () => 'Remove newline from empty object';
 
 const regExp = /\n/;
 
-module.exports.filter = ({text, node, getCommentsInside}) => {
+export const filter = ({text, node, getCommentsInside}) => {
     const comments = getCommentsInside(node);
     
     if (comments.length)
@@ -23,8 +22,8 @@ module.exports.filter = ({text, node, getCommentsInside}) => {
     return regExp.test(text);
 };
 
-module.exports.fix = () => '{}';
+export const fix = () => '{}';
 
-module.exports.include = () => [
+export const include = () => [
     'ObjectExpression',
 ];

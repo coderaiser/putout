@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isBlockStatement,
     isExpressionStatement,
@@ -11,10 +10,10 @@ const {
 
 const regExp = /^;?\n( +)?\n( +)?/;
 
-module.exports.category = 'layout';
-module.exports.report = () => 'Add newline after function call';
+export const category = 'layout';
+export const report = () => 'Add newline after function call';
 
-module.exports.filter = ({node, getCommentsAfter, getSpacesAfterNode}) => {
+export const filter = ({node, getCommentsAfter, getSpacesAfterNode}) => {
     if (!isExpressionStatement(node.parent))
         return false;
     
@@ -76,10 +75,10 @@ module.exports.filter = ({node, getCommentsAfter, getSpacesAfterNode}) => {
     return false;
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return `${text};\n`;
 };
 
-module.exports.include = () => [
+export const include = () => [
     'CallExpression',
 ];

@@ -1,15 +1,14 @@
-'use strict';
+import {readFileSync} from 'node:fs';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {RuleTester} from 'eslint';
+import {createPlugin} from '@putout/eslint/create-plugin';
+import * as _rule from './index.js';
 
-const {readFileSync} = require('node:fs');
-
-const {join} = require('node:path');
-
-const {RuleTester} = require('eslint');
-
-const {createPlugin} = require('@putout/eslint/create-plugin');
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
-const rule = createPlugin(require('.'));
+const rule = createPlugin(_rule);
 
 const ruleTester = new RuleTester({
     languageOptions: {

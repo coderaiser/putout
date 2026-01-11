@@ -1,6 +1,4 @@
-'use strict';
-
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {
     isRestElement,
@@ -14,15 +12,15 @@ const AssignRegExp = /{\n?.*=.*\n?.*}/;
 
 const {compare} = operator;
 
-module.exports.category = 'destructuring';
-module.exports.report = () => 'Keep curly braces on one line when you have one destructuring property';
+export const category = 'destructuring';
+export const report = () => 'Keep curly braces on one line when you have one destructuring property';
 
-module.exports.include = () => [
+export const include = () => [
     'VariableDeclarator[id.type="ObjectPattern"][id.properties.length=1]',
     'ImportDeclaration[specifiers.length=1]',
 ];
 
-module.exports.filter = ({node, text, getText, getCommentsInside}) => {
+export const filter = ({node, text, getText, getCommentsInside}) => {
     if (getCommentsInside(node).length)
         return false;
     
@@ -47,7 +45,7 @@ module.exports.filter = ({node, text, getText, getCommentsInside}) => {
     return false;
 };
 
-module.exports.fix = ({text, node, getText}) => {
+export const fix = ({text, node, getText}) => {
     if (isImportDeclaration(node))
         return text.replace(NewLinesReg, '');
     

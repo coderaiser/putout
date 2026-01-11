@@ -9,13 +9,13 @@ const env = {
 };
 
 const lintEnv = {
-    ESLINT_CONFIG_FILE: 'eslint-safe.config.mjs',
+    ESLINT_CONFIG_FILE: 'eslint-safe.config.js',
 };
 
 export default {
     'wisdom': () => run(['lint:all', 'coverage']),
-    'test': () => [env, `tape 'test/**/*.mjs' 'lib/config/*.spec.*'`],
-    'test:all': () => [env, `mocha --timeout ${MOCHA_TIMEOUT} 'test/**/*.mjs' 'lib/putout/*.spec.js' 'lib/**/*.spec.js'`],
+    'test': () => [env, `tape 'test/*.js' 'test/safe/*.js' 'lib/config/*.spec.*'`],
+    'test:all': () => [env, `mocha --timeout ${MOCHA_TIMEOUT} 'test/*.js' 'test/safe/*.js' 'lib/putout/*.spec.js' 'lib/**/*.spec.js'`],
     'watch:test': async () => [env, `nodemon -w rules -x "${await cutEnv('test')}"`],
     'lint': () => 'putout .',
     'lint:all': () => run(['lint', 'lint:safe']),

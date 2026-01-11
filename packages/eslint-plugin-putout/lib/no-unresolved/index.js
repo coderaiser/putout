@@ -1,16 +1,14 @@
-'use strict';
-
-const process = require('node:process');
-const {accessSync} = require('node:fs');
-
-const {
+import process from 'node:process';
+import {accessSync} from 'node:fs';
+import {
     extname,
     dirname,
     join,
-} = require('node:path');
+} from 'node:path';
+import {createRequire} from 'node:module';
+import {tryCatch} from 'try-catch';
 
-const {tryCatch} = require('try-catch');
-
+const require = createRequire(import.meta.url);
 const cwd = process.cwd();
 
 const RELATIVE = '\\.\\.?\\/?';
@@ -19,16 +17,16 @@ const isRelativeEnd = (a) => RegExp(`${RELATIVE}$`).test(a);
 const getDir = (a) => a === '<input>' ? cwd : dirname(a);
 const getValue = ({source}) => source?.value;
 
-module.exports.category = 'errors';
-module.exports.report = () => 'Always add an extension to relative imports';
-module.exports.include = () => [
+export const category = 'errors';
+export const report = () => 'Always add an extension to relative imports';
+export const include = () => [
     'ImportDeclaration',
     'ImportExpression',
     'ExportAllDeclaration',
     'ExportNamedDeclaration',
 ];
 
-module.exports.fix = ({node, text, filename}) => {
+export const fix = ({node, text, filename}) => {
     const value = getValue(node);
     const dir = getDir(filename);
     
@@ -40,7 +38,7 @@ module.exports.fix = ({node, text, filename}) => {
     return text.replace(value, resolved);
 };
 
-module.exports.filter = ({node}) => {
+export const filter = ({node}) => {
     const value = getValue(node);
     
     if (!value || value.endsWith('.js'))

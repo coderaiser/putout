@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isBlockStatement,
     isIfStatement,
@@ -9,20 +8,20 @@ const {
 
 const reg = /\)\n(\s+)?\n/;
 
-module.exports.report = () => `Remove useless newline`;
+export const report = () => `Remove useless newline`;
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text.replace(reg, ')\n');
 };
 
-module.exports.include = () => [
+export const include = () => [
     'IfStatement',
     'ForOfStatement',
     'ForStatement',
     'WhileStatement',
 ];
 
-module.exports.filter = ({text, node}) => {
+export const filter = ({text, node}) => {
     if (isIf(text, node))
         return true;
     

@@ -1,9 +1,7 @@
-'use strict';
+export const category = 'object';
+export const report = () => 'Remove empty import specifiers';
 
-module.exports.category = 'object';
-module.exports.report = () => 'Remove empty import specifiers';
-
-module.exports.filter = ({text, node, getCommentsInside}) => {
+export const filter = ({text, node, getCommentsInside}) => {
     const comments = getCommentsInside(node);
     
     if (comments.length)
@@ -12,12 +10,12 @@ module.exports.filter = ({text, node, getCommentsInside}) => {
     return text.includes('{}');
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text
         .replace('import {} from', 'import')
         .replace(/,? {}/, '');
 };
 
-module.exports.include = () => [
+export const include = () => [
     'ImportDeclaration',
 ];

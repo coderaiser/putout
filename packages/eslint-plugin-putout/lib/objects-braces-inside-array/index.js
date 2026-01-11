@@ -1,11 +1,11 @@
-'use strict';
+import {types} from 'putout';
 
-const {isObjectExpression} = require('putout').types;
+const {isObjectExpression} = types;
 
-module.exports.category = 'destructuring';
-module.exports.report = () => 'Keep braces on the same line with brackets';
+export const category = 'destructuring';
+export const report = () => 'Keep braces on the same line with brackets';
 
-module.exports.include = () => [
+export const include = () => [
     'ArrayExpression',
 ];
 
@@ -13,7 +13,7 @@ const badStart = /^\[\n(\s+)?{/;
 const badEndReg = /},?\n(\s+)?]/;
 const badMiddle = /\},\n(\s+)?\{/;
 
-module.exports.filter = ({node, text}) => {
+export const filter = ({node, text}) => {
     const {elements} = node;
     
     for (const element of elements) {
@@ -28,7 +28,7 @@ module.exports.filter = ({node, text}) => {
     return isStart || isEnd || isBadMiddle;
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text
         .replace('[\n', '[')
         .replace(/\[\s+{/, '[{')

@@ -1,20 +1,21 @@
-'use strict';
+import {dirname} from 'node:path';
+import {createRequire} from 'node:module';
+import putout from 'putout';
 
-const {dirname} = require('node:path');
-const putout = require('putout');
+const require = createRequire(import.meta.url);
 
-module.exports.category = 'evaluate';
-module.exports.report = () => 'Evaluate expression';
-module.exports.include = () => [
+export const category = 'evaluate';
+export const report = () => 'Evaluate expression';
+export const include = () => [
     'ImportDeclaration',
 ];
 
-module.exports.filter = ({node}) => {
+export const filter = ({node}) => {
     const {value} = node.source;
     return value.startsWith('__putout_evaluate:');
 };
 
-module.exports.fix = ({text, node, filename}) => {
+export const fix = ({text, node, filename}) => {
     const {value} = node.source;
     
     const result = evaluate({
@@ -27,6 +28,7 @@ module.exports.fix = ({text, node, filename}) => {
 
 function evaluate({value, filename}) {
     value = value.replace(/__putout_evaluate:\s?/, 'return ');
+    
     const {code} = putout(value, {
         fix: true,
         rules: {

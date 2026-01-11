@@ -1,7 +1,5 @@
-'use strict';
-
-const test = require('supertape');
-const {parseError} = require('./parse-error');
+import test from 'supertape';
+import {parseError} from './parse-error.js';
 
 test('eslint-plugin-putout: putout: parse-error', (t) => {
     const message = `Cannot read properties of undefined (reading 'buildError')`;

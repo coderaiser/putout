@@ -1,6 +1,6 @@
 import process from 'node:process';
 import {createTest} from '@putout/test/eslint';
-import {configs, recommended} from '../lib/index.mjs';
+import {configs, recommended} from '../lib/index.js';
 
 const {jsx} = configs;
 
@@ -166,6 +166,7 @@ test('eslint-plugin-putout: strict-mode', async ({process}) => {
                 rules: {
                     'tape': 'on',
                     'nodejs/convert-esm-to-commonjs': 'on',
+                    'nodejs/convert-commonjs-to-esm': 'off',
                     'remove-unused-expressions': 'on',
                 },
             }],

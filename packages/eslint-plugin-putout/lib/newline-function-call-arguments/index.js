@@ -1,12 +1,10 @@
-'use strict';
+export const report = () => 'Add new line before and after arguments in a function call';
 
-module.exports.report = () => 'Add new line before and after arguments in a function call';
-
-module.exports.include = () => [
+export const include = () => [
     'CallExpression',
 ];
 
-module.exports.filter = ({node, text}) => {
+export const filter = ({node, text}) => {
     if (node.callee.type !== 'Identifier')
         return false;
     
@@ -34,7 +32,7 @@ module.exports.filter = ({node, text}) => {
     return !(isOpenBracket && isCloseBracket);
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text
         .replace('(', '(\n')
         .replace(/,\s?/g, ',\n')

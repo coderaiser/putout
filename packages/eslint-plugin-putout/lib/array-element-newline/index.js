@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isArrayExpression,
     isMemberExpression,
@@ -11,8 +10,8 @@ const isString = (a) => typeof a === 'string';
 const isBool = (a) => typeof a === 'boolean';
 const isNumber = (a) => typeof a === 'number';
 
-module.exports.category = 'array';
-module.exports.report = () => 'Add newlines between array elements';
+export const category = 'array';
+export const report = () => 'Add newlines between array elements';
 
 const regexp = /['"\da-zA-Z]+, ['"\da-zA-Z]/;
 
@@ -26,7 +25,7 @@ const isSupportedNode = (a) => {
     return a.type === 'Identifier';
 };
 
-module.exports.filter = ({text, node}) => {
+export const filter = ({text, node}) => {
     if (isMemberExpression(node.parent))
         return false;
     
@@ -62,14 +61,14 @@ module.exports.filter = ({text, node}) => {
     return regexp.test(text);
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text
         .replace(/\[/g, '[\n')
         .replace(/\]/g, '\n]')
         .replace(/,/g, ',\n');
 };
 
-module.exports.include = () => [
+export const include = () => [
     'ArrayExpression',
 ];
 

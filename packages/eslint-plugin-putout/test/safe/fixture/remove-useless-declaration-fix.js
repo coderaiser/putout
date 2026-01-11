@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.setColumns = () => {
+export const setColumns = () => {
     const columns = document.querySelector('[data-name="columns"]');
     return columns;
 };

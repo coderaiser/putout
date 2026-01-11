@@ -1,14 +1,15 @@
-'use strict';
+import {RuleTester} from 'eslint';
+import montag from 'montag';
+import {createPlugin} from '@putout/eslint/create-plugin';
+import babelParser from '#babel/eslint-parser/experimental-worker';
+import tsParser from '#typescript-eslint/parser';
+import * as _rule from './index.js';
 
-const {RuleTester} = require('eslint');
-const montag = require('montag');
-
-const {createPlugin} = require('@putout/eslint/create-plugin');
-const rule = createPlugin(require('.'));
+const rule = createPlugin(_rule);
 
 const ruleTesterBabel = new RuleTester({
     languageOptions: {
-        parser: require('#babel/eslint-parser/experimental-worker'),
+        parser: babelParser,
         parserOptions: {
             requireConfigFile: false,
             babelOptions: {
@@ -60,7 +61,7 @@ ruleTesterBabel.run('add-newlines-between-types-in-union', rule, {
 
 const ruleTesterTypescript = new RuleTester({
     languageOptions: {
-        parser: require('#typescript-eslint/parser'),
+        parser: tsParser,
         parserOptions: {
             warnOnUnsupportedTypeScriptVersion: false,
             ecmaFeatures: {

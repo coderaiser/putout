@@ -1,9 +1,8 @@
-'use strict';
+import {RuleTester} from 'eslint';
+import {createPlugin} from '@putout/eslint/create-plugin';
+import * as _rule from './index.js';
 
-const {RuleTester} = require('eslint');
-
-const {createPlugin} = require('@putout/eslint/create-plugin');
-const rule = createPlugin(require('.'));
+const rule = createPlugin(_rule);
 
 const ruleTester = new RuleTester({
     languageOptions: {

@@ -1,5 +1,5 @@
 import stylistic from '@stylistic/eslint-plugin';
-import * as putout from './plugin.mjs';
+import * as putout from './plugin.js';
 
 export default [{
     name: 'putout: json',

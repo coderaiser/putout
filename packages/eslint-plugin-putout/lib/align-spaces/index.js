@@ -1,17 +1,16 @@
-'use strict';
+import alignSpaces from 'align-spaces';
 
-const alignSpaces = require('align-spaces');
 const alignedMap = new Map();
 
-module.exports.report = () => 'Keep whitespaces in blank lines';
+export const report = () => 'Keep whitespaces in blank lines';
 
-module.exports.include = () => ['Program'];
+export const include = () => ['Program'];
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return alignedMap.get(text);
 };
 
-module.exports.filter = ({text}) => {
+export const filter = ({text}) => {
     const aligned = alignSpaces(text);
     
     if (text === aligned)

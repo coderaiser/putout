@@ -1,19 +1,17 @@
-'use strict';
-
-module.exports.category = 'import';
-module.exports.report = () => 'Remove newline before first specifier';
+export const category = 'import';
+export const report = () => 'Remove newline before first specifier';
 
 const regExp = /{\n(\s+)?\n/;
 
-module.exports.filter = ({text}) => {
+export const filter = ({text}) => {
     return regExp.test(text);
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text.replace(regExp, '{\n');
 };
 
-module.exports.include = () => [
+export const include = () => [
     'ImportDeclaration',
     'ObjectExpression',
 ];

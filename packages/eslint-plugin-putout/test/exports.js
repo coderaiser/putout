@@ -4,7 +4,7 @@ const {keys} = Object;
 
 test('eslint-plugin-putout: exports: rules', async (t) => {
     const {rules} = await import('eslint-plugin-putout');
-    const internal = await import('../lib/plugin.mjs');
+    const internal = await import('../lib/plugin.js');
     
     t.equal(rules, internal.rules);
     t.end();
@@ -12,7 +12,7 @@ test('eslint-plugin-putout: exports: rules', async (t) => {
 
 test('eslint-plugin-putout: exports: default', async (t) => {
     const result = await import('eslint-plugin-putout');
-    const internal = await import('../lib/plugin.mjs');
+    const internal = await import('../lib/plugin.js');
     
     t.equal(result.default, internal);
     t.end();

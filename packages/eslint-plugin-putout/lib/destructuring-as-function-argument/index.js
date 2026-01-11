@@ -1,11 +1,9 @@
-'use strict';
+export const category = 'destructuring';
+export const report = () => 'Keep curly braces on one line when you use destructuring as function argument';
 
-module.exports.category = 'destructuring';
-module.exports.report = () => 'Keep curly braces on one line when you use destructuring as function argument';
+export const filter = ({text}) => /\n/.test(text);
 
-module.exports.filter = ({text}) => /\n/.test(text);
-
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text
         .replace(/\n/g, '')
         .replace(/ /g, '')
@@ -14,7 +12,7 @@ module.exports.fix = ({text}) => {
 };
 
 // can't use because of an error// ':has(ArrowFunctionExpression, FunctionExpression, FunctionDeclaration) > .params[type=ObjectPattern]'// Error: Unknown node type JSXElement
-module.exports.include = () => [
+export const include = () => [
     'ArrowFunctionExpression > .params[type=ObjectPattern]',
     'FunctionExpression > .params[type=ObjectPattern]',
     'FunctionDeclaration > .params[type=ObjectPattern]',

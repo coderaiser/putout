@@ -2,23 +2,21 @@
  * @fileoverview Wrapper around @babel-eslint/parser to make it work with ESLint v10.
  * @author Milos Djermanovic
  */
-
-'use strict';
-
 //-----------------------------------------------------------------------------
 // Requirements
 //-----------------------------------------------------------------------------
-const eslintScope = require('eslint-scope');
-
-const babelESLintParser = require('@babel/eslint-parser/experimental-worker');
+import * as eslintScope from 'eslint-scope';
+import babelESLintParser from '@babel/eslint-parser/experimental-worker';
 
 //------------------------------------------------------------------------------
 // Type Definitions
 //------------------------------------------------------------------------------
+
 /** @typedef {import("eslint-scope").ScopeManager} ScopeManager */
 //-----------------------------------------------------------------------------
 // Helpers
 //-----------------------------------------------------------------------------
+
 /**
  * Add global variables and resolve references to all global variables.
  * @this {ScopeManager}
@@ -92,7 +90,7 @@ function addGlobals(names) {
 //-----------------------------------------------------------------------------
 // Exports
 //-----------------------------------------------------------------------------
-module.exports = {
+export default {
     ...babelESLintParser,
     parseForESLint(...args) {
         const retv = babelESLintParser.parseForESLint(...args);

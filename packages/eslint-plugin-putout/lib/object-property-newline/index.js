@@ -1,7 +1,5 @@
-'use strict';
-
-const {types} = require('putout');
-const {isCorrectLoc} = require('../common');
+import {types} from 'putout';
+import {isCorrectLoc} from '../common.js';
 
 const {
     isVariableDeclarator,
@@ -9,17 +7,17 @@ const {
     isTSTypeAliasDeclaration,
 } = types;
 
-module.exports.category = 'destructuring';
-module.exports.report = () => 'Keep each property on separate line';
+export const category = 'destructuring';
+export const report = () => 'Keep each property on separate line';
 
-module.exports.include = () => [
+export const include = () => [
     `VariableDeclarator[init.type="ObjectExpression"]`,
     `AssignmentExpression[right.type="ObjectExpression"]`,
     `TSTypeAliasDeclaration[typeAnnotation.type="TSTypeLiteral"]`,
     `TSInterfaceDeclaration`,
 ];
 
-module.exports.filter = ({node}) => {
+export const filter = ({node}) => {
     const {loc, right} = node;
     
     if (isVariableDeclarator(node)) {
@@ -50,7 +48,7 @@ module.exports.filter = ({node}) => {
     return !isCorrectLoc(line, body);
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text
         .replace(/,(\s+)?/g, ',\n    ')
         .replace(/{/g, '{\n    ')

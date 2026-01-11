@@ -1,7 +1,6 @@
-'use strict';
+import {types} from 'putout';
+import {isCorrectLoc} from '../common.js';
 
-const {types} = require('putout');
-const {isCorrectLoc} = require('../common');
 const {
     isImportDeclaration,
     isForOfStatement,
@@ -20,15 +19,15 @@ const parseOptions = (options) => {
 
 const notImportDefaultSpecifier = (a) => a.type !== 'ImportDefaultSpecifier';
 
-module.exports.category = 'destructuring';
-module.exports.report = () => 'Keep each property on separate lines when destructuring long properties';
+export const category = 'destructuring';
+export const report = () => 'Keep each property on separate lines when destructuring long properties';
 
-module.exports.include = () => [
+export const include = () => [
     'VariableDeclarator[id.type="ObjectPattern"][id.properties.length>=2]',
     'ImportDeclaration[specifiers.length>=2]',
 ];
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     const end = text.indexOf('}') + 1;
     
     const startText = text
@@ -42,7 +41,7 @@ module.exports.fix = ({text}) => {
     return `${startText}${endText}`;
 };
 
-module.exports.filter = ({node}, options) => {
+export const filter = ({node}, options) => {
     const {parent} = node.parent;
     const {maxLength} = parseOptions(options);
     

@@ -1,9 +1,7 @@
-'use strict';
+export const category = 'tape';
+export const report = () => 'Add newline between tests';
 
-module.exports.category = 'tape';
-module.exports.report = () => 'Add newline between tests';
-
-module.exports.filter = ({text, node, getText, getCommentsBefore}) => {
+export const filter = ({text, node, getText, getCommentsBefore}) => {
     if (!/^test(\.only|\.skip)?\(/.test(text))
         return false;
     
@@ -17,10 +15,10 @@ module.exports.filter = ({text, node, getText, getCommentsBefore}) => {
     return a === ';';
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return `\n${text}`;
 };
 
-module.exports.include = () => [
+export const include = () => [
     'CallExpression ',
 ];

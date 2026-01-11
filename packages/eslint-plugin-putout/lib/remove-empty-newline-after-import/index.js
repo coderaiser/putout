@@ -1,6 +1,5 @@
-'use strict';
+import {isBuiltin} from 'node:module';
 
-const {isBuiltin} = require('node:module');
 const isLocal = (a) => a.source.value.startsWith('.');
 const isNode = (a) => isBuiltin(a.source.value);
 
@@ -11,7 +10,7 @@ const isSameGroup = (a, b) => {
     return isNode(a) && isNode(b);
 };
 
-module.exports = {
+export default {
     meta: {
         type: 'suggestion',
         docs: {

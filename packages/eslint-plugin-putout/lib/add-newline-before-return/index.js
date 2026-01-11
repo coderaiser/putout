@@ -1,10 +1,8 @@
-'use strict';
-
 const regExp = /^\n( +)?\n +$/;
 
-module.exports.report = () => `Add newline before 'return'`;
+export const report = () => `Add newline before 'return'`;
 
-module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) => {
+export const filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) => {
     if (getCommentsBefore(node).length)
         return false;
     
@@ -43,10 +41,10 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
     return !(count < 1);
 };
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return `\n${text}`;
 };
 
-module.exports.include = () => [
+export const include = () => [
     'ReturnStatement',
 ];

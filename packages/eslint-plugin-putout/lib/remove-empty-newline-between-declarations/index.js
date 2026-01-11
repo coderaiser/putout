@@ -1,8 +1,8 @@
-'use strict';
+import {types} from 'putout';
 
-const {isObjectPattern} = require('putout').types;
+const {isObjectPattern} = types;
 
-module.exports = {
+export default {
     meta: {
         type: 'suggestion',
         docs: {

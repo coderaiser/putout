@@ -1,8 +1,8 @@
-'use strict';
+import {types} from 'putout';
 
-const {isImportDefaultSpecifier} = require('putout').types;
+const {isImportDefaultSpecifier} = types;
 
-module.exports.isCorrectLoc = (line, properties) => {
+export const isCorrectLoc = (line, properties) => {
     for (const [i, prop] of properties.entries()) {
         if (prop.loc.start.line < i + line + 1)
             return false;
@@ -11,7 +11,7 @@ module.exports.isCorrectLoc = (line, properties) => {
     return true;
 };
 
-module.exports.isCorrectImportLoc = (line, specifiers) => {
+export const isCorrectImportLoc = (line, specifiers) => {
     if (!isImportDefaultSpecifier(specifiers[0]))
         ++line;
     

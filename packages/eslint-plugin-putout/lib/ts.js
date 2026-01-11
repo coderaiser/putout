@@ -3,8 +3,8 @@ import tseslint from 'typescript-eslint';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import stylistic from '@stylistic/eslint-plugin';
 import parser from '#typescript-eslint/parser';
-import {jsx} from './jsx.mjs';
-import * as plugin from './plugin.mjs';
+import {jsx} from './jsx.js';
+import * as plugin from './plugin.js';
 
 const {assign} = Object;
 

@@ -1,13 +1,11 @@
-'use strict';
+export const category = 'layout';
+export const report = () => 'Add newlines between specifiers';
 
-module.exports.category = 'layout';
-module.exports.report = () => 'Add newlines between specifiers';
-
-module.exports.include = () => [
+export const include = () => [
     'ExportNamedDeclaration',
 ];
 
-module.exports.fix = ({text}) => {
+export const fix = ({text}) => {
     return text
         .replace(/,\s+/g, ',\n    ')
         .replace(/{/g, '{\n')
@@ -16,7 +14,7 @@ module.exports.fix = ({text}) => {
         .replace(/\n+}/g, '\n}');
 };
 
-module.exports.filter = ({text, node}) => {
+export const filter = ({text, node}) => {
     const regExp = /, +?[a-zA-Z]/g;
     
     if (node.specifiers.length < 4)

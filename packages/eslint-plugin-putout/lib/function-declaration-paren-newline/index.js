@@ -1,10 +1,8 @@
-'use strict';
-
-module.exports.report = () => {
+export const report = () => {
     return `Unexpected new lines around arguments`;
 };
 
-module.exports.fix = ({text, node, getText}) => {
+export const fix = ({text, node, getText}) => {
     const {body} = node.body;
     
     node.body.body = [];
@@ -23,13 +21,13 @@ module.exports.fix = ({text, node, getText}) => {
     return text.replace(paramsText, newText);
 };
 
-module.exports.include = () => [
+export const include = () => [
     'FunctionDeclaration',
     'FunctionExpression',
     'ArrowFunctionExpression',
 ];
 
-module.exports.filter = ({text}) => {
+export const filter = ({text}) => {
     const beforeCloseIndex = text.indexOf(')');
     const beforeCloseText = text.slice(0, beforeCloseIndex);
     

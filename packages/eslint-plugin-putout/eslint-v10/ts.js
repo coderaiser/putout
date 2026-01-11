@@ -2,22 +2,21 @@
  * @fileoverview Wrapper around @typescript-eslint/parser to make it work with ESLint v10.
  * @author Milos Djermanovic
  */
-
-'use strict';
-
 //-----------------------------------------------------------------------------
 // Requirements
 //-----------------------------------------------------------------------------
-const eslintScope = require('eslint-scope');
-const typescriptESLintParser = require('@typescript-eslint/parser');
+import * as eslintScope from 'eslint-scope';
+import typescriptESLintParser from '@typescript-eslint/parser';
 
 //------------------------------------------------------------------------------
 // Type Definitions
 //------------------------------------------------------------------------------
+
 /** @typedef {import("eslint-scope").ScopeManager} ScopeManager */
 //-----------------------------------------------------------------------------
 // Helpers
 //-----------------------------------------------------------------------------
+
 /**
  * Add global variables and resolve references to all global variables.
  * @this {ScopeManager}
@@ -89,7 +88,7 @@ function addGlobals(names) {
 //-----------------------------------------------------------------------------
 // Exports
 //-----------------------------------------------------------------------------
-module.exports = {
+export default {
     ...typescriptESLintParser,
     parseForESLint(...args) {
         const retv = typescriptESLintParser.parseForESLint(...args);
