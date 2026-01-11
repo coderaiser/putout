@@ -1,15 +1,13 @@
-'use strict';
-
-const {constants} = require('node:fs');
-const {test, stub} = require('supertape');
-const {
+import {constants} from 'node:fs';
+import {test, stub} from 'supertape';
+import {
     renameFile,
     removeFile,
     createDirectory,
     readFileContent,
     writeFileContent,
     copyFile,
-} = require('./filesystem');
+} from './filesystem.js';
 
 const {COPYFILE_FICLONE} = constants;
 

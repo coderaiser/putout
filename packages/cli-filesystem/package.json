@@ -5,7 +5,7 @@
   "description": "API to help lint filesystem",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-filesystem#readme",
   "main": "lib/filesystem.js",
-  "type": "commonjs",
+  "type": "module",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -41,7 +41,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"
