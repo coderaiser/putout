@@ -133,7 +133,7 @@
     "@putout/plugin-nodejs": "^18.0.0",
     "@putout/plugin-npmignore": "^5.0.0",
     "@putout/plugin-optional-chaining": "^2.0.0",
-    "@putout/plugin-package-json": "^9.0.0",
+    "@putout/plugin-package-json": "^10.0.0",
     "@putout/plugin-parens": "^4.0.0",
     "@putout/plugin-promises": "^18.0.0",
     "@putout/plugin-putout": "^28.0.0",
