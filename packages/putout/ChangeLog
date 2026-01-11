@@ -1,3 +1,17 @@
+2026.01.11, v41.6.5
+
+feature:
+- 0e3b19d1d putout: @putout/plugin-declare v7.0.1
+- 0d406beb5 @putout/plugin-putout: convert-replace-with: fullstore -> store
+- 44dea16d0 putout: @putout/cli-staged v3.0.0
+- 9c78410f9 @putout/cli-staged: drop support of node < 22
+- 330fff93a putout: @putout/cli-keypress v4.0.0
+- 0cfd9fe01 @putout/cli-keypress: drop support of node < 22
+- 78a9bd8cb @putout/plugin-declare: get rid of simport
+- 04b30d362 @putout/plugin-declare: drop support of 🐊 < 41
+- 1f34dea23 @putout/plugin-declare: fullstore -> {fullstore}
+- 2004e73ac putout: fullstore v4.0.0
+
 2026.01.11, v41.6.4
 
 feature:
