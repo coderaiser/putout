@@ -1,7 +1,3 @@
-import {types} from 'putout';
-
-const {objectExpression} = types;
-
 export const report = () => `Avoid useless operator 'new'`;
 
 export const replace = () => ({
@@ -14,9 +10,7 @@ export const replace = () => ({
     'new Array(__args)': 'Array(__args)',
     'new Symbol(__a)': 'Symbol(__a)',
     'new RegExp(__a)': 'RegExp(__a)',
-    'new Object()': () => {
-        return objectExpression([]);
-    },
+    'new Object()': '({})',
     'new Object(__a)': 'Object(__a)',
     'new BigInt(__a)': 'BigInt(__a)',
     'new Reflect()': 'Reflect',
