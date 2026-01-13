@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-convert-commonjs-to-esm: commons: report', (t) => {
-    t.report('commons', '"__filename", "__dirname" and "require" should be declared in ESM');
+    t.report('commons', 'In ESM declare "__filename", "__dirname" and "require"');
     t.end();
 });
 
