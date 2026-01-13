@@ -113,7 +113,7 @@ Also it works good with monorepository, since it uses `eslint.config.js` that is
 
 - ✅ [fixes Reference Errors](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-before-reference#readme);
 - ✅ [declares variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme);
-- ✅ [convert CommonJS to ESM](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-commonjs-to-esm#readme);
+- ✅ [converts CommonJS to ESM](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs/#convert-commonjs-to-esm);
 - ✅ [...and much more 😏!](#-built-in-transformations)
 
 ## 🚚 Installation
