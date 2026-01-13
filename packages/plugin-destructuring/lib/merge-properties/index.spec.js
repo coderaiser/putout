@@ -2,18 +2,19 @@ import {createTest} from '@putout/test';
 import {rules} from '@putout/plugin-putout';
 import * as tape from '@putout/plugin-tape';
 import * as putout from '@putout/plugin-putout';
-import * as nodejs from '@putout/plugin-nodejs';
+import * as convertCommonjsToEsm from '@putout/plugin-nodejs/convert-commonjs-to-esm';
 import * as convert from '@putout/plugin-nodejs/convert-commonjs-to-esm';
 import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-commonjs';
 import * as declareBeforeReference from '@putout/plugin-declare-before-reference';
 import * as esm from '@putout/plugin-esm';
 import * as printer from '@putout/plugin-printer';
+import * as nodejs from '@putout/plugin-nodejs';
 import * as mockRequire from '@putout/codemod-mock-require';
 import * as mergeDestructuringProperties from './index.js';
 
 const {declare} = rules;
 
-const convertCommonjsToEsmRequire = nodejs.rules['convert-commonjs-to-esm-require'];
+const convertCommonjsToEsmRequire = convertCommonjsToEsm.rules.require;
 const declareImportsFirst = esm.rules['declare-imports-first'];
 
 const test = createTest(import.meta.url, {

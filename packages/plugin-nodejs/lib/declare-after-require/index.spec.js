@@ -3,7 +3,7 @@ import {createTest} from '@putout/test';
 import * as putout from '@putout/plugin-putout';
 import * as declare from '../declare/index.js';
 import * as convertEsmToCommonjs from '../convert-esm-to-commonjs/index.js';
-import * as convertCommonjsToEsm from '../convert-commonjs-to-esm.js';
+import * as convertCommonjsToEsm from '../convert-commonjs-to-esm/index.js';
 import * as plugin from './index.js';
 
 const noop = () => {};

@@ -10,7 +10,7 @@
     ".": "./lib/index.js",
     "./strict-mode": "./lib/strict-mode/index.js",
     "./convert-esm-to-commonjs": "./lib/convert-esm-to-commonjs/index.js",
-    "./convert-commonjs-to-esm": "./lib/convert-commonjs-to-esm.js"
+    "./convert-commonjs-to-esm": "./lib/convert-commonjs-to-esm/index.js"
   },
   "release": false,
   "tag": false,

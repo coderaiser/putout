@@ -436,14 +436,14 @@ test('putout: loader: sync: import: shorten', async (t) => {
             column: 14,
             line: 1,
         },
-        rule: 'nodejs/convert-commonjs-to-esm-common',
+        rule: 'nodejs/convert-commonjs-to-esm/common',
     }, {
         message: `Use 'ESM' instead of 'CommonJS'`,
         position: {
             column: 0,
             line: 1,
         },
-        rule: 'nodejs/convert-commonjs-to-esm-require',
+        rule: 'nodejs/convert-commonjs-to-esm/require',
     }, {
         message: `Add missing 'use strict' directive on top of CommonJS`,
         position: {
@@ -510,7 +510,7 @@ test('putout: loader: disabled rules in plugin: enable', (t) => {
     const source = `const {run} = require('madrun');\n`;
     const {code} = putout(source, {
         rules: {
-            'nodejs/convert-commonjs-to-esm-require': 'on',
+            'nodejs/convert-commonjs-to-esm/require': 'on',
         },
         plugins: ['nodejs'],
     });

@@ -347,15 +347,13 @@ const {readFile} = require('fs/promises');
 const name = 'hello.txt';
 ```
 
-## convert-commonjs-to-esm
+## convert-commonjs-to-esm/require
 
 Convert **CommonJS** **EcmaScript Modules**.
 
 > **EcmaScript module** syntax is the standard way to import and export values between files in **JavaScript**. The `import` statement can be used to reference a value exposed by the `export` statement in another file.
 >
 > (c) [parceljs](https://parceljs.org/languages/javascript/)
-
-### require
 
 ### ❌ Example of incorrect code
 
@@ -378,7 +376,7 @@ const args = minimist({
 });
 ```
 
-### exports
+## convert-commonjs-to-esm/exports
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/39dd730c35e488db3e2cf8d4b4df0c5a/feb042a49539e6b4b2165558a1c636b705726c47).
 
@@ -394,7 +392,7 @@ module.exports = () => {};
 export default () => {};
 ```
 
-### Commons
+## convert-commonjs-to-esm/commons
 
 ### ❌ Example of incorrect code
 

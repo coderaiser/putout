@@ -41,3 +41,8 @@ test('plugin-convert-commonjs-to-esm: commons: no report: object', (t) => {
     t.noReport('object');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: commons: no report: member', (t) => {
+    t.noReport('member');
+    t.end();
+});

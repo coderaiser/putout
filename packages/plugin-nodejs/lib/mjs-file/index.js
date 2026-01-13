@@ -1,5 +1,5 @@
 import {operator} from 'putout';
-import * as plugin from '../convert-commonjs-to-esm.js';
+import * as plugin from '../convert-commonjs-to-esm/index.js';
 
 const {matchFiles} = operator;
 

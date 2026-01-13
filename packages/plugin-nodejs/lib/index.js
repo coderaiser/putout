@@ -11,9 +11,7 @@ import * as removeProcessExit from './remove-process-exit/index.js';
 import * as addNodePrefix from './add-node-prefix/index.js';
 import * as convertExportsToModuleExports from './convert-exports-to-module-exports/index.js';
 import * as convertEsmToCommonjs from './convert-esm-to-commonjs/index.js';
-import * as convertCommonjsToEsmExports from './convert-commonjs-to-esm-exports/index.js';
-import * as convertCommonjsToEsmCommons from './convert-commonjs-to-esm-commons/index.js';
-import * as convertCommonjsToEsmRequire from './convert-commonjs-to-esm-require/index.js';
+import * as convertCommonjsToEsm from './convert-commonjs-to-esm/index.js';
 import * as cjsFile from './cjs-file/index.js';
 import * as mjsFile from './mjs-file/index.js';
 import * as renameFileCjsToJs from './rename-file-cjs-to-js/index.js';
@@ -36,9 +34,9 @@ export const rules = {
     'convert-exports-to-module-exports': convertExportsToModuleExports,
     
     'convert-esm-to-commonjs': ['off', convertEsmToCommonjs],
-    'convert-commonjs-to-esm-exports': ['off', convertCommonjsToEsmExports],
-    'convert-commonjs-to-esm-common': ['off', convertCommonjsToEsmCommons],
-    'convert-commonjs-to-esm-require': ['off', convertCommonjsToEsmRequire],
+    'convert-commonjs-to-esm/exports': ['off', convertCommonjsToEsm.rules.exports],
+    'convert-commonjs-to-esm/common': ['off', convertCommonjsToEsm.rules.commons],
+    'convert-commonjs-to-esm/require': ['off', convertCommonjsToEsm.rules.require],
     
     'cjs-file': ['off', cjsFile],
     'mjs-file': ['off', mjsFile],
