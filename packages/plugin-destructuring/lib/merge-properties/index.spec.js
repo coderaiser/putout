@@ -9,7 +9,6 @@ import * as declareBeforeReference from '@putout/plugin-declare-before-reference
 import * as esm from '@putout/plugin-esm';
 import * as printer from '@putout/plugin-printer';
 import * as mockRequire from '@putout/codemod-mock-require';
-
 import * as mergeDestructuringProperties from './index.js';
 
 const {declare} = rules;
