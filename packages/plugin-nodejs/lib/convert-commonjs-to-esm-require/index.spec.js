@@ -187,6 +187,11 @@ test('plugin-convert-commonjs-to-esm: require: transform: rename', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: transform: top-level', (t) => {
+    t.transform('top-level');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: no report: export-require-references', (t) => {
     t.noReport('export-require-references');
     t.end();

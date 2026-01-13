@@ -1,1 +1,5 @@
-import('hello');
+import 'hello';
+
+{
+    require('world');
+}

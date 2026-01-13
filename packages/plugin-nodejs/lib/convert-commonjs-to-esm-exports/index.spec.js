@@ -73,6 +73,11 @@ test('plugin-convert-commonjs-to-esm: exports: transform: object', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: exports: transform: nested-object', (t) => {
+    t.transform('nested-object');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: exports: transform: object-literals', (t) => {
     t.transform('object-literals');
     t.end();

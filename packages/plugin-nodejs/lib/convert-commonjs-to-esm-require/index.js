@@ -93,7 +93,7 @@ export const replace = () => ({
         }`;
     },
     'const __a = require(".")': 'import __a from "./index.js"',
-    'require("__a")': 'import("__a")',
+    'require("__a")': 'import "__a"',
     'const __a = require(__b)': ({__a}, path) => {
         const {value} = path.get(__B).evaluate();
         const fnPath = path.findParent(isFunction);

@@ -65,9 +65,18 @@ function createDeclaration(name, value) {
     return `export const ${name} = ${value};`;
 }
 
+const isNested = ({properties}) => {
+    for (const property of properties) {
+        if (isObjectExpression(property.value))
+            return true;
+    }
+    
+    return false;
+};
+
 export const replace = () => ({
     'module.exports = __a': ({__a}, path) => {
-        if (!isObjectExpression(__a) || isStringLiteral(__a.properties[0].key))
+        if (!isObjectExpression(__a) || isStringLiteral(__a.properties[0].key) || isNested(__a))
             return 'export default __a';
         
         const result = ['export {'];

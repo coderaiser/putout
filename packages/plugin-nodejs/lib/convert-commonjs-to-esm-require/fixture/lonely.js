@@ -1,1 +1,5 @@
 require('hello');
+
+{
+    require('world');
+}
