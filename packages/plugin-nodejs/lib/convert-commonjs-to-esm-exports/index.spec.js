@@ -109,3 +109,8 @@ test('plugin-convert-commonjs-to-esm: exports: transform: object-method', (t) =>
     t.transform('object-method');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: exports: transform: used', (t) => {
+    t.transform('used');
+    t.end();
+});
