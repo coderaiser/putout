@@ -15,5 +15,4 @@ test('cloudcmd: rest: move', async (t) => {
     await reImport(restPath);
     
     stopAll();
-    t.end();
 });

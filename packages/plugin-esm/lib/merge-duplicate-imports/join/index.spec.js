@@ -5,6 +5,7 @@ import {createTest} from '@putout/test';
 import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-commonjs';
 import * as convertCommonjsToEsm from '@putout/plugin-nodejs/convert-commonjs-to-esm';
 import * as putoutPlugin from '@putout/plugin-putout';
+import * as mockRequire from '@putout/codemod-mock-require';
 import * as merge from './index.js';
 
 const convertReplaceWith = putoutPlugin.rules['convert-replace-with'];
@@ -85,7 +86,7 @@ test('plugin-merge-duplicate-imports: join: transform: remove-replace', (t) => {
 
 test('plugin-merge-duplicate-imports: join: transform: convert-esm-to-commonjs', (t) => {
     t.transform('convert-esm-to-commonjs', {
-        'tape/declare': tape.rules.declare,
+        'tape/declare': mockRequire.rules.declare,
         'nodejs/convert-esm-to-commonjs': convertEsmToCommonjs,
     });
     t.end();

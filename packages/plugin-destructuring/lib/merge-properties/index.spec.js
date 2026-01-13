@@ -8,6 +8,8 @@ import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-comm
 import * as declareBeforeReference from '@putout/plugin-declare-before-reference';
 import * as esm from '@putout/plugin-esm';
 import * as printer from '@putout/plugin-printer';
+import * as mockRequire from '@putout/codemod-mock-require';
+
 import * as mergeDestructuringProperties from './index.js';
 
 const {declare} = rules;
@@ -113,7 +115,7 @@ test('putout: plugin-destructuring: merge-properties: transform: putout-nodejs',
 test('putout: plugin-destructuring: merge-properties: transform: mock-require', (t) => {
     t.transform('mock-require', {
         'node/convert-commonjs-to-esm': convert,
-        'tape/convert-mock-require-to-mock-import': tape.rules['convert-mock-require-to-mock-import'],
+        'mock-require/convert-mock-require-to-mock-import': mockRequire.rules['convert-mock-require-to-mock-import'],
     });
     t.end();
 });

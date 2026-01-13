@@ -1,6 +1,6 @@
 'use strict';
 
-const {reRequire, stopAll} = require('mock-require');
+const {reRequire, stopAll} = mockRequire;
 
 reRequire();
 stopAll();

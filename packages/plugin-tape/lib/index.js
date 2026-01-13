@@ -1,7 +1,6 @@
 import * as applyStub from './apply-stub/index.js';
 import * as applyDestructuring from './apply-destructuring/index.js';
 import * as applyWithName from './apply-with-name/index.js';
-import * as addAwaitToReImport from './add-await-to-re-import/index.js';
 import * as jest from './jest/index.js';
 import * as syncWithName from './sync-with-name/index.js';
 import * as convertTapeToSupertape from './convert-tape-to-supertape/index.js';
@@ -19,7 +18,6 @@ import * as convertEqualToDeepEqual from './convert-equal-to-deep-equal/index.js
 import * as convertEqualToOk from './convert-equal-to-ok/index.js';
 import * as convertEqualToCalledOnce from './convert-equal-to-called-once/index.js';
 import * as convertDeepEqualToEqual from './convert-deep-equal-to-equal/index.js';
-import * as convertMockRequireToMockImport from './convert-mock-require-to-mock-import/index.js';
 import * as addArgs from './add-args/index.js';
 import * as declare from './declare/index.js';
 import * as removeDefaultMessages from './remove-default-messages/index.js';
@@ -27,19 +25,15 @@ import * as removeUselessNotCalledArgs from './remove-useless-not-called-args/in
 import * as switchExpectedWithResult from './switch-expected-with-result/index.js';
 import * as addTEnd from './add-t-end/index.js';
 import * as addStopAll from './add-stop-all/index.js';
-import * as removeStopAll from './remove-stop-all/index.js';
 import * as removeUselessTEnd from './remove-useless-t-end/index.js';
 import * as removeOnly from './remove-only/index.js';
 import * as removeSkip from './remove-skip/index.js';
 import * as convertEqualsToEqual from './convert-equals-to-equal/index.js';
-import * as addNodePrefixToMockRequire from './add-node-prefix-to-mock-require/index.js';
 
 export const rules = {
-    'convert-mock-require-to-mock-import': ['off', convertMockRequireToMockImport],
     'apply-stub': applyStub,
     'apply-destructuring': applyDestructuring,
     'apply-with-name': applyWithName,
-    'add-await-to-re-import': addAwaitToReImport,
     'jest': jest,
     'sync-with-name': syncWithName,
     'convert-tape-to-supertape': convertTapeToSupertape,
@@ -65,9 +59,7 @@ export const rules = {
     'switch-expected-with-result': switchExpectedWithResult,
     'add-t-end': addTEnd,
     'add-stop-all': addStopAll,
-    'remove-stop-all': removeStopAll,
     'remove-useless-t-end': removeUselessTEnd,
     'remove-only': removeOnly,
     'remove-skip': removeSkip,
-    'add-node-prefix-to-mock-require': addNodePrefixToMockRequire,
 };

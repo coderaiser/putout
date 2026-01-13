@@ -1,0 +1,8 @@
+{
+    "match": {
+        "README.md": {
+            "declare": "off",
+            "regexp/apply-literal-notation": "off"
+        }
+    }
+}

@@ -8,6 +8,9 @@ export const match = {
         'n/no-unsupported-features/node-builtins': 'off',
         'putout/no-unresolved': 'off',
     },
+    '**/merge-duplicate-imports/**/*.spec.js': {
+        'n/no-extraneous-import': 'off',
+    },
 };
 
 export default defineConfig([

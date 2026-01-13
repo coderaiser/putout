@@ -147,11 +147,11 @@ parserTester.run('putout: tape', rule, {
             },
         }],
         code: `
-            import {createMockImport} from 'mock-import';
-            const {mockImport, reImport} = createMockImport(import.meta.url);
+            import {test} from 'supertape';
             
-            mockImport('hello', world);
-            await reImport('./index.js');
+            test('hello: world', (t) => {
+                t.end();
+            });
         `,
     }],
     invalid: [{
@@ -161,24 +161,21 @@ parserTester.run('putout: tape', rule, {
             },
         }],
         code: montag`
-            import {createMockImport} from 'mock-import';
-            const {mockImport} = createMockImport(import.meta.url);
-            
-            mockImport('tape', check);
-            await reImport('./index.js');
+            test('hello: world', (t) => {
+                t.end();
+            });
         `,
         output: montag`
-            import {createMockImport} from 'mock-import';
+            import {test} from 'supertape';
             
-            const {mockImport, reImport} = createMockImport(import.meta.url);
-            
-            mockImport('tape', check);
-            await reImport('./index.js');\n
+            test('hello: world', (t) => {
+                t.end();
+            });\n
         `,
         errors: [{
-            line: 5,
-            column: 7,
-            message: `Declare 'reImport', it referenced but not defined (tape/declare)`,
+            line: 1,
+            column: 1,
+            message: `Declare 'test', it referenced but not defined (tape/declare)`,
         }],
     }, {
         code: montag`
@@ -211,11 +208,11 @@ parserTester.run('putout', rule, {
             },
         }],
         code: `
-            import {createMockImport} from 'mock-import';
-            const {mockImport, reImport} = createMockImport(import.meta.url);
+            import {test} from 'supertape';
             
-            mockImport('hello', world);
-            await reImport('./index.js');
+            test('hello: world', (t) => {
+                t.end();
+            });
     `,
     }],
     invalid: [{
@@ -225,24 +222,21 @@ parserTester.run('putout', rule, {
             },
         }],
         code: montag`
-            import {createMockImport} from 'mock-import';
-            const {mockImport} = createMockImport(import.meta.url);
-            
-            mockImport('hello', world);
-            await reImport('./index.js');
+            test('hello: world', (t) => {
+                t.end();
+            });
         `,
         output: montag`
-            import {createMockImport} from 'mock-import';
+            import {test} from 'supertape';
             
-            const {mockImport, reImport} = createMockImport(import.meta.url);
-            
-            mockImport('hello', world);
-            await reImport('./index.js');\n
+            test('hello: world', (t) => {
+                t.end();
+            });\n
         `,
         errors: [{
-            line: 5,
-            column: 7,
-            message: `Declare 'reImport', it referenced but not defined (tape/declare)`,
+            line: 1,
+            column: 1,
+            message: `Declare 'test', it referenced but not defined (tape/declare)`,
         }],
     }, {
         code: `a = is() ? a : b`,

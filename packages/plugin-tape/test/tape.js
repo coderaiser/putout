@@ -118,11 +118,6 @@ test('plugin-tape: transform: add-t-end', (t) => {
     t.end();
 });
 
-test('plugin-tape: transform: add-stop-all', (t) => {
-    t.transform('add-stop-all');
-    t.end();
-});
-
 test('plugin-tape: transform: remove-useless-t-end', (t) => {
     t.transform('remove-useless-t-end');
     t.end();
@@ -163,16 +158,6 @@ test('plugin-tape: transform: remove-skip', (t) => {
     t.end();
 });
 
-test('plugin-tape: transform: remove-stop-all', (t) => {
-    t.transform('remove-stop-all');
-    t.end();
-});
-
-test('plugin-tape: transform: add-await-to-re-import', (t) => {
-    t.transform('add-await-to-re-import');
-    t.end();
-});
-
 test('plugin-tape: transform: apply-destructuring', (t) => {
     t.transform('apply-destructuring');
     t.end();
@@ -183,17 +168,7 @@ test('plugin-tape: transform: jest', (t) => {
     t.end();
 });
 
-test('plugin-tape: transform: convert-mock-require-to-mock-import', (t) => {
-    t.transform('convert-mock-require-to-mock-import');
-    t.end();
-});
-
 test('plugin-tape: transform: convert-equals-to-equal', (t) => {
     t.transform('convert-equals-to-equal');
-    t.end();
-});
-
-test('plugin-tape: transform: add-node-prefix-to-mock-require', (t) => {
-    t.transform('add-node-prefix-to-mock-require');
     t.end();
 });
