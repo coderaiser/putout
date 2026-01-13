@@ -251,34 +251,22 @@ import ss from '../../bb/ss.js';
 const c = 5;
 ```
 
-### merge-duplicate-imports
+### merge-duplicate-imports/join
 
-#### join
-
-To disable use:
-
-```json
-{
-    "rules": {
-        "esm/merge-duplicate-imports-join": "off"
-    }
-}
-```
-
-##### ❌ Example of incorrect code
+#### ❌ Example of incorrect code
 
 ```js
 import test from 'supertape';
 import {stub} from 'supertape';
 ```
 
-##### ✅ Example of correct code
+#### ✅ Example of correct code
 
 ```js
 import test, {stub} from 'supertape';
 ```
 
-#### rename
+### merge-duplicate-imports/rename
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6604936dec6b1eed8ce0d143f2962f15/17b310a6e4d85b0b8615a8b91d0e27414e8af291).
 To disable use:
@@ -291,7 +279,7 @@ To disable use:
 }
 ```
 
-##### ❌ Example of incorrect code
+#### ❌ Example of incorrect code
 
 ```js
 import putout from './putout.js';
@@ -302,7 +290,7 @@ console.log(all);
 console.log(x);
 ```
 
-##### ✅ Example of correct code
+#### ✅ Example of correct code
 
 ```js
 import putout from './putout.js';
