@@ -115,7 +115,7 @@
     "@putout/plugin-declare-before-reference": "^9.0.0",
     "@putout/plugin-destructuring": "^1.0.0",
     "@putout/plugin-eslint": "^15.0.0",
-    "@putout/plugin-esm": "^6.0.0",
+    "@putout/plugin-esm": "^7.0.0",
     "@putout/plugin-extract-sequence-expressions": "^4.0.0",
     "@putout/plugin-filesystem": "^12.0.0",
     "@putout/plugin-for-of": "^11.0.0",
