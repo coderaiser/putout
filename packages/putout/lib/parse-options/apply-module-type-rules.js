@@ -11,6 +11,8 @@ const commonjs = () => ({
     match: {
         '*.js': {
             'nodejs/convert-esm-to-commonjs': 'on',
+            'nodejs/add-missing-strict-mode': 'on',
+            'nodejs/remove-useless-strict-mode': 'off',
         },
         '.eslintrc.json': {
             'eslint': 'on',
@@ -23,10 +25,8 @@ const esm = () => ({
     match: {
         '*.js': {
             'nodejs/convert-commonjs-to-esm': 'on',
-            'nodejs/add-strict-mode': 'off',
-        },
-        '{test,*.spec.js}': {
-            'tape/convert-mock-require-to-mock-import': 'on',
+            'nodejs/add-missing-strict-mode': 'off',
+            'nodejs/remove-useless-strict-mode': 'on',
         },
         '.eslintrc.json': {
             'eslint': 'on',

@@ -138,8 +138,7 @@
             "tape": "on"
         },
         "*.mjs": {
-            "nodejs/convert-commonjs-to-esm": "on",
-            "tape/convert-mock-require-to-mock-import": "on"
+            "nodejs/convert-commonjs-to-esm": "on"
         },
         "*.mts": {
             "typescript/convert-commonjs-to-esm": "on"

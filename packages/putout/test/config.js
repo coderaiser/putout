@@ -196,7 +196,6 @@ test('putout: config: mjs', (t) => {
     
     const expected = {
         'nodejs/convert-commonjs-to-esm': 'on',
-        'tape/convert-mock-require-to-mock-import': 'on',
     };
     
     t.deepEqual(result, expected);

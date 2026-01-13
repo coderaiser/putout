@@ -14,14 +14,12 @@ test('putout: parse-options: apply module type rules: module', (t) => {
         match: {
             '*.js': {
                 'nodejs/convert-commonjs-to-esm': 'on',
-                'nodejs/add-strict-mode': 'off',
+                'nodejs/add-missing-strict-mode': 'off',
+                'nodejs/remove-useless-strict-mode': 'on',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
                 'eslint/convert-require-to-import': 'on',
-            },
-            '{test,*.spec.js}': {
-                'tape/convert-mock-require-to-mock-import': 'on',
             },
         },
     };
@@ -43,6 +41,8 @@ test('putout: parse-options: apply module type rules: commonjs', (t) => {
         match: {
             '*.js': {
                 'nodejs/convert-esm-to-commonjs': 'on',
+                'nodejs/add-missing-strict-mode': 'on',
+                'nodejs/remove-useless-strict-mode': 'off',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
@@ -65,6 +65,8 @@ test('putout: parse-options: apply module type rules: no type', (t) => {
         match: {
             '*.js': {
                 'nodejs/convert-esm-to-commonjs': 'on',
+                'nodejs/add-missing-strict-mode': 'on',
+                'nodejs/remove-useless-strict-mode': 'off',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
@@ -95,6 +97,8 @@ test('putout: parse-options: apply module type rules: match exists', (t) => {
             '*.js': {
                 'nodejs/convert-esm-to-commonjs': 'on',
                 'remove-unused-variables': 'off',
+                'nodejs/add-missing-strict-mode': 'on',
+                'nodejs/remove-useless-strict-mode': 'off',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
