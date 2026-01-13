@@ -1,3 +1,21 @@
+2026.01.13, v41.7.1
+
+fix:
+- df6cf03c7 @putout/plugin-nodejs: convert-commonjs-to-esm: commons: report
+- 28cae316e @putout/plugin-nodejs: convert-commonjs-to-esm: report
+
+feature:
+- f6374d67c putout: @putout/plugin-tape v20.0.0
+- 1a48e5ea5 @putout/plugin-tape: get rid of mock-require/mock-import
+- 33f3aadbe @putout/plugin-tape: drop support of 🐊 < 41
+- 1a17d4b06 @putout/plugin-nodejs: convert-commonjs-to-esm: require: top level
+- 7038a9db4 @putout/plugin-nodejs: convert-commonjs-to-esm: exports: used
+- 0d65118b2 @putout/plugin-new: remove-useless: simplify
+- 94f1de79f @putout/engine-reporter: @putout/cli-keypress v4.0.0
+- b9b13b2a5 eslint-plugin-putout: migrate to ESM
+- 0f0f04386 @putout/processor-filesystem: @putout/cli-filesystem v3.0.0
+- e68a00f33 @putout/cli-filesystem: drop support of node < 22
+
 2026.01.11, v41.7.0
 
 feature:
