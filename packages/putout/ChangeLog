@@ -1,3 +1,8 @@
+2026.01.13, v41.7.2
+
+fix:
+- 2f3f2cefc putout: get rid of mock-require rules
+
 2026.01.13, v41.7.1
 
 fix:
