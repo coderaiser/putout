@@ -11,7 +11,7 @@ const initCommons = template.ast(`
     const require = createRequire(import.meta.url);
 `);
 
-export const report = () => 'In ESM declare "__filename", "__dirname" and "require"';
+export const report = () => `Declare '__filename', '__dirname' and 'require' in ESM`;
 
 export const fix = ({scope}) => {
     const programScope = scope.getProgramParent();

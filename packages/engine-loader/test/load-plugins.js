@@ -431,7 +431,7 @@ test('putout: loader: sync: import: shorten', async (t) => {
     });
     
     const expected = [{
-        message: '"__filename", "__dirname" and "require" should be declared in ESM',
+        message: `Declare '__filename', '__dirname' and 'require' in ESM`,
         position: {
             column: 14,
             line: 1,
