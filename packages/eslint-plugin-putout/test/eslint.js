@@ -182,6 +182,7 @@ test('eslint-plugin-putout: esm-to-cjs', async ({process}) => {
                 rules: {
                     'nodejs/convert-esm-to-commonjs': 'on',
                     'nodejs/convert-commonjs-to-esm': 'off',
+                    'nodejs/add-missing-strict-mode': 'on',
                 },
             }],
         },
