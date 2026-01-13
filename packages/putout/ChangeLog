@@ -1,3 +1,11 @@
+2026.01.13, v41.7.3
+
+feature:
+- b49ff7073 putout: @putout/plugin-nodejs v19.0.0
+- be4a9e1a8 @putout/plugin-nodejs: convert-commonjs-to-esm: splitter: - -> /
+- 0ab7e9c16 putout: @putout/plugin-esm v7.0.0
+- 12a27ea14 @putout/plugin-esm: merge-duplicate-imports: splitter: - -> /
+
 2026.01.13, v41.7.2
 
 fix:
