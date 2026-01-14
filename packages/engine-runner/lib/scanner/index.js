@@ -6,8 +6,8 @@ import {
     pause,
     start,
 } from '@putout/operator-filesystem';
-import fromSimple from '@putout/plugin-filesystem/from-simple';
-import toSimple from '@putout/plugin-filesystem/to-simple';
+import * as fromSimple from '@putout/plugin-filesystem/from-simple';
+import * as toSimple from '@putout/plugin-filesystem/to-simple';
 import {createDebug} from '../debug.js';
 
 const log = createDebug('putout:runner:scanner');

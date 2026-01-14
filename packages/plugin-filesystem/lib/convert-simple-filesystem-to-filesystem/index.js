@@ -1,16 +1,13 @@
-'use strict';
-
-const {basename, dirname} = require('node:path');
-const {types} = require('@putout/babel');
-const {
+import {basename, dirname} from 'node:path';
+import {types} from '@putout/babel';
+import {__filesystem_name} from '@putout/operator-json';
+import {
     createDirectory,
     getFileType,
     getFilename,
     findFile,
-} = require('@putout/operator-filesystem');
-
-const {__filesystem_name} = require('@putout/operator-json');
-const {replaceWith, getProperty} = require('@putout/operate');
+} from '@putout/operator-filesystem';
+import {replaceWith, getProperty} from '@putout/operate';
 
 const {
     objectExpression,
@@ -22,7 +19,7 @@ const {
     objectProperty,
 } = types;
 
-module.exports.report = () => `Convert Simple Filesystem to Filesystem`;
+export const report = () => `Convert Simple Filesystem to Filesystem`;
 
 const isDirectory = (a) => a.endsWith('/');
 const getType = (a) => {
@@ -56,7 +53,7 @@ function parseContent(node, path) {
     throw Error(`☝️ Looks like wrong content type: '${node.type}' from file: '${path}'`);
 }
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const array = arrayExpression([]);
     
     for (const element of path.get('elements')) {
@@ -91,7 +88,7 @@ module.exports.fix = (path) => {
     buildTree(path, array);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [`${__filesystem_name}(__array)`]: (path) => {
         const root = path.get('arguments.0');
         push(root);

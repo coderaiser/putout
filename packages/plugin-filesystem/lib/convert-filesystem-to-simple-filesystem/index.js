@@ -1,14 +1,11 @@
-'use strict';
-
-const {types} = require('@putout/babel');
-const {replaceWith, getProperty} = require('@putout/operate');
-const {__filesystem_name} = require('@putout/operator-json');
-
-const {
+import {types} from '@putout/babel';
+import {replaceWith, getProperty} from '@putout/operate';
+import {__filesystem_name} from '@putout/operator-json';
+import {
     findFile,
     getFilename,
     getFileType,
-} = require('@putout/operator-filesystem');
+} from '@putout/operator-filesystem';
 
 const {
     stringLiteral,
@@ -18,9 +15,9 @@ const {
 const {isArray} = Array;
 const maybeAddSlash = (a) => a === '/' ? a : `${a}/`;
 
-module.exports.report = () => `Convert Filesystem to Simple Filesystem`;
+export const report = () => `Convert Filesystem to Simple Filesystem`;
 
-module.exports.fix = (root, {files}) => {
+export const fix = (root, {files}) => {
     const names = [];
     
     for (const file of files) {
@@ -59,7 +56,7 @@ module.exports.fix = (root, {files}) => {
     replaceWith(root, arrayExpression(list));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     [`${__filesystem_name}(__object)`]: (path) => {
         const root = path.get('arguments.0');
         const files = findFile(root, '*');
