@@ -1,3 +1,15 @@
+2026.01.14, v41.8.1
+
+feature:
+- 4237b09bf putout: ignore: rm useless images formats
+- 79f048624 @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: useless-tuple: simplify
+- 97fbeb76a @putout/processor-filesystem: get rid of cjs
+- 737456991 @putout/processor-json: get rid of cjs
+- aa1fd67e3 putout: @putout/plugin-madrun v23.0.0
+- f44cbfde6 @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: add support of one element tuple
+- 477072f4f @putout/plugin-filesystem: get rid of cjs files
+- fed1983de @putout/plugin-madrun: rename-file: add
+
 2026.01.14, v41.8.0
 
 fix:
