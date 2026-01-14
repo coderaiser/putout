@@ -44,9 +44,6 @@ const getContent = (a) => {
 };
 
 function parseContent(node, path) {
-    if (!node)
-        return '';
-    
     if (isStringLiteral(node))
         return node.value;
     
@@ -60,10 +57,15 @@ export const fix = (path) => {
     const array = arrayExpression([]);
     
     for (const element of path.get('elements')) {
-        if (isArrayExpression(element)) {
+        if (isOneElementTuple(element)) {
+            const [node] = element.node.elements;
+            array.elements.push(createFileFromStringLiteral(node));
+            continue;
+        }
+        
+        if (isTwoElementsTuple(element)) {
             const [nodeValue, nodeContent] = element.node.elements;
             const {value} = nodeValue;
-            
             const content = parseContent(nodeContent, element);
             
             array.elements.push(objectExpression([
@@ -75,13 +77,8 @@ export const fix = (path) => {
         }
         
         if (isStringLiteral(element)) {
-            const {value} = element.node;
-            
-            array.elements.push(objectExpression([
-                getType(value),
-                createFilename(noTrailingSlash(value)),
-                getFiles(value),
-            ].filter(Boolean)));
+            const file = createFileFromStringLiteral(element);
+            array.elements.push(file);
             continue;
         }
         
@@ -90,6 +87,18 @@ export const fix = (path) => {
     
     buildTree(path, array);
 };
+
+const maybeNode = (a) => a.node || a;
+
+function createFileFromStringLiteral(element) {
+    const {value} = maybeNode(element);
+    
+    return objectExpression([
+        getType(value),
+        createFilename(noTrailingSlash(value)),
+        getFiles(value),
+    ].filter(Boolean));
+}
 
 export const traverse = ({push}) => ({
     [`${__filesystem_name}(__array)`]: (path) => {
@@ -132,6 +141,24 @@ function buildTree(path, list) {
     
     replaceWith(path, root);
 }
+
+const isTwoElementsTuple = (a) => {
+    if (!isArrayExpression(a))
+        return false;
+    
+    const {elements} = a.node;
+    
+    return elements.length === 2;
+};
+
+const isOneElementTuple = (a) => {
+    if (!isArrayExpression(a))
+        return false;
+    
+    const {elements} = a.node;
+    
+    return elements.length === 1;
+};
 
 function check(filename) {
     if (!filename.includes('/'))

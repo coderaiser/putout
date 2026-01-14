@@ -6,8 +6,7 @@ __putout_processor_filesystem({
         "filename": "/hello.txt"
     }, {
         "type": "file",
-        "filename": "/world.txt",
-        "content": ""
+        "filename": "/world.txt"
     }, {
         "type": "directory",
         "filename": "/abc",
