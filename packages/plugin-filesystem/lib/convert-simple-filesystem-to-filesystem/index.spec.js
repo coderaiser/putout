@@ -32,6 +32,11 @@ test('putout: filesystem: convert-simple-filesystem-to-filesystem: transform: te
     t.end();
 });
 
+test('putout: filesystem: convert-simple-filesystem-to-filesystem: transform: useless-tuple', (t) => {
+    t.transform('useless-tuple');
+    t.end();
+});
+
 test('putout: filesystem: convert-simple-filesystem-to-filesystem: no transform: no-slash', (t) => {
     const [error] = tryCatch(t.noTransform, 'no-slash');
     

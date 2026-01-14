@@ -44,6 +44,9 @@ const getContent = (a) => {
 };
 
 function parseContent(node, path) {
+    if (!node)
+        return '';
+    
     if (isStringLiteral(node))
         return node.value;
     
