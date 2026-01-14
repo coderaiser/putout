@@ -62,13 +62,13 @@ You can pass `from` and `to` instead of `rename` for declarative renaming.
 
 ```js
 export const {
-    report,
-    fix,
-    scan,
+report,
+fix,
+scan,
 } = renameFiles({
-    mask: '*.spec.*',
-    from: 'spec',
-    to: 'test',
+mask: '*.spec.*',
+from: 'spec',
+to: 'test',
 });
 ```
 
