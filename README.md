@@ -2549,6 +2549,7 @@ When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, ple
 
 ```js
 import {template, operator} from 'putout';
+
 const {replaceWith} = operator;
 
 const ast = template.ast(`
@@ -2587,6 +2588,7 @@ Let's consider simplest possible plugin for removing `debugger statements` [@put
 ```js
 // this is a message to show in putout cli
 export const report = () => 'Unexpected "debugger" statement';
+
 // let's find all "debugger" statements and replace them with ""
 export const replace = () => ({
     debugger: '',
@@ -2613,6 +2615,7 @@ You can also use `include` and/or `exclude` instead of `traverse` and `filter` (
 ```js
 // should be always used include/or exclude, when traverse not used
 export const include = () => ['debugger'];
+
 // optional
 export const exclude = () => [
     'console.log',
@@ -2638,9 +2641,8 @@ There is predefined placeholders:
 That was the simplest module to remove `debugger` statements in your code. Let's look how to test it using [@putout/test](https://github.com/coderaiser/putout/tree/master/packages/test#readme):
 
 ```js
-import * as removeDebugger from './index.js';
-
 import {createTest} from '@putout/test';
+import * as removeDebugger from './index.js';
 
 const test = createTest(import.meta.url, {
     'remove-debugger': removeDebugger,
