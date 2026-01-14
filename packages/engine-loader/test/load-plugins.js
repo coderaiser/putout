@@ -571,6 +571,34 @@ test('putout: loader: similar names', (t) => {
     t.end();
 });
 
+test('putout: loader: enable part of rule: async: before', async (t) => {
+    const code = montag`
+        const {Identifier} = types;
+        Identifier('x');
+    `;
+    
+    const {places} = await putoutAsync(code, {
+        fix: false,
+        rules: {
+            'putout/apply-lowercase-to-node-builders': 'on',
+            'putout': 'off',
+        },
+        plugins: ['putout'],
+    });
+    
+    const expected = [{
+        message: `Use lowercased node builders`,
+        position: {
+            column: 0,
+            line: 2,
+        },
+        rule: 'putout/apply-lowercase-to-node-builders',
+    }];
+    
+    t.deepEqual(places, expected, 'should disable all but couple of rules in plugin');
+    t.end();
+});
+
 test('putout: loader: enable part of rule: async', async (t) => {
     const code = montag`
         const {Identifier} = types;

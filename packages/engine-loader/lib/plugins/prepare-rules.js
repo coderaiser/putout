@@ -1,5 +1,5 @@
 import {parsePluginNames} from './parse-plugin-names.js';
-import {enableNestedRules} from '../rules/parse-rules.js';
+import {enableNestedRules} from '../rules/enable-nested-rules.js';
 import {parseRules, getLoadedRules} from '../rules/index.js';
 
 export const prepareRules = ({rules, pluginNames}) => {

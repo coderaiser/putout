@@ -10,7 +10,7 @@ const rulesUsedInsteadOfMatchError = (a) => Error(`☝️ Looks like you need to
 const stateOptionError = ({rule, value}) => Error(`☝️ ${rule}: state option can be "on" or "off" only, when used as string, received: "${value}"`);
 const defaultOptions = () => Object.create(null);
 
-const parseState = (rule, value) => {
+export const parseState = (rule, value) => {
     validateState(rule, value);
     
     if (value === 'on')
@@ -113,21 +113,6 @@ function validateState(rule, value) {
         value,
     });
 }
-
-const cut = (a) => a.split('/')[0];
-
-export const enableNestedRules = (rules) => {
-    const newRules = {};
-    
-    for (const [rule, value] of entries(rules)) {
-        if (rule.includes('/') && parseState(rule, value))
-            newRules[cut(rule)] = 'on';
-        
-        newRules[rule] = value;
-    }
-    
-    return newRules;
-};
 
 function check(rules) {
     if (isArray(rules))

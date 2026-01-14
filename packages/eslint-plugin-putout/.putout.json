@@ -15,6 +15,7 @@
         "eslint-fixture": {
             "esm": "off",
             "nodejs": "off",
+            "nodejs/convert-commonjs-to-esm": "off",
             "apply-template-literals": "off",
             "nodejs/strict-mode": "off",
             "remove-empty": "off",
@@ -40,5 +41,5 @@
             "maybe/noop": "off"
         }
     },
-    "ignore": ["*.md"]
+    "ignore": ["*.md", "eslint-fixture/.filesystem.json"]
 }
