@@ -274,3 +274,125 @@ test('putout: operator: rename-files: no package.json: commonjs', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: rename-files: no args', (t) => {
+    const source = stringify(['/', '/lib/', '/lib/.madrun.js']);
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'rename-files': ['on', {
+                from: '.madrun.js',
+                to: 'madrun.js',
+            }],
+        },
+        plugins: [
+            ['rename-files', renameFiles()],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = [
+        '/',
+        '/lib/',
+        '/lib/madrun.js',
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: rename-files: mask, from, to', (t) => {
+    const source = stringify(['/', '/lib/', '/lib/madrun.spec.js']);
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        rules: {
+            'rename-files': 'on',
+        },
+        plugins: [
+            ['rename-files', renameFiles({
+                mask: '*.spec.*',
+                from: 'spec',
+                to: 'test',
+            })],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = [
+        '/',
+        '/lib/',
+        '/lib/madrun.test.js',
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: rename-files: mask, from, to: report', (t) => {
+    const source = stringify(['/', '/lib/', '/lib/madrun.spec.js']);
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    const places = transform(ast, jsSource, {
+        fix: false,
+        rules: {
+            'rename-files': 'on',
+        },
+        plugins: [
+            ['rename-files', renameFiles({
+                mask: '*.spec.*',
+                from: 'spec',
+                to: 'test',
+            })],
+        ],
+    });
+    
+    const expected = [{
+        message: `Rename '*.spec.*' to '*.test.*'`,
+        position: {
+            column: 0,
+            line: 0,
+        },
+        rule: 'rename-files',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: operator: rename-files: mask, from, to: no report: no options', (t) => {
+    const source = stringify(['/', '/lib/', '/lib/madrun.spec.js']);
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    const places = transform(ast, jsSource, {
+        fix: false,
+        rules: {
+            'rename-files': 'on',
+        },
+        plugins: [
+            ['rename-files', renameFiles()],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});

@@ -1,7 +1,9 @@
-import {renameFileByMask} from '../rename-file-by-mask.js';
+import {operator} from 'putout';
+
+const {renameFiles} = operator;
 
 export const {
     report,
     fix,
     scan,
-} = renameFileByMask();
+} = renameFiles();

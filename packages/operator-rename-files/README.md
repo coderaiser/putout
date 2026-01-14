@@ -56,6 +56,22 @@ module.exports = renameFiles({
 });
 ```
 
+### renameFiles(mask, from, to)
+
+You can pass `from` and `to` instead of `rename` for declarative renaming.
+
+```js
+export const {
+    report,
+    fix,
+    scan,
+} = renameFiles({
+    mask: '*.spec.*',
+    from: 'spec',
+    to: 'test',
+});
+```
+
 You can also use [`redlint`](https://github.com/putoutjs/redlint) directly.
 
 ## License
