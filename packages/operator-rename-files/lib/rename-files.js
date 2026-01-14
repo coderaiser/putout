@@ -1,7 +1,7 @@
 import * as renameFileWithFn from './rename-file-with-fn.js';
 import * as renameFileByMask from './rename-file-by-mask.js';
 
-export const renameFiles = ({type, mask, rename, from, to} = {}) => {
+export const renameFiles = ({type, mask, rename, from, to, near} = {}) => {
     if (rename) {
         const {
             report,
@@ -33,6 +33,7 @@ export const renameFiles = ({type, mask, rename, from, to} = {}) => {
             mask,
             from,
             to,
+            near,
         }),
     };
 };

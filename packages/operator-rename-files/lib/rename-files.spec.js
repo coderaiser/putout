@@ -396,3 +396,44 @@ test('putout: operator: rename-files: mask, from, to: no report: no options', (t
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: operator: rename-files: from, to, near', (t) => {
+    const source = stringify([
+        '/',
+        '/madrun.js',
+        '/lib/',
+        '/lib/madrun.js',
+        [
+            '/package.json',
+        ],
+    ]);
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, jsSource, {
+        plugins: [
+            ['rename-files', renameFiles({
+                near: 'package.json',
+                from: 'madrun.js',
+                to: '.madrun.js',
+            })],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const expected = [
+        '/',
+        '/.madrun.js',
+        '/lib/',
+        '/lib/madrun.js',
+        '/package.json',
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
