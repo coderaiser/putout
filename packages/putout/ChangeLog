@@ -1,3 +1,17 @@
+2026.01.14, v41.8.0
+
+fix:
+- 6c9d2f9e5 @putout/operator-rename-files: putout.operator -> @putout/operator-filesystem
+
+feature:
+- 68dab2ca8 putout: @putout/plugin-madrun v23.0.0
+- 2a6d45afc @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: add support of one element tuple
+- 454038cb4 @putout/plugin-filesystem: get rid of cjs files
+- 620d4dc69 @putout/plugin-madrun: rename-file: add
+- b7303b9cb @putout/operator-rename-files: near: add
+- fdff27d3d @putout/operator-rename-files: add support of declarative patern
+- c4b6ba6fb @putout/engine-loader: rules: enable-nested-rules: before disabling main
+
 2026.01.13, v41.7.3
 
 feature:
