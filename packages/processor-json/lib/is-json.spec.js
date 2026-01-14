@@ -1,8 +1,6 @@
-'use strict';
-
-const test = require('supertape');
-const montag = require('montag');
-const {isJSON} = require('./is-json.cjs');
+import test from 'supertape';
+import montag from 'montag';
+import {isJSON} from './is-json.js';
 
 test('putout: processor-json: is-json', (t) => {
     const result = isJSON(montag`

@@ -1,5 +1,5 @@
 import {toJS, fromJS} from '@putout/operator-json';
-import {isJSON} from './is-json.cjs';
+import {isJSON} from './is-json.js';
 
 export const files = ['*.json'];
 
