@@ -16,10 +16,15 @@ npm i putout @putout/operator-rename-files
 If you want to create 🐊[**Putout**](https://github.com/coderaiser/putout) `plugin` that will rename files according to your needs just use for **ESM**:
 
 ```js
-const {operator} = require('putout');
+import {operator} from 'putout';
+
 const {renameFiles} = operator;
 
-module.exports = renameFiles({
+export const {
+    report,
+    fix,
+    scan,
+} = renameFiles({
     type: 'module',
     mask: '*.mjs',
     rename(name) {
