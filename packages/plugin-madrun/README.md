@@ -41,6 +41,10 @@ npm i putout @putout/plugin-madrun -D
 - ✅ [set-lint-dot](#set-lint-dot);
 - ✅ [set-report-lcov](#set-report-lcov);
 
+## File rules
+
+- ✅ [rename-file](#rename-file);
+
 ## Config
 
 ```json
@@ -56,6 +60,7 @@ npm i putout @putout/plugin-madrun -D
         "madrun/convert-args-to-scripts": "on",
         "madrun/convert-run-to-cut-env": "on",
         "madrun/convert-cut-env-to-run": "on",
+        "madrun/rename-file": "off",
         "madrun/rename-series-to-run": "on",
         "madrun/rename-eslint-to-putout": "on",
         "madrun/set-lint-dot": "on",
@@ -276,6 +281,15 @@ module.exports = {
 module.exports = {
     lint: 'putout lib test',
 };
+```
+
+## rename-file
+
+Rename `madrun.js` to `.madrun.js`.
+
+```
+-madrun.js
++.madrun.js
 ```
 
 ## set-lint-dot

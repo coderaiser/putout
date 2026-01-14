@@ -1,3 +1,4 @@
+import * as renameFile from './rename-file/index.js';
 import * as addFunction from './add-function/index.js';
 import * as addFixLint from './add-fix-lint/index.js';
 import * as addRun from './add-run/index.js';
@@ -44,4 +45,5 @@ export const rules = {
     'remove-useless-array-in-run': removeUselessArrayInRun,
     'remove-useless-string-conversion': removeUselessStringConversion,
     'add-missing-quotes-to-watcher': addMissingQuotesToWatcher,
+    'rename-file': ['off', renameFile],
 };

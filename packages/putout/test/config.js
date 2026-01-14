@@ -133,6 +133,7 @@ test('putout: config: filesystem', (t) => {
     const expected = {
         'esm/resolve-imported-file': 'on',
         'esm/shorten-imported-file': 'on',
+        'madrun/rename-file': 'on',
         'nodejs/cjs-file': 'on',
         'nodejs/mjs-file': 'on',
         'nodejs/rename-file-cjs-to-js': 'on',

@@ -76,3 +76,8 @@ test('plugin-madrun: transform: add-missing-quotes-to-watcher', (t) => {
     t.transform('add-missing-quotes-to-watcher');
     t.end();
 });
+
+test('plugin-madrun: transform: rename-file', (t) => {
+    t.transform('rename-file');
+    t.end();
+});
