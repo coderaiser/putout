@@ -2496,8 +2496,8 @@ The simplest 🐊**Putout** plugin type consists of 2 functions:
 - `replace` - replace `key` template into `value` template;
 
 ```js
-module.exports.report = () => 'use optional chaining';
-module.exports.replace = () => ({
+export const report = () => 'use optional chaining';
+export const replace = () => ({
     '__a && __a.__b': '__a?.__b',
 });
 ```
@@ -2519,10 +2519,10 @@ and one or more of this:
 - `exclude` - returns array of templates, or node names to exclude;
 
 ```js
-module.exports.report = () => 'use optional chaining';
-module.exports.include = () => ['debugger'];
+export const report = () => 'use optional chaining';
+export const include = () => ['debugger'];
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.remove(path);
 };
 ```
@@ -2536,11 +2536,11 @@ module.exports.fix = (path) => {
 ☝️ *When you need, you can use [@babel/types](https://babeljs.io/docs/en/next/babel-types.html), [template](https://babeljs.io/docs/en/next/babel-template.html) and [generate](https://babeljs.io/docs/en/babel-generator). All of this can be gotten from **🐊Putout**:*
 
 ```js
-const {
+import {
     types,
     template,
     generate,
-} = require('putout');
+} from 'putout';
 ```
 
 ### Operator
@@ -2548,14 +2548,14 @@ const {
 When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use [`operator`](https://github.com/coderaiser/putout/tree/master/packages/operate#readme) instead of `path`-methods.
 
 ```js
-const {template, operator} = require('putout');
+import {template, operator} from 'putout';
 const {replaceWith} = operator;
 
 const ast = template.ast(`
   const str = 'hello';
 `);
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     // wrong
     path.replaceWith(ast);
     // correct
@@ -2586,9 +2586,9 @@ Let's consider simplest possible plugin for removing `debugger statements` [@put
 
 ```js
 // this is a message to show in putout cli
-module.exports.report = () => 'Unexpected "debugger" statement';
+export const report = () => 'Unexpected "debugger" statement';
 // let's find all "debugger" statements and replace them with ""
-module.exports.replace = () => ({
+export const replace = () => ({
     debugger: '',
 });
 ```
@@ -2597,7 +2597,7 @@ module.exports.replace = () => ({
 can use:
 
 ```js
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'module.exports = __'(path) {
         push(path);
     },
@@ -2612,14 +2612,14 @@ You can also use `include` and/or `exclude` instead of `traverse` and `filter` (
 
 ```js
 // should be always used include/or exclude, when traverse not used
-module.exports.include = () => ['debugger'];
+export const include = () => ['debugger'];
 // optional
-module.exports.exclude = () => [
+export const exclude = () => [
     'console.log',
 ];
 
 // optional
-module.exports.filter = (path) => {
+export const filter = (path) => {
     // do some checks
     return true;
 };
@@ -2638,9 +2638,11 @@ There is predefined placeholders:
 That was the simplest module to remove `debugger` statements in your code. Let's look how to test it using [@putout/test](https://github.com/coderaiser/putout/tree/master/packages/test#readme):
 
 ```js
-const removeDebugger = require('..');
+import * as removeDebugger from './index.js';
 
-const test = require('@putout/test')(__dirname, {
+import {createTest} from '@putout/test';
+
+const test = createTest(import.meta.url, {
     'remove-debugger': removeDebugger,
 });
 
@@ -2665,9 +2667,11 @@ To see a more sophisticated example look at [@putout/plugin-remove-console](http
 If you don't want to publish a **plugin** you developed, you can pass it to 🐊**Putout** as an `object` described earlier. Here is [how it can look like](https://github.com/coderaiser/mock-import/blob/v1.0.8/lib/convert-imports/index.js#L19-L33):
 
 ```js
+import * as variables from 'putout/plugin-variables';
+
 putout('const a = 5', {
     plugins: [
-        ['variables', require('@putout/plugin-variables')],
+        ['variables', variables],
     ],
 });
 ```
