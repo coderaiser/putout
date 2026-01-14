@@ -1,6 +1,6 @@
 import {tryCatch} from 'try-catch';
 import {createTest} from '@putout/test';
-import * as plugin from './index.cjs';
+import * as plugin from './index.js';
 
 const CHECK_ASSERTIONS_COUNT = {
     checkAssertionsCount: false,
