@@ -285,7 +285,8 @@ module.exports = {
 
 ## rename-file
 
-Rename `madrun.js` to `.madrun.js`.
+Rename `madrun.js` to `.madrun.js` when located near `package.json`.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9ad3c6ce273e4da4f0ff5dad8f611e98/9c6ed0b661ee7361919b14ec2a7f7666098e9199).
 
 ```
 -madrun.js
