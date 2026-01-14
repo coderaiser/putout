@@ -1,6 +1,4 @@
-import {operator} from 'putout';
-
-const {renameFile, getFilename} = operator;
+import {renameFile, getFilename} from '@putout/operator-filesystem';
 
 export const report = (path, {mask, from, to}) => {
     if (!mask)
