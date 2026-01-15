@@ -30,8 +30,8 @@ npm i @putout/plugin-apply-global-this
 ### ❌ Example of incorrect code
 
 ```js
-global.__putout_debug = debugFn;
-window.CloudCmd = {};
+globalThis.__putout_debug = debugFn;
+globalThis.CloudCmd = {};
 ```
 
 ### ✅ Example of correct code
