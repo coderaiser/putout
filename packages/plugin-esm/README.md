@@ -36,6 +36,7 @@ npm i putout @putout/plugin-esm -D
 
 - ✅ [apply-namespace-import-file](#resolve-imported-file);
 - ✅ [apply-privately-imported-file](#apply-privately-imported-file);
+- ✅ [apply-js-imported-file](#apply-js-imported-file);
 - ✅ [resolve-imported-file](#resolve-imported-file);
 - ✅ [shorten-imported-file](#shorten-imported-file);
 
@@ -57,6 +58,7 @@ npm i putout @putout/plugin-esm -D
             "ignore": []
         }],
         "esm/sort-imports-by-specifiers": "on",
+        "esm/apply-js-imported-file": "off",
         "esm/resolve-imported-file": "off",
         "esm/shorten-imported-file": "off",
         "esm/apply-namespace-of-file": "off",
@@ -532,6 +534,36 @@ import {parseProcessorNames} from '../processors/parse-processor-names.js';
 
 ```js
 import {parseProcessorNames} from './parse-processor-names.js';
+```
+
+### apply-js-imported-file
+
+Check out in 🐊**Putout Editor**:
+
+- ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/ee10100fed86e4db926885dd54298668/7538bca7a9ae006d976f41261c0ed4c0e1902ace);
+- ✅ [`change-imports`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
+
+Let's consider file structure:
+
+```
+/
+|-- lib/
+|  `-- index.js
+|  `-- a.js
+```
+
+In this case `index.js` can be fixed:
+
+#### ❌ Example of incorrect code
+
+```js
+import a from './a.mjs';
+```
+
+#### ✅ Example of correct code
+
+```js
+import a from './a.js';
 ```
 
 ## License

@@ -17,8 +17,13 @@ test('putout: esm: shorten-imported-file: get-imports: no report: external', (t)
     t.end();
 });
 
-test('putout: esm: shorten-imported-file: get-imports: no report: js', (t) => {
+test('putout: esm: shorten-imported-file: get-imports: report: js', (t) => {
     t.reportCode(`import a from './a.js'`, './a.js');
+    t.end();
+});
+
+test('putout: esm: shorten-imported-file: get-imports: report: cjs', (t) => {
+    t.reportCode(`import a from './a.cjs'`, './a.cjs');
     t.end();
 });
 

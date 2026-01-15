@@ -149,6 +149,7 @@ test('putout: config: filesystem', (t) => {
         'putout-config/remove-empty-file': 'on',
         'esm/apply-namespace-import-to-file': 'on',
         'esm/apply-privately-imported-file': 'on',
+        'esm/apply-js-imported-file': 'on',
     };
     
     t.deepEqual(result, expected);

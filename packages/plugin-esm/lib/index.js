@@ -1,4 +1,5 @@
 import * as applyExportFrom from './apply-export-from/index.js';
+import * as applyJsImportedFile from './apply-js-imported-file/index.js';
 import * as mergeExportDeclarations from './merge-export-declarations/index.js';
 import * as removeUselessExportSpecifiers from './remove-useless-export-specifiers/index.js';
 import * as mergeDeclarationWithExport from './merge-declaration-with-export/index.js';
@@ -35,4 +36,5 @@ export const rules = {
     'shorten-imported-file': ['off', shortenImportedFile],
     'apply-namespace-import-to-file': ['off', applyNamespaceImportToFile],
     'apply-privately-imported-file': ['off', applyPrivatelyImportedFile],
+    'apply-js-imported-file': ['off', applyJsImportedFile],
 };

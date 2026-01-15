@@ -17,6 +17,11 @@ test('esm: shorten-imported-file: transform', (t) => {
     t.end();
 });
 
+test('esm: shorten-imported-file: transform: cjs', (t) => {
+    t.transform('cjs');
+    t.end();
+});
+
 test('esm: shorten-imported-file: transform: nested', (t) => {
     t.transform('nested');
     t.end();
