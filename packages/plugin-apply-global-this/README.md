@@ -45,7 +45,7 @@ globalThis.CloudCmd = {};
 
 Linter | Rule | Fix
 -------|------|------------|
-🐊 **Putout** | [`apply-global-this`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs/apply-node-prefix#readme) | ✅
+🐊 **Putout** | [`apply-global-this`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-global-this#readme) | ✅
 ⏣ **ESLint**  | [`no-node-globals`](https://docs.deno.com/lint/rules/no-node-globals/)  | ❌
 
 ## License
