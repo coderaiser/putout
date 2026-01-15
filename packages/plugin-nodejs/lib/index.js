@@ -1,4 +1,3 @@
-import * as applyGlobalThis from './apply-global-this/index.js';
 import * as convertBufferToBufferAlloc from './convert-buffer-to-buffer-alloc/index.js';
 import * as convertFsPromises from './convert-fs-promises/index.js';
 import * as convertPromisifyToFsPromises from './convert-promisify-to-fs-promises/index.js';
@@ -49,5 +48,4 @@ export const rules = {
     'remove-illegal-strict-mode': strictMode.rules['remove-illegal'],
     'remove-useless-promisify': removeUselessPromisify,
     'group-require-by-id': groupRequireById,
-    'apply-global-this': applyGlobalThis,
 };

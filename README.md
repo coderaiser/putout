@@ -1321,6 +1321,15 @@ function world(a) {
 
 </details>
 
+<details><summary>apply <code>globalThis</code></summary>
+
+```diff
+-const {__putout} = global;
+-const {__putout} = globalThis;
+```
+
+</details>
+
 <details><summary>apply dot notation</summary>
 
 ```diff
@@ -2136,6 +2145,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-apply-at`](/packages/plugin-apply-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-at) |
 | [`@putout/plugin-apply-dot-notation`](/packages/plugin-apply-dot-notation#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-dot-notation.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-dot-notation) |
 | [`@putout/plugin-apply-starts-with`](/packages/plugin-apply-starts-with#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-starts-with.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-starts-with) |
+| [`@putout/plugin-apply-global-this`](/packages/plugin-apply-global-this#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-global-this.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-global-this) |
 | [`@putout/plugin-apply-flat-map`](/packages/plugin-apply-flat-map#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-flat-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-flat-map) |
 | [`@putout/plugin-apply-template-literals`](/packages/plugin-apply-template-literals#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-template-literals.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-template-literals) |
 | [`@putout/plugin-apply-overrides`](/packages/plugin-apply-overrides#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-overrides.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-overrides) |

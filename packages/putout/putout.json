@@ -201,6 +201,7 @@
         "apply-arrow",
         "apply-dot-notation",
         "apply-flat-map",
+        "apply-global-this",
         "apply-shorthand-properties",
         "apply-starts-with",
         "apply-template-literals",

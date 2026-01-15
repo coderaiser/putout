@@ -111,8 +111,3 @@ test('plugin-nodejs: transform: group-require-by-id', (t) => {
     t.transform('group-require-by-id');
     t.end();
 });
-
-test('plugin-nodejs: transform: apply-global-this', (t) => {
-    t.transform('apply-global-this');
-    t.end();
-});
