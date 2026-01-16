@@ -163,12 +163,13 @@ function addExportToBinding(name, path) {
         return exportNamedDeclaration(null, [exportSpecifier(imported, imported)]);
     }
     
-    if (binding.references > 1)
-        return '';
-    
     if (isImportDefaultSpecifier(bindingPath)) {
+        if (binding.references > 1)
+            return '';
+        
         const {local} = bindingPath.node;
         const {source} = bindingPath.parentPath.node;
+        
         const specifiers = [
             exportNamespaceSpecifier(local),
         ];

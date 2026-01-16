@@ -119,3 +119,8 @@ test('plugin-nodejs: covert-commonjs-to-esm: exports: transform: used', (t) => {
     t.transform('used');
     t.end();
 });
+
+test('plugin-nodejs: covert-commonjs-to-esm: exports: transform: same-name', (t) => {
+    t.transform('same-name');
+    t.end();
+});
