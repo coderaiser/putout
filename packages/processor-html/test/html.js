@@ -27,6 +27,6 @@ test('putout: processor: html: class', async ({process}) => {
     ]);
 });
 
-test('putout: processor: html: semicolon', async ({process}) => {
-    await process('no-semicolon');
+test('putout: processor: html: semicolon', async ({noProcess}) => {
+    await noProcess('no-semicolon');
 });
