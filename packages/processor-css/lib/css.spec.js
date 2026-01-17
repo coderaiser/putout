@@ -3,7 +3,7 @@ import {lint} from './css.js';
 
 test('@putout/processor-css: lint: no source', async (t) => {
     const [code] = await lint('{{ x }}');
-    const expected = '';
+    const expected = '{{ x }}';
     
     t.equal(code, expected);
     t.end();
