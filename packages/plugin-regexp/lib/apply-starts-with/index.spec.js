@@ -54,4 +54,3 @@ test('putout: plugin-regexp: apply-starts-with: transform: constructor-string', 
     t.transform('constructor-string');
     t.end();
 });
-
