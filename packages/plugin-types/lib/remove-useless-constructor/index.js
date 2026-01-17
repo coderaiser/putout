@@ -16,4 +16,5 @@ export const replace = () => ({
     'String("__a")': '__a',
     'Boolean(__a)': '__a',
     'Number(__a)': '__a',
+    '__a.startsWith(String(__b))': '__a.startsWith(__b)',
 });

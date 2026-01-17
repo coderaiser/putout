@@ -1,0 +1,1 @@
+name.startsWith(String(rule));

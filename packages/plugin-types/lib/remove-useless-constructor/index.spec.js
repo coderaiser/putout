@@ -17,6 +17,11 @@ test('plugin-types: remove-useless-constructor: transform: constructor', (t) => 
     t.end();
 });
 
+test('plugin-types: remove-useless-constructor: transform: starts-with', (t) => {
+    t.transform('starts-with');
+    t.end();
+});
+
 test('plugin-types: remove-useless-constructor: no transform: not-string', (t) => {
     t.noTransform('not-string');
     t.end();
