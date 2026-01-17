@@ -34,7 +34,7 @@ function isExactRuleEnabled(name, status, rules) {
         return true;
     
     for (const {rule, state} of rules) {
-        if (rule.includes('/') && RegExp(`^${rule}`).test(name))
+        if (rule.includes('/') && name.startsWith(rule))
             return state;
     }
     

@@ -1,6 +1,7 @@
 {
     "rules": {
         "putout": "off",
+        "regexp/apply-starts-with": "off",
         "eslint/apply-ignores": "off",
         "eslint/add-putout": "off",
         "eslint/convert-file-to-array": "on",

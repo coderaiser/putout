@@ -31,3 +31,21 @@ test('putout: plugin-regexp: apply-starts-with: transform: round-braces', (t) =>
     t.transform('round-braces');
     t.end();
 });
+
+test('putout: plugin-regexp: apply-starts-with: transform: constructor', (t) => {
+    t.transform('constructor');
+    t.end();
+});
+
+test('putout: plugin-regexp: apply-starts-with: report: constructor', (t) => {
+    t.report('constructor', [
+        `Use '.startsWith()' instead of '.test()'`,
+        `Use '.startsWith()' instead of '.test()'`,
+    ]);
+    t.end();
+});
+
+test('putout: plugin-regexp: apply-starts-with: no report: constructor-star', (t) => {
+    t.noReport('constructor-star');
+    t.end();
+});
