@@ -5,12 +5,12 @@ export const isEnabled = (name, rules) => {
     }
     
     for (const {rule, state} of rules) {
-        if (rule.includes('/') && RegExp(`^${rule}`).test(name))
+        if (rule.includes('/') && name.startsWith(rule))
             return state;
     }
     
     for (const {rule, state} of rules) {
-        if (RegExp(`^${rule}/`).test(name))
+        if (name.startsWith(`${rule}/`))
             return state;
     }
     

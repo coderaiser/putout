@@ -15,7 +15,7 @@ test('putout: get-plugins: is-enabled', (t) => {
     
     const result = isEnabled(name, rules);
     
-    t.notOk(result, 'should be disaabled');
+    t.ok(result, 'do not support of speed');
     t.end();
 });
 
