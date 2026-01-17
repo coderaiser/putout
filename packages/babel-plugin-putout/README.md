@@ -40,8 +40,10 @@ $ babel --plugins putout script.js
 
 ### Via Node API
 
-```javascript
-require('babel-core').transform('code', {
+```js
+import {transform} from '@babel/core';
+
+transform('code', {
     plugins: ['putout'],
 });
 ```

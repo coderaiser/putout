@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-putout",
   "version": "7.0.2",
-  "type": "commonjs",
+  "type": "module",
   "description": "babel plugin for putout",
   "author": "Coderaiser <coderaiser@cloudcmd.io>",
   "main": "lib/index.js",
@@ -15,7 +15,6 @@
   "devDependencies": {
     "@babel/core": "^8.0.0-alpha.1",
     "@babel/eslint-plugin-development": "^8.0.0-alpha.1",
-    "@putout/eslint-flat": "^3.0.0",
     "c8": "^10.0.0",
     "eslint": "^10.0.0-alpha.0",
     "eslint-plugin-n": "^17.0.0",

@@ -1,26 +1,22 @@
-'use strict';
-
-const path = require('node:path');
-const fs = require('node:fs');
-const test = require('supertape');
-
-const {
+import {readdirSync, readFileSync} from 'node:fs';
+import {join} from 'node:path';
+import test from 'supertape';
+import {
     transformFileSync,
     createConfigItemSync,
-} = require('@babel/core');
-
-const plugin = require('..');
+} from '@babel/core';
+import plugin from '../lib/index.js';
 
 const trim = (str) => str.replace(/^\s+|\s+$/, '');
 
-const fixturesDir = path.join(__dirname, 'fixture');
+const fixturesDir = new URL('fixture', import.meta.url).pathname;
 
-for (const caseName of fs.readdirSync(fixturesDir)) {
+for (const caseName of readdirSync(fixturesDir)) {
     test(`babel plugin for putout: should ${caseName
         .split('-')
         .join(' ')}`, (t) => {
-        const fixtureDir = path.join(fixturesDir, caseName);
-        const actualPath = path.join(fixtureDir, 'actual.js');
+        const fixtureDir = join(fixturesDir, caseName);
+        const actualPath = join(fixtureDir, 'actual.js');
         
         const {code} = transformFileSync(actualPath, {
             code: true,
@@ -35,7 +31,7 @@ for (const caseName of fs.readdirSync(fixturesDir)) {
             ],
         });
         
-        const expected = fs.readFileSync(path.join(fixtureDir, 'expected.js'), 'utf8');
+        const expected = readFileSync(join(fixtureDir, 'expected.js'), 'utf8');
         
         t.equal(trim(code), trim(expected));
         t.end();

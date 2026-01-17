@@ -1,14 +1,11 @@
-'use strict';
-
-const {
+import {
     parse,
     print,
     transform,
-} = require('putout');
+} from 'putout';
+import {parseOptions} from 'putout/parse-options';
 
-const {parseOptions} = require('putout/parse-options');
-
-module.exports = () => {
+export default () => {
     let code = '';
     
     return {
