@@ -1,3 +1,20 @@
+2026.01.17, v41.9.1
+
+fix:
+- d06cb1f75 @putout/plugin-regexp: apply-starts-with: improve uspport
+
+feature:
+- 1e198aa14 putout: @putout/plugin-types v9.0.0
+- b6b77b71c @putout/plugin-types: drop support of 🐊 < 41
+- 9ec2a389d @putout/plugin-types: remove-useless-constructor: startsWith: add support
+- 973f6805e @putout/plugin-regexp: apply-starts-with: constructor
+- 1ab95baec @putout/engine-loader: rules: is-enabled: speed-up: 3.638ms -> 1.153ms
+- 02a9e728e babel-plugin-putout: migrate to ESM
+- be917d18e @putout/processor-css: @stylistic/stylelint-plugin v5.0.0
+- 0ff7776a0 @putout/processor-css: stylelint-config-standard v40.0.0
+- 317398d93 @putout/processor-css: stylelint v17.0.0
+- 5c5067e37 @putout/plugin-nodejs: convert-commonjs-to-esm: exports: same-name
+
 2026.01.15, v41.9.0
 
 feature:
