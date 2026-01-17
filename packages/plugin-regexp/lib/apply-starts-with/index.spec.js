@@ -49,3 +49,9 @@ test('putout: plugin-regexp: apply-starts-with: no report: constructor-star', (t
     t.noReport('constructor-star');
     t.end();
 });
+
+test('putout: plugin-regexp: apply-starts-with: transform: constructor-string', (t) => {
+    t.transform('constructor-string');
+    t.end();
+});
+

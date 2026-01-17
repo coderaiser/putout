@@ -1,6 +1,14 @@
-import {types, template} from 'putout';
+import {
+    types,
+    template,
+    operator,
+} from 'putout';
 
-const {isTemplateLiteral} = types;
+const {setLiteralValue} = operator;
+const {
+    isTemplateLiteral,
+    isStringLiteral,
+} = types;
 
 export const report = () => `Use '.startsWith()' instead of '.test()'`;
 
@@ -15,9 +23,17 @@ export const match = () => ({
             for (const {value} of __a.quasis)
                 if (value.cooked.includes('*'))
                     return false;
+            
+            return true;
         }
         
-        return true;
+        if (!isStringLiteral(__a))
+            return false;
+        
+        if (!__a.value.startsWith('^'))
+            return false;
+        
+        return !__a.value.includes('*');
     },
     '/__a/.test(__b)': ({__a}) => {
         let raw = __a.raw.slice(1, -1);
@@ -50,7 +66,11 @@ export const replace = () => ({
             });
         }
         
-        return `__b.startsWith(__a)`;
+        setLiteralValue(__a, __a.value.slice(1));
+        return buildStartsWith({
+            LINE: __b,
+            PART: __a,
+        });
     },
     '/__a/.test(__b)': ({__a}) => {
         const str = __a.raw
