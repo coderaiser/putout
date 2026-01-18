@@ -10,7 +10,7 @@ import {
     operator,
 } from 'putout';
 import * as changeImports from '#change-imports';
-import * as getImports from './get-imports/index.js';
+import * as getImports from '#get-imports';
 
 const {
     getFilename,
