@@ -10,6 +10,11 @@
     ".": "./lib/index.js",
     "./merge-duplicate-imports": "./lib/merge-duplicate-imports/index.js"
   },
+  "imports": {
+    "#get-imports": {
+      "default": "./lib/shorten-imported-file/get-imports/index.js"
+    }
+  },
   "release": false,
   "tag": false,
   "changelog": false,

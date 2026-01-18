@@ -6,7 +6,7 @@ import {
     transform,
     operator,
 } from 'putout';
-import * as getImports from '../shorten-imported-file/get-imports/index.js';
+import * as getImports from '#get-imports';
 import * as changeImports from '../resolve-imported-file/change-imports/index.js';
 
 const {
