@@ -77,8 +77,9 @@ export const scan = (rootPath, {push, trackFile}) => {
         const dir = dirname(filename);
         
         for (const from of imports) {
-            const to = join(dir, from).replace(dir, '.');
+            const to = join(dir, from);
             
+            //.replace(dir, '.');
             if (privateImports.has(to))
                 push(file, {
                     from,

@@ -41,3 +41,8 @@ test('esm: apply-privately-imported-file: no report: no-package', (t) => {
     t.noReport('no-package');
     t.end();
 });
+
+test('esm: apply-privately-imported-file: transform: same-directory', (t) => {
+    t.transform('same-directory');
+    t.end();
+});
