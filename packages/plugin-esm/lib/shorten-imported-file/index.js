@@ -9,8 +9,8 @@ import {
     transform,
     operator,
 } from 'putout';
+import * as changeImports from '#change-imports';
 import * as getImports from './get-imports/index.js';
-import * as changeImports from '../resolve-imported-file/change-imports/index.js';
 
 const {
     getFilename,

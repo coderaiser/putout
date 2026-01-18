@@ -7,7 +7,7 @@ import {
     operator,
 } from 'putout';
 import * as getImports from '#get-imports';
-import * as changeImports from '../resolve-imported-file/change-imports/index.js';
+import * as changeImports from '#change-imports';
 
 const {
     getFilename,
