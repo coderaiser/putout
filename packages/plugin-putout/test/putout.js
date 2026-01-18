@@ -359,3 +359,8 @@ test('plugin-putout: transform: apply-engine-node-version', (t) => {
     t.transform('apply-engine-node-version');
     t.end();
 });
+
+test('plugin-putout: transform: convert-replace-to-traverse', (t) => {
+    t.transform('convert-replace-to-traverse');
+    t.end();
+});

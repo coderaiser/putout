@@ -62,6 +62,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-plugins-element-to-tuple](#convert-plugins-element-to-tuple);
 - ✅ [convert-push-object-to-push-path](#convert-push-object-to-push-path);
 - ✅ [convert-replace-to-function](#convert-replace-to-function);
+- ✅ [convert-replace-to-traverse](#convert-replace-to-traverse);
 - ✅ [convert-replace-with](#convert-replace-with);
 - ✅ [convert-replace-with-multiple](#convert-replace-with-multiple);
 - ✅ [convert-report-to-function](#convert-report-to-function);
@@ -133,6 +134,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
         "putout/convert-replace-to-function": "on",
+        "putout/convert-replace-to-traverse": "on",
         "putout/convert-match-to-function": "on",
         "putout/convert-babel-types": "on",
         "putout/convert-destructuring-to-identifier": "on",
@@ -940,6 +942,34 @@ module.exports.replace = {
 ```js
 module.exports.replace = () => ({
     'let __a = __b': 'const __b = __a',
+});
+```
+
+## convert-replace-to-traverse
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a87ab50e500cd3aee3099063a48c0e3f/8dee3919638062563c9b39886d8bb8581f5722f2).
+
+### ❌ Example of incorrect code
+
+```js
+export const fix = () => {};
+export const replace = () => ({
+    [__json]: (path) => {
+        const __aPath = path.get('arguments.0');
+        const {importsPath} = getProperties(__aPath, ['imports']);
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const fix = () => {};
+export const traverse = () => ({
+    [__json]: (path) => {
+        const __aPath = path.get('arguments.0');
+        const {importsPath} = getProperties(__aPath, ['imports']);
+    },
 });
 ```
 
