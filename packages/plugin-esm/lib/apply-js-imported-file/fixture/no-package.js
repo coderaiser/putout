@@ -10,7 +10,19 @@ __putout_processor_filesystem([
     `],
     '/lib/tokenize/expressions/',
     ['/lib/tokenize/expressions/spread-element.js', `
-        import {isPrev} from '../is.cjs';
+        import {hasTrailingComment} from '../is.js';
     `],
 ]);
 
+__putout_processor_filesystem([
+    '/hello/',
+    ['/hello/is.js', `
+        export const isPrev = (path) => {
+            const next = path.getPrevSibling();
+            return next.node;
+        };
+    `],
+    ['/hello/spread-element.js', `
+        import {hasTrailingComment} from './is.js';
+    `],
+]);

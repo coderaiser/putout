@@ -12,14 +12,12 @@ import {
 } from 'putout';
 import * as getImports from '#get-imports';
 import * as changeImports from '#change-imports';
+import {findPackage} from '#find-package';
 
 const {
     getFilename,
-    getFileType,
-    getParentDirectory,
     readFileContent,
     writeFileContent,
-    readDirectory,
 } = operator;
 
 const {entries} = Object;
@@ -97,7 +95,7 @@ const createGetPrivateImports = (importsCache = new Map(), emptyMap = new Map())
     const dir = dirname(filename);
     
     if (importsCache.has(dir))
-        return importsCache.get(dir);
+        return [dir, importsCache.get(dir)];
     
     const [packageDirectory, packagePath] = findPackage(file);
     
@@ -127,25 +125,3 @@ const createGetPrivateImports = (importsCache = new Map(), emptyMap = new Map())
     
     return [packageDirectory, importsEntries];
 };
-
-function findPackage(file) {
-    const parentDirectory = getParentDirectory(file);
-    const directoryName = getFilename(parentDirectory);
-    
-    for (const currentFile of readDirectory(parentDirectory)) {
-        const type = getFileType(currentFile);
-        
-        if (type === 'directory')
-            continue;
-        
-        const currentName = getFilename(currentFile);
-        
-        if (currentName.endsWith('package.json'))
-            return [directoryName, currentFile];
-    }
-    
-    if (directoryName === '/')
-        return [];
-    
-    return findPackage(parentDirectory);
-}

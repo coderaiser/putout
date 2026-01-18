@@ -27,12 +27,12 @@ test('esm: apply-js-imported-file: transform: cache', (t) => {
     t.end();
 });
 
-test('esm: apply-js-imported-file: transform: no-package', (t) => {
-    t.transform('no-package');
+test('esm: apply-js-imported-file: no report: broken-package', (t) => {
+    t.noReport('broken-package');
     t.end();
 });
 
-test('esm: apply-js-imported-file: no report: broken-package', (t) => {
-    t.noReport('broken-package');
+test('esm: apply-js-imported-file: no report: no-package', (t) => {
+    t.noReport('no-package');
     t.end();
 });

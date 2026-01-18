@@ -8,14 +8,12 @@ import {
 } from 'putout';
 import * as getImports from '#get-imports';
 import * as changeImports from '#change-imports';
+import {findPackage} from '#find-package';
 
 const {
     getFilename,
-    getFileType,
-    getParentDirectory,
     readFileContent,
     writeFileContent,
-    readDirectory,
 } = operator;
 
 const {parse: parseJson} = JSON;
@@ -124,25 +122,3 @@ const createGetPackageType = (importsCache = new Map()) => (file) => {
     
     return type;
 };
-
-function findPackage(file) {
-    const parentDirectory = getParentDirectory(file);
-    const directoryName = getFilename(parentDirectory);
-    
-    for (const currentFile of readDirectory(parentDirectory)) {
-        const type = getFileType(currentFile);
-        
-        if (type === 'directory')
-            continue;
-        
-        const currentName = getFilename(currentFile);
-        
-        if (currentName.endsWith('package.json'))
-            return [directoryName, currentFile];
-    }
-    
-    if (directoryName === '/')
-        return [];
-    
-    return findPackage(parentDirectory);
-}

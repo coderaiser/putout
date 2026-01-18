@@ -16,6 +16,9 @@
     },
     "#change-imports": {
       "default": "./lib/resolve-imported-file/change-imports/index.js"
+    },
+    "#find-package": {
+      "default": "./lib/apply-privately-imported-file/find-package.js"
     }
   },
   "release": false,
@@ -63,6 +66,7 @@
     "madrun": "^12.0.0",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
+    "redlint": "^5.0.4",
     "supertape": "^12.0.0"
   },
   "peerDependencies": {

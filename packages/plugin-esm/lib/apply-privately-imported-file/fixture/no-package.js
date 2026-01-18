@@ -13,3 +13,16 @@ __putout_processor_filesystem([
         import {hasTrailingComment} from '../is.js';
     `],
 ]);
+
+__putout_processor_filesystem([
+    '/hello/',
+    ['/hello/is.js', `
+        export const isPrev = (path) => {
+            const next = path.getPrevSibling();
+            return next.node;
+        };
+    `],
+    ['/hello/spread-element.js', `
+        import {hasTrailingComment} from './is.js';
+    `],
+]);
