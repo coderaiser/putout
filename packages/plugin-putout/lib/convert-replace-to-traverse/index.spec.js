@@ -21,3 +21,8 @@ test('putout: convert-replace-to-traverse: no report: no-fix', (t) => {
     t.noReport('no-fix');
     t.end();
 });
+
+test('putout: convert-replace-to-traverse: transform: commonjs', (t) => {
+    t.transform('commonjs');
+    t.end();
+});
