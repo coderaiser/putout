@@ -46,3 +46,8 @@ test('plugin-package-json: transform: remove-duplicate-keywords', (t) => {
     t.transform('remove-duplicate-keywords');
     t.end();
 });
+
+test('plugin-package-json: transform: remove-imports-nesting', (t) => {
+    t.transform('remove-imports-nesting');
+    t.end();
+});

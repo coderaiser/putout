@@ -11,15 +11,9 @@
     "./merge-duplicate-imports": "./lib/merge-duplicate-imports/index.js"
   },
   "imports": {
-    "#get-imports": {
-      "default": "./lib/shorten-imported-file/get-imports/index.js"
-    },
-    "#change-imports": {
-      "default": "./lib/resolve-imported-file/change-imports/index.js"
-    },
-    "#find-package": {
-      "default": "./lib/apply-privately-imported-file/find-package.js"
-    }
+    "#get-imports": "./lib/shorten-imported-file/get-imports/index.js",
+    "#change-imports": "./lib/resolve-imported-file/change-imports/index.js",
+    "#find-package": "./lib/apply-privately-imported-file/find-package.js"
   },
   "release": false,
   "tag": false,

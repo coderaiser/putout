@@ -53,9 +53,7 @@
     "supertape": "^12.0.0"
   },
   "imports": {
-    "#test": {
-      "default": "./test/create-test.js"
-    }
+    "#test": "./test/create-test.js"
   },
   "peerDependencies": {
     "putout": ">=41"

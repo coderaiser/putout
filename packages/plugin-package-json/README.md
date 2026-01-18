@@ -18,6 +18,7 @@ npm i @putout/plugin-package-json -D
 - ✅ [find-file](#find-file);
 - ✅ [remove-nyc](#remove-nyc);
 - ✅ [remove-commit-type](#remove-commit-type);
+- ✅ [remove-imports-nesting](#remove-imports-nesting);
 - ✅ [remove-duplicate-keywords](#remove-duplicate-keywords);
 - ✅ [remove-exports-with-missing-files](#remove-exports-with-missing-files);
 
@@ -30,6 +31,7 @@ npm i @putout/plugin-package-json -D
         "package-json/apply-https-to-repository-url": "on",
         "package-json/remove-nyc": "on",
         "package-json/remove-commit-type": "on",
+        "package-json/remove-imports-nesting": "on",
         "package-json/remove-exports-with-missing-files": "off",
         "package-json/find-file": "off"
     }
@@ -130,7 +132,7 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c8e99effc91ae44119d625d7/8e60d60b2c2e7bb28ca5b2eba61715a062ac5319).
 
 ```diff
-__putout_processor_json({
+{
     "keywords": [
      "putout",
      "putout-plugin",
@@ -138,7 +140,35 @@ __putout_processor_json({
 -    "putout"
 +    "plugin"
    ],
-});
+}
+```
+
+## remove-imports-nesting
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3527617ece2bfd9c39875db50a8a6245/2f3c6248b7b0ab539212b747f3cd480dc77ce3f1).
+
+```diff
+{
+    "imports": {
+-       "#get-imports": {
+-         "default": "./lib/shorten-imported-file/get-imports/index.js"
+-       }
++       "#get-imports": "./lib/shorten-imported-file/get-imports/index.js"
+    }
+}
+```
+
+## find-file
+
+Find `package.json` inside of `.filesystem.json` and applies all other `package-json` rules.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/325233d19fde0acacadbcf1f42dd3bb2/124a50fe0e92c6c3cab24f8b87c33b202dc3e540).
+
+```diff
+{
+    "name": "hello",
+    "version": "1.0.0",
++   "type": "commonjs"
+}
 ```
 
 ## find-file
