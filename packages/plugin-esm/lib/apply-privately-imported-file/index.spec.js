@@ -46,3 +46,8 @@ test('esm: apply-privately-imported-file: transform: same-directory', (t) => {
     t.transform('same-directory');
     t.end();
 });
+
+test('esm: apply-privately-imported-file: transform: no-default', (t) => {
+    t.transform('no-default');
+    t.end();
+});

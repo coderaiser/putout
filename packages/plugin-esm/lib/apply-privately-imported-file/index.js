@@ -14,6 +14,8 @@ import * as getImports from '#get-imports';
 import * as changeImports from '#change-imports';
 import {findPackage} from '#find-package';
 
+const isString = (a) => typeof a === 'string';
+
 const {
     getFilename,
     readFileContent,
@@ -79,7 +81,6 @@ export const scan = (rootPath, {push, trackFile}) => {
         for (const from of imports) {
             const to = join(dir, from);
             
-            //.replace(dir, '.');
             if (privateImports.has(to))
                 push(file, {
                     from,
@@ -117,8 +118,14 @@ const createGetPrivateImports = (importsCache = new Map(), emptyMap = new Map())
     const {imports = {}} = packageJson;
     const importsEntries = new Map();
     
-    for (const [alias, {default: filePath}] of entries(imports)) {
+    for (const [alias, property] of entries(imports)) {
+        const filePath = parseProperty(property);
+        
+        if (!filePath)
+            continue;
+        
         const resolvedPath = resolve(packageDirectory, filePath);
+        
         importsEntries.set(resolvedPath, alias);
     }
     
@@ -126,3 +133,16 @@ const createGetPrivateImports = (importsCache = new Map(), emptyMap = new Map())
     
     return [packageDirectory, importsEntries];
 };
+
+function parseProperty(property) {
+    if (isString(property))
+        return property;
+    
+    const {
+        default: filePath,
+        node,
+        browser,
+    } = property;
+    
+    return filePath || node || browser;
+}
