@@ -37,7 +37,7 @@
     "putout": "*"
   },
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^4.0.0",
     "@putout/formatter-progress": "*",
     "@putout/plugin-apply-nullish-coalescing": "*",
     "@putout/plugin-nodejs": "*",

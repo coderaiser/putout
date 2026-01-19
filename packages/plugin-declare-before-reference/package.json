@@ -32,7 +32,7 @@
     "declare-before-reference"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^4.0.0",
     "@putout/plugin-arguments": "*",
     "@putout/plugin-destructuring": "*",
     "@putout/plugin-nodejs": "*",

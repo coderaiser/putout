@@ -34,7 +34,7 @@
     "stream"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^4.0.0",
     "@putout/plugin-variables": "*",
     "@putout/test": "^15.0.0",
     "c8": "^10.0.0",

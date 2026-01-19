@@ -31,7 +31,7 @@
     "madrun"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^4.0.0",
     "@putout/plugin-nodejs": "*",
     "@putout/plugin-remove-unused-expressions": "*",
     "@putout/test": "^15.0.0",

@@ -34,7 +34,7 @@
     "variables"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^4.0.0",
     "@putout/plugin-declare": "*",
     "@putout/plugin-for-of": "*",
     "@putout/plugin-maybe": "*",
