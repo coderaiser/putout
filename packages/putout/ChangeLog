@@ -1,3 +1,10 @@
+2026.01.19, v41.10.1
+
+feature:
+- 1e759d01d putout: @putout/plugin-math v5.0.0
+- fed6904d1 @putout/plugin-math: drop support of 🐊 < 41
+- 0b9e410f7 @putout/plugin-math: remove-unchanged-zero-declarations: destructuring
+
 2026.01.19, v41.10.0
 
 feature:
