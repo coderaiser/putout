@@ -18,7 +18,8 @@
       "require": "./lib/processor/index.js",
       "import": "./lib/processor/index.mjs"
     },
-    "./eslint": "./lib/eslint/eslint.mjs"
+    "./eslint": "./lib/eslint/eslint.mjs",
+    "./filesystem": "./lib/filesystem/index.mjs"
   },
   "release": false,
   "tag": false,
@@ -39,10 +40,13 @@
   },
   "dependencies": {
     "@putout/cli-process-file": "^6.0.0",
+    "@putout/engine-parser": "^15.0.7",
     "@putout/engine-processor": "*",
     "@putout/engine-reporter": "^8.0.1",
     "@putout/engine-runner": "*",
     "@putout/eslint": "^5.0.0",
+    "@putout/operator-filesystem": "^10.0.4",
+    "@putout/operator-json": "^3.1.0",
     "@putout/plugin-filesystem": "*",
     "currify": "^4.0.0",
     "montag": "^1.2.1",

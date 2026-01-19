@@ -555,6 +555,58 @@ test('putout: processor: css: places', async ({comparePlaces}) => {
 });
 ```
 
+## Filesystem API
+
+```js
+import {test} from '@putout/test/filesystem';
+```
+
+### `equalFilesystem(ast, expected)`
+
+```js
+test('putout: operator: filesystem: findFile: exclude', (t) => {
+    const ast = parseFilesystem([
+        '/',
+        '/hello/',
+        '/hello/world.txt',
+        '/hello/hello.txt',
+    ]);
+    
+    findFile(ast, '*.txt', ['hello.txt']).map(removeFile);
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/hello',
+            files: [{
+                type: 'file',
+                filename: '/hello/hello.txt',
+            }],
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+```
+
+### `parseFilesystem(array)`
+
+```js
+test('putout: operator: filesystem: writeFileContent: emoji', (t) => {
+    const ast = parseFilesystem(['/hello/world/', '/hello/world/README.md']);
+    
+    const [filePath] = findFile(ast, 'README.md');
+    writeFileContent(filePath, 'hello 🐊');
+    const content = readFileContent(filePath);
+    
+    t.equal(content, 'hello 🐊');
+    t.end();
+});
+```
+
 ## License
 
 MIT

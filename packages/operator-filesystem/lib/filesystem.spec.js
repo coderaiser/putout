@@ -7,6 +7,12 @@ import {
     print,
     operator,
 } from 'putout';
+import {
+    test,
+    printFilesystem,
+    parseFilesystem,
+    formatFilesystem,
+} from '@putout/test/filesystem';
 import * as maybeFS from './maybe-fs.js';
 import {
     renameFile,
@@ -31,12 +37,6 @@ import {
     start,
     pause,
 } from './filesystem.js';
-import {
-    test,
-    printFilesystem,
-    parseFilesystem,
-    formatFilesystem,
-} from './extend.test.js';
 
 const {traverseProperties} = operator;
 

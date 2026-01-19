@@ -1,6 +1,6 @@
 import {tryCatch} from 'try-catch';
-import {test} from './extend.test.js';
-import {parseSimpleFilesystem} from './parse-simple-filesystem.test.js';
+import {test} from './index.mjs';
+import {parseSimpleFilesystem} from './parse-simple-filesystem.mjs';
 
 test('putout: operator: filesystem: parseFileSystem', (t) => {
     const result = parseSimpleFilesystem([

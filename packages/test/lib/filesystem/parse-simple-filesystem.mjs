@@ -2,7 +2,7 @@ import {dirname} from 'node:path';
 import {operator} from 'putout';
 import {parse, print} from '@putout/engine-parser';
 import {toJS, fromJS} from '@putout/operator-json';
-import {moveFile, findFile} from './filesystem.js';
+import {moveFile, findFile} from '@putout/operator-filesystem';
 
 const {replaceWith} = operator;
 const {isArray} = Array;

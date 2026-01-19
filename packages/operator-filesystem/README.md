@@ -135,6 +135,17 @@ const {findFile} = operator;
 const coupleFiles = findFile(ast, ['/home/coderaiser', '/home/coderaiser/putout']);
 ```
 
+### `findFirstFileUp(directoryPath: DirectoryPath, name: string): [directory, FilePath]`
+
+Find first file with `name` in all parent directories.
+
+```js
+const {operator} = require('putout');
+const {findFileUp} = operator;
+
+const [directory, filePath] = findFirstFileUp(ast, 'package.json');
+```
+
 ### `getParentDirectory(path: FilePath | DirectoryPath): FilePath | null`
 
 ```js
