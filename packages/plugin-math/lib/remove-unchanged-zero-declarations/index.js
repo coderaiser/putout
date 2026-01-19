@@ -4,6 +4,7 @@ const {
     isNumericLiteral,
     isExportNamedDeclaration,
     isBinaryExpression,
+    isIdentifier,
 } = types;
 
 const {remove} = operator;
@@ -28,6 +29,9 @@ export const traverse = ({push}) => ({
             return;
         
         if (isExportNamedDeclaration(path.parentPath.parentPath))
+            return;
+        
+        if (!isIdentifier(id))
             return;
         
         const {name} = id;
