@@ -1,3 +1,18 @@
+2026.01.19, v41.9.2
+
+feature:
+- 56f87e24b @putout/operator-find-file-up: add
+- 072593a33 @putout/plugin-putout: declare: operator: findFileUp
+- 2678d7e37 @putout/test: filesystem: add
+- eb85a16c2 @putout/plugin-esm: apply-privately-imported-file: no default
+- c96a929f7 @putout/plugin-package-json: remove-imports-nesting
+- c7092ff34 @putout/plugin-putout: convert-replace-to-traverse: commonjs
+- 8f3449c6d @putout/plugin-putout: convert-replace-to-traverse: add
+- d0ec0897c @putout/plugin-esm: apply-privately-imported-file: same directory
+- 457e5bf34 @putout/plugin-esm: apply-privately-imported-file: #find-package
+- 42def4035 @putout/plugin-esm: #change-imports
+- 0b45e2a06 @putout/plugin-esm: #get-imports
+
 2026.01.17, v41.9.1
 
 fix:
