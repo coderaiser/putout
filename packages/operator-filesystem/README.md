@@ -102,7 +102,7 @@ readDirectory(dirPath);
 
 ```js
 const {operator} = require('putout');
-const {finedFiles, findFile} = operator;
+const {findFile} = operator;
 
 const [filePath] = findFile(ast, 'hello');
 ```
