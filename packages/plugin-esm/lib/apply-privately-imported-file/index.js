@@ -12,7 +12,6 @@ import {
 } from 'putout';
 import * as getImports from '#get-imports';
 import * as changeImports from '#change-imports';
-import {findPackage} from '#find-package';
 
 const isString = (a) => typeof a === 'string';
 
@@ -20,6 +19,7 @@ const {
     getFilename,
     readFileContent,
     writeFileContent,
+    findFileUp,
 } = operator;
 
 const {entries} = Object;
@@ -99,7 +99,7 @@ const createGetPrivateImports = (importsCache = new Map(), emptyMap = new Map())
     if (importsCache.has(dir))
         return [dir, importsCache.get(dir)];
     
-    const [packageDirectory, packagePath] = findPackage(file);
+    const [packageDirectory, packagePath] = findFileUp(file, 'package.json');
     
     if (!packagePath) {
         importsCache.set(dir, {});

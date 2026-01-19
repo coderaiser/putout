@@ -1,5 +1,6 @@
 import montag from 'montag';
 import test from 'supertape';
+import {parseFilesystem} from '@putout/test/filesystem';
 import {
     putout,
     operator,
@@ -165,5 +166,22 @@ test('putout: operate: hasTagName: hasParens', (t) => {
     });
     
     t.ok(result);
+    t.end();
+});
+
+test('putout: operate: findFileUp', (t) => {
+    const {findFile, findFileUp} = operator;
+    
+    const filesystem = parseFilesystem([
+        '/',
+        '/package.json',
+        '/hello/',
+        '/hello/world.js',
+    ]);
+    
+    const [jsFile] = findFile(filesystem, 'world.js');
+    const [dir] = findFileUp(jsFile, 'package.json');
+    
+    t.equal(dir, '/');
     t.end();
 });

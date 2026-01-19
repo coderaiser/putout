@@ -1,13 +1,11 @@
-import {operator} from 'putout';
-
-const {
+import {
     getFileType,
     readDirectory,
     getFilename,
     getParentDirectory,
-} = operator;
+} from '@putout/operator-filesystem';
 
-export const findPackage = (file) => {
+export const findFileUp = (file, name) => {
     const parentDirectory = getParentDirectory(file);
     
     if (!parentDirectory)
@@ -23,9 +21,9 @@ export const findPackage = (file) => {
         
         const currentName = getFilename(currentFile);
         
-        if (currentName.endsWith('package.json'))
+        if (currentName.endsWith(name))
             return [directoryName, currentFile];
     }
     
-    return findPackage(parentDirectory);
+    return findFileUp(parentDirectory, name);
 };

@@ -8,12 +8,12 @@ import {
 } from 'putout';
 import * as getImports from '#get-imports';
 import * as changeImports from '#change-imports';
-import {findPackage} from '#find-package';
 
 const {
     getFilename,
     readFileContent,
     writeFileContent,
+    findFileUp,
 } = operator;
 
 const {parse: parseJson} = JSON;
@@ -101,7 +101,7 @@ const createGetPackageType = (importsCache = new Map()) => (file) => {
     if (importsCache.has(dir))
         return importsCache.get(dir);
     
-    const [, packagePath] = findPackage(file);
+    const [, packagePath] = findFileUp(file, 'package.json');
     
     if (!packagePath) {
         importsCache.set(dir, 'commonjs');

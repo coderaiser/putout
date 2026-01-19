@@ -12,4 +12,5 @@ export * from '@putout/operator-match-files';
 export * from '@putout/operator-rename-files';
 export * from '@putout/operator-ignore';
 export * from '@putout/operator-parens';
+export * from '@putout/operator-find-file-up';
 

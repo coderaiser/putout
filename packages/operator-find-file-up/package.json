@@ -1,19 +1,11 @@
 {
-  "name": "@putout/plugin-esm",
-  "version": "7.3.0",
+  "name": "@putout/operator-find-file-up",
+  "version": "1.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin improves ability to transform ESM code",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#readme",
-  "main": "lib/index.js",
-  "exports": {
-    ".": "./lib/index.js",
-    "./merge-duplicate-imports": "./lib/merge-duplicate-imports/index.js"
-  },
-  "imports": {
-    "#get-imports": "./lib/shorten-imported-file/get-imports/index.js",
-    "#change-imports": "./lib/resolve-imported-file/change-imports/index.js"
-  },
+  "description": "🐊Putout operator adds ability to find file up",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-find-file-up#readme",
+  "main": "lib/find-file-up.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -32,25 +24,18 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "parse-import-specifiers": "^1.0.3",
-    "try-catch": "^4.0.0"
+    "@putout/operator-filesystem": "^10.0.0"
   },
   "keywords": [
     "putout",
-    "putout-plugin",
-    "plugin",
-    "esm"
+    "putout-operator",
+    "operator",
+    "find-file-up"
   ],
   "devDependencies": {
     "@putout/eslint-flat": "^3.0.0",
-    "@putout/plugin-declare": "*",
-    "@putout/plugin-declare-before-reference": "*",
-    "@putout/plugin-destructuring": "*",
+    "@putout/operator-json": "^3.0.0",
     "@putout/plugin-nodejs": "*",
-    "@putout/plugin-putout": "*",
-    "@putout/plugin-reuse-duplicate-init": "*",
-    "@putout/plugin-tape": "*",
-    "@putout/plugin-typescript": "*",
     "@putout/test": "^15.0.0",
     "c8": "^10.0.0",
     "eslint": "^10.0.0-alpha.0",
@@ -59,8 +44,8 @@
     "madrun": "^12.0.0",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
-    "redlint": "^5.0.4",
-    "supertape": "^12.0.0"
+    "supertape": "^12.0.0",
+    "try-catch": "^4.0.0"
   },
   "peerDependencies": {
     "putout": ">=41"
