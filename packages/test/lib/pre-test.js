@@ -1,9 +1,7 @@
-'use strict';
-
-const {
+import {
     isCorrectPlugin,
     getIsCorrectPluginMessage,
-} = require('./is-correct-plugin');
+} from './is-correct-plugin.js';
 
 const {entries} = Object;
 const {isArray} = Array;
@@ -11,10 +9,10 @@ const {isArray} = Array;
 const maybeTuple = (a) => isArray(a) ? a : ['on', a];
 const maybeEntries = (a) => isArray(a) ? a : entries(a).pop();
 
-module.exports._maybeEntries = maybeEntries;
-module.exports._maybeTuple = maybeTuple;
+export const _maybeEntries = maybeEntries;
+export const _maybeTuple = maybeTuple;
 
-module.exports.preTest = function preTest(test, plugin) {
+export function preTest(test, plugin) {
     const [name, {
         report,
         find,
@@ -82,4 +80,4 @@ module.exports.preTest = function preTest(test, plugin) {
         t.ok(result, getIsCorrectPluginMessage());
         t.end();
     }, options);
-};
+}

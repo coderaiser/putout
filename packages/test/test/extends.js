@@ -1,5 +1,5 @@
 import * as variables from '@putout/plugin-variables';
-import {createTest} from '../lib/test.mjs';
+import {createTest} from '../lib/test.js';
 
 const removeUnusedVariables = variables.rules['remove-unused'];
 

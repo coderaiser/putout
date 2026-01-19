@@ -1,8 +1,6 @@
-'use strict';
+import {createTest} from './index.js';
 
-const {createTest} = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'recast',
     extension: 'json',
     processors: ['json'],

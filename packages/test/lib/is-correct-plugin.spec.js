@@ -1,7 +1,6 @@
-'use strict';
+import {test, stub} from 'supertape';
+import {isCorrectPlugin} from './is-correct-plugin.js';
 
-const {test, stub} = require('supertape');
-const {isCorrectPlugin} = require('./is-correct-plugin');
 const noop = () => {};
 
 test('test: isCorrectPlugin: not', (t) => {

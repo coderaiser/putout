@@ -1,19 +1,19 @@
-import process from 'node:process';
-import {test, stub} from 'supertape';
-import {createTest} from './index.mjs';
+'use strict';
 
-const {env} = process;
+const {env} = require('node:process');
+const {test, stub} = require('supertape');
+const {createTest} = require('./index.js');
 
 test('test: exported: processor: esm', async (t) => {
     const result = await import('@putout/test/processor');
-    const expected = await import('./index.mjs');
+    const expected = await import('./index.js');
     
     t.equal(result, expected);
     t.end();
 });
 
 test('test: exported: processor: createTest', (t) => {
-    t.equal(typeof createTest(import.meta.url), 'function');
+    t.equal(typeof createTest(__dirname), 'function');
     t.end();
 });
 
@@ -22,7 +22,7 @@ const typos = {
     lint: () => ['target\n', []],
 };
 
-const testProcessor = createTest(import.meta.url, {
+const testProcessor = createTest(__dirname, {
     extension: 'md',
     processorRunners: [typos],
 });

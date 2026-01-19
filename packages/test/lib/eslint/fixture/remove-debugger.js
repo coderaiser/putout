@@ -1,13 +1,9 @@
-module.exports.report = () => `Avoid 'debugger' statement`;
+export const report = () => `Avoid 'debugger' statement`;
 
-module.exports.fix = (path) => {
-    return '';
-};
+export const fix = () => '';
 
-module.exports.include = () => [
+export const include = () => [
     'DebuggerStatement',
 ];
 
-module.exports.filter = (path) => {
-    return true;
-};
+export const filter = () => true;

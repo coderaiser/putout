@@ -1,7 +1,7 @@
 import * as putout from '@putout/plugin-putout';
 import * as destructuring from '@putout/plugin-destructuring';
 import * as variables from '@putout/plugin-variables';
-import {createTest} from '../lib/test.mjs';
+import {createTest} from '../lib/test.js';
 import * as removeConsole from './fixture/remove-console.js';
 
 const removeUnusedVariables = variables.rules['remove-unused'];

@@ -1,14 +1,13 @@
-'use strict';
+import {stripVTControlCharacters} from 'node:util';
+import * as readAllFiles from '@putout/plugin-filesystem/read-all-files';
+import {tryToCatch} from 'try-to-catch';
+import {createTest} from '../lib/test.js';
 
-const {stripVTControlCharacters} = require('node:util');
-const readAllFiles = require('@putout/plugin-filesystem/read-all-files');
-const {tryToCatch} = require('try-to-catch');
-
-const testProgress = require('..')(__dirname, {
+const testProgress = createTest(import.meta.url, {
     'read-all-files': readAllFiles,
 });
 
-const testProgressWithOptions = require('..')(__dirname, {
+const testProgressWithOptions = createTest(import.meta.url, {
     'replace-cwd': readAllFiles,
 });
 

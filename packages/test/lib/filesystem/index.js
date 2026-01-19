@@ -5,7 +5,7 @@ import {
     fromJS,
     __filesystem,
 } from '@putout/operator-json';
-import {parseSimpleFilesystem} from './parse-simple-filesystem.mjs';
+import {parseSimpleFilesystem} from './parse-simple-filesystem.js';
 
 const {isArray} = Array;
 const {stringify} = JSON;

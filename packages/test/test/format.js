@@ -4,8 +4,8 @@ import {tryToCatch} from 'try-to-catch';
 import * as removeConsole from '@putout/plugin-remove-console';
 import formatter from '@putout/formatter-dump';
 import formatterProgress from '@putout/formatter-progress';
-import removeConsoleFixture from './fixture/remove-console.js';
-import {createTest} from '../lib/test.mjs';
+import * as removeConsoleFixture from './fixture/remove-console.js';
+import {createTest} from '../lib/test.js';
 import {createUpdate} from './update.js';
 
 const update = createUpdate();

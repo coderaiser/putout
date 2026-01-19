@@ -1,10 +1,9 @@
-'use strict';
+import {codeframe} from 'putout';
 
-const {codeframe} = require('putout');
 const {stringify} = JSON;
 const {entries} = Object;
 
-module.exports.createError = (help, source, values) => {
+export const createError = (help, source, values) => {
     const argsBoxStart = '\n    ╔══\n';
     const argsBoxLine = '    ║';
     const argsBoxEnd = '\n    ╚══\n';

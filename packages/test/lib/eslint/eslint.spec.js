@@ -1,7 +1,7 @@
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {stub} from 'supertape';
-import {createTest} from './eslint.mjs';
+import {createTest} from './eslint.js';
 import {createUpdate} from '../../test/update.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -15,7 +15,7 @@ const NOT_CHECK_ASSERTIONS_COUNT = {
 const update = createUpdate();
 
 test('test: eslint: export', async ({equal}) => {
-    const eslint = await import('./eslint.mjs');
+    const eslint = await import('./eslint.js');
     const testEslint = await import('@putout/test/eslint');
     
     equal(eslint, testEslint);

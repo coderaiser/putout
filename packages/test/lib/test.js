@@ -1,36 +1,30 @@
-'use strict';
-
-const process = require('node:process');
-const {join} = require('node:path');
-const {once} = require('node:events');
-
-const {
+import process from 'node:process';
+import {join} from 'node:path';
+import {once} from 'node:events';
+import {
     readFileSync,
     writeFileSync,
     existsSync,
     unlinkSync,
-} = require('node:fs');
-
-const test = require('supertape');
-const putout = require('putout');
-const currify = require('currify');
-const {createProgress} = require('@putout/engine-runner/progress');
-
-const {createError} = require('./create-error');
-const {preTest} = require('./pre-test');
-
-const {
+} from 'node:fs';
+import test from 'supertape';
+import putout from 'putout';
+import currify from 'currify';
+import {createProgress} from '@putout/engine-runner/progress';
+import {createError} from './create-error.js';
+import {preTest} from './pre-test.js';
+import {
     format,
     noFormat,
     formatMany,
-} = require('./format');
-
-const {
+} from './format/index.js';
+import {maybeDirectory} from './maybe-directory.js';
+import {
     readFixture,
     writeFixture,
     writeFixFixture,
     rmFixture,
-} = require('./fixture');
+} from './fixture.js';
 
 const {isArray} = Array;
 const isString = (a) => typeof a === 'string';
@@ -55,8 +49,7 @@ const fail = (t, message) => {
     return __putout_test_fail(message);
 };
 
-module.exports = createTest;
-module.exports.createTest = createTest;
+export default createTest;
 
 const parsePlugin = (plugins) => {
     if (isArray(plugins))
@@ -65,9 +58,8 @@ const parsePlugin = (plugins) => {
     return plugins;
 };
 
-function createTest(dir, maybeOptions, maybeExtends = {}) {
-    dir = join(dir, 'fixture');
-    
+export function createTest(url, maybeOptions, maybeExtends = {}) {
+    const dir = join(maybeDirectory(url), 'fixture');
     const {
         extension = '',
         lint = putout,
@@ -359,7 +351,7 @@ const noReport = (dir, linterOptions, options) => (t) => (name, addons = []) => 
     }, t, source);
 };
 
-module.exports._createNoReport = noReport;
+export const _createNoReport = noReport;
 
 const noReportAfterTransform = currify((dir, linterOptions, options, t, name, addons = {}) => {
     const {lint, extension} = linterOptions;
@@ -372,7 +364,7 @@ const noReportAfterTransform = currify((dir, linterOptions, options, t, name, ad
     }, t, source, addons);
 });
 
-module.exports._createNoReportAfterTransform = noReportAfterTransform;
+export const _createNoReportAfterTransform = noReportAfterTransform;
 
 const noReportAfterTransformWithOptions = currify((dir, linterOptions, options, t, name, ruleOptions) => {
     const {lint, extension} = linterOptions;
@@ -394,7 +386,7 @@ const noReportAfterTransformWithOptions = currify((dir, linterOptions, options, 
     }, t, source);
 });
 
-module.exports._createNoReportAfterTransformWithOptions = noReportAfterTransformWithOptions;
+export const _createNoReportAfterTransformWithOptions = noReportAfterTransformWithOptions;
 
 const reportWithOptions = currify((dir, linterOptions, options, t, name, message, ruleOptions) => {
     const {lint, extension} = linterOptions;

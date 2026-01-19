@@ -1,25 +1,20 @@
-'use strict';
-
-const {stripVTControlCharacters} = require('node:util');
-const {join} = require('node:path');
-
-const montag = require('montag');
-const {tryCatch} = require('try-catch');
-const {stub} = require('supertape');
-const putout = require('putout');
-const variables = require('@putout/plugin-variables');
-
-const {
+import {stripVTControlCharacters} from 'node:util';
+import montag from 'montag';
+import {tryCatch} from 'try-catch';
+import {stub} from 'supertape';
+import putout from 'putout';
+import * as variables from '@putout/plugin-variables';
+import {
     createTest,
     _createNoReport,
     _createNoReportAfterTransform,
     _createNoReportAfterTransformWithOptions,
-} = require('..');
+} from '../lib/test.js';
 
 const removeUnusedVariables = variables.rules['remove-unused'];
 const {template} = putout;
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     'remove-imports': {
         report: () => 'avoid imports',
         match: ({options}) => ({
@@ -82,7 +77,7 @@ test('putout: test: report: plugins', (t) => {
 });
 
 test('putout: test: noReport', (t) => {
-    const dir = join(__dirname, 'fixture');
+    const dir = new URL('fixture', import.meta.url).pathname;
     const plugins = [
         ['remove-import', {
             report: () => 'hello',
@@ -127,7 +122,7 @@ test('putout: test: noReport', (t) => {
 });
 
 test('putout: test: noReport: addons', (t) => {
-    const dir = join(__dirname, 'fixture');
+    const dir = new URL('fixture', import.meta.url).pathname;
     const removeImport1 = ['remove-import1', {
         report: () => 'hello',
         include: () => ['ImportDeclaration'],
@@ -186,7 +181,7 @@ test('putout: test: noReport: addons', (t) => {
 });
 
 test('putout: test: noReportAfterTransform: internal', (t) => {
-    const dir = join(__dirname, 'fixture');
+    const dir = new URL('fixture', import.meta.url).pathname;
     
     const plugins = [
         ['declare', {
@@ -240,7 +235,7 @@ test('putout: test: noReportAfterTransform: internal', (t) => {
 });
 
 test('putout: test: noReportAfterTransformWithOptions: internal', (t) => {
-    const dir = join(__dirname, 'fixture');
+    const dir = new URL('fixture', import.meta.url).pathname;
     const plugins = [
         ['declare', {
             report: ({message}) => message,
@@ -319,7 +314,7 @@ test('putout: test: report: with one argument', (t) => {
     checkAssertionsCount: false,
 });
 
-const testEmptyReport = createTest(__dirname, {
+const testEmptyReport = createTest(import.meta.url, {
     'remove-imports': {
         report: () => '',
         match: ({options}) => ({

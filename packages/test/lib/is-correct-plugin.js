@@ -1,10 +1,8 @@
-'use strict';
-
 const isFn = (a) => typeof a === 'function';
 
-module.exports.getIsCorrectPluginMessage = () => `should export 'replace', 'find', 'traverse', 'include', 'exclude', 'declare' or 'scan' function`;
+export const getIsCorrectPluginMessage = () => `should export 'replace', 'find', 'traverse', 'include', 'exclude', 'declare' or 'scan' function`;
 
-module.exports.isCorrectPlugin = (plugin) => {
+export const isCorrectPlugin = (plugin) => {
     const {
         find,
         fix,

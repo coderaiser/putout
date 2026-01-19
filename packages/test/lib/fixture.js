@@ -1,7 +1,5 @@
-'use strict';
-
-const process = require('node:process');
-const {tryCatch} = require('try-catch');
+import process from 'node:process';
+import {tryCatch} from 'try-catch';
 
 const isUpdate = () => Boolean(Number(process.env.UPDATE));
 const TS = {
@@ -9,7 +7,7 @@ const TS = {
     DISABLED: false,
 };
 
-module.exports.readFixture = (name, extension) => {
+export const readFixture = (name, extension) => {
     const {readFileSync} = globalThis.__putout_test_fs;
     const [eTS, dataTS] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
     
@@ -43,27 +41,27 @@ module.exports.readFixture = (name, extension) => {
     throw eJS;
 };
 
-module.exports.writeFixFixture = ({full, code, extension}) => {
+export const writeFixFixture = ({full, code, extension}) => {
     const {writeFileSync} = globalThis.__putout_test_fs;
     writeFileSync(`${full}-fix.${extension}`, code);
 };
 
-module.exports.writeFormatFixture = (full, code) => {
+export const writeFormatFixture = (full, code) => {
     const {writeFileSync} = globalThis.__putout_test_fs;
     writeFileSync(`${full}-format`, code);
 };
 
-module.exports.readFormatFixture = (full) => {
+export const readFormatFixture = (full) => {
     const {readFileSync} = globalThis.__putout_test_fs;
     return readFileSync(`${full}-format`, 'utf8');
 };
 
-module.exports.writeFixture = ({full, code, extension}) => {
+export const writeFixture = ({full, code, extension}) => {
     const {writeFileSync} = globalThis.__putout_test_fs;
     writeFileSync(`${full}.${extension}`, code);
 };
 
-module.exports.rmFixture = (name, extension) => {
+export const rmFixture = (name, extension) => {
     const {unlinkSync} = globalThis.__putout_test_fs;
     
     if (!isUpdate())

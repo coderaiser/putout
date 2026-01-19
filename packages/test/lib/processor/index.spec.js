@@ -1,26 +1,20 @@
-'use strict';
-
-const {join} = require('node:path');
-const {
+import {
     stat,
     unlink,
     readFile,
-} = require('node:fs/promises');
-
-const {tryToCatch} = require('try-to-catch');
-const {stub} = require('supertape');
-
-const {
+} from 'node:fs/promises';
+import {tryToCatch} from 'try-to-catch';
+import {stub} from 'supertape';
+import {
     createTest,
     _createProcess,
     _createNoProcess,
     _createComparePlaces,
     _addDot,
-} = require('.');
+} from './index.js';
+import {createUpdate} from '../../test/update.js';
 
-const {createUpdate} = require('../../test/update');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     extension: 'json',
     processors: ['json'],
     plugins: ['eslint'],
@@ -49,7 +43,7 @@ test('putout: test: processor: no process: UPDATE', async ({noProcess, calledWit
     delete globalThis.unlink;
     update(0);
     
-    const name = join(__dirname, 'fixture/empty-script-fix.html');
+    const name = new URL('fixture/empty-script-fix.html', import.meta.url).pathname;
     calledWith(unlink, [name]);
 }, CHECK_ASSERTIONS_COUNT);
 
@@ -58,7 +52,7 @@ test('putout: test: processor: no process: UPDATE: not clean', async ({noProcess
     await noProcess('empty-script.html', null, ['svelte']);
     update(0);
     
-    const name = join(__dirname, 'fixture/empty-script-fix.html');
+    const name = new URL('fixture/empty-script-fix.html', import.meta.url).pathname;
     const [error] = await tryToCatch(stat, name);
     
     ok(error, 'should remove file');
@@ -76,7 +70,7 @@ test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
     delete globalThis.writeFile;
     update();
     
-    const name = join(__dirname, 'fixture/eslintrc-fix.json');
+    const name = new URL('fixture/eslintrc-fix.json', import.meta.url).pathname;
     const data = await readFile(name, 'utf8');
     
     calledWith(writeFile, [name, data]);
@@ -89,7 +83,7 @@ test('putout: test: processor: UPDATE: no fixture', async ({process, ok}) => {
     
     update();
     
-    const nameOutput = join(__dirname, 'fixture/no-fixture-fix.json');
+    const nameOutput = new URL('fixture/no-fixture-fix.json', import.meta.url).pathname;
     
     const result = stat(nameOutput);
     

@@ -1,7 +1,5 @@
-'use strict';
-
-const {test} = require('supertape');
-const {_maybeEntries, _maybeTuple} = require('./pre-test.js');
+import {test} from 'supertape';
+import {_maybeEntries, _maybeTuple} from './pre-test.js';
 
 test('test: pre-test: maybeEntries: array', (t) => {
     const plugin = ['a', 1];

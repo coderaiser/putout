@@ -1,12 +1,10 @@
-'use strict';
+import * as variables from '@putout/plugin-variables';
+import * as removeConsole from './fixture/remove-console.js';
+import {createTest} from '../lib/test.js';
 
-const variables = require('@putout/plugin-variables');
-const removeConsole = require('./fixture/remove-console');
-
-const {createTest} = require('..');
 const removeUnused = variables.rules['remove-unused'];
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: {
         'remove-console': removeConsole,
     },

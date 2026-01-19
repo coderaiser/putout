@@ -1,8 +1,7 @@
-'use strict';
+import * as removeConsole from './fixture/remove-console.js';
+import {createTest} from '../lib/test.js';
 
-const removeConsole = require('./fixture/remove-console');
-
-const test = require('..')(__dirname, {
+const test = createTest(import.meta.url, {
     'react-hooks': {
         rules: {
             'remove-console': removeConsole,

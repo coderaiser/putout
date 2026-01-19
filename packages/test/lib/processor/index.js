@@ -1,22 +1,18 @@
-'use strict';
-
-const {
+import {
     readFile,
     writeFile,
     unlink,
-} = require('node:fs/promises');
-
-const {
+} from 'node:fs/promises';
+import {
     join,
     extname,
     basename,
-} = require('node:path');
-
-const {tryToCatch} = require('try-to-catch');
-
-const test = require('supertape');
-const {initProcessFile} = require('@putout/cli-process-file');
-const {runProcessors} = require('@putout/engine-processor');
+} from 'node:path';
+import {tryToCatch} from 'try-to-catch';
+import test from 'supertape';
+import {initProcessFile} from '@putout/cli-process-file';
+import {runProcessors} from '@putout/engine-processor';
+import {maybeDirectory} from '../maybe-directory.js';
 
 const isStr = (a) => typeof a === 'string';
 const isUpdate = () => Number(globalThis.process.env.UPDATE);
@@ -52,9 +48,11 @@ const fail = (t, message) => {
     return __putout_test_fail(message);
 };
 
-module.exports._addDot = addDot;
+export const _addDot = addDot;
 
-module.exports.createTest = (dir, options) => {
+export const createTest = (url, options) => {
+    const dir = maybeDirectory(url);
+    
     return test.extend({
         process: createProcess(dir, options),
         noProcess: createNoProcess(dir, options),
@@ -89,7 +87,7 @@ const createProcess = (dir, options) => (operator) => async (filename, plugins, 
     return operator.equal(processedSource, output, 'fixtures should equal');
 };
 
-module.exports._createProcess = createProcess;
+export const _createProcess = createProcess;
 
 const createNoProcess = (dir, options) => (operator) => async (filename, plugins, processors) => {
     if (!isStr(filename))
@@ -110,7 +108,7 @@ const createNoProcess = (dir, options) => (operator) => async (filename, plugins
     return operator.equal(processedSource, rawSource, 'fixtures should equal');
 };
 
-module.exports._createNoProcess = createNoProcess;
+export const _createNoProcess = createNoProcess;
 
 const createComparePlaces = (dir, options) => (operator) => async (filename, expectedPlaces) => {
     if (!isStr(filename))
@@ -124,7 +122,7 @@ const createComparePlaces = (dir, options) => (operator) => async (filename, exp
     return operator.deepEqual(places, expectedPlaces, 'places should equal');
 };
 
-module.exports._createComparePlaces = createComparePlaces;
+export const _createComparePlaces = createComparePlaces;
 
 async function process(filename, dir, config) {
     let {extension} = config;

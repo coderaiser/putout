@@ -1,44 +1,41 @@
-'use strict';
+import {types} from '@putout/babel';
+import {operator} from 'putout';
 
-const {types} = require('@putout/babel');
+const {remove} = operator;
+
 const {
     isIdentifier,
     isLiteral,
     isMemberExpression,
 } = types;
 
-module.exports.report = () => `Avoid 'console' call`;
+export const report = () => `Avoid 'console' call`;
 
-module.exports.fix = (path) => {
-    path.remove();
+export const fix = (path) => {
+    remove(path);
 };
 
-module.exports.find = (ast, {traverse}) => {
+export const find = (ast, {traverse}) => {
     const places = [];
     
     traverse(ast, {
         CallExpression(path) {
             const {callee} = path.node;
+            
             if (!isMemberExpression(callee))
                 return;
             
             const {object, property} = callee;
-            const isObject = isIdentifier(object, {name: 'console'});
+            const isObject = isIdentifier(object, {
+                name: 'console',
+            });
             
             if (!isObject)
                 return;
             
-            const isPropertyIdentifier = isOneOfIdentifiers(property, [
-                'log',
-                'error',
-                'warn',
-            ]);
+            const isPropertyIdentifier = isOneOfIdentifiers(property, ['log', 'error', 'warn']);
             
-            const isPropertyLiteral = isOneOfLiterals(property, [
-                'log',
-                'error',
-                'warn',
-            ]);
+            const isPropertyLiteral = isOneOfLiterals(property, ['log', 'error', 'warn']);
             
             if (!isPropertyIdentifier && !isPropertyLiteral)
                 return;
@@ -47,7 +44,7 @@ module.exports.find = (ast, {traverse}) => {
                 return;
             
             places.push(path);
-        }
+        },
     });
     
     return places;
@@ -68,4 +65,3 @@ function isOneOfLiterals(node, array) {
     
     return false;
 }
-

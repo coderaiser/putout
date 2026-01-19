@@ -2,7 +2,7 @@ import {run} from 'madrun';
 
 export default {
     'wisdom': () => run(['lint', 'coverage']),
-    'test': () => `tape 'test/*.{js,mjs}' '{lib,rules}/**/*.spec.{js,mjs}'`,
+    'test': () => `tape 'test/*.*' '{lib,rules}/**/*.spec.*'`,
     'watch:test': async () => `nodemon -w lib -w test -x "${await run('test')}"`,
     'lint': () => `putout . --rulesdir rules`,
     'fresh:lint': () => run('lint', '--fresh'),

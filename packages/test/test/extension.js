@@ -1,16 +1,13 @@
-'use strict';
-
-const fs = require('node:fs');
-const {stub} = require('supertape');
-const {lint} = require('@putout/processor-wasm/lint');
-const {tryCatch} = require('try-catch');
-
-const {rules} = require('@putout/processor-wasm/plugin');
-const {createUpdate} = require('./update');
-
-const {createTest} = require('..');
+import fs from 'node:fs';
+import {stub} from 'supertape';
+import {lint} from '@putout/processor-wasm/lint';
+import {tryCatch} from 'try-catch';
+import {rules} from '@putout/processor-wasm/plugin';
+import {createUpdate} from './update.js';
+import {createTest} from '../lib/test.js';
 
 fs.writeFileSync = stub();
+
 const NO_CHECK_ASSERTIONS_COUNT = {
     checkAssertionsCount: false,
 };
@@ -18,13 +15,13 @@ const NO_CHECK_ASSERTIONS_COUNT = {
 const update = createUpdate();
 const {writeFileSync} = fs;
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     lint,
     extension: 'wast',
     plugins: rules,
 });
 
-const test2 = createTest(__dirname, {
+const test2 = createTest(import.meta.url, {
     extension: 'wast',
     lint,
     plugins: rules,

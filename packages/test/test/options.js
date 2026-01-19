@@ -1,8 +1,7 @@
-'use strict';
+import * as esm from '@putout/plugin-esm';
+import {createTest} from '../lib/test.js';
 
-const esm = require('@putout/plugin-esm');
-
-const test = require('..')(__dirname, {
+const test = createTest(import.meta.url, {
     'esm/remove-empty-import': esm.rules['remove-empty-import'],
 });
 

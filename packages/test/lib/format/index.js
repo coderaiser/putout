@@ -1,22 +1,18 @@
-'use strict';
-
-const process = require('node:process');
-const {join} = require('node:path');
-
-const putout = require('putout');
-const currify = require('currify');
-const {initReport} = require('@putout/engine-reporter/report');
-
-const {
+import process from 'node:process';
+import {join} from 'node:path';
+import putout from 'putout';
+import currify from 'currify';
+import {initReport} from '@putout/engine-reporter/report';
+import {
     readFixture,
     writeFormatFixture,
     readFormatFixture,
-} = require('../fixture');
+} from '../fixture.js';
 
 const isUpdate = () => Boolean(Number(process.env.UPDATE));
 const {isArray} = Array;
 
-module.exports.format = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
+export const format = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     
@@ -51,7 +47,7 @@ module.exports.format = currify((dir, options, t) => async (formatter, name, for
     };
 });
 
-module.exports.noFormat = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
+export const noFormat = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
     const full = join(dir, name);
     const [input] = readFixture(full);
     const {places} = putout(input, options);
@@ -73,7 +69,7 @@ module.exports.noFormat = currify((dir, options, t) => async (formatter, name, f
     };
 });
 
-module.exports.formatMany = currify((dir, options, t) => async (formatter, names, formatterOptions = {}) => {
+export const formatMany = currify((dir, options, t) => async (formatter, names, formatterOptions = {}) => {
     const joinTwo = (a) => (b) => join(a, b);
     
     if (!isArray(names))

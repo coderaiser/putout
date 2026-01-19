@@ -1,17 +1,13 @@
-'use strict';
-
-const {join} = require('node:path');
-
-const fs = require('node:fs');
-
-const {stub} = require('supertape');
-
-const {createUpdate} = require('./update');
+import fs from 'node:fs';
+import {stub} from 'supertape';
+import * as removeConsole from '@putout/plugin-remove-console';
+import {createUpdate} from './update.js';
+import {createTest} from '../lib/test.js';
 
 fs.writeFileSync = stub();
 
-const test = require('..')(__dirname, {
-    'remove-console': require('@putout/plugin-remove-console'),
+const test = createTest(import.meta.url, {
+    removeConsole,
 });
 
 const NO_CHECK_ASSERTIONS_COUNT = {
@@ -71,7 +67,7 @@ test('transform: withOptions: with UPDATE env variable: no read', (t) => {
     globalThis.__putout_test_fs.writeFileSync = writeFileSync;
     globalThis.__putout_test_fs.readFileSync = readFileSync;
     
-    const path = join(__dirname, 'fixture/typescript.ts');
+    const path = new URL('fixture/typescript.ts', import.meta.url).pathname;
     
     t.calledWith(readFileSyncStub, [path, 'utf8'], 'should not read fixture fix');
     t.end();
