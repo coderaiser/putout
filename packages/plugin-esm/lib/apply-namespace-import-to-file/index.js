@@ -55,10 +55,8 @@ export const scan = (rootPath, {push, trackFile}) => {
         const content = readFileContent(file);
         const [error, ast] = tryCatch(parse, content);
         
-        if (error) {
-            error.message += `\n${content}\n`;
-            throw error;
-        }
+        if (error)
+            continue;
         
         const importsTuples = getImports(file, content, ast);
         

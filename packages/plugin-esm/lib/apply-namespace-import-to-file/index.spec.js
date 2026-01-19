@@ -1,5 +1,4 @@
 import {createTest} from '@putout/test';
-import {tryCatch} from 'try-catch';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -28,11 +27,7 @@ test('esm: apply-namespace-import-to-file: no report: commonjs', (t) => {
     t.end();
 });
 
-test('esm: apply-namespace-import-to-file: no report: broken', ({noReport, match, end}) => {
-    const [error] = tryCatch(noReport, 'broken');
-    
-    match(error.message, /^Unexpected token/);
-    end();
-}, {
-    checkAssertionsCount: false,
+test('esm: apply-namespace-import-to-file: no report: invalid', (t) => {
+    t.noReport('invalid');
+    t.end();
 });
