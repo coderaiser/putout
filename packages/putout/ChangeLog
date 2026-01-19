@@ -1,3 +1,10 @@
+2026.01.19, v41.10.0
+
+feature:
+- 3fc2ee084 @putout/plugin-nodejs: apply-privately-required-file: add
+- 6ebbaa680 putout: @putout/eslint-flat v4.0.0
+- 72304cff5 @putout/eslint-flat: migrate to ESM
+
 2026.01.19, v41.9.2
 
 feature:
