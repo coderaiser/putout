@@ -33,12 +33,16 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [group-require-by-id](#group-require-by-id);
 - ✅ [remove-process-exit](#remove-process-exit);
 - ✅ [remove-useless-promisify](#remove-useless-promisify);
-- ✅ [rename-file-cjs-to-js](#rename-file-cjs-to-js);
-- ✅ [rename-file-mjs-to-js](#rename-file-mjs-to-js);
 - ✅ [remove-useless-strict-mode](#remove-useless-strict-mode);
 - ✅ [remove-illegal-strict-mode](#remove-useless-strict-mode);
+
+## File rules
+
+- ✅ [apply-privately-imported-file](#apply-privately-imported-file);
 - ✅ [cjs-file](#cjs-file);
 - ✅ [mjs-file](#mjs-file);
+- ✅ [rename-file-cjs-to-js](#rename-file-cjs-to-js);
+- ✅ [rename-file-mjs-to-js](#rename-file-mjs-to-js);
 
 ## Config
 
@@ -585,6 +589,40 @@ export const readSize = promisify(async (dir, options, callback) => {});
 
 ```js
 export const readSize = async (dir, options, callback) => {};
+```
+
+#### apply-privately-required-to-file
+
+> Entries in the imports field must be strings starting with `#`.
+> Package imports permit mapping to external packages.
+> This field defines subpath imports for the current package.
+>
+> (c) [nodejs.org](https://nodejs.org/api/packages.html#imports)
+
+Let's consider file structure:
+
+```
+/
+|-- package.json {"imports": {"#is: {"default": "./lib/tokenize/is.js"}}}
+|-- lib/
+|  `-- tokenize/
+|     `-- is.js "export const isPrev = () => {}"
+|     `-- expressions/
+        `-- spread-element.js "const {isPrev} = require('../is.js')"
+```
+
+In this case `spread-element.js` can be fixed:
+
+#### ❌ Example of incorrect code
+
+```js
+const {isPrev} = require('../is.js');
+```
+
+#### ✅ Example of correct code
+
+```js
+const {isPrev} = require('#is');
 ```
 
 ## License

@@ -138,6 +138,7 @@ test('putout: config: filesystem', (t) => {
         'nodejs/mjs-file': 'on',
         'nodejs/rename-file-cjs-to-js': 'on',
         'nodejs/rename-file-mjs-to-js': 'on',
+        'nodejs/apply-privately-required-file': 'on',
         'filesystem': 'on',
         'package-json/find-file': 'on',
         'package-json/remove-exports-with-missing-files': 'on',

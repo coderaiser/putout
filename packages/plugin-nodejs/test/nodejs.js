@@ -111,3 +111,8 @@ test('plugin-nodejs: transform: group-require-by-id', (t) => {
     t.transform('group-require-by-id');
     t.end();
 });
+
+test('plugin-nodejs: no report: apply-privately-required-file', (t) => {
+    t.noReport('apply-privately-required-file');
+    t.end();
+});
