@@ -18,4 +18,3 @@ test('plugin-putout: declare: transform: operator: findFileUp', (t) => {
     `);
     t.end();
 });
-
