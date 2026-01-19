@@ -46,3 +46,8 @@ test('math: remove-unchanged-zero-declarations: no report: assert', (t) => {
     t.noReport('assert');
     t.end();
 });
+
+test('math: remove-unchanged-zero-declarations: no report: destructuring', (t) => {
+    t.noReport('destructuring');
+    t.end();
+});
