@@ -33,7 +33,7 @@
     "find-file-up"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^4.0.0",
     "@putout/operator-json": "^3.0.0",
     "@putout/plugin-nodejs": "*",
     "@putout/test": "^15.0.0",

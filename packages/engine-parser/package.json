@@ -46,7 +46,7 @@
     "putout-engine"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^4.0.0",
     "acorn": "^8.1.1",
     "acorn-stage3": "^4.0.0",
     "acorn-typescript": "^1.4.13",

@@ -34,7 +34,7 @@
     "assignment"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^4.0.0",
     "@putout/plugin-declare": "*",
     "@putout/plugin-declare-before-reference": "*",
     "@putout/plugin-putout": "*",

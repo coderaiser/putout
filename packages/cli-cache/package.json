@@ -39,7 +39,7 @@
     "cache"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^3.0.5",
     "c8": "^10.0.0",
     "eslint": "^10.0.0-alpha.0",
     "eslint-plugin-n": "^17.0.0",

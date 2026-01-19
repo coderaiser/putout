@@ -44,7 +44,7 @@
     "@putout/engine-parser": "^15.0.1",
     "@putout/eslint": "^5.0.0",
     "@putout/eslint-config": "^13.0.0",
-    "@putout/eslint-flat": "^3.0.0",
+    "@putout/eslint-flat": "^4.0.0",
     "@stylistic/eslint-plugin": "~5.2.0 || > 5.3.1",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
