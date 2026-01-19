@@ -1,12 +1,14 @@
-'use strict';
-
-const {test} = require('supertape');
-
-const {
+import {fileURLToPath} from 'node:url';
+import {dirname} from 'node:path';
+import {test} from 'supertape';
+import {
     matchToFlat,
     matchToFlatDir,
     createESLintConfig,
-} = require('./flat');
+} from './flat.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 test('eslint-flat: matchToFlat', (t) => {
     const result = matchToFlat({

@@ -1,7 +1,5 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-const {readESLintConfig} = require('./read-eslint-config');
+import {test, stub} from 'supertape';
+import {readESLintConfig} from './read-eslint-config.js';
 
 test('flat-eslint: importESLintConfig: found eslint.config.js', async (t) => {
     const read = stub().resolves({

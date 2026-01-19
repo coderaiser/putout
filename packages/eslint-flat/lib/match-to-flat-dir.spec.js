@@ -1,8 +1,10 @@
-'use strict';
+import {pathToFileURL, fileURLToPath} from 'node:url';
+import {dirname} from 'node:path';
+import {test, stub} from 'supertape';
+import {matchToFlatDir} from './match-to-flat-dir.js';
 
-const {pathToFileURL} = require('node:url');
-const {test, stub} = require('supertape');
-const {matchToFlatDir} = require('./match-to-flat-dir');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const noop = () => {};
 
 test('eslint-flat: matchToFlatDir: no files', async (t) => {

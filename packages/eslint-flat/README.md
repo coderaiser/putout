@@ -18,7 +18,7 @@ npm i @putout/eslint-flat
 You have ability to write **ESLint** configs in objects instead of lots of arrays, for example instead of this:
 
 ```js
-module.exports = [
+export default [
     ...safeAlign, {
         files: ['bin/putout.mjs'],
         rules: {
@@ -36,10 +36,10 @@ module.exports = [
 You can use `matchToFlat`:
 
 ```js
-const {matchToFlat} = require('@putout/eslint-flat');
-const {safeAlign} = require('eslint-plugin-putout/config');
+import {matchToFlat} from '@putout/eslint-flat';
+import {safeAlign} from 'eslint-plugin-putout/config';
 
-const match = {
+export const match = {
     'bin/putout.mjs': {
         'n/hashbang': 'off',
     },
@@ -48,12 +48,10 @@ const match = {
     },
 };
 
-module.exports = [
+export default [
     ...safeAlign,
     ...matchToFlat(match),
 ];
-
-module.exports.match = match;
 ```
 
 This also gives you ability to use new configs in monorepo:
@@ -63,10 +61,10 @@ This also gives you ability to use new configs in monorepo:
 If your `eslint.config.js` exports `match`, you can use `matchToFlatDir` to build correct `files` arrays:
 
 ```js
-const {safeAlign} = require('eslint-plugin-putout/config');
-const {matchToFlatDir} = require('@putout/eslint-flat');
+import {safeAlign} from 'eslint-plugin-putout/config';
+import {matchToFlatDir} from '@putout/eslint-flat';
 
-module.exports = [
+export default [
     ...safeAlign,
     ...matchToFlatDir(__dirname, './packages/putout'),
 ];
@@ -78,7 +76,7 @@ or
 import {safeAlign} from 'eslint-plugin-putout/config';
 import {matchToFlatDir} from '@putout/eslint-flat';
 
-module.exports = [
+export default [
     ...safeAlign,
     ...matchToFlatDir(import.meta.url, './packages/putout'),
 ];
@@ -87,7 +85,7 @@ module.exports = [
 This is the same as:
 
 ```js
-module.exports = [
+export default [
     ...safeAlign, {
         files: ['**/packages/putout/bin/putout.mjs'],
         rules: {

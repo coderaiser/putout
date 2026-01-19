@@ -1,8 +1,6 @@
-'use strict';
-
 const {entries} = Object;
 
-module.exports.matchToFlat = (config) => {
+export const matchToFlat = (config) => {
     const result = [];
     
     for (const [name, rules] of entries(config)) {

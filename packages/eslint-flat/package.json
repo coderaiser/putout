@@ -1,7 +1,7 @@
 {
   "name": "@putout/eslint-flat",
   "version": "3.0.5",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Helps dial with ESLint Flat Configs",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/eslint-flat#readme",
@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"

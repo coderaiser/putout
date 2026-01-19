@@ -1,8 +1,10 @@
-'use strict';
+import {pathToFileURL, fileURLToPath} from 'node:url';
+import {dirname} from 'node:path';
+import {test, stub} from 'supertape';
+import {mergeESLintConfigs} from './flat.js';
 
-const {pathToFileURL} = require('node:url');
-const {test, stub} = require('supertape');
-const {mergeESLintConfigs} = require('./flat');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 test('eslint-flat: mergeESLintConfigs', async (t) => {
     const readdir = stub().resolves(['world']);

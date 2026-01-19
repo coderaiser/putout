@@ -1,14 +1,12 @@
-'use strict';
-
-const {join} = require('node:path');
-const {readFile: _readFile} = require('node:fs/promises');
-const {tryToCatch} = require('try-to-catch');
-const {FlatCompat} = require('@eslint/eslintrc');
+import {join} from 'node:path';
+import {readFile as _readFile} from 'node:fs/promises';
+import {tryToCatch} from 'try-to-catch';
+import {FlatCompat} from '@eslint/eslintrc';
 
 const {parse} = JSON;
 const _import = (a) => import(a);
 
-module.exports.readESLintConfig = async (dirPath, overrides = {}) => {
+export const readESLintConfig = async (dirPath, overrides = {}) => {
     const {read = _import, readFile} = overrides;
     const configNames = [
         'eslint.config.js',

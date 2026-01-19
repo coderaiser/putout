@@ -1,5 +1,3 @@
-'use strict';
+import {defineConfig} from '@eslint/config-helpers';
 
-const {defineConfig} = require('@eslint/config-helpers');
-
-module.exports.createESLintConfig = defineConfig;
+export const createESLintConfig = defineConfig;

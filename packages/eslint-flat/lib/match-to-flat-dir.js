@@ -1,13 +1,9 @@
-'use strict';
-
-const {join} = require('node:path');
-const {fileURLToPath} = require('node:url');
-const {readESLintConfig: _readESLintConfig} = require('./read-eslint-config');
+import {join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {readESLintConfig as _readESLintConfig} from './read-eslint-config.js';
 
 const isFn = (a) => typeof a === 'function';
 const {assign, entries} = Object;
-
-module.exports.matchToFlatDir = matchToFlatDir;
 
 function magicJoin(cwd, path) {
     if (cwd.startsWith('file://'))
@@ -16,7 +12,7 @@ function magicJoin(cwd, path) {
     return join(cwd, path);
 }
 
-async function matchToFlatDir(cwd, path, config, overrides = {}) {
+export async function matchToFlatDir(cwd, path, config, overrides = {}) {
     const {
         readESLintConfig = _readESLintConfig,
     } = overrides;

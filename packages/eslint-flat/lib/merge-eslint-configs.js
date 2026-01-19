@@ -1,12 +1,9 @@
-'use strict';
+import {readdir as _readdir} from 'node:fs/promises';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {matchToFlatDir} from './match-to-flat-dir.js';
+import {readESLintConfig as _readESLintConfig} from './read-eslint-config.js';
 
-const {readdir: _readdir} = require('node:fs/promises');
-
-const {join, dirname} = require('node:path');
-const {fileURLToPath} = require('node:url');
-
-const {matchToFlatDir} = require('./match-to-flat-dir');
-const {readESLintConfig: _readESLintConfig} = require('./read-eslint-config');
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 
@@ -17,7 +14,7 @@ const magicDirname = (name) => {
     return name;
 };
 
-module.exports.mergeESLintConfigs = async (cwd, directories, {readdir, readESLintConfig} = {}) => {
+export const mergeESLintConfigs = async (cwd, directories, {readdir, readESLintConfig} = {}) => {
     const readers = maybeArray(directories).map(readDirectory({
         dir: magicDirname(cwd),
         readdir,
