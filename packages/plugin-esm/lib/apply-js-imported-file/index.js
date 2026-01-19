@@ -54,7 +54,10 @@ export const scan = (rootPath, {push, trackFile}) => {
         if (!content.includes('import'))
             continue;
         
-        const ast = parse(content);
+        const [error, ast] = tryCatch(parse, content);
+        
+        if (error)
+            continue;
         
         const places = transform(ast, content, {
             plugins: [

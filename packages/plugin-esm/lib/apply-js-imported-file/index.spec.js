@@ -36,3 +36,8 @@ test('esm: apply-js-imported-file: no report: no-package', (t) => {
     t.noReport('no-package');
     t.end();
 });
+
+test('esm: apply-js-imported-file: no report: invalid', (t) => {
+    t.noReport('invalid');
+    t.end();
+});
