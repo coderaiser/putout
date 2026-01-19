@@ -30,7 +30,8 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "just-camel-case": "^6.2.0"
+    "just-camel-case": "^6.2.0",
+    "try-catch": "^4.0.7"
   },
   "keywords": [
     "putout",

@@ -1,3 +1,4 @@
+import * as applyPrivatelyRequiredFiles from './apply-privately-required-file/index.js';
 import * as convertBufferToBufferAlloc from './convert-buffer-to-buffer-alloc/index.js';
 import * as convertFsPromises from './convert-fs-promises/index.js';
 import * as convertPromisifyToFsPromises from './convert-promisify-to-fs-promises/index.js';
@@ -32,6 +33,7 @@ export const rules = {
     'add-node-prefix': addNodePrefix,
     'convert-exports-to-module-exports': convertExportsToModuleExports,
     
+    'apply-privately-required-files': ['off', applyPrivatelyRequiredFiles],
     'convert-esm-to-commonjs': ['off', convertEsmToCommonjs],
     'convert-commonjs-to-esm/exports': ['off', convertCommonjsToEsm.rules.exports],
     'convert-commonjs-to-esm/common': ['off', convertCommonjsToEsm.rules.commons],
