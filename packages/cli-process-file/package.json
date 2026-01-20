@@ -40,7 +40,7 @@
     "c8": "^10.0.0",
     "eslint": "^10.0.0-alpha.0",
     "eslint-plugin-n": "^17.0.0",
-    "eslint-plugin-putout": "^29.0.0",
+    "eslint-plugin-putout": "^29.4.0",
     "madrun": "^12.0.0",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
