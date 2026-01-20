@@ -40,10 +40,10 @@ export const matchFiles = (options) => {
     };
 };
 
-function fix(inputFile, {dirPath, matchInputFilename, outputFilename, matchedJS, matchedAST, options}) {
+function fix(inputFile, {dirPath, matchInputFilename, outputFilename, matchedJS, matchedAST, options, rawOptions}) {
     transform(matchedAST, matchedJS, options);
     
-    const matchedJSON = magicPrint(outputFilename, matchedAST);
+    const matchedJSON = magicPrint(outputFilename, matchedAST, rawOptions);
     const outputFile = getOutputFile({
         dirPath,
         matchInputFilename,
@@ -124,6 +124,7 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
             outputFilename,
             message,
             options,
+            rawOptions,
             
             matchedAST,
             matchedJS,
@@ -150,9 +151,9 @@ function magicParse(name, content) {
     return [content, parse(content)];
 }
 
-function magicPrint(name, ast) {
+function magicPrint(name, ast, options) {
     if (name.endsWith('.json')) {
-        const js = print(ast);
+        const js = print(ast, options);
         
         return fromJS(js);
     }

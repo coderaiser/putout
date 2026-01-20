@@ -12,5 +12,14 @@ export const {
     report,
     fix,
 } = matchFiles({
-    'package.json': plugin,
+    'package.json': {
+        printer: ['putout', {
+            format: {
+                indent: '  ',
+            },
+        }],
+        plugins: [
+            ['package-json', plugin],
+        ],
+    },
 });

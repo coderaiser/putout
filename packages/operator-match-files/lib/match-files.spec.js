@@ -125,6 +125,69 @@ test('putout: operator: match-files: transform', (t) => {
     t.end();
 });
 
+test('putout: operator: match-files: transform: printer options', (t) => {
+    const plugin = {
+        report: () => 'hello',
+        fix: (path) => {
+            const property = objectProperty(stringLiteral('hello'), stringLiteral('world'));
+            
+            path.node.properties.push(property);
+        },
+        traverse: ({push}) => ({
+            [__json]: (path) => {
+                const __objectPath = path.get('arguments.0');
+                
+                if (__objectPath.node.properties.length)
+                    return;
+                
+                push(__objectPath);
+            },
+        }),
+    };
+    
+    const source = stringify({
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'file',
+            filename: '/tsconfig.json',
+        }],
+    });
+    
+    const jsSource = toJS(source, __filesystem);
+    
+    const files = {
+        'tsconfig.json': {
+            printer: ['putout', {
+                format: {
+                    indent: '  ',
+                },
+            }],
+            plugins: [
+                ['transform', plugin],
+            ],
+        },
+    };
+    
+    const {code} = putout(jsSource, {
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const ast = parse(code);
+    
+    const [filePath] = findFile(ast, 'tsconfig.json');
+    const result = readFileContent(filePath);
+    
+    const expected = JSON.stringify({
+        hello: 'world',
+    }, null, 2) + '\n';
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: operator: match-files: no files found', (t) => {
     const plugin = {};
     const source = stringify({
