@@ -17,6 +17,11 @@ test('esm: apply-namespace-import-to-file: transform', (t) => {
     t.end();
 });
 
+test('esm: apply-namespace-import-to-file: transform: private', (t) => {
+    t.transform('private');
+    t.end();
+});
+
 test('esm: apply-namespace-import-to-file: no report: has-export-default', (t) => {
     t.noReport('has-export-default');
     t.end();

@@ -6,6 +6,7 @@ import putout, {
     transform,
     operator,
 } from 'putout';
+import {createGetPrivateImports} from '#private-imports';
 import * as isESMPlugin from './is-esm/index.js';
 import * as hasExportDefaultPlugin from './has-export-default/index.js';
 import * as applyNamespaceImportPlugin from './apply-namespace-import/index.js';
@@ -51,6 +52,8 @@ export const scan = (rootPath, {push, trackFile}) => {
         '*.mjs',
     ];
     
+    const getPrivateImports = createGetPrivateImports();
+    
     for (const file of trackFile(rootPath, mask)) {
         const content = readFileContent(file);
         const [error, ast] = tryCatch(parse, content);
@@ -60,8 +63,18 @@ export const scan = (rootPath, {push, trackFile}) => {
         
         const importsTuples = getImports(file, content, ast);
         
+        const [, privateImports] = getPrivateImports(file, {
+            aliasBased: true,
+        });
+        
         for (const [name, source, importedFilename] of importsTuples) {
-            if (hasImportDefault(rootPath, importedFilename))
+            const is = hasImportDefault({
+                rootPath,
+                importedFilename,
+                privateImports,
+            });
+            
+            if (is)
                 continue;
             
             push(file, {
@@ -93,8 +106,20 @@ function getImports(file, content, ast) {
     return buildImports(dir, imports);
 }
 
-function hasImportDefault(rootPath, importedFilename) {
-    const [importedFile] = findFile(rootPath, importedFilename);
+function parseImportedFilename({importedFilename, privateImports}) {
+    if (privateImports.has(importedFilename))
+        return privateImports.get(importedFilename);
+    
+    return importedFilename;
+}
+
+function hasImportDefault({rootPath, importedFilename, privateImports}) {
+    const parsedName = parseImportedFilename({
+        importedFilename,
+        privateImports,
+    });
+    
+    const [importedFile] = findFile(rootPath, parsedName);
     
     if (!importedFile)
         return true;
@@ -118,12 +143,19 @@ function hasImportDefault(rootPath, importedFilename) {
     return !esm.length;
 }
 
+function parseFull(dir, source) {
+    if (source.startsWith('#'))
+        return source;
+    
+    return join(dir, source);
+}
+
 function buildImports(dir, imports) {
     const list = [];
     
     for (const current of imports) {
         const [name, source] = current.split(' <- ');
-        const full = join(dir, source);
+        const full = parseFull(dir, source);
         
         list.push([name, source, full]);
     }
