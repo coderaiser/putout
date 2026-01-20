@@ -50,6 +50,11 @@ test('putout: plugin-regexp: apply-starts-with: no report: constructor-star', (t
     t.end();
 });
 
+test('putout: plugin-regexp: apply-starts-with: no report: or', (t) => {
+    t.noReport('or');
+    t.end();
+});
+
 test('putout: plugin-regexp: apply-starts-with: transform: constructor-string', (t) => {
     t.transform('constructor-string');
     t.end();

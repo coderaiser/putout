@@ -20,6 +20,9 @@ export const match = () => ({
             if (!value.cooked.startsWith('^'))
                 return false;
             
+            if (value.cooked.includes('|'))
+                return false;
+            
             for (const {value} of __a.quasis)
                 if (value.cooked.includes('*'))
                     return false;
