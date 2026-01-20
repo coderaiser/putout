@@ -50,7 +50,7 @@ export const scan = (rootPath, {push, trackFile}) => {
         if (!content.includes('import'))
             continue;
         
-        const [, privateImports] = getPrivateImports(file);
+        const privateImports = getPrivateImports(file);
         
         if (!privateImports.size)
             continue;

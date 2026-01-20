@@ -63,7 +63,7 @@ export const scan = (rootPath, {push, trackFile}) => {
         
         const importsTuples = getImports(file, content, ast);
         
-        const [, privateImports] = getPrivateImports(file, {
+        const privateImports = getPrivateImports(file, {
             aliasBased: true,
         });
         

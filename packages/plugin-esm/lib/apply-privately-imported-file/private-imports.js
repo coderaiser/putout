@@ -27,13 +27,13 @@ export const createGetPrivateImports = (importsCache = new Map(), emptyMap = new
     const {aliasBased = false} = options;
     
     if (importsCache.has(dir))
-        return [dir, importsCache.get(dir)];
+        return importsCache.get(dir);
     
     const [packageDirectory, packagePath] = findFileUp(file, 'package.json');
     
     if (!packagePath) {
         importsCache.set(dir, emptyMap);
-        return ['', emptyMap];
+        return emptyMap;
     }
     
     const packageContent = readFileContent(packagePath);
@@ -42,7 +42,7 @@ export const createGetPrivateImports = (importsCache = new Map(), emptyMap = new
     if (error) {
         importsCache.set(dir, emptyMap);
         
-        return ['', emptyMap];
+        return emptyMap;
     }
     
     const {imports = {}} = packageJson;
@@ -62,9 +62,9 @@ export const createGetPrivateImports = (importsCache = new Map(), emptyMap = new
         });
     }
     
-    importsCache.set(packageDirectory, importsEntries);
+    importsCache.set(dir, importsEntries);
     
-    return [packageDirectory, importsEntries];
+    return importsEntries;
 };
 
 function parseProperty(property) {
