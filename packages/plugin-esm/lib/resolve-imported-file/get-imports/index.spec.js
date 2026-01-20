@@ -12,6 +12,11 @@ test('putout: esm: resolve-imported-file: get-imports: report: get-imports', (t)
     t.end();
 });
 
+test('putout: esm: resolve-imported-file: get-imports: report: dynamic', (t) => {
+    t.report('dynamic', `./a`);
+    t.end();
+});
+
 test('putout: esm: resolve-imported-file: get-imports: no report: external', (t) => {
     t.noReportCode(`import a from 'a'`);
     t.end();

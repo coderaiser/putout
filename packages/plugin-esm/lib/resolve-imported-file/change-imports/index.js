@@ -7,5 +7,6 @@ export const replace = ({options}) => {
     
     return {
         [`import __imports from '${from}'`]: `import __imports from '${to}'`,
+        [`import('${from}')`]: `import('${to}')`,
     };
 };

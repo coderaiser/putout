@@ -4,6 +4,7 @@ export const fix = () => {};
 
 export const include = () => [
     'ImportDeclaration',
+    'ImportExpression',
 ];
 
 export const filter = (path) => {

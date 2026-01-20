@@ -4,6 +4,7 @@ export const fix = () => {};
 
 export const include = () => [
     'ImportDeclaration',
+    'ImportExpression',
 ];
 
 export const filter = (path) => {
@@ -12,5 +13,5 @@ export const filter = (path) => {
     if (!value.startsWith('.'))
         return false;
     
-    return !/\.[m|c]?js/.test(value);
+    return !/\.[mc]?js/.test(value);
 };

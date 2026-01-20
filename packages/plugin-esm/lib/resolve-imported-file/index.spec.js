@@ -21,3 +21,8 @@ test('esm: resolve-imported-file: no report: no-package', (t) => {
     t.noReport('no-package');
     t.end();
 });
+
+test('esm: resolve-imported-file: transform: dynamic', (t) => {
+    t.transform('dynamic');
+    t.end();
+});
