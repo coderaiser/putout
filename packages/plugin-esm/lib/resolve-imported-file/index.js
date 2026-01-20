@@ -93,6 +93,11 @@ function buildResolved(rootPath, importsTuples) {
         const withJs = `${current}.js`;
         
         if (findFile(rootPath, withIndex).length) {
+            if (relative.endsWith('/')) {
+                result.push([relative, `${relative}index.js`]);
+                continue;
+            }
+            
             result.push([relative, `${relative}/index.js`]);
             continue;
         }
