@@ -126,9 +126,34 @@ You can also pass `options`:
 module.exports = matchFiles({
     '.eslintrc.json -> eslint.config.js': {
         rules: {
-            'eslint/declare': {
+            'eslint/declare': ['on', {
                 type: 'esm',
+            }],
+        },
+        plugins: [
+            ['eslint/convert-rc-to-flat', rcToFlat],
+            ['eslint/declare', declare],
+        ],
+    },
+});
+```
+
+### Printer Options
+
+You can also pass [`printer options`](https://github.com/putoutjs/printer?tab=readme-ov-file#overrides):
+
+```js
+module.exports = matchFiles({
+    '.eslintrc.json -> eslint.config.js': {
+        printer: ['putout', {
+            format: {
+                indent: '  ',
             },
+        }],
+        rules: {
+            'eslint/declare': ['on', {
+                type: 'esm',
+            }],
         },
         plugins: [
             ['eslint/convert-rc-to-flat', rcToFlat],

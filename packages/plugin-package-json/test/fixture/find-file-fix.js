@@ -1,1 +1,1 @@
-__putout_processor_filesystem(["/", ["/package.json", "ewogICAgInZlcnNpb24iOiAiMS4wLjAiLAogICAgInR5cGUiOiAiY29tbW9uanMiCn0K"]]);
+__putout_processor_filesystem(["/", ["/package.json", "ewogICJ2ZXJzaW9uIjogIjEuMC4wIiwKICAidHlwZSI6ICJjb21tb25qcyIKfQo="]]);
