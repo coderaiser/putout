@@ -122,7 +122,6 @@ Then configure the rules you want to use under the rules section.
 
 ### ESM
 
-- ✅ [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved#readme)
 - ✅ [Remove duplicate extension](/packages/eslint-plugin-putout/lib/remove-duplicate-extensions#readme)
 - ✅ [Add newlines between specifiers](/packages/eslint-plugin-putout/lib/add-newlines-between-specifiers#readme)
 
