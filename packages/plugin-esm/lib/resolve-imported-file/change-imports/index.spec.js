@@ -27,3 +27,11 @@ test('putout: esm: resolve-imported-file: transform with options: change-imports
     });
     t.end();
 });
+
+test('putout: esm: resolve-imported-file: transform with options: dynamic', (t) => {
+    t.transformWithOptions('dynamic', {
+        from: './a',
+        to: './a.js',
+    });
+    t.end();
+});

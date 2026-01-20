@@ -41,3 +41,8 @@ test('esm: apply-js-imported-file: no report: invalid', (t) => {
     t.noReport('invalid');
     t.end();
 });
+
+test('esm: apply-js-imported-file: transform: dynamic', (t) => {
+    t.transform('dynamic');
+    t.end();
+});

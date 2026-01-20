@@ -41,3 +41,8 @@ test('esm: shorten-imported-file: no report: invalid', (t) => {
     t.noReport('invalid');
     t.end();
 });
+
+test('esm: shorten-imported-file: transform: dynamic', (t) => {
+    t.transform('dynamic');
+    t.end();
+});

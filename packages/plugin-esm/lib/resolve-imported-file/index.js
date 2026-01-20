@@ -59,6 +59,7 @@ export const scan = (rootPath, {push, trackFile}) => {
         const imports = places.map(getMessage);
         const filename = getFilename(file);
         const dir = dirname(filename);
+        
         const importsTuples = buildImports(dir, imports);
         const resolvedTuples = buildResolved(rootPath, importsTuples);
         

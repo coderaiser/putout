@@ -27,6 +27,11 @@ test('putout: esm: shorten-imported-file: get-imports: report: cjs', (t) => {
     t.end();
 });
 
+test('putout: esm: shorten-imported-file: get-imports: report: dynamic', (t) => {
+    t.reportCode(`await import('./a.cjs')`, './a.cjs');
+    t.end();
+});
+
 test('putout: esm: shorten-imported-file: no transform: get-imports', (t) => {
     t.noTransform('get-imports');
     t.end();
