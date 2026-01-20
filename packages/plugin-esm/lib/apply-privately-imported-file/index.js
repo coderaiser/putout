@@ -1,9 +1,4 @@
-import {
-    join,
-    dirname,
-    resolve,
-} from 'node:path';
-import {tryCatch} from 'try-catch';
+import {join, dirname} from 'node:path';
 import {
     parse,
     print,
@@ -12,18 +7,13 @@ import {
 } from 'putout';
 import * as getImports from '#get-imports';
 import * as changeImports from '#change-imports';
-
-const isString = (a) => typeof a === 'string';
+import {createGetPrivateImports} from '#private-imports';
 
 const {
     getFilename,
     readFileContent,
     writeFileContent,
-    findFileUp,
 } = operator;
-
-const {entries} = Object;
-const {parse: parseJson} = JSON;
 
 const getMessage = (a) => a.message;
 
@@ -91,58 +81,3 @@ export const scan = (rootPath, {push, trackFile}) => {
         }
     }
 };
-
-const createGetPrivateImports = (importsCache = new Map(), emptyMap = new Map()) => (file) => {
-    const filename = getFilename(file);
-    const dir = dirname(filename);
-    
-    if (importsCache.has(dir))
-        return [dir, importsCache.get(dir)];
-    
-    const [packageDirectory, packagePath] = findFileUp(file, 'package.json');
-    
-    if (!packagePath) {
-        importsCache.set(dir, {});
-        return ['', emptyMap];
-    }
-    
-    const packageContent = readFileContent(packagePath);
-    const [error, packageJson] = tryCatch(parseJson, packageContent);
-    
-    if (error) {
-        importsCache.set(dir, emptyMap);
-        
-        return ['', emptyMap];
-    }
-    
-    const {imports = {}} = packageJson;
-    const importsEntries = new Map();
-    
-    for (const [alias, property] of entries(imports)) {
-        const filePath = parseProperty(property);
-        
-        if (!filePath)
-            continue;
-        
-        const resolvedPath = resolve(packageDirectory, filePath);
-        
-        importsEntries.set(resolvedPath, alias);
-    }
-    
-    importsCache.set(dir, [packageDirectory, importsEntries]);
-    
-    return [packageDirectory, importsEntries];
-};
-
-function parseProperty(property) {
-    if (isString(property))
-        return property;
-    
-    const {
-        default: filePath,
-        node,
-        browser,
-    } = property;
-    
-    return filePath || node || browser;
-}
