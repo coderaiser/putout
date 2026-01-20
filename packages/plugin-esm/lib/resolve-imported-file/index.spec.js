@@ -26,3 +26,8 @@ test('esm: resolve-imported-file: transform: dynamic', (t) => {
     t.transform('dynamic');
     t.end();
 });
+
+test('esm: resolve-imported-file: transform: slash', (t) => {
+    t.transform('slash');
+    t.end();
+});
