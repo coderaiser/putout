@@ -17,6 +17,11 @@ test('putout: esm: resolve-imported-file: get-imports: report: dynamic', (t) => 
     t.end();
 });
 
+test('putout: esm: resolve-imported-file: get-imports: no report: dynamic-identifier', (t) => {
+    t.noReport('dynamic-identifier');
+    t.end();
+});
+
 test('putout: esm: resolve-imported-file: get-imports: no report: external', (t) => {
     t.noReportCode(`import a from 'a'`);
     t.end();

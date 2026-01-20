@@ -4,11 +4,12 @@ export const fix = () => {};
 
 export const include = () => [
     'ImportDeclaration',
-    'ImportExpression',
+    'import("__a")',
 ];
 
 export const filter = (path) => {
-    const {value} = path.node.source;
+    const {source} = path.node;
+    const {value} = source;
     
     if (!value.startsWith('.'))
         return false;
