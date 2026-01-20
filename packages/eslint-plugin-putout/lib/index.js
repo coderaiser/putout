@@ -40,7 +40,6 @@ const putoutConfig = [{
         'putout/remove-empty-specifiers': 'error',
         'putout/objects-braces-inside-array': 'error',
         'putout/object-property-newline': 'error',
-        'putout/no-unresolved': 'error',
         'putout/remove-duplicate-extensions': 'error',
         'putout/evaluate': 'error',
         'putout/tape-add-newline-before-assertion': 'error',

@@ -21,7 +21,6 @@ import * as removeEmptyNewlineAfterLastElement from './remove-empty-newline-afte
 import * as removeEmptySpecifiers from './remove-empty-specifiers/index.js';
 import * as objectsBracesInsideArray from './objects-braces-inside-array/index.js';
 import * as objectPropertyNewline from './object-property-newline/index.js';
-import * as noUnresolved from './no-unresolved/index.js';
 import * as removeDuplicateExtensions from './remove-duplicate-extensions/index.js';
 import * as evaluate from './evaluate/index.js';
 import * as tapeAddNewlineBeforeAssertion from './tape-add-newline-before-assertion/index.js';
@@ -60,7 +59,6 @@ export const rules = {
     'remove-empty-specifiers': createPlugin(removeEmptySpecifiers),
     'objects-braces-inside-array': createPlugin(objectsBracesInsideArray),
     'object-property-newline': createPlugin(objectPropertyNewline),
-    'no-unresolved': createPlugin(noUnresolved),
     'remove-duplicate-extensions': createPlugin(removeDuplicateExtensions),
     'evaluate': createPlugin(evaluate),
     'tape-add-newline-before-assertion': createPlugin(tapeAddNewlineBeforeAssertion),
