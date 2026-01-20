@@ -32,6 +32,11 @@ test('putout: esm: shorten-imported-file: get-imports: report: dynamic', (t) => 
     t.end();
 });
 
+test('putout: esm: shorten-imported-file: get-imports: report: dynamic: identifier', (t) => {
+    t.noReportCode(`await import(a)`);
+    t.end();
+});
+
 test('putout: esm: shorten-imported-file: no transform: get-imports', (t) => {
     t.noTransform('get-imports');
     t.end();
