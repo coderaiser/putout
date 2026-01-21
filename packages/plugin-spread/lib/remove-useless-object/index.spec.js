@@ -27,6 +27,11 @@ test('plugin-remove-useless-spread: object: transform: return', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-spread: object: transform: property', (t) => {
+    t.transform('property');
+    t.end();
+});
+
 test('plugin-remove-useless-spread: object: no transform: same', (t) => {
     t.noTransform('same');
     t.end();

@@ -4,6 +4,7 @@ const {
     isCallExpression,
     isReturnStatement,
     isSpreadElement,
+    isObjectProperty,
 } = types;
 
 export const report = () => `Avoid useless spread '...'`;
@@ -25,6 +26,9 @@ export const filter = (path) => {
     
     if (trailingComments?.length)
         return false;
+    
+    if (isObjectProperty(parentPath))
+        return true;
     
     if (isCallExpression(parentPath) && isSpreadElement(first))
         return true;
