@@ -46,3 +46,8 @@ test('plugin-printer: transform: remove-legacy-test-declaration', (t) => {
     t.transform('remove-legacy-test-declaration');
     t.end();
 });
+
+test('plugin-printer: transform: apply-create-test-url', (t) => {
+    t.transform('apply-create-test-url');
+    t.end();
+});

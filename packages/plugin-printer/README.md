@@ -16,6 +16,7 @@ npm i @putout/plugin-printer -D
 - ✅ [add-args](#add-args);
 - ✅ [apply-breakline](#apply-breakline);
 - ✅ [apply-computed-print](#apply-computed-print);
+- ✅ [apply-create-test-url](#apply-create-test-url);
 - ✅ [apply-linebreak](#apply-linebreak);
 - ✅ [apply-types](#apply-types);
 - ✅ [declare](#declare);
@@ -31,6 +32,7 @@ npm i @putout/plugin-printer -D
         "printer/apply-breakline": "on",
         "printer/apply-linebreak": "on",
         "printer/apply-computed-print": "on",
+        "printer/apply-create-test-url": "on",
         "printer/apply-types": "on",
         "printer/declare": "on",
         "printer/remove-args": "on"
@@ -102,6 +104,24 @@ print(path.get('block'));
 
 ```js
 print('__block');
+```
+
+## apply-create-test-url
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ddf1425ace2a53e9010b82ded1dd1012/3e56365b58d01ebe8abba46caf04ed5e51043feb).
+
+### ❌ Example of incorrect code
+
+```js
+import {createTest} from '#test';
+const {test, fixture} = createTest(__dirname);
+```
+
+### ✅ Example of correct code
+
+```js
+import {createTest} from '#test';
+const {test, fixture} = createTest(import.meta.url);
 ```
 
 ## remove-args
