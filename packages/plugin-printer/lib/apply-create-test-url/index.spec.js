@@ -17,6 +17,11 @@ test('printer: apply-create-test-url: transform', (t) => {
     t.end();
 });
 
+test('printer: apply-create-test-url: transform: order', (t) => {
+    t.transform('order');
+    t.end();
+});
+
 test('printer: apply-create-test-url: no report: commonjs', (t) => {
     t.noReport('commonjs');
     t.end();
