@@ -1,5 +1,6 @@
 import {test} from 'supertape';
 import {tryCatch} from 'try-catch';
+import montag from 'montag';
 import {
     parse,
     operator,
@@ -102,7 +103,12 @@ test('operate: properties: getProperties: SpreadElement', (t) => {
     });
     
     const result = print(ast);
-    const expected = '({...x});\n';
+    
+    const expected = montag`
+        ({
+            ...x,
+        });\n
+    `;
     
     t.equal(result, expected);
     t.end();
@@ -119,7 +125,12 @@ test('operate: properties: getProperty: SpreadElement', (t) => {
     });
     
     const result = print(ast);
-    const expected = '({...x});\n';
+    
+    const expected = montag`
+        ({
+            ...x,
+        });\n
+    `;
     
     t.equal(result, expected);
     t.end();
