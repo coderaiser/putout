@@ -12,19 +12,13 @@ const {entries} = Object;
 const {parse: parseJson} = JSON;
 const isString = (a) => typeof a === 'string';
 
-function insert(a, b, {importsEntries, aliasBased}) {
-    if (aliasBased) {
-        importsEntries.set(b, a);
-        return;
-    }
-    
+function insert(a, b, {importsEntries}) {
     importsEntries.set(a, b);
 }
 
-export const createGetPrivateImports = (importsCache = new Map(), emptyMap = new Map()) => (file, options = {}) => {
+export const createGetPrivateImports = (importsCache = new Map(), emptyMap = new Map()) => (file) => {
     const filename = getFilename(file);
     const dir = dirname(filename);
-    const {aliasBased = false} = options;
     
     if (importsCache.has(dir))
         return importsCache.get(dir);
@@ -58,7 +52,6 @@ export const createGetPrivateImports = (importsCache = new Map(), emptyMap = new
         
         insert(resolvedPath, alias, {
             importsEntries,
-            aliasBased,
         });
     }
     
