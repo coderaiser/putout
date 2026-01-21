@@ -1,3 +1,28 @@
+2026.01.21, v41.10.2
+
+fix:
+- 2e2220aa7 @putout/plugin-nodejs: apply-privately-required-file: cache
+- 3f8725dc8 @putout/plugin-esm: apply-js-imported-file: invalid
+- 3665309f8 @putout/esm: apply-namespace-import-to-file: invalid
+
+feature:
+- 4aefd9834 putout: @putout/plugin-spread v2.0.0
+- fd7e7fd92 @putout/plugin-spread: drop support of 🐊 < 41
+- eca307f4e @putout/plugin-spread: remove-useless-object: property
+- 127cdd0da @putout/plugin-printer: apply-create-test-url: order
+- bb8558072 @putout/plugin-printer: apply-create-test-url: add
+- bfd328fb8 @putout/plugin-nodejs: apply-privately-required-file: simplify
+- ed089eef7 @putout/plugin-esm: apply-privately-imported-file: private-imports: simplify
+- c6ee271d0 @putout/operator-match-files: printer options
+- f93b32c8d @putout/plugin-esm: apply-namespace-import-to-file: private imports
+- 17f9666eb @putout/plugin-regexp: apply-starts-with: regexp: or: exclude
+- 0e50e30cc root: eslint-plugin-putout v30.0.0
+- c77159dea eslint-plugin-putout: rm no-unresolved: use RedLint instead (https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#resolve-imported-file)
+- 32ef583d9 @putout/plugin-esm: resolve-imported-file: slash: improve support
+- edccb1fa8 @putout/plugin-esm: resolve-imported-file: get-imports: dynamic: identifier
+- 996ed01fa @putout/plugin-esm: shorten-imported-file: dynamic import: add support
+- c594bdf29 @putout/esm: shorten-imported-file: invalid
+
 2026.01.19, v41.10.1
 
 feature:
