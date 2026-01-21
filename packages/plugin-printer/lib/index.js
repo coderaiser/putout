@@ -1,3 +1,4 @@
+import * as applyCreateTestUrl from './apply-create-test-url/index.js';
 import * as removeArgs from './remove-args/index.js';
 import * as applyBreakline from './apply-breakline/index.js';
 import * as applyLinebreak from './apply-linebreak/index.js';
@@ -16,4 +17,5 @@ export const rules = {
     declare,
     'apply-types': applyTypes,
     'remove-legacy-test-declaration': removeLegacyTestDeclaration,
+    'apply-create-test-url': applyCreateTestUrl,
 };
