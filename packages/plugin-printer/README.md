@@ -114,6 +114,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ddf1425ace
 
 ```js
 import {createTest} from '#test';
+
 const {test, fixture} = createTest(__dirname);
 ```
 
@@ -121,6 +122,7 @@ const {test, fixture} = createTest(__dirname);
 
 ```js
 import {createTest} from '#test';
+
 const {test, fixture} = createTest(import.meta.url);
 ```
 
