@@ -364,3 +364,8 @@ test('plugin-putout: transform: convert-replace-to-traverse', (t) => {
     t.transform('convert-replace-to-traverse');
     t.end();
 });
+
+test('plugin-putout: transform: add-push-arg', (t) => {
+    t.transform('add-push-arg');
+    t.end();
+});

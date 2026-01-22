@@ -1,3 +1,4 @@
+import * as addPushArg from './add-push-arg/index.js';
 import * as convertReplaceToTraverse from './convert-replace-to-traverse/index.js';
 import * as applyEngineNodeVersion from './apply-engine-node-version/index.js';
 import * as convertPushObjectToPushPath from './convert-push-object-to-push-path/index.js';
@@ -148,4 +149,5 @@ export const rules = {
     'convert-push-object-to-push-path': convertPushObjectToPushPath,
     'apply-engine-node-version': applyEngineNodeVersion,
     'convert-replace-to-traverse': convertReplaceToTraverse,
+    'add-push-arg': addPushArg,
 };

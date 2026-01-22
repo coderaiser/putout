@@ -17,6 +17,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-places-to-compare-places](#add-places-to-compare-places);
 - ✅ [add-path-arg-to-fix](#add-path-arg-to-fix);
 - ✅ [add-path-arg-to-visitors](#add-path-arg-to-visitors);
+- ✅ [add-push-arg](#add-push-arg);
 - ✅ [add-test-args](#add-test-args);
 - ✅ [add-traverse-args](#add-traverse-args);
 - ✅ [add-track-file](#add-track-file);
@@ -96,6 +97,7 @@ npm i @putout/plugin-putout -D
         "putout/add-places-to-compare-places": "on",
         "putout/add-path-arg-to-fix": "on",
         "putout/add-path-arg-to-visitors": "on",
+        "putout/add-push-arg": "on",
         "putout/add-test-args": "on",
         "putout/add-traverse-args": "on",
         "putout/add-track-file": "on",
@@ -1399,6 +1401,30 @@ export const traverse = () => ({
         console.log(path);
     },
 });
+```
+
+## add-push-arg
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/cae7b14fa6be0fe50b134839bea1e544/37f9d161146dbe4f0497f852ba54161a759f7cbd).
+
+### ❌ Example of incorrect code
+
+```js
+export const scan = (root, {trackFile}) => {
+    for (const file of trackFile(root, names)) {
+        push(file);
+    }
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export const scan = (root, {trackFile, push}) => {
+    for (const file of trackFile(root, names)) {
+        push(file);
+    }
+};
 ```
 
 ## add-test-args
