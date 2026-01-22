@@ -1237,6 +1237,17 @@ test('putout: operator: filesystem: createFile: overwrite', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: createFile: not a directory', (t) => {
+    const ast = parseFilesystem(['/', '/doc/', '/doc/README.md']);
+    
+    const [dirPath] = findFile(ast, 'README.md');
+    const [error] = tryCatch(createFile, dirPath, 'README.md', 'hello');
+    const expected = `☝️ Looks like '/doc/README.md' is not a directory, but: 'file'. Rename to '/doc/README.md/'`;
+    
+    t.equal(error.message, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: writeFileContent', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
