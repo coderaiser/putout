@@ -137,9 +137,17 @@ export function getFileContent(filePath) {
     ];
 }
 
+function checkRenameFileName(name) {
+    if (!isString(name))
+        throw Error(`☝️ Looks like you forget to pass the 'name' of a file to 'renameFile(filePath: FilePath, name: string)'`);
+}
+
 export const renameFile = (filePath, name) => {
+    checkRenameFileName(name);
+    
     const oldName = getFilename(filePath);
     const valuePath = getFilenamePath(filePath);
+    
     const baseName = oldName
         .split('/')
         .pop();

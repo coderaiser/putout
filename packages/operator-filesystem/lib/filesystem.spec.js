@@ -82,6 +82,25 @@ test('putout: operator: filesystem: renameFile', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: renameFile: no name', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/lib/lint/json.js",
+            "files": []
+        });
+    `);
+    
+    const [filenamePath] = traverseProperties(ast, 'filename');
+    const filePath = filenamePath.parentPath;
+    
+    const [error] = tryCatch(renameFile, filePath);
+    const expected = `☝️ Looks like you forget to pass the 'name' of a file to 'renameFile(filePath: FilePath, name: string)'`;
+    
+    t.equal(error.message, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: renameFile: slash', (t) => {
     const ast = parse(montag`
         ${FS}({
