@@ -14,6 +14,7 @@ npm i @putout/plugin-package-json -D
 ## Rules
 
 - ✅ [add-type](#add-type);
+- ✅ [apply-js-extension](#apply-js-extension);
 - ✅ [apply-https-to-repository-url](#apply-https-to-repository-url);
 - ✅ [find-file](#find-file);
 - ✅ [remove-nyc](#remove-nyc);
@@ -28,6 +29,7 @@ npm i @putout/plugin-package-json -D
 {
     "rules": {
         "package-json/add-type": "on",
+        "package-json/apply-js-extension": "on",
         "package-json/apply-https-to-repository-url": "on",
         "package-json/remove-nyc": "on",
         "package-json/remove-commit-type": "on",
@@ -48,6 +50,32 @@ Add [`type`](https://nodejs.org/dist/latest-v17.x/docs/api/packages.html#type) f
     "version": "1.0.0",
 +   "type": "commonjs"
 }
+```
+
+## apply-js-extension
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31b208fae5f340b9d8a479c2d7475cd2/869370f138d0082cf67bb4372c62fb969bb98db5).
+
+```diff
+{
+  "type": "module",
+- "main": "./lib/putout.mjs",
++ "main": "./lib/putout.js",
+  "exports": {
+    ".": {
+      "require": "./lib/index.cjs",
+-     "import": "./lib/index.mjs"
++     "import": "./lib/index.js"
+    },
+    "./parse-error": "./lib/parse-error.cjs",
+-   "./ignores": "./lib/ignores.mjs",
++   "./ignores": "./lib/ignores.js",
+  },
+  "bin": {
+-   "putout": "bin/tracer.mjs"
++   "putout": "bin/tracer.js"
+  }
+};
 ```
 
 ## apply-https-to-repository-url
