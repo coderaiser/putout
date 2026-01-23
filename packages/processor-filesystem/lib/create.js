@@ -8,9 +8,12 @@ import {
 import {isFilesystem} from './is-filesystem.js';
 import {maybeFromSimple} from './from-simple.js';
 
-export const create = ({cli = true} = {}) => {
+export const create = (overrides = {}) => {
+    const {cli = false, maybeSimple = true} = overrides;
+    
     const branch = createBranch({
         cli,
+        maybeSimple,
     });
     
     const merge = createMerge({
@@ -23,8 +26,13 @@ export const create = ({cli = true} = {}) => {
     };
 };
 
-const createBranch = ({cli}) => (rawSource) => {
+const createBranch = ({cli, maybeSimple}) => (rawSource) => {
     cli && filesystem.init(filesystemCLI);
+    
+    if (!maybeSimple)
+        return [{
+            source: toJS(rawSource, __filesystem),
+        }];
     
     const source = toJS(maybeFromSimple(rawSource), __filesystem);
     

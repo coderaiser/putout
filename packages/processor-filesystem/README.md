@@ -27,7 +27,8 @@ npm i @putout/processor-filesystem -D
 import {create} from '@putout/process-filesystem/create'
 
 const {branch, merge} = create({
-    cli: false,
+    cli: true,
+    maybeSimple: true,
 });
 ```
 
