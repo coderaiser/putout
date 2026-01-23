@@ -175,6 +175,7 @@ test('putout: operate: findFileUp', (t) => {
         findFileUp,
         getFilename,
     } = operator;
+    
     const filesystem = parseFilesystem([
         '/',
         '/package.json',
