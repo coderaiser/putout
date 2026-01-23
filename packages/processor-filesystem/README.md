@@ -19,6 +19,18 @@ npm i @putout/processor-filesystem -D
 }
 ```
 
+## API
+
+### `create(options)`
+
+```
+import {create} from '@putout/process-filesystem/create'
+
+const {branch, merge} = create({
+    cli: false,
+});
+```
+
 ## License
 
 MIT
