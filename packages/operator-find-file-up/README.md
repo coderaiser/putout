@@ -17,7 +17,7 @@ npm i putout @putout/operator-find-file-up
 import {operator} from 'putout';
 
 const {findFileUp} = operator;
-const [directory, filePath] = findFileUp(filePath, 'package.json');
+const filePath = findFileUp(filePath, 'package.json');
 ```
 
 ## License

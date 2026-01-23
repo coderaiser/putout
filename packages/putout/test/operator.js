@@ -170,8 +170,11 @@ test('putout: operate: hasTagName: hasParens', (t) => {
 });
 
 test('putout: operate: findFileUp', (t) => {
-    const {findFile, findFileUp} = operator;
-    
+    const {
+        findFile,
+        findFileUp,
+        getFilename,
+    } = operator;
     const filesystem = parseFilesystem([
         '/',
         '/package.json',
@@ -180,8 +183,9 @@ test('putout: operate: findFileUp', (t) => {
     ]);
     
     const [jsFile] = findFile(filesystem, 'world.js');
-    const [dir] = findFileUp(jsFile, 'package.json');
+    const file = findFileUp(jsFile, 'package.json');
+    const name = getFilename(file);
     
-    t.equal(dir, '/');
+    t.equal(name, '/package.json');
     t.end();
 });

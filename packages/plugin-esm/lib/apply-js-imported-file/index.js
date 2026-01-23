@@ -104,7 +104,7 @@ const createGetPackageType = (importsCache = new Map()) => (file) => {
     if (importsCache.has(dir))
         return importsCache.get(dir);
     
-    const [, packagePath] = findFileUp(file, 'package.json');
+    const packagePath = findFileUp(file, 'package.json');
     
     if (!packagePath) {
         importsCache.set(dir, 'commonjs');

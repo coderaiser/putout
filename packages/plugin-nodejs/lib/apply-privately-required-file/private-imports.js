@@ -23,7 +23,7 @@ export const createGetPrivateImports = (importsCache = new Map(), emptyMap = new
     if (importsCache.has(dir))
         return importsCache.get(dir);
     
-    const [packageDirectory, packagePath] = findFileUp(file, 'package.json');
+    const packagePath = findFileUp(file, 'package.json');
     
     if (!packagePath) {
         importsCache.set(dir, emptyMap);
@@ -38,6 +38,8 @@ export const createGetPrivateImports = (importsCache = new Map(), emptyMap = new
         
         return emptyMap;
     }
+    
+    const packageDirectory = dirname(getFilename(packagePath));
     
     const {imports = {}} = packageJson;
     const importsEntries = new Map();
