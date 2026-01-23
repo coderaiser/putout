@@ -1,3 +1,14 @@
+2026.01.23, v41.12.0
+
+feature:
+- e38ad2918 putout: @putout/plugin-nodejs v20.0.0
+- 615579316 putout: @putout/plugin-esm v8.0.0
+- 593deed2b putout: @putout/operator-find-file-up v2.0.0
+- d66406fc6 @putout/operator-find-file-up: result: tuple -> single
+- 7a9875901 @putout/plugin-putout: declare: getFile: add
+- 10ae903eb @putout/operator-filesystem: getFile: add
+- b1c60cff5 @putout/operator-filesystem: createDirectory: exists
+
 2026.01.23, v41.11.0
 
 fix:
