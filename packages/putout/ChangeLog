@@ -1,3 +1,39 @@
+2026.01.23, v41.11.0
+
+fix:
+- 09cb6d6b2 @putout/plugin-nodejs: apply-privately-required-file: cache
+- b6a04a1e1 @putout/plugin-esm: apply-js-imported-file: invalid
+- 6a05f2444 @putout/esm: apply-namespace-import-to-file: invalid
+
+feature:
+- f3e9397a1 putout: private imports: #parse-options: add
+- 351e64b7c @putout/processor-filesystem: create: maybeSimple
+- 575e722a4 @putout/process-filesystem: create: add export
+- be8b1ab6f @putout/plugin-putout: add-push-arg: add
+- 1f51829df @putout/operator-filesystem: renameFile: check that name is passed
+- f61d60e80 @putout/plugin-package-json: apply-js-extension: add
+- 2486f62ba putout: @putout/plugin-spread v2.0.0
+- 9fe91ea43 @putout/plugin-spread: drop support of 🐊 < 41
+- 04ce7844b @putout/plugin-spread: remove-useless-object: property
+- ee88ce28e @putout/plugin-printer: apply-create-test-url: order
+- d0402331d @putout/plugin-printer: apply-create-test-url: add
+- 8be77114f @putout/plugin-nodejs: apply-privately-required-file: simplify
+- 14e88cab5 @putout/plugin-esm: apply-privately-imported-file: private-imports: simplify
+- 01b46d3a0 @putout/operator-match-files: printer options
+- f495dcba4 @putout/plugin-esm: apply-namespace-import-to-file: private imports
+- be4f5bf1c @putout/plugin-regexp: apply-starts-with: regexp: or: exclude
+- dd223f589 root: eslint-plugin-putout v30.0.0
+- 95d7d894a eslint-plugin-putout: rm no-unresolved: use RedLint instead (https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#resolve-imported-file)
+- 6452039cd @putout/plugin-esm: resolve-imported-file: slash: improve support
+- 2ae35fffd @putout/plugin-esm: resolve-imported-file: get-imports: dynamic: identifier
+- 327304e6e @putout/plugin-esm: shorten-imported-file: dynamic import: add support
+- 69deffd6c @putout/esm: shorten-imported-file: invalid
+- ab5302899 putout: @putout/plugin-math v5.0.0
+- d259b4343 @putout/plugin-math: drop support of 🐊 < 41
+- 0f6a0007b @putout/plugin-math: remove-unchanged-zero-declarations: destructuring
+- 4a365cb59 @putout/plugin-nodejs: apply-privately-required-file: add
+- 99b34d13c putout: @putout/eslint-flat v4.0.0
+
 2026.01.21, v41.10.2
 
 fix:
