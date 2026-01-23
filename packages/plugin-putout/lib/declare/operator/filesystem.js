@@ -1,4 +1,5 @@
 export default {
+    getFile: 'const {getFile} = operator',
     findFile: 'const {findFile} = operator',
     findFileUp: 'const {findFileUp} = operator',
     renameFile: 'const {renameFile} = operator',

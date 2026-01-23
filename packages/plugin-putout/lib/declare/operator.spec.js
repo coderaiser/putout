@@ -18,3 +18,14 @@ test('plugin-putout: declare: transform: operator: findFileUp', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: operator: getFile', (t) => {
+    t.transformCode(`getFile(root, 'package.json')`, montag`
+        import {operator} from 'putout';
+        
+        const {getFile} = operator;
+        getFile(root, 'package.json');
+    
+    `);
+    t.end();
+});
