@@ -51,3 +51,8 @@ test('esm: apply-privately-imported-file: transform: no-default', (t) => {
     t.transform('no-default');
     t.end();
 });
+
+test('esm: apply-privately-imported-file: transform: dynamic', (t) => {
+    t.transform('dynamic');
+    t.end();
+});
