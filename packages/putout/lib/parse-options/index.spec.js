@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {dirname} from 'node:path';
 import {test, stub} from 'supertape';
 import {tryCatch} from 'try-catch';
-import {parseOptions} from './index.js';
+import {parseOptions} from '#parse-options';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

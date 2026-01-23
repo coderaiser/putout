@@ -1,8 +1,8 @@
 import process from 'node:process';
 import {join, dirname} from 'node:path';
 import {createRequire} from 'node:module';
+import {parseOptions as _parseOptions} from '#parse-options';
 import buildPlugins from './build-plugins.js';
-import {parseOptions as _parseOptions} from '../parse-options/index.js';
 
 const require = createRequire(import.meta.url);
 const {assign} = Object;

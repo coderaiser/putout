@@ -29,6 +29,9 @@
     "./ignores": "./lib/ignores.js",
     "./simple-import": "./lib/cli/simple-import.js"
   },
+  "imports": {
+    "#parse-options": "./lib/parse-options/index.js"
+  },
   "bin": {
     "putout": "bin/tracer.js"
   },

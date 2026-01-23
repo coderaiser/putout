@@ -13,7 +13,7 @@ test('putout: exports: putout-options', async (t) => {
 
 test('putout: exports: putout/parse-options', async (t) => {
     const parseOptions = await import('putout/parse-options');
-    const internal = await import('../lib/parse-options/index.js');
+    const internal = await import('#parse-options');
     
     t.equal(parseOptions, internal);
     t.end();

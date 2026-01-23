@@ -13,7 +13,7 @@ import {test, stub} from 'supertape';
 import {tryCatch} from 'try-catch';
 import {tryToCatch} from 'try-to-catch';
 import formatterJSON from '@putout/formatter-json';
-import {parseOptions} from '../parse-options/index.js';
+import {parseOptions} from '#parse-options';
 import {simpleImport as _simpleImport} from './simple-import.js';
 import {red} from './chalk.js';
 import cli from './index.js';
