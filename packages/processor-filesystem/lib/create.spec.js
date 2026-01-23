@@ -1,6 +1,6 @@
 import test from 'supertape';
 import {__filesystem_name} from '@putout/operator-json';
-import {create} from './create.js';
+import {create} from '#create';
 
 const {stringify} = JSON;
 

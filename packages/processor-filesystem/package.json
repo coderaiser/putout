@@ -10,6 +10,9 @@
     ".": "./lib/filesystem.js",
     "./create": "./lib/create.js"
   },
+  "imports": {
+    "#create": "./lib/create.js"
+  },
   "release": false,
   "tag": false,
   "changelog": false,

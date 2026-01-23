@@ -1,4 +1,4 @@
-import {create} from './create.js';
+import {create} from '#create';
 
 export const files = [
     '.filesystem.json',
@@ -6,4 +6,5 @@ export const files = [
 
 export const {branch, merge} = create({
     cli: true,
+    maybeSimple: true,
 });
