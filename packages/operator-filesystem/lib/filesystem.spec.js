@@ -15,6 +15,7 @@ import {
 } from '@putout/test/filesystem';
 import * as maybeFS from './maybe-fs.js';
 import {
+    getFile,
     renameFile,
     removeFile,
     copyFile,
@@ -716,7 +717,7 @@ test('putout: operator: filesystem: createDirectory', (t) => {
 });
 
 test('putout: operator: filesystem: createDirectory: exists', (t) => {
-    const ast = parseFilesystem(['/', '/fixture']);
+    const ast = parseFilesystem(['/', '/fixture/', '/fixture/hello.txt']);
     
     const [dirPath] = findFile(ast, '/');
     createDirectory(dirPath, 'fixture');
@@ -727,7 +728,35 @@ test('putout: operator: filesystem: createDirectory: exists', (t) => {
         files: [{
             type: 'directory',
             filename: '/fixture',
-            files: [],
+            files: [{
+                type: 'file',
+                filename: '/fixture/hello.txt',
+            }],
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: createDirectory: exists file', (t) => {
+    const ast = parseFilesystem(['/', '/fixture']);
+    
+    const [dirPath] = findFile(ast, '/');
+    
+    const directoryFixture = createDirectory(dirPath, 'fixture');
+    createFile(directoryFixture, 'hello.txt');
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/fixture',
+            files: [{
+                type: 'file',
+                filename: '/fixture/hello.txt',
+            }],
         }],
     };
     
@@ -1501,5 +1530,30 @@ test('putout: operator: filesystem: getRootDirectory', (t) => {
     const expected = '/hello/world';
     
     t.equal(filename, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: getFile', (t) => {
+    const ast = parseFilesystem(['/', '/package.json']);
+    
+    const [root] = findFile(ast, '/');
+    const file = getFile(root, 'package.json');
+    const filename = getFilename(file);
+    
+    const expected = '/package.json';
+    
+    t.equal(filename, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: getFile: type', (t) => {
+    const ast = parseFilesystem(['/', '/package.json']);
+    
+    const [root] = findFile(ast, '/');
+    const file = getFile(root, 'package.json', {
+        type: 'directory',
+    });
+    
+    t.notOk(file);
     t.end();
 });

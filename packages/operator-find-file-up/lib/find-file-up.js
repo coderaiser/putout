@@ -1,8 +1,7 @@
 import {
-    getFileType,
-    readDirectory,
     getFilename,
     getParentDirectory,
+    getFile,
 } from '@putout/operator-filesystem';
 
 export const findFileUp = (file, name) => {
@@ -13,17 +12,12 @@ export const findFileUp = (file, name) => {
     
     const directoryName = getFilename(parentDirectory);
     
-    for (const currentFile of readDirectory(parentDirectory)) {
-        const type = getFileType(currentFile);
-        
-        if (type === 'directory')
-            continue;
-        
-        const currentName = getFilename(currentFile);
-        
-        if (currentName.endsWith(name))
-            return [directoryName, currentFile];
-    }
+    const currentFile = getFile(parentDirectory, name, {
+        type: 'file',
+    });
+    
+    if (currentFile)
+        return [directoryName, currentFile];
     
     return findFileUp(parentDirectory, name);
 };

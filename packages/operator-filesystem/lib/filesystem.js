@@ -301,7 +301,16 @@ export function readDirectory(dirPath) {
 }
 
 export function createDirectory(dirPath, name) {
-    maybeRemoveFile(dirPath, name);
+    const existed = getFile(dirPath, name);
+    
+    if (existed) {
+        const fileType = getFileType(existed);
+        
+        if (fileType === 'directory')
+            return existed;
+        
+        removeFile(existed);
+    }
     
     const dirPathFiles = getFiles(dirPath);
     const parentFilename = getFilename(dirPath);
@@ -422,6 +431,22 @@ export function getRootDirectory(path) {
     }
     
     return prevPath;
+}
+
+export function getFile(directoryPath, name, {type} = {}) {
+    for (const currentFile of readDirectory(directoryPath)) {
+        const currentName = getFilename(currentFile);
+        
+        if (!currentName.endsWith(name))
+            continue;
+        
+        if (type && type !== getFileType(currentFile))
+            continue;
+        
+        return currentFile;
+    }
+    
+    return null;
 }
 
 export const {
