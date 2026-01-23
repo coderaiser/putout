@@ -715,6 +715,26 @@ test('putout: operator: filesystem: createDirectory', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: createDirectory: exists', (t) => {
+    const ast = parseFilesystem(['/', '/fixture']);
+    
+    const [dirPath] = findFile(ast, '/');
+    createDirectory(dirPath, 'fixture');
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/fixture',
+            files: [],
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: createNestedDirectory: beyond root', (t) => {
     const ast = parseFilesystem({
         type: 'directory',

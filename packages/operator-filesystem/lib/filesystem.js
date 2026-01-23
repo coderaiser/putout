@@ -301,6 +301,8 @@ export function readDirectory(dirPath) {
 }
 
 export function createDirectory(dirPath, name) {
+    maybeRemoveFile(dirPath, name);
+    
     const dirPathFiles = getFiles(dirPath);
     const parentFilename = getFilename(dirPath);
     const filename = join(parentFilename, name);
