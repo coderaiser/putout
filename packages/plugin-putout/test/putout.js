@@ -369,3 +369,8 @@ test('plugin-putout: transform: add-push-arg', (t) => {
     t.transform('add-push-arg');
     t.end();
 });
+
+test('plugin-putout: transform: convert-get-file-content-to-read-file-content', (t) => {
+    t.transform('convert-get-file-content-to-read-file-content');
+    t.end();
+});

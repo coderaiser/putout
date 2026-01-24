@@ -1,3 +1,4 @@
+import * as convertGetFileContentToReadFileContent from './convert-get-file-content-to-read-file-content/index.js';
 import * as addPushArg from './add-push-arg/index.js';
 import * as convertReplaceToTraverse from './convert-replace-to-traverse/index.js';
 import * as applyEngineNodeVersion from './apply-engine-node-version/index.js';
@@ -150,4 +151,5 @@ export const rules = {
     'apply-engine-node-version': applyEngineNodeVersion,
     'convert-replace-to-traverse': convertReplaceToTraverse,
     'add-push-arg': addPushArg,
+    'convert-get-file-content-to-read-file-content': convertGetFileContentToReadFileContent,
 };

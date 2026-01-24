@@ -1,0 +1,1 @@
+readFileContent(file);

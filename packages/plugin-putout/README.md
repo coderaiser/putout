@@ -53,6 +53,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-dirname-to-url](#convert-dirname-to-url);
 - ✅ [convert-find-to-traverse](#convert-find-to-traverse);
 - ✅ [convert-get-rule-to-require](#convert-get-rule-to-require);
+- ✅ [convert-get-file-content-to-read-file-content](#convert-get-file-content-to-read-file-content);
 - ✅ [convert-match-to-function](#convert-match-to-function);
 - ✅ [convert-method-to-property](#convert-method-to-property);
 - ✅ [convert-node-to-path-in-get-template-values](#convert-node-to-path-in-get-template-values);
@@ -152,6 +153,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-url-to-dirname": "on",
         "putout/convert-report-to-function": "on",
         "putout/convert-get-rule-to-require": "on",
+        "putout/convert-get-file-content-to-read-file-content": "on",
         "putout/convert-progress-to-track-file": "on",
         "putout/convert-plugins-element-to-tuple": "on",
         "putout/convert-push-object-to-push-path": "on",
@@ -1722,6 +1724,24 @@ const removeUnusedVariables = require('./remove-unused-variables');
 module.exports.rules = {
     'remove-unused-variables': removeUnusedVariables,
 };
+```
+
+## convert-get-file-content-to-read-file-content
+
+To read file content use [`readFileContent`](https://github.com/coderaiser/putout/tree/master/packages/operator-filesystem#readfilecontentfilepath-filepath-string) and never confuse.
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/828da75f16a526652b138948d810ed9e/754bd02869a7e4e119e9fb442dab93df7785fb56).
+
+### ❌ Example of incorrect code
+
+```js
+const content = getFileContent(file);
+```
+
+### ✅ Example of correct code
+
+```js
+const content = readFileContent(file);
 ```
 
 ## move-require-on-top-level
