@@ -135,7 +135,7 @@ const {findFile} = operator;
 const coupleFiles = findFile(ast, ['/home/coderaiser', '/home/coderaiser/putout']);
 ```
 
-### `getFile(directoryPath: DirectoryPath, name: string, options?: Options): FilePath`
+### `getFile(directoryPath: DirectoryPath, name: string, options?: Options): FilePath | null`
 
 ```ts
 type Options = {
