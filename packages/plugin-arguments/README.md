@@ -15,6 +15,7 @@ npm i @putout/plugin-arguments
 
 - ✅ [apply-json-parse](#apply-json-parse);
 - ✅ [apply-rest](#apply-rest);
+- ✅ [remove-duplicate](#remove-duplicate);
 - ✅ [remove-useless](#remove-useless);
 - ✅ [remove-useless-from-method](#remove-useless-from-method);
 - ✅ [destructuring](#destructring);
@@ -27,6 +28,7 @@ npm i @putout/plugin-arguments
     "rules": {
         "arguments/apply-json-parse": "on",
         "arguments/apply-rest": "on",
+        "arguments/remove-duplicate": "on",
         "arguments/remove-useless": "on",
         "arguments/remove-useless-from-method": "on",
         "arguments/destructuring": "on",
@@ -82,6 +84,27 @@ function hello(...args) {
     console.log(args);
 }
 ```
+
+## remove-duplicate
+
+> The JavaScript exception `duplicate formal argument x` or `duplicate argument names not allowed in this context` occurs when a function creates two or more parameter bindings with the same name, and the function is not a non-strict function with only simple parameters.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Duplicate_parameter)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7f6d549de44d73601ad8cbffc09269fc/586dcb0463439365875098c04ac4e11553911478).
+
+```diff
+-const sum = (a, a) => {}
++const sum = (a) => {}
+```
+
+## Comparison
+
+Linter          | Rule  | Fix
+----------------|-------|------------|
+🐊 **Putout**   | [`arguments/remove-duplicate`](https://github.com/coderaiser/putout/tree/master/packages/plugin-arguments#remove-duplicate) | ✅
+⏣ **ESLint**    | [`no-dupe-args`](https://eslint.org/docs/rules/no-dupe-args) | ❌
+🦕 **Deno**     | [`no-dupe-args`](https://docs.deno.com/lint/rules/no-dupe-args/) | ❌
 
 ## remove-useless
 

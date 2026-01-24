@@ -46,3 +46,8 @@ test('plugin-remove-useless-arguments: transform: apply-rest', (t) => {
     t.transform('apply-rest');
     t.end();
 });
+
+test('plugin-arguments: transform: remove-duplicate', (t) => {
+    t.transform('remove-duplicate');
+    t.end();
+});

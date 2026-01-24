@@ -382,3 +382,12 @@ export const {
 ```
 
 </details>
+
+<details><summary>remove duplicate to <code>parameter</code></summary>
+
+```diff
+-const s = (a, a) => {};
++const s = (a) => {};
+```
+
+</details>
