@@ -7,6 +7,6 @@ __putout_processor_filesystem([
     "/lib/tokenize/expressions/",
     [
     "/lib/tokenize/expressions/spread-element.js",
-    "Y29uc3Qge2lzUHJldn07CmF3YWl0IGltcG9ydCgnI2lzJyk7Cg=="
+    "Y29uc3Qge2lzUHJldn0gPSBhd2FpdCBpbXBvcnQoJyNpcycpOwo="
     ]
 ]);

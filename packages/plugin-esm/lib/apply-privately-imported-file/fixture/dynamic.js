@@ -19,6 +19,6 @@ __putout_processor_filesystem([
     `],
     '/lib/tokenize/expressions/',
     ['/lib/tokenize/expressions/spread-element.js', `
-        const {isPrev} await import('../is.js');
+        const {isPrev} = await import('../is.js');
     `],
 ]);
