@@ -175,7 +175,9 @@ Disabled 🐊**Putout** rules:
 - ❌ [`nodejs/remove-process-exit`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-nodejs#remove-process-exit#readme);
 - ❌ [`typescript/remove-unused-types`](https://github.com/coderaiser/putout/tree/v24.0.2/packages/plugin-typescript#remove-unused-types#readme);
 - ❌ [`remove-unused-expressions`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-unused-expressions#readme);
-- ❌ [`variables`](https://github.com/coderaiser/putout/tree/v41.0.0/packages/plugin-variables#readme);
+- ❌ [`variables/remove-unused`](https://github.com/coderaiser/putout/tree/v41.0.0/packages/plugin-variables#remove-unused);
+- ❌ [`variables/remove-useless`](https://github.com/coderaiser/putout/tree/v41.0.0/packages/plugin-variables#remove-useless);
+- ❌ [`variables/remove-unreferenced`](https://github.com/coderaiser/putout/tree/v41.0.0/packages/plugin-variables#remove-unreferenced);
 - ❌ [`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#readme);
 - ❌ [`return/remove-useless`](https://github.com/coderaiser/putout/tree/v38.0.0/packages/plugin-return#remove-useless);
 - ❌ [`remove-useless-spread`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-useless-spread/#readme);

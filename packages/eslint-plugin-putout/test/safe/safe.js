@@ -33,3 +33,7 @@ test('eslint-plugin-putout: safe: remove-useless-push: off', async ({noProcess})
 test('eslint-plugin-putout: safe: convert-template-to-string: off', async ({noProcess}) => {
     await noProcess('convert-template-to-string', SAFE);
 });
+
+test('eslint-plugin-putout: safe: convert-const-to-let: off', async ({process}) => {
+    await process('convert-const-to-let', SAFE);
+});
