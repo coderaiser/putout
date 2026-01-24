@@ -29,3 +29,14 @@ test('plugin-putout: declare: transform: operator: getFile', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: operator: getFileContent', (t) => {
+    t.transformCode(`getFileContent(filePath)`, montag`
+        import {operator} from 'putout';
+        
+        const {getFileContent} = operator;
+        getFileContent(filePath);
+    
+    `);
+    t.end();
+});

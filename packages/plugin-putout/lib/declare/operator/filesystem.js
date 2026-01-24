@@ -11,6 +11,7 @@ export default {
     createNestedDirectory: 'const {createNestedDirectory} = operator',
     getFilename: 'const {getFilename} = operator',
     getFileType: 'const {getFileType} = operator',
+    getFileContent: 'const {getFileContent} = operator',
     getParentDirectory: 'const {getParentDirectory} = operator',
     getRootDirectory: 'const {getRootDirectory} = operator',
     readFileContent: 'const {readFileContent} = operator',
