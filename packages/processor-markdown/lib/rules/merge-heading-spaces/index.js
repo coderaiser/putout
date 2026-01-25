@@ -1,6 +1,7 @@
-const report = () => 'Merge heading spaces';
+export const name = 'merge-heading-spaces';
+export const report = () => 'Merge heading spaces';
 
-const fix = (heading) => {
+export const fix = (heading) => {
     const newChildren = [];
     
     for (const [i, node] of heading.children.entries()) {
@@ -15,7 +16,7 @@ const fix = (heading) => {
     heading.children = newChildren;
 };
 
-const traverse = (tree, {push}) => {
+export const traverse = (tree, {push}) => {
     const [heading] = tree.children;
     
     if (heading.type !== 'heading')
@@ -39,11 +40,4 @@ const bothSpaces = (node, nextNode) => {
         return false;
     
     return nextNode.type === 'text' && nextNode.value === ' ';
-};
-
-export default {
-    name: 'merge-heading-spaces',
-    fix,
-    traverse,
-    report,
 };

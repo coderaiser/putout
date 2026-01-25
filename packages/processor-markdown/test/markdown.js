@@ -1,5 +1,6 @@
 import {createTest} from '@putout/test/processor';
 import montag from 'montag';
+import madcut from 'madcut/plugin';
 import {find, branch} from '../lib/markdown.js';
 
 const test = createTest(import.meta.url, {
@@ -100,7 +101,7 @@ test('putout: processor: markdown: fix: options', async (t) => {
     `;
     
     const result = await fix(source, {
-        plugins: [(await import('madcut/plugin')).default],
+        plugins: [madcut],
     });
     
     const expected = montag`
@@ -123,7 +124,7 @@ test('putout: processor: markdown: find: options', async (t) => {
     `;
     
     const result = await find(source, {
-        plugins: [(await import('madcut/plugin')).default],
+        plugins: [madcut],
     });
     
     const expected = [{

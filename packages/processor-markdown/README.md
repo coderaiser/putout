@@ -25,8 +25,8 @@ npm i @putout/processor-markdown -D
 
 ## Rules
 
-- [Remove dependencies status badges](https://github.com/coderaiser/putout/tree/master/packages/processor-markdown/lib/rules/remove-dependencies-status-badge.md)
-- [Split npm link](https://github.com/coderaiser/putout/tree/master/packages/processor-markdown/lib/rules/split-npm-link/readme.md);
+- [Remove dependencies status badges](https://github.com/coderaiser/putout/tree/master/packages/processor-markdown/lib/rules/remove-dependencies-status-badge/README.md)
+- [Split npm link](https://github.com/coderaiser/putout/tree/master/packages/processor-markdown/lib/rules/split-npm-link/README.md);
 
 ## License
 

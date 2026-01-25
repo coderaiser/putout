@@ -1,5 +1,5 @@
 import {test} from 'supertape';
-import removeTrailing from './remove-trailing-whitespaces-from-heading.js';
+import * as removeTrailing from './index.js';
 
 test('processor-markdown: remove-trailing: report', (t) => {
     const result = removeTrailing.report();

@@ -1,6 +1,7 @@
-const report = () => 'Avoid trailing whitespaces';
+export const name = 'remove-trailing-whitespaces-from-heading';
+export const report = () => 'Avoid trailing whitespaces';
 
-const fix = (heading, tree) => {
+export const fix = (heading, tree) => {
     const latest = heading.children.at(-1);
     
     if (latest.type === 'text' && latest.value === ' ')
@@ -12,7 +13,7 @@ const fix = (heading, tree) => {
     tree.children[0].children = heading.children;
 };
 
-const traverse = (tree, {push}) => {
+export const traverse = (tree, {push}) => {
     const [heading] = tree.children;
     
     if (heading.type !== 'heading')
@@ -22,11 +23,4 @@ const traverse = (tree, {push}) => {
     
     if (latest.type === 'text' && latest.value.endsWith(' '))
         push(heading);
-};
-
-export default {
-    name: 'remove-trailing-whitespaces-from-heading',
-    fix,
-    traverse,
-    report,
 };

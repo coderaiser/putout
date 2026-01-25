@@ -1,5 +1,5 @@
 import {test} from 'supertape';
-import mergeHeadingSpaces from './merge-heading-spaces.js';
+import * as mergeHeadingSpaces from './index.js';
 
 test('processor-markdown: merge-heading-spaces: report', (t) => {
     const result = mergeHeadingSpaces.report();
