@@ -117,8 +117,6 @@ test('putout: processor: markdown: fix: options', async (t) => {
 });
 
 test('putout: processor: markdown: find: options', async (t) => {
-    const {find} = await import('../lib/markdown.js');
-    
     const source = montag`
         # Hello
         ## World
@@ -158,4 +156,19 @@ test('putout: processor: markdown: compare places: empty', async ({comparePlaces
 
 test('putout: processor: markdown: compare places: frontmatter', async ({noProcess}) => {
     await noProcess('frontmatter');
+});
+
+test('putout: processor: markdown: process: split-npm-link', async ({process}) => {
+    await process('split-npm-link');
+});
+
+test('putout: processor: markdown: process: split-npm-link: compare places', async ({comparePlaces}) => {
+    await comparePlaces('split-npm-link', [{
+        message: 'Split npm link',
+        position: {
+            column: 1,
+            line: 4,
+        },
+        rule: 'split-npm-link (remark-lint)',
+    }]);
 });

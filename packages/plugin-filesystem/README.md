@@ -1,7 +1,7 @@
 # @putout/plugin-filesystem [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-filesystem.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-filesystem"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-filesystem "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to lint filesystem.
 

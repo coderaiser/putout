@@ -1,7 +1,7 @@
 # @putout/plugin-destructuring [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-destructuring.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-destructuring"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-destructuring "npm"
 
 > The **destructuring** assignment syntax is a **JavaScript** expression that makes it possible to unpack values from `arrays`, or `properties` from `objects`, into distinct `variables`.
 >

@@ -1,7 +1,7 @@
 # @putout/plugin-remove-empty [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-empty.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-empty"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-empty "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove:
 

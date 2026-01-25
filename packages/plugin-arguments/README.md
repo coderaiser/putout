@@ -1,7 +1,7 @@
 # @putout/plugin-arguments [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-arguments.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-arguments"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-arguments "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove useless `arguments`.
 

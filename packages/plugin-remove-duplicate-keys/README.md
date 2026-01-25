@@ -1,7 +1,7 @@
 # @putout/plugin-remove-duplicate-keys [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-keys.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-duplicate-keys"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-duplicate-keys "npm"
 
 > An object initializer is a comma-delimited list of zero or more pairs of property names and associated values of an object, enclosed in curly braces (`{}`).
 >

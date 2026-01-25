@@ -1,7 +1,7 @@
 # @putout/plugin-remove-unreachable-code [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-unreachable-code.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-unreachable-code"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-unreachable-code "npm"
 
 > The **JavaScript** warning "unreachable code after return statement" occurs when using an expression after a return statement, or when using a semicolon-less return statement but including an expression directly after.
 >

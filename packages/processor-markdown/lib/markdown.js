@@ -5,17 +5,9 @@ import remarkFrontmatter from 'remark-frontmatter';
 import {visit} from 'unist-util-visit';
 import {unified} from 'unified';
 import remarkParse from 'remark-parse';
-import removeDependenciesStatusBadge from './rules/remove-dependencies-status-badge.js';
-import removeTrailingWhitespacesFromHeading from './rules/remove-trailing-whitespaces-from-heading.js';
-import mergeHeadingSpceces from './rules/merge-heading-spaces.js';
 import {run} from './rules/index.js';
 import {toPlace} from './parse-place.js';
-
-const plugins = [
-    removeDependenciesStatusBadge,
-    removeTrailingWhitespacesFromHeading,
-    mergeHeadingSpceces,
-];
+import {plugins} from './plugins.js';
 
 const text = ({value}) => value;
 

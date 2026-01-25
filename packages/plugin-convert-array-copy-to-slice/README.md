@@ -1,7 +1,7 @@
 # @putout/plugin-convert-array-copy-to-slice [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-array-copy-to-slice.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-array-copy-to-slice"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-array-copy-to-slice "npm"
 
 > [**Spread**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) syntax (`...`) allows an array expression to be expanded in places where elements are expected.
 >

@@ -1,7 +1,7 @@
 # @putout/plugin-extract-sequence-expressions [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-extract-sequence-expressions.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-extract-sequence-expressions"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-extract-sequence-expressions "npm"
 
 > The comma operator (`,`) evaluates each of its operands (from left to right) and returns the value of the last operand. This lets you create a compound expression in which multiple expressions are evaluated, with the compound expression's final value being the value of the rightmost of its member expressions.
 >

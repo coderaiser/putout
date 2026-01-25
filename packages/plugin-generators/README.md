@@ -1,7 +1,7 @@
 # @putout/plugin-generators [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-generators.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-generators"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-generators "npm"
 
 > The `function*` declaration creates a binding of a new generator function to a given name. A generator function can be exited and later re-entered, with its context (variable bindings) saved across re-entrances.
 >

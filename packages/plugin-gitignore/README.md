@@ -1,7 +1,7 @@
 # @putout/plugin-gitignore [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-gitignore.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-gitignore"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-gitignore "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with 🐊[**Putout**](https://github.com/coderaiser/putout) plugins development.
 

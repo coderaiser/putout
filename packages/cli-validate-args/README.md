@@ -1,7 +1,7 @@
 # @putout/cli-validate-args [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-validate-args.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/cli-validate-args"npm"
+[NPMURL]: https://npmjs.org/package/@putout/cli-validate-args "npm"
 
 Validate args and propose the closes variaint found by [fastest-levenshtein](https://www.npmjs.com/package/fastest-levenshtein):
 

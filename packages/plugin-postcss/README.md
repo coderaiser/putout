@@ -1,7 +1,7 @@
 # @putout/plugin-postcss [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-postcss.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-postcss"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-postcss "npm"
 
 `postcss` plugin helps to migrate to latest `postcss` version according to [migration guide](https://evilmartians.com/chronicles/postcss-8-plugin-migration).
 

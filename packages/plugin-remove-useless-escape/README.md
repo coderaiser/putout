@@ -1,7 +1,7 @@
 # @putout/plugin-remove-useless-escape [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-escape.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-escape"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-escape "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove useless escape.
 

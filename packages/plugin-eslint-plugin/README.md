@@ -1,7 +1,7 @@
 # @putout/plugin-eslint-plugin [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-eslint-plugin.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-eslint-plugin"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-eslint-plugin "npm"
 
 > Find and fix problems in your JavaScript code
 >

@@ -1,7 +1,7 @@
 # @putout/plugin-remove-useless-map [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-map.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-map"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-map "npm"
 
 > The `map()` method creates a new array populated with the results of calling a provided function on every element in the calling array.
 >

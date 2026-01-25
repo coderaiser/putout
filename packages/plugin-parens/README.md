@@ -1,7 +1,7 @@
 # @putout/plugin-parens [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-parens.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-parens"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-parens "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to add missing parens. Check out in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/a8ab0ffefed3b1e7dd0f43d794ea86f4/5d45fcc2e283b5b2d0b9e155010d1114b9f0a7ee).
 

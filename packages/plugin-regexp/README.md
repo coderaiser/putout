@@ -1,7 +1,7 @@
 # @putout/plugin-regexp [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-regexp.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-regexp"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-regexp "npm"
 
 > Regular expressions are patterns used to match character combinations in strings.
 >

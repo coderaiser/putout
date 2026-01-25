@@ -1,7 +1,7 @@
 # @putout/plugin-convert-to-arrow-function [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-to-arrow-function.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-to-arrow-function"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-to-arrow-function "npm"
 
 > An **arrow function** expression is a compact alternative to **anonymous function**.
 >
