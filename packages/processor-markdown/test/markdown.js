@@ -159,17 +159,31 @@ test('putout: processor: markdown: compare places: frontmatter', async ({noProce
     await noProcess('frontmatter');
 });
 
-test('putout: processor: markdown: process: split-npm-link', async ({process}) => {
-    await process('split-npm-link');
+test('putout: processor: markdown: process: split-link-with-title', async ({process}) => {
+    await process('split-link-with-title');
 });
 
-test('putout: processor: markdown: process: split-npm-link: compare places', async ({comparePlaces}) => {
-    await comparePlaces('split-npm-link', [{
-        message: 'Split npm link',
+test('putout: processor: markdown: process: split-link-with-title: compare places', async ({comparePlaces}) => {
+    await comparePlaces('split-link-with-title', [{
+        message: 'Split link with title',
         position: {
             column: 1,
             line: 4,
         },
-        rule: 'split-npm-link (remark-lint)',
+        rule: 'split-link-with-title (remark-lint)',
+    }, {
+        message: 'Split link with title',
+        position: {
+            column: 1,
+            line: 5,
+        },
+        rule: 'split-link-with-title (remark-lint)',
+    }, {
+        message: 'Split link with title',
+        position: {
+            column: 1,
+            line: 7,
+        },
+        rule: 'split-link-with-title (remark-lint)',
     }]);
 });
