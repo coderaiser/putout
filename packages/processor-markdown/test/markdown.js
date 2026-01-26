@@ -1,6 +1,6 @@
 import {createTest} from '@putout/test/processor';
 import montag from 'montag';
-import madcut from 'madcut/plugin';
+import * as madcut from 'madcut/plugin';
 import {find, branch} from '../lib/markdown.js';
 
 const test = createTest(import.meta.url, {
