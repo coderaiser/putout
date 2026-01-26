@@ -22,7 +22,7 @@ export const traverse = (tree, {push}) => {
                 push,
             });
         
-        if (!/link|definition/.test(type))
+        if (!/^(link|definition)$/.test(type))
             continue;
         
         if (title || !url.includes('"'))
