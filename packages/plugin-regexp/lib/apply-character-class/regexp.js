@@ -5,7 +5,7 @@ import {
     characterClass,
 } from '../types.js';
 
-export const report = ({from, to}) => `Use character class instead of single character alternation: '${from}' -> '${to}'`;
+export const report = () => `Use character class instead of single character alternation`;
 
 export const fix = ({path, left, right}) => {
     if (isCharacterClass(left)) {

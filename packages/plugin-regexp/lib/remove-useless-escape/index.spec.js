@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('regexp: remove-useless-escape: report', (t) => {
-    t.report('remove-useless-escape', `Remove useless escape: /[,;\\(\\)]/g -> /[,;()]/g`);
+    t.report('remove-useless-escape', `Avoid useless escape: '/[,;\\(\\)]/g' -> '/[,;()]/g'`);
     t.end();
 });
 
