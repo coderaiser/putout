@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('esm: shorten-imported-file: report', (t) => {
-    t.report('shorten-imported-file', `Shorten import source: '../processors/parse-processor-names.js' -> './parse-processor-names.js'`);
+    t.report('shorten-imported-file', `Shorten import source: '../processors/parse-processor-names.js' -> './parse-processor-names.js' in '/processors/load-processors-async.js'`);
     t.end();
 });
 

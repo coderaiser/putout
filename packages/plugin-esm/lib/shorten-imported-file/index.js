@@ -21,7 +21,10 @@ const {
 
 const getMessage = (a) => a.message;
 
-export const report = (file, {from, to}) => `Shorten import source: '${from}' -> '${to}'`;
+export const report = (file, {from, to}) => {
+    const name = getFilename(file);
+    return `Shorten import source: '${from}' -> '${to}' in '${name}'`;
+};
 export const fix = (file, {content, ast, from, to}) => {
     transform(ast, content, {
         rules: {
