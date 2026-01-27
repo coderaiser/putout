@@ -140,7 +140,7 @@ function magicParse(name, content) {
         return [js, ast];
     }
     
-    if (/\.(c|m)?ts(x)?$/.test(name)) {
+    if (/\.[cm]?ts(x)?$/.test(name)) {
         const ast = parse(content, {
             isTS: true,
         });

@@ -16,6 +16,7 @@ export const fix = ({path, to}) => {
 export const traverse = ({push}) => ({
     RegExpLiteral(path) {
         const from = path.node.extra.raw;
+        
         const [to, places] = transformRegExp(from, regexp);
         
         if (!places.length)

@@ -18,7 +18,7 @@ export const traverse = ({push}) => ({
             operator,
         } = path.node;
         
-        if (!/<|>|===?|!===?/.test(operator))
+        if (!/[<>]|===?|!===?/.test(operator))
             return;
         
         if (/<<|>>/.test(operator))

@@ -17,7 +17,17 @@ test('regexp: apply-character-class: transform', (t) => {
     t.end();
 });
 
-test('regexp: apply-character-class: no report: not-escaped', (t) => {
-    t.noReport('not-escaped');
+test('regexp: apply-character-class: transform: capturing-group', (t) => {
+    t.transform('capturing-group');
+    t.end();
+});
+
+test('regexp: apply-character-class: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
+
+test('regexp: apply-character-class: report: not-escaped', (t) => {
+    t.report('not-escaped', `Use character class instead of single character alternation: '/\\.(c|m)?ts(x)?$/' -> '/\\.[cm]?ts(x)?$/'`);
     t.end();
 });

@@ -15,10 +15,20 @@ export const fix = ({path, left, right}) => {
     
     left.escaped = false;
     right.escaped = false;
+    
+    if (path.parentPath.node.type === 'Group') {
+        path.parentPath.replace({
+            type: 'CharacterClass',
+            expressions: [left, right],
+        });
+        return;
+    }
+    
     path.replace({
         type: 'CharacterClass',
         expressions: [left, right],
     });
+    return;
 };
 
 export const traverse = ({push}) => ({
@@ -36,9 +46,6 @@ export const traverse = ({push}) => ({
             });
         
         if (left.type !== 'Char' || left.value.length !== 1)
-            return;
-        
-        if (!left.escaped)
             return;
         
         push({
