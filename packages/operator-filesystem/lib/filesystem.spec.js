@@ -1129,7 +1129,7 @@ test('putout: operator: filesystem: readFileContent: no content: should create: 
         files: [{
             type: 'file',
             filename: '/hello/world/README.md',
-            content: 'JXVEODNEJXVEQzM4',
+            content: 'K0YwKzlGKzkwK0I4',
         }],
     };
     
@@ -1336,6 +1336,30 @@ test('putout: operator: filesystem: writeFileContent: emoji: content', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: readFileContent twice: escape', (t) => {
+    const content = `return url.replace(/#/g, '%23');`;
+    const ast = parseFilesystem({
+        type: 'directory',
+        filename: '/hello',
+        files: [{
+            type: 'file',
+            filename: '/hello/world.js',
+        }],
+    });
+    
+    init({
+        readFileContent: stub().returns(content),
+    });
+    const [filePath] = findFile(ast, 'world.js');
+    
+    readFileContent(filePath);
+    
+    const result = readFileContent(filePath);
+    
+    t.equal(result, content);
+    t.end();
+});
+
 test('putout: operator: filesystem: writeFileContent: emoji: getFileContent', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
@@ -1351,7 +1375,7 @@ test('putout: operator: filesystem: writeFileContent: emoji: getFileContent', (t
     
     writeFileContent(filePath, 'hello 💾\n');
     const content = getFileContent(filePath);
-    const expected = [true, 'aGVsbG8lMjAldUQ4M0QldURDQkUlMEE='];
+    const expected = [true, btoa('hello+20+F0+9F+92+BE+0A')];
     
     t.deepEqual(content, expected);
     t.end();

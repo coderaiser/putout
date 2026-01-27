@@ -56,3 +56,8 @@ test('esm: apply-privately-imported-file: transform: dynamic', (t) => {
     t.transform('dynamic');
     t.end();
 });
+
+test('esm: apply-privately-imported-file: transform: encoded', (t) => {
+    t.transform('encoded');
+    t.end();
+});

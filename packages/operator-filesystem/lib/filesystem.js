@@ -27,6 +27,9 @@ const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
 
+const escape = (a) => encodeURIComponent(a).replaceAll('%', '+');
+const unescape = (a) => decodeURIComponent(a.replaceAll('+', '%'));
+
 const toBase64 = (content) => {
     const [e, result] = tryCatch(btoa, content);
     
@@ -42,8 +45,12 @@ const fromBase64 = (content) => {
     
     const [e, decoded] = tryCatch(atob, content);
     
-    if (!e)
-        return unescape(decoded);
+    if (!e) {
+        if (!decoded.includes(' ') && decoded.includes('+'))
+            return unescape(decoded);
+        
+        return decoded;
+    }
     
     return content;
 };
