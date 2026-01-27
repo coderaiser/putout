@@ -1,6 +1,9 @@
 import object from './object.json' with {
     type: 'json',
 };
+import string from './string.json' with {
+    type: 'json',
+};
 import wrap from './wrap.js';
 import freshImport from './fresh-import.js';
 import fixtures from './fixtures.json' with {
@@ -9,6 +12,7 @@ import fixtures from './fixtures.json' with {
 
 export const declare = () => ({
     ...object,
+    ...string,
     ...wrap,
     ...freshImport,
     ...fixtures,

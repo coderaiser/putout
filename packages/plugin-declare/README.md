@@ -218,6 +218,24 @@ const {fromEntries} = Object;
 fromEntries(['hello', 'world']);
 ```
 
+## `fromCharCode`
+
+### ❌ Example of incorrect code
+
+```js
+const encoded = new TextEncoder().encode(str);
+fromCharCode(...encoded);
+```
+
+### ✅ Example of correct code
+
+```js
+const {fromCharCode} = String;
+const encoded = new TextEncoder().encode(str);
+
+fromCharCode(...encoded);
+```
+
 ## License
 
 MIT

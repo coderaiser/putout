@@ -1,0 +1,2 @@
+const {fromCharCode} = String;
+fromCharCode();
