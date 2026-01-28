@@ -2,7 +2,7 @@ import {tryToCatch} from 'try-to-catch';
 import enquirer from 'enquirer';
 import actions from 'enquirer/lib/combos.js';
 import {vim} from './vim.js';
-import './keypress.js';
+import {initKeypressListen} from './keypress.js';
 
 const {Select: CustomSelect} = enquirer;
 
@@ -12,6 +12,8 @@ actions.keys = {
 };
 
 export const choose = async (message, choices, overrides = {}) => {
+    initKeypressListen();
+    
     const {
         autofocus,
         Select = CustomSelect,

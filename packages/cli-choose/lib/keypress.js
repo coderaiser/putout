@@ -3,7 +3,11 @@ import readline from 'node:readline';
 import Queue from 'enquirer/lib/queue.js';
 import keypress from 'enquirer/lib/keypress.js';
 
-keypress.listen = (options = {}, onKeypress) => {
+export const initKeypressListen = () => {
+    keypress.listen = listen;
+};
+
+function listen(options = {}, onKeypress) {
     const {stdin} = options;
     
     if (!stdin || stdin !== process.stdin && !stdin.isTTY)
@@ -35,4 +39,4 @@ keypress.listen = (options = {}, onKeypress) => {
     };
     
     return off;
-};
+}
