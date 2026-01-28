@@ -3,6 +3,9 @@
     "formatter": ["time", {
         "color": "red"
     }],
+    "rules": {
+        "putout": "on"
+    },
     "match": {
         "example.js": {
             "remove-unused-expressions": "off"
