@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertIndexOfToIncludes from '../lib/convert-index-of-to-includes.js';
 
-const {createTest} = require('@putout/test');
-const convertIndexOfToIncludes = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     'convert-index-of-to-includes': convertIndexOfToIncludes,
 });
 

@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Use 'includes()' instead of 'indexOf()'`;
 
-module.exports.report = () => `Use 'includes()' instead of 'indexOf()'`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '~__a.indexOf(__b)': '__a.includes(__b)',
     '__a.indexOf(__b) === -1': '!__a.includes(__b)',
     '__a.indexOf(__b) !== -1': '__a.includes(__b)',
