@@ -1,16 +1,15 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     isBinaryExpression,
     isTemplateLiteral,
 } = types;
 
-module.exports.report = () => `Use template literals ('\`\`') instead of binary expressions ('+')`;
+export const report = () => `Use template literals ('\`\`') instead of binary expressions ('+')`;
 
-module.exports.filter = ({parentPath}) => !isBinaryExpression(parentPath) && !isTemplateLiteral(parentPath.parentPath);
+export const filter = ({parentPath}) => !isBinaryExpression(parentPath) && !isTemplateLiteral(parentPath.parentPath);
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '"__a" + __identifier__b + "__c"': replaceNewlines('`__a${__identifier__b}__c`', ['__a', '__c']),
     '"__a" + __b(__args) + "__c"': replaceNewlines('`__a${__b(__args)}__c`', ['__a', '__c']),
     '__identifier__a + "__b" + __identifier__c + __identifier__d': replaceNewlines('`${__identifier__a}__b${__identifier__c}${__identifier__d}`', ['__b']),

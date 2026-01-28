@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as plugin from '../lib/apply-template-literals.js';
 
-const {createTest} = require('@putout/test');
-const plugin = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['apply-template-literals', plugin],
     ],

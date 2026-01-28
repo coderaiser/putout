@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-apply-template-literals",
   "version": "4.2.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to apply template literals",
   "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-apply-template-literals#readme",
@@ -42,11 +42,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=38"
+    "putout": ">=41"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"
