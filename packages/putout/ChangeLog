@@ -1,3 +1,30 @@
+2026.01.28, v41.13.0
+
+fix:
+- fedbaee2f @putout/engine-loader: load-plugins-async: ERROR_INTERNAL_ASSERTION
+- 49042fdcc @putout/processor-markdown: split-link-with-title: exclude linkReference
+- 7234242c4 @putout/processor-markdown: split-npm-link -> split-link-with-title
+
+feature:
+- c2a0661a9 @putout/plugin-putout-config: apply-arguments: convert-expression-to-params: add
+- a110b091d @putout/plugin-arguments: merge convert-expression-to-params
+- 942862e2c @putout/plugin-convert-throw: migrate to ESM
+- 1deccef7e @putout/plugin-jest: migrate to ESM
+- 8e8daf86c putout: @putout/plugin-apply-at v3.0.0
+- 76400a4d0 @putout/plugin-apply-at: migrate to ESM
+- 654c493a5 @putout/operator-filesystem: content: base64: for emoji: escape -> encodeURIComponent (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent)
+- 5e5b62f31 @putout/plugin-declare: string: fromCharCode
+- b5ba5f26e @putout/plugin-shorten-imported-file: report: file name
+- fdd4e3235 @putout/plugin-regexp: create-regexp
+- b3eb78a99 @putout/plugin-regexp: apply-character-class: apply types
+- c6fc7622c @putout/plugin-apply-character-class: couple
+- 92bfcff39 @putout/processor-markdown: madcut v3.0.0
+- 3231d25d3 @putout/processor-markdown: split-npm-link: add
+- 56c283125 eslint-plugin-putout: safe: variables -> variables/remove-{unused,useless,unreferenced}: off
+- b2544be83 @putout/plugin-putout: convert-get-file-conteont-to-read-file-content: add
+- 35bb84750 @putout/plugin-putout: declare: getFileContent: add
+- 48109161f @putout/plugin-arguments: remove-duplicate: add
+
 2026.01.23, v41.12.0
 
 feature:
