@@ -1,5 +1,8 @@
-import {toJS, fromJS} from '@putout/operator-json';
-import {isJSON} from './is-json.js';
+import {
+    toJS,
+    fromJS,
+    isJSON,
+} from '@putout/operator-json';
 
 export const files = ['*.json'];
 
