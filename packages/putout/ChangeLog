@@ -1,3 +1,10 @@
+2026.01.28, v41.13.3
+
+feature:
+- f16ba9d54 putout: @putout/plugin-remove-debugger v8.0.0
+- 1e9888388 @putout/plugin-remove-debugger: drop support of 🐊 < 41
+- 64f7e77d8 @putout/plugin-remove-debugger: migrate to ESM
+
 2026.01.28, v41.13.2
 
 feature:
