@@ -34,9 +34,15 @@ export const loadPluginsAsync = async (options) => {
 
 const splitRule = (rule) => [rule, 'putout'];
 
+// The reason we don't use 'Promise.all' here:
+//
+// Error [ERR_INTERNAL_ASSERTION]: @putout/plugin-apply-at: Unexpected module status 0. Cannot require() ES Module /Users/coderaiser/putout/packages/engine-parser/lib/parser.js because it is not yet fully loaded.
+// This may be caused by a race condition if the module is simultaneously dynamically import()-ed via Promise.all().
+// Try await-ing the import() sequentially in a loop instead.
+//  (From /Users/coderaiser/putout/packages/putout/lib/index.cjs in non-loader-hook thread)
 async function loadPlugins({items, loadedRules}) {
-    const promises = [];
     const enabledRules = [];
+    const resolvedPlugins = [];
     
     for (const [rule, itemPlugin] of items) {
         if (!isEnabled(rule, loadedRules))
@@ -45,13 +51,12 @@ async function loadPlugins({items, loadedRules}) {
         checkRule(rule);
         
         const [name] = splitRule(rule);
-        const plugin = itemPlugin || loadPluginAsync(name);
+        const plugin = itemPlugin || await loadPluginAsync(name);
         
         enabledRules.push(parseRuleName(rule));
-        promises.push(plugin);
+        resolvedPlugins.push(plugin);
     }
     
-    const resolvedPlugins = await Promise.all(promises);
     const plugins = [];
     
     for (const [i, rule] of enabledRules.entries()) {
