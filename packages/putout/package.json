@@ -94,7 +94,7 @@
     "@putout/plugin-apply-global-this": "^1.0.0",
     "@putout/plugin-apply-overrides": "^3.0.0",
     "@putout/plugin-apply-shorthand-properties": "^7.0.0",
-    "@putout/plugin-apply-starts-with": "^1.0.0",
+    "@putout/plugin-apply-starts-with": "^2.0.0",
     "@putout/plugin-apply-template-literals": "^4.0.0",
     "@putout/plugin-arguments": "^1.0.0",
     "@putout/plugin-assignment": "^2.0.0",
