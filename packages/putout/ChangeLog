@@ -1,3 +1,15 @@
+2026.01.28, v41.13.2
+
+feature:
+- 521adad13 putout: @putout/cli-choose-formatter v6.0.0
+- 36713081a @putout/cli-choose-formatter: drop support of 🐊 < 41
+- 03eb85511 @putout/cli-choose-formatter: @putout/cli-choose v4.0.0
+- 52e6a4845 @putout/cli-choose: drop support of node < 22
+- 03e884d58 @putout/cli-choose: drop support of node < 22
+- 347e03733 @putout/processor-json: reuse isJSON from @putout/operator-json
+- e61b1c26a @putout/processor-toml: improve formatting
+- c575a6889 @putout/operator-json: isJSONGroup: add
+
 2026.01.28, v41.13.1
 
 feature:
