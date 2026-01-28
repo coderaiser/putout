@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertConcatToFlat from '../lib/convert-concat-to-flat.js';
 
-const {createTest} = require('@putout/test');
-const convertConcatToFlat = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-concat-to-flat', convertConcatToFlat],
     ],
