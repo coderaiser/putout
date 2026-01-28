@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => `Unexpected 'debugger' statement`;
 
-module.exports.report = () => `Unexpected 'debugger' statement`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     debugger: '',
 });
