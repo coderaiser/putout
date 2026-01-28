@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => '"flat" should be used instead of "concat"';
 
-module.exports.report = () => '"flat" should be used instead of "concat"';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '[].concat.apply([], __a)': '__a.flat()',
     '[].concat(...__a)': '__a.flat()',
 });
