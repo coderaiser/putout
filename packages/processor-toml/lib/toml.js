@@ -1,13 +1,13 @@
 import {tryCatch} from 'try-catch';
+import {format} from 'oxfmt';
 import * as toml from 'smol-toml';
 import {
     __toml,
-    __toml_name,
     toJS,
     fromJS,
+    isTOML,
 } from '@putout/operator-json';
 
-const isToml = (a) => !a.indexOf(__toml_name);
 const {stringify, parse} = JSON;
 
 export const files = ['*.toml'];
@@ -39,12 +39,15 @@ export const find = (rawSource) => {
     return places;
 };
 
-export const merge = (rawSource, list) => {
-    const [first] = list.filter(isToml);
+export const merge = async (rawSource, list) => {
+    const [first] = list.filter(isTOML);
     const source = fromJS(first, __toml);
     const ast = parse(source);
+    const input = toml.stringify(ast);
     
-    return toml.stringify(ast);
+    const {code} = await format('__putout_processor.toml', input);
+    
+    return code;
 };
 
 function parseMessage(message) {

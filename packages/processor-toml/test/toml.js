@@ -1,6 +1,6 @@
 import {createTest} from '@putout/test/processor';
 import montag from 'montag';
-import {merge} from '../lib/toml.js';
+import {branch, merge} from '../lib/toml.js';
 
 const test = createTest(import.meta.url, {
     processors: ['toml'],
@@ -25,7 +25,7 @@ test('putout: processor: toml: duplicate', async ({comparePlaces}) => {
     }]);
 });
 
-test('putout: processor: toml: merge: a couple items in list: not last', (t) => {
+test('putout: processor: toml: merge: a couple items in list: not last', async (t) => {
     const rawSource = montag`
         __putout_processor_toml({
             "hello": {
@@ -47,11 +47,27 @@ test('putout: processor: toml: merge: a couple items in list: not last', (t) => 
         filesystem,
     ];
     
-    const result = merge(rawSource, list);
+    const result = await merge(rawSource, list);
     
     const expected = montag`
         [hello]
         world = "hello"
+    ` + '\n';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: processor: toml: merge: no change', async (t) => {
+    const rawSource = `
+        extend-exclude = ["ChangeLog"]
+    `;
+    
+    const [{source}] = branch(rawSource);
+    const result = await merge(rawSource, [source]);
+    
+    const expected = montag`
+        extend-exclude = ["ChangeLog"]
     ` + '\n';
     
     t.equal(result, expected);
