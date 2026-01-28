@@ -102,7 +102,7 @@
     "@putout/plugin-conditions": "^8.0.0",
     "@putout/plugin-convert-concat-to-flat": "^2.0.0",
     "@putout/plugin-convert-index-of-to-includes": "^2.0.0",
-    "@putout/plugin-convert-object-entries-to-array-entries": "^3.0.0",
+    "@putout/plugin-convert-object-entries-to-array-entries": "^4.0.0",
     "@putout/plugin-convert-object-entries-to-object-keys": "^1.0.0",
     "@putout/plugin-convert-object-keys-to-object-entries": "^1.0.0",
     "@putout/plugin-convert-quotes-to-backticks": "^5.0.0",
