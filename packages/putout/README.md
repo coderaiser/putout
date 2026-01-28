@@ -285,7 +285,7 @@ All examples works both in **ESM** and **CommonJS**.
 **CommonJS**:
 
 ```js
-const putout = require('putout');
+const {putout} = require('putout');
 ```
 
 **ESM**:

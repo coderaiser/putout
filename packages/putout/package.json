@@ -7,18 +7,12 @@
   "homepage": "http://github.com/coderaiser/putout#readme",
   "main": "./lib/putout.js",
   "exports": {
-    ".": {
-      "require": "./lib/index.cjs",
-      "import": "./lib/index.js"
-    },
+    ".": "./lib/index.js",
     "./parse-error": "./lib/parse-error.js",
     "./parse-options": "./lib/parse-options/index.js",
     "./parse-match": "./lib/parse-options/parse-match.js",
     "./merge-options": "./lib/parse-options/merge-options.js",
-    "./exit-codes": {
-      "import": "./lib/cli/exit-codes.js",
-      "require": "./lib/cli/exit-codes.cjs"
-    },
+    "./exit-codes": "./lib/cli/exit-codes.js",
     "./cli/get-options": "./lib/cli/get-options.js",
     "./package.json": "./package.json",
     "./putout.json": "./putout.json",
