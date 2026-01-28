@@ -1,23 +1,21 @@
-'use strict';
+export const report = () => 'Use arrow function';
 
-module.exports.report = () => 'Use arrow function';
-
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const fnPath = getFnPath(path);
     fnPath.node.type = 'ArrowFunctionExpression';
 };
 
-module.exports.include = () => [
+export const include = () => [
     '__ = function __(__args){}',
     'return function (__args){}',
     '__(function __(__args){})',
 ];
 
-module.exports.exclude = () => [
+export const exclude = () => [
     '__.prototype.__ = function __(__args){}',
 ];
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const fnPath = getFnPath(path);
     const {id} = fnPath.node;
     

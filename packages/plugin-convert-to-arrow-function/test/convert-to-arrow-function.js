@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convertToArrowFunction from '../lib/convert-to-arrow-function.js';
 
-const {createTest} = require('@putout/test');
-const convertToArrowFunction = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['convert-to-arrow-function', convertToArrowFunction],
     ],
