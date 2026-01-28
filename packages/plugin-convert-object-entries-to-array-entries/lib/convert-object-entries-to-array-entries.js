@@ -1,10 +1,8 @@
-'use strict';
-
 const maybeCompareString = (path) => path.node.operator.includes('==');
 
-module.exports.report = () => `Use 'array.entries()' instead of 'Object.entries()'`;
+export const report = () => `Use 'array.entries()' instead of 'Object.entries()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'for (const [__i, __a] of entries(__b))__c': ({__i}, path) => {
         const {name} = __i;
         
@@ -25,6 +23,6 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'for (const [__i, __a] of entries(__b))__c': 'for (const [__i, __a] of __b.entries()) __c',
 });
