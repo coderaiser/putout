@@ -138,7 +138,7 @@
     "@putout/plugin-putout-config": "^11.0.0",
     "@putout/plugin-regexp": "^13.0.0",
     "@putout/plugin-remove-console": "^6.0.0",
-    "@putout/plugin-remove-debugger": "^7.0.0",
+    "@putout/plugin-remove-debugger": "^8.0.0",
     "@putout/plugin-remove-duplicate-case": "^3.0.0",
     "@putout/plugin-remove-duplicate-keys": "^8.0.0",
     "@putout/plugin-remove-empty": "^15.0.0",
