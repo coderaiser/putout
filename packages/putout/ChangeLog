@@ -1,3 +1,13 @@
+2026.01.28, v41.13.5
+
+feature:
+- e107c68a2 putout: @putout/plugin-convert-concat-to-flat v2.0.0
+- 703ccb0da @putout/plugin-convert-concat-to-flat: migrate to ESM
+- 2d8b1343a putout: @putout/plugin-apply-template-literals v5.0.0
+- eb0666a27 @putout/plugin-apply-template-literals: migrate to ESM
+- ccdcb29df putout: @putout/plugin-apply-starts-with v2.0.0
+- f96ac7e92 @putout/plugin-apply-starts-with: migrate to ESM
+
 2026.01.28, v41.13.4
 
 feature:
