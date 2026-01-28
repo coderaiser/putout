@@ -87,6 +87,14 @@ isJSON(`hello({"hello": "world"});`);
 false;
 ```
 
+### `isJSONJGrop(source: string)`
+
+```js
+isJSONGroup(`__putout_processor_toml({"hello": "world"});`);
+// returns
+true;
+```
+
 ### `toJS(source: string, name?: string)`;
 
 ```js

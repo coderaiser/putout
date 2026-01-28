@@ -25,6 +25,7 @@ export const __ignore = `${__ignore_name}(__array)`;
 
 const TYPES = [
     __json_name,
+    __toml_name,
     __yaml_name,
     __filesystem_name,
     __ignore_name,
@@ -51,7 +52,9 @@ export const fromJS = (source, name = __json) => {
     return maybeNewline(removeBlankLines(sliced));
 };
 
-export const isJSON = (source) => {
+export const isJSON = (source) => !source.indexOf(__json_name);
+export const isTOML = (source) => !source.indexOf(__toml_name);
+export const isJSONGroup = (source) => {
     for (const type of TYPES) {
         if (!source.indexOf(type))
             return true;
