@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compare, remove} = operator;
 
-module.exports.report = () => `Avoid duplicate 'case'`;
+export const report = () => `Avoid duplicate 'case'`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     SwitchStatement: (path) => {
         const cases = path.get('cases');
         
