@@ -1,6 +1,5 @@
-'use strict';
+import {operator, types} from 'putout';
 
-const {operator, types} = require('putout');
 const {
     isStringLiteral,
     isObjectPattern,
@@ -9,13 +8,13 @@ const {
 
 const {compare} = operator;
 
-module.exports.report = () => `Use '.startsWith()' instead of '.indexOf()'`;
+export const report = () => `Use '.startsWith()' instead of '.indexOf()'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     '!__a.indexOf(__b)': checkIndex,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '!__a.indexOf(__b)': '__a.startsWith(__b)',
 });
 
