@@ -1,3 +1,9 @@
+2026.01.28, v41.13.4
+
+feature:
+- 8ddfc14f5 putout: @putout/plugin-remove-duplicate-case v4.0.0
+- 53f7fae6c @putout/plugin-remove-duplicate-case: migrate to ESM
+
 2026.01.28, v41.13.3
 
 feature:
