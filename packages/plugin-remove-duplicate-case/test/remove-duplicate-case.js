@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeDebugger from '../lib/remove-duplicate-case.js';
 
-const {createTest} = require('@putout/test');
-const removeDebugger = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-duplicate-case', removeDebugger],
     ],
