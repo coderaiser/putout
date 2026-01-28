@@ -56,4 +56,3 @@ test('plugin-arguments: transform: convert-expression-to-arguments', (t) => {
     t.transform('convert-expression-to-arguments');
     t.end();
 });
-
