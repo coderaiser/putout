@@ -51,3 +51,9 @@ test('plugin-arguments: transform: remove-duplicate', (t) => {
     t.transform('remove-duplicate');
     t.end();
 });
+
+test('plugin-arguments: transform: convert-expression-to-arguments', (t) => {
+    t.transform('convert-expression-to-arguments');
+    t.end();
+});
+

@@ -245,7 +245,6 @@
         "return",
         "spread",
         "simplify-ternary",
-        "convert-expression-to-params",
         "convert-concat-to-flat",
         "convert-object-entries-to-object-keys",
         "convert-object-keys-to-object-entries",

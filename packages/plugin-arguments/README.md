@@ -15,10 +15,10 @@ npm i @putout/plugin-arguments
 
 - ✅ [apply-json-parse](#apply-json-parse);
 - ✅ [apply-rest](#apply-rest);
+- ✅ [convert-expressiont-to-arguments](#convert-expression-to-arguments);
 - ✅ [remove-duplicate](#remove-duplicate);
 - ✅ [remove-useless](#remove-useless);
 - ✅ [remove-useless-from-method](#remove-useless-from-method);
-- ✅ [destructuring](#destructring);
 - ✅ [remove-unused](#remove-unused);
 
 ## Config
@@ -28,10 +28,10 @@ npm i @putout/plugin-arguments
     "rules": {
         "arguments/apply-json-parse": "on",
         "arguments/apply-rest": "on",
+        "arguments/convert-expressiont-to-arguments": "on",
         "arguments/remove-duplicate": "on",
         "arguments/remove-useless": "on",
         "arguments/remove-useless-from-method": "on",
-        "arguments/destructuring": "on",
         "arguments/remove-unused": "on"
     }
 }
@@ -83,6 +83,31 @@ function hello() {
 function hello(...args) {
     console.log(args);
 }
+```
+
+## convert-expression-to-arguments
+
+> `Uncaught SyntaxError: Malformed arrow function parameter list` occurs when your function declaration is missing valid parameters.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Missing_formal_parameter)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to fix `SyntaxError: missing formal parameter` .
+Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/e1818c2385974e136ae77eb28b3d2221/66dcb650e02aaafffa7fe00914f80366c4bfd7d3).
+
+## ❌ Example of incorrect code
+
+```
+(a(hello, world)) => (b + a);
+(a + b) => (b + a);
+(a || b) => (b + a);
+```
+
+## ✅ Example of correct code
+
+```js
+(a, hello, world) => a;
+(a, b) => b + a;
+(a, b) => b + a;
 ```
 
 ## remove-duplicate

@@ -1,10 +1,8 @@
-'use strict';
+export const report = () => `Use arguments instead of expression`;
 
-module.exports.report = () => `Use 'params' instead of 'expression'`;
+export const include = () => ['Function'];
 
-module.exports.include = () => ['Function'];
-
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const params = [];
     
     path.get('params.0').traverse({
@@ -15,7 +13,7 @@ module.exports.fix = (path) => {
     
     path.node.params = params;
 };
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const params = path.get('params');
     
     if (!params.length)
