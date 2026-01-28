@@ -1,3 +1,29 @@
+2026.01.28, v41.13.6
+
+feature:
+- c2842f09a putout: @putout/plugin-remove-console v7.0.0
+- 899e69e94 @putout/plugin-remove-console: migrate to ESM
+- 0bb2262ca putout: @putout/plugin-convert-index-of-to-includes v3.0.0
+- 2905f0cd7 @putout/plugin-convert-index-of-to-includes: migrate to ESM
+- 839271f90 @putout/plugin-convert-to-arrow-function: drop support of 🐊 < 41
+- dbbbdb059 putout: @putout/plugin-convert-object-entries-to-array-entries v4.0.0
+- 14dd5bf8d @putout/plugin-convert-object-entries-to-array-entries
+- a1a267298 putout: @putout/plugin-convert-to-arrow-function v5.0.0
+- 682ddcfc0 @putout/plugin-convert-to-arrow-function: migrate to ESM
+- 5f15454b1 putout: @putout/plugin-labels v3.0.0
+- a60831976 @putout/plugin-labels: drop support of 🐊 < 41
+- 23acb1578 putout: @putout/plugin-convert-concat-to-flat v2.0.0
+- 24e3239d8 @putout/plugin-convert-concat-to-flat: migrate to ESM
+- fac950193 putout: @putout/plugin-apply-template-literals v5.0.0
+- 0c55ddb88 @putout/plugin-apply-template-literals: migrate to ESM
+- aa9d004b4 putout: @putout/plugin-apply-starts-with v2.0.0
+- c4925f9c5 @putout/plugin-apply-starts-with: migrate to ESM
+- 21dd69289 putout: @putout/plugin-remove-duplicate-case v4.0.0
+- 9984118d3 @putout/plugin-remove-duplicate-case: migrate to ESM
+- fe2a49e67 putout: @putout/plugin-remove-debugger v8.0.0
+- 87f2f5b49 @putout/plugin-remove-debugger: drop support of 🐊 < 41
+- da1407e09 @putout/plugin-remove-debugger: migrate to ESM
+
 2026.01.28, v41.13.5
 
 feature:
