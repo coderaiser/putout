@@ -1,3 +1,8 @@
+2026.01.28, v41.13.1
+
+feature:
+- c3b31383d putout: get rid of cjs exports
+
 2026.01.28, v41.13.0
 
 fix:
