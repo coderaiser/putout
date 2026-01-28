@@ -94,7 +94,7 @@
     "@putout/operator-regexp": "^4.0.0",
     "@putout/operator-rename-files": "^6.0.0",
     "@putout/plugin-apply-arrow": "^3.0.0",
-    "@putout/plugin-apply-at": "^2.0.0",
+    "@putout/plugin-apply-at": "^3.0.0",
     "@putout/plugin-apply-dot-notation": "^3.0.0",
     "@putout/plugin-apply-flat-map": "^3.0.0",
     "@putout/plugin-apply-global-this": "^1.0.0",
