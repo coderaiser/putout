@@ -1,7 +1,5 @@
-'use strict';
+export const report = () => '"throw" should be used without body';
 
-module.exports.report = () => '"throw" should be used without body';
-
-module.exports.replace = () => ({
+export const replace = () => ({
     '(__args) => {throw __a}': '(__args) => throw __a',
 });
