@@ -1,22 +1,22 @@
-'use strict';
+import {operator} from 'putout';
 
-const {compare} = require('putout').operator;
+const {compare} = operator;
 
-module.exports.report = () => `Use 'Array.at()'`;
+export const report = () => `Use 'Array.at()'`;
 
-module.exports.filter = (path) => {
+export const filter = (path) => {
     const {parentPath} = path;
     
     if (parentPath.isAssignmentExpression())
         return false;
     
     if (compare(path, '__a[length - __b]'))
-        return compare(path.parentPath.parentPath.getPrevSibling(), 'const {length} = __a');
+        return compare(parentPath.parentPath.getPrevSibling(), 'const {length} = __a');
     
     return true;
 };
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a[__a.length - __b]': '__a.at(-__b)',
     '__a[length - __b]': '__a.at(-__b)',
 });
