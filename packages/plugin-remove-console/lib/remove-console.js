@@ -1,17 +1,16 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => `Avoid 'console' call`;
+export const report = () => `Avoid 'console' call`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.filter = ({scope}) => !scope.hasBinding('console');
+export const filter = ({scope}) => !scope.hasBinding('console');
 
-module.exports.include = () => [
+export const include = () => [
     `console.__a(__args)`,
     `console[__a](__args)`,
 ];

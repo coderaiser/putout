@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeConsole from '../lib/remove-console.js';
 
-const {createTest} = require('@putout/test');
-const removeConsole = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     plugins: [
         ['remove-console', removeConsole],
     ],
