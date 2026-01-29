@@ -37,7 +37,7 @@ export const traverse = ({push}) => ({
 });
 ```
 
-### `__yaml`
+### `__toml`
 
 ```js
 import {operator} from 'putout';
@@ -87,7 +87,7 @@ isJSON(`hello({"hello": "world"});`);
 false;
 ```
 
-### `isJSONJGrop(source: string)`
+### `isJSONJGroup(source: string)`
 
 ```js
 isJSONGroup(`__putout_processor_toml({"hello": "world"});`);
