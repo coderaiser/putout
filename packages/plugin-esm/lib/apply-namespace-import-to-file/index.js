@@ -69,6 +69,7 @@ export const scan = (rootPath, {push, trackFile}) => {
         
         for (const [name, source, importedFilename] of importsTuples) {
             const is = hasImportDefault({
+                name,
                 rootPath,
                 importedFilename,
                 privateImports,
@@ -113,7 +114,7 @@ function parseImportedFilename({importedFilename, privateImports}) {
     return importedFilename;
 }
 
-function hasImportDefault({rootPath, importedFilename, privateImports}) {
+function hasImportDefault({name, rootPath, importedFilename, privateImports}) {
     const parsedName = parseImportedFilename({
         importedFilename,
         privateImports,
@@ -139,6 +140,13 @@ function hasImportDefault({rootPath, importedFilename, privateImports}) {
     
     if (defaultExport.length)
         return true;
+    
+    for (const {message} of esm) {
+        const [, exportName] = message.split(':');
+        
+        if (name === exportName)
+            return true;
+    }
     
     return !esm.length;
 }

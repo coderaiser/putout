@@ -36,3 +36,8 @@ test('esm: apply-namespace-import-to-file: no report: invalid', (t) => {
     t.noReport('invalid');
     t.end();
 });
+
+test('esm: apply-namespace-import-to-file: no report: same-name', (t) => {
+    t.noReport('same-name');
+    t.end();
+});
