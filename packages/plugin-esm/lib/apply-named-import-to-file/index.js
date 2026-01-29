@@ -10,7 +10,7 @@ import {createGetPrivateImports} from '#private-imports';
 import * as isESMPlugin from '#is-esm';
 import * as hasExportDefaultPlugin from '#has-export-default';
 import * as getImportsPlugin from '#get-default-imports';
-import * as applyNamespaceImportPlugin from './apply-namespace-import/index.js';
+import * as applyNamedImportPlugin from './apply-named-import/index.js';
 
 const {
     findFile,
@@ -25,19 +25,19 @@ const hasExportDefault = (a) => a.rule === 'has-export-default';
 
 export const report = (file, {name, source}) => {
     const filename = getFilename(file);
-    return `Use 'import * as ${name} from '${source}' in '${filename}'`;
+    return `Use 'import {${name}} from '${source}' in '${filename}'`;
 };
 
 export const fix = (file, {name, source, content, ast}) => {
     transform(ast, content, {
         rules: {
-            'apply-namespace-import': ['on', {
+            'apply-named-import': ['on', {
                 name,
                 source,
             }],
         },
         plugins: [
-            ['apply-namespace-import', applyNamespaceImportPlugin],
+            ['apply-named-import', applyNamedImportPlugin],
         ],
     });
     
@@ -68,14 +68,14 @@ export const scan = (rootPath, {push, trackFile}) => {
         });
         
         for (const [name, source, importedFilename] of importsTuples) {
-            const is = hasImportDefault({
+            const is = hasNamedImport({
                 name,
                 rootPath,
                 importedFilename,
                 privateImports,
             });
             
-            if (is)
+            if (!is)
                 continue;
             
             push(file, {
@@ -114,7 +114,7 @@ function parseImportedFilename({importedFilename, privateImports}) {
     return importedFilename;
 }
 
-function hasImportDefault({name, rootPath, importedFilename, privateImports}) {
+function hasNamedImport({name, rootPath, importedFilename, privateImports}) {
     const parsedName = parseImportedFilename({
         importedFilename,
         privateImports,
@@ -123,7 +123,7 @@ function hasImportDefault({name, rootPath, importedFilename, privateImports}) {
     const [importedFile] = findFile(rootPath, parsedName);
     
     if (!importedFile)
-        return true;
+        return false;
     
     const importedContent = readFileContent(importedFile);
     
@@ -136,10 +136,14 @@ function hasImportDefault({name, rootPath, importedFilename, privateImports}) {
     });
     
     const esm = places.filter(isESM);
+    
+    if (!esm.length)
+        return false;
+    
     const defaultExport = places.filter(hasExportDefault);
     
     if (defaultExport.length)
-        return true;
+        return false;
     
     for (const {message} of esm) {
         const [, exportName] = message.split(':');
@@ -148,7 +152,7 @@ function hasImportDefault({name, rootPath, importedFilename, privateImports}) {
             return true;
     }
     
-    return !esm.length;
+    return false;
 }
 
 function parseFull(dir, source) {

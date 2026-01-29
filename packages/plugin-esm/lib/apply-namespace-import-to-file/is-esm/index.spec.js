@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import * as plugin from './index.js';
+import * as plugin from '#is-esm';
 
 const test = createTest(import.meta.url, {
     plugins: [
