@@ -118,7 +118,7 @@ const {findFile} = operator;
 const coupleFiles = findFile(ast, ['/home/coderaiser', '/home/coderaiser/putout']);
 ```
 
-### `getFile(directoryPath: DirectoryPath, name: string, options?: Options): FilePath | null`
+### `getFile(directoryPath: DirectoryPath, name: string | string[], options?: Options): FilePath[]`
 
 ```ts
 type Options = {
@@ -132,7 +132,16 @@ Get file named `name` from `directoryPath`
 const {operator} = require('putout');
 const {getFile} = operator;
 
-const filePath = getFile(root, 'package.json');
+const [filePath] = getFile(root, 'package.json');
+```
+
+When you need a couple files use:
+
+```js
+import {operator} from 'putout';
+
+const {getFile} = operator;
+const [index, indexSpec] = getFile(root, ['index.js', 'index.spec.js']);
 ```
 
 ### `getParentDirectory(path: FilePath | DirectoryPath): FilePath | null`
@@ -154,7 +163,7 @@ dirPath === getParentDirectory(newDirectoryPath);
 true;
 ```
 
-### `getRootDirectory(path: FilePath | DirectoryPath): DrectoryPath`
+### `getRootDirectory(path: FilePath | DirectoryPath | File): DrectoryPath`
 
 ```js
 const {operator} = require('putout');

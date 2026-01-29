@@ -9,7 +9,7 @@ export const findFileUp = (file, name) => {
     if (!parentDirectory)
         return null;
     
-    const currentFile = getFile(parentDirectory, name, {
+    const [currentFile] = getFile(parentDirectory, name, {
         type: 'file',
     });
     

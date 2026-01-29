@@ -11,6 +11,7 @@ import {
     traverseProperties,
 } from '@putout/operate';
 import * as maybeFS from './maybe-fs.js';
+import {getRootFromAst} from './get-root-from-ast.js';
 import {
     createTypeProperty,
     createFilesProperty,
@@ -308,7 +309,7 @@ export function readDirectory(dirPath) {
 }
 
 export function createDirectory(dirPath, name) {
-    const existed = getFile(dirPath, name);
+    const [existed] = getFile(dirPath, name);
     
     if (existed) {
         const fileType = getFileType(existed);
@@ -426,6 +427,9 @@ export const createNestedDirectory = (path, name) => {
 };
 
 export function getRootDirectory(path) {
+    if (path.program)
+        return getRootFromAst(path);
+    
     let currentDirPath = getParentDirectory(path);
     
     if (!currentDirPath)
@@ -441,19 +445,25 @@ export function getRootDirectory(path) {
 }
 
 export function getFile(directoryPath, name, {type} = {}) {
+    const names = maybeArray(name);
+    const files = [];
+    
     for (const currentFile of readDirectory(directoryPath)) {
         const currentName = getFilename(currentFile);
         
-        if (!currentName.endsWith(name))
+        if (!names.includes(basename(currentName)))
             continue;
         
         if (type && type !== getFileType(currentFile))
             continue;
         
-        return currentFile;
+        files.push(currentFile);
+        
+        if (names.length === files.length)
+            break;
     }
     
-    return null;
+    return files;
 }
 
 export const {

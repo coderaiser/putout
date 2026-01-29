@@ -1559,9 +1559,8 @@ test('putout: operator: filesystem: getRootDirectory', (t) => {
 
 test('putout: operator: filesystem: getFile', (t) => {
     const ast = parseFilesystem(['/', '/package.json']);
-    
-    const [root] = findFile(ast, '/');
-    const file = getFile(root, 'package.json');
+    const root = getRootDirectory(ast);
+    const [file] = getFile(root, 'package.json');
     const filename = getFilename(file);
     
     const expected = '/package.json';
@@ -1574,7 +1573,7 @@ test('putout: operator: filesystem: getFile: type', (t) => {
     const ast = parseFilesystem(['/', '/package.json']);
     
     const [root] = findFile(ast, '/');
-    const file = getFile(root, 'package.json', {
+    const [file] = getFile(root, 'package.json', {
         type: 'directory',
     });
     

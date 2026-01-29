@@ -26,6 +26,8 @@
   "dependencies": {
     "@putout/babel": "^5.0.0",
     "@putout/operate": "^15.0.0",
+    "@putout/operator-json": "^3.2.0",
+    "@putout/traverse": "^16.0.0",
     "fullstore": "^4.0.0",
     "try-catch": "^4.0.0"
   },
@@ -38,7 +40,6 @@
   "devDependencies": {
     "@putout/engine-parser": "^15.0.1",
     "@putout/eslint-flat": "^4.0.0",
-    "@putout/operator-json": "^3.0.0",
     "@putout/test": "^15.0.0",
     "c8": "^10.0.0",
     "eslint": "^10.0.0-alpha.0",
