@@ -95,6 +95,11 @@ test('plugin-remove-useless-escape: transform: dollar', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: no-report: template-dollar', (t) => {
+    t.noReport('template-dollar');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: transform: dot', (t) => {
     t.transform('dot');
     t.end();

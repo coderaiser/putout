@@ -29,6 +29,9 @@ export const traverse = ({push}) => ({
         for (const tmpl of path.node.quasis) {
             const {raw} = tmpl.value;
             
+            if (raw.includes('$'))
+                return;
+            
             if (isEscaped(raw))
                 return push(path);
             
