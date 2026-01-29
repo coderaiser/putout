@@ -1461,7 +1461,7 @@ test('putout: operator: filesystem: writeFileContent: field exists: base64', (t)
     t.end();
 });
 
-test('putout: operator: filesystem: getFile: couple', (t) => {
+test('putout: operator: filesystem: findFile: couple', (t) => {
     const ast = parseFilesystem({
         type: 'directory',
         filename: '/hello/world',
@@ -1564,6 +1564,19 @@ test('putout: operator: filesystem: getFile', (t) => {
     const filename = getFilename(file);
     
     const expected = '/package.json';
+    
+    t.equal(filename, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: getFile: couple', (t) => {
+    const ast = parseFilesystem(['/', '/index.spec.js', '/index.js']);
+    const root = getRootDirectory(ast);
+    
+    const [file] = getFile(root, ['index.js', 'index.spec.js']);
+    const filename = getFilename(file);
+    
+    const expected = '/index.js';
     
     t.equal(filename, expected);
     t.end();

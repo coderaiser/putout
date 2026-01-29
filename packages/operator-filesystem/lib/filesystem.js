@@ -446,24 +446,31 @@ export function getRootDirectory(path) {
 
 export function getFile(directoryPath, name, {type} = {}) {
     const names = maybeArray(name);
-    const files = [];
+    const files = new Map();
+    let count = 0;
+    
+    for (const name of names)
+        files.set(name, null);
     
     for (const currentFile of readDirectory(directoryPath)) {
         const currentName = getFilename(currentFile);
+        const base = basename(currentName);
         
-        if (!names.includes(basename(currentName)))
+        if (!names.includes(base))
             continue;
         
         if (type && type !== getFileType(currentFile))
             continue;
         
-        files.push(currentFile);
+        files.set(base, currentFile);
         
-        if (names.length === files.length)
+        ++count;
+        
+        if (names.length === count)
             break;
     }
     
-    return files;
+    return files.values();
 }
 
 export const {
