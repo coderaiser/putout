@@ -1,3 +1,14 @@
+2026.01.30, v41.14.0
+
+feature:
+- 9aa94b88b putout: filesystem: esm/apply-named-import-to-file: add
+- e1419ca90 @putout/plugin-esm: apply-named-import-to-file: add
+- 3e9eb21b0 @putout/plugin-putout: apply-destructuring: add
+- 1a8cdad57 @putout/plugin-esm: apply-namespace-import-to-file: exclude same name
+- d8642d51a @putout/operator-filesystem: getFile: keep order
+- a1d77c40c @putout/plugin-remove-useless-escape: template literal: $: exclude
+- 94ca9bd60 getFile: couple
+
 2026.01.28, v41.13.6
 
 feature:
