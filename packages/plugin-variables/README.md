@@ -102,7 +102,7 @@ const {
     a,
     b,
     operator,
-} = putout;
+} = require('putout');
 
 const {replaceWith} = operator;
 ```

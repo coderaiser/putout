@@ -25,6 +25,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-create-test](#apply-create-test);
 - ✅ [apply-create-nested-directory](#apply-create-nested-directory);
 - ✅ [apply-declare](#apply-declare);
+- ✅ [apply-destructuring](#apply-destructuring);
 - ✅ [apply-engine-node-version](#apply-engine-node-version);
 - ✅ [apply-exports](#apply-exports);
 - ✅ [apply-exports-to-add-args](#apply-exports-to-add-args);
@@ -107,6 +108,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-create-nested-directory": "on",
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
+        "putout/apply-destructuring": "on",
         "putout/apply-engine-node-version": "off",
         "putout/apply-exports": "off",
         "putout/apply-exports-to-add-args": "on",
@@ -498,6 +500,22 @@ module.exports.declare = () => ({
     tryCatch: `import tryCatch from 'try-catch'`,
     tryToCatch: `import tryToCatch from 'try-to-catch'`,
 });
+```
+
+## apply-destructuring
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/16fb7b414f23b9ed81bef4f5275d921e/e12e3a7c57868e623b2c11d19de1adbf1f5e3569).
+
+### ❌ Example of incorrect code
+
+```js
+const putout = require('putout');
+```
+
+### ✅ Example of correct code
+
+```js
+const {putout} = require('putout');
 ```
 
 ## apply-engine-node-version

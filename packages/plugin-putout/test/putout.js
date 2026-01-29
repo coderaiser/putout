@@ -374,3 +374,8 @@ test('plugin-putout: transform: convert-get-file-content-to-read-file-content', 
     t.transform('convert-get-file-content-to-read-file-content');
     t.end();
 });
+
+test('plugin-putout: transform: apply-desturcturing', (t) => {
+    t.transform('apply-desturcturing');
+    t.end();
+});

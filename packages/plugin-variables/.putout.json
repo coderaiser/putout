@@ -1,6 +1,7 @@
 {
     "match": {
         "*.md": {
+            "putout/apply-desturcturing": "off",
             "putout/declare": "off",
             "promises/remove-useless-async": "off",
             "variables": "off"
