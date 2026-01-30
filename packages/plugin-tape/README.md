@@ -397,13 +397,12 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/adf238850
 
 ```js
 const test = require('supertape');
-const {stub} = test;
 ```
 
 ### ✅ Example of correct code
 
 ```js
-const {test, stub} = require('supertape');
+const {test} = require('supertape');
 ```
 
 ## apply-stub

@@ -1,6 +1,5 @@
 import {createTest} from '@putout/test';
 import {rules} from '@putout/plugin-putout';
-import * as tape from '@putout/plugin-tape';
 import * as putout from '@putout/plugin-putout';
 import * as convertCommonjsToEsm from '@putout/plugin-nodejs/convert-commonjs-to-esm';
 import * as convert from '@putout/plugin-nodejs/convert-commonjs-to-esm';
@@ -10,7 +9,10 @@ import * as esm from '@putout/plugin-esm';
 import * as printer from '@putout/plugin-printer';
 import * as nodejs from '@putout/plugin-nodejs';
 import * as mockRequire from '@putout/codemod-mock-require';
+import {operator} from 'putout';
 import * as mergeDestructuringProperties from './index.js';
+
+const {remove} = operator;
 
 const {declare} = rules;
 
@@ -91,7 +93,16 @@ test('putout: plugin-destructuring: merge-properties: transform: minify', async 
 
 test('putout: plugin-destructuring: merge-properties: transform: tape', (t) => {
     t.transform('tape', {
-        'putout/tape': tape,
+        //'putout/tape': tape,
+        'tape/apply-destructuring': {
+            report: () => '',
+            replace: () => ({
+                'const test = require("supertape")': (vars, path) => {
+                    remove(path.scope.bindings.stub.path);
+                    return 'const {test, stub} = require("supertape")';
+                },
+            }),
+        },
     });
     t.end();
 });

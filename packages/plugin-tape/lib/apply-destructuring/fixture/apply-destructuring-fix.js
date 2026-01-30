@@ -1,1 +1,2 @@
-const {test, stub} = require('supertape');
+const {test} = require('supertape');
+const {stub} = require('supertape');

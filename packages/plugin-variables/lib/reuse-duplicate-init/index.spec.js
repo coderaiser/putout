@@ -1,10 +1,13 @@
 import {createTest} from '@putout/test';
 import * as tape from '@putout/plugin-tape';
+import {operator} from 'putout';
 import * as removeUseless from '../remove-useless/index.js';
 import * as reuseDuplicateInit from './index.js';
 
+const {remove} = operator;
+
 const convertTapeToSupertape = tape.rules['convert-tape-to-supertape'];
-const applyDestructuring = tape.rules['apply-destructuring'];
+
 const declareStub = tape.rules.declare;
 
 const test = createTest(import.meta.url, {
@@ -60,7 +63,15 @@ test('putout: plugin-variables: reuse-duplicate-init: transform: declare-stub', 
 test('putout: plugin-variables: reuse-duplicate-init: transform: overlap', (t) => {
     t.transform('overlap', {
         'tape/convert-tape-to-supertape': convertTapeToSupertape,
-        'tape/apply-destructuring': applyDestructuring,
+        'tape/apply-destructuring': {
+            report: () => '',
+            replace: () => ({
+                'const test = require("supertape")': (vars, path) => {
+                    remove(path.scope.bindings.stub.path);
+                    return 'const {test, stub} = require("supertape")';
+                },
+            }),
+        },
     });
     t.end();
 });

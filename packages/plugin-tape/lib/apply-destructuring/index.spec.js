@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-tape: apply-destructuring: report', (t) => {
-    t.report('apply-destructuring', `Use destructuring when using 'stub()' in 'test()'`);
+    t.report('apply-destructuring', `Use destructuring when require 'test' -> '{test}'`);
     t.end();
 });
 
@@ -17,7 +17,7 @@ test('plugin-tape: apply-destructuring: transform', (t) => {
     t.end();
 });
 
-test('plugin-tape: apply-destructuring: no transform: no-stub', (t) => {
-    t.noTransform('no-stub');
+test('plugin-tape: apply-destructuring: transform: no-stub', (t) => {
+    t.transform('no-stub');
     t.end();
 });
