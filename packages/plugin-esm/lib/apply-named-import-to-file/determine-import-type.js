@@ -48,6 +48,9 @@ export const determineImportType = ({name, rootPath, importedFilename, privateIm
             return 'equal';
     }
     
+    if (esm.length)
+        return 'named';
+    
     return '';
 };
 
