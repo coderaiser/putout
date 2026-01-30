@@ -34,8 +34,7 @@ npm i putout @putout/plugin-esm -D
 
 ## File rules
 
-- ✅ [apply-namespace-import-to-file](#apply-namespace-import-file]);
-- ✅ [apply-named-import-to-file](#apply-named-import-to-file);
+- ✅ [apply-import-by-type-to-file](#apply-import-by-type-to-file]);
 - ✅ [apply-privately-imported-file](#apply-privately-imported-file);
 - ✅ [apply-js-imported-file](#apply-js-imported-file);
 - ✅ [resolve-imported-file](#resolve-imported-file);
@@ -62,8 +61,7 @@ npm i putout @putout/plugin-esm -D
         "esm/apply-js-imported-file": "off",
         "esm/resolve-imported-file": "off",
         "esm/shorten-imported-file": "off",
-        "esm/apply-namespace-import-to-file": "off",
-        "esm/apply-named-import-to-file": "off",
+        "esm/apply-import-by-type-to-file": "off",
         "esm/apply-privately-imported-file": "off",
         "esm/remove-useless-export-specifiers": "off"
     }
@@ -401,42 +399,7 @@ import('foo.json', {
 
 ## File Rules
 
-### apply-named-import-to-file
-
-The rule fixes:
-
-> `SyntaxError: The requested module './a.js' does not provide an export named 'default'`
-
-Check out in 🐊**Putout Editor**:
-
-- ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/5d7687215e9fbdf705935c444503dded/75a98d2db9d3847c73017e41637924b1cfd5a598);
-- ✅ [`has-export-default`](https://putout.cloudcmd.io/#/gist/b50ccfe5cc8c0c97e2fc98b37903ade4/fbc026e6f1027581f7aa4879dcafcaa7754bf8f4);
-- ✅ [`is-esm`](https://putout.cloudcmd.io/#/gist/fa080be2bf3a6560e289d84b5873c2bc/2601091f6bf97148843767968c3afcb36dde31de);
-
-Let's consider file structure:
-
-```
-/
-|-- lib/
-|  `-- index.js "import a from './a.js';"
-|  `-- a.js "export const a = 2;"
-```
-
-In this case `index.js` can be fixed:
-
-#### ❌ Example of incorrect code
-
-```js
-import a from './a.js';
-```
-
-#### ✅ Example of correct code
-
-```js
-import {a} from './a.js';
-```
-
-### apply-namespace-import-to-file
+### apply-import-by-type-to-file
 
 The rule fixes:
 
@@ -450,6 +413,33 @@ Check out in 🐊**Putout Editor**:
 - ✅ [`apply-namespace-import`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
 - ✅ [`is-esm`](https://putout.cloudcmd.io/#/gist/fa080be2bf3a6560e289d84b5873c2bc/2601091f6bf97148843767968c3afcb36dde31de);
 
+#### named import
+
+Let's consider file structure:
+
+```
+/
+|-- lib/
+|  `-- index.js "import a from './a.js';"
+|  `-- a.js "export const a = 2;"
+```
+
+In this case `index.js` can be fixed:
+
+##### ❌ Example of incorrect code
+
+```js
+import a from './a.js';
+```
+
+##### ✅ Example of correct code
+
+```js
+import {a} from './a.js';
+```
+
+#### namespace import
+
 Let's consider file structure:
 
 ```
@@ -461,13 +451,13 @@ Let's consider file structure:
 
 In this case `index.js` can be fixed:
 
-#### ❌ Example of incorrect code
+##### ❌ Example of incorrect code
 
 ```js
 import a from './a.js';
 ```
 
-#### ✅ Example of correct code
+##### ✅ Example of correct code
 
 ```js
 import * as a from './a.js';

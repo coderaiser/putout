@@ -1,5 +1,6 @@
 import * as applyExportFrom from './apply-export-from/index.js';
 import * as applyJsImportedFile from './apply-js-imported-file/index.js';
+import * as applyImportByTypeToFile from './apply-import-by-type-to-file/index.js';
 import * as mergeExportDeclarations from './merge-export-declarations/index.js';
 import * as removeUselessExportSpecifiers from './remove-useless-export-specifiers/index.js';
 import * as mergeDeclarationWithExport from './merge-declaration-with-export/index.js';
@@ -12,8 +13,6 @@ import * as removeEmptyImport from './remove-empty-import/index.js';
 import * as removeEmptyExport from './remove-empty-export/index.js';
 import * as mergeDuplicateImports from './merge-duplicate-imports/index.js';
 import * as convertAssertToWith from './convert-assert-to-with/index.js';
-import * as applyNamespaceImportToFile from './apply-namespace-import-to-file/index.js';
-import * as applyNamedImportToFile from './apply-named-import-to-file/index.js';
 import * as applyPrivatelyImportedFile from './apply-privately-imported-file/index.js';
 import * as resolveImportedFile from './resolve-imported-file/index.js';
 import * as shortenImportedFile from './shorten-imported-file/index.js';
@@ -35,8 +34,7 @@ export const rules = {
     
     'resolve-imported-file': ['off', resolveImportedFile],
     'shorten-imported-file': ['off', shortenImportedFile],
-    'apply-named-import-to-file': ['off', applyNamedImportToFile],
-    'apply-namespace-import-to-file': ['off', applyNamespaceImportToFile],
+    'apply-import-by-type-to-file': ['off', applyImportByTypeToFile],
     'apply-privately-imported-file': ['off', applyPrivatelyImportedFile],
     'apply-js-imported-file': ['off', applyJsImportedFile],
 };

@@ -9,7 +9,8 @@ import {
 import {createGetPrivateImports} from '#private-imports';
 import * as getImportsPlugin from '#get-default-imports';
 import {determineImportType} from '#determine-import-type';
-import * as applyNamespaceImportPlugin from './apply-namespace-import/index.js';
+import {transformNamedImport} from './transform-named-import.js';
+import {transformNamespaceImport} from './transform-namespace-import.js';
 
 const {
     getFilename,
@@ -19,23 +20,29 @@ const {
 
 const getMessage = (a) => a.message;
 
-export const report = (file, {name, source}) => {
+export const report = (file, {importType, name, source}) => {
     const filename = getFilename(file);
-    return `Use 'import * as ${name} from '${source}' in '${filename}'`;
+    
+    if (importType === 'equal')
+        return `Use \`import {${name}} from '${source}'\` in '${filename}'`;
+    
+    return `Use \`import * as ${name} from '${source}'\` in '${filename}'`;
 };
 
-export const fix = (file, {name, source, content, ast}) => {
-    transform(ast, content, {
-        rules: {
-            'apply-namespace-import': ['on', {
-                name,
-                source,
-            }],
-        },
-        plugins: [
-            ['apply-namespace-import', applyNamespaceImportPlugin],
-        ],
-    });
+export const fix = (file, {name, source, content, ast, importType}) => {
+    if (importType === 'equal')
+        transformNamedImport(ast, {
+            name,
+            source,
+            content,
+        });
+    
+    if (importType === 'named')
+        transformNamespaceImport(ast, {
+            name,
+            source,
+            content,
+        });
     
     const newContent = print(ast);
     
@@ -71,13 +78,16 @@ export const scan = (rootPath, {push, trackFile}) => {
                 privateImports,
             });
             
-            if (importType === 'named')
-                push(file, {
-                    name,
-                    source,
-                    ast,
-                    content,
-                });
+            if (!importType)
+                continue;
+            
+            push(file, {
+                importType,
+                name,
+                source,
+                ast,
+                content,
+            });
         }
     }
 };

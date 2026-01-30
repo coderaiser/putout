@@ -1,6 +1,6 @@
 import {putout, operator} from 'putout';
-import * as isESMPlugin from '#is-esm';
 import * as hasExportDefaultPlugin from '#has-export-default';
+import * as isESMPlugin from '#is-esm';
 
 const isESM = (a) => a.rule === 'is-esm';
 const hasExportDefault = (a) => a.rule === 'has-export-default';
@@ -48,10 +48,7 @@ export const determineImportType = ({name, rootPath, importedFilename, privateIm
             return 'equal';
     }
     
-    if (esm.length)
-        return 'named';
-    
-    return '';
+    return 'named';
 };
 
 function parseImportedFilename({importedFilename, privateImports}) {

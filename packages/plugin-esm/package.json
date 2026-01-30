@@ -12,12 +12,12 @@
   },
   "imports": {
     "#get-imports": "./lib/shorten-imported-file/get-imports/index.js",
-    "#get-default-imports": "./lib/apply-namespace-import-to-file/get-imports/index.js",
+    "#get-default-imports": "./lib/apply-import-by-type-to-file/get-imports/index.js",
     "#change-imports": "./lib/resolve-imported-file/change-imports/index.js",
     "#private-imports": "./lib/apply-privately-imported-file/private-imports.js",
-    "#is-esm": "./lib/apply-namespace-import-to-file/is-esm/index.js",
-    "#has-export-default": "./lib/apply-namespace-import-to-file/has-export-default/index.js",
-    "#determine-import-type": "./lib/apply-named-import-to-file/determine-import-type.js"
+    "#is-esm": "./lib/apply-import-by-type-to-file/is-esm/index.js",
+    "#has-export-default": "./lib/apply-import-by-type-to-file/has-export-default/index.js",
+    "#determine-import-type": "./lib/apply-import-by-type-to-file/determine-import-type.js"
   },
   "release": false,
   "tag": false,

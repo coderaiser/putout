@@ -148,8 +148,7 @@ test('putout: config: filesystem', (t) => {
         'typescript/rename-file-cts-to-ts': 'on',
         'typescript/rename-file-mts-to-ts': 'on',
         'putout-config/remove-empty-file': 'on',
-        'esm/apply-named-import-to-file': 'on',
-        'esm/apply-namespace-import-to-file': 'on',
+        'esm/apply-import-by-type-to-file': 'on',
         'esm/apply-privately-imported-file': 'on',
         'esm/apply-js-imported-file': 'on',
     };
