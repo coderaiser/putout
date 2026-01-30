@@ -1,27 +1,23 @@
 import {join, dirname} from 'node:path';
 import {tryCatch} from 'try-catch';
-import putout, {
+import {
     parse,
     print,
     transform,
     operator,
 } from 'putout';
 import {createGetPrivateImports} from '#private-imports';
-import * as isESMPlugin from '#is-esm';
-import * as hasExportDefaultPlugin from '#has-export-default';
 import * as getImportsPlugin from '#get-default-imports';
 import * as applyNamedImportPlugin from './apply-named-import/index.js';
+import {determineImportType} from './determine-import-type.js';
 
 const {
-    findFile,
     getFilename,
     readFileContent,
     writeFileContent,
 } = operator;
 
 const getMessage = (a) => a.message;
-const isESM = (a) => a.rule === 'is-esm';
-const hasExportDefault = (a) => a.rule === 'has-export-default';
 
 export const report = (file, {name, source}) => {
     const filename = getFilename(file);
@@ -68,22 +64,20 @@ export const scan = (rootPath, {push, trackFile}) => {
         });
         
         for (const [name, source, importedFilename] of importsTuples) {
-            const is = hasNamedImport({
+            const importType = determineImportType({
                 name,
                 rootPath,
                 importedFilename,
                 privateImports,
             });
             
-            if (!is)
-                continue;
-            
-            push(file, {
-                name,
-                source,
-                ast,
-                content,
-            });
+            if (importType === 'equal')
+                push(file, {
+                    name,
+                    source,
+                    ast,
+                    content,
+                });
         }
     }
 };
@@ -107,54 +101,6 @@ function getImports(file, content, ast) {
     return buildImports(dir, imports);
 }
 
-function parseImportedFilename({importedFilename, privateImports}) {
-    if (privateImports.has(importedFilename))
-        return privateImports.get(importedFilename);
-    
-    return importedFilename;
-}
-
-function hasNamedImport({name, rootPath, importedFilename, privateImports}) {
-    const parsedName = parseImportedFilename({
-        importedFilename,
-        privateImports,
-    });
-    
-    const [importedFile] = findFile(rootPath, parsedName);
-    
-    if (!importedFile)
-        return false;
-    
-    const importedContent = readFileContent(importedFile);
-    
-    const {places} = putout(importedContent, {
-        fix: false,
-        plugins: [
-            ['has-export-default', hasExportDefaultPlugin],
-            ['is-esm', isESMPlugin],
-        ],
-    });
-    
-    const esm = places.filter(isESM);
-    
-    if (!esm.length)
-        return false;
-    
-    const defaultExport = places.filter(hasExportDefault);
-    
-    if (defaultExport.length)
-        return false;
-    
-    for (const {message} of esm) {
-        const [, exportName] = message.split(':');
-        
-        if (name === exportName)
-            return true;
-    }
-    
-    return false;
-}
-
 function parseFull(dir, source) {
     if (source.startsWith('#'))
         return source;
@@ -174,3 +120,4 @@ function buildImports(dir, imports) {
     
     return list;
 }
+
