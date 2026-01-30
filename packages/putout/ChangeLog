@@ -1,3 +1,10 @@
+2026.01.30, v41.15.0
+
+feature:
+- 0a56a1cc3 @putout/plugin-esm: apply-import-by-type-to-file: merge named and namespaced imports to speed things up
+- 14e5bab79 apply-namespace-import-to-file: reuse determine-import-type
+- 8a6161df9 @putout/plugin-esm: apply-named-import-to-file: determine-import-type
+
 2026.01.30, v41.14.0
 
 feature:
