@@ -19,7 +19,7 @@ import * as resolveImportedFile from './resolve-imported-file/index.js';
 import * as shortenImportedFile from './shorten-imported-file/index.js';
 
 export const rules = {
-    'add-index-to-import': ['off', addIndexToImport],
+    'add-index-to-import': addIndexToImport,
     'apply-export-from': applyExportFrom,
     'convert-assert-to-with': convertAssertToWith,
     'declare-imports-first': declareImportsFirst,
