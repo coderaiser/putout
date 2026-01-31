@@ -34,7 +34,8 @@ npm i putout @putout/plugin-esm -D
 
 ## File rules
 
-- ✅ [apply-import-by-type-to-file](#apply-import-by-type-to-file]);
+- ✅ [apply-name-to-imported-file](#apply-name-to-imported-file]]);
+- ✅ [apply-namespace-to-imported-file](#apply-namespace-to-imported-file]]);
 - ✅ [apply-privately-imported-file](#apply-privately-imported-file);
 - ✅ [apply-js-imported-file](#apply-js-imported-file);
 - ✅ [resolve-imported-file](#resolve-imported-file);
@@ -61,7 +62,8 @@ npm i putout @putout/plugin-esm -D
         "esm/apply-js-imported-file": "off",
         "esm/resolve-imported-file": "off",
         "esm/shorten-imported-file": "off",
-        "esm/apply-import-by-type-to-file": "off",
+        "esm/apply-name-to-imported-file": "off",
+        "esm/apply-namespace-to-imported-file": "off",
         "esm/apply-privately-imported-file": "off",
         "esm/remove-useless-export-specifiers": "off"
     }
@@ -73,6 +75,7 @@ npm i putout @putout/plugin-esm -D
 ### add-index-to-import
 
 ESM doesn't add `index.js`, so it can be left after [`@putout/plugin-convert-esm-to-commonjs`](https://github.com/coderaiser/putout/blob/master/packages/plugin-convert-esm-to-commonjs#readme).
+
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b7c489710767efee95ecf3dd16e232a2/9f974f0a345ef4d0cb39b011097dff82e6c32b75).
 
 #### ❌ Example of incorrect code
@@ -399,7 +402,7 @@ import('foo.json', {
 
 ## File Rules
 
-### apply-import-by-type-to-file
+### apply-namespace-to-imported-file
 
 The rule fixes:
 
@@ -407,13 +410,42 @@ The rule fixes:
 
 Check out in 🐊**Putout Editor**:
 
-- ✅ [`apply-namespace-import-to-file`](https://putout.cloudcmd.io/#/gist/1492d584559e5798325047de679222a0/c6a37a803b80823de1b64ab944f2427aecefb51b);
+- ✅ [`apply-namespace-to-imported-file`](https://putout.cloudcmd.io/#/gist/1492d584559e5798325047de679222a0/c6a37a803b80823de1b64ab944f2427aecefb51b);
 - ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/5d7687215e9fbdf705935c444503dded/75a98d2db9d3847c73017e41637924b1cfd5a598);
 - ✅ [`has-export-default`](https://putout.cloudcmd.io/#/gist/b50ccfe5cc8c0c97e2fc98b37903ade4/fbc026e6f1027581f7aa4879dcafcaa7754bf8f4);
 - ✅ [`apply-namespace-import`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
 - ✅ [`is-esm`](https://putout.cloudcmd.io/#/gist/fa080be2bf3a6560e289d84b5873c2bc/2601091f6bf97148843767968c3afcb36dde31de);
 
-#### named import
+Let's consider file structure:
+
+```
+/
+|-- lib/
+|  `-- index.js "import a from './a.js';"
+|  `-- a.js "export const x = 2;"
+```
+
+In this case `index.js` can be fixed:
+
+#### ❌ Example of incorrect code
+
+```js
+import a from './a.js';
+```
+
+#### ✅ Example of correct code
+
+```js
+import * as a from './a.js';
+```
+
+### apply-name-to-imported-file
+
+Checkout in 🐊**Putout Editor**:
+
+- ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/5d7687215e9fbdf705935c444503dded/75a98d2db9d3847c73017e41637924b1cfd5a598);
+- ✅ [`has-export-default`](https://putout.cloudcmd.io/#/gist/b50ccfe5cc8c0c97e2fc98b37903ade4/fbc026e6f1027581f7aa4879dcafcaa7754bf8f4);
+- ✅ [`is-esm`](https://putout.cloudcmd.io/#/gist/fa080be2bf3a6560e289d84b5873c2bc/2601091f6bf97148843767968c3afcb36dde31de);
 
 Let's consider file structure:
 
@@ -436,31 +468,6 @@ import a from './a.js';
 
 ```js
 import {a} from './a.js';
-```
-
-#### namespace import
-
-Let's consider file structure:
-
-```
-/
-|-- lib/
-|  `-- index.js "import a from './a.js';"
-|  `-- a.js "export const x = 2;"
-```
-
-In this case `index.js` can be fixed:
-
-##### ❌ Example of incorrect code
-
-```js
-import a from './a.js';
-```
-
-##### ✅ Example of correct code
-
-```js
-import * as a from './a.js';
 ```
 
 ### apply-privately-imported-to-file
@@ -565,7 +572,7 @@ import {parseProcessorNames} from './parse-processor-names.js';
 
 ### apply-js-imported-file
 
-Check out in 🐊**Putout Editor**:
+Checkout in 🐊**Putout Editor**:
 
 - ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/ee10100fed86e4db926885dd54298668/7538bca7a9ae006d976f41261c0ed4c0e1902ace);
 - ✅ [`change-imports`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);

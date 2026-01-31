@@ -67,8 +67,13 @@ test('plugin-esm: no report: shorten-imported-file', (t) => {
     t.end();
 });
 
-test('plugin-esm: no report: apply-import-by-type-to-file', (t) => {
-    t.noReport('apply-import-by-type-to-file');
+test('plugin-esm: no report: apply-name-to-imported-file', (t) => {
+    t.noReport('apply-name-to-imported-file');
+    t.end();
+});
+
+test('plugin-esm: no report: apply-namespace-to-imported-file', (t) => {
+    t.noReport('apply-namespace-to-imported-file');
     t.end();
 });
 

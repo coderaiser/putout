@@ -12,12 +12,13 @@
   },
   "imports": {
     "#get-imports": "./lib/shorten-imported-file/get-imports/index.js",
-    "#get-default-imports": "./lib/apply-import-by-type-to-file/get-imports/index.js",
+    "#get-imports-tuples": "./lib/shorten-imported-file/get-imports-tuples.js",
+    "#get-default-imports": "./lib/apply-name-to-imported-file/get-imports/index.js",
     "#change-imports": "./lib/resolve-imported-file/change-imports/index.js",
     "#private-imports": "./lib/apply-privately-imported-file/private-imports.js",
-    "#is-esm": "./lib/apply-import-by-type-to-file/is-esm/index.js",
-    "#has-export-default": "./lib/apply-import-by-type-to-file/has-export-default/index.js",
-    "#determine-import-type": "./lib/apply-import-by-type-to-file/determine-import-type.js"
+    "#is-esm": "./lib/apply-name-to-imported-file/is-esm/index.js",
+    "#has-export-default": "./lib/apply-name-to-imported-file/has-export-default/index.js",
+    "#determine-import-type": "./lib/apply-name-to-imported-file/determine-import-type.js"
   },
   "release": false,
   "tag": false,

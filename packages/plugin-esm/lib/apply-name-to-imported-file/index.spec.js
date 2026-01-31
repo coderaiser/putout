@@ -7,37 +7,37 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('esm: apply-import-by-type-to-file: report', (t) => {
+test('esm: apply-name-to-imported-file: report: apply-import-by-type-to-file', (t) => {
     t.report('apply-import-by-type-to-file', `Use \`import {dotdot} from './b/index.js'\` in '/lib/index.js'`);
     t.end();
 });
 
-test('esm: apply-import-by-type-to-file: transform', (t) => {
+test('esm: apply-name-to-imported-file: transform: apply-import-by-type-to-file', (t) => {
     t.transform('apply-import-by-type-to-file');
     t.end();
 });
 
-test('esm: apply-import-by-type-to-file: transform: private', (t) => {
+test('esm: apply-name-to-imported-file: transform: private', (t) => {
     t.transform('private');
     t.end();
 });
 
-test('esm: apply-import-by-type-to-file: no report: has-export-default', (t) => {
+test('esm: apply-name-to-imported-file: no report: has-export-default', (t) => {
     t.noReport('has-export-default');
     t.end();
 });
 
-test('esm: apply-import-by-type-to-file: no report: commonjs', (t) => {
+test('esm: apply-name-to-imported-file: no report: commonjs', (t) => {
     t.noReport('commonjs');
     t.end();
 });
 
-test('esm: apply-import-by-type-to-file: no report: invalid', (t) => {
+test('esm: apply-name-to-imported-file: no report: invalid', (t) => {
     t.noReport('invalid');
     t.end();
 });
 
-test('esm: apply-import-by-type-to-file: transform: not-equal', (t) => {
-    t.transform('not-equal');
+test('esm: apply-name-to-imported-file: no report: not-equal', (t) => {
+    t.noReport('not-equal');
     t.end();
 });

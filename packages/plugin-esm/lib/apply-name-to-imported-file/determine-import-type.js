@@ -50,7 +50,7 @@ export const determineImportType = ({name, rootPath, importedFilename, privateIm
             return 'equal';
     }
     
-    return 'named';
+    return 'namespace';
 };
 
 function parseImportedFilename({importedFilename, privateImports}) {

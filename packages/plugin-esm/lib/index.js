@@ -1,6 +1,7 @@
 import * as applyExportFrom from './apply-export-from/index.js';
 import * as applyJsImportedFile from './apply-js-imported-file/index.js';
-import * as applyImportByTypeToFile from './apply-import-by-type-to-file/index.js';
+import * as applyNameToImportedFile from './apply-name-to-imported-file/index.js';
+import * as applyNamespaceToImportedFile from './apply-namespace-to-imported-file/index.js';
 import * as mergeExportDeclarations from './merge-export-declarations/index.js';
 import * as removeUselessExportSpecifiers from './remove-useless-export-specifiers/index.js';
 import * as mergeDeclarationWithExport from './merge-declaration-with-export/index.js';
@@ -34,7 +35,8 @@ export const rules = {
     
     'resolve-imported-file': ['off', resolveImportedFile],
     'shorten-imported-file': ['off', shortenImportedFile],
-    'apply-import-by-type-to-file': ['off', applyImportByTypeToFile],
+    'apply-name-to-imported-file': ['off', applyNameToImportedFile],
+    'apply-namespace-to-imported-file': ['off', applyNamespaceToImportedFile],
     'apply-privately-imported-file': ['off', applyPrivatelyImportedFile],
     'apply-js-imported-file': ['off', applyJsImportedFile],
 };
