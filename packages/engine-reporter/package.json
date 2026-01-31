@@ -30,7 +30,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/cli-choose-formatter": "^5.0.1",
+    "@putout/cli-choose-formatter": "^6.0.0",
     "@putout/cli-keypress": "^4.0.0",
     "@putout/engine-loader": "^17.0.0",
     "fullstore": "^4.0.0",
