@@ -460,8 +460,9 @@ Let's consider file structure:
 ```
 /
 |-- lib/
-|  `-- index.js "import a from './a.js';"
+|  `-- index.js "import a from './a.js';\n export * as b from './b.js'"
 |  `-- a.js "export const a = 2;"
+|  `-- b.js "export const b = 2;"
 ```
 
 In this case `index.js` can be fixed:
@@ -470,12 +471,16 @@ In this case `index.js` can be fixed:
 
 ```js
 import a from './a.js';
+
+export * as b from './b.js';
 ```
 
 ##### ✅ Example of correct code
 
 ```js
 import {a} from './a.js';
+
+export {b} from './b.js';
 ```
 
 ### apply-privately-imported-file

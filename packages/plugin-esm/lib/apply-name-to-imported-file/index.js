@@ -16,9 +16,13 @@ const {
     crawlDirectory,
 } = operator;
 
-export const report = (file, {name, source}) => {
+export const report = (file, {name, source, type}) => {
     const filename = getFilename(file);
-    return `Use \`import {${name}} from '${source}'\` in '${filename}'`;
+    
+    if (type === 'import')
+        return `Use \`import {${name}} from '${source}'\` in '${filename}'`;
+    
+    return `Use \`export {${name}} from '${source}'\` in '${filename}'`;
 };
 
 export const fix = (file, {name, source, content, ast}) => {
@@ -55,7 +59,7 @@ export const scan = (rootPath, {push, trackFile}) => {
             aliasBased: true,
         });
         
-        for (const [name, source, importedFilename] of importsTuples) {
+        for (const [name, source, importedFilename, type] of importsTuples) {
             const importType = determineImportType({
                 name,
                 rootPath,
@@ -66,7 +70,7 @@ export const scan = (rootPath, {push, trackFile}) => {
             
             if (importType === 'equal')
                 push(file, {
-                    importType,
+                    type,
                     name,
                     source,
                     ast,

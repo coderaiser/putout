@@ -3,22 +3,32 @@ import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['apply-import-by-type-to-file', plugin],
+        ['apply-name-to-imported-file', plugin],
     ],
 });
 
-test('esm: apply-name-to-imported-file: report: apply-import-by-type-to-file', (t) => {
-    t.report('apply-import-by-type-to-file', `Use \`import {dotdot} from './b/index.js'\` in '/lib/index.js'`);
+test('esm: apply-name-to-imported-file: report: apply-name-to-imported-file', (t) => {
+    t.report('apply-name-to-imported-file', `Use \`import {dotdot} from './b/index.js'\` in '/lib/index.js'`);
     t.end();
 });
 
-test('esm: apply-name-to-imported-file: transform: apply-import-by-type-to-file', (t) => {
-    t.transform('apply-import-by-type-to-file');
+test('esm: apply-name-to-imported-file: transform: apply-name-to-imported-file', (t) => {
+    t.transform('apply-name-to-imported-file');
     t.end();
 });
 
 test('esm: apply-name-to-imported-file: transform: private', (t) => {
     t.transform('private');
+    t.end();
+});
+
+test('esm: apply-name-to-imported-file: transform: export', (t) => {
+    t.transform('export');
+    t.end();
+});
+
+test('esm: apply-name-to-imported-file: report: export', (t) => {
+    t.report('export', `Use \`export {dotdot} from './b/index.js'\` in '/lib/index.js'`);
     t.end();
 });
 

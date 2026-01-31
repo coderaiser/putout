@@ -6,9 +6,6 @@ const {getFilename} = operator;
 const getMessage = (a) => a.message;
 
 export const getImportsTuples = (file, content, ast) => {
-    if (!content.includes('import'))
-        return [];
-    
     const places = transform(ast, content, {
         fix: false,
         plugins: [
@@ -35,10 +32,15 @@ function buildImports(dir, imports) {
     const list = [];
     
     for (const current of imports) {
-        const [name, source] = current.split(' <- ');
+        const [name, source, type] = current.split(' <- ');
         const full = parseFull(dir, source);
         
-        list.push([name, source, full]);
+        list.push([
+            name,
+            source,
+            full,
+            type,
+        ]);
     }
     
     return list;

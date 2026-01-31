@@ -8,11 +8,16 @@ const test = createTest(import.meta.url, {
 });
 
 test('esm: get-imports: report', (t) => {
-    t.report('get-imports', `a <- ./a.js`);
+    t.report('get-imports', `a <- ./a.js <- import`);
     t.end();
 });
 
 test('esm: get-imports: transform', (t) => {
     t.transform('get-imports');
+    t.end();
+});
+
+test('esm: get-imports: report: export', (t) => {
+    t.report('export', 'read <- ./vfs/read/index.js <- export');
     t.end();
 });
