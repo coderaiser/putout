@@ -31,6 +31,7 @@ const getImport = (path) => {
     
     if (isImportDefaultSpecifier(first)) {
         const {name} = first.local;
+        
         return [
             name,
             source,
