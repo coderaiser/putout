@@ -10,13 +10,15 @@ const {
     readFileContent,
 } = operator;
 
-export const determineImportType = ({name, rootPath, importedFilename, privateImports}) => {
+export const determineImportType = ({name, rootPath, importedFilename, privateImports, crawled}) => {
     const parsedName = parseImportedFilename({
         importedFilename,
         privateImports,
     });
     
-    const [importedFile] = findFile(rootPath, parsedName);
+    const [importedFile] = findFile(rootPath, parsedName, {
+        crawled,
+    });
     
     if (!importedFile)
         return '';

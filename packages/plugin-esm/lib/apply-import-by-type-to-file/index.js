@@ -16,6 +16,7 @@ const {
     getFilename,
     readFileContent,
     writeFileContent,
+    crawlDirectory,
 } = operator;
 
 const getMessage = (a) => a.message;
@@ -56,6 +57,7 @@ export const scan = (rootPath, {push, trackFile}) => {
     ];
     
     const getPrivateImports = createGetPrivateImports();
+    const crawled = crawlDirectory(rootPath);
     
     for (const file of trackFile(rootPath, mask)) {
         const content = readFileContent(file);
@@ -76,6 +78,7 @@ export const scan = (rootPath, {push, trackFile}) => {
                 rootPath,
                 importedFilename,
                 privateImports,
+                crawled,
             });
             
             if (!importType)

@@ -86,13 +86,31 @@ function isExcluded({name, base, exclude}) {
     return false;
 }
 
-export function findFile(node, name, exclude = []) {
+export const crawlDirectory = (a) => traverseProperties(a, 'filename');
+
+function parseFindFileOptions(options) {
+    if (!options)
+        return {
+            excluded: [],
+        };
+    
+    if (isArray(options))
+        return {
+            exclude: options,
+        };
+    
+    return options;
+}
+
+export function findFile(node, name, options) {
+    const {exclude = [], crawled = crawlDirectory(node)} = parseFindFileOptions(options);
+    
     checkName(name);
     
     const filePaths = [];
     const names = maybeArray(name);
     
-    for (const filenamePath of traverseProperties(node, 'filename')) {
+    for (const filenamePath of crawled) {
         const {value} = filenamePath.node.value;
         const base = basename(value);
         

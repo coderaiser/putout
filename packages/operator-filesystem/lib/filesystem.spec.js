@@ -15,6 +15,7 @@ import {
 } from '@putout/test/filesystem';
 import * as maybeFS from './maybe-fs.js';
 import {
+    crawlDirectory,
     getFile,
     renameFile,
     removeFile,
@@ -142,6 +143,38 @@ test('putout: operator: filesystem: findFile', (t) => {
     `);
     
     const [filePath] = findFile(ast, '/hello');
+    renameFile(filePath, 'world');
+    
+    const result = print(ast, {
+        printer: PRINTER,
+    });
+    
+    const expected = montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/world",
+            "files": []
+        });
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: crawlDirectory', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/hello",
+            "files": []
+        });
+    `);
+    
+    const crawled = crawlDirectory(ast);
+    const [filePath] = findFile(ast, '/hello', {
+        crawled,
+    });
+    
     renameFile(filePath, 'world');
     
     const result = print(ast, {

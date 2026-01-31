@@ -83,6 +83,8 @@ readDirectory(dirPath);
 
 ### `findFile(directoryPath: DirectoryPath, name: string | string[], exclude?: string[]): (FilePath | DirectoryPath)[]`
 
+Traverse filesystem to search one or more files:
+
 ```js
 const {operator} = require('putout');
 const {findFile} = operator;
@@ -115,7 +117,25 @@ And even search for a directory:
 import {operator} from 'putout';
 
 const {findFile} = operator;
-const coupleFiles = findFile(ast, ['/home/coderaiser', '/home/coderaiser/putout']);
+const coupleFiles = findFile(root, ['/home/coderaiser', '/home/coderaiser/putout']);
+```
+
+Each 🐊**Putout** plugin should use `findFile` independently since AST can change: files renamed, removed etc.
+Anyways inside one plugin while you applying changes related to one plugin you can speed things drastically crawling file system once. It works good if plugin do not mutates the file tree, only file content.
+
+☝️ *`findFile` expensive, when you need to call it often use `crawlDirectory()`*
+
+### `crawlDirectory(directoryPath: directoryPath): CrawledFilesystem`
+
+```js
+import {operator} from 'putout';
+
+const {findFile} = operator;
+const crawled = crawlDirectory(rootPath);
+
+const [file] = findFile(root, 'hello', {
+    crawled,
+});
 ```
 
 ### `getFile(directoryPath: DirectoryPath, name: string | string[], options?: Options): FilePath[]`
