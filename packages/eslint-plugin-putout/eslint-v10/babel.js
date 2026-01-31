@@ -6,7 +6,7 @@
 // Requirements
 //-----------------------------------------------------------------------------
 import * as eslintScope from 'eslint-scope';
-import babelESLintParser from '@babel/eslint-parser/experimental-worker';
+import babelESLintParser from '@babel/eslint-parser';
 
 //------------------------------------------------------------------------------
 // Type Definitions

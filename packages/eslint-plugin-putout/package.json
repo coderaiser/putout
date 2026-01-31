@@ -38,8 +38,8 @@
     "debug": "madrun debug"
   },
   "dependencies": {
-    "@babel/core": "^8.0.0-alpha.1",
-    "@babel/eslint-parser": "^8.0.0-alpha.1",
+    "@babel/core": "^8.0.0-rc.1",
+    "@babel/eslint-parser": "^8.0.0-rc.1",
     "@eslint/eslintrc": "^3.0.0",
     "@putout/engine-parser": "^15.0.1",
     "@putout/eslint": "^5.0.0",
@@ -74,7 +74,7 @@
   },
   "imports": {
     "#typescript-eslint/parser": "./eslint-v10/ts.js",
-    "#babel/eslint-parser/experimental-worker": "./eslint-v10/babel.js"
+    "#babel/eslint-parser": "./eslint-v10/babel.js"
   },
   "engines": {
     "node": ">=22"
