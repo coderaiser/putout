@@ -16,8 +16,14 @@ export const fix = (path) => {
 };
 
 export const traverse = ({push}) => ({
-    ImportDeclaration: (path) => {
-        const {value} = path.node.source;
+    'ImportDeclaration|ExportNamedDeclaration': (path) => {
+        const {node} = path;
+        const {source} = node;
+        
+        if (!source)
+            return;
+        
+        const {value} = source;
         const ext = extname(value);
         
         if (ext)

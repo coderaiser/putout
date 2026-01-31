@@ -8,37 +8,42 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('packages: add-index-to-import: report: add-index-to-import', (t) => {
+test('putout: plugin-esm: add-index-to-import: report: add-index-to-import', (t) => {
     t.report('add-index-to-import', `Add 'index.js' to import: './insert-rust' -> './insert-rust/index.js'`);
     t.end();
 });
 
-test('packages: add-index-to-import: transform: add-index-to-import', (t) => {
+test('putout: plugin-esm: add-index-to-import: transform: add-index-to-import', (t) => {
     t.transform('add-index-to-import');
     t.end();
 });
 
-test('packages: add-index-to-import: no report: cjs', (t) => {
+test('putout: plugin-esm: add-index-to-import: transform: export', (t) => {
+    t.transform('export');
+    t.end();
+});
+
+test('putout: plugin-esm: add-index-to-import: no report: cjs', (t) => {
     t.noReport('cjs');
     t.end();
 });
 
-test('packages: add-index-to-import: no report: mjs', (t) => {
+test('putout: plugin-esm: add-index-to-import: no report: mjs', (t) => {
     t.noReport('mjs');
     t.end();
 });
 
-test('packages: add-index-to-import: no report: json', (t) => {
+test('putout: plugin-esm: add-index-to-import: no report: json', (t) => {
     t.noReport('json');
     t.end();
 });
 
-test('packages: add-index-to-import: no report: external', (t) => {
+test('putout: plugin-esm: add-index-to-import: no report: external', (t) => {
     t.noReport('external');
     t.end();
 });
 
-test('packages: add-index-to-import: no report after transform: convert-commonjs-to-esm', (t) => {
+test('putout: plugin-esm: add-index-to-import: no report after transform: convert-commonjs-to-esm', (t) => {
     t.noReportAfterTransform('convert-commonjs-to-esm', {
         convertCommonjsToESM,
     });

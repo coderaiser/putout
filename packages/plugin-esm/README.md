@@ -74,6 +74,10 @@ npm i putout @putout/plugin-esm -D
 
 ### add-index-to-import
 
+> `import` a directory URL is unsupported. Instead
+>
+> (c) [nodejs.org](https://nodejs.org/api/errors.html#err_unsupported_dir_import)
+
 ESM doesn't add `index.js`, so it can be left after [`@putout/plugin-convert-esm-to-commonjs`](https://github.com/coderaiser/putout/blob/master/packages/plugin-convert-esm-to-commonjs#readme).
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b7c489710767efee95ecf3dd16e232a2/9f974f0a345ef4d0cb39b011097dff82e6c32b75).
@@ -84,6 +88,8 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b7c4897107
 import insertRust from './insert-rust';
 import addAction from './add-action';
 
+export * as read from './vfs/read';
+
 export const rules = {};
 ```
 
@@ -92,6 +98,8 @@ export const rules = {};
 ```js
 import insertRust from './insert-rust/index.js';
 import addAction from './add-action/index.js';
+
+export * as read from './vfs/read/index.js';
 
 export const rules = {};
 ```
