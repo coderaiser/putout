@@ -470,7 +470,7 @@ import a from './a.js';
 import {a} from './a.js';
 ```
 
-### apply-privately-imported-to-file
+### apply-privately-imported-file
 
 > Entries in the imports field must be strings starting with `#`.
 > Package imports permit mapping to external packages.
