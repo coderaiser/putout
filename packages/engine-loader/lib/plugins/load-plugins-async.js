@@ -15,6 +15,7 @@ export const loadPluginsAsync = async (options) => {
         pluginNames = [],
         rules = {},
     } = options;
+    
     const {
         items,
         loadedRules,

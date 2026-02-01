@@ -9,6 +9,7 @@ export const validateRulesRelations = (options) => {
         pluginNames = [],
         rules = {},
     } = options;
+    
     const items = parsePluginNames(pluginNames);
     
     validateRules({

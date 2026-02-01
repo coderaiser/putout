@@ -14,6 +14,7 @@ export const loadPlugins = (options) => {
         pluginNames = [],
         rules = {},
     } = options;
+    
     const {
         items,
         loadedRules,

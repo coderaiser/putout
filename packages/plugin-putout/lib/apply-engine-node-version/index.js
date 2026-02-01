@@ -20,6 +20,7 @@ export const traverse = ({push, options}) => ({
             nodeVersion = 22,
             putoutVersion = 41,
         } = options;
+        
         const __aPath = path.get('arguments.0');
         const {
             peerDependenciesPath,
