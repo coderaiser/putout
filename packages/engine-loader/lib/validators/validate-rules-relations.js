@@ -5,7 +5,10 @@ import {check} from '../check/index.js';
 export const validateRulesRelations = (options) => {
     check(options);
     
-    const {pluginNames = [], rules = {}} = options;
+    const {
+        pluginNames = [],
+        rules = {},
+    } = options;
     const items = parsePluginNames(pluginNames);
     
     validateRules({

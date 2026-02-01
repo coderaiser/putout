@@ -31,7 +31,10 @@ const {
 export default ({name, options, places, index, count, filesCount, errorsCount}) => {
     start();
     
-    const {color = '#ea4336', minCount = 0} = options;
+    const {
+        color = '#ea4336',
+        minCount = 0,
+    } = options;
     
     const memory = process.memoryUsage();
     

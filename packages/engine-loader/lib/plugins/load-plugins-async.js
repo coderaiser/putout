@@ -11,7 +11,10 @@ const loadPluginAsync = createAsyncLoader('plugin');
 export const loadPluginsAsync = async (options) => {
     check(options);
     
-    const {pluginNames = [], rules = {}} = options;
+    const {
+        pluginNames = [],
+        rules = {},
+    } = options;
     const {
         items,
         loadedRules,

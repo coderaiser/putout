@@ -9,7 +9,10 @@ import {isFilesystem} from './is-filesystem.js';
 import {maybeFromSimple} from './from-simple.js';
 
 export const create = (overrides = {}) => {
-    const {cli = false, maybeSimple = true} = overrides;
+    const {
+        cli = false,
+        maybeSimple = true,
+    } = overrides;
     
     const branch = createBranch({
         cli,

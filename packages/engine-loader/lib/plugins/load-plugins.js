@@ -10,7 +10,10 @@ const {isArray} = Array;
 export const loadPlugins = (options) => {
     check(options);
     
-    const {pluginNames = [], rules = {}} = options;
+    const {
+        pluginNames = [],
+        rules = {},
+    } = options;
     const {
         items,
         loadedRules,

@@ -16,7 +16,10 @@ export const fix = ({path}) => {
 
 export const traverse = ({push, options}) => ({
     [__json]: (path) => {
-        const {nodeVersion = 22, putoutVersion = 41} = options;
+        const {
+            nodeVersion = 22,
+            putoutVersion = 41,
+        } = options;
         const __aPath = path.get('arguments.0');
         const {
             peerDependenciesPath,

@@ -103,7 +103,10 @@ function parseFindFileOptions(options) {
 }
 
 export function findFile(node, name, options) {
-    const {exclude = [], crawled = crawlDirectory(node)} = parseFindFileOptions(options);
+    const {
+        exclude = [],
+        crawled = crawlDirectory(node),
+    } = parseFindFileOptions(options);
     
     checkName(name);
     
