@@ -78,7 +78,7 @@ export const report = () => 'debugger should not be used';
 
 export const replace = () => ({
     debugger: '',
-});// debugger; alert(); -> alert();
+}); // debugger; alert(); -> alert();
 ```
 
 Templates:
@@ -88,7 +88,7 @@ export const report = () => 'any message here';
 
 export const replace = () => ({
     'var __a = 1': 'const __a = 1',
-});// var x = 1; -> const x = 1;
+}); // var x = 1; -> const x = 1;
 ```
 
 A couple variables example:
@@ -98,7 +98,7 @@ export const report = () => 'any message here';
 
 export const replace = () => ({
     'const __a = __b': 'const __b = __a',
-});// const hello = world; -> const world = hello;
+}); // const hello = world; -> const world = hello;
 ```
 
 #### Processing of node using functions
@@ -115,7 +115,7 @@ export const replace = () => ({
         // remove node
         return '';
     },
-});// for (a of b) {}; alert(); -> alert();
+}); // for (a of b) {}; alert(); -> alert();
 ```
 
 Update node:
@@ -129,7 +129,7 @@ export const replace = () => ({
         path.node.right.elements = [];
         return path;
     },
-});// for (const a of [1, 2, 3]) {}; -> for (const a of []) {};
+}); // for (const a of [1, 2, 3]) {}; -> for (const a of []) {};
 ```
 
 Update node using template variables:
@@ -142,7 +142,7 @@ export const replace = () => ({
         // update the whole node using template string
         return 'for (const x of y) z';
     },
-});// for (const item of array) {}; -> for (const x of y) z;
+}); // for (const item of array) {}; -> for (const x of y) z;
 ```
 
 ### Includer

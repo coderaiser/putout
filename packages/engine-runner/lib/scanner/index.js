@@ -105,6 +105,7 @@ const createTraverse = ({scan, rule, progress}) => ({push, options}) => ({
             fileProgress,
             crawled,
         });
+        
         const crawlFile = createCrawlFile(crawled);
         
         scan(rootPath, {
