@@ -20,6 +20,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-push-arg](#add-push-arg);
 - ✅ [add-test-args](#add-test-args);
 - ✅ [add-traverse-args](#add-traverse-args);
+- ✅ [add-crawl-file](#add-crawl-file);
 - ✅ [add-track-file](#add-track-file);
 - ✅ [apply-async-formatter](#apply-async-formatter);
 - ✅ [apply-create-test](#apply-create-test);
@@ -102,6 +103,7 @@ npm i @putout/plugin-putout -D
         "putout/add-push-arg": "on",
         "putout/add-test-args": "on",
         "putout/add-traverse-args": "on",
+        "putout/add-crawl-file": "on",
         "putout/add-track-file": "on",
         "putout/add-await-to-progress": "on",
         "putout/apply-create-test": "on",
@@ -1578,6 +1580,26 @@ test('', ({progress}) => {
 test('', async ({progress}) => {
     await progress();
 });
+```
+
+## add-crawl-file
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/4faf27234e9c5616444d0cabd79f00be/aac768e7150635d96cd71507e4a6eb43d0899814).
+
+### ❌ Example of incorrect code
+
+```js
+export const scan = (root, {push, progress}) => {
+    crawlFile();
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export const scan = (root, {push, progress, crawlFile}) => {
+    crawlFile();
+};
 ```
 
 ## add-track-file

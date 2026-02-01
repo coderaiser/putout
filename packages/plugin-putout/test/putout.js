@@ -379,3 +379,8 @@ test('plugin-putout: transform: apply-desturcturing', (t) => {
     t.transform('apply-desturcturing');
     t.end();
 });
+
+test('plugin-putout: transform: add-crawl-file', (t) => {
+    t.transform('add-crawl-file');
+    t.end();
+});

@@ -1,3 +1,4 @@
+import * as addCrawlFile from './add-crawl-file/index.js';
 import * as applyDesturcturing from './apply-desturcturing/index.js';
 import * as convertGetFileContentToReadFileContent from './convert-get-file-content-to-read-file-content/index.js';
 import * as addPushArg from './add-push-arg/index.js';
@@ -154,4 +155,5 @@ export const rules = {
     'add-push-arg': addPushArg,
     'convert-get-file-content-to-read-file-content': convertGetFileContentToReadFileContent,
     'apply-desturcturing': applyDesturcturing,
+    'add-crawl-file': addCrawlFile,
 };
