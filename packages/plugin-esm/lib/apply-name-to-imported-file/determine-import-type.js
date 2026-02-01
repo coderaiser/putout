@@ -5,20 +5,15 @@ import * as isESMPlugin from '#is-esm';
 const isESM = (a) => a.rule === 'is-esm';
 const hasExportDefault = (a) => a.rule === 'has-export-default';
 
-const {
-    findFile,
-    readFileContent,
-} = operator;
+const {readFileContent} = operator;
 
-export const determineImportType = ({name, rootPath, importedFilename, privateImports, crawled}) => {
+export const determineImportType = ({name, rootPath, importedFilename, privateImports, crawlFile}) => {
     const parsedName = parseImportedFilename({
         importedFilename,
         privateImports,
     });
     
-    const [importedFile] = findFile(rootPath, parsedName, {
-        crawled,
-    });
+    const [importedFile] = crawlFile(rootPath, parsedName);
     
     if (!importedFile)
         return '';

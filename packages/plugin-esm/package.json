@@ -12,7 +12,7 @@
   },
   "imports": {
     "#get-imports": "./lib/shorten-imported-file/get-imports/index.js",
-    "#get-imports-tuples": "./lib/shorten-imported-file/get-imports-tuples.js",
+    "#get-imports-tuples": "./lib/apply-name-to-imported-file/get-imports-tuples.js",
     "#get-default-imports": "./lib/apply-name-to-imported-file/get-imports/index.js",
     "#change-imports": "./lib/resolve-imported-file/change-imports/index.js",
     "#private-imports": "./lib/apply-privately-imported-file/private-imports.js",

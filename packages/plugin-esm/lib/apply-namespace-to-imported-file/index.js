@@ -6,14 +6,13 @@ import {
 } from 'putout';
 import {createGetPrivateImports} from '#private-imports';
 import {determineImportType} from '#determine-import-type';
+import {getImportsTuples} from '#get-imports-tuples';
 import {transformNamespaceImport} from './transform-namespace-import.js';
-import {getImportsTuples} from '../apply-name-to-imported-file/get-imports-tuples.js';
 
 const {
     getFilename,
     readFileContent,
     writeFileContent,
-    crawlDirectory,
 } = operator;
 
 export const report = (file, {name, source}) => {
@@ -33,14 +32,13 @@ export const fix = (file, {name, source, content, ast}) => {
     writeFileContent(file, newContent);
 };
 
-export const scan = (rootPath, {push, trackFile}) => {
+export const scan = (rootPath, {push, trackFile, crawlFile}) => {
     const mask = [
         '*.js',
         '*.mjs',
     ];
     
     const getPrivateImports = createGetPrivateImports();
-    const crawled = crawlDirectory(rootPath);
     
     for (const file of trackFile(rootPath, mask)) {
         const content = readFileContent(file);
@@ -61,7 +59,7 @@ export const scan = (rootPath, {push, trackFile}) => {
                 rootPath,
                 importedFilename,
                 privateImports,
-                crawled,
+                crawlFile,
             });
             
             if (importType === 'namespace')
