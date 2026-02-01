@@ -125,7 +125,7 @@ Anyways inside one plugin while you applying changes related to one plugin you c
 
 ☝️ *`findFile` expensive, when you need to call it often use `crawlDirectory()`*
 
-### `crawlDirectory(directoryPath: directoryPath): CrawledFilesystem`
+### `crawlDirectory(directoryPath: directoryPath): Crawled`
 
 ```js
 import {operator} from 'putout';
