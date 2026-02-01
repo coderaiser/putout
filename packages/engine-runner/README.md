@@ -31,7 +31,7 @@ They goes from simplest to hardest. Let's start from **Declarator**.
 The simplest possible type of plugin, even simpler then [`Replacer`](#replacer):
 
 ```js
-module.exports.declare = () => ({
+export const declare = () => ({
     isString: `const isString = (a) => typeof a === 'string'`,
 });
 ```
@@ -46,26 +46,26 @@ according to [`template variables syntax`](https://github.com/coderaiser/putout/
 Simplest replace example:
 
 ```js
-module.exports.report = () => 'any message here';
+export const report = () => 'any message here';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const a = 1': 'const b = 1',
 });
 
 // optional
-module.exports.filter = (path) => {
+export const filter = (path) => {
     return true;
 };
 
 // optional
-module.exports.match = () => ({
+export const match = () => ({
     'const __a = 1': ({__a}) => {
         return true;
     },
 });
 
 // optional
-module.exports.exclude = () => [
+export const exclude = () => [
     `const hello = 'world'`,
     'ArrowFunctionExpression',
 ];
@@ -74,37 +74,31 @@ module.exports.exclude = () => [
 Simplest remove example:
 
 ```js
-module.exports.report = () => 'debugger should not be used';
+export const report = () => 'debugger should not be used';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     debugger: '',
-});
-
-// debugger; alert(); -> alert();
+});// debugger; alert(); -> alert();
 ```
 
 Templates:
 
 ```js
-module.exports.report = () => 'any message here';
+export const report = () => 'any message here';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'var __a = 1': 'const __a = 1',
-});
-
-// var x = 1; -> const x = 1;
+});// var x = 1; -> const x = 1;
 ```
 
 A couple variables example:
 
 ```js
-module.exports.report = () => 'any message here';
+export const report = () => 'any message here';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __a = __b': 'const __b = __a',
-});
-
-// const hello = world; -> const world = hello;
+});// const hello = world; -> const world = hello;
 ```
 
 #### Processing of node using functions
@@ -114,47 +108,41 @@ You can pass a function as object value for more soficticated processing.
 Remove node:
 
 ```js
-module.exports.report = () => 'any message here';
+export const report = () => 'any message here';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'for (const __a of __b) __c': ({__a, __b, __c}, path) => {
         // remove node
         return '';
     },
-});
-
-// for (a of b) {}; alert(); -> alert();
+});// for (a of b) {}; alert(); -> alert();
 ```
 
 Update node:
 
 ```js
-module.exports.report = () => 'any message here';
+export const report = () => 'any message here';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'for (const __a of __array) __c': ({__a, __array, __c}, path) => {
         // update __array elements
         path.node.right.elements = [];
         return path;
     },
-});
-
-// for (const a of [1, 2, 3]) {}; -> for (const a of []) {};
+});// for (const a of [1, 2, 3]) {}; -> for (const a of []) {};
 ```
 
 Update node using template variables:
 
 ```js
-module.exports.report = () => 'any message here';
+export const report = () => 'any message here';
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'for (const __a of __array) __c': ({__a, __array, __c}, path) => {
         // update the whole node using template string
         return 'for (const x of y) z';
     },
-});
-
-// for (const item of array) {}; -> for (const x of y) z;
+});// for (const item of array) {}; -> for (const x of y) z;
 ```
 
 ### Includer
@@ -162,17 +150,19 @@ module.exports.replace = () => ({
 **Includer** is the most preferable format of a plugin, simplest to use (after [`Replacer`](#replacer)):
 
 ```js
-module.exports.report = () => 'debugger statement should not be used';
+export const report = () => 'debugger statement should not be used';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.remove();
 };
 
-module.exports.include = () => ['debugger'];
+export const include = () => ['debugger'];
+
 // optional
-module.exports.exclude = () => {};
+export const exclude = () => {};
+
 // optional
-module.exports.filter = (path) => {
+export const filter = (path) => {
     return true;
 };
 ```
@@ -190,13 +180,13 @@ Where `__` can be any node. All this possible with help of [@putout/compare](htt
 **Traverser** gives you more power to `filter` and `fix` nodes you need.
 
 ```js
-module.exports.report = () => 'debugger statement should not be used';
+export const report = () => 'debugger statement should not be used';
 
-module.exports.fix = (path, {options}) => {
+export const fix = (path, {options}) => {
     path.remove();
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'debugger'(path) {
         push(path);
     },
@@ -231,7 +221,7 @@ const world = '';
 Let's process it!
 
 ```js
-module.exports.traverse = ({listStore}) => ({
+export const traverse = ({listStore}) => ({
     'debugger'(path) {
         listStore(path);
     },
@@ -265,7 +255,7 @@ const hello = '';
 Let's process it!
 
 ```js
-module.exports.traverse = ({pathStore}) => ({
+export const traverse = ({pathStore}) => ({
     'debugger'(path) {
         pathStore(path);
         path.remove();
@@ -286,7 +276,7 @@ module.exports.traverse = ({pathStore}) => ({
 When you need `key-value` use `store`:
 
 ```js
-module.exports.traverse = ({push, store}) => ({
+export const traverse = ({push, store}) => ({
     'debugger'(path) {
         store('hello', 'world');
         push(path);
@@ -315,7 +305,7 @@ module.exports.traverse = ({push, store}) => ({
 When you need to update already saved values, use `upstore`:
 
 ```js
-module.exports.traverse = ({push, upstore}) => ({
+export const traverse = ({push, upstore}) => ({
     TSTypeAliasDeclaration(path) {
         if (path.parentPath.isExportNamedDeclaration())
             return;
@@ -352,7 +342,7 @@ module.exports.traverse = ({push, upstore}) => ({
 When you need to update named arrays:
 
 ```js
-module.exports.traverse = ({uplist, push}) => ({
+export const traverse = ({uplist, push}) => ({
     'const __object = __a.__b': (fullPath) => {
         const {__a, __b} = getTemplateValues(fullPath, 'const __object = __a.__b');
         const initPath = fullPath.get('declarations.0.init');
@@ -389,13 +379,13 @@ module.exports.traverse = ({uplist, push}) => ({
 **Scanner** gives you all ability to work with files.
 
 ```js
-module.exports.report = () => 'Create file hello.txt';
+export const report = () => 'Create file hello.txt';
 
-module.exports.fix = (rootPath) => {
+export const fix = (rootPath) => {
     createFile(rootPath, 'hello.txt', 'hello world');
 };
 
-module.exports.scan = (rootPath, {push}) => {
+export const scan = (rootPath, {push}) => {
     const [filePath] = findFile(rootPath, 'hello.txt');
     
     if (filePath)
@@ -435,6 +425,8 @@ export const scan = (rootPath, {progress}) => {
 };
 ```
 
+#### `trackFile`
+
 Or better `trackFile`, which does the same, but also count `progress`:
 
 ```js
@@ -452,19 +444,74 @@ export const scan = (rootPath, {push, trackFile}) => {
 
 ☝️ *When you use `trackFile` use [`progress()`](https://github.com/coderaiser/putout/tree/master/packages/test#progressfilename-expected) for testing*
 
+#### `crawlFile`
+
+When you need to find files related to other files like in [`esm/apply-name-to-imported-file`](https://github.com/coderaiser/putout/blob/master/packages/plugin-esm/README.md#apply-name-to-imported-file) you can end up with:
+
+```js
+export const report = () => 'Add file';
+export const fix = (file) => {
+    writeFileContent(file, 'hello');
+};
+
+export const scan = (rootPath, {push, trackFile}) => {
+    for (const file of trackFile(rootPath, 'hello.txt')) {
+        findFile(rootPath, 'again and again');
+    }
+};
+```
+
+It will be very slow! And you can use [`crawlDirectory()`](https://github.com/coderaiser/putout/blob/master/packages/operator-filesystem/README.md#crawldirectorydirectorypath-directorypath-crawled) instead:
+
+```js
+export const report = () => 'Add file';
+export const fix = (file) => {
+    writeFileContent(file, 'hello');
+};
+
+export const scan = (rootPath, {push, trackFile}) => {
+    const crawled = crawlDirectory(rootPath);
+    
+    for (const file of trackFile(rootPath, 'hello.txt')) {
+        findFile(rootPath, 'again and again', {
+            crawled,
+        });
+    }
+};
+```
+
+But it is easy to forget, or remove during refactoring, since everything will work as before, only twice slower on big amount of files.
+
+So you better use **crawlFile**:
+
+```js
+export const report = () => 'Add file';
+export const fix = (file) => {
+    writeFileContent(file, 'hello');
+};
+
+export const scan = (rootPath, {push, trackFile, crawlFile}) => {
+    for (const file of trackFile(rootPath, 'hello.txt')) {
+        const files = crawlFile(rootPath, 'no matter how many times');
+    }
+};
+```
+
+It works much faster, use it when you do not mutate filesystem tree: neither remove nor rename files.
+
 ### Finder
 
 **Finder** gives you all the control over traversing, but it's the slowest format.
 Because `traversers` not merged in contrast with other plugin formats.
 
 ```js
-module.exports.report = () => 'debugger statement should not be used';
+export const report = () => 'debugger statement should not be used';
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.remove();
 };
 
-module.exports.find = (ast, {push, traverse}) => {
+export const find = (ast, {push, traverse}) => {
     traverse(ast, {
         'debugger'(path) {
             push(path);
@@ -476,8 +523,8 @@ module.exports.find = (ast, {push, traverse}) => {
 ## Example
 
 ```js
-const {runPlugins} = require('@putout/engine-runner');
-const {parse} = require('@putout/engine-parser');
+import {runPlugins} from '@putout/engine-runner';
+import {parse} from '@putout/engine-parser';
 
 const plugins = [{
     rule: 'remove-debugger',

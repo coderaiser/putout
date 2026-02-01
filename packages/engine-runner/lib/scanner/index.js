@@ -1,13 +1,14 @@
 import {fullstore} from 'fullstore';
 import {compare} from '@putout/compare';
 import {__filesystem_name} from '@putout/operator-json';
+import * as fromSimple from '@putout/plugin-filesystem/from-simple';
+import * as toSimple from '@putout/plugin-filesystem/to-simple';
 import {
     findFile,
+    crawlDirectory,
     pause,
     start,
 } from '@putout/operator-filesystem';
-import * as fromSimple from '@putout/plugin-filesystem/from-simple';
-import * as toSimple from '@putout/plugin-filesystem/to-simple';
 import {createDebug} from '../debug.js';
 
 const log = createDebug('putout:runner:scanner');
@@ -21,7 +22,7 @@ export const scan = ({rule, plugin, msg, options}, {progress}) => {
     
     progress.inc();
     
-    const traverse = getTraverse({
+    const traverse = createTraverse({
         scan,
         rule,
         progress,
@@ -56,8 +57,17 @@ const createFileProgress = ({rule, progress}) => ({i, n}) => {
     });
 };
 
-const createTrackFile = (fileProgress) => function*(...a) {
-    const files = findFile(...a);
+const createCrawlFile = (crawled) => (...a) => {
+    return findFile(...a, {
+        crawled,
+    });
+};
+
+const createTrackFile = ({fileProgress, crawled}) => function*(...a) {
+    const files = findFile(...a, {
+        crawled,
+    });
+    
     const n = files.length;
     
     for (const [i, file] of files.entries()) {
@@ -69,20 +79,13 @@ const createTrackFile = (fileProgress) => function*(...a) {
     }
 };
 
-const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
+const createTraverse = ({scan, rule, progress}) => ({push, options}) => ({
     [`${__filesystem_name}(__)`](path) {
         log(rule);
         progress.start(rule);
         
         const rootPath = path.get('arguments.0');
         const isSimple = fullstore(false);
-        
-        const fileProgress = createFileProgress({
-            rule,
-            progress,
-        });
-        
-        const trackFile = createTrackFile(fileProgress);
         
         runSimple(fromSimple, {
             shouldConvert: true,
@@ -91,7 +94,21 @@ const getTraverse = ({scan, rule, progress}) => ({push, options}) => ({
             isSimple,
         });
         
+        const fileProgress = createFileProgress({
+            rule,
+            progress,
+        });
+        
+        const crawled = crawlDirectory(rootPath);
+        
+        const trackFile = createTrackFile({
+            fileProgress,
+            crawled,
+        });
+        const crawlFile = createCrawlFile(crawled);
+        
         scan(rootPath, {
+            crawlFile,
             push: watchPush({
                 push,
                 rule,

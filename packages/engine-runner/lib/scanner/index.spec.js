@@ -348,3 +348,51 @@ test('putout: runner: scanner: trailing slash', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: runner: scanner: crawlFile', (t) => {
+    const addFile = {
+        report: () => 'Add file',
+        fix: (rootPath) => {
+            createFile(rootPath, 'hello', 'world');
+        },
+        scan: (rootPath, {push, crawlFile}) => {
+            const files = crawlFile(rootPath, 'hello');
+            
+            if (files.length)
+                return;
+            
+            push(rootPath);
+        },
+    };
+    
+    const source = montag`
+        ${__filesystem_name}({
+            "type": "directory",
+            "filename": "/",
+            "files": [
+            ]
+        });
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [{
+            'add-file': addFile,
+        }],
+    });
+    
+    const expected = montag`
+        ${__filesystem_name}({
+            "type": "directory",
+            "filename": "/",
+            "files": [{
+                "type": "file",
+                "filename": "/hello",
+                "content": "d29ybGQ="
+            }]
+        });\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
