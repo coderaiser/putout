@@ -428,9 +428,9 @@ Let's consider file structure:
 
 ```
 /
-|-- lib/
-|  `-- index.js "import a from './a.js';"
-|  `-- a.js "export const x = 2;"
+└── lib/
+    ├── index.js "import a from './a.js';"
+    └── b.js "export const b = 2;" 
 ```
 
 In this case `index.js` can be fixed:
@@ -459,10 +459,10 @@ Let's consider file structure:
 
 ```
 /
-|-- lib/
-|  `-- index.js "import a from './a.js';\n export * as b from './b.js'"
-|  `-- a.js "export const a = 2;"
-|  `-- b.js "export const b = 2;"
+└── lib/
+    ├── index.js "import a from './a.js';\n export * as b from './b.js'"
+    ├── a.js "export const a = 2;"
+    └── b.js "export const b = 2;" 
 ```
 
 In this case `index.js` can be fixed:
@@ -500,12 +500,12 @@ Let's consider file structure:
 
 ```
 /
-|-- package.json {"imports": {"#is: {"default": "./lib/tokenize/is.js"}}}
-|-- lib/
-|  `-- tokenize/
-|     `-- is.js "export const isPrev = () => {}"
-|     `-- expressions/
-        `-- spread-element.js "import {isPrev} from '../is.js"
+├── package.json {"imports": {"#is: {"default": "./lib/tokenize/is.js"}}}
+└──  lib/
+    └── tokenize/
+        ├── is.js "export const isPrev = () => {}"
+        └── expressions/
+            └── spread-element.js "import {isPrev} from '../is.js"
 ```
 
 In this case `spread-element.js` can be fixed:
@@ -534,9 +534,9 @@ Let's consider file structure:
 
 ```
 /
-|-- lib/
-|  `-- index.js
-|  `-- a.js
+└── lib/
+    ├── index.js
+    └── a.js
 ```
 
 In this case `index.js` can be fixed:
@@ -564,9 +564,9 @@ Let's consider file structure:
 
 ```
 /
-|-- processors/
-|  `-- index.js
-|  `-- parse-processor-names.js
+└── processors/
+    ├── index.js
+    └── parse-processor-names.js
 ```
 
 In this case `index.js` can be fixed:
@@ -594,9 +594,9 @@ Let's consider file structure:
 
 ```
 /
-|-- lib/
-|  `-- index.js
-|  `-- a.js
+└── lib/
+    ├── index.js
+    └── a.js
 ```
 
 In this case `index.js` can be fixed:
