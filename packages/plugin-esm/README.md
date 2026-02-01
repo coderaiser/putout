@@ -34,8 +34,8 @@ npm i putout @putout/plugin-esm -D
 
 ## File rules
 
-- ✅ [apply-name-to-imported-file](#apply-name-to-imported-file]]);
-- ✅ [apply-namespace-to-imported-file](#apply-namespace-to-imported-file]]);
+- ✅ [apply-name-to-imported-file](#apply-name-to-imported-file);
+- ✅ [apply-namespace-to-imported-file](#apply-namespace-to-imported-file);
 - ✅ [apply-privately-imported-file](#apply-privately-imported-file);
 - ✅ [apply-js-imported-file](#apply-js-imported-file);
 - ✅ [resolve-imported-file](#resolve-imported-file);
