@@ -117,7 +117,7 @@ test('putout: operator: json: isJSON: false', ({notOk}) => {
 
 test('putout: operator: json: isJSONGroup', ({ok}) => {
     const source = `__putout_processor_json([1, 2]);\n`;
-    const result = isJSON(source);
+    const result = isJSONGroup(source);
     
     ok(result);
 });
