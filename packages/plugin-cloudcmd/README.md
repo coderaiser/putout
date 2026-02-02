@@ -11,7 +11,14 @@
 npm i putout @putout/plugin-cloudcmd -D
 ```
 
-Add `.putout.json` with:
+## Rules
+
+- ✅ [convert-io-mv-to-io-move](#convert-io-mv-to-io-move);
+- ✅ [convert-io-cp-to-io-copy](#convert-io-cp-to-io-copy);
+- ✅ [convert-load-dir-to-change-dir](#convert-load-dir-to-change-dir);
+- ✅ [convert-arrow-to-declaration](#convert-arrow-to-declaration);
+
+## Config
 
 ```json
 {
@@ -28,7 +35,8 @@ Add `.putout.json` with:
     "rules": {
         "cloudcmd/convert-io-mv-to-io-move": "on",
         "cloudcmd/convert-io-cp-to-io-copy": "on",
-        "cloudcmd/convert-load-dir-to-change-dir": "on"
+        "cloudcmd/convert-load-dir-to-change-dir": "on",
+        "cloudcmd/convert-arrow-to-declaration": "on"
     }
 }
 ```
@@ -102,6 +110,52 @@ await CloudCmd.loadDir({
 await CloudCmd.changeDir('/', {
     panel,
 });
+```
+
+# convert-arrow-to-declaration
+
+Because right now all exported methods saved to global variable on top of a file.
+
+```js
+CloudCmd.EditNamesVim = {
+    init,
+    show,
+    hide,
+};
+```
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8c21c0599b5d4d7c5faf49f3da604c9e/04a71d323fe1b0c25c1f34635c6f15eff805eff7).
+
+## ❌ Example of incorrect code
+
+```js
+export const init = async (hello) => {
+    await CloudCmd.EditNames();
+};
+
+export const show = () => {
+    Events.addKey(listener);
+};
+
+export const hide = () => {
+    CloudCmd.Edit.hide();
+};
+```
+
+## ✅ Example of correct code
+
+```js
+export async function init(hello) {
+    await CloudCmd.EditNames();
+}
+
+export function show() {
+    Events.addKey(listener);
+}
+
+export function hide() {
+    CloudCmd.Edit.hide();
+}
 ```
 
 ## License
