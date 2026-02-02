@@ -36,6 +36,11 @@ test('putout: group-imports-by-source: transform: comment', (t) => {
     t.end();
 });
 
+test('putout: group-imports-by-source: no report: css', (t) => {
+    t.noReport('css');
+    t.end();
+});
+
 test('putout: group-imports-by-source: transform: convert-esm-to-commonjs', (t) => {
     t.transform('convert-esm-to-commonjs', {
         convertEsmToCommonJS,

@@ -25,10 +25,11 @@ export const fix = ({grouped}) => {
 
 export const traverse = ({push}) => ({
     Program(path) {
-        const external = [];
-        const internal = [];
+        const css = [];
         const builtin = [];
+        const external = [];
         const hashed = [];
+        const internal = [];
         const all = path.get('body').filter(isImportDeclaration);
         
         if (!all.length)
@@ -36,6 +37,11 @@ export const traverse = ({push}) => ({
         
         for (const current of all) {
             const {value} = current.node.source;
+            
+            if (value.endsWith('.css')) {
+                css.push(current);
+                continue;
+            }
             
             if (value.startsWith('.')) {
                 internal.push(current);
@@ -56,6 +62,7 @@ export const traverse = ({push}) => ({
         }
         
         const grouped = [
+            ...css,
             ...builtin,
             ...external,
             ...hashed,
