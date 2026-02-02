@@ -13,6 +13,7 @@ npm i putout @putout/plugin-cloudcmd -D
 
 ## Rules
 
+- ✅ [apply-init-module](#apply-init-module);
 - ✅ [convert-io-mv-to-io-move](#convert-io-mv-to-io-move);
 - ✅ [convert-io-cp-to-io-copy](#convert-io-cp-to-io-copy);
 - ✅ [convert-load-dir-to-change-dir](#convert-load-dir-to-change-dir);
@@ -22,21 +23,15 @@ npm i putout @putout/plugin-cloudcmd -D
 
 ```json
 {
-    "plugins": {
-        "cloudcmd": "on"
-    }
-}
-```
-
-## Rules
-
-```json
-{
     "rules": {
+        "cloudcmd/apply-init-module": "on",
         "cloudcmd/convert-io-mv-to-io-move": "on",
         "cloudcmd/convert-io-cp-to-io-copy": "on",
         "cloudcmd/convert-load-dir-to-change-dir": "on",
         "cloudcmd/convert-arrow-to-declaration": "on"
+    },
+    "plugins": {
+        "cloudcmd": "on"
     }
 }
 ```
@@ -110,6 +105,32 @@ await CloudCmd.loadDir({
 await CloudCmd.changeDir('/', {
     panel,
 });
+```
+
+# apply-init-module
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/c36edca65befaf11028c3f0863528a8a/e90bd5a9c6423c5e64c44f00bd6c204c695904a4).
+
+## ❌ Example of incorrect code
+
+```js
+CloudCmd.EditFileVim = exports;
+CloudCmd[NAME] = exports;
+```
+
+## ✅ Example of correct code
+
+```js
+CloudCmd.EditFileVim = {
+    init,
+    show,
+    hide,
+};
+CloudCmd.NAME = {
+    init,
+    show,
+    hide,
+};
 ```
 
 # convert-arrow-to-declaration

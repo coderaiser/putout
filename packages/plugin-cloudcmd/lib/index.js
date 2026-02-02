@@ -1,3 +1,4 @@
+import * as applyInitModule from './apply-init-module/index.js';
 import * as convertArrowToDeclaration from './convert-arrow-to-declaration/index.js';
 import * as convertIoMvToIoMove from './convert-io-mv-to-io-move/index.js';
 import * as convertIoCpToIoCopy from './convert-io-cp-to-io-copy/index.js';
@@ -10,4 +11,5 @@ export const rules = {
     'convert-io-write-to-io-create-directory': convertIoWriteToIoCreateDirectory,
     'convert-load-dir-to-change-dir': convertLoadDirToChangeDir,
     'convert-arrow-to-declaration': convertArrowToDeclaration,
+    'apply-init-module': applyInitModule,
 };
