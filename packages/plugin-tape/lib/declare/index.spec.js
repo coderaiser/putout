@@ -27,6 +27,11 @@ test('plugin-tape: declare: transform: types', (t) => {
     t.end();
 });
 
+test('plugin-tape: declare: transform: define-env', (t) => {
+    t.transform('define-env');
+    t.end();
+});
+
 test('plugin-tape: declare: declared', (t) => {
     t.noTransform('declared');
     t.end();
