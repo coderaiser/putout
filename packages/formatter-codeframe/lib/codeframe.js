@@ -2,8 +2,6 @@ import {styleText} from 'node:util';
 import {jsonFormatter} from '@putout/formatter-json';
 import {codeFrameColumns} from '@putout/babel';
 
-const MOVE_MESSAGE_WHEN_NO_PLACE = 1;
-
 export default ({name, source, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
         name,
@@ -30,7 +28,7 @@ export default ({name, source, places, index, count, filesCount, errorsCount}) =
             const location = {
                 start: {
                     line,
-                    column: column || MOVE_MESSAGE_WHEN_NO_PLACE,
+                    column,
                 },
             };
             
