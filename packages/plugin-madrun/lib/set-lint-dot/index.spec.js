@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('madrun: set lint dot: report: lint', (t) => {
-    t.report('lint', `Use 'lint' to check current drectory`);
+    t.report('lint', `Use 'lint' to check current directory`);
     t.end();
 });
 
