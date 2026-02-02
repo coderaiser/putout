@@ -33,7 +33,7 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [group-require-by-id](#group-require-by-id);
 - ✅ [remove-process-exit](#remove-process-exit);
 - ✅ [remove-useless-promisify](#remove-useless-promisify);
-- ✅ [remove-useless-process-exit](#remove-useless-process-exit);
+- ✅ [remove-top-level-process-exit](#remove-top-level-process-exit);
 - ✅ [remove-useless-strict-mode](#remove-useless-strict-mode);
 - ✅ [remove-illegal-strict-mode](#remove-useless-strict-mode);
 
@@ -71,7 +71,8 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/remove-process-exit": "on",
         "nodejs/remove-useless-strict-mode": "on",
         "nodejs/remove-illegal-strict-mode": "on",
-        "nodejs/remove-useless-promisify": "on"
+        "nodejs/remove-useless-promisify": "on",
+        "nodejs/remove-top-level-process-exit": "on"
     }
 }
 ```
@@ -224,10 +225,11 @@ In most cases `process.exit()` is called from `bin` directory, if not - disable 
 -process.exit();
 ```
 
-## remove-useless-process-exit
+## remove-top-level-process-exit
 
-Top level `process.exit()` have no sense.
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3aa8331269e49266d60914984027f9ed/6866eb78a0c1dd7f6e1f1e722c7c581b92f3b477).
+Top-level `process.exit()` has no sense (except debuggin).
+
+Checkout in ✅[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3aa8331269e49266d60914984027f9ed/9909ac2c07534299f64fee5ebf95cfc37ef04f11).
 
 ```diff
 -process.exit();

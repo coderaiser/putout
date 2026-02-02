@@ -117,7 +117,7 @@ test('plugin-nodejs: no report: apply-privately-required-file', (t) => {
     t.end();
 });
 
-test('plugin-nodejs: transform: remove-useless-process-exit', (t) => {
-    t.transform('remove-useless-process-exit');
+test('plugin-nodejs: transform: remove-top-level-process-exit', (t) => {
+    t.transform('remove-top-level-process-exit');
     t.end();
 });
