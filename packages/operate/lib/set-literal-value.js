@@ -9,15 +9,24 @@ export const setLiteralValue = (path, newValue) => {
     const node = path.node || path;
     
     if (isNumericLiteral(node)) {
-        node.value = newValue;
-        node.raw = newValue;
-        
+        setNumericLiteral(node, newValue);
         return;
     }
     
     if (isStringLiteral(node))
         setStringLiteral(node, newValue);
 };
+
+function setNumericLiteral(node, newValue) {
+    const raw = String(newValue);
+    
+    node.value = newValue;
+    node.raw = raw;
+    node.extra.rawValue = newValue;
+    node.extra.raw = raw;
+    
+    return;
+}
 
 function setStringLiteral(node, newValue) {
     const {
