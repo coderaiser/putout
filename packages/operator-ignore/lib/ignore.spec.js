@@ -42,7 +42,7 @@ test('putout: operator: ignore: __json: places', (t) => {
     const expected = [{
         message: `Add dotfiles to '.npmignore'`,
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'npmignore',
@@ -79,7 +79,7 @@ test('putout: operator: ignore: __ignore: places', (t) => {
     const expected = [{
         message: `Add dotfiles to '.npmignore'`,
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'npmignore',

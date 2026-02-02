@@ -108,7 +108,7 @@ test('putout: cli: --raw: parse error', async (t) => {
     assign(error, {
         pos: 11,
         loc: {
-            column: 0,
+            column: 1,
             line: 2,
         },
     });
@@ -1198,7 +1198,7 @@ test('putout: cli: --transform', async (t) => {
                 message: transform,
                 position: {
                     line: 1,
-                    column: 0,
+                    column: 1,
                 },
             }],
         }],
@@ -1253,7 +1253,7 @@ test('putout: cli: --plugins', async (t) => {
                 message: `Unexpected 'debugger' statement`,
                 position: {
                     line: 2,
-                    column: 0,
+                    column: 1,
                 },
             }],
         }],
@@ -1578,7 +1578,7 @@ test('putout: cli: readFile: EACCESS', async (t) => {
             message: 'Access Denied',
             position: {
                 line: 1,
-                column: 0,
+                column: 1,
             },
         }],
         index: 0,

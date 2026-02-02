@@ -364,7 +364,7 @@ test('putout: traverse: shebang', (t) => {
         message: '',
         position: {
             line: 2,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -401,7 +401,7 @@ test('putout: no loc', (t) => {
         message: '',
         position: {
             line: 0,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -434,7 +434,7 @@ test('putout: plugin: find: no return', (t) => {
         message: '',
         position: {
             line: 0,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -467,7 +467,7 @@ test('putout: plugin: return push in traverse', (t) => {
         message: '',
         position: {
             line: 0,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -656,7 +656,7 @@ test('putout: plugin: include', (t) => {
     const expected = [{
         message: 'debugger found',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'include',
@@ -744,7 +744,7 @@ test('putout: find: template', (t) => {
     const expected = [{
         message: '',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'include',

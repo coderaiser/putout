@@ -440,14 +440,14 @@ test('putout: loader: sync: import: shorten', async (t) => {
     }, {
         message: `Use 'ESM' instead of 'CommonJS'`,
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'nodejs/convert-commonjs-to-esm/require',
     }, {
         message: `Add missing 'use strict' directive on top of CommonJS`,
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'nodejs/add-missing-strict-mode',
@@ -589,7 +589,7 @@ test('putout: loader: enable part of rule: async: before', async (t) => {
     const expected = [{
         message: `Use lowercased node builders`,
         position: {
-            column: 0,
+            column: 1,
             line: 2,
         },
         rule: 'putout/apply-lowercase-to-node-builders',
@@ -617,7 +617,7 @@ test('putout: loader: enable part of rule: async', async (t) => {
     const expected = [{
         message: `Use lowercased node builders`,
         position: {
-            column: 0,
+            column: 1,
             line: 2,
         },
         rule: 'putout/apply-lowercase-to-node-builders',

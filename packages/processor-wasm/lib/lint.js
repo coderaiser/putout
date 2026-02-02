@@ -79,7 +79,7 @@ const parseError = ({message}) => ({
     message,
     position: {
         line: 1,
-        column: 0,
+        column: 1,
     },
 });
 
@@ -93,7 +93,7 @@ function convertPlaces(rule, rawPlaces, plugin) {
         
         const {line, column} = currentPath.node.loc?.start || {
             line: 0,
-            column: 0,
+            column: 1,
         };
         
         places.push({

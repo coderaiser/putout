@@ -81,7 +81,7 @@ test('putout: runner: filter: options', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -698,7 +698,7 @@ test('putout: runner: parser: no loc', (t) => {
         message: '',
         position: {
             line: 0,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -938,7 +938,7 @@ test('putout: runner: duplication: traverse + include', (t) => {
     const expected = [{
         message: '',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'duplicator',
@@ -975,7 +975,7 @@ test('putout: runner: duplication: find + traverse', (t) => {
     const expected = [{
         message: '',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'duplicator',
@@ -1013,7 +1013,7 @@ test('putout: runner: runPlugins', (t) => {
     const expected = [{
         message: '',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'duplicator',

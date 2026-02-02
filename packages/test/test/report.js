@@ -103,7 +103,7 @@ test('putout: test: noReport', (t) => {
     const place = {
         message: 'hello',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'remove-import',
@@ -153,7 +153,7 @@ test('putout: test: noReport: addons', (t) => {
     const place1 = {
         message: 'hello',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'remove-import1',
@@ -162,7 +162,7 @@ test('putout: test: noReport: addons', (t) => {
     const place2 = {
         message: 'hello',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'remove-import2',
@@ -216,7 +216,7 @@ test('putout: test: noReportAfterTransform: internal', (t) => {
     const place = {
         message: 'hello',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'declare',
@@ -274,7 +274,7 @@ test('putout: test: noReportAfterTransformWithOptions: internal', (t) => {
     const place = {
         message: 'world',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'declare',

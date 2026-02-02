@@ -31,7 +31,7 @@ test('putout: processor: wasm: local: wat', async ({noProcess}) => {
 test('putout: processor: wasm: parser error', async ({comparePlaces}) => {
     await comparePlaces('error.wast', [{
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         message: 'Invalid array length',

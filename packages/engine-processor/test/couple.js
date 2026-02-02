@@ -10,7 +10,7 @@ const typos = {
             message: 'Typo: target -> target',
             position: {
                 line: 1,
-                column: 0,
+                column: 1,
             },
         }],
     ],
@@ -25,7 +25,7 @@ test('putout: engine: processor: couple', async ({comparePlaces}) => {
     await comparePlaces('couple', [{
         message: 'Typo: target -> target',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'typo (typos)',

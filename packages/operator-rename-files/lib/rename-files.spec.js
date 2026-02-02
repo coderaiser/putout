@@ -365,7 +365,7 @@ test('putout: operator: rename-files: mask, from, to: report', (t) => {
     const expected = [{
         message: `Rename '*.spec.*' to '*.test.*'`,
         position: {
-            column: 0,
+            column: 1,
             line: 0,
         },
         rule: 'rename-files',

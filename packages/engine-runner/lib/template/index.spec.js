@@ -26,7 +26,7 @@ test('putout: plugin: traverse: template', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -57,7 +57,7 @@ test('putout: plugin: traverse: template: expression', (t) => {
         message: 'find',
         position: {
             line: 1,
-            column: 0,
+            column: 1,
         },
     }, {
         rule: 'exp',
@@ -95,7 +95,7 @@ test('putout: plugin: traverse: template: literal', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -129,7 +129,7 @@ test('putout: plugin: traverse: similar', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -160,7 +160,7 @@ test('putout: plugin: traverse: template: null', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -191,7 +191,7 @@ test('putout: plugin: traverse: template: word', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -222,7 +222,7 @@ test('putout: plugin: traverse: template: __', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 0,
+            column: 1,
         },
     }];
     
@@ -255,7 +255,7 @@ test('putout: plugin: find: template: __', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 0,
+            column: 1,
         },
     }];
     

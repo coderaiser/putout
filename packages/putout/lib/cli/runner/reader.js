@@ -41,7 +41,7 @@ export const runReader = async (overrides) => {
             message: readError.message,
             position: {
                 line: 1,
-                column: 0,
+                column: 1,
             },
         });
     

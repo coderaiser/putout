@@ -998,7 +998,7 @@ test('putout: cli: process-file: logError', async (t) => {
     assign(error, {
         pos: 11,
         loc: {
-            column: 0,
+            column: 1,
             line: 2,
         },
     });

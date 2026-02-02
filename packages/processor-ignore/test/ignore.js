@@ -24,7 +24,7 @@ test('putout: processor: ignore: rc: eslintrc: no crash', async ({comparePlaces}
     await comparePlaces('eslintrc', [{
         message: `Add dotfiles to '.gitignore'`,
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'gitignore',

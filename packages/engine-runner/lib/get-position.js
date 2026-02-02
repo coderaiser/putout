@@ -11,7 +11,7 @@ export const getPosition = (path, shebang) => {
     if (!loc)
         return {
             line: 0,
-            column: 0,
+            column: 1,
         };
     
     const {line, column} = node.loc.start;

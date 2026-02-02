@@ -11,7 +11,7 @@ test('engine-runner: fix: error', (t) => {
     
     const position = {
         line: 10,
-        column: 0,
+        column: 1,
     };
     
     const path = {
@@ -44,7 +44,7 @@ test('fix: error: nested path: debug', (t) => {
     
     const position = {
         line: 10,
-        column: 0,
+        column: 1,
     };
     
     const path = {
@@ -80,7 +80,7 @@ test('fix: error: nested path: debug: nested path', (t) => {
     
     const position = {
         line: 10,
-        column: 0,
+        column: 1,
     };
     
     const path = {
@@ -111,7 +111,7 @@ test('fix: is: false', (t) => {
     
     const position = {
         line: 10,
-        column: 0,
+        column: 1,
     };
     
     const path = {

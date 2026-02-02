@@ -423,7 +423,7 @@ test('putout: engine-processor: yaml: no startLine', async (t) => {
     const expected = [{
         message: '"cache" field should exist in travis',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'travis/disable-cache',

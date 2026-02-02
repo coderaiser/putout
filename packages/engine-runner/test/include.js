@@ -20,7 +20,7 @@ test('putout: runner: include', (t) => {
     const expected = [{
         message: 'debugger found',
         position: {
-            column: 0,
+            column: 1,
             line: 1,
         },
         rule: 'include',
