@@ -22,8 +22,13 @@ test('plugin-convert-commonjs-to-esm: commons: transform: require', (t) => {
     t.end();
 });
 
-test('plugin-convert-commonjs-to-esm: commons: transform: top-level-require', (t) => {
-    t.transform('top-level-require');
+test('plugin-convert-commonjs-to-esm: commons: no transform: css', (t) => {
+    t.noTransform('css');
+    t.end();
+});
+
+test('plugin-convert-commonjs-to-esm: commons: no report: top-level-require', (t) => {
+    t.noReport('top-level-require');
     t.end();
 });
 

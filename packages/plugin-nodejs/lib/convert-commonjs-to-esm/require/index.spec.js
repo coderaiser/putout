@@ -1,5 +1,6 @@
 import {createTest} from '@putout/test';
 import * as convert from './index.js';
+import * as commons from '../commons/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -189,6 +190,13 @@ test('plugin-convert-commonjs-to-esm: require: transform: rename', (t) => {
 
 test('plugin-convert-commonjs-to-esm: require: transform: top-level', (t) => {
     t.transform('top-level');
+    t.end();
+});
+
+test('plugin-convert-commonjs-to-esm: require: transform: css', (t) => {
+    t.transform('css', {
+        commons,
+    });
     t.end();
 });
 

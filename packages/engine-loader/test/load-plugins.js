@@ -431,13 +431,6 @@ test('putout: loader: sync: import: shorten', async (t) => {
     });
     
     const expected = [{
-        message: `Declare '__filename', '__dirname' and 'require' in ESM`,
-        position: {
-            column: 15,
-            line: 1,
-        },
-        rule: 'nodejs/convert-commonjs-to-esm/common',
-    }, {
         message: `Use 'ESM' instead of 'CommonJS'`,
         position: {
             column: 1,

@@ -1,4 +1,13 @@
-import {template, operator} from 'putout';
+import {
+    template,
+    operator,
+    types,
+} from 'putout';
+
+const {
+    isProgram,
+    isCallExpression,
+} = types;
 
 const {
     getPathAfterImports,
@@ -24,14 +33,13 @@ export const fix = ({scope}) => {
 export const include = () => [
     '__filename',
     '__dirname',
-    'require',
+    'require(__b)',
 ];
 
-export const filter = ({parentPath, scope}) => {
-    if (parentPath.isMemberExpression())
-        return false;
+export const filter = (path) => {
+    const {scope} = path;
     
-    if (parentPath.isObjectProperty())
+    if (isCallExpression(path) && isProgram(scope.block))
         return false;
     
     const isDirname = scope.hasBinding('__dirname');
