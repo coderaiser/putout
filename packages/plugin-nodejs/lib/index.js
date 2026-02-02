@@ -1,3 +1,4 @@
+import * as removeUselessProcessExit from './remove-useless-process-exit/index.js';
 import * as applyPrivatelyRequiredFiles from './apply-privately-required-file/index.js';
 import * as convertBufferToBufferAlloc from './convert-buffer-to-buffer-alloc/index.js';
 import * as convertFsPromises from './convert-fs-promises/index.js';
@@ -50,4 +51,5 @@ export const rules = {
     'remove-illegal-strict-mode': strictMode.rules['remove-illegal'],
     'remove-useless-promisify': removeUselessPromisify,
     'group-require-by-id': groupRequireById,
+    'remove-useless-process-exit': removeUselessProcessExit,
 };

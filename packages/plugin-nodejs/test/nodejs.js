@@ -116,3 +116,8 @@ test('plugin-nodejs: no report: apply-privately-required-file', (t) => {
     t.noReport('apply-privately-required-file');
     t.end();
 });
+
+test('plugin-nodejs: transform: remove-useless-process-exit', (t) => {
+    t.transform('remove-useless-process-exit');
+    t.end();
+});

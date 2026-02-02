@@ -1,0 +1,3 @@
+const a = () => {
+    process.exit();
+};
