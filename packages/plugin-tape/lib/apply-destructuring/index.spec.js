@@ -21,3 +21,8 @@ test('plugin-tape: apply-destructuring: transform: no-stub', (t) => {
     t.transform('no-stub');
     t.end();
 });
+
+test('plugin-tape: apply-destructuring: transform: other-name', (t) => {
+    t.transform('other-name');
+    t.end();
+});
