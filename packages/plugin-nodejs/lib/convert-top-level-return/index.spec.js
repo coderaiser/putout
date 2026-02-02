@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-convert-top-level-return: report: return', (t) => {
-    t.report('return', '"process.exit" should be used instead of top-level return');
+    t.report('return', `Use 'process.exit()' instead of top-level 'return'`);
     t.end();
 });
 
