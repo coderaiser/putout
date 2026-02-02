@@ -106,7 +106,7 @@ export const _noConfigFound = noConfigFound;
 
 const parseRule = (rule) => rule || 'parser';
 
-export function convertToPlace({ruleId = 'parser', message, line = 0, column = 0, severity}) {
+export function convertToPlace({ruleId = 'parser', message, line = 1, column = 1, severity}) {
     const rule = `${parseRule(ruleId)}${eslintId}`;
     
     if (severity === WARNING && isNoESLintWarnings())
