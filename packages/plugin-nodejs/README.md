@@ -227,7 +227,7 @@ In most cases `process.exit()` is called from `bin` directory, if not - disable 
 
 ## remove-top-level-process-exit
 
-Top-level `process.exit()` has no sense (except debuggin).
+Top-level `process.exit()` has no sense (except debugging).
 
 Checkout in ✅[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3aa8331269e49266d60914984027f9ed/9909ac2c07534299f64fee5ebf95cfc37ef04f11).
 
