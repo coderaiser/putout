@@ -54,6 +54,7 @@ test('operate: setLiteralValue: node', (t) => {
 
 test('operate: setLiteralValue: no raw', (t) => {
     const node = template.ast('import z from "y"');
+    
     setLiteralValue(node.source, 'hello');
     
     const result = print(node);
@@ -119,6 +120,27 @@ test('operate: setLiteralValue: empty: no raw', (t) => {
     
     const expected = montag`
         <a data-name="hello"></a>;\n
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: setLiteralValue: number', (t) => {
+    const ast = parse(`({"hello": 0})`);
+    
+    traverse(ast, {
+        NumericLiteral: (path) => {
+            setLiteralValue(path.node, 5);
+        },
+    });
+    
+    const result = print(ast);
+    
+    const expected = montag`
+        ({
+            'hello': 5,
+        });\n
     `;
     
     t.equal(result, expected);
