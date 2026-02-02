@@ -47,7 +47,7 @@ test('putout: exports: findPlacesAsync', async (t) => {
     const expected = [{
         message: `'a' is defined but never used`,
         position: {
-            column: 6,
+            column: 7,
             line: 1,
         },
         rule: 'variables/remove-unused',
@@ -76,7 +76,7 @@ test('putoutAsync: loader: no plugin found', async (t) => {
     }, {
         message: `'a' is defined but never used`,
         position: {
-            column: 6,
+            column: 7,
             line: 1,
         },
         rule: 'variables/remove-unused',

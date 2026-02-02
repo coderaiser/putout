@@ -1246,7 +1246,7 @@ test('putout: cli: --plugins', async (t) => {
                 message: `'a' is defined but never used`,
                 position: {
                     line: 1,
-                    column: 6,
+                    column: 7,
                 },
             }, {
                 rule: 'remove-debugger',

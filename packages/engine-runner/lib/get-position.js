@@ -18,7 +18,7 @@ export const getPosition = (path, shebang) => {
     
     return {
         line: shebang ? line + 1 : line,
-        column,
+        column: column + 1,
     };
 };
 

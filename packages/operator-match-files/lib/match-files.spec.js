@@ -60,7 +60,7 @@ test('putout: operator: match-files: places', (t) => {
     const expected = [{
         message: 'hello',
         position: {
-            column: 74,
+            column: 75,
             line: 1,
         },
         rule: 'match-files',

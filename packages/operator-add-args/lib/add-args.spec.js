@@ -24,7 +24,7 @@ test('putout: operator: add-args: report', (t) => {
     const expected = [{
         message: `Argument 'compare' is missing`,
         position: {
-            column: 4,
+            column: 5,
             line: 2,
         },
         rule: 'add-args',

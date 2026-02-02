@@ -13,7 +13,7 @@ const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), '
 
 const ruleTester = new RuleTester({
     languageOptions: {
-        ecmaVersion: 2025,
+        ecmaVersion: 2026,
     },
 });
 
@@ -77,7 +77,7 @@ ruleTester.run('putout', rule, {
         `,
         errors: [{
             line: 2,
-            column: 7,
+            column: 8,
             message: `'m' is defined but never used (variables/remove-unused)`,
         }],
     }],
@@ -129,11 +129,11 @@ parserTester.run('putout: typescript', rule, {
         output: '\n',
         errors: [{
             line: 1,
-            column: 1,
+            column: 2,
             message: `'A' is defined but never used (variables/remove-unused)`,
         }, {
             line: 2,
-            column: 8,
+            column: 9,
             message: `Use shorthand '[]' instead of generic 'Array' (typescript/convert-generic-to-shorthand)`,
         }],
     }],
@@ -174,7 +174,7 @@ parserTester.run('putout: tape', rule, {
         `,
         errors: [{
             line: 1,
-            column: 1,
+            column: 2,
             message: `Declare 'test', it referenced but not defined (tape/declare)`,
         }],
     }, {
@@ -235,7 +235,7 @@ parserTester.run('putout', rule, {
         `,
         errors: [{
             line: 1,
-            column: 1,
+            column: 2,
             message: `Declare 'test', it referenced but not defined (tape/declare)`,
         }],
     }, {
@@ -251,7 +251,7 @@ parserTester.run('putout', rule, {
         `,
         errors: [{
             line: 1,
-            column: 1,
+            column: 2,
             message: `Simplify ternary (simplify-ternary/value)`,
         }],
     }],
@@ -268,7 +268,7 @@ tsParserTester.run('typescript-eslint: comments', rule, {
         output: readFixture('typescript-eslint-comments-fix'),
         errors: [{
             line: 13,
-            column: 9,
+            column: 10,
             message: 'Avoid useless conditions (conditions/evaluate)',
         }],
     }, {
@@ -283,7 +283,7 @@ tsParserTester.run('typescript-eslint: comments', rule, {
         }],
         errors: [{
             line: 5,
-            column: 5,
+            column: 6,
             message: 'Avoid using duplicates in Union (typescript/remove-duplicates-from-union)',
         }],
     }],

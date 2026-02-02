@@ -262,9 +262,9 @@ test('putout: loader: disabled part of rule', (t) => {
     });
     
     const expected = [{
-        message: `Use 'lint' to check current drectory`,
+        message: `Use 'lint' to check current directory`,
         position: {
-            column: 17,
+            column: 18,
             line: 3,
         },
         rule: 'madrun/set-lint-dot',
@@ -295,7 +295,7 @@ test('putout: loader: enable part of rule', (t) => {
     const expected = [{
         message: `Use 'function' instead of 'string' in script: 'lint'`,
         position: {
-            column: 12,
+            column: 13,
             line: 4,
         },
         rule: 'madrun/add-function',
@@ -433,7 +433,7 @@ test('putout: loader: sync: import: shorten', async (t) => {
     const expected = [{
         message: `Declare '__filename', '__dirname' and 'require' in ESM`,
         position: {
-            column: 14,
+            column: 15,
             line: 1,
         },
         rule: 'nodejs/convert-commonjs-to-esm/common',

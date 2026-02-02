@@ -577,7 +577,7 @@ test('putout: engine-processor: md: json: options', async (t) => {
     const expected = [{
         message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
         position: {
-            column: 18,
+            column: 19,
             line: 4,
         },
         rule: 'putout-config/convert-boolean-to-string',

@@ -119,7 +119,7 @@ test('test: eslint: comparePlaces: overrides: ESM', async ({comparePlaces}) => {
     const places = [{
         message: `Avoid useless argument 'a' (arguments/remove-useless)`,
         position: {
-            column: 4,
+            column: 5,
             line: 4,
         },
         rule: 'putout/putout (eslint)',
