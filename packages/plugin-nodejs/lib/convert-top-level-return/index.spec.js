@@ -27,6 +27,13 @@ test('plugin-convert-top-level-return: transform: return-arg', (t) => {
     t.end();
 });
 
+test('plugin-convert-top-level-return: report: return-arg', (t) => {
+    const message = `Use 'process.exit()' instead of top-level 'return'`;
+    
+    t.report('return-arg', [message, message]);
+    t.end();
+});
+
 test('plugin-convert-top-level-return: no transform: fn', (t) => {
     t.noTransform('fn');
     t.end();
