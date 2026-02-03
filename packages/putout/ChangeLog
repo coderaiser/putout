@@ -1,3 +1,37 @@
+2026.02.03, v41.17.0
+
+fix:
+- fbbb8faea @putout/plugin-nodejs: convert-top-level-return: report
+- 75f5716e2 @putout/formatter-codeframe: column starts from 1
+- 0538680bb @putout/operate: setLiteralValue: NumericLiteral
+- a0c24113f @putout/plugin-esm: add-index-to-import: enable
+
+feature:
+- d063fa547 putout: @putout/plugin-esm v9.0.0
+- d569b13b0 @putout/plugin-esm: add-index-to-import: rm
+- 9f4b97a93 @putout/plugin-cloudcmd: convert-io-delete-to-io-remove: add
+- 5ef26f923 @putout/plugin-cloudcmd: apply-init-module: add
+- 66eca0063 @putout/plugin-cloudcmd: drop support of 🐊 < 41
+- d14deeebb @putout/plugin-cloudcmd: convert-arrow-to-declaration: add
+- f5578691b @putout/plugin-nodejs: convert-commonjs-to-esm: require: false positive: on css
+- 480b87779 @putout/plugin-tape: declare: defineEnv
+- 00b856fe8 @putout/plugin-esm: group-imports-by-source: css first
+- ff220bd00 @putout/plugin-nodejs: remove-top-level-process-exit
+- 989d56ad1 @putout/plugin-nodejs: remove-useless-process-exit: add
+- 482640e4a @putout/plugin-nodejs: convert-top-level-return: arguments
+- 0f5602d2e @putout/plugin-tape: apply-destructuring: rename
+- e352fee27 @putout/engine-runner: get-position: column + 1
+- e3b6bc596 @putout/plugin-madrun: set-lint-dot: report: drectory -> directory
+- 710a2f639 @putout/eslint: column: 1
+- cfb827aea @putout/operate: setLiteralValue: numericLiteral
+- 352bfae16 @putout/plugin-putout: add-crawl-file: add
+- 1d068ea06 @putout/plugin-esm: apply-name-to-imported-file: use crawlFile
+- b050a2df6 @putout/engine-runner: scanner: crawlFile: add
+- 946ce1af1 @putout/plugin-esm: apply-name-to-imported-file: export from
+- 772b76f29 @putout/plugin-esm: add-index-to-import: export namespace
+- 1e2ad0078 eslint-plugin-putout: @babel/eslint-parser v8.0.0-rc.1
+- c6ad0dd0f @putout/engine-reporter: @putout/cli-choose-formatter v6.0.0
+
 2026.01.31, v41.16.0
 
 feature:
