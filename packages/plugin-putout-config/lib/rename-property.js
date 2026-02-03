@@ -4,6 +4,7 @@ const {
     traverseProperties,
     __json,
     setLiteralValue,
+    remove,
 } = operator;
 
 export const createRenameProperty = (tuples) => ({
@@ -15,6 +16,11 @@ export const createRenameProperty = (tuples) => ({
 const report = ({from, to}) => `Rename property: '${from}' -> '${to}'`;
 
 const fix = ({path, to}) => {
+    if (!to) {
+        remove(path.parentPath.parentPath);
+        return;
+    }
+    
     setLiteralValue(path.node.key, to);
 };
 
