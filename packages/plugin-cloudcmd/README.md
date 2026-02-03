@@ -16,6 +16,7 @@ npm i putout @putout/plugin-cloudcmd -D
 - ✅ [apply-init-module](#apply-init-module);
 - ✅ [convert-io-mv-to-io-move](#convert-io-mv-to-io-move);
 - ✅ [convert-io-cp-to-io-copy](#convert-io-cp-to-io-copy);
+- ✅ [convert-io-delete-to-io-remove](#convert-io-delete-to-io-remove);
 - ✅ [convert-load-dir-to-change-dir](#convert-load-dir-to-change-dir);
 - ✅ [convert-arrow-to-declaration](#convert-arrow-to-declaration);
 
@@ -27,6 +28,7 @@ npm i putout @putout/plugin-cloudcmd -D
         "cloudcmd/apply-init-module": "on",
         "cloudcmd/convert-io-mv-to-io-move": "on",
         "cloudcmd/convert-io-cp-to-io-copy": "on",
+        "cloudcmd/convert-io-delete-to-io-remove": "on",
         "cloudcmd/convert-load-dir-to-change-dir": "on",
         "cloudcmd/convert-arrow-to-declaration": "on"
     },
@@ -52,6 +54,22 @@ await IO.mv({
 
 ```js
 await IO.move(dirPath, mp3Dir, mp3Names);
+```
+
+# convert-io-delete-to-io-remove
+
+## ❌ Example of incorrect code
+
+```js
+await IO.delete('/tmp', ['1.txt']);
+await IO.delete('/tmp');
+```
+
+## ✅ Example of correct code
+
+```js
+await IO.remove('/tmp', ['1.txt']);
+await IO.remove('/tmp');
 ```
 
 # convert-io-cp-to-io-copy

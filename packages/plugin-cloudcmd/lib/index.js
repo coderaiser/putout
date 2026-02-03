@@ -1,3 +1,4 @@
+import * as convertIoDeleteToIoRemove from './convert-io-delete-to-io-remove/index.js';
 import * as applyInitModule from './apply-init-module/index.js';
 import * as convertArrowToDeclaration from './convert-arrow-to-declaration/index.js';
 import * as convertIoMvToIoMove from './convert-io-mv-to-io-move/index.js';
@@ -12,4 +13,5 @@ export const rules = {
     'convert-load-dir-to-change-dir': convertLoadDirToChangeDir,
     'convert-arrow-to-declaration': convertArrowToDeclaration,
     'apply-init-module': applyInitModule,
+    'convert-io-delete-to-io-remove': convertIoDeleteToIoRemove,
 };
