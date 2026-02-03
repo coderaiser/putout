@@ -1,5 +1,6 @@
 import {createTest} from '@putout/test';
 import * as plugin from './index.js';
+import * as optimize from '../optimize/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -24,6 +25,13 @@ test('regexp: apply-character-class: transform: capturing-group', (t) => {
 
 test('regexp: apply-character-class: transform: couple', (t) => {
     t.transform('couple');
+    t.end();
+});
+
+test('regexp: apply-character-class: transform: optimize', (t) => {
+    t.transform('optimize', {
+        optimize,
+    });
     t.end();
 });
 

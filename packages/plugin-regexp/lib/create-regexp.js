@@ -14,9 +14,7 @@ const createReport = (regexp) => ({from, to}) => {
 };
 
 const fix = ({path, to}) => {
-    const [, pattern] = to.split('/');
-    
-    path.node.pattern = pattern;
+    path.node.pattern = to.slice(1, -1);
     path.node.raw = to;
     path.node.extra.raw = to;
 };
