@@ -1,9 +1,9 @@
-import {a} from './load/async-loader/index.js';
+import {a} from './load/async-loader';
 
-export {createAsyncLoader} from './load/async-loader/index.js';
-export {validateRulesRelations} from './validators/validate-rules-relations/index.js';
-export {loadPluginsAsync} from './plugins/load-plugins-async/index.js';
-export {loadPlugins} from './plugins/load-plugins/index.js';
-export {loadProcessorsAsync} from './processors/load-processors-async/index.js';
+export {createAsyncLoader} from './load/async-loader';
+export {validateRulesRelations} from './validators/validate-rules-relations';
+export {loadPluginsAsync} from './plugins/load-plugins-async';
+export {loadPlugins} from './plugins/load-plugins';
+export {loadProcessorsAsync} from './processors/load-processors-async';
 export * as ns from 'hello';
 export * as x from 'abc';

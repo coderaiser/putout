@@ -5,7 +5,6 @@ import * as applyNamespaceToImportedFile from './apply-namespace-to-imported-fil
 import * as mergeExportDeclarations from './merge-export-declarations/index.js';
 import * as removeUselessExportSpecifiers from './remove-useless-export-specifiers/index.js';
 import * as mergeDeclarationWithExport from './merge-declaration-with-export/index.js';
-import * as addIndexToImport from './add-index-to-import/index.js';
 import * as declareImportsFirst from './declare-imports-first/index.js';
 import * as groupImportsBySource from './group-imports-by-source/index.js';
 import * as removeQuotesFromImportAssertions from './remove-quotes-from-import-assertions/index.js';
@@ -19,7 +18,6 @@ import * as resolveImportedFile from './resolve-imported-file/index.js';
 import * as shortenImportedFile from './shorten-imported-file/index.js';
 
 export const rules = {
-    'add-index-to-import': addIndexToImport,
     'apply-export-from': applyExportFrom,
     'convert-assert-to-with': convertAssertToWith,
     'declare-imports-first': declareImportsFirst,
