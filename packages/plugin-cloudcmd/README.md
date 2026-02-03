@@ -58,6 +58,8 @@ await IO.move(dirPath, mp3Dir, mp3Names);
 
 # convert-io-delete-to-io-remove
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/855026ad630dba16309cc7e7d1b279b1/2094c35434032d72cc774ba49fdb7188602f5841).
+
 ## ❌ Example of incorrect code
 
 ```js
