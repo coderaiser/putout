@@ -1,18 +1,19 @@
-export const report = () => `Numeric separators should be used`;
+export const report = ({path, splited}) => {
+    const {value} = path.node;
+    return `Use numeric separators: '${value}' -> '${splited}'`;
+};
 
-export const fix = ({node}) => {
-    const {raw} = node;
+export const fix = ({path, splited}) => {
+    const {node} = path;
     
-    node.raw = split(raw);
-    node.value = split(raw);
+    node.raw = splited;
+    node.value = splited;
 };
 
 export const traverse = ({push}) => ({
     NumericLiteral(path) {
         const {node} = path;
-        
-        node.raw = node.raw || String(node.value);
-        const {raw} = path.node;
+        const raw = node.raw || String(node.value);
         
         if (raw.length < 5)
             return;
@@ -29,7 +30,10 @@ export const traverse = ({push}) => ({
         if (raw.includes('o'))
             return;
         
-        push(path);
+        push({
+            path,
+            splited: split(raw),
+        });
     },
 });
 

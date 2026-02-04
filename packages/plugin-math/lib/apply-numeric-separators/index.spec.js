@@ -9,7 +9,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-math: apply-numeric-separators: report: number', (t) => {
-    t.report('number', 'Numeric separators should be used');
+    t.report('number', `Use numeric separators: '10000000' -> '10_000_000'`);
     t.end();
 });
 
