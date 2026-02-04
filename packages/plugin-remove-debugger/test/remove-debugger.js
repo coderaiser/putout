@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('remove debugger: report', (t) => {
-    t.reportCode('debugger', `Unexpected 'debugger' statement`);
+    t.reportCode('debugger', `Avoid 'debugger' statement`);
     t.end();
 });
 

@@ -77,7 +77,7 @@ Check out couple variants of plugins that does the same: [**linting debugger sta
 - 🐊 **Putout** [remove-debugger](https://github.com/coderaiser/putout/blob/v24.6.0/packages/plugin-remove-debugger/lib/remove-debugger.js): **5** lines:
 
 ```js
-export const report = () => `Unexpected 'debugger' statement`;
+export const report = () => `Avoid 'debugger' statement`;
 
 export const replace = () => ({
     debugger: '',
@@ -2621,7 +2621,7 @@ Let's consider simplest possible plugin for removing `debugger statements` [@put
 
 ```js
 // this is a message to show in putout cli
-export const report = () => 'Unexpected "debugger" statement';
+export const report = () => `Avoid 'debugger' statement`;
 
 // let's find all "debugger" statements and replace them with ""
 export const replace = () => ({
@@ -2684,7 +2684,7 @@ const test = createTest(import.meta.url, {
 
 // this is how we test that messages is correct
 test('remove debugger: report', (t) => {
-    t.reportCode('debugger', 'Unexpected "debugger" statement');
+    t.reportCode('debugger', `Avoid 'debugger' statement`);
     t.end();
 });
 

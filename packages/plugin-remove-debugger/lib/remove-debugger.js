@@ -1,4 +1,4 @@
-export const report = () => `Unexpected 'debugger' statement`;
+export const report = () => `Avoid 'debugger' statement`;
 
 export const replace = () => ({
     debugger: '',

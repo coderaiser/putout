@@ -1250,7 +1250,7 @@ test('putout: cli: --plugins', async (t) => {
                 },
             }, {
                 rule: 'remove-debugger',
-                message: `Unexpected 'debugger' statement`,
+                message: `Avoid 'debugger' statement`,
                 position: {
                     line: 2,
                     column: 1,
