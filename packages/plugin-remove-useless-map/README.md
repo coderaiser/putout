@@ -29,6 +29,12 @@ npm i @putout/plugin-remove-useless-map
 
 ```js
 const [str] = lines.map((line) => `hello ${line}`);
+
+const x = array.map((a) => a);
+
+Object
+    .entries(a)
+    .map(([a, b]) => [a, b]);
 ```
 
 ## ✅ Example of correct code
@@ -36,6 +42,8 @@ const [str] = lines.map((line) => `hello ${line}`);
 ```js
 const [line] = lines;
 const str = `hello ${line}`;
+
+const x = array;
 ```
 
 ## License

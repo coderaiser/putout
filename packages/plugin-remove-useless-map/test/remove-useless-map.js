@@ -22,6 +22,11 @@ test('plugin-remove-useless-map: transform: same', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-map: transform: entries', (t) => {
+    t.transform('entries');
+    t.end();
+});
+
 test('plugin-remove-useless-map: no transform: not-same', (t) => {
     t.noTransform('not-same');
     t.end();

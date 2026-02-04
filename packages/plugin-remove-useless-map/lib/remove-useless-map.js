@@ -21,6 +21,8 @@ export const match = () => ({
 
 export const replace = () => ({
     '__a.map((__b) => __b)': '__a',
+    'Object.entries(__a).map(([__b, __c]) => [__b, __c])': 'Object.entries(__a)',
+    'entries(__a).map(([__b, __c]) => [__b, __c])': 'entries(__a)',
     'const [__a] = __b.map((__c) => __d)': ({__a, __c}) => {
         return ` {
             const [${__c.name}] = __b;
