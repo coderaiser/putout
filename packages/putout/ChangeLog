@@ -1,3 +1,15 @@
+2026.02.05, v41.18.0
+
+feature:
+- deeb07110 putout: @putout/plugin-remove-useless-map v3.0.0
+- 0e289d049 @putout/plugin-remove-useless-object-from-entries: add
+- 80b9f708a @putout/plugin-remove-useless-map: entries
+- 90a189615 @putout/plugin-remove-useless-map: drop support of 🐊 < 41
+- 1c8879ff4 @putout/plugin-math: apply-numeric-sperators: report
+- 4777adc7c @putout/plugin-putout: replace-test-message: report with options -> transform with options
+- 23abe0f63 @putout/plugin-regexp: apply-character-class: with optimize
+- 8458c2585 @putout/plugin-putout-config: apply-esm: remove add-index-to-import
+
 2026.02.03, v41.17.0
 
 fix:
