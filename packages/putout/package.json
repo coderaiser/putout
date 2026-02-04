@@ -150,6 +150,7 @@
     "@putout/plugin-remove-useless-array": "^2.0.0",
     "@putout/plugin-remove-useless-array-constructor": "^3.0.0",
     "@putout/plugin-remove-useless-array-entries": "^2.0.0",
+    "@putout/plugin-remove-useless-object-from-entries": "^1.0.0",
     "@putout/plugin-remove-useless-assign": "^2.0.0",
     "@putout/plugin-remove-useless-constructor": "^3.0.0",
     "@putout/plugin-remove-useless-continue": "^3.0.0",

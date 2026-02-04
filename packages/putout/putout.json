@@ -233,6 +233,7 @@
         "remove-useless-array",
         "remove-useless-array-constructor",
         "remove-useless-array-entries",
+        "remove-useless-object-from-entries",
         "remove-useless-continue",
         "remove-useless-delete",
         "remove-useless-operand",

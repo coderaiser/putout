@@ -774,6 +774,31 @@ switch (x) {
 
 </details>
 
+<details><summary>remove useless <code>Object.fromEntries()</code></summary>
+
+```diff
+const a = {
+-    b: Object.fromEntries(Object.entries({
+-        hello: 'world',
+-    })),
++    b: {
++        hello: 'world',
++    },
+};
+```
+
+</details>
+
+<details><summary>remove useless <code>replace()</code></summary>
+
+```diff
+-const a = 'hello'.replace(world, world);
++const a = 'hello';
+```
+
+</details>
+
+
 <details><summary>remove useless <code>new</code>(<a href=https://262.ecma-international.org/12.0/#sec-error-constructor>why</a>)</summary>
 
 ```diff
@@ -2188,6 +2213,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-remove-useless-array`](/packages/plugin-remove-useless-array#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array) |
 | [`@putout/plugin-remove-useless-array-constructor`](/packages/plugin-remove-useless-array-constructor#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-constructor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-constructor) |
 | [`@putout/plugin-remove-useless-array-entries`](/packages/plugin-remove-useless-array-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-entries) |
+| [`@putout/plugin-remove-useless-object-from-entries`](/packages/plugin-remove-useless-object-from-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-object-from-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-object-from-entries) |
 | [`@putout/plugin-remove-useless-escape`](/packages/plugin-remove-useless-escape#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-escape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-escape) |
 | [`@putout/plugin-remove-useless-functions`](/packages/plugin-remove-useless-functions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-functions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-functions) |
 | [`@putout/plugin-remove-useless-push`](/packages/plugin-remove-useless-push#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-push.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-push) |
