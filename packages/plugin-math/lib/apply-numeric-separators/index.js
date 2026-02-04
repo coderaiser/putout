@@ -1,13 +1,13 @@
-export const report = ({path, splited}) => {
+export const report = ({path, split}) => {
     const {value} = path.node;
-    return `Use numeric separators: '${value}' -> '${splited}'`;
+    return `Use numeric separators: '${value}' -> '${split}'`;
 };
 
-export const fix = ({path, splited}) => {
+export const fix = ({path, split}) => {
     const {node} = path;
     
-    node.raw = splited;
-    node.value = splited;
+    node.raw = split;
+    node.value = split;
 };
 
 export const traverse = ({push}) => ({
@@ -32,7 +32,7 @@ export const traverse = ({push}) => ({
         
         push({
             path,
-            splited: split(raw),
+            split: split(raw),
         });
     },
 });
