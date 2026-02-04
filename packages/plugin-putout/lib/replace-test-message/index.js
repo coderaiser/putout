@@ -19,7 +19,7 @@ const INCORRECT = {
     NO_REPORT_WITH_OPTIONS: /: (no report after transform(\swith options)?|report|transform|no transform|no report)/,
     TRANSFORM: /: (transform with options|no report after transform|no transform|report|no report)/,
     NO_TRANSFORM: /: (no report after transform|transform|report|no report)/,
-    TRANSFORM_WITH_OPTIONS: /: (no report after transform|transform|no transform(\swith options)?|report|no report)/,
+    TRANSFORM_WITH_OPTIONS: /: (no report after transform|no report|report|no transform|transform)(\swith options)?/,
     NO_TRANSFORM_WITH_OPTIONS: /: (no report after transform|transform(\swith options)?|no transform|report|no report)/,
 };
 

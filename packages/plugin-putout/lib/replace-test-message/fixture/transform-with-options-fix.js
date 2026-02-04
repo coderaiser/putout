@@ -11,3 +11,11 @@ test('bundler-fasm: apply-debug: transform with options', (t) => {
     });
     t.end();
 });
+
+test('putout: plugin-esm: apply-name-to-imported-file: transform with options: namespace', (t) => {
+    t.transformWithOptions('namespace', {
+        name: 'a',
+        source: './a.js',
+    });
+    t.end();
+});
