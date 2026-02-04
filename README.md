@@ -798,7 +798,6 @@ const a = {
 
 </details>
 
-
 <details><summary>remove useless <code>new</code>(<a href=https://262.ecma-international.org/12.0/#sec-error-constructor>why</a>)</summary>
 
 ```diff
