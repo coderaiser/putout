@@ -1,8 +1,5 @@
-import {readFileSync} from 'node:fs';
 import test from 'supertape';
 import {transform, findPlaces} from '../lib/index.js';
-
-const {parse} = JSON;
 
 test('putout: exports: putout-options', async (t) => {
     const {putout, default: internal} = await import('putout');
@@ -37,14 +34,5 @@ test('putout: exports: putout/find-places', async (t) => {
     const {findPlaces: external} = await import('putout/find-places');
     
     t.equal(external, findPlaces);
-    t.end();
-});
-
-test('putout: exports: putout/register', (t) => {
-    const infoPath = new URL('../package.json', import.meta.url);
-    const info = parse(readFileSync(infoPath, 'utf8'));
-    const exists = info.exports['./register'];
-    
-    t.ok(exists);
     t.end();
 });

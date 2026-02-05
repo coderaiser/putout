@@ -6,8 +6,7 @@
         "**/fixture",
         "test",
         "coverage",
-        "**/register.js",
-        ".*.*",
+        ".*",
         "bin/tracer.js",
         "bin/communication.js",
         "**/*.config.*"

@@ -2875,24 +2875,6 @@ So if you use package **eslint-config-hardcore** you should run **ESLint** this 
 PUTOUT_YARN_PNP=eslint-config-hardcore eslint .
 ```
 
-## ⛓ Using Putout as Loader
-
-🐊**Putout** can be used as [loader](https://nodejs.org/dist/latest-v17.x/docs/api/esm.html#loaders) this way:
-
-```sh
-node --import putout/register your-file.js
-```
-
-You can also transform input files using `Babel`. For example if you need to transform `jsx` with `@babel/plugin-transform-react-jsx` you can use `.putout.json`:
-
-```json
-{
-    "plugins": [
-        "babel/transform-react-jsx"
-    ]
-}
-```
-
 ## 🚪Exit Codes
 
 🐊**Putout** can have one of next [exit codes](https://github.com/coderaiser/putout/blob/master/packages/putout/lib/cli/exit-codes.mjs):
