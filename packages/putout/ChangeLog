@@ -1,3 +1,8 @@
+2026.02.05, v41.18.1
+
+feature:
+- d7b6677ac putout: remove loader: do not works as expected
+
 2026.02.05, v41.18.0
 
 feature:
