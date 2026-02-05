@@ -7,7 +7,6 @@
         "test",
         "coverage",
         ".*",
-        "bin/tracer.js",
         "**/*.config.*"
     ],
     "branches": 100,

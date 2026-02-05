@@ -14,10 +14,12 @@ import {dropInteractive} from './drop-interactive.js';
 const args = parseArgs(process.argv.slice(2));
 const write = stdout.write.bind(stdout);
 
+/* c8 ignore start */
 if (!args.worker) {
     await import('./putout.js');
     halt();
 }
+/* c8 ignore end */
 
 const slave = new URL('./putout.js', import.meta.url);
 
