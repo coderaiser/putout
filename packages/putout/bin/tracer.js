@@ -19,8 +19,8 @@ if (!args.worker) {
     await import('./putout.js');
     halt();
 }
-/* c8 ignore end */
 
+/* c8 ignore end */
 const slave = new URL('./putout.js', import.meta.url);
 
 const worker = new Worker(slave, {
