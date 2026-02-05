@@ -8,7 +8,6 @@
         "coverage",
         ".*",
         "bin/tracer.js",
-        "bin/communication.js",
         "**/*.config.*"
     ],
     "branches": 100,

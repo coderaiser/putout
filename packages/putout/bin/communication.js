@@ -15,15 +15,11 @@ export const createCommunication = () => {
     const newParentPort = new EventEmitter();
     
     assign(newWorker, {
-        postMessage: (a) => {
-            newParentPort.emit('message', a);
-        },
+        postMessage: createPostMessage(newParentPort),
     });
     
     assign(newParentPort, {
-        postMessage: (a) => {
-            newWorker.emit('message', a);
-        },
+        postMessage: createPostMessage(newWorker),
     });
     
     return {
@@ -31,4 +27,8 @@ export const createCommunication = () => {
         parentPort: newParentPort,
         workerData: process.argv,
     };
+};
+
+export const createPostMessage = (emitter) => (a) => {
+    emitter.emit('message', a);
 };
