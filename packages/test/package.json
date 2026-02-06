@@ -39,7 +39,7 @@
     "@putout/engine-reporter": "^8.0.1",
     "@putout/engine-runner": "*",
     "@putout/eslint": "^5.0.0",
-    "@putout/operator-filesystem": "^10.0.4",
+    "@putout/operator-filesystem": "^11.0.0",
     "@putout/operator-json": "^3.1.0",
     "@putout/plugin-filesystem": "*",
     "currify": "^4.0.0",
