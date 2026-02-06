@@ -3,14 +3,8 @@ import {compare} from '@putout/compare';
 import {__filesystem_name} from '@putout/operator-json';
 import * as fromSimple from '@putout/plugin-filesystem/from-simple';
 import * as toSimple from '@putout/plugin-filesystem/to-simple';
-import {
-    findFile,
-    crawlDirectory,
-} from '@putout/operator-filesystem';
-import {
-    pause,
-    start,
-} from '@putout/operator-filesystem/maybe';
+import {findFile, crawlDirectory} from '@putout/operator-filesystem';
+import {pause, start} from '@putout/operator-filesystem/maybe';
 import {createDebug} from '../debug.js';
 
 const log = createDebug('putout:runner:scanner');
