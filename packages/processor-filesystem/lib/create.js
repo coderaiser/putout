@@ -12,7 +12,7 @@ export const create = (overrides = {}) => {
     const {
         cli = false,
         maybeSimple = true,
-        filesystemCLI,
+        filesystemCLI = _filesystemCLI,
     } = overrides;
     
     const branch = createBranch({
@@ -35,7 +35,7 @@ const createBranch = (overrides) => (rawSource) => {
     const {
         cli,
         maybeSimple,
-        filesystemCLI = _filesystemCLI,
+        filesystemCLI,
     } = overrides;
     
     cli && inject(filesystemCLI);
