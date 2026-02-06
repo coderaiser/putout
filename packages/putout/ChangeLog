@@ -1,3 +1,19 @@
+2026.02.06, v41.19.0
+
+feature:
+- 9813f420a @putout/engine-runner: @putout/operator-filesystem v11.0.0
+- 4dc4cff24 @putout/operator-find-file-up: @putout/operator-filesystem v11.0.0
+- 556178a68 @putout/operator-match-files: @putout/operator-filesystem v11.0.0
+- 19a47c2e7 @putout/operator-rename-files: @putout/operator-filesystem v11.0.0
+- 58baf20f0 @putout/plugin-filesystem: @putout/operator-filesystem v11.0.0
+- 16987e84b @putout/test: @putout/operator-filesystem v11.0.0
+- b6b19b655 putout: @putout/operator-filesystem v11.0.0
+- e92161c3e putout: @putout/processor-filesystem v8.0.0
+- b3e1a0cdd @putout/processor-filesystem: @putout/operator-filesystem v11.0.0
+- 79127f528 @putout/engine-runner: @putout/operator-filesystem v10.6.0
+- 7dfc7d920 @putout/operator-filesystem: export: maybe
+- 5f79a2227 @putout/processor-toml: oxfmt v0.28.0
+
 2026.02.05, v41.18.1
 
 feature:
