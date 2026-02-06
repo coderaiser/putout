@@ -1,3 +1,4 @@
+import * as applyDefaultImport from './apply-default-import/index.js';
 import * as applyExportFrom from './apply-export-from/index.js';
 import * as applyJsImportedFile from './apply-js-imported-file/index.js';
 import * as applyNameToImportedFile from './apply-name-to-imported-file/index.js';
@@ -37,4 +38,5 @@ export const rules = {
     'apply-namespace-to-imported-file': ['off', applyNamespaceToImportedFile],
     'apply-privately-imported-file': ['off', applyPrivatelyImportedFile],
     'apply-js-imported-file': ['off', applyJsImportedFile],
+    'apply-default-import': applyDefaultImport,
 };

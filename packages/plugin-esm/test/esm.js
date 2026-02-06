@@ -101,3 +101,8 @@ test('plugin-esm: transform: merge-export-declarations', (t) => {
     t.transform('merge-export-declarations');
     t.end();
 });
+
+test('plugin-esm: transform: apply-default-import', (t) => {
+    t.transform('apply-default-import');
+    t.end();
+});

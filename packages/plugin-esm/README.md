@@ -19,6 +19,7 @@ npm i putout @putout/plugin-esm -D
 ## Rules
 
 - ✅ [add-index-to-import](#add-index-to-import);
+- ✅ [apply-default-import](#apply-default-import);
 - ✅ [apply-export-from](#apply-export-from);
 - ✅ [convert-assert-to-with](#convert-assert-to-with);
 - ✅ [declare-imports-first](#declare-imports-first);
@@ -47,6 +48,7 @@ npm i putout @putout/plugin-esm -D
 {
     "rules": {
         "esm/add-index-to-import": "on",
+        "esm/apply-default-import": "on",
         "esm/apply-export-from": "on",
         "esm/declare-imports-first": "on",
         "esm/group-imports-by-source": "on",
@@ -71,6 +73,26 @@ npm i putout @putout/plugin-esm -D
 ```
 
 ## Rules
+
+### apply-default-import
+
+> The static `import` declaration is used to import read-only live bindings which are exported by another module.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+
+Check out 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/83dcc8478ac794cbe11df41a80a08cbe/8270019356b6f8ea21233d6eb1edccec69e708bb).
+
+#### ❌ Example of incorrect code
+
+```js
+import {default as a} from 'a';
+```
+
+#### ✅ Example of correct code
+
+```js
+import a from 'a';
+```
 
 ### apply-export-from
 
