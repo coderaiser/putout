@@ -3,8 +3,8 @@ import {
     start,
     pause,
     writeFileContent,
-    init,
-    deinit,
+    inject,
+    eject,
 } from './maybe-fs.js';
 
 test('@putout/operator-filesystem: pause', (t) => {
@@ -24,12 +24,12 @@ test('@putout/operator-filesystem: start', (t) => {
 test('@putout/operator-filesystem: maybe: writeContent', (t) => {
     const writeFileContentStub = stub();
     
-    init({
+    inject({
         writeFileContent: writeFileContentStub,
     });
     writeFileContent('x', 'y');
     
-    deinit();
+    eject();
     
     t.calledWith(writeFileContentStub, ['x', 'y']);
     t.end();

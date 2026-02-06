@@ -295,6 +295,54 @@ Since `basename` is used.
 
 To move file use [`moveFile()`](#movefilefilepath-filepath-dirpath-filepath).
 
+### `inject`
+
+Inject filesystem API with methods:
+
+- ✅ `renameFile`;
+- ✅ `copyFile`;
+- ✅ `removeFile;
+- ✅ `createDirectory;
+- ✅ `readFileContent;
+- ✅ `writeFileContent;
+
+To have ability to interact with any kind of filesystem representation.
+
+```js
+import {inject} from '@putout/operator-filesystem/maybe';
+import * as filesystemCLI from '@putout/cli-filesystem';
+
+inject(filesystemCLI);
+```
+
+### `eject`
+
+```js
+import {eject} from '@putout/operator-filesystem/maybe';
+
+eject();
+```
+
+### `pause`
+
+Pause currently injected filesystem API
+
+```js
+import {pause} from '@putout/operator-filesystem/maybe';
+
+pause();
+```
+
+### `start`
+
+Start currently paused injected filesystem API.
+
+```js
+import {start} from '@putout/operator-filesystem/maybe';
+
+start();
+```
+
 ## Example
 
 ```js

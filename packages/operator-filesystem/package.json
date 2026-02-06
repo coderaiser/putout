@@ -6,6 +6,10 @@
   "description": "🐊Putout operator adds ability to filesystem referenced variables that was not defined",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-filesystem#readme",
   "main": "lib/filesystem.js",
+  "exports": {
+    ".": "./lib/filesystem.js",
+    "./maybe": "./lib/maybe-fs.js"
+  },
   "release": false,
   "tag": false,
   "changelog": false,

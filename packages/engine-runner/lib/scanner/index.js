@@ -6,9 +6,11 @@ import * as toSimple from '@putout/plugin-filesystem/to-simple';
 import {
     findFile,
     crawlDirectory,
+} from '@putout/operator-filesystem';
+import {
     pause,
     start,
-} from '@putout/operator-filesystem';
+} from '@putout/operator-filesystem/maybe';
 import {createDebug} from '../debug.js';
 
 const log = createDebug('putout:runner:scanner');

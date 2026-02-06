@@ -493,10 +493,3 @@ export function getFile(directoryPath, name, {type} = {}) {
     
     return files.values();
 }
-
-export const {
-    init,
-    deinit,
-    pause,
-    start,
-} = maybeFS;

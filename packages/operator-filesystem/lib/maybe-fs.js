@@ -41,19 +41,19 @@ export const writeFileContent = (name, content) => {
     maybeFS.writeFileContent(name, content);
 };
 
-export function init(fsDriver) {
+export const inject = (fsDriver) => {
     assign(maybeFS, fsDriver);
-}
+};
 
 export const pause = () => {
     driverStore(maybeFS);
-    deinit();
+    eject();
 };
 
 export const start = () => {
-    init(driverStore());
+    inject(driverStore());
 };
 
-export function deinit() {
+export function eject() {
     assign(maybeFS, defaultFS);
 }

@@ -1,5 +1,5 @@
-import * as filesystemCLI from '@putout/cli-filesystem';
-import * as filesystem from '@putout/operator-filesystem';
+import * as _filesystemCLI from '@putout/cli-filesystem';
+import {inject, eject} from '@putout/operator-filesystem/maybe';
 import {
     fromJS,
     toJS,
@@ -12,11 +12,13 @@ export const create = (overrides = {}) => {
     const {
         cli = false,
         maybeSimple = true,
+        filesystemCLI,
     } = overrides;
     
     const branch = createBranch({
         cli,
         maybeSimple,
+        filesystemCLI,
     });
     
     const merge = createMerge({
@@ -29,8 +31,14 @@ export const create = (overrides = {}) => {
     };
 };
 
-const createBranch = ({cli, maybeSimple}) => (rawSource) => {
-    cli && filesystem.init(filesystemCLI);
+const createBranch = (overrides) => (rawSource) => {
+    const {
+        cli,
+        maybeSimple,
+        filesystemCLI = _filesystemCLI,
+    } = overrides;
+    
+    cli && inject(filesystemCLI);
     
     if (!maybeSimple)
         return [{
@@ -45,7 +53,7 @@ const createBranch = ({cli, maybeSimple}) => (rawSource) => {
 };
 
 const createMerge = ({cli}) => (rawSource, list) => {
-    cli && filesystem.deinit();
+    cli && eject();
     
     const [source] = list.filter(isFilesystem);
     

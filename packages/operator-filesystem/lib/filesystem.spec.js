@@ -34,11 +34,13 @@ import {
     getRootDirectory,
     readFileContent,
     writeFileContent,
-    init,
-    deinit,
+} from './filesystem.js';
+import {
+    inject,
+    eject,
     start,
     pause,
-} from './filesystem.js';
+} from './maybe-fs.js';
 
 const {traverseProperties} = operator;
 
@@ -309,12 +311,12 @@ test('putout: operator: filesystem: rename: maybeFS', (t) => {
         renameFile: stub(),
     };
     
-    init(maybeFS);
+    inject(maybeFS);
     
     const [filePath] = findFile(ast, 'abc');
     renameFile(filePath, 'hello');
     
-    deinit();
+    eject();
     
     const expected = [
         '/hello/world/abc',
@@ -946,7 +948,7 @@ test('putout: operator: filesystem: createDirectory: maybeFileSystem', (t) => {
         createDirectory: stub(),
     };
     
-    init(maybeFS);
+    inject(maybeFS);
     
     const ast = parseFilesystem({
         type: 'directory',
@@ -957,7 +959,7 @@ test('putout: operator: filesystem: createDirectory: maybeFileSystem', (t) => {
     const [dirPath] = findFile(ast, 'world');
     
     createDirectory(dirPath, 'xyz');
-    deinit();
+    eject();
     
     t.calledWith(maybeFS.createDirectory, ['/hello/world/xyz']);
     t.end();
@@ -1114,14 +1116,14 @@ test('putout: operator: filesystem: readFileContent: no content: should create',
         }],
     });
     
-    init({
+    inject({
         readFileContent: stub().returns('hello'),
     });
     
     const [filePath] = findFile(ast, 'README.md');
     readFileContent(filePath);
     
-    deinit();
+    eject();
     
     const expected = {
         type: 'directory',
@@ -1147,14 +1149,14 @@ test('putout: operator: filesystem: readFileContent: no content: should create: 
         }],
     });
     
-    init({
+    inject({
         readFileContent: stub().returns('🐸'),
     });
     
     const [filePath] = findFile(ast, 'README.md');
     readFileContent(filePath);
     
-    deinit();
+    eject();
     
     const expected = {
         type: 'directory',
@@ -1380,7 +1382,7 @@ test('putout: operator: filesystem: readFileContent twice: escape', (t) => {
         }],
     });
     
-    init({
+    inject({
         readFileContent: stub().returns(content),
     });
     const [filePath] = findFile(ast, 'world.js');
