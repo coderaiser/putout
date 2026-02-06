@@ -11,7 +11,9 @@ export const report = () => `Apply 'https' to repository.url`;
 
 export const fix = (path) => {
     const {value} = path.node;
-    setLiteralValue(path, value.replace('git:', 'git+https:'));
+    const newValue = value.replace(/^(git|https)/, 'git+https');
+    
+    setLiteralValue(path, newValue);
 };
 
 export const traverse = ({push}) => ({
@@ -22,21 +24,24 @@ export const traverse = ({push}) => ({
         if (!repository)
             return;
         
-        const value = repository.get('value');
+        const object = repository.get('value');
         
-        if (!isObjectExpression(value))
+        if (!isObjectExpression(object))
             return;
         
-        const urlPathProp = getProperty(value, 'url');
+        const urlPathProp = getProperty(object, 'url');
         
         if (!urlPathProp)
             return;
         
         const urlPathValue = urlPathProp.get('value');
         
-        if (!urlPathValue.node.value.startsWith('git:'))
+        const {value} = urlPathValue.node;
+        
+        if (value.startsWith('git+https'))
             return;
         
-        push(urlPathValue);
+        if (/^(git|https)/.test(value))
+            push(urlPathValue);
     },
 });
