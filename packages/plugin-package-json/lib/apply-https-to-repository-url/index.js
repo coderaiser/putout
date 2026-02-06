@@ -7,7 +7,7 @@ const {
     setLiteralValue,
 } = operator;
 
-export const report = () => `Apply 'https' to repository.url`;
+export const report = () => `Apply 'https' to 'repository.url'`;
 
 export const fix = (path) => {
     const {value} = path.node;

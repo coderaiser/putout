@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('package-json: apply-https-to-repository-url: report', (t) => {
-    t.report('apply-https-to-repository-url', `Apply 'https' to repository.url`);
+    t.report('apply-https-to-repository-url', `Apply 'https' to 'repository.url'`);
     t.end();
 });
 
