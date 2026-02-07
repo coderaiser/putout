@@ -17,11 +17,13 @@ const {
 
 export const report = (file, {name, source, type}) => {
     const filename = getFilename(file);
+    const reports = {
+        import: `Use \`import {${name}} from '${source}'\` in '${filename}'`,
+        dynamic: `Use \`const {${name}} = await import('${source}')\` in '${filename}'`,
+        export: `Use \`export {${name}} from '${source}'\` in '${filename}'`,
+    };
     
-    if (type === 'import')
-        return `Use \`import {${name}} from '${source}'\` in '${filename}'`;
-    
-    return `Use \`export {${name}} from '${source}'\` in '${filename}'`;
+    return reports[type];
 };
 
 export const fix = (file, {name, source, content, ast}) => {

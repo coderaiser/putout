@@ -27,6 +27,16 @@ test('esm: apply-name-to-imported-file: transform: export', (t) => {
     t.end();
 });
 
+test('esm: apply-name-to-imported-file: transform: dynamic', (t) => {
+    t.transform('dynamic');
+    t.end();
+});
+
+test('esm: apply-name-to-imported-file: report: dynamic', (t) => {
+    t.report('dynamic', `Use \`const {dotdot} = await import('./b/index.js')\` in '/lib/index.js'`);
+    t.end();
+});
+
 test('esm: apply-name-to-imported-file: report: export', (t) => {
     t.report('export', `Use \`export {dotdot} from './b/index.js'\` in '/lib/index.js'`);
     t.end();

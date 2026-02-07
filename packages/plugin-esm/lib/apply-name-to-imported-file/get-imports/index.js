@@ -1,10 +1,17 @@
-import {types} from 'putout';
+import {types, operator} from 'putout';
 
-const {isImportDefaultSpecifier} = types;
+const {getTemplateValues} = operator;
+const {
+    isImportDefaultSpecifier,
+    isVariableDeclaration,
+} = types;
+
+const DYNAMIC = 'const __identifier__a = await import(__b)';
 
 export const include = () => [
     'import __a from "__b"',
     'export * as __a from "__b"',
+    DYNAMIC,
 ];
 
 export const report = (path) => {
@@ -26,6 +33,19 @@ const CommentLine = (value) => ({
 });
 
 const getImport = (path) => {
+    if (isVariableDeclaration(path)) {
+        const {
+            __identifier__a,
+            __b,
+        } = getTemplateValues(path, DYNAMIC);
+        
+        return [
+            __identifier__a.name,
+            __b.value,
+            'dynamic',
+        ];
+    }
+    
     const source = path.node.source.value;
     const [first] = path.node.specifiers;
     
