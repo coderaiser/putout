@@ -9,6 +9,7 @@ export const rules = {
         'always',
     ],
     'dot-notation': 'off',
+    'no-useless-assignment': 'off',
     'no-unassigned-vars': 'off',
     'no-global-assign': 'off',
     'no-debugger': 'off',

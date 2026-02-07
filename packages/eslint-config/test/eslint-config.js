@@ -121,3 +121,7 @@ test('eslint-config: no-unused-vars', async ({comparePlaces}) => {
 test('eslint-config: no-unassigned-vars', async ({comparePlaces}) => {
     await comparePlaces('no-unassigned-vars', []);
 });
+
+test('eslint-config: no-useless-assignment', async ({comparePlaces}) => {
+    await comparePlaces('no-useless-assignment', []);
+});
