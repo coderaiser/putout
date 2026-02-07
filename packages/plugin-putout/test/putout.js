@@ -384,3 +384,8 @@ test('plugin-putout: transform: add-crawl-file', (t) => {
     t.transform('add-crawl-file');
     t.end();
 });
+
+test('plugin-putout: transform: remove-message-from-no-report-after-transform', (t) => {
+    t.transform('remove-message-from-no-report-after-transform');
+    t.end();
+});

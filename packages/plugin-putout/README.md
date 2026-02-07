@@ -86,6 +86,7 @@ npm i @putout/plugin-putout -D
 - ✅ [remove-empty-object-from-transform](#remove-empty-object-from-transform);
 - ✅ [remove-unused-get-properties-argument](#remove-unused-get-properties-argument);
 - ✅ [remove-useless-printer-option](#remove-useless-printer-option);
+- ✅ [remove-message-from-no-report-after-transform](#remove-message-from-no-report-after-transform);
 - ✅ [rename-operate-to-operator](#rename-operate-to-operator);
 - ✅ [replace-operate-with-operator](#replace-operate-with-operator);
 - ✅ [replace-test-message](#replace-test-message);
@@ -173,6 +174,7 @@ npm i @putout/plugin-putout -D
         "putout/remove-empty-array-from-process": "on",
         "putout/remove-empty-object-from-transform": "on",
         "putout/remove-useless-printer-option": "on",
+        "putout/remove-message-from-no-report-after-transform": "on",
         "putout/simplify-replace-template": "on"
     }
 }
@@ -1961,6 +1963,28 @@ const {
     parserPath,
     rulesPath,
 } = getProperties(__jsonPath, ['parser', 'rules', 'extends']);
+```
+
+## remove-message-from-no-report-after-transform
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b40b73049530d6c4e142a4d4b09e29e2/2167f30abebc5713e2db916a2a0152e13722e7b1).
+
+### ❌ Example of incorrect code
+
+```js
+test('github: set-message-of-commit-fixes: no report after transform', (t) => {
+    t.noReportAfterTransform('set-message-of-commit-fixes', `Set 'message' of 'Commit fixes'`);
+    t.end();
+});
+```
+
+### ✅ Example of correct code
+
+```js
+test('github: set-message-of-commit-fixes: no report after transform', (t) => {
+    t.noReportAfterTransform('set-message-of-commit-fixes');
+    t.end();
+});
 ```
 
 ## remove-useless-printer-option

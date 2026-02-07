@@ -1,3 +1,4 @@
+import * as removeMessageFromNoReportAfterTransform from './remove-message-from-no-report-after-transform/index.js';
 import * as addCrawlFile from './add-crawl-file/index.js';
 import * as applyDesturcturing from './apply-desturcturing/index.js';
 import * as convertGetFileContentToReadFileContent from './convert-get-file-content-to-read-file-content/index.js';
@@ -156,4 +157,5 @@ export const rules = {
     'convert-get-file-content-to-read-file-content': convertGetFileContentToReadFileContent,
     'apply-desturcturing': applyDesturcturing,
     'add-crawl-file': addCrawlFile,
+    'remove-message-from-no-report-after-transform': removeMessageFromNoReportAfterTransform,
 };
