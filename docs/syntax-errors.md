@@ -401,3 +401,14 @@ export const {
 ```
 
  </details>
+
+<details><summary><code>Uncaught SyntaxError: Unexpected token ','</code></summary>
+
+```diff
+-renameFileWithLog('hello', ,'world');
++renameFileWithLog('hello', 'world');
+```
+
+ </details>
+ 
+

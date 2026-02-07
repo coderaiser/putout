@@ -20,6 +20,7 @@ npm i @putout/plugin-arguments
 - ✅ [remove-useless](#remove-useless);
 - ✅ [remove-useless-from-method](#remove-useless-from-method);
 - ✅ [remove-unused](#remove-unused);
+- ✅ [remove-empty](#remove-empty);
 
 ## Config
 
@@ -32,7 +33,8 @@ npm i @putout/plugin-arguments
         "arguments/remove-duplicate": "on",
         "arguments/remove-useless": "on",
         "arguments/remove-useless-from-method": "on",
-        "arguments/remove-unused": "on"
+        "arguments/remove-unused": "on",
+        "arguments/remove-empty": "on"
     }
 }
 ```
@@ -197,6 +199,19 @@ member += compute(list[i]);
 function compute(current) {
     return String(current);
 }
+```
+
+### remove-empty
+
+> `Uncaught SyntaxError: Unexpected token ','`
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Unexpected_token)
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/56f6e4cc87d0e4830ce570c1af8a7a4b/e85940bd6cbf4448e8a062543ce2e9fa67d0bb69).
+
+```diff
+-renameFileWithLog('hello', ,'world');
++renameFileWithLog('hello', 'world');
 ```
 
 ## License

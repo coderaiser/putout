@@ -56,3 +56,8 @@ test('plugin-arguments: transform: convert-expression-to-arguments', (t) => {
     t.transform('convert-expression-to-arguments');
     t.end();
 });
+
+test('plugin-arguments: transform: remove-empty', (t) => {
+    t.transform('remove-empty');
+    t.end();
+});
