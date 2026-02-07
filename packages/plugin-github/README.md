@@ -24,6 +24,7 @@ npm i @putout/plugin-github -D
 - ✅ [insert-rust](#insert-rust);
 - ✅ [install-bun](#install-bun);
 - ✅ [set-node-versions](#set-node-versions);
+- ✅ [set-message-of-commit-fixes](#set-message-of-commit-fixes);
 - ✅ [update-actions](#update-actions);
 
 ## Config
@@ -34,6 +35,7 @@ npm i @putout/plugin-github -D
         "github/add-continue-on-error-to-coveralls": "on",
         "github/add-continue-on-error-to-add-and-commit": "on",
         "github/set-node-versions": "on",
+        "github/set-message-of-commit-fixes": "on",
         "github/install-bun": "on",
         "github/install-rust": "on",
         "github/convert-npm-to-bun": "on",
@@ -67,6 +69,30 @@ Add ability to continue when cannot submit coverage to Coveralls using [`continu
     with:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 +   continue-on-error: true
+```
+
+## set-message-of-commit-fixes
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0379415220b31bbbab2d29c155b5b7eb/08839962bed379f7169e05a30ae5e082d9731c75).
+
+```diff
+  uses: EndBug/add-and-commit@v9
+         continue-on-error: true
+         with:
+-          message: chore(${{ env.NAME }}) lint using actions
++          message: "chore: ${{ env.NAME }}: actions: lint ☘️"
+```
+
+You can override message with:
+
+```json
+{
+    "rules": {
+        "github/set-message-of-commit-fixes": ["on", {
+            "message": "✅ fixed with github actions"
+        }]
+    }
+}
 ```
 
 ## set-node-versions

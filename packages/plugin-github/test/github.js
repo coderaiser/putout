@@ -71,3 +71,8 @@ test('plugin-github: transform: set-docker-setup-buildx-version', (t) => {
     t.transform('set-docker-setup-buildx-version');
     t.end();
 });
+
+test('plugin-github: transform: set-message-of-commit-fixes', (t) => {
+    t.transform('set-message-of-commit-fixes');
+    t.end();
+});

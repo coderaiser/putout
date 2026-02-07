@@ -1,3 +1,4 @@
+import * as setMessageOfCommitFixes from './set-message-of-commit-fixes/index.js';
 import * as insertRust from './insert-rust/index.js';
 import * as convertNpmToBun from './convert-npm-to-bun/index.js';
 import * as installBun from './install-bun/index.js';
@@ -14,4 +15,5 @@ export const rules = {
     'install-bun': installBun,
     'convert-npm-to-bun': convertNpmToBun,
     'insert-rust': insertRust,
+    'set-message-of-commit-fixes': setMessageOfCommitFixes,
 };
