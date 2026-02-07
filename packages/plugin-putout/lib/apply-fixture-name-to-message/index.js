@@ -18,6 +18,7 @@ const FIXTURE = [
 const NAMES = [
     ...FIXTURE,
     'transform with options',
+    'report with options',
     'no transform with options',
     'no report',
     'no transform',
@@ -32,6 +33,7 @@ export const match = () => ({
     't.noReport(__a, __b)': check,
     't.noReportAfterTransform(__a)': check,
     't.report(__a, __b)': check,
+    't.reportWithOptions(__a, __b, __c)': check,
     't.transform(__a)': check,
     't.transform(__a, __b)': check,
     't.transformWithOptions(__a, __b)': check,
@@ -47,6 +49,7 @@ export const replace = () => ({
     't.transform(__a)': transform,
     't.transform(__a, __b)': transform,
     't.transformWithOptions(__a, __b)': transform,
+    't.reportWithOptions(__a, __b, __c)': transform,
     't.noTransformWithOptions(__a, __b)': transform,
     't.noTransform(__a)': transform,
     't.noReportAfterTransform(__a)': transform,

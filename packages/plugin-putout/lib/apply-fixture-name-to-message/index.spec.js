@@ -87,6 +87,11 @@ test('putout: apply-fixture-name-to-message: transform: no-report', (t) => {
     t.end();
 });
 
+test('putout: apply-fixture-name-to-message: transform: report-with-options', (t) => {
+    t.transform('report-with-options');
+    t.end();
+});
+
 test('putout: apply-fixture-name-to-message: no report after transform: plus', (t) => {
     t.noReportAfterTransform('plus');
     t.end();

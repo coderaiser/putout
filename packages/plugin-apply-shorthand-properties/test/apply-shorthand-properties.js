@@ -17,7 +17,7 @@ const testWithRemove = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-apply-shorthand-properties: report', (t) => {
+test('plugin-apply-shorthand-properties: report: object', (t) => {
     t.reportWithOptions('object', 'Use shorthand properties', {
         rename: true,
     });
