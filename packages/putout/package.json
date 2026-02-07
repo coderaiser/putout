@@ -158,7 +158,7 @@
     "@putout/plugin-remove-useless-map": "^3.0.0",
     "@putout/plugin-remove-useless-object-from-entries": "^1.0.0",
     "@putout/plugin-remove-useless-operand": "^3.0.0",
-    "@putout/plugin-remove-useless-push": "^2.0.0",
+    "@putout/plugin-remove-useless-push": "^3.0.0",
     "@putout/plugin-remove-useless-replace": "^2.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^3.0.0",
     "@putout/plugin-return": "^3.0.0",
