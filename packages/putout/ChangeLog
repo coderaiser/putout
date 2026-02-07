@@ -1,3 +1,25 @@
+2026.02.07, v41.20.0
+
+fix:
+- b513eace5 @putout/plugin-package-json: apply-https-to-repository-url: report
+- 1356e6b25 @putout/processor-filesystem: create: overrides
+
+feature:
+- 1db4585e2 putout: @putout/plugin-remove-useless-array v3.0.0
+- 23e2c593f @putout/plugin-remove-useless-array: drop support of 🐊 < 41
+- 3173a7fac putout: @putout/plugin-remove-useless-push v3.0.0
+- 63699a486 @putout/plugin-remove-useless-push: drop support of 🐊 < 41
+- 63dcea59e @putout/plugin-arguments: remove-empty: add
+- 689568a0d @putout/eslint-config: no-useless-assignment: off
+- c526c2b15 @putout/eslint-config: @eslint/js v10.0.1
+- 05165c640 @putout/plugin-github: set-message-of-commit-fixes
+- 6319d79c0 @putout/plugin-putout: remove-message-from-no-report-after-transform: add
+- bbbc0bcde root: eslint v10.0.0
+- 4e8875e15 @putout/plugin-esm: apply-name-to-imported-file: dynamic
+- df86a0714 @putout/plugin-putout: apply-fixture-name-to-message: report-with-options
+- bfe9b0276 @putout/plugin-esm: apply-default-import: add
+- e50123d47 @putout/plugin-package-json: apply-https-to-repository-url: https: add support
+
 2026.02.06, v41.19.0
 
 feature:
