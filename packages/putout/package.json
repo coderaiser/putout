@@ -146,7 +146,7 @@
     "@putout/plugin-remove-unreachable-code": "^3.0.0",
     "@putout/plugin-remove-unused-expressions": "^12.0.0",
     "@putout/plugin-remove-unused-private-fields": "^4.0.0",
-    "@putout/plugin-remove-useless-array": "^2.0.0",
+    "@putout/plugin-remove-useless-array": "^3.0.0",
     "@putout/plugin-remove-useless-array-constructor": "^3.0.0",
     "@putout/plugin-remove-useless-array-entries": "^2.0.0",
     "@putout/plugin-remove-useless-assign": "^2.0.0",
