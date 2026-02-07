@@ -214,7 +214,7 @@
     "@putout/test": "^15.1.0",
     "c8": "^10.0.0",
     "currify": "^4.0.0",
-    "eslint": "^10.0.0-alpha.0",
+    "eslint": "^10.0.0",
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^30.0.0",
     "just-camel-case": "^6.2.0",
