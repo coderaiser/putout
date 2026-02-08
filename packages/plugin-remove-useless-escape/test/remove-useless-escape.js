@@ -110,6 +110,11 @@ test('plugin-remove-useless-escape: transform: h', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: transform: z', (t) => {
+    t.transform('z');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: transform: no-raw', (t) => {
     t.transform('no-raw', {
         addFixLint,
