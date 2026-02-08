@@ -4,7 +4,7 @@ const v41 = [
     ['remove-useless-variables', 'variables'],
     ['remove-useless-variables/remove', 'variables/remove-useless'],
     ['remove-useless-variables/assignment', 'variables/remove-useless-assignment'],
-    ['remove-useless-variables/rename', 'variables/rename-useless-rename'],
+    ['remove-useless-variables/rename', 'variables/remove-useless-rename'],
     ['remove-useless-variables/duplicate', 'variables/remove-useless-duplicate'],
     ['remove-useless-variables/declaration', 'variables/remove-useless-declarations'],
     ['remove-unreferenced-variables', 'variables/remove-unreferenced'],

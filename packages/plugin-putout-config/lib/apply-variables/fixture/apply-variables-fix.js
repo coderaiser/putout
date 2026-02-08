@@ -10,7 +10,7 @@ __putout_processor_json({
         "variables/remove-useless-assignment": "on",
         "variables/remove-useless-declarations": "on",
         "variables/remove-useless-duplicate": "on",
-        "variables/rename-useless-rename": "on",
+        "variables/remove-useless-rename": "on",
         "variables/remove-unreferenced": "on"
     }
 });
