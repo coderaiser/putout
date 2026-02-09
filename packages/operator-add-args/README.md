@@ -19,7 +19,11 @@ If you want to create 🐊**Putout** `plugin` that will add `args` according to 
 const {operator} = require('putout');
 const {addArgs} = operator;
 
-module.exports = addArgs({
+export const {
+    report,
+    fix,
+    traverse,
+} = addArgs({
     comparePlaces: ['{comparePlaces}', 'test("__a", (__args) => __body)'],
     t: ['{comparePlaces}', [
         'test("__a", (__args) => __body)',
@@ -31,6 +35,22 @@ module.exports = addArgs({
 });
 ```
 
+For couple args it will look this way:
+
+```
+export const {
+    report,
+    fix,
+    traverse,
+} = addArgs({
+    path: ['vars, path', [
+        '(__a) => __body',
+        '() => __body',
+    ]],
+});
+```
+
+It will set `vars` if absent, or keep used name.
 If you have a file `index.spec.js`:
 
 ```diff

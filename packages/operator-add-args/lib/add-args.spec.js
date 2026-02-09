@@ -683,3 +683,44 @@ test('putout: operator: add-args: three args: exclude', (t) => {
     t.equal(code, source);
     t.end();
 });
+
+test('putout: operator: add-args: couple args', (t) => {
+    const args = {
+        path: ['vars, path', [
+            '(__a) => __body',
+            '() => __body',
+        ]],
+    };
+    
+    const source = montag`
+        export const match = () => ({
+            'nemesis.getChar()': () => {
+                return path.parentPath.isExpressionStatement();
+            },
+            'getChar()': ({__a}) => {
+                return path.parentPath.isExpressionStatement();
+            }
+        });
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        export const match = () => ({
+            'nemesis.getChar()': (vars, path) => {
+                return path.parentPath.isExpressionStatement();
+            },
+            'getChar()': ({__a}, path) => {
+                return path.parentPath.isExpressionStatement();
+            },
+        });\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

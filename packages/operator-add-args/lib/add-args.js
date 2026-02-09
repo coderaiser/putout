@@ -8,6 +8,7 @@ const {
     isLabeledStatement,
     isObjectPattern,
     isCallExpression,
+    isSequenceExpression,
     objectPattern,
     objectProperty,
 } = types;
@@ -33,6 +34,15 @@ export const addArgs = (args) => ({
 
 const fix = ({declaration, path, pattern, params, index}) => {
     const declarationNode = template.ast.fresh(declaration);
+    
+    if (isSequenceExpression(declarationNode)) {
+        const {expressions} = declarationNode;
+        const {block} = path.scope;
+        const {params} = block;
+        
+        block.params.push(...expressions.slice(params.length));
+        return;
+    }
     
     if (isBlockStatement(declarationNode)) {
         const prop = createProperty(declarationNode.body[0]);
