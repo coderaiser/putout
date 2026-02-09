@@ -1,3 +1,13 @@
+2026.02.09, v41.20.1
+
+fix:
+- b491f48c9 @putout/plugin-putout-config: apply-variables: variables/rename-useless-rename -> variables/remove-useless-rename
+
+feature:
+- ec6560e8b putout: @putout/plugin-parens v5.0.0
+- 20b4c40b6 @putout/plugin-parens: remove-useless-for-params: destructuring
+- 39d872f86 @putout/plugin-remove-useless-escape: z
+
 2026.02.07, v41.20.0
 
 fix:
