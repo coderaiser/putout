@@ -5,12 +5,12 @@ const {hasParens, removeParens} = operator;
 export const report = (path) => {
     const source = putout.print(path);
     
-    if (path.isIdentifier()) {
-        const code = source.slice(1, -1);
-        return `Avoid useless parens: '(${source})' -> '(${code})'`;
-    }
+    if (path.isObjectPattern())
+        return `Avoid useless parens: '((${source}))' -> '(${source})'`;
     
-    return `Avoid useless parens: '((${source}))' -> '(${source})'`;
+    const code = source.slice(1, -1);
+    
+    return `Avoid useless parens: '(${source})' -> '(${code})'`;
 };
 
 export const fix = (path) => {
