@@ -4,9 +4,13 @@ const {hasParens, removeParens} = operator;
 
 export const report = (path) => {
     const source = putout.print(path);
-    const code = source.slice(1, -1);
     
-    return `Avoid useless parens: '${source}' -> '${code}'`;
+    if (path.isIdentifier()) {
+        const code = source.slice(1, -1);
+        return `Avoid useless parens: '(${source})' -> '(${code})'`;
+    }
+    
+    return `Avoid useless parens: '((${source}))' -> '(${source})'`;
 };
 
 export const fix = (path) => {
