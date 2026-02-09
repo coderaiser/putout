@@ -17,6 +17,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-places-to-compare-places](#add-places-to-compare-places);
 - ✅ [add-path-arg-to-fix](#add-path-arg-to-fix);
 - ✅ [add-path-arg-to-visitors](#add-path-arg-to-visitors);
+- ✅ [add-path-arg-to-match](#add-path-arg-to-match);
 - ✅ [add-push-arg](#add-push-arg);
 - ✅ [add-test-args](#add-test-args);
 - ✅ [add-traverse-args](#add-traverse-args);
@@ -100,6 +101,7 @@ npm i @putout/plugin-putout -D
     "rules": {
         "putout/add-places-to-compare-places": "on",
         "putout/add-path-arg-to-fix": "on",
+        "putout/add-path-to-match": "on",
         "putout/add-path-arg-to-visitors": "on",
         "putout/add-push-arg": "on",
         "putout/add-test-args": "on",
@@ -1401,6 +1403,36 @@ export const fix = () => {
 export const fix = (path) => {
     path.remove();
 };
+```
+
+## add-path-arg-to-match
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/35189d0e47c6ad1ca369e5a9287a34c1/d5fa7513a44fecc86beabd1faa8542bee7bc3e5e).
+
+### ❌ Example of incorrect code
+
+```js
+export const match = () => ({
+    'nemesis.getChar()': () => {
+        return path.parentPath.isExpressionStatement();
+    },
+    'getChar()': ({__a}) => {
+        return path.parentPath.isExpressionStatement();
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const match = () => ({
+    'nemesis.getChar()': (vars, path) => {
+        return path.parentPath.isExpressionStatement();
+    },
+    'getChar()': ({__a}, path) => {
+        return path.parentPath.isExpressionStatement();
+    },
+});
 ```
 
 ## add-path-arg-to-visitors

@@ -389,3 +389,8 @@ test('plugin-putout: transform: remove-message-from-no-report-after-transform', 
     t.transform('remove-message-from-no-report-after-transform');
     t.end();
 });
+
+test('plugin-putout: transform: add-path-arg-to-match', (t) => {
+    t.transform('add-path-arg-to-match');
+    t.end();
+});

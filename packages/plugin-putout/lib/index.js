@@ -1,3 +1,4 @@
+import * as addPathArgToMatch from './add-path-arg-to-match/index.js';
 import * as removeMessageFromNoReportAfterTransform from './remove-message-from-no-report-after-transform/index.js';
 import * as addCrawlFile from './add-crawl-file/index.js';
 import * as applyDesturcturing from './apply-desturcturing/index.js';
@@ -158,4 +159,5 @@ export const rules = {
     'apply-desturcturing': applyDesturcturing,
     'add-crawl-file': addCrawlFile,
     'remove-message-from-no-report-after-transform': removeMessageFromNoReportAfterTransform,
+    'add-path-arg-to-match': addPathArgToMatch,
 };
