@@ -36,7 +36,6 @@ const createImport = ({name, source}) => {
 };
 
 const createFnDeclaration = template('const NAME1 = FN(NAME2)');
-const isPackage = ({value}) => /package(\.json)?$/.test(value);
 
 export const match = () => ({
     'export const __a = require("__b")': ({__a}, path) => {
@@ -51,7 +50,7 @@ export const match = () => ({
         
         return isProgram(path.parentPath.parentPath);
     },
-    'const __a = require(__b)': ({__b}, path) => {
+    'const __a = require(__b)': (vars, path) => {
         if (isExportNamedDeclaration(path.parentPath))
             return false;
         
@@ -61,9 +60,6 @@ export const match = () => ({
         const __bPath = path.get(__B);
         
         const {confident, value} = __bPath.evaluate();
-        
-        if (isPackage(__b))
-            return false;
         
         return value && confident;
     },

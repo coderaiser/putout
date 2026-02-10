@@ -1,1 +1,1 @@
-const Pack = require('../package');
+import Pack from '../package';
