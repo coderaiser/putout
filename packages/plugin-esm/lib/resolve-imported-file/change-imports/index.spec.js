@@ -35,3 +35,11 @@ test('putout: esm: resolve-imported-file: transform with options: dynamic', (t) 
     });
     t.end();
 });
+
+test('putout: esm: resolve-imported-file: transform with options: json', (t) => {
+    t.transformWithOptions('json', {
+        from: './a',
+        to: './a.json',
+    });
+    t.end();
+});

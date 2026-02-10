@@ -91,6 +91,7 @@ function buildResolved(rootPath, importsTuples) {
     for (const [relative, current] of importsTuples) {
         const withIndex = join(current, 'index.js');
         const withJs = `${current}.js`;
+        const withJson = `${current}.json`;
         
         if (findFile(rootPath, withIndex).length) {
             if (relative.endsWith('/')) {
@@ -99,6 +100,11 @@ function buildResolved(rootPath, importsTuples) {
             }
             
             result.push([relative, `${relative}/index.js`]);
+            continue;
+        }
+        
+        if (findFile(rootPath, withJson).length) {
+            result.push([relative, `${relative}.json`]);
             continue;
         }
         

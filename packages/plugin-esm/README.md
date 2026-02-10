@@ -528,6 +528,7 @@ Let's consider file structure:
 
 ```
 /
+├── package.json
 └── lib/
     ├── index.js
     └── a.js
@@ -539,12 +540,16 @@ In this case `index.js` can be fixed:
 
 ```js
 import a from './a';
+import info from '../package';
 ```
 
 #### ✅ Example of correct code
 
 ```js
 import a from './a.js';
+import info from '../package.json' with {
+    type: 'json',
+};
 ```
 
 ### shorten-imported-file
