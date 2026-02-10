@@ -36,3 +36,8 @@ test('esm: resolve-imported-file: transform: json', (t) => {
     t.transform('json');
     t.end();
 });
+
+test('esm: resolve-imported-file: transform: dot-dot-slash', (t) => {
+    t.transform('dot-dot-slash');
+    t.end();
+});

@@ -108,7 +108,7 @@ function buildResolved(rootPath, importsTuples) {
             continue;
         }
         
-        if (relative === '..') {
+        if (relative === '..' || relative === '../') {
             const withPackage = join(current, 'package.json');
             const [packageJson] = findFile(rootPath, withPackage);
             
