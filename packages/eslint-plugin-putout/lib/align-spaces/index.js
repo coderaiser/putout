@@ -1,4 +1,4 @@
-import alignSpaces from 'align-spaces';
+import {alignSpaces} from 'align-spaces';
 
 const alignedMap = new Map();
 
