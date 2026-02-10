@@ -1,5 +1,5 @@
 import {generate} from '@putout/babel';
-import align from 'align-spaces';
+import {alignSpaces as align} from 'align-spaces';
 
 const defaultOptions = {
     alignSpaces: true,
