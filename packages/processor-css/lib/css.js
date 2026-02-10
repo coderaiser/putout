@@ -1,6 +1,6 @@
 import stylelint from 'stylelint';
 import {cosmiconfig} from 'cosmiconfig';
-import alignSpaces from 'align-spaces';
+import {alignSpaces} from 'align-spaces';
 import {createConfigLoader} from './config-loader.js';
 
 const loadConfig = createConfigLoader({
