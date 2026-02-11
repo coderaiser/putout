@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('esm: resolve-imported-file: report', (t) => {
-    t.report('resolve-imported-file', `Resolve import source: './a' -> './a.js'`);
+    t.report('resolve-imported-file', `Resolve import source: './a' -> './a.js' in '/lib/index.js'`);
     t.end();
 });
 

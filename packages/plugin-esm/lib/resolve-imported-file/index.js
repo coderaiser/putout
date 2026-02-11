@@ -17,7 +17,10 @@ const {
 
 const getMessage = (a) => a.message;
 
-export const report = (file, {from, to}) => `Resolve import source: '${from}' -> '${to}'`;
+export const report = (file, {from, to, filename}) => {
+    return `Resolve import source: '${from}' -> '${to}' in '${filename}'`;
+};
+
 export const fix = (file, {content, ast, from, to}) => {
     transform(ast, content, {
         rules: {
@@ -69,6 +72,7 @@ export const scan = (rootPath, {push, trackFile, crawlFile}) => {
         
         for (const [from, to] of resolvedTuples) {
             push(file, {
+                filename,
                 from,
                 to,
                 content,
