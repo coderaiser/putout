@@ -18,7 +18,6 @@ npm i putout @putout/plugin-esm -D
 
 ## Rules
 
-- ✅ [add-index-to-import](#add-index-to-import);
 - ✅ [apply-default-import](#apply-default-import);
 - ✅ [apply-export-from](#apply-export-from);
 - ✅ [convert-assert-to-with](#convert-assert-to-with);
@@ -47,7 +46,6 @@ npm i putout @putout/plugin-esm -D
 ```json
 {
     "rules": {
-        "esm/add-index-to-import": "on",
         "esm/apply-default-import": "on",
         "esm/apply-export-from": "on",
         "esm/declare-imports-first": "on",
