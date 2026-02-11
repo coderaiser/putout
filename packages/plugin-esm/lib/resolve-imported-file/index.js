@@ -1,4 +1,4 @@
-import {join, dirname} from 'node:path';
+import {dirname} from 'node:path';
 import {
     parse,
     print,
@@ -7,9 +7,9 @@ import {
 } from 'putout';
 import * as changeImports from '#change-imports';
 import * as getImports from './get-imports/index.js';
+import {buildResolved} from './build-resolved.js';
 
 const {
-    findFile,
     getFilename,
     readFileContent,
     writeFileContent,
@@ -36,7 +36,7 @@ export const fix = (file, {content, ast, from, to}) => {
     writeFileContent(file, newContent);
 };
 
-export const scan = (rootPath, {push, trackFile}) => {
+export const scan = (rootPath, {push, trackFile, crawlFile}) => {
     const mask = [
         '*.js',
         '*.mjs',
@@ -60,8 +60,12 @@ export const scan = (rootPath, {push, trackFile}) => {
         const filename = getFilename(file);
         const dir = dirname(filename);
         
-        const importsTuples = buildImports(dir, imports);
-        const resolvedTuples = buildResolved(rootPath, importsTuples);
+        const resolvedTuples = buildResolved({
+            dir,
+            imports,
+            rootPath,
+            crawlFile,
+        });
         
         for (const [from, to] of resolvedTuples) {
             push(file, {
@@ -73,61 +77,3 @@ export const scan = (rootPath, {push, trackFile}) => {
         }
     }
 };
-
-function buildImports(dir, imports) {
-    const list = [];
-    
-    for (const current of imports) {
-        const full = join(dir, current);
-        list.push([current, full]);
-    }
-    
-    return list;
-}
-
-function buildResolved(rootPath, importsTuples) {
-    const result = [];
-    
-    for (const [relative, current] of importsTuples) {
-        const withIndex = join(current, 'index.js');
-        const withJs = `${current}.js`;
-        const withJson = `${current}.json`;
-        
-        if (findFile(rootPath, withIndex).length) {
-            if (relative.endsWith('/')) {
-                result.push([relative, `${relative}index.js`]);
-                continue;
-            }
-            
-            result.push([relative, `${relative}/index.js`]);
-            continue;
-        }
-        
-        if (findFile(rootPath, withJson).length) {
-            result.push([relative, `${relative}.json`]);
-            continue;
-        }
-        
-        if (relative.startsWith('..')) {
-            const withPackage = join(current, 'package.json');
-            const [packageJson] = findFile(rootPath, withPackage);
-            
-            if (!packageJson)
-                continue;
-            
-            const json = readFileContent(packageJson);
-            const {main} = JSON.parse(json);
-            
-            result.push([relative, join(relative, main)]);
-            
-            continue;
-        }
-        
-        if (findFile(rootPath, withJs).length) {
-            result.push([relative, `${relative}.js`]);
-            continue;
-        }
-    }
-    
-    return result;
-}
