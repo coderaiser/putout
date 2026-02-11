@@ -210,3 +210,10 @@ test('putout: operator: isKeyword: namespace', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('putout: operator: isKeyword: instanceof', (t) => {
+    const result = isKeyword('instanceof');
+    
+    t.ok(result);
+    t.end();
+});

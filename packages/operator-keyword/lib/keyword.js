@@ -34,6 +34,7 @@ const expressions = [
     'yield',
     'typeof',
     'function',
+    'instanceof',
 ];
 
 const statements = [
