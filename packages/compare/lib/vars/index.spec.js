@@ -3,8 +3,8 @@ import test from 'supertape';
 import putout from 'putout';
 import montag from 'montag';
 import {parse, template} from '@putout/engine-parser';
-import {compare} from './compare.js';
-import {getTemplateValues} from './vars/index.js';
+import {compare} from '../compare.js';
+import {getTemplateValues} from './index.js';
 
 const noop = () => {};
 const {types, generate} = putout;
@@ -295,6 +295,32 @@ test('putout: compare: vars: __exports', (t) => {
         module.exports = {
             hello,
             world,
+        };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: compare: vars: __exports: from', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            'export __exports from "__a"': `export __exports from "__a" with {
+                type: 'json',
+            }`,
+        }),
+    };
+    
+    const {code} = putout(`export {hello, world} from './package.json'`, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+        export {hello, world} from './package.json' with {
+            type: 'json',
         };\n
     `;
     

@@ -51,6 +51,21 @@ export const getTemplateValues = (node, str) => {
     });
 };
 
+const TYPES = [
+    'Identifier',
+    'JSXIdentifier',
+    'BooleanLiteral',
+    'StringLiteral',
+    'TemplateElement',
+    'RegExpLiteral',
+    'JSXText',
+    'JSXAttribute',
+    'TSTypeReference',
+    'TSTypeParameter',
+];
+
+const JOINED_TYPES = TYPES.join('|');
+
 export function findVarsWays(node) {
     if (isIdentifier(node) && is(node.name))
         return {
@@ -61,7 +76,7 @@ export function findVarsWays(node) {
     
     traverse(node, {
         noScope: true,
-        'Identifier|JSXIdentifier|BooleanLiteral|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute|TSTypeReference|TSTypeParameter'(path) {
+        [JOINED_TYPES](path) {
             if (isInsideTypeReference(path))
                 return;
             
@@ -101,8 +116,10 @@ export function getValues({waysFrom, node}) {
     
     for (const [name, ways] of entries(waysFrom)) {
         for (let way of ways) {
-            if (isImportsStr(name) || isExportsStr(name))
+            if (isImportsStr(name))
                 way = way.replace(/\.0.local$/, '');
+            else if (isExportsStr(name))
+                way = way.replace(/\.0.(local|exported)$/, '');
             else if (isArgsStr(name) || isJSXChildrenStr(name) || isJSXAttributesStr(name) || isTypeParamsStr(name))
                 way = way.replace(/\.0$/, '');
             
@@ -131,8 +148,10 @@ export function setValues({waysTo, values, path}) {
                 continue;
             }
             
-            if (isImportsStr(name) || isExportsStr(name))
+            if (isImportsStr(name))
                 way = way.replace(/\.0.local$/, '');
+            else if (isExportsStr(name))
+                way = way.replace(/\.0.(local|exported)$/, '');
             
             if (isArgsStr(name) || isJSXChildrenStr(name) || isJSXAttributesStr(name))
                 way = way.replace(/\.0$/, '');
