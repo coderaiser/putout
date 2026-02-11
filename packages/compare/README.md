@@ -135,6 +135,10 @@ Any count of `export specifiers`:
 compare('export {scan, fix, report}', 'export {__exports}');
 // returns
 true;
+
+compare(`export {scan, fix, report} from './plugin.js'`, `export __exports from './plugin.js'`);
+// returns
+true;
 ```
 
 ##### "__"

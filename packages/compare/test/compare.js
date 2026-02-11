@@ -493,6 +493,26 @@ test('compare: linked node: __exports', (t) => {
     t.end();
 });
 
+test('compare: linked node: __exports: from', (t) => {
+    const a = 'export * as x from "y"';
+    const b = 'export __exports from "y"';
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: linked node: __exports: from: named', (t) => {
+    const a = `export {scan, fix, report} from './plugin.js'`;
+    const b = `export __exports from './plugin.js'`;
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: expressions', (t) => {
     const a = template.ast('if (a) a()');
     const b = template.ast('if (__a) __a()');

@@ -11,6 +11,7 @@ const {
     isFunction,
     isImportDefaultSpecifier,
     isExportSpecifier,
+    isExportDefaultSpecifier,
     isRegExpLiteral,
     isJSXText,
     isJSXIdentifier,
@@ -256,12 +257,17 @@ export const isImports = (a) => {
 export const isExports = (a) => {
     const b = !isArray(a) ? a : a[0];
     
-    if (!isExportSpecifier(b))
-        return false;
+    if (isExportSpecifier(b))
+        return isIdentifier(b.local, {
+            name: EXPORTS,
+        });
     
-    return isIdentifier(b.local, {
-        name: EXPORTS,
-    });
+    if (isExportDefaultSpecifier(b))
+        return isIdentifier(b.exported, {
+            name: EXPORTS,
+        });
+    
+    return false;
 };
 
 const __OBJECT_TYPE = 'ObjectPattern|ObjectExpression';
