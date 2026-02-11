@@ -7,6 +7,7 @@ import {parseError} from 'putout/parse-error';
 import {putoutAsync as _putoutAsync} from 'putout';
 import once from 'once';
 import {simpleImport as _simpleImport} from './simple-import.js';
+import {configurePrinter} from './printer/printer.js';
 
 const getMatchedOptions = (name, options) => {
     if (!name.includes('{'))
@@ -31,7 +32,6 @@ export const initProcessFile = ({fix, fixCount, logError, raw}) => async functio
         putoutAsync = _putoutAsync,
     } = overrides;
     
-    const {configurePrinter} = await import('./printer/printer.js');
     const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
     const {printer, ...matchedOptions} = getMatchedOptions(name, options);
     
