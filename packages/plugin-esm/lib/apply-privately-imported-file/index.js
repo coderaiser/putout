@@ -17,7 +17,9 @@ const {
 
 const getMessage = (a) => a.message;
 
-export const report = (file, {from, to}) => `Apply privately imported source: '${from}' -> '${to}'`;
+export const report = (file, {from, to, filename}) => {
+    return `Apply private import: '${from}' -> '${to}' in '${filename}'`;
+};
 export const fix = (file, {content, ast, from, to}) => {
     transform(ast, content, {
         rules: {
@@ -75,6 +77,7 @@ export const scan = (rootPath, {push, trackFile}) => {
                 push(file, {
                     from,
                     to: privateImports.get(to),
+                    filename,
                     content,
                     ast,
                 });

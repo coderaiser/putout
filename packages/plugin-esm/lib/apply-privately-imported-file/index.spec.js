@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('esm: apply-privately-imported-file: report', (t) => {
-    t.report('apply-privately-imported-file', `Apply privately imported source: '../is.js' -> '#is'`);
+    t.report('apply-privately-imported-file', `Apply private import: '../is.js' -> '#is' in '/lib/tokenize/expressions/spread-element.js'`);
     t.end();
 });
 
