@@ -13,22 +13,17 @@ export const report = (path) => {
 };
 
 export const match = () => ({
-    'import __imports from "__a"': ({__a}) => {
-        return __a.value.endsWith('.json');
-    },
-    'export __exports from "__a"': ({__a}) => {
-        return __a.value.endsWith('.json');
-    },
-    'import(__a)': ({__a}) => {
-        if (!isStringLiteral(__a))
-            return false;
-        
-        return __a.value.endsWith('.json');
-    },
+    'import __imports from "__a"': isJSONSource,
+    'export __exports from "__a"': isJSONSource,
+    'export * from "__a"': isJSONSource,
+    'import(__a)': isJSONSource,
 });
 
 export const replace = () => ({
     'import __imports from "__a"': `import __imports from "__a" with {
+        type: 'json',
+    }`,
+    'export * from "__a"': `export * from "__a" with {
         type: 'json',
     }`,
     'export __exports from "__a"': `export __exports from "__a" with {
@@ -40,3 +35,10 @@ export const replace = () => ({
         }
     })`,
 });
+
+function isJSONSource({__a}) {
+    if (!isStringLiteral(__a))
+        return false;
+    
+    return __a.value.endsWith('.json');
+}

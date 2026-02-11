@@ -31,3 +31,8 @@ test('esm: apply-import-attributes: transform: dynamic', (t) => {
     t.transform('dynamic');
     t.end();
 });
+
+test('esm: apply-import-attributes: transform: export-all', (t) => {
+    t.transform('export-all');
+    t.end();
+});
