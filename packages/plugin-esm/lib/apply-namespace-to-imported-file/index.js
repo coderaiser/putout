@@ -9,6 +9,7 @@ import {determineImportType} from '#determine-import-type';
 import {getImportsTuples} from '#get-imports-tuples';
 import {transformNamespaceImport} from './transform-namespace-import.js';
 
+const isDeclaration = ([, , , type]) => type !== 'dynamic';
 const {
     getFilename,
     readFileContent,
@@ -53,7 +54,9 @@ export const scan = (rootPath, {push, trackFile, crawlFile}) => {
             aliasBased: true,
         });
         
-        for (const [name, source, importedFilename] of importsTuples) {
+        const declarations = importsTuples.filter(isDeclaration);
+        
+        for (const [name, source, importedFilename] of declarations) {
             const importType = determineImportType({
                 name,
                 rootPath,

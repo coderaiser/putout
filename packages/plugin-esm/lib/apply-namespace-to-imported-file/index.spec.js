@@ -3,17 +3,17 @@ import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['apply-import-by-type-to-file', plugin],
+        ['apply-namespace-to-imported-file', plugin],
     ],
 });
 
-test('esm: apply-namespace-to-imported-file: report: apply-import-by-type-to-file', (t) => {
-    t.report('apply-import-by-type-to-file', `Use \`import * as dotdot from './b/index.js'\` in '/lib/index.js'`);
+test('esm: apply-namespace-to-imported-file: report: apply-namespace-to-imported-file', (t) => {
+    t.report('apply-namespace-to-imported-file', `Use \`import * as dotdot from './b/index.js'\` in '/lib/index.js'`);
     t.end();
 });
 
-test('esm: apply-namespace-to-imported-file: transform: apply-import-by-type-to-file', (t) => {
-    t.transform('apply-import-by-type-to-file');
+test('esm: apply-namespace-to-imported-file: transform: apply-namespace-to-imported-file', (t) => {
+    t.transform('apply-namespace-to-imported-file');
     t.end();
 });
 
@@ -39,5 +39,10 @@ test('esm: apply-namespace-to-imported-file: no report: invalid', (t) => {
 
 test('esm: apply-namespace-to-imported-file: transform: not-equal', (t) => {
     t.transform('not-equal');
+    t.end();
+});
+
+test('esm: apply-namespace-to-imported-file: no report: dynamic', (t) => {
+    t.noReport('dynamic');
     t.end();
 });
