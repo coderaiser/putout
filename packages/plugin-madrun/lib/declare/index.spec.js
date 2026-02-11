@@ -16,3 +16,13 @@ test('plugin-madrun: declare: transform: cut-env', (t) => {
     t.transform('cut-env');
     t.end();
 });
+
+test('plugin-madrun: declare: transform: run', (t) => {
+    t.transform('run');
+    t.end();
+});
+
+test('plugin-madrun: declare: transform: define-env', (t) => {
+    t.transform('define-env');
+    t.end();
+});
