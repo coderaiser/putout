@@ -1,3 +1,4 @@
+import * as applyImportAttributes from './apply-import-attributes/index.js';
 import * as applyDefaultImport from './apply-default-import/index.js';
 import * as applyExportFrom from './apply-export-from/index.js';
 import * as applyJsImportedFile from './apply-js-imported-file/index.js';
@@ -39,4 +40,5 @@ export const rules = {
     'apply-privately-imported-file': ['off', applyPrivatelyImportedFile],
     'apply-js-imported-file': ['off', applyJsImportedFile],
     'apply-default-import': applyDefaultImport,
+    'apply-import-attributes': applyImportAttributes,
 };

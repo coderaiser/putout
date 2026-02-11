@@ -106,3 +106,8 @@ test('plugin-esm: transform: apply-default-import', (t) => {
     t.transform('apply-default-import');
     t.end();
 });
+
+test('plugin-esm: transform: apply-import-attributes', (t) => {
+    t.transform('apply-import-attributes');
+    t.end();
+});

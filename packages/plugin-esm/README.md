@@ -20,6 +20,7 @@ npm i putout @putout/plugin-esm -D
 
 - ✅ [apply-default-import](#apply-default-import);
 - ✅ [apply-export-from](#apply-export-from);
+- ✅ [apply-import-import](#apply-import-attributes);
 - ✅ [convert-assert-to-with](#convert-assert-to-with);
 - ✅ [declare-imports-first](#declare-imports-first);
 - ✅ [group-imports-by-source](#group-imports-by-source);
@@ -48,6 +49,7 @@ npm i putout @putout/plugin-esm -D
     "rules": {
         "esm/apply-default-import": "on",
         "esm/apply-export-from": "on",
+        "esm/apply-import-attirbutes": "on",
         "esm/declare-imports-first": "on",
         "esm/group-imports-by-source": "on",
         "esm/merge-duplicate-imports": "on",
@@ -120,6 +122,42 @@ export {
 ```js
 export * as ns from 'x';
 export {createAsyncLoader} from './load/async-loader.js';
+```
+
+### apply-import-attributes
+
+> The **import attributes** feature instructs the runtime about how a module should be loaded, including the behavior of module resolution, fetching, parsing, and evaluation.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with)
+
+Check out 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d8d428c2555bacd69d530f84a41ab98e/15d41cf9153b3d2513c2bdf37d36c5276c6f6f95).
+
+#### ❌ Example of incorrect code
+
+```js
+import a from '../package.json';
+
+export __export from './package.json';
+
+await import('./package.json');
+```
+
+#### ✅ Example of correct code
+
+```js
+import a from '../package.json' with {
+    type: 'json',
+};
+
+export __export from './package.json' with {
+type: 'json',
+};
+
+await import('./package.json', {
+    with: {
+        type: 'json',
+    },
+});
 ```
 
 ### merge-declaration-with-export
