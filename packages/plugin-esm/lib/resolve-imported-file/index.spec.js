@@ -41,3 +41,8 @@ test('esm: resolve-imported-file: transform: dot-dot-slash', (t) => {
     t.transform('dot-dot-slash');
     t.end();
 });
+
+test('esm: resolve-imported-file: transform: couple-levels-up', (t) => {
+    t.transform('couple-levels-up');
+    t.end();
+});
