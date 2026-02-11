@@ -1,4 +1,5 @@
 import {putout, operator} from 'putout';
+import {tryCatch} from 'try-catch';
 import * as hasExportDefaultPlugin from '#has-export-default';
 import * as isESMPlugin from '#is-esm';
 
@@ -13,6 +14,9 @@ export const determineImportType = ({name, rootPath, importedFilename, privateIm
         privateImports,
     });
     
+    if (parsedName.endsWith('.json'))
+        return '';
+    
     const [importedFile] = crawlFile(rootPath, parsedName);
     
     if (!importedFile)
@@ -20,7 +24,7 @@ export const determineImportType = ({name, rootPath, importedFilename, privateIm
     
     const importedContent = readFileContent(importedFile);
     
-    const {places} = putout(importedContent, {
+    const [error, result] = tryCatch(putout, importedContent, {
         fix: false,
         plugins: [
             ['has-export-default', hasExportDefaultPlugin],
@@ -28,6 +32,10 @@ export const determineImportType = ({name, rootPath, importedFilename, privateIm
         ],
     });
     
+    if (error)
+        return '';
+    
+    const {places} = result;
     const esm = places.filter(isESM);
     
     if (!esm.length)

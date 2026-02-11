@@ -61,3 +61,13 @@ test('esm: apply-name-to-imported-file: no report: not-equal', (t) => {
     t.noReport('not-equal');
     t.end();
 });
+
+test('esm: apply-name-to-imported-file: no report: json', (t) => {
+    t.noReport('json');
+    t.end();
+});
+
+test('esm: apply-name-to-imported-file: no report: corrupted', (t) => {
+    t.noReport('corrupted');
+    t.end();
+});
