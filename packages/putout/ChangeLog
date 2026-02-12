@@ -1,3 +1,35 @@
+2026.02.13, v41.21.0
+
+feature:
+- 115fdc042 putout: @putout/plugin-promises v19.0.0
+- f754e8006 @putout/plugin-promises: drop support of 🐊 < 41
+- ee7901249 @putout/plugin-promises: convert-resolve-to-async: add
+- 9bae2299f @putout/processor-toml: oxfmt v0.32.0
+- 7c7b3cf9b @putout/plugin-esm: apply-import-attributes: ExportAllDeclaration
+- 29ca4d892 @putout/cli-process-file: get rid of dynamic import
+- 7875c6f51 @putout/plugin-esm: apply-import-attributes: add
+- c3dcb373e @putout/plugin-esm: apply-privately-imported-file: report: filename
+- 9084a5b88 @putout/compare: vars: __exports: from
+- 286457577 @putout/compare: __exports: named
+- 214e6ec41 @putout/plugin-esm: apply-name-to-imported-file: corrupted
+- a6fd13fba @putout/plugin-esm: resolve-imported-file: report: filename: add
+- 7e9829cbe @putout/plugin-esm: apply-namespace-to-imported-file: ImportExpression: exclude
+- 2aff83686 @putout/plugin-madrun: declare: defineEnv
+- 688f17141 @putout/plugin-esm: resolve-imported-file: build-resolved: move out
+- a82e7e4ca @putout/plugin-esm: resolve-imported-file: couple-levels-up
+- e7222ee6d @putout/operator-keyword: instanceof: add
+- 09071bd86 @putout/processor-toml: oxfmt v0.31.0
+- b6026974b eslint-plugin-putout: align-spaces v3.0.0
+- 954d792c2 eslint-plugin-putout: align-spaces v3.0.0
+- 62309e2ad @putout/processor-css: align-spaces v3.0.0
+- a6b2eac13 @putout/engine-parser: align-spaces v3.0.0
+- 683c1a294 @putout/plugin-esm: resolve-imported-file: dot-dot-slash
+- 35a91f8af @putout/plugin-nodejs: convert-commonjs-to-esm: require: json: include
+- bd9a7939d @putout/plugin-esm: resolve-imported-file: json: add support
+- 57ef108d9 @putout/plugin-putout: add-path-arg-to-match: add
+- 8a13581db @putout/operator-add-args: couple args
+- c6faaa2d2 @putout/plugin-parens: remove-useless-for-params: couple args
+
 2026.02.09, v41.20.1
 
 fix:
