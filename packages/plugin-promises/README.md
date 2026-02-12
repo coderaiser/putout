@@ -28,6 +28,7 @@ npm i @putout/plugin-promises -D
 - ✅ [apply-with-resolvers](#apply-with-resolvers);
 - ✅ [convert-new-promise-to-async](#convert-new-promise-to-async);
 - ✅ [convert-reject-to-throw](#convert-reject-to-throw);
+- ✅ [convert-resolve-to-async](#convert-resolve-to-async);
 - ✅ [remove-useless-async](#remove-useless-async);
 - ✅ [remove-useless-await](#remove-useless-await);
 - ✅ [remove-useless-resolve](#remove-useless-resolve);
@@ -48,6 +49,7 @@ npm i @putout/plugin-promises -D
         "promises/remove-useless-await": "on",
         "promises/remove-useless-variables": "on",
         "promises/convert-reject-to-throw": "on",
+        "promises/convert-resolve-to-async": "on",
         "promises/convert-new-promise-to-async": "on"
     }
 }
@@ -174,6 +176,30 @@ async function hello() {
 async function hello() {
     throw Error('error');
 }
+```
+
+## convert-resolve-to-async
+
+> The **async function** declaration creates a binding of a new async function to a given name.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/67e173a6814de807d3ac7fd0276242a0/402665096e866a7b39bd25feb4af5f8621917105).
+
+### ❌ Example of incorrect code
+
+```js
+x.stub(() => Promise.resolve({
+    hello: 'world',
+}));
+```
+
+### ✅ Example of correct code
+
+```js
+x.stub(async () => ({
+    hello: 'world',
+}));
 ```
 
 ## add-missing-await

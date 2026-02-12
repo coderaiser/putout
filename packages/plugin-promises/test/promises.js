@@ -61,3 +61,8 @@ test('plugin-promises: transform: apply-with-resolvers', (t) => {
     t.transform('apply-with-resolvers');
     t.end();
 });
+
+test('plugin-promises: transform: convert-resolve-to-async', (t) => {
+    t.transform('convert-resolve-to-async');
+    t.end();
+});

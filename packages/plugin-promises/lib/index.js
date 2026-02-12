@@ -1,3 +1,4 @@
+import * as convertResolveToAsync from './convert-resolve-to-async/index.js';
 import * as removeUselessResolve from './remove-useless-resolve/index.js';
 import * as convertRejectToThrow from './convert-reject-to-throw/index.js';
 import * as convertNewPromiseToAsync from './convert-new-promise-to-async/index.js';
@@ -22,4 +23,5 @@ export const rules = {
     'remove-useless-await': removeUselessAwait,
     'remove-useless-variables': removeUselessVariables,
     'apply-with-resolvers': ['off', applyWithResolvers],
+    'convert-resolve-to-async': convertResolveToAsync,
 };
