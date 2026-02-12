@@ -137,7 +137,7 @@ Check out 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d8d428c2555b
 ```js
 import a from '../package.json';
 
-export __export from './package.json';
+export * as x from './package.json';
 
 await import('./package.json');
 ```
@@ -149,10 +149,9 @@ import a from '../package.json' with {
     type: 'json',
 };
 
-export __export from './package.json' with {
-type: 'json',
+export * from './package.json' with {
+    type: 'json',
 };
-
 await import('./package.json', {
     with: {
         type: 'json',
