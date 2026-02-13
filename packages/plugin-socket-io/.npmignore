@@ -1,0 +1,8 @@
+.*
+test
+*.spec.js
+fixture
+yarn-error.log
+
+coverage
+*.config.*

@@ -2310,6 +2310,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 | [`@putout/plugin-convert-throw`](/packages/plugin-convert-throw#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-throw.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-throw) |
 | [`@putout/plugin-printer`](/packages/plugin-printer#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-printer.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-printer) |
 | [`@putout/plugin-minify`](/packages/plugin-minify#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-minify.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-minify) |
+| [`@putout/plugin-socket-io`](/packages/plugin-socket-io#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-socket-io.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-socket-io) |
 
 ## 🦚 Formatters
 
