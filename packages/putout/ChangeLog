@@ -1,3 +1,13 @@
+2026.02.13, v41.23.0
+
+fix:
+- b9e45abc6 @putout/plugin-remove-useless-map: rm unused dependencies
+
+feature:
+- 6a606a6d7 @putout/plugin-sort-ignore: add
+- 852676f71 @putout/operator-ignore: match globs
+- 254f8dabb @putout/operator-ignore: report
+
 2026.02.13, v41.22.0
 
 feature:
