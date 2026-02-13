@@ -1,3 +1,3 @@
 do {
     alert();
-} while (x)
+} while (x);

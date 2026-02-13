@@ -7,72 +7,72 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-types: remove-double-negations: report: if', (t) => {
+test('putout: plugin-types: remove-double-negations: report: if', (t) => {
     t.report('if', `Avoid double negations in conditions`);
     t.end();
 });
 
-test('plugin-types: remove-double-negations: transform: if', (t) => {
+test('putout: plugin-types: remove-double-negations: transform: if', (t) => {
     t.transform('if');
     t.end();
 });
 
-test('plugin-types: remove-double-negations: no transform: var', (t) => {
+test('putout: plugin-types: remove-double-negations: no transform: var', (t) => {
     t.noTransform('var');
     t.end();
 });
 
-test('plugin-types: remove-double-negations: no transform: bitwise', (t) => {
+test('putout: plugin-types: remove-double-negations: no transform: bitwise', (t) => {
     t.noTransform('bitwise');
     t.end();
 });
 
-test('plugin-types: remove-double-negations: no transform: not-bitwise', (t) => {
+test('putout: plugin-types: remove-double-negations: no transform: not-bitwise', (t) => {
     t.noTransform('not-bitwise');
     t.end();
 });
 
-test('plugin-types: remove-double-negations: transform: logical', (t) => {
+test('putout: plugin-types: remove-double-negations: transform: logical', (t) => {
     t.transform('logical');
     t.end();
 });
 
-test('plugin-types: remove-double-negations: transform: conditional', (t) => {
+test('putout: plugin-types: remove-double-negations: transform: conditional', (t) => {
     t.transform('conditional');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversions: with-double-negations: transform: includes', (t) => {
+test('putout: plugin-types: with-double-negations: transform: includes', (t) => {
     t.transform('includes');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversions: with-double-negations: transform: while', (t) => {
+test('putout: plugin-types: with-double-negations: transform: while', (t) => {
     t.transform('while');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversions: with-double-negations: transform: do', (t) => {
+test('putout: plugin-types: with-double-negations: transform: do', (t) => {
     t.transform('do');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversions: with-double-negations: transform: for', (t) => {
+test('putout: plugin-types: with-double-negations: transform: for', (t) => {
     t.transform('for');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversions: with-double-negations: transform: starts-with', (t) => {
+test('putout: plugin-types: with-double-negations: transform: starts-with', (t) => {
     t.transform('starts-with');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversions: with-double-negations: no transform: return', (t) => {
+test('putout: plugin-types: with-double-negations: no transform: return', (t) => {
     t.noTransform('return');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: no transform: jsx', (t) => {
+test('putout: plugin-types: no transform: jsx', (t) => {
     t.noTransform('jsx');
     t.end();
 });
