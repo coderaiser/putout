@@ -32,6 +32,11 @@ test('plugin-simplify-ternary: value: is-undefined', (t) => {
     t.end();
 });
 
+test('plugin-simplify-ternary: value: is-fn', (t) => {
+    t.transform('is-fn');
+    t.end();
+});
+
 test('plugin-simplify-ternary: value: return', (t) => {
     t.noTransform('return');
     t.end();
