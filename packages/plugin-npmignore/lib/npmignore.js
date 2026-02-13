@@ -10,8 +10,9 @@ export const {
     name: '.npmignore',
     list: [
         '.*',
-        'yarn-error.log',
+        '*.log',
         'coverage',
         '*.config.*',
+        '*.loc',
     ],
 });

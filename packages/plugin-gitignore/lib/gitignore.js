@@ -11,7 +11,8 @@ export const {
     list: [
         '.idea',
         '*.swp',
-        'yarn-error.log',
+        '*.log',
+        '*.lock',
         'coverage',
     ],
 });

@@ -21,7 +21,9 @@ By default, all files enabled, if you want disable some of them use `dismiss` pr
         "gitignore": ["on", {
             "dismiss": [
                 "*.swp",
-                "coverage"
+                "coverage",
+                "*.lock",
+                "*.log"
             ]
         }]
     }

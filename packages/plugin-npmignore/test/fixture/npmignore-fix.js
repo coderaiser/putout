@@ -1,7 +1,8 @@
 __putout_processor_ignore([
     "test",
     ".*",
-    "yarn-error.log",
+    "*.log",
     "coverage",
-    "*.config.*"
+    "*.config.*",
+    "*.loc"
 ]);

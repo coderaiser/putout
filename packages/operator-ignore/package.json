@@ -55,6 +55,7 @@
   "dependencies": {
     "@putout/babel": "^5.0.0",
     "@putout/operate": "^15.0.0",
-    "@putout/operator-json": "^3.2.0"
+    "@putout/operator-json": "^3.2.0",
+    "picomatch": "^4.0.3"
   }
 }

@@ -22,7 +22,7 @@ test('putout: processor: ignore: rc', async ({process}) => {
 
 test('putout: processor: ignore: rc: eslintrc: no crash', async ({comparePlaces}) => {
     await comparePlaces('eslintrc', [{
-        message: `Add dotfiles to '.gitignore'`,
+        message: `Add ignored files to '.gitignore'`,
         position: {
             column: 1,
             line: 1,

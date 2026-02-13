@@ -1,6 +1,10 @@
 import {types} from '@putout/babel';
-import {traverseProperties} from '@putout/operate';
+import {
+    traverseProperties,
+    setLiteralValue,
+} from '@putout/operate';
 import {__ignore} from '@putout/operator-json';
+import picomatch from 'picomatch';
 
 const {stringLiteral} = types;
 const getValue = ({value}) => value;
@@ -67,8 +71,16 @@ const createReplace = ({type, property, collector, list}) => ({options}) => {
             const list = elements.map(getValue);
             
             for (const name of newNames) {
-                if (!list.includes(name))
-                    elements.push(stringLiteral(name));
+                if (list.includes(name))
+                    continue;
+                
+                const match = picomatch(name);
+                elements.push(stringLiteral(name));
+                
+                for (const [i, current] of list.entries()) {
+                    if (match(current))
+                        setLiteralValue(elements[i], '');
+                }
             }
             
             return path;

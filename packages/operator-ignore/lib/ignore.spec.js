@@ -236,3 +236,72 @@ test('putout: operator: ignore: __json: no property', (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: operator: ignore: __ignore: match', (t) => {
+    const npmignore = ignore({
+        name: '.npmignore',
+        list: [
+            '.*',
+            'coverage',
+            '*.config.*',
+            '*.log',
+        ],
+    });
+    
+    const source = stringify(['yarn-error.log']);
+    
+    const jsSource = toJS(source, __ignore);
+    
+    const {code} = putout(jsSource, {
+        plugins: [
+            ['npmignore', npmignore],
+        ],
+    });
+    
+    const result = parse(fromJS(code, __ignore));
+    
+    const expected = [
+        '',
+        '.*',
+        'coverage',
+        '*.config.*',
+        '*.log',
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: ignore: includes', (t) => {
+    const npmignore = ignore({
+        name: '.npmignore',
+        list: [
+            '.*',
+            'coverage',
+            '*.config.*',
+            '*.log',
+        ],
+    });
+    
+    const source = stringify(['*.log']);
+    
+    const jsSource = toJS(source, __ignore);
+    
+    const {code} = putout(jsSource, {
+        plugins: [
+            ['npmignore', npmignore],
+        ],
+    });
+    
+    const result = parse(fromJS(code, __ignore));
+    
+    const expected = [
+        '*.log',
+        '.*',
+        'coverage',
+        '*.config.*',
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
