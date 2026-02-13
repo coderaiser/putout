@@ -1,7 +1,0 @@
-{
-    "match": {
-        "lib/index.js": {
-            "spread/remove-useless-object": "off"
-        }
-    }
-}
