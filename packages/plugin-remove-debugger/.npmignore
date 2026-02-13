@@ -1,7 +1,10 @@
-.*
-test
-yarn-error.log
-
-coverage
-eslint.config.*
 *.config.*
+*.log
+*.loc
+
+.*
+
+eslint.config.*
+
+test
+coverage

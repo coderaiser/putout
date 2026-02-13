@@ -1,8 +1,11 @@
-.*
 *.spec.*
+*.config.*
+*.log
+*.loc
+
+.*
+
 test
-yarn-error.log
 dist
 fixture
 coverage
-*.config.*

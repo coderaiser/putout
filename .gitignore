@@ -1,10 +1,10 @@
-node_modules
 *.swp
-yarn-error.log
-yarn.lock
+*.log
+*.lock
+
 .idea
 .DS_Store
-deno.lock
-
-coverage
 .filesystem.json
+
+node_modules
+coverage

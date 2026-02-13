@@ -1,7 +1,9 @@
-node_modules
-.*
-test
-
-yarn-error.log
-coverage
 *.config.*
+*.log
+*.loc
+
+.*
+
+node_modules
+test
+coverage

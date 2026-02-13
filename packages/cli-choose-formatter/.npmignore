@@ -1,9 +1,11 @@
-.*
 *.spec.js
+*.config.*
+*.log
+*.loc
+
+.*
+
 test
 fixture
-yarn-error.log
-
 coverage
 example
-*.config.*

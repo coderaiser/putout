@@ -1,0 +1,10 @@
+__putout_processor_ignore([
+    "*.swp",
+    "",
+    "yarn-error.log",
+    "yarn.lock",
+    "deno.lock",
+    "",
+    "node_modules",
+    "coverage"
+]);

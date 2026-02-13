@@ -1,0 +1,14 @@
+__putout_processor_ignore([
+    "*.swp",
+    "",
+    ".idea",
+    ".DS_Store",
+    ".filesystem.json",
+    "",
+    "yarn-error.log",
+    "yarn.lock",
+    "deno.lock",
+    "",
+    "node_modules",
+    "coverage"
+]);

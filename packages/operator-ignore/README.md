@@ -55,7 +55,6 @@ export const {
 
 If file and passed in list mask overlaps, only mask saved, and list name removed:
 
-
 ```
 -yarn-error.log
 +*.log

@@ -102,6 +102,9 @@
             }],
             "remove-useless-escape": "off"
         },
+        ".{git,npm}ignore": {
+            "sort-ignore": "on"
+        },
         ".gitignore": {
             "gitignore": "on"
         },
@@ -177,6 +180,7 @@
         "**/.git"
     ],
     "rules": {
+        "sort-ignore": "off",
         "coverage": "off",
         "typescript": "off",
         "nodejs/convert-esm-to-commonjs": "off",
@@ -265,6 +269,7 @@
         "putout-config",
         "generators",
         "promises",
+        "sort-ignore",
         "typescript",
         "coverage",
         "gitignore",

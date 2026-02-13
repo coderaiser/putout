@@ -1,8 +1,10 @@
-.*
 *.spec.*
-test
-yarn-error.log
-fixture
-
-coverage
 *.config.*
+*.log
+*.loc
+
+.*
+
+test
+fixture
+coverage

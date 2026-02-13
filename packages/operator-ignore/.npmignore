@@ -1,10 +1,10 @@
-.*
 *.spec.js
-test
-fixture
-
-
-coverage
 *.config.*
 *.log
 *.loc
+
+.*
+
+test
+fixture
+coverage

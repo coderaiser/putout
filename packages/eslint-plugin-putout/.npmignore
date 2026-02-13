@@ -1,10 +1,12 @@
-.*
 *.spec.*
 *.md
-yarn-error.log
+*.config.*
+*.log
+*.loc
+
+.*
 
 test
 coverage
 fixture
 eslint-fixture
-*.config.*

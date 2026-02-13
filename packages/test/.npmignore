@@ -1,9 +1,11 @@
-.*
-test
-yarn-error.log
 *.spec.*
+*.config.*
+*.log
+*.loc
 
+.*
+
+test
 coverage
 fixture
 rules
-*.config.*

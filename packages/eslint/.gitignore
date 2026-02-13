@@ -1,5 +1,8 @@
-node_modules
 *.swp
-yarn-error.log
-coverage
+*.log
+*.lock
+
 .idea
+
+node_modules
+coverage

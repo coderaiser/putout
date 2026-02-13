@@ -21,6 +21,17 @@ test('putout: config: ignore: .pnp.*', (t) => {
     t.end();
 });
 
+test('putout: config: match: .{git,npm}ignore', (t) => {
+    const {match} = putoutConfig;
+    const result = match['.{git,npm}ignore'];
+    const expected = {
+        'sort-ignore': 'on',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: config: match: typescript', (t) => {
     const {match} = putoutConfig;
     const result = keys(match).includes('*.{ts,tsx,mts,cts,md{ts},md{tsx}}');
