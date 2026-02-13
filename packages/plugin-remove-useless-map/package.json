@@ -25,7 +25,6 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "eslint-plugin-putout": "^30.0.0"
   },
   "keywords": [
     "putout",
