@@ -1,3 +1,15 @@
+2026.02.13, v41.22.0
+
+feature:
+- 01f953aca putout: @putout/plugin-gitignore v7.0.0
+- e52061c92 @putout/plugin-gitignore: drop support of 🐊 < 41
+- 138113a58 putout: @putout/plugin-npmignore v7.0.0
+- da43ad199 putout: @putout/plugin-coverage v2.0.0
+- 022512285 putout: @putout/operator-ignore v6.0.0
+- edd653024 @putout/plugin-converage: drop support of 🐊 < 41
+- 156c2edf4 @putout/operator-ignore: type
+- e6b311ea0 @putout/plugin-simplify-ternary: isFn
+
 2026.02.13, v41.21.2
 
 feature:
