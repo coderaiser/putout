@@ -1,3 +1,9 @@
+2026.02.13, v41.21.1
+
+feature:
+- cb08a098b putout: @putout/plugin-npmignore v6.0.0
+- 3e46175fa @putout/plugin-npmignore: drop support of 🐊 < 41
+
 2026.02.13, v41.21.0
 
 feature:
