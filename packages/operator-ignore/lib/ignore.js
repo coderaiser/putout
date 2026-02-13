@@ -1,10 +1,11 @@
 import {types} from '@putout/babel';
 import {traverseProperties} from '@putout/operate';
+import {__ignore} from '@putout/operator-json';
 
 const {stringLiteral} = types;
 const getValue = ({value}) => value;
 
-export const ignore = (type, {name, property, list}) => {
+export const ignore = ({name, property, list, type = __ignore}) => {
     const [, collector] = type.split(/[()]/);
     
     return {

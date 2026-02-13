@@ -6,7 +6,8 @@ export const {
     match,
     replace,
     report,
-} = ignore(__json, {
+} = ignore({
+    type: __json,
     name: '.nycrc.json',
     property: 'exclude',
     list: [

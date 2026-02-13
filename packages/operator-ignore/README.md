@@ -13,18 +13,16 @@ npm i putout @putout/operator-ignore
 
 ## API
 
-### `__ignore`
+### `ignore`
 
 ```js
 import {operator, ignore} from 'putout';
-
-const {__ignore} = operator;
 
 export const {
     report,
     match,
     replace,
-} = ignore(__ignore, {
+} = ignore({
     name: '.npmignore',
     field: 'exclude',
     list: [
@@ -36,18 +34,19 @@ export const {
 });
 ```
 
-### `__json`
+### `type`
 
 ```js
 import {operator, ignore} from 'putout';
 
-const {__ignore, __json} = operator;
+const {__json} = operator;
 
 export const {
     report,
     match,
     replace,
-} = ignore(__json, {
+} = ignore({
+    type: __json,
     name: '.nycrc.json',
     field: 'exclude',
     list: ['*.config.*'],

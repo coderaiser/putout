@@ -13,7 +13,8 @@ const {
 } = operator;
 
 test('putout: operator: ignore: __json: places', (t) => {
-    const npmignore = ignore(__json, {
+    const npmignore = ignore({
+        type: __json,
         name: '.npmignore',
         property: 'exclude',
         list: [
@@ -53,7 +54,7 @@ test('putout: operator: ignore: __json: places', (t) => {
 });
 
 test('putout: operator: ignore: __ignore: places', (t) => {
-    const npmignore = ignore(__ignore, {
+    const npmignore = ignore({
         name: '.npmignore',
         list: [
             '.*',
@@ -90,7 +91,7 @@ test('putout: operator: ignore: __ignore: places', (t) => {
 });
 
 test('putout: operator: ignore: __ignore: places: contains: dismiss', (t) => {
-    const npmignore = ignore(__ignore, {
+    const npmignore = ignore({
         name: '.npmignore',
         list: [
             '**/*.spec.*',
@@ -123,7 +124,7 @@ test('putout: operator: ignore: __ignore: places: contains: dismiss', (t) => {
 });
 
 test('putout: operator: ignore: __ignore: transform', (t) => {
-    const npmignore = ignore(__ignore, {
+    const npmignore = ignore({
         name: '.npmignore',
         list: [
             '.*',
@@ -160,7 +161,8 @@ test('putout: operator: ignore: __ignore: transform', (t) => {
 });
 
 test('putout: operator: ignore: __json: transform', (t) => {
-    const npmignore = ignore(__json, {
+    const npmignore = ignore({
+        type: __json,
         name: '.npmignore',
         property: 'exclude',
         list: [
@@ -202,7 +204,8 @@ test('putout: operator: ignore: __json: transform', (t) => {
 });
 
 test('putout: operator: ignore: __json: no property', (t) => {
-    const npmignore = ignore(__json, {
+    const npmignore = ignore({
+        type: __json,
         name: '.npmignore',
         property: 'exclude',
         list: [
