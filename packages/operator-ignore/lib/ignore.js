@@ -25,7 +25,7 @@ export const ignore = ({name, property, list, type = __ignore}) => {
     };
 };
 
-const createReport = (name) => () => `Add dotfiles to '${name}'`;
+const createReport = (name) => () => `Add ignored files to '${name}'`;
 
 const createMatch = ({type, property, collector, list}) => ({options}) => {
     const {dismiss = []} = options;
