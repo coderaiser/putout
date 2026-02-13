@@ -1,9 +1,10 @@
 const moduleDeclarations = [
     'import',
     'export',
-    'assert',
     'with',
 ];
+
+const legacyKeywords = ['assert'];
 
 const declarations = [
     'const',
@@ -88,4 +89,8 @@ export const isTSKeyword = (name) => {
     const tsReserved = typescriptReserved.includes(name);
     
     return ts || tsReserved;
+};
+
+export const isLegacyKeyword = (name) => {
+    return legacyKeywords.includes(name);
 };

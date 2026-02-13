@@ -78,3 +78,8 @@ test('putout: plugin-variables: extract-keywords: report: const', (t) => {
     t.report('const', `Extract 'const' from variable`);
     t.end();
 });
+
+test('putout: plugin-variables: extract-keywords: no report: assert', (t) => {
+    t.noReport('assert');
+    t.end();
+});

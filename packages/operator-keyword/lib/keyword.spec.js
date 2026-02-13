@@ -4,6 +4,7 @@ import {
     isTSKeyword,
     isDeclarationKeyword,
     isConditionKeyword,
+    isLegacyKeyword,
     isModuleDeclarationKeyword,
     isStatementKeyword,
 } from './keyword.js';
@@ -185,6 +186,13 @@ test('putout: operator: isKeyword: default', (t) => {
 
 test('putout: operator: isKeyword: assert', (t) => {
     const result = isKeyword('assert');
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('putout: operator: isLegacyKeyword: assert', (t) => {
+    const result = isLegacyKeyword('assert');
     
     t.ok(result);
     t.end();

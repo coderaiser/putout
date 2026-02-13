@@ -53,6 +53,22 @@ isTSKeyword('implements');
 true;
 ```
 
+### `isLegacyKeyword`
+
+> A previous version of `import attributes` used the `assert` keyword instead of with. The assertion feature is now non-standard.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with)
+
+```js
+import {operator} from 'putout';
+
+const {isLegacyKeyword} = operator;
+
+isLegacyKeyword('assert');
+// returns
+true;
+```
+
 ## License
 
 MIT
