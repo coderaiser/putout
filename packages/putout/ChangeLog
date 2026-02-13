@@ -1,3 +1,10 @@
+2026.02.13, v41.21.2
+
+feature:
+- a34269c6a putout: @putout/operator-keyword v5.0.0
+- 886192afa @putout/operator-keyword: assert: isKeyword -> isLegacyKeyword
+- cedb0aa6d @putout/plugin-socket-io: add
+
 2026.02.13, v41.21.1
 
 feature:
