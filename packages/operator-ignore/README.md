@@ -24,7 +24,6 @@ export const {
     traverse,
 } = ignore({
     name: '.npmignore',
-    field: 'exclude',
     list: [
         '.*',
         'yarn-error.log',
