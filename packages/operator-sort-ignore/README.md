@@ -11,9 +11,43 @@
 npm i putout @putout/operator-sort-ignore
 ```
 
+## Rule
+
+### ❌ Example of incorrect code
+
+```ignore
+node_modules
+*.swp
+yarn-error.log
+yarn.lock
+.idea
+.DS_Store
+deno.lock
+
+coverage
+.filesystem.json
+```
+
+### ✅ Example of correct code
+
+```ignore
+.idea
+.filesystem.json
+.DS_Store
+
+*.swp
+
+yarn-error.log
+yarn.lock
+deno.lock
+
+node_modules
+coverage
+```
+
 ## API
 
-### `sort-ignore`
+### `sortIgnore`
 
 ```js
 import {operator} from 'putout';
@@ -45,13 +79,6 @@ export const {
     name: '.nycrc.json',
     field: 'exclude',
 });
-```
-
-If file and passed in list mask overlaps, only mask saved, and list name removed:
-
-```
--yarn-error.log
-+*.log
 ```
 
 ## License
