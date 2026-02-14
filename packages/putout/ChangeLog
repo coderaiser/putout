@@ -1,3 +1,16 @@
+2026.02.15, v41.24.0
+
+fix:
+- e11e3a33a @putout/operator-ignore: rm useless return
+- b2eb6629c @putout/operator-ignore: description
+
+feature:
+- 641e945f8 @putout/operator-sort-ignore: add
+- ea8c144b8 @putout/plugin-putout: declare: sortIgnore
+- c3c22c8c5 @putout/plugin-putout: apply-traverser-to-ignore
+- bff521c61 @putout/plugin-remove-useless-map: eslint-plugin-putout v30.0.3
+- 78569cbba @putout/operator-ignore: Replacer -> Traverser: improve reporting
+
 2026.02.13, v41.23.0
 
 fix:
