@@ -3,7 +3,7 @@
   "version": "6.0.3",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout operator adds ability to ignore referenced variables that was not defined",
+  "description": "🐊Putout operator adds ability to add files to ignore",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-ignore#readme",
   "main": "lib/ignore.js",
   "release": false,
@@ -30,7 +30,6 @@
     "ignore"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^4.0.0",
     "@putout/test": "^15.0.0",
     "c8": "^10.0.0",
     "eslint": "^10.0.0",
