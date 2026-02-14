@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-ignore",
-  "version": "6.0.5",
+  "version": "6.0.6",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds ability to add files to ignore",
