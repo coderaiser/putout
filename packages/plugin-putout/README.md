@@ -37,6 +37,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-fixture-name-to-message](#apply-fixture-name-to-message);
 - ✅ [apply-insert-after](#apply-insert-after);
 - ✅ [apply-insert-before](#apply-insert-before);
+- ✅ [apply-traverser-to-ignore](#apply-traverser-to-ignore);
 - ✅ [apply-vars](#apply-vars);
 - ✅ [apply-lowercase-to-node-builders](#apply-lowercase-to-node-builders);
 - ✅ [apply-namespace-specifier](#apply-namespace-specifier);
@@ -126,6 +127,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-remove": "on",
         "putout/apply-transform-with-options": "on",
         "putout/apply-insert-before": "on",
+        "putout/apply-traverser-to-ignore": "on",
         "putout/apply-insert-after": "on",
         "putout/apply-vars": "on",
         "putout/apply-short-processors": "on",
@@ -444,6 +446,40 @@ const {insertAfter} = operator;
 export const fix = (path) => {
     insertAfter(path, path.get('init'));
 };
+```
+
+## apply-traverser-to-ignore
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ff74cf775696df17a5ba96c7ec309821/1cbdee25af883ccefd0a3614fe8424d8690fc58a).
+
+### ❌ Example of incorrect code
+
+```js
+export const {
+    report,
+    match,
+    replace,
+} = ignore({
+    type: __json,
+    name: '.nycrc.json',
+    field: 'exclude',
+    list: ['*.config.*'],
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const {
+    report,
+    fix,
+    traverse,
+} = ignore({
+    type: __json,
+    name: '.nycrc.json',
+    field: 'exclude',
+    list: ['*.config.*'],
+});
 ```
 
 ## apply-vars

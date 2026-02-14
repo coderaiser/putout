@@ -394,3 +394,8 @@ test('plugin-putout: transform: add-path-arg-to-match', (t) => {
     t.transform('add-path-arg-to-match');
     t.end();
 });
+
+test('plugin-putout: transform: apply-traverser-to-ignore', (t) => {
+    t.transform('apply-traverser-to-ignore');
+    t.end();
+});

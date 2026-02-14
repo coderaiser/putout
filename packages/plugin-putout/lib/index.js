@@ -1,3 +1,4 @@
+import * as applyTraverserToIgnore from './apply-traverser-to-ignore/index.js';
 import * as addPathArgToMatch from './add-path-arg-to-match/index.js';
 import * as removeMessageFromNoReportAfterTransform from './remove-message-from-no-report-after-transform/index.js';
 import * as addCrawlFile from './add-crawl-file/index.js';
@@ -160,4 +161,5 @@ export const rules = {
     'add-crawl-file': addCrawlFile,
     'remove-message-from-no-report-after-transform': removeMessageFromNoReportAfterTransform,
     'add-path-arg-to-match': addPathArgToMatch,
+    'apply-traverser-to-ignore': applyTraverserToIgnore,
 };
