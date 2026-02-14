@@ -1,0 +1,17 @@
+__putout_processor_json({
+    "exclude": [
+        "node_modules",
+        "*.swp",
+        "#",
+        "yarn-error.log",
+        "yarn.lock",
+        "",
+        ".idea",
+        ".DS_Store",
+        "",
+        "deno.lock",
+        "coverage",
+        "",
+        ".filesystem.json",
+    ],
+});

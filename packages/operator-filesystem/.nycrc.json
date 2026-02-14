@@ -5,9 +5,9 @@
         "**/*.spec.*",
         "**/*.test.*",
         "**/fixture",
-        "test",
+        "**/*.config.*",
         ".*.*",
-        "**/*.config.*"
+        "test"
     ],
     "branches": 100,
     "lines": 100,

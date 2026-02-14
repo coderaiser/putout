@@ -28,7 +28,7 @@ const createTraverse = ({type, property}) => ({push}) => ({
         const files = [];
         const dirs = [];
         
-        const [parentOfElements] = parseElements(path, {
+        const parentOfElements = parseElements(path, {
             property,
         });
         
@@ -65,9 +65,9 @@ const createTraverse = ({type, property}) => ({push}) => ({
         }
         
         const sortedElements = [
-            ...maybeSeparate(masks),
-            ...maybeSeparate(hidden),
-            ...maybeSeparate(files),
+            ...maybeSeparate(masks, property),
+            ...maybeSeparate(hidden, property),
+            ...maybeSeparate(files, property),
             ...dirs,
         ];
         
@@ -85,25 +85,24 @@ const createTraverse = ({type, property}) => ({push}) => ({
     },
 });
 
-const emptyList = [];
-
 function parseElements(path, {property}) {
     if (!property) {
         const [arg] = path.get('arguments');
-        return [arg, arg.get('elements')];
+        return arg;
     }
     
     const [prop] = traverseProperties(path, property);
     
     if (!prop)
-        return [null, emptyList];
+        return null;
     
-    const valuePath = prop.get('value');
-    
-    return [valuePath, valuePath.get('elements')];
+    return prop.get('value');
 }
 
-function maybeSeparate(array) {
+function maybeSeparate(array, property) {
+    if (property)
+        return array;
+    
     if (!array.length)
         return [];
     

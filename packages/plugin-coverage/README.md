@@ -14,21 +14,62 @@ npm i @putout/plugin-coverage -D
 
 ## Rules
 
+- ✅ [add](#add);
+- ✅ [sort](#sort);
+
+## Config
+
 ```json
 {
     "rules": {
-        "coverage": ["on", {
+        "coverage/add": ["on", {
             "dismiss": ["*.spec.*"]
-        }]
+        }],
+        "coverage/sort": "on"
     }
 }
 ```
 
-Adds `.*` into .coverage.
+## add
 
 ```diff
-+*.config.*
-test
+{
+    "exclude": [
+-       "test"
++       "test",
++       *.config.*
+    ]
+}
+```
+
+## sort
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "exclude": [
+        "**/*.spec.*",
+        "**/fixture",
+        "test",
+        ".*.*",
+        "**/*.config.*"
+    ]
+}
+```
+
+### ✅ Example of correct code
+
+```json
+{
+    "exclude": [
+        "**/*.spec.*",
+        "**/fixture",
+        "**/*.config.*",
+        ".*.*",
+        "test"
+    ]
+}
 ```
 
 ## License

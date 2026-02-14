@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import * as coverage from '../lib/coverage.js';
+import * as coverage from '../lib/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [

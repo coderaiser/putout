@@ -5,10 +5,10 @@
         "**/*.spec.*",
         "**/fixture",
         "**/lib/declare/index.js",
-        "test",
-        ".*.*",
         "**/scripts",
-        "**/*.config.*"
+        "**/*.config.*",
+        ".*.*",
+        "test"
     ],
     "branches": 100,
     "lines": 100,
