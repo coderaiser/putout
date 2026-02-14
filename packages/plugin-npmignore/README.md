@@ -7,7 +7,6 @@
 >
 > (c) [npmjs.com](https://docs.npmjs.com/cli/v9/using-npm/developers#keeping-files-out-of-your-package)
 
-
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with `.npmignore`.
 
 ## Install
