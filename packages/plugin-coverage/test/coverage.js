@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-coverage: report: coverage', (t) => {
-    t.report('coverage', `Add ignored files to '.nycrc.json'`);
+    t.report('coverage', `Add '**/*.config.*' to '.nycrc.json'`);
     t.end();
 });
 

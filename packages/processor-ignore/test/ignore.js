@@ -22,9 +22,37 @@ test('putout: processor: ignore: rc', async ({process}) => {
 
 test('putout: processor: ignore: rc: eslintrc: no crash', async ({comparePlaces}) => {
     await comparePlaces('eslintrc', [{
-        message: `Add ignored files to '.gitignore'`,
+        message: `Add '.idea' to '.gitignore'`,
         position: {
-            column: 1,
+            column: 27,
+            line: 1,
+        },
+        rule: 'gitignore',
+    }, {
+        message: `Add '*.swp' to '.gitignore'`,
+        position: {
+            column: 27,
+            line: 1,
+        },
+        rule: 'gitignore',
+    }, {
+        message: `Add '*.log' to '.gitignore'`,
+        position: {
+            column: 27,
+            line: 1,
+        },
+        rule: 'gitignore',
+    }, {
+        message: `Add '*.lock' to '.gitignore'`,
+        position: {
+            column: 27,
+            line: 1,
+        },
+        rule: 'gitignore',
+    }, {
+        message: `Add 'coverage' to '.gitignore'`,
+        position: {
+            column: 27,
             line: 1,
         },
         rule: 'gitignore',
@@ -34,3 +62,4 @@ test('putout: processor: ignore: rc: eslintrc: no crash', async ({comparePlaces}
 test('putout: processor: ignore: no new line', async ({process}) => {
     await process('no-new-line-ignore');
 });
+

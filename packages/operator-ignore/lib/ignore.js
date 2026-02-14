@@ -1,72 +1,61 @@
 import {types} from '@putout/babel';
 import {
+    remove,
     traverseProperties,
-    setLiteralValue,
 } from '@putout/operate';
 import {__ignore} from '@putout/operator-json';
 import picomatch from 'picomatch';
 
 const {stringLiteral} = types;
-const getValue = ({value}) => value;
+const getValue = ({node}) => node.value;
 
-export const ignore = ({name, property, list, type = __ignore}) => {
-    const [, collector] = type.split(/[()]/);
+export const ignore = ({name, property, list, type = __ignore}) => ({
+    report: createReport(name),
+    fix,
+    traverse: createTraverse({
+        type,
+        property,
+        list,
+    }),
+});
+
+const addQuotes = (a) => `'${a}'`;
+
+const createReport = (filename) => ({name, matchedElements}) => {
+    let insteadOf = '';
     
-    return {
-        report: createReport(name),
-        match: createMatch({
-            type,
-            property,
-            collector,
-            list,
-        }),
-        replace: createReplace({
-            type,
-            property,
-            collector,
-            list,
-        }),
-    };
+    if (matchedElements.length) {
+        const replacedNames = matchedElements.map(getValue);
+        const namesLine = replacedNames
+            .map(addQuotes)
+            .join(', ');
+        
+        insteadOf = ` instead of ${namesLine}`;
+    }
+    
+    return `Add '${name}'${insteadOf} to '${filename}'`;
 };
 
-const createReport = (name) => () => `Add ignored files to '${name}'`;
+export const fix = ({path, name, matchedElements}) => {
+    path.node.elements.push(stringLiteral(name));
+    matchedElements.map(remove);
+};
 
-const createMatch = ({type, property, collector, list}) => ({options}) => {
+const createTraverse = ({type, property, list}) => ({push, options}) => {
     const {dismiss = []} = options;
     const newNames = filterNames(list, dismiss);
     
-    return {
-        [type]: (vars) => {
-            const elements = parseElements(vars, {
-                property,
-                collector,
-            });
-            
-            if (!elements)
-                return false;
-            
-            const list = elements.map(getValue);
-            
-            for (const name of newNames) {
-                if (!list.includes(name))
-                    return true;
-            }
-            
-            return false;
-        },
-    };
-};
-
-const createReplace = ({type, property, collector, list}) => ({options}) => {
-    const {dismiss = []} = options;
-    const newNames = filterNames(list, dismiss);
+    if (!newNames.length)
+        return {};
     
     return {
-        [type]: (vars, path) => {
-            const elements = parseElements(vars, {
+        [type]: (path) => {
+            const [parentOfElements, elements] = parseElements(path, {
                 property,
-                collector,
             });
+            
+            if (!parentOfElements)
+                return;
             
             const list = elements.map(getValue);
             
@@ -75,12 +64,21 @@ const createReplace = ({type, property, collector, list}) => ({options}) => {
                     continue;
                 
                 const match = picomatch(name);
-                elements.push(stringLiteral(name));
+                const matchedElements = [];
                 
-                for (const [i, current] of list.entries()) {
-                    if (match(current))
-                        setLiteralValue(elements[i], '');
+                for (const current of elements.filter(exists)) {
+                    const {value} = current.node;
+                    
+                    if (match(value))
+                        matchedElements.push(current);
                 }
+                
+                push({
+                    path: parentOfElements,
+                    matchedElements,
+                    elements,
+                    name,
+                });
             }
             
             return path;
@@ -101,16 +99,21 @@ function filterNames(names, dismiss) {
     return newNames;
 }
 
-function parseElements(vars, {property, collector}) {
-    const node = vars[collector];
+const exists = ({node}) => Boolean(node);
+const emptyList = [];
+
+function parseElements(path, {property}) {
+    if (!property) {
+        const [arg] = path.get('arguments');
+        return [arg, arg.get('elements')];
+    }
     
-    if (!property)
-        return node.elements;
-    
-    const [prop] = traverseProperties(node, property);
+    const [prop] = traverseProperties(path, property);
     
     if (!prop)
-        return null;
+        return [null, emptyList];
     
-    return prop.node.value.elements;
+    const valuePath = prop.get('value');
+    
+    return [valuePath, valuePath.get('elements')];
 }

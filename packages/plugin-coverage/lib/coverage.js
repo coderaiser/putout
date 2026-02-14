@@ -3,9 +3,9 @@ import {operator} from 'putout';
 const {ignore, __json} = operator;
 
 export const {
-    match,
-    replace,
     report,
+    fix,
+    traverse,
 } = ignore({
     type: __json,
     name: '.nycrc.json',

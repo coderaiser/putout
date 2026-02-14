@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-gitignore: report: gitignore', (t) => {
-    t.report('gitignore', `Add ignored files to '.gitignore'`);
+    t.report('gitignore', `Add '.idea' to '.gitignore'`);
     t.end();
 });
 

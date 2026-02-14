@@ -12,6 +12,8 @@ const {
     fromJS,
 } = operator;
 
+const getMessage = ({message}) => message;
+
 test('putout: operator: ignore: __json: places', (t) => {
     const npmignore = ignore({
         type: __json,
@@ -36,20 +38,20 @@ test('putout: operator: ignore: __json: places', (t) => {
     const {places} = putout(jsSource, {
         fix: false,
         plugins: [
-            ['npmignore', npmignore],
+            ['coverage', npmignore],
         ],
     });
     
-    const expected = [{
-        message: `Add ignored files to '.npmignore'`,
-        position: {
-            column: 1,
-            line: 1,
-        },
-        rule: 'npmignore',
-    }];
+    const messages = places.map(getMessage);
     
-    t.deepEqual(places, expected);
+    const expected = [
+        `Add '.*' to '.npmignore'`,
+        `Add 'yarn-error.log' to '.npmignore'`,
+        `Add 'coverage' to '.npmignore'`,
+        `Add '*.config.*' to '.npmignore'`,
+    ];
+    
+    t.deepEqual(messages, expected);
     t.end();
 });
 
@@ -77,16 +79,16 @@ test('putout: operator: ignore: __ignore: places', (t) => {
         ],
     });
     
-    const expected = [{
-        message: `Add ignored files to '.npmignore'`,
-        position: {
-            column: 1,
-            line: 1,
-        },
-        rule: 'npmignore',
-    }];
+    const messages = places.map(getMessage);
     
-    t.deepEqual(places, expected);
+    const expected = [
+        `Add '.*' to '.npmignore'`,
+        `Add 'yarn-error.log' to '.npmignore'`,
+        `Add 'coverage' to '.npmignore'`,
+        `Add '*.config.*' to '.npmignore'`,
+    ];
+    
+    t.deepEqual(messages, expected);
     t.end();
 });
 
@@ -157,6 +159,42 @@ test('putout: operator: ignore: __ignore: transform', (t) => {
     ];
     
     t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: ignore: __ignore: places: contains: dismiss: all', (t) => {
+    const npmignore = ignore({
+        name: '.npmignore',
+        list: [
+            '**/*.spec.*',
+            'hello',
+        ],
+    });
+    
+    const source = stringify([
+        '**/*.spec.*',
+    ]);
+    
+    const jsSource = toJS(source, __ignore);
+    
+    const {places} = putout(jsSource, {
+        fix: false,
+        rules: {
+            npmignore: ['on', {
+                dismiss: [
+                    'hello',
+                    '**/*.spec.*',
+                ],
+            }],
+        },
+        plugins: [
+            ['npmignore', npmignore],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -249,7 +287,6 @@ test('putout: operator: ignore: __ignore: match', (t) => {
     });
     
     const source = stringify(['yarn-error.log']);
-    
     const jsSource = toJS(source, __ignore);
     
     const {code} = putout(jsSource, {
@@ -261,7 +298,6 @@ test('putout: operator: ignore: __ignore: match', (t) => {
     const result = parse(fromJS(code, __ignore));
     
     const expected = [
-        '',
         '.*',
         'coverage',
         '*.config.*',
@@ -269,6 +305,70 @@ test('putout: operator: ignore: __ignore: match', (t) => {
     ];
     
     t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: ignore: __ignore: match: report', (t) => {
+    const npmignore = ignore({
+        name: '.npmignore',
+        list: [
+            '.*',
+            'coverage',
+            '*.config.*',
+            '*.log',
+        ],
+    });
+    
+    const source = stringify(['yarn-error.log']);
+    const jsSource = toJS(source, __ignore);
+    
+    const {places} = putout(jsSource, {
+        fix: false,
+        plugins: [
+            ['npmignore', npmignore],
+        ],
+    });
+    
+    const messages = places.map(getMessage);
+    
+    const expected = [
+        `Add '.*' to '.npmignore'`,
+        `Add 'coverage' to '.npmignore'`,
+        `Add '*.config.*' to '.npmignore'`,
+        `Add '*.log' instead of 'yarn-error.log' to '.npmignore'`,
+    ];
+    
+    t.deepEqual(messages, expected);
+    t.end();
+});
+
+test('putout: operator: ignore: __ignore: match: report: couple', (t) => {
+    const npmignore = ignore({
+        name: '.npmignore',
+        list: [
+            '*.lock',
+            '*.log',
+        ],
+    });
+    
+    const source = stringify(['yarn-error.log', 'hello.log', 'bun.lock']);
+    const jsSource = toJS(source, __ignore);
+    
+    const {places} = putout(jsSource, {
+        fix: false,
+        plugins: [
+            ['npmignore', npmignore],
+        ],
+    });
+    
+    const messages = places.map(getMessage);
+    
+    const expected = [
+        `Add '*.lock' instead of 'bun.lock' to '.npmignore'`,
+        `Add '*.log' instead of 'yarn-error.log', 'hello.log' to '.npmignore'`,
+    ];
+    
+    t.deepEqual(messages, expected);
     t.end();
 });
 
@@ -305,3 +405,4 @@ test('putout: operator: ignore: includes', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+

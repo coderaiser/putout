@@ -3,9 +3,9 @@ import {operator} from 'putout';
 const {ignore} = operator;
 
 export const {
-    match,
-    replace,
     report,
+    fix,
+    traverse,
 } = ignore({
     name: '.gitignore',
     list: [

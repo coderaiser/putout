@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-npmignore: report: npmignore', (t) => {
-    t.report('npmignore', `Add ignored files to '.npmignore'`);
+    t.report('npmignore', `Add '.*' to '.npmignore'`);
     t.end();
 });
 

@@ -3,8 +3,8 @@ import {operator} from 'putout';
 const {ignore} = operator;
 
 export const {
-    match,
-    replace,
+    fix,
+    traverse,
     report,
 } = ignore({
     name: '.npmignore',

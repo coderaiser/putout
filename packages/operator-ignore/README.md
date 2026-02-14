@@ -20,8 +20,8 @@ import {operator, ignore} from 'putout';
 
 export const {
     report,
-    match,
-    replace,
+    fix,
+    traverse,
 } = ignore({
     name: '.npmignore',
     field: 'exclude',
@@ -43,8 +43,8 @@ const {__json} = operator;
 
 export const {
     report,
-    match,
-    replace,
+    fix,
+    traverse,
 } = ignore({
     type: __json,
     name: '.nycrc.json',
