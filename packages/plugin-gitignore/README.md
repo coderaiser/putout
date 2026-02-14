@@ -17,48 +17,70 @@ npm i @putout/plugin-gitignore -D
 
 ## Rules
 
-By default, all files enabled, if you want disable some of them use `dismiss` property:
+- ✅ [add](#add);
+- ✅ [sort](#sort);
+
+## Config
 
 ```json
 {
     "rules": {
-        "gitignore": ["on", {
+        "gitignore/add": ["on", {
             "dismiss": [
                 "*.swp",
                 "coverage",
                 "*.lock",
                 "*.log"
             ]
-        }]
+        }],
+        "gitignore/sort": "on"
     }
 }
 ```
 
-## Add Putoutcache
+## add
 
-Adds `.putoutcache` into .gitignore.
+Adds `.putoutcache`, `*.swp`, `.idea`:
 
 ```diff
 node_modules
 +.putoutcache
-```
-
-## Add Vim Files
-
-Adds `*.swp` into .gitignore.
-
-```diff
 +*.swp
-node_modules
++.idea
 ```
 
-## Add `.idea` Files
+## sort
 
-Adds `*.swp` into .gitignore.
+### ❌ Example of incorrect code
 
-```diff
-+.idea
+```ignore
 node_modules
+*.swp
+yarn-error.log
+yarn.lock
+.idea
+.DS_Store
+deno.lock
+
+coverage
+.filesystem.json
+```
+
+### ✅ Example of correct code
+
+```ignore
+.idea
+.filesystem.json
+.DS_Store
+
+*.swp
+
+yarn-error.log
+yarn.lock
+deno.lock
+
+node_modules
+coverage# sort
 ```
 
 ## License

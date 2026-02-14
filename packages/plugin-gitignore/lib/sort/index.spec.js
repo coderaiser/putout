@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import * as plugin from '../lib/sort-ignore.js';
+import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: sort-ignore: report', (t) => {
-    t.report('sort-ignore', `Sort 'ignore'`);
+    t.report('sort-ignore', `Sort '.gitignore'`);
     t.end();
 });
 

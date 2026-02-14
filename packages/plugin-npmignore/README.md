@@ -17,10 +17,15 @@ npm i @putout/plugin-npmignore -D
 
 ## Rules
 
+- ✅ [add](#add);
+- ✅ [sort](#sort);
+
+## Config
+
 ```json
 {
     "rules": {
-        "npmignore": ["on", {
+        "npmignore/add": ["on", {
             "dismiss": [
                 ".nyc_output",
                 ".putoutcache",
@@ -28,18 +33,53 @@ npm i @putout/plugin-npmignore -D
                 "coverage",
                 "*.config.*"
             ]
-        }]
+        }],
+        "npmignore/sort": "on"
     }
 }
 ```
 
-## Add dot files
+## add
 
 Adds `.*` into .npmignore.
 
 ```diff
 +.*
 test
+```
+
+## sort
+
+### ❌ Example of incorrect code
+
+```ignore
+node_modules
+*.swp
+yarn-error.log
+yarn.lock
+.idea
+.DS_Store
+deno.lock
+
+coverage
+.filesystem.json
+```
+
+### ✅ Example of correct code
+
+```ignore
+.idea
+.filesystem.json
+.DS_Store
+
+*.swp
+
+yarn-error.log
+yarn.lock
+deno.lock
+
+node_modules
+coverage# sort
 ```
 
 ## License

@@ -1,8 +1,10 @@
 __putout_processor_ignore([
-    "test",
-    ".*",
     "*.log",
-    "coverage",
     "*.config.*",
-    "*.loc"
+    "*.loc",
+    "",
+    ".*",
+    "",
+    "test",
+    "coverage"
 ]);

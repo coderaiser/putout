@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import * as npmignore from '../lib/npmignore.js';
+import * as npmignore from '../lib/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [

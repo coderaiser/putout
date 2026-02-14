@@ -1,0 +1,12 @@
+{
+    "printer": "putout",
+    "match": {
+        "*.md": {
+            "declare": "off",
+            "putout/convert-traverse-to-scan": "off",
+            "putout/apply-remove": "off",
+            "putout/declare": "on"
+        }
+    },
+    "plugins": ["putout"]
+}

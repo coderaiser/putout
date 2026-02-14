@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import * as gitignore from '../lib/gitignore.js';
+import * as gitignore from '../lib/index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [

@@ -190,3 +190,10 @@ test('putout: operate: findFileUp', (t) => {
     t.equal(name, '/package.json');
     t.end();
 });
+
+test('putout: operate: sortIgnore', async (t) => {
+    const {sortIgnore} = await import('@putout/operator-sort-ignore');
+    
+    t.equal(sortIgnore, operator.sortIgnore);
+    t.end();
+});

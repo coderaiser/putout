@@ -1,8 +1,10 @@
 __putout_processor_ignore([
     "*.swp",
-    "node_modules",
-    ".idea",
     "*.log",
     "*.lock",
+    "",
+    ".idea",
+    "",
+    "node_modules",
     "coverage"
 ]);

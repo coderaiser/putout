@@ -1,9 +1,9 @@
 __putout_processor_ignore([
     "*.swp",
-    "*.log",
-    "*.lock",
     "",
-    ".idea",
+    "yarn-error.log",
+    "yarn.lock",
+    "deno.lock",
     "",
     "node_modules",
     "coverage"
