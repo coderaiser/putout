@@ -405,4 +405,3 @@ test('putout: operator: ignore: includes', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
-
