@@ -16,7 +16,9 @@ npm i putout @putout/operator-ignore
 ### `ignore`
 
 ```js
-import {operator, ignore} from 'putout';
+import {operator} from 'putout';
+
+const {ignore} = operator;
 
 export const {
     report,
@@ -36,9 +38,9 @@ export const {
 ### `type`
 
 ```js
-import {operator, ignore} from 'putout';
+import {operator} from 'putout';
 
-const {__json} = operator;
+const {__json, ignore} = operator;
 
 export const {
     report,
