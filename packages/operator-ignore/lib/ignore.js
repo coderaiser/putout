@@ -80,8 +80,6 @@ const createTraverse = ({type, property, list}) => ({push, options}) => {
                     name,
                 });
             }
-            
-            return path;
         },
     };
 };
