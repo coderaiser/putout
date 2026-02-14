@@ -43,4 +43,5 @@ export default {
     setLiteralValue: 'const {setLiteralValue} = operator',
     matchFiles: 'const {matchFiles} = operator',
     ignore: 'const {ignore} = operator',
+    sortIgnore: 'const {sortIgnore} = operator',
 };

@@ -40,3 +40,23 @@ test('plugin-putout: declare: transform: operator: getFileContent', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: operator: sortIgnore', (t) => {
+    const source = montag`
+        sortIgnore({
+            name: '.npmignore'
+        });
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {sortIgnore} = operator;
+        
+        sortIgnore({
+            name: '.npmignore',
+        });
+    
+    `);
+    t.end();
+});
