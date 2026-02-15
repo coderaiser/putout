@@ -1,3 +1,14 @@
+2026.02.15, v41.25.1
+
+fix:
+- 955c9995c putout: get back ignore
+
+feature:
+- 086aa95bd putout: ignore: apply mask
+- 18074252f @putout/plugin-putout-config: sort-ignore: add
+- 0821779ac @putout/operator-sort-ignore: report when property passed
+- dbf82a215 @putout/operator-sort-ignore: __json: no property
+
 2026.02.15, v41.25.0
 
 fix:
