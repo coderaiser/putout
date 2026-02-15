@@ -38,7 +38,37 @@ test('putout: operator: sortIgnore: __json: places', (t) => {
     });
     
     const messages = places.map(getMessage);
-    const expected = [`Sort '.npmignore'`];
+    const expected = [`Sort 'exclude' section of '.npmignore'`];
+    
+    t.deepEqual(messages, expected);
+    t.end();
+});
+
+test('putout: operator: sortIgnore: __json: no property found', (t) => {
+    const npmignore = sortIgnore({
+        type: __json,
+        name: '.npmignore',
+        property: 'abc',
+    });
+    
+    const source = stringify({
+        exclude: [
+            'coverage',
+            '**/*.spec.*',
+        ],
+    });
+    
+    const jsSource = toJS(source);
+    
+    const {places} = putout(jsSource, {
+        fix: false,
+        plugins: [
+            ['coverage', npmignore],
+        ],
+    });
+    
+    const messages = places.map(getMessage);
+    const expected = [];
     
     t.deepEqual(messages, expected);
     t.end();

@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: plugin-coverage: sort-ignore: report', (t) => {
-    t.report('sort-ignore', `Sort '.nycrc.json'`);
+    t.report('sort-ignore', `Sort 'exclude' section of '.nycrc.json'`);
     t.end();
 });
 

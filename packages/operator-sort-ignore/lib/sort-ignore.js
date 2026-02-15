@@ -5,7 +5,10 @@ import {__ignore} from '@putout/operator-json';
 const {stringLiteral} = types;
 
 export const sortIgnore = ({name, property, type = __ignore}) => ({
-    report: createReport(name),
+    report: createReport({
+        name,
+        property,
+    }),
     fix,
     traverse: createTraverse({
         type,
@@ -13,8 +16,11 @@ export const sortIgnore = ({name, property, type = __ignore}) => ({
     }),
 });
 
-const createReport = (filename) => () => {
-    return `Sort '${filename}'`;
+const createReport = ({name, property}) => () => {
+    if (property)
+        return `Sort '${property}' section of '${name}'`;
+    
+    return `Sort '${name}'`;
 };
 
 const fix = ({path, sortedElements}) => {
