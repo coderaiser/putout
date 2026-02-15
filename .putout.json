@@ -41,6 +41,6 @@
     },
     "ignore": [
         ".husky",
-        "!coverage"
+        "!**/coverage"
     ]
 }

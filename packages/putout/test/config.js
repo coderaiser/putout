@@ -7,7 +7,7 @@ const {keys} = Object;
 
 test('putout: config: ignore: .yarn', (t) => {
     const {ignore} = putoutConfig;
-    const result = ignore.includes('.yarn');
+    const result = ignore.includes('**/.yarn');
     
     t.ok(result);
     t.end();
@@ -15,7 +15,7 @@ test('putout: config: ignore: .yarn', (t) => {
 
 test('putout: config: ignore: .pnp.*', (t) => {
     const {ignore} = putoutConfig;
-    const result = ignore.includes('.pnp.*');
+    const result = ignore.includes('**/.pnp.*');
     
     t.ok(result);
     t.end();
@@ -63,7 +63,7 @@ test('putout: config: match: create-react-app: setupTests', (t) => {
 
 test('putout: config: ignore: .idea', (t) => {
     const {ignore} = putoutConfig;
-    const is = ignore.includes('.idea');
+    const is = ignore.includes('**/.idea');
     
     t.ok(is);
     t.end();

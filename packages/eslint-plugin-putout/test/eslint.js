@@ -132,7 +132,7 @@ test('eslint-plugin-putout: strict-mode', async ({process}) => {
     await process('strict-mode', {
         rules: {
             'putout/putout': ['error', {
-                ignore: ['!fixture'],
+                ignore: ['!**/fixture'],
                 rules: {
                     'tape': 'on',
                     'nodejs/convert-esm-to-commonjs': 'on',
@@ -148,7 +148,7 @@ test('eslint-plugin-putout: esm-to-cjs', async ({process}) => {
     await process('esm-to-cjs', {
         rules: {
             'putout/putout': ['error', {
-                ignore: ['!fixture'],
+                ignore: ['!**/fixture'],
                 rules: {
                     'nodejs/convert-esm-to-commonjs': 'on',
                     'nodejs/convert-commonjs-to-esm': 'off',
@@ -203,7 +203,7 @@ test('eslint-plugin-putout: putout: sync: ESM', async ({pass, comparePlaces}) =>
     const override = {
         rules: {
             'putout/putout': ['error', {
-                ignore: ['!fixture'],
+                ignore: ['!**/fixture'],
                 plugins: [
                     'apply-nullish-coalescing',
                 ],

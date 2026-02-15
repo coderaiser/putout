@@ -6,7 +6,7 @@ const test = createTest(import.meta.url, safe);
 const SAFE = {
     rules: {
         'putout/putout': ['error', {
-            ignore: ['!fixture'],
+            ignore: ['!**/fixture'],
             rules: {
                 ...safeRules,
             },
