@@ -108,7 +108,7 @@ test('test: eslint: comparePlaces: overrides: ESM', async ({comparePlaces}) => {
     const overrides = {
         rules: {
             'putout/putout': ['error', {
-                ignore: ['!**/fixture'],
+                ignore: ['!fixture'],
                 plugins: [
                     'apply-nullish-coalescing',
                 ],
