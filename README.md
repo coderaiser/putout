@@ -50,6 +50,7 @@ are also supported. Here is how it looks like:
 - [🏗 API](#-api)
 - [🏨 Built-in transformations](#-built-in-transformations)
 - [🛠️ Syntax errors](https://github.com/coderaiser/putout/blob/master/docs/syntax-errors.md#%EF%B8%8F-syntax-errors)
+- [🐃 Operators](https://github.com/coderaiser/putout/blob/master/docs/operators.md#-operators)
 - [🏟 Plugins](#-plugins)
 - [🦚 Formatters](#-formatters)
 - [🦉 Configuration](#-configuration)
