@@ -14,23 +14,23 @@ npm i @putout/plugin-coverage -D
 
 ## Rules
 
-- ✅ [add](#add);
-- ✅ [sort](#sort);
+- ✅ [add-to-exclude](#add-to-exclude);
+- ✅ [sort-ignore](#sort-ignore);
 
 ## Config
 
 ```json
 {
     "rules": {
-        "coverage/add": ["on", {
+        "coverage/add-to-exclude": ["on", {
             "dismiss": ["*.spec.*"]
         }],
-        "coverage/sort": "on"
+        "coverage/sort-ignore": "on"
     }
 }
 ```
 
-## add
+## add-to-exclude
 
 ```diff
 {
@@ -42,7 +42,7 @@ npm i @putout/plugin-coverage -D
 }
 ```
 
-## sort
+## sort-ignore
 
 ### ❌ Example of incorrect code
 

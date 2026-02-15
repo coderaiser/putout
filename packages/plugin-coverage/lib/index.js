@@ -1,7 +1,7 @@
-import * as add from './add/index.js';
-import * as sort from './sort/index.js';
+import * as addToExclude from './add-to-exclude/index.js';
+import * as sortIgnore from './sort-ignore/index.js';
 
 export const rules = {
-    add,
-    sort,
+    'add-to-exclude': addToExclude,
+    'sort-ignore': sortIgnore,
 };

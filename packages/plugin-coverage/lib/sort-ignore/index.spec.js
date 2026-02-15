@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('putout: plugin-coverage: sort: report', (t) => {
-    t.report('sort', `Sort '.nycrc.json'`);
+test('putout: plugin-coverage: sort-ignore: report', (t) => {
+    t.report('sort-ignore', `Sort '.nycrc.json'`);
     t.end();
 });
 
-test('putout: plugin-coverage: sort: transform', (t) => {
-    t.transform('sort');
+test('putout: plugin-coverage: sort-ignore: transform', (t) => {
+    t.transform('sort-ignore');
     t.end();
 });

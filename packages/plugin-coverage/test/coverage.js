@@ -16,3 +16,8 @@ test('plugin-coverage: transform: coverage', (t) => {
     t.transform('coverage');
     t.end();
 });
+
+test('plugin-coverage: transform: sort-ignore', (t) => {
+    t.transform('sort-ignore');
+    t.end();
+});
