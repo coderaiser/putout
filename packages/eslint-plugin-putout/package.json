@@ -74,7 +74,8 @@
   },
   "imports": {
     "#typescript-eslint/parser": "./eslint-v10/ts.js",
-    "#babel/eslint-parser": "./eslint-v10/babel.js"
+    "#babel/eslint-parser": "./eslint-v10/babel.js",
+    "#eslint-plugin-putout": "./lib/index.js"
   },
   "engines": {
     "node": ">=22"

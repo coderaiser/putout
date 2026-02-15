@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test/eslint';
-import {safe, safeRules} from '../../lib/index.js';
+import {safe, safeRules} from '#eslint-plugin-putout';
 
 const test = createTest(import.meta.url, safe);
 
@@ -34,6 +34,6 @@ test('eslint-plugin-putout: safe: convert-template-to-string: off', async ({noPr
     await noProcess('convert-template-to-string', SAFE);
 });
 
-test('eslint-plugin-putout: safe: convert-const-to-let: off', async ({process}) => {
+test('eslint-plugin-putout: safe: convert-const-to-let: on', async ({process}) => {
     await process('convert-const-to-let', SAFE);
 });

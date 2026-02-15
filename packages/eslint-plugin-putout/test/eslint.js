@@ -1,6 +1,6 @@
 import process from 'node:process';
 import {createTest} from '@putout/test/eslint';
-import {configs, recommended} from '../lib/index.js';
+import {configs, recommended} from '#eslint-plugin-putout';
 
 const {jsx} = configs;
 

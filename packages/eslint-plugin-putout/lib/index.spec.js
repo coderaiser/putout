@@ -5,7 +5,7 @@ import {
     recommended,
     safe,
     safeAlign,
-} from './index.js';
+} from '#eslint-plugin-putout';
 
 test('eslint-plugin-putout: config: recommended', (t) => {
     const [code] = lint('debugger', {
