@@ -1,7 +1,8 @@
-node_modules
 *.swp
-
-.idea
 *.log
 *.lock
+
+.idea
+
+node_modules
 coverage

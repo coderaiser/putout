@@ -1,7 +1,10 @@
-.*
-madrun.js
-.idea
 *.swp
 *.log
 *.lock
+
+.*
+.idea
+
+madrun.js
+
 coverage

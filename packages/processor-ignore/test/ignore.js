@@ -27,35 +27,35 @@ test('putout: processor: ignore: rc: eslintrc: no crash', async ({comparePlaces}
             column: 27,
             line: 1,
         },
-        rule: 'gitignore',
+        rule: 'gitignore/add',
     }, {
         message: `Add '*.swp' to '.gitignore'`,
         position: {
             column: 27,
             line: 1,
         },
-        rule: 'gitignore',
+        rule: 'gitignore/add',
     }, {
         message: `Add '*.log' to '.gitignore'`,
         position: {
             column: 27,
             line: 1,
         },
-        rule: 'gitignore',
+        rule: 'gitignore/add',
     }, {
         message: `Add '*.lock' to '.gitignore'`,
         position: {
             column: 27,
             line: 1,
         },
-        rule: 'gitignore',
+        rule: 'gitignore/add',
     }, {
         message: `Add 'coverage' to '.gitignore'`,
         position: {
             column: 27,
             line: 1,
         },
-        rule: 'gitignore',
+        rule: 'gitignore/add',
     }]);
 });
 
