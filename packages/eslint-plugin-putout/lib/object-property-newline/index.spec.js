@@ -1,7 +1,7 @@
 import montag from 'montag';
 import {RuleTester} from 'eslint';
 import {createPlugin} from '@putout/eslint/create-plugin';
-import babel from '#babel/eslint-parser';
+import babel from '@babel/eslint-parser';
 import typescript from '#typescript-eslint/parser';
 import * as _rule from './index.js';
 
