@@ -44,6 +44,36 @@ test('putout: operator: sortIgnore: __json: places', (t) => {
     t.end();
 });
 
+test('putout: operator: sortIgnore: __json: no property', (t) => {
+    const npmignore = sortIgnore({
+        type: __json,
+        name: '.npmignore',
+        field: 'exclude',
+    });
+    
+    const source = stringify({
+        exclude: [
+            'coverage',
+            '**/*.spec.*',
+        ],
+    });
+    
+    const jsSource = toJS(source);
+    
+    const {places} = putout(jsSource, {
+        fix: false,
+        plugins: [
+            ['coverage', npmignore],
+        ],
+    });
+    
+    const messages = places.map(getMessage);
+    const expected = [];
+    
+    t.deepEqual(messages, expected);
+    t.end();
+});
+
 test('putout: operator: sortIgnore: __ignore: transform', (t) => {
     const npmignore = sortIgnore({
         name: '.npmignore',
@@ -153,34 +183,6 @@ test('putout: operator: sortIgnore: __json: transform', (t) => {
     };
     
     t.deepEqual(result, expected);
-    t.end();
-});
-
-test('putout: operator: sortIgnore: __json: no property', (t) => {
-    const npmignore = sortIgnore({
-        type: __json,
-        name: '.npmignore',
-        property: 'exclude',
-    });
-    
-    const source = stringify({
-        hello: [
-            '**/*.spec.*',
-        ],
-    });
-    
-    const jsSource = toJS(source);
-    
-    const {places} = putout(jsSource, {
-        fix: false,
-        plugins: [
-            ['npmignore', npmignore],
-        ],
-    });
-    
-    const expected = [];
-    
-    t.deepEqual(places, expected);
     t.end();
 });
 

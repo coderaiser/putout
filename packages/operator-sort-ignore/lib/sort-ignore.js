@@ -88,6 +88,10 @@ const createTraverse = ({type, property}) => ({push}) => ({
 function parseElements(path, {property}) {
     if (!property) {
         const [arg] = path.get('arguments');
+        
+        if (!arg.node.elements)
+            return null;
+        
         return arg;
     }
     
