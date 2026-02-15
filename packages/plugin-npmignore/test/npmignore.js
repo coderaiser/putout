@@ -33,3 +33,8 @@ test('plugin-npmignore: transform with options: options', (t) => {
     });
     t.end();
 });
+
+test('plugin-npmignore: transform: sort', (t) => {
+    t.transform('sort');
+    t.end();
+});

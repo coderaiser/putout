@@ -3,26 +3,26 @@ import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['sort-ignore', plugin],
+        ['npmignore/sort', plugin],
     ],
 });
 
-test('putout: sort-ignore: report', (t) => {
-    t.report('sort-ignore', `Sort '.npmignore'`);
+test('putout: plugin-npmignore: sort: report: sort-ignore', (t) => {
+    t.report('sort', `Sort '.npmignore'`);
     t.end();
 });
 
-test('putout: sort-ignore: transform', (t) => {
-    t.transform('sort-ignore');
+test('putout: plugin-npmignore: sort: transform: sort-ignore', (t) => {
+    t.transform('sort');
     t.end();
 });
 
-test('putout: sort-ignore: transform: no-hidden', (t) => {
+test('putout: plugin-npmignore: sort: transform: no-hidden', (t) => {
     t.transform('no-hidden');
     t.end();
 });
 
-test('putout: sort-ignore: no report after transform: no-hidden', (t) => {
-    t.noReportAfterTransform('sort-ignore');
+test('putout: sort-ignore: no report after transform: sort', (t) => {
+    t.noReportAfterTransform('sort');
     t.end();
 });

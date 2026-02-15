@@ -1,0 +1,14 @@
+__putout_processor_ignore([
+    "*.swp",
+    "*.log",
+    "*.config.*",
+    "*.loc",
+    "",
+    ".*",
+    "",
+    "yarn.lock",
+    "deno.lock",
+    "",
+    "node_modules",
+    "coverage"
+]);
