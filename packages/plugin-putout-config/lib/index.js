@@ -1,3 +1,4 @@
+import * as sortIgnore from './sort-ignore/index.js';
 import * as applyArguments from './apply-arguments/index.js';
 import * as applyDestructuring from './apply-destructuring/index.js';
 import * as applyAssignment from './apply-assignment/index.js';
@@ -44,4 +45,5 @@ export const rules = {
     'rename-rules': renameRules,
     'remove-empty': removeEmpty,
     'remove-empty-file': ['off', removeEmptyFile],
+    'sort-ignore': sortIgnore,
 };

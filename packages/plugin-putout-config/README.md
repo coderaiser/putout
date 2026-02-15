@@ -36,6 +36,7 @@ npm i @putout/plugin-putout-config -D
 - ✅ [remove-empty-file](#remove-empty-file);
 - ✅ [rename-property](#rename-property);
 - ✅ [rename-rules](#rename-rules);
+- ✅ [sort-ignore](#sort-ignore);
 
 ## Config
 
@@ -63,7 +64,8 @@ npm i @putout/plugin-putout-config -D
         "putout-config/move-formatter-up": "on",
         "putout-config/remove-empty": "on",
         "putout-config/remove-empty-file": "off",
-        "putout-config/rename-rules": "on"
+        "putout-config/rename-rules": "on",
+        "putout-config/sort-ignore": "on"
     }
 }
 ```
@@ -677,6 +679,56 @@ Rename rules according to:
 +       "strict-mode/add-missing": "off",
 +       "strict-mode/remove-useless": "off",
     }
+}
+```
+
+## sort-ignore
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/666cce88ac86337d2a1adc4228077da3/2514cd7df364a12eae4add32e683aad2c5bc1a2e).
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "ignore": [
+        "node_modules",
+        "fixture",
+        ".nyc_output",
+        ".yarn",
+        "yarn.lock",
+        "yarn-error.log",
+        ".pnp.*",
+        "coverage",
+        "dist",
+        "dist-dev",
+        "build",
+        "package-lock.json",
+        ".idea",
+        ".git"
+    ]
+}
+```
+
+### ✅ Example of correct code
+
+```json
+{
+    "ignore": [
+        ".nyc_output",
+        ".yarn",
+        ".pnp.*",
+        ".idea",
+        ".git",
+        "yarn.lock",
+        "yarn-error.log",
+        "package-lock.json",
+        "node_modules",
+        "fixture",
+        "coverage",
+        "dist",
+        "dist-dev",
+        "build"
+    ]
 }
 ```
 

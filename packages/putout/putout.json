@@ -161,20 +161,20 @@
         }
     },
     "ignore": [
-        "node_modules",
-        "fixture",
         ".nyc_output",
         ".yarn",
+        ".pnp.*",
+        ".idea",
+        ".git",
         "yarn.lock",
         "yarn-error.log",
-        ".pnp.*",
+        "package-lock.json",
+        "node_modules",
+        "fixture",
         "coverage",
         "dist",
         "dist-dev",
-        "build",
-        "package-lock.json",
-        ".idea",
-        ".git"
+        "build"
     ],
     "rules": {
         "coverage": "off",

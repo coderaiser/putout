@@ -10,6 +10,9 @@
         },
         "/Users/coderaiser/putout/packages/putout/lib/cli/fixture/plugins.js": {
             "putout": "off"
+        },
+        "putout.json": {
+            "putout-config": "on"
         }
     }
 }

@@ -111,3 +111,8 @@ test('plugin-putout-config: no transform: remove-empty-file', (t) => {
     t.noTransform('remove-empty-file');
     t.end();
 });
+
+test('plugin-putout-config: transform: sort-ignore', (t) => {
+    t.transform('sort-ignore');
+    t.end();
+});
