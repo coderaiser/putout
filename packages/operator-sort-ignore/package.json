@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-sort-ignore",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds ability to sort ignore",
