@@ -43,6 +43,7 @@ export const rules = {
     'no-unused-private-class-members': 'off',
     'no-unsafe-negation': 'off',
     'no-duplicate-case': 'off',
+    'no-dupe-keys': 'off',
     'no-cond-assign': 'off',
     'no-empty': 'off',
     'no-empty-pattern': 'off',

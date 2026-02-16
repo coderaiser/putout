@@ -125,3 +125,7 @@ test('eslint-config: no-unassigned-vars', async ({comparePlaces}) => {
 test('eslint-config: no-useless-assignment', async ({comparePlaces}) => {
     await comparePlaces('no-useless-assignment', []);
 });
+
+test('eslint-config: no-dupe-keys', async ({comparePlaces}) => {
+    await comparePlaces('no-dupe-keys', []);
+});
