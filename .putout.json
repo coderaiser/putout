@@ -22,9 +22,6 @@
             "putout/apply-lowercase-to-node-builders": "off"
         },
         ".filesystem.json": {
-            "filesystem/remove-files": ["on", {
-                "names": ["coverage"]
-            }],
             "typescript/find-file": ["on", {
                 "ignore": [
                     "eslint-fixture"

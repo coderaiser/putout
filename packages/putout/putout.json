@@ -163,7 +163,7 @@
     "ignore": [
         "**/*.lock",
         "**/*.log",
-        "**/.nyc_output",
+        "**/.nyc_output/*",
         "**/.yarn",
         "**/.pnp.*",
         "**/.idea",
@@ -171,7 +171,7 @@
         "**/package-lock.json",
         "**/node_modules",
         "**/fixture",
-        "**/coverage",
+        "**/coverage/*",
         "**/dist",
         "**/dist-dev",
         "**/build"
