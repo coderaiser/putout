@@ -40,7 +40,7 @@
     "eslint-plugin-putout": "^31.0.0",
     "madrun": "^13.0.0",
     "nodemon": "^3.0.1",
-    "redlint": "^5.3.1"
+    "redlint": "^6.0.0"
   },
   "peerDependencies": {
     "putout": ">=41"
