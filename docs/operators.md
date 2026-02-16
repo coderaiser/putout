@@ -37,4 +37,5 @@ Here is list of built-in operators
 | [`@putout/operator-parens`](/packages/operator-parens#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-parens.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-parens) |
 | [`@putout/operator-regexp`](/packages/operator-regexp#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-regexp.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-regexp) |
 | [`@putout/operator-rename-files`](/packages/operator-rename-files#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-rename-files.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-rename-files) |
+| [`@putout/operator-remove-files`](/packages/operator-remove-files#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-remove-files.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-remove-files) |
 | [`@putout/operator-sort-ignore`](/packages/operator-sort-ignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-sort-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-sort-ignore) |

@@ -60,3 +60,21 @@ test('plugin-putout: declare: transform: operator: sortIgnore', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: operator: removeFiles', (t) => {
+    const source = montag`
+        removeFiles([
+            '.npmignore'
+        ]);
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {removeFiles} = operator;
+        
+        removeFiles(['.npmignore']);
+    
+    `);
+    t.end();
+});

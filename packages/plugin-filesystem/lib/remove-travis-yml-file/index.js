@@ -1,7 +1,9 @@
-import {createRemoveFiles} from '../create-remove-files.js';
+import {operator} from 'putout';
+
+const {removeFiles} = operator;
 
 export const {
     report,
     fix,
     scan,
-} = createRemoveFiles('.travis.yml');
+} = removeFiles('.travis.yml');

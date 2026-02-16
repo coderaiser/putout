@@ -1,16 +1,15 @@
-import {operator} from 'putout';
+import {removeFile, getFilename} from '@putout/operator-filesystem';
 
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
-const {removeFile, getFilename} = operator;
 
-const report = (file, {names}) => `Remove '${names}': '${getFilename(file)}'`;
+const report = (file) => `Remove files: '${getFilename(file)}'`;
 
 const fix = (file) => {
     removeFile(file);
 };
 
-export const createRemoveFiles = (defaultNames) => ({
+export const removeFiles = (defaultNames) => ({
     report,
     fix,
     scan: createScan(defaultNames),

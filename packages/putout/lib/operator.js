@@ -14,4 +14,5 @@ export * from '@putout/operator-ignore';
 export * from '@putout/operator-parens';
 export * from '@putout/operator-find-file-up';
 export * from '@putout/operator-sort-ignore';
+export * from '@putout/operator-remove-files';
 

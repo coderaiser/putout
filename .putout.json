@@ -40,7 +40,6 @@
         "github/convert-npm-to-bun": "off"
     },
     "ignore": [
-        ".husky",
-        "!**/coverage"
+        ".husky"
     ]
 }

@@ -1,0 +1,11 @@
+{
+    "match": {
+        "*.md": {
+            "declare": "off",
+            "putout/declare": "off"
+        }
+    },
+    "rules": {
+        "putout": "on"
+    }
+}
