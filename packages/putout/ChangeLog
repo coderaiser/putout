@@ -1,3 +1,27 @@
+2026.02.16, v42.0.0
+
+feature:
+- 6e5593b63 root: eslint-plugin-putout v31.0.0
+- 2b07e47ff putout: @putout/engine-runner v28.0.0
+- befa4fe2c @putout/engine-runner: @putout/plugin-filesystem v13.0.0
+- 489ba89af eslint-plugin-putout: @putout/eslint-config v14.0.0
+- b9c7dfff3 eslint-plugin-putout: drop support of 🐊 < 42
+- c645ea2f3 putout: @putout/plugin-putout v29.0.0
+- 04562f1db @putout/plugin-putout: drop support of 🐊 < 42
+- 440467291 putout: @putout/plugin-putout-config v12.0.0
+- fe7d380b6 putout: @putout/plugin-filesystem v13.0.0
+- c65d94911 @putout/eslint-config: drop support of eslint < 10
+- cc19c8d82 @putout/eslint-config: no-dupe-keys -> remove-duplicate-keys
+- 0a3ddfe37 @putout/plugin-filesystem: drop support of 🐊 < 42
+- fac5e2ef3 @putout/plugin-putout-config: drop support of 🐊 < 42
+- b0add92af @putout/plugin-apply-filesystem: add
+- 874547f7d putout: config: ignore: coverage -> coverage/*
+- 427d4be5d @putout/plugin-filesystem: remove-files: merge
+- 0a8182a16 @putout/operator-remove-files: add dismiss
+- 2b92e54b4 @putout/operator-filesystem: findFile: array -> avoid duplications
+- 56caf895f @putout/operator-remove-files: add
+- 5cfbfaf5a eslint-plugin-putout: rm eslint-v10/babel
+
 2026.02.15, v41.25.1
 
 fix:
