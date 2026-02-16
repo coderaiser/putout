@@ -46,7 +46,7 @@
     "node": ">=22"
   },
   "peerDependencies": {
-    "putout": ">=41"
+    "putout": ">=42"
   },
   "publishConfig": {
     "access": "public"
