@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-putout",
-  "version": "30.0.5",
+  "version": "31.0.0",
   "type": "module",
   "description": "ESLint plugin for 🐊Putout",
   "release": false,
