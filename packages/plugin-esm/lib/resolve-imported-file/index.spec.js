@@ -46,3 +46,8 @@ test('esm: resolve-imported-file: transform: couple-levels-up', (t) => {
     t.transform('couple-levels-up');
     t.end();
 });
+
+test('esm: resolve-imported-file: transform: no-ext', (t) => {
+    t.transform('no-ext');
+    t.end();
+});

@@ -27,6 +27,11 @@ export const buildResolved = ({dir, imports, rootPath, crawlFile}) => {
             continue;
         }
         
+        if (crawlFile(rootPath, withJs).length) {
+            result.push([relative, `${relative}.js`]);
+            continue;
+        }
+        
         if (relative.startsWith('..')) {
             result.push(parseMainFromDotDot({
                 relative,
@@ -34,11 +39,6 @@ export const buildResolved = ({dir, imports, rootPath, crawlFile}) => {
                 rootPath,
                 crawlFile,
             }));
-            continue;
-        }
-        
-        if (crawlFile(rootPath, withJs).length) {
-            result.push([relative, `${relative}.js`]);
             continue;
         }
     }
