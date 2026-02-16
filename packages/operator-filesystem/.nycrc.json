@@ -4,9 +4,9 @@
     "exclude": [
         "**/*.spec.*",
         "**/*.test.*",
-        "**/fixture",
         "**/*.config.*",
         ".*.*",
+        "**/fixture",
         "test"
     ],
     "branches": 100,

@@ -3,9 +3,9 @@
     "all": true,
     "exclude": [
         "**/*.spec.*",
-        "**/fixture",
         "**/*.config.*",
         ".*.*",
+        "**/fixture",
         "coverage",
         "test"
     ],

@@ -250,3 +250,44 @@ test('putout: operator: sortIgnore: includes', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: sortIgnore: **', (t) => {
+    const ignore = sortIgnore({
+        name: '.putout.json',
+        type: __json,
+        property: 'ignore',
+    });
+    
+    const source = stringify({
+        ignore: [
+            '**/package-lock.json',
+            '**/*.lock',
+            '**/.git',
+            '**/*.log',
+            '**/node_modules',
+        ],
+    });
+    
+    const jsSource = toJS(source, __json);
+    
+    const {code} = putout(jsSource, {
+        plugins: [
+            ['ignore', ignore],
+        ],
+    });
+    
+    const result = parse(fromJS(code, __json));
+    
+    const expected = {
+        ignore: [
+            '**/*.lock',
+            '**/*.log',
+            '**/.git',
+            '**/package-lock.json',
+            '**/node_modules',
+        ],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

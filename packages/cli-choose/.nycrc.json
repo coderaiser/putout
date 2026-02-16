@@ -3,11 +3,11 @@
     "all": true,
     "exclude": [
         "**/*.spec.*",
-        "**/fixture",
-        "**/keypress.js",
         "**/*.config.*",
         ".*.*",
+        "**/keypress.js",
         "example.js",
+        "**/fixture",
         "test"
     ],
     "branches": 100,

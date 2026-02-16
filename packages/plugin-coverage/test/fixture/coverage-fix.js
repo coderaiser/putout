@@ -3,9 +3,9 @@ __putout_processor_json({
     "all": true,
     "exclude": [
         "**/*.spec.*",
-        "**/fixture",
         "**/*.config.*",
         ".*.*",
+        "**/fixture",
         "test"
     ],
     "branches": 100,

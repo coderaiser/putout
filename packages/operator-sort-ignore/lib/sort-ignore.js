@@ -44,7 +44,7 @@ const createTraverse = ({type, property}) => ({push}) => ({
         const {elements} = parentOfElements.node;
         
         for (const element of elements) {
-            const {value} = element;
+            const value = cutStars(element);
             
             if (!value)
                 continue;
@@ -121,3 +121,13 @@ function maybeSeparate(array, property) {
         stringLiteral(''),
     ];
 }
+
+const cutStars = ({value}) => {
+    if (!value)
+        return '';
+    
+    if (value.startsWith('**/'))
+        return value.slice(3);
+    
+    return value;
+};

@@ -3,11 +3,11 @@
     "all": true,
     "exclude": [
         "**/*.spec.*",
-        "**/fixture",
-        "**/lib/declare/index.js",
-        "**/scripts",
         "**/*.config.*",
         ".*.*",
+        "**/lib/declare/index.js",
+        "**/fixture",
+        "**/scripts",
         "test"
     ],
     "branches": 100,

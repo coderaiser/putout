@@ -3,10 +3,10 @@
     "all": false,
     "exclude": [
         "**/*.spec.*",
-        "**/fixture",
-        "**/eslint-fixture",
         "**/*.config.*",
         ".*.*",
+        "**/fixture",
+        "**/eslint-fixture",
         "test"
     ],
     "branches": 100,

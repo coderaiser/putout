@@ -3,10 +3,10 @@
     "all": true,
     "exclude": [
         "**/*.spec.*",
-        "**/fixture",
-        "**/coverage",
         "**/*.config.*",
         ".*.*",
+        "**/fixture",
+        "**/coverage",
         "test"
     ],
     "branches": 100,
