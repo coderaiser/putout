@@ -18,6 +18,7 @@ npm i @putout/plugin-putout-config -D
 - ✅ [apply-conditions](#apply-conditions);
 - ✅ [apply-destructuring](#apply-destructuring);
 - ✅ [apply-esm](#apply-esm);
+- ✅ [apply-filesystem](#apply-filesystem);
 - ✅ [apply-for-of](#apply-for-of);
 - ✅ [apply-parens](#apply-parens);
 - ✅ [apply-return](#apply-return);
@@ -49,6 +50,7 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-destructuring": "on",
         "putout-config/apply-esm": "on",
         "putout-config/apply-for-of": "on",
+        "putout-config/apply-filesystem": "on",
         "putout-config/apply-labels": "on",
         "putout-config/apply-math": "on",
         "putout-config/apply-nodejs": "on",
@@ -110,6 +112,25 @@ Apply [`return`](https://github.com/coderaiser/putout/tree/master/packages/plugi
 +       "return/convert-from-break": "off"
 -       "remove-useless-return": "off"
 +       "return/remove-useless": "off"
+  }
+}
+```
+
+## apply-filesystem
+
+Apply [`filesystem`](https://github.com/coderaiser/putout/tree/master/packages/plugin-filesystem#readme) according to:
+
+- 🐊[**Putout v42**](https://github.com/coderaiser/putout/releases/tag/v42.0.0):
+
+```diff
+{
+    "rules": {
+-       "filesystem/remove-travis-yml-file": "off",
+-       "filesystem/remove-vim-swap-file": "off",
+-       "filesystem/remove-nyc-output-file": "off",
+-       "filesystem/remove-ds-store-file": "off",
+-       "filesystem/remove-empty-directory": "off",
++       "filesystem/remove-files": "off",
   }
 }
 ```
