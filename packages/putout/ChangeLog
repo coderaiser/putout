@@ -1,3 +1,10 @@
+2026.02.16, v42.0.1
+
+feature:
+- f91fbe931 putout: @putout/plugin-esm v10.0.0
+- 382bb709d @putout/plugin-esm: drop support of 🐊 < 42
+- e00508d45 @putout/plugin-esm: resolve-imported-file: no extension
+
 2026.02.16, v42.0.0
 
 feature:
