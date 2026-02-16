@@ -25,6 +25,20 @@ export const {
 } = removeFiles(['.DS_Store']);
 ```
 
+### `dismiss`
+
+Any rule that uses this operator can pass `dismiss` to avoid removing files:
+
+```json
+{
+    "rules": {
+        "putout/remove-files": ["on", {
+            "dissmiss": [".DS_Store"]
+        }]
+    }
+}
+```
+
 ## License
 
 MIT

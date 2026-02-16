@@ -79,3 +79,57 @@ test('putout: operator: remove-files: transform', (t) => {
     t.equalFilesystems(ast, expected);
     t.end();
 });
+
+test('putout: operator: remove-files: transform: duplicates', (t) => {
+    const ast = parseFilesystem(['/', '/tsconfig.json']);
+    
+    const files = [
+        'tsconfig.json',
+    ];
+    
+    transform(ast, '', {
+        rules: {
+            'remove-files': ['on', {
+                names: [
+                    'tsconfig.json',
+                ],
+            }],
+        },
+        plugins: [
+            ['remove-files', removeFiles(files)],
+        ],
+    });
+    
+    const expected = ['/'];
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
+test('putout: operator: remove-files: transform: dismiss', (t) => {
+    const ast = parseFilesystem(['/', '/tsconfig.json']);
+    const files = [
+        'tsconfig.json',
+    ];
+    
+    transform(ast, '', {
+        rules: {
+            'remove-files': ['on', {
+                dismiss: [
+                    'tsconfig.json',
+                ],
+            }],
+        },
+        plugins: [
+            ['remove-files', removeFiles(files)],
+        ],
+    });
+    
+    const expected = [
+        '/',
+        '/tsconfig.json',
+    ];
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
