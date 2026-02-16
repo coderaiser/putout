@@ -110,7 +110,7 @@ export function findFile(node, name, options) {
     
     checkName(name);
     
-    const filePaths = [];
+    const filePaths = new Set();
     const names = maybeArray(name);
     
     for (const filenamePath of crawled) {
@@ -129,12 +129,12 @@ export function findFile(node, name, options) {
                 if (excluded)
                     continue;
                 
-                filePaths.push(path);
+                filePaths.add(path);
             }
         }
     }
     
-    return filePaths;
+    return Array.from(filePaths);
 }
 
 function checkName(name) {

@@ -163,6 +163,21 @@ test('putout: operator: filesystem: findFile', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: findFile: duplicates', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/hello",
+            "files": []
+        });
+    `);
+    
+    const {length} = findFile(ast, ['hello', 'hello']);
+    
+    t.equal(length, 1);
+    t.end();
+});
+
 test('putout: operator: filesystem: crawlDirectory', (t) => {
     const ast = parse(montag`
         ${FS}({
