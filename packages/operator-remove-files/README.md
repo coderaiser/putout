@@ -33,7 +33,7 @@ Any rule that uses this operator can pass `dismiss` to avoid removing files:
 {
     "rules": {
         "putout/remove-files": ["on", {
-            "dissmiss": [".DS_Store"]
+            "dismiss": [".DS_Store"]
         }]
     }
 }
