@@ -1,3 +1,12 @@
+2026.02.17, v42.0.2
+
+feature:
+- 0bfbbbb84 putout: @putout/plugin-spread v3.0.0
+- 2017f4068 @putout/plugin-spread: drop support of 🐊 < 42
+- a6d9d2aa9 @putout/plugin-typescript: drop support of 🐊 < 42
+- a5abe1d7a root: redlint v6.0.0
+- f1d47cfff root: madrun v13.0.0
+
 2026.02.16, v42.0.1
 
 feature:
