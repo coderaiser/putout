@@ -213,6 +213,6 @@ test('operate: traverse-properties: filesystem', async (t) => {
         }),
     ]);
     
-    t.equal(pluginsIndex, 2);
+    t.equal(pluginsIndex, 1);
     t.end();
 });

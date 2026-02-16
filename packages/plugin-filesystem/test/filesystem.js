@@ -12,11 +12,6 @@ test('plugin-filesystem: no report: rename-file: rename-file-disabled', (t) => {
     t.end();
 });
 
-test('plugin-filesystem: transform: remove-vim-swap-file', (t) => {
-    t.transform('remove-vim-swap-file');
-    t.end();
-});
-
 test('plugin-filesystem: no transform: rename-spec-to-test: rename-spec-to-test-disabled', (t) => {
     t.noTransform('rename-spec-to-test-disabled');
     t.end();
@@ -79,25 +74,5 @@ test('plugin-filesystem: no transform: convert-json-to-js: convert-json-to-js-di
 
 test('plugin-filesystem: no transform: convert-js-to-json-disabled', (t) => {
     t.noTransform('convert-js-to-json-disabled');
-    t.end();
-});
-
-test('plugin-filesystem: transform: remove-nyc-output-files', (t) => {
-    t.transform('remove-nyc-output-files');
-    t.end();
-});
-
-test('plugin-filesystem: transform: remove-travis-yml-file', (t) => {
-    t.transform('remove-travis-yml-file');
-    t.end();
-});
-
-test('plugin-filesystem: transform: remove-empty-directory', (t) => {
-    t.transform('remove-empty-directory');
-    t.end();
-});
-
-test('plugin-filesystem: transform: remove-ds-store-file', (t) => {
-    t.transform('remove-ds-store-file');
     t.end();
 });

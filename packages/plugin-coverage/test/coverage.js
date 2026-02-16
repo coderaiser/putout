@@ -12,6 +12,11 @@ test('plugin-coverage: report: coverage', (t) => {
     t.end();
 });
 
+test('plugin-coverage: no report: remove-files-off', (t) => {
+    t.noReport('remove-files-off');
+    t.end();
+});
+
 test('plugin-coverage: transform: coverage', (t) => {
     t.transform('coverage');
     t.end();

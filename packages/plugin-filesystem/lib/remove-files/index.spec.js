@@ -7,13 +7,13 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('packages: remove-files: no report: no-options', (t) => {
-    t.noReport('no-options');
+test('packages: remove-files: report: no-options', (t) => {
+    t.report('no-options', `Remove files: '/home/coderaiser/putout/lib/putout.js.swp'`);
     t.end();
 });
 
 test('packages: remove-files: report', (t) => {
-    t.reportWithOptions('remove-files', `Remove '*.swp': '/home/coderaiser/putout/lib/putout.js.swp'`, {
+    t.reportWithOptions('remove-files', `Remove files: '/home/coderaiser/putout/lib/putout.js.swp'`, {
         names: ['*.swp'],
     });
     t.end();

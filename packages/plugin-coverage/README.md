@@ -17,6 +17,10 @@ npm i @putout/plugin-coverage -D
 - ✅ [add-to-exclude](#add-to-exclude);
 - ✅ [sort-ignore](#sort-ignore);
 
+## File rules
+
+- ✅ [remove-files](#remove-files)
+
 ## Config
 
 ```json
@@ -25,7 +29,8 @@ npm i @putout/plugin-coverage -D
         "coverage/add-to-exclude": ["on", {
             "dismiss": ["*.spec.*"]
         }],
-        "coverage/sort-ignore": "on"
+        "coverage/sort-ignore": "on",
+        "coverage/remove-files": "on"
     }
 }
 ```
@@ -70,6 +75,14 @@ npm i @putout/plugin-coverage -D
         "test"
     ]
 }
+```
+
+## remove-files
+
+```diff
+/
+-├── .nyc_output
+-└── coverage
 ```
 
 ## License

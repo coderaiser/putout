@@ -6,4 +6,4 @@ export const {
     report,
     fix,
     scan,
-} = removeFiles('.DS_Store');
+} = removeFiles(['coverage', '.nyc_output']);

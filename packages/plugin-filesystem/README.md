@@ -21,11 +21,6 @@ npm i @putout/plugin-filesystem -D
 - ✅ [move-referenced-file](#move-referenced-file);
 - ✅ [read-all-files](#read-all-files);
 - ✅ [rename-file](#rename-file);
-- ✅ [remove-empty-directory](#remove-empty-directory);
-- ✅ [remove-travis-yml-file](#remove-travis-yml-file);
-- ✅ [remove-vim-swap-file](#remove-vim-swap-file);
-- ✅ [remove-nyc-output-files](#remove-nyc-output-files);
-- ✅ [remove-ds-store-file](#remove-ds-store-file);
 - ✅ [remove-files](#remove-files);
 - ✅ [rename-referenced-file](#rename-referenced-file);
 - ✅ [rename-spec-to-test](#rename-spec-to-test);
@@ -38,11 +33,6 @@ npm i @putout/plugin-filesystem -D
 ```json
 {
     "rules": {
-        "filesystem/remove-empty-directory": "on",
-        "filesystem/remove-travis-yml-file": "on",
-        "filesystem/remove-ds-store-file": "on",
-        "filesystem/remove-vim-swap-file": "on",
-        "filesystem/remove-nyc-output-files": "on",
         "filesystem/bundle": "off",
         "filesystem/read-all-files": ["off", {
             "mask": "*"
@@ -114,56 +104,25 @@ It will rename 'test' to 'spec' in `*.test.*` files:
 +index.spec.js
 ```
 
-## remove-empty-directory
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/52d8126f3e41b687c6028852a1925db7/5efcb17493ad5ebe8f1786075a985e1dd35ea59e).
-
-```diff
-/
--|-- hello/
--|  `-- abc/
--|      `-- def/
-```
-
-## remove-ds-store-file
-
-```diff
--.DS_Store
-```
-
-## remove-nyc-output-files
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/52d8126f3e41b687c6028852a1925db7/5efcb17493ad5ebe8f1786075a985e1dd35ea59e).
-
-```diff
--.nyc_output
-```
-
-## remove-travis-yml-file
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a495c6782ed8b512f37e757bafd02b08/5d0dc03f6be2653639bb22ea00c3ce91e8454940).
-
-```diff
--.travis.yml
-```
-
-## remove-vim-swap-file
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a495c6782ed8b512f37e757bafd02b08/5d0dc03f6be2653639bb22ea00c3ce91e8454940).
-
-```diff
--readme.md.swap
-```
-
 ## remove-files
 
-Update `.putout.json` to enable rule:
+Remove next files:
+
+- `.DS_Store`;
+- `.travis.yml`;
+- `*.swp`;
+- `*.swo`;
+
+Apply overrides:
 
 ```json
 {
     "rules": {
         "filesystem/remove-files": ["on", {
-            "names": ["coverage"]
+            "names": ["coverage"],
+            "dismiss": [
+                ".travis.yml"
+            ]
         }]
     }
 }

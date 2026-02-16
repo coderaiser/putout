@@ -3,6 +3,10 @@ __putout_processor_filesystem({
     "filename": "/",
     "files": [{
         "type": "directory",
+        "filename": "/src",
+        "files": []
+    }, {
+        "type": "directory",
         "filename": "/test",
         "files": [{
             "type": "file",

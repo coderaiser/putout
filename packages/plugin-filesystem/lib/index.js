@@ -1,6 +1,5 @@
 import * as renameFile from './rename-file/index.js';
 import * as removeFiles from './remove-files/index.js';
-import * as removeVimSwapFile from './remove-vim-swap-file/index.js';
 import * as renameSpecToTest from './rename-spec-to-test/index.js';
 import * as renameTestToSpec from './rename-test-to-spec/index.js';
 import * as renameReferencedFile from './rename-referenced-file/index.js';
@@ -13,13 +12,8 @@ import * as replaceCwd from './replace-cwd/index.js';
 import * as readAllFiles from './read-all-files/index.js';
 import * as writeAllFiles from './write-all-files/index.js';
 import * as convertJsToJson from './convert-js-to-json/index.js';
-import * as removeNycOutputFiles from './remove-nyc-output-files/index.js';
-import * as removeTravisYmlFile from './remove-travis-yml-file/index.js';
-import * as removeEmptyDirectory from './remove-empty-directory/index.js';
-import * as removeDsStoreFile from './remove-ds-store-file/index.js';
 
 export const rules = {
-    'remove-vim-swap-file': removeVimSwapFile,
     'remove-files': ['off', removeFiles],
     'rename-file': ['off', renameFile],
     'rename-spec-to-test': ['off', renameSpecToTest],
@@ -34,8 +28,4 @@ export const rules = {
     'write-all-files': ['off', writeAllFiles],
     'convert-js-to-json': ['off', convertJsToJson],
     'convert-json-to-js': ['off', convertJsonToJs],
-    'remove-nyc-output-files': removeNycOutputFiles,
-    'remove-travis-yml-file': removeTravisYmlFile,
-    'remove-empty-directory': removeEmptyDirectory,
-    'remove-ds-store-file': removeDsStoreFile,
 };

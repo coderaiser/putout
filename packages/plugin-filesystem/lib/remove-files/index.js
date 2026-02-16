@@ -6,4 +6,10 @@ export const {
     report,
     fix,
     scan,
-} = removeFiles();
+} = removeFiles([
+    '*.swp',
+    '*.swo',
+    '.nyc_output',
+    '.travis.yml',
+    '.DS_Store',
+]);
