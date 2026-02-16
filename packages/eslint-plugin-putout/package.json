@@ -79,8 +79,8 @@
     "node": ">=22"
   },
   "peerDependencies": {
-    "eslint": ">=9",
-    "putout": ">=41"
+    "eslint": ">=10",
+    "putout": ">=42"
   },
   "license": "MIT",
   "publishConfig": {
