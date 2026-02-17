@@ -130,6 +130,7 @@ test('putout: operator: sortIgnore: __ignore: transform', (t) => {
     
     const expected = [
         '**/*.spec.*',
+        '',
         '*.config.*',
         '',
         '.*',
@@ -285,6 +286,47 @@ test('putout: operator: sortIgnore: **', (t) => {
             '**/.git',
             '**/package-lock.json',
             '**/node_modules',
+        ],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: sortIgnore: **: mixed', (t) => {
+    const ignore = sortIgnore({
+        name: '.nycrc.json',
+        type: __json,
+        property: 'exclude',
+    });
+    
+    const source = stringify({
+        exclude: [
+            '**/*.spec.*',
+            '.*',
+            '**/fixture',
+            'test',
+            'coverage',
+        ],
+    });
+    
+    const jsSource = toJS(source, __json);
+    
+    const {code} = putout(jsSource, {
+        plugins: [
+            ['ignore', ignore],
+        ],
+    });
+    
+    const result = parse(fromJS(code, __json));
+    
+    const expected = {
+        exclude: [
+            '**/*.spec.*',
+            '**/fixture',
+            '.*',
+            'test',
+            'coverage',
         ],
     };
     

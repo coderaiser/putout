@@ -29,11 +29,6 @@ const fix = ({path, sortedElements}) => {
 
 const createTraverse = ({type, property}) => ({push}) => ({
     [type]: (path) => {
-        const masks = [];
-        const hidden = [];
-        const files = [];
-        const dirs = [];
-        
         const parentOfElements = parseElements(path, {
             property,
         });
@@ -43,39 +38,9 @@ const createTraverse = ({type, property}) => ({push}) => ({
         
         const {elements} = parentOfElements.node;
         
-        for (const element of elements) {
-            const value = cutStars(element);
-            
-            if (!value)
-                continue;
-            
-            if (value.startsWith('*')) {
-                masks.push(element);
-                continue;
-            }
-            
-            if (value.startsWith('.')) {
-                hidden.push(element);
-                continue;
-            }
-            
-            if (value.includes('.')) {
-                files.push(element);
-                continue;
-            }
-            
-            if (value.startsWith('#'))
-                continue;
-            
-            dirs.push(element);
-        }
-        
-        const sortedElements = [
-            ...maybeSeparate(masks, property),
-            ...maybeSeparate(hidden, property),
-            ...maybeSeparate(files, property),
-            ...dirs,
-        ];
+        const sortedElements = cleverSort(elements, {
+            separate: !property,
+        });
         
         for (const [index, {value}] of elements.entries()) {
             const current = sortedElements[index];
@@ -109,8 +74,82 @@ function parseElements(path, {property}) {
     return prop.get('value');
 }
 
-function maybeSeparate(array, property) {
-    if (property)
+function cleverSort(elements, {separate}) {
+    const twoStars = [];
+    const noStars = [];
+    
+    for (const element of elements) {
+        const {value} = element;
+        
+        if (value.startsWith('**/')) {
+            twoStars.push(element);
+            continue;
+        }
+        
+        noStars.push(element);
+    }
+    
+    return [
+        ...sortElements(twoStars, {
+            separate,
+        }),
+        ...sortElements(noStars, {
+            separate,
+        }),
+    ];
+}
+
+function sortElements(elements, {separate} = {}) {
+    const masks = [];
+    const hidden = [];
+    const files = [];
+    const dirs = [];
+    
+    for (const element of elements) {
+        const value = cutStars(element);
+        
+        if (!value)
+            continue;
+        
+        if (value.startsWith('*')) {
+            masks.push(element);
+            continue;
+        }
+        
+        if (value.startsWith('.')) {
+            hidden.push(element);
+            continue;
+        }
+        
+        if (value.includes('.')) {
+            files.push(element);
+            continue;
+        }
+        
+        if (value.startsWith('#'))
+            continue;
+        
+        dirs.push(element);
+    }
+    
+    const sortedElements = [
+        ...maybeSeparate(masks, {
+            separate,
+        }),
+        ...maybeSeparate(hidden, {
+            separate,
+        }),
+        ...maybeSeparate(files, {
+            separate,
+        }),
+        ...dirs,
+    ];
+    
+    return sortedElements;
+}
+
+function maybeSeparate(array, {separate} = {}) {
+    if (!separate)
         return array;
     
     if (!array.length)

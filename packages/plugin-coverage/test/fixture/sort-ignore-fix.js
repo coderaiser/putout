@@ -1,7 +1,7 @@
 __putout_processor_json({
     "exclude": [
-        "*.swp",
         "**/*.config.*",
+        "*.swp",
         ".idea",
         ".DS_Store",
         ".filesystem.json",
