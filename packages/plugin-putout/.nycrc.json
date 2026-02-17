@@ -4,10 +4,10 @@
     "exclude": [
         "**/*.spec.*",
         "**/*.config.*",
+        ".*.*",
         "**/lib/declare/index.js",
         "**/fixture",
         "**/scripts",
-        ".*.*",
         "test"
     ],
     "branches": 100,

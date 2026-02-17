@@ -4,9 +4,9 @@
     "exclude": [
         "**/*.spec.*",
         "**/*.config.*",
+        ".*.*",
         "**/fixture",
         "**/eslint-fixture",
-        ".*.*",
         "test"
     ],
     "branches": 100,
