@@ -4,10 +4,10 @@
     "exclude": [
         "**/*.spec.*",
         "**/*.config.*",
-        ".*.*",
         "**/keypress.js",
-        "example.js",
         "**/fixture",
+        ".*.*",
+        "example.js",
         "test"
     ],
     "branches": 100,
