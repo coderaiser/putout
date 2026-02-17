@@ -33,6 +33,7 @@
             "esm/remove-empty-import": "off"
         },
         ".filesystem.json": {
+            "coverage/remove-files": "on",
             "filesystem": "on",
             "madrun/rename-file": "on",
             "nodejs/cjs-file": "on",

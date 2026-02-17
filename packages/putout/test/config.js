@@ -131,6 +131,7 @@ test('putout: config: filesystem', (t) => {
     const result = match['.filesystem.json'];
     
     const expected = {
+        'coverage/remove-files': 'on',
         'esm/resolve-imported-file': 'on',
         'esm/shorten-imported-file': 'on',
         'madrun/rename-file': 'on',
