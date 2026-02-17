@@ -1,3 +1,13 @@
+2026.02.17, v42.0.4
+
+fix:
+- 96012b63f @putout/plugin-filesystem: remove-files: rm .nyc_output: overlap with coverage/remove-files
+
+feature:
+- df7403a48 @putout/plugin-sort-ignore: two-stars-globs
+- 9f61b1bae putout: @putout/plugin-coverage v3.0.0
+- c78fe810c @putout/plugin-coverage: drop support of 🐊 < 42
+
 2026.02.17, v42.0.3
 
 feature:
