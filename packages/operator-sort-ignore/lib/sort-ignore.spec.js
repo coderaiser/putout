@@ -402,7 +402,7 @@ test('putout: operator: sortIgnore: comment only', (t) => {
     t.end();
 });
 
-test('putout: operator: sortIgnore: emtpy', (t) => {
+test('putout: operator: sortIgnore: empty', (t) => {
     const ignore = sortIgnore({
         name: '.gitignore',
     });
@@ -433,8 +433,7 @@ test('putout: operator: sortIgnore: json: empty', (t) => {
     });
     
     const source = stringify({
-        exclude: [
-        ],
+        exclude: [],
     });
     
     const jsSource = toJS(source, __json);
@@ -448,8 +447,7 @@ test('putout: operator: sortIgnore: json: empty', (t) => {
     const result = parse(fromJS(code, __json));
     
     const expected = {
-        exclude: [
-        ],
+        exclude: [],
     };
     
     t.deepEqual(result, expected);
