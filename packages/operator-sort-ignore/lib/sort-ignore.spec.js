@@ -407,8 +407,7 @@ test('putout: operator: sortIgnore: emtpy', (t) => {
         name: '.gitignore',
     });
     
-    const source = stringify([
-    ]);
+    const source = stringify([]);
     
     const jsSource = toJS(source, __json);
     
@@ -420,8 +419,38 @@ test('putout: operator: sortIgnore: emtpy', (t) => {
     
     const result = parse(fromJS(code, __json));
     
-    const expected = [
-    ];
+    const expected = [];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: sortIgnore: json: empty', (t) => {
+    const ignore = sortIgnore({
+        name: '.nycrc.json',
+        type: __json,
+        property: 'exclude',
+    });
+    
+    const source = stringify({
+        exclude: [
+        ],
+    });
+    
+    const jsSource = toJS(source, __json);
+    
+    const {code} = putout(jsSource, {
+        plugins: [
+            ['ignore', ignore],
+        ],
+    });
+    
+    const result = parse(fromJS(code, __json));
+    
+    const expected = {
+        exclude: [
+        ],
+    };
     
     t.deepEqual(result, expected);
     t.end();

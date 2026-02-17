@@ -98,6 +98,9 @@ function cleverSort(elements, {separate}) {
         }),
     ];
     
+    if (!sortedElements.length)
+        return elements;
+    
     if (!sortedElements.at(-1).value)
         return sortedElements.slice(0, -1);
     
@@ -144,27 +147,19 @@ function sortElements(elements, {separate} = {}) {
     }
     
     const sortedElements = [
-        ...maybeSeparate(masks, {
-            separate,
-        }),
-        ...maybeSeparate(hidden, {
-            separate,
-        }),
-        ...maybeSeparate(files, {
-            separate,
-        }),
-        ...maybeSeparate(dirs, {
-            separate,
-        }),
-        ...maybeSeparate(allowed, {
-            allowed,
-        }),
+        masks,
+        hidden,
+        files,
+        dirs,
+        allowed,
     ];
     
-    return sortedElements;
+    return sortedElements.flatMap(maybeSeparate({
+        separate,
+    }));
 }
 
-function maybeSeparate(array, {separate} = {}) {
+const maybeSeparate = ({separate} = {}) => (array) => {
     if (!separate)
         return array;
     
@@ -175,7 +170,7 @@ function maybeSeparate(array, {separate} = {}) {
         ...array,
         stringLiteral(''),
     ];
-}
+};
 
 const cutStars = ({value}) => {
     if (!value)
