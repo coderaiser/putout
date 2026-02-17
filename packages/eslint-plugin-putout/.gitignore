@@ -4,6 +4,6 @@
 
 .idea
 
-!eslint-fixture/.filesystem.json
-
 coverage
+
+!eslint-fixture/.filesystem.json
