@@ -333,3 +333,96 @@ test('putout: operator: sortIgnore: **: mixed', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: sortIgnore: !', (t) => {
+    const ignore = sortIgnore({
+        name: '.nycrc.json',
+        type: __json,
+        property: 'exclude',
+    });
+    
+    const source = stringify({
+        exclude: [
+            '**/*.spec.*',
+            '.*',
+            '**/fixture',
+            '!test',
+            'coverage',
+        ],
+    });
+    
+    const jsSource = toJS(source, __json);
+    
+    const {code} = putout(jsSource, {
+        plugins: [
+            ['ignore', ignore],
+        ],
+    });
+    
+    const result = parse(fromJS(code, __json));
+    
+    const expected = {
+        exclude: [
+            '**/*.spec.*',
+            '**/fixture',
+            '.*',
+            'coverage',
+            '!test',
+        ],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: sortIgnore: comment only', (t) => {
+    const ignore = sortIgnore({
+        name: '.gitignore',
+    });
+    
+    const source = stringify([
+        '# nothing here',
+    ]);
+    
+    const jsSource = toJS(source, __json);
+    
+    const {code} = putout(jsSource, {
+        plugins: [
+            ['ignore', ignore],
+        ],
+    });
+    
+    const result = parse(fromJS(code, __json));
+    
+    const expected = [
+        '# nothing here',
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: sortIgnore: emtpy', (t) => {
+    const ignore = sortIgnore({
+        name: '.gitignore',
+    });
+    
+    const source = stringify([
+    ]);
+    
+    const jsSource = toJS(source, __json);
+    
+    const {code} = putout(jsSource, {
+        plugins: [
+            ['ignore', ignore],
+        ],
+    });
+    
+    const result = parse(fromJS(code, __json));
+    
+    const expected = [
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

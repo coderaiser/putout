@@ -89,7 +89,7 @@ function cleverSort(elements, {separate}) {
         noStars.push(element);
     }
     
-    return [
+    const sortedElements = [
         ...sortElements(twoStars, {
             separate,
         }),
@@ -97,6 +97,11 @@ function cleverSort(elements, {separate}) {
             separate,
         }),
     ];
+    
+    if (!sortedElements.at(-1).value)
+        return sortedElements.slice(0, -1);
+    
+    return sortedElements;
 }
 
 function sortElements(elements, {separate} = {}) {
@@ -104,6 +109,7 @@ function sortElements(elements, {separate} = {}) {
     const hidden = [];
     const files = [];
     const dirs = [];
+    const allowed = [];
     
     for (const element of elements) {
         const value = cutStars(element);
@@ -118,6 +124,11 @@ function sortElements(elements, {separate} = {}) {
         
         if (value.startsWith('.')) {
             hidden.push(element);
+            continue;
+        }
+        
+        if (value.startsWith('!')) {
+            allowed.push(element);
             continue;
         }
         
@@ -142,7 +153,12 @@ function sortElements(elements, {separate} = {}) {
         ...maybeSeparate(files, {
             separate,
         }),
-        ...dirs,
+        ...maybeSeparate(dirs, {
+            separate,
+        }),
+        ...maybeSeparate(allowed, {
+            allowed,
+        }),
     ];
     
     return sortedElements;
