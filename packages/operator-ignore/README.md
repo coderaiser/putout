@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-ignore.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-ignore "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) operator simplify ability to create Ignore-plugins.
+🐊[**Putout**](https://github.com/coderaiser/putout) operator simplifies creating `ignore`-plugins.
 
 ## Install
 
