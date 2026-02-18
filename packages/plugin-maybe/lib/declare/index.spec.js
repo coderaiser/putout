@@ -26,3 +26,8 @@ test('plugin-maybe: declare: transform: maybe-call', (t) => {
     t.transform('maybe-call');
     t.end();
 });
+
+test('plugin-maybe: declare: transform: maybe-array-from', (t) => {
+    t.transform('maybe-array-from');
+    t.end();
+});

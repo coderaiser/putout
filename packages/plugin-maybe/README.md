@@ -100,6 +100,16 @@ const fn = fn || noop;
 
 ## declare
 
+Declares:
+
+- ✅ `maybeArray`;
+- ✅ `maybeEmptyArray`;
+- ✅ `maybeArrayFrom`;
+- ✅ `maybeFn`;
+- ✅ `maybeFirst`;
+- ✅ `maybeCall`;
+
+
 ### ❌ Example of incorrect code
 
 When you not sure is `f` a function, but you want to use it as function anyways:
