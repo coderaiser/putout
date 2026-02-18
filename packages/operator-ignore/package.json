@@ -45,9 +45,6 @@
   "engines": {
     "node": ">=22"
   },
-  "peerDependencies": {
-    "putout": ">=41"
-  },
   "publishConfig": {
     "access": "public"
   },
