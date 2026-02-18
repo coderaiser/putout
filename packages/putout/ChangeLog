@@ -1,3 +1,11 @@
+2026.02.18, v42.0.8
+
+feature:
+- ec2904684 @putout/operator-ignore: difference
+- 304146d6d @putout/operator-remove-files: difference
+- f475fd209 putout: @putout/plugin-declare v8.0.0
+- 5092d71a8 @putout/plugin-declare: difference: add
+
 2026.02.18, v42.0.7
 
 feature:
