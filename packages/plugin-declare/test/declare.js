@@ -198,3 +198,11 @@ test('putout: plugin: declare: nessy', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare: difference', (t) => {
+    t.transformCode(`difference(a, b);`, montag`
+        const difference = (a, b) => new Set(a).difference(new Set(b));
+        difference(a, b);\n
+    `);
+    t.end();
+});

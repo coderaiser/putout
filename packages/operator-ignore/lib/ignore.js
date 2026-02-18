@@ -9,6 +9,8 @@ import picomatch from 'picomatch';
 const {stringLiteral} = types;
 const getValue = ({node}) => node.value;
 
+const difference = (a, b) => new Set(a).difference(new Set(b));
+
 export const ignore = ({name, property, list, type = __ignore}) => ({
     report: createReport(name),
     fix,
@@ -58,11 +60,9 @@ const createTraverse = ({type, property, list}) => ({push, options}) => {
                 return;
             
             const list = elements.map(getValue);
+            const diff = difference(newNames, list);
             
-            for (const name of newNames) {
-                if (list.includes(name))
-                    continue;
-                
+            for (const name of diff) {
                 const match = picomatch(name);
                 const matchedElements = [];
                 

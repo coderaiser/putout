@@ -9,6 +9,9 @@ import freshImport from './fresh-import.js';
 import fixtures from './fixtures.json' with {
     type: 'json',
 };
+import set from './set.json' with {
+    type: 'json',
+};
 
 export const declare = () => ({
     ...object,
@@ -16,6 +19,7 @@ export const declare = () => ({
     ...wrap,
     ...freshImport,
     ...fixtures,
+    ...set,
     parse: 'const {parse} = JSON',
     stringify: 'const {stringify} = JSON',
     

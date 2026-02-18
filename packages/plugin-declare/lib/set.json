@@ -1,0 +1,3 @@
+{
+    "difference": "const difference = (a, b) => new Set(a).difference(new Set(b))"
+}

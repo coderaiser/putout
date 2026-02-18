@@ -7,6 +7,7 @@
 
 - [maybe](https://github.com/coderaiser/putout/tree/master/packages/plugin-maybe#readme): `maybeArray`, `maybeFn`, `maybeEmptyArray`;
 - wrap: `not`,`id`, `returns`;
+- set: `difference`;
 - fresh-import: `freshImport`, `freshImportDefault`;
 - `fixtures`: `readFixture`;
 - properties of `Object`;
