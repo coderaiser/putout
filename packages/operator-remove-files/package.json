@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-remove-files",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds ability to remove files to plugins",
