@@ -1,3 +1,14 @@
+2026.02.18, v42.0.6
+
+feature:
+- 9d5938c74 putout: @putout/plugin-types v10.0.0
+- 028b5a33d @putout/plugin-types: drop support of 🐊 < 42
+- 3d1856b1b @putout/plugin-types: declare: isSet
+- 08a06b082 @putout/operator-filesystem: findFile: names: Set<string>
+- 877f77041 @putout/processor-toml: oxfmt v0.33.0
+- 0e4a40926 @putout/operator-sort-ignore: flatMap
+- 55e04de75 @putout/operator-sort-ignore: allowed
+
 2026.02.17, v42.0.5
 
 feature:
