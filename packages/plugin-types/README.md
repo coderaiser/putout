@@ -43,6 +43,7 @@ Based on [`@putout/operator-declare`](https://github.com/coderaiser/putout/tree/
 Supported assertions:
 
 - `isString`;
+- `isSet`;
 - `isEmptyString`;
 - `isNumber`;
 - `isNumberLike` - checks if `a` can be convert to `Number` from `String`;

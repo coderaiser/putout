@@ -56,3 +56,8 @@ test('putout: plugin: types: declare: is-number-like', (t) => {
     t.transform('is-number-like');
     t.end();
 });
+
+test('putout: plugin: types: declare: is-set', (t) => {
+    t.transform('is-set');
+    t.end();
+});
