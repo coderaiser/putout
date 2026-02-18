@@ -81,7 +81,7 @@ readDirectory(dirPath);
 [];
 ```
 
-### `findFile(directoryPath: DirectoryPath, name: string | string[], exclude?: string[]): (FilePath | DirectoryPath)[]`
+### `findFile(directoryPath: DirectoryPath, name: string | string[] | Set<string>, exclude?: string[]): (FilePath | DirectoryPath)[]`
 
 Traverse filesystem to search one or more files:
 

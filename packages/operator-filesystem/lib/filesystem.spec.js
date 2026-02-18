@@ -178,6 +178,24 @@ test('putout: operator: filesystem: findFile: duplicates', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: findFile: Set', (t) => {
+    const ast = parse(montag`
+        ${FS}({
+            "type": "directory",
+            "filename": "/hello",
+            "files": []
+        });
+    `);
+    
+    const {length} = findFile(ast, new Set([
+        'hello',
+        'hello',
+    ]));
+    
+    t.equal(length, 1);
+    t.end();
+});
+
 test('putout: operator: filesystem: crawlDirectory', (t) => {
     const ast = parse(montag`
         ${FS}({
@@ -258,7 +276,7 @@ test('putout: operator: filesystem: findFile: no names', (t) => {
     
     const [error] = tryCatch(findFile, ast);
     
-    t.equal(error.message, `☝️ Looks like you forget to pass the 'name' of a file to 'findFile(filePath: Path|FilePath, name: string | string[]): FilePath'`);
+    t.equal(error.message, `☝️ Looks like you forget to pass the 'name' of a file to 'findFile(filePath: Path|FilePath, name: string | string[] | Set<string>): FilePath'`);
     t.end();
 });
 

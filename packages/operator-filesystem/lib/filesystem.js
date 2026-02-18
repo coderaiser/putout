@@ -25,8 +25,11 @@ const {
 } = types;
 
 const isString = (a) => typeof a === 'string';
+const isSet = (a) => a instanceof Set;
 const {isArray} = Array;
+
 const maybeArray = (a) => isArray(a) ? a : [a];
+const maybeArrayFrom = (a) => isSet(a) ? Array.from(a) : maybeArray(a);
 
 const escape = (a) => encodeURIComponent(a).replaceAll('%', '+');
 const unescape = (a) => decodeURIComponent(a.replaceAll('+', '%'));
@@ -111,7 +114,7 @@ export function findFile(node, name, options) {
     checkName(name);
     
     const filePaths = new Set();
-    const names = maybeArray(name);
+    const names = maybeArrayFrom(name);
     
     for (const filenamePath of crawled) {
         const {value} = filenamePath.node.value;
@@ -138,8 +141,8 @@ export function findFile(node, name, options) {
 }
 
 function checkName(name) {
-    if (!isString(name) && !isArray(name))
-        throw Error(`☝️ Looks like you forget to pass the 'name' of a file to 'findFile(filePath: Path|FilePath, name: string | string[]): FilePath'`);
+    if (!isString(name) && !isArray(name) && !isSet(name))
+        throw Error(`☝️ Looks like you forget to pass the 'name' of a file to 'findFile(filePath: Path|FilePath, name: string | string[] | Set<string>): FilePath'`);
 }
 
 function getFilenamePath(filePath) {
