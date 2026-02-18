@@ -52,6 +52,7 @@
     "madrun": "^13.0.0",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
+    "putout": "*",
     "supertape": "^12.0.0"
   },
   "license": "MIT",
