@@ -1,3 +1,10 @@
+2026.02.18, v42.0.7
+
+feature:
+- 3ceea90f1 putout: @putout/plugin-maybe v5.0.0
+- e30608a16 @putout/plugin-maybe: drop support of 🐊 < 42
+- 313dd0ff5 @putout/plugin-maybe: declare: maybeArrayFrom: add
+
 2026.02.18, v42.0.6
 
 feature:
