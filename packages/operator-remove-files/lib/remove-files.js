@@ -36,4 +36,3 @@ const createScan = (defaultNames = []) => (path, {push, trackFile, options}) => 
         });
     }
 };
-
