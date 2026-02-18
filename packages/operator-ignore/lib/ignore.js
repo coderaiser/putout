@@ -60,9 +60,8 @@ const createTraverse = ({type, property, list}) => ({push, options}) => {
                 return;
             
             const list = elements.map(getValue);
-            const diff = difference(newNames, list);
             
-            for (const name of diff) {
+            for (const name of difference(newNames, list)) {
                 const match = picomatch(name);
                 const matchedElements = [];
                 
