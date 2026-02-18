@@ -1,8 +1,8 @@
 import {removeFile, getFilename} from '@putout/operator-filesystem';
 
+const difference = (a, b) => new Set(a).difference(new Set(b));
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a];
-const diff = (a, b) => new Set(a).difference(new Set(b));
 
 const report = (file) => `Remove files: '${getFilename(file)}'`;
 
@@ -30,9 +30,10 @@ const createScan = (defaultNames = []) => (path, {push, trackFile, options}) => 
     if (!flatNames.length)
         return;
     
-    for (const file of trackFile(path, diff(flatNames, dismiss))) {
+    for (const file of trackFile(path, difference(flatNames, dismiss))) {
         push(file, {
             names: allNames,
         });
     }
 };
+
