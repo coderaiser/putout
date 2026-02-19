@@ -78,3 +78,23 @@ test('plugin-putout: declare: transform: operator: removeFiles', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: operator: renameProperty', (t) => {
+    const source = montag`
+        renameProperties([
+            ['merge-duplicate-imports', 'esm/merge-duplicate-imports'],
+        ]);
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {renameProperties} = operator;
+        
+        renameProperties([
+            ['merge-duplicate-imports', 'esm/merge-duplicate-imports'],
+        ]);
+    
+    `);
+    t.end();
+});

@@ -1,0 +1,4 @@
+{
+    "renameProperties": "const {renameProperties} = operator",
+    "renameFiles": "const {renameFiles} = operator"
+}

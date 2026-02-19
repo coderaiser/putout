@@ -4,8 +4,12 @@ import jsx from './jsx.js';
 import keyword from './keyword.js';
 import parens from './parens.js';
 import regexp from './regexp.js';
+import creators from './creators.json' with {
+    type: 'json',
+};
 
 export default {
+    ...creators,
     ...filesystem,
     ...json,
     ...jsx,
