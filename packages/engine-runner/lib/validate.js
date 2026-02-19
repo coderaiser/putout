@@ -5,7 +5,7 @@ const {isArray} = Array;
 export const validate = (name, fn) => {
     if (name === 'include-items') {
         if (!isArray(fn))
-            throw Error(`☝️ Looks like 'include' do not returns an 'array'. More on using Includer: https://git.io/JqcMn`);
+            throw Error(`☝️ Looks like 'include' does not return an 'array'. More on using Includer: https://git.io/JqcMn`);
         
         return;
     }

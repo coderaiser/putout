@@ -169,7 +169,7 @@ test('putout: runner: include: returns: not array', (t) => {
         }],
     });
     
-    const expected = `☝️ Looks like 'include' do not returns an 'array'. More on using Includer: https://git.io/JqcMn`;
+    const expected = `☝️ Looks like 'include' does not return an 'array'. More on using Includer: https://git.io/JqcMn`;
     
     t.equal(error.message, expected);
     t.end();
