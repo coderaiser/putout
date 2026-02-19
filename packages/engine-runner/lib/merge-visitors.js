@@ -29,7 +29,7 @@ const parse = (name, plugin, options) => {
     return list;
 };
 
-export default (pluginsToMerge, {fix, shebang, template}) => {
+export default (pluginsToMerge, {fix, template}) => {
     const mergeItems = [];
     const pushed = {};
     
@@ -45,7 +45,6 @@ export default (pluginsToMerge, {fix, shebang, template}) => {
         } = getStore(plugin, {
             fix,
             rule,
-            shebang,
             msg,
             options,
         });
@@ -88,7 +87,7 @@ export default (pluginsToMerge, {fix, shebang, template}) => {
     };
 };
 
-function getStore(plugin, {fix, rule, shebang, msg, options}) {
+function getStore(plugin, {fix, rule, msg, options}) {
     const store = mapStore();
     const list = listStore();
     const upstore = upStore();
@@ -97,7 +96,7 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
     const paths = pathStore();
     
     const push = (path, pathOptions) => {
-        const position = getPosition(path, shebang);
+        const position = getPosition(path);
         const message = msg || plugin.report(path, pathOptions);
         
         placesStore({

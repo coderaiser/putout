@@ -1,6 +1,6 @@
 export const getPath = (item) => item.path || item[0] || item;
 
-export const getPosition = (path, shebang) => {
+export const getPosition = (path) => {
     const parsedPath = getPath(path);
     
     validatePath(parsedPath);
@@ -10,14 +10,14 @@ export const getPosition = (path, shebang) => {
     
     if (!loc)
         return {
-            line: 0,
+            line: 1,
             column: 1,
         };
     
     const {line, column} = node.loc.start;
     
     return {
-        line: shebang ? line + 1 : line,
+        line,
         column: column + 1,
     };
 };

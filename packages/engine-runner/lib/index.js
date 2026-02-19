@@ -16,7 +16,7 @@ import {getPath, getPosition} from './get-position.js';
 const debug = createDebug('putout:runner:find');
 const isRemoved = (a) => a?.removed;
 
-export const runPlugins = ({ast, shebang, fix, fixCount = 2, plugins, progress = createProgress(), traverse = defaultTraverse}) => {
+export const runPlugins = ({ast, fix, fixCount = 2, plugins, progress = createProgress(), traverse = defaultTraverse}) => {
     let places = [];
     
     const merge = once(mergeVisitors);
@@ -31,7 +31,6 @@ export const runPlugins = ({ast, shebang, fix, fixCount = 2, plugins, progress =
         places = run({
             ast,
             fix,
-            shebang,
             pluginsFind,
             pluginsTraverse,
             merge,
@@ -54,11 +53,10 @@ export {
     getPosition,
 };
 
-const run = ({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge, traverse}) => [
+const run = ({ast, fix, pluginsFind, pluginsTraverse, template, merge, traverse}) => [
     ...runWithoutMerge({
         ast,
         fix,
-        shebang,
         template,
         pluginsFind,
         traverse,
@@ -66,7 +64,6 @@ const run = ({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge, 
     ...runWithMerge({
         ast,
         fix,
-        shebang,
         template,
         pluginsTraverse,
         merge,
@@ -74,10 +71,9 @@ const run = ({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge, 
     }),
 ];
 
-function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge, traverse}) {
+function runWithMerge({ast, fix, template, pluginsTraverse, merge, traverse}) {
     const {entries, visitor} = merge(pluginsTraverse, {
         fix,
-        shebang,
         template,
     });
     
@@ -100,7 +96,7 @@ function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge, trav
     return places;
 }
 
-function runWithoutMerge({ast, fix, shebang, template, pluginsFind, traverse}) {
+function runWithoutMerge({ast, fix, template, pluginsFind, traverse}) {
     const places = [];
     
     for (const {rule, plugin, msg, options} of pluginsFind) {
@@ -114,7 +110,6 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind, traverse}) {
             ast,
             options,
             fix,
-            shebang,
             template,
             traverse,
         });
@@ -125,7 +120,7 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind, traverse}) {
         for (const item of items) {
             const message = msg || report(item);
             const {parentPath} = getPath(item);
-            const position = getPosition(item, shebang);
+            const position = getPosition(item);
             
             places.push({
                 rule,
