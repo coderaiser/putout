@@ -17,6 +17,11 @@ test('plugin-putout-config: remove-empty: transform: empty', (t) => {
     t.end();
 });
 
+test('plugin-putout-config: remove-empty: transform: match', (t) => {
+    t.transform('match');
+    t.end();
+});
+
 test('plugin-putout-config: remove-empty: no transform: plugin-options', (t) => {
     t.noTransform('plugin-options');
     t.end();
