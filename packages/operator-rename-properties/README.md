@@ -44,7 +44,7 @@ export const {
 
 ### remove
 
-When you whant to remove properties:
+When you want to remove properties:
 
 ```diff
 {
