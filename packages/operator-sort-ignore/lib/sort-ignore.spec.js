@@ -453,3 +453,27 @@ test('putout: operator: sortIgnore: json: empty', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: sortIgnore: json: not array', (t) => {
+    const ignore = sortIgnore({
+        name: '.nycrc.json',
+        type: __json,
+        property: 'exclude',
+    });
+    
+    const source = stringify({
+        exclude: {},
+    });
+    
+    const jsSource = toJS(source, __json);
+    
+    const {places} = putout(jsSource, {
+        fix: false,
+        plugins: [
+            ['ignore', ignore],
+        ],
+    });
+    
+    t.notOk(places.length);
+    t.end();
+});

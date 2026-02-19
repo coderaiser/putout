@@ -2,7 +2,10 @@ import {types} from '@putout/babel';
 import {traverseProperties} from '@putout/operate';
 import {__ignore} from '@putout/operator-json';
 
-const {stringLiteral} = types;
+const {
+    stringLiteral,
+    isArrayExpression,
+} = types;
 
 export const sortIgnore = ({name, property, type = __ignore}) => ({
     report: createReport({
@@ -71,7 +74,12 @@ function parseElements(path, {property}) {
     if (!prop)
         return null;
     
-    return prop.get('value');
+    const arrayPath = prop.get('value');
+    
+    if (!isArrayExpression(arrayPath))
+        return null;
+    
+    return arrayPath;
 }
 
 function cleverSort(elements, {separate}) {
