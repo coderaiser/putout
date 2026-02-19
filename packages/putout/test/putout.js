@@ -400,7 +400,7 @@ test('putout: no loc', (t) => {
         rule: 'add-variable',
         message: '',
         position: {
-            line: 0,
+            line: 1,
             column: 1,
         },
     }];
@@ -433,7 +433,7 @@ test('putout: plugin: find: no return', (t) => {
         rule: 'add-variable',
         message: '',
         position: {
-            line: 0,
+            line: 1,
             column: 1,
         },
     }];
@@ -466,7 +466,7 @@ test('putout: plugin: return push in traverse', (t) => {
         rule: 'add-variable',
         message: '',
         position: {
-            line: 0,
+            line: 1,
             column: 1,
         },
     }];
@@ -527,7 +527,7 @@ test('putout: isJSX: disabled', (t) => {
 test('putout: transform', (t) => {
     const ast = parse(fixture.comment);
     
-    transform(ast, fixture.comment, {
+    transform(ast, {
         rules: {
             'nodejs/convert-commonjs-to-esm': 'on',
         },
@@ -555,7 +555,7 @@ test('putout: plugin: no options (find, push)', (t) => {
         },
     };
     
-    const places = findPlaces(ast, fixture.comment, {
+    const places = findPlaces(ast, {
         plugins: [{
             'find/push': plugin,
         }],
@@ -591,7 +591,7 @@ test('putout: plugin: options', (t) => {
         },
     };
     
-    const places = findPlaces(ast, fixture.comment, {
+    const places = findPlaces(ast, {
         rules: {
             'find/push': [true, {
                 ignore: true,
@@ -625,7 +625,7 @@ test('putout: plugin: options: off', (t) => {
         },
     };
     
-    const places = findPlaces(ast, fixture.comment, {
+    const places = findPlaces(ast, {
         rules: {
             'find/push': ['off', {}],
         },

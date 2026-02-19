@@ -22,8 +22,8 @@ const getMessage = (a) => a.message;
 const applyJS = (a) => a.replace(/\.[cm]js$/, '.js');
 
 export const report = (file, {from, to}) => `Apply 'js' imported source: '${from}' -> '${to}'`;
-export const fix = (file, {content, ast, from, to}) => {
-    transform(ast, content, {
+export const fix = (file, {ast, from, to}) => {
+    transform(ast, {
         rules: {
             'change-imports': ['on', {
                 from,
@@ -59,7 +59,7 @@ export const scan = (rootPath, {push, trackFile}) => {
         if (error)
             continue;
         
-        const places = transform(ast, content, {
+        const places = transform(ast, {
             plugins: [
                 ['get-imports', getImports],
             ],

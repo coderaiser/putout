@@ -36,7 +36,7 @@ test('putout: operator: rename-files: report: no type in package.json', (t) => {
         },
     };
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'rename-files': 'on',
         },
@@ -83,7 +83,7 @@ test('putout: operator: rename-files: no type passed', (t) => {
         },
     };
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'rename-files': 'on',
         },
@@ -127,7 +127,7 @@ test('putout: operator: rename-files: report', (t) => {
         },
     };
     
-    const [{message}] = findPlaces(ast, jsSource, {
+    const [{message}] = findPlaces(ast, {
         rules: {
             'rename-files': 'on',
         },
@@ -162,7 +162,7 @@ test('putout: operator: rename-files: type mismatch', (t) => {
         },
     };
     
-    const places = findPlaces(ast, jsSource, {
+    const places = findPlaces(ast, {
         rules: {
             'rename-files': 'on',
         },
@@ -197,7 +197,7 @@ test('putout: operator: rename-files: no package content', (t) => {
         },
     };
     
-    const places = findPlaces(ast, jsSource, {
+    const places = findPlaces(ast, {
         rules: {
             'rename-files': 'on',
         },
@@ -224,7 +224,7 @@ test('putout: operator: rename-files: no package.json: module', (t) => {
         },
     };
     
-    const places = findPlaces(ast, jsSource, {
+    const places = findPlaces(ast, {
         rules: {
             'rename-files': 'on',
         },
@@ -251,7 +251,7 @@ test('putout: operator: rename-files: no package.json: commonjs', (t) => {
         },
     };
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'rename-files': 'on',
         },
@@ -281,7 +281,7 @@ test('putout: operator: rename-files: no args', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'rename-files': ['on', {
                 from: '.madrun.js',
@@ -314,7 +314,7 @@ test('putout: operator: rename-files: mask, from, to', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'rename-files': 'on',
         },
@@ -348,7 +348,7 @@ test('putout: operator: rename-files: mask, from, to: report', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    const places = transform(ast, jsSource, {
+    const places = transform(ast, {
         fix: false,
         rules: {
             'rename-files': 'on',
@@ -366,7 +366,7 @@ test('putout: operator: rename-files: mask, from, to: report', (t) => {
         message: `Rename '*.spec.*' to '*.test.*'`,
         position: {
             column: 1,
-            line: 0,
+            line: 1,
         },
         rule: 'rename-files',
     }];
@@ -381,7 +381,7 @@ test('putout: operator: rename-files: mask, from, to: no report: no options', (t
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    const places = transform(ast, jsSource, {
+    const places = transform(ast, {
         fix: false,
         rules: {
             'rename-files': 'on',
@@ -411,7 +411,7 @@ test('putout: operator: rename-files: from, to, near', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         plugins: [
             ['rename-files', renameFiles({
                 near: 'package.json',

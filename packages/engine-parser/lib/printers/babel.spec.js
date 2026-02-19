@@ -58,7 +58,7 @@ test('putout: parser: print: printer: babel: preserve format: trim', (t) => {
         printer: 'babel',
     });
     
-    transform(ast, source, {
+    transform(ast, {
         plugins: ['variables'],
     });
     
@@ -85,7 +85,7 @@ test('putout: parser: print: printer: babel: preserve format: align-spaces: off'
         printer: 'babel',
     });
     
-    transform(ast, source, {
+    transform(ast, {
         plugins: ['variables'],
     });
     

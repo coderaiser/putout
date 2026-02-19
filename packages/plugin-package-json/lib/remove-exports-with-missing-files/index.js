@@ -21,8 +21,8 @@ const {
 
 export const report = () => `Avoid exports with missing files`;
 
-export const fix = (file, {key, ast, source}) => {
-    transform(ast, source, {
+export const fix = (file, {key, ast}) => {
+    transform(ast, {
         rules: {
             'remove-keys': ['on', {
                 keys: [key],
@@ -48,7 +48,7 @@ export const scan = (root, {push, trackFile}) => {
     for (const file of trackFile(root, 'package.json')) {
         const source = toJS(readFileContent(file));
         const ast = parse(source);
-        const places = findPlaces(ast, source, {
+        const places = findPlaces(ast, {
             plugins: [
                 ['find-keys', findKeys],
             ],

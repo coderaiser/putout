@@ -18,8 +18,8 @@ const {
 const getMessage = (a) => a.message;
 
 export const report = (file, {from, to}) => `Apply privately required source: '${from}' -> '${to}'`;
-export const fix = (file, {content, ast, from, to}) => {
-    transform(ast, content, {
+export const fix = (file, {ast, from, to}) => {
+    transform(ast, {
         rules: {
             'change-require': ['on', {
                 from,
@@ -57,7 +57,7 @@ export const scan = (rootPath, {push, trackFile}) => {
         
         const ast = parse(content);
         
-        const places = transform(ast, content, {
+        const places = transform(ast, {
             plugins: [
                 ['get-require', getImports],
             ],

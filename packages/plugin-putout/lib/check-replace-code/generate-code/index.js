@@ -16,7 +16,7 @@ export default (rootPath, source) => {
     
     const getVar = createVarStore(rootPath);
     
-    transform(ast, source, {
+    transform(ast, {
         rules: {
             generate: ['on', {
                 getVar,

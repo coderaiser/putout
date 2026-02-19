@@ -1,21 +1,11 @@
 import {tryCatch} from 'try-catch';
 import {validateRulesRelations} from '@putout/engine-loader';
 import {defaultOptions} from './default-options.js';
-import {cutShebang} from './shebang.js';
 import {parseError} from './parse-error.js';
 
 const maybeParseError = (a) => !a ? [] : parseError(a, 'loader');
 
-// why we pass 'source' to 'transform()'?
-// because we need to calculate position in a right way
-// and determine is shebang is existing
-//
-// 25     return {¬
-// 26         line: shebang ? line + 1 : line,¬
-// 27         column,¬
-// 28     };¬
-//
-export const transform = (ast, source, opts) => {
+export const transform = (ast, opts) => {
     opts = defaultOptions(opts);
     
     const {
@@ -27,8 +17,6 @@ export const transform = (ast, source, opts) => {
         runPlugins,
         progress,
     } = opts;
-    
-    const [, shebang] = cutShebang(source);
     
     const [validationError] = tryCatch(validateRulesRelations, {
         rules,
@@ -42,7 +30,6 @@ export const transform = (ast, source, opts) => {
     
     const places = runPlugins({
         ast,
-        shebang,
         fix,
         fixCount,
         plugins,
@@ -55,7 +42,7 @@ export const transform = (ast, source, opts) => {
     ];
 };
 
-export const transformAsync = async (ast, source, opts) => {
+export const transformAsync = async (ast, opts) => {
     opts = defaultOptions(opts);
     
     const {
@@ -67,8 +54,6 @@ export const transformAsync = async (ast, source, opts) => {
         runPlugins,
         progress,
     } = opts;
-    
-    const [, shebang] = cutShebang(source);
     
     const [validationError] = tryCatch(validateRulesRelations, {
         rules,
@@ -82,7 +67,6 @@ export const transformAsync = async (ast, source, opts) => {
     
     const places = runPlugins({
         ast,
-        shebang,
         fix,
         fixCount,
         plugins,

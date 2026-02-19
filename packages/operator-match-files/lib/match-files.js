@@ -40,8 +40,8 @@ export const matchFiles = (options) => {
     };
 };
 
-function fix(inputFile, {dirPath, matchInputFilename, outputFilename, matchedJS, matchedAST, options, rawOptions}) {
-    transform(matchedAST, matchedJS, options);
+function fix(inputFile, {dirPath, matchInputFilename, outputFilename, matchedAST, options, rawOptions}) {
+    transform(matchedAST, options);
     
     const matchedJSON = magicPrint(outputFilename, matchedAST, rawOptions);
     const outputFile = getOutputFile({
@@ -110,7 +110,7 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
         const [matchedJS, matchedAST] = magicParse(inputFilename, fileContent);
         
         const options = parseOptions(inputFilename, rawOptions);
-        const places = findPlaces(matchedAST, matchedJS, options);
+        const places = findPlaces(matchedAST, options);
         
         if (!places.length)
             continue;

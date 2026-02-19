@@ -13,7 +13,7 @@ test('putout: operator: remove-files: places', (t) => {
         'tsconfig.json',
     ];
     
-    const places = findPlaces(ast, '', {
+    const places = findPlaces(ast, {
         fix: false,
         plugins: [
             ['remove-files', removeFiles(files)],
@@ -31,7 +31,7 @@ test('putout: operator: remove-files: no names: places', (t) => {
     const ast = parseFilesystem(['/', '/tsconfig.json']);
     const files = [];
     
-    const places = findPlaces(ast, '', {
+    const places = findPlaces(ast, {
         fix: false,
         plugins: [
             ['remove-files', removeFiles(files)],
@@ -48,7 +48,7 @@ test('putout: operator: remove-files: not array: places', (t) => {
     const ast = parseFilesystem(['/', '/tsconfig.json']);
     const files = 'tsconfig.json';
     
-    const places = findPlaces(ast, '', {
+    const places = findPlaces(ast, {
         plugins: [
             ['remove-files', removeFiles(files)],
         ],
@@ -68,7 +68,7 @@ test('putout: operator: remove-files: transform', (t) => {
         'tsconfig.json',
     ];
     
-    transform(ast, '', {
+    transform(ast, {
         plugins: [
             ['remove-files', removeFiles(files)],
         ],
@@ -87,7 +87,7 @@ test('putout: operator: remove-files: transform: duplicates', (t) => {
         'tsconfig.json',
     ];
     
-    transform(ast, '', {
+    transform(ast, {
         rules: {
             'remove-files': ['on', {
                 names: [
@@ -112,7 +112,7 @@ test('putout: operator: remove-files: transform: dismiss', (t) => {
         'tsconfig.json',
     ];
     
-    transform(ast, '', {
+    transform(ast, {
         rules: {
             'remove-files': ['on', {
                 dismiss: [

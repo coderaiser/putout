@@ -6,7 +6,7 @@ const {getFilename} = operator;
 const getMessage = (a) => a.message;
 
 export const getImportsTuples = (file, content, ast) => {
-    const places = transform(ast, content, {
+    const places = transform(ast, {
         fix: false,
         plugins: [
             ['get-imports', getImportsPlugin],

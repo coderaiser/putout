@@ -1,5 +1,4 @@
 import {parse, print} from '@putout/engine-parser';
-import {cutShebang, mergeShebang} from './shebang.js';
 import {defaultOptions} from './default-options.js';
 import {transform, transformAsync} from './transform.js';
 
@@ -14,16 +13,14 @@ export const putout = (source, opts) => {
         printer,
     } = opts;
     
-    const [clearSource, shebang] = cutShebang(source);
-    
-    const ast = parse(clearSource, {
+    const ast = parse(source, {
         parser,
         isTS,
         isJSX,
         printer,
     });
     
-    const places = transform(ast, source, opts);
+    const places = transform(ast, opts);
     
     if (!opts.fix)
         return {
@@ -31,12 +28,10 @@ export const putout = (source, opts) => {
             places,
         };
     
-    const printed = print(ast, {
+    const code = print(ast, {
         printer,
         source,
     });
-    
-    const code = mergeShebang(shebang, printed);
     
     return {
         code,
@@ -55,16 +50,14 @@ export const putoutAsync = async (source, opts) => {
         printer,
     } = opts;
     
-    const [clearSource, shebang] = cutShebang(source);
-    
-    const ast = parse(clearSource, {
+    const ast = parse(source, {
         parser,
         isTS,
         isJSX,
         printer,
     });
     
-    const places = await transformAsync(ast, source, opts);
+    const places = await transformAsync(ast, opts);
     
     if (!opts.fix)
         return {
@@ -72,11 +65,9 @@ export const putoutAsync = async (source, opts) => {
             places,
         };
     
-    const printed = print(ast, {
+    const code = print(ast, {
         printer,
     });
-    
-    const code = mergeShebang(shebang, printed);
     
     return {
         code,

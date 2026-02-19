@@ -93,7 +93,7 @@ test('putout: compare: vars: getTemplateValues: setValues: Statement', (t) => {
     
     const ast = parse(input);
     
-    transform(ast, input, {
+    transform(ast, {
         plugins: [{
             'convert-for-to-for-of': addVar,
         }],

@@ -399,3 +399,8 @@ test('plugin-putout: transform: apply-traverser-to-ignore', (t) => {
     t.transform('apply-traverser-to-ignore');
     t.end();
 });
+
+test('plugin-putout: transform: remove-useless-source-argument', (t) => {
+    t.transform('remove-useless-source-argument');
+    t.end();
+});

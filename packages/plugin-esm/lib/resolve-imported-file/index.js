@@ -21,8 +21,8 @@ export const report = (file, {from, to, filename}) => {
     return `Resolve import source: '${from}' -> '${to}' in '${filename}'`;
 };
 
-export const fix = (file, {content, ast, from, to}) => {
-    transform(ast, content, {
+export const fix = (file, {ast, from, to}) => {
+    transform(ast, {
         rules: {
             'change-imports': ['on', {
                 from,
@@ -53,7 +53,7 @@ export const scan = (rootPath, {push, trackFile, crawlFile}) => {
         
         const ast = parse(content);
         
-        const places = transform(ast, content, {
+        const places = transform(ast, {
             plugins: [
                 ['get-imports-source', getImports],
             ],

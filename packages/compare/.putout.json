@@ -1,6 +1,0 @@
-{
-    "printer": "putout",
-    "rules": {
-        "putout/convert-babel-types": "off"
-    }
-}

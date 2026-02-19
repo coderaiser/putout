@@ -40,7 +40,7 @@ export const putoutSync = ({context, options}) => {
         return EMPTY_VISITORS;
     }
     
-    const [error, places = []] = tryCatch(findPlaces, ast, text, resultOptions);
+    const [error, places = []] = tryCatch(findPlaces, ast, resultOptions);
     
     if (error) {
         context.report({
@@ -56,7 +56,7 @@ export const putoutSync = ({context, options}) => {
             message: `${message} (${rule})`,
             fix: fix({
                 ast,
-                text,
+                
                 node,
                 source,
                 resultOptions,
@@ -71,13 +71,13 @@ export const putoutSync = ({context, options}) => {
     return EMPTY_VISITORS;
 };
 
-const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
+const fix = ({ast, node, source, resultOptions}) => (fixer) => {
     const includeComments = true;
     const lastToken = source.getLastToken(node, {
         includeComments,
     });
     
-    transform(ast, text, resultOptions);
+    transform(ast, resultOptions);
     
     const [, last] = lastToken.range;
     const code = print(ast);

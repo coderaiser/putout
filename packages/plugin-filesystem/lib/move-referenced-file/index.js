@@ -51,10 +51,10 @@ const getImportsPlugin = {
 
 export const report = (file, {mainFilename, nextName}) => `Move '${mainFilename}' to '${nextName}'`;
 
-export const fix = (file, {cwd, nextName, mainFile, mainDirectory, mainFilename, ast, content}) => {
+export const fix = (file, {cwd, nextName, mainFile, mainDirectory, mainFilename, ast}) => {
     moveFile(mainFile, mainDirectory);
     
-    transform(ast, content, {
+    transform(ast, {
         rules: {
             'get-imports': ['on', {
                 cwd,

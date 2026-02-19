@@ -114,7 +114,7 @@ const createTraverseReplacer = ({once, push}) => (path) => {
             isTS: true,
         });
         
-        const [transformError] = tryCatch(transform, ast, keyCode, {
+        const [transformError] = tryCatch(transform, ast, {
             plugins: [
                 ['evaluate', {
                     report: noop,

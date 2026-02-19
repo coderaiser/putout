@@ -15,10 +15,10 @@ const {
 
 export const report = (file, {from, to}) => `Rename '${from}' to '${to}'`;
 
-export const fix = (file, {from, to, ast, content, mainFile}) => {
+export const fix = (file, {from, to, ast, mainFile}) => {
     renameFile(mainFile, to);
     
-    transform(ast, content, {
+    transform(ast, {
         rules: {
             'get-imports': ['on', {
                 from,

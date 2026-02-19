@@ -243,7 +243,7 @@ test('putout: operator: match-files: js', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         plugins: [
             ['match-files', matchFiles(files)],
         ],
@@ -272,7 +272,7 @@ test('putout: operator: match-files: couple', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         plugins: [
             ['match-files', matchFiles(files)],
         ],
@@ -313,7 +313,7 @@ test('putout: operator: match-files: typescript', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         plugins: [
             ['match-files', matchFiles(files)],
         ],
@@ -354,7 +354,7 @@ test('putout: operator: match-files: ignore', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'match-files': ['on', {
                 ignore: ['**/fixture'],
@@ -398,7 +398,7 @@ test('putout: operator: match-files: save to other file', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'match-files': 'on',
         },
@@ -434,7 +434,7 @@ test('putout: operator: match-files: search outputfile in current directory only
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'match-files': 'on',
         },
@@ -476,7 +476,7 @@ test('putout: operator: match-files: search outputfile in current directory only
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'match-files': 'on',
         },
@@ -516,7 +516,7 @@ test('putout: operator: match-files: save to other file: exists', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'match-files': 'on',
         },
@@ -549,7 +549,7 @@ test('putout: operator: match-files: __name', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'match-files': ['on', {
                 filename: '.eslintrc.js',
@@ -583,7 +583,7 @@ test('putout: operator: match-files: default filename', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         plugins: [
             ['match-files', matchFiles({
                 filename: '*.js',
@@ -625,7 +625,7 @@ test('putout: operator: match-files: __name: dot', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'match-files': ['on', {
                 filename: 'index.mjs',
@@ -660,7 +660,7 @@ test('putout: operator: match-files: __name: double ext', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'match-files': ['on', {
                 filename: '.mjsindex.mjs',
@@ -702,7 +702,7 @@ test('putout: operator: match-files: options', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'match-files': ['on', {
                 filename: 'index.mjs',
@@ -745,7 +745,7 @@ test('putout: operator: match-files: exclude', (t) => {
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
     
-    transform(ast, jsSource, {
+    transform(ast, {
         rules: {
             'match-files': ['on', {
                 filename: '*.mjs',

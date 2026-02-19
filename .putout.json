@@ -30,6 +30,7 @@
         }
     },
     "rules": {
+        "putout/remove-useless-source-argument": "on",
         "putout/apply-lowercase-to-node-builders": "on",
         "spread/remove-useless-object": ["off", {
             "exclude": "module.exports.rules = __"

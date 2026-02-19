@@ -88,6 +88,7 @@ npm i @putout/plugin-putout -D
 - ✅ [remove-empty-object-from-transform](#remove-empty-object-from-transform);
 - ✅ [remove-unused-get-properties-argument](#remove-unused-get-properties-argument);
 - ✅ [remove-useless-printer-option](#remove-useless-printer-option);
+- ✅ [remove-useless-source-argument](#remove-useless-source-argument);
 - ✅ [remove-message-from-no-report-after-transform](#remove-message-from-no-report-after-transform);
 - ✅ [rename-operate-to-operator](#rename-operate-to-operator);
 - ✅ [replace-operate-with-operator](#replace-operate-with-operator);
@@ -178,6 +179,7 @@ npm i @putout/plugin-putout -D
         "putout/remove-empty-array-from-process": "on",
         "putout/remove-empty-object-from-transform": "on",
         "putout/remove-useless-printer-option": "on",
+        "putout/remove-useless-source-argument": "on",
         "putout/remove-message-from-no-report-after-transform": "on",
         "putout/simplify-replace-template": "on"
     }
@@ -2076,6 +2078,36 @@ const test = createTest(__dirname, {
         ['remove-unchanged-zero-declarations', plugin],
     ],
 });
+```
+
+## remove-useless-source-argument
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9b5f94d6a60f3337f925fcc338370d83/0f47ee0e979ae4ea27007c2f9751a1376b36de01).
+
+### ❌ Example of incorrect code
+
+```js
+import {tryCatch} from 'try-catch';
+
+transform(ast, options);
+findPlaces(ast, options);
+
+tryCatch(transform, ast, {});
+
+tryCatch(findPlaces, ast, resultOptions);
+```
+
+### ✅ Example of correct code
+
+```js
+import {tryCatch} from 'try-catch';
+
+transform(ast, options);
+findPlaces(ast, options);
+
+tryCatch(transform, ast, {});
+
+tryCatch(findPlaces, ast, resultOptions);
 ```
 
 ## simplify-replace-template

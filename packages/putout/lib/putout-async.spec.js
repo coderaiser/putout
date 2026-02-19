@@ -22,7 +22,7 @@ test('putout: async: transformAsync', async (t) => {
     const source = 'const a = 5';
     const ast = parse(source);
     
-    await transformAsync(ast, source, {
+    await transformAsync(ast, {
         plugins: ['variables'],
     });
     
@@ -37,7 +37,7 @@ test('putout: async: findPlacesAsync', async (t) => {
     const source = 'const a = 5';
     const ast = parse(source);
     
-    const places = await findPlacesAsync(ast, source, {
+    const places = await findPlacesAsync(ast, {
         plugins: ['variables'],
     });
     

@@ -25,8 +25,8 @@ export const report = (file, {from, to}) => {
     const name = getFilename(file);
     return `Shorten import source: '${from}' -> '${to}' in '${name}'`;
 };
-export const fix = (file, {content, ast, from, to}) => {
-    transform(ast, content, {
+export const fix = (file, {ast, from, to}) => {
+    transform(ast, {
         rules: {
             'change-imports': ['on', {
                 from,
@@ -60,7 +60,7 @@ export const scan = (rootPath, {push, trackFile}) => {
         if (error)
             continue;
         
-        const places = transform(ast, content, {
+        const places = transform(ast, {
             plugins: [
                 ['get-imports', getImports],
             ],
