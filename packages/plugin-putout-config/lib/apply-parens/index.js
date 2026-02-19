@@ -1,5 +1,6 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
 
+const {renameProperties} = operator;
 const v37 = [
     ['add-missing-parens', 'parens/add-missing'],
 ];
@@ -8,4 +9,4 @@ export const {
     report,
     fix,
     traverse,
-} = createRenameProperty(v37);
+} = renameProperties(v37);

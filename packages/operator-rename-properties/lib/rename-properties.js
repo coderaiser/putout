@@ -1,13 +1,11 @@
-import {operator} from 'putout';
-
-const {
+import {__json} from '@putout/operator-json';
+import {
     traverseProperties,
-    __json,
     setLiteralValue,
     remove,
-} = operator;
+} from '@putout/operate';
 
-export const createRenameProperty = (tuples) => ({
+export const renameProperties = (tuples) => ({
     report,
     fix,
     traverse: createTraverse(tuples),
@@ -17,7 +15,7 @@ const report = ({from, to}) => `Rename property: '${from}' -> '${to}'`;
 
 const fix = ({path, to}) => {
     if (!to) {
-        remove(path.parentPath.parentPath);
+        remove(path);
         return;
     }
     

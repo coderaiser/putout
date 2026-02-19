@@ -1,5 +1,6 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
 
+const {renameProperties} = operator;
 const v37 = [
     ['convert-optional-to-logical/assign', 'optional-chaining/convert-optional-assign-to-logical'],
     ['convert-optional-to-logical/call', 'optional-chaining/convert-optional-to-logical'],
@@ -11,4 +12,4 @@ export const {
     report,
     fix,
     traverse,
-} = createRenameProperty(v37);
+} = renameProperties(v37);

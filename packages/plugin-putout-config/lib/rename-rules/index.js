@@ -1,5 +1,6 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
 
+const {renameProperties} = operator;
 const v29 = [
     ['declare-undefined-variables', 'declare'],
     ['apply-array-at', 'array-at'],
@@ -15,7 +16,7 @@ export const {
     report,
     fix,
     traverse,
-} = createRenameProperty([
+} = renameProperties([
     ...v29,
     ...v26,
 ]);

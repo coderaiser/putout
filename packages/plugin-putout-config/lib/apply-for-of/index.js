@@ -1,10 +1,12 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
+
+const {renameProperties} = operator;
 
 export const {
     report,
     fix,
     traverse,
-} = createRenameProperty([
+} = renameProperties([
     ['convert-for-to-for-of', 'for-of/for'],
     ['convert-for-each-to-for-of', 'for-of/for-each'],
     ['convert-for-in-to-for-of', 'for-of/for-in'],

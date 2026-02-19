@@ -1,5 +1,6 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
 
+const {renameProperties} = operator;
 const v39 = [
     ['split-assignment-expressions', 'assignment/split'],
     ['simplify-assignments', 'assignment/simplify'],
@@ -12,4 +13,4 @@ export const {
     report,
     fix,
     traverse,
-} = createRenameProperty(v39);
+} = renameProperties(v39);

@@ -1,10 +1,12 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
+
+const {renameProperties} = operator;
 
 export const {
     report,
     fix,
     traverse,
-} = createRenameProperty([
+} = renameProperties([
     ['filesystem/remove-travis-yml', 'filesystem/remove-file'],
     ['filesystem/remove-vim-swap-file', 'filesystem/remove-file'],
     ['filesystem/remove-nyc-output-file', 'filesystem/remove-file'],

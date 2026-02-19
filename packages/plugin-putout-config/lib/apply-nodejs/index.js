@@ -1,5 +1,6 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
 
+const {renameProperties} = operator;
 const v24 = [
     ['remove-process-exit', 'nodejs/remove-process-exit'],
     ['convert-top-level-return', 'nodejs/convert-top-level-return'],
@@ -9,7 +10,7 @@ export const {
     report,
     fix,
     traverse,
-} = createRenameProperty([
+} = renameProperties([
     ...v24,
     ['strict-mode/add-missing', 'nodejs/add-missing-strict-mode'],
     ['strict-mode/remove-useless', 'nodejs/remove-useless-strict-mode'],

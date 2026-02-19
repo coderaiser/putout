@@ -1,9 +1,11 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
+
+const {renameProperties} = operator;
 
 export const {
     report,
     fix,
     traverse,
-} = createRenameProperty([
+} = renameProperties([
     ['remove-useless-variables/await', 'promises/remove-useless-variables'],
 ]);

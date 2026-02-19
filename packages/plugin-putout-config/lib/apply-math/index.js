@@ -1,10 +1,12 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
+
+const {renameProperties} = operator;
 
 export const {
     report,
     fix,
     traverse,
-} = createRenameProperty([
+} = renameProperties([
     ['convert-math-pow', 'math/apply-exponential'],
     ['apply-numeric-separators', 'math/apply-numeric-separators'],
     ['convert-imul-to-multiplication', 'math/apply-multiplication'],

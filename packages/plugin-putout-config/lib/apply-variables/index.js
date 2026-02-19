@@ -1,5 +1,6 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
 
+const {renameProperties} = operator;
 const v41 = [
     ['remove-useless-variables', 'variables'],
     ['remove-useless-variables/remove', 'variables/remove-useless'],
@@ -21,4 +22,4 @@ export const {
     report,
     fix,
     traverse,
-} = createRenameProperty(versions);
+} = renameProperties(versions);

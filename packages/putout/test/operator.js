@@ -204,3 +204,10 @@ test('putout: operate: removeFiles', async (t) => {
     t.equal(removeFiles, operator.removeFiles);
     t.end();
 });
+
+test('putout: operate: renameProperties', async (t) => {
+    const {renameProperties} = await import('@putout/operator-rename-properties');
+    
+    t.equal(renameProperties, operator.renameProperties);
+    t.end();
+});

@@ -1,5 +1,6 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
 
+const {renameProperties} = operator;
 const v41 = [
     ['esm/apply-index-to-import', ''],
 ];
@@ -29,4 +30,4 @@ export const {
     report,
     fix,
     traverse,
-} = createRenameProperty(versions);
+} = renameProperties(versions);

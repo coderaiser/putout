@@ -1,5 +1,6 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
 
+const {renameProperties} = operator;
 const v41 = [
     ['apply-destructuring', 'destructuring'],
     ['apply-destructuring/object', 'destructuring/apply-object'],
@@ -22,4 +23,4 @@ export const {
     report,
     fix,
     traverse,
-} = createRenameProperty(versions);
+} = renameProperties(versions);

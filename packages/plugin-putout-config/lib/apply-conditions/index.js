@@ -1,5 +1,6 @@
-import {createRenameProperty} from '../rename-property.js';
+import {operator} from 'putout';
 
+const {renameProperties} = operator;
 const v32 = [
     ['remove-useless-else', 'conditions/remove-useless-else'],
     ['merge-if-statements', 'conditions/merge-if-statements'],
@@ -26,4 +27,4 @@ export const {
     report,
     fix,
     traverse,
-} = createRenameProperty(versions);
+} = renameProperties(versions);
