@@ -2089,12 +2089,12 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9b5f94
 ```js
 import {tryCatch} from 'try-catch';
 
-transform(ast, options);
-findPlaces(ast, options);
+transform(ast, source, options);
+findPlaces(ast, source, options);
 
-tryCatch(transform, ast, {});
+tryCatch(transform, ast, source {});
 
-tryCatch(findPlaces, ast, resultOptions);
+tryCatch(findPlaces, ast, source, resultOptions);
 ```
 
 ### ✅ Example of correct code
