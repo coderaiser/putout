@@ -1,7 +1,5 @@
 {
     "match": {
-        "lib/index.js": {
-            "putout/add-index-to-import": "off"
-        }
+        "lib/index.js": {}
     }
 }

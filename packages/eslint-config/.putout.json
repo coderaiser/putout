@@ -1,7 +1,6 @@
 {
     "rules": {
         "eslint/apply-ignores": "off",
-        "putout/apply-namespace-specifier": "off",
-        "putout/add-index-to-import": "off"
+        "putout/apply-namespace-specifier": "off"
     }
 }
