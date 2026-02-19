@@ -2082,7 +2082,7 @@ const test = createTest(__dirname, {
 
 ## remove-useless-source-argument
 
-Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9b5f94d6a60f3337f925fcc338370d83/0f47ee0e979ae4ea27007c2f9751a1376b36de01).
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9b5f94d6a60f3337f925fcc338370d83/7e944de0dfdd64b3c74d490aae21b04015b8262f).
 
 ### ❌ Example of incorrect code
 

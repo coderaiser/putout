@@ -9,3 +9,6 @@ tryCatch(findPlaces, ast, text, resultOptions);
 return test.extend({
     transform: transform(dir, linterOptions, options),
 });
+
+
+ const places = await transformAsync(ast, source, {});
