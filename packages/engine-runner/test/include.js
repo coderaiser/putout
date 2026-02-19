@@ -151,3 +151,26 @@ test('putout: runner: include: not function, with traverse', (t) => {
     t.equal(error.message, expected);
     t.end();
 });
+
+test('putout: runner: include: returns: not array', (t) => {
+    const source = `import type { Query } from 'assets/core_api/types/query'`;
+    const unyield = {
+        report: () => `Use 'return' instead of 'yield'`,
+        filter: () => {},
+        include: () => {},
+        fix: () => {},
+    };
+    
+    const [error] = tryCatch(putout, source, {
+        isTS: true,
+        fix: true,
+        plugins: [{
+            unyield,
+        }],
+    });
+    
+    const expected = `☝️ Looks like 'include' do not returns an 'array'. More on using Includer: https://git.io/JqcMn`;
+    
+    t.equal(error.message, expected);
+    t.end();
+});

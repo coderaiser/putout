@@ -18,6 +18,10 @@ export const include = ({rule, plugin, msg, options}) => {
     validate('include', include);
     validate('report', report);
     
+    const includeItems = include();
+    
+    validate('include-items', includeItems);
+    
     const traverse = getTraverse(include(), filter, rule);
     
     return {
