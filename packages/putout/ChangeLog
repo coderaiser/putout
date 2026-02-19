@@ -1,3 +1,21 @@
+2026.02.19, v42.0.10
+
+fix:
+- 572465bac @putout/plugin-putout-config: apply-esm: apply-index-to-import -> add-index-to-import
+
+feature:
+- 76f6fa08c putout: @putout/plugin-package-json v11.0.0
+- d0765fcc8 @putout/plugin-package-json: drop support of 🐊 < 42
+- 90ae95984 putout: @putout/plugin-nodejs v21.0.0
+- 2953e36e1 @putout/plugin-nodejs: drop support of 🐊 < 42
+- 1cc1b5b5c putout: @putout/operator-match-files v12.0.0
+- 4a07f3532 @putout/operator-match-files: drop support of 🐊 < 42
+- e0cdbb3dc babel-plugin-putout: drop support of 🐊 < 42
+- c54aa78f0 @putout/plugin-putout: remove-useless-source-argument
+- f550defa0 @putout/engine-runner: get rid of shebang
+- 1ceeb58ff @putout/operator-sort-ignore: property not array
+- 6d57e7663 @putout/plugin-putout-config: apply-coverage: add
+
 2026.02.19, v42.0.9
 
 feature:
