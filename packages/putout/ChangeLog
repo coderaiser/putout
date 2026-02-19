@@ -1,3 +1,9 @@
+2026.02.19, v42.0.9
+
+feature:
+- 6ea9c1d80 @putout/plugin-rename-properties: add
+- c546f4e4a @putout/plugin-putout: declare: renameProperties
+
 2026.02.18, v42.0.8
 
 feature:
