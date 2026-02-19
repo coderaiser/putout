@@ -2,11 +2,11 @@ import {operator} from 'putout';
 
 const {renameProperties} = operator;
 const v41 = [
-    ['esm/apply-index-to-import', ''],
+    ['esm/add-index-to-import', ''],
 ];
 
 const v40 = [
-    ['putout/apply-index-to-import', 'esm/apply-index-to-import'],
+    ['putout/add-index-to-import', 'esm/add-index-to-import'],
 ];
 
 const v37 = [
