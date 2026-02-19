@@ -1323,9 +1323,6 @@ This is additional tests, if you forget to test some case (from a big list of ru
 
 ## declare
 
-Depends on [@putout/convert-esm-to-commonjs](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-esm-to-commonjs#readme) and
-[@putout/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme).
-
 ### ❌ Example of incorrect code
 
 ```js
@@ -1336,7 +1333,7 @@ isIdentifier(a);
 ### ✅ Example of correct code
 
 ```js
-const {operator, types} = require('putout');
+import {operator, types} from 'putout';
 
 const {compare} = operator;
 const {isIdentifier} = types;
