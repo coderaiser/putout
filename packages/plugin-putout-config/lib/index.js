@@ -1,3 +1,4 @@
+import * as applyCoverage from './apply-coverage/index.js';
 import * as sortIgnore from './sort-ignore/index.js';
 import * as applyArguments from './apply-arguments/index.js';
 import * as applyDestructuring from './apply-destructuring/index.js';
@@ -46,4 +47,5 @@ export const rules = {
     'remove-empty': removeEmpty,
     'remove-empty-file': ['off', removeEmptyFile],
     'sort-ignore': sortIgnore,
+    'apply-coverage': applyCoverage,
 };

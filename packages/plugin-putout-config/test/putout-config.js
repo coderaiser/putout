@@ -116,3 +116,8 @@ test('plugin-putout-config: transform: sort-ignore', (t) => {
     t.transform('sort-ignore');
     t.end();
 });
+
+test('plugin-putout-config: transform: apply-coverage', (t) => {
+    t.transform('apply-coverage');
+    t.end();
+});

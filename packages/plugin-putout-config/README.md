@@ -16,6 +16,7 @@ npm i @putout/plugin-putout-config -D
 - ✅ [apply-arguments](#apply-arguments);
 - ✅ [apply-assignment](#apply-assignment);
 - ✅ [apply-conditions](#apply-conditions);
+- ✅ [apply-coverage](#apply-coverage);
 - ✅ [apply-destructuring](#apply-destructuring);
 - ✅ [apply-esm](#apply-esm);
 - ✅ [apply-filesystem](#apply-filesystem);
@@ -47,6 +48,7 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-arguments": "on",
         "putout-config/apply-assignment": "on",
         "putout-config/apply-conditions": "on",
+        "putout-config/apply-coverage": "on",
         "putout-config/apply-destructuring": "on",
         "putout-config/apply-esm": "on",
         "putout-config/apply-for-of": "on",
@@ -390,6 +392,24 @@ Apply [`conditions`](https://github.com/coderaiser/putout/tree/master/packages/p
 +        "conditions/remove-useless-else": "off",
 +        "conditions/merge-if-statements": "off"
     }
+}
+```
+
+## apply-coverage
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5c661e8f319d6eba7185dfcc7b91d57c/db082d172b8fb896a3f608569c323c3ac0c36ef3).
+
+Apply [`coverage`](https://github.com/coderaiser/putout/tree/master/packages/plugin-coverage#readme) according to:
+
+- 🐊[**Putout v42**](https://github.com/coderaiser/putout/releases/tag/v42.0.0):
+
+```diff
+{
+    "rules": {
+-       "filesystem/remove-nyc-output": "off"
++       "coverage/remove-files": "off"
+    }
+  }
 }
 ```
 
