@@ -1,3 +1,16 @@
+2026.02.20, v42.0.12
+
+fix:
+- 92c2d9d4c @putout/plugin-putout: add-path-to-filter: name
+
+feature:
+- bf5127d98 putout: @putout/plugin-remove-duplicate-keys v9.0.0
+- bfc6eebc3 @putout/plugin-remove-duplicate-keys: drop support of 🐊 < 42
+- ff48ba2d4 @putout/plugin-remove-duplicate-keys: report: keys
+- 37ec461bf @putout/processor-toml: oxfmt v0.34.0
+- 63a3a5aea @putout/plugin-putout: add-path-to-filter: add
+- 2346c28cf @putout/plugin-putout: add-path-arg-to-fix: Replacer -> Traverser: addArgs
+
 2026.02.20, v42.0.11
 
 fix:
