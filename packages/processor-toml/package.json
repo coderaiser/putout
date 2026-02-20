@@ -26,7 +26,7 @@
   "dependencies": {
     "@putout/operator-json": "^3.0.0",
     "just-kebab-case": "^4.0.2",
-    "oxfmt": "^0.33.0",
+    "oxfmt": "^0.34.0",
     "smol-toml": "^1.6.0",
     "try-catch": "^4.0.0"
   },
