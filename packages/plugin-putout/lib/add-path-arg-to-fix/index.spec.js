@@ -9,7 +9,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: add-path-arg-to-fix: report: add-path-arg-to-fix', (t) => {
-    t.report('add-path-arg-to-fix', `Add 'path' argument to 'fix'`);
+    t.report('add-path-arg-to-fix', `Argument 'path' is missing`);
     t.end();
 });
 
