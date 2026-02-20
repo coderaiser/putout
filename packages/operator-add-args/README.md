@@ -91,13 +91,12 @@ You can use `exclude` list:
     "rules": {
         "tape/add-args": ["on", {
             "args": {
-                "comparePlaces": [
-                    "{comparePlaces}", {
-                        "include": "test('__a', (__args) => __body)",
-                        "exclude": [
-                            "(__a, __b, __c, __object) => __object"
-                        ]
-                    }]
+                "comparePlaces": ["{comparePlaces}", {
+                    "include": "test('__a', (__args) => __body)",
+                    "exclude": [
+                        "(__a, __b, __c, __object) => __object"
+                    ]
+                }]
             }
         }]
     }
