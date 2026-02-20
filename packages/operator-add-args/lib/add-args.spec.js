@@ -724,3 +724,58 @@ test('putout: operator: add-args: couple args', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: add-args: three args: options: include', (t) => {
+    const args = {
+        print: ['{print}', {
+            include: [
+                'module.exports.__a = (__args) => __body',
+            ],
+        }],
+    };
+    
+    const source = montag`
+        module.exports.printTrailingCommentLine = (path, printer, semantics, {printComment}) => {
+            printComment();
+            print.breakline();
+        };\n
+    `;
+    
+    const {places} = putout(source, {
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    t.notOk(places.length, source);
+    t.end();
+});
+
+test('putout: operator: add-args: three args: options: exclude', (t) => {
+    const args = {
+        print: ['{print}', {
+            include: [
+                'module.exports.__a = (__args) => __body',
+            ],
+            exclude: [
+                '(__a, __b, __c, __object) => __body',
+            ],
+        }],
+    };
+    
+    const source = montag`
+        module.exports.printTrailingCommentLine = (path, printer, semantics, {printComment}) => {
+            printComment();
+            print.breakline();
+        };\n
+    `;
+    
+    const {places} = putout(source, {
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    t.notOk(places.length, source);
+    t.end();
+});

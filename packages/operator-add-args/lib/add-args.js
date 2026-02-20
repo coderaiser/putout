@@ -2,6 +2,9 @@ import {compareAny} from '@putout/compare';
 import {template} from '@putout/engine-parser';
 import {types} from '@putout/babel';
 
+const isString = (a) => typeof a === 'string';
+const {isArray} = Array;
+
 const {
     isBlockStatement,
     isFunction,
@@ -67,7 +70,9 @@ const traverse = (args) => ({push, options}) => {
     
     return {
         ReferencedIdentifier(path) {
-            for (const [name, [declaration, pattern, exclude]] of entries(allArgs)) {
+            for (const [name, config] of entries(allArgs)) {
+                const [declaration, include, exclude] = parseConfig(config);
+                
                 if (path.node.name !== name)
                     continue;
                 
@@ -84,7 +89,7 @@ const traverse = (args) => ({push, options}) => {
                 
                 const {block} = fnPath.scope;
                 
-                if (!compareAny(path.scope.path, pattern))
+                if (!compareAny(path.scope.path, include))
                     continue;
                 
                 if (compareAny(path.scope.path, exclude))
@@ -141,5 +146,24 @@ function getObjectPattern(params) {
     return [
         -1,
         null,
+    ];
+}
+
+function parseConfig(config) {
+    const [declaration, patternsInclude, patternsExclude] = config;
+    
+    if (isArray(patternsInclude) || isString(patternsInclude))
+        return [
+            declaration,
+            patternsInclude,
+            patternsExclude,
+        ];
+    
+    const {include, exclude} = patternsInclude;
+    
+    return [
+        declaration,
+        include,
+        exclude,
     ];
 }
