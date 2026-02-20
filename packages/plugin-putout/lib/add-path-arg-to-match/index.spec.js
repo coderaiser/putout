@@ -16,3 +16,8 @@ test('putout: add-path-arg-to-match: transform', (t) => {
     t.transform('add-path-arg-to-match');
     t.end();
 });
+
+test('putout: add-path-arg-to-match: no report: includer', (t) => {
+    t.noReport('includer');
+    t.end();
+});
