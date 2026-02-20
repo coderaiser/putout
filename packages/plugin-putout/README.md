@@ -2092,7 +2092,7 @@ import {tryCatch} from 'try-catch';
 transform(ast, source, options);
 findPlaces(ast, source, options);
 
-tryCatch(transform, ast, source {});
+tryCatch(transform, ast, source, {});
 
 tryCatch(findPlaces, ast, source, resultOptions);
 ```

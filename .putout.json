@@ -19,7 +19,8 @@
             "promises/add-missing-await": "off",
             "promises/remove-useless-async": "off",
             "putout/declare": "off",
-            "putout/apply-lowercase-to-node-builders": "off"
+            "putout/apply-lowercase-to-node-builders": "off",
+            "putout/remove-useless-source-argument": "off"
         },
         ".filesystem.json": {
             "typescript/find-file": ["on", {
