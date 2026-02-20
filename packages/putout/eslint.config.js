@@ -6,6 +6,9 @@ export const match = {
     '**/bin/putout.js': {
         'n/hashbang': 'off',
     },
+    '**/scripts/**': {
+        'n/hashbang': 'off',
+    },
     '**/register.js': {
         'n/no-unsupported-features/node-builtins': 'off',
     },

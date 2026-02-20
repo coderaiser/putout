@@ -4,6 +4,9 @@
         "remove-console": "on"
     },
     "match": {
+        "scripts": {
+            "remove-console": "off"
+        },
         ".madrun.*": {
             "madrun/add-madrun-to-lint": "off",
             "madrun/set-lint-dot": "off"

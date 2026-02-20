@@ -7,16 +7,16 @@ const testEnv = {
 
 export default {
     'wisdom': () => run(['lint', 'coverage']),
-    'test': async () => [testEnv, await cutEnv('test:raw')],
-    'test:raw': () => [testEnv, `tape 'test/*.{js,mjs}' '{bin,lib}/**/*.spec.{js,mjs}'`],
+    'test': () => [testEnv, `tape 'test/*.{js,mjs}' '{bin,lib}/**/*.spec.{js,mjs}' 'scripts/*.spec.js'`],
     'watch:test': async () => [testEnv, `nodemon -w bin -w lib -w test -x "${await cutEnv('test')} -f tap"`],
-    'lint': () => `bin/tracer.js .`,
+    'scheme': () => 'scripts/bin/scheme.js',
+    'lint': () => `putout .`,
     'oldlint': () => `bin/putout.js .`,
     'fresh:lint': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),
     'lint:progress': () => run('lint', '--fix'),
     'lint:fresh': () => run('lint', '--fresh'),
-    'coverage': async () => [testEnv, `c8 ${await cutEnv('test:raw')}`],
+    'coverage': async () => [testEnv, `c8 ${await cutEnv('test')}`],
     'report': () => 'c8 report --reporter=lcov',
 };
