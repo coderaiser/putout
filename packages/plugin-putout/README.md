@@ -16,6 +16,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-await-to-progress](#add-await-to-progress);
 - ✅ [add-places-to-compare-places](#add-places-to-compare-places);
 - ✅ [add-path-arg-to-fix](#add-path-arg-to-fix);
+- ✅ [add-path-arg-to-filter](#add-path-arg-to-filter);
 - ✅ [add-path-arg-to-visitors](#add-path-arg-to-visitors);
 - ✅ [add-path-arg-to-match](#add-path-arg-to-match);
 - ✅ [add-push-arg](#add-push-arg);
@@ -103,7 +104,8 @@ npm i @putout/plugin-putout -D
     "rules": {
         "putout/add-places-to-compare-places": "on",
         "putout/add-path-arg-to-fix": "on",
-        "putout/add-path-to-match": "on",
+        "putout/add-path-arg-to-filter": "on",
+        "putout/add-path-arg-to-match": "on",
         "putout/add-path-arg-to-visitors": "on",
         "putout/add-push-arg": "on",
         "putout/add-test-args": "on",
@@ -1437,6 +1439,26 @@ export const fix = () => {
 ```js
 export const fix = (path) => {
     path.remove();
+};
+```
+
+## add-path-arg-to-filter
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/00a5e23e6a1a708937ef3fae2a792f86/c2fc350831f777bbb383fb65216b349edd4ec53d).
+
+### ❌ Example of incorrect code
+
+```js
+export const filter = () => {
+    return path.isStringLiteral();
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export const filter = (path) => {
+    return path.isStringLiteral();
 };
 ```
 

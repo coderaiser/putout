@@ -404,3 +404,8 @@ test('plugin-putout: transform: remove-useless-source-argument', (t) => {
     t.transform('remove-useless-source-argument');
     t.end();
 });
+
+test('plugin-putout: transform: add-path-to-filter', (t) => {
+    t.transform('add-path-to-filter');
+    t.end();
+});
