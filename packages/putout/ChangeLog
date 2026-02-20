@@ -1,3 +1,17 @@
+2026.02.20, v42.0.11
+
+fix:
+- 9ef96fa12 @putout/engine-runner: validate: returns -> does not return
+
+feature:
+- 262c69cb1 putout: @putout/operator-add-args v15.0.0
+- fa6e0f1c7 @putout/operator-add-args: drop support of 🐊 < 42
+- bf961e9ef @putout/plugin-operator-add-args: config: add
+- 3dfa8fce8 @putout/plugin-putout: add-path-arg-to-match: filter: exclude
+- 9933c6e4e @putout/plugin-putotu-config: remove-empty: match support
+- 7d6b6c75e @putout/engine-runner: include: returns: not array
+- c1d9dd533 @putout/plugin-putout: remove-useless-source-argument: transformAsync
+
 2026.02.19, v42.0.10
 
 fix:
