@@ -8,7 +8,15 @@ const test = createTest(import.meta.url, {
 });
 
 test('remove duplicate-keys: report: duplicate', (t) => {
-    t.report('duplicate', 'Avoid duplicate keys');
+    t.report('duplicate', `Avoid duplicate keys: 'a'`);
+    t.end();
+});
+
+test('remove duplicate-keys: report: names', (t) => {
+    t.report('names', [
+        `Avoid duplicate keys: 'a'`,
+        `Avoid duplicate keys: 'b', 'c'`,
+    ]);
     t.end();
 });
 

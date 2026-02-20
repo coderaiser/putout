@@ -20,11 +20,14 @@ const isSpreadId = (name) => (a) => isSpreadElement(a) && isIdentifier(a.argumen
     name,
 });
 
-const isObjectPropertyId = (name, computed) => (a) => isObjectProperty(a, {
-    computed,
-}) && isIdentifier(a.key, {
-    name,
-});
+const isObjectPropertyId = (name, computed) => (a) => {
+    if (!isObjectProperty(a, {computed}))
+        return false;
+    
+    return isIdentifier(a.key, {
+        name,
+    });
+};
 
 const isMemberExpressionId = (name, computed) => (a) => isObjectProperty(a, {
     computed,
@@ -34,7 +37,19 @@ const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStrin
     value,
 });
 
-export const report = () => 'Avoid duplicate keys';
+const addQuote = (a) => `'${a}'`;
+
+export const report = ({names}) => {
+    const {length} = names;
+    const quotedNames = names
+        .reverse()
+        .map(addQuote)
+        .join(', ');
+    
+    const suffix = !length ? '' : `: ${quotedNames}`;
+    
+    return `Avoid duplicate keys${suffix}`;
+};
 
 export const fix = ({path, newProperties}) => {
     path.node.properties = newProperties;
@@ -49,6 +64,8 @@ export const traverse = ({push}) => ({
         const reversed = properties
             .slice()
             .reverse();
+        
+        const names = [];
         
         for (const prop of reversed) {
             if (isObjectPattern(path) && !compare(prop.key, prop.value))
@@ -79,6 +96,7 @@ export const traverse = ({push}) => ({
                     
                     if (!isFirst) {
                         is = true;
+                        names.push(name);
                         continue;
                     }
                 }
@@ -90,6 +108,7 @@ export const traverse = ({push}) => ({
                 
                 if (!isFirst) {
                     is = true;
+                    names.push(value);
                     continue;
                 }
             }
@@ -123,6 +142,7 @@ export const traverse = ({push}) => ({
         if (is)
             push({
                 path,
+                names,
                 newProperties,
             });
     },
