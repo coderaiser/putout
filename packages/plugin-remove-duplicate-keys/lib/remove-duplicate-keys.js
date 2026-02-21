@@ -20,19 +20,6 @@ const isSpreadId = (name) => (a) => isSpreadElement(a) && isIdentifier(a.argumen
     name,
 });
 
-const isObjectPropertyId = (name, computed) => (a) => {
-    if (!isObjectProperty(a, {computed}))
-        return false;
-    
-    return isIdentifier(a.key, {
-        name,
-    });
-};
-
-const isMemberExpressionId = (name, computed) => (a) => isObjectProperty(a, {
-    computed,
-}) && name === extract(a.key);
-
 const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStringLiteral(a.key, {
     value,
 });
@@ -42,7 +29,6 @@ const addQuote = (a) => `'${a}'`;
 export const report = ({names}) => {
     const {length} = names;
     const quotedNames = names
-        .reverse()
         .map(addQuote)
         .join(', ');
     
@@ -77,6 +63,7 @@ export const traverse = ({push}) => ({
                 
                 if (!isFirst) {
                     is = true;
+                    names.unshift(name);
                     continue;
                 }
             }
@@ -96,7 +83,7 @@ export const traverse = ({push}) => ({
                     
                     if (!isFirst) {
                         is = true;
-                        names.push(name);
+                        names.unshift(name);
                         continue;
                     }
                 }
@@ -108,7 +95,7 @@ export const traverse = ({push}) => ({
                 
                 if (!isFirst) {
                     is = true;
-                    names.push(value);
+                    names.unshift(value);
                     continue;
                 }
             }
@@ -154,3 +141,19 @@ function checkIfFirst(properties, newProperties, isFn, str, {computed} = {}) {
     
     return !newLength || oldLength <= 1;
 }
+
+const isObjectPropertyId = (name, computed) => (a) => {
+    if (!isObjectProperty(a, {computed}))
+        return false;
+    
+    return isIdentifier(a.key, {
+        name,
+    });
+};
+
+const isMemberExpressionId = (name, computed) => (a) => {
+    if (!isObjectProperty(a, {computed}))
+        return false;
+    
+    return name === extract(a.key);
+};

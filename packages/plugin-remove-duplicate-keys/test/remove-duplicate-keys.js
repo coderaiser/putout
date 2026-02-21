@@ -20,6 +20,11 @@ test('remove duplicate-keys: report: names', (t) => {
     t.end();
 });
 
+test('remove duplicate-keys: report: spread', (t) => {
+    t.report('spread', `Avoid duplicate keys: 'a', 'b'`);
+    t.end();
+});
+
 test('remove duplicate-keys: transform: condition', (t) => {
     t.transform('condition');
     t.end();
