@@ -40,6 +40,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-insert-before](#apply-insert-before);
 - ✅ [apply-traverser-to-ignore](#apply-traverser-to-ignore);
 - ✅ [apply-vars](#apply-vars);
+- ✅ [apply-name-to-is-identifier](#apply-name-to-is-identifier);
 - ✅ [apply-lowercase-to-node-builders](#apply-lowercase-to-node-builders);
 - ✅ [apply-namespace-specifier](#apply-namespace-specifier);
 - ✅ [apply-report](#apply-report);
@@ -133,6 +134,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-traverser-to-ignore": "on",
         "putout/apply-insert-after": "on",
         "putout/apply-vars": "on",
+        "putout/apply-name-to-is-identifier": "on",
         "putout/apply-short-processors": "on",
         "putout/apply-lowercase-to-node-builders": "on",
         "putout/apply-namespace-specifier": "on",
@@ -519,6 +521,24 @@ export const match = () => ({
     '__a(__args': (vars, path) => {
         return '';
     },
+});
+```
+
+## apply-name-to-is-identifier
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9d416e21377a53ef13066007f7037bdf/e179718fe1908851c26f10ba84fab1bf7ebca3ce).
+
+### ❌ Example of incorrect code
+
+```js
+isIdentifier(path, 'hello');
+```
+
+### ✅ Example of correct code
+
+```js
+isIdentifier(path, {
+    name: 'hello',
 });
 ```
 

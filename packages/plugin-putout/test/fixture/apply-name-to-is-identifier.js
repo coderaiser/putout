@@ -1,0 +1,1 @@
+isIdentifier(path, 'hello');

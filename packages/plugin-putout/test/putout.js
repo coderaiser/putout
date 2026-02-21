@@ -409,3 +409,8 @@ test('plugin-putout: transform: add-path-arg-to-filter', (t) => {
     t.transform('add-path-arg-to-filter');
     t.end();
 });
+
+test('plugin-putout: transform: apply-name-to-is-identifier', (t) => {
+    t.transform('apply-name-to-is-identifier');
+    t.end();
+});

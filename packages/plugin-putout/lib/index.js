@@ -1,3 +1,4 @@
+import * as applyNameToIsIdentifier from './apply-name-to-is-identifier/index.js';
 import * as addPathArgToFilter from './add-path-arg-to-filter/index.js';
 import * as removeUselessSourceArgument from './remove-useless-source-argument/index.js';
 import * as applyTraverserToIgnore from './apply-traverser-to-ignore/index.js';
@@ -166,4 +167,5 @@ export const rules = {
     'apply-traverser-to-ignore': applyTraverserToIgnore,
     'remove-useless-source-argument': removeUselessSourceArgument,
     'add-path-arg-to-filter': addPathArgToFilter,
+    'apply-name-to-is-identifier': applyNameToIsIdentifier,
 };

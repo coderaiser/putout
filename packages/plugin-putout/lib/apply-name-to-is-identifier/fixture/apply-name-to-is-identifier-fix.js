@@ -1,0 +1,3 @@
+isIdentifier(path, {
+    name: 'hello',
+});
