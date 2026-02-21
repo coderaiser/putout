@@ -3,6 +3,7 @@ import {
     parse,
     print,
     transform,
+    findPlaces,
     operator,
 } from 'putout';
 import * as getImports from '#get-imports';
@@ -20,6 +21,7 @@ const getMessage = (a) => a.message;
 export const report = (file, {from, to, filename}) => {
     return `Apply private import: '${from}' -> '${to}' in '${filename}'`;
 };
+
 export const fix = (file, {ast, from, to}) => {
     transform(ast, {
         rules: {
@@ -48,10 +50,6 @@ export const scan = (rootPath, {push, trackFile}) => {
     
     for (const file of trackFile(rootPath, mask)) {
         const content = readFileContent(file);
-        
-        if (!content.includes('import'))
-            continue;
-        
         const privateImports = getPrivateImports(file);
         
         if (!privateImports.size)
@@ -59,7 +57,7 @@ export const scan = (rootPath, {push, trackFile}) => {
         
         const ast = parse(content);
         
-        const places = transform(ast, {
+        const places = findPlaces(ast, {
             plugins: [
                 ['get-imports', getImports],
             ],

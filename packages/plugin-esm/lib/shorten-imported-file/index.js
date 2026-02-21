@@ -51,10 +51,6 @@ export const scan = (rootPath, {push, trackFile}) => {
     
     for (const file of trackFile(rootPath, mask)) {
         const content = readFileContent(file);
-        
-        if (!content.includes('import'))
-            continue;
-        
         const [error, ast] = tryCatch(parse, content);
         
         if (error)

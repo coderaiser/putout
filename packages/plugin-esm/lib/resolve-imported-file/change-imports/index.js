@@ -11,6 +11,8 @@ export const replace = ({options}) => {
     if (!to.endsWith('json'))
         return {
             [`import __imports from '${from}'`]: `import __imports from '${to}'`,
+            [`export __exports from '${from}'`]: `export __exports from '${to}'`,
+            [`export * from '${from}'`]: `export * from '${to}'`,
             [`import('${from}')`]: `import('${to}')`,
         };
     

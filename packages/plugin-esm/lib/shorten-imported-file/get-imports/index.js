@@ -5,6 +5,8 @@ export const fix = () => {};
 export const include = () => [
     'ImportDeclaration',
     'import("__a")',
+    'export __exports from "__a"',
+    'export * from "__a"',
 ];
 
 export const filter = (path) => {

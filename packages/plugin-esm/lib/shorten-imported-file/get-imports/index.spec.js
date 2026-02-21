@@ -32,6 +32,16 @@ test('putout: esm: shorten-imported-file: get-imports: report: dynamic', (t) => 
     t.end();
 });
 
+test('putout: esm: shorten-imported-file: get-imports: report: export from', (t) => {
+    t.reportCode(`export {a} from './a.js'`, './a.js');
+    t.end();
+});
+
+test('putout: esm: shorten-imported-file: get-imports: report: export from: *', (t) => {
+    t.reportCode(`export * from './a.js'`, './a.js');
+    t.end();
+});
+
 test('putout: esm: shorten-imported-file: get-imports: report: dynamic: identifier', (t) => {
     t.noReportCode(`await import(a)`);
     t.end();

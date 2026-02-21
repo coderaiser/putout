@@ -4,6 +4,7 @@ import {
     print,
     transform,
     operator,
+    findPlaces,
 } from 'putout';
 import * as changeImports from '#change-imports';
 import * as getImports from './get-imports/index.js';
@@ -47,13 +48,9 @@ export const scan = (rootPath, {push, trackFile, crawlFile}) => {
     
     for (const file of trackFile(rootPath, mask)) {
         const content = readFileContent(file);
-        
-        if (!content.includes('import'))
-            continue;
-        
         const ast = parse(content);
         
-        const places = transform(ast, {
+        const places = findPlaces(ast, {
             plugins: [
                 ['get-imports-source', getImports],
             ],

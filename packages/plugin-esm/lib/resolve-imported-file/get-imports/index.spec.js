@@ -32,6 +32,16 @@ test('putout: esm: resolve-imported-file: get-imports: no report: js', (t) => {
     t.end();
 });
 
+test('putout: esm: resolve-imported-file: get-imports: report: export from: *', (t) => {
+    t.reportCode(`export * from './a'`, './a');
+    t.end();
+});
+
+test('putout: esm: resolve-imported-file: get-imports: report: export from', (t) => {
+    t.reportCode(`export {a} from './a'`, './a');
+    t.end();
+});
+
 test('putout: esm: resolve-imported-file: no transform: get-imports', (t) => {
     t.noTransform('get-imports');
     t.end();

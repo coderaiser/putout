@@ -61,3 +61,8 @@ test('esm: apply-privately-imported-file: transform: encoded', (t) => {
     t.transform('encoded');
     t.end();
 });
+
+test('esm: apply-privately-imported-file: transform: export', (t) => {
+    t.transform('export');
+    t.end();
+});

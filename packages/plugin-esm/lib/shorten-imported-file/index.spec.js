@@ -46,3 +46,9 @@ test('esm: shorten-imported-file: transform: dynamic', (t) => {
     t.transform('dynamic');
     t.end();
 });
+
+test('esm: shorten-imported-file: transform: export', (t) => {
+    t.transform('export');
+    t.end();
+});
+

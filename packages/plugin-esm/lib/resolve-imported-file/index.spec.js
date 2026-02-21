@@ -51,3 +51,8 @@ test('esm: resolve-imported-file: transform: no-ext', (t) => {
     t.transform('no-ext');
     t.end();
 });
+
+test('esm: resolve-imported-file: transform: export', (t) => {
+    t.transform('export');
+    t.end();
+});
