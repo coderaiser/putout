@@ -21,3 +21,13 @@ test('plugin-tape: convert-equal-to-deep-equal: transform: buffer', (t) => {
     t.transform('buffer');
     t.end();
 });
+
+test('plugin-tape: convert-equal-to-deep-equal: transform: date', (t) => {
+    t.transform('date');
+    t.end();
+});
+
+test('plugin-tape: convert-equal-to-deep-equal: no report: array', (t) => {
+    t.noReport('array');
+    t.end();
+});
