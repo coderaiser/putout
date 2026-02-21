@@ -162,7 +162,6 @@
         }
     },
     "ignore": [
-        "**/*.lock",
         "**/*.log",
         "**/.nyc_output/*",
         "**/.yarn",
