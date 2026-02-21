@@ -27,14 +27,11 @@ const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStrin
 const addQuote = (a) => `'${a}'`;
 
 export const report = ({names}) => {
-    const {length} = names;
     const quotedNames = names
         .map(addQuote)
         .join(', ');
     
-    const suffix = !length ? '' : `: ${quotedNames}`;
-    
-    return `Avoid duplicate keys${suffix}`;
+    return `Avoid duplicate keys: ${quotedNames}`;
 };
 
 export const fix = ({path, newProperties}) => {
@@ -118,6 +115,7 @@ export const traverse = ({push}) => ({
                     
                     if (!isFirst) {
                         is = true;
+                        names.unshift(name);
                         continue;
                     }
                 }
