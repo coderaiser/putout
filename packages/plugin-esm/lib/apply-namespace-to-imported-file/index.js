@@ -21,11 +21,10 @@ export const report = (file, {name, source}) => {
     return `Use \`import * as ${name} from '${source}'\` in '${filename}'`;
 };
 
-export const fix = (file, {name, source, content, ast}) => {
+export const fix = (file, {name, source, ast}) => {
     transformNamespaceImport(ast, {
         name,
         source,
-        content,
     });
     
     const newContent = print(ast);
@@ -71,7 +70,6 @@ export const scan = (rootPath, {push, trackFile, crawlFile}) => {
                     name,
                     source,
                     ast,
-                    content,
                 });
         }
     }

@@ -78,7 +78,6 @@ export const scan = (rootPath, {push, trackFile}) => {
                     from,
                     to: privateImports.get(to),
                     filename,
-                    content,
                     ast,
                 });
         }

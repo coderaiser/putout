@@ -75,7 +75,6 @@ export const scan = (rootPath, {push, trackFile, crawlFile}) => {
                 filename,
                 from,
                 to,
-                content,
                 ast,
             });
         }

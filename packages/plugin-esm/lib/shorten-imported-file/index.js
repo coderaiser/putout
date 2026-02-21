@@ -81,7 +81,6 @@ export const scan = (rootPath, {push, trackFile}) => {
                 push(file, {
                     from,
                     to,
-                    content,
                     ast,
                 });
         }
