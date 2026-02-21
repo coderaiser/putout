@@ -51,4 +51,3 @@ test('esm: shorten-imported-file: transform: export', (t) => {
     t.transform('export');
     t.end();
 });
-
