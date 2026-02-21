@@ -9,6 +9,7 @@ export const {
 } = removeFiles([
     '*.swp',
     '*.swo',
+    '*.lock',
     '.travis.yml',
     '.DS_Store',
 ]);

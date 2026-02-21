@@ -26,6 +26,11 @@ test('packages: remove-files: transform with options', (t) => {
     t.end();
 });
 
+test('packages: remove-files: transform: lock', (t) => {
+    t.transform('lock');
+    t.end();
+});
+
 test('packages: remove-files: progress', async ({progressWithOptions}) => {
     const options = {
         names: ['*.swp'],

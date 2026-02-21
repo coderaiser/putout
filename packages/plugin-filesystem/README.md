@@ -108,10 +108,11 @@ It will rename 'test' to 'spec' in `*.test.*` files:
 
 Remove next files:
 
-- `.DS_Store`;
-- `.travis.yml`;
 - `*.swp`;
 - `*.swo`;
+- `*.lock`;
+- `.DS_Store`;
+- `.travis.yml`;
 
 Apply overrides:
 
