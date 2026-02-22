@@ -30,6 +30,38 @@ test('putout: runner: include', (t) => {
     t.end();
 });
 
+test('putout: runner: report: options', (t) => {
+    const include = {
+        report: (path, {target}) => target,
+        fix: () => {},
+        include: () => ['debugger'],
+    };
+    
+    const {places} = putout('debugger', {
+        runPlugins,
+        rules: {
+            include: ['on', {
+                target: 'elf',
+            }],
+        },
+        plugins: [
+            ['include', include],
+        ],
+    });
+    
+    const expected = [{
+        message: 'elf',
+        position: {
+            column: 1,
+            line: 1,
+        },
+        rule: 'include',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
 test('putout: runner: include: not a function', (t) => {
     const include = {
         report: () => 'debugger found',
