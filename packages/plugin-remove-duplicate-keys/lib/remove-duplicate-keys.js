@@ -24,11 +24,11 @@ const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStrin
     value,
 });
 
-const addQuote = (a) => `'${a}'`;
+const addQuotes = (a) => `'${a}'`;
 
 export const report = ({names}) => {
     const quotedNames = names
-        .map(addQuote)
+        .map(addQuotes)
         .join(', ');
     
     return `Avoid duplicate keys: ${quotedNames}`;
