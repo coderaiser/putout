@@ -32,7 +32,7 @@ test('putout: runner: include', (t) => {
 
 test('putout: runner: report: options', (t) => {
     const include = {
-        report: (path, {target}) => target,
+        report: (path, {options}) => options.target,
         fix: () => {},
         include: () => ['debugger'],
     };

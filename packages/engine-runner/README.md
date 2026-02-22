@@ -53,7 +53,7 @@ export const replace = () => ({
 });
 
 // optional
-export const filter = (path) => {
+export const filter = (path, {options}) => {
     return true;
 };
 
@@ -162,7 +162,7 @@ export const include = () => ['debugger'];
 export const exclude = () => {};
 
 // optional
-export const filter = (path) => {
+export const filter = (path, {options}) => {
     return true;
 };
 ```
