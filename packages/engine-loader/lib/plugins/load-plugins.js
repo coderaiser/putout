@@ -47,10 +47,11 @@ function loadAllPlugins({items, loadedRules}) {
     const plugins = [];
     
     for (const [rule, itemPlugin] of items) {
+        checkRule(rule);
+        
         if (!isEnabled(rule, loadedRules))
             continue;
         
-        checkRule(rule);
         const parsedRule = parseRule(rule);
         
         const [name, namespace] = splitRule(rule);

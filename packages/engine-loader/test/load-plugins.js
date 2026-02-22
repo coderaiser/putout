@@ -4,6 +4,7 @@ import {test, stub} from 'supertape';
 import {tryCatch} from 'try-catch';
 import putout from 'putout';
 import montag from 'montag';
+import {tryToCatch} from 'try-to-catch';
 import {readFixtures} from './fixture.js';
 import {loadPlugins} from '../lib/index.js';
 
@@ -617,6 +618,26 @@ test('putout: loader: enable part of rule: async', async (t) => {
     }];
     
     t.deepEqual(places, expected, 'should disable all but couple of rules in plugin');
+    t.end();
+});
+
+test('putout: loader: plugin name not string', async (t) => {
+    const code = montag`
+        const {Identifier} = types;
+        Identifier('x');
+    `;
+    
+    const [error] = await tryToCatch(putout, code, {
+        fix: false,
+        rules: {
+            putout: 'on',
+        },
+        plugins: [
+            [putout, 's'],
+        ],
+    });
+    
+    t.equal(error.message, `☝️ Looks like plugin name type is not 'string', but: 'function'`);
     t.end();
 });
 
