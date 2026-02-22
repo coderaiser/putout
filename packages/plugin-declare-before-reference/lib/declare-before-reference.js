@@ -13,12 +13,14 @@ const {
     isStatement,
     isBlockStatement,
     isProgram,
+    isArrowFunctionExpression,
 } = types;
 
+const isArrowOrBlock = (a) => isArrowFunctionExpression(a) || isBlockStatement(a);
 const {entries} = Object;
 const isTopScope = (a) => isFunction(a) || isProgram(a);
 const getTopUID = (a) => a.find(isTopScope).scope.uid;
-const getBlockUID = (a) => a.find(isBlockStatement)?.scope.uid;
+const getBlockUID = (a) => a.find(isArrowOrBlock)?.scope.uid;
 const getKey = (a) => a.key;
 
 export const report = ({name}) => {

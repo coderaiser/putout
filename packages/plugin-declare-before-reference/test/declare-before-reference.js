@@ -159,6 +159,11 @@ test('plugin-declare-before-reference: no report: type', (t) => {
     t.end();
 });
 
+test('plugin-declare-before-reference: no report: returns', (t) => {
+    t.noReport('returns');
+    t.end();
+});
+
 test('plugin-declare-before-reference: transform: tape', (t) => {
     const plugin = {
         report: () => '',
