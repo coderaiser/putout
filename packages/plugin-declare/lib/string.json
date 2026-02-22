@@ -1,3 +1,4 @@
 {
-    "fromCharCode": "const {fromCharCode} = String"
+    "fromCharCode": "const {fromCharCode} = String",
+    "addQuotes": "const addQuotes = (a) => `'${a}'`"
 }

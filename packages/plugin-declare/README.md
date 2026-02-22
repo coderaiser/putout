@@ -11,6 +11,7 @@
 - fresh-import: `freshImport`, `freshImportDefault`;
 - `fixtures`: `readFixture`;
 - properties of `Object`;
+- properties of `String` + `addQuotes`;
 - [wraptile](https://github.com/coderaiser/wraptile);
 - [fullstore](https://github.com/coderaiser/fullstore);
 - [currify](https://github.com/coderaiser/currify);

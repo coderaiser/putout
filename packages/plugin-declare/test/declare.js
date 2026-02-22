@@ -206,3 +206,11 @@ test('putout: plugin: declare: difference', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare: addQuotes', (t) => {
+    t.transformCode(`names.map(addQuotes)`, montag`
+        const addQuotes = (a) => \`'\${a}'\`;
+        names.map(addQuotes);\n
+    `);
+    t.end();
+});
