@@ -1,3 +1,27 @@
+2026.02.22, v42.0.13
+
+fix:
+- 8bf592166 @putout/engine-runner: fix: simplify
+- b0c8ece5e @putout/engine-runner: filter: options
+- 77188b275 @putout/plugin-remove-duplicate-keys: addQuote -> addQuotes
+
+feature:
+- 8e44eb66d putout: @putout/plugin-declare-before-reference v10.0.0
+- 837d89424 @putout/plugin-declare-before-reference: drop support of 🐊 < 42
+- b768360b3 @putout/plugin-declare-before-reference: same scope difference functions
+- 3a630b1c4 @putout/plugin-declare: addQuotes: add
+- 5f8673d85 @putout/engine-loader: rule name not string
+- 593e1acec @putout/engine-runner: includer: report: add ability to receive options
+- 9d135f859 @putout/plugin-remove-duplicate-keys: report: MemberExpression
+- 4b7e06b35 @putout/plugin-remove-duplicate-keys: report: SpreadElement
+- b1263f331 @putout/plugin-esm: resolve-imported-file, shorten-imported-file, apply-privately-imported-file: export from
+- 74105a1d6 @putout/plugin-esm: content: remove useless
+- 808d36565 @putout/plugin-filesystem: remove-files: *.lock: add
+- 6b4750f33 putout: ignore: exclude lock
+- 7aecafdb4 putout: @putout/plugin-tape v21.0.0
+- 2aa1c1275 @putout/plugin-tape: convert-equal-to-deep-equal: date
+- e7c22bf68 @putout/plugin-putout: apply-name-to-is-identifier: add
+
 2026.02.20, v42.0.12
 
 fix:
