@@ -7,21 +7,12 @@ const isFn = (a) => typeof a === 'function';
 const getPath = (path) => path.path || path;
 const debug = createDebug('putout:runner:fix');
 
-const chooseFixArgs = ({path, pathOptions, options}) => {
-    if (pathOptions)
-        return [
-            path,
-            pathOptions, {
-                options,
-            },
-        ];
-    
-    return [
-        path, {
-            options,
-        },
-    ];
-};
+const chooseFixArgs = ({path, pathOptions, options}) => [
+    path, {
+        options,
+        ...pathOptions,
+    },
+];
 
 const tryToFix = (fix, {path, pathOptions, position, options}) => {
     const [e] = tryCatch(fix, ...chooseFixArgs({

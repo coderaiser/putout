@@ -98,8 +98,8 @@ function getStore(plugin, {fix, rule, msg, options}) {
     const push = (path, pathOptions) => {
         const position = getPosition(path);
         const message = msg || plugin.report(path, {
-            ...pathOptions,
             options,
+            ...pathOptions,
         });
         
         placesStore({
