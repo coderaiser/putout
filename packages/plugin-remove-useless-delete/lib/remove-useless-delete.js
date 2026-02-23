@@ -1,6 +1,9 @@
 import {operator, types} from 'putout';
 
-const {isMemberExpression} = types;
+const {
+    isMemberExpression,
+    isOptionalMemberExpression,
+} = types;
 const {remove} = operator;
 
 export const report = () => `Avoid useless 'delete'`;
@@ -17,6 +20,9 @@ export const traverse = ({push}) => ({
             return;
         
         if (isMemberExpression(argument))
+            return;
+        
+        if (isOptionalMemberExpression(argument))
             return;
         
         push(path);

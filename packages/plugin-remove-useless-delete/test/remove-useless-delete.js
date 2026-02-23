@@ -16,3 +16,8 @@ test('putout: remove-useless-delete: transform', (t) => {
     t.transform('remove-useless-delete');
     t.end();
 });
+
+test('putout: remove-useless-delete: no report: optional-chaining', (t) => {
+    t.noReport('optional-chaining');
+    t.end();
+});
