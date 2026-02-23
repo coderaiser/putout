@@ -1,3 +1,10 @@
+2026.02.23, v42.0.15
+
+feature:
+- 7ebf44893 putout: @putout/plugin-remove-useless-delete v3.0.0
+- 796ed9121 @putout/plugin-remove-useless-delete: drop support of 🐊 < 42
+- 62e6d64b5 @putout/plugin-remove-useless-delete: OptionalMemberExpression: exclude
+
 2026.02.23, v42.0.14
 
 feature:
