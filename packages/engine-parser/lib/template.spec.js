@@ -1,9 +1,12 @@
 import {tryCatch} from 'try-catch';
 import test from 'supertape';
 import {types} from '@putout/babel';
+import putout from 'putout';
+import montag from 'montag';
 import {template} from './template.js';
 
 const {identifier, stringLiteral} = types;
+const noop = () => {};
 
 test('parser: template', (t) => {
     const buildOnce = template(`await once(%%emitter%%, %%event%%)`);
@@ -153,5 +156,47 @@ test('parser: template: extractExpression: TSExternalModuleReference', (t) => {
     });
     
     t.equal(result, expression);
+    t.end();
+});
+
+test('putout: parser: template: template.ast: invalid', (t) => {
+    tryCatch(template.ast, 'if');
+    const node = template.ast('if');
+    
+    t.notOk(node);
+    t.end();
+});
+
+test('putout: parser: template: template.ast called twice in Replacer', (t) => {
+    const convert = {
+        report: noop,
+        replace: () => ({
+            'mov(eax, ebx)': () => {
+                return template.ast('eax = ebx + ecx');
+            },
+            '__a = __b + __c': `{
+                __a = __b;
+                __a += __c
+            }`,
+        }),
+    };
+    
+    const source = montag`
+        mov(eax, ebx);
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const {code: code2} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.equal(code, code2);
     t.end();
 });

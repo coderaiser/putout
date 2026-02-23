@@ -1,5 +1,6 @@
 import {traverse as defaultTraverse} from '@putout/babel';
 import once from 'once';
+import {clearWatermark} from '@putout/operator-watermark';
 import {createDebug} from './debug.js';
 import runFix from './run-fix.js';
 import mergeVisitors from './merge-visitors.js';
@@ -8,7 +9,7 @@ import template from './template/index.js';
 import {createProgress} from './progress.js';
 import {tryThrowWithReason} from './try-throw-with-reason.js';
 import {include} from './includer/index.js';
-import {replace, clearWatermark} from './replacer/index.js';
+import {replace} from './replacer/index.js';
 import {declare} from './declarator/index.js';
 import {scan} from './scanner/index.js';
 import {getPath, getPosition} from './get-position.js';
@@ -43,7 +44,9 @@ export const runPlugins = ({ast, fix, fixCount = 2, plugins, progress = createPr
         if (!fix || !places.length)
             return places;
         
-        clearWatermark(ast);
+        const {program} = ast;
+        
+        clearWatermark(program);
     }
     
     return places;

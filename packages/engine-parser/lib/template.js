@@ -3,6 +3,7 @@ import {
     template as babelTemplate,
 } from '@putout/babel';
 import nano from 'nano-memoize';
+import {clearWatermark} from '@putout/operator-watermark';
 import plugins from './parsers/babel/plugins.js';
 import * as options from './parsers/babel/options.js';
 
@@ -48,7 +49,7 @@ export const template = nanomemoize((value, options) => {
 
 template.extractExpression = extractExpression;
 
-template.ast = nanomemoize((value, options) => {
+const templateAst = nanomemoize((value, options) => {
     const result = babelTemplate.ast(value, {
         ...defaults,
         ...options,
@@ -56,6 +57,14 @@ template.ast = nanomemoize((value, options) => {
     
     return extractExpression(result);
 });
+
+template.ast = (...a) => {
+    const node = templateAst(...a);
+    
+    clearWatermark(node);
+    
+    return templateAst(...a);
+};
 
 template.program = nanomemoize((value, options) => {
     const result = babelTemplate.program(value, {

@@ -3,7 +3,7 @@ import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import test from 'supertape';
 import montag from 'montag';
-import putout from 'putout';
+import putout, {template} from 'putout';
 import {tryCatch} from 'try-catch';
 import {runPlugins} from '../lib/index.js';
 
@@ -1158,5 +1158,41 @@ test('putout: runner: replace: no label', (t) => {
     `;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: runner: replace: called twice: template.ast', (t) => {
+    const convert = {
+        report: noop,
+        replace: () => ({
+            'mov(eax, ebx)': () => {
+                return template.ast('eax = ebx + ecx');
+            },
+            '__a = __b + __c': `{
+                __a = __b;
+                __a += __c
+            }`,
+        }),
+    };
+    
+    const source = montag`
+        mov(eax, ebx);
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const {code: code2} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.equal(code, code2);
     t.end();
 });

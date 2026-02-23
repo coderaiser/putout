@@ -1,6 +1,7 @@
 import {template, print} from '@putout/engine-parser';
 import {remove, replaceWith} from '@putout/operate';
 import {types} from '@putout/babel';
+import {watermark} from '@putout/operator-watermark';
 import {
     compare,
     findVarsWays,
@@ -8,10 +9,6 @@ import {
     setValues,
 } from '@putout/compare';
 import maybeArray from '../maybe-array.js';
-import {
-    REPLACE_WATERMARK,
-    watermark,
-} from './watermark.js';
 import {createDebug} from '../debug.js';
 
 const debug = createDebug('putout:runner:replace');
@@ -84,10 +81,6 @@ export const replace = ({rule, plugin, msg, options}) => {
             include,
         },
     };
-};
-
-export const clearWatermark = (ast) => {
-    delete ast.program[REPLACE_WATERMARK];
 };
 
 const isFn = (a) => typeof a === 'function';
