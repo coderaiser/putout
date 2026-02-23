@@ -1,3 +1,10 @@
+2026.02.23, v42.0.14
+
+feature:
+- 7a091e539 putout: @putout/plugin-destructuring v2.0.0
+- 79d8ac156 @putout/plugin-destructuring: drop support of 🐊 < 42
+- 0913317ea @putout/plugin-destructuring: merge-properties: exclude renaming
+
 2026.02.22, v42.0.13
 
 fix:
