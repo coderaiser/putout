@@ -4,6 +4,7 @@ const {
     isMemberExpression,
     isOptionalMemberExpression,
 } = types;
+
 const {remove} = operator;
 
 export const report = () => `Avoid useless 'delete'`;
