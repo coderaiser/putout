@@ -108,6 +108,14 @@ const addVariable = ({store}) => (path, node) => {
     if (parentPath.removed || !parentPath.node)
         return;
     
+    const {left} = split(path);
+    const {left: currentLeft} = split(currentPath);
+    const [leftProperty] = left.properties;
+    const [currentLeftProperty] = currentLeft.properties;
+    
+    if (leftProperty.key.name === currentLeftProperty.key.name)
+        return;
+    
     const name = RIGHT[type];
     
     if (isAssignmentExpression(currentPath) && compare(currentPath.node[name], node))

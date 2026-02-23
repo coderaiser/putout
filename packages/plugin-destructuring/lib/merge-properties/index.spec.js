@@ -73,6 +73,11 @@ test('putout: plugin-destructuring: merge-properties: no report: assignment-rest
     t.end();
 });
 
+test('putout: plugin-destructuring: merge-properties: no report: same-name', (t) => {
+    t.noReport('same-name');
+    t.end();
+});
+
 test('putout: plugin-destructuring: merge-properties: transform: putout-declare', (t) => {
     t.transform('putout-declare', {
         'putout/declare': declare,
@@ -93,7 +98,6 @@ test('putout: plugin-destructuring: merge-properties: transform: minify', async 
 
 test('putout: plugin-destructuring: merge-properties: transform: tape', (t) => {
     t.transform('tape', {
-        //'putout/tape': tape,
         'tape/apply-destructuring': {
             report: () => '',
             replace: () => ({
