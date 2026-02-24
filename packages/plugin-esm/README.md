@@ -22,6 +22,7 @@ npm i putout @putout/plugin-esm -D
 - ✅ [apply-export-from](#apply-export-from);
 - ✅ [apply-import-import](#apply-import-attributes);
 - ✅ [convert-assert-to-with](#convert-assert-to-with);
+- ✅ [convert-const-to-import](#convert-const-to-import);
 - ✅ [declare-imports-first](#declare-imports-first);
 - ✅ [group-imports-by-source](#group-imports-by-source);
 - ✅ [merge-duplicate-imports](#merge-duplicate-imports);
@@ -51,6 +52,8 @@ npm i putout @putout/plugin-esm -D
         "esm/apply-export-from": "on",
         "esm/apply-import-attirbutes": "on",
         "esm/declare-imports-first": "on",
+        "esm/convert-assert-to-with": "on",
+        "esm/convert-const-to-import": "on",
         "esm/group-imports-by-source": "on",
         "esm/merge-duplicate-imports": "on",
         "esm/merge-declaration-with-export": "on",
@@ -61,9 +64,9 @@ npm i putout @putout/plugin-esm -D
             "ignore": []
         }],
         "esm/sort-imports-by-specifiers": "on",
-        "esm/apply-js-imported-file": "off",
         "esm/resolve-imported-file": "off",
         "esm/shorten-imported-file": "off",
+        "esm/apply-js-imported-file": "off",
         "esm/apply-name-to-imported-file": "off",
         "esm/apply-namespace-to-imported-file": "off",
         "esm/apply-privately-imported-file": "off",
@@ -431,6 +434,22 @@ import('foo.json', {
         type: 'json',
     },
 });
+```
+
+### convert-const-to-import
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2682a3899fe6916e22073abf0b56b13c/f9d7ca3ddb65331bb836af78825d80fd258b3f94).
+
+#### ❌ Example of incorrect code
+
+```
+const {Server} from 'socket.io';
+```
+
+#### ✅ Example of correct code
+
+```js
+import {Server} from 'socket.io';
 ```
 
 ## File Rules

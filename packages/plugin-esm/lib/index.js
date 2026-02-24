@@ -1,3 +1,4 @@
+import * as convertConstToImport from './convert-const-to-import/index.js';
 import * as applyImportAttributes from './apply-import-attributes/index.js';
 import * as applyDefaultImport from './apply-default-import/index.js';
 import * as applyExportFrom from './apply-export-from/index.js';
@@ -41,4 +42,5 @@ export const rules = {
     'apply-js-imported-file': ['off', applyJsImportedFile],
     'apply-default-import': applyDefaultImport,
     'apply-import-attributes': applyImportAttributes,
+    'convert-const-to-import': convertConstToImport,
 };

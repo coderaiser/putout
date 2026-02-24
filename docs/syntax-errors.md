@@ -410,3 +410,12 @@ export const {
 ```
 
  </details>
+
+<details><summary>convert <code>const</code> to <code>import</code></summary>
+
+```diff
+-const {Server} from 'socket.io';
++import {Server} from 'socket.io';
+```
+
+ </details>

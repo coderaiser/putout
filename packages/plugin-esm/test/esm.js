@@ -111,3 +111,8 @@ test('plugin-esm: transform: apply-import-attributes', (t) => {
     t.transform('apply-import-attributes');
     t.end();
 });
+
+test('plugin-esm: transform: convert-const-to-import', (t) => {
+    t.transform('convert-const-to-import');
+    t.end();
+});
