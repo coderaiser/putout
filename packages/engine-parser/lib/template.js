@@ -63,7 +63,7 @@ template.ast = (...a) => {
     
     clearWatermark(node);
     
-    return templateAst(...a);
+    return node;
 };
 
 template.program = nanomemoize((value, options) => {
