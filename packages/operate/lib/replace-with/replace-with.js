@@ -12,6 +12,8 @@ const parseNode = (a) => {
 };
 
 export const replaceWith = (path, node) => {
+    check(path);
+    
     node = parseNode(node);
     
     if (path?.parentPath?.isExpressionStatement() && !path.parentPath.isProgram()) {
@@ -41,4 +43,9 @@ function extractMark(node) {
         return node.__putout_replaced_with;
     
     return node;
+}
+
+function check(path) {
+    if (!path)
+        throw Error(`☝️ Looks like 'path' is empty in 'replaceWith()'`);
 }

@@ -1,6 +1,7 @@
 import putout from 'putout';
 import {test, stub} from 'supertape';
 import montag from 'montag';
+import {tryCatch} from 'try-catch';
 import {replaceWith} from './replace-with.js';
 
 test('putout: operate: replaceWith', (t) => {
@@ -21,6 +22,13 @@ test('putout: operate: replaceWith', (t) => {
     replaceWith(path, node);
     
     t.calledWith(replaceWithStub, [node], 'should call replaceWith');
+    t.end();
+});
+
+test('putout: operate: replaceWith: no args', (t) => {
+    const [error] = tryCatch(replaceWith);
+    
+    t.equal(error.message, `☝️ Looks like 'path' is empty in 'replaceWith()'`);
     t.end();
 });
 
