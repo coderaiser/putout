@@ -83,3 +83,8 @@ test('putout: plugin-variables: extract-keywords: no report: assert', (t) => {
     t.noReport('assert');
     t.end();
 });
+
+test('putout: plugin-variables: extract-keywords: no report: import', (t) => {
+    t.noReport('import');
+    t.end();
+});

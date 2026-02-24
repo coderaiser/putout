@@ -112,6 +112,9 @@ export const traverse = ({push}) => ({
             if (!nextPath.isExpressionStatement())
                 return;
             
+            if (nextPath.get('expression').isIdentifier({name: 'from'}))
+                return;
+            
             const {expression} = nextPath.node;
             
             if (isInit(expression))
