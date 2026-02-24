@@ -172,7 +172,7 @@
     "@putout/plugin-try-catch": "^7.0.0",
     "@putout/plugin-types": "^10.0.0",
     "@putout/plugin-typescript": "^13.0.0",
-    "@putout/plugin-variables": "^1.0.0",
+    "@putout/plugin-variables": "^2.0.0",
     "@putout/plugin-webpack": "^4.0.0",
     "@putout/processor-css": "^12.0.0",
     "@putout/processor-filesystem": "^8.0.0",
