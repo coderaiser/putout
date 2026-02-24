@@ -1,3 +1,16 @@
+2026.02.24, v42.0.16
+
+feature:
+- 1c0c4e170 putout: @putout/plugin-variables v2.0.0
+- 1a7a9c15b @putout/plugin-variables: drop support of 🐊 < 42
+- 3471d4784 @putout/plugin-variables: extract-keyword: from: exclude
+- d292d4b6c @putout/operate: replaceWith: no path
+- 7bca3f894 @putout/plugin-putout: apply-name-to-is-identifier: MemberExpression
+- 1032fb2cb @putout/processor-toml: oxfmt v0.35.0
+- 426a6cdd3 @putout/operator-watermark: add
+- dd963edce putout: @putout/plugin-remove-useless-delete v3.0.0
+- 789cb490d @putout/plugin-remove-useless-delete: drop support of 🐊 < 42
+
 2026.02.23, v42.0.15
 
 feature:
