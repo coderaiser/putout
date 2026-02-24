@@ -1,3 +1,9 @@
+2026.02.24, v42.0.17
+
+feature:
+- 73a675d9f putout: actions: set node version to v25.6.1 (bcoe/c8#581)
+- 734a2500e @putout/plugin-esm: convert-const-to-import: add
+
 2026.02.24, v42.0.16
 
 feature:
