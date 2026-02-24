@@ -16,3 +16,8 @@ test('putout: apply-name-to-is-identifier: transform', (t) => {
     t.transform('apply-name-to-is-identifier');
     t.end();
 });
+
+test('putout: apply-name-to-is-identifier: transform: path', (t) => {
+    t.transform('path');
+    t.end();
+});
