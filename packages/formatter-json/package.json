@@ -33,7 +33,7 @@
   "devDependencies": {
     "@putout/plugin-variables": "*",
     "@putout/test": "^15.0.0",
-    "c8": "^10.0.0",
+    "c8": "^11.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^31.0.0",
