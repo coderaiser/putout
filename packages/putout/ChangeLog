@@ -1,3 +1,13 @@
+2026.02.25, v42.0.18
+
+fix:
+- ab0148ce5 putout: rules: filesystem/remove-files: enable
+- 710b414fc @putout/engine-parser: template: ast: duplicate call
+
+feature:
+- b7f98edbc root: c8 v11.0.0
+- fbd2223e6 root: c8 v11.0.0
+
 2026.02.24, v42.0.17
 
 feature:
