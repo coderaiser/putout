@@ -34,7 +34,7 @@
         },
         ".filesystem.json": {
             "coverage/remove-files": "on",
-            "filesystem": "on",
+            "filesystem/remove-files": "on",
             "madrun/rename-file": "on",
             "nodejs/cjs-file": "on",
             "nodejs/mjs-file": "on",

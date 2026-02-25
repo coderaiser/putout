@@ -132,6 +132,7 @@ test('putout: config: filesystem', (t) => {
     
     const expected = {
         'coverage/remove-files': 'on',
+        'filesystem/remove-files': 'on',
         'esm/resolve-imported-file': 'on',
         'esm/shorten-imported-file': 'on',
         'madrun/rename-file': 'on',
@@ -140,7 +141,6 @@ test('putout: config: filesystem', (t) => {
         'nodejs/rename-file-cjs-to-js': 'on',
         'nodejs/rename-file-mjs-to-js': 'on',
         'nodejs/apply-privately-required-file': 'on',
-        'filesystem': 'on',
         'package-json/find-file': 'on',
         'package-json/remove-exports-with-missing-files': 'on',
         'typescript/find-file': 'on',
