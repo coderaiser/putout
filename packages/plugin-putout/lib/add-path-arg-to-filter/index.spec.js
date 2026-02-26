@@ -21,3 +21,8 @@ test('putout: add-path-arg-to-filter: transform: member', (t) => {
     t.transform('member');
     t.end();
 });
+
+test('putout: add-path-arg-to-filter: transform: no-body', (t) => {
+    t.transform('no-body');
+    t.end();
+});

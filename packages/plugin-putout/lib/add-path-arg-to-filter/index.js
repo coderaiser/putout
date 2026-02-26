@@ -9,8 +9,8 @@ export const {
 } = addArgs({
     path: ['path', {
         include: [
-            'export const filter = () => __body',
-            'module.exports.filter = () => __body',
+            'export const filter = () => __',
+            'module.exports.filter = () => __',
         ],
     }],
 });
