@@ -103,6 +103,33 @@ You can use `exclude` list:
 }
 ```
 
+### `type`
+
+If you want include only calls, and exclude all other types of nodes, use `type`:
+
+```json
+{
+    "rules": {
+        "tape/add-args": ["on", {
+            "args": {
+                "process": ["{process}", {
+                    "include": "test('__a', (__args) => __body)",
+                    "type": "call"
+                }]
+            }
+        }]
+    }
+}
+```
+
+And nodes like:
+
+```js
+process.hello;
+```
+
+Will be ignored.
+
 ## License
 
 MIT

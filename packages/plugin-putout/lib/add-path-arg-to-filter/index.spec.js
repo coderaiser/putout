@@ -16,3 +16,8 @@ test('putout: add-path-arg-to-filter: transform', (t) => {
     t.transform('add-path-arg-to-filter');
     t.end();
 });
+
+test('putout: add-path-arg-to-filter: transform: member', (t) => {
+    t.transform('member');
+    t.end();
+});

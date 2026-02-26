@@ -71,7 +71,7 @@ const traverse = (args) => ({push, options}) => {
     return {
         ReferencedIdentifier(path) {
             for (const [name, config] of entries(allArgs)) {
-                const [declaration, include, exclude] = parseConfig(config);
+                const [declaration, type, include, exclude] = parseConfig(config);
                 
                 if (path.node.name !== name)
                     continue;
@@ -79,7 +79,7 @@ const traverse = (args) => ({push, options}) => {
                 if (path.scope.hasBinding(name))
                     continue;
                 
-                if (!isCall(path))
+                if (type === 'call' && !isCall(path))
                     continue;
                 
                 const fnPath = path.find(isFunction);
@@ -149,20 +149,28 @@ function getObjectPattern(params) {
     ];
 }
 
+const ALL_TYPES = '';
+
 function parseConfig(config) {
     const [declaration, patternsInclude, patternsExclude] = config;
     
     if (isArray(patternsInclude) || isString(patternsInclude))
         return [
             declaration,
+            ALL_TYPES,
             patternsInclude,
             patternsExclude,
         ];
     
-    const {include, exclude} = patternsInclude;
+    const {
+        type = ALL_TYPES,
+        include,
+        exclude,
+    } = patternsInclude;
     
     return [
         declaration,
+        type,
         include,
         exclude,
     ];

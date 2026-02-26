@@ -61,6 +61,35 @@ test('putout: operator: add-args', (t) => {
     t.end();
 });
 
+test('putout: operator: add-args: MemberExpression', (t) => {
+    const args = {
+        path: ['path', {
+            include: 'export const filter = (__args) => __body',
+        }],
+    };
+    
+    const source = montag`
+        export const filter = () => {
+            return path.node.async;
+        };
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        export const filter = (path) => {
+            return path.node.async;
+        };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: operator: add-args: a couple patterns', (t) => {
     const args = {
         compare: ['{compare}', [
@@ -387,7 +416,7 @@ test('putout: operator: add-args: nested block', (t) => {
     t.end();
 });
 
-test('putout: operator: add-args: MemberExpression', (t) => {
+test('putout: operator: add-args: CallExpression callee is MemberExpression', (t) => {
     const args = {
         maybe: ['{maybe}', 'module.exports.__a = (__args) => __body'],
     };
@@ -421,7 +450,10 @@ test('putout: operator: add-args: MemberExpression', (t) => {
 
 test('putout: operator: add-args: AssignmentExpression: no', (t) => {
     const args = {
-        process: ['{process}', 'module.exports.__a = (__args) => __body'],
+        process: ['{process}', {
+            include: 'module.exports.__a = (__args) => __body',
+            type: 'call',
+        }],
     };
     
     const source = montag`
@@ -444,7 +476,10 @@ test('putout: operator: add-args: AssignmentExpression: no', (t) => {
 
 test('putout: operator: add-args: AssignmentExpression', (t) => {
     const args = {
-        process: ['{process}', 'module.exports.__a = (__args) => __body'],
+        process: ['{process}', {
+            include: 'module.exports.__a = (__args) => __body',
+            type: 'call',
+        }],
     };
     
     const source = montag`
@@ -472,7 +507,10 @@ test('putout: operator: add-args: AssignmentExpression', (t) => {
 
 test('putout: operator: add-args: no transform UnaryExpression', (t) => {
     const args = {
-        process: ['{process}', 'module.exports.__a = (__args) => __body'],
+        process: ['{process}', {
+            include: 'module.exports.__a = (__args) => __body',
+            type: 'call',
+        }],
     };
     
     const source = montag`
