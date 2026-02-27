@@ -216,7 +216,6 @@
     "@putout/eslint-flat": "^4.0.0",
     "@putout/plugin-apply-entries": "^2.0.0",
     "@putout/test": "^15.1.0",
-    "c8": "^11.0.0",
     "currify": "^4.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-n": "^17.0.0",
@@ -225,6 +224,7 @@
     "madrun": "^13.0.0",
     "montag": "^1.2.1",
     "nodemon": "^3.0.1",
+    "superc8": "^12.0.0",
     "supertape": "^12.0.0"
   },
   "license": "MIT",

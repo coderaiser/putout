@@ -51,7 +51,6 @@
     "acorn": "^8.1.1",
     "acorn-stage3": "^4.0.0",
     "acorn-typescript": "^1.4.13",
-    "c8": "^11.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^31.0.0",
@@ -63,6 +62,7 @@
     "montag": "^1.0.0",
     "nodemon": "^3.0.1",
     "putout": "*",
+    "superc8": "^12.0.0",
     "supertape": "^12.0.0",
     "tenko": "^2.0.0"
   },
