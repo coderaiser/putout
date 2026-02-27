@@ -164,6 +164,14 @@ export const replace = () => ({
             const __a = ${name}.__c(__args);
         }`;
     },
+    'require("__b").__c(__args).__d(__args)': ({__b}) => {
+        const name = camelCase(__b.value);
+        
+        return `{
+            import ${name} from "__b";
+            ${name}.__c(__args).__d(__args);
+        }`;
+    },
     'export const __a = require("__b")': ({__a}) => {
         if (isObjectPattern(__a))
             return 'export __a from "__b"';
