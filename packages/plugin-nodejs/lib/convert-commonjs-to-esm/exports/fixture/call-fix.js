@@ -1,0 +1,1 @@
+checkCoverages(argv, report);

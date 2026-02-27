@@ -75,6 +75,15 @@ const isNested = ({properties}) => {
 };
 
 export const replace = () => ({
+    'module.exports.__a(__args)': '__a(__args)',
+    'module.exports.__a = __b': ({__a, __b}, path) => {
+        const {name} = __a;
+        
+        if (isIdentifier(__b, {name}))
+            return addExportToBinding(__b.name, path);
+        
+        return 'export const __a = __b';
+    },
     'module.exports = __a': ({__a}, path) => {
         if (!isObjectExpression(__a) || isStringLiteral(__a.properties[0].key) || isNested(__a))
             return 'export default __a';
@@ -141,14 +150,6 @@ export const replace = () => ({
              ${declarations.join('\n')}
              ${result.join('\n')}
          }`;
-    },
-    'module.exports.__a = __b': ({__a, __b}, path) => {
-        const {name} = __a;
-        
-        if (isIdentifier(__b, {name}))
-            return addExportToBinding(__b.name, path);
-        
-        return 'export const __a = __b';
     },
 });
 
