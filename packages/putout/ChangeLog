@@ -1,3 +1,15 @@
+2026.02.27, v42.0.19
+
+fix:
+- dea3d500b putout config: set-node-version: v25.6.1 -> 25.x
+- 36a654149 @putout/plugin-putout: add-path-arg-to-filter: no body
+
+feature:
+- fd7ead29b root: superc8 v12.0.0
+- 0e3ec97e7 @putout/plugin-nodejs: convert-commonjs-to-esm: exports: call
+- cf1a3244f @putout/plugin-nodejs: convert-commonjs-to-esm: require: chain: improve support
+- daf3c3c89 @putout/operator-add-args: type: add
+
 2026.02.25, v42.0.18
 
 fix:
