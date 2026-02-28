@@ -30,6 +30,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-create-nested-directory](#apply-create-nested-directory);
 - ✅ [apply-declare](#apply-declare);
 - ✅ [apply-destructuring](#apply-destructuring);
+- ✅ [apply-destructuring-to-options](#apply-destructuring);
 - ✅ [apply-engine-node-version](#apply-engine-node-version);
 - ✅ [apply-exports](#apply-exports);
 - ✅ [apply-exports-to-add-args](#apply-exports-to-add-args);
@@ -120,6 +121,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
         "putout/apply-destructuring": "on",
+        "putout/apply-destructuring-to-options": "on",
         "putout/apply-engine-node-version": "off",
         "putout/apply-exports": "off",
         "putout/apply-exports-to-add-args": "on",
@@ -600,6 +602,22 @@ const putout = require('putout');
 
 ```js
 const {putout} = require('putout');
+```
+
+## apply-destructuring-to-options
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/44f02be3d5b1fcef7dec27edf7bb0016/75e4443ff82350af1b85106af87e488dba1cf178).
+
+### ❌ Example of incorrect code
+
+```js
+export const filter = (path, options) => {};
+```
+
+### ✅ Example of correct code
+
+```js
+export const filter = (path, {options}) => {};
 ```
 
 ## apply-engine-node-version

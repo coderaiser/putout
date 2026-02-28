@@ -419,3 +419,8 @@ test('plugin-putout: transform: apply-get-binding', (t) => {
     t.transform('apply-get-binding');
     t.end();
 });
+
+test('plugin-putout: transform: apply-destructuring-to-options', (t) => {
+    t.transform('apply-destructuring-to-options');
+    t.end();
+});

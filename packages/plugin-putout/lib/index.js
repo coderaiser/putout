@@ -1,3 +1,4 @@
+import * as applyDestructuringToOptions from './apply-destructuring-to-options/index.js';
 import * as applyGetBinding from './apply-get-binding/index.js';
 import * as applyNameToIsIdentifier from './apply-name-to-is-identifier/index.js';
 import * as addPathArgToFilter from './add-path-arg-to-filter/index.js';
@@ -170,4 +171,5 @@ export const rules = {
     'add-path-arg-to-filter': addPathArgToFilter,
     'apply-name-to-is-identifier': applyNameToIsIdentifier,
     'apply-get-binding': applyGetBinding,
+    'apply-destructuring-to-options': applyDestructuringToOptions,
 };
