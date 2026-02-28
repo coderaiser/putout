@@ -101,3 +101,8 @@ test('plugin-conditions: transform: apply-equal', (t) => {
     t.transform('apply-equal');
     t.end();
 });
+
+test('plugin-conditions: transform: apply-early-return', (t) => {
+    t.transform('apply-early-return');
+    t.end();
+});

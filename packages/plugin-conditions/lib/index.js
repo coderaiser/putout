@@ -1,3 +1,4 @@
+import * as applyEarlyReturn from './apply-early-return/index.js';
 import * as applyEqual from './apply-equal/index.js';
 import * as applyConsistentBlocks from './apply-consistent-blocks/index.js';
 import * as applyComparisonOrder from './apply-comparison-order/index.js';
@@ -38,4 +39,5 @@ export const rules = {
     'remove-useless-loop-condition': removeUselessLoopCondition,
     'merge-if-with-else': mergeIfWithElse,
     'apply-equal': applyEqual,
+    'apply-early-return': applyEarlyReturn,
 };
