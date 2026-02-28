@@ -19,7 +19,11 @@ const {
     isExportNamedDeclaration,
 } = types;
 
-const {replaceWith, insertBefore} = operator;
+const {
+    replaceWith,
+    insertBefore,
+    getBinding,
+} = operator;
 
 const camelCase = (a) => justCamelCase(a.replace('@', ''));
 
@@ -38,6 +42,7 @@ const createImport = ({name, source}) => {
 const createFnDeclaration = template('const NAME1 = FN(NAME2)');
 
 export const match = () => ({
+    'require.resolve(__a)': (vars, path) => !getBinding(path, 'require'),
     'export const __a = require("__b")': ({__a}, path) => {
         if (!isIdentifier(__a))
             return true;
@@ -54,7 +59,7 @@ export const match = () => ({
         if (isExportNamedDeclaration(path.parentPath))
             return false;
         
-        if (path.scope.getBinding('require'))
+        if (getBinding(path, 'require'))
             return false;
         
         const __bPath = path.get(__B);
@@ -72,6 +77,7 @@ export const match = () => ({
 });
 
 export const replace = () => ({
+    'require.resolve(__a)': 'fileURLToPath(import.meta.resolve(__a))',
     'const __a = require("__b").default': 'import __a from "__b"',
     'const __a = require(__b).__c': ({__a, __c}, path) => {
         const {name} = __c;
