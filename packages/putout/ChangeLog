@@ -1,3 +1,20 @@
+2026.02.28, v42.0.20
+
+feature:
+- 0a5381dc0 putout: @putout/formatter-stream v7.0.0
+- c99b7b61f @putout/formatter-stream: chalk -> styleText
+- b35817221 putout: @putout/formatter-progress v7.0.0
+- d61400030 @putout/formatter-progress: drop support of 🐊 < 42
+- f03044b18 putout: @putout/formatter-time v5.0.0
+- ebca8cdd6 @putout/formatter-time: drop support of 🐊 < 42
+- d1b641185 putout: @putout/formatter-progress-bar v6.0.0
+- 80eb62efd @putout/formatter-progress-bar: drop support of 🐊 < 42
+- 70de5d9ab putout: @putout/formatter-memory v6.0.0
+- 9c3881239 putout: @putout/formatter-dump v7.0.0
+- a88b2e92d @putout/formatter-memory: drop support of 🐊 < 42
+- 5b3691143 @putout/formatter-dump: drop support of 🐊 < 42
+- 746f4aad9 @putout/plugin-nodejs: apply-style-text: add
+
 2026.02.27, v42.0.19
 
 fix:
