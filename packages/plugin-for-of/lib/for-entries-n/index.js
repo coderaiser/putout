@@ -7,6 +7,7 @@ import {
 const {
     compare,
     getTemplateValues,
+    getBinding,
 } = operator;
 
 const {isBlockStatement} = types;
@@ -47,7 +48,7 @@ export const filter = (path) => {
     if (!comparePrevSiblings(path, assignN(__n)))
         return false;
     
-    const nBinding = path.scope.getBinding(__n.name);
+    const nBinding = getBinding(path, __n.name);
     
     if (nBinding.references > 1)
         return false;

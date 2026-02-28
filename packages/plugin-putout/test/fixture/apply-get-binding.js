@@ -1,0 +1,2 @@
+
+path.scope.getBinding('require')

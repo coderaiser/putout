@@ -1,0 +1,1 @@
+getBinding(path, 'require');

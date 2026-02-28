@@ -414,3 +414,8 @@ test('plugin-putout: transform: apply-name-to-is-identifier', (t) => {
     t.transform('apply-name-to-is-identifier');
     t.end();
 });
+
+test('plugin-putout: transform: apply-get-binding', (t) => {
+    t.transform('apply-get-binding');
+    t.end();
+});

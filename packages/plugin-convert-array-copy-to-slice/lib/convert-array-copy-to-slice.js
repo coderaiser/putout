@@ -5,7 +5,7 @@ const {
     isCallExpression,
 } = types;
 
-const {compare} = operator;
+const {compare, getBinding} = operator;
 
 export const report = () => `Copy array with '.slice()'`;
 
@@ -21,7 +21,7 @@ export const match = () => ({
             return false;
         
         if (isIdentifier(__a)) {
-            const binding = path.scope.getBinding(__a.name);
+            const binding = getBinding(path, __a.name);
             
             if (!binding)
                 return false;
