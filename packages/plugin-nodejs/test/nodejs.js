@@ -121,3 +121,8 @@ test('plugin-nodejs: transform: remove-top-level-process-exit', (t) => {
     t.transform('remove-top-level-process-exit');
     t.end();
 });
+
+test('plugin-nodejs: transform: apply-style-text', (t) => {
+    t.transform('apply-style-text');
+    t.end();
+});

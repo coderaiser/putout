@@ -51,9 +51,9 @@ function buildLine(places) {
         const {line, column} = position;
         
         data.push([
-            styleText('grey', `${line}:${column}`),
+            styleText('gray', `${line}:${column}`),
             `${styleText('red', 'error')}   ${message}`,
-            styleText('grey', rule),
+            styleText('gray', rule),
         ]);
     }
     

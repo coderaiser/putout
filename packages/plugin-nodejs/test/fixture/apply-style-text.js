@@ -1,0 +1,1 @@
+styleText('grey', `${line}:${column}`);

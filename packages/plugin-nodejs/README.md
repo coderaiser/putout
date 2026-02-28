@@ -18,6 +18,7 @@ npm i putout @putout/plugin-nodejs -D
 ## Rules
 
 - ✅ [add-node-prefix](#add-node-prefix);
+- ✅ [apply-style-text](#apply-style-text);
 - ✅ [add-missing-strict-mode](#add-missing-strict-mode);
 - ✅ [convert-buffer-to-buffer-alloc](#convert-buffer-to-buffer-alloc);
 - ✅ [convert-commonjs-to-esm](#convert-commonjs-to-esm);
@@ -52,6 +53,7 @@ npm i putout @putout/plugin-nodejs -D
     "rules": {
         "nodejs/add-missing-strict-mode": "on",
         "nodejs/add-node-prefix": "on",
+        "nodejs/apply-style-text": "on",
         "nodejs/convert-commonjs-to-esm": "off",
         "nodejs/convert-esm-to-commonjs": "off",
         "nodejs/cjs-file": "off",
@@ -109,6 +111,26 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout** | [`add-node-prefix`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs/add-node-prefix#readme) | ✅
 ⏣ **ESLint** | [`prefer-node-protocol`](https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-node-protocol.md#readme)  | ✅
+
+## apply-style-text
+
+Fixes `TypeError`:
+
+> `TypeError [ERR_INVALID_ARG_VALUE]: The argument 'format' must be one of: 'reset', 'bold', 'dim', 'italic', 'underline', 'blink', 'inverse', 'hidden', 'strikethrough', 'doubleunderline', 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white', 'bgBlack', 'bgRed', 'bgGreen', 'bgYellow', 'bgBlue', 'bgMagenta', 'bgCyan', 'bgWhite', 'framed', 'overlined', 'gray', 'redBright', 'greenBright', 'yellowBright', 'blueBright', 'magentaBright', 'cyanBright', 'whiteBright', 'bgGray', 'bgRedBright', 'bgGreenBright', 'bgYellowBright', 'bgBlueBright', 'bgMagentaBright', 'bgCyanBright', 'bgWhiteBright'. Received 'grey'`
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/7d2ce9da4a4799398e3c110182ab7e7f/10a5878228fcb7486b0faa46713cfb902165d15c).
+
+### ❌ Example of incorrect code
+
+```js
+styleText('grey', `${line}:${column}`);
+```
+
+### ✅ Example of correct code
+
+```js
+styleText('gray', `${line}:${column}`);
+```
 
 ## convert-buffer-to-buffer-alloc
 

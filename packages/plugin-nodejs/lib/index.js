@@ -1,3 +1,4 @@
+import * as applyStyleText from './apply-style-text/index.js';
 import * as removeTopLevelProcessExit from './remove-top-level-process-exit/index.js';
 import * as applyPrivatelyRequiredFiles from './apply-privately-required-file/index.js';
 import * as convertBufferToBufferAlloc from './convert-buffer-to-buffer-alloc/index.js';
@@ -52,4 +53,5 @@ export const rules = {
     'remove-useless-promisify': removeUselessPromisify,
     'group-require-by-id': groupRequireById,
     'remove-top-level-process-exit': removeTopLevelProcessExit,
+    'apply-style-text': applyStyleText,
 };
