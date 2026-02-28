@@ -94,7 +94,7 @@ export const include = () => [
     'DebuggerStatement',
 ];
 
-export const filter = (path) => {
+export const filter = (path, {options}) => {
     return true;
 };
 ```
