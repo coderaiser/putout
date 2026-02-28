@@ -30,7 +30,7 @@ const prepare = (plugin, context, options) => (node) => {
         filename,
     };
     
-    const result = filter(path, options);
+    const result = filter(path, {options});
     
     if (!result)
         return;

@@ -41,7 +41,7 @@ export const fix = ({text}) => {
     return `${startText}${endText}`;
 };
 
-export const filter = ({node}, options) => {
+export const filter = ({node}, {options}) => {
     const {parent} = node.parent;
     const {maxLength} = parseOptions(options);
     

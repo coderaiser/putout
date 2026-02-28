@@ -27,7 +27,7 @@ export const include = ({options}) => {
     ];
 };
 
-export const filter = ({node}, options) => {
+export const filter = ({node}, {options}) => {
     const {minProperties} = parseOptions(options);
     const {line} = node.loc.start;
     

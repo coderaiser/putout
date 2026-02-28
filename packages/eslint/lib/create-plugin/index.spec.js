@@ -45,7 +45,7 @@ test('@putout/eslint: create-plugin: filter', (t) => {
 test('@putout/eslint: create-plugin: filter: options', (t) => {
     const {create} = createPlugin({
         include: () => ['DebuggerStatement'],
-        filter: (path, options) => options,
+        filter: (path, {options}) => options,
         report: () => `Avoid 'debugger'`,
         fix: () => '',
     });
