@@ -57,7 +57,7 @@
     "runner"
   ],
   "devDependencies": {
-    "@putout/formatter-dump": "*",
+    "@putout/formatter-dump": "^7.0.0",
     "@putout/formatter-progress": "*",
     "@putout/plugin-destructuring": "*",
     "@putout/plugin-esm": "*",
