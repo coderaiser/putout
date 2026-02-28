@@ -1,3 +1,16 @@
+2026.02.28, v42.0.21
+
+feature:
+- 123268f55 putout: @putout/plugin-for-of v12.0.0
+- 6635edb32 @putout/plugin-for-of: drop support of 🐊 < 42
+- 400b5dd90 @putout/plugin-convert-array-copy-to-slice: drop support of 🐊 < 42
+- fdcba18df @putout/plugin-putout: apply-get-binding: add
+- 7dd14d7da @putout/plugin-nodejs: require: resolve
+- 5ce1aa461 @putout/operate: getBinding: no path
+- 5c38decad @putout/plugin-nodejs: convert-commonjs-to-esm: export: assign
+- d21930d91 @putout/plugin-socket-io: drop support of 🐊 < 42
+- 794b64042 @putout/plugin-socket-io: convert-listen-to-new-server: improve
+
 2026.02.28, v42.0.20
 
 feature:
