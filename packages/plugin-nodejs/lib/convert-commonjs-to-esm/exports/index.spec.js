@@ -129,3 +129,8 @@ test('plugin-nodejs: covert-commonjs-to-esm: exports: transform: call', (t) => {
     t.transform('call');
     t.end();
 });
+
+test('plugin-nodejs: covert-commonjs-to-esm: exports: transform: assign', (t) => {
+    t.transform('assign');
+    t.end();
+});

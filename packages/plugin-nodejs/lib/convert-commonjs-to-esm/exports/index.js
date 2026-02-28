@@ -75,6 +75,7 @@ const isNested = ({properties}) => {
 };
 
 export const replace = () => ({
+    'module.exports.__a.__b = __c': '__a.__b = __c',
     'module.exports.__a(__args)': '__a(__args)',
     'module.exports.__a = __b': ({__a, __b}, path) => {
         const {name} = __a;
