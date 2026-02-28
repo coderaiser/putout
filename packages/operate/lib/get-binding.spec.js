@@ -1,6 +1,7 @@
 import {parse, operator} from 'putout';
 import {test} from 'supertape';
 import montag from 'montag';
+import {tryCatch} from 'try-catch';
 import {getBinding, getBindingPath} from './get-binding.js';
 
 const {traverse} = operator;
@@ -18,6 +19,13 @@ test('operate: getBinding: current scope', (t) => {
     });
     
     t.equal(result, `hello = 'world'`);
+    t.end();
+});
+
+test('operate: getBinding: no path', (t) => {
+    const [error] = tryCatch(getBinding, 'hello');
+    
+    t.equal(error.message, `☝️ Looks like 'path' not object but 'string'`);
     t.end();
 });
 
@@ -150,3 +158,4 @@ test('operate: getBindingPath: no', (t) => {
     t.notOk(result);
     t.end();
 });
+
