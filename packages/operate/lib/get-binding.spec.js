@@ -158,4 +158,3 @@ test('operate: getBindingPath: no', (t) => {
     t.notOk(result);
     t.end();
 });
-

@@ -35,4 +35,3 @@ function check(path) {
     if (!isObject(path))
         throw Error(`☝️ Looks like 'path' not object but '${typeof path}'`);
 }
-
