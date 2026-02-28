@@ -16,3 +16,8 @@ test('socket-io: convert-io-listen-to-new-server: transform', (t) => {
     t.transform('convert-io-listen-to-new-server');
     t.end();
 });
+
+test('socket-io: convert-io-listen-to-new-server: transform: io', (t) => {
+    t.transform('io');
+    t.end();
+});
