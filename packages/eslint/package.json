@@ -37,7 +37,6 @@
     "eslint"
   ],
   "devDependencies": {
-    "@putout/eslint-flat": "^4.0.0",
     "@putout/plugin-eslint-plugin": "*",
     "eslint": "^10.0.0",
     "eslint-plugin-n": "^17.0.0",
