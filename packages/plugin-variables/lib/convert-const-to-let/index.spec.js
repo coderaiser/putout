@@ -9,7 +9,11 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: plugin-variables: convert-const-to-let: report: const', (t) => {
-    t.report('const', `Use 'let' when reassign`);
+    t.report('const', [
+        `Use 'let' when reassign`,
+        `Use 'let' when reassign`,
+        `Use 'let' when reassign`,
+    ]);
     t.end();
 });
 

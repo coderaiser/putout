@@ -22,7 +22,7 @@ export const fix = (path) => {
     path.node.kind = 'let';
 };
 
-export const traverse = ({push}) => ({
+export const traverse = ({push, pathStore}) => ({
     VariableDeclaration: (path) => {
         if (path.parentPath.isTSModuleBlock())
             return;
@@ -53,8 +53,15 @@ export const traverse = ({push}) => ({
                 continue;
             
             if (parentPath.node.kind === 'const')
-                push(binding.path.parentPath);
+                pathStore(binding.path.parentPath);
         }
+    },
+    Program: {
+        exit() {
+            for (const path of pathStore()) {
+                push(path);
+            }
+        },
     },
 });
 
