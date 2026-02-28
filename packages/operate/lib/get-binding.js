@@ -6,9 +6,13 @@ const {
 } = types;
 
 const isString = (a) => typeof a === 'string';
+const isObject = (a) => a && typeof a === 'object';
 
 export function getBinding(path, node) {
+    check(path);
+    
     const name = parseName(node);
+    
     return path.scope.getAllBindings()[name];
 }
 
@@ -26,3 +30,9 @@ const parseName = (node) => {
     
     return '';
 };
+
+function check(path) {
+    if (!isObject(path))
+        throw Error(`☝️ Looks like 'path' not object but '${typeof path}'`);
+}
+
