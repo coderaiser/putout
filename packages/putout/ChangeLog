@@ -1,3 +1,21 @@
+2026.02.28, v42.0.23
+
+feature:
+- d5b3d3117 putout: @putout/plugin-try-catch v8.0.0
+- b76cc9c4f @putout/plugin-try-catch: drop support of 🐊 < 42
+- 67584c727 @putout/plugin-try-catch: async: multiple statements inside try-block
+- 59ca4c792 putout: @putout/plugin-conditions v9.0.0
+- adcefef2f putout: @putout/cli-choose-formatter v7.0.0
+- d4a7f07c9 @putout/plugin-cli-choose-formatter: drop support of 🐊 < 42
+- 8a41eb68b @putout/plugin-conditions: drop support of 🐊 < 42
+- b725c618e @putout/plugin-condition: apply-early-return: add
+- 515736059 putout: @putout/plugin-for-of v12.0.0
+- 1d6a6fa37 @putout/plugin-for-of: drop support of 🐊 < 42
+- e29e941d3 @putout/plugin-convert-array-copy-to-slice: drop support of 🐊 < 42
+- 63f4a456a @putout/plugin-putout: apply-get-binding: add
+- 34b316165 @putout/plugin-nodejs: require: resolve
+- dd9edab34 @putout/operate: getBinding: no path
+
 2026.02.28, v42.0.22
 
 feature:
