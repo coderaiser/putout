@@ -65,7 +65,7 @@
     "@putout/engine-reporter": "^8.0.2",
     "@putout/engine-runner": "^28.0.0",
     "@putout/formatter-codeframe": "^10.0.0",
-    "@putout/formatter-dump": "^6.0.0",
+    "@putout/formatter-dump": "^7.0.0",
     "@putout/formatter-frame": "^9.0.0",
     "@putout/formatter-json": "^3.0.0",
     "@putout/formatter-json-lines": "^4.0.0",
