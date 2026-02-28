@@ -102,7 +102,7 @@
     "@putout/plugin-arguments": "^1.0.0",
     "@putout/plugin-assignment": "^2.0.0",
     "@putout/plugin-browserlist": "^2.0.0",
-    "@putout/plugin-conditions": "^8.0.0",
+    "@putout/plugin-conditions": "^9.0.0",
     "@putout/plugin-convert-concat-to-flat": "^2.0.0",
     "@putout/plugin-convert-index-of-to-includes": "^3.0.0",
     "@putout/plugin-convert-object-entries-to-array-entries": "^4.0.0",
