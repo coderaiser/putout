@@ -17,6 +17,7 @@ export const replace = () => ({
     'if (__a) __b; else __c': ({__b}, path) => {
         if (isBlockStatement(__b)) {
             __b.body.push(returnStatement());
+            
             return path;
         }
         
@@ -46,5 +47,18 @@ function check(vars, path) {
             return false;
     }
     
-    return true;
+    return !hasReturn(path);
+}
+
+function hasReturn(path) {
+    let has = false;
+    
+    path.traverse({
+        ReturnStatement(path) {
+            has = true;
+            path.stop();
+        },
+    });
+    
+    return has;
 }

@@ -19,3 +19,8 @@ test('conditions: apply-early-return: transform', (t) => {
     t.transform('apply-early-return');
     t.end();
 });
+
+test('conditions: apply-early-return: no report: has-return', (t) => {
+    t.noReport('has-return');
+    t.end();
+});
