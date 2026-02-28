@@ -10,23 +10,24 @@ const {
 export const report = () => `Use 'early return' instead of 'else'`;
 
 export const match = () => ({
-    'if (__a) __body; else __c': check,
     'if (__a) __b; else __c': check,
 });
+
 export const replace = () => ({
-    'if (__a) __body; else __c': (vars, path) => {
-        const consequent = path.get('consequent');
-        consequent.node.body.push(returnStatement());
+    'if (__a) __b; else __c': ({__b}, path) => {
+        if (isBlockStatement(__b)) {
+            __b.body.push(returnStatement());
+            return path;
+        }
         
-        return path;
+        return `
+            if (__a) {
+                __b;
+                return;
+            } else
+                __c
+        `;
     },
-    'if (__a) __b; else __c': `
-    	if (__a) {
-        	__b;
-            return;
-        } else 
-        	__c
-    `,
 });
 
 function check(vars, path) {

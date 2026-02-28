@@ -8,7 +8,10 @@ const test = createTest(import.meta.url, {
 });
 
 test('conditions: apply-early-return: report', (t) => {
-    t.report('apply-early-return', `Use 'early return' instead of 'else'`);
+    t.report('apply-early-return', [
+        `Use 'early return' instead of 'else'`,
+        `Use 'early return' instead of 'else'`,
+    ]);
     t.end();
 });
 

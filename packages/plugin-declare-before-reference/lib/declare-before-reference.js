@@ -39,19 +39,20 @@ export const fix = ({path, referencePath}) => {
         const topPath = referencePath.find(isStatement);
         
         insertBefore(topPath, node);
-    } else {
-        const body = programPath.get('body');
-        const [first] = body;
-        
-        if (compare(first, 'const __a = require(__b)')) {
-            const latest = getPathAfterRequires(body.slice(1));
-            insertBefore(latest, node);
-            
-            return;
-        }
-        
-        programPath.node.body.unshift(node);
+        return;
     }
+    
+    const body = programPath.get('body');
+    const [first] = body;
+    
+    if (compare(first, 'const __a = require(__b)')) {
+        const latest = getPathAfterRequires(body.slice(1));
+        insertBefore(latest, node);
+        
+        return;
+    }
+    
+    programPath.node.body.unshift(node);
 };
 
 export const traverse = ({push}) => ({
