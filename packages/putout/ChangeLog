@@ -1,3 +1,12 @@
+2026.02.28, v42.0.22
+
+feature:
+- fac228965 putout: @putout/plugin-conditions v9.0.0
+- d88df6685 putout: @putout/cli-choose-formatter v7.0.0
+- eb8d22603 @putout/plugin-cli-choose-formatter: drop support of 🐊 < 42
+- 064bb8096 @putout/plugin-conditions: drop support of 🐊 < 42
+- 8e4fd98ec @putout/plugin-condition: apply-early-return: add
+
 2026.02.28, v42.0.21
 
 feature:
