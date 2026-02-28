@@ -32,6 +32,11 @@ test('plugin-try-catch: async: transform: types', (t) => {
     t.end();
 });
 
+test('plugin-try-catch: async: transform: return', (t) => {
+    t.transform('return');
+    t.end();
+});
+
 test('plugin-try-catch: async: no report: no-await', (t) => {
     t.noReport('no-await');
     t.end();

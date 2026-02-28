@@ -14,10 +14,11 @@ const {replaceWithMultiple} = operator;
 
 export const applyTryCatch = (tryName) => (path) => {
     const expression = parseExpression(path);
+    const args = expression.arguments;
     
     const callNode = callExpression(identifier(tryName), [
         expression.callee,
-        ...expression.arguments,
+        ...args,
     ]);
     
     const {param} = path.node.handler;
@@ -41,9 +42,12 @@ export const applyTryCatch = (tryName) => (path) => {
         variableDeclarator(arrayPattern([param]), maybeAwait(path, callNode)),
     ]);
     
+    const bodyOfTry = path.get('block').node.body.slice(1);
+    
     replaceWithMultiple(path, [
         varNode,
         ...ifNode,
+        ...bodyOfTry,
     ]);
 };
 

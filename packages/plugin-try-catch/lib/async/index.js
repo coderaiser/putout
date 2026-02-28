@@ -13,7 +13,6 @@ export const include = () => [
 
 export const filter = (path) => {
     const {node} = path;
-    
     const {block, finalizer} = node;
     
     const {length} = block.body;
@@ -25,7 +24,7 @@ export const filter = (path) => {
     if (finalizer)
         return false;
     
-    if (length !== 1)
+    if (!length)
         return false;
     
     return isAwaitExpression(first.expression);
