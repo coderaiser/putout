@@ -167,8 +167,9 @@ function notBlockNoNext() {
     if (a) {
         x();
         return;
-    } else
-        b();
+    }
+    
+    b();
 }
 ```
 

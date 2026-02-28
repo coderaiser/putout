@@ -1346,6 +1346,24 @@ function world(a) {
 
 </details>
 
+<details><summary>apply early <code>return</code></summary>
+
+```diff
+function fn() {
+-   if (a)
+-        x();
+-    else
+-        y();
++   if (a) {
++        x();
++   }
+    
++   y();
+
+```
+
+</details>
+
 <details><summary>apply <code>globalThis</code></summary>
 
 ```diff
