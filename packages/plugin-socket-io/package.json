@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-socket-io",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin helps to migrate to new version of socket.io",
