@@ -3,6 +3,9 @@ import {defineConfig} from 'eslint/config';
 
 export default defineConfig([
     safeAlign, {
+        rules: {
+            'n/no-unsupported-features/node-builtins': 'off',
+        },
         ignores: ['**/fixture'],
     },
 ]);

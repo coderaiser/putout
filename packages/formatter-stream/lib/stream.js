@@ -1,16 +1,14 @@
+import {styleText} from 'node:util';
 import {
     table,
     getBorderCharacters,
 } from 'table';
-import chalk from 'chalk';
 
-const {
-    underline,
-    red,
-    grey,
-    bold,
-    redBright,
-} = chalk;
+const underline = (a) => styleText('underline', a);
+const red = (a) => styleText('red', a);
+const gray = (a) => styleText('gray', a);
+const bold = (a) => styleText('bold', a);
+const redBright = (a) => styleText('redBright', a);
 
 export default ({name, places, index, count, filesCount, errorsCount}) => {
     const data = [];
@@ -20,9 +18,9 @@ export default ({name, places, index, count, filesCount, errorsCount}) => {
         const {line, column} = position;
         
         data.push([
-            grey(`${line}:${column}`),
+            gray(`${line}:${column}`),
             `${red('error')}   ${message}`,
-            grey(rule),
+            gray(rule),
         ]);
     }
     
