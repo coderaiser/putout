@@ -147,6 +147,8 @@ Linter | Rule | Fix
 
 ## apply-early-return
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/dd2ba101a3039784bd83a12157fd7fc4/5cdf5340f761c6df3d82964b27aae7d7befcdc56).
+
 ### ❌ Example of incorrect code
 
 ```js
