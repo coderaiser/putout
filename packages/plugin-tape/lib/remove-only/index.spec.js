@@ -12,6 +12,11 @@ test('plugin-remove-only: report: only', (t) => {
     t.end();
 });
 
+test('plugin-remove-only: no report: not-test', (t) => {
+    t.noReport('not-test');
+    t.end();
+});
+
 test('plugin-remove-only: transform: only', (t) => {
     t.transform('only');
     t.end();
@@ -34,5 +39,19 @@ test('plugin-remove-only: transform: other-name', (t) => {
 
 test('plugin-remove-only: no report: member', (t) => {
     t.noReport('member');
+    t.end();
+});
+
+test('plugin-remove-only: transform with options: it', (t) => {
+    t.transformWithOptions('it', {
+        allowed: ['it'],
+    });
+    t.end();
+});
+
+test('plugin-remove-only: transform with options: it: allowed: string', (t) => {
+    t.transformWithOptions('it', {
+        allowed: 'it',
+    });
     t.end();
 });

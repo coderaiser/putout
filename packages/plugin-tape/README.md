@@ -79,8 +79,12 @@ npm i @putout/plugin-tape -D
         "tape/declare": "on",
         "tape/remove-default-messages": "on",
         "tape/remove-useless-not-called-args": "on",
-        "tape/remove-only": "on",
-        "tape/remove-skip": "on"
+        "tape/remove-only": ["on", {
+            "allowed": ["test"]
+        }],
+        "tape/remove-skip": ["on", {
+            "allowed": ["test"]
+        }]
     }
 }
 ```
