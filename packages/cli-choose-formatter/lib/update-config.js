@@ -6,11 +6,13 @@ export const updateConfig = ({formatter, chosenFormatter, config}) => {
     
     if (arrayLike) {
         const [, options] = currentFormatter;
-        config.formatter = [chosenFormatter, options];
-    } else {
-        config.formatter = chosenFormatter;
         
-        if (formatter === chosenFormatter)
-            delete config.formatter;
+        config.formatter = [chosenFormatter, options];
+        return;
     }
+    
+    config.formatter = chosenFormatter;
+    
+    if (formatter === chosenFormatter)
+        delete config.formatter;
 };
