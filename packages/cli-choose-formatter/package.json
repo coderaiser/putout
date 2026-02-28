@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "putout": ">=41"
+    "putout": ">=42"
   },
   "engines": {
     "node": ">=22"
