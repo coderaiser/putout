@@ -58,10 +58,12 @@ function isExported(binding) {
 }
 
 function removeSpecifier(path) {
-    if (path.parentPath.node.specifiers.length === 1)
+    if (path.parentPath.node.specifiers.length === 1) {
         remove(path.parentPath);
-    else
-        remove(path);
+        return;
+    }
+    
+    remove(path);
 }
 
 function createExport(path, parentReference) {

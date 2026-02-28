@@ -174,9 +174,12 @@ export default ({use, declare, addParams}) => {
             
             const initPath = path.get('init');
             
-            if (isIdentifier(init))
+            if (isIdentifier(init)) {
                 use(path, init.name);
-            else if (isArrayExpression(init))
+                return;
+            }
+            
+            if (isArrayExpression(init))
                 traverseArray(initPath.get('elements'));
         },
         

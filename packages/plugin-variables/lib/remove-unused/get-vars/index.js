@@ -138,11 +138,13 @@ const useVariable = ({vars}) => (path, name) => {
     
     const current = vars[uid];
     
-    if (current[name])
+    if (current[name]) {
         current[name].used = true;
-    else
-        current[name] = {
-            declared: false,
-            used: true,
-        };
+        return;
+    }
+    
+    current[name] = {
+        declared: false,
+        used: true,
+    };
 };

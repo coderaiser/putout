@@ -15,6 +15,7 @@ npm i @putout/plugin-conditions -D
 
 - ✅ [add-return](#add-return);
 - ✅ [apply-comparison-order](#apply-comparison-order);
+- ✅ [apply-early-return](#apply-early-return);
 - ✅ [apply-consistent-blocks](#apply-consistent-blocks);
 - ✅ [apply-equal](#apply-equal);
 - ✅ [apply-if](#apply-if);
@@ -40,6 +41,7 @@ npm i @putout/plugin-conditions -D
 {
     "rules": {
         "conditions/apply-consistent-blocks": "on",
+        "conditions/apply-return-return": "on",
         "conditions/apply-comparison-order": "on",
         "conditions/apply-equal": "on",
         "conditions/apply-if": "on",
@@ -142,6 +144,31 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`conditions/apply-comparison-order`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions/#apply-comparison-order)| ✅
 ⏣ **ESLint** | [`yoda`](https://eslint.org/docs/rules/yoda) | ½
+
+## apply-early-return
+
+### ❌ Example of incorrect code
+
+```js
+function notBlockNoNext() {
+    if (a)
+        x();
+    else
+        b();
+}
+```
+
+### ✅ Example of correct code
+
+```js
+function notBlockNoNext() {
+    if (a) {
+        x();
+        return;
+    } else
+        b();
+}
+```
 
 ## apply-equal
 
