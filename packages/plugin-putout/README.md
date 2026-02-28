@@ -25,6 +25,7 @@ npm i @putout/plugin-putout -D
 - ✅ [add-crawl-file](#add-crawl-file);
 - ✅ [add-track-file](#add-track-file);
 - ✅ [apply-async-formatter](#apply-async-formatter);
+- ✅ [apply-get-binding](#apply-get-binding);
 - ✅ [apply-create-test](#apply-create-test);
 - ✅ [apply-create-nested-directory](#apply-create-nested-directory);
 - ✅ [apply-declare](#apply-declare);
@@ -124,6 +125,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-exports-to-add-args": "on",
         "putout/apply-exports-to-match-files": "on",
         "putout/apply-exports-to-rename-files": "on",
+        "putout/apply-get-binding": "on",
         "putout/apply-report": "on",
         "putout/apply-processors-destructuring": "on",
         "putout/apply-rename": "on",
@@ -204,6 +206,22 @@ path.node = Identifier('x');
 
 ```js
 path.node = identifier('x');
+```
+
+## apply-get-binding
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6c82eac69034a1bb10405aec9d0c9df1/acc0ced44417671f1af60b84f4d9707c735365f0).
+
+### ❌ Example of incorrect code
+
+```js
+path.scope.getBinding('require');
+```
+
+### ✅ Example of correct code
+
+```js
+getBinding(path, 'require');
 ```
 
 ## apply-report
