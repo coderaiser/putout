@@ -54,7 +54,7 @@
     "@putout/cli-choose-formatter": "^7.0.0",
     "@putout/cli-keypress": "^4.0.0",
     "@putout/cli-match": "^3.0.0",
-    "@putout/cli-process-file": "^6.0.0",
+    "@putout/cli-process-file": "^7.0.0",
     "@putout/cli-ruler": "^4.0.0",
     "@putout/cli-staged": "^3.0.0",
     "@putout/cli-validate-args": "^2.0.0",
