@@ -1,3 +1,21 @@
+2026.03.01, v42.0.24
+
+feature:
+- a3d243e62 @putout/test: @putout/cli-process-file v7.0.0
+- fce2c16c7 @putout/test: @putout/eslint v6.0.0
+- ed1095ed6 putout: @putout/cli-process-file v7.0.0
+- 0cce4e486 @putout/cli-process-file: drop support of 🐊 < 42
+- a11c47459 @putout/cli-process-file: @putout/eslint v6.0.0
+- ccf1cf8db @putout/engine-reporter: @putout/cli-choose-formatter v7.0.0
+- da4f0221d @putout/plugin-package-json: remove-dot-slash-from-bin
+- 68d03f509 @putout/plugin-variables: convert-const-to-let: messages count
+- 2932b7935 @putout/plugin-conditions: apply-early-return: has return: exclude
+- 629f34e07 @putout/plugin-tape: remove-only/remove-skip: allowed
+- 7885b134f eslint-plugin-putout: @putout/eslint v6.0.0
+- 6df619baf @putout/eslint: drop support of ESLint < 10
+- 0986a8402 @putout/eslint: filter: options -> {options}
+- 087725b98 @putout/plugin-putout: apply-destructuring-to-options: add
+
 2026.02.28, v42.0.23
 
 feature:
