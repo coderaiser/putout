@@ -1,6 +1,6 @@
 {
   "name": "@putout/cli-process-file",
-  "version": "6.1.0",
+  "version": "7.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Run all 🐊Putout linters",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-process-file#readme",
