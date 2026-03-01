@@ -56,3 +56,8 @@ test('plugin-package-json: transform: apply-js-extension', (t) => {
     t.transform('apply-js-extension');
     t.end();
 });
+
+test('plugin-package-json: transform: remove-dot-slash-from-bin', (t) => {
+    t.transform('remove-dot-slash-from-bin');
+    t.end();
+});

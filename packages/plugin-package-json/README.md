@@ -16,12 +16,16 @@ npm i @putout/plugin-package-json -D
 - ✅ [add-type](#add-type);
 - ✅ [apply-js-extension](#apply-js-extension);
 - ✅ [apply-https-to-repository-url](#apply-https-to-repository-url);
-- ✅ [find-file](#find-file);
 - ✅ [remove-nyc](#remove-nyc);
 - ✅ [remove-commit-type](#remove-commit-type);
 - ✅ [remove-imports-nesting](#remove-imports-nesting);
 - ✅ [remove-duplicate-keywords](#remove-duplicate-keywords);
+- ✅ [remove-dot-slash-from-bin](#remove-dot-slash-from-bin);
+
+## Filesystem rules
+
 - ✅ [remove-exports-with-missing-files](#remove-exports-with-missing-files);
+- ✅ [find-file](#find-file);
 
 ## Config
 
@@ -34,6 +38,7 @@ npm i @putout/plugin-package-json -D
         "package-json/remove-nyc": "on",
         "package-json/remove-commit-type": "on",
         "package-json/remove-imports-nesting": "on",
+        "package-json/remove-dot-slash-from-bin": "bin",
         "package-json/remove-exports-with-missing-files": "off",
         "package-json/find-file": "off"
     }
@@ -171,6 +176,22 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c
 }
 ```
 
+## remove-dot-slash-from-bin
+
+Fixes `npm` warnings:
+
+> "npm warn publish bin[c8]" script name was cleaned
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ef444a1679d00b8bb41a209e76499921/24a4a06d0db2d8b487b5ca5ff40290c8b3e24e3d).
+```diff
+{
+    "bin": {
+-       "c8": "./bin/c8.js"
++       "c8": "bin/c8.js"
+    }
+}
+```
+
 ## remove-imports-nesting
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3527617ece2bfd9c39875db50a8a6245/2f3c6248b7b0ab539212b747f3cd480dc77ce3f1).
@@ -183,19 +204,6 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3527617ec
 -       }
 +       "#get-imports": "./lib/shorten-imported-file/get-imports/index.js"
     }
-}
-```
-
-## find-file
-
-Find `package.json` inside of `.filesystem.json` and applies all other `package-json` rules.
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/325233d19fde0acacadbcf1f42dd3bb2/124a50fe0e92c6c3cab24f8b87c33b202dc3e540).
-
-```diff
-{
-    "name": "hello",
-    "version": "1.0.0",
-+   "type": "commonjs"
 }
 ```
 
