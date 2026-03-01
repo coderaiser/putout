@@ -183,6 +183,7 @@ Fixes `npm` warnings:
 > "npm warn publish bin[c8]" script name was cleaned
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ef444a1679d00b8bb41a209e76499921/24a4a06d0db2d8b487b5ca5ff40290c8b3e24e3d).
+
 ```diff
 {
     "bin": {
