@@ -43,4 +43,4 @@ jobs:
       - name: Typos
         run: typos
       - name: Coverage
-        run: redrun coverage:ci report
+        run: redrun coverage report
