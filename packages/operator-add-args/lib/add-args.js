@@ -35,15 +35,13 @@ export const addArgs = (args) => ({
     traverse: traverse(args),
 });
 
-const fix = ({declaration, path, pattern, params, index}) => {
+const fix = ({declaration, pattern, params, index}) => {
     const declarationNode = template.ast.fresh(declaration);
     
     if (isSequenceExpression(declarationNode)) {
         const {expressions} = declarationNode;
-        const {block} = path.scope;
-        const {params} = block;
+        params.push(...expressions.slice(params.length));
         
-        block.params.push(...expressions.slice(params.length));
         return;
     }
     
@@ -57,9 +55,7 @@ const fix = ({declaration, path, pattern, params, index}) => {
         return;
     }
     
-    path.scope.block.params = [
-        declarationNode,
-    ];
+    params.push(declarationNode);
 };
 
 const traverse = (args) => ({push, options}) => {
@@ -87,15 +83,13 @@ const traverse = (args) => ({push, options}) => {
                 if (!fnPath)
                     continue;
                 
-                const {block} = fnPath.scope;
-                
                 if (!compareAny(path.scope.path, include))
                     continue;
                 
                 if (compareAny(path.scope.path, exclude))
                     continue;
                 
-                const {params} = block;
+                const {params} = fnPath.node;
                 const [index, lastParam] = getObjectPattern(params);
                 
                 if (isObjectPattern(lastParam)) {

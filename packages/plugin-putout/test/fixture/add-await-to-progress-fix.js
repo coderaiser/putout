@@ -1,6 +1,6 @@
 import {test} from 'supertape';
 
-test('', async ({progress}) => {
+test('', async ({progress}, t) => {
     await progress();
 });
 
@@ -17,7 +17,7 @@ test('', async (t) => {
     t.end();
 });
 
-test('packages: rename-file-cjs-to-js: progress', async ({progress}) => {
+test('packages: rename-file-cjs-to-js: progress', async ({progress}, t) => {
     await progress('rename-file-cjs-to-js', {
         i: 1,
         n: 1,

@@ -817,3 +817,34 @@ test('putout: operator: add-args: three args: options: exclude', (t) => {
     t.notOk(places.length, source);
     t.end();
 });
+
+test('putout: operator: add-args: nested scopes', (t) => {
+    const args = {
+        path: ['path', 'export const fix = () => __body'],
+    };
+    
+    const source = montag`
+        export const fix = () => {
+            for (const element of path.node.elements) {
+                console.log(compute(element));
+            }
+        };
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        export const fix = (path) => {
+            for (const element of path.node.elements) {
+                console.log(compute(element));
+            }
+        };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

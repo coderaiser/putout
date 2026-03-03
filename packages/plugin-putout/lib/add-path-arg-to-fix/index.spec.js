@@ -34,3 +34,8 @@ test('putout: add-path-arg-to-fix: transform: no-body', (t) => {
     t.transform('no-body');
     t.end();
 });
+
+test('putout: add-path-arg-to-fix: transform: nested-scopes', (t) => {
+    t.transform('nested-scopes');
+    t.end();
+});
