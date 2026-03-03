@@ -1,3 +1,14 @@
+2026.03.03, v42.0.25
+
+fix:
+- 81f953f9a @putout/plugin-optional-chaining: exclude isFn: produce broken code
+
+feature:
+- 973513690 putout: @putout/plugin-optional-chaining v3.0.0
+- d778d336a @putout/plugin-optional-chaining: drop support of 🐊 < 42
+- e724cf714 @putout/operator-add-args: nested scopes
+- dc03836a0 @putout/processor-toml: oxfmt v0.36.0
+
 2026.03.01, v42.0.24
 
 feature:
