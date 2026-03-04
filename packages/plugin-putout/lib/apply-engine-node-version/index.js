@@ -25,7 +25,10 @@ export const traverse = ({push, options}) => ({
         const {
             peerDependenciesPath,
             enginesPath,
-        } = getProperties(__aPath, ['peerDependencies', 'engines']);
+        } = getProperties(__aPath, [
+            'peerDependencies',
+            'engines',
+        ]);
         
         if (!peerDependenciesPath || !enginesPath)
             return;

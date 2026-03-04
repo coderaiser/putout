@@ -561,7 +561,10 @@ When `from=/home/coderaiser/putout` and `to=/`:
 ### ❌ Example of incorrect code
 
 ```js
-__putout_processor_filesystem(['/home/coderaiser/putout/', '/home/coderaiser/putout/README.md']);
+__putout_processor_filesystem([
+    '/home/coderaiser/putout/',
+    '/home/coderaiser/putout/README.md',
+]);
 ```
 
 ### ✅ Example of correct code

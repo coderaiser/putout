@@ -8,7 +8,9 @@ export const match = () => ({
     'module.exports.traverse = (__args) => __a': ({__args}, path) => {
         const program = path.scope.getProgramParent().path;
         
-        const withFix = contains(program, ['module.exports.fix = __a']);
+        const withFix = contains(program, [
+            'module.exports.fix = __a',
+        ]);
         
         if (withFix)
             return false;

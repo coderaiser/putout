@@ -994,7 +994,9 @@ test('putout: operator: filesystem: createDirectory: maybeFileSystem', (t) => {
     createDirectory(dirPath, 'xyz');
     eject();
     
-    t.calledWith(maybeFS.createDirectory, ['/hello/world/xyz']);
+    t.calledWith(maybeFS.createDirectory, [
+        '/hello/world/xyz',
+    ]);
     t.end();
 });
 

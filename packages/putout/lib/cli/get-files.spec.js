@@ -29,7 +29,9 @@ test('putout: getFiles', async (t) => {
     const fastGlob = stub().returns(['get-files.js', 'get-files.spec.js']);
     
     const options = {};
-    const [, files] = await getFiles(['**/get-files*.js'], options, {
+    const [, files] = await getFiles([
+        '**/get-files*.js',
+    ], options, {
         fastGlob,
         lstat,
     });
@@ -53,7 +55,9 @@ test('putout: getFiles: normalize', async (t) => {
     const fastGlob = stub().returns(['.//get-files.js', './/get-files.spec.js']);
     
     const options = {};
-    const [, files] = await getFiles(['**/get-files*.js'], options, {
+    const [, files] = await getFiles([
+        '**/get-files*.js',
+    ], options, {
         fastGlob,
         lstat,
     });
@@ -77,7 +81,9 @@ test('putout: getFiles: name', async (t) => {
     const fastGlob = stub().returns(['get-files.js']);
     
     const options = {};
-    const [, files] = await getFiles(['lib/get-files.js'], options, {
+    const [, files] = await getFiles([
+        'lib/get-files.js',
+    ], options, {
         fastGlob,
         lstat,
     });
@@ -137,7 +143,9 @@ test('putout: getFiles: getSupportedGlob: call', async (t) => {
     
     const options = {};
     
-    await getFiles(['**/get-files*.js'], options, {
+    await getFiles([
+        '**/get-files*.js',
+    ], options, {
         lstat,
         getSupportedGlob,
         fastGlob,
@@ -156,7 +164,9 @@ test('putout: getFiles: getSupportedGlob: result', async (t) => {
     const fastGlob = stub().resolves(['get-files']);
     
     const options = {};
-    await getFiles(['**/get-files*.js'], options, {
+    await getFiles([
+        '**/get-files*.js',
+    ], options, {
         lstat,
         getSupportedGlob,
         fastGlob,
@@ -181,7 +191,9 @@ test('putout: getFiles: options', async (t) => {
         ignore,
     };
     
-    await getFiles(['lib/get-files.js'], options, {
+    await getFiles([
+        'lib/get-files.js',
+    ], options, {
         fastGlob,
         lstat,
     });
@@ -209,7 +221,9 @@ test('putout: getFiles: windows', async (t) => {
         ignore,
     };
     
-    await getFiles(['lib\\get-files.js'], options, {
+    await getFiles([
+        'lib\\get-files.js',
+    ], options, {
         fastGlob,
         lstat,
     });

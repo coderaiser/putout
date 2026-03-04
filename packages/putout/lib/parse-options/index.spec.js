@@ -296,7 +296,9 @@ test('putout: parseOptions: read rules: putout-plugin', (t) => {
     
     const defaultOptions = empty;
     
-    const readdirSync = stub().returns(['putout-plugin-hello']);
+    const readdirSync = stub().returns([
+        'putout-plugin-hello',
+    ]);
     
     const options = {
         rules: {

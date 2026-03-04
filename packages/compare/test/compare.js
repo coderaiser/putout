@@ -1075,7 +1075,10 @@ test('compare: different template values: literals', (t) => {
 });
 
 test('compareAny: node is null', (t) => {
-    const result = compareAny('a => isIdentifier(a, {\n  name: BODY\n})', ['(__args__a) => __a.__b(__args__a)', '(__args__a) => {__a.__b(__args__a)}']);
+    const result = compareAny('a => isIdentifier(a, {\n  name: BODY\n})', [
+        '(__args__a) => __a.__b(__args__a)',
+        '(__args__a) => {__a.__b(__args__a)}',
+    ]);
     
     t.notOk(result);
     t.end();

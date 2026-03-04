@@ -99,7 +99,9 @@ When you want to check that report called exact count of times pass an array of 
 
 ```js
 test('remove useless variables: dot', (t) => {
-    t.report('dot', ['Dot files should be added to .gitignore']);
+    t.report('dot', [
+        'Dot files should be added to .gitignore',
+    ]);
     t.end();
 });
 ```

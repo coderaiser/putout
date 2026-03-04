@@ -38,7 +38,9 @@ test('plugin-github: set node versions: transform: overlap', (t) => {
 });
 
 test('plugin-github: set node versions: report: overlap', (t) => {
-    t.report('overlap', ['Use latest version of node']);
+    t.report('overlap', [
+        'Use latest version of node',
+    ]);
     t.end();
 });
 

@@ -22,7 +22,9 @@ test('plugin-remove-duplicates-from-union: transform: union', (t) => {
 });
 
 test('plugin-remove-duplicates-from-union: report: object', (t) => {
-    t.report('object', ['Avoid using duplicates in Union']);
+    t.report('object', [
+        'Avoid using duplicates in Union',
+    ]);
     t.end();
 });
 

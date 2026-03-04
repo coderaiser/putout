@@ -8,7 +8,11 @@ const test = createTest(import.meta.url, {
 });
 
 test('lib: is-esm: report', (t) => {
-    t.report('is-esm', ['ImportDeclaration', 'ExportNamedDeclaration:a', 'ExportDefaultDeclaration']);
+    t.report('is-esm', [
+        'ImportDeclaration',
+        'ExportNamedDeclaration:a',
+        'ExportDefaultDeclaration',
+    ]);
     t.end();
 });
 
@@ -18,6 +22,10 @@ test('lib: is-esm: transform', (t) => {
 });
 
 test('lib: is-esm: report: fn', (t) => {
-    t.report('fn', ['ExportNamedDeclaration', 'ExportNamedDeclaration', 'ExportNamedDeclaration:s']);
+    t.report('fn', [
+        'ExportNamedDeclaration',
+        'ExportNamedDeclaration',
+        'ExportNamedDeclaration:s',
+    ]);
     t.end();
 });

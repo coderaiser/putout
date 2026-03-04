@@ -59,8 +59,14 @@ export default {
     'fresh:lint': async () => await run('lint:fresh'),
     'fresh:fix': async () => await run('lint:fresh', '--fix'),
     'fresh': async () => await run(['lint:time', 'coverage']),
-    'fresh:only:putout': async () => await run(['lint:only:putout', 'coverage']),
-    'fresh:only:eslint': async () => await run(['lint:only:eslint', 'coverage']),
+    'fresh:only:putout': async () => await run([
+        'lint:only:putout',
+        'coverage',
+    ]),
+    'fresh:only:eslint': async () => await run([
+        'lint:only:eslint',
+        'coverage',
+    ]),
     'lint:oxlint': () => `oxlint .`,
     'lint': () => `putout . --raw --rulesdir rules`,
     'prefresh': () => `redlint fix`,

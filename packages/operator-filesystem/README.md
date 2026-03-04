@@ -117,7 +117,10 @@ And even search for a directory:
 import {operator} from 'putout';
 
 const {findFile} = operator;
-const coupleFiles = findFile(root, ['/home/coderaiser', '/home/coderaiser/putout']);
+const coupleFiles = findFile(root, [
+    '/home/coderaiser',
+    '/home/coderaiser/putout',
+]);
 ```
 
 Each 🐊**Putout** plugin should use `findFile` independently since AST can change: files renamed, removed etc.

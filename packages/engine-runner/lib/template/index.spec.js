@@ -455,6 +455,10 @@ test('putout: engine: runner: template: log: enabled', (t) => {
     _log('rule', 'path');
     globalThis.__putout_debug = __putout_debug;
     
-    t.calledWith(debug, ['putout:runner:template', 'rule', 'path'], 'should call debug');
+    t.calledWith(debug, [
+        'putout:runner:template',
+        'rule',
+        'path',
+    ], 'should call debug');
     t.end();
 });

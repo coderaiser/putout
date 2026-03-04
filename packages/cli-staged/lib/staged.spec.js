@@ -24,7 +24,9 @@ test('putout: cli: staged: set: porcelain', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const porcelain = stub().returns(['packages/putout/lib/cli/index.js']);
+    const porcelain = stub().returns([
+        'packages/putout/lib/cli/index.js',
+    ]);
     
     await set({
         findUp,
@@ -43,7 +45,9 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const porcelain = stub().returns(['packages/putout/lib/cli/index.js']);
+    const porcelain = stub().returns([
+        'packages/putout/lib/cli/index.js',
+    ]);
     
     await get({
         findUp,
@@ -65,7 +69,9 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const porcelain = stub().returns(['packages/putout/lib/cli/index.js']);
+    const porcelain = stub().returns([
+        'packages/putout/lib/cli/index.js',
+    ]);
     
     const names = await get({
         findUp,
@@ -85,7 +91,9 @@ test('putout: cli: staged: set: findUp', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const porcelain = stub().returns(['packages/putout/lib/cli/index.js']);
+    const porcelain = stub().returns([
+        'packages/putout/lib/cli/index.js',
+    ]);
     
     await set({
         findUp,
