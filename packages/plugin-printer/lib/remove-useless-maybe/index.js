@@ -11,12 +11,11 @@ export const report = () => `Avoid useless 'maybe'`;
 export const match = () => ({
     'maybe.print.linebreak(__a)': (vars, path) => {
         const next = path.parentPath.getNextSibling();
-        const {expression} = next.node;
         
-        if (!compare(expression, 'maybe.print.newline(!__a)'))
+        if (!compare(next, 'maybe.print.newline(!__a)'))
             return false;
         
-        const {__a} = getTemplateValues(next.node.expression, 'maybe.print.newline(!__a)');
+        const {__a} = getTemplateValues(path.parentPath.getNextSibling(), 'maybe.print.newline(!__a)');
         
         return compare(__a, vars.__a);
     },
