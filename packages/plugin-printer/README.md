@@ -21,6 +21,7 @@ npm i @putout/plugin-printer -D
 - ✅ [apply-types](#apply-types);
 - ✅ [declare](#declare);
 - ✅ [remove-args](#remove-args);
+- ✅ [remove-useless-maybe](#remove-useless-maybe);
 - ✅ [remove-legacy-test-declaration](#remove-legacy-test-declaration);
 
 ## Config
@@ -35,7 +36,8 @@ npm i @putout/plugin-printer -D
         "printer/apply-create-test-url": "on",
         "printer/apply-types": "on",
         "printer/declare": "on",
-        "printer/remove-args": "on"
+        "printer/remove-args": "on",
+        "printer/remove-useless-maybe": "on"
     }
 }
 ```
@@ -138,6 +140,24 @@ print.indent(is);
 
 ```js
 print.indent();
+```
+
+## remove-useless-maybe
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d448a928400ff37043ae03510ce7c85c/db1a758809e8759f591533f9ef92bef1188d32b0).
+
+### ❌ Example of incorrect code
+
+```js
+maybe.print.linebreak(wasNewline);
+maybe.print.newline(!wasNewline);
+```
+
+### ✅ Example of correct code
+
+```js
+maybe.indent(wasNewline);
+print.newline();
 ```
 
 ## declare

@@ -1,3 +1,4 @@
+import * as removeUselessMaybe from './remove-useless-maybe/index.js';
 import * as applyCreateTestUrl from './apply-create-test-url/index.js';
 import * as removeArgs from './remove-args/index.js';
 import * as applyBreakline from './apply-breakline/index.js';
@@ -18,4 +19,5 @@ export const rules = {
     'apply-types': applyTypes,
     'remove-legacy-test-declaration': removeLegacyTestDeclaration,
     'apply-create-test-url': applyCreateTestUrl,
+    'remove-useless-maybe': removeUselessMaybe,
 };

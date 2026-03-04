@@ -51,3 +51,8 @@ test('plugin-printer: transform: apply-create-test-url', (t) => {
     t.transform('apply-create-test-url');
     t.end();
 });
+
+test('plugin-printer: transform: remove-useless-maybe', (t) => {
+    t.transform('remove-useless-maybe');
+    t.end();
+});
