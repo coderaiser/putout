@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-putout: convert-node-to-path-in-get-template-values: report: get-template-values', (t) => {
-    t.report('get-template-values', '"path" should be used instead of "node" in getTemplateValues');
+    t.report('get-template-values', `Use 'path' instead of 'node' in 'getTemplateValues()'`);
     t.end();
 });
 

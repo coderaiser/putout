@@ -11,7 +11,7 @@ const {
     isArrayPattern,
 } = types;
 
-export const report = () => '"path" should be used instead of "node" in getTemplateValues';
+export const report = () => `Use 'path' instead of 'node' in 'getTemplateValues()'`;
 
 const GET_TEMPLATE_VALUES_NODE = 'getTemplateValues(__a.node, __b)';
 
