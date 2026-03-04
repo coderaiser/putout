@@ -51,6 +51,52 @@ test('putout: compare: vars: getTemplateValues', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: getTemplateValues: expression', (t) => {
+    const removeUselessMaybe = {
+        report: noop,
+        match: () => ({
+            'maybe.print.linebreak(__a)': (vars, path) => {
+                const next = path.parentPath.getNextSibling();
+                const {__a} = getTemplateValues(next, 'maybe.print.newline(!__a)');
+                
+                return compare(__a, vars.__a);
+            },
+        }),
+        replace: () => ({
+            'maybe.print.linebreak(__a)': (vars, path) => {
+                const next = path.parentPath.getNextSibling();
+                next.remove();
+                
+                return `{
+                    maybe.indent(__a);
+                    print.newline();
+                }`;
+            },
+        }),
+    };
+    
+    const input = montag`
+        maybe.print.linebreak(wasNewline);
+        maybe.print.newline(!wasNewline);
+    `;
+    
+    const {code} = putout(input, {
+        plugins: [
+            ['remove-useless-maybe', removeUselessMaybe],
+        ],
+    });
+    
+    const expected = montag`
+        {
+            maybe.indent(wasNewline);
+            print.newline();
+        }\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: compare: vars: getTemplateValues: setValues: BlockStatement', (t) => {
     const addVar = {
         report: () => '',

@@ -34,6 +34,7 @@ const isNumber = (a) => typeof a === 'number';
 const isString = (a) => typeof a === 'string';
 
 const parseNode = (a) => a.node || a;
+const parseExpression = (a) => a.expression || a;
 const {stringify} = JSON;
 
 export const getTemplateValues = (node, str) => {
@@ -41,6 +42,7 @@ export const getTemplateValues = (node, str) => {
         throw Error(`☝️ Looks like argument 'template' of 'getTemplateValues(node, template)': is not a string, but '${stringify(str)}'`);
     
     node = parseNode(node);
+    node = parseExpression(node);
     
     const templateNode = template.ast(str);
     const waysFrom = findVarsWays(templateNode);
