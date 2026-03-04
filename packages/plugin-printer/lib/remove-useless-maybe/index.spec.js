@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('printer: remove-useless-maybe: report', (t) => {
-    t.report('remove-useless-maybe', `Use 'if condition' instead of 'ternary expression'`);
+    t.report('remove-useless-maybe', `Avoid useless 'maybe'`);
     t.end();
 });
 

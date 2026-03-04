@@ -6,7 +6,7 @@ const {
     compare,
 } = operator;
 
-export const report = () => `Use 'if condition' instead of 'ternary expression'`;
+export const report = () => `Avoid useless 'maybe'`;
 
 export const match = () => ({
     'maybe.print.linebreak(__a)': (vars, path) => {
