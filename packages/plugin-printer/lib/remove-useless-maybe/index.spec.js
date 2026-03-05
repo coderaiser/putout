@@ -16,3 +16,8 @@ test('printer: remove-useless-maybe: transform', (t) => {
     t.transform('remove-useless-maybe');
     t.end();
 });
+
+test('printer: remove-useless-maybe: transform: indent', (t) => {
+    t.transform('indent');
+    t.end();
+});
