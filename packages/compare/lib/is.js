@@ -20,6 +20,8 @@ const {
     isTSTypeParameterDeclaration,
 } = types;
 
+const {isArray} = Array;
+
 export const isStr = (a) => typeof a === 'string';
 
 const ANY_OBJECT = '__object';
@@ -131,7 +133,6 @@ export const isBool = (a, b) => {
 };
 
 export const isEqualType = (a, b) => a.type === b.type;
-export const {isArray} = Array;
 
 export const isAny = (a) => {
     if (isIdentifier(a, {name: ANY}))
