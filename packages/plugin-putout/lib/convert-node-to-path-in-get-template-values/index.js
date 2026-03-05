@@ -61,7 +61,7 @@ export const traverse = ({push}) => ({
         
         const {init} = bindingNode;
         
-        if (compare(init, '__a.getPrevSibling()'))
+        if (compare(init, '__a.__b()'))
             return false;
         
         push({

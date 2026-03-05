@@ -36,3 +36,8 @@ test('plugin-putout: convert-node-to-path-in-get-template-values: no report: pre
     t.noReport('prev-path');
     t.end();
 });
+
+test('plugin-putout: convert-node-to-path-in-get-template-values: no report: short', (t) => {
+    t.noReport('short');
+    t.end();
+});
