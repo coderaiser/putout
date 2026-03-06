@@ -56,3 +56,8 @@ test('plugin-printer: transform: remove-useless-maybe', (t) => {
     t.transform('remove-useless-maybe');
     t.end();
 });
+
+test('plugin-printer: transform: remove-trailing-spaces-from-type-checker', (t) => {
+    t.transform('remove-trailing-spaces-from-type-checker');
+    t.end();
+});

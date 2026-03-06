@@ -23,6 +23,7 @@ npm i @putout/plugin-printer -D
 - ✅ [remove-args](#remove-args);
 - ✅ [remove-useless-maybe](#remove-useless-maybe);
 - ✅ [remove-legacy-test-declaration](#remove-legacy-test-declaration);
+- ✅ [remove-trailing-spaces-from-type-checker](#remove-trailing-spaces-from-type-checker)
 
 ## Config
 
@@ -37,7 +38,8 @@ npm i @putout/plugin-printer -D
         "printer/apply-types": "on",
         "printer/declare": "on",
         "printer/remove-args": "on",
-        "printer/remove-useless-maybe": "on"
+        "printer/remove-useless-maybe": "on",
+        "printer/remove-trailing-spaces-from-type-checker": "on"
     }
 }
 ```
@@ -158,6 +160,26 @@ maybe.print.newline(!wasNewline);
 ```js
 maybe.indent(wasNewline);
 print.newline();
+```
+
+## remove-trailing-spaces-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d448a928400ff37043ae03510ce7c85c/db1a758809e8759f591533f9ef92bef1188d32b0).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: parentPath -> ', isCoupleLines],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: parentPath ->', isCoupleLines],
+]);
 ```
 
 ## declare
