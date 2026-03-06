@@ -222,7 +222,9 @@ test('putout: cli: -i: cancel', async (t) => {
         simpleImport,
     });
     
-    t.calledWith(halt, [INTERACTIVE_CANCELED]);
+    t.calledWith(halt, [
+        INTERACTIVE_CANCELED,
+    ]);
     t.end();
 });
 
@@ -1756,7 +1758,9 @@ test('putout: cli: --staged: error code', async (t) => {
         cliStaged,
     });
     
-    t.calledWith(halt, [CANNOT_LINT_STAGED]);
+    t.calledWith(halt, [
+        CANNOT_LINT_STAGED,
+    ]);
     t.end();
 });
 
@@ -1835,7 +1839,9 @@ test('putout: cli: cannot load processor', async (t) => {
         getOptions,
     });
     
-    t.calledWith(halt, [CANNOT_LOAD_PROCESSOR], 'should exit with CANNOT_LOAD_PROCESSOR code');
+    t.calledWith(halt, [
+        CANNOT_LOAD_PROCESSOR,
+    ], 'should exit with CANNOT_LOAD_PROCESSOR code');
     t.end();
 });
 
