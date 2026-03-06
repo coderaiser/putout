@@ -172,11 +172,10 @@ test('putout: getFiles: getSupportedGlob: result', async (t) => {
         fastGlob,
     });
     
-    t.calledWith(fastGlob, [
-        'get-files/some-glob', {
-            unique: true,
-            dot: true,
-        }]);
+    t.calledWith(fastGlob, ['get-files/some-glob', {
+        unique: true,
+        dot: true,
+    }]);
     t.end();
 });
 

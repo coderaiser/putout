@@ -54,7 +54,9 @@ test('putout: engine-reporter: createReport: interactive', async (t) => {
         cliChooseFormatter,
     });
     
-    t.calledWith(exit, [INTERACTIVE_CANCELED]);
+    t.calledWith(exit, [
+        INTERACTIVE_CANCELED,
+    ]);
     t.end();
 });
 
