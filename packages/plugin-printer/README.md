@@ -164,7 +164,7 @@ print.newline();
 
 ## remove-trailing-spaces-from-type-checker
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d448a928400ff37043ae03510ce7c85c/db1a758809e8759f591533f9ef92bef1188d32b0).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/91d33e39485c31e76b534ad8447ba4db/abca8d21ad6edc1f6fed23edb05fa166677f11d6).
 
 ### ❌ Example of incorrect code
 
