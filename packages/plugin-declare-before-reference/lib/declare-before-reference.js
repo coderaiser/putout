@@ -97,7 +97,7 @@ export const traverse = ({push}) => ({
                 if (compareAny(getName(referenceParentPath), getKeys(path)))
                     break;
                 
-                if (path.key < referencePath.parentPath.parentPath.key)
+                if (checkKeys(path, referencePath))
                     break;
                 
                 const [own, pathLoc] = getLoc(path);
@@ -160,4 +160,13 @@ function getKeys({node}) {
         return [];
     
     return properties.map(getKey);
+}
+
+function checkKeys(path, referencePath) {
+    const {key, listKey} = referencePath.parentPath.parentPath;
+    
+    if (listKey !== 'body')
+        return;
+    
+    return path.key < key;
 }
