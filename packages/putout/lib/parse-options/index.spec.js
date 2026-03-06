@@ -822,9 +822,10 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
     const readCodeMods = stub().returns(empty);
     const recursiveRead = stub().returns(['', {}]);
     
-    const readPackageJson = stub().returns(['../../package.json', {
-        type: 'commonjs',
-    }]);
+    const readPackageJson = stub().returns([
+        '../../package.json', {
+            type: 'commonjs',
+        }]);
     
     const overrides = {
         recursiveRead,
@@ -884,9 +885,10 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
     const readCodeMods = stub().returns(empty);
     const recursiveRead = stub().returns(['', {}]);
     
-    const readPackageJson = stub().returns(['../../package.json', {
-        type: 'module',
-    }]);
+    const readPackageJson = stub().returns([
+        '../../package.json', {
+            type: 'module',
+        }]);
     
     const overrides = {
         recursiveRead,
