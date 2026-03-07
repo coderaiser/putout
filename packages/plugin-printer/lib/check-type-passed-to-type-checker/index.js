@@ -11,6 +11,7 @@ const ARROW_NOT = ' -> !';
 const ARROW_LENGTH = ARROW.length;
 const ARROW_NOT_LENGTH = ARROW_NOT.length;
 const MARK = '🧨';
+const NOT = '!';
 
 export const report = ({type}) => {
     return `Unknown type detected: '${type}'`;
@@ -36,10 +37,10 @@ export const traverse = ({push}) => ({
         if (value.includes(MARK))
             return;
         
-        if (value.endsWith('->'))
+        if (!value.includes(ARROW))
             return;
         
-        if (value.includes('!')) {
+        if (value.includes(NOT)) {
             const arrowNotIndex = value.indexOf(ARROW_NOT);
             const typeNotIndex = arrowNotIndex + ARROW_NOT_LENGTH;
             
@@ -58,9 +59,6 @@ export const traverse = ({push}) => ({
         const typeIndex = arrowIndex + ARROW_LENGTH;
         
         const type = value.slice(typeIndex, value.length);
-        
-        if (!type)
-            return;
         
         if (!types[`is${type}`])
             push({
