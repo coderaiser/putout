@@ -16,3 +16,8 @@ test('printer: add-missing-spaces-to-type-checker: transform', (t) => {
     t.transform('add-missing-spaces-to-type-checker');
     t.end();
 });
+
+test('printer: add-missing-spaces-to-type-checker: no report: colon-last', (t) => {
+    t.noReport('colon-last');
+    t.end();
+});

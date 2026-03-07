@@ -60,8 +60,14 @@ function createWhere(value) {
     return where.filter(Boolean);
 }
 
-function traceColon({push, includes}) {
-    if (!includes(': ') && !includes(':->'))
+function traceColon({push, includes, endsWith}) {
+    if (endsWith(':'))
+        return;
+    
+    if (includes(': '))
+        return;
+    
+    if (!includes(':->'))
         push('after-colon');
 }
 

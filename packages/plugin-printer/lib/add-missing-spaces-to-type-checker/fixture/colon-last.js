@@ -1,0 +1,4 @@
+const isBeforeElse = createTypeChecker([
+    ['-:', isPathIsConsequent],
+]);
+
