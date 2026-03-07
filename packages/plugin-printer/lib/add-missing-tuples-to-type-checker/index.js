@@ -6,12 +6,29 @@ const {
     isArrayExpression,
     isIdentifier,
     isCallExpression,
+    isStringLiteral,
     arrayExpression,
     stringLiteral,
 } = types;
 
 const {replaceWith} = operator;
-const instrument = Boolean(process.env.PUTOUT_INSTRUMENT);
+
+const hasResult = (value) => /^[+-]/.test(value);
+const typeOptions = {
+    instrument: Boolean(process.env.PUTOUT_INSTRUMENT),
+};
+
+const isDsl = createTypeChecker([
+    ['-: -> !StringLiteral'],
+    ['+: node.value ->', hasResult],
+], typeOptions);
+
+const isSimple = createTypeChecker([
+    ['+: -> Identifier'],
+    ['+: -> CallExpression'],
+    ['-: -> !StringLiteral'],
+    ['+: node.value -> !', hasResult],
+], typeOptions);
 
 export const report = (path) => {
     return `Add missing tuple around: ${path}`;
@@ -22,6 +39,13 @@ export const fix = (path) => {
     
     if (isIdentifier(path) || isCallExpression(path)) {
         replaceWith(path, arrayExpression([stringLiteral('+'), node]));
+        return;
+    }
+    
+    const {value} = node;
+    
+    if (isStringLiteral(path) && !/^[+-]/.test(value)) {
+        replaceWith(path, arrayExpression([stringLiteral(`+: -> ${value}`)]));
         return;
     }
     
@@ -48,24 +72,6 @@ export const traverse = ({push}) => ({
                 push(element);
         }
     },
-});
-
-const hasResult = (value) => /^[+-]/.test(value);
-
-const isDsl = createTypeChecker([
-    ['-: -> !StringLiteral'],
-    ['+: node.value ->', hasResult],
-], {
-    instrument,
-});
-
-const isSimple = createTypeChecker([
-    'Identifier',
-    'CallExpression',
-    ['-: -> !StringLiteral'],
-    ['+: node.value ->!', hasResult],
-], {
-    instrument,
 });
 
 function isConsistent(elements) {

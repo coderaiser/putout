@@ -1,10 +1,15 @@
 {
+    "rules": {
+        "printer": "on"
+    },
     "match": {
         "declare/index.js": {
             "putout/apply-namespace-specifier": "off"
         },
         "*.md{js}": {
-            "putout": "off"
+            "putout": "off",
+            "printer": "off"
         }
-    }
+    },
+    "plugins": ["printer"]
 }
