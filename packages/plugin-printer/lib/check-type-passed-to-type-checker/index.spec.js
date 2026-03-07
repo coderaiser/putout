@@ -21,3 +21,8 @@ test('printer: check-type-passed-to-type-checker: no report: selector', (t) => {
     t.noReport('selector');
     t.end();
 });
+
+test('printer: check-type-passed-to-type-checker: no report: comment-block', (t) => {
+    t.noReport('comment-block');
+    t.end();
+});

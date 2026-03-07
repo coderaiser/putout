@@ -1,8 +1,8 @@
 export const beforeIf = createTypeChecker([
     '- : -> !StringLiteral',
-    '- : -> !🧨 WrongType',
+    '- : -> !🧨WrongType',
     ['- : -> BlockStatement'],
-    ['- : -> 🧨 WrongType'],
+    ['- : -> 🧨WrongType'],
     ['- : ->', isBlockStatement],
     ['-', isBlockStatement],
 ]);

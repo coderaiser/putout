@@ -5,7 +5,7 @@ const {isBlockStatement} = types;
 export const beforeIf = createTypeChecker([
     ['-: -> !StringLiteral'],
     ['-: -> BlockStatement'],
-    ['-: -> 🧨 WrongType'],
+    ['-: -> 🧨WrongType'],
     ['-: ->', isBlockStatement],
     ['-', isBlockStatement],
 ]);

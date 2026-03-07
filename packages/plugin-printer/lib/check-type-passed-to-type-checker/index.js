@@ -13,13 +13,17 @@ const ARROW_NOT_LENGTH = ARROW_NOT.length;
 const MARK = '🧨';
 const NOT = '!';
 
+const TYPES = new Set([
+    'CommentBlock',
+]);
+
 export const report = ({type}) => {
     return `Unknown type detected: '${type}'`;
 };
 
 export const fix = ({path, type}) => {
     const {value} = path.node;
-    setLiteralValue(path, value.replace(type, `${MARK} ${type}`));
+    setLiteralValue(path, value.replace(type, `${MARK}${type}`));
 };
 
 export const traverse = ({push}) => ({
@@ -46,7 +50,7 @@ export const traverse = ({push}) => ({
             
             const type = value.slice(typeNotIndex, value.length);
             
-            if (!types[`is${type}`])
+            if (!isExists(type))
                 push({
                     path,
                     type,
@@ -60,10 +64,17 @@ export const traverse = ({push}) => ({
         
         const type = value.slice(typeIndex, value.length);
         
-        if (!types[`is${type}`])
+        if (!isExists(type))
             push({
                 path,
                 type,
             });
     },
 });
+
+function isExists(type) {
+    if (types[`is${type}`])
+        return true;
+    
+    return TYPES.has(type);
+}
