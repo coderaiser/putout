@@ -11,7 +11,7 @@ const {
 } = types;
 
 const {replaceWith} = operator;
-const instrument = process.env.PUTOUT_INSTRUMENT;
+const instrument = Boolean(process.env.PUTOUT_INSTRUMENT);
 
 export const report = (path) => {
     return `Add missing tuple around: ${path}`;
