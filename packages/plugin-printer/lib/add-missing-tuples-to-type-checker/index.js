@@ -6,6 +6,7 @@ const {
     isIdentifier,
     isCallExpression,
     arrayExpression,
+    stringLiteral,
 } = types;
 
 const {replaceWith} = operator;
@@ -15,7 +16,14 @@ export const report = (path) => {
 };
 
 export const fix = (path) => {
-    replaceWith(path, arrayExpression([path.node]));
+    const {node} = path;
+    
+    if (isIdentifier(path)) {
+        replaceWith(path, arrayExpression([stringLiteral('+'), node]));
+        return;
+    }
+    
+    replaceWith(path, arrayExpression([node]));
 };
 
 export const traverse = ({push}) => ({
