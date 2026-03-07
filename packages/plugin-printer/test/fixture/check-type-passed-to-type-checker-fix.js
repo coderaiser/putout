@@ -3,7 +3,7 @@ import {types} from '@putout/babel';
 const {isBlockStatement} = types;
 
 export const beforeIf = createTypeChecker([
-    '-: -> !StringLiteral',
+    ['-: -> !StringLiteral'],
     ['-: -> BlockStatement'],
     ['-: -> 🧨 WrongType'],
     ['-: ->', isBlockStatement],

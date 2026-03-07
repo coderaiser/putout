@@ -15,6 +15,7 @@ npm i @putout/plugin-printer -D
 
 - ✅ [add-args](#add-args);
 - ✅ [add-missing-spacess-to-type-checker](#add-missing-spacess-to-type-checker);
+- ✅ [add-missing-tuple-to-type-checker](#add-missing-tuple-to-type-checker);
 - ✅ [apply-breakline](#apply-breakline);
 - ✅ [apply-computed-print](#apply-computed-print);
 - ✅ [apply-create-test-url](#apply-create-test-url);
@@ -34,7 +35,7 @@ npm i @putout/plugin-printer -D
 {
     "rules": {
         "printer/add-args": "on",
-        "printer/add-missing-spacess-to-type-checker": "on",
+        "printer/add-missing-tuple-to-type-checker": "on",
         "printer/apply-breakline": "on",
         "printer/apply-linebreak": "on",
         "printer/apply-computed-print": "on",
@@ -121,6 +122,34 @@ export const beforeIf = createTypeChecker([
 export const beforeIf = createTypeChecker([
     ['-: -> !', isInsideArray],
     ['-: parentPath ->', isCoupleLines],
+]);
+```
+
+## add-missing-tuple-to-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9fdfda423df3af9b0f08541710706299/0259bba117997861fe7573bad5477282f4df8554).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    '- : -> !StringLiteral',
+    '- : -> BlockStatement',
+    '- : -> WrongType',
+    ['- : ->', isBlockStatement],
+    ['-', isBlockStatement],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['- : -> !StringLiteral'],
+    ['- : -> BlockStatement'],
+    ['- : -> WrongType'],
+    ['- : ->', isBlockStatement],
+    ['-', isBlockStatement],
 ]);
 ```
 

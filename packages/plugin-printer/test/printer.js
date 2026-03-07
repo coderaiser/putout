@@ -76,3 +76,8 @@ test('plugin-printer: transform: check-type-passed-to-type-checker', (t) => {
     t.transform('check-type-passed-to-type-checker');
     t.end();
 });
+
+test('plugin-printer: transform: add-missing-tuples-to-type-checker', (t) => {
+    t.transform('add-missing-tuples-to-type-checker');
+    t.end();
+});
