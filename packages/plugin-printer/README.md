@@ -14,8 +14,8 @@ npm i @putout/plugin-printer -D
 ## Rules
 
 - ✅ [add-args](#add-args);
-- ✅ [add-missing-spacess-to-type-checker](#add-missing-spacess-to-type-checker);
-- ✅ [add-missing-tuple-to-type-checker](#add-missing-tuple-to-type-checker);
+- ✅ [add-missing-spaces-to-type-checker](#add-missing-spaces-to-type-checker);
+- ✅ [add-missing-tuples-to-type-checker](#add-missing-tuples-to-type-checker);
 - ✅ [apply-breakline](#apply-breakline);
 - ✅ [apply-computed-print](#apply-computed-print);
 - ✅ [apply-create-test-url](#apply-create-test-url);
@@ -28,6 +28,7 @@ npm i @putout/plugin-printer -D
 - ✅ [remove-legacy-test-declaration](#remove-legacy-test-declaration);
 - ✅ [remove-trailing-spaces-from-type-checker](#remove-trailing-spaces-from-type-checker)
 - ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker)
+- ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker)
 
 ## Config
 
@@ -35,7 +36,7 @@ npm i @putout/plugin-printer -D
 {
     "rules": {
         "printer/add-args": "on",
-        "printer/add-missing-tuple-to-type-checker": "on",
+        "printer/add-missing-tuples-to-type-checker": "on",
         "printer/apply-breakline": "on",
         "printer/apply-linebreak": "on",
         "printer/apply-computed-print": "on",
@@ -46,7 +47,8 @@ npm i @putout/plugin-printer -D
         "printer/remove-args": "on",
         "printer/remove-useless-maybe": "on",
         "printer/remove-trailing-spaces-from-type-checker": "on",
-        "printer/remove-useless-spaces-from-type-checker": "on"
+        "printer/remove-useless-spaces-from-type-checker": "on",
+        "printer/remove-useless-tuples-from-type-checker": "on"
     }
 }
 ```
@@ -103,7 +105,7 @@ module.exports = {
 };
 ```
 
-## add-missing-spacess-to-type-checker
+## add-missing-spaces-to-type-checker
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2451cd51ebd3dfd20c32b6d22ca176b7/bd593860ff4bb2d66e06cf95bbe103cb1203129d).
 
@@ -236,6 +238,28 @@ export const beforeIf = createTypeChecker([
 ```js
 export const beforeIf = createTypeChecker([
     ['-: -> !', isInsideArray],
+]);
+```
+
+## remove-useless-tuples-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f53f386b607115e0a96f7e294e34761e/cefd72aba4fcade59bbf8faa59739bac5c2fe057).
+
+### ❌ Example of incorrect code
+
+```js
+export const allStrings = createTypeChecker([
+    ['- : -> BlockStatement'],
+    ['- : -> WrongType'],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const allStrings = createTypeChecker([
+    '- : -> BlockStatement',
+    '- : -> WrongType',
 ]);
 ```
 

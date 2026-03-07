@@ -1,3 +1,4 @@
+import * as removeUselessTuplesFromTypeChecker from './remove-useless-tuples-from-type-checker/index.js';
 import * as addMissingTuplesToTypeChecker from './add-missing-tuples-to-type-checker/index.js';
 import * as checkTypePassedToTypeChecker from './check-type-passed-to-type-checker/index.js';
 import * as removeUselessSpacesFromTypeChecker from './remove-useless-spaces-from-type-checker/index.js';
@@ -30,4 +31,5 @@ export const rules = {
     'remove-useless-spaces-from-type-checker': removeUselessSpacesFromTypeChecker,
     'check-type-passed-to-type-checker': checkTypePassedToTypeChecker,
     'add-missing-tuples-to-type-checker': addMissingTuplesToTypeChecker,
+    'remove-useless-tuples-from-type-checker': removeUselessTuplesFromTypeChecker,
 };

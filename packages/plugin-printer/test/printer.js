@@ -81,3 +81,8 @@ test('plugin-printer: transform: add-missing-tuples-to-type-checker', (t) => {
     t.transform('add-missing-tuples-to-type-checker');
     t.end();
 });
+
+test('plugin-printer: transform: remove-useless-tuples-from-type-checker', (t) => {
+    t.transform('remove-useless-tuples-from-type-checker');
+    t.end();
+});
