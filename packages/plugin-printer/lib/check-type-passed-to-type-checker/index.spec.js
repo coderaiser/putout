@@ -17,6 +17,11 @@ test('printer: check-type-passed-to-type-checker: transform', (t) => {
     t.end();
 });
 
+test('printer: check-type-passed-to-type-checker: transform: type', (t) => {
+    t.transform('type');
+    t.end();
+});
+
 test('printer: check-type-passed-to-type-checker: no report: selector', (t) => {
     t.noReport('selector');
     t.end();

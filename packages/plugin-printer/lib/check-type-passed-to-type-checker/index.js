@@ -41,8 +41,15 @@ export const traverse = ({push}) => ({
         if (value.includes(MARK))
             return;
         
-        if (!value.includes(ARROW))
+        if (!value.includes(ARROW)) {
+            if (/^[a-zA-Z].+/.test(value) && !isExists(value))
+                push({
+                    path,
+                    type: value,
+                });
+            
             return;
+        }
         
         if (value.includes(NOT)) {
             const arrowNotIndex = value.indexOf(ARROW_NOT);
