@@ -292,7 +292,7 @@ When you have only negative branch defined in type checker it never never succee
 
 Consider adding success branch, or remove type checker.
 
-☝️ *This rule has no autofix, becaouse most likely tests will fail after auto fix,
+☝️ *This rule has no autofix, because most likely tests will fail after auto fix,
 and instead of observing code with a problem, you will first see failed tests,
 and then after some searches determine that there is a wrong auto fix.*
 
@@ -334,7 +334,7 @@ const isSimpleAfterObject = createTypeChecker([
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9b35f5f2f23bece832f0f87c929d30e2/b08df8ef8ce6c2a03bceebe6119846c45a78a119).
 
-☝️ *This rule has no autofix, becaouse most likely tests will fail after auto fix,
+☝️ *This rule has no autofix, because most likely tests will fail after auto fix,
 and instead of observing code with a problem, you will first see failed tests,
 and then after some searches determine that there is a wrong auto fix.*
 
