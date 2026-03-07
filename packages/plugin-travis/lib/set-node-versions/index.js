@@ -8,10 +8,7 @@ const isNodeJS = (property) => property.key.value === 'node_js';
 const getValue = ({value}) => value;
 const one = (f) => (a) => f(a);
 
-const defaultVersions = [
-    16,
-    18,
-];
+const defaultVersions = [16, 18];
 
 export const report = () => 'Latest version of node is missing';
 
