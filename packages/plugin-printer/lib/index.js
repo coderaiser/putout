@@ -1,3 +1,4 @@
+import * as addMissingSpacesToTypeChecker from './add-missing-spaces-to-type-checker/index.js';
 import * as removeTrailingSpacesFromTypeChecker from './remove-trailing-spaces-from-type-checker/index.js';
 import * as removeUselessMaybe from './remove-useless-maybe/index.js';
 import * as applyCreateTestUrl from './apply-create-test-url/index.js';
@@ -22,4 +23,5 @@ export const rules = {
     'apply-create-test-url': applyCreateTestUrl,
     'remove-useless-maybe': removeUselessMaybe,
     'remove-trailing-spaces-from-type-checker': removeTrailingSpacesFromTypeChecker,
+    'add-missing-spaces-to-type-checker': addMissingSpacesToTypeChecker,
 };

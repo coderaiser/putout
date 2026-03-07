@@ -14,6 +14,7 @@ npm i @putout/plugin-printer -D
 ## Rules
 
 - ✅ [add-args](#add-args);
+- ✅ [add-missing-spacess-to-type-checker](#add-missing-spacess-to-type-checker);
 - ✅ [apply-breakline](#apply-breakline);
 - ✅ [apply-computed-print](#apply-computed-print);
 - ✅ [apply-create-test-url](#apply-create-test-url);
@@ -31,6 +32,7 @@ npm i @putout/plugin-printer -D
 {
     "rules": {
         "printer/add-args": "on",
+        "printer/add-missing-spacess-to-type-checker": "on",
         "printer/apply-breakline": "on",
         "printer/apply-linebreak": "on",
         "printer/apply-computed-print": "on",
@@ -94,6 +96,28 @@ module.exports = {
         maybe.print(optional, '?');
     },
 };
+```
+
+## add-missing-spacess-to-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2451cd51ebd3dfd20c32b6d22ca176b7/bd593860ff4bb2d66e06cf95bbe103cb1203129d).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-:->!', isInsideArray],
+    ['-:parentPath->', isCoupleLines],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: -> !', isInsideArray],
+    ['-: parentPath ->', isCoupleLines],
+]);
 ```
 
 ## apply-computed-print
