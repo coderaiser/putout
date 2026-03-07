@@ -1,4 +1,3 @@
-import process from 'node:process';
 import {operator, types} from 'putout';
 import {createTypeChecker} from '@putout/printer/type-checker';
 
@@ -15,7 +14,7 @@ const {replaceWith} = operator;
 
 const hasResult = (value) => /^[+-]/.test(value);
 const typeOptions = {
-    instrument: Boolean(process.env.PUTOUT_INSTRUMENT),
+    instrumentName: 'PUTOUT_INSTRUMENT',
 };
 
 const isDsl = createTypeChecker([
