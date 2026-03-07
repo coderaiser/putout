@@ -12,13 +12,8 @@ test('printer: check-type-passed-to-type-checker: report', (t) => {
     t.end();
 });
 
-test('printer: check-type-passed-to-type-checker: transform', (t) => {
-    t.transform('check-type-passed-to-type-checker');
-    t.end();
-});
-
-test('printer: check-type-passed-to-type-checker: transform: type', (t) => {
-    t.transform('type');
+test('printer: check-type-passed-to-type-checker: report: type', (t) => {
+    t.report('type', `Unknown type detected: 'StringLiteralx'`);
     t.end();
 });
 

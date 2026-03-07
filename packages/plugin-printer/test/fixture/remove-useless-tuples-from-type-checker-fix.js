@@ -6,7 +6,7 @@ const {isBlockStatement} = types;
 export const beforeIf = createTypeChecker([
     ['-: -> !StringLiteral'],
     ['-: -> BlockStatement'],
-    ['-: -> 🧨WrongType'],
+    ['-: -> WrongType'],
     ['-: ->', isBlockStatement],
     ['-', isBlockStatement],
 ]);
@@ -18,7 +18,7 @@ export const allTuples = createTypeChecker([
 
 export const allStrings = createTypeChecker([
     '-: -> BlockStatement',
-    '-: -> 🧨WrongType',
+    '-: -> WrongType',
 ]);
 
 export const allIdentifiers = createTypeChecker([

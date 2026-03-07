@@ -1,16 +1,14 @@
-import {types, operator} from 'putout';
+import {types} from 'putout';
 
 const {
     isIdentifier,
     isCallExpression,
 } = types;
 
-const {setLiteralValue} = operator;
 const ARROW = ' -> ';
 const ARROW_NOT = ' -> !';
 const ARROW_LENGTH = ARROW.length;
 const ARROW_NOT_LENGTH = ARROW_NOT.length;
-const MARK = '🧨';
 const NOT = '!';
 
 const TYPES = new Set([
@@ -21,10 +19,7 @@ export const report = ({type}) => {
     return `Unknown type detected: '${type}'`;
 };
 
-export const fix = ({path, type}) => {
-    const {value} = path.node;
-    setLiteralValue(path, value.replace(type, `${MARK}${type}`));
-};
+export const fix = () => {};
 
 export const traverse = ({push}) => ({
     StringLiteral(path) {
@@ -37,9 +32,6 @@ export const traverse = ({push}) => ({
             return;
         
         const {value} = path.node;
-        
-        if (value.includes(MARK))
-            return;
         
         if (!value.includes(ARROW)) {
             if (/^[a-zA-Z].+/.test(value) && !isExists(value))
