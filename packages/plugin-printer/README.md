@@ -25,6 +25,7 @@ npm i @putout/plugin-printer -D
 - ✅ [remove-useless-maybe](#remove-useless-maybe);
 - ✅ [remove-legacy-test-declaration](#remove-legacy-test-declaration);
 - ✅ [remove-trailing-spaces-from-type-checker](#remove-trailing-spaces-from-type-checker)
+- ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker)
 
 ## Config
 
@@ -41,7 +42,8 @@ npm i @putout/plugin-printer -D
         "printer/declare": "on",
         "printer/remove-args": "on",
         "printer/remove-useless-maybe": "on",
-        "printer/remove-trailing-spaces-from-type-checker": "on"
+        "printer/remove-trailing-spaces-from-type-checker": "on",
+        "printer/remove-useless-spaces-from-type-checker": "on"
     }
 }
 ```
@@ -184,6 +186,26 @@ maybe.print.newline(!wasNewline);
 ```js
 maybe.indent(wasNewline);
 print.newline();
+```
+
+## remove-useless-spaces-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2e90aa74898a496b488f9c369801b47a/fbd700d965952e80588ec61054b3ed7aee4d17a2).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['- : -> !', isInsideArray],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: -> !', isInsideArray],
+]);
 ```
 
 ## remove-trailing-spaces-from-type-checker
