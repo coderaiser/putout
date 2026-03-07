@@ -69,7 +69,7 @@ function traceArrow({includes, endsWith, push}) {
     if (!includes(' ->'))
         push('before-arrow');
     
-    if (!includes(' ->') && !endsWith('->'))
+    if (!includes('-> ') && !endsWith('->'))
         push('after-arrow');
 }
 
