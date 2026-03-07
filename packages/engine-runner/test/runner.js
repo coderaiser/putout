@@ -58,7 +58,9 @@ test('putout: runner: filter: options', (t) => {
     const addVar = {
         report: () => '',
         fix: stub(),
-        include: () => ['debugger'],
+        include: () => [
+            'debugger',
+        ],
         filter: (path, {options}) => options.ok,
     };
     
@@ -93,7 +95,9 @@ test('putout: runner: filter: options: no filter call', (t) => {
     const addVar = {
         report: () => '',
         fix: stub(),
-        include: () => ['debugger'],
+        include: () => [
+            'debugger',
+        ],
         filter: (path, {options}) => options.ok,
     };
     

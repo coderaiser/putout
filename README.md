@@ -2574,7 +2574,9 @@ and one or more of this:
 
 ```js
 export const report = () => 'use optional chaining';
-export const include = () => ['debugger'];
+export const include = () => [
+    'debugger',
+];
 
 export const fix = (path) => {
     path.remove(path);
@@ -2668,7 +2670,9 @@ You can also use `include` and/or `exclude` instead of `traverse` and `filter` (
 
 ```js
 // should be always used include/or exclude, when traverse not used
-export const include = () => ['debugger'];
+export const include = () => [
+    'debugger',
+];
 
 // optional
 export const exclude = () => [

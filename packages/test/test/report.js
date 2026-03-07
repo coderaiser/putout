@@ -81,7 +81,9 @@ test('putout: test: noReport', (t) => {
     const plugins = [
         ['remove-import', {
             report: () => 'hello',
-            include: () => ['ImportDeclaration'],
+            include: () => [
+                'ImportDeclaration',
+            ],
         }],
     ];
     
@@ -125,12 +127,16 @@ test('putout: test: noReport: addons', (t) => {
     const dir = new URL('fixture', import.meta.url).pathname;
     const removeImport1 = ['remove-import1', {
         report: () => 'hello',
-        include: () => ['ImportDeclaration'],
+        include: () => [
+            'ImportDeclaration',
+        ],
     }];
     
     const removeImport2 = ['remove-import2', {
         report: () => 'hello',
-        include: () => ['ImportDeclaration'],
+        include: () => [
+            'ImportDeclaration',
+        ],
     }];
     
     const plugins = [removeImport1];

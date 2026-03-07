@@ -4,7 +4,9 @@ const {rename} = operator;
 
 export const report = () => '"operator" should be used instead of "operate"';
 
-export const include = () => ['Program'];
+export const include = () => [
+    'Program',
+];
 
 export const filter = (path) => {
     const noOperator = !path.scope.bindings.operator;

@@ -45,7 +45,9 @@ test('putout: plugin-esm: declare-imports-first: transform: remove', (t) => {
     t.transform('remove', {
         remove: {
             report: () => '',
-            include: () => ['ImportDeclaration'],
+            include: () => [
+                'ImportDeclaration',
+            ],
             fix: (path) => remove(path),
         },
     });

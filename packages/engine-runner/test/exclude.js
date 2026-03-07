@@ -5,7 +5,9 @@ import {runPlugins} from '../lib/index.js';
 test('putout: runner: traverse: exclude', (t) => {
     const rmVar = {
         report: () => '',
-        exclude: () => ['const __a = __identifier'],
+        exclude: () => [
+            'const __a = __identifier',
+        ],
         traverse: ({push}) => ({
             'const __identifier = __b'(path) {
                 push(path);

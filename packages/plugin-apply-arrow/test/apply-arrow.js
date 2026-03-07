@@ -59,7 +59,9 @@ test('putout: apply-arrow: transform: no-loc', (t) => {
                 
                 delete __b.loc;
             },
-            include: () => ['Program'],
+            include: () => [
+                'Program',
+            ],
             filter: (path) => {
                 const fnPath = path.get('body.0.declaration');
                 return compare(fnPath, FN);

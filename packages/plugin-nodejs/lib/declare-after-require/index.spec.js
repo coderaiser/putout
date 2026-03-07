@@ -103,7 +103,9 @@ test('plugin-nodejs: declare-after-require: transform: removed', (t) => {
     t.transform('removed', {
         remove: {
             report: noop,
-            include: () => ['const a = 5'],
+            include: () => [
+                'const a = 5',
+            ],
             fix: remove,
         },
     });

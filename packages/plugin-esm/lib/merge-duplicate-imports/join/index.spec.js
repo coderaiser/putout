@@ -61,7 +61,9 @@ test('plugin-merge-duplicate-imports: join: transform: remove', (t) => {
     t.transform('remove', {
         remove: {
             report: noop,
-            include: () => ['ImportDeclaration'],
+            include: () => [
+                'ImportDeclaration',
+            ],
             fix: (path) => remove(path),
         },
     });

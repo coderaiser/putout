@@ -1,6 +1,8 @@
 export const report = () => `Use arguments instead of expression`;
 
-export const include = () => ['Function'];
+export const include = () => [
+    'Function',
+];
 
 export const fix = (path) => {
     const params = [];

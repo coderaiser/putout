@@ -345,7 +345,9 @@ test('putout: traverse: shebang', (t) => {
     const findDebugger = {
         report: () => '',
         fix: stub(),
-        include: () => ['debugger'],
+        include: () => [
+            'debugger',
+        ],
     };
     
     const code = montag`
@@ -644,7 +646,9 @@ test('putout: plugin: include', (t) => {
     const include = {
         report: () => 'debugger found',
         fix: () => {},
-        include: () => ['debugger'],
+        include: () => [
+            'debugger',
+        ],
     };
     
     const {places} = putout('debugger', {
@@ -670,7 +674,9 @@ test('putout: plugin: include: fix', (t) => {
     const include = {
         report: () => 'debugger found',
         fix: (path) => path.remove(),
-        include: () => ['debugger'],
+        include: () => [
+            'debugger',
+        ],
     };
     
     const {places} = putout('debugger', {
@@ -708,7 +714,9 @@ test('putout: plugin: exclude', (t) => {
     const include = {
         report: () => 'debugger found',
         fix: () => {},
-        exclude: () => ['debugger'],
+        exclude: () => [
+            'debugger',
+        ],
     };
     
     const {places} = putout('debugger', {

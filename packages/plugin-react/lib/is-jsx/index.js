@@ -1,3 +1,5 @@
 export const report = () => '';
 export const fix = () => {};
-export const include = () => ['JSXElement'];
+export const include = () => [
+    'JSXElement',
+];

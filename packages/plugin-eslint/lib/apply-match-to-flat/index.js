@@ -25,7 +25,9 @@ export const report = () => `Apply 'matchToFlat()'`;
 
 const createMatchToFlat = template('export const match = %%match%%');
 
-export const exclude = () => [__json];
+export const exclude = () => [
+    __json,
+];
 
 export const fix = ({objects}) => {
     const statementPath = objects[0].find(isStatement);

@@ -591,7 +591,9 @@ test('putout: operator: match-files: default filename', (t) => {
                     '__name.js -> __name.jsx': {
                         report: () => '',
                         fix: noop,
-                        include: () => ['Program'],
+                        include: () => [
+                            'Program',
+                        ],
                     },
                 },
             })],

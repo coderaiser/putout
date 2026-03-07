@@ -156,7 +156,9 @@ export const fix = (path) => {
     path.remove();
 };
 
-export const include = () => ['debugger'];
+export const include = () => [
+    'debugger',
+];
 
 // optional
 export const exclude = () => {};
@@ -531,7 +533,9 @@ const plugins = [{
     msg: '', // optional
     options: {}, // optional
     plugin: {
-        include: () => ['debugger'],
+        include: () => [
+            'debugger',
+        ],
         fix: (path) => path.remove(),
         report: () => `debugger should not be used`,
     },
