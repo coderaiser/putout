@@ -22,6 +22,7 @@ npm i @putout/plugin-printer -D
 - ✅ [apply-linebreak](#apply-linebreak);
 - ✅ [apply-types](#apply-types);
 - ✅ [check-type-passed-to-type-checker](#check-type-passed-to-type-checker);
+- ✅ [check-if-success-possible-in-type-checker](#check-if-success-possible-in-type-checker);
 - ✅ [declare](#declare);
 - ✅ [remove-args](#remove-args);
 - ✅ [remove-useless-maybe](#remove-useless-maybe);
@@ -43,6 +44,7 @@ npm i @putout/plugin-printer -D
         "printer/apply-create-test-url": "on",
         "printer/apply-types": "on",
         "printer/check-type-passed-to-type-checker": "on",
+        "printer/check-if-success-possible-in-type-checker": "on",
         "printer/declare": "on",
         "printer/remove-args": "on",
         "printer/remove-useless-maybe": "on",
@@ -283,9 +285,58 @@ export const beforeIf = createTypeChecker([
 ]);
 ```
 
+## check-if-success-possible-in-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/4164addec1e1b2bb93ad7caf3ed13ad8/b04dc172f4094ea6b6902ec54deee779aba6b944).
+When you have only negative branch defined in type checker it never never succeeds (`+`), and always returns false.
+
+Consider adding success branch, or remove type checker.
+
+☝️ *This rule has no autofix, becaouse most likely tests will fail after auto fix,
+and instead of observing code with a problem, you will first see failed tests,
+and then after some searches determine that there is a wrong auto fix.*
+
+### ❌ Example of incorrect code
+
+```js
+const isSimple = createTypeChecker([
+    '-: -> SpreadElement',
+    '-: -> Identifier',
+    '-: -> !CallExpression',
+]);
+
+const isSimpleAfterObject = createTypeChecker([
+    ['-', isSimple],
+    ['-', callWithNext(isObjectExpression)],
+    ['-', callWithPrev(isObjectExpression)],
+]);
+```
+
+### ✅ Example of correct code
+
+Possible fix:
+
+```js
+const isSimple = createTypeChecker([
+    '-: -> SpreadElement',
+    '-: -> Identifier',
+    '+: -> !CallExpression',
+]);
+
+const isSimpleAfterObject = createTypeChecker([
+    ['-', isSimple],
+    ['-', callWithNext(isObjectExpression)],
+    ['+', callWithPrev(isObjectExpression)],
+]);
+```
+
 ## check-type-passed-to-type-checker
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9b35f5f2f23bece832f0f87c929d30e2/b08df8ef8ce6c2a03bceebe6119846c45a78a119).
+
+☝️ *This rule has no autofix, becaouse most likely tests will fail after auto fix,
+and instead of observing code with a problem, you will first see failed tests,
+and then after some searches determine that there is a wrong auto fix.*
 
 ### ❌ Example of incorrect code
 
@@ -297,9 +348,11 @@ export const beforeIf = createTypeChecker([
 
 ### ✅ Example of correct code
 
+Here is possible correct code:
+
 ```js
 export const beforeIf = createTypeChecker([
-    ['- : -> 🧨 WrongType'],
+    ['- : -> Identifier'],
 ]);
 ```
 

@@ -1,3 +1,4 @@
+import * as checkIfSuccessPossibleInTypeChecker from './check-if-success-possible-in-type-checker/index.js';
 import * as removeUselessTuplesFromTypeChecker from './remove-useless-tuples-from-type-checker/index.js';
 import * as addMissingTuplesToTypeChecker from './add-missing-tuples-to-type-checker/index.js';
 import * as checkTypePassedToTypeChecker from './check-type-passed-to-type-checker/index.js';
@@ -32,4 +33,5 @@ export const rules = {
     'check-type-passed-to-type-checker': checkTypePassedToTypeChecker,
     'add-missing-tuples-to-type-checker': addMissingTuplesToTypeChecker,
     'remove-useless-tuples-from-type-checker': removeUselessTuplesFromTypeChecker,
+    'check-if-success-possible-in-type-checker': checkIfSuccessPossibleInTypeChecker,
 };

@@ -86,3 +86,8 @@ test('plugin-printer: transform: remove-useless-tuples-from-type-checker', (t) =
     t.transform('remove-useless-tuples-from-type-checker');
     t.end();
 });
+
+test('plugin-printer: transform: check-if-success-possible-in-type-checker', (t) => {
+    t.transform('check-if-success-possible-in-type-checker');
+    t.end();
+});
