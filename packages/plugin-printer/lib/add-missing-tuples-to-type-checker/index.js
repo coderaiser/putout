@@ -1,7 +1,8 @@
+import process from 'node:process';
 import {operator, types} from 'putout';
+import {createTypeChecker} from '@putout/printer/type-checker';
 
 const {
-    isStringLiteral,
     isArrayExpression,
     isIdentifier,
     isCallExpression,
@@ -10,6 +11,7 @@ const {
 } = types;
 
 const {replaceWith} = operator;
+const instrument = process.env.PUTOUT_INSTRUMENT;
 
 export const report = (path) => {
     return `Add missing tuple around: ${path}`;
@@ -48,18 +50,36 @@ export const traverse = ({push}) => ({
     },
 });
 
+const hasResult = (value) => /^[+-]/.test(value);
+
+const isDsl = createTypeChecker([
+    ['-: -> !StringLiteral'],
+    ['+: node.value ->', hasResult],
+], {
+    instrument,
+});
+
+const isSimple = createTypeChecker([
+    'Identifier',
+    'CallExpression',
+    ['-: -> !StringLiteral'],
+    ['+: node.value ->!', hasResult],
+], {
+    instrument,
+});
+
 function isConsistent(elements) {
     const arraysCount = elements.filter(isArrayExpression).length;
     
     if (elements.length === arraysCount)
         return true;
     
-    const stringsCount = elements.filter(isStringLiteral).length;
+    const simplesCount = elements.filter(isSimple).length;
     
-    if (elements.length === stringsCount)
+    if (elements.length === simplesCount)
         return true;
     
-    const identifiersCount = elements.filter(isIdentifier).length;
+    const dslCount = elements.filter(isDsl).length;
     
-    return elements.length === identifiersCount;
+    return elements.length === dslCount;
 }

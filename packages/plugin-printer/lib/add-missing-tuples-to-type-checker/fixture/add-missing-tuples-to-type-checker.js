@@ -11,11 +11,12 @@ export const allTuples = createTypeChecker([
     ['-', isBlockStatement],
 ]);
 
+export const allIdentifiers = createTypeChecker([
+    isExpressionStatement,
+]);
+
 export const allStrings = createTypeChecker([
     '- : -> BlockStatement',
     '- : -> WrongType',
 ]);
 
-export const allIdentifiers = createTypeChecker([
-    isExpressionStatement,
-]);

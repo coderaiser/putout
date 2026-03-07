@@ -31,3 +31,13 @@ test('printer: add-missing-tuples-to-type-checker: no report: not-type-checker',
     t.noReport('not-type-checker');
     t.end();
 });
+
+test('printer: add-missing-tuples-to-type-checker: no report: mixed', (t) => {
+    t.noReport('mixed');
+    t.end();
+});
+
+test('printer: add-missing-tuples-to-type-checker: no report: strings', (t) => {
+    t.noReport('strings');
+    t.end();
+});
