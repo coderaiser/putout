@@ -20,6 +20,7 @@ npm i @putout/plugin-printer -D
 - ✅ [apply-create-test-url](#apply-create-test-url);
 - ✅ [apply-linebreak](#apply-linebreak);
 - ✅ [apply-types](#apply-types);
+- ✅ [check-type-passed-to-type-checker](#check-type-passed-to-type-checker);
 - ✅ [declare](#declare);
 - ✅ [remove-args](#remove-args);
 - ✅ [remove-useless-maybe](#remove-useless-maybe);
@@ -39,6 +40,7 @@ npm i @putout/plugin-printer -D
         "printer/apply-computed-print": "on",
         "printer/apply-create-test-url": "on",
         "printer/apply-types": "on",
+        "printer/check-type-passed-to-type-checker": "on",
         "printer/declare": "on",
         "printer/remove-args": "on",
         "printer/remove-useless-maybe": "on",
@@ -225,6 +227,26 @@ export const beforeIf = createTypeChecker([
 ```js
 export const beforeIf = createTypeChecker([
     ['-: parentPath ->', isCoupleLines],
+]);
+```
+
+## check-type-passed-to-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9b35f5f2f23bece832f0f87c929d30e2/b08df8ef8ce6c2a03bceebe6119846c45a78a119).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['- : -> WrongType'],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['- : -> 🧨 WrongType'],
 ]);
 ```
 

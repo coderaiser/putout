@@ -71,3 +71,8 @@ test('plugin-printer: transform: remove-useless-spaces-from-type-checker', (t) =
     t.transform('remove-useless-spaces-from-type-checker');
     t.end();
 });
+
+test('plugin-printer: transform: check-type-passed-to-type-checker', (t) => {
+    t.transform('check-type-passed-to-type-checker');
+    t.end();
+});
