@@ -1,5 +1,7 @@
 module.exports = {
-    externals: [externals],
+    externals: [
+        externals,
+    ],
 };
 
 function externals({context, request}, callback) {}

@@ -20,10 +20,7 @@ function f(e) {
 }
 
 function h(e) {
-    return [
-        e,
-        a({}).equals,
-    ];
+    return [e, a({}).equals];
 }
 
 function i() {

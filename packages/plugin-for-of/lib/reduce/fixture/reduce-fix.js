@@ -27,11 +27,7 @@ const reduceRight2 = [1, 2].reduceRight((a, b) => a + b, 1);
 
 // member expression: .concat();
 
-const array1 = [
-    [0, 1],
-    [2, 3],
-    [4, 5],
-].reduceRight((accumulator, currentValue) => accumulator.concat(currentValue));
+const array1 = [[0, 1], [2, 3], [4, 5]].reduceRight((accumulator, currentValue) => accumulator.concat(currentValue));
 
 // binary operation: +
 const sum1 = [1, 2, 3].reduce((a, b) => a + b);

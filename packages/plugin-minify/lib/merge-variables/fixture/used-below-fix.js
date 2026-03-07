@@ -22,10 +22,7 @@ function setHydrateContext(e) {
 var Owner = null;
 
 function createSignal(e) {
-    return [
-        e,
-        assign({}).equals,
-    ];
+    return [e, assign({}).equals];
 }
 
 function startTransition() {
