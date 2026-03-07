@@ -18,7 +18,7 @@ export const report = (path) => {
 export const fix = (path) => {
     const {node} = path;
     
-    if (isIdentifier(path)) {
+    if (isIdentifier(path) || isCallExpression(path)) {
         replaceWith(path, arrayExpression([stringLiteral('+'), node]));
         return;
     }

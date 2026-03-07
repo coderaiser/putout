@@ -22,6 +22,11 @@ test('printer: add-missing-tuples-to-type-checker: transform: identifier', (t) =
     t.end();
 });
 
+test('printer: add-missing-tuples-to-type-checker: transform: call', (t) => {
+    t.transform('call');
+    t.end();
+});
+
 test('printer: add-missing-tuples-to-type-checker: no report: not-type-checker', (t) => {
     t.noReport('not-type-checker');
     t.end();
