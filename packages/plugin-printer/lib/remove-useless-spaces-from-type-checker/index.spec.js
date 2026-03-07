@@ -16,3 +16,8 @@ test('printer: remove-useless-spaces-from-type-checker: transform', (t) => {
     t.transform('remove-useless-spaces-from-type-checker');
     t.end();
 });
+
+test('printer: remove-useless-spaces-from-type-checker: transform: sequence', (t) => {
+    t.transform('sequence');
+    t.end();
+});

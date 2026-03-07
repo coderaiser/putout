@@ -51,10 +51,15 @@ function createWhere(value) {
         endsWith,
     };
     
-    if (includes(' :'))
-        traceColon(tools);
+    traceColon(tools);
+    traceSpaces(tools);
     
     return where;
+}
+
+function traceSpaces({push, includes}) {
+    if (includes('  '))
+        push('double-spaces');
 }
 
 function traceColon({push, includes}) {
@@ -65,6 +70,9 @@ function traceColon({push, includes}) {
 function removeSpaces(value, where) {
     if (where.includes('before-colon'))
         value = value.replace(' :', ':');
+    
+    if (where.includes('double-spaces'))
+        value = value.replaceAll('  ', ' ');
     
     return value;
 }
