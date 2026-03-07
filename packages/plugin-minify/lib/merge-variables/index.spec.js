@@ -85,6 +85,11 @@ test('plugin-minify: merge-variables: transform: let-couple', (t) => {
     t.end();
 });
 
+test('plugin-minify: merge-variables: no report: loop', (t) => {
+    t.noReport('loop');
+    t.end();
+});
+
 test('plugin-minify: merge-variables: no transform: no-use-before-declare', (t) => {
     t.noTransform('no-use-before-declare');
     t.end();

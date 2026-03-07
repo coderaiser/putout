@@ -21,18 +21,15 @@ export const fix = ({path, vars}) => {
 
 export const traverse = ({push, uplist}) => ({
     VariableDeclarator: (path) => {
+        if (hasAssign(path))
+            return;
+        
         if (path.parentPath.node.declarations.length !== 1)
             return;
         
         const initPath = path.get('init');
         
-        if (initPath.isAwaitExpression())
-            return;
-        
         if (initPath.isNewExpression())
-            return;
-        
-        if (initPath.isTemplateLiteral())
             return;
         
         if (path.parentPath.parentPath.isSwitchCase())
@@ -91,3 +88,19 @@ export const traverse = ({push, uplist}) => ({
         },
     },
 });
+
+function hasAssign(path) {
+    let is = false;
+    
+    path.parentPath.parentPath.traverse({
+        AssignmentExpression(path) {
+            if (isMemberExpression(path.node.left))
+                return;
+            
+            is = true;
+            path.stop();
+        },
+    });
+    
+    return is;
+}
