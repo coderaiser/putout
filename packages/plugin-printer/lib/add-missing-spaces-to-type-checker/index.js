@@ -57,7 +57,7 @@ function createWhere(value) {
     if (includes(':'))
         traceColon(tools);
     
-    return where.filter(Boolean);
+    return where;
 }
 
 function traceColon({push, includes, endsWith}) {
