@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-printer",
-  "version": "8.4.0",
+  "version": "8.5.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds support of transformations for @putout/printer",
