@@ -86,9 +86,6 @@ export const traverse = ({push}) => ({
                 if (referenceParentPath.isExportDefaultDeclaration())
                     break;
                 
-                if (referencePath.isExportDeclaration())
-                    break;
-                
                 const initPath = path.get('init');
                 
                 if (compareAny(getName(initPath), getKeys(referenceParentPath)))
@@ -98,7 +95,7 @@ export const traverse = ({push}) => ({
                     break;
                 
                 if (checkKeys(path, referencePath))
-                    break;
+                    continue;
                 
                 const [own, pathLoc] = getLoc(path);
                 const [, referenceLoc] = getLoc(referencePath);
@@ -162,11 +159,18 @@ function getKeys({node}) {
     return properties.map(getKey);
 }
 
+function parsePathWithKeys(path) {
+    if (path.listKey)
+        return path;
+    
+    return path.parentPath.parentPath;
+}
+
 function checkKeys(path, referencePath) {
-    const {key, listKey} = referencePath.parentPath.parentPath;
+    const {key, listKey} = parsePathWithKeys(referencePath);
     
     if (listKey !== 'body')
-        return;
+        return false;
     
     return path.key < key;
 }

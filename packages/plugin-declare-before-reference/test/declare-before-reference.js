@@ -97,8 +97,8 @@ test('plugin-declare-before-reference: no report: assign', (t) => {
     t.end();
 });
 
-test('plugin-declare-before-reference: no transform: export-type', (t) => {
-    t.noTransform('export-type');
+test('plugin-declare-before-reference: transform: export-type', (t) => {
+    t.transform('export-type');
     t.end();
 });
 
@@ -166,6 +166,11 @@ test('plugin-declare-before-reference: no report: returns', (t) => {
 
 test('plugin-declare-before-reference: transform: arg', (t) => {
     t.transform('arg');
+    t.end();
+});
+
+test('plugin-declare-before-reference: transform: type-check', (t) => {
+    t.transform('type-check');
     t.end();
 });
 
