@@ -169,8 +169,8 @@ test('plugin-declare-before-reference: transform: arg', (t) => {
     t.end();
 });
 
-test('plugin-declare-before-reference: transform: type-check', (t) => {
-    t.transform('type-check');
+test('plugin-declare-before-reference: transform: named-export', (t) => {
+    t.transform('named-export');
     t.end();
 });
 

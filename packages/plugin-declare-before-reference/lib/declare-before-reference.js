@@ -14,6 +14,7 @@ const {
     isBlockStatement,
     isProgram,
     isArrowFunctionExpression,
+    isExportDeclaration,
 } = types;
 
 const isArrowOrBlock = (a) => isArrowFunctionExpression(a) || isBlockStatement(a);
@@ -33,6 +34,7 @@ export const fix = ({path, referencePath}) => {
     
     delete node.loc;
     
+    const exportNode = path.parentPath.parentPath.node;
     remove(path.parentPath);
     
     if (path.scope.uid !== programPath.scope.uid) {
@@ -49,6 +51,11 @@ export const fix = ({path, referencePath}) => {
         const latest = getPathAfterRequires(body.slice(1));
         insertBefore(latest, node);
         
+        return;
+    }
+    
+    if (isExportDeclaration(exportNode)) {
+        programPath.node.body.unshift(exportNode);
         return;
     }
     
