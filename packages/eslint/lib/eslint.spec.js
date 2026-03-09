@@ -349,8 +349,8 @@ test('putout: eslint: empty output', async (t) => {
     t.end();
 });
 
-test('putout: eslint: convertToPlace: control sequences', async (t) => {
-    const result = await convertToPlace({
+test('putout: eslint: convertToPlace: control sequences', (t) => {
+    const result = convertToPlace({
         ruleId: '@typescript-eslint/naming-convention',
         message: 'Object Literal Property name `\u001a` must match one of the following formats: camelCase, UPPER_CASE',
         line: 281,
