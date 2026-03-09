@@ -110,9 +110,6 @@ export const traverse = ({push}) => ({
                 const declarationLine = pathLoc.start.line;
                 const referenceLine = referenceLoc.start.line;
                 
-                if (!own)
-                    break;
-                
                 if (own && declarationLine > referenceLine)
                     push({
                         name,
