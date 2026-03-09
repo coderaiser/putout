@@ -180,7 +180,7 @@ Disabled 🐊**Putout** rules:
 - ❌ [`variables/remove-unreferenced`](https://github.com/coderaiser/putout/tree/v41.0.0/packages/plugin-variables#remove-unreferenced);
 - ❌ [`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#readme);
 - ❌ [`return/remove-useless`](https://github.com/coderaiser/putout/tree/v38.0.0/packages/plugin-return#remove-useless);
-- ❌ [`return/remove-last-empty`](https://github.com/coderaiser/putout/tree/v42.0.26/packages/plugin-return#remove-last-empty);
+- ❌ [`return/remove-last-empty`](https://github.com/coderaiser/putout/tree/v42.1.0/packages/plugin-return#remove-last-empty);
 - ❌ [`remove-useless-spread`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-useless-spread/#readme);
 - ❌ [`tape/remove-skip`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-tape#remove-skip);
 - ❌ [`tape/remove-only`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-tape#remove-only);
