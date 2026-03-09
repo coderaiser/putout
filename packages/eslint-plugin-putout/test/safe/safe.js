@@ -34,6 +34,10 @@ test('eslint-plugin-putout: safe: convert-template-to-string: off', async ({noPr
     await noProcess('convert-template-to-string', SAFE);
 });
 
+test('eslint-plugin-putout: safe: return-remove-last-empty: off', async ({noProcess}) => {
+    await noProcess('return-remove-last-empty', SAFE);
+});
+
 test('eslint-plugin-putout: safe: convert-const-to-let: on', async ({process}) => {
     await process('convert-const-to-let', SAFE);
 });
