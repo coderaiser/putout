@@ -457,7 +457,7 @@ export const fix = (file) => {
 };
 
 export const scan = (rootPath, {push, trackFile}) => {
-    for (const file of trackFile(rootPath, 'hello.txt')) {
+    {
         findFile(rootPath, 'again and again');
     }
 };
@@ -474,7 +474,7 @@ export const fix = (file) => {
 export const scan = (rootPath, {push, trackFile}) => {
     const crawled = crawlDirectory(rootPath);
     
-    for (const file of trackFile(rootPath, 'hello.txt')) {
+    {
         findFile(rootPath, 'again and again', {
             crawled,
         });
@@ -493,7 +493,7 @@ export const fix = (file) => {
 };
 
 export const scan = (rootPath, {push, trackFile, crawlFile}) => {
-    for (const file of trackFile(rootPath, 'hello.txt')) {
+    {
         const files = crawlFile(rootPath, 'no matter how many times');
     }
 };
