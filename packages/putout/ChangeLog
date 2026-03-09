@@ -1,3 +1,54 @@
+2026.03.10, v42.1.0
+
+fix:
+- 8cbfc4fbc @putout/plugin-declare-before-reference: simplify
+- 46bfb6db0 @putout/plugin-declare-before-reference: named-export
+- b8c04fb98 @putout/plugin-printer: add-missing-tuples-to-type-checker: instrument
+- e574f445a @putout/plugin-printer: add-missing-tuples-to-type-checker: CallExpression
+- 1895f72da @putout/plugin-printer: add-missing-spaces-to-type-checker: rm useless filter(Boolean)
+- 4e5a61f6f @putout/plugin-printer: add-missing-spaces-to-type-checker: colon last: exclude
+- 2faae4cb7 @putout/plugin-printer: add-missing-spaces-to-type-checker: after arrow
+- d1ae084b9 @putout/plugin-printer: remove-trailing-spaces-from-type-checker: link to 🐊Putout Editor
+- 5b5ec86fd @putout/compare: is: export: isArray: rm
+- e344b9b1b @putout/plugin-printer: remove-useless-maybe: report
+
+feature:
+- 471fffe18 eslint-plugin-putout: safe: return/remove-last-empty: off
+- ea27948ce putout: @putout/plugin-regexp v13.5.0
+- cb0bc7ec1 putout: @putout/plugin-return v4.0.0
+- 753457d81 @putout/plugin-regexp: drop support of 🐊 < 42
+- 031c049ea @putout/plugin-return: drop support of 🐊 < 42
+- 330b0ad0c @putout/plugin-return: remove-last-empty: add
+- 25803de62 @putout/plugin-for-of: remove-useless: improve
+- 8d5c46999 @putout/plugin-declare-before-reference: improve support of exports
+- 7c03f12ff @putout/plugin-minify: drop support of 🐊 < 42
+- 8d872a365 @putout/plugin-minify: merge-variables: AssignmentExpression: exclude
+- f293e7587 @putout/plugin-printer: instrument type checker
+- a268157d4 @putout/plugin-printer: check-if-success-possible-in-type-checker: add
+- dcd50ad14 @putout/plugin-printer: check-type-passed-to-type-checker: rm 🧨
+- dfe6708b5 @putout/plugin-printer: remove-useless-spaces-from-type-checker: sequence
+- 1375dafc6 @putout/plugin-printer: check-type-passed-to-type-checker: type name
+- bcd07e4d0 @putout/plugin-printer: add-missing-tuples-to-type-checker: type name
+- 3e7002213 @putout/plugin-printer: add-missing-tuples-to-type-checker: exclude dsl
+- 4ec9b7bbf @putout/plugin-printer: check-type-passed-to-type-checker: CommentBlock
+- e0ac4ef42 @putout/plugin-printer: remove-useless-tuples-from-type-checker: add
+- b41222934 @putout/plugin-printer: add-missing-tuples-to-type-checker: identifier
+- 39d764ace @putout/plugin-printer: add-missing-tuple-to-type-checker: add
+- acec26b2e @putout/plugin-printer: check-type-passed-to-type-checker: selector: exclude
+- 06e325e75 @putout/plugin-printer: check-type-passed-to-type-checker
+- 742efbf44 @putout/plugin-printer: remove-useless-spaces-from-type-checker: add
+- 1ea777a47 @putout/plugin-printer: add-missing-spaces-to-type-checker: add
+- a5a9376b8 @putout/plugin-printer: remove-trailing-spaces-from-type-checker: add
+- 8716146e4 @putout/plugin-declare-before-reference: CallExpression argument: improve support
+- df16f4dda @putout/plugin-printer: remove-useless-maybe: indent
+- bfd8bfcb1 @putout/plugin-putout: convert-node-to-path-in-get-template-values: exclude: short
+- 84ee1e8d2 @putout/plugin-remove-useless-maybe: simplify
+- 88f3caf84 @putout/compare: getTemplateValues: ExpressionStatement
+- f907ede9a @putout/plugin-putout: convert-node-to-path-in-get-template-values: report
+- 540534a4a @putout/plugin-printer: drop support of 🐊 < 42
+- 727e150bb @putout/plugin-printer: remove-useless-maybe: add
+- 42a54b00b @putout/engine-parser: @putout/printer v18.0.0
+
 2026.03.03, v42.0.25
 
 fix:
