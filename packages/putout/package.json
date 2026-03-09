@@ -139,7 +139,7 @@
     "@putout/plugin-promises": "^19.0.0",
     "@putout/plugin-putout": "^29.0.0",
     "@putout/plugin-putout-config": "^12.0.0",
-    "@putout/plugin-regexp": "^13.0.0",
+    "@putout/plugin-regexp": "^13.5.0",
     "@putout/plugin-remove-console": "^7.0.0",
     "@putout/plugin-remove-debugger": "^8.0.0",
     "@putout/plugin-remove-duplicate-case": "^4.0.0",
