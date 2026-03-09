@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-for-of",
-  "version": "12.0.0",
+  "version": "12.1.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to apply for...of",
