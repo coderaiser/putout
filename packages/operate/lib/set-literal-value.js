@@ -24,8 +24,6 @@ function setNumericLiteral(node, newValue) {
     node.raw = raw;
     node.extra.rawValue = newValue;
     node.extra.raw = raw;
-    
-    return;
 }
 
 function setStringLiteral(node, newValue) {

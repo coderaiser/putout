@@ -28,7 +28,6 @@ export const fix = ({path, left, right}) => {
     }
     
     path.replace(node);
-    return;
 };
 
 export const traverse = ({push}) => ({

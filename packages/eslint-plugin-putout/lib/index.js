@@ -79,6 +79,7 @@ export const safeRules = {
     'variables/remove-useless': 'off',
     'variables/remove-unreferenced': 'off',
     'return/remove-useless': 'off',
+    'return/remove-last-empty': 'off',
     'remove-useless-spread': 'off',
     'tape/remove-skip': 'off',
     'tape/remove-only': 'off',

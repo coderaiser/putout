@@ -22,6 +22,7 @@ npm i putout @putout/plugin-return -D
 - ✅ [convert-from-break](#convert-from-continue);
 - ✅ [merge-with-next-sibling](#merge-with-next-sibling);
 - ✅ [remove-useless](#remove-useless);
+- ✅ [remove-last-empty](#remove-last-empty);
 - ✅ [simplify-boolean](#simplify-boolean);
 
 ## Config
@@ -34,6 +35,7 @@ npm i putout @putout/plugin-return -D
         "return/convert-from-break": "on",
         "return/merge-with-next-sibling": "on",
         "return/remove-useless": "on",
+        "return/remove-last-empty": "on",
         "return/simplify-boolean": "on"
     }
 }
@@ -196,6 +198,27 @@ const traverse = ({push}) => ({
         push(path);
     },
 });
+```
+
+### remove-last-empty
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/111549a3e6d61f8637ea12217062ea80/10e7842f9fbbf7fb0712d3b41cdcc707ae410fe5).
+
+### ❌ Example of incorrect code
+
+```js
+const exit = (vars, path, {push}) => {
+    push(path);
+    return;
+};
+```
+
+### ✅ Example of correct code
+
+```js
+const exit = (vars, path, {push}) => {
+    push(path);
+};
 ```
 
 ## simplify-boolean

@@ -36,3 +36,8 @@ test('plugin-return: transform: remove-useless', (t) => {
     t.transform('remove-useless');
     t.end();
 });
+
+test('plugin-return: transform: remove-last-empty', (t) => {
+    t.transform('remove-last-empty');
+    t.end();
+});

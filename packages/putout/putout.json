@@ -76,6 +76,7 @@
             "return/remove-useless": "off",
             "remove-empty": "off",
             "for-of/remove-unused-variables": "off",
+            "for-of/remove-useless": "off",
             "remove-console": "off",
             "remove-unreachable-code": "off",
             "declare": "off",

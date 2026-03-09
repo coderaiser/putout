@@ -29,6 +29,7 @@
             "variables/remove-unused": "off",
             "spread": "off",
             "return/remove-useless": "off",
+            "return/remove-last-empty": "off",
             "variables/remove-unreferenced": "off",
             "remove-unreachable-code": "off",
             "tape/remove-skip": "off",

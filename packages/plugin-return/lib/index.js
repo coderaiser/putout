@@ -1,3 +1,4 @@
+import * as removeLastEmpty from './remove-last-empty/index.js';
 import * as applyEarly from './apply-early/index.js';
 import * as convertFromContinue from './convert-from-continue/index.js';
 import * as convertFromBreak from './convert-from-break/index.js';
@@ -12,4 +13,5 @@ export const rules = {
     'merge-with-next-sibling': mergeWithNextSibling,
     'simplify-boolean': simplifyBoolean,
     'remove-useless': removeUseless,
+    'remove-last-empty': removeLastEmpty,
 };

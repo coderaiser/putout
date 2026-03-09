@@ -53,7 +53,5 @@ export const traverse = ({push}) => ({
             path,
             pattern,
         });
-        
-        return;
     },
 });

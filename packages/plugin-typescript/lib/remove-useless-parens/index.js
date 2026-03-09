@@ -6,7 +6,6 @@ export const report = () => 'Avoid useless parens';
 
 export const fix = (path) => {
     removeParens(path);
-    return;
 };
 
 export const traverse = ({push}) => ({
