@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-regexp",
-  "version": "13.5.0",
+  "version": "14.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin helps with regexp",
