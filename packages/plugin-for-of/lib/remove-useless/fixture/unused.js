@@ -12,3 +12,19 @@ module.exports.isSupported = (name) => {
     return false;
 };
 
+function x() {
+    for (const node of path.node.body) {
+        if (store('is-module'))
+            return;
+        
+        if (path.node.directives.length)
+            return;
+        
+        if (!store('is-common'))
+            return;
+        
+        push(path);
+        
+        return;
+    }
+}

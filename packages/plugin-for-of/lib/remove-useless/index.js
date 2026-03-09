@@ -6,12 +6,6 @@ const {replaceWith} = operator;
 export const report = () => `Avoid useless for-of`;
 
 export const match = () => ({
-    'for (const __identifier__a of __identifier__b) __c': ({__identifier__a}, path) => {
-        const {name} = __identifier__a;
-        const {references} = path.scope.bindings[name];
-        
-        return !references;
-    },
     'for (const __a of __array) __c': ({__a, __array}, path) => {
         if (__array.elements.length >= 2)
             return false;
@@ -24,10 +18,15 @@ export const match = () => ({
         
         return !(references >= 2);
     },
+    'for (const __identifier__a of __b) __c': ({__identifier__a}, path) => {
+        const {name} = __identifier__a;
+        const {references} = path.scope.bindings[name];
+        
+        return !references;
+    },
 });
 
 export const replace = () => ({
-    'for (const __identifier__a of __identifier__b) __c': '__c',
     'for (const __a of __array) __c': ({__a, __c, __array}, path) => {
         const {elements} = __array;
         
@@ -49,4 +48,5 @@ export const replace = () => ({
         
         return path;
     },
+    'for (const __identifier__a of __b) __c': '__c',
 });
