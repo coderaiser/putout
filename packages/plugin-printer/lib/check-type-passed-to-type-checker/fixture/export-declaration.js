@@ -1,3 +1,3 @@
 export const beforeIf = createTypeChecker([
-    '🧨StringLiteralx',
+    'ExportDeclaration',
 ]);

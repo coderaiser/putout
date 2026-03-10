@@ -17,6 +17,16 @@ test('printer: check-type-passed-to-type-checker: report: type', (t) => {
     t.end();
 });
 
+test('printer: check-type-passed-to-type-checker: report: export-declaration', (t) => {
+    const message = [
+        `Unknown type detected: 'ExportDeclaration'.`,
+        `Use 'ExportAllDeclaration', 'ExportDefaultDeclaration', 'ExportNamedDeclaration' instead`,
+    ].join(' ');
+    
+    t.report('export-declaration', message);
+    t.end();
+});
+
 test('printer: check-type-passed-to-type-checker: no report: selector', (t) => {
     t.noReport('selector');
     t.end();

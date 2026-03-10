@@ -1,5 +1,6 @@
 import {types} from 'putout';
 
+const addQuotes = (a) => `'${a}'`;
 const {
     isIdentifier,
     isCallExpression,
@@ -11,12 +12,30 @@ const ARROW_LENGTH = ARROW.length;
 const ARROW_NOT_LENGTH = ARROW_NOT.length;
 const NOT = '!';
 
-const TYPES = new Set([
+const TYPES_EXISTS = new Set([
     'CommentBlock',
 ]);
 
+const TYPES_NOT_EXISTS = new Set([
+    'ExportDeclaration',
+]);
+
+const INSTEAD = new Map([
+    ['ExportDeclaration', [
+        'ExportAllDeclaration',
+        'ExportDefaultDeclaration',
+        'ExportNamedDeclaration',
+    ]],
+]);
+
 export const report = ({type}) => {
-    return `Unknown type detected: '${type}'`;
+    if (!INSTEAD.has(type))
+        return `Unknown type detected: '${type}'`;
+    
+    const instead = INSTEAD.get(type).map(addQuotes)
+        .join(', ');
+    
+    return `Unknown type detected: '${type}'. Use ${instead} instead`;
 };
 
 export const fix = () => {};
@@ -72,8 +91,11 @@ export const traverse = ({push}) => ({
 });
 
 function isExists(type) {
+    if (TYPES_NOT_EXISTS.has(type))
+        return false;
+    
     if (types[`is${type}`])
         return true;
     
-    return TYPES.has(type);
+    return TYPES_EXISTS.has(type);
 }
