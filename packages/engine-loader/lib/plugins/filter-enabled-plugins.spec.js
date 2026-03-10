@@ -3,7 +3,7 @@ import {filterEnabledPlugins} from './filter-enabled-plugins.js';
 
 test('putout: engine-loader: filter-enabled-plugins', (t) => {
     const plugins = [
-        ['nodejs/convert-esm-to-commonjs', ['off', {}]],
+        ['nodejs/convert-esm-to-commonjs', ['off', { }]],
     ];
     
     const cookedRules = [];

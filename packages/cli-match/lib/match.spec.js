@@ -112,7 +112,8 @@ test('putout: match: success', async (t) => {
                 'remove-debugger': 'on',
             },
         },
-    }, null, 4) + '\n';
+    }, null, 4) +
+        '\n';
     
     t.calledWith(writeFile, ['/.putout.json', expected]);
     t.end();
@@ -148,7 +149,8 @@ test('putout: match: exist', async (t) => {
                 'remove-debugger': 'on',
             },
         },
-    }, null, 4) + '\n';
+    }, null, 4) +
+        '\n';
     
     t.calledWith(writeFile, ['/.putout.json', expected]);
     t.end();
@@ -182,7 +184,8 @@ test('putout: match: exist: with same pattern', async (t) => {
                 'remove-debugger': 'on',
             },
         },
-    }, null, 4) + '\n';
+    }, null, 4) +
+        '\n';
     
     t.calledWith(writeFile, ['/.putout.json', expected]);
     t.end();
@@ -218,7 +221,8 @@ test('putout: match: pass readFile and writeFile', async (t) => {
                 'remove-debugger': 'on',
             },
         },
-    }, null, 4) + '\n';
+    }, null, 4) +
+        '\n';
     
     t.calledWith(writeFile, ['/.putout.json', expected]);
     t.end();

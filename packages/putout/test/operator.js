@@ -89,7 +89,8 @@ test('putout: operator: addArgs', (t) => {
 test('putout: operator: toJS', (t) => {
     const source = stringify({
         hello: 'world',
-    }) + '\n';
+    }) +
+        '\n';
     
     const js = operator.toJS(source);
     const result = operator.fromJS(js);

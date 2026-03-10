@@ -307,7 +307,7 @@ test('putout: operator: declare: options', (t) => {
             }],
         },
         plugins: [
-            ['declare', declare({})],
+            ['declare', declare({ })],
         ],
     });
     
@@ -346,7 +346,7 @@ test('putout: operator: declare: vars', (t) => {
             }],
         },
         plugins: [
-            ['declare', declare({})],
+            ['declare', declare({ })],
         ],
     });
     
@@ -382,7 +382,7 @@ test('putout: operator: declare: dual: commonjs', (t) => {
             }],
         },
         plugins: [
-            ['declare', declare({})],
+            ['declare', declare({ })],
         ],
     });
     
@@ -415,7 +415,7 @@ test('putout: operator: declare: dual: commonjs: override', (t) => {
             }],
         },
         plugins: [
-            ['declare', declare({})],
+            ['declare', declare({ })],
         ],
     });
     
@@ -446,7 +446,7 @@ test('putout: operator: declare: esm for commonjs', (t) => {
             }],
         },
         plugins: [
-            ['declare', declare({})],
+            ['declare', declare({ })],
         ],
     });
     
@@ -477,7 +477,7 @@ test('putout: operator: declare: esm for esm', (t) => {
             }],
         },
         plugins: [
-            ['declare', declare({})],
+            ['declare', declare({ })],
         ],
     });
     
@@ -512,7 +512,7 @@ test('putout: operator: declare: dual: esm', (t) => {
             }],
         },
         plugins: [
-            ['declare', declare({})],
+            ['declare', declare({ })],
         ],
     });
     
@@ -543,7 +543,7 @@ test('putout: operator: declare: MemberExpression', (t) => {
             }],
         },
         plugins: [
-            ['declare', declare({})],
+            ['declare', declare({ })],
         ],
     });
     

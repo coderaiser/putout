@@ -304,7 +304,8 @@ test('putout: test: report: with one argument', (t) => {
     cache.set('x', 'y');
     
     const [error] = tryCatch(t.report, 'remove-import');
-    const expected = '\n' + montag`
+    const expected = '\n' +
+        montag`
           > 1 | report(name: string, message: string): Operator
               | ^ ☝️ Looks like you forget to pass the 'message' for 'report()' operator
               ╔══

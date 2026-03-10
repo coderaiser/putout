@@ -44,7 +44,8 @@ test('putout: processor: json : merge: a couple items in list: not last', (t) =>
     const expected = stringify({
         filename: '/hello',
         files: [],
-    }, null, 4) + '\n';
+    }, null, 4) +
+        '\n';
     
     t.equal(result, expected);
     t.end();

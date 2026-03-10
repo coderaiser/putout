@@ -138,11 +138,13 @@ function addPrefixSpaces({content, currentSource}) {
         .split('\n')
         .pop();
     
-    const code = '\n' + currentSource
-        .split('\n')
-        .map(addSpaces(spacesCount))
-        .join('\n') +
-    '\n' + lastLine;
+    const code = '\n' +
+        currentSource
+            .split('\n')
+            .map(addSpaces(spacesCount))
+            .join('\n') +
+        '\n' +
+        lastLine;
     
     return code;
 }

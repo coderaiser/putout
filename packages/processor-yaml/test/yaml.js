@@ -63,7 +63,8 @@ test('putout: processor: yaml: merge: a couple items in list: not last', (t) => 
     const expected = montag`
         filename: /hello
         files: []
-    ` + '\n';
+    ` +
+        '\n';
     
     t.equal(result, expected);
     t.end();

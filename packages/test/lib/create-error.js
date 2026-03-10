@@ -21,8 +21,11 @@ export const createError = (help, source, values) => {
         column: 1,
     };
     
-    throw Error('\n' + codeframe({
-        source,
-        error,
-    }));
+    throw Error(
+        '\n' +
+        codeframe({
+            source,
+            error,
+        }),
+    );
 };

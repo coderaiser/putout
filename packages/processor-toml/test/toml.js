@@ -52,7 +52,8 @@ test('putout: processor: toml: merge: a couple items in list: not last', async (
     const expected = montag`
         [hello]
         world = "hello"
-    ` + '\n';
+    ` +
+        '\n';
     
     t.equal(result, expected);
     t.end();
@@ -68,7 +69,8 @@ test('putout: processor: toml: merge: no change', async (t) => {
     
     const expected = montag`
         extend-exclude = ["ChangeLog"]
-    ` + '\n';
+    ` +
+        '\n';
     
     t.equal(result, expected);
     t.end();

@@ -182,7 +182,8 @@ test('putout: operator: match-files: transform: printer options', (t) => {
     
     const expected = JSON.stringify({
         hello: 'world',
-    }, null, 2) + '\n';
+    }, null, 2) +
+        '\n';
     
     t.deepEqual(result, expected);
     t.end();

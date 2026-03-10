@@ -28,7 +28,8 @@ test('putout: processor: filesystem: merge', (t) => {
     const expected = stringify({
         filename: '/',
         files: [],
-    }, null, 4) + '\n';
+    }, null, 4) +
+        '\n';
     
     t.equal(result, expected);
     t.end();
@@ -79,7 +80,8 @@ test('putout: processor: filesystem: merge: a couple items in list', (t) => {
     const expected = stringify({
         filename: '/',
         files: [],
-    }, null, 4) + '\n';
+    }, null, 4) +
+        '\n';
     
     t.equal(result, expected);
     t.end();
@@ -111,7 +113,8 @@ test('putout: processor: filesystem: merge: a couple items in list: not last', (
     const expected = stringify({
         filename: '/',
         files: [],
-    }, null, 4) + '\n';
+    }, null, 4) +
+        '\n';
     
     t.equal(result, expected);
     t.end();

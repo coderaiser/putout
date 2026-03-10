@@ -212,9 +212,11 @@ test('putout: cli: choose-formatter: user formatter', async (t) => {
     
     const expected = [
         'x',
+        
         stringify({
             formatter: 'dump',
-        }, null, 4) + '\n',
+        }, null, 4) +
+            '\n',
     ];
     
     t.calledWith(writeFile, expected);
