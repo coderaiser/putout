@@ -30,6 +30,13 @@ test('putout: operator: keyword: isDeclarationKeyword', (t) => {
     t.end();
 });
 
+test('putout: operator: keyword: isDeclarationKeyword: import', (t) => {
+    const result = isDeclarationKeyword('import');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('putout: operator: keyword: isModuleDeclarationKeyword', (t) => {
     const result = isModuleDeclarationKeyword('export');
     
