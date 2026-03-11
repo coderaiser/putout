@@ -30,10 +30,10 @@ test('putout: operator: keyword: isDeclarationKeyword', (t) => {
     t.end();
 });
 
-test('putout: operator: keyword: isDeclarationKeyword: import', (t) => {
+test('putout: operator: keyword: isDeclarationKeyword: import: no', (t) => {
     const result = isDeclarationKeyword('import');
     
-    t.ok(result);
+    t.notOk(result);
     t.end();
 });
 

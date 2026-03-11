@@ -7,7 +7,6 @@ const moduleDeclarations = [
 const legacyKeywords = ['assert'];
 
 const declarations = [
-    'import',
     'const',
     'var',
     'let',
