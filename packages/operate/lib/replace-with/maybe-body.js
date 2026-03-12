@@ -1,6 +1,7 @@
 import {types} from '@putout/babel';
 
 const {
+    isArrowFunctionExpression,
     isStatement,
     isBlockStatement,
     blockStatement,
@@ -10,7 +11,7 @@ const {
 export const maybeBody = (path, node) => {
     const {parentPath} = path;
     
-    if (node && !isStatement(node) || isBlockStatement(node) || !parentPath?.isArrowFunctionExpression?.())
+    if (node && !isStatement(node) || isBlockStatement(node) || !isArrowFunctionExpression(parentPath))
         return {
             currentPath: path,
         };
