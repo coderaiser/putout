@@ -35,12 +35,10 @@
   ],
   "devDependencies": {
     "@putout/engine-runner": "*",
-    "@putout/eslint-flat": "^4.0.0",
     "@putout/plugin-esm": "*",
     "@putout/plugin-minify": "*",
     "@putout/plugin-variables": "*",
     "eslint": "^10.0.0",
-    "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^31.0.0",
     "just-camel-case": "^6.2.0",
     "madrun": "^13.0.0",
