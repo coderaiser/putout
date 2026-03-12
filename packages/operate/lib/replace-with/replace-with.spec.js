@@ -68,14 +68,10 @@ test('putout: operate: replaceWith: result', (t) => {
 
 test('putout: operate: replaceWith: expression', (t) => {
     const node = {};
-    const isExpressionStatement = stub().returns(true);
-    const isProgram = stub().returns(false);
-    
     const parentPath = {
-        isExpressionStatement,
+        type: 'ExpressionStatement',
         node,
         replaceWith: stub(),
-        isProgram,
     };
     
     const path = {
@@ -87,40 +83,15 @@ test('putout: operate: replaceWith: expression', (t) => {
     const result = replaceWith(path, node);
     
     const expected = {
+        type: 'ExpressionStatement',
         node: {
             comments: undefined,
             loc: undefined,
         },
-        isExpressionStatement: stub(),
-        isProgram: stub(),
         replaceWith: stub(),
     };
     
     t.deepEqual(result, expected);
-    t.end();
-});
-
-test('putout: operate: replaceWith: expression: isProgram', (t) => {
-    const node = {};
-    const isExpressionStatement = stub().returns(true);
-    const isProgram = stub().returns(true);
-    
-    const parentPath = {
-        node,
-        replaceWith: stub(),
-        isProgram,
-        isExpressionStatement,
-    };
-    
-    const path = {
-        parentPath,
-        node,
-        replaceWith: stub(),
-    };
-    
-    const result = replaceWith(path, node);
-    
-    t.equal(result, path, 'should return result');
     t.end();
 });
 

@@ -1,5 +1,7 @@
+import {types} from '@putout/babel';
 import {maybeBody} from './maybe-body.js';
 
+const {isExpressionStatement} = types;
 const {assign} = Object;
 
 const parseNode = (a) => {
@@ -16,7 +18,7 @@ export const replaceWith = (path, node) => {
     
     node = parseNode(node);
     
-    if (path?.parentPath?.isExpressionStatement() && !path.parentPath.isProgram()) {
+    if (isExpressionStatement(path.parentPath)) {
         addMark(path, node);
         path = path.parentPath;
     }
