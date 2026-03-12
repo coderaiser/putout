@@ -1,3 +1,15 @@
+2026.03.12, v42.1.1
+
+fix:
+- fe70e0793 @putout/operator-keyword: isDeclarationKeyword: rm import
+- 94eda16be eslint-plugin-putout: readme: typo
+
+feature:
+- 417e01b56 @putout/processor-toml: oxfmt v0.39.0
+- 1fff610d6 putout: @putout/plugin-regexp v14.0.0
+- 9a84c7b33 @putout/operator-keyword: isDeclaration: import
+- 510b742a2 @putout/plugin-printer: check-type-passed-to-type-checker: ExportDeclaration
+
 2026.03.10, v42.1.0
 
 fix:
