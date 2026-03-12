@@ -1,4 +1,5 @@
 import {types} from 'putout';
+import {isTypeExists} from '#types';
 
 const addQuotes = (a) => `'${a}'`;
 const {
@@ -11,14 +12,6 @@ const ARROW_NOT = ' -> !';
 const ARROW_LENGTH = ARROW.length;
 const ARROW_NOT_LENGTH = ARROW_NOT.length;
 const NOT = '!';
-
-const TYPES_EXISTS = new Set([
-    'CommentBlock',
-]);
-
-const TYPES_NOT_EXISTS = new Set([
-    'ExportDeclaration',
-]);
 
 const INSTEAD = new Map([
     ['ExportDeclaration', [
@@ -53,7 +46,7 @@ export const traverse = ({push}) => ({
         const {value} = path.node;
         
         if (!value.includes(ARROW)) {
-            if (/^[a-zA-Z].+/.test(value) && !isExists(value))
+            if (/^[a-zA-Z].+/.test(value) && !isTypeExists(value))
                 push({
                     path,
                     type: value,
@@ -68,7 +61,7 @@ export const traverse = ({push}) => ({
             
             const type = value.slice(typeNotIndex, value.length);
             
-            if (!isExists(type))
+            if (!isTypeExists(type))
                 push({
                     path,
                     type,
@@ -82,20 +75,10 @@ export const traverse = ({push}) => ({
         
         const type = value.slice(typeIndex, value.length);
         
-        if (!isExists(type))
+        if (!isTypeExists(type))
             push({
                 path,
                 type,
             });
     },
 });
-
-function isExists(type) {
-    if (TYPES_NOT_EXISTS.has(type))
-        return false;
-    
-    if (types[`is${type}`])
-        return true;
-    
-    return TYPES_EXISTS.has(type);
-}

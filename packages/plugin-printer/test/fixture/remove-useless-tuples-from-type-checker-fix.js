@@ -1,19 +1,18 @@
 import {types} from '@putout/babel';
 
 const {isExpressionStatement} = types;
-const {isBlockStatement} = types;
 
 export const beforeIf = createTypeChecker([
-    ['-: -> !StringLiteral'],
-    ['-: -> BlockStatement'],
-    ['-: -> WrongType'],
-    ['-: ->', isBlockStatement],
-    ['-', isBlockStatement],
+    '-: -> !StringLiteral',
+    '-: -> BlockStatement',
+    '-: -> WrongType',
+    '-: -> BlockStatement',
+    '-: BlockStatement',
 ]);
 
 export const allTuples = createTypeChecker([
-    ['-: ->', isBlockStatement],
-    ['-', isBlockStatement],
+    '-: -> BlockStatement',
+    '-: BlockStatement',
 ]);
 
 export const allStrings = createTypeChecker([

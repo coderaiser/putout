@@ -23,6 +23,7 @@ npm i @putout/plugin-printer -D
 - ✅ [apply-types](#apply-types);
 - ✅ [check-type-passed-to-type-checker](#check-type-passed-to-type-checker);
 - ✅ [check-if-success-possible-in-type-checker](#check-if-success-possible-in-type-checker);
+- ✅ [merge-tuple-of-type-checker](#merge-tuple-of-type-checker);
 - ✅ [declare](#declare);
 - ✅ [remove-args](#remove-args);
 - ✅ [remove-useless-maybe](#remove-useless-maybe);
@@ -46,6 +47,7 @@ npm i @putout/plugin-printer -D
         "printer/check-type-passed-to-type-checker": "on",
         "printer/check-if-success-possible-in-type-checker": "on",
         "printer/declare": "on",
+        "printer/merge-tuple-of-type-checker": "on",
         "printer/remove-args": "on",
         "printer/remove-useless-maybe": "on",
         "printer/remove-trailing-spaces-from-type-checker": "on",
@@ -382,6 +384,30 @@ isIdentifier();
 test('', (t) => {
     t.print(fixture.returnStatement);
 });
+```
+
+## merge-tuple-of-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7351b8359ac3da967e9b4b80d49b51da/74de1543f6e129f6e22f38e2eb597abce6c122a6).
+
+### ❌ Example of incorrect code
+
+```js
+export const isNewlineAfterComma = createTypeChecker([
+    ['+: -> !', isObjectExpression],
+    ['+: ->', isStringLiteral],
+    ['+', isStringLiteral],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const isNewlineAfterComma = createTypeChecker([
+    ['+: -> !ObjectExpression'],
+    ['+: -> StringLiteral'],
+    ['+: StringLiteral'],
+]);
 ```
 
 ## remove-legacy-test-declaration

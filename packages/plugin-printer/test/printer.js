@@ -91,3 +91,8 @@ test('plugin-printer: transform: check-if-success-possible-in-type-checker', (t)
     t.transform('check-if-success-possible-in-type-checker');
     t.end();
 });
+
+test('plugin-printer: transform: merge-tuples-of-type-checkers', (t) => {
+    t.transform('merge-tuples-of-type-checkers');
+    t.end();
+});
