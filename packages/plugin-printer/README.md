@@ -31,6 +31,7 @@ npm i @putout/plugin-printer -D
 - ✅ [remove-legacy-test-declaration](#remove-legacy-test-declaration);
 - ✅ [remove-trailing-spaces-from-type-checker](#remove-trailing-spaces-from-type-checker)
 - ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker)
+- ✅ [remove-useless-colon-from-type-checker](#remove-useless-colon-from-type-checker)
 - ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker)
 
 ## Config
@@ -55,6 +56,7 @@ npm i @putout/plugin-printer -D
         "printer/remove-useless-maybe": "on",
         "printer/remove-trailing-spaces-from-type-checker": "on",
         "printer/remove-useless-spaces-from-type-checker": "on",
+        "printer/remove-useless-colon-from-type-checker": "on",
         "printer/remove-useless-tuples-from-type-checker": "on"
     }
 }
@@ -267,6 +269,28 @@ export const beforeIf = createTypeChecker([
 ```js
 export const beforeIf = createTypeChecker([
     ['-: -> !', isInsideArray],
+]);
+```
+
+## remove-useless-colon-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/49a35399bd43d56bfd0221b3a0ace3b0/3ff3bdc8cb5f2a06786e9b616252d1b5f506dd73).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['+:', isInsideArray],
+    ['-:', isCoupleLines],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['+', isInsideArray],
+    ['-', isCoupleLines],
 ]);
 ```
 
