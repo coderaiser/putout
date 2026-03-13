@@ -98,3 +98,23 @@ test('plugin-putout: declare: transform: operator: renameProperty', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: operator: createTypeChecker', (t) => {
+    const source = montag`
+        createTypeChecker([
+            '+: parentPath -> !Identifier',
+        ]);
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {createTypeChecker} = operator;
+        
+        createTypeChecker([
+            '+: parentPath -> !Identifier',
+        ]);
+    
+    `);
+    t.end();
+});

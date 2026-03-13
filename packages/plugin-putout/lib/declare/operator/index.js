@@ -22,6 +22,7 @@ export default {
     compareAny: 'const {compareAny} = operator',
     compute: 'const {compute} = operator',
     contains: 'const {contains} = operator',
+    createTypeChecker: 'const {createTypeChecker} = operator',
     declare: 'const {declare} = operator',
     rename: 'const {rename} = operator',
     renameProperty: 'const {renameProperty} = operator',
