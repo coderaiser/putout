@@ -1,4 +1,4 @@
 const afterIf = createTypeChecker([
     ['+', notLastPrevVarNotNextVar],
-    ['+: parentPath TSModuleBlock'],
+    ['+: parentPath -> TSModuleBlock'],
 ]);

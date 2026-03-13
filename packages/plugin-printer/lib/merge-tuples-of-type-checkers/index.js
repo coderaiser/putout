@@ -17,6 +17,9 @@ const prepareValue = (a) => {
     if (a.endsWith('!'))
         return a;
     
+    if (!a.endsWith('->'))
+        return `${a} -> `;
+    
     return `${a} `;
 };
 
