@@ -16,6 +16,7 @@ const initialValue = 0;
         reduceRight1 = a + reduceRight1;
     }
 }
+
 const reduceRight2 = [1, 2].reduceRight((a, b) => a + b, 1);
 {
     let [array] = list;
@@ -39,6 +40,7 @@ const sum1 = [1, 2, 3].reduce((a, b) => a + b);
         sum2 = a + sum2;
     }
 }
+
 const obj = [1, 2, 3].reduce((a, b) => {
     a[b] = b;
     return a;
