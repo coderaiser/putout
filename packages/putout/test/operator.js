@@ -212,3 +212,10 @@ test('putout: operate: renameProperties', async (t) => {
     t.equal(renameProperties, operator.renameProperties);
     t.end();
 });
+
+test('putout: operate: createTypeChecker', async (t) => {
+    const {createTypeChecker} = await import('@putout/operator-type-checker');
+    
+    t.equal(createTypeChecker, operator.createTypeChecker);
+    t.end();
+});
