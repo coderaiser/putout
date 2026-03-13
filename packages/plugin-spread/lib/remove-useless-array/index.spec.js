@@ -71,3 +71,8 @@ test('plugin-remove-useless-spread: array: transform: keys', (t) => {
     t.transform('keys');
     t.end();
 });
+
+test('plugin-remove-useless-spread: array: no report: query-selector-all', (t) => {
+    t.noReport('query-selector-all');
+    t.end();
+});
