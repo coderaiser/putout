@@ -16,3 +16,8 @@ test('printer: add-missing-colon-to-type-checker: transform', (t) => {
     t.transform('add-missing-colon-to-type-checker');
     t.end();
 });
+
+test('printer: add-missing-colon-to-type-checker: no report: single', (t) => {
+    t.noReport('single');
+    t.end();
+});

@@ -42,6 +42,9 @@ export const traverse = ({push}) => ({
 function createWhere(value) {
     const where = [];
     
+    if (value.length === 1)
+        return where;
+    
     if (value.startsWith('+') && !value.includes(':'))
         where.push('after-plus');
     
