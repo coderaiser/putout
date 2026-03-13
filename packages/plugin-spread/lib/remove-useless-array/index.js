@@ -7,8 +7,8 @@ const is = (name) => (a) => a === name;
 const checkSpread = createTypeChecker([
     ['+: -> !MemberExpression'],
     ['+: object.name', is('Object')],
-    ['-: property.name -> ', is('values')],
-    ['-: property.name -> ', is('querySelectorAll')],
+    ['-: property.name ->', is('values')],
+    ['-: property.name ->', is('querySelectorAll')],
 ]);
 
 export const report = () => `Avoid useless spread '...'`;

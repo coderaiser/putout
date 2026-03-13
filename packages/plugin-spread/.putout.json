@@ -4,5 +4,8 @@
             "spread": "off",
             "for-of/remove-useless": "off"
         }
-    }
+    },
+    "plugins": [
+        "printer"
+    ]
 }
