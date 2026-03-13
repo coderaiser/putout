@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-regexp",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds ability to check if provided regexp can be converted to string without losing it's sense",
