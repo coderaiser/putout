@@ -15,7 +15,6 @@ export const fix = (path) => {
 export const traverse = ({push}) => ({
     Function(path) {
         const paramsPaths = path.get('params').filter(isIdentifier);
-        
         const params = new Set();
         
         for (const param of paramsPaths) {
