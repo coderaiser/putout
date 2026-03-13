@@ -1,0 +1,55 @@
+{
+  "name": "@putout/operator-type-checker",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "🐊Putout operator adds ability to create type checker",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-type-checker#readme",
+  "main": "lib/type-checker.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-operator",
+    "operator",
+    "printer",
+    "type-checker"
+  ],
+  "devDependencies": {
+    "@putout/test": "^15.0.0",
+    "eslint": "^10.0.0",
+    "eslint-plugin-putout": "^31.0.0",
+    "madrun": "^13.0.0",
+    "montag": "^1.2.1",
+    "nodemon": "^3.0.1",
+    "superc8": "^12.0.0",
+    "supertape": "^12.0.0",
+    "try-catch": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@putout/printer": ">=18"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
