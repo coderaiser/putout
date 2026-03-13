@@ -5,6 +5,8 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) operator adds ability to create `type-checker`.
 
+To check coverage set `PUTOUT_INSTRUMENT=1` when running tests.
+
 ## Install
 
 ```

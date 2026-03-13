@@ -1,5 +1,4 @@
 import {operator, types} from 'putout';
-import {createTypeChecker} from '@putout/printer/type-checker';
 
 const {
     isArrayExpression,
@@ -10,24 +9,24 @@ const {
     stringLiteral,
 } = types;
 
-const {replaceWith} = operator;
+const {
+    replaceWith,
+    createTypeChecker,
+} = operator;
 
 const hasResult = (value) => /^[+-]/.test(value);
-const typeOptions = {
-    instrumentName: 'PUTOUT_INSTRUMENT',
-};
 
 const isDsl = createTypeChecker([
     ['-: -> !StringLiteral'],
     ['+: node.value ->', hasResult],
-], typeOptions);
+]);
 
 const isSimple = createTypeChecker([
     ['+: -> Identifier'],
     ['+: -> CallExpression'],
     ['-: -> !StringLiteral'],
     ['+: node.value -> !', hasResult],
-], typeOptions);
+]);
 
 export const report = (path) => {
     return `Add missing tuple around: ${path}`;

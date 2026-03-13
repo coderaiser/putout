@@ -1,20 +1,15 @@
-import {types} from 'putout';
-import {createTypeChecker} from '@putout/printer/type-checker';
+import {types, operator} from 'putout';
 
 const {isNumericLiteral} = types;
-
+const {createTypeChecker} = operator;
 const is = (name) => (a) => a === name;
-
-const typeOptions = {
-    instrumentName: 'PUTOUT_INSTRUMENT',
-};
 
 const checkSpread = createTypeChecker([
     ['+: -> !MemberExpression'],
     ['+: object.name', is('Object')],
     ['-: property.name -> ', is('values')],
     ['-: property.name -> ', is('querySelectorAll')],
-], typeOptions);
+]);
 
 export const report = () => `Avoid useless spread '...'`;
 
