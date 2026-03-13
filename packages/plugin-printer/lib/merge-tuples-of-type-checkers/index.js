@@ -63,6 +63,9 @@ export const traverse = ({push}) => ({
             
             const name = cutIS(checkerName);
             
+            if (!name)
+                continue;
+            
             if (isTypeExists(name))
                 push({
                     path: element,

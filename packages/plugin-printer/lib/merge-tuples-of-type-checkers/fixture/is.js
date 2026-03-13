@@ -1,0 +1,4 @@
+const beforeIf = createTypeChecker([
+    ['-', is],
+]);
+

@@ -61,6 +61,9 @@ export const traverse = ({push}) => ({
             
             const type = value.slice(typeNotIndex, value.length);
             
+            if (!type)
+                return;
+            
             if (!isTypeExists(type))
                 push({
                     path,

@@ -4,9 +4,7 @@ const TYPES_EXISTS = new Set([
     'CommentBlock',
 ]);
 
-const TYPES_NOT_EXISTS = new Set([
-    'ExportDeclaration',
-]);
+const TYPES_NOT_EXISTS = new Set(['ExportDeclaration']);
 
 export function isTypeExists(type) {
     if (TYPES_NOT_EXISTS.has(type))

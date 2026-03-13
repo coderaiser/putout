@@ -36,3 +36,13 @@ test('printer: check-type-passed-to-type-checker: no report: comment-block', (t)
     t.noReport('comment-block');
     t.end();
 });
+
+test('printer: check-type-passed-to-type-checker: no report: is', (t) => {
+    t.noReport('is');
+    t.end();
+});
+
+test('printer: check-type-passed-to-type-checker: no report: arrow', (t) => {
+    t.noReport('arrow');
+    t.end();
+});
