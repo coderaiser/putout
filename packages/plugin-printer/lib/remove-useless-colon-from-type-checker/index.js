@@ -9,9 +9,9 @@ const {setLiteralValue} = operator;
 
 export const report = ({path, where}) => {
     const {value} = path.node;
-    const withSpaces = addColon(value, where);
+    const withoutColon = addColon(value, where);
     
-    return `Remove useless colon: '${value}' -> '${withSpaces}'`;
+    return `Remove useless colon: '${value}' -> '${withoutColon}'`;
 };
 
 export const fix = ({path, where}) => {
