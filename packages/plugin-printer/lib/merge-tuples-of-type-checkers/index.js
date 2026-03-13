@@ -56,7 +56,7 @@ export const traverse = ({push}) => ({
             const checkerName = checker.node.name;
             
             if (!checkerName.startsWith('is'))
-                return;
+                continue;
             
             const name = cutIS(checkerName);
             

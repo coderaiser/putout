@@ -16,3 +16,8 @@ test('printer: merge-tuples-of-type-checkers: transform', (t) => {
     t.transform('merge-tuples-of-type-checkers');
     t.end();
 });
+
+test('printer: merge-tuples-of-type-checkers: transform: not-starts-with-is', (t) => {
+    t.transform('not-starts-with-is');
+    t.end();
+});
