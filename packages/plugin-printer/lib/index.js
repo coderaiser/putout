@@ -1,3 +1,4 @@
+import * as addMissingColonToTypeChecker from './add-missing-colon-to-type-checker/index.js';
 import * as mergeTuplesOfTypeCheckers from './merge-tuples-of-type-checkers/index.js';
 import * as checkIfSuccessPossibleInTypeChecker from './check-if-success-possible-in-type-checker/index.js';
 import * as removeUselessTuplesFromTypeChecker from './remove-useless-tuples-from-type-checker/index.js';
@@ -36,4 +37,5 @@ export const rules = {
     'remove-useless-tuples-from-type-checker': removeUselessTuplesFromTypeChecker,
     'check-if-success-possible-in-type-checker': checkIfSuccessPossibleInTypeChecker,
     'merge-tuples-of-type-checkers': mergeTuplesOfTypeCheckers,
+    'add-missing-colon-to-type-checker': addMissingColonToTypeChecker,
 };

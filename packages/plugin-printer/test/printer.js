@@ -96,3 +96,8 @@ test('plugin-printer: transform: merge-tuples-of-type-checkers', (t) => {
     t.transform('merge-tuples-of-type-checkers');
     t.end();
 });
+
+test('plugin-printer: transform: add-missing-colon-to-type-checker', (t) => {
+    t.transform('add-missing-colon-to-type-checker');
+    t.end();
+});

@@ -15,6 +15,7 @@ npm i @putout/plugin-printer -D
 
 - ✅ [add-args](#add-args);
 - ✅ [add-missing-spaces-to-type-checker](#add-missing-spaces-to-type-checker);
+- ✅ [add-missing-colon-to-type-checker](#add-missing-spaces-to-type-checker);
 - ✅ [add-missing-tuples-to-type-checker](#add-missing-tuples-to-type-checker);
 - ✅ [apply-breakline](#apply-breakline);
 - ✅ [apply-computed-print](#apply-computed-print);
@@ -39,6 +40,8 @@ npm i @putout/plugin-printer -D
     "rules": {
         "printer/add-args": "on",
         "printer/add-missing-tuples-to-type-checker": "on",
+        "printer/add-missing-colon-to-type-checker": "on",
+        "printer/add-missing-spaces-to-type-checker": "on",
         "printer/apply-breakline": "on",
         "printer/apply-linebreak": "on",
         "printer/apply-computed-print": "on",
@@ -127,6 +130,28 @@ export const beforeIf = createTypeChecker([
 ```js
 export const beforeIf = createTypeChecker([
     ['-: -> !', isInsideArray],
+    ['-: parentPath ->', isCoupleLines],
+]);
+```
+
+## add-missing-colon-to-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/97d38d9bee0586deb8c627c19e399a27/889646df2dcfcfe86f7eb0efb6e3ed5791701f58).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['+ -> !', isInsideArray],
+    ['- parentPath ->', isCoupleLines],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['+: -> !', isInsideArray],
     ['-: parentPath ->', isCoupleLines],
 ]);
 ```

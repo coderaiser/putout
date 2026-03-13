@@ -8,7 +8,7 @@ const isSimple = createTypeChecker([
 ]);
 
 const isSimpleAfterObject = createTypeChecker([
-    ['-', isSimple],
-    ['-', callWithNext(isObjectExpression)],
-    ['-', callWithPrev(isObjectExpression)],
+    ['-:', isSimple],
+    ['-:', callWithNext(isObjectExpression)],
+    ['-:', callWithPrev(isObjectExpression)],
 ]);
