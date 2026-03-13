@@ -1,3 +1,12 @@
+2026.03.13, v42.2.1
+
+feature:
+- e34eb22bc putout: @putout/plugin-github v19.0.0
+- 9d2060c08 @putout/plugin-github: drop support of 🐊 < 42
+- 98502d496 @putout/plugin-github: update-actions: actions/cache@5 (https://github.com/actions/cache/releases/v5.0.0)
+- bcaf4ccaf @putout/plugin-printer: add-missing-colon-to-type-checker: add
+- a63103e37 @putout/test: whenTestsEnds
+
 2026.03.13, v42.2.0
 
 feature:
