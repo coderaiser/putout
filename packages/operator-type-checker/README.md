@@ -40,7 +40,7 @@ import {callWhenTestsEnds} from 'supertape';
 import {whenTestsEnds} from '@putout/printer/type-checker/when-tests-ends';
 
 callWhenTestsEnds('PUTOUT_INSTRUMENT', whenTestsEnds);
-``````
+```
 
 It is already handled in `@putout/test`, so if you use it - you covered 😏.
 
