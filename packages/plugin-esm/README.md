@@ -31,6 +31,7 @@ npm i putout @putout/plugin-esm -D
 - ✅ [remove-quotes-from-import-assertions](#remove-quotes-from-import-assertions);
 - ✅ [remove-empty-import](#remove-empty-import);
 - ✅ [remove-empty-export](#remove-empty-export);
+- ✅ [remove-imports-with-duplicate-source](#remove-imports-with-duplicate-source);
 - ✅ [remove-useless-export-specifiers](#remove-useless-export-specifiers);
 - ✅ [sort-imports-by-specifiers](#sort-imports-by-specifiers);
 
@@ -60,6 +61,7 @@ npm i putout @putout/plugin-esm -D
         "esm/merge-export-declaration": "on",
         "esm/remove-quotes-from-import-assertions": "on",
         "esm/remove-empty-export": "on",
+        "esm/remove-imports-with-duplicate-source": "on",
         "esm/remove-empty-import": ["on", {
             "ignore": []
         }],
@@ -225,13 +227,28 @@ export {
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e5c3ea469437ade0f4467323dcec9a36/7c298c7078b004ae3aba2a29e38579bf8f48a098).
 
-#### ❌ Example of incorrect code
-
 ```diff
 export const hello = () => 'world';
 export const {
 -    hello,
 }
+```
+
+### remove-imports-with-duplicate-source
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f48250f577be00b53f923318a1d0a584/1a42dc1be8610fc35975ee397bce9fe4722b82dc).
+
+```diff
+import * as convertCommonjsToEsm from '@putout/plugin-nodejs/convert-commonjs-to-esm';
+-import * as convert from '@putout/plugin-nodejs/convert-commonjs-to-esm';
+
+test('putout: plugin-destructuring: merge-properties: transform: exports', (t) => {
+    t.transform('exports', {
+-       'node/convert-commonjs-to-esm': convert,
++       'node/convert-commonjs-to-esm': convertCommonjsToEsm,
+    });
+    t.end();
+});
 ```
 
 ### declare-imports-first

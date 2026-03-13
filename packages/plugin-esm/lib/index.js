@@ -1,3 +1,4 @@
+import * as removeImportsWithDuplicateSource from './remove-imports-with-duplicate-source/index.js';
 import * as convertConstToImport from './convert-const-to-import/index.js';
 import * as applyImportAttributes from './apply-import-attributes/index.js';
 import * as applyDefaultImport from './apply-default-import/index.js';
@@ -43,4 +44,5 @@ export const rules = {
     'apply-default-import': applyDefaultImport,
     'apply-import-attributes': applyImportAttributes,
     'convert-const-to-import': convertConstToImport,
+    'remove-imports-with-duplicate-source': removeImportsWithDuplicateSource,
 };

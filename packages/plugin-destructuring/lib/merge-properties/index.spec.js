@@ -1,8 +1,6 @@
 import {createTest} from '@putout/test';
-import {rules} from '@putout/plugin-putout';
 import * as putout from '@putout/plugin-putout';
 import * as convertCommonjsToEsm from '@putout/plugin-nodejs/convert-commonjs-to-esm';
-import * as convert from '@putout/plugin-nodejs/convert-commonjs-to-esm';
 import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-commonjs';
 import * as declareBeforeReference from '@putout/plugin-declare-before-reference';
 import * as esm from '@putout/plugin-esm';
@@ -12,8 +10,8 @@ import * as mockRequire from '@putout/codemod-mock-require';
 import {operator} from 'putout';
 import * as mergeDestructuringProperties from './index.js';
 
+const {rules} = putout;
 const {remove} = operator;
-
 const {declare} = rules;
 
 const convertCommonjsToEsmRequire = convertCommonjsToEsm.rules.require;
@@ -113,7 +111,7 @@ test('putout: plugin-destructuring: merge-properties: transform: tape', (t) => {
 
 test('putout: plugin-destructuring: merge-properties: transform: exports', (t) => {
     t.transform('exports', {
-        'node/convert-commonjs-to-esm': convert,
+        'node/convert-commonjs-to-esm': convertCommonjsToEsm,
     });
     t.end();
 });
@@ -129,7 +127,7 @@ test('putout: plugin-destructuring: merge-properties: transform: putout-nodejs',
 
 test('putout: plugin-destructuring: merge-properties: transform: mock-require', (t) => {
     t.transform('mock-require', {
-        'node/convert-commonjs-to-esm': convert,
+        'node/convert-commonjs-to-esm': convertCommonjsToEsm,
         'mock-require/convert-mock-require-to-mock-import': mockRequire.rules['convert-mock-require-to-mock-import'],
     });
     t.end();

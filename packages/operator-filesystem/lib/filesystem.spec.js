@@ -35,12 +35,13 @@ import {
     readFileContent,
     writeFileContent,
 } from './filesystem.js';
-import {
+
+const {
     inject,
     eject,
     start,
     pause,
-} from './maybe-fs.js';
+} = maybeFS;
 
 const {traverseProperties} = operator;
 

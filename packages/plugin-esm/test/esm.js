@@ -116,3 +116,8 @@ test('plugin-esm: transform: convert-const-to-import', (t) => {
     t.transform('convert-const-to-import');
     t.end();
 });
+
+test('plugin-esm: transform: remove-imports-with-duplicate-source', (t) => {
+    t.transform('remove-imports-with-duplicate-source');
+    t.end();
+});
