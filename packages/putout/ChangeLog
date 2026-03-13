@@ -1,3 +1,20 @@
+2026.03.13, v42.2.0
+
+feature:
+- 70a9d8e4a putout: @putout/operator-regexp v5.0.0
+- d39500807 @putout/operator-regexp: drop support of 🐊 < 42
+- 2ffb97675 @putout/operator-type-checker: env
+- 29d39c0f6 putout: @putout/operator-type-checker: add
+- 87476775b @putout/plugin-putout: declare: createTypeChecker
+- 183d8f559 @putout/operator-regexp: rm unused eslint-plugin-n
+- ef6010320 @putout/operator-type-checker: add
+- c0c3d3d71 @putout/plugin-spread: remove-useless-array: exclude querySelectoAll (putoutjs/minify#30)
+- f61d5d3a7 @putout/test: add type-checker
+- bcd6dc5e3 @putout/plugin-printer: merge-tuples-of-type-checkers
+- 4761ef6c4 @putout/processor-toml: oxfmt v0.40.0
+- ad991a73e @putout/opreate: replace-with: maybe-body: simplify
+- b479e3381 @putout/operate: replaceWith: isExpressionStatement: simplify
+
 2026.03.12, v42.1.1
 
 fix:
