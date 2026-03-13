@@ -172,8 +172,8 @@ You can override versions with:
 
 ```diff
   steps:
--      - uses: actions/cache@v3
-+      - uses: actions/checkout@v4
+-      - uses: actions/cache@v4
++      - uses: actions/checkout@v5
 ```
 
 `actions/setup-node`:
