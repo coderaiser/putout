@@ -1,6 +1,6 @@
 {
   "name": "@putout/test",
-  "version": "15.2.0",
+  "version": "15.3.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Test runner for 🐊Putout plugins ",
