@@ -129,3 +129,14 @@ test('eslint-config: no-useless-assignment', async ({comparePlaces}) => {
 test('eslint-config: no-dupe-keys', async ({comparePlaces}) => {
     await comparePlaces('no-dupe-keys', []);
 });
+
+test('eslint-config: no-dupe', async ({comparePlaces}) => {
+    await comparePlaces('no-dupe-args', [{
+        position: {
+            column: 20,
+            line: 1,
+        },
+        message: 'Parsing error: Argument name clash',
+        rule: 'parser (eslint)',
+    }]);
+});
