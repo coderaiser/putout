@@ -21,7 +21,7 @@ const {createTypeChecker} = operator;
 
 const check = createTypeChecker([
     '-: -> !MemberExpression',
-    '+ parentPath -> CallExpression',
+    '+: parentPath -> CallExpression',
 ]);
 ```
 
