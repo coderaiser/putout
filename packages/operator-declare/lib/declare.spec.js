@@ -737,6 +737,7 @@ test('putout: operator: declare: couple consts', (t) => {
     const expected = montag`
         const {isArray} = Array;
         const maybeArray = (a) => isArray(a) ? a : [a];
+        
         maybeArray(x);\n
     `;
     
