@@ -22,6 +22,7 @@ export const get3 = () => {
 export const get4 = () => {
     let a;
     fn(a);
+    
     return a;
 };
 
@@ -29,5 +30,6 @@ export const get5 = () => {
     let a;
     
     a = 6;
+    
     return a;
 };

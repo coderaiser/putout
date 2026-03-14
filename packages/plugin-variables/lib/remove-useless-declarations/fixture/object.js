@@ -6,5 +6,6 @@ if (index === count - 1) {
     };
     
     errors = [];
+    
     return result;
 }
