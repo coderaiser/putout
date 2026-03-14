@@ -233,6 +233,7 @@ test('putout: operator: parens: addParens: babel: ts', (t) => {
 test('putout: operator: parens: hasParens: babel: ts', (t) => {
     let result = false;
     const source = 'const a: (boolean) = true;';
+    
     const ast = parse(source, {
         printer: 'babel',
         isTS: true,
@@ -252,6 +253,7 @@ test('putout: operator: parens: hasParens: babel: ts', (t) => {
 test('putout: operator: parens: hasParens: babel', (t) => {
     let result = false;
     const source = '(b = 3)';
+    
     const ast = parse(source, {
         printer: 'babel',
     });

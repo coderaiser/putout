@@ -137,6 +137,7 @@ test('putout: getFiles: glob', async (t) => {
 test('putout: getFiles: getSupportedGlob: call', async (t) => {
     const getSupportedGlob = stub();
     const fastGlob = stub().returns(['get-files']);
+    
     const lstat = stub().resolves({
         isDirectory: stub().returns(true),
     });

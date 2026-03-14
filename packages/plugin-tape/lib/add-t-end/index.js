@@ -5,6 +5,7 @@ import {
 } from 'putout';
 
 const {compare, compareAny} = operator;
+
 const {
     expressionStatement,
     isCallExpression,

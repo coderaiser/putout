@@ -17,6 +17,7 @@ test('putout: eslint: get-eslint: config: putout', async (t) => {
     });
     
     const lintText = stub().returns([]);
+    
     const ESLintOverride = stub().returns({
         calculateConfigForFile,
         lintText,
@@ -45,6 +46,7 @@ test('putout: eslint: get-eslint: config: putout', async (t) => {
 test('putout: eslint: get-eslint: config: putout: new', async (t) => {
     const calculateConfigForFile = stub().resolves({});
     const lintText = stub().returns([]);
+    
     const ESLintOverride = stub().returns({
         calculateConfigForFile,
         lintText,

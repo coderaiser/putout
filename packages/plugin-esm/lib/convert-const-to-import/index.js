@@ -5,6 +5,7 @@ import {
 } from 'putout';
 
 const {remove, replaceWith} = operator;
+
 const {
     importSpecifier,
     isObjectPattern,

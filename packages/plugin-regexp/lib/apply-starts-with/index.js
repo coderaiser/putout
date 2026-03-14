@@ -5,6 +5,7 @@ import {
 } from 'putout';
 
 const {setLiteralValue} = operator;
+
 const {
     isTemplateLiteral,
     isStringLiteral,

@@ -119,6 +119,7 @@ function _readOptions(name, overrides = {}) {
     } = overrides;
     
     const [dir, options] = recursiveRead(name, '.putout.json');
+    
     const [packagePath, packageJson] = readPackageJson(name, {
         escalade,
     });

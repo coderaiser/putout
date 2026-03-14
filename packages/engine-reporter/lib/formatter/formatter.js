@@ -16,6 +16,7 @@ export const getFormatter = async (formatterOptional, exit, overrides = {}) => {
     } = overrides;
     
     const [formatterName = 'none', formatterOptions] = maybeArray(formatterOptional);
+    
     const loadFormatter = createAsyncLoader('formatter', {
         simpleImport,
     });

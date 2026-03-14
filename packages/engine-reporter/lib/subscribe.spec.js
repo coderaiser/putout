@@ -8,6 +8,7 @@ const {assign} = Object;
 test('putout: engine-reporter: subscribe: keypress', async (t) => {
     const worker = new EventEmitter();
     const isStop = stub();
+    
     const keypress = stub().returns({
         isStop,
     });
@@ -37,6 +38,7 @@ test('putout: engine-reporter: subscribe: keypress', async (t) => {
 test('putout: engine-reporter: subscribe: createReport', async (t) => {
     const worker = new EventEmitter();
     const isStop = stub();
+    
     const keypress = stub().returns({
         isStop,
     });
@@ -72,6 +74,7 @@ test('putout: engine-reporter: subscribe: createReport', async (t) => {
 test('putout: engine-reporter: subscribe: worker: message: progress', async (t) => {
     const worker = new EventEmitter();
     const isStop = stub();
+    
     const keypress = stub().returns({
         isStop,
     });
@@ -105,6 +108,7 @@ test('putout: engine-reporter: subscribe: worker: message: progress', async (t) 
 test('putout: engine-reporter: subscribe: worker: message: progress: write', async (t) => {
     const worker = new EventEmitter();
     const isStop = stub();
+    
     const keypress = stub().returns({
         isStop,
     });
@@ -140,6 +144,7 @@ test('putout: engine-reporter: subscribe: worker: message: progress: write', asy
 test('putout: engine-reporter: subscribe: worker: message: progress: write: line', async (t) => {
     const worker = new EventEmitter();
     const isStop = stub();
+    
     const keypress = stub().returns({
         isStop,
     });
@@ -173,6 +178,7 @@ test('putout: engine-reporter: subscribe: worker: message: progress: write: line
 test('putout: engine-reporter: subscribe: worker: message', async (t) => {
     const worker = new EventEmitter();
     const isStop = stub();
+    
     const keypress = stub().returns({
         isStop,
     });

@@ -9,6 +9,7 @@ test('@putout/processor-filesystem: fromSimple', (t) => {
     ];
     
     const result = fromSimple(source);
+    
     const expected = {
         type: 'directory',
         filename: '/',
@@ -30,6 +31,7 @@ test('@putout/processor-filesystem: fromSimple: nested', (t) => {
     ];
     
     const result = fromSimple(source);
+    
     const expected = {
         type: 'directory',
         filename: '/',
@@ -58,6 +60,7 @@ test('@putout/processor-filesystem: fromSimple: content', (t) => {
     ];
     
     const result = fromSimple(source);
+    
     const expected = {
         type: 'directory',
         filename: '/',

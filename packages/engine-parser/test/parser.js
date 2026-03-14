@@ -233,6 +233,7 @@ test('putout: parser: decorator-legacy', (t) => {
 test('putout: parser: jsx', async (t) => {
     const source = fixture.jsxTemplate;
     const babel = await import('../lib/parsers/babel/index.js');
+    
     const node = babel.parse(source, {
         isJSX: true,
         printer: 'babel',

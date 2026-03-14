@@ -12,6 +12,7 @@ test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', 
     };
     
     const findUp = stub();
+    
     const result = await isNodeModulesChanged(fileCache, {
         findUp,
     });
@@ -45,6 +46,7 @@ test('putout: cli: cache files: is changed: isEslintChanged: cannot find', async
     };
     
     const findUp = stub();
+    
     const result = await isEslintChanged(fileCache, {
         findUp,
     });

@@ -58,6 +58,7 @@ export const runWriter = async (overrides = {}) => {
     } = overrides;
     
     const resolvedName = resolve(name).replace(/^\./, cwd);
+    
     const [configError, options] = tryCatch(getOptions, {
         name: resolvedName,
         rulesdir,
@@ -144,6 +145,7 @@ async function runCache({fileCache, report, write, formatterOptions, currentForm
         return false;
     
     const places = fileCache.getPlaces(name);
+    
     const formatterProxy = createFormatterProxy({
         formatterOptions,
         name: chooseName(name, resolvedName),

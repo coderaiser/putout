@@ -10,6 +10,7 @@ test('@putout/engine-loader: loadPluginsAsync', async (t) => {
     });
     
     const plugin = await import('@putout/plugin-remove-debugger');
+    
     const expected = [{
         msg: '',
         rule: 'remove-debugger',

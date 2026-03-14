@@ -5,6 +5,7 @@ import {createTrace} from './trace.js';
 test('putout: bin: trace: parentPort', (t) => {
     const data = {};
     const postMessage = stub();
+    
     const parentPort = {
         postMessage,
     };

@@ -52,6 +52,7 @@ export function traverse(basePath, visitor) {
         }
         
         const [node, type] = parseTemplate(tmpl);
+        
         const visit = getVisit({
             fn,
             node,

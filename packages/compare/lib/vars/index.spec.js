@@ -500,6 +500,7 @@ test('putout: compare: vars: jsx: JSXText: switch', (t) => {
     };
     
     const source = 'const a = <section><h1>hello</h1><h2>world</h2></section>';
+    
     const expected = montag`
         const a = (
             <section><h1>world</h1><h2>hello</h2></section>
@@ -599,6 +600,7 @@ test('putout: compare: vars: findVarsWays: jsx: tag: switch', (t) => {
     };
     
     const source = 'const a = <html><head>My page title</head><body>X</body></html>';
+    
     const expected = montag`
         const a = (
             <html><body>My page title</body><head>X</head></html>
@@ -731,6 +733,7 @@ test('putout: compare: vars: `__a`', (t) => {
     };
     
     const input = 'const x = `hello`';
+    
     const {code} = putout(input, {
         fixCount: 1,
         plugins: [{
@@ -920,6 +923,7 @@ test('putout: compare: vars: getTemplateValues: TSTypeParameters', (t) => {
     };
     
     const input = 'function write<es, ax, di>() {}';
+    
     const {code} = putout(input, {
         printer: 'putout',
         isTS: true,
@@ -952,6 +956,7 @@ test('putout: compare: vars: getTemplateValues: __type_params', (t) => {
     };
     
     const input = 'function write<di, ax, es>() {}';
+    
     const {code} = putout(input, {
         printer: 'putout',
         isTS: true,
@@ -1091,6 +1096,7 @@ test('putout: compare: vars: getTemplateValues: setValues: setRawValue: Number',
     };
     
     const input = `String(1)`;
+    
     const {code} = putout(input, {
         plugins: [{
             'apply-template-literal': plugin,

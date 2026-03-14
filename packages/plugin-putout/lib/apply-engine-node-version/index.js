@@ -22,6 +22,7 @@ export const traverse = ({push, options}) => ({
         } = options;
         
         const __aPath = path.get('arguments.0');
+        
         const {
             peerDependenciesPath,
             enginesPath,

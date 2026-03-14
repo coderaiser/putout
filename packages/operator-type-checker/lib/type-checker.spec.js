@@ -22,6 +22,7 @@ test('@putout/operator-type-checker: createTypeChecker: typeOptions', (t) => {
     };
     
     const create = stub().returns(stub());
+    
     const checkers = [
         '+: -> !Identifier',
     ];

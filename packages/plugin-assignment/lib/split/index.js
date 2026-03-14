@@ -29,6 +29,7 @@ export const fix = ({path, lefts, right, merged}) => {
     }
     
     const [[operator, firstLeft], ...otherLefts] = lefts;
+    
     const assignments = [
         assignmentExpression(operator, firstLeft, right),
     ];

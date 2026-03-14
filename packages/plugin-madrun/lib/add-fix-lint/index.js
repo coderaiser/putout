@@ -5,6 +5,7 @@ import {
 } from 'putout';
 
 const {stringLiteral, objectProperty} = types;
+
 const {
     getProperty,
     replaceWithMultiple,

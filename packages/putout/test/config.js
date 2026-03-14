@@ -80,6 +80,7 @@ test('putout: config: eslint', (t) => {
 test('putout: config: eslint: FlatConfig', (t) => {
     const {match} = putoutConfig;
     const result = match['eslint.config.*'];
+    
     const expected = {
         'eslint': 'on',
         'putout/convert-match-to-function': 'off',

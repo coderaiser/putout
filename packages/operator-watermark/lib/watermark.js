@@ -10,6 +10,7 @@ const __watermark = '__putout_runner_replace';
 export const watermark = (from, to, path) => {
     const {watermark, highWatermark} = create(from, to, path);
     const program = path.findParent(isProgram);
+    
     const options = {
         watermark,
         highWatermark,

@@ -146,6 +146,7 @@ test('putout: operator: filesystem: findFile', (t) => {
     `);
     
     const [filePath] = findFile(ast, '/hello');
+    
     renameFile(filePath, 'world');
     
     const result = print(ast, {
@@ -207,6 +208,7 @@ test('putout: operator: filesystem: crawlDirectory', (t) => {
     `);
     
     const crawled = crawlDirectory(ast);
+    
     const [filePath] = findFile(ast, '/hello', {
         crawled,
     });
@@ -314,6 +316,7 @@ test('putout: operator: filesystem: findFile: /', (t) => {
     `);
     
     const [filePath] = findFile(ast, 'abc');
+    
     renameFile(filePath, 'hello');
     
     const result = print(ast, {
@@ -371,6 +374,7 @@ test('putout: operator: filesystem: removeFile: root', (t) => {
     `);
     
     const [filePath] = findFile(ast, 'json');
+    
     removeFile(filePath);
     
     const result = print(ast, {
@@ -399,6 +403,7 @@ test('putout: operator: filesystem: removeFile', (t) => {
     `);
     
     const [filePath] = findFile(ast, 'json.js');
+    
     removeFile(filePath);
     
     const result = print(ast, {
@@ -426,6 +431,7 @@ test('putout: operator: filesystem: removeEmptyDirectory', (t) => {
     ]);
     
     const [filePath] = findFile(ast, 'package');
+    
     removeEmptyDirectory(filePath);
     
     const result = print(ast, {
@@ -450,6 +456,7 @@ test('putout: operator: filesystem: removeEmptyDirectory: root', (t) => {
     ]);
     
     const [filePath] = findFile(ast, 'package');
+    
     removeEmptyDirectory(filePath);
     
     const result = print(ast, {
@@ -477,6 +484,7 @@ test('putout: operator: filesystem: removeEmptyDirectory: file', (t) => {
     ]);
     
     const [filePath] = findFile(ast, 'package.json');
+    
     removeEmptyDirectory(filePath);
     
     const result = print(ast, {
@@ -769,6 +777,7 @@ test('putout: operator: filesystem: createDirectory', (t) => {
     });
     
     const [dirPath] = findFile(ast, 'world');
+    
     createDirectory(dirPath, 'xyz');
     
     const expected = {
@@ -841,6 +850,7 @@ test('putout: operator: filesystem: createNestedDirectory: beyond root', (t) => 
     });
     
     const [dirPath] = findFile(ast, 'world');
+    
     createNestedDirectory(dirPath, '/1/2/3/4/hello/world');
     
     const expected = {
@@ -893,6 +903,7 @@ test('putout: operator: filesystem: createNestedDirectory: find root', (t) => {
     });
     
     const [dirPath] = findFile(ast, '/hello/world');
+    
     createNestedDirectory(dirPath, '/hello/world/abc');
     
     const expected = {
@@ -1067,6 +1078,7 @@ test('putout: operator: filesystem: readFileContent', (t) => {
     });
     
     const [filePath] = findFile(ast, '/hello/world');
+    
     readFileContent(filePath);
     
     const expected = {
@@ -1091,6 +1103,7 @@ test('putout: operator: filesystem: readFileContent: malformed', (t) => {
     });
     
     const [filePath] = findFile(ast, 'README.md');
+    
     readFileContent(filePath);
     
     const expected = {
@@ -1287,6 +1300,7 @@ test('putout: operator: filesystem: createFile: ast', (t) => {
     });
     
     const [dirPath] = findFile(ast, '/hello/world');
+    
     createFile(dirPath, 'README.md', '');
     
     const expected = {
@@ -1314,6 +1328,7 @@ test('putout: operator: filesystem: createFile: ast: /', (t) => {
     });
     
     const [dirPath] = findFile(ast, '/');
+    
     createFile(dirPath, 'README.md', '');
     
     const expected = {
@@ -1379,6 +1394,7 @@ test('putout: operator: filesystem: writeFileContent', (t) => {
     });
     
     const [filePath] = findFile(ast, 'README.md');
+    
     writeFileContent(filePath, 'hello');
     const content = readFileContent(filePath);
     
@@ -1496,6 +1512,7 @@ test('putout: operator: filesystem: writeFileContent: field exists', (t) => {
     });
     
     const [filePath] = findFile(ast, 'README.md');
+    
     writeFileContent(filePath, 'hello');
     const content = readFileContent(filePath);
     

@@ -25,6 +25,7 @@ export default ({name, options, places, index, count, filesCount, errorsCount}) 
     } = options;
     
     const naturalIndex = index + 1;
+    
     const result = dump({
         name,
         places,

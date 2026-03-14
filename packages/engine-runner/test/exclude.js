@@ -19,6 +19,7 @@ test('putout: runner: traverse: exclude', (t) => {
     };
     
     const input = `const x = y;\n`;
+    
     const {code} = putout(input, {
         runPlugins,
         plugins: [

@@ -518,6 +518,7 @@ test('putout: loader: disabled rules in plugin: enable', (t) => {
 test('putout: loader: disabled rules in plugin: load', async (t) => {
     const source = `const {run} = require('madrun');\n`;
     const convert = await import('@putout/plugin-nodejs/convert-commonjs-to-esm');
+    
     const {code} = putout(source, {
         rules: {
             'nodejs/convert-commonjs-to-esm-require': 'on',

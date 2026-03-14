@@ -484,6 +484,7 @@ function checkReport(name, message) {
     if (!isString(message) && !message) {
         const help = `☝️ Looks like you forget to pass the 'message' for 'report()' operator`;
         const source = `report(name: string, message: string): Operator`;
+        
         const values = {
             name,
             message,
@@ -497,6 +498,7 @@ function checkProgress(name, expected) {
     if (!isString(name)) {
         const message = `☝️ Looks like you forget to pass the 'name' of a fixture for 'progress()' operator.`;
         const signature = 'await progress(name: string, expected: ExpectedProgress): Operator';
+        
         const values = {
             name,
             expected,

@@ -42,6 +42,7 @@ test('putout: processor: filesystem: branch', (t) => {
     }, null, 4);
     
     const result = branch(rawSource);
+    
     eject();
     
     const source = montag`

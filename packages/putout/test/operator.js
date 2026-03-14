@@ -109,6 +109,7 @@ test('putout: operator: matchFiles', (t) => {
     });
     
     const result = keys(plugin);
+    
     const expected = [
         'fix',
         'scan',

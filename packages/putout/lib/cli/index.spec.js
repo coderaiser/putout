@@ -1665,6 +1665,7 @@ test('putout: cli: get files: was stop', async (t) => {
 test('putout: cli: get files: was stop: no', async (t) => {
     const argv = [__filename, '--no-cache', '--no-config'];
     const ignore = ['xxx'];
+    
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',

@@ -124,6 +124,7 @@ test('putout: cli: choose-formatter: getFormatters: formatter', async (t) => {
     ];
     
     const writeFile = stub();
+    
     const readFile = stub().returns(stringify({
         formatter: 'progress-bar',
     }));
@@ -151,6 +152,7 @@ test('putout: cli: choose-formatter: nothing chosen', async (t) => {
     ];
     
     const writeFile = stub();
+    
     const readFile = stub().returns(stringify({
         formatter: 'progress-bar',
     }));
@@ -170,6 +172,7 @@ test('putout: cli: choose-formatter: nothing chosen', async (t) => {
 test('putout: cli: choose-formatter: nothing chosen: not found', async (t) => {
     const findUp = stub();
     const writeFile = stub();
+    
     const dependencies = [
         '@putout/formatter-dump',
         '@putout/formatter-progress-bar',
@@ -195,6 +198,7 @@ test('putout: cli: choose-formatter: nothing chosen: not found', async (t) => {
 test('putout: cli: choose-formatter: user formatter', async (t) => {
     const findUp = stub().returns('x');
     const writeFile = stub();
+    
     const dependencies = [
         '@putout/formatter-dump',
         '@putout/formatter-progress-bar',
