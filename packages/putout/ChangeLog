@@ -1,3 +1,21 @@
+2026.03.14, v42.2.2
+
+fix:
+- 6458ec678 @putout/plugin-arguments: remove-useless-from-method
+- ce386db06 @putout/plugin-printer: remove-useless-colon-from-type-checker: withSpaces -> withoutColon
+- e7a5a8080 @putout/plugin-printer: merge-tuples-of-type-checkers: ->
+- d734dade4 @putout/plugin-printer: merge-tuples-of-type-checkers: not starts with is
+- a83076f04 @putout/plugin-printer: add-missing-colon-to-type-checkers: single result
+
+feature:
+- a217219f1 putout: @putout/plugin-arguments v2.0.0
+- f7ff8ff57 @putout/plugin-arguments: drop support of 🐊 < 42
+- c2706b64c @putout/plugin-printer: remove-useless-colon-from-type-checker
+- 4aa266416 @putout/plugin-printer: merge-tuples-of-type-checkers: is: exclude
+- b8ac1d57c @putout/eslint-config: no-dupe-args: off: use arguments/remove-duplicate instead
+- 1f667b759 @putout/engine-parser: hermes-parser v0.34.0
+- fd9092e02 @putout/plugin-esm: remove-imports-with-duplicate-source: add
+
 2026.03.13, v42.2.1
 
 feature:
