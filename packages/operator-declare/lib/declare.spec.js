@@ -353,6 +353,7 @@ test('putout: operator: declare: vars', (t) => {
     const expected = montag`
         const maybeFn = (a) => isFn(a) ? a : noop;
         const maybeArray = (a) => isArray(a) ? a : [a];
+        
         const b = [
             ...maybeArray(a),
             maybeFn(b),

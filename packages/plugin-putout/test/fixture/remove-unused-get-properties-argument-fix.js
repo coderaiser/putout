@@ -1,6 +1,7 @@
 import {operator} from 'putout';
 
 const {getProperties} = operator;
+
 const {
     overridesPath,
     parserPath,

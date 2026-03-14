@@ -1,6 +1,7 @@
 import {types} from '@putout/babel';
 
 const {isObjectExpression} = types;
+
 const isSimple = createTypeChecker([
     '-: -> SpreadElement',
     '-: -> Identifier',
