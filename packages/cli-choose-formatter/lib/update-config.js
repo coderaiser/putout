@@ -8,6 +8,7 @@ export const updateConfig = ({formatter, chosenFormatter, config}) => {
         const [, options] = currentFormatter;
         
         config.formatter = [chosenFormatter, options];
+        
         return;
     }
     

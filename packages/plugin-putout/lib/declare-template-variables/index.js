@@ -24,6 +24,7 @@ export const fix = ({path, node}) => {
         const properties = [property];
         
         params.push(objectPattern(properties));
+        
         return;
     }
     

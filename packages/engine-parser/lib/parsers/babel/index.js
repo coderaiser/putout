@@ -40,6 +40,7 @@ export const parse = (source, overrides) => {
     const ast = babelParse(source, parserOptions);
     
     ast.program.extra.__putout_printer = printer;
+    
     return ast;
 };
 

@@ -35,6 +35,7 @@ export function jsonFormatter({name, source, places, index, count, filesCount, e
         };
         
         errors = [];
+        
         return result;
     }
     

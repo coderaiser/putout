@@ -49,5 +49,6 @@ function addAwait(vars, path) {
     }
     
     path.scope.block.async = true;
+    
     return 'await progress(__args)';
 }

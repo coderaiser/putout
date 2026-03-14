@@ -19,6 +19,7 @@ export const replace = () => ({
         };
         
         replaceWith(path.get('arguments.0'), regexp);
+        
         return path.node;
     },
 });

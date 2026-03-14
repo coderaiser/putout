@@ -59,6 +59,7 @@ export const createCache = async (overrides = {}) => {
             return defaultCache;
         
         await tryToCatch(unlink, name);
+        
         return createCache({
             cache,
             fresh,

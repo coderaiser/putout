@@ -32,6 +32,7 @@ export const traverse = ({push}) => ({
                 return;
             
             push(path);
+            
             return;
         }
         
