@@ -12,7 +12,7 @@ export const rules = {
     'apply-rest': applyRest,
     'convert-expression-to-arguments': convertExpressionToArguments,
     'remove-useless': removeUseless,
-    'remove-useless-form-method': removeUselessFromMethod,
+    'remove-useless-from-method': removeUselessFromMethod,
     'remove-unused': removeUnused,
     'remove-duplicate': removeDuplicate,
     'remove-empty': removeEmpty,
