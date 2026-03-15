@@ -28,9 +28,12 @@ export const report = () => `Merge tuple of type checker`;
 function prepareChecker(name, value) {
     if (name === 'Boolean') {
         if (value.endsWith('!'))
-            return `${value.slice(1, -1)}-`;
+            return `${value.slice(0, -1)}-`;
         
-        return `${prepareValue(value)}-> +`;
+        if (value.endsWith('->'))
+            return `${value} +`;
+        
+        return `${value} -> +`;
     }
     
     return `${prepareValue(value)}${name}`;

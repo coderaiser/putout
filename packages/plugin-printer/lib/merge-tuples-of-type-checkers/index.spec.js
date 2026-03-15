@@ -27,6 +27,16 @@ test('printer: merge-tuples-of-type-checkers: transform: not-boolean', (t) => {
     t.end();
 });
 
+test('printer: merge-tuples-of-type-checkers: transform: boolean-no-arrow', (t) => {
+    t.transform('boolean-no-arrow');
+    t.end();
+});
+
+test('printer: merge-tuples-of-type-checkers: transform: boolean-arrow', (t) => {
+    t.transform('boolean-arrow');
+    t.end();
+});
+
 test('printer: merge-tuples-of-type-checkers: no report: is', (t) => {
     t.noReport('is');
     t.end();

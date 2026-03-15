@@ -3,7 +3,7 @@ export const isNewlineAfterComma = createTypeChecker([
     ['+: -> StringLiteral'],
     ['+: StringLiteral'],
     ['+', 3],
-    ['+: -> +'],
+    ['+ -> +'],
     '+: -> StringLiteral',
 ]);
 
