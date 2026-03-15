@@ -25,11 +25,22 @@ const prepareValue = (a) => {
 
 export const report = () => `Merge tuple of type checker`;
 
+function prepareChecker(name, value) {
+    if (name === 'Boolean') {
+        if (value.endsWith('!'))
+            return `${value.slice(1, -1)}-`;
+        
+        return `${prepareValue(value)}-> +`;
+    }
+    
+    return `${prepareValue(value)}${name}`;
+}
+
 export const fix = ({path, name}) => {
     const [first] = path.node.elements;
     const {value} = first;
     
-    setLiteralValue(first, `${prepareValue(value)}${name}`);
+    setLiteralValue(first, prepareChecker(name, value));
     path.node.elements.pop();
 };
 
@@ -57,6 +68,12 @@ export const traverse = ({push}) => ({
                 continue;
             
             const checkerName = checker.node.name;
+            
+            if (checkerName === 'Boolean')
+                push({
+                    path: element,
+                    name: 'Boolean',
+                });
             
             if (!checkerName.startsWith('is'))
                 continue;
