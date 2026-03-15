@@ -106,3 +106,8 @@ test('plugin-printer: transform: remove-useless-colon-from-type-checker', (t) =>
     t.transform('remove-useless-colon-from-type-checker');
     t.end();
 });
+
+test('plugin-printer: transform: remove-useless-not-from-type-checker', (t) => {
+    t.transform('remove-useless-not-from-type-checker');
+    t.end();
+});

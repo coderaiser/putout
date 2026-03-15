@@ -29,10 +29,11 @@ npm i @putout/plugin-printer -D
 - ✅ [remove-args](#remove-args);
 - ✅ [remove-useless-maybe](#remove-useless-maybe);
 - ✅ [remove-legacy-test-declaration](#remove-legacy-test-declaration);
-- ✅ [remove-trailing-spaces-from-type-checker](#remove-trailing-spaces-from-type-checker)
-- ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker)
-- ✅ [remove-useless-colon-from-type-checker](#remove-useless-colon-from-type-checker)
-- ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker)
+- ✅ [remove-trailing-spaces-from-type-checker](#remove-trailing-spaces-from-type-checker);
+- ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker);
+- ✅ [remove-useless-colon-from-type-checker](#remove-useless-colon-from-type-checker);
+- ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker);
+- ✅ [remove-useless-not-from-type-checker](#remove-useless-not-from-type-checker);
 
 ## Config
 
@@ -57,6 +58,7 @@ npm i @putout/plugin-printer -D
         "printer/remove-trailing-spaces-from-type-checker": "on",
         "printer/remove-useless-spaces-from-type-checker": "on",
         "printer/remove-useless-colon-from-type-checker": "on",
+        "printer/remove-useless-not-from-type-checker": "on",
         "printer/remove-useless-tuples-from-type-checker": "on"
     }
 }
@@ -291,6 +293,28 @@ export const beforeIf = createTypeChecker([
 export const beforeIf = createTypeChecker([
     ['+', isInsideArray],
     ['-', isCoupleLines],
+]);
+```
+
+## remove-useless-not-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/051b981021fd1e048b675106f0850211/2022b9797125016d4e5c5e6b5d4e066ab2e103ad).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: -> !+'],
+    ['+: -> !-'],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: -> -'],
+    ['+: -> +'],
 ]);
 ```
 
