@@ -52,8 +52,7 @@
     "supertape": "^12.7.0"
   },
   "peerDependencies": {
-    "putout": ">=42",
-    "@putout/printer": ">=18"
+    "putout": ">=42"
   },
   "license": "MIT",
   "engines": {
