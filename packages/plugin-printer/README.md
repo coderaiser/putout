@@ -34,6 +34,7 @@ npm i @putout/plugin-printer -D
 - ✅ [remove-useless-colon-from-type-checker](#remove-useless-colon-from-type-checker);
 - ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker);
 - ✅ [remove-useless-not-from-type-checker](#remove-useless-not-from-type-checker);
+- ✅ [remove-useless-path-from-type-checker](#remove-useless-path-from-type-checker);
 - ✅ [reverse-comparison-in-type-checker](#reverse-comparison-in-type-checker);
 
 ## Config
@@ -60,6 +61,7 @@ npm i @putout/plugin-printer -D
         "printer/remove-useless-spaces-from-type-checker": "on",
         "printer/remove-useless-colon-from-type-checker": "on",
         "printer/remove-useless-not-from-type-checker": "on",
+        "printer/remove-useless-path-from-type-checker": "on",
         "printer/remove-useless-tuples-from-type-checker": "on",
         "printer/reverse-comparison-in-type-checker": "on"
     }
@@ -317,6 +319,28 @@ export const beforeIf = createTypeChecker([
 export const beforeIf = createTypeChecker([
     ['-: -> -'],
     ['+: -> +'],
+]);
+```
+
+## remove-useless-path-from-type-checker
+
+Selector always starts from `path`, so it can be `parentPath.`, or `node.`, but never `path.`, sinse it is self reference.
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ef8e1dc1036a4a2fcc99b32c3dc661e2/bc43a082dc9cb5ed8a8afe6964174f0d1be2e1c1).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: path.parentPath -> ', isCoupleLines],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: parentPath -> ', isCoupleLines],
 ]);
 ```
 

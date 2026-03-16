@@ -116,3 +116,8 @@ test('plugin-printer: transform: reverse-comparison-in-type-checker', (t) => {
     t.transform('reverse-comparison-in-type-checker');
     t.end();
 });
+
+test('plugin-printer: transform: remove-useless-path-from-type-checker', (t) => {
+    t.transform('remove-useless-path-from-type-checker');
+    t.end();
+});
