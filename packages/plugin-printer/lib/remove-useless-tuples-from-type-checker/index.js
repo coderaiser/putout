@@ -40,11 +40,13 @@ export const traverse = ({push}) => ({
     },
 });
 
-const isTwoElementTuple = (a) => {
+const isCountElementsTuple = (count) => (a) => {
     if (!isArrayExpression(a))
         return false;
     
-    return a.node.elements.length === 2;
+    const {length} = a.node.elements;
+    
+    return length === count;
 };
 
 function isConsistent(elements) {
@@ -58,5 +60,8 @@ function isConsistent(elements) {
     if (elements.length === identifiersCount)
         return true;
     
-    return elements.filter(isTwoElementTuple).length;
+    if (elements.filter(isCountElementsTuple(3)).length)
+        return true;
+    
+    return elements.filter(isCountElementsTuple(2)).length;
 }

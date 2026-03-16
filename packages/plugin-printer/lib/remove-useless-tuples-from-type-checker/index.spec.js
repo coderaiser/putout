@@ -21,3 +21,8 @@ test('printer: remove-useless-tuples-from-type-checker: transform: one-element-t
     t.transform('one-element-tuple');
     t.end();
 });
+
+test('printer: remove-useless-tuples-from-type-checker: no report: comparison', (t) => {
+    t.noReport('comparison');
+    t.end();
+});
