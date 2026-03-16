@@ -1,3 +1,4 @@
+import * as reverseComparisonInTypeChecker from './reverse-comparison-in-type-checker/index.js';
 import * as removeUselessNotFromTypeChecker from './remove-useless-not-from-type-checker/index.js';
 import * as removeUselessColonFromTypeChecker from './remove-useless-colon-from-type-checker/index.js';
 import * as addMissingColonToTypeChecker from './add-missing-colon-to-type-checker/index.js';
@@ -42,4 +43,5 @@ export const rules = {
     'add-missing-colon-to-type-checker': addMissingColonToTypeChecker,
     'remove-useless-colon-from-type-checker': removeUselessColonFromTypeChecker,
     'remove-useless-not-from-type-checker': removeUselessNotFromTypeChecker,
+    'reverse-comparison-in-type-checker': reverseComparisonInTypeChecker,
 };

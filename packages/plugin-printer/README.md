@@ -34,6 +34,7 @@ npm i @putout/plugin-printer -D
 - ✅ [remove-useless-colon-from-type-checker](#remove-useless-colon-from-type-checker);
 - ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker);
 - ✅ [remove-useless-not-from-type-checker](#remove-useless-not-from-type-checker);
+- ✅ [reverse-comparison-in-type-checker](#reverse-comparison-in-type-checker);
 
 ## Config
 
@@ -59,7 +60,8 @@ npm i @putout/plugin-printer -D
         "printer/remove-useless-spaces-from-type-checker": "on",
         "printer/remove-useless-colon-from-type-checker": "on",
         "printer/remove-useless-not-from-type-checker": "on",
-        "printer/remove-useless-tuples-from-type-checker": "on"
+        "printer/remove-useless-tuples-from-type-checker": "on",
+        "printer/reverse-comparison-in-type-checker": "on"
     }
 }
 ```
@@ -480,6 +482,32 @@ export const isNewlineAfterComma = createTypeChecker([
     ['+: -> !ObjectExpression'],
     ['+: -> StringLiteral'],
     ['+: StringLiteral'],
+]);
+```
+
+## reverse-comparison-in-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ae2335d32022de240e918ce077144767/f25c5a11f746fe532f81adede991286cb77d1b11).
+
+### ❌ Example of incorrect code
+
+```js
+const isMoreThenMaxElementLengthInOneLine = createTypeChecker([
+    ['-: node.elements.length -> !', '<', 2],
+    ['-: node.elements.length -> !', '>', 2],
+    ['-: node.elements.length -> !', '>=', 2],
+    ['-: node.elements.length -> !', '<=', 2],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+const isMoreThenMaxElementLengthInOneLine = createTypeChecker([
+    ['-: node.elements.length', '>=', 2],
+    ['-: node.elements.length', '<=', 2],
+    ['-: node.elements.length', '<', 2],
+    ['-: node.elements.length', '>', 2],
 ]);
 ```
 
