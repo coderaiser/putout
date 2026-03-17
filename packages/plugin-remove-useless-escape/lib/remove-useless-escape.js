@@ -18,14 +18,14 @@ export const fix = (path) => {
 };
 
 export const traverse = ({push}) => ({
-    '"__"'(path) {
+    StringLiteral(path) {
         const {raw} = path.node;
         
         if (isEscaped(raw))
             push(path);
     },
     
-    '`__`'(path) {
+    TemplateLiteral(path) {
         for (const tmpl of path.node.quasis) {
             const {raw} = tmpl.value;
             

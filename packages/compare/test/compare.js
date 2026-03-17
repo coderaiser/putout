@@ -1032,6 +1032,13 @@ test('compare: template literal: __a', (t) => {
     t.end();
 });
 
+test('compare: template literal: __: different templat elements count', (t) => {
+    const result = compare('`__`', '`hello world "${x}"`');
+    
+    t.notOk(result);
+    t.end();
+});
+
 test('compare: TSExportAssignment', (t) => {
     const result = compare('export = 5', 'export = __a');
     
