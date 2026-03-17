@@ -1032,7 +1032,7 @@ test('compare: template literal: __a', (t) => {
     t.end();
 });
 
-test('compare: template literal: __: different templat elements count', (t) => {
+test('compare: template literal: __: different template elements count', (t) => {
     const result = compare('`__`', '`hello world "${x}"`');
     
     t.notOk(result);
