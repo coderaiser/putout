@@ -324,7 +324,7 @@ export const beforeIf = createTypeChecker([
 
 ## remove-useless-path-from-type-checker
 
-Selector always starts from `path`, so it can be `parentPath.`, or `node.`, but never `path.`, sinse it is self reference.
+Selector always starts from `path`, so it can be `parentPath.`, or `node.`, but never `path.`, since it is self reference.
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ef8e1dc1036a4a2fcc99b32c3dc661e2/bc43a082dc9cb5ed8a8afe6964174f0d1be2e1c1).
 
