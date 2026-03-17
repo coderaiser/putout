@@ -1,3 +1,18 @@
+2026.03.17, v42.2.3
+
+feature:
+- 187fa8204 putout: @putout/plugin-remove-useless-escape v10.0.0
+- dbf30c71f @putout/plugin-remove-useless-escape: drop support of 🐊 < 42
+- 2e3304635 @putout/plugin-remove-useless-escape: couple TemplateElements inside TemplateLiteral
+- ea86a62fe @putout/processor-toml: oxfmt v0.41.0
+- 931591a7c @putout/plugin-printer: remove-useless-path-from-type-checker
+- bca98afe4 @putout/plugin-printer: reverse-comparison-in-type-checker: add
+- f8ec6bafc @putout/plugin-printer: remove-useless-tuples-from-type-checker: comparison
+- 5fea18929 @putout/plugin-printer: remove-useless-not-from-type-checker
+- 7596bc89d @putout/plugin-printer: merge-tuples-of-type-checkers: +/-
+- dadf3d6e9 @putout/plugin-printer: merge-tuples-of-type-checkers: booleans: +/-
+- 9e74a3e83 @putout/plugin-printer: check-type-passed-to-type-checker: exclude: +/-
+
 2026.03.14, v42.2.2
 
 fix:
