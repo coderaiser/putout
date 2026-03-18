@@ -189,10 +189,10 @@ test('putout: runner: scanner: simple', (t) => {
     });
     
     const expected = montag`
-        ${__filesystem_name}(["/", [
-            "/hello",
-            "d29ybGQ="
-        ]]);\n
+        ${__filesystem_name}([
+            "/",
+            ["/hello", "d29ybGQ="]
+        ]);\n
     `;
     
     t.equal(code, expected);
@@ -333,15 +333,9 @@ test('putout: runner: scanner: trailing slash', (t) => {
         ${__filesystem_name}([
             "/",
             "/hello.txt",
-            [
-                "/world.txt",
-                "hello world"
-            ],
+            ["/world.txt", "hello world"],
             "/abc/",
-            [
-                "/hello",
-                "d29ybGQ="
-            ]
+            ["/hello", "d29ybGQ="]
         ]);\n
     `;
     

@@ -25,7 +25,10 @@ test('plugin-putout: create-test: transform with options', (t) => {
     t.transformWithOptions('create-test', {
         add: [
             ['printer', 'putout'],
-            ['plugins', []],
+            [
+                'plugins',
+                [],
+            ],
         ],
     });
     t.end();
@@ -35,7 +38,10 @@ test('plugin-putout: create-test: transform with options: id-id', (t) => {
     t.transformWithOptions('id-id', {
         add: [
             ['printer', 'putout'],
-            ['plugins', []],
+            [
+                'plugins',
+                [],
+            ],
         ],
     });
     t.end();

@@ -24,7 +24,10 @@ test('putout: operator: filesystem: findFileUp', (t) => {
 });
 
 test('putout: operator: filesystem: findFileUp: not found', (t) => {
-    const ast = parseFilesystem(['/hello/', '/hello/world.js']);
+    const ast = parseFilesystem([
+        '/hello/',
+        '/hello/world.js',
+    ]);
     
     const [filePath] = findFile(ast, '*.js');
     const packageFile = findFileUp(filePath, 'package.json');
@@ -34,7 +37,11 @@ test('putout: operator: filesystem: findFileUp: not found', (t) => {
 });
 
 test('putout: operator: filesystem: findFileUp: not file', (t) => {
-    const ast = parseFilesystem(['/', '/package.json/', '/package.json/hello.js']);
+    const ast = parseFilesystem([
+        '/',
+        '/package.json/',
+        '/package.json/hello.js',
+    ]);
     
     const [filePath] = findFile(ast, '*.js');
     const packageFile = findFileUp(filePath, 'package.json');

@@ -19,7 +19,10 @@ test('test: exported: processor: createTest', (t) => {
 
 const typos = {
     files: '*.md',
-    lint: () => ['target\n', []],
+    lint: () => [
+        'target\n',
+        [],
+    ],
 };
 
 const testProcessor = createTest(__dirname, {

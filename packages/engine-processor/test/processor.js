@@ -677,7 +677,10 @@ test('putout: engine-processor: processorRunners', async (t) => {
     const name = new URL('fixture/call-merge-once.md', import.meta.url).pathname;
     const typos = {
         files: ['*.*'],
-        lint: (code) => [code, []],
+        lint: (code) => [
+            code,
+            [],
+        ],
     };
     
     const rawSource = await readFile(name, 'utf8');

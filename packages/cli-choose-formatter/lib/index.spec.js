@@ -82,9 +82,11 @@ test('putout: cli: choose-formatter: getFormatters', async (t) => {
         choose,
     });
     
-    const expected = ['Choose formatter', ['dump'], {
-        autofocus: false,
-    }];
+    const expected = [
+        'Choose formatter',
+        ['dump'], {
+            autofocus: false,
+        }];
     
     t.calledWith(choose, expected);
     t.end();
@@ -109,9 +111,11 @@ test('putout: cli: choose-formatter: getFormatters: autofocus', async (t) => {
         choose,
     });
     
-    const expected = ['Choose formatter', ['dump', 'progress-bar'], {
-        autofocus: 1,
-    }];
+    const expected = [
+        'Choose formatter',
+        ['dump', 'progress-bar'], {
+            autofocus: 1,
+        }];
     
     t.calledWith(choose, expected);
     t.end();
@@ -137,9 +141,11 @@ test('putout: cli: choose-formatter: getFormatters: formatter', async (t) => {
         choose,
     });
     
-    const expected = ['Choose formatter', ['dump', 'progress-bar'], {
-        autofocus: 1,
-    }];
+    const expected = [
+        'Choose formatter',
+        ['dump', 'progress-bar'], {
+            autofocus: 1,
+        }];
     
     t.calledWith(choose, expected);
     t.end();

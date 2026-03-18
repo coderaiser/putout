@@ -8,5 +8,10 @@
 }
 {
     console.log('hello');
-    [uid, d, s, e] = path.scope;
+    [
+        uid,
+        d,
+        s,
+        e,
+    ] = path.scope;
 }

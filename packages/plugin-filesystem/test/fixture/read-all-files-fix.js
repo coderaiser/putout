@@ -1,4 +1,4 @@
-__putout_processor_filesystem(["/", [
-    "/hello.js",
-    ""
-]]);
+__putout_processor_filesystem([
+    "/",
+    ["/hello.js", ""]
+]);

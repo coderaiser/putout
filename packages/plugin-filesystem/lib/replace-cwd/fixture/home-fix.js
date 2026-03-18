@@ -1,4 +1,7 @@
-__putout_processor_filesystem(["/home/", "/home/README.md"]);
+__putout_processor_filesystem([
+    "/home/",
+    "/home/README.md"
+]);
 
 __putout_processor_filesystem({
     type: "directory",

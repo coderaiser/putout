@@ -9,7 +9,12 @@ import {determineImportType} from '#determine-import-type';
 import {getImportsTuples} from '#get-imports-tuples';
 import {transformNamespaceImport} from './transform-namespace-import.js';
 
-const isDeclaration = ([, , , type]) => type !== 'dynamic';
+const isDeclaration = ([
+    ,
+    ,
+    ,
+    type,
+]) => type !== 'dynamic';
 const {
     getFilename,
     readFileContent,

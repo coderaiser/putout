@@ -13,10 +13,7 @@ __putout_processor_filesystem([
 
 __putout_processor_filesystem([
     "/",
-    [
-        "/package.json",
-        "ewogICAgfQ=="
-    ],
+    ["/package.json", "ewogICAgfQ=="],
     "/lib/",
     "/lib/tokenize/",
     ["/lib/tokenize/is.js", "CiAgICAgICAgZXhwb3J0IGNvbnN0IGlzUHJldiA9IChwYXRoKSA9PiB7CiAgICAgICAgICAgIGNvbnN0IG5leHQgPSBwYXRoLmdldFByZXZTaWJsaW5nKCk7CiAgICAgICAgICAgIHJldHVybiBuZXh0Lm5vZGU7CiAgICAgICAgfTsKICAgIA=="],

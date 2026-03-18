@@ -4,9 +4,7 @@ import {validateRules} from './validate-rules.js';
 
 test('engine-runner: validate-rules', (t) => {
     const items = [
-        [
-            'remove-empty',
-        ],
+        ['remove-empty'],
     ];
     
     const rules = {

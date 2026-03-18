@@ -1606,7 +1606,10 @@ test('putout: cli: get files: called with ignore option', async (t) => {
         ignore,
     });
     
-    const getFiles = stub().returns(['dir', []]);
+    const getFiles = stub().returns([
+        'dir',
+        [],
+    ]);
     
     await runCli({
         argv,

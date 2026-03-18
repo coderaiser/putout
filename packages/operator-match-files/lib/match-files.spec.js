@@ -538,10 +538,10 @@ test('putout: operator: match-files: save to other file: exists', (t) => {
 });
 
 test('putout: operator: match-files: __name', (t) => {
-    const source = stringify(['/', [
-        '/.eslintrc.js',
-        '{}',
-    ]]);
+    const source = stringify([
+        '/',
+        ['/.eslintrc.js', '{}'],
+    ]);
     
     const files = {
         '__name.js -> __name.json': convertEsmToCommonjs,
@@ -566,20 +566,20 @@ test('putout: operator: match-files: __name', (t) => {
         __filesystem,
     ));
     
-    const expected = ['/', [
-        '/.eslintrc.js',
-        '{}',
-    ]];
+    const expected = [
+        '/',
+        ['/.eslintrc.js', '{}'],
+    ];
     
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: operator: match-files: default filename', (t) => {
-    const source = stringify(['/', [
-        '/.eslintrc.js',
-        '{}',
-    ]]);
+    const source = stringify([
+        '/',
+        ['/.eslintrc.js', '{}'],
+    ]);
     
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
@@ -606,10 +606,10 @@ test('putout: operator: match-files: default filename', (t) => {
         __filesystem,
     ));
     
-    const expected = ['/', [
-        '/.eslintrc.jsx',
-        'e30K',
-    ]];
+    const expected = [
+        '/',
+        ['/.eslintrc.jsx', 'e30K'],
+    ];
     
     t.deepEqual(result, expected);
     t.end();

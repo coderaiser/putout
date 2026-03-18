@@ -152,14 +152,22 @@ test('compare: all: not array', (t) => {
 });
 
 test('compare: all: base is all: no', (t) => {
-    const result = compareAll('const a = {}', ['const a = " "', 'const a  = "__"', 'const a  = __']);
+    const result = compareAll('const a = {}', [
+        'const a = " "',
+        'const a  = "__"',
+        'const a  = __',
+    ]);
     
     t.notOk(result);
     t.end();
 });
 
 test('compare: any: base is any', (t) => {
-    const result = compareAny('const a = {}', ['const a = " "', 'const a  = "__"', 'const a  = __']);
+    const result = compareAny('const a = {}', [
+        'const a = " "',
+        'const a  = "__"',
+        'const a  = __',
+    ]);
     
     t.ok(result);
     t.end();
@@ -182,7 +190,10 @@ test('compare: any: no path find', (t) => {
 });
 
 test('compare: any: base is any: no', (t) => {
-    const result = compareAny('const a = {}', ['const a = " "', 'const a  = "__"']);
+    const result = compareAny('const a = {}', [
+        'const a = " "',
+        'const a  = "__"',
+    ]);
     
     t.notOk(result);
     t.end();

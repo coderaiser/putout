@@ -10,7 +10,10 @@ const noop = () => {};
 const {stringify} = JSON;
 
 test('putout: cli: process-file: eslint', async (t) => {
-    const eslint = stub().returns(['', []]);
+    const eslint = stub().returns([
+        '',
+        [],
+    ]);
     
     const source = 'log123("hello")';
     const fix = false;
@@ -48,7 +51,10 @@ test('putout: cli: process-file: eslint', async (t) => {
 });
 
 test('putout: cli: process-file: ts from preProcessor', async (t) => {
-    const eslint = stub().returns(['', []]);
+    const eslint = stub().returns([
+        '',
+        [],
+    ]);
     
     const source = 'const x: number = 3';
     const fix = false;
@@ -125,7 +131,10 @@ test('putout: cli: process-file: options for inner data', async (t) => {
     const name = 'example.md{json}';
     const log = stub();
     const write = stub();
-    const eslint = stub().returns(['', []]);
+    const eslint = stub().returns([
+        '',
+        [],
+    ]);
     
     const options = {
         dir: '.',

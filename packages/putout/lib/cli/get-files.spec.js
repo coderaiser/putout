@@ -26,7 +26,10 @@ test('putout: getFiles', async (t) => {
         isDirectory: stub().returns(false),
     });
     
-    const fastGlob = stub().returns(['get-files.js', 'get-files.spec.js']);
+    const fastGlob = stub().returns([
+        'get-files.js',
+        'get-files.spec.js',
+    ]);
     
     const options = {};
     const [, files] = await getFiles([
@@ -52,7 +55,10 @@ test('putout: getFiles: normalize', async (t) => {
         isDirectory: stub().returns(false),
     });
     
-    const fastGlob = stub().returns(['.//get-files.js', './/get-files.spec.js']);
+    const fastGlob = stub().returns([
+        './/get-files.js',
+        './/get-files.spec.js',
+    ]);
     
     const options = {};
     const [, files] = await getFiles([

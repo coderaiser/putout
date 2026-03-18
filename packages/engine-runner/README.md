@@ -292,7 +292,11 @@ export const traverse = ({push, store}) => ({
             
             store.entries();
             // returns
-            [['hello', 'world']];
+            [
+                
+                ['hello', 'world']
+                ,
+            ];
             
             store('hello');
             // returns

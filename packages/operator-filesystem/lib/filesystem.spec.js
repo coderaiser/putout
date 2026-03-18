@@ -551,10 +551,10 @@ test('putout: operator: filesystem: getFileType', (t) => {
 });
 
 test('putout: operator: filesystem: getFileContent', (t) => {
-    const ast = parseFilesystem(['/', [
-        '/hello.txt',
-        'hello world',
-    ]]);
+    const ast = parseFilesystem([
+        '/',
+        ['/hello.txt', 'hello world'],
+    ]);
     
     const [filePath] = findFile(ast, 'hello.txt');
     const content = getFileContent(filePath);
@@ -795,7 +795,11 @@ test('putout: operator: filesystem: createDirectory', (t) => {
 });
 
 test('putout: operator: filesystem: createDirectory: exists', (t) => {
-    const ast = parseFilesystem(['/', '/fixture/', '/fixture/hello.txt']);
+    const ast = parseFilesystem([
+        '/',
+        '/fixture/',
+        '/fixture/hello.txt',
+    ]);
     
     const [dirPath] = findFile(ast, '/');
     createDirectory(dirPath, 'fixture');
@@ -1490,7 +1494,10 @@ test('putout: operator: filesystem: writeFileContent: directory', (t) => {
 });
 
 test('putout: operator: filesystem: writeFileContent: emoji', (t) => {
-    const ast = parseFilesystem(['/hello/world/', '/hello/world/README.md']);
+    const ast = parseFilesystem([
+        '/hello/world/',
+        '/hello/world/README.md',
+    ]);
     
     const [filePath] = findFile(ast, 'README.md');
     writeFileContent(filePath, 'hello 🐊');
@@ -1571,7 +1578,11 @@ test('putout: operator: filesystem: findFile: couple', (t) => {
 });
 
 test('putout: operator: filesystem: findFile: directory', (t) => {
-    const ast = parseFilesystem(['/hello/', '/hello/world/', '/hello/world.txt']);
+    const ast = parseFilesystem([
+        '/hello/',
+        '/hello/world/',
+        '/hello/world.txt',
+    ]);
     const files = findFile(ast, ['/hello', '/hello/world']);
     
     t.equal(files.length, 2);
@@ -1579,7 +1590,11 @@ test('putout: operator: filesystem: findFile: directory', (t) => {
 });
 
 test('putout: operator: filesystem: readDirectory: file', (t) => {
-    const ast = parseFilesystem(['/hello/', '/hello/world/', '/hello/world.txt']);
+    const ast = parseFilesystem([
+        '/hello/',
+        '/hello/world/',
+        '/hello/world.txt',
+    ]);
     
     const [helloDir] = findFile(ast, '/hello/world.txt');
     const files = readDirectory(helloDir).map(getFilename);
@@ -1611,7 +1626,11 @@ test('putout: operator: filesystem: readDirectory', (t) => {
 });
 
 test('putout: operator: filesystem: moveFile: sameDirectory', (t) => {
-    const ast = parseFilesystem(['/', '/hello/', '/hello/world.txt']);
+    const ast = parseFilesystem([
+        '/',
+        '/hello/',
+        '/hello/world.txt',
+    ]);
     const [dirPath] = findFile(ast, '/');
     
     moveFile(dirPath, dirPath);
@@ -1633,7 +1652,10 @@ test('putout: operator: filesystem: pause', (t) => {
 });
 
 test('putout: operator: filesystem: getRootDirectory', (t) => {
-    const ast = parseFilesystem(['/hello/world/', '/hello/world/package.json']);
+    const ast = parseFilesystem([
+        '/hello/world/',
+        '/hello/world/package.json',
+    ]);
     
     const [filePath] = findFile(ast, 'package.json');
     const rootDirectoryPath = getRootDirectory(filePath);

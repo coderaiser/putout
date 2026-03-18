@@ -76,7 +76,11 @@ test('putout: operator: filesystem: parseFileSystem: slash', (t) => {
 });
 
 test('putout: operator: filesystem: parseFileSystem: no slash', (t) => {
-    const [error] = tryCatch(parseSimpleFilesystem, ['/', '/fixture', '/fixture/hello.txt']);
+    const [error] = tryCatch(parseSimpleFilesystem, [
+        '/',
+        '/fixture',
+        '/fixture/hello.txt',
+    ]);
     
     const expected = `☝️ Looks like '/fixture' is not a directory, but: 'file'. Rename to '/fixture/'`;
     

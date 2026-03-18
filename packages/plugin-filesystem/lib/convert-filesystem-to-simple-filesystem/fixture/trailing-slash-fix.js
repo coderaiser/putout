@@ -1,1 +1,5 @@
-__putout_processor_filesystem(["/", "/hello.txt", "/world/"]);
+__putout_processor_filesystem([
+    "/",
+    "/hello.txt",
+    "/world/"
+]);

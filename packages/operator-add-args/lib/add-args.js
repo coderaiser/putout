@@ -67,7 +67,12 @@ const traverse = (args) => ({push, options}) => {
     return {
         ReferencedIdentifier(path) {
             for (const [name, config] of entries(allArgs)) {
-                const [declaration, type, include, exclude] = parseConfig(config);
+                const [
+                    declaration,
+                    type,
+                    include,
+                    exclude,
+                ] = parseConfig(config);
                 
                 if (path.node.name !== name)
                     continue;

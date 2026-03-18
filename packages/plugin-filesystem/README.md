@@ -278,10 +278,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e15d077626
 __putout_processor_filesystem([
     '/',
     '/hello.txt',
-    [
-        '/world.txt',
-        'hello world',
-    ],
+    ['/world.txt', 'hello world'],
     '/abc/',
 ]);
 ```
@@ -338,10 +335,7 @@ __putout_processor_filesystem({
 __putout_processor_filesystem([
     '/',
     '/hello.txt',
-    [
-        '/world.txt',
-        'hello world',
-    ],
+    ['/world.txt', 'hello world'],
     '/abc/',
 ]);
 ```
@@ -359,10 +353,10 @@ Bundle and minify `css` files.
                     "name-size-date.css",
                     "name-size.css"
                 ]],
-                ["main.css", [
-                    "hello.css",
-                    "world.css"
-                ]],
+                [
+                    "main.css",
+                    ["hello.css", "world.css"]
+                ],
                 "1:1"
             ]
         }]
@@ -586,10 +580,10 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fb221770d2
 ### ✅ Example of correct code
 
 ```json
-["/", [
-    "/hello.xyz",
-    "hello world"
-]]
+[
+    "/",
+    ["/hello.xyz", "hello world"]
+]
 ```
 
 ## write-all-files
@@ -599,10 +593,10 @@ Write all files that was read before to Filesystem.
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2dda6b05987bbf91a1b18d7032489c05/286d2f04eb0e002cef14d102fa3e59bdf17bda47).
 
 ```json
-["/", [
-    "/hello.xyz",
-    "hello world"
-]]
+[
+    "/",
+    ["/hello.xyz", "hello world"]
+]
 ```
 
 ## convert-json-to-js

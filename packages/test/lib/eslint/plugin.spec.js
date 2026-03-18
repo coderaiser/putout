@@ -1,7 +1,9 @@
 import {createPlugin} from '@putout/eslint/create-plugin';
 import {createTest} from './eslint.js';
 
-const test = createTest(import.meta.url, [['remove-debugger', createPlugin(await import('./fixture/remove-debugger.js'))]]);
+const test = createTest(import.meta.url, [
+    ['remove-debugger', createPlugin(await import('./fixture/remove-debugger.js'))],
+]);
 
 test('test: eslint: report', (t) => {
     t.report('report', `Avoid 'debugger' statement`);

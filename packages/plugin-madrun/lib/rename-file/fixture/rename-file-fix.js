@@ -1,1 +1,5 @@
-__putout_processor_filesystem(["/", "/.madrun.js", "/package.json"]);
+__putout_processor_filesystem([
+    "/",
+    "/.madrun.js",
+    "/package.json"
+]);

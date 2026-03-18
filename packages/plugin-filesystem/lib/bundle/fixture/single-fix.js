@@ -1,13 +1,7 @@
 __putout_processor_filesystem([
     "/",
-    [
-        "/main.css",
-        ""
-    ],
+    ["/main.css", ""],
     "/hello.css",
     "/dist/",
-    [
-        "/dist/main.css",
-        ""
-    ]
+    ["/dist/main.css", ""]
 ]);

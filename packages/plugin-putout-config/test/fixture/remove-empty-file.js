@@ -1,9 +1,6 @@
 __putout_processor_filesystem([
     "/",
-    [
-        "/.putout.json",
-        "{}"
-    ],
+    ["/.putout.json", "{}"],
     "/app/",
     [
         "/app/.putout.json",

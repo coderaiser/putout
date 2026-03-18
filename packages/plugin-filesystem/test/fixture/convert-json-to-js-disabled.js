@@ -1,4 +1,4 @@
-__putout_processor_filesystem(["/", [
-    "/package.json",
-    "{}"
-]]);
+__putout_processor_filesystem([
+    "/",
+    ["/package.json", "{}"]
+]);

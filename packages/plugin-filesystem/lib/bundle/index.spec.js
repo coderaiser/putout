@@ -17,22 +17,28 @@ test('packages: bundle-css: report', (t) => {
                 'name-size-date.css',
                 'name-size.css',
             ]],
-            ['__:modules/__', [
-                'view.css',
-                'terminal.css',
-                'config.css',
-                'help.css',
-                'user-menu.css',
-            ]],
-            ['main.css', [
-                'reset.css',
+            [
+                '__:modules/__',
+                [
+                    'view.css',
+                    'terminal.css',
+                    'config.css',
+                    'help.css',
+                    'user-menu.css',
+                ],
+            ],
+            [
                 'main.css',
-                'supports.css',
-                'query.css',
-                'style.css',
-                'urls.css',
-                'icons.css',
-            ]],
+                [
+                    'reset.css',
+                    'main.css',
+                    'supports.css',
+                    'query.css',
+                    'style.css',
+                    'urls.css',
+                    'icons.css',
+                ],
+            ],
             '1:1',
         ],
     });
@@ -57,22 +63,28 @@ test('packages: bundle-css: transform with options', (t) => {
                 'name-size-date.css',
                 'name-size.css',
             ]],
-            ['__:modules/__', [
-                'view.css',
-                'terminal.css',
-                'config.css',
-                'help.css',
-                'user-menu.css',
-            ]],
-            ['main.css', [
-                'reset.css',
+            [
+                '__:modules/__',
+                [
+                    'view.css',
+                    'terminal.css',
+                    'config.css',
+                    'help.css',
+                    'user-menu.css',
+                ],
+            ],
+            [
                 'main.css',
-                'supports.css',
-                'query.css',
-                'style.css',
-                'urls.css',
-                'icons.css',
-            ]],
+                [
+                    'reset.css',
+                    'main.css',
+                    'supports.css',
+                    'query.css',
+                    'style.css',
+                    'urls.css',
+                    'icons.css',
+                ],
+            ],
             '1:1',
         ],
     });
@@ -96,9 +108,10 @@ test('packages: bundle-css: nested', (t) => {
     t.transformWithOptions('nested', {
         transform: minify,
         groups: [
-            ['__:columns/__', [
-                'name-size.css',
-            ]],
+            [
+                '__:columns/__',
+                ['name-size.css'],
+            ],
         ],
     });
     t.end();
@@ -109,9 +122,10 @@ test('packages: bundle-css: warning', (t) => {
     const [error] = tryCatch(t.reportWithOptions, 'warning', message, {
         transform: minify,
         groups: [
-            ['__:columns/__', [
-                'name-size.css',
-            ]],
+            [
+                '__:columns/__',
+                ['name-size.css'],
+            ],
         ],
     });
     
@@ -126,9 +140,10 @@ test('packages: bundle-css: error', (t) => {
     const [error] = tryCatch(t.reportWithOptions, 'error', message, {
         transform: minify,
         groups: [
-            ['__:columns/__', [
-                'name-size.css',
-            ]],
+            [
+                '__:columns/__',
+                ['name-size.css'],
+            ],
         ],
     });
     

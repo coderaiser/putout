@@ -22,7 +22,11 @@ export const filter = (path) => {
     if (hasAwaitUsing(path))
         return false;
     
-    return !contains(path, ['throw __', 'await __', 'for await (__ of __) __']);
+    return !contains(path, [
+        'throw __',
+        'await __',
+        'for await (__ of __) __',
+    ]);
 };
 
 function hasAwaitUsing(path) {

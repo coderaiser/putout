@@ -534,10 +534,10 @@ __putout_processor_filesystem(['/', [
 ### ✅ Example of correct code
 
 ```ts
-__putout_processor_filesystem(['/', [
-    '/hello.ts',
-    'const a = 5;',
-]]);
+__putout_processor_filesystem([
+    '/',
+    ['/hello.ts', 'const a = 5;'],
+]);
 ```
 
 ## rename-file-cts-to-ts

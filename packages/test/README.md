@@ -598,7 +598,10 @@ test('putout: operator: filesystem: findFile: exclude', (t) => {
 
 ```js
 test('putout: operator: filesystem: writeFileContent: emoji', (t) => {
-    const ast = parseFilesystem(['/hello/world/', '/hello/world/README.md']);
+    const ast = parseFilesystem([
+        '/hello/world/',
+        '/hello/world/README.md',
+    ]);
     
     const [filePath] = findFile(ast, 'README.md');
     writeFileContent(filePath, 'hello 🐊');

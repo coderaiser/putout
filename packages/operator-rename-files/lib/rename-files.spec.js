@@ -17,10 +17,7 @@ const {stringify} = JSON;
 test('putout: operator: rename-files: report: no type in package.json', (t) => {
     const source = stringify([
         '/',
-        [
-            '/package.json',
-            '{}',
-        ],
+        ['/package.json', '{}'],
         '/lib/',
         '/lib/index.cjs',
     ]);
@@ -52,10 +49,7 @@ test('putout: operator: rename-files: report: no type in package.json', (t) => {
     
     const expected = [
         '/',
-        [
-            '/package.json',
-            '{}',
-        ],
+        ['/package.json', '{}'],
         '/lib/',
         '/lib/index.js',
     ];
@@ -178,10 +172,7 @@ test('putout: operator: rename-files: type mismatch', (t) => {
 test('putout: operator: rename-files: no package content', (t) => {
     const source = stringify([
         '/',
-        [
-            '/package.json',
-            '',
-        ],
+        ['/package.json', ''],
         '/lib/',
         '/lib/index.cjs',
     ]);
@@ -276,7 +267,11 @@ test('putout: operator: rename-files: no package.json: commonjs', (t) => {
 });
 
 test('putout: operator: rename-files: no args', (t) => {
-    const source = stringify(['/', '/lib/', '/lib/.madrun.js']);
+    const source = stringify([
+        '/',
+        '/lib/',
+        '/lib/.madrun.js',
+    ]);
     
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
@@ -309,7 +304,11 @@ test('putout: operator: rename-files: no args', (t) => {
 });
 
 test('putout: operator: rename-files: mask, from, to', (t) => {
-    const source = stringify(['/', '/lib/', '/lib/madrun.spec.js']);
+    const source = stringify([
+        '/',
+        '/lib/',
+        '/lib/madrun.spec.js',
+    ]);
     
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
@@ -343,7 +342,11 @@ test('putout: operator: rename-files: mask, from, to', (t) => {
 });
 
 test('putout: operator: rename-files: mask, from, to: report', (t) => {
-    const source = stringify(['/', '/lib/', '/lib/madrun.spec.js']);
+    const source = stringify([
+        '/',
+        '/lib/',
+        '/lib/madrun.spec.js',
+    ]);
     
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
@@ -376,7 +379,11 @@ test('putout: operator: rename-files: mask, from, to: report', (t) => {
 });
 
 test('putout: operator: rename-files: mask, from, to: no report: no options', (t) => {
-    const source = stringify(['/', '/lib/', '/lib/madrun.spec.js']);
+    const source = stringify([
+        '/',
+        '/lib/',
+        '/lib/madrun.spec.js',
+    ]);
     
     const jsSource = toJS(source, __filesystem);
     const ast = parse(jsSource);
@@ -403,9 +410,7 @@ test('putout: operator: rename-files: from, to, near', (t) => {
         '/madrun.js',
         '/lib/',
         '/lib/madrun.js',
-        [
-            '/package.json',
-        ],
+        ['/package.json'],
     ]);
     
     const jsSource = toJS(source, __filesystem);
