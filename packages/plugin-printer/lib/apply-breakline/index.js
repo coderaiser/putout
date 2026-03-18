@@ -20,7 +20,11 @@ export const fix = (path) => {
 };
 
 export const filter = (path) => {
-    return compareAny(next(path), ['indent()', 'print.indent()', 'write.indent()']);
+    return compareAny(next(path), [
+        'indent()',
+        'print.indent()',
+        'write.indent()',
+    ]);
 };
 
 export const include = () => [

@@ -41,3 +41,8 @@ test('printer: merge-tuples-of-type-checkers: no report: is', (t) => {
     t.noReport('is');
     t.end();
 });
+
+test('printer: merge-tuples-of-type-checkers: no report: function', (t) => {
+    t.noReport('function');
+    t.end();
+});

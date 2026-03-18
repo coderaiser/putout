@@ -25,7 +25,11 @@ export const include = () => [
 ];
 
 export const filter = (path) => {
-    return compareAny(prev(path), ['indent()', 'print.indent()', 'write.indent()']);
+    return compareAny(prev(path), [
+        'indent()',
+        'print.indent()',
+        'write.indent()',
+    ]);
 };
 
 function choose(path) {

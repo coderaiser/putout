@@ -8,6 +8,7 @@ const TYPES_EXISTS = new Set([
 
 const TYPES_NOT_EXISTS = new Set([
     'ExportDeclaration',
+    'Function',
 ]);
 
 export function isTypeExists(type) {
