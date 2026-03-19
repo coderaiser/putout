@@ -32,6 +32,7 @@ test('putout: getFiles', async (t) => {
     ]);
     
     const options = {};
+    
     const [, files] = await getFiles([
         '**/get-files*.js',
     ], options, {
@@ -61,6 +62,7 @@ test('putout: getFiles: normalize', async (t) => {
     ]);
     
     const options = {};
+    
     const [, files] = await getFiles([
         '**/get-files*.js',
     ], options, {

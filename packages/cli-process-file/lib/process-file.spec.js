@@ -131,6 +131,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
     const name = 'example.md{json}';
     const log = stub();
     const write = stub();
+    
     const eslint = stub().returns([
         '',
         [],

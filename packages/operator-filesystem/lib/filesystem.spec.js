@@ -802,6 +802,7 @@ test('putout: operator: filesystem: createDirectory: exists', (t) => {
     ]);
     
     const [dirPath] = findFile(ast, '/');
+    
     createDirectory(dirPath, 'fixture');
     
     const expected = {
@@ -1500,6 +1501,7 @@ test('putout: operator: filesystem: writeFileContent: emoji', (t) => {
     ]);
     
     const [filePath] = findFile(ast, 'README.md');
+    
     writeFileContent(filePath, 'hello 🐊');
     const content = readFileContent(filePath);
     
@@ -1583,6 +1585,7 @@ test('putout: operator: filesystem: findFile: directory', (t) => {
         '/hello/world/',
         '/hello/world.txt',
     ]);
+    
     const files = findFile(ast, ['/hello', '/hello/world']);
     
     t.equal(files.length, 2);
@@ -1631,6 +1634,7 @@ test('putout: operator: filesystem: moveFile: sameDirectory', (t) => {
         '/hello/',
         '/hello/world.txt',
     ]);
+    
     const [dirPath] = findFile(ast, '/');
     
     moveFile(dirPath, dirPath);

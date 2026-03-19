@@ -15,6 +15,7 @@ const isDeclaration = ([
     ,
     type,
 ]) => type !== 'dynamic';
+
 const {
     getFilename,
     readFileContent,

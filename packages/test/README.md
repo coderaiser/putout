@@ -604,6 +604,7 @@ test('putout: operator: filesystem: writeFileContent: emoji', (t) => {
     ]);
     
     const [filePath] = findFile(ast, 'README.md');
+    
     writeFileContent(filePath, 'hello 🐊');
     const content = readFileContent(filePath);
     
