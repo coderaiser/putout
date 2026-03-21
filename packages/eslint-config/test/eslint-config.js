@@ -54,6 +54,10 @@ test('eslint-config: no-extra-parens', async ({comparePlaces}) => {
     await comparePlaces('no-extra-parens', []);
 });
 
+test('eslint-config: no-extra-parens-jsx', async ({comparePlaces}) => {
+    await comparePlaces('no-extra-parens-jsx', []);
+});
+
 test('eslint-config: no-unused-labels', async ({comparePlaces}) => {
     await comparePlaces('no-unused-labels', []);
 });

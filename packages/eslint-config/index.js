@@ -111,6 +111,7 @@ export const rules = {
     '@stylistic/object-curly-spacing': 'error',
     '@stylistic/no-extra-parens': ['error', 'all', {
         enforceForSequenceExpressions: false,
+        ignoreJSX: 'all',
     }],
     '@stylistic/no-multi-spaces': 'error',
     '@stylistic/no-trailing-spaces': ['error', {
