@@ -51,3 +51,8 @@ test('printer: check-type-passed-to-type-checker: no report: boolean', (t) => {
     t.noReport('boolean');
     t.end();
 });
+
+test('printer: check-type-passed-to-type-checker: no report: comparison', (t) => {
+    t.noReport('comparison');
+    t.end();
+});

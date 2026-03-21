@@ -1,7 +1,9 @@
-import {types} from 'putout';
+import {types, operator} from 'putout';
 import {isTypeExists} from '#types';
 
+const {createTypeChecker} = operator;
 const addQuotes = (a) => `'${a}'`;
+
 const {
     isIdentifier,
     isCallExpression,
@@ -31,6 +33,11 @@ export const report = ({type}) => {
     return `Unknown type detected: '${type}'. Use ${instead} instead`;
 };
 
+const isWrongTuple = createTypeChecker([
+    ['-: parentPath.parentPath -> !ArrayExpression'],
+    ['+: parentPath.node.elements.length', '=', 3],
+]);
+
 export const fix = () => {};
 
 export const traverse = ({push}) => ({
@@ -44,6 +51,9 @@ export const traverse = ({push}) => ({
             return;
         
         const {value} = path.node;
+        
+        if (isWrongTuple(path))
+            return;
         
         if (!value.includes(ARROW)) {
             if (/^[a-zA-Z].+/.test(value) && !isTypeExists(value))
