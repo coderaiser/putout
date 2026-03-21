@@ -216,6 +216,11 @@ test('putout: plugin-declare-before-reference: transform: merge-properties', (t)
     t.end();
 });
 
+test('putout: plugin-declare-before-reference: transform: template', (t) => {
+    t.transform('template');
+    t.end();
+});
+
 test('plugin-merge-destructuring-properties: no report after transform: apply-declarations-order', (t) => {
     t.noReportAfterTransform('apply-declarations-order', {
         'variables/apply-declarations-order': applyDeclarationsOrder,

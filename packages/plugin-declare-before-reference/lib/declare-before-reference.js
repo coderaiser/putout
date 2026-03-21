@@ -32,8 +32,6 @@ export const fix = ({path, referencePath}) => {
     const {node} = path.parentPath;
     const programPath = path.scope.getProgramParent().path;
     
-    delete node.loc;
-    
     const exportNode = path.parentPath.parentPath.node;
     remove(path.parentPath);
     
@@ -48,6 +46,13 @@ export const fix = ({path, referencePath}) => {
     const [first] = body;
     
     if (compare(first, 'const __a = require(__b)')) {
+        if (!compare(node, 'const __a = require(__b)')) {
+            const topPath = referencePath.find(isStatement);
+            insertBefore(topPath, node);
+            
+            return;
+        }
+        
         const latest = getPathAfterRequires(body.slice(1));
         insertBefore(latest, node);
         
@@ -109,6 +114,9 @@ export const traverse = ({push}) => ({
                 
                 const declarationLine = pathLoc.start.line;
                 const referenceLine = referenceLoc.start.line;
+                
+                if (!path.parentPath.node)
+                    continue;
                 
                 if (own && declarationLine > referenceLine)
                     push({
