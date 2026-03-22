@@ -9,7 +9,7 @@ export const {
     'actions/cache': 'v5',
     'actions/setup-node': 'v6',
     'docker/setup-buildx-action': 'v3',
-    'docker/build-push-action': 'v5',
+    'docker/build-push-action': 'v7',
     'docker/login-action': 'v3',
     'docker/setup-qemu-action': 'v3',
     'coverallsapp/github-action': 'v2',

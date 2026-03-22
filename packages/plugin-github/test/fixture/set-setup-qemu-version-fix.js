@@ -19,7 +19,7 @@ __putout_processor_yaml({
                 }
             }, {
                 "name": "Build and push base-image",
-                "uses": "docker/build-push-action@v5",
+                "uses": "docker/build-push-action@v7",
                 "with": {
                     "context": "."
                 }

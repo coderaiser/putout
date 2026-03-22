@@ -149,7 +149,7 @@ You can override versions with:
 ```diff
       - name: Build and push alpine-image
 -       uses: docker/build-push-action@v4
-+       uses: docker/build-push-action@v5
++       uses: docker/build-push-action@v7
 ```
 
 `docker/setup-buildx`:
