@@ -157,7 +157,7 @@ You can override versions with:
 ```diff
       - name: Set up Docker Buildx
 -       uses: docker/setup-buildx-action@v2
-+       uses: docker/setup-buildx-action@v3
++       uses: docker/setup-buildx-action@v4
 ```
 
 `actions/checkout`:

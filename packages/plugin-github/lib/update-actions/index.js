@@ -8,7 +8,7 @@ export const {
     'actions/checkout': 'v5',
     'actions/cache': 'v5',
     'actions/setup-node': 'v6',
-    'docker/setup-buildx-action': 'v3',
+    'docker/setup-buildx-action': 'v4',
     'docker/build-push-action': 'v7',
     'docker/login-action': 'v4',
     'docker/setup-qemu-action': 'v3',
