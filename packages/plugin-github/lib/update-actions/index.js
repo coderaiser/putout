@@ -10,7 +10,7 @@ export const {
     'actions/setup-node': 'v6',
     'docker/setup-buildx-action': 'v3',
     'docker/build-push-action': 'v7',
-    'docker/login-action': 'v3',
+    'docker/login-action': 'v4',
     'docker/setup-qemu-action': 'v3',
     'coverallsapp/github-action': 'v2',
     'EndBug/add-and-commit': 'v9',

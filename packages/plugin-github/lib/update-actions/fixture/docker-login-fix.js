@@ -14,7 +14,7 @@ __putout_processor_yaml({
                 }
             }, {
                 "name": "Login to Docker Hub",
-                "uses": "docker/login-action@v3"
+                "uses": "docker/login-action@v4"
             }]
         }
     }

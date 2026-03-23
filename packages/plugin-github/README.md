@@ -141,7 +141,7 @@ You can override versions with:
 ```diff
       - name: Login to Docker Hub
 -       uses: docker/login-action@v2
-+       uses: docker/login-action@v3
++       uses: docker/login-action@v4
 ```
 
 `docker/build-push`:
