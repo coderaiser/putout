@@ -190,7 +190,7 @@ You can override versions with:
   steps:
         - name: Set up QEMU
 -         uses: docker/setup-qemu-action@v2
-+         uses: docker/setup-qemu-action@v3
++         uses: docker/setup-qemu-action@v4
 ```
 
 `EndBug/add-and-commit`:

@@ -13,7 +13,7 @@ __putout_processor_yaml({
                 }
             }, {
                 "name": "Set up QEMU",
-                "uses": "docker/setup-qemu-action@v3",
+                "uses": "docker/setup-qemu-action@v4",
                 "with": {
                     "node-version": "${{ matrix.node-version }}"
                 }
