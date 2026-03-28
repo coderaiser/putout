@@ -1,4 +1,6 @@
-import {operator} from 'putout';
+import {operator, types} from 'putout';
+
+const {isCallExpression} = types;
 
 const {
     compare,
@@ -96,6 +98,9 @@ function check({__a, __b}, path) {
     
     if (__b && isBind(path, extract(__b)))
         return false;
+    
+    if (isCallExpression(__a))
+        return true;
     
     return getBindingPath(path, __a);
 }
