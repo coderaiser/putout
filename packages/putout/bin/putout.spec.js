@@ -1,13 +1,14 @@
-import {createRequire} from 'node:module';
 import {spawnSync} from 'node:child_process';
 import {stripVTControlCharacters} from 'node:util';
 import {test} from 'supertape';
+import info from '../package.json' with {
+    type: 'json',
+};
 
-const require = createRequire(import.meta.url);
 const cliPath = new URL('putout.js', import.meta.url).pathname;
 
 test('putout: bin: cli: -v', (t) => {
-    const {version} = require('../package.json');
+    const {version} = info;
     const {stdout} = spawnSync(cliPath, ['-v'], {
         encoding: 'utf8',
     });
