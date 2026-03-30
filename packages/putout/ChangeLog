@@ -1,3 +1,19 @@
+2026.03.30, v42.3.0
+
+feature:
+- 67b008c27 @putout/plugin-remove-duplicate-elements: add
+- b7447a237 @putout/plugin-types: convert-typeof-to-is-type: CallExpression
+- 6aa1fa4cb @putout/processor-toml: oxfmt v0.42.0
+- d489d75ca eslint-plugin-putout: typescript v6.0.2
+- 7b48990c7 @putout/plugin-github: update-actions: docker/setup-qemu-action: v3 -> v4
+- a39076b02 @putout/plugin-github: update-actions: setup-buildx-action: v3 -> v4
+- 76c6fd095 @putout/plugin-github: update-actions: docker/login-action: v3 -> v4
+- ae8895f41 @putout/plugin-github: docker/build-push-action: v5 -> v7
+- 81f0f0632 @putout/plugin-declare-before-reference: improve support of template literals
+- c71b5a37b @putout/eslint-config: no-extra-parens: ignoreJSX
+- f986ce197 @putout/plugin-printer: check-type-passed-to-type-checker: exclude comparison
+- e98e97dab @putout/plugin-printer: merge-tuples-of-type-checkers: Function: exclude
+
 2026.03.17, v42.2.3
 
 feature:
