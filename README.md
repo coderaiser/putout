@@ -680,6 +680,20 @@ console.log(b);
 
 </details>
 
+<details><summary>remove duplicate <code>elements</code></summary>
+
+```diff
+__putout_processor_json([
+    "coverage",
+    "",
+-   "coverage",
+-   "",
+    "abc"
+]);
+```
+
+</details>
+
 <details><summary>remove duplicate <code>keys</code></summary>
 
 ```diff
@@ -2218,6 +2232,7 @@ It has a lot of plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-remove-unreferenced-variables`](/packages/plugin-remove-unreferenced-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unreferenced-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unreferenced-variables) |
+| [`@putout/plugin-remove-duplicate-elements`](/packages/plugin-remove-duplicate-elements#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-elements.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-elements) |
 | [`@putout/plugin-remove-duplicate-keys`](/packages/plugin-remove-duplicate-keys#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-keys.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-keys) |
 | [`@putout/plugin-remove-duplicate-case`](/packages/plugin-remove-duplicate-case#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-case.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-case) |
 | [`@putout/plugin-remove-unused-expressions`](/packages/plugin-remove-unused-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-expressions) |

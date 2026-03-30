@@ -167,6 +167,7 @@ test('putout: config: .*ignore', (t) => {
     
     const expected = {
         'convert-quotes-to-backticks': 'off',
+        'remove-duplicate-elements': 'on',
     };
     
     t.deepEqual(result, expected);
@@ -226,7 +227,8 @@ test('putout: config: coverage', (t) => {
     const result = match['.{nyc,c8}rc.json'];
     
     const expected = {
-        coverage: 'on',
+        'coverage': 'on',
+        'remove-duplicate-elements': 'on',
     };
     
     t.deepEqual(result, expected);

@@ -111,10 +111,12 @@
             "npmignore": "on"
         },
         ".{nyc,c8}rc.json": {
-            "coverage": "on"
+            "coverage": "on",
+            "remove-duplicate-elements": "on"
         },
         ".*ignore": {
-            "convert-quotes-to-backticks": "off"
+            "convert-quotes-to-backticks": "off",
+            "remove-duplicate-elements": "on"
         },
         "webpack.config.js": {
             "webpack": "on"
@@ -132,7 +134,8 @@
             "putout/convert-match-to-function": "off"
         },
         "package.json": {
-            "package-json": "on"
+            "package-json": "on",
+            "remove-duplicate-elements": "on"
         },
         "bin": {
             "nodejs/remove-process-exit": "off",
@@ -196,7 +199,8 @@
         "nodejs/add-missing-strict-mode": "off",
         "nodejs/remove-useless-strict-mode": "off",
         "browserlist": "off",
-        "filesystem": "off"
+        "filesystem": "off",
+        "remove-duplicate-elements": "off"
     },
     "plugins": [
         "parens",
@@ -244,6 +248,7 @@
         "remove-duplicate-case",
         "remove-nested-blocks",
         "remove-unreachable-code",
+        "remove-duplicate-elements",
         "remove-duplicate-keys",
         "return",
         "spread",

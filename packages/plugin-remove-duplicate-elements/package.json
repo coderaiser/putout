@@ -1,0 +1,54 @@
+{
+  "name": "@putout/plugin-remove-duplicate-elements",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "🐊Putout plugin adds ability to find and remove duplicate elements",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-duplicate-elements#readme",
+  "main": "lib/remove-duplicate-elements.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "putout-plugin-remove",
+    "plugin",
+    "duplicate",
+    "key"
+  ],
+  "devDependencies": {
+    "@putout/test": "^15.0.0",
+    "eslint": "^10.0.0",
+    "eslint-plugin-n": "^17.0.0",
+    "eslint-plugin-putout": "^31.0.0",
+    "madrun": "^13.0.0",
+    "nodemon": "^3.0.1",
+    "superc8": "^12.0.0"
+  },
+  "peerDependencies": {
+    "putout": ">=42"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
