@@ -7,7 +7,6 @@
         "**/*fixture",
         "**/*.config.*",
         "**/.*.*",
-        "**/eslint.config.js",
         "**/scripts",
         "packages/putout/bin",
         "packages/*/test",
