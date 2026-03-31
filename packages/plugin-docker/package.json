@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-docker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://docker.com/coderaiser)",
   "description": "🐊Putout plugin helps with Dockerfile",
