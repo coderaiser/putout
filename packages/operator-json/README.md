@@ -49,6 +49,18 @@ export const traverse = ({push}) => ({
 });
 ```
 
+### `__docker`
+
+```js
+import {operator} from 'putout';
+
+const {__docker} = operator;
+
+export const traverse = ({push}) => ({
+    [__docker]: push,
+});
+```
+
 ### `__ignore`
 
 ```js
@@ -85,6 +97,22 @@ true;
 isJSON(`hello({"hello": "world"});`);
 // returns
 false;
+```
+
+### `isTOML(source: string)`
+
+```js
+isTOML(`__putout_processor_toml({"hello": "world"});`);
+// returns
+true;
+```
+
+### `isDocker(source: string)`
+
+```js
+isDocker(`__putout_processor_docker(['MAINTAINER', 'abc']);`);
+// returns
+true;
 ```
 
 ### `isJSONJGroup(source: string)`

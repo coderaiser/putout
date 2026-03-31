@@ -12,6 +12,7 @@ const createSuffix = () => ');\n';
 const maybeNewline = (a) => a.at(-1) === '\n' ? a : `${a}\n`;
 
 export const __json_name = '__putout_processor_json';
+export const __docker_name = '__putout_processor_docker';
 export const __yaml_name = '__putout_processor_yaml';
 export const __toml_name = '__putout_processor_toml';
 export const __filesystem_name = '__putout_processor_filesystem';
@@ -20,11 +21,13 @@ export const __ignore_name = '__putout_processor_ignore';
 export const __json = `${__json_name}(__object)`;
 export const __yaml = `${__yaml_name}(__object)`;
 export const __toml = `${__toml_name}(__object)`;
+export const __docker = `${__docker_name}(__object)`;
 export const __filesystem = `${__filesystem_name}(__object)`;
 export const __ignore = `${__ignore_name}(__array)`;
 
 const TYPES = [
     __json_name,
+    __docker_name,
     __toml_name,
     __yaml_name,
     __filesystem_name,
@@ -54,6 +57,7 @@ export const fromJS = (source, name = __json) => {
 
 export const isJSON = (source) => !source.indexOf(__json_name);
 export const isTOML = (source) => !source.indexOf(__toml_name);
+export const isDocker = (source) => !source.indexOf(__docker_name);
 export const isJSONGroup = (source) => {
     for (const type of TYPES) {
         if (!source.indexOf(type))

@@ -1,10 +1,12 @@
 import {test} from 'supertape';
+import montag from 'montag';
 import {
     toJS,
     fromJS,
     isJSON,
     isJSONGroup,
     isTOML,
+    isDocker,
     __yaml,
     __toml,
     __json,
@@ -73,6 +75,18 @@ test('putout: operator: json: toJS: __toml', ({equal}) => {
 test('putout: operator: json: isTOML', ({ok}) => {
     const source = `__putout_processor_toml({"hello": "world"});\n`;
     const is = isTOML(source);
+    
+    ok(is);
+});
+
+test('putout: operator: json: isDocker', ({ok}) => {
+    const source = montag`
+        __putout_processor_docker([
+            ['MAINTAINER', 'docker@moby.com']
+        ]);\n
+    `;
+    
+    const is = isDocker(source);
     
     ok(is);
 });
