@@ -1,7 +1,14 @@
 export const report = () => `Add '\n' after montag`;
 
 export const match = () => ({
-    'montag`__a`': ({__a}) => !__a.value.raw.startsWith('\n'),
+    'montag`__a`': ({__a}) => {
+        const {raw} = __a.value;
+        
+        if (raw.startsWith(' '))
+            return false;
+        
+        return !__a.value.raw.startsWith('\n');
+    },
 });
 
 export const replace = () => ({

@@ -16,3 +16,8 @@ test('montag: add-newline-before-text: transform', (t) => {
     t.transform('add-newline-before-text');
     t.end();
 });
+
+test('montag: add-newline-before-text: no report: space', (t) => {
+    t.noReport('space');
+    t.end();
+});
