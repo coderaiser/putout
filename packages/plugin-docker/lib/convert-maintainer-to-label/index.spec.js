@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('docker: convert-maintainer-to-label: report', (t) => {
-    t.report('convert-maintainer-to-label', `User 'LABEL' instead of 'MAINTAINER'`);
+    t.report('convert-maintainer-to-label', `Use 'LABEL' instead of 'MAINTAINER'`);
     t.end();
 });
 

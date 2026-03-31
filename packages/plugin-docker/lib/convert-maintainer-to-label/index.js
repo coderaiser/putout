@@ -5,7 +5,7 @@ const {
     __docker,
 } = operator;
 
-export const report = () => `User 'LABEL' instead of 'MAINTAINER'`;
+export const report = () => `Use 'LABEL' instead of 'MAINTAINER'`;
 
 export const fix = ({path, arg}) => {
     setLiteralValue(path, 'LABEL');
