@@ -23,6 +23,8 @@ export const print = (instructions) => {
             else if (index < argsCount)
                 write(' ');
         }
+        
+        write('\n');
     }
     
     return stdout.join('');

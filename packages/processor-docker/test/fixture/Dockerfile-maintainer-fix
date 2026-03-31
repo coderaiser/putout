@@ -1,0 +1,5 @@
+LABEL org.opencontainers.image.authors=ABC
+
+RUN mkdir -p /usr/src/iocmd
+
+WORKDIR /usr/src/iocmd

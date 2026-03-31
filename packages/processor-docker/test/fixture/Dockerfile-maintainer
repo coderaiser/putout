@@ -1,0 +1,5 @@
+MAINTAINER ABC
+
+RUN mkdir -p /usr/src/iocmd
+
+WORKDIR /usr/src/iocmd

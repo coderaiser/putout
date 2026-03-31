@@ -1,2 +1,3 @@
 ENV TERM=xterm-256color
+
 EXPOSE 8000

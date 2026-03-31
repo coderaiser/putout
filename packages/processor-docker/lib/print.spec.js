@@ -12,7 +12,9 @@ test('putout: processor-docker: print', (t) => {
     
     const expected = montag`
         ENV TERM=xterm-256color
+        
         EXPOSE 8000
+    
     `;
     
     t.equal(result, expected);
@@ -34,6 +36,7 @@ test('putout: processor-docker: print: && ', (t) => {
     const expected = montag`
         RUN a && \\
             b
+    
     `;
     
     t.equal(result, expected);
