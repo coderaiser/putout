@@ -21,7 +21,7 @@ export const __ignore_name = '__putout_processor_ignore';
 export const __json = `${__json_name}(__object)`;
 export const __yaml = `${__yaml_name}(__object)`;
 export const __toml = `${__toml_name}(__object)`;
-export const __docker = `${__docker_name}(__object)`;
+export const __docker = `${__docker_name}(__array)`;
 export const __filesystem = `${__filesystem_name}(__object)`;
 export const __ignore = `${__ignore_name}(__array)`;
 
