@@ -15,15 +15,40 @@
 npm i @putout/plugin-apply-montag
 ```
 
-## Rule
+## Rules
+
+- ✅ [add-newline-before-text](#add-newline-before-text);
+- ✅ [apply](#apply);
+- ✅ [declare](#declare);
+
+## Config
 
 ```json
 {
     "rules": {
+        "montag/add-newline-before-text": "on",
         "montag/apply": "on",
         "montag/declare": "on"
     }
 }
+```
+
+## add-newline-before-text
+
+Checkout in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/cc3fc17690b0367cfeaba0f1bc889ec3/c462eeeaeb38bdd3fe87bc2a26c838793c993b50).
+
+### ❌ Example of incorrect code
+
+```js
+montag`hello`;
+```
+
+### ✅ Example of correct code
+
+```js
+const a = montag`
+    hello
+`;
 ```
 
 ## apply

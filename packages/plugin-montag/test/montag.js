@@ -36,3 +36,8 @@ test('plugin-apply-montag: transform: declare', (t) => {
     t.transform('declare');
     t.end();
 });
+
+test('plugin-montag: transform: add-newline-before-text', (t) => {
+    t.transform('add-newline-before-text');
+    t.end();
+});
