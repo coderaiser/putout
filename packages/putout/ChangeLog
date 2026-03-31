@@ -1,3 +1,17 @@
+2026.03.31, v42.4.0
+
+fix:
+- 0aebf9d50 @putout/operator-json: __docker: __object -> __array
+- 394324c87 @putout/plugin-montag: add-newline-before-text: report
+
+feature:
+- 7ac456051 putout: add support of Dockerfile
+- cdbdfce05 @putout/plugin-docker: add
+- 4eff63f8c @putout/plugin-putout: declare: __docker, __toml
+- 9fdf4fa43 @putout/processor-docker: add
+- 868b6f1c8 @putout/operator-json: isDocker: add
+- 8e8ec0be1 @putout/plugin-montag: add-newline-before-text: multiline
+
 2026.03.31, v42.3.1
 
 feature:
