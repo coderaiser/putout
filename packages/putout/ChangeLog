@@ -1,3 +1,12 @@
+2026.03.31, v42.3.1
+
+feature:
+- 1a76c4a9c putout: @putout/plugin-montag v5.0.0
+- 55f1644ba @putout/plugin-montag: remove-useless-space: add
+- 28f04df11 @putout/plugin-montag: add-newline-before-text: exclude space
+- 7a9bc50b0 @putout/plugin-montag: drop support of 🐊 < 42
+- 407aff6e0 @putout/plugin-montag: add-newline-before-text: add
+
 2026.03.30, v42.3.0
 
 feature:
