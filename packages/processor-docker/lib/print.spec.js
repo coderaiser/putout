@@ -9,6 +9,7 @@ test('putout: processor-docker: print', (t) => {
     ];
     
     const result = print(ast);
+    
     const expected = montag`
         ENV TERM=xterm-256color
         EXPOSE 8000
@@ -20,10 +21,16 @@ test('putout: processor-docker: print', (t) => {
 
 test('putout: processor-docker: print: && ', (t) => {
     const ast = [
-        ['RUN', 'a', '&&', 'b'],
+        [
+            'RUN',
+            'a',
+            '&&',
+            'b',
+        ],
     ];
     
     const result = print(ast);
+    
     const expected = montag`
         RUN a && \\
             b
@@ -32,4 +39,3 @@ test('putout: processor-docker: print: && ', (t) => {
     t.equal(result, expected);
     t.end();
 });
-
