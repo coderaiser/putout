@@ -21,3 +21,8 @@ test('montag: add-newline-before-text: no report: space', (t) => {
     t.noReport('space');
     t.end();
 });
+
+test('montag: add-newline-before-text: transform: indent', (t) => {
+    t.transform('indent');
+    t.end();
+});
