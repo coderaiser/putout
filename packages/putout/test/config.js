@@ -280,3 +280,15 @@ test('putout: config: spec', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: config: Dockerfile', (t) => {
+    const {match} = putoutConfig;
+    const result = match['Dockerfile*'];
+    
+    const expected = {
+        docker: 'on',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

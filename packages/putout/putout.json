@@ -12,6 +12,7 @@
         "yaml",
         "toml",
         "css",
+        "docker",
         "filesystem"
     ],
     "match": {
@@ -163,6 +164,9 @@
         },
         "*.d.ts": {
             "declare": "off"
+        },
+        "Dockerfile*": {
+            "docker": "on"
         }
     },
     "ignore": [
@@ -200,6 +204,7 @@
         "nodejs/remove-useless-strict-mode": "off",
         "browserlist": "off",
         "filesystem": "off",
+        "docker": "off",
         "remove-duplicate-elements": "off"
     },
     "plugins": [
@@ -216,6 +221,7 @@
         "arguments",
         "assignment",
         "destructuring",
+        "docker",
         "extract-sequence-expressions",
         "madrun",
         "maybe",
