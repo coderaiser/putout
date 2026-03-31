@@ -118,3 +118,33 @@ test('plugin-putout: declare: transform: operator: createTypeChecker', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: operator: __toml', (t) => {
+    const source = montag`
+        __toml;
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {__toml} = operator;
+        __toml;
+    
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: operator: __docker', (t) => {
+    const source = montag`
+        __docker;
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {__docker} = operator;
+        __docker;
+    
+    `);
+    t.end();
+});

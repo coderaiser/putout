@@ -5,4 +5,6 @@ export default {
     __json: 'const {__json} = operator',
     __yaml: 'const {__yaml} = operator',
     __ignore: 'const {__ignore} = operator',
+    __docker: 'const {__docker} = operator',
+    __toml: 'const {__toml} = operator',
 };
