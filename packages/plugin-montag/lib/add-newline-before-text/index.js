@@ -1,4 +1,4 @@
-export const report = () => `Add '\n' after montag`;
+export const report = () => `Add '\\n' after montag`;
 
 export const match = () => ({
     'montag`__a`': ({__a}) => {

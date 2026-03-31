@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('montag: add-newline-before-text: report', (t) => {
-    t.report('add-newline-before-text', `Add '\n' after montag`);
+    t.report('add-newline-before-text', `Add '\\n' after montag`);
     t.end();
 });
 
