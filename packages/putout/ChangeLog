@@ -1,3 +1,11 @@
+2026.03.31, v42.4.1
+
+feature:
+- 16f5cd6fa putout: @putout/plugin-remove-debugger v9.0.0
+- a6b14ca2b @putout/plugin-remove-debugger: drop support of 🐊 < 42
+- 81ab2e1f7 @putout/plugin-remove-debugger: devDependnecies: rm unused
+- 940ddde07 @putout/processor-toml: oxfmt v0.43.0
+
 2026.03.31, v42.4.0
 
 fix:
