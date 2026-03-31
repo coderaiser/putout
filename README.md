@@ -27,6 +27,7 @@ The main target is **JavaScript**, but:
 - ✅ Markdown;
 - ✅ JSON;
 - ✅ Ignore;
+- ✅ Dockerfile;
 
 are also supported. Here is how it looks like:
 
@@ -484,6 +485,7 @@ Not bundled processors:
 
 | Package | Version |
 |--------|-------|
+| [`@putout/processor-docker`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript) |
 | [`@putout/processor-typescript`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript) |
 | [`@putout/processor-svelte`](/packages/processor-svelte#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-svelte.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-svelte) |
 | [`@putout/processor-wasm`](/packages/processor-wasm#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-wasm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-wasm) |
@@ -2314,6 +2316,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-maybe`](/packages/plugin-maybe#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-maybe.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-maybe) |
 | [`@putout/plugin-new`](/packages/plugin-new#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-new.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-new) |
 | [`@putout/plugin-logical-expressions`](/packages/plugin-logical-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-logical-expressions) |
+| [`@putout/plugin-docker`](/packages/plugin-docker#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-docker.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-docker) |
 
 ### Extractors
 
