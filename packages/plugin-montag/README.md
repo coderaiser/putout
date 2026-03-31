@@ -20,6 +20,7 @@ npm i @putout/plugin-apply-montag
 - ✅ [add-newline-before-text](#add-newline-before-text);
 - ✅ [apply](#apply);
 - ✅ [declare](#declare);
+- ✅ [remove-useless-space](#remove-useless-space);
 
 ## Config
 
@@ -28,7 +29,8 @@ npm i @putout/plugin-apply-montag
     "rules": {
         "montag/add-newline-before-text": "on",
         "montag/apply": "on",
-        "montag/declare": "on"
+        "montag/declare": "on",
+        "montag/remove-useless-space": "on"
     }
 }
 ```
@@ -90,6 +92,26 @@ import montag from 'montag';
 const a = montag`
     hello
     world
+`;
+```
+
+## remove-useless-space
+
+Checkout in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/fab78f67eb09a050e8517e5db27a0b38/e086519f13dce90899a5d6a9123c6919a6a73a9c).
+
+### ❌ Example of incorrect code
+
+```js
+const a = montag`.
+    hello
+`;
+```
+
+### ✅ Example of correct code
+
+```js
+const a = montag`
+    hello
 `;
 ```
 

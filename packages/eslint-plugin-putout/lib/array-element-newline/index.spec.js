@@ -23,7 +23,7 @@ ruleTester.run('array-element-newline', rule, {
         montag`
             const a = ['a', 'b', 'c', 'd'];
         `,
-        montag` 
+        montag`
             const a = ['a', 'b', 'c', 'd',,,];
         `,
         montag`

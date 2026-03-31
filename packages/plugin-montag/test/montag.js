@@ -41,3 +41,8 @@ test('plugin-montag: transform: add-newline-before-text', (t) => {
     t.transform('add-newline-before-text');
     t.end();
 });
+
+test('plugin-montag: transform: remove-useless-space', (t) => {
+    t.transform('remove-useless-space');
+    t.end();
+});
