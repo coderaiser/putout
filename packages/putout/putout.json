@@ -89,7 +89,7 @@
         "*.svelte": {
             "variables/remove-unused": "off"
         },
-        "{*rc,*.{json,yml}}": {
+        "{Dockerfile*,*rc,*.{json,yml}}": {
             "convert-quotes-to-backticks": "off",
             "remove-useless-escape": "off",
             "math/apply-numeric-separators": "off"

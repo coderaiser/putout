@@ -292,3 +292,17 @@ test('putout: config: Dockerfile', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: config: {Dockerfile*,*rc,*.{json,yml}}', (t) => {
+    const {match} = putoutConfig;
+    const result = match['{Dockerfile*,*rc,*.{json,yml}}'];
+    
+    const expected = {
+        'convert-quotes-to-backticks': 'off',
+        'remove-useless-escape': 'off',
+        'math/apply-numeric-separators': 'off',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
