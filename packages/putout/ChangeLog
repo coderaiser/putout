@@ -1,3 +1,9 @@
+2026.04.01, v42.4.2
+
+fix:
+- a1463c7d4 putout: Dockerfile: remove-useless-escape: off
+- d6550cb61 @putout/plugin-docker: convert-maintainer-to-label: report
+
 2026.03.31, v42.4.1
 
 feature:
