@@ -10,13 +10,9 @@ export const parse = (source) => {
     for (const instr of instructions) {
         ++line;
         
-        const args = instr.getArguments();
+        const arg = instr.getArgumentsContent();
         const instruction = instr.getInstruction();
-        const currentInstruction = [instruction];
-        
-        for (const {value} of args) {
-            currentInstruction.push(value);
-        }
+        const currentInstruction = [instruction, arg];
         
         ast.push(currentInstruction);
     }

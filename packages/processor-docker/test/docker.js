@@ -16,3 +16,7 @@ test('putout: processor: docker: no places', async ({comparePlaces}) => {
 test('putout: processor: docker: process: maintainer', async ({process}) => {
     await process('Dockerfile-maintainer');
 });
+
+test('putout: processor: docker: process: run', async ({noProcess}) => {
+    await noProcess('Dockerfile-run');
+});
