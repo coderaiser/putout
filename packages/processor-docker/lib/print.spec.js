@@ -23,12 +23,7 @@ test('putout: processor-docker: print', (t) => {
 
 test('putout: processor-docker: print: && ', (t) => {
     const ast = [
-        [
-            'RUN',
-            'a',
-            '&&',
-            'b',
-        ],
+        ['RUN', 'a && b'],
     ];
     
     const result = print(ast);

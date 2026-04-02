@@ -7,20 +7,23 @@ export const print = (instructions) => {
     for (const [index, [instruction, ...args]] of instructions.entries()) {
         ++line;
         
-        const argsCount = args.length - 1;
-        
         if (index && instruction !== instructions[index - 1][0])
             write('\n');
         
         write(instruction);
         write(' ');
         
-        for (const [index, value] of args.entries()) {
-            write(value);
+        const n = args.length - 1;
+        
+        for (const [index, arg] of args.entries()) {
+            if (instruction === 'RUN') {
+                write(arg.replaceAll(/\s+&&\s+/g, ' && \\\n    '));
+                continue;
+            }
             
-            if (value === '&&')
-                write(' \\\n    ');
-            else if (index < argsCount)
+            write(arg);
+            
+            if (index < n)
                 write(' ');
         }
         
