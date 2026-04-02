@@ -21,6 +21,10 @@ test('putout: processor: docker: process: run', async ({noProcess}) => {
     await noProcess('Dockerfile-run');
 });
 
+test('putout: processor: docker: process: env', async ({noProcess}) => {
+    await noProcess('Dockerfile-env');
+});
+
 test('putout: processor: docker: process: copy: from', async ({noProcess}) => {
     await noProcess('Dockerfile-copy-from');
 });

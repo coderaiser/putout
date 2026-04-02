@@ -21,6 +21,11 @@ export const print = (instructions) => {
                 continue;
             }
             
+            if (instruction === 'ENV') {
+                write(arg.replaceAll(/\s{5}/g, ' \\\n    '));
+                continue;
+            }
+            
             write(arg);
             
             if (index < n)
