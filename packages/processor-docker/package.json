@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-docker",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout processor adds ability to parse docker files",

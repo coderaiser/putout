@@ -1,3 +1,5 @@
+const NEWLINE = '\\\n    ';
+
 export const print = (instructions) => {
     const stdout = [];
     const write = (a) => stdout.push(a);
@@ -17,12 +19,12 @@ export const print = (instructions) => {
         
         for (const [index, arg] of args.entries()) {
             if (instruction === 'RUN') {
-                write(arg.replaceAll(/\s+&&\s+/g, ' && \\\n    '));
+                write(arg.replaceAll(/\s+&&\s+/g, ` && ${NEWLINE}`));
                 continue;
             }
             
             if (instruction === 'ENV') {
-                write(arg.replaceAll(/\s{5}/g, ' \\\n    '));
+                write(arg.replaceAll(/\s{5}/g, ` ${NEWLINE}`));
                 continue;
             }
             
