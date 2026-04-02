@@ -16,3 +16,16 @@ test('putout: processor-docker: parse', (t) => {
     t.deepEqual(ast, expected);
     t.end();
 });
+
+test('putout: processor-docker: parse: flags', (t) => {
+    const ast = parse(montag`
+        COPY --from=build root/.bun /root/.bun
+    `);
+    
+    const expected = [
+        ['COPY', '--from=build', 'root/.bun /root/.bun'],
+    ];
+    
+    t.deepEqual(ast, expected);
+    t.end();
+});

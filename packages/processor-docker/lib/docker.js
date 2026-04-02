@@ -13,6 +13,7 @@ export const files = ['Dockerfile*'];
 
 export const branch = (rawSource) => {
     const list = [];
+    
     const value = parse(rawSource);
     
     const stringified = stringify(value, null, 4);

@@ -12,7 +12,14 @@ export const parse = (source) => {
         
         const arg = instr.getArgumentsContent();
         const instruction = instr.getInstruction();
-        const currentInstruction = [instruction, arg];
+        const currentInstruction = [instruction];
+        const {flags = []} = instr;
+        
+        for (const {name, value} of flags) {
+            currentInstruction.push(`--${name}=${value}`);
+        }
+        
+        currentInstruction.push(arg);
         
         ast.push(currentInstruction);
     }

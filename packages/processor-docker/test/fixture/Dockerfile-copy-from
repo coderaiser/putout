@@ -1,0 +1,5 @@
+ENV TERM=xterm-256color
+
+COPY --from=build /root/.bun /root/.bun
+
+EXPOSE 8000
