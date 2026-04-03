@@ -12,7 +12,7 @@
 ## Install
 
 ```
-npm i @putout/processor-toml -D
+npm i @putout/processor-docker
 ```
 
 ## Usage
