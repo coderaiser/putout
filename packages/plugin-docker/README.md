@@ -4,7 +4,7 @@
 [NPMURL]: https://npmjs.org/package/@putout/plugin-docker "npm"
 
 > A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. This page describes the commands you can use in a Dockerfile.
-
+>
 > (c) [docker.com](https://docs.docker.com/reference/dockerfile/)
 
 🐊[**Putout**](https://docker.com/coderaiser/putout) plugin helps with `Dockerfile`.
