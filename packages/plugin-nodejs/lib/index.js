@@ -1,3 +1,4 @@
+import * as convertDefaultExportToDefault from './convert-default-export-to-default/index.js';
 import * as applyStyleText from './apply-style-text/index.js';
 import * as removeTopLevelProcessExit from './remove-top-level-process-exit/index.js';
 import * as applyPrivatelyRequiredFiles from './apply-privately-required-file/index.js';
@@ -54,4 +55,5 @@ export const rules = {
     'group-require-by-id': groupRequireById,
     'remove-top-level-process-exit': removeTopLevelProcessExit,
     'apply-style-text': applyStyleText,
+    'convert-default-export-to-default': convertDefaultExportToDefault,
 };

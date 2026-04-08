@@ -126,3 +126,8 @@ test('plugin-nodejs: transform: apply-style-text', (t) => {
     t.transform('apply-style-text');
     t.end();
 });
+
+test('plugin-nodejs: transform: convert-default-export-to-default', (t) => {
+    t.transform('convert-default-export-to-default');
+    t.end();
+});

@@ -29,6 +29,7 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [convert-promisify-to-fs-promises](#convert-promisify-to-fs-promises);
 - ✅ [convert-top-level-return](#convert-top-level-return);
 - ✅ [convert-url-to-dirname](#convert-url-to-dirname);
+- ✅ [convert-default-export-to-default](#convert-default-export-to-default);
 - ✅ [declare](#declare);
 - ✅ [declare-after-require](#declare-after-require);
 - ✅ [group-require-by-id](#group-require-by-id);
@@ -64,6 +65,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
         "nodejs/convert-dirname-to-url": "on",
+        "nodejs/convert-default-export-to-default": "on",
         "nodejs/convert-exportst-to-module-exports": "on",
         "nodejs/convert-url-to-dirname": "on",
         "nodejs/convert-top-level-return": "on",
@@ -218,6 +220,38 @@ const file2 = path.join(__dirname, '../../package.json');
 ```js
 const file1 = new URL('../../package.json', import.meta.url);
 const file2 = new URL('../../package.json', import.meta.url);
+```
+
+## convert-default-export-to-default
+
+> `MockModuleOptions.defaultExport` and `MockModuleOptions.namedExports` have been consolidated into a single option `lMockModuleOptions.exports` to align with user expectations and other test runners.
+>
+> (c) [Node.js v25.9.0](https://nodejs.org/en/blog/release/v25.9.0):
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/998124eb43b7726033d74ea5935a47e4/eeed3689e491501c54d37fe1b8d57fd6597e3ebc).
+
+### ❌ Example of incorrect code
+
+```js
+mock.module('fs', {
+    defaultExport: hello,
+    namedExports: {
+        foo,
+        hello,
+        abc,
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+mock.module('fs', {
+    default: hello,
+    foo,
+    hello,
+    abc,
+});
 ```
 
 ## convert-url-to-dirname
