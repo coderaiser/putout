@@ -39,6 +39,7 @@ const BODIES = {
     error: `__a instanceof Error`,
     array: `__a instanceof Array`,
     object: `__a instanceof Object`,
+    regexp: `__a instanceof RegExp`,
     equalUndefined: '__a === undefined',
 };
 
@@ -53,6 +54,7 @@ const NOT_BODIES = {
     error: `!(__a instanceof Error)`,
     array: `!(__a instanceof Array)`,
     object: `!(__a instanceof Object)`,
+    regexp: `!(__a instanceof RegExp)`,
     equalUndefined: '__a !== undefined',
 };
 
@@ -78,6 +80,7 @@ export const replace = () => ({
     [BODIES.error]: 'isError(__a)',
     [BODIES.array]: 'isArray(__a)',
     [BODIES.object]: 'isObject(__a)',
+    [BODIES.regexp]: 'isRegExp(__a)',
     [BODIES.equalUndefined]: 'isUndefined(__a)',
     [NOT_BODIES.function]: '!isFn(__a)',
     [NOT_BODIES.string]: '!isString(__a)',
@@ -89,6 +92,7 @@ export const replace = () => ({
     [NOT_BODIES.error]: '!isError(__a)',
     [NOT_BODIES.array]: '!isArray(__a)',
     [NOT_BODIES.object]: '!isObject(__a)',
+    [NOT_BODIES.regexp]: 'isRegExp(__a)',
     [NOT_BODIES.equalUndefined]: '!isUndefined(__a)',
 });
 

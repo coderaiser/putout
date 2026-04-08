@@ -88,6 +88,11 @@ test('plugin-convert-typeof-to-is-type: transform: call', (t) => {
     t.end();
 });
 
+test('plugin-convert-typeof-to-is-type: transform: regexp', (t) => {
+    t.transform('regexp');
+    t.end();
+});
+
 test('plugin-convert-typeof-to-is-type: no report: declare-before-reference', (t) => {
     t.noReport('declare-before-reference', [
         ['declare-before-reference', declareBeforeReference],
