@@ -1,0 +1,1 @@
+isRegExp(x);

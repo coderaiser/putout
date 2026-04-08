@@ -14,4 +14,5 @@ export const declare = () => ({
     isArray: 'const {isArray} = Array',
     isEmptyArray: 'const isEmptyArray = (a) => isArray(a) && !a.length',
     isError: 'const isError = (a) => a instanceof Error',
+    isRegExp: 'const isRegExp = (a) => a instanceof RegExp',
 });

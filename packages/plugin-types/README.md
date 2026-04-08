@@ -57,6 +57,7 @@ Supported assertions:
 - `isArray`;
 - `isEmptyArray`;
 - `isError`;
+- `isRegExp`;
 
 ### ❌ Example of incorrect code
 

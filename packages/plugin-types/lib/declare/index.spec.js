@@ -61,3 +61,8 @@ test('putout: plugin: types: declare: is-set', (t) => {
     t.transform('is-set');
     t.end();
 });
+
+test('putout: plugin: types: declare: is-regexp', (t) => {
+    t.transform('is-regexp');
+    t.end();
+});
