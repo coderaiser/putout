@@ -21,6 +21,7 @@
 - [chalk](https://www.npmjs.com/package/chalk);
 - [jessy](https://www.npmjs.com/package/jessy);
 - [nessy](https://www.npmjs.com/package/nessy);
+- [rendy](https://www.npmjs.com/package/rendy);
 - [table](https://www.npmjs.com/package/table);
 
 ## Install

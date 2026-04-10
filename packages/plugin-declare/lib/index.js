@@ -26,6 +26,7 @@ export const declare = () => ({
     noop: 'const noop = () => {}',
     
     once: `import once from 'once'`,
+    rendy: `import {rendy} from 'rendy'`,
     jessy: `import {jessy} from 'jessy'`,
     nessy: `import {nessy} from 'nessy'`,
     putout: `import {putout} from 'putout'`,

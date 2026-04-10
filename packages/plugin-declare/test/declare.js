@@ -214,3 +214,13 @@ test('putout: plugin: declare: addQuotes', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare: rendy', (t) => {
+    t.transformCode(`rendy(a, b)`, montag`
+        import {rendy} from 'rendy';
+        
+        rendy(a, b);
+    
+    `);
+    t.end();
+});
