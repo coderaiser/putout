@@ -68,7 +68,7 @@ npm i @putout/plugin-apply-entries
 ## ❌ Example of incorrect code
 
 ```js
-{}
+for (const a of b.entries()) {}
 ```
 
 ## ✅ Example of correct code
@@ -77,7 +77,7 @@ npm i @putout/plugin-apply-entries
 const {isArray} = Array;
 const entries = (a) => isArray(a) ? a.entries() : Object.entries(a);
 
-{}
+for (const a of entries(b)) {}
 ```
 
 ## License
