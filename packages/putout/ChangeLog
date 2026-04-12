@@ -1,3 +1,21 @@
+2026.04.12, v42.4.3
+
+fix:
+- 35bfcd840 @putout/processor-docker: RUN: &&
+- 2cfe6c91f @putout/processor-docker: escape
+
+feature:
+- 5310b9f6f putout: @putout/plugin-apply-entries v3.0.0
+- 966b99bf9 @putout/plugin-apply-entries: drop support of 🐊 < 42
+- a7a73d336 putout: *.md: rm remove-nested-blocks
+- 8176bb9dd putout: *.md: conditions/evaluate: off
+- 8cf720c33 @putout/engine-parser: hermes-parser v0.35.0
+- fd69f2a6b @putout/processor-toml: oxfmt v0.44.0
+- 5a68fbac0 @putout/plugin-types: declare: isRegExp: add
+- c910c0e24 @putout/plugin-types: convert-typeof-to-is-type: RegExp: add
+- f69d9cc6f @putout/plugin-nodejs: convert-default-export-to-default: add
+- ca4d72796 @putout/processor-docker: ENV
+
 2026.04.01, v42.4.2
 
 fix:
