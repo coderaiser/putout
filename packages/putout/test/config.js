@@ -119,7 +119,6 @@ test('putout: config: markdown', (t) => {
         'declare': 'off',
         'nodejs/declare': 'off',
         'typescript/remove-unused-types': 'off',
-        'remove-nested-blocks': 'off',
         'esm/remove-useless-export-specifiers': 'off',
         'destructuring/remove-useless-variables': 'off',
         'variables/remove-useless': 'off',

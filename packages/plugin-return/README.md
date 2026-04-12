@@ -53,12 +53,10 @@ npm i putout @putout/plugin-return -D
 function get(a) {
     const b = 0;
     
-    {
-        if (a > 0)
-            return 5;
-        
-        return 7;
-    }
+    if (a > 0)
+        return 5;
+    
+    return 7;
 }
 ```
 

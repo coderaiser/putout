@@ -84,7 +84,6 @@
             "declare": "off",
             "nodejs/declare": "off",
             "typescript/remove-unused-types": "off",
-            "remove-nested-blocks": "off",
             "putout/apply-namespace-specifier": "off"
         },
         "*.svelte": {
