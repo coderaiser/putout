@@ -100,6 +100,7 @@ test('putout: config: markdown', (t) => {
         'conditions/apply-consistent-blocks': 'off',
         'conditions/convert-comparison-to-boolean': 'off',
         'conditions/remove-constant': 'off',
+        'conditions/evaluate': 'off',
         'maybe': 'off',
         'convert-quotes-to-backticks': 'off',
         'remove-unused-expressions': 'off',
