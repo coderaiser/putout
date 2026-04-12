@@ -218,7 +218,7 @@
   ],
   "devDependencies": {
     "@putout/eslint-flat": "^4.0.0",
-    "@putout/plugin-apply-entries": "^2.0.0",
+    "@putout/plugin-apply-entries": "^3.0.0",
     "@putout/test": "^15.1.0",
     "currify": "^4.0.0",
     "eslint": "^10.0.0",
