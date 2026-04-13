@@ -6,6 +6,13 @@ const test = createTest(import.meta.url, {
 
 test('putout: processor: typescript', async ({comparePlaces}) => {
     await comparePlaces('typescript.ts', [{
+        message: `Parameter 'a' implicitly has an 'any' type.`,
+        position: {
+            column: 1,
+            line: 1,
+        },
+        rule: 'type-check (typescript)',
+    }, {
         message: `Type '0' is not assignable to type 'null'.`,
         position: {
             column: 1,
