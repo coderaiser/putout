@@ -37,7 +37,7 @@ test('putout: engine: processor: couple', async ({comparePlaces}) => {
         },
         rule: '@stylistic/indentation (stylelint)',
     }, {
-        message: 'Unexpected unknown type selector "target"',
+        message: 'Unknown type selector "target"',
         position: {
             column: 1,
             line: 1,
