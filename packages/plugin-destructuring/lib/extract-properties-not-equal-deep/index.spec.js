@@ -8,7 +8,10 @@ const removeUnusedVariables = variables.rules['remove-unused'];
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['destructuring/extract-properties-not-equal-deep', extractObjectProperties],
+        [
+            'destructuring/extract-properties-not-equal-deep',
+            extractObjectProperties,
+        ],
     ],
 });
 

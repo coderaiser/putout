@@ -3,7 +3,10 @@ import * as convertIoWriteToIoCreateDirectory from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['cloudcmd/convert-io-write-to-io-create-directory', convertIoWriteToIoCreateDirectory],
+        [
+            'cloudcmd/convert-io-write-to-io-create-directory',
+            convertIoWriteToIoCreateDirectory,
+        ],
     ],
 });
 

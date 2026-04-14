@@ -8,7 +8,10 @@ const test = createTest(import.meta.url, {
         'package-json/remove-exports-with-missing-files': 'on',
     },
     plugins: [
-        ['package-json/remove-exports-with-missing-files', findFile],
+        [
+            'package-json/remove-exports-with-missing-files',
+            findFile,
+        ],
     ],
 });
 

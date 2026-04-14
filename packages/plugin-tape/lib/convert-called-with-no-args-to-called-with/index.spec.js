@@ -3,7 +3,10 @@ import * as convert from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['tape/convert-called-with-no-args-to-called-with', convert],
+        [
+            'tape/convert-called-with-no-args-to-called-with',
+            convert,
+        ],
     ],
 });
 

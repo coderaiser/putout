@@ -3,7 +3,10 @@ import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['remove-create-eslint-config-with-one-argument', plugin],
+        [
+            'remove-create-eslint-config-with-one-argument',
+            plugin,
+        ],
     ],
 });
 

@@ -3,7 +3,10 @@ import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['optional-chaining/convert-optional-to-logical', plugin],
+        [
+            'optional-chaining/convert-optional-to-logical',
+            plugin,
+        ],
     ],
 });
 

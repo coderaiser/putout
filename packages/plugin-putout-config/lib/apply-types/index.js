@@ -11,5 +11,8 @@ export const {
     ['remove-useless-type-conversions', 'types/remove-useless-type-conversions'],
     ['remove-useless-typeof', 'types/remove-useless-typeof'],
     ['apply-is-array', 'types/apply-is-array'],
-    ['remove-useless-type-conversion/with-double-negations', 'types/remove-double-negations'],
+    [
+        'remove-useless-type-conversion/with-double-negations',
+        'types/remove-double-negations',
+    ],
 ]);

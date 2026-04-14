@@ -3,7 +3,10 @@ import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['remove-message-from-no-report-after-transform', plugin],
+        [
+            'remove-message-from-no-report-after-transform',
+            plugin,
+        ],
     ],
 });
 

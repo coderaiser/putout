@@ -14,7 +14,10 @@ const v41 = [
     ['remove-useless-variables/destruct', 'destructuring/remove-useless-variables'],
     ['extract-object-properties', 'destructuring/extract-properties'],
     ['extract-object-properties/equal-deep', 'destructuring/extract-properties-equal-deep'],
-    ['extract-object-properties/not-equal-deep', 'destructuring/extract-properties-not-equal-deep'],
+    [
+        'extract-object-properties/not-equal-deep',
+        'destructuring/extract-properties-not-equal-deep',
+    ],
 ];
 
 const versions = [...v41];

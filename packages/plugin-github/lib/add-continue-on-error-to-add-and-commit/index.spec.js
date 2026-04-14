@@ -3,7 +3,10 @@ import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['github/add-continue-on-error-to-add-and-commit', plugin],
+        [
+            'github/add-continue-on-error-to-add-and-commit',
+            plugin,
+        ],
     ],
 });
 

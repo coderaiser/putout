@@ -3,7 +3,10 @@ import * as convertNodeToPathInGetTemplateValues from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['putout/convert-node-to-path-in-get-template-values', convertNodeToPathInGetTemplateValues],
+        [
+            'putout/convert-node-to-path-in-get-template-values',
+            convertNodeToPathInGetTemplateValues,
+        ],
     ],
 });
 
