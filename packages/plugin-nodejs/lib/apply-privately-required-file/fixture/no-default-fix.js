@@ -12,8 +12,8 @@ __putout_processor_filesystem([
     ],
     "/lib/tokenize/expressions/",
     [
-    "/lib/tokenize/expressions/spread-element.js",
-    "Y29uc3Qge2lzUHJldn0gPSByZXF1aXJlKCcjaXMnKTsK"
+        "/lib/tokenize/expressions/spread-element.js",
+        "Y29uc3Qge2lzUHJldn0gPSByZXF1aXJlKCcjaXMnKTsK"
     ]
 ]);
 
@@ -31,8 +31,8 @@ __putout_processor_filesystem([
     ],
     "/lib/tokenize/expressions/",
     [
-    "/lib/tokenize/expressions/spread-element.js",
-    "Y29uc3Qge2lzUHJldn0gPSByZXF1aXJlKCcjaXMnKTsK"
+        "/lib/tokenize/expressions/spread-element.js",
+        "Y29uc3Qge2lzUHJldn0gPSByZXF1aXJlKCcjaXMnKTsK"
     ]
 ]);
 
@@ -50,8 +50,8 @@ __putout_processor_filesystem([
     ],
     "/lib/tokenize/expressions/",
     [
-    "/lib/tokenize/expressions/spread-element.js",
-    "Y29uc3Qge2lzUHJldn0gPSByZXF1aXJlKCcjaXMnKTsK"
+        "/lib/tokenize/expressions/spread-element.js",
+        "Y29uc3Qge2lzUHJldn0gPSByZXF1aXJlKCcjaXMnKTsK"
     ]
 ]);
 
@@ -69,7 +69,7 @@ __putout_processor_filesystem([
     ],
     "/lib/tokenize/expressions/",
     [
-    "/lib/tokenize/expressions/spread-element.js",
-    "CiAgICAgICAgY29uc3Qge2lzUHJldn0gID0gcmVxdWlyZSgnLi4vaXMuanMnKTsKICAgIA=="
+        "/lib/tokenize/expressions/spread-element.js",
+        "CiAgICAgICAgY29uc3Qge2lzUHJldn0gID0gcmVxdWlyZSgnLi4vaXMuanMnKTsKICAgIA=="
     ]
 ]);

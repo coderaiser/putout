@@ -12,7 +12,7 @@ __putout_processor_filesystem([
     "/lib/",
     "/lib/parse-options/",
     [
-    "/lib/parse-options/index.js",
-    "export const a = 5"
+        "/lib/parse-options/index.js",
+        "export const a = 5"
     ]
 ]);

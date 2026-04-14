@@ -9,12 +9,12 @@ __putout_processor_filesystem([
     "/lib/tokenize/statements/",
     "/lib/tokenize/statements/variable-declaration/",
     [
-    "/lib/tokenize/statements/variable-declaration/package.json",
-    "{}"
+        "/lib/tokenize/statements/variable-declaration/package.json",
+        "{}"
     ],
     [
-    "/lib/tokenize/statements/variable-declaration/variable-declaration.js",
-    "CiAgICAgICAgY29uc3Qge2lzUHJldn0gPSByZXF1aXJlKCcuLi8uLi9pcy5qcycpOwogICAg"
+        "/lib/tokenize/statements/variable-declaration/variable-declaration.js",
+        "CiAgICAgICAgY29uc3Qge2lzUHJldn0gPSByZXF1aXJlKCcuLi8uLi9pcy5qcycpOwogICAg"
     ],
     [
         "/lib/tokenize/is.js",
@@ -22,7 +22,7 @@ __putout_processor_filesystem([
     ],
     "/lib/tokenize/expressions/",
     [
-    "/lib/tokenize/expressions/spread-element.js",
-    "Y29uc3Qge2lzUHJldn0gPSByZXF1aXJlKCcjaXMnKTsK"
+        "/lib/tokenize/expressions/spread-element.js",
+        "Y29uc3Qge2lzUHJldn0gPSByZXF1aXJlKCcjaXMnKTsK"
     ]
 ]);
