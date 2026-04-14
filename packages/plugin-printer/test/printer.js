@@ -121,3 +121,8 @@ test('plugin-printer: transform: remove-useless-path-from-type-checker', (t) => 
     t.transform('remove-useless-path-from-type-checker');
     t.end();
 });
+
+test('plugin-printer: transform: remove-useless-arrow-from-type-checker', (t) => {
+    t.transform('remove-useless-arrow-from-type-checker');
+    t.end();
+});

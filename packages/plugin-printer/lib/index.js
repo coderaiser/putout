@@ -1,3 +1,4 @@
+import * as removeUselessArrowFromTypeChecker from './remove-useless-arrow-from-type-checker/index.js';
 import * as removeUselessPathFromTypeChecker from './remove-useless-path-from-type-checker/index.js';
 import * as reverseComparisonInTypeChecker from './reverse-comparison-in-type-checker/index.js';
 import * as removeUselessNotFromTypeChecker from './remove-useless-not-from-type-checker/index.js';
@@ -46,4 +47,5 @@ export const rules = {
     'remove-useless-not-from-type-checker': removeUselessNotFromTypeChecker,
     'reverse-comparison-in-type-checker': reverseComparisonInTypeChecker,
     'remove-useless-path-from-type-checker': removeUselessPathFromTypeChecker,
+    'remove-useless-arrow-from-type-checker': removeUselessArrowFromTypeChecker,
 };

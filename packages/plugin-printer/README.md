@@ -31,6 +31,7 @@ npm i @putout/plugin-printer -D
 - ✅ [remove-legacy-test-declaration](#remove-legacy-test-declaration);
 - ✅ [remove-trailing-spaces-from-type-checker](#remove-trailing-spaces-from-type-checker);
 - ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker);
+- ✅ [remove-useless-arrow-from-type-checker](#remove-useless-arrow-from-type-checker);
 - ✅ [remove-useless-colon-from-type-checker](#remove-useless-colon-from-type-checker);
 - ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker);
 - ✅ [remove-useless-not-from-type-checker](#remove-useless-not-from-type-checker);
@@ -59,6 +60,7 @@ npm i @putout/plugin-printer -D
         "printer/remove-useless-maybe": "on",
         "printer/remove-trailing-spaces-from-type-checker": "on",
         "printer/remove-useless-spaces-from-type-checker": "on",
+        "printer/remove-useless-arrow-from-type-checker": "on",
         "printer/remove-useless-colon-from-type-checker": "on",
         "printer/remove-useless-not-from-type-checker": "on",
         "printer/remove-useless-path-from-type-checker": "on",
@@ -275,6 +277,28 @@ export const beforeIf = createTypeChecker([
 ```js
 export const beforeIf = createTypeChecker([
     ['-: -> !', isInsideArray],
+]);
+```
+
+## remove-useless-arrow-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c12c37b793192eadb60fac332d95cc3b/3f4aa557c65897f4967712f30e51c29483feddc8).
+
+### ❌ Example of incorrect code
+
+```js
+const isTwoLongStringsInsideArray = createTypeChecker([
+    ['-: -> !', isTwoLongStrings],
+    ['+: parentPath -> -> ArrayExpression'],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+const isTwoLongStringsInsideArray = createTypeChecker([
+    ['-: -> !', isTwoLongStrings],
+    ['+: parentPath -> ArrayExpression'],
 ]);
 ```
 
