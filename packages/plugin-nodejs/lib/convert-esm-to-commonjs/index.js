@@ -32,7 +32,7 @@ export const replace = () => ({
         
         return result;
     },
-    
+    'import __a from "__b" with {type: "json"}': 'const __a = require("__b")',
     'import "__a"': 'require("__a")',
     'import * as __a from "__b"': 'const __a = require("__b")',
     'import __imports from "__a"': ({__imports, __a}) => {
