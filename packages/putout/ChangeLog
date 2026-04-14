@@ -1,3 +1,10 @@
+2026.04.15, v42.4.5
+
+feature:
+- 91e1beffd putout: @putout/plugin-remove-duplicate-case v5.0.0
+- 868e5f2a2 @putout/plugin-remove-duplicate-case: drop support of 🐊 < 42
+- 578221c5b @putout/plugin-remove-duplicate-case: no node
+
 2026.04.15, v42.4.4
 
 feature:
