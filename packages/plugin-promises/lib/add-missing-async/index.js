@@ -18,5 +18,10 @@ export const check = (push) => (path) => {
     if (fnPath.node.async)
         return;
     
+    if (fnPath.__putout_promises_add_missing_async)
+        return;
+    
+    fnPath.__putout_promises_add_missing_async = true;
+    
     push(fnPath);
 };

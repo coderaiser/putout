@@ -12,6 +12,11 @@ test('plugin-add-missing-async: exports: report: add-missing-async', (t) => {
     t.end();
 });
 
+test('plugin-add-missing-async: exports: report: once', (t) => {
+    t.report('once', [`Add missing 'async'`]);
+    t.end();
+});
+
 test('plugin-add-missing-async: transform: add-missing-async', (t) => {
     t.transform('add-missing-async');
     t.end();
