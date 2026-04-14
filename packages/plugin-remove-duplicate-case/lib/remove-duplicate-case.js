@@ -19,10 +19,15 @@ export const traverse = ({push}) => ({
             const current = cases[i].get('test');
             
             for (let j = 0; j < length; j++) {
-                const duplicate = cases[j].get('test');
-                
                 if (j === i)
                     continue;
+                
+                const currentCase = cases[j].node;
+                
+                if (!currentCase)
+                    continue;
+                
+                const duplicate = currentCase.test;
                 
                 if (compare(duplicate, current)) {
                     push(current);

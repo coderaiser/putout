@@ -17,6 +17,11 @@ test('remove duplicate-case: transform: case', (t) => {
     t.end();
 });
 
+test('remove duplicate-case: transform: member', (t) => {
+    t.transform('member');
+    t.end();
+});
+
 test('remove duplicate-case: no transform: no-duplicate', (t) => {
     t.noTransform('no-duplicate');
     t.end();
