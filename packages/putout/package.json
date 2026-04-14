@@ -144,7 +144,7 @@
     "@putout/plugin-regexp": "^14.0.0",
     "@putout/plugin-remove-console": "^7.0.0",
     "@putout/plugin-remove-debugger": "^9.0.0",
-    "@putout/plugin-remove-duplicate-case": "^4.0.0",
+    "@putout/plugin-remove-duplicate-case": "^5.0.0",
     "@putout/plugin-remove-duplicate-elements": "^1.0.0",
     "@putout/plugin-remove-duplicate-keys": "^9.0.0",
     "@putout/plugin-remove-empty": "^15.0.0",
