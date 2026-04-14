@@ -1,3 +1,14 @@
+2026.04.15, v42.4.4
+
+feature:
+- 276305865 putout: @putout/plugin-promises v20.0.0
+- ae841fe4c @putout/plugin-promises: drop support of 🐊 < 42
+- 04d174232 @putout/plugin-promises: add-missing-async: report: twice -> once
+- 433d61b7c @putout/plugin-printer: remove-useless-arrow-from-type-checker: add
+- 82f022892 @putout/plugin-nodejs: convert-esm-to-commonjs: json
+- 5918b08cc @putout/processor-typescript: drop support of 🐊 < 42
+- c1ab35ccb @putout/processor-typescript: ts-morph v28.0.0
+
 2026.04.12, v42.4.3
 
 fix:
