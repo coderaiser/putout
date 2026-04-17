@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-npmignore",
-  "version": "7.0.4",
+  "version": "8.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin helps with .npmignore",
