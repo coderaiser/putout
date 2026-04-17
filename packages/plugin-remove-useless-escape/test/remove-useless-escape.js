@@ -11,12 +11,12 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-remove-useless-escape: report: string', (t) => {
-    t.report('string', 'Unnecessary escape character');
+    t.report('string', 'Avoid useless escape');
     t.end();
 });
 
 test('plugin-remove-useless-escape: report: a: ^', (t) => {
-    t.report('a', 'Unnecessary escape character');
+    t.report('a', 'Avoid useless escape');
     t.end();
 });
 
@@ -112,6 +112,11 @@ test('plugin-remove-useless-escape: transform: h', (t) => {
 
 test('plugin-remove-useless-escape: transform: z', (t) => {
     t.transform('z');
+    t.end();
+});
+
+test('plugin-remove-useless-escape: no report: multiline', (t) => {
+    t.noReport('multiline');
     t.end();
 });
 

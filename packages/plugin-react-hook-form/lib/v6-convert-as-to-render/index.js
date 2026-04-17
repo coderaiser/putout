@@ -29,16 +29,18 @@ export const match = () => ({
     },
 });
 
-export const replace = () => ({
-    [`
+const element = `
     <Controller
-      as={__a}
-      valueName="__b"
-      onChangeName="__c"
-      control={__d}
-      name="__e"
+        as={__a}
+        valueName="__b"
+        onChangeName="__c"
+        control={__d}
+        name="__e"
     />
-    `]: ({__a, __b, __c}) => `
+`;
+
+export const replace = () => ({
+    [element]: ({__a, __b, __c}) => `
         <Controller
             render={({field}) => {
                 const {value, onChange} = field;

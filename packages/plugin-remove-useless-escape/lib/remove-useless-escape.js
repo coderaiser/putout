@@ -1,6 +1,6 @@
 import emojiRegex from 'emoji-regex';
 
-export const report = () => 'Unnecessary escape character';
+export const report = () => 'Avoid useless escape';
 
 export const fix = (path) => {
     if (path.isStringLiteral()) {
@@ -32,7 +32,7 @@ export const traverse = ({push}) => ({
             if (raw.includes('${'))
                 return;
             
-            if (raw.includes('{('))
+            if (raw.includes('$('))
                 return push(path);
             
             if (isEscaped(raw))
