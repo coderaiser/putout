@@ -1,0 +1,10 @@
+__putout_processor_ignore([
+    "*.lock",
+    "*.log",
+    "*.config.*",
+    "*.lock",
+    "",
+    ".*",
+    "",
+    "coverage"
+]);

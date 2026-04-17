@@ -38,3 +38,8 @@ test('plugin-npmignore: transform: sort', (t) => {
     t.transform('sort');
     t.end();
 });
+
+test('plugin-npmignore: transform: convert-loc-to-lock', (t) => {
+    t.transform('convert-loc-to-lock');
+    t.end();
+});

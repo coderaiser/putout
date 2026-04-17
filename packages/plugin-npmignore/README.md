@@ -19,6 +19,7 @@ npm i @putout/plugin-npmignore -D
 
 - ✅ [add](#add);
 - ✅ [sort](#sort);
+- ✅ [convert-loc-to-lock](#convert-loc-to-lock);
 
 ## Config
 
@@ -34,7 +35,8 @@ npm i @putout/plugin-npmignore -D
                 "*.config.*"
             ]
         }],
-        "npmignore/sort": "on"
+        "npmignore/sort": "on",
+        "npmignore/convert-loc-to-lock": "on"
     }
 }
 ```
@@ -80,6 +82,16 @@ deno.lock
 
 node_modules
 coverage# sort
+```
+
+## convert-loc-to-lock
+
+Adds `.*` into .npmignore.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8c665c8eecdff7801ddb33f9c57199aa/3138e6dd8deaa74754987b090e1f3f77a364c6d2).
+
+```diff
+-*.loc
++*.lock
 ```
 
 ## License
