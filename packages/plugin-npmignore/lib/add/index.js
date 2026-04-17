@@ -13,6 +13,6 @@ export const {
         '*.log',
         'coverage',
         '*.config.*',
-        '*.loc',
+        '*.lock',
     ],
 });

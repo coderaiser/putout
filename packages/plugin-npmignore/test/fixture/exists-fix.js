@@ -1,7 +1,7 @@
 __putout_processor_ignore([
     "*.log",
     "*.config.*",
-    "*.loc",
+    "*.lock",
     "",
     ".*",
     "",

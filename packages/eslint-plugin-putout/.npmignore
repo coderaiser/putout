@@ -2,7 +2,7 @@
 *.md
 *.config.*
 *.log
-*.loc
+*.lock
 
 .*
 

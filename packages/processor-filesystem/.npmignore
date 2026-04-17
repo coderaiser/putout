@@ -2,7 +2,7 @@
 *.spec.cjs
 *.config.*
 *.log
-*.loc
+*.lock
 
 .*
 
