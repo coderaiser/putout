@@ -1,3 +1,15 @@
+2026.04.18, v42.4.6
+
+fix:
+- 35cb1a9fe @putout/plugin-npmignore: add: *.loc -> *.lock
+- e50cb69b8 @putout/plugin-remove-useless-escape: report
+
+feature:
+- d6066d3b7 putout: @putout/plugin-npmignore v8.0.0
+- 50a733a32 @putout/plugin-npmignore: drop support of 🐊 < 42
+- b8f84d12f @putout/plugin-remove-useless-escape: template: \$( -> $(
+- c1cf1c947 @putout/processor-toml: oxfmt v0.45.0
+
 2026.04.15, v42.4.5
 
 feature:
