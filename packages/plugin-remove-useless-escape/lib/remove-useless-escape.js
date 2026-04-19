@@ -21,8 +21,14 @@ export const traverse = ({push}) => ({
     StringLiteral(path) {
         const {raw} = path.node;
         
+        if (!raw)
+            return;
+        
         if (isEscaped(raw))
             push(path);
+        
+        if (raw.includes('\\`') && !raw.includes('\\\\`'))
+            return push(path);
     },
     
     TemplateLiteral(path) {
@@ -68,9 +74,6 @@ const hasEmoji = (a) => {
 };
 
 function isEscaped(raw) {
-    if (!raw)
-        return false;
-    
     if (!raw.includes('\\'))
         return false;
     
@@ -124,7 +127,8 @@ function unEscape(raw) {
         .replaceAll('\\.', '.')
         .replace(/(\\),/, ',')
         .replaceAll('\\h', 'h')
-        .replaceAll('\\z', 'z');
+        .replaceAll('\\z', 'z')
+        .replaceAll('\\`', '`');
     
     for (const emoji of match(raw)) {
         raw = raw.replace(createEncodedRegExp(emoji), emoji);

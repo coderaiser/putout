@@ -10,5 +10,9 @@ const expected = montag`
 
 fixture = fixture
     .replace(/'/g, `\\'`);
-    
+
+if (raw.includes('\\`'))
+    return true;
+
+t.report('apply-namespace-to-imported-file', `Use \`import * as dotdot from './b/index.js'\` in '/lib/index.js'`);
 
