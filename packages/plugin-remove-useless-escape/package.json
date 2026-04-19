@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-useless-escape",
-  "version": "10.1.1",
+  "version": "10.2.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to find and remove useless escape",
