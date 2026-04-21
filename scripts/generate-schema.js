@@ -1,6 +1,6 @@
 import {readdir} from 'node:fs/promises';
 import process from 'node:process';
-import montag from 'montag';
+import {montag} from 'montag';
 
 const run = (plugin, rule) => montag`
     "${plugin}/${rule}": {
