@@ -1,4 +1,4 @@
-import montag from 'montag';
+import {montag} from 'montag';
 
 const expected = montag`
     hello

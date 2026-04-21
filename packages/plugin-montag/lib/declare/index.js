@@ -1,3 +1,3 @@
 export const declare = () => ({
-    montag: `import montag from 'montag'`,
+    montag: `import {montag} from 'montag'`,
 });

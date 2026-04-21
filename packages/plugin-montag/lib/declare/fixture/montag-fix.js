@@ -1,4 +1,4 @@
-import montag from 'montag';
+import {montag} from 'montag';
 
 const output = montag`
     const a = 5;
