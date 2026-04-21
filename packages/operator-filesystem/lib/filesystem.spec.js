@@ -1,5 +1,5 @@
 import {tryCatch} from 'try-catch';
-import montag from 'montag';
+import {montag} from 'montag';
 import {stub} from 'supertape';
 import {__filesystem_name} from '@putout/operator-json';
 import {

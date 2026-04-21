@@ -1,4 +1,4 @@
-import montag from 'montag';
+import {montag} from 'montag';
 import test from 'supertape';
 import {putout, traverse} from 'putout';
 import {tryCatch} from 'try-catch';

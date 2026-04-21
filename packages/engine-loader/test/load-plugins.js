@@ -3,7 +3,7 @@ import Module from 'node:module';
 import {test, stub} from 'supertape';
 import {tryCatch} from 'try-catch';
 import putout from 'putout';
-import montag from 'montag';
+import {montag} from 'montag';
 import {tryToCatch} from 'try-to-catch';
 import {readFixtures} from './fixture.js';
 import {loadPlugins} from '../lib/index.js';

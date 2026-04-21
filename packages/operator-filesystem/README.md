@@ -349,7 +349,7 @@ start();
 ## Example
 
 ```js
-const montag = require('montag');
+const {montag} = require('montag');
 const {
     parse,
     print,

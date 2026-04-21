@@ -1,5 +1,5 @@
 import {once} from 'node:events';
-import montag from 'montag';
+import {montag} from 'montag';
 import {test, stub} from 'supertape';
 import {tryCatch} from 'try-catch';
 import {createProgress} from '@putout/engine-runner/progress';

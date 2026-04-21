@@ -1,6 +1,6 @@
 import {parse, operator} from 'putout';
 import {test} from 'supertape';
-import montag from 'montag';
+import {montag} from 'montag';
 import {tryCatch} from 'try-catch';
 import {getBinding, getBindingPath} from './get-binding.js';
 

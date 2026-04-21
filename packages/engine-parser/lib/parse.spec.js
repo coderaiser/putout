@@ -1,5 +1,5 @@
 import test from 'supertape';
-import montag from 'montag';
+import {montag} from 'montag';
 import {tryCatch} from 'try-catch';
 import {parse} from './parse.js';
 import {generate} from './generate.js';

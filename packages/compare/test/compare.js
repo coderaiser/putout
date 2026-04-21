@@ -1,5 +1,5 @@
 import test from 'supertape';
-import montag from 'montag';
+import {montag} from 'montag';
 import {template, parse} from '@putout/engine-parser';
 import {traverse, types} from 'putout';
 import {

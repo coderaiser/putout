@@ -1,5 +1,5 @@
 import {fileURLToPath} from 'node:url';
-import montag from 'montag';
+import {montag} from 'montag';
 import {test, stub} from 'supertape';
 import {parseOptions} from 'putout/parse-options';
 import {initProcessFile} from './process-file.js';

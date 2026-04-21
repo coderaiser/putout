@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test/processor';
-import montag from 'montag';
+import {montag} from 'montag';
 import * as madcut from 'madcut/plugin';
 import {find, branch} from '../lib/markdown.js';
 

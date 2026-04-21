@@ -1,5 +1,5 @@
 import {RuleTester} from 'eslint';
-import montag from 'montag';
+import {montag} from 'montag';
 import rule from './index.js';
 
 const ruleTester = new RuleTester({

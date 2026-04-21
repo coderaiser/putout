@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test/processor';
-import montag from 'montag';
+import {montag} from 'montag';
 import {merge} from '../lib/yaml.js';
 
 const test = createTest(import.meta.url, {

@@ -1,5 +1,5 @@
 import {stripVTControlCharacters} from 'node:util';
-import montag from 'montag';
+import {montag} from 'montag';
 import {tryCatch} from 'try-catch';
 import {stub} from 'supertape';
 import putout from 'putout';

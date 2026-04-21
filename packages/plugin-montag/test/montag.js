@@ -46,3 +46,8 @@ test('plugin-montag: transform: remove-useless-space', (t) => {
     t.transform('remove-useless-space');
     t.end();
 });
+
+test('plugin-montag: transform: convert-default-to-named', (t) => {
+    t.transform('convert-default-to-named');
+    t.end();
+});

@@ -1,5 +1,5 @@
 import test from 'supertape';
-import montag from 'montag';
+import {montag} from 'montag';
 import putout from 'putout';
 
 test('putout: plugin: remove-nested-blocks: remove-empty: reproduced only this way', (t) => {

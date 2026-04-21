@@ -1,6 +1,6 @@
 import test from 'supertape';
 import putout from 'putout';
-import montag from 'montag';
+import {montag} from 'montag';
 import * as nodejs from '@putout/plugin-nodejs';
 import {declare} from './declare.js';
 

@@ -1,4 +1,4 @@
-import montag from 'montag';
+import {montag} from 'montag';
 import {RuleTester} from 'eslint';
 import {createPlugin} from '@putout/eslint/create-plugin';
 import babel from '@babel/eslint-parser';

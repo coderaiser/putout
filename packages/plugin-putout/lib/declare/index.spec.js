@@ -1,4 +1,4 @@
-import montag from 'montag';
+import {montag} from 'montag';
 import {createTest} from '@putout/test';
 import * as declare from './index.js';
 

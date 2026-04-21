@@ -1,5 +1,5 @@
 import {test} from 'supertape';
-import montag from 'montag';
+import {montag} from 'montag';
 import {parse} from './parse.js';
 
 test('putout: processor-docker: parse', (t) => {

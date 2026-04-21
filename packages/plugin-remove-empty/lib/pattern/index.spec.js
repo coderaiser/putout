@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import montag from 'montag';
+import {montag} from 'montag';
 import * as removeEmptyPattern from './index.js';
 
 const test = createTest(import.meta.url, {

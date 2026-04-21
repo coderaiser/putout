@@ -1,5 +1,5 @@
 import {RuleTester} from 'eslint';
-import montag from 'montag';
+import {montag} from 'montag';
 import {createPlugin} from '@putout/eslint/create-plugin';
 import * as _rule from './index.js';
 

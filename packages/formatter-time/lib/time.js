@@ -5,7 +5,7 @@ import cliProgress from 'cli-progress';
 import chalk from 'chalk';
 import once from 'once';
 import format from 'format-io';
-import montag from 'montag';
+import {montag} from 'montag';
 import {Timer} from 'timer-node';
 
 const start = once(() => hrtime.bigint());

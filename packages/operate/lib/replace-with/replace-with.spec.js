@@ -1,6 +1,6 @@
 import putout from 'putout';
 import {test, stub} from 'supertape';
-import montag from 'montag';
+import {montag} from 'montag';
 import {tryCatch} from 'try-catch';
 import {replaceWith} from './replace-with.js';
 

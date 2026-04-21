@@ -1,6 +1,6 @@
 import {test} from 'supertape';
 import {tryCatch} from 'try-catch';
-import montag from 'montag';
+import {montag} from 'montag';
 import {
     parse,
     operator,

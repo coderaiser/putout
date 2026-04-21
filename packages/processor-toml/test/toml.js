@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test/processor';
-import montag from 'montag';
+import {montag} from 'montag';
 import {branch, merge} from '../lib/toml.js';
 
 const test = createTest(import.meta.url, {

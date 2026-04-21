@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test/processor';
-import montag from 'montag';
+import {montag} from 'montag';
 import {merge} from '../lib/json.js';
 
 const {stringify} = JSON;

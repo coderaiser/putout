@@ -1,6 +1,6 @@
 import test from 'supertape';
 import _putout from 'putout';
-import montag from 'montag';
+import {montag} from 'montag';
 import {readFixtures} from './fixture.js';
 import * as removeUnusedVariables from './index.js';
 

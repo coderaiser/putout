@@ -1,5 +1,5 @@
 import {once} from 'node:events';
-import montag from 'montag';
+import {montag} from 'montag';
 import {test} from 'supertape';
 import putout from 'putout';
 import {runPlugins} from './index.js';

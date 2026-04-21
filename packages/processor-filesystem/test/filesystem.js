@@ -2,7 +2,7 @@ import {readFileSync} from 'node:fs';
 import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {test} from 'supertape';
-import montag from 'montag';
+import {montag} from 'montag';
 import {fromJS, __filesystem} from '@putout/operator-json';
 import {eject} from '@putout/operator-filesystem/maybe';
 import {merge, branch} from '../lib/filesystem.js';

@@ -1,6 +1,6 @@
 import {once} from 'node:events';
 import test from 'supertape';
-import montag from 'montag';
+import {montag} from 'montag';
 import putout from 'putout';
 import {__filesystem_name} from '@putout/operator-json';
 import {

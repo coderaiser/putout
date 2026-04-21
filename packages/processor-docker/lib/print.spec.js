@@ -1,5 +1,5 @@
 import {test} from 'supertape';
-import montag from 'montag';
+import {montag} from 'montag';
 import {print} from './print.js';
 
 test('putout: processor-docker: print', (t) => {

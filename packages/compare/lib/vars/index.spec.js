@@ -1,7 +1,7 @@
 import {tryCatch} from 'try-catch';
 import test from 'supertape';
 import putout from 'putout';
-import montag from 'montag';
+import {montag} from 'montag';
 import {parse, template} from '@putout/engine-parser';
 import {compare} from '../compare.js';
 import {getTemplateValues} from './index.js';

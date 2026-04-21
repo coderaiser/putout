@@ -2,7 +2,7 @@ import {tryCatch} from 'try-catch';
 import test from 'supertape';
 import {types} from '@putout/babel';
 import putout from 'putout';
-import montag from 'montag';
+import {montag} from 'montag';
 import {template} from './template.js';
 
 const {identifier, stringLiteral} = types;

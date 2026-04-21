@@ -2,7 +2,7 @@ import {join, dirname} from 'node:path';
 import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {RuleTester} from 'eslint';
-import montag from 'montag';
+import {montag} from 'montag';
 import {createPlugin} from '@putout/eslint/create-plugin';
 import * as _rule from './index.js';
 

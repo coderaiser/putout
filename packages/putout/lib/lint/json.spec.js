@@ -1,5 +1,5 @@
 import {test} from 'supertape';
-import montag from 'montag';
+import {montag} from 'montag';
 import {lintJSON} from './json.js';
 
 const {stringify} = JSON;

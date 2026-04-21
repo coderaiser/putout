@@ -1,5 +1,5 @@
 import process from 'node:process';
-import montag from 'montag';
+import {montag} from 'montag';
 import {tryCatch} from 'try-catch';
 import {test, stub} from 'supertape';
 import putout from 'putout';

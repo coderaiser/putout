@@ -3,7 +3,7 @@ import {dirname} from 'node:path';
 import {createRequire} from 'node:module';
 import {test, stub} from 'supertape';
 import putout from 'putout';
-import montag from 'montag';
+import {montag} from 'montag';
 import {readFixtures} from './fixture.js';
 import * as operate from '../lib/operate.js';
 
