@@ -6,7 +6,7 @@ const isBool = (a) => typeof a === 'boolean';
 const isNumber = (a) => typeof a === 'number';
 const isString = (a) => typeof a === 'string';
 const isPrimitive = (a) => isString(a) || isNumber(a) || isBool(a) || isNull(a) || isUndefined(a);
-const {compute} = operator;
+const {compute, compare} = operator;
 
 const {
     isLiteral,
@@ -68,5 +68,8 @@ function checkExpected(path) {
     
     const initPath = binding.path.get('init');
     
-    return initPath.isTaggedTemplateExpression();
+    if (initPath.isTaggedTemplateExpression())
+        return true;
+    
+    return compare(initPath, '__array.join(__b)');
 }
