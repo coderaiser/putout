@@ -15,6 +15,7 @@ const {
     isProgram,
     isArrowFunctionExpression,
     isExportDeclaration,
+    isVariableDeclaration,
 } = types;
 
 const isArrowOrBlock = (a) => isArrowFunctionExpression(a) || isBlockStatement(a);
@@ -118,6 +119,9 @@ export const traverse = ({push}) => ({
                 if (!path.parentPath.node)
                     continue;
                 
+                if (!insideSingleDeclaration(path))
+                    continue;
+                
                 if (own && declarationLine > referenceLine)
                     push({
                         name,
@@ -185,4 +189,11 @@ function checkKeys(path, referencePath) {
         return false;
     
     return path.key < key;
+}
+
+function insideSingleDeclaration({parentPath}) {
+    if (!isVariableDeclaration(parentPath))
+        return true;
+    
+    return parentPath.node.declarations.length === 1;
 }

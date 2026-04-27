@@ -164,6 +164,11 @@ test('plugin-declare-before-reference: no report: returns', (t) => {
     t.end();
 });
 
+test('plugin-declare-before-reference: no report: single', (t) => {
+    t.noReport('single');
+    t.end();
+});
+
 test('plugin-declare-before-reference: transform: arg', (t) => {
     t.transform('arg');
     t.end();
