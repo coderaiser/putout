@@ -125,6 +125,11 @@ test('plugin-remove-useless-escape: transform: single-quote-inside-template', (t
     t.end();
 });
 
+test('plugin-remove-useless-escape: no report: double-inside-template', (t) => {
+    t.noReport('double-inside-template');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: transform: no-raw', (t) => {
     t.transform('no-raw', {
         addFixLint,

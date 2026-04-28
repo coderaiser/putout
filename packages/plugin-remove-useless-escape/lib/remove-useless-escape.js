@@ -38,9 +38,6 @@ export const traverse = ({push}) => ({
             if (raw.includes('${'))
                 return;
             
-            if (raw.includes('$('))
-                return push(path);
-            
             if (isEscaped(raw))
                 return push(path);
             
