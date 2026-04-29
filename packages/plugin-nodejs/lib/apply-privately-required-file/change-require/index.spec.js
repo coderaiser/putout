@@ -27,3 +27,11 @@ test('putout: nodejs: apply-privately-required-file: transform with options: cha
     });
     t.end();
 });
+
+test('putout: nodejs: apply-privately-required-file: transform with options: no-ext', (t) => {
+    t.transformWithOptions('no-ext', {
+        from: './a.js',
+        to: '#a',
+    });
+    t.end();
+});

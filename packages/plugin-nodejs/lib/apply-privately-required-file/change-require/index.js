@@ -1,3 +1,7 @@
+import {extname} from 'node:path';
+
+const withoutExt = (a) => a.replace(extname(a), '');
+
 export const report = () => '';
 export const replace = ({options}) => {
     const {
@@ -10,5 +14,6 @@ export const replace = ({options}) => {
     
     return {
         [`require('${from}')`]: `require('${to}')`,
+        [`require('${withoutExt(from)}')`]: `require('${to}')`,
     };
 };

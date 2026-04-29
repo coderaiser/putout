@@ -51,3 +51,8 @@ test('putout: nodejs: apply-privately-required-file: transform: no-default', (t)
     t.transform('no-default');
     t.end();
 });
+
+test('putout: nodejs: apply-privately-required-file: transform: no-ext', (t) => {
+    t.transform('no-ext');
+    t.end();
+});

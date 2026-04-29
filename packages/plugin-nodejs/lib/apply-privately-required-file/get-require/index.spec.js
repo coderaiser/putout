@@ -32,6 +32,11 @@ test('putout: nodejs: apply-privately-required-file: get-require: report: cjs', 
     t.end();
 });
 
+test('putout: nodejs: apply-privately-required-file: get-require: report: no ext', (t) => {
+    t.reportCode(`const a = require('./a')`, './a.js');
+    t.end();
+});
+
 test('putout: nodejs: apply-privately-required-file: no transform: get-require', (t) => {
     t.noTransform('get-require');
     t.end();
