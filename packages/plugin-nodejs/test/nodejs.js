@@ -131,3 +131,8 @@ test('plugin-nodejs: transform: convert-default-export-to-default', (t) => {
     t.transform('convert-default-export-to-default');
     t.end();
 });
+
+test('plugin-nodejs: transform: convert-url-parse-to-new-url', (t) => {
+    t.transform('convert-url-parse-to-new-url');
+    t.end();
+});

@@ -28,6 +28,7 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [convert-fs-promises](#convert-fs-promises);
 - ✅ [convert-promisify-to-fs-promises](#convert-promisify-to-fs-promises);
 - ✅ [convert-top-level-return](#convert-top-level-return);
+- ✅ [convert-url-parse-to-new-url](#convert-url-parse-to-new-url);
 - ✅ [convert-url-to-dirname](#convert-url-to-dirname);
 - ✅ [convert-default-export-to-default](#convert-default-export-to-default);
 - ✅ [declare](#declare);
@@ -68,6 +69,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/convert-default-export-to-default": "on",
         "nodejs/convert-exportst-to-module-exports": "on",
         "nodejs/convert-url-to-dirname": "on",
+        "nodejs/convert-url-parse-to-new-url": "on",
         "nodejs/convert-top-level-return": "on",
         "nodejs/declare": "on",
         "nodejs/declare-after-require": "on",
@@ -271,6 +273,26 @@ const file = new URL('../../package.json', import.meta.url);
 const {readFile} = require('fs/promises');
 const {join} = require('path');
 const file = join(__dirname, '../../package.json');
+```
+
+## convert-url-parse-to-new-url
+
+> The legacy URL API is deprecated.  Please use the [WHATWG URL API](https://nodejs.org/docs/latest/api/url.html#the-whatwg-url-api) instead.
+>
+> (c) [nodejs.org](https://nodejs.org/docs/latest/api/deprecations.html#dep0116-legacy-url-api)
+
+Checkout in [**Putout Editor**](https://putout.cloudcmd.io/#/gist/add9bf9ea5e438e44701996fa19ce74f/73e7b94e7243b18c060e1a36781609bb79f90377).
+
+### ❌ Example of incorrect code
+
+```js
+const parsed = url.parse(req.url);
+```
+
+### ✅ Example of correct code
+
+```js
+const parsed = new URL(req.url);
 ```
 
 ## remove-process-exit

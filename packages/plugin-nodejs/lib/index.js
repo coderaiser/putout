@@ -1,3 +1,4 @@
+import * as convertUrlParseToNewUrl from './convert-url-parse-to-new-url/index.js';
 import * as convertDefaultExportToDefault from './convert-default-export-to-default/index.js';
 import * as applyStyleText from './apply-style-text/index.js';
 import * as removeTopLevelProcessExit from './remove-top-level-process-exit/index.js';
@@ -56,4 +57,5 @@ export const rules = {
     'remove-top-level-process-exit': removeTopLevelProcessExit,
     'apply-style-text': applyStyleText,
     'convert-default-export-to-default': convertDefaultExportToDefault,
+    'convert-url-parse-to-new-url': convertUrlParseToNewUrl,
 };
