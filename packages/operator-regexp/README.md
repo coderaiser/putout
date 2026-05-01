@@ -46,6 +46,14 @@ transformRegExp('[aab]', {
 });
 ```
 
+### getStringFromRegExp(pattern: String)
+
+To avoid errors like this:
+
+> SyntaxError: Expecting Unicode escape sequence \uXXXX
+
+const string = getStringFromRegExp(regexpNode);
+
 ## License
 
 MIT

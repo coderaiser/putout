@@ -36,3 +36,8 @@ test('plugin-tape: convert-throws-to-try-catch: no-error', (t) => {
     t.transform('no-error');
     t.end();
 });
+
+test('plugin-tape: convert-throws-to-try-catch: quotes', (t) => {
+    t.transform('quotes');
+    t.end();
+});

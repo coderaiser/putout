@@ -1,17 +1,21 @@
 import {template, operator} from 'putout';
 
-const {insertBefore} = operator;
+const {
+    insertBefore,
+    getStringFromRegExp,
+} = operator;
 
 export const report = () => 'try-catch should be used instead of t.throws';
 
 export const replace = () => ({
     't.throws(__a, __b)': ({__a}, path) => {
         putTryCatch(__a, path);
-        return `t.ok(error, __b)`;
+        return '';
     },
     't.throws(__a, __b, __c)': ({__a, __b}, path) => {
         putTryCatch(__a, path);
-        return `t.equal(error.message, '${__b.pattern}', __c)`;
+        
+        return `t.equal(error.message, '${getStringFromRegExp(__b)}', __c)`;
     },
 });
 

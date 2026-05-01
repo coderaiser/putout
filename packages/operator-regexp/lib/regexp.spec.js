@@ -1,8 +1,10 @@
 import {tryCatch} from 'try-catch';
 import {test} from 'supertape';
+import {parse} from 'putout';
 import {
     isSimpleRegExp,
     transformRegExp,
+    getStringFromRegExp,
 } from './regexp.js';
 
 test('putout: operator: regexp: is-simple-regexp', (t) => {
@@ -62,5 +64,19 @@ test('putout: operator: regexp: transformRegExp: no regexp', (t) => {
     const [error] = tryCatch(transformRegExp, '/[abb]/');
     
     t.equal(error.message, '☝️ Looks like RegExpTransformer is missing');
+    t.end();
+});
+
+test('putout: operator: regexp: getStringFromRegExp', (t) => {
+    const reg = `/Error: ENOENT: no such file or directory, open 'hello\\/world\\.pem'/`;
+    const ast = parse(`
+        t.throws(fn, ${reg}, 'should throw when no such file');
+    `);
+    
+    const [, node] = ast.program.body[0].expression.arguments;
+    const result = getStringFromRegExp(node);
+    const expected = `Error: ENOENT: no such file or directory, open \\'hello\\\\/world\\\\.pem\\'`;
+    
+    t.equal(result, expected);
     t.end();
 });
