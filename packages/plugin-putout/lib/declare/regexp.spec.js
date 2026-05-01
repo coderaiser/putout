@@ -18,4 +18,3 @@ test('plugin-putout: declare: transform: regexp: getStringFromRegExp', (t) => {
     `);
     t.end();
 });
-
