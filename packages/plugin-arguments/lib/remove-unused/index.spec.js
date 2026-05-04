@@ -53,6 +53,11 @@ test('putout: plugin-arguments: remove-unused: no report: export', (t) => {
     t.end();
 });
 
+test('putout: plugin-arguments: remove-unused: no report: referenced', (t) => {
+    t.noReport('referenced');
+    t.end();
+});
+
 test('putout: plugin-arguments: remove-unused: transform: used', (t) => {
     t.transform('used', {
         removeUseless,

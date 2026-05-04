@@ -1,12 +1,13 @@
 import {types, operator} from 'putout';
 
-const {remove} = operator;
+const {remove, getBinding} = operator;
 const {values} = Object;
 
 const {
     isFunction,
     isProgram,
     isIdentifier,
+    isObjectProperty,
 } = types;
 
 const isTop = (a) => isFunction(a) || isProgram(a);
@@ -21,6 +22,17 @@ export const traverse = ({push}) => ({
     Function(path) {
         if (path.parentPath.isExportDeclaration())
             return;
+        
+        if (!path.isFunctionDeclaration() && !path.parentPath.isVariableDeclarator())
+            return;
+        
+        const name = parseName(path);
+        const binding = getBinding(path, name);
+        
+        for (const ref of binding.referencePaths) {
+            if (isObjectProperty(ref.parentPath))
+                return;
+        }
         
         const {bindings} = path.scope;
         const params = path.get('params');
@@ -40,10 +52,6 @@ export const traverse = ({push}) => ({
             }
         }
         
-        if (!path.isFunctionDeclaration() && !path.parentPath.isVariableDeclarator())
-            return;
-        
-        const name = parseName(path);
         const allArgs = [];
         
         operator.traverse(path.parentPath.find(isTop), {

@@ -8,7 +8,7 @@ const {isArrowFunctionExpression} = types;
 const {insertAfter, getBindingPath} = operator;
 const notRender = ({imported}) => imported.name !== 'render';
 
-const notDeclaredRoot = (path) => !path.scope.bindings.root;
+const notDeclaredRoot = (vars, path) => !path.scope.bindings.root;
 
 const nodeCreateImport = template.ast(`import {createRoot} from 'react-dom/client'`);
 
@@ -22,7 +22,7 @@ export const match = () => ({
         if (bindingPath && isArrowFunctionExpression(bindingPath.parentPath))
             return false;
         
-        return notDeclaredRoot(path);
+        return notDeclaredRoot(vars, path);
     },
 });
 
