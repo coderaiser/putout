@@ -12,12 +12,6 @@ export default (use) => ({
         
         if (/^[A-Z]/.test(name.name))
             use(path, name.name);
-        
-        use(path, 'React');
-    },
-    
-    JSXFragment(path) {
-        use(path, 'React');
     },
     
     JSXSpreadAttribute(path) {

@@ -1493,7 +1493,6 @@ test('remove-unused-variables: get-vars: class return', (t) => {
     
     const expected = [{
         PureComponent: du,
-        React: _u,
         wrap: du,
         require: _u,
     }, {
@@ -1514,7 +1513,7 @@ test('remove-unused-variables: get-vars: jsx opening element', (t) => {
         App: du,
         Main: du,
         require: _u,
-        React: du,
+        React: d_,
     }, {
         str: du,
     }];
@@ -1528,7 +1527,7 @@ test('remove-unused-variables: get-vars: jsx template', (t) => {
     const result = getVars(ast).map(dutify);
     
     const expected = [{
-        React: du,
+        React: d_,
         module: _u,
         require: _u,
     }, {
@@ -1544,7 +1543,7 @@ test('remove-unused-variables: get-vars: jsx fragment', (t) => {
     const result = getVars(ast).map(dutify);
     
     const expected = [{
-        React: du,
+        React: d_,
         module: _u,
         require: _u,
     }];
@@ -1558,7 +1557,7 @@ test('remove-unused-variables: get-vars: jsx member expression', (t) => {
     const result = getVars(ast).map(dutify);
     
     const expected = [{
-        React: du,
+        React: d_,
         x: d_,
         a: _u,
     }];
@@ -1575,7 +1574,7 @@ test('remove-unused-variables: get-vars: jsx spread attribute', (t) => {
         fn: d_,
         simple: d_,
         require: _u,
-        React: du,
+        React: d_,
     }, {
         spread: du,
     }, {
