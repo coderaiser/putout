@@ -39,7 +39,10 @@ export const fix = (file, {ast, from, to}) => {
 };
 
 export const scan = (rootPath, {push, trackFile}) => {
-    const mask = ['*.js'];
+    const mask = [
+        '*.js',
+        '*.jsx',
+    ];
     
     for (const file of trackFile(rootPath, mask)) {
         const content = readFileContent(file);

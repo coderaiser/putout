@@ -17,6 +17,11 @@ test('react: apply-jsx-to-imported-file: transform', (t) => {
     t.end();
 });
 
+test('react: apply-jsx-to-imported-file: transform: jsx', (t) => {
+    t.transform('jsx');
+    t.end();
+});
+
 test('react: apply-jsx-to-imported-file: no report: cjs', (t) => {
     t.noReport('cjs');
     t.end();
