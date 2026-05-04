@@ -91,5 +91,10 @@ function isJSX(rootPath, filename) {
     if (!importedFile)
         return false;
     
-    return readFileContent(importedFile).includes('</');
+    const content = readFileContent(importedFile);
+    
+    if (content.includes('</'))
+        return true;
+    
+    return content.includes('/>');
 }

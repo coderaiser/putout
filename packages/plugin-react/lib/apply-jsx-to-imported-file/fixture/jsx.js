@@ -7,11 +7,21 @@ __putout_processor_filesystem([
     '/lib/tokenize/',
     ['/lib/tokenize/is.jsx', `
         export const isPrev = (path) => {
-            return <h1>hello</h1>;
+        function PageJoin({staticContext}) {
+            return (
+                <AppContainer
+                    form="join"
+                    title="Join to IOCMD"
+                    message={message}
+                    link={link}
+                    text="Already have an account?"
+                    tabIndex="5"
+                />
+            );
         };
     `],
     '/lib/tokenize/expressions/',
     ['/lib/tokenize/expressions/spread-element.jsx', `
-        import {isPrev} from '../is.js';
+        import AppContainer from '../is.js';
     `],
 ]);
