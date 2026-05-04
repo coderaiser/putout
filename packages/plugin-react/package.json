@@ -34,7 +34,8 @@
     "putout",
     "putout-plugin",
     "plugin",
-    "react"
+    "react",
+    "jsx"
   ],
   "peerDependencies": {
     "putout": ">=42"
