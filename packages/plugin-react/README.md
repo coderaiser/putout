@@ -32,6 +32,11 @@ Add `.putout.json` with:
 - ✅ [rename-file-js-to-jsx](#rename-file-js-to-jsx);
 - ✅ [rename-file-jsx-to-js](#rename-file-jsx-to-js);
 
+## Filesystem
+
+
+- ✅ [apply-jsx-to-imported-file](#apply-jsx-to-imported-file);
+
 ## Config
 
 Here is list of rules:
@@ -44,7 +49,8 @@ Here is list of rules:
         "react/remove-useless-forward-ref": "on",
         "react/remove-implicit-ref-return": "on",
         "react/rename-file-jsx-to-js": "on",
-        "react/rename-file-js-to-jsx": "on"
+        "react/rename-file-js-to-jsx": "on",
+        "react/apply-jsx-to-imported-file": "off"
     }
 }
 ```
@@ -222,6 +228,36 @@ function App() {
         </UseTheme>
     );
 }
+```
+
+### apply-jsx-to-imported-file
+
+Checkout in 🐊**Putout Editor**:
+
+- ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/ee10100fed86e4db926885dd54298668/7538bca7a9ae006d976f41261c0ed4c0e1902ace);
+- ✅ [`change-imports`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
+
+Let's consider file structure:
+
+```
+/
+└── lib/
+    ├── index.js
+    └── a.jsx
+```
+
+In this case `index.js` can be fixed:
+
+#### ❌ Example of incorrect code
+
+```js
+import a from './a.js';
+```
+
+#### ✅ Example of correct code
+
+```js
+import a from './a.jsx';
 ```
 
 ## License

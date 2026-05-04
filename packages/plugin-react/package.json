@@ -13,6 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/coderaiser/putout.git"
   },
+  "imports": {
+    "#get-imports": "./lib/apply-jsx-to-imported-file/get-imports/index.js",
+    "#change-imports": "./lib/apply-jsx-to-imported-file/change-imports/index.js"
+  },
   "scripts": {
     "test": "madrun test",
     "watch:test": "madrun watch:test",
@@ -23,7 +27,9 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {},
+  "dependencies": {
+    "try-catch": "^4.0.9"
+  },
   "keywords": [
     "putout",
     "putout-plugin",

@@ -1,0 +1,53 @@
+import {createTest} from '@putout/test';
+import * as plugin from '#get-imports';
+
+const test = createTest(import.meta.url, {
+    plugins: [
+        ['get-imports', plugin],
+    ],
+});
+
+test('putout: react: apply-jsx-to-imported-file: get-imports: report: get-imports', (t) => {
+    t.report('get-imports', `./a.js`);
+    t.end();
+});
+
+test('putout: react: apply-jsx-to-imported-file: get-imports: no report: external', (t) => {
+    t.noReportCode(`import a from 'a'`);
+    t.end();
+});
+
+test('putout: react: apply-jsx-to-imported-file: get-imports: report: js', (t) => {
+    t.reportCode(`import a from './a.js'`, './a.js');
+    t.end();
+});
+
+test('putout: react: apply-jsx-to-imported-file: get-imports: report: cjs', (t) => {
+    t.reportCode(`import a from './a.cjs'`, './a.cjs');
+    t.end();
+});
+
+test('putout: react: apply-jsx-to-imported-file: get-imports: report: dynamic', (t) => {
+    t.reportCode(`await import('./a.cjs')`, './a.cjs');
+    t.end();
+});
+
+test('putout: react: apply-jsx-to-imported-file: get-imports: report: export from', (t) => {
+    t.reportCode(`export {a} from './a.js'`, './a.js');
+    t.end();
+});
+
+test('putout: react: apply-jsx-to-imported-file: get-imports: report: export from: *', (t) => {
+    t.reportCode(`export * from './a.js'`, './a.js');
+    t.end();
+});
+
+test('putout: react: apply-jsx-to-imported-file: get-imports: report: dynamic: identifier', (t) => {
+    t.noReportCode(`await import(a)`);
+    t.end();
+});
+
+test('putout: react: apply-jsx-to-imported-file: no transform: get-imports', (t) => {
+    t.noTransform('get-imports');
+    t.end();
+});
