@@ -27,6 +27,11 @@ test('plugin-react: transform: apply-create-root', (t) => {
     t.end();
 });
 
+test('plugin-react: no report: apply-jsx-to-imported-file', (t) => {
+    t.noReport('apply-jsx-to-imported-file');
+    t.end();
+});
+
 test('plugin-react: transform: rename-file-js-to-jsx', (t) => {
     t.transform('rename-file-js-to-jsx');
     t.end();
