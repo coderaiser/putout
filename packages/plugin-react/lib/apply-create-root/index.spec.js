@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('react: apply-create-root: report', (t) => {
-    t.report('apply-create-root', `Use 'if condition' instead of 'ternary expression'`);
+    t.report('apply-create-root', `Use 'createRoot()' instead of 'render()'`);
     t.end();
 });
 

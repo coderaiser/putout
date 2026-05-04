@@ -6,7 +6,7 @@ const notDeclaredRoot = (vars, path) => !path.scope.bindings.root;
 
 const nodeCreateImport = template.ast(`import {createRoot} from 'react-dom/client'`);
 
-export const report = () => `Use 'if condition' instead of 'ternary expression'`;
+export const report = () => `Use 'createRoot()' instead of 'render()'`;
 
 export const match = () => ({
     'import __imports from "react-dom"': notDeclaredRoot,
