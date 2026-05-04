@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('montag: convert-default-to-named: report', (t) => {
-    t.report('convert-default-to-named', `Use 'if condition' instead of 'ternary expression'`);
+    t.report('convert-default-to-named', `Use '{montag}' instead of 'montag'`);
     t.end();
 });
 
