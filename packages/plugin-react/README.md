@@ -34,7 +34,6 @@ Add `.putout.json` with:
 
 ## Filesystem
 
-
 - ✅ [apply-jsx-to-imported-file](#apply-jsx-to-imported-file);
 
 ## Config
