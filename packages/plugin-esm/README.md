@@ -40,7 +40,7 @@ npm i putout @putout/plugin-esm -D
 - ✅ [apply-name-to-imported-file](#apply-name-to-imported-file);
 - ✅ [apply-namespace-to-imported-file](#apply-namespace-to-imported-file);
 - ✅ [apply-privately-imported-file](#apply-privately-imported-file);
-- ✅ [apply-js-imported-file](#apply-js-imported-file);
+- ✅ [apply-js-to-imported-file](#apply-js-to-imported-file);
 - ✅ [resolve-imported-file](#resolve-imported-file);
 - ✅ [shorten-imported-file](#shorten-imported-file);
 
@@ -68,7 +68,7 @@ npm i putout @putout/plugin-esm -D
         "esm/sort-imports-by-specifiers": "on",
         "esm/resolve-imported-file": "off",
         "esm/shorten-imported-file": "off",
-        "esm/apply-js-imported-file": "off",
+        "esm/apply-js-to-imported-file": "off",
         "esm/apply-name-to-imported-file": "off",
         "esm/apply-namespace-to-imported-file": "off",
         "esm/apply-privately-imported-file": "off",
@@ -653,7 +653,7 @@ import {parseProcessorNames} from '../processors/parse-processor-names.js';
 import {parseProcessorNames} from './parse-processor-names.js';
 ```
 
-### apply-js-imported-file
+### apply-js-to-imported-file
 
 Checkout in 🐊**Putout Editor**:
 

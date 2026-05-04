@@ -3,7 +3,7 @@ import * as convertConstToImport from './convert-const-to-import/index.js';
 import * as applyImportAttributes from './apply-import-attributes/index.js';
 import * as applyDefaultImport from './apply-default-import/index.js';
 import * as applyExportFrom from './apply-export-from/index.js';
-import * as applyJsImportedFile from './apply-js-imported-file/index.js';
+import * as applyJsToImportedFile from './apply-js-to-imported-file/index.js';
 import * as applyNameToImportedFile from './apply-name-to-imported-file/index.js';
 import * as applyNamespaceToImportedFile from './apply-namespace-to-imported-file/index.js';
 import * as mergeExportDeclarations from './merge-export-declarations/index.js';
@@ -40,7 +40,7 @@ export const rules = {
     'apply-name-to-imported-file': ['off', applyNameToImportedFile],
     'apply-namespace-to-imported-file': ['off', applyNamespaceToImportedFile],
     'apply-privately-imported-file': ['off', applyPrivatelyImportedFile],
-    'apply-js-imported-file': ['off', applyJsImportedFile],
+    'apply-js-to-imported-file': ['off', applyJsToImportedFile],
     'apply-default-import': applyDefaultImport,
     'apply-import-attributes': applyImportAttributes,
     'convert-const-to-import': convertConstToImport,

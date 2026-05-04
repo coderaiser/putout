@@ -21,7 +21,7 @@ const {parse: parseJson} = JSON;
 const getMessage = (a) => a.message;
 const applyJS = (a) => a.replace(/\.[cm]js$/, '.js');
 
-export const report = (file, {from, to}) => `Apply 'js' imported source: '${from}' -> '${to}'`;
+export const report = (file, {from, to}) => `Apply 'js' to imported source: '${from}' -> '${to}'`;
 export const fix = (file, {ast, from, to}) => {
     transform(ast, {
         rules: {

@@ -92,8 +92,8 @@ test('plugin-esm: no report: apply-privately-imported-file', (t) => {
     t.end();
 });
 
-test('plugin-esm: no report: apply-js-imported-file', (t) => {
-    t.noReport('apply-js-imported-file');
+test('plugin-esm: no report: apply-js-to-imported-file', (t) => {
+    t.noReport('apply-js-to-imported-file');
     t.end();
 });
 

@@ -3,14 +3,14 @@ import * as esm from '../lib/index.js';
 
 const test = createTest(import.meta.url, {
     rules: {
-        'esm/apply-js-imported-file': 'on',
+        'esm/apply-js-to-imported-file': 'on',
     },
     plugins: [
         ['esm', esm],
     ],
 });
 
-test('plugin-esm: transform: apply-js-imported-file-on', (t) => {
-    t.transform('apply-js-imported-file-on');
+test('plugin-esm: transform: apply-js-to-imported-file-on', (t) => {
+    t.transform('apply-js-to-imported-file-on');
     t.end();
 });
