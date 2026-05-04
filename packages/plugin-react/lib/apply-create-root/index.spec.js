@@ -21,3 +21,8 @@ test('react: apply-create-root: transform: specifiers', (t) => {
     t.transform('specifiers');
     t.end();
 });
+
+test('react: apply-create-root: no report: no-react', (t) => {
+    t.noReport('no-react');
+    t.end();
+});
