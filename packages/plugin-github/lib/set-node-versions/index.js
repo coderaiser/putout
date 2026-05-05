@@ -18,7 +18,13 @@ const defaultVersions = [
 
 const {parse, stringify} = JSON;
 
-export const report = () => 'Use latest version of node';
+export const report = (path, {options}) => {
+    const {
+        versions = defaultVersions,
+    } = options;
+    
+    return `Use latest version of node: '${parse(path).join(', ')}' -> '${versions.join(', ')}'`;
+};
 
 export const fix = (path, {options}) => {
     const {

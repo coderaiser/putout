@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-github: set node versions: report: github', (t) => {
-    t.report('github', 'Use latest version of node');
+    t.report('github', `Use latest version of node: '14.x, 15.x' -> '22.x, 24.x, 26.x'`);
     t.end();
 });
 
@@ -38,9 +38,7 @@ test('plugin-github: set node versions: transform: overlap', (t) => {
 });
 
 test('plugin-github: set node versions: report: overlap', (t) => {
-    t.report('overlap', [
-        'Use latest version of node',
-    ]);
+    t.report('overlap', [`Use latest version of node: '20.x, 24.x' -> '22.x, 24.x, 26.x'`]);
     t.end();
 });
 
