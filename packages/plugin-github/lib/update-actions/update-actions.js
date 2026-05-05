@@ -19,7 +19,9 @@ export const updateActions = (actions) => ({
     report,
 });
 
-const report = ({name, full}) => `Update action '${name}' to '${full.split('@').pop()}'`;
+const report = ({name, full}) => `Update action '${name}' to '${full
+    .split('@')
+    .pop()}'`;
 
 const fix = ({full, path}) => {
     const checkoutNode = stringLiteral(full);
