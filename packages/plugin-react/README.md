@@ -26,6 +26,7 @@ Add `.putout.json` with:
 ## Rules
 
 - ✅ [apply-create-root](#apply-create-root);
+- ✅ [convert-named-to-default-in-react-test-renderer](#convert-named-to-default-in-react-test-renderer);
 - ✅ [remove-useless-provider](#remove-useless-provider);
 - ✅ [remove-useless-forward-ref](#remove-useless-forward-ref);
 - ✅ [remove-implicit-ref-return](#remove-implicit-ref-return);
@@ -257,6 +258,23 @@ import a from './a.js';
 
 ```js
 import a from './a.jsx';
+```
+
+### convert-named-to-default-in-react-test-renderer
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/332db6dc617574d18ac6e10e1e2a77c9/2e4e30d0a6a8539b0c994315773b0d1a45b286f7).
+
+#### ❌ Example of incorrect code
+
+```js
+import {createRenderer} from 'react-test-renderer/shallow';
+```
+
+#### ✅ Example of correct code
+
+```js
+import reactTestRenderer from 'react-test-renderer/shallow.js';
+const {createRenderer} = reactTestRenderer;
 ```
 
 ## License

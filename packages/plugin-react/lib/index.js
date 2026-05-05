@@ -1,3 +1,4 @@
+import * as convertNamespaceToDefaultInReactTestRenderer from './convert-namespace-to-default-in-react-test-renderer/index.js';
 import * as applyCreateRoot from './apply-create-root/index.js';
 import * as applyJSXToImportedFile from './apply-jsx-to-imported-file/index.js';
 import * as removeUselessProvider from './remove-useless-provider/index.js';
@@ -14,4 +15,5 @@ export const rules = {
     'remove-useless-forward-ref': removeUselessForwardRef,
     'rename-file-js-to-jsx': ['off', renameFileJsToJsx],
     'rename-file-jsx-to-js': ['off', renameFileJsxToJs],
+    'convert-namespace-to-default-in-react-test-renderer': convertNamespaceToDefaultInReactTestRenderer,
 };

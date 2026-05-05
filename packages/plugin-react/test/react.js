@@ -41,3 +41,8 @@ test('plugin-react: transform: rename-file-jsx-to-js', (t) => {
     t.transform('rename-file-jsx-to-js');
     t.end();
 });
+
+test('plugin-react: transform: convert-namespace-to-default-in-react-test-renderer', (t) => {
+    t.transform('convert-namespace-to-default-in-react-test-renderer');
+    t.end();
+});
