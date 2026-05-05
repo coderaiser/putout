@@ -1,4 +1,4 @@
-export const report = () => `Apply defaul to toJsxString`;
+export const report = () => `Apply default to toJsxString`;
 
 export const replace = () => ({
     'import toJsxString from "react-element-to-jsx-string"': `{

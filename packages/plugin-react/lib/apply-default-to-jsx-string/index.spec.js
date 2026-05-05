@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('react: apply-default-to-jsx-string: report', (t) => {
-    t.report('apply-default-to-jsx-string', `Apply defaul to toJsxString`);
+    t.report('apply-default-to-jsx-string', `Apply default to toJsxString`);
     t.end();
 });
 
