@@ -13,7 +13,7 @@ const {
 const defaultVersions = [
     '22.x',
     '24.x',
-    '25.x',
+    '26.x',
 ];
 
 const {parse, stringify} = JSON;

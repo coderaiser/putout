@@ -105,8 +105,8 @@ jobs:
 
     strategy:
       matrix:
--       node-version: [18.x, 20.x, 22.x]
-+       node-version: [20.x, 22.x, 24.x, 25.x]
+-       node-version: [20.x, 22.x, 24.x]
++       node-version: [22.x, 24.x, 26.x]
 ```
 
 You can override versions with:

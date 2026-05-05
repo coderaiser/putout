@@ -245,7 +245,7 @@ test('putout: config: .github/**/*.yml', (t) => {
             versions: [
                 '22.x',
                 '24.x',
-                '25.x',
+                '26.x',
             ],
         }],
         'remove-useless-escape': 'off',
