@@ -69,7 +69,7 @@
     "mocha": "^11.0.1",
     "montag": "^2.0.0",
     "superc8": "^12.0.0",
-    "supertape": "^12.0.0"
+    "supertape": "^13.0.0"
   },
   "imports": {
     "#typescript-eslint/parser": "./eslint-v10/ts.js",

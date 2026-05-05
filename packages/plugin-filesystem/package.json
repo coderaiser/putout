@@ -52,7 +52,7 @@
     "madrun": "^13.0.0",
     "nodemon": "^3.0.1",
     "superc8": "^12.0.0",
-    "supertape": "^12.0.0",
+    "supertape": "^13.0.0",
     "try-catch": "^4.0.0"
   },
   "peerDependencies": {

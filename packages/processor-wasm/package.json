@@ -49,7 +49,7 @@
     "nodemon": "^3.0.1",
     "putout": "*",
     "superc8": "^12.0.0",
-    "supertape": "^12.0.0"
+    "supertape": "^13.0.0"
   },
   "imports": {
     "#test": "./test/create-test.js"
