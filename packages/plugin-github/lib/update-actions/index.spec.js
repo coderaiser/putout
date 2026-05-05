@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-github: update-actions: report: set-coveralls-version', (t) => {
-    t.report('set-coveralls-version', `Update action 'actions/checkout' to latest version`);
+    t.report('set-coveralls-version', `Update action 'actions/checkout' to 'v5'`);
     t.end();
 });
 
