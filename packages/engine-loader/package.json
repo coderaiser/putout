@@ -46,7 +46,6 @@
     "@putout/processor-markdown": "*",
     "@putout/test": "^15.0.0",
     "eslint": "^10.0.0",
-    "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^31.0.0",
     "estrace": "^6.0.0",
     "just-camel-case": "^6.2.0",

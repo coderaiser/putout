@@ -52,7 +52,6 @@
     "acorn-stage3": "^4.0.0",
     "acorn-typescript": "^1.4.13",
     "eslint": "^10.0.0",
-    "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-putout": "^31.0.0",
     "espree": "^11.0.0",
     "esprima": "^4.0.1",
