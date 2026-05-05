@@ -274,6 +274,7 @@ import {createRenderer} from 'react-test-renderer/shallow';
 
 ```js
 import reactTestRenderer from 'react-test-renderer/shallow.js';
+
 const {createRenderer} = reactTestRenderer;
 ```
 
