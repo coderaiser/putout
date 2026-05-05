@@ -1,3 +1,45 @@
+2026.05.05, v42.5.0
+
+fix:
+- 34c893931 @putout/plugin-react: apply-default-to-jsx-string
+- 72d00b371 @putout/plugin-react: apply-jsx-to-imported-file: index
+- febda5b25 @putout/plugin-montag: convert-default-to-named: report
+
+feature:
+- 46de57df4 putout: @putout/plugin-github v20.0.0
+- 7e7dd6f22 @putout/plugin-github: set-node-versions: report: show versions
+- e3c0536ad @putout/plugin-github: set-node-versions: node v26
+- fde284794 @putout/processor-toml: oxfmt v0.48.0
+- 6568dea28 @putout/plugin-react: apply-default-to-jsx-string
+- 4064349e8 @putout/plugin-react: convert-namespace-to-default-in-react-test-renderer: add
+- 1ec052923 root: eslint-plugin-n: drop
+- 8ec3c4519 eslint-plugin-putout: eslint-plugin-n v18.0.0
+- be0acb1c3 @putout/plugin-react: apply-jsx-to-imported-file: />
+- ece05f3aa @putout/plugin-react: apply-jsx-to-imported-file: jsx
+- 2d486807c @putout/plugin-arguments: remove-unused: referenced: exclude
+- 2260bc501 @putout/plugin-react: apply-create-root: not react: exclude
+- 729a0fe14 @putout/plugin-react: apply-create-root: report
+- 66c61cff4 @putout/plugin-putout: keywords: jsx
+- bc8ce3e3c @putout/plugin-react: drop support of 🐊 < 42
+- f56f86cf1 @putout/plugin-react: apply-jsx-to-imported-file: add
+- 12b930822 @putout/plugin-esm: apply-js-imported-file -> apply-js-to-imported-file
+- 4b69aaf01 @putout/plugin-variables: remove-unused: avoid marking React as used event if it is not
+- ecae81c20 @putout/plugin-putout: declare: getStringFromRegExp: add
+- 22f55fd54 @putout/operator-regexp: getStringFromRegExp: add
+- ff975a5de @putout/plugin-nodejs: convert-url-parse-to-new-url
+- 4338bab39 @putout/engine-parser: hermes-parser v0.36.0
+- 5f95a5833 @putout/plugin-nodejs: apply-privately-required-file: no ext
+- 3310982a7 @putout/plugin-remove-useless-escape: false positive
+- f21bdc66a @putout/plugin-declare-before-reference: exclude not single VariableDeclaration
+- 331a8cd67 @putout/processor-toml: oxfmt v0.47.0
+- 41b807a20 @putout/plugin-tape: convert-deep-equal-to-equal: join
+- c82abbd63 @putout/processor-toml: oxfmt v0.46.0
+- 771a6b483 root: montag v2.0.0
+- 0873ffcc5 @putout/plugin-montag: convert-default-to-named: add
+- da993c4cc @putout/plugin-montag: declare: destructuring
+- 74a44983e @putout/plugin-remove-useless-escape: backtick inside single quote
+- 81998aed3 @putout/plugin-npmignore: convert-loc-to-lock
+
 2026.04.18, v42.4.6
 
 fix:
