@@ -46,3 +46,8 @@ test('plugin-react: transform: convert-namespace-to-default-in-react-test-render
     t.transform('convert-namespace-to-default-in-react-test-renderer');
     t.end();
 });
+
+test('plugin-react: transform: apply-default-to-jsx-string', (t) => {
+    t.transform('apply-default-to-jsx-string');
+    t.end();
+});

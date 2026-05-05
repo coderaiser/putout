@@ -26,6 +26,7 @@ Add `.putout.json` with:
 ## Rules
 
 - ✅ [apply-create-root](#apply-create-root);
+- ✅ [apply-default-to-jsx-string](#apply-default-to-jsx-string);
 - ✅ [convert-named-to-default-in-react-test-renderer](#convert-named-to-default-in-react-test-renderer);
 - ✅ [remove-useless-provider](#remove-useless-provider);
 - ✅ [remove-useless-forward-ref](#remove-useless-forward-ref);
@@ -45,12 +46,14 @@ Here is list of rules:
 {
     "rules": {
         "react/apply-create-root": "on",
+        "react/apply-jsx-to-imported-file": "off",
+        "react/apply-default-to-jsx-string": "on",
+        "react/convert-named-to-default-in-react-test-renderer": "on",
         "react/remove-useless-provider": "on",
         "react/remove-useless-forward-ref": "on",
         "react/remove-implicit-ref-return": "on",
         "react/rename-file-jsx-to-js": "on",
-        "react/rename-file-js-to-jsx": "on",
-        "react/apply-jsx-to-imported-file": "off"
+        "react/rename-file-js-to-jsx": "on"
     }
 }
 ```
@@ -78,6 +81,24 @@ import {createRoot} from 'react-dom/client';
 
 const root = createRoot(document.getElementById('root'));
 root.render(<App/>);
+```
+
+## apply-default-to-jsx-string
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/e366764ba30460af0c404e6c34a1af87/bdd33d40cceec54479e2262cc51691d9198ff645).
+
+### ❌ Example of incorrect code
+
+```jsx
+import toJsxString from 'react-element-to-jsx-string';
+```
+
+### ✅ Example of correct code
+
+```jsx
+import toJsxStringDefault from 'react-element-to-jsx-string';
+
+const {default: toJsxString} = reactElementToJSXStringDefault;
 ```
 
 ## remove-useless-provider

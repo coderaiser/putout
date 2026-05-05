@@ -1,3 +1,4 @@
+import * as applyDefaultToJsxString from './apply-default-to-jsx-string/index.js';
 import * as convertNamespaceToDefaultInReactTestRenderer from './convert-namespace-to-default-in-react-test-renderer/index.js';
 import * as applyCreateRoot from './apply-create-root/index.js';
 import * as applyJSXToImportedFile from './apply-jsx-to-imported-file/index.js';
@@ -16,4 +17,5 @@ export const rules = {
     'rename-file-js-to-jsx': ['off', renameFileJsToJsx],
     'rename-file-jsx-to-js': ['off', renameFileJsxToJs],
     'convert-namespace-to-default-in-react-test-renderer': convertNamespaceToDefaultInReactTestRenderer,
+    'apply-default-to-jsx-string-': applyDefaultToJsxString,
 };
