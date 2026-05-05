@@ -51,7 +51,7 @@ Add ability to continue when cannot submit coverage to Coveralls using [`continu
 ```diff
   - name: Commit fixes
     continue-on-error: true
-    uses: EndBug/add-and-commit@v9
+    uses: EndBug/add-and-commit@v10
     with:
       fetch: --force
       message: "chore: ${{ env.NAME }}: actions: lint ☘️"

@@ -19,7 +19,7 @@ __putout_processor_yaml({
                 }
             }, {
                 "name": "Commit fixes",
-                "uses": "EndBug/add-and-commit@v9",
+                "uses": "EndBug/add-and-commit@v10",
                 "continue-on-error": true
             }]
         }

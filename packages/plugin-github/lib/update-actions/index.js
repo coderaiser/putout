@@ -13,6 +13,6 @@ export const {
     'docker/login-action': 'v4',
     'docker/setup-qemu-action': 'v4',
     'coverallsapp/github-action': 'v2',
-    'EndBug/add-and-commit': 'v9',
+    'EndBug/add-and-commit': 'v10',
     'oven-sh/setup-bun': 'v2',
 });

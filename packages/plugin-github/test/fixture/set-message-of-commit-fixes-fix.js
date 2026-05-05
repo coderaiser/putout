@@ -5,7 +5,7 @@ __putout_processor_yaml({
         "build": {
             "steps": [{
                 "name": "Commit fixes",
-                "uses": "EndBug/add-and-commit@v9",
+                "uses": "EndBug/add-and-commit@v10",
                 "continue-on-error": true,
                 "with": {
                     "message": "chore: ${{ env.NAME }}: actions: lint ☘️"
