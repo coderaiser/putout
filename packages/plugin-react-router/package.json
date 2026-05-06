@@ -32,7 +32,7 @@
     "react-router"
   ],
   "peerDependencies": {
-    "putout": ">=39"
+    "putout": ">=42"
   },
   "devDependencies": {
     "@putout/test": "^15.0.0",
@@ -43,7 +43,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"
