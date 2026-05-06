@@ -21,3 +21,8 @@ test('plugin-react-router: transform: v7-split-multi-segment-route', (t) => {
     t.transform('v7-split-multi-segment-route');
     t.end();
 });
+
+test('plugin-react-router: transform: v7-remove-useless-server', (t) => {
+    t.transform('v7-remove-useless-server');
+    t.end();
+});

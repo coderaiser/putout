@@ -16,6 +16,7 @@ npm i putout @putout/plugin-react-router -D
 - ✅ [v6-convert-switch-to-routers](#v6-convert-switch-to-routers);
 - ✅ [v6-convert-component-to-element](#v6-convert-component-to-element);
 - ✅ [v7-split-multi-segment-route](#v7-split-multi-segment-route);
+- ✅ [v7-remove-useless-server](#v7-remove-useless-server);
 
 ## Config
 
@@ -24,7 +25,8 @@ npm i putout @putout/plugin-react-router -D
     "rules": {
         "react-router/v6-convert-switch-to-routers": "on",
         "react-router/v6-convert-component-to-element": "on",
-        "react-router/v7-split-multi-segment-route": "on"
+        "react-router/v7-split-multi-segment-route": "on",
+        "react-router/v7-remove-useless-server": "on"
     },
     "plugins": ["react-router"]
 }
@@ -124,6 +126,22 @@ createBrowserRouter([{
         element: <Dashboard/>,
     }],
 }]);
+```
+
+## v7-remove-useless-server
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0373dab56eb5aed70ef4b45d7ae7b4e0/a4b37ed56062c33ca7793dc14495efb416943209).
+
+### ❌ Example of incorrect code
+
+```jsx
+import {StaticRouter} from 'react-router-dom/server';
+```
+
+### ✅ Example of correct code
+
+```jsx
+import {StaticRouter} from 'react-router-dom';
 ```
 
 ## License
