@@ -1,5 +1,5 @@
 __putout_processor_json({
-    "check-coverage": true,
+    "checkCoverage": true,
     "all": true,
     "exclude": [
         "**/*.spec.*",

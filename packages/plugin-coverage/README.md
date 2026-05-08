@@ -15,6 +15,7 @@ npm i @putout/plugin-coverage -D
 ## Rules
 
 - ✅ [add-to-exclude](#add-to-exclude);
+- ✅ [apply-camel-case](#apply-camel-case);
 - ✅ [sort-ignore](#sort-ignore);
 
 ## File rules
@@ -26,12 +27,24 @@ npm i @putout/plugin-coverage -D
 ```json
 {
     "rules": {
+        "coverage/apply-camel-case": "on",
         "coverage/add-to-exclude": ["on", {
             "dismiss": ["*.spec.*"]
         }],
         "coverage/sort-ignore": "on",
         "coverage/remove-files": "on"
     }
+}
+```
+
+## apply-camel-case
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c6bbe7a8e10566a418dcd3f3a3412f92/2d4d05a2e5340466c50fbb3eaf35dd92dac82f0a).
+
+```diff
+{
+-   "check-coverage": true
++   "checkCoverage": true
 }
 ```
 

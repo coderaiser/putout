@@ -1,5 +1,5 @@
 {
-    "check-coverage": true,
+    "checkCoverage": true,
     "all": true,
     "exclude": [
         "**/*.spec.*",

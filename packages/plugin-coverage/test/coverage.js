@@ -26,3 +26,8 @@ test('plugin-coverage: transform: sort-ignore', (t) => {
     t.transform('sort-ignore');
     t.end();
 });
+
+test('plugin-coverage: transform: apply-camel-case', (t) => {
+    t.transform('apply-camel-case');
+    t.end();
+});
