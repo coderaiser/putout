@@ -61,3 +61,8 @@ test('plugin-package-json: transform: remove-dot-slash-from-bin', (t) => {
     t.transform('remove-dot-slash-from-bin');
     t.end();
 });
+
+test('plugin-package-json: transform: remove-useless-exports', (t) => {
+    t.transform('remove-useless-exports');
+    t.end();
+});

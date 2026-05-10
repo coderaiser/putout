@@ -21,6 +21,7 @@ npm i @putout/plugin-package-json -D
 - ✅ [remove-imports-nesting](#remove-imports-nesting);
 - ✅ [remove-duplicate-keywords](#remove-duplicate-keywords);
 - ✅ [remove-dot-slash-from-bin](#remove-dot-slash-from-bin);
+- ✅ [remove-useless-exports](#remove-useless-exports);
 
 ## Filesystem rules
 
@@ -40,6 +41,7 @@ npm i @putout/plugin-package-json -D
         "package-json/remove-imports-nesting": "on",
         "package-json/remove-dot-slash-from-bin": "bin",
         "package-json/remove-exports-with-missing-files": "off",
+        "package-json/remove-useless-exports": "off",
         "package-json/find-file": "off"
     }
 }
@@ -173,6 +175,18 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c
 -    "putout"
 +    "plugin"
    ],
+}
+```
+
+## remove-useless-exports
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/111426a5251efe6702d705d388d4c63d/cc2f30061a4a7b169bb61afbb843592f2c664c82).
+
+```diff
+{
+-   "exports": {
+-       ".": {}
+-     },
 }
 ```
 
