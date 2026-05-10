@@ -66,3 +66,8 @@ test('plugin-package-json: transform: remove-useless-exports', (t) => {
     t.transform('remove-useless-exports');
     t.end();
 });
+
+test('plugin-package-json: transform: remove-exports-nesting', (t) => {
+    t.transform('remove-exports-nesting');
+    t.end();
+});

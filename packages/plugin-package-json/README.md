@@ -19,6 +19,7 @@ npm i @putout/plugin-package-json -D
 - ✅ [remove-nyc](#remove-nyc);
 - ✅ [remove-commit-type](#remove-commit-type);
 - ✅ [remove-imports-nesting](#remove-imports-nesting);
+- ✅ [remove-exports-nesting](#remove-exports-nesting);
 - ✅ [remove-duplicate-keywords](#remove-duplicate-keywords);
 - ✅ [remove-dot-slash-from-bin](#remove-dot-slash-from-bin);
 - ✅ [remove-useless-exports](#remove-useless-exports);
@@ -39,6 +40,7 @@ npm i @putout/plugin-package-json -D
         "package-json/remove-nyc": "on",
         "package-json/remove-commit-type": "on",
         "package-json/remove-imports-nesting": "on",
+        "package-json/remove-exports-nesting": "on",
         "package-json/remove-dot-slash-from-bin": "bin",
         "package-json/remove-exports-with-missing-files": "off",
         "package-json/remove-useless-exports": "off",
@@ -218,6 +220,21 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3527617ec
 -         "default": "./lib/shorten-imported-file/get-imports/index.js"
 -       }
 +       "#get-imports": "./lib/shorten-imported-file/get-imports/index.js"
+    }
+}
+```
+
+## remove-exports-nesting
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9939ae5f61016e4e6a17f1e92c0e2b5b/cfa3dea4221c6b783ed4f5b59259c8230a756337).
+
+```diff
+{
+    "exports": {
+-       "./a.js": {
+-         "import": "./lib/a.js"
+-       },
++       "./a.js": "./lib/a.js"
     }
 }
 ```

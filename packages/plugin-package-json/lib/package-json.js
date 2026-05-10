@@ -1,3 +1,4 @@
+import * as removeExportsNesting from './remove-exports-nesting/index.js';
 import * as addType from './add-type/index.js';
 import * as removeNyc from './remove-nyc/index.js';
 import * as removeCommitType from './remove-commit-type/index.js';
@@ -18,4 +19,5 @@ export const rules = {
     'apply-js-extension': applyJsExtension,
     'remove-dot-slash-from-bin': removeDotSlashFromBin,
     'remove-useless-exports': removeUselessExports,
+    'remove-exports-nesting': removeExportsNesting,
 };
