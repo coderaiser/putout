@@ -16,3 +16,8 @@ test('putout: add-push-arg: transform', (t) => {
     t.transform('add-push-arg');
     t.end();
 });
+
+test('putout: add-push-arg: no report: traverse', (t) => {
+    t.noReport('traverse');
+    t.end();
+});

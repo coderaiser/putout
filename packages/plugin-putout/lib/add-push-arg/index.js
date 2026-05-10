@@ -7,8 +7,13 @@ export const {
     fix,
     traverse,
 } = addArgs({
-    push: ['{push}', [
-        '(__a, __b) => __body',
-        '(__a) => __body',
-    ]],
+    push: ['{push}', {
+        include: [
+            '(__a, __b) => __body',
+            '(__a) => __body',
+        ],
+        exclude: [
+            '(path) => __body',
+        ],
+    }],
 });
