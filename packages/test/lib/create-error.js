@@ -18,7 +18,7 @@ export const createError = (help, source, values) => {
     
     error.loc = {
         line: 1,
-        column: 1,
+        column: 0,
     };
     
     throw Error(

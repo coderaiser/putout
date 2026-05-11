@@ -26,7 +26,7 @@ test('putout: plugin: traverse: template', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 1,
+            column: 0,
         },
     }];
     
@@ -57,14 +57,14 @@ test('putout: plugin: traverse: template: expression', (t) => {
         message: 'find',
         position: {
             line: 1,
-            column: 1,
+            column: 0,
         },
     }, {
         rule: 'exp',
         message: 'find',
         position: {
             line: 1,
-            column: 12,
+            column: 11,
         },
     }];
     
@@ -95,7 +95,7 @@ test('putout: plugin: traverse: template: literal', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 1,
+            column: 0,
         },
     }];
     
@@ -129,7 +129,7 @@ test('putout: plugin: traverse: similar', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 1,
+            column: 0,
         },
     }];
     
@@ -160,7 +160,7 @@ test('putout: plugin: traverse: template: null', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 1,
+            column: 0,
         },
     }];
     
@@ -191,7 +191,7 @@ test('putout: plugin: traverse: template: word', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 1,
+            column: 0,
         },
     }];
     
@@ -222,7 +222,7 @@ test('putout: plugin: traverse: template: __', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 1,
+            column: 0,
         },
     }];
     
@@ -255,7 +255,7 @@ test('putout: plugin: find: template: __', (t) => {
         message: '',
         position: {
             line: 1,
-            column: 1,
+            column: 0,
         },
     }];
     
@@ -333,7 +333,7 @@ test('putout: plugin: traverse: template: exclude: places', (t) => {
     const expected = [{
         message: `'m' is defined but never used`,
         position: {
-            column: 23,
+            column: 22,
             line: 1,
         },
         rule: 'variables/remove-unused',
@@ -397,7 +397,7 @@ test('putout: plugin: traverse: template: exclude: fn: FunctionDeclaration', (t)
     const expected = [{
         message: `'t' is defined but never used`,
         position: {
-            column: 7,
+            column: 6,
             line: 1,
         },
         rule: 'variables/remove-unused',
@@ -422,7 +422,7 @@ test('putout: plugin: traverse: template: log', (t) => {
     const expected = [{
         message: `'t' is defined but never used`,
         position: {
-            column: 7,
+            column: 6,
             line: 1,
         },
         rule: 'variables/remove-unused',

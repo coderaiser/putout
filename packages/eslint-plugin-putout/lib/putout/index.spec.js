@@ -77,7 +77,7 @@ ruleTester.run('putout', rule, {
         `,
         errors: [{
             line: 2,
-            column: 8,
+            column: 7,
             message: `'m' is defined but never used (variables/remove-unused)`,
         }],
     }],
@@ -129,11 +129,11 @@ parserTester.run('putout: typescript', rule, {
         output: '\n',
         errors: [{
             line: 1,
-            column: 2,
+            column: 1,
             message: `'A' is defined but never used (variables/remove-unused)`,
         }, {
             line: 2,
-            column: 9,
+            column: 8,
             message: `Use shorthand '[]' instead of generic 'Array' (typescript/convert-generic-to-shorthand)`,
         }],
     }],
@@ -174,7 +174,7 @@ parserTester.run('putout: tape', rule, {
         `,
         errors: [{
             line: 1,
-            column: 2,
+            column: 1,
             message: `Declare 'test', it referenced but not defined (tape/declare)`,
         }],
     }, {
@@ -235,7 +235,7 @@ parserTester.run('putout', rule, {
         `,
         errors: [{
             line: 1,
-            column: 2,
+            column: 1,
             message: `Declare 'test', it referenced but not defined (tape/declare)`,
         }],
     }, {
@@ -251,7 +251,7 @@ parserTester.run('putout', rule, {
         `,
         errors: [{
             line: 1,
-            column: 2,
+            column: 1,
             message: `Simplify ternary (simplify-ternary/value)`,
         }],
     }],
@@ -268,7 +268,7 @@ tsParserTester.run('typescript-eslint: comments', rule, {
         output: readFixture('typescript-eslint-comments-fix'),
         errors: [{
             line: 13,
-            column: 10,
+            column: 9,
             message: 'Avoid useless conditions (conditions/evaluate)',
         }],
     }, {
@@ -283,7 +283,7 @@ tsParserTester.run('typescript-eslint: comments', rule, {
         }],
         errors: [{
             line: 5,
-            column: 6,
+            column: 5,
             message: 'Avoid using duplicates in Union (typescript/remove-duplicates-from-union)',
         }],
     }],

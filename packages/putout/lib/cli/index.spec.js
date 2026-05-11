@@ -108,7 +108,7 @@ test('putout: cli: --raw: parse error', async (t) => {
     assign(error, {
         pos: 11,
         loc: {
-            column: 1,
+            column: 0,
             line: 2,
         },
     });
@@ -126,7 +126,7 @@ test('putout: cli: --format: ci', async (t) => {
             message: 'hello',
             position: {
                 line: 1,
-                column: 1,
+                column: 0,
             },
         }],
         code: '',
@@ -160,7 +160,7 @@ test('putout: cli: -i', async (t) => {
             message: 'hello',
             position: {
                 line: 1,
-                column: 1,
+                column: 0,
             },
         }],
         code: '',
@@ -1200,7 +1200,7 @@ test('putout: cli: --transform', async (t) => {
                 message: transform,
                 position: {
                     line: 1,
-                    column: 1,
+                    column: 0,
                 },
             }],
         }],
@@ -1248,14 +1248,14 @@ test('putout: cli: --plugins', async (t) => {
                 message: `'a' is defined but never used`,
                 position: {
                     line: 1,
-                    column: 7,
+                    column: 6,
                 },
             }, {
                 rule: 'remove-debugger',
                 message: `Avoid 'debugger' statement`,
                 position: {
                     line: 2,
-                    column: 1,
+                    column: 0,
                 },
             }],
         }],
@@ -1358,7 +1358,7 @@ test('putout: cli: not fixable', async (t) => {
             rule: 'eslint/null',
             position: {
                 line: 1,
-                column: 1,
+                column: 0,
             },
         }],
     });
@@ -1406,7 +1406,7 @@ test('putout: cli: setInfo: crash', async (t) => {
             rule: 'parser',
             position: {
                 line: 1,
-                column: 1,
+                column: 0,
             },
         }],
     });

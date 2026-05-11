@@ -42,7 +42,7 @@ test('putout: codeframe: should return message', (t) => {
 test('putout: codeframe: not highlighted', async (t) => {
     const loc = {
         line: 2,
-        column: 8,
+        column: 7,
     };
     
     const error = {

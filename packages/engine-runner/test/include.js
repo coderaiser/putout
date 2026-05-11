@@ -22,7 +22,7 @@ test('putout: runner: include', (t) => {
     const expected = [{
         message: 'debugger found',
         position: {
-            column: 1,
+            column: 0,
             line: 1,
         },
         rule: 'include',
@@ -56,7 +56,7 @@ test('putout: runner: report: options', (t) => {
     const expected = [{
         message: 'elf',
         position: {
-            column: 1,
+            column: 0,
             line: 1,
         },
         rule: 'include',

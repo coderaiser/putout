@@ -423,7 +423,7 @@ test('putout: engine-processor: yaml: no startLine', async (t) => {
     const expected = [{
         message: '"cache" field should exist in travis',
         position: {
-            column: 1,
+            column: 0,
             line: 1,
         },
         rule: 'travis/disable-cache',
@@ -577,7 +577,7 @@ test('putout: engine-processor: md: json: options', async (t) => {
     const expected = [{
         message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
         position: {
-            column: 19,
+            column: 18,
             line: 4,
         },
         rule: 'putout-config/convert-boolean-to-string',

@@ -24,35 +24,35 @@ test('putout: processor: ignore: rc: eslintrc: no crash', async ({comparePlaces}
     await comparePlaces('eslintrc', [{
         message: `Add '.idea' to '.gitignore'`,
         position: {
-            column: 27,
+            column: 26,
             line: 1,
         },
         rule: 'gitignore/add',
     }, {
         message: `Add '*.swp' to '.gitignore'`,
         position: {
-            column: 27,
+            column: 26,
             line: 1,
         },
         rule: 'gitignore/add',
     }, {
         message: `Add '*.log' to '.gitignore'`,
         position: {
-            column: 27,
+            column: 26,
             line: 1,
         },
         rule: 'gitignore/add',
     }, {
         message: `Add '*.lock' to '.gitignore'`,
         position: {
-            column: 27,
+            column: 26,
             line: 1,
         },
         rule: 'gitignore/add',
     }, {
         message: `Add 'coverage' to '.gitignore'`,
         position: {
-            column: 27,
+            column: 26,
             line: 1,
         },
         rule: 'gitignore/add',

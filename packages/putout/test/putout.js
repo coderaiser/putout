@@ -239,7 +239,7 @@ test('putout: shebang: message', (t) => {
     
     const expected = {
         line: 6,
-        column: 11,
+        column: 10,
     };
     
     t.deepEqual(position, expected);
@@ -285,7 +285,7 @@ test('putout: export default declaration: espree: places: shebang', (t) => {
         message: `'b' is defined but never used`,
         position: {
             line: 6,
-            column: 11,
+            column: 10,
         },
     }];
     
@@ -366,7 +366,7 @@ test('putout: traverse: shebang', (t) => {
         message: '',
         position: {
             line: 2,
-            column: 1,
+            column: 0,
         },
     }];
     
@@ -566,7 +566,7 @@ test('putout: plugin: no options (find, push)', (t) => {
     const expected = [{
         message: 'Identifier found',
         position: {
-            column: 5,
+            column: 4,
             line: 1,
         },
         rule: 'find/push',
@@ -660,7 +660,7 @@ test('putout: plugin: include', (t) => {
     const expected = [{
         message: 'debugger found',
         position: {
-            column: 1,
+            column: 0,
             line: 1,
         },
         rule: 'include',
@@ -752,7 +752,7 @@ test('putout: find: template', (t) => {
     const expected = [{
         message: '',
         position: {
-            column: 1,
+            column: 0,
             line: 1,
         },
         rule: 'include',
@@ -876,7 +876,7 @@ test('putout: loader: no plugin found', (t) => {
     }, {
         message: `'a' is defined but never used`,
         position: {
-            column: 7,
+            column: 6,
             line: 1,
         },
         rule: 'variables/remove-unused',

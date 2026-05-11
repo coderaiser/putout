@@ -18,7 +18,7 @@ export const getPosition = (path) => {
     
     return {
         line,
-        column: column + 1,
+        column,
     };
 };
 

@@ -168,7 +168,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
     const expected = [{
         message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
         position: {
-            column: 51,
+            column: 50,
             line: 1,
         },
         rule: 'putout-config/convert-boolean-to-string',
@@ -235,7 +235,7 @@ test('putout: cli: process-file: ruler', async (t) => {
     const expected = [{
         message: `Use 'String (on/off)' instead of 'Boolean (true/false)'`,
         position: {
-            column: 51,
+            column: 50,
             line: 1,
         },
         rule: 'putout-config/convert-boolean-to-string',

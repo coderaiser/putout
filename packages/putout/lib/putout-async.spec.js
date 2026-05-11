@@ -44,7 +44,7 @@ test('putout: async: findPlacesAsync', async (t) => {
     const expected = [{
         message: `'a' is defined but never used`,
         position: {
-            column: 7,
+            column: 6,
             line: 1,
         },
         rule: 'variables/remove-unused',

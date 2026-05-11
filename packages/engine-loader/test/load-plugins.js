@@ -265,7 +265,7 @@ test('putout: loader: disabled part of rule', (t) => {
     const expected = [{
         message: `Use 'lint' to check current directory`,
         position: {
-            column: 18,
+            column: 17,
             line: 3,
         },
         rule: 'madrun/set-lint-dot',
@@ -296,7 +296,7 @@ test('putout: loader: enable part of rule', (t) => {
     const expected = [{
         message: `Use 'function' instead of 'string' in script: 'lint'`,
         position: {
-            column: 13,
+            column: 12,
             line: 4,
         },
         rule: 'madrun/add-function',
@@ -434,14 +434,14 @@ test('putout: loader: sync: import: shorten', async (t) => {
     const expected = [{
         message: `Use 'ESM' instead of 'CommonJS'`,
         position: {
-            column: 1,
+            column: 0,
             line: 1,
         },
         rule: 'nodejs/convert-commonjs-to-esm/require',
     }, {
         message: `Add missing 'use strict' directive on top of CommonJS`,
         position: {
-            column: 1,
+            column: 0,
             line: 1,
         },
         rule: 'nodejs/add-missing-strict-mode',
@@ -584,7 +584,7 @@ test('putout: loader: enable part of rule: async: before', async (t) => {
     const expected = [{
         message: `Use lowercased node builders`,
         position: {
-            column: 1,
+            column: 0,
             line: 2,
         },
         rule: 'putout/apply-lowercase-to-node-builders',
@@ -612,7 +612,7 @@ test('putout: loader: enable part of rule: async', async (t) => {
     const expected = [{
         message: `Use lowercased node builders`,
         position: {
-            column: 1,
+            column: 0,
             line: 2,
         },
         rule: 'putout/apply-lowercase-to-node-builders',

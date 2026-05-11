@@ -9,7 +9,7 @@
                     "message": "'t' is defined but never used",
                     "position": {
                         "line": 1,
-                        "column": 7
+                        "column": 6
                     }
                 }
             ]
