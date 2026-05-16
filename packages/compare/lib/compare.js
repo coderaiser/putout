@@ -1,11 +1,4 @@
 import {template} from '@putout/engine-parser';
-
-export {
-    getTemplateValues,
-    setValues,
-    getValues,
-    findVarsWays,
-} from './vars/index.js';
 import {runComparators} from './run-comparators.js';
 import {runTopLevelComparators} from './top-level-comparators.js';
 import {
@@ -14,6 +7,13 @@ import {
     isPath,
     isEqualType,
 } from './is.js';
+
+export {
+    getTemplateValues,
+    setValues,
+    getValues,
+    findVarsWays,
+} from './vars/index.js';
 
 export {parseTemplate, isTemplate} from './is.js';
 

@@ -68,3 +68,8 @@ test('putout: plugin-esm: declare-imports-first: transform: merge-destructuring-
     });
     t.end();
 });
+
+test('putout: plugin-esm: declare-imports-first: transform: export', (t) => {
+    t.transform('export');
+    t.end();
+});

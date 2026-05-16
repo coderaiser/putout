@@ -52,23 +52,21 @@ export const traverse = ({push, pathStore}) => ({
                 return;
             
             for (const importPath of pathStore()) {
-                if (importPath) {
-                    const path = importPath.getPrevSibling();
-                    
-                    if (!path.node)
-                        continue;
-                    
-                    if (path.isImportDeclaration())
-                        continue;
-                    
-                    if (path.isExportDeclaration())
-                        continue;
-                    
-                    push({
-                        path,
-                        importPath,
-                    });
-                }
+                const path = importPath.getPrevSibling();
+                
+                if (!path.node)
+                    continue;
+                
+                if (path.isImportDeclaration())
+                    continue;
+                
+                if (!isImportDeclaration(importPath) && path.isExportDeclaration())
+                    continue;
+                
+                push({
+                    path,
+                    importPath,
+                });
             }
         },
     },
