@@ -40,6 +40,8 @@ export const match = () => ({
     't.noTransformWithOptions(__a, __b)': check,
     't.noTransform(__a)': check,
     't.noReportWithOptions(__a, __b)': check,
+    'transform(__a)': check,
+    'noReportAfterTransform(__a)': check,
 });
 
 export const replace = () => ({
@@ -54,9 +56,15 @@ export const replace = () => ({
     't.noTransform(__a)': transform,
     't.noReportAfterTransform(__a)': transform,
     't.noReportWithOptions(__a, __b)': transform,
+    'transform(__a)': transform,
+    'noReportAfterTransform(__a)': transform,
 });
 
 const isTest = (path) => compare(path, 'test(__a, (t) => __body)', {
+    findUp: false,
+});
+
+const isTestDestructuring = (path) => compare(path, 'test(__a, ({__b}) => __body)', {
     findUp: false,
 });
 
@@ -111,6 +119,9 @@ const getTestNodeArgument = (path) => {
     
     if (!testPath)
         testPath = path.find(isTestOnly);
+    
+    if (!testPath)
+        testPath = path.find(isTestDestructuring);
     
     if (!testPath)
         return {

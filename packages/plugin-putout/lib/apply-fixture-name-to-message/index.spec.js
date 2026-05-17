@@ -92,6 +92,11 @@ test('putout: apply-fixture-name-to-message: transform: report-with-options', (t
     t.end();
 });
 
+test('putout: apply-fixture-name-to-message: transform: destructured', (t) => {
+    t.transform('destructured');
+    t.end();
+});
+
 test('putout: apply-fixture-name-to-message: no report after transform: plus', (t) => {
     t.noReportAfterTransform('plus');
     t.end();
