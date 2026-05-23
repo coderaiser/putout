@@ -136,3 +136,8 @@ test('plugin-nodejs: transform: convert-url-parse-to-new-url', (t) => {
     t.transform('convert-url-parse-to-new-url');
     t.end();
 });
+
+test('plugin-nodejs: transform: apply-inherit', (t) => {
+    t.transform('apply-inherit');
+    t.end();
+});

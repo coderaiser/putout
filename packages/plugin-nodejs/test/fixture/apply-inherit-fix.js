@@ -1,0 +1,3 @@
+fn({
+    stdio: 'inherit',
+});

@@ -19,6 +19,7 @@ npm i putout @putout/plugin-nodejs -D
 
 - ✅ [add-node-prefix](#add-node-prefix);
 - ✅ [apply-style-text](#apply-style-text);
+- ✅ [apply-inherit](#apply-inherit);
 - ✅ [add-missing-strict-mode](#add-missing-strict-mode);
 - ✅ [convert-buffer-to-buffer-alloc](#convert-buffer-to-buffer-alloc);
 - ✅ [convert-commonjs-to-esm](#convert-commonjs-to-esm);
@@ -56,6 +57,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/add-missing-strict-mode": "on",
         "nodejs/add-node-prefix": "on",
         "nodejs/apply-style-text": "on",
+        "nodejs/apply-inherit": "on",
         "nodejs/convert-commonjs-to-esm": "off",
         "nodejs/convert-esm-to-commonjs": "off",
         "nodejs/cjs-file": "off",
@@ -115,6 +117,30 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout** | [`add-node-prefix`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs/add-node-prefix#readme) | ✅
 ⏣ **ESLint** | [`prefer-node-protocol`](https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-node-protocol.md#readme)  | ✅
+
+## apply-inherit
+
+> `'inherit'` equivalent to `['inherit', 'inherit', 'inherit']` or `[0, 1, 2]`
+>
+> (c) [nodejs.org](https://nodejs.org/api/child_process.html)
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/4484be0da138f98ee421c088d57b79ef/7da6991556659592e6d85c5fc8a85be1ca952df9).
+
+### ❌ Example of incorrect code
+
+```js
+spawn('ls', [], {
+    stdio: [0, 1, 2],
+});
+```
+
+### ✅ Example of correct code
+
+```js
+spawn('ls', [], {
+    stdio: 'inherit',
+});
+```
 
 ## apply-style-text
 
