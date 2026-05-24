@@ -146,3 +146,19 @@ test('operate: setLiteralValue: number', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('operate: setLiteralValue: StringLiteral: number: value', (t) => {
+    const ast = parse(`({"hello": '0'})`);
+    
+    traverse(ast, {
+        StringLiteral: (path) => {
+            setLiteralValue(path.node, 5);
+        },
+    });
+    
+    const {value} = ast.program.body[0].expression.properties[0].key;
+    const expected = '5';
+    
+    t.equal(value, expected);
+    t.end();
+});

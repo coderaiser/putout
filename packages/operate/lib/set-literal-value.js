@@ -33,7 +33,7 @@ function setStringLiteral(node, newValue) {
         value,
     } = node;
     
-    node.value = newValue;
+    node.value = String(newValue);
     
     if (raw === '""') {
         node.raw = raw.replace(raw, `"${newValue}"`);
