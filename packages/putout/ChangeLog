@@ -1,3 +1,29 @@
+2026.05.25, v42.5.1
+
+feature:
+- 0a8fa03f7 putout: @putout/plugin-apply-global-this v2.0.0
+- dc6eb53ca @putout/plugin-apply-global-this: drop support of 🐊 < 42
+- d20d2cd9a @putout/plugin-apply-global-this: exclude declared self
+- 5ae86eeb5 @putout/plugin-nodejs: convert-commonjs-to-esm: require: exports
+- 3826ca301 @putout/operate: setLiteralValue: StringLiteral: always convert value to string
+- a6599d685 @putout/plugin-nodejs: apply-inherit: add
+- 7fcb38997 @putout/processor-toml: oxfmt v0.51.0
+- 214f96b84 @putout/plugin-putout: apply-fixture-name-to-message: destructured
+- 4458c6e50 @putout/plugin-esm: declare-imports-first: ExportNamedDeclaration
+- 33686dbb1 @putout/processor-toml: oxfmt v0.50.0
+- f52f64354 @putout/processor-toml: oxfmt v0.49.0
+- f078a6803 @putout/engine-runner: get-position: column + 1 -> column
+- be8fcc177 @putout/plugin-package-json: remove-exports-nesting: add
+- bd7381c5e @putout/plugin-putout: add-push-arg: exclude traverse
+- a088aaddd @putout/plugin-package-json: remove-useless-exports: add
+- abe442e5e @putout/eslint-flat: @eslint/config-helpers v0.6.0
+- 084e7322f @putout/plugin-converage: apply-camel-case: add
+- bec36b9af @putout/plugin-react-router: drop support of 🐊 < 42
+- 0aa0a44e0 @putout/plugin-react-router: v7-remove-useless-server
+- 5980c3573 @putout/plugin-github: update-actions: show version
+- 8309e68ab @putout/plugin-github: update-actions: EndBug/add-and-commit@v10
+- cb98397cb root: supertape v13.0.0
+
 2026.05.05, v42.5.0
 
 fix:
