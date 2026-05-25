@@ -17,6 +17,7 @@ const {
     importDefaultSpecifier,
     isProgram,
     isExportNamedDeclaration,
+    isExpressionStatement,
 } = types;
 
 const {
@@ -74,6 +75,7 @@ export const match = () => ({
     },
     'const __a = require("__b")(__args)': checkCall,
     'const __a = require("__b").__c(__args)': checkCall,
+    'module.exports = require("__a")': (vars, {parentPath}) => isExpressionStatement(parentPath),
 });
 
 export const replace = () => ({

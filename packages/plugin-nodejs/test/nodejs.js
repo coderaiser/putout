@@ -141,3 +141,8 @@ test('plugin-nodejs: transform: apply-inherit', (t) => {
     t.transform('apply-inherit');
     t.end();
 });
+
+test('plugin-nodejs: transform: remove-useless-exports-assign', (t) => {
+    t.transform('remove-useless-exports-assign');
+    t.end();
+});

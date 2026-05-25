@@ -1,3 +1,4 @@
+import * as removeUselessExportsAssign from './remove-useless-exports-assign/index.js';
 import * as applyInherit from './apply-inherit/index.js';
 import * as convertUrlParseToNewUrl from './convert-url-parse-to-new-url/index.js';
 import * as convertDefaultExportToDefault from './convert-default-export-to-default/index.js';
@@ -60,4 +61,5 @@ export const rules = {
     'convert-default-export-to-default': convertDefaultExportToDefault,
     'convert-url-parse-to-new-url': convertUrlParseToNewUrl,
     'apply-inherit': applyInherit,
+    'remove-useless-exports-assign': removeUselessExportsAssign,
 };

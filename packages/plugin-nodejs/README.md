@@ -39,6 +39,7 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [remove-useless-promisify](#remove-useless-promisify);
 - ✅ [remove-top-level-process-exit](#remove-top-level-process-exit);
 - ✅ [remove-useless-strict-mode](#remove-useless-strict-mode);
+- ✅ [remove-useless-exports-assign](#remove-useless-exports-assign);
 - ✅ [remove-illegal-strict-mode](#remove-useless-strict-mode);
 
 ## File rules
@@ -77,10 +78,11 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/declare-after-require": "on",
         "nodejs/group-require-by-id": "on",
         "nodejs/remove-process-exit": "on",
-        "nodejs/remove-useless-strict-mode": "on",
         "nodejs/remove-illegal-strict-mode": "on",
+        "nodejs/remove-top-level-process-exit": "on",
         "nodejs/remove-useless-promisify": "on",
-        "nodejs/remove-top-level-process-exit": "on"
+        "nodejs/remove-useless-strict-mode": "on",
+        "nodejs/remove-useless-exports-assign": "on"
     }
 }
 ```
@@ -624,7 +626,9 @@ const a = require('b');
 
 ## remove-useless-strict-mode
 
-Remove `'use strict'` from **ESM**.
+> The entire contents of JavaScript modules are automatically in strict mode, with no statement needed to initiate it.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 
 ### ❌ Example of incorrect code
 
@@ -638,6 +642,23 @@ import a from 'b';
 
 ```js
 import a from 'b';
+```
+
+## remove-useless-exports-assign
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c4dbbdae2d02a11421320d99873ffb48/7d22a36f109125d9750794d881651a24e5d8e4bb).
+
+### ❌ Example of incorrect code
+
+```js
+exports = require('./abc.js');
+module.exports = exports;
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports = require('./abc.js');
 ```
 
 ## remove-illegal-strict-mode
