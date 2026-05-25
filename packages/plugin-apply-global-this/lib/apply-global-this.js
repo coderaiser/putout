@@ -1,5 +1,6 @@
-import {types} from 'putout';
+import {types, operator} from 'putout';
 
+const {getBinding} = operator;
 const {assign} = Object;
 const {isMemberExpression} = types;
 
@@ -20,6 +21,10 @@ const globals = [
     'window',
     'self',
 ];
+
+export const match = () => ({
+    'self.__a': (vars, path) => !getBinding(path, 'self'),
+});
 
 export const replace = () => {
     const transforms = {};

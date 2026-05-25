@@ -36,3 +36,8 @@ test('putout: apply-global-this: transform: self', (t) => {
     t.transform('self');
     t.end();
 });
+
+test('putout: apply-global-this: no report: declared', (t) => {
+    t.noReport('declared');
+    t.end();
+});
