@@ -198,6 +198,11 @@ test('plugin-convert-commonjs-to-esm: require: transform: resolve', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: transform: exports', (t) => {
+    t.transform('exports');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: transform: css', (t) => {
     t.transform('css', {
         commons,

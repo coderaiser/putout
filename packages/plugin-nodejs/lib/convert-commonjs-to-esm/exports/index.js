@@ -26,6 +26,7 @@ export const report = () => `Use 'ESM' instead of 'CommonJS'`;
 export const exclude = () => [
     '__, __',
     '__ && __',
+    'module.exports = require(__)',
 ];
 
 export const match = () => ({

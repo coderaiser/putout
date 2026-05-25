@@ -77,6 +77,7 @@ export const match = () => ({
 });
 
 export const replace = () => ({
+    'module.exports = require("__a")': 'export * from "__a"',
     'require.resolve(__a)': 'fileURLToPath(import.meta.resolve(__a))',
     'const __a = require("__b").default': 'import __a from "__b"',
     'const __a = require(__b).__c': ({__a, __c}, path) => {

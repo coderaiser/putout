@@ -134,3 +134,10 @@ test('plugin-nodejs: covert-commonjs-to-esm: exports: transform: assign', (t) =>
     t.transform('assign');
     t.end();
 });
+
+test('plugin-nodejs: covert-commonjs-to-esm: exports: transform: require', (t) => {
+    t.transform('require', {
+        convertRequireToImport,
+    });
+    t.end();
+});
