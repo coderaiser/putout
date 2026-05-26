@@ -1,0 +1,13 @@
+__putout_processor_filesystem([
+    "/",
+    "/lib/",
+    [
+        "/lib/help.js",
+        "CiAgICAgICAgZXhwb3J0IGNvbnN0IGhlbHAgPSAnaGVsbG8nOwogICAg"
+    ],
+    "/test/",
+    [
+        "/test/cli.js",
+        "CiAgICAgICAgZXhwb3J0IHtoZWxwfSBmcm9tICcuLi9saWIvaGVscCcKICAgICAgICBleHBvcnQgKiBmcm9tICcuLi9saWIvaGVscCcKICAgIA=="
+    ]
+]);

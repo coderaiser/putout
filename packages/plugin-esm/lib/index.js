@@ -19,6 +19,7 @@ import * as mergeDuplicateImports from './merge-duplicate-imports/index.js';
 import * as convertAssertToWith from './convert-assert-to-with/index.js';
 import * as applyPrivatelyImportedFile from './apply-privately-imported-file/index.js';
 import * as resolveImportedFile from './resolve-imported-file/index.js';
+import * as resolveImportedFileWithExtension from './resolve-imported-file-with-extension/index.js';
 import * as shortenImportedFile from './shorten-imported-file/index.js';
 
 export const rules = {
@@ -36,6 +37,7 @@ export const rules = {
     'merge-export-declarations': mergeExportDeclarations,
     
     'resolve-imported-file': ['off', resolveImportedFile],
+    'resolve-imported-file-with-extension': ['off', resolveImportedFileWithExtension],
     'shorten-imported-file': ['off', shortenImportedFile],
     'apply-name-to-imported-file': ['off', applyNameToImportedFile],
     'apply-namespace-to-imported-file': ['off', applyNamespaceToImportedFile],

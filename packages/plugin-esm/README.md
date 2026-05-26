@@ -42,6 +42,7 @@ npm i putout @putout/plugin-esm -D
 - ✅ [apply-privately-imported-file](#apply-privately-imported-file);
 - ✅ [apply-js-to-imported-file](#apply-js-to-imported-file);
 - ✅ [resolve-imported-file](#resolve-imported-file);
+- ✅ [resolve-imported-file-with-extension](#resolve-imported-file-with-extension);
 - ✅ [shorten-imported-file](#shorten-imported-file);
 
 ## Config
@@ -66,8 +67,9 @@ npm i putout @putout/plugin-esm -D
             "ignore": []
         }],
         "esm/sort-imports-by-specifiers": "on",
-        "esm/resolve-imported-file": "off",
         "esm/shorten-imported-file": "off",
+        "esm/resolve-imported-file": "off",
+        "esm/resolve-imported-file-with-extension": "off",
         "esm/apply-js-to-imported-file": "off",
         "esm/apply-name-to-imported-file": "off",
         "esm/apply-namespace-to-imported-file": "off",
@@ -611,6 +613,42 @@ In this case `index.js` can be fixed:
 
 ```js
 import a from './a';
+import info from '../package';
+```
+
+#### ✅ Example of correct code
+
+```js
+import a from './a.js';
+import info from '../package.json' with {
+    type: 'json',
+};
+```
+
+### resolve-imported-file-with-extension
+
+Check out in 🐊**Putout Editor**:
+
+- ✅ [`resolve-imported-file`](https://putout.cloudcmd.io/#/gist/241489cb2781dd37ec96baf0115cde4e/83c2f2e9f490850b7fda432f8d25ae6a64ed07e3);
+- ✅ [`get-imports`](https://putout.cloudcmd.io/#/gist/ee10100fed86e4db926885dd54298668/7538bca7a9ae006d976f41261c0ed4c0e1902ace);
+- ✅ [`change-imports`](https://putout.cloudcmd.io/#/gist/23a6dc6741b772c03fbed95feda2b451/1fbecac6fc40282bcda0593aa666a8c213ef85b7);
+
+Let's consider file structure:
+
+```
+/
+├── package.json
+└── lib/
+    ├── index.js
+    └── a.js
+```
+
+In this case `index.js` can be fixed:
+
+#### ❌ Example of incorrect code
+
+```js
+import a from './a.cjs';
 import info from '../package';
 ```
 
