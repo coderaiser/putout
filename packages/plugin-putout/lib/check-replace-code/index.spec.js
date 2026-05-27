@@ -181,3 +181,8 @@ test('plugin-putout: check-replace-code: no report: namespace', (t) => {
     t.noReport('namespace');
     t.end();
 });
+
+test('plugin-putout: check-replace-code: no report: no-body', (t) => {
+    t.noReport('no-body');
+    t.end();
+});

@@ -114,6 +114,9 @@ const createTraverseReplacer = ({once, push}) => (path) => {
             isTS: true,
         });
         
+        if (!ast.program.body.length)
+            return;
+        
         const [transformError] = tryCatch(transform, ast, {
             plugins: [
                 ['evaluate', {
