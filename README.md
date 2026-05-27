@@ -302,7 +302,7 @@ So, if you want to convert it to [`ESM`](https://developer.mozilla.org/en-US/doc
  1:4   error   'unused' is defined but never used                        variables/remove-unused
  7:23  error   'a' is defined but never used                             variables/remove-unused
  3:0   error   Use arrow function                                        convert-to-arrow-function
- 1:0   error   Add missing 'use strict' directive on top of CommonJS     nodejs/dd-missing-strict-cmode
+ 1:0   error   Add missing 'use strict' directive on top of CommonJS     nodejs/add-missing-strict-mode
  8:4   error   Reject is useless in async functions, use throw instead   promises/convert-reject-to-throw
  4:11  error   Async functions should be called using 'await'            promises/add-missing-await
  7:0   error   Avoid useless async                                       promises/remove-useless-async
