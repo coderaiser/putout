@@ -1,10 +1,33 @@
-import {types} from 'putout';
+import {types, operator} from 'putout';
 
-const {isObjectProperty} = types;
+const {getBindingPath} = operator;
+const {
+    isObjectProperty,
+    isImportDeclaration,
+} = types;
 
 export const report = () => `Avoid useless 'source' argument`;
 
-export const filter = (path) => !isObjectProperty(path.parentPath);
+export const filter = (path) => {
+    if (isObjectProperty(path.parentPath))
+        return false;
+    
+    const {name} = path.node.callee;
+    
+    const bindingPath = getBindingPath(path, name);
+    
+    if (!bindingPath)
+        return true;
+    
+    const {parentPath} = bindingPath;
+    
+    if (!isImportDeclaration(parentPath))
+        return false;
+    
+    const {value} = parentPath.node.source;
+    
+    return !value.startsWith('.');
+};
 
 export const replace = () => ({
     'findPlaces(__a, __b, __c)': 'findPlaces(__a, __c)',
