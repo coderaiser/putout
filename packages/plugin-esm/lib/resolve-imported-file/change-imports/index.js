@@ -1,17 +1,3 @@
-const importFromJson = (a) => `
-    import __imports from '${a}' with  {
-        type: 'json',
-    }
-`;
-
-const dynamicImportFromJson = (a) => `
-    import('${a}', {
-        with: {
-            type: 'json',
-        }
-    })
-`;
-
 export const report = () => '';
 
 export const replace = ({options}) => {
@@ -38,13 +24,21 @@ export const replace = ({options}) => {
         };
     
     return {
-        [`import __imports from '${from}'`]: `import __imports from '${to}' with {
-            type: 'json',
-        }`,
-        [`import('${from}')`]: `import('${to}', {
-            with: {
-                type: 'json',
-            }
-        })`,
+        [`import __imports from '${from}'`]: importFromJson(to),
+        [`import('${from}')`]: dynamicImportFromJson(to),
     };
 };
+
+const importFromJson = (a) => `
+    import __imports from '${a}' with  {
+        type: 'json',
+    }
+`;
+
+const dynamicImportFromJson = (a) => `
+    import('${a}', {
+        with: {
+            type: 'json',
+        }
+    })
+`;
