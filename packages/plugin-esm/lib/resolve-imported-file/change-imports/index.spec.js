@@ -51,3 +51,11 @@ test('putout: esm: resolve-imported-file: transform with options: export', (t) =
     });
     t.end();
 });
+
+test('putout: esm: resolve-imported-file: transform with options: json-js', (t) => {
+    t.transformWithOptions('json-js', {
+        from: './a.json',
+        to: './a.js',
+    });
+    t.end();
+});

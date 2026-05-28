@@ -67,6 +67,11 @@ test('esm: resolve-imported-file-with-extension: transform: js', (t) => {
     t.end();
 });
 
+test('esm: resolve-imported-file-with-extension: transform: json-js', (t) => {
+    t.transform('json-js');
+    t.end();
+});
+
 test('esm: resolve-imported-file-with-extension: transform: mjs', (t) => {
     t.transform('mjs');
     t.end();

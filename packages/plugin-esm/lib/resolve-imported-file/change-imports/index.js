@@ -1,4 +1,19 @@
+const importFromJson = (a) => `
+    import __imports from '${a}' with  {
+        type: 'json',
+    }
+`;
+
+const dynamicImportFromJson = (a) => `
+    import('${a}', {
+        with: {
+            type: 'json',
+        }
+    })
+`;
+
 export const report = () => '';
+
 export const replace = ({options}) => {
     const {
         from = '',
@@ -7,6 +22,12 @@ export const replace = ({options}) => {
     
     if (!from || !to)
         return {};
+    
+    if (from.endsWith('json') && !to.endsWith('json'))
+        return {
+            [importFromJson(from)]: `import __imports from '${to}'`,
+            [dynamicImportFromJson(from)]: `import('${to}')`,
+        };
     
     if (!to.endsWith('json'))
         return {
