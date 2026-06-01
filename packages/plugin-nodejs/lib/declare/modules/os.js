@@ -1,4 +1,5 @@
 export default {
+    os: `import os from 'node:os'`,
     arch: `import {arch} from 'node:os'`,
     cpus: `import {cpus} from 'node:os'`,
     endianness: `import {endianness} from 'node:os'`,

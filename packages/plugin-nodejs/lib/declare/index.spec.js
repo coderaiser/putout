@@ -53,7 +53,7 @@ test('putout: plugin: nodejs: declare: module', (t) => {
     t.end();
 });
 
-test('putout: plugin: nodejs: declare: os', (t) => {
+test('putout: plugin: nodejs: declare: os: freemem', (t) => {
     t.transform('os');
     t.end();
 });
