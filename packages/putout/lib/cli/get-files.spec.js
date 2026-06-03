@@ -180,11 +180,12 @@ test('putout: getFiles: getSupportedGlob: result', async (t) => {
         getSupportedGlob,
         fastGlob,
     });
-    
-    t.calledWith(fastGlob, ['get-files/some-glob', {
+    const args = ['get-files/some-glob', {
         unique: true,
         dot: true,
-    }]);
+    }];
+    
+    t.calledWith(fastGlob, args);
     t.end();
 });
 

@@ -172,3 +172,8 @@ test('plugin-tape: transform: convert-equals-to-equal', (t) => {
     t.transform('convert-equals-to-equal');
     t.end();
 });
+
+test('plugin-tape: transform: extract-args-from-called-with', (t) => {
+    t.transform('extract-args-from-called-with');
+    t.end();
+});

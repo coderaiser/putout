@@ -101,10 +101,11 @@ test('putout: cli: staged: set: findUp', async (t) => {
     });
     
     const type = 'directory';
-    
-    t.calledWith(findUp, ['.git', {
+    const args = ['.git', {
         type,
-    }]);
+    }];
+    
+    t.calledWith(findUp, args);
     t.end();
 });
 
@@ -117,10 +118,11 @@ test('putout: cli: staged: set: findUp: not found', async (t) => {
     });
     
     const type = 'directory';
-    
-    t.calledWith(findUp, ['.git', {
+    const args = ['.git', {
         type,
-    }]);
+    }];
+    
+    t.calledWith(findUp, args);
     t.end();
 });
 

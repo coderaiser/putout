@@ -39,6 +39,7 @@ npm i @putout/plugin-tape -D
 - ✅ [convert-tape-to-supertape](#convert-tape-to-supertape);
 - ✅ [convert-throws-to-try-catch](#convert-throws-to-try-catch);
 - ✅ [declare](#declare);
+- ✅ [extract-args-from-called-with](#extract-args-from-called-with);
 - ✅ [jest](#jest);
 - ✅ [remove-default-messages](#remove-default-messages);
 - ✅ [remove-only](#remove-only);
@@ -77,6 +78,7 @@ npm i @putout/plugin-tape -D
         "tape/convert-match-regexp-to-string": "on",
         "tape/add-args": "on",
         "tape/declare": "on",
+        "tape/extract-args-from-called-with": "on",
         "tape/remove-default-messages": "on",
         "tape/remove-useless-not-called-args": "on",
         "tape/remove-only": ["on", {
@@ -483,6 +485,36 @@ test('should call init before show', (t) => {
     
     t.calledInOrder([init, show]);
     t.end();
+});
+```
+
+## extract-args-from-called-with
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/1a4b8e28b15ada7c7ad17e544ae03e2a/c6ca31508b8d4f2572d6a0c65dfbfe28c53016b1).
+
+### ❌ Example of incorrect code
+
+```js
+test('abc: def', (t) => {
+    t.calledWith(executeFn, [
+        ['tape', 'test.js'], {
+            exit,
+        },
+    ]);
+});
+```
+
+### ✅ Example of correct code
+
+```js
+test('abc: def', (t) => {
+    const args = [
+        ['tape', 'test.js'], {
+            exit,
+        },
+    ];
+    
+    t.calledWith(executeFn, args);
 });
 ```
 

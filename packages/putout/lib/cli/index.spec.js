@@ -732,10 +732,11 @@ test('putout: cli: --fix --staged: set', async (t) => {
     });
     
     const {findUp} = await import('find-up');
-    
-    t.calledWith(set, [{
+    const args = [{
         findUp,
-    }]);
+    }];
+    
+    t.calledWith(set, args);
     t.end();
 });
 
@@ -779,11 +780,12 @@ test('putout: cli: --fix --staged: get', async (t) => {
     });
     
     const {findUp} = await import('find-up');
-    
-    t.calledWith(get, [{
+    const args = [{
         findUp,
         isSupported,
-    }]);
+    }];
+    
+    t.calledWith(get, args);
     t.end();
 });
 
