@@ -7,8 +7,6 @@ const initRules = (config) => {
 const {keys} = Object;
 const {isArray} = Array;
 
-const isTuple = (a) => isArray(a);
-
 const isPutoutRule = (rule) => {
     if (rule.startsWith('parser'))
         return false;
@@ -48,7 +46,7 @@ export function disable(rule, config) {
     if (!isPutoutRule(rule))
         return config;
     
-    if (isTuple(config.rules[rule]))
+    if (isArray(config.rules[rule]))
         config.rules[rule] = ['off', config.rules[rule][1]];
     else
         config.rules[rule] = 'off';
