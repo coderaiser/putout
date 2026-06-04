@@ -34,21 +34,10 @@ jobs:
         run: redrun lint:oxlint
       - name: Deno Lint
         run: deno lint
-      - name: Install Rust
-        run: rustup update
-      - uses: actions/cache@v5
-        with:
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            target/
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-      - name: Typos Install
-        run: which typos || cargo install typos-cli
       - name: Typos
-        run: typos --write-changes
+        uses: coderaiser/typos.ai@v1.1.8
+        with:
+          key: ${{ secrets.TYPOS_AI_KEY }}
       - name: Commit fixes
         continue-on-error: true
         uses: EndBug/add-and-commit@v10

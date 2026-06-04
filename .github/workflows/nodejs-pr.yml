@@ -27,20 +27,9 @@ jobs:
         run: yarn --no-lockfile
       - name: Lint
         run: redrun lint
-      - name: Install Rust
-        run: rustup update
-      - uses: actions/cache@v5
-        with:
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            target/
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-      - name: Typos Install
-        run: cargo install typos-cli || echo 'already installed'
       - name: Typos
-        run: typos
+        uses: coderaiser/typos.ai@v1.1.8
+        with:
+          key: ${{ secrets.TYPOS_AI_KEY }}
       - name: Coverage
         run: redrun coverage report

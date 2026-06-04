@@ -1,3 +1,4 @@
+import * as convertTyposToTyposAi from './convert-typos-to-typos-ai/index.js';
 import * as setMessageOfCommitFixes from './set-message-of-commit-fixes/index.js';
 import * as insertRust from './insert-rust/index.js';
 import * as convertNpmToBun from './convert-npm-to-bun/index.js';
@@ -16,4 +17,5 @@ export const rules = {
     'convert-npm-to-bun': convertNpmToBun,
     'insert-rust': insertRust,
     'set-message-of-commit-fixes': setMessageOfCommitFixes,
+    'convert-typos-to-typos-ai': convertTyposToTyposAi,
 };

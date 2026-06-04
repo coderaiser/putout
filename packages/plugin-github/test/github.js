@@ -76,3 +76,8 @@ test('plugin-github: transform: set-message-of-commit-fixes', (t) => {
     t.transform('set-message-of-commit-fixes');
     t.end();
 });
+
+test('plugin-github: transform: convert-typos-to-typos-ai', (t) => {
+    t.transform('convert-typos-to-typos-ai');
+    t.end();
+});

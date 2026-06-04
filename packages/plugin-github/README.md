@@ -21,6 +21,7 @@ npm i @putout/plugin-github -D
 - ✅ [add-continue-on-error-to-coveralls](#add-continue-on-error-to-coveralls);
 - ✅ [add-property.js](#add-property.js);
 - ✅ [convert-npm-to-bun](#convert-npm-to-bun);
+- ✅ [convert-typos-to-typos-ai](#convert-typos-to-typos-ai);
 - ✅ [insert-rust](#insert-rust);
 - ✅ [install-bun](#install-bun);
 - ✅ [set-node-versions](#set-node-versions);
@@ -34,11 +35,12 @@ npm i @putout/plugin-github -D
     "rules": {
         "github/add-continue-on-error-to-coveralls": "on",
         "github/add-continue-on-error-to-add-and-commit": "on",
+        "github/convert-npm-to-bun": "on",
+        "github/convert-typos-to-typos-ai": "on",
         "github/set-node-versions": "on",
         "github/set-message-of-commit-fixes": "on",
         "github/install-bun": "on",
         "github/install-rust": "on",
-        "github/convert-npm-to-bun": "on",
         "github/update-actions": "on"
     }
 }
@@ -267,6 +269,43 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e03cc6ff4d
 - name: Install
 -    run: npm install
 +    run: bun i --no-save
+```
+
+## convert-typos-to-typos-ai
+
+Use [typos.ai](https://github.com/coderaiser/typos.ai) action, it is much simpler and also clever.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/05457ee0a03ac861e0a12a35ce1f78db/8195c4f3c8ee83be9d9b33756ea329cfc688d7c4).
+
+```diff
+_ - name: Install Rust
+_   run: rustup update
+_ - uses: actions/cache@v5
+_   with:
+_     path: |
+_       ~/.cargo/bin/
+_       ~/.cargo/registry/index/
+_       ~/.cargo/registry/cache/
+_       ~/.cargo/git/db/
+_       target/
+_     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+_ - name: Typos Install
+_   run: which typos || cargo install typos-cli
+  - name: Typos
+_   run: typos --write-changes
++   uses: coderaiser/typos.ai@v1.1.5
++   with:
++     key: ${{ secrets.TYPOS_AI_KEY }}
+```
+
+## convert-npm-to-bun
+
+```diff
+  - name: Install Redrun
+-   run: npm install redrun -g --no-save
++   run: bun install redrun -g --no-save
+  - name: Install
+-   run: npm i -f --no-save
++   run: bun i -f --no-save
 ```
 
 ## License
