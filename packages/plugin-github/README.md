@@ -292,7 +292,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/05457ee0a0
 -   run: which typos || cargo install typos-cli
   - name: Typos
 -   run: typos --write-changes
-+   uses: coderaiser/typos.ai@v1.1.5
++   uses: coderaiser/typos.ai@v1.1.8
 +   with:
 +     key: ${{ secrets.TYPOS_AI_KEY }}
 ```
