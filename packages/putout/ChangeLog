@@ -1,3 +1,23 @@
+2026.06.05, v42.5.2
+
+feature:
+- af18c6f1d putout: @putout/plugin-remove-useless-functions v6.0.0
+- ff09c5c32 putout: @putout/cli-ruler v5.0.0
+- 9534592e8 @putout/cli-ruler: drop support of node < 22
+- 82b91bafc @putout/cli-ruler: isTuple -> isArray
+- dad8d643a @putout/plugin-remove-useless-functions: drop support of 🐊 < 42
+- a49acdfa0 @putout/plugin-remove-useless-functions: ObjectProperty
+- ab0369c30 @putout/plugin-github: convert-typos-to-typos-ai
+- 0ec2eaa3b @putout/processor-toml: oxfmt v0.53.0
+- d663316c5 @putout/plugin-tape: extract-args-from-called-with: add
+- b0c7bd7cf @putout/plugin-nodejs: declare: os
+- 7ff565348 @putout/processor-toml: oxfmt v0.52.0
+- 03627ce0f @putout/plugin-esm: resolve-imported-file-with-extensions: change-imports: json -> js
+- 579cfb9bd @putout/plugin-putout: remove-useless-source-argument: exclude internal imports
+- e36a3612b @putout/plugin-putout: check-replace-code: no-body: exclude
+- 9acc48f27 @putout/plugin-esm: resolve-imported-file-with-extension: add
+- 1bd917ac9 @putout/plugin-nodejs: remove-useless-exports-assign: add
+
 2026.05.25, v42.5.1
 
 feature:
