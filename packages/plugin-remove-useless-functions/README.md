@@ -29,6 +29,10 @@ const y = (...a) => {
 };
 
 [1, 2, null].filter((a) => a);
+
+const a = {
+    condition: (path) => isObjectInsideArrow(path),
+};
 ```
 
 ## ✅ Example of correct code
@@ -36,6 +40,10 @@ const y = (...a) => {
 ```js
 const y = alert;
 [1, 2, null].filter(Boolean);
+
+const a = {
+    condition: isObjectInsideArrow(path),
+};
 ```
 
 ## Open Questions

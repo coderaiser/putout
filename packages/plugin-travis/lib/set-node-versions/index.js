@@ -6,8 +6,6 @@ const {__yaml} = operator;
 
 const isNodeJS = (property) => property.key.value === 'node_js';
 const getValue = ({value}) => value;
-const one = (f) => (a) => f(a);
-
 const defaultVersions = [16, 18];
 
 export const report = () => 'Latest version of node is missing';
@@ -30,7 +28,7 @@ export const replace = () => ({
     [__yaml]({__object}, path) {
         const nodeJS = __object.properties.find(isNodeJS);
         
-        nodeJS.value.elements = defaultVersions.map(one(numericLiteral));
+        nodeJS.value.elements = defaultVersions.map(numericLiteral);
         
         return path;
     },

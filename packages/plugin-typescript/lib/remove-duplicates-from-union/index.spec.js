@@ -40,7 +40,7 @@ test('plugin-remove-duplicates-from-union: transform: remove', (t) => {
             include: () => [
                 'TSTypeLiteral',
             ],
-            fix: (path) => remove(path),
+            fix: remove,
         },
     });
     t.end();

@@ -5,7 +5,7 @@ const {isProgram} = types;
 
 export const report = () => `Avoid 'use strict' in ESM`;
 
-export const fix = (path) => remove(path);
+export const fix = remove;
 
 export const traverse = ({push, store}) => ({
     'await __a(__args)'({scope}) {
