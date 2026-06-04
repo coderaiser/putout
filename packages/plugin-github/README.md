@@ -277,21 +277,21 @@ Use [typos.ai](https://github.com/coderaiser/typos.ai) action, it is much simple
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/05457ee0a03ac861e0a12a35ce1f78db/8195c4f3c8ee83be9d9b33756ea329cfc688d7c4).
 
 ```diff
-_ - name: Install Rust
-_   run: rustup update
-_ - uses: actions/cache@v5
-_   with:
-_     path: |
-_       ~/.cargo/bin/
-_       ~/.cargo/registry/index/
-_       ~/.cargo/registry/cache/
-_       ~/.cargo/git/db/
-_       target/
-_     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-_ - name: Typos Install
-_   run: which typos || cargo install typos-cli
+- - name: Install Rust
+-   run: rustup update
+- - uses: actions/cache@v5
+-   with:
+-     path: |
+-       ~/.cargo/bin/
+-       ~/.cargo/registry/index/
+-       ~/.cargo/registry/cache/
+-       ~/.cargo/git/db/
+-       target/
+-     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+- - name: Typos Install
+-   run: which typos || cargo install typos-cli
   - name: Typos
-_   run: typos --write-changes
+-   run: typos --write-changes
 +   uses: coderaiser/typos.ai@v1.1.5
 +   with:
 +     key: ${{ secrets.TYPOS_AI_KEY }}
