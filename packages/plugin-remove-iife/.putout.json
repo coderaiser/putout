@@ -1,7 +1,8 @@
 {
     "match": {
         "*.md": {
-            "remove-iife": "off"
+            "remove-iife": "off",
+            "remove-useless-functions": "off"
         }
     }
 }
