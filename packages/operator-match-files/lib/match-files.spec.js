@@ -4,6 +4,7 @@ import test from 'supertape';
 import putout from 'putout';
 import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-commonjs';
 import {
+    __yaml,
     __json,
     __filesystem,
     toJS,
@@ -769,6 +770,65 @@ test('putout: operator: match-files: exclude', (t) => {
         ['/hello.mjs', 'export default {}'],
         ['/index.cjs', 'bW9kdWxlLmV4cG9ydHMgPSB7fTsK'],
     ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: match-files: yaml', (t) => {
+    const content = `
+            name: Node CI
+            on:
+              push:
+                branches: master
+    `;
+    
+    const source = stringify([
+        '/',
+        ['/actions.yaml', content],
+    ]);
+    
+    const convertYamlToJSON = {
+        report: () => '',
+        replace: () => ({
+            [__yaml]: __json,
+        }),
+    };
+    
+    const files = {
+        'actions.yaml -> actions.json': convertYamlToJSON,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, {
+        rules: {
+            'match-files': 'on',
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const json = btoa(
+        stringify({
+            name: 'Node CI',
+            on: {
+                push: {
+                    branches: 'master',
+                },
+            },
+        }, null, 4) +
+        '\n',
+    );
+    
+    const expected = ['/', ['/actions.json', json]];
     
     t.deepEqual(result, expected);
     t.end();

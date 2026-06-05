@@ -2,6 +2,7 @@ import path from 'node:path';
 import {parse, print} from '@putout/engine-parser';
 import {transform} from 'putout/transform';
 import {findPlaces} from 'putout/find-places';
+import * as processorYaml from '@putout/processor-yaml';
 import {ignores} from 'putout/ignores';
 import {toJS, fromJS} from '@putout/operator-json';
 import {
@@ -135,6 +136,13 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
 function magicParse(name, content) {
     if (name.endsWith('.json')) {
         const js = toJS(content);
+        const ast = parse(js);
+        
+        return [js, ast];
+    }
+    
+    if (/\.ya?ml$/.test(name)) {
+        const [{source: js}] = processorYaml.branch(content);
         const ast = parse(js);
         
         return [js, ast];
