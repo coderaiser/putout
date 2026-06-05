@@ -186,3 +186,8 @@ test('plugin-putout: check-replace-code: no report: no-body', (t) => {
     t.noReport('no-body');
     t.end();
 });
+
+test('plugin-putout: check-replace-code: no report: yaml', (t) => {
+    t.noReport('yaml');
+    t.end();
+});
