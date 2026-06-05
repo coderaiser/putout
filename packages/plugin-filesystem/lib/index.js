@@ -12,6 +12,7 @@ import * as replaceCwd from './replace-cwd/index.js';
 import * as readAllFiles from './read-all-files/index.js';
 import * as writeAllFiles from './write-all-files/index.js';
 import * as convertJsToJson from './convert-js-to-json/index.js';
+import * as convertYamlToJson from './convert-yaml-to-json/index.js';
 
 export const rules = {
     'remove-files': ['off', removeFiles],
@@ -27,5 +28,6 @@ export const rules = {
     'read-all-files': ['off', readAllFiles],
     'write-all-files': ['off', writeAllFiles],
     'convert-js-to-json': ['off', convertJsToJson],
+    'convert-yaml-to-json': ['off', convertYamlToJson],
     'convert-json-to-js': ['off', convertJsonToJs],
 };

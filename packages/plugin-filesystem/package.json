@@ -14,6 +14,9 @@
     "./write-all-files": "./lib/write-all-files/index.js",
     "./replace-cwd": "./lib/replace-cwd/index.js"
   },
+  "imports": {
+    "#filesystem": "./lib/index.js"
+  },
   "release": false,
   "tag": false,
   "changelog": false,

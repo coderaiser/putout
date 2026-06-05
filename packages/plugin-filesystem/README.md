@@ -16,6 +16,7 @@ npm i @putout/plugin-filesystem -D
 - ✅ [bundle](#bundle);
 - ✅ [convert-filesystem-to-simple-filesystem](#convert-filesystem-to-simple-filesystem);
 - ✅ [convert-js-to-json](#convert-js-to-json);
+- ✅ [convert-yaml-to-json](#convert-yaml-to-json);
 - ✅ [convert-json-to-js](#convert-json-to-js);
 - ✅ [convert-simple-filesystem-to-filesystem](#convert-simple-filesystem-to-filesystem);
 - ✅ [move-referenced-file](#move-referenced-file);
@@ -51,6 +52,9 @@ npm i @putout/plugin-filesystem -D
         }],
         "filesystem/convert-json-to-js": ["off", {
             "filename": "package.json"
+        }],
+        "filesystem/convert-yaml-to-js": ["off", {
+            "filename": "actions.yaml"
         }],
         "filesystem/convert-js-to-json": ["off", {
             "filename": "package.js"
@@ -618,12 +622,35 @@ Filesystem:
 }
 ```
 
+## convert-yaml-to-json
+
+Filesystem:
+
+```diff
+-["/", "/actions.yaml"]
++["/", "/actions.json"]
+```
+
+### ❌ Example of incorrect code
+
+```yaml
+name: Node CI
+on:
+    push:
+    branches: master
+```
+
 ### ✅ Example of correct code
 
-```js
-export default {
-    plugins: [],
-};
+```json
+{
+    "name": "Node CI",
+    "on": {
+        "push": {
+            "branches": "master"
+        }
+    }
+}
 ```
 
 ## convert-js-to-json
