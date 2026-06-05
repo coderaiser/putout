@@ -1,5 +1,5 @@
 import {createTest} from '@putout/test';
-import * as filesystem from '../lib/index.js';
+import * as filesystem from '#filesystem';
 
 const test = createTest(import.meta.url, {
     rules: {
