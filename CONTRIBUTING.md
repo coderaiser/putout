@@ -97,6 +97,64 @@ The command `UPDATE=1 npm run test` will generate `fixture` for you, so you need
 When your made changes, added coverage and your package is ready for publishing 📦 , run: `npm run fresh`,
 in the root of the repository, it will run `lint` and `test` over all `packages`.
 
+## 🤷 How to add a format conversion plugin (e.g., `convert-json-to-yaml`) to `@putout/plugin-filesystem`?
+
+The `@putout/plugin-filesystem` package has an established two-layer pattern for file format conversions (e.g., `json↔yaml`, `json↔js`). When creating a new reverse-direction conversion, follow this checklist:
+
+### 🧱 Two-layer structure
+
+Each conversion plugin has:
+
+1. **Outer plugin** (`lib/convert-X-to-Y/index.js`):
+   - Uses `matchFiles()` from `putout`'s `operator` with pattern `__name.X -> __name.Y`
+   - Handles file discovery, reading, renaming, and writing
+
+2. **Inner convert sub-plugin** (`lib/convert-X-to-Y/convert/index.js`):
+   - Uses AST template placeholders from `@putout/operator-json` (re-exported as `operator.__json`, `operator.__yaml`, etc.)
+   - Exports `replace()` mapping one processor wrapper to another (e.g., `[__json]: __yaml`)
+
+### 📁 Files to create
+
+For a plugin named `convert-json-to-yaml`, create all of these:
+
+| #  | File                                                                         | Purpose                                                                          |
+|----|--------------------------------------------------------------|----------------------------------------------------------------------------------|
+| 1  | `lib/convert-X-to-Y/index.js`                                | Outer `matchFiles` plugin                                                        |
+| 2  | `lib/convert-X-to-Y/index.spec.js`                           | Spec for outer plugin                                                            |
+| 3  | `lib/convert-X-to-Y/fixture/convert-X-to-Y.js`               | Filesystem fixture input                                                         |
+| 4  | `lib/convert-X-to-Y/fixture/convert-X-to-Y-fix.js`           | Filesystem fixture expected output (content is base64-encoded)                   |
+| 5  | `lib/convert-X-to-Y/convert/index.js`                        | Inner `replace()` sub-plugin                                                     |
+| 6  | `lib/convert-X-to-Y/convert/index.spec.js`                   | Unit test for inner convert                                                      |
+| 7  | `lib/convert-X-to-Y/convert/fixture/convert-X-to-Y.js`       | Convert fixture input (raw processor call)                                       |
+| 8  | `lib/convert-X-to-Y/convert/fixture/convert-X-to-Y-fix.js`   | Convert fixture expected output                                                  |
+| 9  | `test/convert-X-to-Y.js`                                     | Integration test                                                                 |
+| 10 | `test/fixture/convert-X-to-Y.js`                             | Integration fixture input                                                        |
+| 11 | `test/fixture/convert-X-to-Y-fix.js`                         | Integration fixture expected output                                              |
+| 12 | `test/fixture/convert-X-to-Y-disabled.js`                    | Fixture for disabled-rule test                                                   |
+
+### 📝 Files to modify
+
+| #  | File                 | Change                                                                              |
+|----|----------------------|-------------------------------------------------------------------------------------|
+| 1  | `lib/index.js`       | Import and register rule as `'convert-X-to-Y': ['off', convertXToY]`                |
+| 2  | `test/filesystem.js` | Add a `noTransform('convert-X-to-Y-disabled')` test                                |
+| 3  | `README.md`          | Add to rules list, config example, and documentation section with ❌/✅ examples     |
+
+### 🧪 Testing
+
+```sh
+npm run fix:lint   # auto-fix linting issues
+npm run coverage   # run tests with coverage (should be 100%)
+```
+
+### 💡 Key tips
+
+- **AST placeholders** live in `@putout/operator-json/lib/json.js`: `__json`, `__yaml`, `__toml`, `__docker`, `__filesystem`, `__ignore`.
+- **`magicParse`** in `@putout/operator-match-files` handles `.json`, `.yaml`/`.yml`, `.ts`/`.tsx` etc. automatically — no extra processor wiring needed.
+- **`magicPrint`** similarly handles printing back to `.json` or `.yaml` — this may need updating when adding a new output format.
+- **Base64** content in fix fixtures: the filesystem processor stores file content as base64-encoded strings in fix output.
+- **Converter reference patterns**: for quickly creating conversion plugins, reference existing symmetric pairs (e.g., `convert-yaml-to-json` ↔ `convert-json-to-yaml`) — the `replace()` templates simply swap the source and target placeholders.
+
 ## 🤷 What if I'm adding new plugin?
 
 When adding new plugin, add it to [`package.json`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json) and [`putout.json`](https://github.com/coderaiser/putout/blob/master/packages/putout/putout.json).
