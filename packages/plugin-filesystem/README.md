@@ -16,6 +16,7 @@ npm i @putout/plugin-filesystem -D
 - ✅ [bundle](#bundle);
 - ✅ [convert-filesystem-to-simple-filesystem](#convert-filesystem-to-simple-filesystem);
 - ✅ [convert-js-to-json](#convert-js-to-json);
+- ✅ [convert-json-to-yaml](#convert-json-to-yaml);
 - ✅ [convert-yaml-to-json](#convert-yaml-to-json);
 - ✅ [convert-json-to-js](#convert-json-to-js);
 - ✅ [convert-simple-filesystem-to-filesystem](#convert-simple-filesystem-to-filesystem);
@@ -49,6 +50,9 @@ npm i @putout/plugin-filesystem -D
         "filesystem/replace-cwd": ["off", {
             "from": "/home/coderaiser/putout",
             "to": "/"
+        }],
+        "filesystem/convert-json-to-yaml": ["off", {
+            "filename": "actions.json"
         }],
         "filesystem/convert-json-to-js": ["off", {
             "filename": "package.json"
@@ -620,6 +624,37 @@ Filesystem:
 {
     "plugins": []
 }
+```
+
+## convert-json-to-yaml
+
+Filesystem:
+
+```diff
+-["/", "/actions.json"]
++["/", "/actions.yaml"]
+```
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "name": "Node CI",
+    "on": {
+        "push": {
+            "branches": "master"
+        }
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```yaml
+name: Node CI
+on:
+    push:
+        branches: master
 ```
 
 ## convert-yaml-to-json
