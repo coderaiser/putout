@@ -6,7 +6,7 @@
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to declare variable that was not defined before, including:
 
 - [maybe](https://github.com/coderaiser/putout/tree/master/packages/plugin-maybe#readme): `maybeArray`, `maybeFn`, `maybeEmptyArray`;
-- wrap: `not`,`id`, `returns`;
+- wrap: `not`,`id`, `returns`, `callWith`;
 - set: `difference`;
 - fresh-import: `freshImport`, `freshImportDefault`;
 - `fixtures`: `readFixture`;
