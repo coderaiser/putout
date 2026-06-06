@@ -775,7 +775,7 @@ test('putout: operator: match-files: exclude', (t) => {
     t.end();
 });
 
-test('putout: operator: match-files: yaml', (t) => {
+test('putout: operator: match-files: yaml to json', (t) => {
     const content = `
             name: Node CI
             on:
@@ -829,6 +829,56 @@ test('putout: operator: match-files: yaml', (t) => {
     );
     
     const expected = ['/', ['/actions.json', json]];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: match-files: json to yaml', (t) => {
+    const content = stringify({
+        name: 'Node CI',
+        on: {
+            push: {
+                branches: 'master',
+            },
+        },
+    }, null, 4);
+    
+    const source = stringify([
+        '/',
+        ['/actions.json', content],
+    ]);
+    
+    const convertJsonToYaml = {
+        report: () => '',
+        replace: () => ({
+            [__json]: __yaml,
+        }),
+    };
+    
+    const files = {
+        'actions.json -> actions.yaml': convertJsonToYaml,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, {
+        rules: {
+            'match-files': 'on',
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const json = btoa('name: Node CI\non:\n  push:\n    branches: master\n');
+    const expected = ['/', ['/actions.yaml', json]];
     
     t.deepEqual(result, expected);
     t.end();

@@ -160,13 +160,15 @@ function magicParse(name, content) {
 }
 
 function magicPrint(name, ast, options) {
-    if (name.endsWith('.json')) {
-        const js = print(ast, options);
-        
-        return fromJS(js);
-    }
+    const js = print(ast, options);
     
-    return print(ast);
+    if (name.endsWith('.json'))
+        return fromJS(js);
+    
+    if (name.endsWith('.yaml'))
+        return processorYaml.merge(null, [js]);
+    
+    return js;
 }
 
 function check(files) {
