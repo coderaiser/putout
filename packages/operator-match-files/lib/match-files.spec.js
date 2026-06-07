@@ -6,6 +6,7 @@ import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-comm
 import {
     __yaml,
     __json,
+    __toml,
     __filesystem,
     toJS,
     fromJS,
@@ -14,6 +15,7 @@ import {
     findFile,
     readFileContent,
 } from '@putout/operator-filesystem';
+import {montag} from 'montag';
 import {matchFiles} from './match-files.js';
 
 const {stringLiteral, objectProperty} = types;
@@ -879,6 +881,115 @@ test('putout: operator: match-files: json to yaml', (t) => {
     
     const json = btoa('name: Node CI\non:\n  push:\n    branches: master\n');
     const expected = ['/', ['/actions.yaml', json]];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: match-files: toml to json', (t) => {
+    const content = `
+        [install]
+        lockfile = false
+        linker = "hoisted"
+    `;
+    
+    const source = stringify([
+        '/',
+        ['/bunfig.toml', content],
+    ]);
+    
+    const convertTomlToJSON = {
+        report: () => '',
+        replace: () => ({
+            [__toml]: __json,
+        }),
+    };
+    
+    const files = {
+        'bunfig.toml -> bunfig.json': convertTomlToJSON,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, {
+        rules: {
+            'match-files': 'on',
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const json = btoa(
+        stringify({
+            install: {
+                lockfile: false,
+                linker: 'hoisted',
+            },
+        }, null, 4) +
+        '\n',
+    );
+    
+    const expected = ['/', ['/bunfig.json', json]];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: match-files: json to toml', (t) => {
+    const content = stringify({
+        install: {
+            lockfile: false,
+            linker: 'hoisted',
+        },
+    });
+    
+    const source = stringify([
+        '/',
+        ['/bunfig.json', content],
+    ]);
+    
+    const convertTomlToJSON = {
+        report: () => '',
+        replace: () => ({
+            [__json]: __toml,
+        }),
+    };
+    
+    const files = {
+        'bunfig.json -> bunfig.toml': convertTomlToJSON,
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, {
+        rules: {
+            'match-files': 'on',
+        },
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const toml = btoa(montag`
+        [install]
+        lockfile = false
+        linker = "hoisted"\n
+    `);
+    
+    const expected = ['/', ['/bunfig.toml', toml]];
     
     t.deepEqual(result, expected);
     t.end();

@@ -1,10 +1,7 @@
 import path from 'node:path';
-import {parse, print} from '@putout/engine-parser';
 import {transform} from 'putout/transform';
 import {findPlaces} from 'putout/find-places';
-import * as processorYaml from '@putout/processor-yaml';
 import {ignores} from 'putout/ignores';
-import {toJS, fromJS} from '@putout/operator-json';
 import {
     readFileContent,
     findFile,
@@ -14,6 +11,8 @@ import {
     removeFile,
     getParentDirectory,
 } from '@putout/operator-filesystem';
+import {magicPrint} from './magic-print.js';
+import {magicParse} from './magic-parse.js';
 
 const {join} = path;
 
@@ -108,6 +107,7 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
         });
         
         const fileContent = readFileContent(inputFile) || '{}';
+        
         const [matchedJS, matchedAST] = magicParse(inputFilename, fileContent);
         
         const options = parseOptions(inputFilename, rawOptions);
@@ -132,44 +132,6 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
         });
     }
 };
-
-function magicParse(name, content) {
-    if (name.endsWith('.json')) {
-        const js = toJS(content);
-        const ast = parse(js);
-        
-        return [js, ast];
-    }
-    
-    if (/\.ya?ml$/.test(name)) {
-        const [{source: js}] = processorYaml.branch(content);
-        const ast = parse(js);
-        
-        return [js, ast];
-    }
-    
-    if (/\.[cm]?ts(x)?$/.test(name)) {
-        const ast = parse(content, {
-            isTS: true,
-        });
-        
-        return [content, ast];
-    }
-    
-    return [content, parse(content)];
-}
-
-function magicPrint(name, ast, options) {
-    const js = print(ast, options);
-    
-    if (name.endsWith('.json'))
-        return fromJS(js);
-    
-    if (name.endsWith('.yaml'))
-        return processorYaml.merge(null, [js]);
-    
-    return js;
-}
 
 function check(files) {
     for (const [, plugin] of entries(files)) {
