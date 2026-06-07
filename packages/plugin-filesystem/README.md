@@ -16,6 +16,7 @@ npm i @putout/plugin-filesystem -D
 - ✅ [bundle](#bundle);
 - ✅ [convert-filesystem-to-simple-filesystem](#convert-filesystem-to-simple-filesystem);
 - ✅ [convert-js-to-json](#convert-js-to-json);
+- ✅ [convert-json-to-toml](#convert-json-to-toml);
 - ✅ [convert-json-to-yaml](#convert-json-to-yaml);
 - ✅ [convert-yaml-to-json](#convert-yaml-to-json);
 - ✅ [convert-json-to-js](#convert-json-to-js);
@@ -624,6 +625,34 @@ Filesystem:
 {
     "plugins": []
 }
+```
+
+## convert-json-to-toml
+
+Filesystem:
+
+```diff
+-["/", "/bunfig.json"]
++["/", "/bunfig.toml"]
+```
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "install": {
+        "lockfile": false,
+        "linker": "hoisted"
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```toml
+[install]
+lockfile = false
+linker = "hoisted"
 ```
 
 ## convert-json-to-yaml

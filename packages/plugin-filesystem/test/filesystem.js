@@ -82,6 +82,11 @@ test('plugin-filesystem: no transform: convert-yaml-to-json-disabled', (t) => {
     t.end();
 });
 
+test('plugin-filesystem: no transform: convert-json-to-toml-disabled', (t) => {
+    t.noTransform('convert-json-to-toml-disabled');
+    t.end();
+});
+
 test('plugin-filesystem: no transform: convert-json-to-yaml-disabled', (t) => {
     t.noTransform('convert-json-to-yaml-disabled');
     t.end();
