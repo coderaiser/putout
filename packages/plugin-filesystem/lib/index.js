@@ -13,6 +13,7 @@ import * as readAllFiles from './read-all-files/index.js';
 import * as writeAllFiles from './write-all-files/index.js';
 import * as convertJsToJson from './convert-js-to-json/index.js';
 import * as convertYamlToJson from './convert-yaml-to-json/index.js';
+import * as convertYamlToToml from './convert-yaml-to-toml/index.js';
 import * as convertJsonToToml from './convert-json-to-toml/index.js';
 import * as convertTomlToJson from './convert-toml-to-json/index.js';
 import * as convertTomlToYaml from './convert-toml-to-yaml/index.js';
@@ -33,6 +34,7 @@ export const rules = {
     'write-all-files': ['off', writeAllFiles],
     'convert-js-to-json': ['off', convertJsToJson],
     'convert-yaml-to-json': ['off', convertYamlToJson],
+    'convert-yaml-to-toml': ['off', convertYamlToToml],
     'convert-json-to-toml': ['off', convertJsonToToml],
     'convert-toml-to-json': ['off', convertTomlToJson],
     'convert-toml-to-yaml': ['off', convertTomlToYaml],

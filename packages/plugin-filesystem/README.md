@@ -16,6 +16,7 @@ npm i @putout/plugin-filesystem -D
 - ✅ [bundle](#bundle);
 - ✅ [convert-filesystem-to-simple-filesystem](#convert-filesystem-to-simple-filesystem);
 - ✅ [convert-js-to-json](#convert-js-to-json);
+- ✅ [convert-yaml-to-toml](#convert-yaml-to-toml);
 - ✅ [convert-json-to-toml](#convert-json-to-toml);
 - ✅ [convert-toml-to-json](#convert-toml-to-json);
 - ✅ [convert-toml-to-yaml](#convert-toml-to-yaml);
@@ -57,6 +58,9 @@ npm i @putout/plugin-filesystem -D
         }],
         "filesystem/convert-json-to-yaml": ["off", {
             "filename": "actions.json"
+        }],
+        "filesystem/convert-yaml-to-toml": ["off", {
+            "filename": "bunfig.yaml"
         }],
         "filesystem/convert-json-to-toml": ["off", {
             "filename": "bunfig.json"
@@ -749,6 +753,31 @@ name: Node CI
 on:
     push:
         branches: master
+```
+
+## convert-yaml-to-toml
+
+Filesystem:
+
+```diff
+-["/", "/bunfig.yaml"]
++["/", "/bunfig.toml"]
+```
+
+### ❌ Example of incorrect code
+
+```yaml
+install:
+  lockfile: false
+  linker: hoisted
+```
+
+### ✅ Example of correct code
+
+```toml
+[install]
+lockfile = false
+linker = "hoisted"
 ```
 
 ## convert-yaml-to-json
