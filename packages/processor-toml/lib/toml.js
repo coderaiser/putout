@@ -39,15 +39,19 @@ export const find = (rawSource) => {
     return places;
 };
 
-export const merge = async (rawSource, list) => {
+const getCode = (a) => a.code;
+
+export const merge = (rawSource, list, overrides = {}) => {
+    const {beautify = true} = overrides;
     const [first] = list.filter(isTOML);
     const source = fromJS(first, __toml);
     const ast = parse(source);
     const input = toml.stringify(ast);
     
-    const {code} = await format('__putout_processor.toml', input);
+    if (beautify)
+        return format('__putout_processor.toml', input).then(getCode);
     
-    return code;
+    return cutSpaces(input);
 };
 
 function parseMessage(message) {
@@ -75,4 +79,10 @@ function parsePlaces({error}) {
     };
     
     return [place];
+}
+
+function cutSpaces(a) {
+    return a
+        .replace('[ ', '[')
+        .replace(' ]', ']');
 }

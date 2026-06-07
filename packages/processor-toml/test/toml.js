@@ -75,3 +75,23 @@ test('putout: processor: toml: merge: no change', async (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: processor: toml: merge: no beautify: sync', (t) => {
+    const rawSource = `
+        extend-exclude = ["ChangeLog"]
+    `;
+    
+    const [{source}] = branch(rawSource);
+    
+    const result = merge(rawSource, [source], {
+        beautify: false,
+    });
+    
+    const expected = montag`
+        extend-exclude = ["ChangeLog"]
+    ` +
+        '\n';
+    
+    t.equal(result, expected);
+    t.end();
+});
