@@ -99,7 +99,7 @@ in the root of the repository, it will run `lint` and `test` over all `packages`
 
 ## 🤷 How to add a format conversion plugin (e.g., `convert-json-to-yaml`) to `@putout/plugin-filesystem`?
 
-The `@putout/plugin-filesystem` package has an established two-layer pattern for file format conversions (e.g., `json↔yaml`, `json↔js`). When creating a new reverse-direction conversion, follow this checklist:
+The `@putout/plugin-filesystem` package has an established two-layer pattern for file format conversions (e.g., `json↔yaml`, `json↔js`, `json↔toml`, `toml↔yaml`). When creating a new conversion, follow this checklist:
 
 ### 🧱 Two-layer structure
 
@@ -117,28 +117,28 @@ Each conversion plugin has:
 
 For a plugin named `convert-json-to-yaml`, create all of these:
 
-| #  | File                                                                         | Purpose                                                                          |
-|----|--------------------------------------------------------------|----------------------------------------------------------------------------------|
-| 1  | `lib/convert-X-to-Y/index.js`                                | Outer `matchFiles` plugin                                                        |
-| 2  | `lib/convert-X-to-Y/index.spec.js`                           | Spec for outer plugin                                                            |
-| 3  | `lib/convert-X-to-Y/fixture/convert-X-to-Y.js`               | Filesystem fixture input                                                         |
-| 4  | `lib/convert-X-to-Y/fixture/convert-X-to-Y-fix.js`           | Filesystem fixture expected output (content is base64-encoded)                   |
-| 5  | `lib/convert-X-to-Y/convert/index.js`                        | Inner `replace()` sub-plugin                                                     |
-| 6  | `lib/convert-X-to-Y/convert/index.spec.js`                   | Unit test for inner convert                                                      |
-| 7  | `lib/convert-X-to-Y/convert/fixture/convert-X-to-Y.js`       | Convert fixture input (raw processor call)                                       |
-| 8  | `lib/convert-X-to-Y/convert/fixture/convert-X-to-Y-fix.js`   | Convert fixture expected output                                                  |
-| 9  | `test/convert-X-to-Y.js`                                     | Integration test                                                                 |
-| 10 | `test/fixture/convert-X-to-Y.js`                             | Integration fixture input                                                        |
-| 11 | `test/fixture/convert-X-to-Y-fix.js`                         | Integration fixture expected output                                              |
-| 12 | `test/fixture/convert-X-to-Y-disabled.js`                    | Fixture for disabled-rule test                                                   |
+| #  | File                                                         | Purpose                                                                           |
+|----|--------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| 1  | `lib/convert-X-to-Y/index.js`                                | Outer `matchFiles` plugin                                                         |
+| 2  | `lib/convert-X-to-Y/index.spec.js`                           | Spec for outer plugin                                                             |
+| 3  | `lib/convert-X-to-Y/fixture/convert-X-to-Y.js`               | Filesystem fixture input                                                          |
+| 4  | `lib/convert-X-to-Y/fixture/convert-X-to-Y-fix.js`           | Filesystem fixture expected output (content is base64-encoded)                    |
+| 5  | `lib/convert-X-to-Y/convert/index.js`                        | Inner `replace()` sub-plugin                                                      |
+| 6  | `lib/convert-X-to-Y/convert/index.spec.js`                   | Unit test for inner convert                                                       |
+| 7  | `lib/convert-X-to-Y/convert/fixture/convert-X-to-Y.js`       | Convert fixture input (raw processor call)                                        |
+| 8  | `lib/convert-X-to-Y/convert/fixture/convert-X-to-Y-fix.js`   | Convert fixture expected output                                                   |
+| 9  | `test/convert-X-to-Y.js`                                     | Integration test                                                                  |
+| 10 | `test/fixture/convert-X-to-Y.js`                             | Integration fixture input                                                         |
+| 11 | `test/fixture/convert-X-to-Y-fix.js`                         | Integration fixture expected output                                               |
+| 12 | `test/fixture/convert-X-to-Y-disabled.js`                    | Fixture for disabled-rule test                                                    |
 
 ### 📝 Files to modify
 
-| #  | File                 | Change                                                                              |
-|----|----------------------|-------------------------------------------------------------------------------------|
-| 1  | `lib/index.js`       | Import and register rule as `'convert-X-to-Y': ['off', convertXToY]`                |
-| 2  | `test/filesystem.js` | Add a `noTransform('convert-X-to-Y-disabled')` test                                |
-| 3  | `README.md`          | Add to rules list, config example, and documentation section with ❌/✅ examples     |
+| #  | File                 | Change                                                                                |
+|----|----------------------|---------------------------------------------------------------------------------------|
+| 1  | `lib/index.js`       | Import and register rule as `'convert-X-to-Y': ['off', convertXToY]`                  |
+| 2  | `test/filesystem.js` | Add a `noTransform('convert-X-to-Y-disabled')` test                                   |
+| 3  | `README.md`          | Add to rules list, config example, and documentation section with ❌/✅ examples      |
 
 ### 🧪 Testing
 
