@@ -17,15 +17,15 @@ test('putout: processor: toml: no places', async ({comparePlaces}) => {
 test('putout: processor: toml: duplicate', async ({comparePlaces}) => {
     await comparePlaces('duplicate.toml', [{
         position: {
-            column: 2,
+            column: 0,
             line: 4,
         },
-        message: 'Invalid TOML document: trying to redefine an already defined table or value',
+        message: 'Table already defined: install',
         rule: 'toml-parse-error (toml)',
     }]);
 });
 
-test('putout: processor: toml: merge: a couple items in list: not last', async (t) => {
+test('putout: processor: toml: merge: a couple items in list: not last', (t) => {
     const rawSource = montag`
         __putout_processor_toml({
             "hello": {
@@ -47,7 +47,7 @@ test('putout: processor: toml: merge: a couple items in list: not last', async (
         filesystem,
     ];
     
-    const result = await merge(rawSource, list);
+    const result = merge(rawSource, list);
     
     const expected = montag`
         [hello]
@@ -59,33 +59,13 @@ test('putout: processor: toml: merge: a couple items in list: not last', async (
     t.end();
 });
 
-test('putout: processor: toml: merge: no change', async (t) => {
+test('putout: processor: toml: merge: no change', (t) => {
     const rawSource = `
         extend-exclude = ["ChangeLog"]
     `;
     
     const [{source}] = branch(rawSource);
-    const result = await merge(rawSource, [source]);
-    
-    const expected = montag`
-        extend-exclude = ["ChangeLog"]
-    ` +
-        '\n';
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('putout: processor: toml: merge: no beautify: sync', (t) => {
-    const rawSource = `
-        extend-exclude = ["ChangeLog"]
-    `;
-    
-    const [{source}] = branch(rawSource);
-    
-    const result = merge(rawSource, [source], {
-        beautify: false,
-    });
+    const result = merge(rawSource, [source]);
     
     const expected = montag`
         extend-exclude = ["ChangeLog"]

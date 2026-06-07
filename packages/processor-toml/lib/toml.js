@@ -1,6 +1,5 @@
 import {tryCatch} from 'try-catch';
-import {format} from 'oxfmt';
-import * as toml from 'smol-toml';
+import * as toml from '@decimalturn/toml-patch';
 import {
     __toml,
     toJS,
@@ -39,25 +38,19 @@ export const find = (rawSource) => {
     return places;
 };
 
-const getCode = (a) => a.code;
-
-export const merge = (rawSource, list, overrides = {}) => {
-    const {beautify = true} = overrides;
+export const merge = (rawSource, list) => {
     const [first] = list.filter(isTOML);
     const source = fromJS(first, __toml);
     const ast = parse(source);
-    const input = toml.stringify(ast);
     
-    if (beautify)
-        return format('__putout_processor.toml', input).then(getCode);
-    
-    return cutSpaces(input);
+    return toml.stringify(ast, {
+        bracketSpacing: false,
+    });
 };
 
-function parseMessage(message) {
-    const [first] = message.split('\n');
-    return first.replace(/\sat.*/g, '');
-}
+const parseMessage = (message) => message
+    .split('\n')
+    .pop();
 
 function parsePlaces({error}) {
     if (!error)
@@ -79,10 +72,4 @@ function parsePlaces({error}) {
     };
     
     return [place];
-}
-
-function cutSpaces(a) {
-    return a
-        .replace('[ ', '[')
-        .replace(' ]', ']');
 }
