@@ -14,6 +14,7 @@ import * as writeAllFiles from './write-all-files/index.js';
 import * as convertJsToJson from './convert-js-to-json/index.js';
 import * as convertYamlToJson from './convert-yaml-to-json/index.js';
 import * as convertJsonToToml from './convert-json-to-toml/index.js';
+import * as convertTomlToJson from './convert-toml-to-json/index.js';
 import * as convertJsonToYaml from './convert-json-to-yaml/index.js';
 
 export const rules = {
@@ -32,6 +33,7 @@ export const rules = {
     'convert-js-to-json': ['off', convertJsToJson],
     'convert-yaml-to-json': ['off', convertYamlToJson],
     'convert-json-to-toml': ['off', convertJsonToToml],
+    'convert-toml-to-json': ['off', convertTomlToJson],
     'convert-json-to-yaml': ['off', convertJsonToYaml],
     'convert-json-to-js': ['off', convertJsonToJs],
 };
