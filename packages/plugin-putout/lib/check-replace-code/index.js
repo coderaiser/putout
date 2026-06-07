@@ -14,6 +14,7 @@ const {
     compute,
     __json,
     __yaml,
+    __toml,
 } = operator;
 
 const name = '__putout_plugin_check_replace_code';
@@ -159,6 +160,9 @@ function parseKey(propertyPath) {
     
     if (keyPath.isIdentifier({name: '__yaml'}))
         return [null, __yaml];
+    
+    if (keyPath.isIdentifier({name: '__toml'}))
+        return [null, __toml];
     
     const [isComputed, key] = compute(keyPath);
     

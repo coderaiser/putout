@@ -191,3 +191,8 @@ test('plugin-putout: check-replace-code: no report: yaml', (t) => {
     t.noReport('yaml');
     t.end();
 });
+
+test('plugin-putout: check-replace-code: no report: toml', (t) => {
+    t.noReport('toml');
+    t.end();
+});
