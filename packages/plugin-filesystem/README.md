@@ -18,6 +18,7 @@ npm i @putout/plugin-filesystem -D
 - ✅ [convert-js-to-json](#convert-js-to-json);
 - ✅ [convert-json-to-toml](#convert-json-to-toml);
 - ✅ [convert-toml-to-json](#convert-toml-to-json);
+- ✅ [convert-toml-to-yaml](#convert-toml-to-yaml);
 - ✅ [convert-json-to-yaml](#convert-json-to-yaml);
 - ✅ [convert-yaml-to-json](#convert-yaml-to-json);
 - ✅ [convert-json-to-js](#convert-json-to-js);
@@ -49,6 +50,7 @@ npm i @putout/plugin-filesystem -D
         "filesystem/rename-referenced-file": "off",
         "filesystem/move-referenced-file": "off",
         "filesystem/convert-simple-filesystem-to-filesystem": "off",
+        "filesystem/convert-filesystem-to-simple-filesystem": "off",
         "filesystem/replace-cwd": ["off", {
             "from": "/home/coderaiser/putout",
             "to": "/"
@@ -56,10 +58,19 @@ npm i @putout/plugin-filesystem -D
         "filesystem/convert-json-to-yaml": ["off", {
             "filename": "actions.json"
         }],
+        "filesystem/convert-json-to-toml": ["off", {
+            "filename": "bunfig.json"
+        }],
+        "filesystem/convert-toml-to-json": ["off", {
+            "filename": "bunfig.toml"
+        }],
+        "filesystem/convert-toml-to-yaml": ["off", {
+            "filename": "bunfig.toml"
+        }],
         "filesystem/convert-json-to-js": ["off", {
             "filename": "package.json"
         }],
-        "filesystem/convert-yaml-to-js": ["off", {
+        "filesystem/convert-yaml-to-json": ["off", {
             "filename": "actions.yaml"
         }],
         "filesystem/convert-js-to-json": ["off", {
@@ -682,6 +693,31 @@ linker = "hoisted"
         "linker": "hoisted"
     }
 }
+```
+
+## convert-toml-to-yaml
+
+Filesystem:
+
+```diff
+-["/", "/bunfig.toml"]
++["/", "/bunfig.yaml"]
+```
+
+### ❌ Example of incorrect code
+
+```toml
+[install]
+lockfile = false
+linker = "hoisted"
+```
+
+### ✅ Example of correct code
+
+```yaml
+install:
+  lockfile: false
+  linker: hoisted
 ```
 
 ## convert-json-to-yaml
