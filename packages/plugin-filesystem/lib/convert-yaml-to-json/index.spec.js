@@ -20,3 +20,10 @@ test('putout: plugin-filesystem: convert-yaml-to-json: transform with options', 
     });
     t.end();
 });
+
+test('putout: plugin-filesystem: convert-yaml-to-json: transform with options: yml', (t) => {
+    t.transformWithOptions('yml', {
+        filename: 'actions.yml',
+    });
+    t.end();
+});

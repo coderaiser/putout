@@ -20,3 +20,10 @@ test('putout: plugin-filesystem: convert-yaml-to-toml: transform with options', 
     });
     t.end();
 });
+
+test('putout: plugin-filesystem: convert-yaml-to-toml: transform with options: yml', (t) => {
+    t.transformWithOptions('yml', {
+        filename: 'bunfig.yml',
+    });
+    t.end();
+});
