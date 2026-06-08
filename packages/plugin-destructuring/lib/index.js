@@ -1,3 +1,4 @@
+import * as removeUselessRename from './remove-useless-rename/index.js';
 import * as applyObject from './apply-object/index.js';
 import * as applyArray from './apply-array/index.js';
 import * as extractPropertiesEqualDeep from './extract-properties-equal-deep/index.js';
@@ -22,4 +23,5 @@ export const rules = {
     'split-nested': splitNested,
     'split-call': splitCall,
     'merge-properties': mergeProperties,
+    'remove-useless-rename': removeUselessRename,
 };

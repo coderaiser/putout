@@ -39,30 +39,30 @@ export const fix = (path, {options}) => {
 export const traverse = ({push, options}) => ({
     [__yaml](path) {
         const {
-            versions: nodeVersions = defaultVersions,
+            versions = defaultVersions,
         } = options;
         
         const {__object} = getTemplateValues(path, __yaml);
         
         for (const nodeVersionPath of traverseProperties(__object, 'node-version')) {
             let is = false;
+            
             const valueStr = nodeVersionPath.get('value').toString();
+            const currentVersions = parse(valueStr);
             
-            const versions = parse(valueStr);
-            
-            if (versions === '${{ matrix.node-version }}')
+            if (currentVersions === '${{ matrix.node-version }}')
                 continue;
             
-            if (isDeepStrictEqual(versions, nodeVersions))
+            if (isDeepStrictEqual(currentVersions, versions))
                 continue;
             
-            if (!isArray(versions))
+            if (!isArray(currentVersions))
                 continue;
             
-            for (const version of nodeVersions) {
+            for (const version of versions) {
                 const [nodeVersion] = version.split('.');
                 
-                for (const currentVersion of versions) {
+                for (const currentVersion of currentVersions) {
                     const [current] = currentVersion.split('.');
                     
                     if (current !== nodeVersion) {

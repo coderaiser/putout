@@ -24,6 +24,7 @@ npm i @putout/plugin-destructuring
 - ✅ [remove-useless-object](#remove-useless-object);
 - ✅ [remove-useless-arguments](#remove-useless-arguments);
 - ✅ [remove-useless-variables](#remove-useless-variables);
+- ✅ [remove-useless-rename](#remove-useless-rename);
 - ✅ [split-nested](#split-nested);
 - ✅ [split-call](#split-call);
 - ✅ [merge-properties](#merge-properties);
@@ -40,6 +41,7 @@ npm i @putout/plugin-destructuring
         "destructuring/remove-useless-object": "on",
         "destructuring/remove-useless-arguments": "on",
         "destructuring/remove-useless-variables": "on",
+        "destructuring/remove-useless-rename": "on",
         "destructuring/split-nested": "on",
         "destructuring/split-call": "on",
         "destructuring/merge-properties": "on"
@@ -95,6 +97,30 @@ const {maxElementsInOneLine} = {
 
 ```js
 const {maxElementsInOneLine} = options;
+```
+
+## remove-useless-rename
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bff12ac912bec590fece55d63af467fc/0928cb7c8403d77497e9619503caa29ca6c1538c).
+
+### ❌ Example of incorrect code
+
+```js
+const {
+    convert: convertFn = convertFile,
+} = overrides;
+
+convertFn('hello');
+```
+
+### ✅ Example of correct code
+
+```js
+const {
+    convert = convertFile,
+} = overrides;
+
+convert('hello');
 ```
 
 ## convert-object-to-array

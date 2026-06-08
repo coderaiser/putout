@@ -2,7 +2,7 @@ import {operator} from 'putout';
 import regexpEscapePolifyll from 'regexp.escape';
 
 const {
-    escape: regexpEscape = regexpEscapePolifyll,
+    escape = regexpEscapePolifyll,
 } = RegExp;
 
 const {
@@ -89,7 +89,7 @@ const check = ({__a}, path) => {
     if (name.includes(')'))
         return false;
     
-    const safeName = regexpEscape(name);
+    const safeName = escape(name);
     
     const regEnd = RegExp(`: ${safeName}$`);
     const regMiddle = RegExp(`: ${safeName}: .*`);

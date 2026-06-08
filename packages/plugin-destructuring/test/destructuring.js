@@ -91,3 +91,8 @@ test('plugin-destructuring: transform: extract-properties-not-equal-deep', (t) =
     t.transform('extract-properties-not-equal-deep');
     t.end();
 });
+
+test('plugin-destructuring: transform: remove-useless-rename', (t) => {
+    t.transform('remove-useless-rename');
+    t.end();
+});
