@@ -22,6 +22,11 @@ test('destructuring: remove-useless-rename: no report: declared', (t) => {
     t.end();
 });
 
+test('destructuring: remove-useless-rename: no report: same', (t) => {
+    t.noReport('same');
+    t.end();
+});
+
 test('destructuring: remove-useless-rename: transform', (t) => {
     t.transform('remove-useless-rename');
     t.end();

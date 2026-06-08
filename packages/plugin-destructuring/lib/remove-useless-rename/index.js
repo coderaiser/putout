@@ -23,6 +23,9 @@ export const traverse = ({push}) => ({
         
         const {name} = path.parentPath.node.key;
         
+        if (name === path.node.right.name)
+            return;
+        
         if (getBinding(path, name))
             return;
         
