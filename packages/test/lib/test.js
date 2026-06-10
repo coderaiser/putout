@@ -167,6 +167,7 @@ const transform = currify((dir, linterOptions, options, t, name, transformed = n
         extension,
         extensionFix,
     } = linterOptions;
+    
     const {plugins} = options;
     const full = join(dir, name);
     const isStr = isString(transformed);

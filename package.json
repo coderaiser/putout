@@ -14,7 +14,6 @@
     "lint-all": "madrun lint-all",
     "lint:frame": "madrun lint:frame",
     "lint:fresh": "madrun lint:fresh",
-    "postlint:fresh": "madrun postlint:fresh",
     "lint:fresh:only:putout": "madrun lint:fresh:only:putout",
     "lint:fresh:only:eslint": "madrun lint:fresh:only:eslint",
     "lint:memory": "madrun lint:memory",
