@@ -28,6 +28,13 @@ const test2 = createTest(import.meta.url, {
     plugins: rules,
 });
 
+const testExtensionFix = createTest(import.meta.url, {
+    extension: 'wast',
+    extensionFix: 'cde',
+    lint,
+    plugins: rules,
+});
+
 test('transform: ext: with UPDATE env variable', (t) => {
     update(1);
     
@@ -64,6 +71,28 @@ test('transform: ext: with UPDATE + UPDATE_EXTENSION env variables', (t) => {
     const [first] = writeFileSyncStub.args[0];
     
     t.ok(first.endsWith('abc'), 'should write fixture with updated extension');
+    t.end();
+}, NO_CHECK_ASSERTIONS_COUNT);
+
+testExtensionFix('transform: ext: with extensionFix', (t) => {
+    update(1);
+    
+    const {writeFileSync} = globalThis.__putout_test_fs;
+    const writeFileSyncStub = stub();
+    
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    
+    process.env.UPDATE_EXTENSION = 'abc';
+    
+    t.transform('ext');
+    
+    delete process.env.UPDATE_EXTENSION;
+    update();
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
+    
+    const [first] = writeFileSyncStub.args[0];
+    
+    t.ok(first.endsWith('cde'), 'should write fixture with updated extension');
     t.end();
 }, NO_CHECK_ASSERTIONS_COUNT);
 

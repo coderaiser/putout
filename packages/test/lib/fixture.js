@@ -1,13 +1,15 @@
 import process from 'node:process';
 import {tryCatch} from 'try-catch';
 
-const isUpdate = () => Boolean(Number(process.env.UPDATE));
+const {env} = process;
+const isUpdate = () => Boolean(Number(env.UPDATE));
+
 const TS = {
     ENABLED: true,
     DISABLED: false,
 };
 
-export const readFixture = (name, extension) => {
+export const readFixture = (name, extension, extensionFix = env.UPDATE_EXTENSION) => {
     const {readFileSync} = globalThis.__putout_test_fs;
     const [eTS, dataTS] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
     
@@ -28,14 +30,13 @@ export const readFixture = (name, extension) => {
         ];
     
     if (extension) {
-        const {UPDATE_EXTENSION} = process.env;
         const [e, data] = tryCatch(readFileSync, `${name}.${extension}`, 'utf8');
         
         if (!e)
             return [
                 data,
                 TS.DISABLED,
-                UPDATE_EXTENSION || extension,
+                extensionFix || extension,
             ];
     }
     

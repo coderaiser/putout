@@ -62,6 +62,7 @@ export function createTest(url, maybeOptions, maybeExtends = {}) {
     const dir = join(maybeDirectory(url), 'fixture');
     const {
         extension = '',
+        extensionFix,
         lint = putout,
         ...options
     } = parseOptions(maybeOptions);
@@ -71,6 +72,7 @@ export function createTest(url, maybeOptions, maybeExtends = {}) {
     const linterOptions = {
         lint,
         extension,
+        extensionFix,
     };
     
     preTest(test, plugin);
@@ -160,11 +162,15 @@ const progressWithOptions = (dir, options) => (t) => async (name, pluginOptions,
 };
 
 const transform = currify((dir, linterOptions, options, t, name, transformed = null, addons = {}) => {
-    const {lint, extension} = linterOptions;
+    const {
+        lint,
+        extension,
+        extensionFix,
+    } = linterOptions;
     const {plugins} = options;
     const full = join(dir, name);
     const isStr = isString(transformed);
-    const [input, isTS, currentExtension] = readFixture(full, extension);
+    const [input, isTS, currentExtension] = readFixture(full, extension, extensionFix);
     
     if (!isStr)
         addons = transformed;
