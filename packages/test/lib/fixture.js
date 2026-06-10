@@ -28,13 +28,14 @@ export const readFixture = (name, extension) => {
         ];
     
     if (extension) {
+        const {UPDATE_EXTENSION} = process.env;
         const [e, data] = tryCatch(readFileSync, `${name}.${extension}`, 'utf8');
         
         if (!e)
             return [
                 data,
                 TS.DISABLED,
-                extension,
+                UPDATE_EXTENSION || extension,
             ];
     }
     

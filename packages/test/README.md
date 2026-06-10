@@ -21,6 +21,8 @@ Set environment variable `UPDATE=1` to update `transform` and `format` fixtures 
 UPDATE=1 tape test/*.js
 ```
 
+When you need to overide extension use `UPDATE_EXTENSION`, for example `UPDATE_EXTENSION=abc` will create files with extension 'abc'.
+
 ## Plugins API
 
 🐊**Putout** can be used in all IDE's supported by`ESLint` as [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/packages/eslint-plugin-putout).

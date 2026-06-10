@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import process from 'node:process';
 import {stub} from 'supertape';
 import {lint} from '@putout/processor-wasm/lint';
 import {tryCatch} from 'try-catch';
@@ -41,6 +42,28 @@ test('transform: ext: with UPDATE env variable', (t) => {
     globalThis.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.ok(writeFileSyncStub.called, 'should write fixture');
+    t.end();
+}, NO_CHECK_ASSERTIONS_COUNT);
+
+test('transform: ext: with UPDATE + UPDATE_EXTENSION env variables', (t) => {
+    update(1);
+    
+    const {writeFileSync} = globalThis.__putout_test_fs;
+    const writeFileSyncStub = stub();
+    
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    
+    process.env.UPDATE_EXTENSION = 'abc';
+    
+    t.transform('ext');
+    
+    delete process.env.UPDATE_EXTENSION;
+    update();
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
+    
+    const [first] = writeFileSyncStub.args[0];
+    
+    t.ok(first.endsWith('abc'), 'should write fixture with updated extension');
     t.end();
 }, NO_CHECK_ASSERTIONS_COUNT);
 
