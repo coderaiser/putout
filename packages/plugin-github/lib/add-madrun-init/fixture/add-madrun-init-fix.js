@@ -9,7 +9,7 @@ __putout_processor_yaml({
                 "run": "bun i -f"
             }, {
                 "name": "Init Madrun",
-                "run": "madrun init"
+                "run": "madrun --init"
             }]
         }
     }

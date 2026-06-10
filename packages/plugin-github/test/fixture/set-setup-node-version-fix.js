@@ -25,7 +25,7 @@ __putout_processor_yaml({
                 "run": "bun i --no-save"
             }, {
                 "name": "Init Madrun",
-                "run": "madrun init"
+                "run": "madrun --init"
             }, {
                 "name": "Bootstrap",
                 "run": "redrun bootstrap"

@@ -17,7 +17,7 @@ export const report = () => `Add 'madrun init'`;
 
 export const fix = (path) => {
     const name = objectProperty(stringLiteral('name'), stringLiteral('Init Madrun'));
-    const run = objectProperty(stringLiteral('run'), stringLiteral('madrun init'));
+    const run = objectProperty(stringLiteral('run'), stringLiteral('madrun --init'));
     
     for (const step of path.parentPath.get('elements')) {
         const currentName = parseName(step);

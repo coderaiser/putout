@@ -26,7 +26,7 @@ jobs:
       - name: Install
         run: bun install -f
       - name: Init Madrun
-        run: madrun init
+        run: madrun --init
       - name: Lint
         run: redrun lint
       - name: Typos
