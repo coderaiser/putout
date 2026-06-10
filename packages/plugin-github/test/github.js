@@ -81,3 +81,8 @@ test('plugin-github: transform: convert-typos-to-typos-ai', (t) => {
     t.transform('convert-typos-to-typos-ai');
     t.end();
 });
+
+test('plugin-github: transform: add-madrun-init', (t) => {
+    t.transform('add-madrun-init');
+    t.end();
+});

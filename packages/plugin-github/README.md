@@ -19,7 +19,7 @@ npm i @putout/plugin-github -D
 
 - ✅ [add-continue-on-error-to-add-and-commit](#add-continue-on-error-to-add-and-commit);
 - ✅ [add-continue-on-error-to-coveralls](#add-continue-on-error-to-coveralls);
-- ✅ [add-property.js](#add-property.js);
+- ✅ [add-madrun-init](#add-madrun-init);
 - ✅ [convert-npm-to-bun](#convert-npm-to-bun);
 - ✅ [convert-typos-to-typos-ai](#convert-typos-to-typos-ai);
 - ✅ [insert-rust](#insert-rust);
@@ -35,6 +35,7 @@ npm i @putout/plugin-github -D
     "rules": {
         "github/add-continue-on-error-to-coveralls": "on",
         "github/add-continue-on-error-to-add-and-commit": "on",
+        "github/add-madrun-init": "on",
         "github/convert-npm-to-bun": "on",
         "github/convert-typos-to-typos-ai": "on",
         "github/set-node-versions": "on",
@@ -44,6 +45,20 @@ npm i @putout/plugin-github -D
         "github/update-actions": "on"
     }
 }
+```
+
+## add-madrun-init
+
+Checkout int 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9c9416fc9e68cb0d5d4c8c651585a150/0d0ddc337d20dd492e950a066c0f3d00ecda2eba).
+
+Add [`madrun init`](https://github.com/coderaiser/madrun):
+
+```diff
+  - name: Install redrun
+-   run: bun i redrun -g
++   run: bun i redrun madrun -g
++ - name: Init madrun
++   run: madrun init
 ```
 
 ## add-continue-on-error-to-coveralls
