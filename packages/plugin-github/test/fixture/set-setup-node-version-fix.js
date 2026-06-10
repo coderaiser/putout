@@ -19,22 +19,13 @@ __putout_processor_yaml({
                 }
             }, {
                 "name": "Install Redrun",
-                "run": "bun i redrun madrun madrun madrun madrun -g --no-save"
-            }, {
-                "name": "Init Madrun",
-                "run": "madrun init"
-            }, {
-                "name": "Init Madrun",
-                "run": "madrun init"
-            }, {
-                "name": "Init Madrun",
-                "run": "madrun init"
-            }, {
-                "name": "Init Madrun",
-                "run": "madrun init"
+                "run": "bun i redrun madrun -g --no-save"
             }, {
                 "name": "Install",
                 "run": "bun i --no-save"
+            }, {
+                "name": "Init Madrun",
+                "run": "madrun init"
             }, {
                 "name": "Bootstrap",
                 "run": "redrun bootstrap"

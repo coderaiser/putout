@@ -3,8 +3,12 @@ __putout_processor_yaml({
         "build": {
             "steps": [
                 {
-                    "name": "Install redrun",
+                    "name": "Install Redrun",
                     "run": "bun i redrun -g",
+                },
+                {
+                    "name": "Install",
+                    "run": "bun i -f",
                 },
             ],
         },

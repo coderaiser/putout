@@ -6,6 +6,10 @@ __putout_processor_yaml({
                     "name": "Install Redrun",
                     "run": "bun i redrun -g",
                 },
+                {
+                    "name": "Install",
+                    "run": "bun i -f",
+                },
             ],
         },
     },

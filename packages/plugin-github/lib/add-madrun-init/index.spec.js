@@ -16,3 +16,8 @@ test('github: add-madrun-init: transform', (t) => {
     t.transform('add-madrun-init');
     t.end();
 });
+
+test('github: add-madrun-init: no transform: no-install', (t) => {
+    t.noTransform('no-install');
+    t.end();
+});

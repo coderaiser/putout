@@ -23,10 +23,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Redrun
         run: bun install redrun madrun -g --no-save
+      - name: Install
+        run: bun install -f
       - name: Init Madrun
         run: madrun init
-      - name: Install
-        run: yarn --no-lockfile
       - name: Lint
         run: redrun lint
       - name: Typos

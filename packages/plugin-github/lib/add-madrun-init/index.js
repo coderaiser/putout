@@ -19,7 +19,14 @@ export const fix = (path) => {
     const name = objectProperty(stringLiteral('name'), stringLiteral('Init Madrun'));
     const run = objectProperty(stringLiteral('run'), stringLiteral('madrun init'));
     
-    path.parentPath.node.elements.splice(path.key + 1, 0, objectExpression([name, run]));
+    for (const step of path.parentPath.get('elements')) {
+        const currentName = parseName(step);
+        
+        if (currentName === 'Install') {
+            path.parentPath.node.elements.splice(step.key + 1, 0, objectExpression([name, run]));
+            break;
+        }
+    }
     
     const [runPath] = traverseProperties(path, 'run');
     
@@ -39,6 +46,7 @@ export const traverse = ({push}) => ({
         const steps = stepsPathValue.get('elements');
         
         const typosSteps = [];
+        const installStep = [];
         
         for (const step of steps) {
             const name = parseName(step);
@@ -52,7 +60,15 @@ export const traverse = ({push}) => ({
                 typosSteps.push(step);
                 continue;
             }
+            
+            if (name === 'Install') {
+                installStep.push(step);
+                continue;
+            }
         }
+        
+        if (!installStep.length)
+            return;
         
         if (typosSteps.length !== 1)
             return;
@@ -75,4 +91,3 @@ const createParseStep = (name) => (step) => {
 };
 
 const parseName = createParseStep('name');
-
