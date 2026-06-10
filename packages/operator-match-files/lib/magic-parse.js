@@ -1,9 +1,7 @@
 import {parse} from '@putout/engine-parser';
 import * as processorYaml from '@putout/processor-yaml';
 import * as processorToml from '@putout/processor-toml';
-import {operator} from 'putout';
-
-const {toJS} = operator;
+import {toJS} from '@putout/operator-json';
 
 export function magicParse(name, content) {
     if (name.endsWith('.json')) {

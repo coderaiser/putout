@@ -1,9 +1,7 @@
 import {print} from '@putout/engine-parser';
 import * as processorYaml from '@putout/processor-yaml';
 import * as processorToml from '@putout/processor-toml';
-import {operator} from 'putout';
-
-const {fromJS} = operator;
+import {fromJS} from '@putout/operator-json';
 
 export function magicPrint(name, ast, options) {
     const js = print(ast, options);
