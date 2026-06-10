@@ -15,9 +15,7 @@ export function magicPrint(name, ast, options) {
         return processorYaml.merge(null, [js]);
     
     if (name.endsWith('.toml'))
-        return processorToml.merge(null, [js], {
-            beautify: false,
-        });
+        return processorToml.merge(null, [js]);
     
     return js;
 }
