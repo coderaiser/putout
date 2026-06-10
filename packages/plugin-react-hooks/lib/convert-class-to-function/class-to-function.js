@@ -46,7 +46,9 @@ export default (path) => {
 };
 
 function createComponentFunction(name, body) {
-    return functionDeclaration(name, [identifier('props')], body, false, false);
+    return functionDeclaration(name, [
+        identifier('props'),
+    ], body, false, false);
 }
 
 function createFunction(name, params, body) {

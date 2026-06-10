@@ -57,7 +57,9 @@ test('eslint-flat: matchToFlatDir: ignores', async (t) => {
 
 test('eslint-flat: matchToFlatDir: ignores: fn', async (t) => {
     const result = await matchToFlatDir(__dirname, './hello', [{
-        ignores: [stub()],
+        ignores: [
+            stub(),
+        ],
     }]);
     
     const expected = [{

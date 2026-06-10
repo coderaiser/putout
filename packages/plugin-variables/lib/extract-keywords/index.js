@@ -51,7 +51,9 @@ const buildDeclaration = (type) => (nextPath, path) => {
         right = nextPath.node.expression;
     }
     
-    replaceWith(nextPath, variableDeclaration(type, [variableDeclarator(left, right)]));
+    replaceWith(nextPath, variableDeclaration(type, [
+        variableDeclarator(left, right),
+    ]));
     
     const {name} = path.node.id;
     
@@ -165,7 +167,9 @@ function buildImport(path) {
     const source = sourcePath.node.expression;
     const local = path.node.expression;
     
-    replaceWith(path, importDeclaration([importDefaultSpecifier(local, local)], source));
+    replaceWith(path, importDeclaration([
+        importDefaultSpecifier(local, local),
+    ], source));
     remove(sourcePath);
     remove(fromPath);
 }

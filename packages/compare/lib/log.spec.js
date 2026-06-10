@@ -27,7 +27,11 @@ test('putout: compare: run-plugins: template: log: array', (t) => {
     debug.enabled = true;
     globalThis.__putout_debug = debug;
     
-    log([identifier('hello')], [identifier('world')]);
+    log([
+        identifier('hello'),
+    ], [
+        identifier('world'),
+    ]);
     delete globalThis.__putout_debug;
     
     const expected = [

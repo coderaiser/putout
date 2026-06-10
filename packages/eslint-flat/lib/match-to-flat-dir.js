@@ -38,7 +38,9 @@ function parseFlatConfig(path, flatConfig) {
         
         if (!files) {
             result.push({
-                files: [join('**/', path)],
+                files: [
+                    join('**/', path),
+                ],
                 ...currentConfig,
             });
             continue;

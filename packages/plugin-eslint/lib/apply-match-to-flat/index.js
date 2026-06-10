@@ -42,7 +42,9 @@ export const fix = ({objects}) => {
         
         if (!added) {
             added = true;
-            const node = spreadElement(callExpression(identifier('matchToFlat'), [identifier('match')]));
+            const node = spreadElement(callExpression(identifier('matchToFlat'), [
+                identifier('match'),
+            ]));
             
             object.parentPath.node.elements.push(node);
         }

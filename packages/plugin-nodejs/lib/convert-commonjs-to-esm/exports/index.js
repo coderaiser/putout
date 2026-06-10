@@ -163,7 +163,9 @@ function addExportToBinding(name, path) {
     if (isImportSpecifier(bindingPath)) {
         const {imported} = bindingPath.node;
         
-        return exportNamedDeclaration(null, [exportSpecifier(imported, imported)]);
+        return exportNamedDeclaration(null, [
+            exportSpecifier(imported, imported),
+        ]);
     }
     
     if (isImportDefaultSpecifier(bindingPath)) {

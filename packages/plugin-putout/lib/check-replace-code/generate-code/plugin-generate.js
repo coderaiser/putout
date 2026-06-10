@@ -75,7 +75,9 @@ export const fix = (path, {options}) => {
         if (path.parentPath.parentPath.isTSModuleBlock()) {
             const key = identifier(getVar());
             
-            replaceWith(path, variableDeclaration('var', [variableDeclarator(key)]));
+            replaceWith(path, variableDeclaration('var', [
+                variableDeclarator(key),
+            ]));
             
             return;
         }

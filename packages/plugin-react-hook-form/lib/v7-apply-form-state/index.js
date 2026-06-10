@@ -47,7 +47,9 @@ export const replace = () => ({
                 
                 property.key.name = 'formState';
                 
-                property.value = objectPattern([objectProperty(key, key, COMPUTED, SHORTHAND)]);
+                property.value = objectPattern([
+                    objectProperty(key, key, COMPUTED, SHORTHAND),
+                ]);
             }
         }
         

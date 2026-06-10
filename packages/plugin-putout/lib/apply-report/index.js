@@ -68,7 +68,10 @@ export const replace = () => ({
         const name = toKebabCase(value.name);
         
         path.node.arguments[1] = arrayExpression([
-            arrayExpression([stringLiteral(name), value]),
+            arrayExpression([
+                stringLiteral(name),
+                value,
+            ]),
         ]);
         
         return path;

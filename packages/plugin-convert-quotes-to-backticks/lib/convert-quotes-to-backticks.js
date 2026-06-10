@@ -19,9 +19,11 @@ export const fix = (path) => {
     if (parentPath.isObjectProperty() && path === parentPath.get('key'))
         parentPath.node.computed = true;
     
-    replaceWith(path, templateLiteral([templateElement({
-        raw: value,
-    })], []));
+    replaceWith(path, templateLiteral([
+        templateElement({
+            raw: value,
+        }),
+    ], []));
 };
 
 const {replaceWith} = operator;

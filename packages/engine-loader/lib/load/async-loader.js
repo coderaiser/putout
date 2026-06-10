@@ -21,7 +21,9 @@ export const createAsyncLoader = (type, overrides = {}) => {
         if (name.startsWith('import:')) {
             const shortName = name.replace('import:', '');
             
-            return await cleverLoad([require.resolve(shortName)], {
+            return await cleverLoad([
+                require.resolve(shortName),
+            ], {
                 simpleImport,
                 require,
             });

@@ -36,14 +36,19 @@ export const fix = (path) => {
     const {node} = path;
     
     if (isIdentifier(path) || isCallExpression(path)) {
-        replaceWith(path, arrayExpression([stringLiteral('+'), node]));
+        replaceWith(path, arrayExpression([
+            stringLiteral('+'),
+            node,
+        ]));
         return;
     }
     
     const {value} = node;
     
     if (isStringLiteral(path) && !/^[+-]/.test(value)) {
-        replaceWith(path, arrayExpression([stringLiteral(`+: -> ${value}`)]));
+        replaceWith(path, arrayExpression([
+            stringLiteral(`+: -> ${value}`),
+        ]));
         return;
     }
     

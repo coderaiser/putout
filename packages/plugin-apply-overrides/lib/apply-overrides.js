@@ -28,7 +28,9 @@ export const fix = (path) => {
     const {body} = parentPath.node;
     
     if (!isBlockStatement(body))
-        parentPath.node.body = blockStatement([returnStatement(body)]);
+        parentPath.node.body = blockStatement([
+            returnStatement(body),
+        ]);
     
     path.parentPath.node.body.body.unshift(createOverrides({
         overrides: node.left,
