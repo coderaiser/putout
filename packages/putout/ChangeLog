@@ -1,3 +1,42 @@
+2026.06.13, v42.6.0
+
+fix:
+- 1abfa724d @putout/plugin-markdown: main
+- e74d08c91 @putout/plugin-github: add-madrun-init: madrun init -> madrun --init
+- 9024f3779 @putout/plugin-github: add-madrun-init
+- 9ae73318b @putout/operator-match-files: operator- > operator-json
+- 4ae6ec3c8 @putout/operator-match-files: magic-print: rm beautify
+- 1daa95f8c @putout/plugin-destructuring: remove-useless-rename: exclude same
+
+feature:
+- 1fb288acf @putout/plugin-markdown: merge-heading-spaces: not string
+- 783c6d962 @putout/plugin-markdown: add
+- e31b4357b putout: @putout/processor-markdown v14.0.0
+- ff08aa120 @putout/plugin-markdown: add
+- 7243a8a1c @putout/plugin-putout: declare: __markdown
+- 1deeb22a4 @putout/processor-markdown: add ability to write 🐊Plugins to transform markdown
+- 3cde73957 @putout/operator-json: __markdown
+- 8cf53a90c @putout/plugin-printer: remove-args: ImportSpecifier: exclude
+- bcd307098 @putout/plugin-github: add-madrun-init
+- da41a1335 @putout/test: extensionFix
+- 47a02bc78 @putout/test: UPDATE_EXTENSION
+- 7ef878fd9 @putout/plugin-destructuring: remove-useless-rename
+- 9891a8bc2 @putout/plugin-filesystem: convert-yaml-to-toml
+- 68e9587ee @putout/plugin-convert-toml-to-yaml
+- 236480ddd @putout/plugin-filesystem: convert-toml-to-json
+- 6489ec337 @putout/plugin-filesystem: convert-json-to-toml
+- 48c2c32a2 @putout/processor-toml: smol-toml -> @decimalturn/toml-patch
+- a5b979703 @putout/plugin-putout: check-replace-code: __toml
+- e0c225e54 @putout/processor-toml: beautify
+- b23243234 @putout/operator-match-files: toml
+- 2dff587da @putout/plugin-declare: wrap: callWith: add
+- 54b1a9b51 @putout/plugin-filesystem: convert-json-to-yaml: add
+- 8f9481e59 @putout/operator-match-files: json to yaml
+- bc2df02c0 @putout/plugin-filesystem: private imports
+- c057a209c @putout/plugin-putout: check-replace-code: __yaml
+- da1ad34bf @putout/plugin-filesystem: convert-yaml-to-json: add
+- 92fbc982d @putout/operator-match-files: add support of yaml
+
 2026.06.05, v42.5.2
 
 feature:
