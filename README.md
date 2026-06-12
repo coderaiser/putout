@@ -1153,6 +1153,7 @@ const putout = require('putout');
 ```
 
 </details>
+
 <details><summary>remove <code>iife</code></summary>
 
 ```diff
