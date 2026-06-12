@@ -95,6 +95,7 @@ test('putout: config: markdown', (t) => {
     const result = match['*.md'];
     
     const expected = {
+        'markdown': 'on',
         'apply-arrow': 'off',
         'assignment/convert-to-declaration': 'off',
         'conditions/apply-consistent-blocks': 'off',

@@ -12,6 +12,7 @@ const test = createTest(import.meta.url, {
     plugins: [
         'variables',
         'eslint',
+        'markdown',
     ],
 });
 
