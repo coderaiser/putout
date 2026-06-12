@@ -58,6 +58,7 @@
             "esm/shorten-imported-file": "on"
         },
         "*.md": {
+            "markdown": "on",
             "apply-arrow": "off",
             "assignment/convert-to-declaration": "off",
             "conditions/apply-consistent-blocks": "off",
@@ -195,6 +196,7 @@
         "eslint": "off",
         "package-json": "off",
         "madrun": "off",
+        "markdown": "off",
         "webpack": "off",
         "gitignore": "off",
         "npmignore": "off",
@@ -281,6 +283,7 @@
         "coverage",
         "gitignore",
         "npmignore",
+        "markdown",
         "browserlist",
         "regexp",
         "github",
