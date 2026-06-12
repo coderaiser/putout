@@ -41,3 +41,8 @@ test('plugin-printer: remove-args: transform: breakline', (t) => {
     t.transform('breakline');
     t.end();
 });
+
+test('plugin-printer: remove-args: no report: import', (t) => {
+    t.noReport('import');
+    t.end();
+});

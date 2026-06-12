@@ -1,4 +1,21 @@
-const checkArgs = ({__args}) => __args.length;
+import {types, operator} from 'putout';
+
+const {isImportSpecifier} = types;
+const {getBindingPath} = operator;
+
+const checkArgs = ({__args}, path) => {
+    if (!__args.length)
+        return false;
+    
+    const {name} = path.node.callee;
+    
+    const bindingPath = getBindingPath(path, name);
+    
+    if (!bindingPath)
+        return true;
+    
+    return !isImportSpecifier(bindingPath);
+};
 
 export const report = () => 'Remove useless argument';
 
