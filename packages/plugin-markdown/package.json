@@ -5,7 +5,7 @@
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to improve markdown",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-markdown#readme",
-  "main": "lib/markdown.js",
+  "main": "lib/index.js",
   "release": false,
   "tag": false,
   "changelog": false,
