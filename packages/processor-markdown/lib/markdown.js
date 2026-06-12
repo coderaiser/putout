@@ -1,4 +1,12 @@
-import {toJS, fromJS} from '@putout/operator-json';
+import {
+    toJS,
+    fromJS,
+    __markdown,
+} from '@putout/operator-json';
+import {
+    convertJsToMarkdown,
+    convertMarkdownToJs,
+} from 'happy-mark';
 import stringify from 'remark-stringify';
 import preset from 'remark-preset-lint-consistent';
 import remarkFrontmatter from 'remark-frontmatter';
@@ -59,8 +67,13 @@ export const fix = async (rawSource, options = {}) => {
     
     return value;
 };
+
 export const branch = async (rawSource) => {
-    const list = [];
+    const list = [{
+        startLine: 0,
+        source: toJS(convertMarkdownToJs(rawSource), __markdown),
+        extension: 'md',
+    }];
     
     await unified()
         .use(remarkParse)
@@ -74,7 +87,9 @@ export const branch = async (rawSource) => {
     return list;
 };
 export const merge = async (rawSource, list) => {
-    const newList = list.slice();
+    const [mdJs, ...newList] = list;
+    
+    const md = convertJsToMarkdown(fromJS(mdJs, __markdown));
     
     const {value} = await unified()
         .use(remarkParse)
@@ -84,7 +99,7 @@ export const merge = async (rawSource, list) => {
             visit,
         })
         .use(stringify, stringifyOptions)
-        .process(rawSource);
+        .process(md);
     
     return value;
 };

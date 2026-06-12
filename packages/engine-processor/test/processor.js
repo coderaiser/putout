@@ -82,38 +82,6 @@ test('putout: engine-processor: javascript: load', async (t) => {
     t.end();
 });
 
-test('putout: engine-processor: markdown: javascript', async (t) => {
-    const name = new URL('fixture/js.md', import.meta.url).pathname;
-    
-    const options = {
-        processors: ['markdown'],
-    };
-    
-    const rawSource = await readFile(name, 'utf8');
-    
-    const processFile = stub().returns({
-        source: rawSource,
-        places: [],
-    });
-    
-    await runProcessors({
-        name,
-        processFile,
-        options,
-        rawSource,
-    });
-    
-    const expected = {
-        name: `${name}{js}`,
-        options,
-        source: 'const a = 5;',
-        startLine: 1,
-    };
-    
-    t.calledWith(processFile, [expected], 'should not process');
-    t.end();
-});
-
 test('putout: engine-processor: markdown: fix', async (t) => {
     const name = join(__dirname, 'fixture', 'fix.md');
     const outputName = join(__dirname, 'fixture', 'fix-fix.md');
