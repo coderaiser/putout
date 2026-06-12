@@ -17,6 +17,7 @@ export const __yaml_name = '__putout_processor_yaml';
 export const __toml_name = '__putout_processor_toml';
 export const __filesystem_name = '__putout_processor_filesystem';
 export const __ignore_name = '__putout_processor_ignore';
+export const __markdown_name = '__putout_processor_markdown';
 
 export const __json = `${__json_name}(__object)`;
 export const __yaml = `${__yaml_name}(__object)`;
@@ -24,6 +25,7 @@ export const __toml = `${__toml_name}(__object)`;
 export const __docker = `${__docker_name}(__array)`;
 export const __filesystem = `${__filesystem_name}(__object)`;
 export const __ignore = `${__ignore_name}(__array)`;
+export const __markdown = `${__markdown_name}(__array)`;
 
 const TYPES = [
     __json_name,
@@ -37,6 +39,9 @@ const TYPES = [
 export const toJS = (source, name = __json) => {
     const prefix = createPrefix(name);
     const suffix = createSuffix();
+    
+    if (source.endsWith(';\n'))
+        source = source.slice(0, -2);
     
     return `${prefix}${source}${suffix}`;
 };

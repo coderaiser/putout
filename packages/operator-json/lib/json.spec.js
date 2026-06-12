@@ -14,6 +14,7 @@ import {
     __filesystem,
     __ignore,
     __ignore_name,
+    __markdown,
 } from './json.js';
 
 test('putout: operator: json: toJS: filesystem', ({equal}) => {
@@ -103,6 +104,22 @@ test('putout: operator: json: fromJS: __ignore', ({equal}) => {
     const source = `__putout_processor_ignore([1, 2]);\n`;
     const result = fromJS(source, __ignore);
     const expected = '[1, 2]\n';
+    
+    equal(result, expected);
+});
+
+test('putout: operator: json: toJS: __markdown', ({equal}) => {
+    const source = `[h1('hello')];\n`;
+    const result = toJS(source, __markdown);
+    const expected = `__putout_processor_markdown([h1('hello')]);\n`;
+    
+    equal(result, expected);
+});
+
+test('putout: operator: json: fromJS: __markdown', ({equal}) => {
+    const source = `__putout_processor_markdown([h1('hello')]);\n`;
+    const result = fromJS(source, __markdown);
+    const expected = `[h1('hello')]\n`;
     
     equal(result, expected);
 });

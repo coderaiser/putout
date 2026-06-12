@@ -87,6 +87,18 @@ export const traverse = ({push}) => ({
 });
 ```
 
+### `__markdown`
+
+```js
+import {operator} from 'putout';
+
+const {__markdown} = operator;
+
+export const traverse = ({push}) => ({
+    [__markdown]: push,
+});
+```
+
 ### `isJSON(source: string)`
 
 ```js
