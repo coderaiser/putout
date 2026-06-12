@@ -1,4 +1,6 @@
-import {operator} from 'putout';
+import {operator, types} from 'putout';
+
+const {isStringLiteral} = types;
 
 const {
     setLiteralValue,
@@ -31,6 +33,10 @@ export const traverse = ({push}) => {
 
 const mergeHeadingSpace = (push) => (path) => {
     const arg = path.get('arguments.0');
+    
+    if (!isStringLiteral(arg))
+        return;
+    
     const {value} = arg.node;
     
     if (value.includes('  '))

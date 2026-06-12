@@ -16,3 +16,8 @@ test('markdown: merge-heading-spaces: transform', (t) => {
     t.transform('merge-heading-spaces');
     t.end();
 });
+
+test('markdown: merge-heading-spaces: no report: not-string', (t) => {
+    t.noReport('not-string');
+    t.end();
+});
