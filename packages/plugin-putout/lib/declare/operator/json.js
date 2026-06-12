@@ -7,4 +7,5 @@ export default {
     __ignore: 'const {__ignore} = operator',
     __docker: 'const {__docker} = operator',
     __toml: 'const {__toml} = operator',
+    __markdown: 'const {__markdown} = operator',
 };

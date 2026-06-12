@@ -134,6 +134,21 @@ test('plugin-putout: declare: transform: operator: __toml', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: operator: __markdown', (t) => {
+    const source = montag`
+        __markdown;
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {__markdown} = operator;
+        __markdown;
+    
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: operator: __docker', (t) => {
     const source = montag`
         __docker;
