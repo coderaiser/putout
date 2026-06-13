@@ -1,6 +1,10 @@
 import {test, stub} from 'supertape';
 import {template, parse} from 'putout';
-import {traverse, contains} from './traverse.js';
+import {
+    traverse,
+    superTraverse,
+    contains,
+} from './traverse.js';
 
 test('putout: traverse', (t) => {
     const node = template.ast(`
@@ -13,6 +17,41 @@ test('putout: traverse', (t) => {
     let illegal = true;
     
     traverse(node, {
+        ReturnStatement(path) {
+            illegal = false;
+            path.stop();
+        },
+        
+        'throw __'(path) {
+            illegal = false;
+            path.stop();
+        },
+        
+        'await __'(path) {
+            illegal = false;
+            path.stop();
+        },
+        'for await (__ of __) __'(path) {
+            illegal = false;
+            path.stop();
+        },
+    });
+    
+    t.notOk(illegal);
+    t.end();
+});
+
+test('putout: superTraverse', (t) => {
+    const node = template.ast(`
+        async () => {
+            for await (const a of b) {
+            }
+        }
+    `);
+    
+    let illegal = true;
+    
+    superTraverse(node, {
         ReturnStatement(path) {
             illegal = false;
             path.stop();
@@ -91,7 +130,7 @@ test('putout: traverse: program: path', (t) => {
         traverse,
     };
     
-    traverse(path, {
+    superTraverse(path, {
         Identifier() {},
     });
     

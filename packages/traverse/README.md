@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/traverse.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/traverse "npm"
 
-traverse AST-nodes
+Traverse AST-nodes
 
 ## Install
 
@@ -13,15 +13,15 @@ npm i @putout/traverse
 
 ## API
 
-### traverse
+### superTraverse
 
 ```js
 import {template} from '@putout/engine-parser';
-import {traverse} from '@putout/traverse';
+import {superTraverse} from '@putout/traverse';
 
 const node = template.ast('const a = b');
 
-traverse(node, {
+superTraverse(node, {
     'Identifier'(path) {
         console.log('found identifier');
     },

@@ -67,6 +67,8 @@ export function traverse(basePath, visitor) {
     traverse(merge(items));
 }
 
+export const superTraverse = traverse;
+
 const getVisit = ({fn, node, tmpl}) => (path) => {
     if (!compare(path, node))
         return;

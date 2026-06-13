@@ -5,6 +5,7 @@
         "**/*.spec.*",
         "**/*.config.*",
         "**/fixture",
+        "**/coverage",
         ".*.*",
         "test"
     ],
