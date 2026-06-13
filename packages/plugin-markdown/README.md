@@ -18,13 +18,15 @@ npm i @putout/plugin-markdown -D
 ## Rules
 
 - ✅ [merge-heading-spaces](#merge-heading-spaces);
+- ✅ [split-link-with-title](#split-link-with-title);
 
 ## Config
 
 ```json
 {
     "rules": {
-        "markdown/merge-heading-spaces": "on"
+        "markdown/merge-heading-spaces": "on",
+        "markdown/split-link-with-title": "on"
     }
 }
 ```
@@ -43,6 +45,22 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f06796710b
 
 ```markdown
 # hello world
+```
+
+### split-link-with-title
+
+Add space between title and link.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bf9a07fde5114c7aee28df42ea3f7ad6/e6e732523ec0a87f091a189fca6ad44d6a317fd3).
+
+```diff
+# @putout/plugin-apply-replace-all [![NPM version][NPMIMGURL]][NPMURL]
+
+[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-apply-replace-all.svg?style=flat&longCache=true
+-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-apply-replace-all"npm"
++[NPMURL]:                   https://npmjs.org/package/@putout/plugin-apply-replace-all "npm"
+
+-[hello](https://google.com"Google")
++[hello](https://google.com "Google")
 ```
 
 ## License

@@ -1,5 +1,10 @@
 {
     "rules": {
         "promises/remove-useless-async": "off"
+    },
+    "match": {
+        "rules": {
+            "putout/convert-traverse-to-super-traverse": "off"
+        }
     }
 }

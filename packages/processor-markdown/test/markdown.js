@@ -168,23 +168,23 @@ test('putout: processor: markdown: process: split-link-with-title: compare place
     await comparePlaces('split-link-with-title', [{
         message: 'Split link with title',
         position: {
-            column: 1,
+            column: 25,
             line: 4,
         },
-        rule: 'split-link-with-title (remark-lint)',
+        rule: 'markdown/split-link-with-title',
     }, {
         message: 'Split link with title',
         position: {
-            column: 1,
+            column: 24,
             line: 5,
         },
-        rule: 'split-link-with-title (remark-lint)',
+        rule: 'markdown/split-link-with-title',
     }, {
         message: 'Split link with title',
         position: {
-            column: 1,
-            line: 7,
+            column: 20,
+            line: 6,
         },
-        rule: 'split-link-with-title (remark-lint)',
+        rule: 'markdown/split-link-with-title',
     }]);
 });

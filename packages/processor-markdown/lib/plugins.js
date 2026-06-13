@@ -1,9 +1,8 @@
 import * as removeDependenciesStatusBadge from './rules/remove-dependencies-status-badge/index.js';
 import * as removeTrailingWhitespacesFromHeading from './rules/remove-trailing-whitespaces-from-heading/index.js';
-import * as splitLinkWithTitle from './rules/split-link-with-title/index.js';
 
 export const plugins = [
     removeDependenciesStatusBadge,
     removeTrailingWhitespacesFromHeading,
-    splitLinkWithTitle,
 ];
+
