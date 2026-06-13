@@ -96,6 +96,28 @@ testExtensionFix('transform: ext: with extensionFix', (t) => {
     t.end();
 }, NO_CHECK_ASSERTIONS_COUNT);
 
+testExtensionFix('putout: test: noTransform: ext: with extensionFix', (t) => {
+    const {unlinkSync} = globalThis.__putout_test_fs;
+    const unlinkSyncStub = stub();
+    const writeFileSyncStub = stub();
+    
+    update(1);
+    
+    globalThis.__putout_test_fs.unlinkSync = unlinkSyncStub;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    
+    t.noTransform('no-transform');
+    
+    globalThis.__putout_test_fs.unlinkSync = unlinkSync;
+    globalThis.__putout_test_fs.writeFileSync = writeFileSync;
+    
+    const [first] = unlinkSyncStub.args[0];
+    update();
+    
+    t.ok(first.endsWith('cde'), 'should remove fixture with updated extension');
+    t.end();
+}, NO_CHECK_ASSERTIONS_COUNT);
+
 test2('test: transform: noTransformWithOptions: with UPDATE env variable', (t) => {
     update(1);
     

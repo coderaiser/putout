@@ -69,7 +69,7 @@ export const rmFixture = (name, extension) => {
     if (!isUpdate())
         return;
     
+    tryCatch(unlinkSync, `${name}.${extension}`);
     tryCatch(unlinkSync, `${name}.js`);
     tryCatch(unlinkSync, `${name}.ts`);
-    tryCatch(unlinkSync, `${name}.${extension}`);
 };

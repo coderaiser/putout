@@ -273,14 +273,19 @@ const noTransformWithOptions = currify((dir, linterOptions, options, t, name, ru
 });
 
 const noTransform = currify((dir, linterOptions, options, t, name, addons = {}) => {
-    const {lint, extension} = linterOptions;
-    const full = join(dir, name);
-    const [fixture] = readFixture(full, extension);
+    const {
+        lint,
+        extension,
+        extensionFix,
+    } = linterOptions;
     
-    rmFixture(`${full}-fix`);
+    const full = join(dir, name);
+    const [input, isTS, currentExtension] = readFixture(full, extension, extensionFix);
+    const [fixture] = readFixture(full, currentExtension);
+    
+    rmFixture(`${full}-fix`, extensionFix);
     
     const {plugins} = options;
-    const [input, isTS, currentExtension] = readFixture(full, extension);
     
     const {code} = lint(input, {
         isTS,
