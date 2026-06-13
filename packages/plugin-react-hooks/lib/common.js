@@ -1,5 +1,9 @@
+import {operator} from 'putout';
+
+const {superTraverse} = operator;
+
 export const traverseClass = (traverse, ast, visitor) => {
-    traverse(ast, {
+    superTraverse(ast, {
         'class __ extends React.Component {}': push(visitor),
         'class __ extends Component {}': push(visitor),
     });

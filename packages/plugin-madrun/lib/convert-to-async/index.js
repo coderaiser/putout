@@ -1,6 +1,6 @@
 import {types, operator} from 'putout';
 
-const {replaceWith, traverse} = operator;
+const {replaceWith, superTraverse} = operator;
 
 const {
     isStringLiteral,
@@ -30,7 +30,7 @@ export const match = () => ({
 
 export const replace = () => ({
     'run(__args)': (vars, path) => {
-        traverse(path, {
+        superTraverse(path, {
             'run(__args)'(path) {
                 replaceWith(path, awaitExpression(path.node));
                 path.stop();

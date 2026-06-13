@@ -1,4 +1,6 @@
-import {types} from 'putout';
+import {types, operator} from 'putout';
+
+const {superTraverse} = operator;
 
 const {
     isIdentifier,
@@ -12,10 +14,10 @@ export const fix = ({node}) => {
     node.value.name = 'useState';
 };
 
-export const find = (ast, {traverse}) => {
+export const find = (ast) => {
     const places = [];
     
-    traverse(ast, {
+    superTraverse(ast, {
         VariableDeclarator(path) {
             const {id, init} = path.node;
             

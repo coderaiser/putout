@@ -3,7 +3,7 @@ import {operator} from 'putout';
 const {
     getTemplateValues,
     compare,
-    traverse,
+    superTraverse,
 } = operator;
 
 export const report = () => `Avoid condition with the same value`;
@@ -43,7 +43,7 @@ const check = (template) => ({__a, __b}, prev) => {
 function hasContinue(path) {
     let is = false;
     
-    traverse(path, {
+    superTraverse(path, {
         ContinueStatement(path) {
             is = true;
             path.stop();

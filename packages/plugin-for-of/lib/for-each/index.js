@@ -12,7 +12,7 @@ const {
 const {
     replaceWith,
     replaceWithMultiple,
-    traverse,
+    superTraverse,
 } = operator;
 
 const forOfTemplate = template(`
@@ -130,7 +130,7 @@ function isSameNames(paramPath, objectPath) {
 }
 
 function fixReturn(path) {
-    traverse(path, {
+    superTraverse(path, {
         'return __'(path) {
             if (!isForBeforeFnUp(path))
                 return;

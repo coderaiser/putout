@@ -1,6 +1,6 @@
 import {operator} from 'putout';
 
-const {traverse} = operator;
+const {superTraverse} = operator;
 
 export const report = () => `Use 'push(__a)' instead of 'push({path: __a})'`;
 
@@ -9,7 +9,7 @@ export const match = () => ({
         let is = false;
         const programPath = path.scope.getProgramParent().path;
         
-        traverse(programPath, {
+        superTraverse(programPath, {
             'export const fix = (path) => __body': () => {
                 is = true;
             },
@@ -20,7 +20,7 @@ export const match = () => ({
     'export const fix = ({path}) => __a': (vars, {parentPath}) => {
         let is = false;
         
-        traverse(parentPath, {
+        superTraverse(parentPath, {
             'push({path: __a})': () => {
                 is = true;
             },

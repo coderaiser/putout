@@ -7,9 +7,9 @@ const {
 
 const {
     replaceWith,
-    traverse,
     remove,
     compare,
+    superTraverse,
 } = operator;
 
 const isPassedToFn = (path) => {
@@ -25,7 +25,7 @@ export const match = () => ({
         const {resolve, reject} = scope.bindings;
         
         let is = false;
-        traverse(path, {
+        superTraverse(path, {
             'reject(__)': ({parentPath}) => {
                 is = compare(parentPath.parentPath, '__a.on(__b, __c);');
             },
@@ -53,7 +53,7 @@ export const replace = () => ({
         
         let exclude = false;
         
-        traverse(path, {
+        superTraverse(path, {
             'reject(__)': (rejectPath) => {
                 const {node} = rejectPath.get('arguments.0');
                 

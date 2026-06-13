@@ -6,7 +6,11 @@ const {
     objectPattern,
 } = types;
 
-const {replaceWith, remove} = operator;
+const {
+    replaceWith,
+    remove,
+    superTraverse,
+} = operator;
 
 const NOT_COMPUTED = false;
 const SHORTHAND = true;
@@ -36,11 +40,11 @@ export const fix = ({path, promisified}) => {
     replaceWith(path.get('id'), objectPattern(props));
 };
 
-export const find = (ast, {push, traverse}) => {
+export const find = (ast, {push}) => {
     const fs = [];
     const promisified = [];
     
-    traverse(ast, {
+    superTraverse(ast, {
         'const fs = require("fs")'(path) {
             fs.push(path);
         },

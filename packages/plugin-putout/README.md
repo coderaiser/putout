@@ -79,6 +79,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-to-no-transform-code](#convert-to-no-transform-code);
 - ✅ [convert-include-to-traverse](#convert-include-to-traverse);
 - ✅ [convert-traverse-to-include](#convert-traverse-to-include);
+- ✅ [convert-traverse-to-super-traverse](#convert-traverse-to-super-traverse);
 - ✅ [convert-traverse-to-replace](#convert-traverse-to-replace);
 - ✅ [convert-traverse-to-scan](#convert-traverse-to-scan);
 - ✅ [convert-url-to-dirname](#convert-url-to-dirname);
@@ -164,6 +165,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-traverse-to-include": "on",
         "putout/convert-traverse-to-replace": "on",
         "putout/convert-traverse-to-scan": "on",
+        "putout/convert-traverse-to-super-traverse": "on",
         "putout/convert-process-to-find": "on",
         "putout/convert-method-to-property": "on",
         "putout/convert-add-argument-to-add-args": "on",
@@ -1227,6 +1229,32 @@ module.exports.include = () => [
 ];
 ```
 
+## convert-traverse-to-super-traverse
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/131b7af8e25a454b293d592d2faa2cd8/f8ae176880de753eb50236d841a1a3bb8e494e2f).
+
+### ❌ Example of incorrect code
+
+```js
+export const traverse = () => ({
+    [__markdown]: (path) => {
+        traverse();
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const traverse = () => ({
+    [__markdown]: (path) => {
+        superTraverse(path, {
+            '__a(__b, __c)': (path) => {},
+        });
+    },
+});
+```
+
 ## convert-traverse-to-replace
 
 ### ❌ Example of incorrect code
@@ -2135,6 +2163,7 @@ test('github: set-message-of-commit-fixes: no report after transform', (t) => {
 ## remove-useless-printer-option
 
 Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f176313cf67fd6d7138470385511319f/5b26aa45db21f250016d228b7bbabbb3c10b582b).
+
 `putout` printer used by default, so there is no need to pass it.
 
 ### ❌ Example of incorrect code

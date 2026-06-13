@@ -11,7 +11,7 @@ const {
     objectProperty,
 } = types;
 
-const {traverse, insertAfter} = operator;
+const {insertAfter, superTraverse} = operator;
 
 const booleanExport = template.ast('module.exports.postcss = true');
 
@@ -39,7 +39,7 @@ export const replace = () => ({
 function getReturnPath(node) {
     let returnPath;
     
-    traverse(node, {
+    superTraverse(node, {
         ReturnStatement(path) {
             returnPath = path;
         },

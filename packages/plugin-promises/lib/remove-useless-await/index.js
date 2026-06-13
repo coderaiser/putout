@@ -1,6 +1,6 @@
 import {operator} from 'putout';
 
-const {traverse} = operator;
+const {superTraverse} = operator;
 
 export const report = () => `Avoid useless 'await'`;
 
@@ -87,7 +87,7 @@ function looksLikePromise(path) {
         path.stop();
     };
     
-    traverse(path.node, {
+    superTraverse(path.node, {
         'new Promise(__a)': markFound,
         'Promise.__(__args)': markFound,
     });

@@ -1,6 +1,6 @@
 import {operator} from 'putout';
 
-const {contains, traverse} = operator;
+const {contains, superTraverse} = operator;
 
 export const report = () => 'Replacer should be used instead of Traverser (https://git.io/JqcMn)';
 
@@ -38,7 +38,7 @@ function check(path) {
     let hasPushCall = false;
     let hasTraverseMethod = false;
     
-    traverse(path, {
+    superTraverse(path, {
         'ObjectMethod|ObjectProperty': (path) => {
             const keyPath = path.get('key');
             

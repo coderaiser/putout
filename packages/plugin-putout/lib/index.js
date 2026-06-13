@@ -1,3 +1,4 @@
+import * as convertTraverseToSuperTraverse from './convert-traverse-to-super-traverse/index.js';
 import * as applyDestructuringToOptions from './apply-destructuring-to-options/index.js';
 import * as applyGetBinding from './apply-get-binding/index.js';
 import * as applyNameToIsIdentifier from './apply-name-to-is-identifier/index.js';
@@ -172,4 +173,5 @@ export const rules = {
     'apply-name-to-is-identifier': applyNameToIsIdentifier,
     'apply-get-binding': applyGetBinding,
     'apply-destructuring-to-options': applyDestructuringToOptions,
+    'convert-traverse-to-super-traverse': convertTraverseToSuperTraverse,
 };

@@ -1,6 +1,6 @@
 import {operator} from 'putout';
 
-const {remove, traverse} = operator;
+const {remove, superTraverse} = operator;
 
 export const report = () => `Use 'Head' instead of 'Page'`;
 
@@ -14,7 +14,7 @@ export const fix = (path) => {
     node.children = path.node.children;
     path.scope.block.id.name = 'Head';
     
-    traverse(path.scope
+    superTraverse(path.scope
         .getProgramParent().path, {
         'import Head from "next/head"': (path) => {
             remove(path);

@@ -424,3 +424,8 @@ test('plugin-putout: transform: apply-destructuring-to-options', (t) => {
     t.transform('apply-destructuring-to-options');
     t.end();
 });
+
+test('plugin-putout: transform: convert-traverse-to-super-traverse', (t) => {
+    t.transform('convert-traverse-to-super-traverse');
+    t.end();
+});

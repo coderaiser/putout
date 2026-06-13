@@ -2,7 +2,7 @@ import {operator, types} from 'putout';
 
 const {
     getTemplateValues,
-    traverse,
+    superTraverse,
 } = operator;
 
 const {isStringLiteral} = types;
@@ -22,7 +22,7 @@ export const match = () => ({
         const namesMatch = getNames(__object);
         const namesReplace = [];
         
-        traverse(path.parentPath.parentPath, {
+        superTraverse(path.parentPath.parentPath, {
             [PATTERN_REPLACE_RETURN]: (path) => {
                 const {__body} = getTemplateValues(path, PATTERN_REPLACE_RETURN);
                 const object = __body.body.at(-1).argument;
