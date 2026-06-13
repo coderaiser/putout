@@ -281,9 +281,8 @@ const noTransform = currify((dir, linterOptions, options, t, name, addons = {}) 
     
     const full = join(dir, name);
     const [input, isTS, currentExtension] = readFixture(full, extension, extensionFix);
-    const [fixture] = readFixture(full, currentExtension);
     
-    rmFixture(`${full}-fix`, extensionFix);
+    rmFixture(`${full}-fix`, currentExtension);
     
     const {plugins} = options;
     
@@ -306,7 +305,7 @@ const noTransform = currify((dir, linterOptions, options, t, name, addons = {}) 
         return t.pass('source fixture updated');
     }
     
-    return t.equal(code, fixture);
+    return t.equal(code, input);
 });
 
 const transformCode = currify((linterOptions, options, t, input, output, isTS = false) => {

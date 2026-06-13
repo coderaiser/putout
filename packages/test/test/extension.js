@@ -106,12 +106,13 @@ testExtensionFix('putout: test: noTransform: ext: with extensionFix', (t) => {
     globalThis.__putout_test_fs.unlinkSync = unlinkSyncStub;
     globalThis.__putout_test_fs.writeFileSync = writeFileSyncStub;
     
-    t.noTransform('no-transform');
+    t.noTransform('ext');
     
     globalThis.__putout_test_fs.unlinkSync = unlinkSync;
     globalThis.__putout_test_fs.writeFileSync = writeFileSync;
     
     const [first] = unlinkSyncStub.args[0];
+    
     update();
     
     t.ok(first.endsWith('cde'), 'should remove fixture with updated extension');
