@@ -33,6 +33,11 @@ test('plugin-putout: declare: transform: traverse', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: super-traverse', (t) => {
+    t.transform('super-traverse');
+    t.end();
+});
+
 test('plugin-putout: declare: transform: operator', (t) => {
     t.transform('operator');
     t.end();

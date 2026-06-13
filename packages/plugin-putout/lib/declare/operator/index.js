@@ -33,6 +33,7 @@ export default {
     getBinding: 'const {getBinding} = operator',
     getBindingPath: 'const {getBindingPath} = operator',
     traverse: 'const {traverse} = operator',
+    superTraverse: 'const {superTraverse} = operator',
     getTemplateValues: 'const {getTemplateValues} = operator',
     addArgs: 'const {addArgs} = operator',
     insertBefore: 'const {insertBefore} = operator',
