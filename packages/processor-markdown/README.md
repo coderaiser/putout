@@ -25,8 +25,7 @@ npm i @putout/processor-markdown -D
 
 ## Rules
 
-- [Remove dependencies status badges](https://github.com/coderaiser/putout/tree/master/packages/processor-markdown/lib/rules/remove-dependencies-status-badge/README.md)
-- [Split link with title](https://github.com/coderaiser/putout/tree/master/packages/processor-markdown/lib/rules/split-link-with-title/README.md);
+Checkout `markdown`-related rules in [`@putout/plugin-markdown`](https://github.com/coderaiser/putout/tree/master/packages/plugin-markdown)
 
 ## License
 
