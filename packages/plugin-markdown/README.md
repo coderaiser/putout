@@ -18,6 +18,7 @@ npm i @putout/plugin-markdown -D
 ## Rules
 
 - ✅ [merge-heading-spaces](#merge-heading-spaces);
+- ✅ [remove-dependencies-status-badge](#remove-dependencies-status-badge);
 - ✅ [split-link-with-title](#split-link-with-title);
 
 ## Config
@@ -26,6 +27,7 @@ npm i @putout/plugin-markdown -D
 {
     "rules": {
         "markdown/merge-heading-spaces": "on",
+        "markdown/remove-dependencies-status-badge": "on",
         "markdown/split-link-with-title": "on"
     }
 }
@@ -54,13 +56,25 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bf9a07fde5
 
 ```diff
 # @putout/plugin-apply-replace-all [![NPM version][NPMIMGURL]][NPMURL]
-
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-apply-replace-all.svg?style=flat&longCache=true
 -[NPMURL]:                   https://npmjs.org/package/@putout/plugin-apply-replace-all"npm"
 +[NPMURL]:                   https://npmjs.org/package/@putout/plugin-apply-replace-all "npm"
-
 -[hello](https://google.com"Google")
 +[hello](https://google.com "Google")
+```
+
+### remove-dependencies-status-badge
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7e5d9f5999a752a61ccab9ff7386af4b/dfaa235758a5b64e7478e7e5bac5d741646f84db).
+
+```diff
+-# @putout/plugin-apply-replace-all [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
++# @putout/plugin-apply-replace-all [![NPM version][NPMIMGURL]][NPMURL]
+[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-apply-replace-all.svg?style=flat&longCache=true
+[NPMURL]:                   https://npmjs.org/package/@putout/plugin-apply-replace-all "npm"
+-
+-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-replace-all
+-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-replace-all
 ```
 
 ## License

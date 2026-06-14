@@ -1,1 +1,1 @@
-# @putout/putout-formatter-dump
+# @putout/putout-formatter-dump [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]

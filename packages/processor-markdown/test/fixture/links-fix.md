@@ -9,6 +9,7 @@ log(a);
 [LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
 [NPMURL]: https://npmjs.org/package/madrun "npm"
 [BuildStatusURL]: https://travis-ci.org/coderaiser/madrun "Build Status"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/madrun "Dependency Status"
 [LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
 [CoverageURL]: https://coveralls.io/github/coderaiser/madrun?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/madrun/badge.svg?branch=master&service=github

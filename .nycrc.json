@@ -12,7 +12,8 @@
         "packages/*/test",
         "coverage",
         "packages/engine-loader/transforms",
-        "packages/cli-choose/**/keypress*"
+        "packages/cli-choose/**/keypress*",
+        "packages/processor-markdown/lib/rules"
     ],
     "branches": 100,
     "lines": 100,

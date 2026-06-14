@@ -69,12 +69,19 @@ test('putout: processor: markdown: remove-dependencies-status-one-badge: process
 
 test('putout: processor: markdown: remove-dependencies-status: compare places', async ({comparePlaces}) => {
     await comparePlaces('remove-dependencies-status', [{
-        message: 'Remove dependencies status badge',
+        message: `Avoid 'dependencies' status badge`,
         position: {
-            column: 1,
+            column: 4,
+            line: 5,
+        },
+        rule: 'markdown/remove-dependencies-status-badge',
+    }, {
+        message: `Avoid 'dependencies' status badge`,
+        position: {
+            column: 4,
             line: 6,
         },
-        rule: 'remove-dependencies-status-badge (remark-lint)',
+        rule: 'markdown/remove-dependencies-status-badge',
     }]);
 });
 
@@ -143,12 +150,19 @@ test('putout: processor: markdown: find: options', async (t) => {
 
 test('putout: processor: markdown: merge-heading-spaces: comparePlaces', async ({comparePlaces}) => {
     await comparePlaces('merge-heading-spaces', [{
-        message: 'Remove dependencies status badge',
+        message: `Avoid 'dependencies' status badge`,
         position: {
-            column: 1,
+            column: 4,
+            line: 5,
+        },
+        rule: 'markdown/remove-dependencies-status-badge',
+    }, {
+        message: `Avoid 'dependencies' status badge`,
+        position: {
+            column: 4,
             line: 6,
         },
-        rule: 'remove-dependencies-status-badge (remark-lint)',
+        rule: 'markdown/remove-dependencies-status-badge',
     }]);
 });
 
