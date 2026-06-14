@@ -11,11 +11,8 @@ const {isStringLiteral} = types;
 export const report = () => 'Avoid trailing whitespaces';
 
 export const match = () => ({
-    '__a(__args)': ({__a, __args}, {parentPath}) => {
+    'heading(__args)': ({__args}, {parentPath}) => {
         if (!compare(parentPath.parentPath, __markdown))
-            return false;
-        
-        if (!/h\d/.test(__a.name))
             return false;
         
         const last = __args.at(-1);
@@ -30,7 +27,7 @@ export const match = () => ({
 });
 
 export const replace = () => ({
-    '__a(__args)': ({__args}, path) => {
+    'heading(__args)': ({__args}, path) => {
         const last = __args.at(-1);
         const {value} = last;
         

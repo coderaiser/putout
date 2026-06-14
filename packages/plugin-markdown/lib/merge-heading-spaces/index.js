@@ -5,35 +5,32 @@ const {isStringLiteral} = types;
 const {
     setLiteralValue,
     __markdown,
-    traverse: superTraverse,
+    compare,
 } = operator;
 
 export const report = () => `Merge heading spaces`;
 
 export const fix = (path) => {
-    const value = path.node.value.replace('  ', ' ');
-    setLiteralValue(path, value);
-};
-export const traverse = ({push}) => {
-    const merge = mergeHeadingSpace(push);
+    const arg = path.get('arguments.1');
+    const value = arg.node.value.replace('  ', ' ');
     
-    return {
-        [__markdown]: (path) => {
-            superTraverse(path, {
-                'heading(__a, __b)': merge,
-            });
-        },
-    };
+    setLiteralValue(arg, value);
 };
 
-const mergeHeadingSpace = (push) => (path) => {
+export const include = () => [
+    'heading(__a, __b)',
+];
+
+export const filter = (path) => {
     const arg = path.get('arguments.1');
     
+    if (!compare(path.parentPath.parentPath, __markdown))
+        return false;
+    
     if (!isStringLiteral(arg))
-        return;
+        return false;
     
     const {value} = arg.node;
     
-    if (value.includes('  '))
-        push(arg);
+    return value.includes('  ');
 };
