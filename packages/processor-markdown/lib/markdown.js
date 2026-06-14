@@ -15,7 +15,6 @@ import {unified} from 'unified';
 import remarkParse from 'remark-parse';
 import {run} from './rules/index.js';
 import {toPlace} from './parse-place.js';
-import {plugins} from './plugins.js';
 
 const text = ({value}) => value;
 
@@ -31,6 +30,8 @@ const stringifyOptions = {
 
 export const files = ['*.md'];
 export const find = async (rawSource, options = {}) => {
+    const {plugins = []} = options;
+    
     if (!rawSource.length)
         return [];
     
@@ -39,10 +40,7 @@ export const find = async (rawSource, options = {}) => {
         .use(preset)
         .use(run, {
             fix: false,
-            plugins: [
-                ...plugins,
-                ...options.plugins || [],
-            ],
+            plugins,
         })
         .use(stringify, stringifyOptions)
         .use(remarkFrontmatter, ['yaml', 'toml'])
@@ -51,6 +49,7 @@ export const find = async (rawSource, options = {}) => {
     return messages.map(toPlace);
 };
 export const fix = async (rawSource, options = {}) => {
+    const {plugins = []} = options;
     const {value} = await unified()
         .use(remarkParse)
         .use(preset)
@@ -58,10 +57,7 @@ export const fix = async (rawSource, options = {}) => {
         .use(remarkFrontmatter, ['yaml', 'toml'])
         .use(run, {
             fix: true,
-            plugins: [
-                ...plugins,
-                ...options.plugins || [],
-            ],
+            plugins,
         })
         .process(rawSource);
     

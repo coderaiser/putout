@@ -21,3 +21,8 @@ test('plugin-markdown: transform: remove-dependencies-status-badge', (t) => {
     t.transform('remove-dependencies-status-badge');
     t.end();
 });
+
+test('plugin-markdown: transform: remove-trailing-whitespaces-from-heading', (t) => {
+    t.transform('remove-trailing-whitespaces-from-heading');
+    t.end();
+});

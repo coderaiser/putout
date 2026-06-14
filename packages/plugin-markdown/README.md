@@ -19,6 +19,7 @@ npm i @putout/plugin-markdown -D
 
 - ✅ [merge-heading-spaces](#merge-heading-spaces);
 - ✅ [remove-dependencies-status-badge](#remove-dependencies-status-badge);
+- ✅ [remove-trailing-whitespaces-from-heading](#remove-trailing-whitespaces-from-heading);
 - ✅ [split-link-with-title](#split-link-with-title);
 
 ## Config
@@ -28,6 +29,7 @@ npm i @putout/plugin-markdown -D
     "rules": {
         "markdown/merge-heading-spaces": "on",
         "markdown/remove-dependencies-status-badge": "on",
+        "markdown/remove-trailing-whitespaces-from-heading": "on",
         "markdown/split-link-with-title": "on"
     }
 }
@@ -75,6 +77,15 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7e5d9f5999
 -
 -[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-replace-all
 -[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-replace-all
+```
+
+### remove-trailing-whitespaces-from-heading
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f11d7152b8edaf548d990318342a7e23/3946f2be3f65a11fec739a8639dad4c96254b6d8).
+
+```diff
+-# @putout/plugin-apply-replace-all [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] hello␣
++# @putout/plugin-apply-replace-all [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] hello
 ```
 
 ## License
