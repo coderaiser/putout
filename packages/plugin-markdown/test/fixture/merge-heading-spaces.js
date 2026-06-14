@@ -1,8 +1,8 @@
 __putout_processor_markdown([
-    h1('Hello  world'),
-    h2('Hello  world'),
-    h3('Hello  world'),
-    h4('Hello  world'),
-    h5('Hello  world'),
-    h6('Hello  world'),
+    heading(1, 'Hello  world'),
+    heading(2, 'Hello  world'),
+    heading(3, 'Hello  world'),
+    heading(4, 'Hello  world'),
+    heading(5, 'Hello  world'),
+    heading(6, 'Hello  world'),
 ]);

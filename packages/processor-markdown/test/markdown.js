@@ -196,7 +196,7 @@ test('putout: processor: markdown: process: split-link-with-title: compare place
     }, {
         message: 'Split link with title',
         position: {
-            column: 20,
+            column: 28,
             line: 6,
         },
         rule: 'markdown/split-link-with-title',

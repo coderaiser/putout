@@ -20,19 +20,14 @@ export const traverse = ({push}) => {
     return {
         [__markdown]: (path) => {
             superTraverse(path, {
-                'h1(__a)': merge,
-                'h2(__a)': merge,
-                'h3(__a)': merge,
-                'h4(__a)': merge,
-                'h5(__a)': merge,
-                'h6(__a)': merge,
+                'heading(__a, __b)': merge,
             });
         },
     };
 };
 
 const mergeHeadingSpace = (push) => (path) => {
-    const arg = path.get('arguments.0');
+    const arg = path.get('arguments.1');
     
     if (!isStringLiteral(arg))
         return;
