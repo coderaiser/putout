@@ -9,3 +9,4 @@ eslint.config.*
 
 test
 coverage
+fixture
