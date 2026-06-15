@@ -129,6 +129,11 @@ test('plugin-for-of: no report: ternary', (t) => {
     t.end();
 });
 
+test('plugin-for-of: no report: return-object-entries', (t) => {
+    t.noReport('return-object-entries');
+    t.end();
+});
+
 test('plugin-for-of: transform: types', (t) => {
     t.transform('types');
     t.end();

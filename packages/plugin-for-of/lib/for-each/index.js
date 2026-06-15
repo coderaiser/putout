@@ -7,6 +7,7 @@ import {
 const {
     isIdentifier,
     continueStatement,
+    isReturnStatement,
 } = types;
 
 const {
@@ -80,6 +81,9 @@ export const replace = () => ({
 export const match = () => ({
     '__.forEach(__args)': (vars, path) => {
         const {parentPath} = path;
+        
+        if (isReturnStatement(parentPath))
+            return false;
         
         if (parentPath.isSequenceExpression())
             return false;
