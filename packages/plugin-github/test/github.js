@@ -86,3 +86,8 @@ test('plugin-github: transform: add-madrun-init', (t) => {
     t.transform('add-madrun-init');
     t.end();
 });
+
+test('plugin-github: transform: set-contents-permissions', (t) => {
+    t.transform('set-contents-permissions');
+    t.end();
+});

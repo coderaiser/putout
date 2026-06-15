@@ -1,4 +1,6 @@
 name: Node PR CI
+permissions:
+  contents: write
 on:
   - pull_request
 jobs:

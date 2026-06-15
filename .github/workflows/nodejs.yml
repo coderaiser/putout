@@ -1,4 +1,6 @@
 name: Node CI
+permissions:
+  contents: write
 on:
   push:
     branches: master

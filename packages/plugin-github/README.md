@@ -24,6 +24,7 @@ npm i @putout/plugin-github -D
 - ✅ [convert-typos-to-typos-ai](#convert-typos-to-typos-ai);
 - ✅ [insert-rust](#insert-rust);
 - ✅ [install-bun](#install-bun);
+- ✅ [set-contents-permissions](#set-contents-permissions);
 - ✅ [set-node-versions](#set-node-versions);
 - ✅ [set-message-of-commit-fixes](#set-message-of-commit-fixes);
 - ✅ [update-actions](#update-actions);
@@ -36,6 +37,7 @@ npm i @putout/plugin-github -D
         "github/add-continue-on-error-to-coveralls": "on",
         "github/add-continue-on-error-to-add-and-commit": "on",
         "github/add-madrun-init": "on",
+        "github/set-contents-permissions": "on",
         "github/convert-npm-to-bun": "on",
         "github/convert-typos-to-typos-ai": "on",
         "github/set-node-versions": "on",
@@ -86,6 +88,18 @@ Add ability to continue when cannot submit coverage to Coveralls using [`continu
     with:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 +   continue-on-error: true
+```
+
+## set-contents-permissions
+
+To use [`EndBug/and-end-commit`](https://github.com/EndBug/add-and-commit) you need to set content permissions.
+
+Checkout int 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/22f1abf3f448061e9e2d2bca6f5a612c/70a3b71c6445a8f3b3b8ee59ed9132e5edcb3eea).
+
+```diff
+name: Node CI
++permissions:
++  contents: write
 ```
 
 ## set-message-of-commit-fixes

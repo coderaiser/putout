@@ -1,5 +1,8 @@
 __putout_processor_yaml({
     "name": "Node CI",
+    "permissions": {
+        "contents": "write"
+    },
     "on": ["push", "pull_request"],
     "jobs": {
         "build": {

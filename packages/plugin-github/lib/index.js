@@ -1,3 +1,4 @@
+import * as setContentsPermissions from './set-contents-permissions/index.js';
 import * as addMadrunInit from './add-madrun-init/index.js';
 import * as convertTyposToTyposAi from './convert-typos-to-typos-ai/index.js';
 import * as setMessageOfCommitFixes from './set-message-of-commit-fixes/index.js';
@@ -20,4 +21,5 @@ export const rules = {
     'set-message-of-commit-fixes': setMessageOfCommitFixes,
     'convert-typos-to-typos-ai': convertTyposToTyposAi,
     'add-madrun-init': addMadrunInit,
+    'set-contents-permissions': setContentsPermissions,
 };
