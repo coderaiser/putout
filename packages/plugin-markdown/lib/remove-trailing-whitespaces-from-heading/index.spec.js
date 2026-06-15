@@ -16,3 +16,8 @@ test('markdown: remove-trailing-whitespaces-from-heading: transform', (t) => {
     t.transform('remove-trailing-whitespaces-from-heading');
     t.end();
 });
+
+test('markdown: remove-trailing-whitespaces-from-heading: no report: not-string', (t) => {
+    t.noReport('not-string');
+    t.end();
+});

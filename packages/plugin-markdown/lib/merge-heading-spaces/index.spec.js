@@ -21,3 +21,8 @@ test('markdown: merge-heading-spaces: no report: not-string', (t) => {
     t.noReport('not-string');
     t.end();
 });
+
+test('markdown: merge-heading-spaces: no report: not-markdown', (t) => {
+    t.noReport('not-markdown');
+    t.end();
+});
