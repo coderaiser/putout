@@ -16,3 +16,8 @@ test('github: set-contents-permissions: transform', (t) => {
     t.transform('set-contents-permissions');
     t.end();
 });
+
+test('github: set-contents-permissions: transform: contents-none', (t) => {
+    t.transform('contents-none');
+    t.end();
+});

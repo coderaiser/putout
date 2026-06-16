@@ -1,6 +1,10 @@
 import {types, operator} from 'putout';
 
-const {getProperties, __yaml} = operator;
+const {
+    getProperties,
+    __yaml,
+    setLiteralValue,
+} = operator;
 
 const {
     objectExpression,
@@ -8,9 +12,17 @@ const {
     objectProperty,
 } = types;
 
+const isContentsKey = ({key}) => key.value === 'contents';
+const isWriteValue = ({value}) => value.value === 'write';
+
 export const report = () => `'permissions.content = write'`;
 
-export const fix = ({path, permissionsPath}) => {
+export const fix = ({path, permissionsPath, propertyValuePath}) => {
+    if (propertyValuePath) {
+        setLiteralValue(propertyValuePath, 'write');
+        return;
+    }
+    
     if (permissionsPath) {
         permissionsPath.node.value.properties.push(objectProperty(stringLiteral('contents'), stringLiteral('write')));
         return;
@@ -39,8 +51,21 @@ export const traverse = ({push}) => ({
             const permissionsProperties = permissionsPath.get('value.properties');
             
             for (const property of permissionsProperties) {
-                if (property.node.key.value === 'contents')
+                const {node} = property;
+                
+                if (isContentsKey(node) && isWriteValue(node))
                     return;
+                
+                if (isContentsKey(node) && !isWriteValue(node)) {
+                    const propertyValuePath = property.get('value');
+                    
+                    push({
+                        path: objectPath,
+                        propertyValuePath,
+                    });
+                    
+                    return;
+                }
             }
         }
         
