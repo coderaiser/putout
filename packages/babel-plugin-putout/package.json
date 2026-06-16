@@ -13,7 +13,7 @@
     "url": "git+https://github.com/coderaiser/putout.git"
   },
   "devDependencies": {
-    "@babel/core": "^8.0.0-alpha.1",
+    "@babel/core": "^8.0.0",
     "@babel/eslint-plugin-development": "^8.0.0-alpha.1",
     "eslint": "^10.0.0",
     "eslint-plugin-putout": "^31.0.0",
