@@ -60,7 +60,7 @@
     "typescript-eslint": "^8.24.1"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-typescript": "^8.0.0-alpha.1",
+    "@babel/plugin-syntax-typescript": "^8.0.0",
     "@putout/plugin-eslint-plugin": "^7.0.0",
     "@putout/test": "^15.0.0",
     "eslint": "^10.0.0",
