@@ -8,7 +8,7 @@ const {
     objectProperty,
 } = types;
 
-export const report = () => `'permirmissions.content = write'`;
+export const report = () => `'permissions.content = write'`;
 
 export const fix = ({path, permissionsPath}) => {
     if (permissionsPath) {

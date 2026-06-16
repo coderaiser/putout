@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('github: set-contents-permissions: report', (t) => {
-    t.report('set-contents-permissions', `'permirmissions.content = write'`);
+    t.report('set-contents-permissions', `'permissions.content = write'`);
     t.end();
 });
 
