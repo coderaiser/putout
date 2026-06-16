@@ -35,19 +35,13 @@ export const traverse = ({push}) => ({
         if (!namePath)
             return;
         
-        if (!permissionsPath) {
-            push({
-                path: objectPath,
-                permissionsPath,
-            });
-            return;
-        }
-        
-        const permissionsProperties = permissionsPath.get('value.properties');
-        
-        for (const property of permissionsProperties) {
-            if (property.node.key.value === 'contents')
-                return;
+        if (permissionsPath) {
+            const permissionsProperties = permissionsPath.get('value.properties');
+            
+            for (const property of permissionsProperties) {
+                if (property.node.key.value === 'contents')
+                    return;
+            }
         }
         
         push({
