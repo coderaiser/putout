@@ -31,7 +31,7 @@ Processor converts `yaml` to JavaScript, it looks like this.
 name: Node CI
 ```
 
-Becames:
+Became:
 
 ```
 __putout_processor_yaml({
