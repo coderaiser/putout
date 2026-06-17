@@ -15,12 +15,28 @@
 npm i @putout/processor-markdown -D
 ```
 
-## Usage
+## Config
 
 ```json
 {
     "processors": ["markdown"]
 }
+```
+
+## Usage
+
+Processor converts `markdown` to JavaScript, it looks like this.
+
+```yaml
+# hello
+```
+
+Became:
+
+```js
+__putout_processor_markdown([
+    header(1, 'hello'),
+]);
 ```
 
 ## Rules

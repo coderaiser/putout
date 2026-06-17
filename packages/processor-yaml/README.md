@@ -33,7 +33,7 @@ name: Node CI
 
 Became:
 
-```
+```js
 __putout_processor_yaml({
     "node": "Node CI"
 });
