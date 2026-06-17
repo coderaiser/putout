@@ -39,6 +39,25 @@ __putout_processor_markdown([
 ]);
 ```
 
+### Writing Putout Plugins for Markdown
+
+#### The core idea
+
+Under the hood, `@putout/processor-markdown` uses a small library called [`happy-mark`](https://github.com/coderaiser/happy-mark) to turn your document into nested function calls. A heading becomes a call to `heading(...)`, a paragraph becomes `paragraph(...)`, a link becomes `link(...)`, and so on. For example, this Markdown:
+
+```md
+# Hello world
+
+Some *emphasis* and a [link](https://example.com).
+```
+
+turns into this JavaScript:
+
+```js
+heading(1, 'Hello world');
+paragraph('Some ', italic('emphasis'), ' and a ', link('link', 'https://example.com'), '.');
+```
+
 ## Rules
 
 Checkout `markdown`-related rules in [`@putout/plugin-markdown`](https://github.com/coderaiser/putout/tree/master/packages/plugin-markdown)
