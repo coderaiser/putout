@@ -12,8 +12,7 @@ Make fork of a repo, clone it and run:
 
 ```
 cd putout
-bun install --no-save
-npm run bootstrap
+bun i
 ```
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/coderaiser/putout)
