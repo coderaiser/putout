@@ -126,3 +126,8 @@ test('plugin-printer: transform: remove-useless-arrow-from-type-checker', (t) =>
     t.transform('remove-useless-arrow-from-type-checker');
     t.end();
 });
+
+test('plugin-printer: transform: add-missing-arrow-to-type-checker', (t) => {
+    t.transform('add-missing-arrow-to-type-checker');
+    t.end();
+});
