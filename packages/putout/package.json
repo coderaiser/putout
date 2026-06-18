@@ -5,7 +5,8 @@
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊 Pluggable and configurable code transformer with built-in ESLint, Babel and support of js, jsx, typescript, flow, markdown, yaml and json",
   "homepage": "http://github.com/coderaiser/putout#readme",
-  "main": "./lib/putout.js",
+  "main": "./lib/index.js",
+  "types": "./lib/types.d.ts",
   "exports": {
     ".": "./lib/index.js",
     "./parse-error": "./lib/parse-error.js",
