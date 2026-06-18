@@ -80,6 +80,7 @@ const fixture = readFixtures([
     'throw-statement',
     'try-catch',
     'ts-module-block',
+    'ts-import-equals-declaration',
     'undeclared-vars',
     'unary-expression',
     'update-expression',
@@ -1799,6 +1800,28 @@ test('remove-unused-variables: get-vars: ts-module-block', (t) => {
     
     const expected = [{
         al: {
+            declared: true,
+            used: true,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: ts-import-equals-declaration', (t) => {
+    const ast = parse(fixture.tsImportEqualsDeclaration, {
+        isTS,
+    });
+    
+    const result = getVars(ast);
+    
+    const expected = [{
+        _operate: {
+            declared: true,
+            used: true,
+        },
+        operator: {
             declared: true,
             used: true,
         },

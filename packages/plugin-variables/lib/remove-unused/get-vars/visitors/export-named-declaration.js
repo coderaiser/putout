@@ -25,6 +25,9 @@ export const createExportNamedDeclaration = ({use}) => (path) => {
     if (declarationPath.isTSTypeAliasDeclaration())
         return use(path, declaration.id.name);
     
+    if (declarationPath.isTSImportEqualsDeclaration())
+        return use(path, declaration.id.name);
+    
     if (isVariableDeclaration(declaration)) {
         const {declarations} = declaration;
         

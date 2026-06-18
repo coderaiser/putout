@@ -15,6 +15,22 @@ export default ({use, declare}) => ({
             use(path, expression.name);
         }
     },
+    TSImportEqualsDeclaration(path) {
+        const {
+            id,
+            moduleReference,
+        } = path.node;
+        
+        switch(id.type) {
+        case 'Identifier':
+            declare(path, id.name);
+        }
+        
+        switch(moduleReference.type) {
+        case 'Identifier':
+            use(path, moduleReference.name);
+        }
+    },
     
     TSFunctionType(path) {
         const {node} = path;
