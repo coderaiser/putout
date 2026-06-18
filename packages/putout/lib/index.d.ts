@@ -1,8 +1,20 @@
-import {File, Program} from '@putout/babel';
+import {
+    File,
+    Program,
+    Node,
+} from '@putout/babel';
 import {PutoutPlugin} from '../types/plugins.ts';
 
 export declare function parse(source: string): Program;
-export {traverse} from '@putout/babel';
+export {traverse, types} from '@putout/babel';
+
+export declare function template(source: string, options?: Record<string, unknown>): (...args: unknown[]) => Node;
+export declare namespace template {
+    export function ast(source: string, options?: Record<string, unknown>): Node;
+    export function program(source: string, options?: Record<string, unknown>): (...args: unknown[]) => Node;
+    export function extractExpression(node: Node): Node;
+}
+export declare function generate(node: Node, options?: Record<string, unknown>, sourceMaps?: Record<string, unknown>): string;
 
 type PutoutReturn = {
     code: string;
@@ -24,7 +36,6 @@ type RuleTuple = [
     RuleState,
     RuleOptions,
 ] | [RuleState, string, RuleOptions];
-// [state, message, options] — кастомный текст сообщения
 type RuleValue = RuleState | RuleTuple;
 
 export type Rules = Record<string, RuleValue>;
@@ -41,6 +52,8 @@ export type TransformOptions = {
 type Options = ParseOptions & TransformOptions;
 
 export default function putout(source: string, options: Options): PutoutReturn;
+
+export function putoutAsync(source: string, options: Options): Promise<PutoutReturn>;
 
 export interface PrintOptions {
     printer?: 'putout' | 'babel' | [string, Record<string, unknown>];
@@ -71,3 +84,5 @@ export function codeframe(args: {
     highlightCode?: boolean;
 }): string;
 
+export declare namespace operator {
+}
