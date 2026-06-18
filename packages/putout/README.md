@@ -37,14 +37,12 @@ Check out couple variants of plugins that does the same: [**linting debugger sta
 - ❌ RSLint [no-debugger](https://github.com/rslint/rslint/blob/v0.3.0/crates/rslint_core/src/groups/errors/no_debugger.rs): **48** lines;
 - ❌ ESLint [no-debugger](https://github.com/eslint/eslint/blob/2dc38aa653f1d5137a9abf82024c67a11620bb7c/lib/rules/no-debugger.js): **43** lines;
 - ❌ Rome [no-debugger](https://github.com/rome/tools/blob/4d5a99ce98e987cbd03f3ab6b38fa22d00bbfe27/packages/%40romejs/js-compiler/transforms/lint/noDebugger.ts): **28** lines;
-- ✅ 🐊**Putout** [remove-debugger](https://github.com/coderaiser/putout/blob/v24.6.0/packages/plugin-remove-debugger/lib/remove-debugger.js): **7** lines:
+- ✅ 🐊**Putout** [remove-debugger](https://github.com/coderaiser/putout/blob/v42.7.1/packages/plugin-remove-debugger/lib/remove-debugger.js): **4** lines:
 
 ```js
-'use strict';
+export const report = () => `Avoid 'debugger' statement`;
 
-module.exports.report = () => `Avoid 'debugger' statement`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     debugger: '',
 });
 ```
