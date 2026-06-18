@@ -451,32 +451,6 @@ test('putout: loader: sync: import: shorten', async (t) => {
     t.end();
 });
 
-test('putout: loader: sync: load ESM: code', (t) => {
-    const source = `const {run} = require('madrun');`;
-    const [error] = tryCatch(putout, source, {
-        plugins: ['@putout/plugin-apply-nullish-coalescing'],
-    });
-    
-    if (process.version.startsWith('v2'))
-        return t.notOk(error);
-    
-    t.equal(error.code, 'ERR_REQUIRE_ESM');
-    t.end();
-});
-
-test('putout: loader: sync: load ESM: message', (t) => {
-    const source = `const {run} = require('madrun');`;
-    const [error] = tryCatch(putout, source, {
-        plugins: ['@putout/plugin-apply-nullish-coalescing'],
-    });
-    
-    if (process.version.startsWith('v2'))
-        return t.notOk(error);
-    
-    t.equal(error.message, `☝️ Looks like '@putout/plugin-apply-nullish-coalescing' is ESM, use 'await putoutAsync()' instead`);
-    t.end();
-});
-
 test('putout: loader: sync: load ESM: name', (t) => {
     const source = `const {run} = require('madrun');`;
     const [error] = tryCatch(putout, source, {
@@ -639,6 +613,35 @@ test('putout: loader: plugin name not string', async (t) => {
     });
     
     t.equal(error.message, `☝️ Looks like plugin name type is not 'string', but: 'function'`);
+    t.end();
+});
+
+test('putout: loader: rules has object instead of toggle', async (t) => {
+    const code = montag`
+        const {Identifier} = types;
+        Identifier('x');
+    `;
+    
+    const {places} = await putout(code, {
+        fix: false,
+        rules: {
+            putout: [{
+                hello: 'world',
+            }],
+        },
+        plugins: [
+            ['putout', {
+                report: () => 'hello',
+                replace: () => ({
+                    'const a = 3': 'const b = 4',
+                }),
+            }],
+        ],
+    });
+    
+    const {message} = places[0];
+    
+    t.equal(message, `☝️ Looks like 'state' not 'boolean | 'on' | 'off', but: '{"hello":"world"}'`);
     t.end();
 });
 

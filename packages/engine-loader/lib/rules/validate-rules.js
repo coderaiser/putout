@@ -1,3 +1,4 @@
+const {keys} = Object;
 const parseSlashes = (rule) => {
     if (rule.includes('/'))
         return rule
@@ -14,9 +15,7 @@ const parsePluginName = (a) => {
 };
 
 export const validateRules = ({items, rules}) => {
-    const ruleItems = Object.keys(rules);
-    
-    for (const rule of ruleItems) {
+    for (const rule of keys(rules)) {
         let isName = false;
         let isWithSlash = false;
         let isIncludes = false;
