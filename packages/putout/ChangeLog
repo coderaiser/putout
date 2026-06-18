@@ -1,3 +1,29 @@
+2026.06.18, v42.7.0
+
+fix:
+- 3b465e12f @putout/plugin-markdown: simplify
+- 4031967e1 @putout/plugin-markdown: npmignore: fixture
+- 7b7fb253b @putout/test: noTransform: extensionFix
+
+feature:
+- 94a3fdcc2 putout: add types
+- 0d04bc6d2 @putotu/plugin-printer: add-missing-arrow-to-type-checker
+- 9b55a8a04 @putout/plugin-convert-throw: drop support of 🐊 < 42
+- 0e85d9564 eslint-plugin-putout: @babel/plugin-syntax-typescript v8.0.0
+- 4cba16d5e eslint-plugin-putout: @babel/core v8.0.0
+- 42dffd472 @putout/plugin-github: set-contents-permissions: exists, not write
+- 44d68381e @putout/plugin-github: set-contents-permissions: report
+- 02596465e @putout/plugin-github: set-contents-permissions
+- 5c08b01a2 @putout/plugin-for-of: for-each: return: exclude (putoutjs/minify#31)
+- 428d81d03 @putout/plugin-markdown: h1-6 -> heading
+- 316a1ec0d @putout/plugin-markdown: remove-trailing-whitespaces-from-heading
+- 8f897c666 @putout/plugin-markdown: remove-dependencies-status-badge
+- 8dd6d4f0d @putout/plugin-putout: convert-traverse-to-super-traverse
+- 95e5435f5 @putout/plugin-putout: declare: superTraverse
+- 1cee4ff4b @putout/traverse: superTraverse
+- 20f556566 @putout/plugin-markdown: split-link-with-title
+- 0e9b89571 @putout/test: noTransform: extensionFix
+
 2026.06.13, v42.6.0
 
 fix:
