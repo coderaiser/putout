@@ -20,6 +20,7 @@ export interface PutoutPlugin {
 export type Report = () => string;
 
 export type Include = () => string[];
+
 export type Exclude = () => string[] | (() => boolean);
 
 export interface PluginOptions {
@@ -27,12 +28,9 @@ export interface PluginOptions {
 }
 
 export type Filter = (path: NodePath, options: PluginOptions) => boolean;
+
 export type Fix = (path: NodePath, options: PluginOptions) => void;
 
-type ReplaceResolver = (
-    vars: Record<string, Node>,
-    path: NodePath,
-) => string | NodePath | '';
+type ReplaceResolver = (vars: Record<string, Node>, path: NodePath) => string | NodePath | '';
 
 export type Replace = () => Record<string, string | ReplaceResolver>;
-

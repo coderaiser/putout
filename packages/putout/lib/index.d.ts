@@ -18,12 +18,13 @@ export interface ParseOptions {
 
 type RuleState = 'on' | 'off' | boolean;
 type RuleOptions = Record<string, unknown>;
-
-type RuleTuple =
-    | [RuleState]
-    | [RuleState, RuleOptions]
-    | [RuleState, string, RuleOptions]; // [state, message, options] — кастомный текст сообщения
-
+type RuleTuple = [
+    RuleState,
+] | [
+    RuleState,
+    RuleOptions,
+] | [RuleState, string, RuleOptions];
+// [state, message, options] — кастомный текст сообщения
 type RuleValue = RuleState | RuleTuple;
 
 export type Rules = Record<string, RuleValue>;
@@ -50,7 +51,10 @@ export function print(ast: File, options?: PrintOptions): string;
 export interface Place {
     rule: string;
     message: string;
-    position: {line: number; column: number};
+    position: {
+        line: number;
+        column: number;
+    };
 }
 
 export function transform(ast: File, options?: TransformOptions): Place[];
@@ -58,4 +62,12 @@ export function transformAsync(ast: File, options?: TransformOptions): Promise<P
 export function findPlaces(ast: File, options?: TransformOptions): Place[];
 export function findPlacesAsync(ast: File, options?: TransformOptions): Promise<Place[]>;
 
-export function codeframe(args: {source: string; error: {message: string; loc?: unknown}; highlightCode?: boolean}): string;
+export function codeframe(args: {
+    source: string;
+    error: {
+        message: string;
+        loc?: unknown;
+    };
+    highlightCode?: boolean;
+}): string;
+
