@@ -6,6 +6,7 @@
         "**/*.spec.*",
         "**/*fixture",
         "**/*.config.*",
+        "**/*.ts",
         "**/.*.*",
         "**/scripts",
         "packages/putout/bin",

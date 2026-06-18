@@ -7,11 +7,11 @@ const testEnv = {
 
 export default {
     'wisdom': () => run(['lint', 'coverage']),
-    'test': () => [testEnv, `tape 'test/*.{js,mjs}' '{bin,lib}/**/*.spec.{js,mjs}' 'scripts/*.spec.js'`],
+    'test': () => [testEnv, `tape 'test/*.js' '{bin,lib}/**/*.spec.js' 'scripts/*.spec.js'`],
+    'test:dts': () => 'check-dts test/*.ts',
     'watch:test': async () => [testEnv, `nodemon -w bin -w lib -w test -x "${await cutEnv('test')} -f tap"`],
     'scheme': () => 'scripts/bin/scheme.js',
     'lint': () => `putout .`,
-    'oldlint': () => `bin/putout.js .`,
     'fresh:lint': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),
