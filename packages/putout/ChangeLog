@@ -1,3 +1,11 @@
+2026.06.19, v42.7.1
+
+feature:
+- 50f2d6089 @putout/operate: types
+- 01b034621 putout: types: improve
+- 26232a0f0 @putout/plugin-variables: remove-unused: TSImportEqualsDeclaration
+- acbfed8bf @putout/engine-loader: add additional validate of state
+
 2026.06.18, v42.7.0
 
 fix:
