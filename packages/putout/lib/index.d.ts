@@ -5,6 +5,8 @@ import {
 } from '@putout/babel';
 import {PutoutPlugin} from '../types/plugins.ts';
 
+export * as operator from '../types/operator.ts';
+
 export declare function parse(source: string): Program;
 export {traverse, types} from '@putout/babel';
 
@@ -13,8 +15,7 @@ export declare namespace template {
     export function ast(source: string, options?: Record<string, unknown>): Node;
     export function program(source: string, options?: Record<string, unknown>): (...args: unknown[]) => Node;
     export function extractExpression(node: Node): Node;
-}
-export declare function generate(node: Node, options?: Record<string, unknown>, sourceMaps?: Record<string, unknown>): string;
+} export declare function generate(node: Node, options?: Record<string, unknown>, sourceMaps?: Record<string, unknown>): string;
 
 type PutoutReturn = {
     code: string;
@@ -84,5 +85,3 @@ export function codeframe(args: {
     highlightCode?: boolean;
 }): string;
 
-export declare namespace operator {
-}

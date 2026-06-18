@@ -6,6 +6,7 @@
   "description": "Operate on AST for 🐊 Putout",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operate#readme",
   "main": "lib/operate.js",
+  "types": "lib/operate.d.ts",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -15,6 +16,7 @@
   },
   "scripts": {
     "test": "madrun test",
+    "test:dts": "madrun test:dts",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
     "fresh:lint": "madrun fresh:lint",
