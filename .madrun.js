@@ -38,7 +38,7 @@ const envBreaking = {
 };
 
 export default {
-    'test': () => [env, `tape -f time '${dirs}/*/test/*.js' '${dirs}/*/{bin,lib,rules}/**/*.spec.js'`],
+    'test': () => [env, `tape -f time '${dirs}/*/test/*.{js,cjs}' '${dirs}/*/{bin,lib,rules}/**/*.spec.{js,cjs}'`],
     'test:break': async () => [envBreaking, await run('test')],
     'test:update': () => [envUpdate, `tape 'packages/{test,plugin,processor,engine}-*/test/*.*' 'packages/{test,plugin,processor,engine}-*/lib/**/*.spec.*'`],
     'test:inspect': () => [env, `node --inspect-brk --inspect=0.0.0.0 node_modules/.bin/${cutEnv('test')}`],

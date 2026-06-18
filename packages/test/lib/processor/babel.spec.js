@@ -1,7 +1,7 @@
 import {createTest} from './index.js';
 
 const test = createTest(import.meta.url, {
-    printer: 'recast',
+    printer: 'babel',
     extension: 'json',
     processors: ['json'],
     plugins: ['eslint'],
