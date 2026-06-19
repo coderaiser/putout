@@ -8,6 +8,7 @@
     "test:update": "madrun test:update",
     "test:inspect": "madrun test:inspect",
     "test:fail": "madrun test:fail",
+    "test:dts": "madrun test:dts",
     "coverage:ci": "madrun coverage:ci",
     "coverage": "madrun coverage",
     "lint:dot": "madrun lint:dot",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@putout/eslint-flat": "^4.0.0",
+    "check-dts": "^1.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-putout": "^31.0.0",
