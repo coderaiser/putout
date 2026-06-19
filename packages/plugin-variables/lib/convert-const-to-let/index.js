@@ -3,6 +3,7 @@ import {types} from 'putout';
 const {
     isBlockStatement,
     isProgram,
+    isExportDeclaration,
 } = types;
 
 const {values} = Object;
@@ -36,6 +37,9 @@ export const traverse = ({push, pathStore}) => ({
         for (const binding of values(scope.bindings)) {
             const {parentPath, node} = binding.path;
             const {init} = node;
+            
+            if (!init && isExportDeclaration(path.parentPath))
+                continue;
             
             if (init && binding.constant)
                 continue;

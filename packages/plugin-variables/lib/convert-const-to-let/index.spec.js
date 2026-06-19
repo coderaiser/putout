@@ -72,6 +72,11 @@ test('putout: plugin-variables: convert-const-to-let: no report: no-assign', (t)
     t.end();
 });
 
+test('putout: plugin-variables: convert-const-to-let: no report: type', (t) => {
+    t.noReport('type');
+    t.end();
+});
+
 test('putout: plugin-variables: convert-const-to-let: transform: split-variable-declarations', (t) => {
     t.transform('split-variable-declarations', {
         'split-variable-declaration': splitVariableDeclarations,
