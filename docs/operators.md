@@ -70,6 +70,7 @@ Each operator package must include:
 - Import every exported function from the JS module (e.g. `'../lib/traverse.js'`)
 - Call each function with an invalid argument (e.g. a number `5`)
 - Annotate each call with `// THROWS <expected error message>`
+- Add a blank line before each `// THROWS` comment for readability
 - Test at least:
   - Wrong number of arguments -> `Expected 2 arguments, but got 1`
   - Wrong argument type -> `Argument of type 'number' is not assignable to parameter of type '...'`
@@ -83,6 +84,15 @@ To add a new operator's types to putout:
 
 1. Add `export * from '@putout/<name>'` to `types/operator.ts`
 2. Add destructured imports and `// THROWS` checks to `test/operator.errors.ts`
+
+### Validation
+
+Run both the regular tests and the type tests to validate:
+
+```
+redrun test:dts
+redrun test
+```
 
 ### Example
 
