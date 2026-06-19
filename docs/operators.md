@@ -42,3 +42,71 @@ Here is list of built-in operators
 | [`@putout/operator-sort-ignore`](/packages/operator-sort-ignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-sort-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-sort-ignore) |
 | [`@putout/operator-watermark`](/packages/operator-watermark#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-watermark.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-watermark) |
 | [`@putout/operator-type-checker`](/packages/operator-type-checker#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-type-checker.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-type-checker) |
+
+## TypeScript Support
+
+TypeScript type annotations help catch bugs early and provide better IDE autocompletion.
+Every operator should expose its types and validate them with `check-dts`.
+
+### Requirements
+
+Each operator package must include:
+
+| # | Artifact | Description |
+|---|----------|-------------|
+| 1 | `lib/<name>.d.ts` | TypeScript declaration file exporting all public function signatures |
+| 2 | `test/errors.ts` | A `check-dts` test that verifies type errors for invalid calls |
+| 3 | `.madrun.js` | A `test:dts` script: `'test:dts': () => 'check-dts test/*.ts'` |
+| 4 | `package.json` | `check-dts` in `devDependencies` and `test:dts` in `scripts` (via `madrun --init`) |
+
+### Type declaration file (`lib/<name>.d.ts`)
+
+- Import types from `@putout/babel` (e.g. `Node`, `NodePath`)
+- Declare each export with full type signatures
+- Use `typeof` for aliases (e.g. `export const superTraverse: typeof traverse`)
+
+### Test file (`test/errors.ts`)
+
+- Import every exported function from the JS module (e.g. `'../lib/traverse.js'`)
+- Call each function with an invalid argument (e.g. a number `5`)
+- Annotate each call with `// THROWS <expected error message>`
+- Test at least:
+  - Wrong number of arguments -> `Expected 2 arguments, but got 1`
+  - Wrong argument type -> `Argument of type 'number' is not assignable to parameter of type '...'`
+
+### Integration in `putout`
+
+The `putout` package re-exports all operator functions via `lib/operator.js`.
+Types are re-exported via `types/operator.ts`.
+
+To add a new operator's types to putout:
+
+1. Add `export * from '@putout/<name>'` to `types/operator.ts`
+2. Add destructured imports and `// THROWS` checks to `test/operator.errors.ts`
+
+### Example
+
+For `@putout/traverse`:
+
+```ts
+// lib/traverse.d.ts
+import {Node, NodePath} from '@putout/babel';
+
+type Visitor = Record<string, (path: NodePath, variables?: Record<string, Node>) => void>;
+
+export function traverse(path: Node | NodePath | {node: Node}, visitor: Visitor): void;
+export const superTraverse: typeof traverse;
+export function contains(path: Node | NodePath | {node: Node}, items: string[]): boolean;
+```
+
+```ts
+// test/errors.ts
+import {traverse, superTraverse, contains} from '../lib/traverse.js';
+
+// THROWS Expected 2 arguments, but got 1
+traverse(5);
+// THROWS Expected 2 arguments, but got 1
+superTraverse(5);
+// THROWS Expected 2 arguments, but got 1
+contains(5);
+```
