@@ -15,6 +15,7 @@
   },
   "scripts": {
     "test": "madrun test",
+    "test:dts": "madrun test:dts",
     "watch:test": "madrun watch:test",
     "watch:coverage": "madrun watch:coverage",
     "lint": "madrun lint",
@@ -36,6 +37,7 @@
   ],
   "devDependencies": {
     "@putout/test": "^15.0.0",
+    "check-dts": "^1.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-putout": "^31.0.0",
     "madrun": "^13.0.0",

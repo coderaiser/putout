@@ -5,6 +5,7 @@ const {
     compare,
     traverse,
     toJS,
+    hasTagName,
 } = operator;
 
 // THROWS Expected 2 arguments, but got 1.
@@ -15,3 +16,6 @@ compare('hello');
 traverse(1);
 // THROWS Argument of type 'number' is not assignable to parameter of type 'string'
 toJS(5);
+
+// THROWS Expected 2 arguments, but got 1
+hasTagName(5);
