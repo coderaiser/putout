@@ -90,7 +90,6 @@ const one = (f) => f;
     3,
     4,
 ].map(one(console.log));
-
 // output
 '1 0 [1, 2, 3]';
 '2 1 [1, 2, 3]';

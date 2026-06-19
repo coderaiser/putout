@@ -26,6 +26,7 @@ const {template} = operator;
 const node = template.ast('const [] = a');
 
 getTemplateValues(node, 'const __array = array');
+
 // returns
 ({
     __array: {
@@ -39,7 +40,6 @@ getTemplateValues(node, 'const __array = array');
 - `node` - `AST-node` or `code` that will be generated;
 - `template` - `AST-node` with support of `template variables`.
 - `options` - (optional) - object with properties:
-  - `findUp` (default: `true`) - find up template node;
 
 ### compareAll(node: string | Node, templates: string[] | Node|Nodes[], [, options: Options])
 

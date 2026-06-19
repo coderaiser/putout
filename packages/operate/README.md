@@ -139,6 +139,7 @@ Remove `node`, preserve comments.
 
 ```js
 path.toString();
+
 // returns const [a, b] = c;
 remove(path.get('declarations.0.id.0'));
 

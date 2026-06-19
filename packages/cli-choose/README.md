@@ -22,7 +22,6 @@ choose('hello?', [
     'three',
     'four',
 ]);
-
 // returns
 'one';
 ```
@@ -41,9 +40,7 @@ const choices = [
 
 choose('hello?', items, {
     autofocus: 3,
-});
-
-// show ui with focus on item 'three'.
+});// show ui with focus on item 'three'.
 ```
 
 ## License

@@ -23,7 +23,7 @@ This is so common type of plugin that there is type of plugin called [`Declarato
 Here is list of built-in operators
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/operate`](/packages/operate#readme) | [![npm](https://img.shields.io/npm/v/@putout/operate.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operate) |
 | [`@putout/operator-add-args`](/packages/operator-add-args#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-add-args.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-add-args) |
 | [`@putout/operator-declare`](/packages/operator-declare#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-declare.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-declare) |
@@ -52,12 +52,12 @@ Every operator should expose its types and validate them with `check-dts`.
 
 Each operator package must include:
 
-| # | Artifact | Description |
-|---|----------|-------------|
-| 1 | `lib/<name>.d.ts` | TypeScript declaration file exporting all public function signatures |
-| 2 | `test/errors.ts` | A `check-dts` test that verifies type errors for invalid calls |
-| 3 | `.madrun.js` | A `test:dts` script: `'test:dts': () => 'check-dts test/*.ts'` |
-| 4 | `package.json` | `check-dts` in `devDependencies` and `test:dts` in `scripts` (via `madrun --init`) |
+| # | Artifact          | Description                                                                        |
+|---|-------------------|------------------------------------------------------------------------------------|
+| 1 | `lib/<name>.d.ts` | TypeScript declaration file exporting all public function signatures               |
+| 2 | `test/errors.ts`  | A `check-dts` test that verifies type errors for invalid calls                     |
+| 3 | `.madrun.js`      | A `test:dts` script: `'test:dts': () => 'check-dts test/*.ts'`                     |
+| 4 | `package.json`    | `check-dts` in `devDependencies` and `test:dts` in `scripts` (via `madrun --init`) |
 
 ### Type declaration file (`lib/<name>.d.ts`)
 
@@ -72,8 +72,6 @@ Each operator package must include:
 - Annotate each call with `// THROWS <expected error message>`
 - Add a blank line before each `// THROWS` comment for readability
 - Test at least:
-  - Wrong number of arguments -> `Expected 2 arguments, but got 1`
-  - Wrong argument type -> `Argument of type 'number' is not assignable to parameter of type '...'`
 
 ### Integration in `putout`
 
@@ -104,19 +102,29 @@ import {Node, NodePath} from '@putout/babel';
 
 type Visitor = Record<string, (path: NodePath, variables?: Record<string, Node>) => void>;
 
-export function traverse(path: Node | NodePath | {node: Node}, visitor: Visitor): void;
+export function traverse(path: Node | NodePath | {
+    node: Node;
+}, visitor: Visitor): void;
 export const superTraverse: typeof traverse;
-export function contains(path: Node | NodePath | {node: Node}, items: string[]): boolean;
+export function contains(path: Node | NodePath | {
+    node: Node;
+}, items: string[]): boolean;
 ```
 
 ```ts
 // test/errors.ts
-import {traverse, superTraverse, contains} from '../lib/traverse.js';
+import {
+    traverse,
+    superTraverse,
+    contains,
+} from '../lib/traverse.js';
 
 // THROWS Expected 2 arguments, but got 1
 traverse(5);
+
 // THROWS Expected 2 arguments, but got 1
 superTraverse(5);
+
 // THROWS Expected 2 arguments, but got 1
 contains(5);
 ```

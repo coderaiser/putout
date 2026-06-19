@@ -381,8 +381,7 @@ And here is a CLI scheme:
 > **The wise speak of the perennial Ashvattha tree,
 > which has roots above and branches below.
 > The leaves protecting it are the Vedas.
-> One who knows this, truly knows.**
-> **The tender sprouts of this mighty tree
+> One who knows this, truly knows.****The tender sprouts of this mighty tree
 > are the senses nourished by the gunas.
 > The branches extend both above and below.
 > The secondary roots going downward represent actions
@@ -445,7 +444,7 @@ It looks this way in [**ESTree**](https://github.com/estree/estree) **JavaScript
 **Engines** is the heart of 🐊**Putout**: **Parser**, **Loader** and **Runner** are running for every processed file. **Processor** runs all the processors.
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/engine-parser`](/packages/engine-parser#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-parser.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-parser) |
 | [`@putout/engine-loader`](/packages/engine-loader#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-loader.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-loader) |
 | [`@putout/engine-runner`](/packages/engine-runner#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-runner.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-runner) |
@@ -459,7 +458,7 @@ With help of [processors](https://github.com/coderaiser/putout/blob/master/packa
 Here is a list of built-in processors:
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/processor-javascript`](/packages/processor-javascript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-javascript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-javascript) |
 | [`@putout/processor-json`](/packages/processor-json#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-json.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-json) |
 | [`@putout/processor-markdown`](/packages/processor-markdown#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-markdown.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-markdown) |
@@ -470,7 +469,6 @@ Here is a list of built-in processors:
 | [`@putout/processor-css`](/packages/processor-css#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-css) |
 | [`@putout/processor-filesystem`](/packages/processor-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-filesystem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-filesystem) |
 | [`@putout/processor-html`](/packages/processor-html#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-html.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-html) |
-
 You can disable any of them with:
 
 ```json
@@ -484,18 +482,16 @@ You can disable any of them with:
 Not bundled processors:
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/processor-docker`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript) |
 | [`@putout/processor-typescript`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript) |
 | [`@putout/processor-svelte`](/packages/processor-svelte#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-svelte.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-svelte) |
 | [`@putout/processor-wasm`](/packages/processor-wasm#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-wasm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-wasm) |
-
 External processors:
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`putout-processor-typos`](https://github.com/putoutjs/putout-processor-typos) | [![npm](https://img.shields.io/npm/v/putout-processor-typos.svg?maxAge=86400)](https://www.npmjs.com/package/putout-processor-typos) |
-
 To enable, install and use:
 
 ```json
@@ -926,11 +922,9 @@ class A extends B() {
 ```diff
 -const a = Boolean(b.includes(c));
 +const a = b.includes(c);
-
 --if (!!a)
 ++if (a)
     console.log('hi');
-
 ```
 
 </details>
@@ -940,7 +934,6 @@ class A extends B() {
 ```diff
 -const f = (...a) => fn(...a);
 -array.filter((a) => a);
-
 +const f = fn;
 +array.filter(Boolean);
 ```
@@ -982,7 +975,6 @@ import esbuild from 'esbuild';
 +const fs = import 'fs/promises';
 +const {stub} = import 'supertape';
 +const {assign} = Object;
-
 const readFile = stub();
 assign(fs, {
     readFile,
@@ -999,7 +991,6 @@ onIfStatement({
 -   generate,
 -   abc,
 })
-
 function onIfStatement({push}) {
 }
 ```
@@ -1307,7 +1298,6 @@ function hi(a) {
 +   console.log('hello');
 +   console.log('world');
 };
-
 function world(a) {
 -   if (false) {
 -       console.log('hello');
@@ -1375,9 +1365,7 @@ function fn() {
 +   if (a) {
 +        x();
 +   }
-    
 +   y();
-
 ```
 
 </details>
@@ -1552,7 +1540,6 @@ result = result ?? 'hello';
 ```diff
 const isFn = (a) => typeof a === 'function';
 -const isFn1 = (a) => typeof a === 'function';
-
 isFn(1);
 -isFn1(2);
 +isFn(2);
@@ -1816,7 +1803,6 @@ while (true) {
 ```diff
 -runCli();
 +await runCli();
-
 async function runCli() {
 }
 ```
@@ -1849,7 +1835,6 @@ async run () {
 
 ```diff
 import fs from 'fs';
-
 -(async () => {
 -    const data = await fs.promises.readFile('hello.txt');
 -})();
@@ -2200,7 +2185,7 @@ It has a lot of plugins divided by groups:
 ### Appliers
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/plugin-apply-arrow`](/packages/plugin-apply-arrow#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-arrow.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-arrow) |
 | [`@putout/plugin-apply-consistent-blocks`](/packages/plugin-apply-consistent-blocks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-consistent-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-consistent-blocks) |
 | [`@putout/plugin-apply-at`](/packages/plugin-apply-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-at) |
@@ -2215,13 +2200,13 @@ It has a lot of plugins divided by groups:
 ### Mergers
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/plugin-merge-duplicate-functions`](/packages/plugin-merge-duplicate-functions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-functions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-duplicate-functions) |
 
 ### Converters
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/plugin-convert-quotes-to-backticks`](/packages/plugin-convert-quotes-to-backticks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-quotes-to-backticks) |
 | [`@putout/plugin-convert-concat-to-flat`](/packages/plugin-convert-concat-to-flat#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-concat-to-flat.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-concat-to-flat) |
 | [`@putout/plugin-convert-array-copy-to-slice`](/packages/plugin-convert-array-copy-to-slice#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-array-copy-to-slice.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-array-copy-to-slice) |
@@ -2234,7 +2219,7 @@ It has a lot of plugins divided by groups:
 ### Removers
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/plugin-remove-unreferenced-variables`](/packages/plugin-remove-unreferenced-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unreferenced-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unreferenced-variables) |
 | [`@putout/plugin-remove-duplicate-elements`](/packages/plugin-remove-duplicate-elements#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-elements.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-elements) |
 | [`@putout/plugin-remove-duplicate-keys`](/packages/plugin-remove-duplicate-keys#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-keys.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-keys) |
@@ -2266,20 +2251,20 @@ It has a lot of plugins divided by groups:
 ### Simplifiers
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/plugin-simplify-ternary`](/packages/plugin-simplify-ternary#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-ternary) |
 
 ### Declarators
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/plugin-declare`](/packages/plugin-declare#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare) |
 | [`@putout/plugin-declare-before-reference`](/packages/plugin-declare-before-reference#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-before-reference.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-before-reference) |
 
 ### Groups
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/plugin-arguments`](/packages/plugin-arguments#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-arguments.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-arguments) |
 | [`@putout/plugin-assignment`](/packages/plugin-assignment#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-assignment.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-assignment) |
 | [`@putout/plugin-conditions`](/packages/plugin-conditions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-conditions) |
@@ -2323,7 +2308,7 @@ It has a lot of plugins divided by groups:
 ### Extractors
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/plugin-extract-sequence-expressions`](/packages/plugin-extract-sequence-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-extract-sequence-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-extract-sequence-expressions) |
 
 ### Not bundled
@@ -2331,7 +2316,7 @@ It has a lot of plugins divided by groups:
 Next packages not bundled with 🐊**Putout** but can be installed separately.
 
 | Package | Version |
-|--------|-------|
+|---------|---------|
 | [`@putout/plugin-apply-entries`](/packages/plugin-apply-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-entries) |
 | [`@putout/plugin-eslint-plugin`](/packages/plugin-eslint-plugin#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-eslint-plugin.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-eslint-plugin) |
 | [`@putout/plugin-react`](/packages/plugin-react#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react) |
@@ -2536,8 +2521,7 @@ There are two types of plugin names supported by 🐊**Putout**, their names in 
 - `@putout/plugin-` for official plugins
 - `putout-plugin-` for user plugins
 
-*Example*
-If you need to `remove-something` create `putout` plugin with a name `putout-plugin-remove-something` and add it to `.putout.json`:
+*Example*If you need to `remove-something` create `putout` plugin with a name `putout-plugin-remove-something` and add it to `.putout.json`:
 
 ```json
 {
@@ -2636,6 +2620,7 @@ const ast = template.ast(`
 export const fix = (path) => {
     // wrong
     path.replaceWith(ast);
+    
     // correct
     replaceWith(path, ast);
 };
@@ -2924,7 +2909,7 @@ PUTOUT_YARN_PNP=eslint-config-hardcore eslint .
 
 🐊**Putout** can have one of next [exit codes](https://github.com/coderaiser/putout/blob/master/packages/putout/lib/cli/exit-codes.mjs):
 
-| Code | Name                    | Description                   | Output Example                                                                    |
+| Code | Name                    | Description                   | Output Example                                                             |
 |------|-------------------------|-------------------------------|----------------------------------------------------------------------------|
 | 0    | `OK`                    | no errors found               | `<empty>`                                                                  |
 | 1    | `PLACE`                 | found places with errors      | `<violations of rules>`                                                    |
@@ -2936,13 +2921,12 @@ PUTOUT_YARN_PNP=eslint-config-hardcore eslint .
 | 7    | `INVALID_OPTION`        | invalid option                | `🐊 Invalid option '--hello'. Perhaps you meant '--help'`                  |
 | 8    | `CANNOT_LOAD_PROCESSOR` | processor has errors          | `<unhandled exception>`                                                    |
 | 9    | `CANNOT_LOAD_FORMATTER` | formatter has errors          | `🐊 @putout/formatter-dump: Syntax error`                                  |
-| 10   | `RULER_WITH_FIX`        | ruler used with `--fix`      | `🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`   |
-| 11   | `RULER_NO_FILES`        | ruler used without files     | `🐊 'path' is missing for ruler toggler ('--enable-all', '--disable-all')` |
+| 10   | `RULER_WITH_FIX`        | ruler used with `--fix`       | `🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`   |
+| 11   | `RULER_NO_FILES`        | ruler used without files      | `🐊 'path' is missing for ruler toggler ('--enable-all', '--disable-all')` |
 | 12   | `INVALID_CONFIG`        | config has invalid properties | `🐊 .putout.json: exclude: must NOT have additional properties`            |
 | 13   | `UNHANDLED`             | unhandled exception           | `<unhandled exception>`                                                    |
 | 14   | `CANNOT_LINT_STAGED`    | cannot lint staged            | `🐊 --staged: not git repository`                                          |
-| 15   |`INTERACTIVE_CANCELED`   | interactive canceled          | `<empty>`                                                                  |
-
+| 15   | `INTERACTIVE_CANCELED`  | interactive canceled          | `<empty>`                                                                  |
 Example of providing invalid option:
 
 ```sh

@@ -306,7 +306,6 @@ const source = `
 putout(source, {
     plugins: ['remove-unused-variables'],
 });
-
 // returns
 `
 const t = 'hello';
@@ -328,7 +327,6 @@ const source = `
 await putoutAsync(source, {
     plugins: ['remove-unused-variables'],
 });
-
 // returns
 `
 const t = 'hello';
