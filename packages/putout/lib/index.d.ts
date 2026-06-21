@@ -5,6 +5,7 @@ import {
 } from '@putout/babel';
 import {PutoutPlugin} from '../types/plugins.ts';
 
+export type * from '../types/plugins.ts';
 export * as operator from '../types/operator.ts';
 
 export declare function parse(source: string): Program;

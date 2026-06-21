@@ -7,15 +7,27 @@ export type Traverse = (helpers: {
     pathStore: (path?: NodePath) => NodePath[];
 }) => Record<string, (path: NodePath) => void>;
 
-export interface PutoutPlugin {
+export type Traverser = {
     report: Report;
-    replace?: Replace;
-    fix?: Fix;
-    include?: Include;
+    traverse: Traverse;
+    fix: Fix;
+};
+
+export type Replacer = {
+    report: Report;
+    replace: Replace;
+    match?: Match;
+};
+
+export type Includer = {
+    report: Report;
+    fix: Fix;
+    include: Include;
     exclude?: Exclude;
     filter?: Filter;
-    traverse?: Traverse;
-}
+};
+
+export type PutoutPlugin = Replacer | Includer | Traverser;
 
 export type Report = () => string;
 
@@ -23,9 +35,9 @@ export type Include = () => string[];
 
 export type Exclude = () => string[] | (() => boolean);
 
-export interface PluginOptions {
+export type PluginOptions = {
     options?: Record<string, unknown>;
-}
+};
 
 export type Filter = (path: NodePath, options: PluginOptions) => boolean;
 
@@ -34,3 +46,7 @@ export type Fix = (path: NodePath, options: PluginOptions) => void;
 type ReplaceResolver = (vars: Record<string, Node>, path: NodePath) => string | NodePath | '';
 
 export type Replace = () => Record<string, string | ReplaceResolver>;
+
+type MatchResolver = (vars: Record<string, Node>, path: NodePath) => boolean;
+
+export type Match = () => Record<string, MatchResolver>;

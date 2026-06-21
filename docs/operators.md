@@ -18,6 +18,17 @@ When you need to `declare` something specific, no need to implement this logic a
 
 This is so common type of plugin that there is type of plugin called [`Declarator`](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#Declarator) it is appeared in 🐊[**Putout v29**](https://github.com/coderaiser/putout/releases/tag/v29.0.0/).
 
+## `ignore`
+
+[`@putout/operator-ignore`](/packages/operator-ignore#readme) builds plugins that add missing entries to ignore lists (`.gitignore`, `.npmignore`, etc.).
+
+The `ignore()` function takes options (`name`, `list`, `type`, `property`) and returns a plugin using `PutoutPlugin` (from `putout`). The `fix()` helper inserts new names and removes replaced entries.
+
+It powers:
+- ✅ [gitignore](https://github.com/coderaiser/putout/tree/master/packages/plugin-gitignore#readme)
+- ✅ [npmignore](https://github.com/coderaiser/putout/tree/master/packages/plugin-npmignore#readme)
+- ✅ [docker](https://github.com/coderaiser/putout/tree/master/packages/plugin-docker#readme)
+
 ## Built-in operators
 
 Here is list of built-in operators
@@ -62,6 +73,7 @@ Each operator package must include:
 ### Type declaration file (`lib/<name>.d.ts`)
 
 - Import types from `@putout/babel` (e.g. `Node`, `NodePath`)
+- When a function returns a plugin object (`report`, `traverse`, `fix`), use `import type {PutoutPlugin} from 'putout'`
 - Declare each export with full type signatures
 - Use `typeof` for aliases (e.g. `export const superTraverse: typeof traverse`)
 
@@ -78,7 +90,7 @@ Each operator package must include:
 The `putout` package re-exports all operator functions via `lib/operator.js`.
 Types are re-exported via `types/operator.ts`.
 
-To add a new operator's types to putout:
+To add a new operator's types to 🐊**Putout**:
 
 1. Add `export * from '@putout/<name>'` to `types/operator.ts`
 2. Add destructured imports and `// THROWS` checks to `test/operator.errors.ts`
@@ -127,4 +139,43 @@ superTraverse(5);
 
 // THROWS Expected 2 arguments, but got 1
 contains(5);
+```
+
+For `@putout/operator-ignore` (plugin return type):
+
+```ts
+// lib/ignore.d.ts
+import {NodePath} from '@putout/babel';
+import type {PutoutPlugin} from 'putout';
+
+type IgnoreOptions = {
+    name: string;
+    list: string[];
+    type?: string;
+    property?: string;
+};
+
+export function ignore(options: IgnoreOptions): PutoutPlugin;
+export function fix(options: {
+    path: NodePath;
+    name: string;
+    matchedElements: NodePath[];
+}): void;
+```
+
+```ts
+// test/errors.ts
+import {ignore, fix} from '../lib/ignore.js';
+
+// THROWS Argument of type 'number' is not assignable to parameter of type 'IgnoreOptions'
+ignore(5);
+
+ignore({
+    name: '.npmignore',
+    // THROWS Type 'string' is not assignable to type 'string[]'.
+    list: 'hello',
+});
+
+// THROWS Argument of type 'number' is not assignable to parameter of type
+fix(5);
 ```
