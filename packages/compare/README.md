@@ -40,6 +40,8 @@ getTemplateValues(node, 'const __array = array');
 - `node` - `AST-node` or `code` that will be generated;
 - `template` - `AST-node` with support of `template variables`.
 - `options` - (optional) - object with properties:
+- object with properties:
+  - `findUp` (default: `true`) - find up template node;
 
 ### compareAll(node: string | Node, templates: string[] | Node|Nodes[], [, options: Options])
 
