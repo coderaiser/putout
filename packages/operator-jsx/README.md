@@ -1,14 +1,14 @@
-# @putout/operator-regexp [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/operator-jsx [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-regexp.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/operator-regexp "npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-jsx.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/operator-jsx "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) operator operator adds methods that simplifies JSX transformations.
 
 ## Install
 
 ```
-npm i putout @putout/operator-regexp
+npm i putout @putout/operator-jsx
 ```
 
 ## API
