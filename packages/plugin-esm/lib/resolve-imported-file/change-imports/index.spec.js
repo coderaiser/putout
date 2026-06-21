@@ -7,8 +7,8 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('putout: esm: resolve-imported-file: no report: change-imports', (t) => {
-    t.noReport('change-imports');
+test('putout: esm: resolve-imported-file: no report: change-imports-without-options', (t) => {
+    t.noReport('change-imports-without-options');
     t.end();
 });
 

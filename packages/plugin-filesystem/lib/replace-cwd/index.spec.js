@@ -16,8 +16,8 @@ test('filesystem: replace-cwd: report', (t) => {
     t.end();
 });
 
-test('filesystem: replace-cwd: no report', (t) => {
-    t.noReport('replace-cwd');
+test('filesystem: replace-cwd: no report: replace-cwd-without-options', (t) => {
+    t.noReport('replace-cwd-without-options');
     t.end();
 });
 

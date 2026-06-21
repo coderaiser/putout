@@ -37,8 +37,8 @@ test('putout: plugin-for-of: remove-useless-variables no transform: more-refs', 
     t.end();
 });
 
-test('putout: plugin-for-of: remove-useless-variables no transform: no-declaration', (t) => {
-    t.noTransform('no-declaration');
+test('putout: plugin-for-of: remove-useless-variables no transform: no-declaration-without-options', (t) => {
+    t.noTransform('no-declaration-without-options');
     t.end();
 });
 

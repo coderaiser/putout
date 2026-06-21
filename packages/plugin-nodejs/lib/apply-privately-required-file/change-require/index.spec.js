@@ -7,8 +7,8 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('putout: nodejs: apply-privately-required-file: no report: change-require', (t) => {
-    t.noReport('change-require');
+test('putout: nodejs: apply-privately-required-file: no report: change-require-without-options', (t) => {
+    t.noReport('change-require-without-options');
     t.end();
 });
 
