@@ -1,3 +1,11 @@
+2026.06.21, v42.7.4
+
+feature:
+- 9e9180230 @putout/operator-jsx: add TS support
+- 32d55e833 @putout/operator-json: add TS types
+- bdec737f4 @putout/traverse: add TS types
+- 9fa8b35ab @putout/plugin-variables: convert-const-to-let: exclude VariableDeclaration with VariableDeclarator without init inside ExportDeclaration
+
 2026.06.19, v42.7.3
 
 feature:
