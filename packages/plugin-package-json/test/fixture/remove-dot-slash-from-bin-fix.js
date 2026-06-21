@@ -6,6 +6,7 @@ __putout_processor_json({
 
 // no bin
 __putout_processor_json({});
+
 // bin not object
 __putout_processor_json({
     "bin": []

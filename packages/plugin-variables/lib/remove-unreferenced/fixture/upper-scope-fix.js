@@ -9,6 +9,7 @@ const loop = once(({emitter, tests}) => {
         }
         
         previousCount = tests.length;
+        
         // 5ms ought to be enough for anybody
         setTimeout(loop, 5);
     })();

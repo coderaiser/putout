@@ -97,7 +97,7 @@ testExtensionFix('transform: ext: with extensionFix', (t) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 testExtensionFix('putout: test: noTransform: ext: with extensionFix', (t) => {
-    const {unlinkSync} = globalThis.__putout_test_fs;
+    const {unlinkSync, writeFileSync} = globalThis.__putout_test_fs;
     const unlinkSyncStub = stub();
     const writeFileSyncStub = stub();
     
