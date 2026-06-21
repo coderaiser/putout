@@ -212,10 +212,11 @@ const rules = {
     'remove-unused-variables': 'on',
 };
 
+// throws since there is no plugin name passed that matches rule 'remove-unused-variables'
 validateRules({
     pluginNames,
     rules,
-}); // throws since there is no plugin name passed that matches rule 'remove-unused-variables'
+});
 ```
 
 ## License
