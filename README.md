@@ -924,6 +924,7 @@ class A extends B() {
 ```diff
 -const a = Boolean(b.includes(c));
 +const a = b.includes(c);
+
 --if (!!a)
 ++if (a)
     console.log('hi');
@@ -936,6 +937,7 @@ class A extends B() {
 ```diff
 -const f = (...a) => fn(...a);
 -array.filter((a) => a);
+
 +const f = fn;
 +array.filter(Boolean);
 ```
@@ -993,6 +995,7 @@ onIfStatement({
 -   generate,
 -   abc,
 })
+
 function onIfStatement({push}) {
 }
 ```
@@ -1367,6 +1370,7 @@ function fn() {
 +   if (a) {
 +        x();
 +   }
+
 +   y();
 ```
 
@@ -1542,6 +1546,7 @@ result = result ?? 'hello';
 ```diff
 const isFn = (a) => typeof a === 'function';
 -const isFn1 = (a) => typeof a === 'function';
+
 isFn(1);
 -isFn1(2);
 +isFn(2);
@@ -1805,6 +1810,7 @@ while (true) {
 ```diff
 -runCli();
 +await runCli();
+
 async function runCli() {
 }
 ```
@@ -1837,6 +1843,7 @@ async run () {
 
 ```diff
 import fs from 'fs';
+
 -(async () => {
 -    const data = await fs.promises.readFile('hello.txt');
 -})();
