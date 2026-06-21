@@ -382,7 +382,7 @@ And here is a CLI scheme:
 > which has roots above and branches below.
 > The leaves protecting it are the Vedas.
 > One who knows this, truly knows.**
-> 
+>
 > **The tender sprouts of this mighty tree
 > are the senses nourished by the gunas.
 > The branches extend both above and below.
