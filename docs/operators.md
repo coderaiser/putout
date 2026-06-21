@@ -25,6 +25,7 @@ This is so common type of plugin that there is type of plugin called [`Declarato
 The `ignore()` function takes options (`name`, `list`, `type`, `property`) and returns a plugin using `PutoutPlugin` (from `putout`). The `fix()` helper inserts new names and removes replaced entries.
 
 It powers:
+
 - ✅ [gitignore](https://github.com/coderaiser/putout/tree/master/packages/plugin-gitignore#readme)
 - ✅ [npmignore](https://github.com/coderaiser/putout/tree/master/packages/plugin-npmignore#readme)
 - ✅ [docker](https://github.com/coderaiser/putout/tree/master/packages/plugin-docker#readme)
