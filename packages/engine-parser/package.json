@@ -6,6 +6,7 @@
   "description": "🐊Putout parser",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/engine-parser#readme",
   "main": "./lib/parser.js",
+  "types": "./lib/parser.d.ts",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -24,6 +25,7 @@
   },
   "scripts": {
     "test": "madrun test",
+    "test:dts": "madrun test:dts",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
     "fresh:lint": "madrun fresh:lint",
@@ -49,6 +51,7 @@
   "devDependencies": {
     "@putout/eslint-flat": "^4.0.0",
     "acorn": "^8.1.1",
+    "check-dts": "^1.0.0",
     "acorn-stage3": "^4.0.0",
     "acorn-typescript": "^1.4.13",
     "eslint": "^10.0.0",
