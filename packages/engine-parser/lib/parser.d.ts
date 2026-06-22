@@ -52,7 +52,6 @@ export namespace template {
     
     export namespace ast {
         export function fresh(source: string, options?: Record<string, unknown>): Node;
-    }
-    export namespace program {
+    } export namespace program {
         export function ast(source: string, options?: Record<string, unknown>): Node;
     }}
