@@ -1,3 +1,10 @@
+2026.06.23, v42.7.7
+
+feature:
+- 0433b5d60 @putout/operator-ignore: simplify types
+- 596691127 @putout/types: add
+- 05044a596 @putout/engine-loader: diff-match-patch: drop
+
 2026.06.22, v42.7.6
 
 feature:
