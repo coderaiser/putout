@@ -2936,6 +2936,7 @@ PUTOUT_YARN_PNP=eslint-config-hardcore eslint .
 | 13   | `UNHANDLED`             | unhandled exception           | `<unhandled exception>`                                                    |
 | 14   | `CANNOT_LINT_STAGED`    | cannot lint staged            | `🐊 --staged: not git repository`                                          |
 | 15   | `INTERACTIVE_CANCELED`  | interactive canceled          | `<empty>`                                                                  |
+
 Example of providing invalid option:
 
 ```sh
