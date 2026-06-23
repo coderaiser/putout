@@ -1,5 +1,4 @@
-import {NodePath} from '@putout/babel';
-import type {Traverser} from 'putout';
+import type {Traverser} from '@putout/types/plugin';
 
 type IgnoreOptions = {
     name: string;
@@ -9,9 +8,4 @@ type IgnoreOptions = {
 };
 
 export function ignore(options: IgnoreOptions): Traverser;
-export function fix(options: {
-    path: NodePath;
-    name: string;
-    matchedElements: NodePath[];
-}): void;
 

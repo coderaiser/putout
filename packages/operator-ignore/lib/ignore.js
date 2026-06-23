@@ -38,7 +38,7 @@ const createReport = (filename) => ({name, matchedElements}) => {
     return `Add '${name}'${insteadOf} to '${filename}'`;
 };
 
-export const fix = ({path, name, matchedElements}) => {
+const fix = ({path, name, matchedElements}) => {
     path.node.elements.push(stringLiteral(name));
     matchedElements.map(remove);
 };
