@@ -17,7 +17,6 @@ export interface PrinterOptions {
     visitors?: PrinterVisitors;
 }
 
-// --- Parse ---
 export interface ParseOptions {
     parser?: 'babel' | 'acorn' | 'espree' | 'esprima' | 'tenko';
     printer?: 'putout' | 'babel';
@@ -27,7 +26,6 @@ export interface ParseOptions {
 
 export function parse(source: string, options?: ParseOptions): Program;
 
-// --- Print ---
 type PrinterName = 'putout' | 'babel';
 type PrinterTuple = [
     name: PrinterName,

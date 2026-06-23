@@ -5,7 +5,6 @@ import putout, {
     putoutAsync,
     template,
     generate,
-    operator,
 } from '../lib/index.js';
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'string'
@@ -28,8 +27,3 @@ template(5);
 
 // THROWS Argument of type 'string' is not assignable to parameter of type 'Node'
 generate('hello');
-
-const {replaceWith} = operator;
-
-// THROWS Expected 2 arguments, but got 1.
-replaceWith(1);

@@ -1,0 +1,59 @@
+{
+  "name": "@putout/types",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "🐊Putout TS Types",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/types#readme",
+  "main": "lib/types.ts",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "exports": {
+    "./plugin": "./types/plugin.d.ts",
+    "./operator": "./types/operator.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {
+    "@putout/babel": "^5.9.8"
+  },
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "putout-plugin-remove",
+    "plugin",
+    "debugger"
+  ],
+  "devDependencies": {
+    "@putout/test": "^15.0.0",
+    "eslint": "^10.0.0",
+    "eslint-plugin-putout": "^31.0.0",
+    "madrun": "^13.0.0",
+    "nodemon": "^3.0.1",
+    "redlint": "^6.0.0",
+    "superc8": "^12.0.0"
+  },
+  "peerDependencies": {
+    "putout": ">=42"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

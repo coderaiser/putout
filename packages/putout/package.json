@@ -188,6 +188,7 @@
     "@putout/processor-toml": "^1.0.0",
     "@putout/processor-yaml": "^10.0.0",
     "@putout/traverse": "^16.0.0",
+    "@putout/types": "^1.0.0",
     "ajv": "^8.8.2",
     "ci-info": "^4.0.0",
     "deepmerge": "^4.0.0",

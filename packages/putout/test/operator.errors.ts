@@ -1,11 +1,11 @@
 import {operator} from '../lib/index.js';
 
 const {
-    replaceWith,
     compare,
     traverse,
     toJS,
     hasTagName,
+    replaceWith,
 } = operator;
 
 // THROWS Expected 2 arguments, but got 1.
@@ -22,3 +22,6 @@ toJS(5);
 
 // THROWS Expected 2 arguments, but got 1
 hasTagName(5);
+
+// THROWS Expected 2 arguments, but got 1.
+replaceWith(1);
