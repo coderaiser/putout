@@ -54,4 +54,3 @@ Here is list of built-in operators
 | [`@putout/operator-sort-ignore`](/packages/operator-sort-ignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-sort-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-sort-ignore) |
 | [`@putout/operator-watermark`](/packages/operator-watermark#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-watermark.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-watermark) |
 | [`@putout/operator-type-checker`](/packages/operator-type-checker#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-type-checker.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-type-checker) |
-

@@ -5,7 +5,6 @@ type AddArgsPattern = string | string[] | {
     include?: string | string[];
     exclude?: string | string[];
 };
-
 type AddArgsOptions = {
     [name: string]: [
         declaration: string,
@@ -14,3 +13,4 @@ type AddArgsOptions = {
 };
 
 export function addArgs(options: AddArgsOptions): Traverser;
+
