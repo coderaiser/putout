@@ -1,3 +1,9 @@
+2026.06.23, v42.7.8
+
+feature:
+- 6743844d1 putout: types: operator
+- 19cbce9fc @putout/operator-add-args: types
+
 2026.06.23, v42.7.7
 
 feature:
