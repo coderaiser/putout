@@ -16,7 +16,7 @@ test('@putout/engine-loader: validateRulesRelations', (t) => {
     t.end();
 });
 
-test('@putout/engine-loader: validateRulesRelations: toggle object', (t) => {
+test('@putout/engine-loader: validateRulesRelations: toggle: object', (t) => {
     const [error] = tryCatch(validateRulesRelations, {
         rules: {
             '@ishvara/plugin-putout/declare': [{
@@ -29,5 +29,19 @@ test('@putout/engine-loader: validateRulesRelations: toggle object', (t) => {
     });
     
     t.equal(error.message, `☝️ Looks like 'state' not 'boolean | 'on' | 'off', but: '{"hello":"world"}'`);
+    t.end();
+});
+
+test('@putout/engine-loader: validateRulesRelations: toggle: boolean', (t) => {
+    const [error] = tryCatch(validateRulesRelations, {
+        rules: {
+            '@ishvara/plugin-putout/declare': [false],
+        },
+        pluginNames: [
+            '@ishvara/plugin-putout',
+        ],
+    });
+    
+    t.notOk(error);
     t.end();
 });
