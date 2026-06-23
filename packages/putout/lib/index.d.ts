@@ -3,7 +3,7 @@ import {PrinterOptions, ParseOptions} from '@putout/engine-parser';
 import {PutoutPlugin} from '@putout/types/plugin';
 
 export type * from '@putout/types/plugin';
-export * as operator from '@putout/types/operator';
+export * as operator from '../types/operator.ts';
 
 export * from '@putout/engine-parser';
 export type {

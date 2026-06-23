@@ -10,8 +10,7 @@
   "tag": false,
   "changelog": false,
   "exports": {
-    "./plugin": "./types/plugin.d.ts",
-    "./operator": "./types/operator.d.ts"
+    "./plugin": "./lib/plugin.d.ts"
   },
   "repository": {
     "type": "git",
@@ -19,6 +18,7 @@
   },
   "scripts": {
     "test": "madrun test",
+    "test:dts": "madrun test:dts",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
     "fresh:lint": "madrun fresh:lint",
