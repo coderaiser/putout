@@ -1,3 +1,10 @@
+2026.06.24, v42.7.9
+
+feature:
+- 619113533 putout: @putout/operator-declare v17.0.0
+- 8b3a404ba @putout/operator-declare: drop support of 🐊 < 42
+- f00887556 @putout/operator-declare: types
+
 2026.06.23, v42.7.8
 
 feature:
