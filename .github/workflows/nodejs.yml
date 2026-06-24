@@ -56,5 +56,5 @@ jobs:
         uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: TS Types
+      - name: TS Check
         run: redrun test:dts
