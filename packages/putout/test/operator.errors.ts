@@ -7,6 +7,7 @@ const {
     hasTagName,
     replaceWith,
     addArgs,
+    declare,
 } = operator;
 
 // THROWS Expected 2 arguments, but got 1.
@@ -29,3 +30,6 @@ replaceWith(1);
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'AddArgsOptions'
 addArgs(5);
+
+// THROWS Argument of type 'number' is not assignable to parameter of type 'DeclareOptions'
+declare(5);
