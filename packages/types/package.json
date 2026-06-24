@@ -17,7 +17,6 @@
     "url": "git+https://github.com/coderaiser/putout.git"
   },
   "scripts": {
-    "test": "madrun test",
     "test:dts": "madrun test:dts",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
@@ -25,7 +24,8 @@
     "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
     "coverage": "madrun coverage",
-    "report": "madrun report"
+    "report": "madrun report",
+    "wisdom": "madrun wisdom"
   },
   "dependencies": {
     "@putout/babel": "^5.9.8"
