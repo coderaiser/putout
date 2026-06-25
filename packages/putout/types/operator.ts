@@ -8,4 +8,5 @@ export * from '@putout/operator-declare';
 export * from '@putout/operator-ignore';
 export * from '@putout/operator-add-args';
 export * from '@putout/operator-filesystem';
+export * from '@putout/operator-match-files';
 

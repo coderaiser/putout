@@ -1,11 +1,27 @@
 import {NodePath} from '@putout/babel';
 
-export type Traverse = (helpers: {
+type TrackFile = (...args: any[]) => Generator<any, void, unknown>;
+type CrawlFile = (...args: any[]) => Generator<any, void, unknown>;
+
+export type Scan = (path: NodePath, ScanApi: {
+    push: (path: NodePath) => void;
+    options?: PluginOptions;
+    trackFile?: TrackFile;
+    crawlFile?: CrawlFile;
+}) => void;
+
+export type Traverse = (api: {
     push: (path: NodePath) => void;
     store: (key?: string, value?: unknown) => unknown;
     listStore: (path?: NodePath) => NodePath[];
     pathStore: (path?: NodePath) => NodePath[];
 }) => Record<string, (path: NodePath) => void>;
+
+export type Scaner = (path: NodePath, ScanApi: {
+    report: Report;
+    scan: Scan;
+    fix: Fix;
+}) => void;
 
 export type Traverser = {
     report: Report;

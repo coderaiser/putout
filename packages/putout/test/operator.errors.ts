@@ -10,6 +10,7 @@ const {
     declare,
     isKeyword,
     findFile,
+    matchFiles,
 } = operator;
 
 // THROWS Expected 2 arguments, but got 1.
@@ -41,3 +42,6 @@ isKeyword(5);
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'.
 findFile(5, 'hello');
+
+// THROWS Expected 1 arguments, but got 2.
+matchFiles(5, 'hello');

@@ -1,6 +1,7 @@
 import {run} from 'madrun';
 
 export default {
+    'test': () => run('test:dts'),
     'test:dts': () => 'check-dts test/*.ts',
     'watch:test': async () => `nodemon -w lib -w test -x "${await run('test')}"`,
     'lint': () => `putout .`,
