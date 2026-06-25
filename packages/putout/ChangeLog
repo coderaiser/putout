@@ -1,3 +1,9 @@
+2026.06.25, v42.7.10
+
+feature:
+- 164228d9b @putout/operator-keyword: ts types: add
+- 56e0b5d70 @putout/engine-runner: @putout/operator-declare v17.0.0
+
 2026.06.24, v42.7.9
 
 feature:
