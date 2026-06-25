@@ -127,7 +127,7 @@
     "@putout/plugin-gitignore": "^7.0.0",
     "@putout/plugin-labels": "^3.0.0",
     "@putout/plugin-logical-expressions": "^8.0.0",
-    "@putout/plugin-madrun": "^23.0.0",
+    "@putout/plugin-madrun": "^24.0.0",
     "@putout/plugin-markdown": "^1.0.0",
     "@putout/plugin-math": "^5.0.0",
     "@putout/plugin-maybe": "^5.0.0",
