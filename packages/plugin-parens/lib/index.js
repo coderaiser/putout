@@ -1,3 +1,4 @@
+import * as removeUselessFromObject from './remove-useless-from-object/index.js';
 import * as addMissingForAwait from './add-missing-for-await/index.js';
 import * as addMissingForTemplate from './add-missing-for-template/index.js';
 import * as addMissingForAssign from './add-missing-for-assign/index.js';
@@ -10,4 +11,5 @@ export const rules = {
     'add-missing-for-assign': addMissingForAssign,
     'remove-useless-from-await': removeUselessFromAwait,
     'remove-useless-from-params': removeUselessFromParams,
+    'remove-useless-from-object': removeUselessFromObject,
 };

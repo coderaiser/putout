@@ -18,6 +18,7 @@ npm i @putout/plugin-parens
 - ✅ [add-missing-for-assign](#add-missing-for-assign);
 - ✅ [remove-useless-from-await](#remove-useless-from-params);
 - ✅ [remove-useless-from-params](#remove-useless-from-params);
+- ✅ [remove-useless-from-object](#remove-useless-from-object);
 
 ## Config
 
@@ -41,7 +42,8 @@ Full:
         "parens/add-missing-for-template": "on",
         "parens/add-missing-for-assign": "on",
         "parens/remove-useless-from-await": "on",
-        "parens/remove-useless-from-params": "on"
+        "parens/remove-useless-from-params": "on",
+        "parens/remove-useless-from-object": "on"
     }
 }
 ```
@@ -147,6 +149,22 @@ const a = ((b)) => c;
 
 ```js
 const a = (b) => c;
+```
+
+## remove-useless-from-object
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3800b0c52a199dd49a089ed4b9b37566/16cee4a82af4e6add03b8c26e20923ac0e66cec3).
+
+### ❌ Example of incorrect code
+
+```ts
+createNestedDirectory(({}) as any);
+```
+
+### ✅ Example of correct code
+
+```ts
+createNestedDirectory({} as any);
 ```
 
 ## License

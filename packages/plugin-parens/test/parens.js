@@ -31,3 +31,8 @@ test('plugin-parens: transform: remove-useless-from-params', (t) => {
     t.transform('remove-useless-from-params');
     t.end();
 });
+
+test('plugin-parens: transform: remove-useless-from-object', (t) => {
+    t.transform('remove-useless-from-object');
+    t.end();
+});
