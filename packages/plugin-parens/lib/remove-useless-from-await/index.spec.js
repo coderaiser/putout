@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('parens: remove-useless-from-await: report', (t) => {
-    t.report('remove-useless-from-await', `Remove useless parens around 'await'`);
+    t.report('remove-useless-from-await', `Avoid useless parens around 'await'`);
     t.end();
 });
 

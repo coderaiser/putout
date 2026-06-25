@@ -2,7 +2,7 @@ import {operator} from 'putout';
 
 const {hasParens} = operator;
 
-export const report = () => `Remove useless parens around 'await'`;
+export const report = () => `Avoid useless parens around 'await'`;
 
 export const fix = (path) => {
     path.node.extra = {
