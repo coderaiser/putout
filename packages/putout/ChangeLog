@@ -1,3 +1,11 @@
+2026.06.26, v42.7.14
+
+feature:
+- 4756ec402 putout: @putout/plugin-parens v6.0.0
+- b6b44b69a @putout/plugin-parens: drop support of 🐊 < 42
+- b1b6010e1 @putout/plugin-parens: remove-useless-from-object
+- 7bb7e4ba2 @putout/parens: remove-useless-for -> remove-useless-from
+
 2026.06.26, v42.7.13
 
 fix:
