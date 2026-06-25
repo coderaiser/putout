@@ -8,6 +8,7 @@ const {
     replaceWith,
     addArgs,
     declare,
+    isKeyword,
 } = operator;
 
 // THROWS Expected 2 arguments, but got 1.
@@ -33,3 +34,6 @@ addArgs(5);
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'DeclareOptions'
 declare(5);
+
+// THROWS Argument of type 'number' is not assignable to parameter of type 'string'
+isKeyword(5);

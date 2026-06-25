@@ -15,13 +15,15 @@
   },
   "scripts": {
     "test": "madrun test",
+    "test:dts": "madrun test:dts",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
     "fresh:lint": "madrun fresh:lint",
     "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
     "coverage": "madrun coverage",
-    "report": "madrun report"
+    "report": "madrun report",
+    "wisdom": "madrun wisdom"
   },
   "keywords": [
     "putout",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "@putout/eslint-flat": "^4.0.0",
     "@putout/test": "^15.0.0",
+    "check-dts": "^1.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-putout": "^31.0.0",
     "madrun": "^13.0.0",

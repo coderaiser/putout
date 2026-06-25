@@ -4,6 +4,7 @@
     "exclude": [
         "**/*.spec.*",
         "**/*.config.*",
+        "**/*.d.ts",
         "**/fixture",
         ".*.*",
         "test"
