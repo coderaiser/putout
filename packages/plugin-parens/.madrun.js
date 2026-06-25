@@ -9,4 +9,5 @@ export default {
     'fix:lint': () => run('lint', '--fix'),
     'coverage': async () => `c8 ${await run('test')}`,
     'report': () => 'c8 report --reporter=lcov',
+    'wisdom': () => run(['lint', 'coverage']),
 };

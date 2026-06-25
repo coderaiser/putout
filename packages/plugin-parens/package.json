@@ -21,7 +21,8 @@
     "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
     "coverage": "madrun coverage",
-    "report": "madrun report"
+    "report": "madrun report",
+    "wisdom": "madrun wisdom"
   },
   "dependencies": {},
   "keywords": [
