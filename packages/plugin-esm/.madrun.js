@@ -5,7 +5,7 @@ const env = {
 };
 
 export default {
-    'prepublishOnly': () => run(['lint', 'test']),
+    'wisdom': () => run(['lint', 'test']),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': async () => `nodemon -w lib -x "${await run('test')}"`,
     'lint': () => 'putout .',

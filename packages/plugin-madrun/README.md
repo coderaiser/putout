@@ -7,8 +7,7 @@
 >
 > (c) [**Madrun**](https://github.com/coderaiser/madrun)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to fix issues with
-**Madrun** config file.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to fix issues with**Madrun** config file.
 
 ## Install
 
@@ -30,6 +29,7 @@ npm i putout @putout/plugin-madrun -D
 - ✅ [convert-nyc-to-c8](#convert-nyc-to-c8)
 - ✅ [convert-run-argument](#convert-run-argument);
 - ✅ [convert-run-to-cut-env](#convert-run-to-cut-env);
+- ✅ [convert-prepublish-only-to-wisdom](#convert-prepublish-only-to-wisdom);
 - ✅ [convert-to-async](#convert-to-async);
 - ✅ [declare](#declare);
 - ✅ [remove-check-duplicates-from-test](#remove-check-duplicates-from-test);
@@ -60,6 +60,7 @@ npm i putout @putout/plugin-madrun -D
         "madrun/convert-args-to-scripts": "on",
         "madrun/convert-run-to-cut-env": "on",
         "madrun/convert-cut-env-to-run": "on",
+        "madrun/convert-prepublish-only-to-wisdom": "on",
         "madrun/rename-file": "off",
         "madrun/rename-series-to-run": "on",
         "madrun/rename-eslint-to-putout": "on",
@@ -262,6 +263,28 @@ export default {
     'test:only': () => 'npm test',
     'coverage': async () => [env, await cutEnv('test')],
     'coverage:only': async () => [env, await run('test:only')],
+};
+```
+
+## convert-prepublish-only-to-wisdom
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/cddcdafd9ea8e040f73d52db81967a08/547fb42bdf4c4f46510488382202b0e23c5f9770).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    'prepublishOnly': () => run(['lint', 'test']),
+    'test:dts': 'check-dts test/*.ts',
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    'wisdom': () => run(['lint', 'test']),
+    'test:dts': 'check-dts test/*.ts',
 };
 ```
 

@@ -11,5 +11,5 @@ export default {
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
-    'prepublishOnly': () => run(['lint', 'coverage']),
+    'wisdom': () => run(['lint', 'coverage']),
 };

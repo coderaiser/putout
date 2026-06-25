@@ -81,3 +81,8 @@ test('plugin-madrun: transform: rename-file', (t) => {
     t.transform('rename-file');
     t.end();
 });
+
+test('plugin-madrun: transform: convert-prepublish-only-to-wisdom', (t) => {
+    t.transform('convert-prepublish-only-to-wisdom');
+    t.end();
+});
