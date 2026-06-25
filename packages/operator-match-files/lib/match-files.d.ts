@@ -1,4 +1,4 @@
-import {Scaner, PutoutPlugin} from '@putout/types/plugin';
+import {Scanner, PutoutPlugin} from '@putout/types/plugin';
 
 type Files = Record<string, PutoutPlugin>;
 type MatchFilesOptions = Files | {
@@ -7,5 +7,5 @@ type MatchFilesOptions = Files | {
     filename?: string;
 };
 
-export function matchFiles(options: MatchFilesOptions): Scaner;
+export function matchFiles(options: MatchFilesOptions): Scanner;
 

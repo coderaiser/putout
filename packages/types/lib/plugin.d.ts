@@ -17,7 +17,7 @@ export type Traverse = (api: {
     pathStore: (path?: NodePath) => NodePath[];
 }) => Record<string, (path: NodePath) => void>;
 
-export type Scaner = (path: NodePath, ScanApi: {
+export type Scanner = (path: NodePath, ScanApi: {
     report: Report;
     scan: Scan;
     fix: Fix;
