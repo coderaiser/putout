@@ -13,11 +13,11 @@ npm i @putout/plugin-parens
 
 ## Rules
 
-- ✅ [add-missing-for-await](#add-missing-for-await);
+- ✅ [add-missing-from-await](#add-missing-from-await);
 - ✅ [add-missing-for-template](#add-missing-for-template);
 - ✅ [add-missing-for-assign](#add-missing-for-assign);
-- ✅ [remove-useless-for-await](#remove-useless-for-params);
-- ✅ [remove-useless-for-params](#remove-useless-for-params);
+- ✅ [remove-useless-from-await](#remove-useless-from-params);
+- ✅ [remove-useless-from-params](#remove-useless-from-params);
 
 ## Config
 
@@ -37,11 +37,11 @@ Full:
 ```json
 {
     "rules": {
-        "parens/add-missing-for-await": "on",
+        "parens/add-missing-from-await": "on",
         "parens/add-missing-for-template": "on",
         "parens/add-missing-for-assign": "on",
-        "parens/remove-useless-for-await": "on",
-        "parens/remove-useless-for-params": "on"
+        "parens/remove-useless-from-await": "on",
+        "parens/remove-useless-from-params": "on"
     }
 }
 ```
@@ -67,7 +67,7 @@ To disable use:
 +a && (b = a);
 ```
 
-## add-missing-for-await
+## add-missing-from-await
 
 ### ❌ Example of incorrect code
 
@@ -113,7 +113,7 @@ String?.raw!``;
 (String?.raw)!``;
 ```
 
-## remove-useless-for-await
+## remove-useless-from-await
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3800b0c52a199dd49a089ed4b9b37566/e2dddb75cb68811883cae640a22b340b8e1afa73).
 
@@ -129,7 +129,7 @@ const s = (await m());
 const s = await m();
 ```
 
-## remove-useless-for-params
+## remove-useless-from-params
 
 > `Uncaught SyntaxError: Invalid destructuring assignment target`
 >
@@ -141,7 +141,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8cbc392936
 
 ```
 const a = ((b)) => c;
-
 ```
 
 ### ✅ Example of correct code
