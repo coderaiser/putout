@@ -9,4 +9,5 @@ export * from '@putout/operator-ignore';
 export * from '@putout/operator-add-args';
 export * from '@putout/operator-filesystem';
 export * from '@putout/operator-match-files';
+export * from '@putout/operator-find-file-up';
 
