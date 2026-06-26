@@ -158,7 +158,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3800b0c52a
 ### ❌ Example of incorrect code
 
 ```ts
-createNestedDirectory(({}) as any);
+createNestedDirectory({} as any);
 ```
 
 ### ✅ Example of correct code
