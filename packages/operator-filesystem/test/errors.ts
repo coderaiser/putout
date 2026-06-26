@@ -23,8 +23,8 @@ import {
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
 findFile(5, 'hello');
 
-// THROWS Argument of type 'number' is not assignable to parameter of type 'string | string[] | Set<string>'
-findFile({} as any, 5);
+// THROWS Argument of type '{}' is not assignable to parameter of type 'NodePath_Final'
+findFile({}, 5);
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
 getParentDirectory(5);
@@ -45,7 +45,7 @@ getFileContent(5);
 renameFile(5, 'hello');
 
 // THROWS Expected 2 arguments, but got 1
-renameFile({} as any);
+renameFile({});
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
 removeFile(5);
@@ -54,22 +54,22 @@ removeFile(5);
 removeEmptyDirectory(5);
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
-moveFile(5, {} as any);
+moveFile(5, {});
 
 // THROWS Expected 2 arguments, but got 1
-moveFile({} as any);
+moveFile({});
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
-copyFile(5, {} as any);
+copyFile(5, {});
 
 // THROWS Expected 2 arguments, but got 1
-copyFile({} as any);
+copyFile({});
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
 createFile(5, 'hello');
 
 // THROWS Expected 2-3 arguments, but got 1
-createFile({} as any);
+createFile({});
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
 readDirectory(5);
@@ -78,7 +78,7 @@ readDirectory(5);
 createDirectory(5, 'hello');
 
 // THROWS Expected 2 arguments, but got 1
-createDirectory({} as any);
+createDirectory({});
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
 readFileContent(5);
@@ -90,7 +90,7 @@ writeFileContent(5, 'content');
 createNestedDirectory(5, 'hello');
 
 // THROWS Expected 2 arguments, but got 1
-createNestedDirectory({} as any);
+createNestedDirectory({});
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
 getRootDirectory(5);
@@ -99,4 +99,4 @@ getRootDirectory(5);
 getFile(5, 'hello');
 
 // THROWS Expected 2-3 arguments, but got 1
-getFile({} as any);
+getFile({});

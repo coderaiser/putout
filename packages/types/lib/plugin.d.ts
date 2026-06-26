@@ -1,7 +1,7 @@
 import {NodePath} from '@putout/babel';
 
-type TrackFile = (...args: any[]) => Generator<any, void, unknown>;
-type CrawlFile = (...args: any[]) => Generator<any, void, unknown>;
+type TrackFile = (...args: unknown[]) => Generator<unknown, void, unknown>;
+type CrawlFile = (...args: unknown[]) => Generator<unknown, void, unknown>;
 
 export type Scan = (path: NodePath, ScanApi: {
     push: (path: NodePath) => void;
