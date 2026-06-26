@@ -1,5 +1,5 @@
 export default {
-    'wisdom': () => run(['lint', 'test']),
+    'wisdom': () => run(['lint', 'coverage']),
 };
 
 const a = {
@@ -7,6 +7,6 @@ const a = {
 };
 
 const b = {
-    'x': () => run(['lint', 'test']),
+    'x': () => run(['lint', 'coverage']),
     'wisdom': run('test'),
 };
