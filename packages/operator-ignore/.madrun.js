@@ -1,7 +1,7 @@
 import {run} from 'madrun';
 
 export default {
-    'wisdom': () => run(['lint', 'coverage']),
+    'wisdom': () => run(['lint', 'coverage', 'test:dts']),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'test:dts': () => 'check-dts test/*.ts',
     'watch:test': async () => `nodemon -w lib -x "${await run('test')}"`,
