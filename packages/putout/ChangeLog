@@ -1,3 +1,14 @@
+2026.06.27, v42.7.16
+
+fix:
+- be1ec212f @putout/plugin-madrun: convert-prepublish-only-to-wisdom: test -> coverage
+
+feature:
+- e61ff1052 @operator-ignore: options: list
+- f8ae94ac4 @putout/operator-regexp: types
+- 6d38e968c @putout/plugin-madrun: insert-test-dts: add
+- 0d7662e3b @putout/plugin-printer: add-missing-arrow-to-type-checker: before type
+
 2026.06.26, v42.7.15
 
 fix:
