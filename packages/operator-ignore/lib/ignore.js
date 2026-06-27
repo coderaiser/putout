@@ -44,8 +44,16 @@ const fix = ({path, name, matchedElements}) => {
 };
 
 const createTraverse = ({type, property, list}) => ({push, options}) => {
-    const {dismiss = []} = options;
-    const newNames = filterNames(list, dismiss);
+    const {
+        dismiss = [],
+    } = options;
+    
+    const allList = [
+        ...list,
+        ...options.list || [],
+    ];
+    
+    const newNames = filterNames(allList, dismiss);
     
     if (!newNames.length)
         return {};

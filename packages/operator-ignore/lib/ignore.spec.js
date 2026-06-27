@@ -405,3 +405,42 @@ test('putout: operator: ignore: includes', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: ignore: options: list', (t) => {
+    const npmignore = ignore({
+        name: '.npmignore',
+        list: [
+            '.*',
+            'coverage',
+            '*.config.*',
+            '*.log',
+        ],
+    });
+    
+    const source = stringify(['*.log']);
+    const jsSource = toJS(source, __ignore);
+    
+    const {code} = putout(jsSource, {
+        rules: {
+            npmignore: ['on', {
+                list: ['**/*.ts'],
+            }],
+        },
+        plugins: [
+            ['npmignore', npmignore],
+        ],
+    });
+    
+    const result = parse(fromJS(code, __ignore));
+    
+    const expected = [
+        '*.log',
+        '.*',
+        'coverage',
+        '*.config.*',
+        '**/*.ts',
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

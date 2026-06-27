@@ -65,6 +65,20 @@ If file and passed in list mask overlaps, only mask saved, and list name removed
 +*.log
 ```
 
+## Configuration
+
+Plugin supports options, so you can pass it in `.putout.json`:
+
+```json
+{
+    "rules": {
+        "coverage/add-exclude": ["on", {
+            "list": ["**/*.ts"]
+        }]
+    }
+}
+```
+
 ## License
 
 MIT
