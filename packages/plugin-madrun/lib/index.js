@@ -1,3 +1,4 @@
+import * as insertTestDts from './insert-test-dts/index.js';
 import * as convertPrepublishOnlyToWisdom from './convert-prepublish-only-to-wisdom/index.js';
 import * as renameFile from './rename-file/index.js';
 import * as addFunction from './add-function/index.js';
@@ -48,4 +49,5 @@ export const rules = {
     'add-missing-quotes-to-watcher': addMissingQuotesToWatcher,
     'rename-file': ['off', renameFile],
     'convert-prepublish-only-to-wisdom': convertPrepublishOnlyToWisdom,
+    'insert-test-dts': ['off', insertTestDts],
 };

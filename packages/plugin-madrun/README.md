@@ -40,6 +40,7 @@ npm i putout @putout/plugin-madrun -D
 - ✅ [rename-series-to-run](#rename-series-to-run);
 - ✅ [set-lint-dot](#set-lint-dot);
 - ✅ [set-report-lcov](#set-report-lcov);
+- ✅ [insert-test-dts](#insert-test-dts);
 
 ## File rules
 
@@ -70,7 +71,8 @@ npm i putout @putout/plugin-madrun -D
         "madrun/set-report-lcov": "on",
         "madrun/remove-check-duplicates-from-test": "on",
         "madrun/remove-useless-array-in-run": "on",
-        "madrun/remove-useless-string-conversion": "on"
+        "madrun/remove-useless-string-conversion": "on",
+        "madrun/insert-test-dts": "off"
     }
 }
 ```
@@ -465,6 +467,31 @@ import {cutEnv} from 'madrun';
 
 export default {
     coverage: async () => [env, `c8 ${await cutEnv('test')}`],
+};
+```
+
+## insert-test-dts
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b6261f1f7405af95185b9e18431e1dcc/18ba644eb07263268aec964065a0e58c38e859d2).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    'wisdom': () => run(['lint', 'coverage']),
+    'fix:lint': () => run('lint', '--fix'),
+    'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    'wisdom': () => run(['lint', 'coverage', 'test:dts']),
+    'fix:lint': () => run('lint', '--fix'),
+    'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
+    'test:dts': () => 'check-dts test/*.ts',
 };
 ```
 

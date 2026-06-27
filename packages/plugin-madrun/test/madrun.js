@@ -86,3 +86,8 @@ test('plugin-madrun: transform: convert-prepublish-only-to-wisdom', (t) => {
     t.transform('convert-prepublish-only-to-wisdom');
     t.end();
 });
+
+test('plugin-madrun: transform: insert-test-dts', (t) => {
+    t.transform('insert-test-dts');
+    t.end();
+});
