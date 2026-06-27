@@ -44,9 +44,7 @@ const fix = ({path, name, matchedElements}) => {
 };
 
 const createTraverse = ({type, property, list}) => ({push, options}) => {
-    const {
-        dismiss = [],
-    } = options;
+    const {dismiss = []} = options;
     
     const allList = [
         ...list,
