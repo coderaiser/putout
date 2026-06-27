@@ -7,12 +7,12 @@ export const beforeIf = createTypeChecker([
     '-: -> BlockStatement',
     '-: -> WrongType',
     '-: -> BlockStatement',
-    '-: BlockStatement',
+    '-: -> BlockStatement',
 ]);
 
 export const allTuples = createTypeChecker([
     '-: -> BlockStatement',
-    '-: BlockStatement',
+    '-: -> BlockStatement',
 ]);
 
 export const allStrings = createTypeChecker([

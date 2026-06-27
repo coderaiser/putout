@@ -3,5 +3,5 @@ export const beforeIf = createTypeChecker([
     '-: -> BlockStatement',
     '-: -> WrongType',
     '-: -> BlockStatement',
-    '-: BlockStatement',
+    '-: -> BlockStatement',
 ]);

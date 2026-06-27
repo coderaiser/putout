@@ -1,4 +1,5 @@
 import {operator, types} from 'putout';
+import {isTypeExists} from '../types.js';
 
 const {
     isIdentifier,
@@ -48,12 +49,29 @@ function createWhere(value) {
     if (value.startsWith('-: !') && !value.includes('->'))
         where.push('after-colon');
     
+    if (value.startsWith('+: ') && !value.includes('->')) {
+        const type = value.replace('+: ', '');
+        
+        if (isTypeExists(type))
+            where.push('before-type');
+    }
+    
+    if (value.startsWith('-: ') && !value.includes('->')) {
+        const type = value.replace('-: ', '');
+        
+        if (isTypeExists(type))
+            where.push('before-type');
+    }
+    
     return where;
 }
 
 function addArrow(value, where) {
     if (where.includes('after-colon'))
         value = value.replace(': !', ': -> !');
+    
+    if (where.includes('before-type'))
+        value = value.replace(': ', ': -> ');
     
     return value;
 }
