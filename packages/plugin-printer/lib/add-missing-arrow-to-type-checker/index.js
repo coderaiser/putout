@@ -1,5 +1,5 @@
 import {operator, types} from 'putout';
-import {isTypeExists} from '../types.js';
+import {isTypeExists} from '#types';
 
 const {
     isIdentifier,
