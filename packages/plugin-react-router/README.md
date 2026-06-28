@@ -17,6 +17,7 @@ npm i putout @putout/plugin-react-router -D
 - ✅ [v6-convert-component-to-element](#v6-convert-component-to-element);
 - ✅ [v7-split-multi-segment-route](#v7-split-multi-segment-route);
 - ✅ [v7-remove-useless-server](#v7-remove-useless-server);
+- ✅ [v8-apply-react-router-dom](#v8-apply-react-router-dom);
 
 ## Config
 
@@ -26,13 +27,14 @@ npm i putout @putout/plugin-react-router -D
         "react-router/v6-convert-switch-to-routers": "on",
         "react-router/v6-convert-component-to-element": "on",
         "react-router/v7-split-multi-segment-route": "on",
-        "react-router/v7-remove-useless-server": "on"
+        "react-router/v7-remove-useless-server": "on",
+        "react-router/v8-apply-react-router-dom": "on"
     },
     "plugins": ["react-router"]
 }
 ```
 
-## convert-switch-to-routes
+## v6-convert-switch-to-routes
 
 `ReactRouter v6` [uses `Routers` instead of `Switch`](https://reactrouter.com/en/6.6.2/components/routes#routes). Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/2030cd7141bf5f02bef896b19b9400ea/a1364326157c85b9e8fa33b6c87cb77ca5a2792f).
 
@@ -62,7 +64,7 @@ const routes = () => (
 );
 ```
 
-## convert-component-to-element
+## v6-convert-component-to-element
 
 `ReactRouter v6` [uses `element` instead of `component`](https://reactrouter.com/en/6.6.2/route/route#dynamic-segments). Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/7fb5cf000b6a61d4003fccf2fcb39da3/1de6534c6151a20e021b3508e027fb0ee2449b0c).
 
@@ -142,6 +144,26 @@ import {StaticRouter} from 'react-router-dom/server';
 
 ```jsx
 import {StaticRouter} from 'react-router-dom';
+```
+
+## v8-apply-react-router-dom
+
+> In v7, we collapsed the DOM APIs into react-router/dom, but to ease the v6->v7 upgrade we continued re-exporting everything through react-router-dom. We have now dropped react-router-dom, so if you didn't get around to swapping your imports in v7, you will need to swap them to react-router and react-router/dom for v8.
+>
+> (c) [reactrouter.com](https://reactrouter.com/changelog#removed-react-router-dom)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0373dab56eb5aed70ef4b45d7ae7b4e0/a4b37ed56062c33ca7793dc14495efb416943209).
+
+### ❌ Example of incorrect code
+
+```jsx
+import {Link} from 'react-router-dom';
+```
+
+### ✅ Example of correct code
+
+```jsx
+import {Link} from 'react-router/dom';
 ```
 
 ## License
