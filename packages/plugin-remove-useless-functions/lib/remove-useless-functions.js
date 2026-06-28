@@ -1,6 +1,6 @@
 import {types} from 'putout';
 
-const {isIdentifier} = types;
+const {isIdentifier, isFunction} = types;
 
 const NAMES = [
     'filter',
@@ -18,6 +18,7 @@ export const exclude = () => [
 ];
 
 export const match = () => ({
+    '(__a) => __b(__a)': (vars, path) => !isFunction(path.parentPath),
     '(__a) => __a': (vars, path) => {
         const {parentPath} = path;
         

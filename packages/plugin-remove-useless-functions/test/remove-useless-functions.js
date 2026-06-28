@@ -61,3 +61,8 @@ test('remove useless functions: no transform: different-args', (t) => {
     t.noTransform('different-args');
     t.end();
 });
+
+test('remove useless functions: no transform: nested', (t) => {
+    t.noTransform('nested');
+    t.end();
+});
