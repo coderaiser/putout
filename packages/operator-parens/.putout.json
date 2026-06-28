@@ -1,5 +1,10 @@
 {
-    "printer": "putout",
+    "rules": {
+        "madrun/insert-test-dts": "on",
+        "coverage/add-to-exclude": ["on", {
+            "list": ["**/*.ts"]
+        }]
+    },
     "match": {
         "*.md": {
             "declare": "off",
@@ -7,6 +12,5 @@
             "putout/apply-remove": "off",
             "putout/declare": "on"
         }
-    },
-    "plugins": ["putout"]
+    }
 }

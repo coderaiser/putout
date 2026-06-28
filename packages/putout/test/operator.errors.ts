@@ -13,6 +13,7 @@ const {
     matchFiles,
     findFileUp,
     isSimpleRegExp,
+    addParens,
 } = operator;
 
 // THROWS Expected 2 arguments, but got 1.
@@ -56,3 +57,6 @@ isSimpleRegExp(5);
 
 // THROWS Expected 1 arguments, but got 0
 isSimpleRegExp();
+
+// THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
+addParens(5);
