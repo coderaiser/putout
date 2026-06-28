@@ -1,3 +1,6 @@
+import {Routes} from 'react-router';
+import {Route} from 'react-router';
+
 <div>
     <Routes>
         <Route path="/" element={<Home/>}/>

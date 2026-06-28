@@ -1,3 +1,4 @@
+import * as declare from './declare/index.js';
 import * as v8ApplyReactRouterDom from './v8-apply-react-router-dom/index.js';
 import * as v7RemoveUselessServer from './v7-remove-useless-server/index.js';
 import * as v6ConvertSwitchToRoutes from './v6-convert-switch-to-routes/index.js';
@@ -10,4 +11,5 @@ export const rules = {
     'v7-split-multi-segment-route': v7SplitMultiSegmentRoute,
     'v7-remove-useless-server': v7RemoveUselessServer,
     'v8-apply-react-router-dom': v8ApplyReactRouterDom,
+    'declare': declare,
 };

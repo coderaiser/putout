@@ -13,6 +13,7 @@ npm i putout @putout/plugin-react-router -D
 
 ## Rules
 
+- ✅ [declare](#declare);
 - ✅ [v6-convert-switch-to-routers](#v6-convert-switch-to-routers);
 - ✅ [v6-convert-component-to-element](#v6-convert-component-to-element);
 - ✅ [v7-split-multi-segment-route](#v7-split-multi-segment-route);
@@ -24,6 +25,7 @@ npm i putout @putout/plugin-react-router -D
 ```json
 {
     "rules": {
+        "react-router/declare": "on",
         "react-router/v6-convert-switch-to-routers": "on",
         "react-router/v6-convert-component-to-element": "on",
         "react-router/v7-split-multi-segment-route": "on",
@@ -32,6 +34,34 @@ npm i putout @putout/plugin-react-router -D
     },
     "plugins": ["react-router"]
 }
+```
+
+## declare
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/c2d572f629f94043c3c5079fd95fe760/7d84e69ff1e770a1cbf5f4fc82846f7b60f47293).
+
+### ❌ Example of incorrect code
+
+```jsx
+const routes = () => (
+    <Switch>
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/join" component={Join}/>
+    </Switch>
+);
+```
+
+### ✅ Example of correct code
+
+```jsx
+import {Route, Routes} from 'react-router';
+
+const routes = () => (
+    <Routes>
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/join" component={Join}/>
+    </Routes>
+);
 ```
 
 ## v6-convert-switch-to-routes

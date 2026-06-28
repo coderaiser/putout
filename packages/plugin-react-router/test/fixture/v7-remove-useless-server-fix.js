@@ -1,1 +1,1 @@
-import {StaticRouter} from 'react-router-dom';
+import {StaticRouter} from 'react-router/dom';

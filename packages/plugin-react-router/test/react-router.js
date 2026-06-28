@@ -31,3 +31,8 @@ test('plugin-react-router: transform: v8-apply-react-router-dom', (t) => {
     t.transform('v8-apply-react-router-dom');
     t.end();
 });
+
+test('plugin-react-router: transform: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});
