@@ -14,6 +14,7 @@ const {
     findFileUp,
     isSimpleRegExp,
     addParens,
+    sortIgnore,
 } = operator;
 
 // THROWS Expected 2 arguments, but got 1.
@@ -60,3 +61,6 @@ isSimpleRegExp();
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'NodePath_Final'
 addParens(5);
+
+// THROWS Argument of type 'number' is not assignable to parameter of type 'SortIgnoreOptions'
+sortIgnore(5);
