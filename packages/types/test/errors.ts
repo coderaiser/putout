@@ -11,6 +11,7 @@ import {
     Traverser,
     Replacer,
     Includer,
+    Declarator,
 } from '../lib/plugin.js';
 
 // PutoutPlugin error tests
@@ -108,3 +109,11 @@ function useIncluder(fn: Includer) {
 
 // THROWS not assignable to parameter of type 'Includer'
 useIncluder({});
+
+// Declarator error tests
+function useDeclarator(fn: Declarator) {
+    return fn;
+}
+
+// THROWS not assignable to parameter of type 'Declarator'
+useDeclarator({});

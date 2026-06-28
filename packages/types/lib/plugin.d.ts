@@ -43,7 +43,11 @@ export type Includer = {
     filter?: Filter;
 };
 
-export type PutoutPlugin = Replacer | Includer | Traverser;
+export type PutoutPlugin =
+    | Replacer
+    | Includer
+    | Traverser
+    | Declarator;
 
 export type Report = () => string;
 
@@ -66,3 +70,10 @@ export type Replace = () => Record<string, string | ReplaceResolver>;
 type MatchResolver = (vars: Record<string, Node>, path: NodePath) => boolean;
 
 export type Match = () => Record<string, MatchResolver>;
+
+export type Declarator = {
+    declare: () => Record<string, string | {
+        esm: string;
+        commonjs: string;
+    }>;
+};
