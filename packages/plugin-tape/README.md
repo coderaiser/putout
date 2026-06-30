@@ -46,6 +46,7 @@ npm i @putout/plugin-tape -D
 - ✅ [remove-skip](#remove-skip);
 - ✅ [remove-useless-not-called-args](#remove-useless-not-called-args);
 - ✅ [remove-useless-t-end](#remove-useless-t-end);
+- ✅ [remove-useless-undefined](#remove-useless-undefined);
 - ✅ [switch-expected-with-result](#switch-expected-with-result);
 - ✅ [sync-with-name](#sync-with-name);
 
@@ -81,6 +82,7 @@ npm i @putout/plugin-tape -D
         "tape/extract-args-from-called-with": "on",
         "tape/remove-default-messages": "on",
         "tape/remove-useless-not-called-args": "on",
+        "tape/remove-useless-undefined": "on",
         "tape/remove-only": ["on", {
             "allowed": ["test"]
         }],
@@ -591,6 +593,22 @@ test('test: remove me', () => {
 test('test: remove me', () => {
     t.end();
 });
+```
+
+## remove-useless-undefined
+
+### ❌ Example of incorrect code
+
+```js
+stub().returns(undefined);
+stub().resolves(undefined);
+```
+
+### ✅ Example of correct code
+
+```js
+stub();
+stub().resolves();
 ```
 
 ## convert-ok-to-match

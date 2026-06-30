@@ -1,0 +1,2 @@
+stub();
+stub().resolves();

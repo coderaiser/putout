@@ -1,3 +1,4 @@
+import * as removeUselessUndefined from './remove-useless-undefined/index.js';
 import * as extractArgsFromCalledWith from './extract-args-from-called-with/index.js';
 import * as applyStub from './apply-stub/index.js';
 import * as applyDestructuring from './apply-destructuring/index.js';
@@ -64,4 +65,5 @@ export const rules = {
     'remove-only': removeOnly,
     'remove-skip': removeSkip,
     'extract-args-from-called-with': extractArgsFromCalledWith,
+    'remove-useless-undefined': removeUselessUndefined,
 };
