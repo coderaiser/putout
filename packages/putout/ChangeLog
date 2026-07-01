@@ -1,3 +1,9 @@
+2026.07.02, v42.7.20
+
+feature:
+- 330693249 @putout/operator-remove-files: types
+- 6bb844795 @putout/plugin-tape: remove-useless-undefined: add
+
 2026.06.30, v42.7.19
 
 feature:
