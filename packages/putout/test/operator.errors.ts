@@ -16,6 +16,7 @@ const {
     addParens,
     sortIgnore,
     createTypeChecker,
+    removeFiles,
 } = operator;
 
 // THROWS Expected 2 arguments, but got 1.
@@ -66,8 +67,8 @@ addParens(5);
 // THROWS Argument of type 'number' is not assignable to parameter of type 'SortIgnoreOptions'
 sortIgnore(5);
 
-// THROWS Argument of type 'number' is not assignable to parameter of type 'string[]'
-createTypeChecker(5);
-
 // THROWS Argument of type 'string' is not assignable to parameter of type 'string[]'
 createTypeChecker('hello');
+
+// THROWS Argument of type '5' is not assignable to parameter of type 'string | string[] | undefined'.
+removeFiles(5);

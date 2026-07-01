@@ -6,6 +6,10 @@
         }
     },
     "rules": {
-        "putout": "on"
+        "putout": "on",
+        "madrun/insert-test-dts": "on",
+        "coverage/add-to-exclude": ["on", {
+            "list": ["**/*.ts"]
+        }]
     }
 }
