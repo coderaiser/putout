@@ -67,7 +67,7 @@ addParens(5);
 // THROWS Argument of type 'number' is not assignable to parameter of type 'SortIgnoreOptions'
 sortIgnore(5);
 
-// THROWS Argument of type 'string' is not assignable to parameter of type 'string[]'
+// THROWS Argument of type 'string' is not assignable to parameter of type 'unknown[]'
 createTypeChecker('hello');
 
 // THROWS Argument of type '5' is not assignable to parameter of type 'string | string[] | undefined'.
