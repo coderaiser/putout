@@ -61,3 +61,8 @@ test('plugin-for-of: transform: to-for-n', (t) => {
     t.transform('to-for-n');
     t.end();
 });
+
+test('plugin-for-of: transform: from-while', (t) => {
+    t.transform('from-while');
+    t.end();
+});

@@ -1,7 +1,8 @@
 {
     "match": {
         "*.md{js}": {
-            "for-of": "off"
+            "for-of": "off",
+            "remove-useless-operand": "off"
         }
     }
 }

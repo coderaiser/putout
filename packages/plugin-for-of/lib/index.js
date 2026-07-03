@@ -1,3 +1,4 @@
+import * as fromWhile from './from-while/index.js';
 import * as map from './map/index.js';
 import * as forEach from './for-each/index.js';
 import * as forN from './for-n/index.js';
@@ -30,4 +31,5 @@ export const rules = {
     'remove-unused-variables': removeUnusedVariables,
     'add-missing-declaration': addMissingDeclaration,
     'to-for-n': toForN,
+    'from-while': fromWhile,
 };

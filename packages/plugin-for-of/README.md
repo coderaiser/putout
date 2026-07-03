@@ -32,6 +32,7 @@ npm i @putout/plugin-for-of
 - ✅ [remove-useless-array-from](#remove-useless-array-from);
 - ✅ [remove-useless-variables](#remove-useless-variables);
 - ✅ [to-for-n](#to-for-n);
+- ✅ [from-while](#from-while);
 
 ## Configuration
 
@@ -50,7 +51,8 @@ npm i @putout/plugin-for-of
             "maxProperties": 4
         }],
         "for-of/for": "on",
-        "for-of/to-for-n": "on"
+        "for-of/to-for-n": "on",
+        "for-of/from-while": "on"
     }
 }
 ```
@@ -165,7 +167,7 @@ for (const item of arguments) {
 
 ## reduce
 
-> - The `reduce()` method executes a user-supplied **reducer** callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+> The `reduce()` method executes a user-supplied **reducer** callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
 
@@ -374,6 +376,36 @@ const n = tokens.length;
 
 for (let i = 0; i < n; i++) {
     ++i;
+}
+```
+
+### from-while
+
+> The `while` statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e4faebbc52bc2410425facc557b9acc7/9db52e3880190fe4f898ee6ac2722598073edf01).
+
+#### ❌ Example of incorrect code
+
+```js
+let i = 0;
+
+while (i < node.signature.params.length) {
+    const {name} = node.signature.params[i];
+    
+    params.push(identifier(name.value));
+    
+    i = i + 1;
+}
+```
+
+#### ✅ Example of correct code
+
+```js
+for (const {name} of node.signature.params) {
+    params.push(identifier(name.value));
 }
 ```
 
