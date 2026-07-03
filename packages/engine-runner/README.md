@@ -237,6 +237,7 @@ export const traverse = ({listStore}) => ({
             }, {
                 type: 'DebuggerStatement',
             }];
+            
             // for code
             'debugger; debugger';
         },

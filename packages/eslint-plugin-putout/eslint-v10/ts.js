@@ -80,8 +80,8 @@ function addGlobals(names) {
         }
         
         return true;
-    });
-    /* c8 ignore end */
+    });/* c8 ignore end */
+    
     // typescript-eslint's scope manager doesn't produce "implicit.left"
 }
 
