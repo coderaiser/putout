@@ -28,6 +28,7 @@ npm i @putout/plugin-printer -D
 - ✅ [declare](#declare);
 - ✅ [remove-args](#remove-args);
 - ✅ [remove-useless-maybe](#remove-useless-maybe);
+- ✅ [remove-useless-print](#remove-useless-print);
 - ✅ [remove-legacy-test-declaration](#remove-legacy-test-declaration);
 - ✅ [remove-trailing-spaces-from-type-checker](#remove-trailing-spaces-from-type-checker);
 - ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker);
@@ -65,6 +66,7 @@ npm i @putout/plugin-printer -D
         "printer/remove-useless-not-from-type-checker": "on",
         "printer/remove-useless-path-from-type-checker": "on",
         "printer/remove-useless-tuples-from-type-checker": "on",
+        "printer/remove-useless-print": "on",
         "printer/reverse-comparison-in-type-checker": "on"
     }
 }
@@ -570,6 +572,32 @@ const isMoreThenMaxElementLengthInOneLine = createTypeChecker([
 -const test = extend({
 -    print: printExtension,
 -});
+```
+
+## reverse-comparison-in-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/be2bb33f5c7ac7b687c1fa856704bc73/e57fa5a3ded571adca03f5bdeb5a0f63a594aa81).
+
+### ❌ Example of incorrect code
+
+```js
+export const ExpressionStatement = {
+    print(path, {indent, print}) {
+        indent();
+        print('__expression');
+        print.newline();
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export const ExpressionStatement = (path, {indent, print}) => {
+    indent();
+    print('__expression');
+    print.newline();
+};
 ```
 
 ## License
