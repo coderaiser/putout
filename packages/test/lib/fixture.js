@@ -11,6 +11,18 @@ const TS = {
 
 export const readFixture = (name, extension, extensionFix = env.UPDATE_EXTENSION) => {
     const {readFileSync} = globalThis.__putout_test_fs;
+    
+    if (extension) {
+        const [e, data] = tryCatch(readFileSync, `${name}.${extension}`, 'utf8');
+        
+        if (!e)
+            return [
+                data,
+                TS.DISABLED,
+                extensionFix || extension,
+            ];
+    }
+    
     const [eTS, dataTS] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
     
     if (!eTS)
@@ -28,17 +40,6 @@ export const readFixture = (name, extension, extensionFix = env.UPDATE_EXTENSION
             TS.DISABLED,
             'js',
         ];
-    
-    if (extension) {
-        const [e, data] = tryCatch(readFileSync, `${name}.${extension}`, 'utf8');
-        
-        if (!e)
-            return [
-                data,
-                TS.DISABLED,
-                extensionFix || extension,
-            ];
-    }
     
     throw eJS;
 };
