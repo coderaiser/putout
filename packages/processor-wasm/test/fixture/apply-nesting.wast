@@ -1,6 +1,6 @@
 (module
   ;; this is simple function that adds a couple of parameters
-  (func (param $a i32) (param $b i32)
+  (func $add (param $a i32) (param $b i32)
     (get.local $a)
     (get.local $b)
     (i32.add)

@@ -29,6 +29,9 @@
     "report": "madrun report"
   },
   "dependencies": {
+    "@nirguna/parser-wasm": "^1.0.4",
+    "@nirguna/printer-wasm": "^1.0.6",
+    "@putout/operator-wasm": "^1.0.0",
     "@webassemblyjs/ast": "^1.11.1",
     "@webassemblyjs/wast-parser": "^1.11.1",
     "@webassemblyjs/wast-printer": "^1.11.1",
