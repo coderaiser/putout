@@ -1,0 +1,7 @@
+{
+    "rules": {
+        "coverage/add-to-exclude": ["on", {
+            "list": ["**/*.ts"]
+        }]
+    }
+}
