@@ -1,5 +1,9 @@
 {
-    "printer": "putout",
+    "rules": {
+        "coverage/add-to-exclude": ["on", {
+            "list": ["**/*.ts"]
+        }]
+    },
     "match": {
         "*.md": {
             "declare": "off",
