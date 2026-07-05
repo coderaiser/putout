@@ -58,7 +58,7 @@
     "#test": "./test/create-test.js"
   },
   "peerDependencies": {
-    "putout": ">=41"
+    "putout": ">=42"
   },
   "license": "MIT",
   "engines": {
