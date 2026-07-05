@@ -1,5 +1,6 @@
 import filesystem from './filesystem.js';
 import json from './json.js';
+import wasm from './wasm.js';
 import jsx from './jsx.js';
 import keyword from './keyword.js';
 import parens from './parens.js';
@@ -12,6 +13,7 @@ export default {
     ...creators,
     ...filesystem,
     ...json,
+    ...wasm,
     ...jsx,
     ...keyword,
     ...parens,
