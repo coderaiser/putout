@@ -17,6 +17,7 @@ const {
     sortIgnore,
     createTypeChecker,
     removeFiles,
+    wrapInNamespace,
 } = operator;
 
 // THROWS Expected 2 arguments, but got 1.
@@ -72,3 +73,6 @@ createTypeChecker('hello');
 
 // THROWS Argument of type '5' is not assignable to parameter of type 'string | string[] | undefined'.
 removeFiles(5);
+
+// THROWS Argument of type 'number' is not assignable to parameter of type 'string'.
+wrapInNamespace(5);

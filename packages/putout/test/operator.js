@@ -220,3 +220,10 @@ test('putout: operate: createTypeChecker', async (t) => {
     t.equal(createTypeChecker, operator.createTypeChecker);
     t.end();
 });
+
+test('putout: operate: wrapInNamespace', async (t) => {
+    const {wrapInNamespace} = await import('@putout/operator-wasm');
+    
+    t.equal(wrapInNamespace, operator.wrapInNamespace);
+    t.end();
+});
