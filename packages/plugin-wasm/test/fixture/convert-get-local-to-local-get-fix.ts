@@ -1,7 +1,4 @@
 namespace __putout_processor_wasm {
-    function sum1(a: i32, b: i32) {
-        i32.add(local.get(a), local.get(b));
-    }
 }
 
 

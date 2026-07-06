@@ -21,3 +21,8 @@ test('plugin-wasm: transform: convert-set-local-to-local-set', (t) => {
     t.transform('convert-set-local-to-local-set');
     t.end();
 });
+
+test('plugin-wasm: transform: remove-unused', (t) => {
+    t.transform('remove-unused');
+    t.end();
+});

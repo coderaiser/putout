@@ -20,6 +20,7 @@ npm i @putout/plugin-wasm -D
 - ✅ [apply-nesting](#apply-nesting);
 - ✅ [convert-get-local-to-local-get](#convert-get-local-to-local-get);
 - ✅ [convert-set-local-to-local-set](#convert-set-local-to-local-set);
+- ✅ [remove-unused](#remove-unused);
 
 ## Config
 
@@ -28,7 +29,8 @@ npm i @putout/plugin-wasm -D
     "rules": {
         "wasm/apply-nesting": "on",
         "wasm/convert-get-local-to-local-get": "on",
-        "wasm/convert-set-local-to-local-set": "on"
+        "wasm/convert-set-local-to-local-set": "on",
+        "wasm/remove-unused": "on"
     }
 }
 ```
@@ -87,6 +89,23 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/629581ade8
 ```diff
 -set_local $a
 +local.set $a
+```
+
+### remove-unused
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2cb80fb438d251ce9e8d9b2ba3d2929e/fd7f6419123b7f86a5eaaa426dd19fbdaceafb14).
+
+```diff
+(module
+    (func $one (result i32)
+        i32.const 1
+    )
+    (func $oneTwo (param $y) (result i32 i32)
+-       (call $one (local.get $y))
++       (call $one)
+        i32.const 2
+    )
+)
 ```
 
 ## License

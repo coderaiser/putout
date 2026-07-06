@@ -25,21 +25,6 @@ npm i @putout/processor-wasm -D
 
 ## Rules
 
-### remove-unused
-
-```diff
-(module
-    (func $one (result i32)
-        i32.const 1
-    )
-    (func $oneTwo (param $y) (result i32 i32)
--       (call $one (local.get $y))
-+       (call $one)
-        i32.const 2
-    )
-)
-```
-
 ### remove-useless-args
 
 ```diff
