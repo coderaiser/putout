@@ -51,17 +51,17 @@ test('putout: processor: wasm: places: set-local', async ({comparePlaces}) => {
     }, {
         message: `Use 'local.set' instead of 'set_local'`,
         position: {
-            column: 5,
-            line: 5,
+            column: 8,
+            line: 4,
         },
-        rule: 'convert-set-local-to-local-set (wasm)',
+        rule: 'wasm/convert-set-local-to-local-set',
     }, {
         message: `Use 'local.set' instead of 'set_local'`,
         position: {
-            column: 5,
-            line: 6,
+            column: 8,
+            line: 5,
         },
-        rule: 'convert-set-local-to-local-set (wasm)',
+        rule: 'wasm/convert-set-local-to-local-set',
     }]);
 });
 

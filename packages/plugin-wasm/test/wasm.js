@@ -16,3 +16,8 @@ test('plugin-wasm: transform: convert-get-local-to-local-get', (t) => {
     t.transform('convert-get-local-to-local-get');
     t.end();
 });
+
+test('plugin-wasm: transform: convert-set-local-to-local-set', (t) => {
+    t.transform('convert-set-local-to-local-set');
+    t.end();
+});

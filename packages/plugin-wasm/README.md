@@ -19,6 +19,7 @@ npm i @putout/plugin-wasm -D
 
 - ✅ [apply-nesting](#apply-nesting);
 - ✅ [convert-get-local-to-local-get](#convert-get-local-to-local-get);
+- ✅ [convert-set-local-to-local-set](#convert-set-local-to-local-set);
 
 ## Config
 
@@ -26,7 +27,8 @@ npm i @putout/plugin-wasm -D
 {
     "rules": {
         "wasm/apply-nesting": "on",
-        "wasm/convert-get-local-to-local-get": "on"
+        "wasm/convert-get-local-to-local-get": "on",
+        "wasm/convert-set-local-to-local-set": "on"
     }
 }
 ```
@@ -70,6 +72,21 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8f5f7527f2
 ```diff
 -get_local $a
 +local.get $a
+```
+
+### convert-set-local-to-local-set
+
+> The `local.set` instruction returns the value of the local at index `$id` in the locals vector of the current function execution. The type parameter is bound to the type of the local.
+>
+> (c) [Wasm Reference Manual](https://github.com/sunfishcode/wasm-reference-manual/blob/master/WebAssembly.md#set-local)
+
+`set_local` is DEPReCATED.
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/629581ade8233839b6ed5484c5e2e345/1d83a197eb511cfc8859845f35fad4f3282e5783).
+
+```diff
+-set_local $a
++local.set $a
 ```
 
 ## License

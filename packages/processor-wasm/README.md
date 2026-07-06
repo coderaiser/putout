@@ -25,19 +25,6 @@ npm i @putout/processor-wasm -D
 
 ## Rules
 
-### convert-set-local-to-local-set
-
-> The `local.set` instruction returns the value of the local at index `$id` in the locals vector of the current function execution. The type parameter is bound to the type of the local.
->
-> (c) [Wasm Reference Manual](https://github.com/sunfishcode/wasm-reference-manual/blob/master/WebAssembly.md#set-local)
-
-`set_local` is DEPReCATED.
-
-```diff
--set_local $a
-+local.set $a
-```
-
 ### remove-unused
 
 ```diff
