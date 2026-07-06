@@ -18,13 +18,15 @@ npm i @putout/plugin-wasm -D
 ## Rules
 
 - ✅ [apply-nesting](#apply-nesting);
+- ✅ [convert-get-local-to-local-get](#convert-get-local-to-local-get);
 
 ## Config
 
 ```json
 {
     "rules": {
-        "wasm/apply-nesting": "on"
+        "wasm/apply-nesting": "on",
+        "wasm/convert-get-local-to-local-get": "on"
     }
 }
 ```
@@ -53,6 +55,21 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/993604e5f6
         (i32.add (get.local $b) (get.local $a))
     )
 )
+```
+
+### convert-get-local-to-local-get
+
+> The `local.get` instruction returns the value of the local at index `$id` in the locals vector of the current function execution. The type parameter is bound to the type of the local.
+>
+> (c) [Wasm Reference Manual](https://github.com/sunfishcode/wasm-reference-manual/blob/master/WebAssembly.md#get-local)
+
+`get_local` is DEPRECATED.
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8f5f7527f22cfc37501da756a0d5f90c/5c6f7cfb39bc0bdae21111c9666bec003a1c5118).
+
+```diff
+-get_local $a
++local.get $a
 ```
 
 ## License

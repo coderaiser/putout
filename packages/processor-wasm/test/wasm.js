@@ -69,16 +69,16 @@ test('putout: processor: wasm: places: get-local', async ({comparePlaces}) => {
     await comparePlaces('get-local.wast', [{
         message: `Use 'local.get' instead of 'get_local'`,
         position: {
-            column: 9,
-            line: 6,
+            column: 16,
+            line: 4,
         },
-        rule: 'convert-get-local-to-local-get (wasm)',
+        rule: 'wasm/convert-get-local-to-local-get',
     }, {
         message: `Use 'local.get' instead of 'get_local'`,
         position: {
-            column: 9,
-            line: 7,
+            column: 30,
+            line: 4,
         },
-        rule: 'convert-get-local-to-local-get (wasm)',
+        rule: 'wasm/convert-get-local-to-local-get',
     }]);
 });

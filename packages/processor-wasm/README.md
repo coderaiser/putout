@@ -25,19 +25,6 @@ npm i @putout/processor-wasm -D
 
 ## Rules
 
-### convert-get-local-to-local-get
-
-> The `local.get` instruction returns the value of the local at index `$id` in the locals vector of the current function execution. The type parameter is bound to the type of the local.
->
-> (c) [Wasm Reference Manual](https://github.com/sunfishcode/wasm-reference-manual/blob/master/WebAssembly.md#get-local)
-
-`get_local` is DEPRECATED.
-
-```diff
--get_local $a
-+local.get $a
-```
-
 ### convert-set-local-to-local-set
 
 > The `local.set` instruction returns the value of the local at index `$id` in the locals vector of the current function execution. The type parameter is bound to the type of the local.

@@ -11,3 +11,8 @@ test('plugin-wasm: transform: apply-nesting', (t) => {
     t.transform('apply-nesting');
     t.end();
 });
+
+test('plugin-wasm: transform: convert-get-local-to-local-get', (t) => {
+    t.transform('convert-get-local-to-local-get');
+    t.end();
+});
