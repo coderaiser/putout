@@ -40,7 +40,7 @@ export const branch = (raw) => {
     const source = wrapInNamespace(js);
     
     const list = [{
-        startLine: 1,
+        startLine: 0,
         source,
         extension: 'ts',
     }];

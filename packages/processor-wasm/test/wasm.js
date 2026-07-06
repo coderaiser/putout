@@ -2,6 +2,7 @@ import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
     processors: ['wasm'],
+    plugins: ['wasm'],
 });
 
 test('putout: processor: wasm: get-local', async ({process}) => {
@@ -41,6 +42,13 @@ test('putout: processor: wasm: parser error', async ({comparePlaces}) => {
 
 test('putout: processor: wasm: places: set-local', async ({comparePlaces}) => {
     await comparePlaces('set-local.wast', [{
+        message: 'Use nestging',
+        position: {
+            column: 8,
+            line: 6,
+        },
+        rule: 'wasm/apply-nesting',
+    }, {
         message: `Use 'local.set' instead of 'set_local'`,
         position: {
             column: 5,
@@ -54,13 +62,6 @@ test('putout: processor: wasm: places: set-local', async ({comparePlaces}) => {
             line: 6,
         },
         rule: 'convert-set-local-to-local-set (wasm)',
-    }, {
-        message: `Apply nesting for 'i32.add'`,
-        position: {
-            column: 5,
-            line: 7,
-        },
-        rule: 'apply-nesting (wasm)',
     }]);
 });
 

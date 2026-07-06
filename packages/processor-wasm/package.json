@@ -45,6 +45,7 @@
   ],
   "devDependencies": {
     "@putout/eslint-flat": "^4.0.0",
+    "@putout/plugin-wasm": "*",
     "@putout/test": "^15.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-putout": "^31.0.0",
