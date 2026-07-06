@@ -1,3 +1,24 @@
+2026.07.06, v42.8.0
+
+fix:
+- 650f77bcb @putout/plugin-wasm: convert-get-local-to-local-get: namespace
+- 29bce1980 @putout/plugin-wasm: apply-nesting: arguments order
+
+feature:
+- d7ed0bbfe @putout/plugin-wasm: convert-set-local-to-local-set
+- d042458f9 @putout/plugin-wasm: convert-get-local-to-local-get: add
+- d337b689b @putout/processor-wasm: apply-nesting from plugin-wasm
+- 677d7be08 @putout/processor-wasm: drop support of 🐊 < 42
+- a0767aaf5 @putout/processor-wasm: use nirguna printer/parser
+- c2024efd2 @putout/plugin-wasm: add
+- 122da1780 @putout/plugin-putout: declare: __wasm: add
+- ecd89ab48 @putout/operator-wasm: add
+- 904a3988e @putout/operator-wasm: add
+- 5f148a289 @putout/test: overrides: extension: overlap with js - when extension passed it should have priority over js and ts
+- 1a3531483 @putout/plugin-printer:remove-useless-print: add
+- c5c8dde6e @putout/plugin-for-of: from-while: add
+- 1932ad047 @putout/operator-type-checker: re-export types from @putout/printer/type-checker
+
 2026.07.02, v42.7.20
 
 feature:
