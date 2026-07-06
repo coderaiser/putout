@@ -4,6 +4,9 @@
     "exclude": [
         "**/*.spec.*",
         "**/*.config.*",
+        "**/finder.js",
+        "**/lint.js",
+        "**/traverser.js",
         "**/fixture",
         ".*.*",
         "test"

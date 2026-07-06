@@ -23,18 +23,6 @@ npm i @putout/processor-wasm -D
 }
 ```
 
-## Rules
-
-### remove-useless-args
-
-```diff
-(module
--   (func $answer (result i32)
--       i32.const 0x2A
--   )
-)
-```
-
 ## License
 
 MIT

@@ -8,7 +8,10 @@ const {entries} = Object;
 const {isArray} = Array;
 
 export const lint = (source, overrides = {}) => {
-    const {fix = true, plugins} = overrides;
+    const {
+        fix = true,
+        plugins = [],
+    } = overrides;
     const [error, ast] = tryCatch(parse, source);
     
     if (error)

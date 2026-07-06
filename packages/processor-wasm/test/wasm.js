@@ -2,7 +2,7 @@ import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
     processors: ['wasm'],
-    plugins: ['wasm'],
+    plugins: ['wasm', 'arguments'],
 });
 
 test('putout: processor: wasm: get-local', async ({process}) => {
