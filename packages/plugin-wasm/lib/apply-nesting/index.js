@@ -21,7 +21,10 @@ export const replace = () => ({
         const prevPrev = prev.getPrevSibling();
         const {node} = path;
         
-        node.arguments = [prev.node.expression, prevPrev.node.expression];
+        node.arguments = [
+            prevPrev.node.expression,
+            prev.node.expression,
+        ];
         
         remove(prev);
         remove(prevPrev);
