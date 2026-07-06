@@ -1,13 +1,23 @@
 import {types, operator} from 'putout';
 
-const {getBinding, compare} = operator;
+const {
+    getBinding,
+    compare,
+    getTemplateValues,
+} = operator;
 
 const {isTSModuleDeclaration} = types;
 
-export const report = () => `Use 'local.set' instead of 'set_local'`;
+const FN = 'function __a(__args) {__body}';
+
+export const report = (path) => {
+    const {__a} = getTemplateValues(path, FN);
+    
+    return `Avoid unused '${__a.name}'`;
+};
 
 export const match = () => ({
-    'function __a(__args) {__body}': ({__a, __wasm}, path) => {
+    [FN]: ({__a, __wasm}, path) => {
         const namespace = path.find(isTSModuleDeclaration);
         
         if (!namespace)
@@ -23,5 +33,5 @@ export const match = () => ({
 });
 
 export const replace = () => ({
-    'function __a(__args) {__body}': '',
+    [FN]: '',
 });

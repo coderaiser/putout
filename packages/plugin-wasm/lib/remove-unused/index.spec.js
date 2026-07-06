@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('wasm: remove-unused: report', (t) => {
-    t.report('remove-unused', `Use 'local.set' instead of 'set_local'`);
+    t.report('remove-unused', `Avoid unused 'one'`);
     t.end();
 });
 
