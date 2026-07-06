@@ -12,6 +12,7 @@ export const lint = (source, overrides = {}) => {
         fix = true,
         plugins = [],
     } = overrides;
+    
     const [error, ast] = tryCatch(parse, source);
     
     if (error)
