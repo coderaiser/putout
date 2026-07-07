@@ -3,7 +3,6 @@ import process from 'node:process';
 import {stub} from 'supertape';
 import {lint} from '@putout/processor-wasm/lint';
 import {tryCatch} from 'try-catch';
-import {rules} from '@putout/processor-wasm/plugin';
 import {createUpdate} from './update.js';
 import {createTest} from '../lib/test.js';
 
@@ -16,30 +15,69 @@ const NO_CHECK_ASSERTIONS_COUNT = {
 const update = createUpdate();
 const {writeFileSync} = fs;
 
+const {entries} = Object;
+const plugins = [
+    ['remove-useless-args', {
+        report: ({path}) => `Avoid useless arguments in '${path.node.index.value}' call`,
+        fix: ({path, length}) => {
+            path.node.instrArgs.length = length;
+        },
+        find: (ast, {push, traverse}) => {
+            const funcs = {};
+            const calls = {};
+            
+            traverse(ast, {
+                Func(path) {
+                    const {value} = path.node.name;
+                    const {params} = path.node.signature;
+                    
+                    funcs[value] = params;
+                },
+                CallInstruction(path) {
+                    const {index, instrArgs} = path.node;
+                    const {value} = index;
+                    
+                    calls[value] = [path, instrArgs];
+                },
+            });
+            
+            for (const [name, [path, args]] of entries(calls)) {
+                const {length} = funcs[name];
+                
+                if (length < args.length)
+                    push({
+                        path,
+                        length,
+                    });
+            }
+        },
+    }],
+];
+
 const test = createTest(import.meta.url, {
     lint,
     extension: 'wast',
-    plugins: rules,
+    plugins,
 });
 
 const test2 = createTest(import.meta.url, {
     extension: 'wast',
     lint,
-    plugins: rules,
+    plugins,
 });
 
 const testExtensionFix = createTest(import.meta.url, {
     extension: 'wast',
     extensionFix: 'cde',
     lint,
-    plugins: rules,
+    plugins,
 });
 
 const testExtensionFixWithJs = createTest(import.meta.url, {
     extension: 'wast',
     extensionFix: 'js',
     lint,
-    plugins: rules,
+    plugins,
 });
 
 test('transform: ext: with UPDATE env variable', (t) => {
