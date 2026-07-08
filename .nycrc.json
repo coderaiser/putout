@@ -10,6 +10,8 @@
         "**/.*.*",
         "**/scripts",
         "packages/putout/bin",
+        "**/processor-markdown/lib/lint.js",
+        "**/processor-markdown/lib/traverse.js",
         "packages/*/test",
         "coverage",
         "packages/engine-loader/transforms",
