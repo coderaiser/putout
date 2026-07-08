@@ -136,3 +136,8 @@ test('plugin-printer: transform: remove-useless-print', (t) => {
     t.transform('remove-useless-print');
     t.end();
 });
+
+test('plugin-printer: transform: apply-printer-declarations', (t) => {
+    t.transform('apply-printer-declarations');
+    t.end();
+});

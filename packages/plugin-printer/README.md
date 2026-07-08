@@ -21,6 +21,7 @@ npm i @putout/plugin-printer -D
 - ✅ [apply-computed-print](#apply-computed-print);
 - ✅ [apply-create-test-url](#apply-create-test-url);
 - ✅ [apply-linebreak](#apply-linebreak);
+- ✅ [apply-printer-declarations](#apply-printer-declarations);
 - ✅ [apply-types](#apply-types);
 - ✅ [check-type-passed-to-type-checker](#check-type-passed-to-type-checker);
 - ✅ [check-if-success-possible-in-type-checker](#check-if-success-possible-in-type-checker);
@@ -52,6 +53,7 @@ npm i @putout/plugin-printer -D
         "printer/apply-linebreak": "on",
         "printer/apply-computed-print": "on",
         "printer/apply-create-test-url": "on",
+        "printer/apply-printer-declarations": "on",
         "printer/apply-types": "on",
         "printer/check-type-passed-to-type-checker": "on",
         "printer/check-if-success-possible-in-type-checker": "on",
@@ -86,6 +88,36 @@ print.breakline();
 -indent();
 -print.newline();
 print.linebreak();
+```
+
+## apply-printer-declarations
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2fc66c476a235eb25f47e55fd7b33042/b0371fe2dd62e8f9fe5ce1fff6d352386e69fcc6).
+
+### ❌ Example of incorrect code
+
+```js
+export const ExportNamedDeclaration = (path, printer, {indent}) => {
+    const {print, write} = printer;
+    const {leadingComments} = path.node;
+    
+    indent();
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export const ExportNamedDeclaration = (path, printer) => {
+    const {leadingComments} = path.node;
+    const {
+        print,
+        write,
+        indent,
+    } = printer;
+    
+    indent();
+};
 ```
 
 ## apply-types

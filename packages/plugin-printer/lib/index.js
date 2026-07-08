@@ -1,3 +1,4 @@
+import * as applyPrinterDeclarations from './apply-printer-declarations/index.js';
 import * as removeUselessPrint from './remove-useless-print/index.js';
 import * as addMissingArrowToTypeChecker from './add-missing-arrow-to-type-checker/index.js';
 import * as removeUselessArrowFromTypeChecker from './remove-useless-arrow-from-type-checker/index.js';
@@ -26,15 +27,16 @@ import * as applyTypes from './apply-types/index.js';
 import * as removeLegacyTestDeclaration from './remove-legacy-test-declaration/index.js';
 
 export const rules = {
-    'remove-args': removeArgs,
+    'add-args': addArgs,
+    'apply-printer-declarations': applyPrinterDeclarations,
     'apply-breakline': applyBreakline,
     'apply-linebreak': applyLinebreak,
     'apply-computed-print': applyComputedPrint,
-    'add-args': addArgs,
-    declare,
     'apply-types': applyTypes,
-    'remove-legacy-test-declaration': removeLegacyTestDeclaration,
     'apply-create-test-url': applyCreateTestUrl,
+    declare,
+    'remove-legacy-test-declaration': removeLegacyTestDeclaration,
+    'remove-args': removeArgs,
     'remove-useless-maybe': removeUselessMaybe,
     'remove-trailing-spaces-from-type-checker': removeTrailingSpacesFromTypeChecker,
     'add-missing-spaces-to-type-checker': addMissingSpacesToTypeChecker,
