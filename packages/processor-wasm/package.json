@@ -8,8 +8,7 @@
   "main": "lib/wasm.js",
   "exports": {
     ".": "./lib/wasm.js",
-    "./lint": "./lib/lint.js",
-    "./plugin": "./lib/rules/index.js"
+    "./lint": "./lib/lint.js"
   },
   "release": false,
   "tag": false,
