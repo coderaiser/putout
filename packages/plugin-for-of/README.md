@@ -87,6 +87,8 @@ for (const name of names) {
 >
 > (c) MDN
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/227db63f003df008d27455d01fcaec9d/6f1be22c96baa54b9abe34a93ccdcf09a343ff19).
+
 ### ❌ Example of incorrect code
 
 ```js

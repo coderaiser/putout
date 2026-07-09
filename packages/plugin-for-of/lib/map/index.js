@@ -34,4 +34,16 @@ export const replace = () => ({
         
         return `for (const ${b} of ${a}) __c`;
     },
+    'const __a = __b.map((__c) => __d)': `{
+    	const __a = [];
+        for (const __c of __b) {
+            __a.push(__d);
+        }
+    }`,
+    '__a = __b.map((__c) => __d)': `{
+        __a = [];
+        for (const __c of __b) {
+            __a.push(__d);
+        }
+    }`,
 });

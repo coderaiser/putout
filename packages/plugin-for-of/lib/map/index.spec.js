@@ -22,6 +22,11 @@ test('plugin-for-of: map: transform: not-identifier', (t) => {
     t.end();
 });
 
+test('plugin-for-of: map: transform: member', (t) => {
+    t.transform('member');
+    t.end();
+});
+
 test('plugin-for-of: map: no transform: try', (t) => {
     t.noTransform('try');
     t.end();
