@@ -28,9 +28,17 @@ npm i @putout/plugin-remove-useless-map
 ## ❌ Example of incorrect code
 
 ```js
-const [str] = lines.map((line) => `hello ${line}`);
+const [str] = [];
 
-const x = array.map((a) => a);
+for (const line of lines) {
+    [str].push(`hello ${line}`);
+}
+
+const x = [];
+
+for (const a of array) {
+    x.push(a);
+}
 
 Object
     .entries(a)
