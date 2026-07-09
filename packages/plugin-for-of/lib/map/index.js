@@ -1,6 +1,10 @@
-import {types, operator} from 'putout';
+import {
+    types,
+    operator,
+    template,
+} from 'putout';
 
-const {compare} = operator;
+const {compare, replaceWith} = operator;
 
 const {
     isReturnStatement,
@@ -8,6 +12,8 @@ const {
     isTryStatement,
     isArrayPattern,
 } = types;
+
+const createPush = template('%%ARRAY%%.push(%%ARGUMENT%%)');
 
 const tail = (body) => body.at(-1);
 
@@ -29,9 +35,6 @@ export const match = () => ({
         return !isReturnStatement(last);
     },
     'const __a = __b.map((__c) => __d)': ({__a, __c, __d}) => {
-        if (isBlockStatement(__d))
-            return false;
-        
         if (compare(__c, __d))
             return false;
         
@@ -46,12 +49,31 @@ export const replace = () => ({
         
         return `for (const ${b} of ${a}) __c`;
     },
-    'const __a = __b.map((__c) => __d)': `{
-        const __a = [];
-        for (const __c of __b) {
-            __a.push(__d);
+    'const __a = __b.map((__c) => __d)': ({__a, __d}, path) => {
+        if (isBlockStatement(__d)) {
+            path.traverse({
+                ReturnStatement(path) {
+                    const {argument} = path.node;
+                    
+                    replaceWith(path, createPush({
+                        ARRAY: __a,
+                        ARGUMENT: argument,
+                    }));
+                },
+            });
+            return `{
+                const __a = [];
+                for (const __c of __b) __d;
+            }`;
         }
-    }`,
+        
+        return `{
+            const __a = [];
+            for (const __c of __b) {
+                __a.push(__d);
+            }
+        }`;
+    },
     '__a = __b.map((__c) => __d)': `{
         __a = [];
         for (const __c of __b) {

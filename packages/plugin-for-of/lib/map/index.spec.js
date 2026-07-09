@@ -40,7 +40,7 @@ test('plugin-for-of: map: no transform: try', (t) => {
     t.end();
 });
 
-test('plugin-for-of: map: no report: block', (t) => {
-    t.noReport('block');
+test('plugin-for-of: map: transform: block', (t) => {
+    t.transform('block');
     t.end();
 });
