@@ -27,6 +27,7 @@ npm i @putout/plugin-printer -D
 - ✅ [check-if-success-possible-in-type-checker](#check-if-success-possible-in-type-checker);
 - ✅ [merge-tuple-of-type-checker](#merge-tuple-of-type-checker);
 - ✅ [declare](#declare);
+- ✅ [declare-nearby](#declare-nearby);
 - ✅ [remove-args](#remove-args);
 - ✅ [remove-useless-maybe](#remove-useless-maybe);
 - ✅ [remove-useless-print](#remove-useless-print);
@@ -58,6 +59,7 @@ npm i @putout/plugin-printer -D
         "printer/check-type-passed-to-type-checker": "on",
         "printer/check-if-success-possible-in-type-checker": "on",
         "printer/declare": "on",
+        "printer/declare-nearby": "on",
         "printer/merge-tuple-of-type-checker": "on",
         "printer/remove-args": "on",
         "printer/remove-useless-maybe": "on",
@@ -541,6 +543,34 @@ isIdentifier();
 test('', (t) => {
     t.print(fixture.returnStatement);
 });
+```
+
+## declare-nearby
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/03d729e40ffd352678cdcc92a1cb7e2d/33a3d522247db4a1dd6d34b035176f26fc020ca8).
+
+### ❌ Example of incorrect code
+
+```js
+export const FunctionDeclaration = {
+    print(path, printer, semantics) {
+        const {print} = printer;
+        
+        indent();
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export const FunctionDeclaration = {
+    print(path, printer, semantics) {
+        const {indent, print} = printer;
+        
+        indent();
+    },
+};
 ```
 
 ## merge-tuple-of-type-checker

@@ -1,3 +1,4 @@
+import * as declareNearby from './declare-nearby/index.js';
 import * as applyPrinterDeclarations from './apply-printer-declarations/index.js';
 import * as removeUselessPrint from './remove-useless-print/index.js';
 import * as addMissingArrowToTypeChecker from './add-missing-arrow-to-type-checker/index.js';
@@ -54,4 +55,5 @@ export const rules = {
     'remove-useless-arrow-from-type-checker': removeUselessArrowFromTypeChecker,
     'add-missing-arrow-to-type-checker': addMissingArrowToTypeChecker,
     'remove-useless-print': removeUselessPrint,
+    'declare-nearby': declareNearby,
 };

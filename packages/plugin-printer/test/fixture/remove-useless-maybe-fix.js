@@ -1,3 +1,6 @@
+const {print} = printer;
+const {maybe} = printer;
+
 {
     maybe.indent(wasNewline);
     print.newline();

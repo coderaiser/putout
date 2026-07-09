@@ -141,3 +141,8 @@ test('plugin-printer: transform: apply-printer-declarations', (t) => {
     t.transform('apply-printer-declarations');
     t.end();
 });
+
+test('plugin-printer: transform: declare-nearby', (t) => {
+    t.transform('declare-nearby');
+    t.end();
+});

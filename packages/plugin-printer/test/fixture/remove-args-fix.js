@@ -1,3 +1,7 @@
+const {write} = printer;
+const {indent} = printer;
+const {print} = printer;
+
 print.newline();
 print.space();
 
