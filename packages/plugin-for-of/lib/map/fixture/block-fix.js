@@ -12,6 +12,7 @@
         const param = identifier(id);
         
         param.typeAnnotation = typeAnnotation(valtype);
+        
         args.push(param);
     }
 }
