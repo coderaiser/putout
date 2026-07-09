@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-wasm",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to improve wasm",
