@@ -9,6 +9,7 @@ const names = [
     'indent',
     'write',
     'print',
+    'traverse',
     'maybe',
 ];
 

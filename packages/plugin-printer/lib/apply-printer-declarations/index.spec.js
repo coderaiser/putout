@@ -16,3 +16,8 @@ test('printer: apply-printer-declarations: transform', (t) => {
     t.transform('apply-printer-declarations');
     t.end();
 });
+
+test('printer: apply-printer-declarations: transform: traverse', (t) => {
+    t.transform('traverse');
+    t.end();
+});
