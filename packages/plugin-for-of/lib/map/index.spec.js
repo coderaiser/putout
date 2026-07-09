@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import * as removeUselessMap from '@putout/plugin-remove-useless-map';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -27,7 +28,19 @@ test('plugin-for-of: map: transform: member', (t) => {
     t.end();
 });
 
+test('plugin-for-of: map: transform: remove-useless-map', (t) => {
+    t.transform('remove-useless-map', {
+        removeUselessMap,
+    });
+    t.end();
+});
+
 test('plugin-for-of: map: no transform: try', (t) => {
     t.noTransform('try');
+    t.end();
+});
+
+test('plugin-for-of: map: no report: block', (t) => {
+    t.noReport('block');
     t.end();
 });

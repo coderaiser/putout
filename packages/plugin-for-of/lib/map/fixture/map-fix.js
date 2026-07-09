@@ -2,16 +2,10 @@ for (const a of list) {
     alert('hello');
 }
 
-{
-    const a = [];
-    
-    for (const a of list) {
-        a.push({
-            alert('hello');
-        }
-);
-    }
-}
+const a = list.map((a) => {
+    alert('hello');
+});
+
 list.map((a) => 'hello');
 
 list.map((a) => {

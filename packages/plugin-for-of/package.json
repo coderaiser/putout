@@ -38,6 +38,7 @@
     "@putout/plugin-remove-empty": "*",
     "@putout/plugin-remove-nested-blocks": "*",
     "@putout/plugin-remove-useless-continue": "*",
+    "@putout/plugin-remove-useless-map": "*",
     "@putout/plugin-variables": "*",
     "@putout/test": "^15.0.0",
     "eslint": "^10.0.0",
