@@ -30,6 +30,40 @@ export const {
 });
 ```
 
+### `nearby`
+
+By default `@putout/operator-declare` declares variables on the top level, when you need to declare on the same level,
+
+```diff
+export const FunctionDeclaration = {
+    print(path, printer, semantics) {
+        const {
++           indent
+            print,
+        } = printer;
+        indent();
+    }
+}
+```
+
+Use `nearby`:
+
+```js
+const {operator} = require('putout');
+const {declare} = operator;
+
+export const {
+    report,
+    include,
+    fix,
+    filter,
+} = declare({
+    indent: ['const {indent} = printer', {
+        nearby: true,
+    }],
+});
+```
+
 ### Dual packages
 
 When you need different declarations for `ESM` and `CommonJS` you can use:

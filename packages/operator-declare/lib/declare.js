@@ -12,9 +12,11 @@ import {
 const {
     isImportDeclaration,
     isVariableDeclaration,
+    isFunction,
 } = types;
 
 const {keys} = Object;
+const {isArray} = Array;
 const isString = (a) => typeof a === 'string';
 
 const getLastVarPath = (bodyPath) => bodyPath
@@ -96,21 +98,35 @@ const fix = (declarations) => (path, {options}) => {
     };
     
     const {name} = path.node;
-    const code = parseCode(type, allDeclarations[name]);
-    
-    const scope = path.scope.getProgramParent();
-    const programPath = scope.path;
-    const bodyPath = programPath.get('body');
-    
+    const current = allDeclarations[name];
+    const code = parseCode(type, current);
+    const bodyPath = getBodyPath(path, current);
     const node = template.ast.fresh(code);
     
     insert(node, bodyPath);
     addDeclarationForESLint(name, path);
 };
 
+const getBodyPath = (path, current) => {
+    if (isArray(current) && current[1].nearby) {
+        const fnPath = path.find(isFunction);
+        
+        if (fnPath)
+            return fnPath.get('body.body');
+    }
+    
+    const scope = path.scope.getProgramParent();
+    const programPath = scope.path;
+    
+    return programPath.get('body');
+};
+
 const parseCode = (type, current) => {
     if (isString(current))
         return current;
+    
+    if (isArray(current))
+        return current[0];
     
     return current[type];
 };

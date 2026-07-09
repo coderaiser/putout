@@ -1104,3 +1104,50 @@ test('putout: operator: declare: ts: TSQualifiedName', (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: operator: declare: sameScope', (t) => {
+    const declarations = {
+        indent: ['const {indent} = printer', {
+            nearby: true,
+        }],
+    };
+    
+    const source = montag`
+        export const FunctionDeclaration = {
+            print(path, printer, semantics) {
+                const {
+                    print,
+                    write,
+                    traverse,
+                } = printer;
+                
+                indent();
+            }
+        }
+    `;
+    
+    const {code} = putout(source, {
+        fix: true,
+        plugins: [
+            ['declare', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        export const FunctionDeclaration = {
+            print(path, printer, semantics) {
+                const {indent} = printer;
+                const {
+                    print,
+                    write,
+                    traverse,
+                } = printer;
+                
+                indent();
+            },
+        };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
