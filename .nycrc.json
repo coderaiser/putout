@@ -9,7 +9,7 @@
         "**/*.ts",
         "**/.*.*",
         "**/processor-wasm/lib/lint.js",
-        "**/processor-wasm/lib/traverse.js",
+        "**/processor-wasm/lib/traverser.js",
         "**/scripts",
         "packages/putout/bin",
         "packages/*/test",
