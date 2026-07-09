@@ -4,6 +4,7 @@ const {
     getBinding,
     compare,
     getTemplateValues,
+    __wasm,
 } = operator;
 
 const {isTSModuleDeclaration} = types;
@@ -17,13 +18,13 @@ export const report = (path) => {
 };
 
 export const match = () => ({
-    [FN]: ({__a, __wasm}, path) => {
+    [FN]: ({__a}, path) => {
         const namespace = path.find(isTSModuleDeclaration);
         
         if (!namespace)
             return false;
         
-        if (compare(namespace, __wasm))
+        if (!compare(namespace, __wasm))
             return false;
         
         const binding = getBinding(path, __a.name);
