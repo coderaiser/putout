@@ -3,6 +3,7 @@ import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {RuleTester} from 'eslint';
 import {createPlugin} from '@putout/eslint/create-plugin';
+import tsParser from '@typescript-eslint/parser';
 import * as _rule from './index.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -12,11 +13,11 @@ const rule = createPlugin(_rule);
 
 const ruleTester = new RuleTester({
     languageOptions: {
-        ecmaVersion: 2025,
+        ecmaVersion: 2026,
     },
 });
 
-ruleTester.run('keyword-spacing', rule, {
+ruleTester.run('function-declaration-paren-newline', rule, {
     valid: [
         `
         function hello({a, b, c}) {
@@ -87,4 +88,22 @@ ruleTester.run('keyword-spacing', rule, {
             message: 'Unexpected new lines around arguments',
         }],
     }],
+});
+
+const tsParserTester = new RuleTester({
+    languageOptions: {
+        parser: tsParser,
+    },
+});
+
+tsParserTester.run('function-declaration-paren-newline', rule, {
+    valid: [`
+        export class ParseService {
+            constructor(
+                @Inject('SNIPPETS') private readonly snippets: Map,
+                @Inject('SNIPPET_REVISIONS') private readonly snippetRevisions: Map,
+            ) {}
+        }
+    `],
+    invalid: [],
 });

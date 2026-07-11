@@ -31,6 +31,9 @@ export const filter = ({text}) => {
     const beforeCloseIndex = text.indexOf(')');
     const beforeCloseText = text.slice(0, beforeCloseIndex);
     
+    if (text.includes('@'))
+        return false;
+    
     return checkFunction(beforeCloseText);
 };
 

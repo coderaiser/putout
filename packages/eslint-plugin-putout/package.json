@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@babel/core": "^8.0.0",
-    "@babel/eslint-parser": "^8.0.0-rc.2",
+    "@babel/eslint-parser": "^8.0.0",
     "@eslint/eslintrc": "^3.0.0",
     "@putout/engine-parser": "^15.0.1",
     "@putout/eslint": "^6.0.0",
