@@ -12,7 +12,7 @@ export const report = (path) => {
     const variables = getVariables(path);
     const names = getNames(variables);
     
-    return `'${names.join(', ')}' inside 'for...of' loop defined but never used`;
+    return `'${names.join(', ')}' inside 'for..of' loop defined but never used`;
 };
 
 export const match = () => ({

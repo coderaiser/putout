@@ -9,7 +9,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-for-of: entries-n: report', (t) => {
-    t.report('entries-n', `Use 'for...of' instead of 'for'`);
+    t.report('entries-n', `Use 'for..of' instead of 'for'`);
     t.end();
 });
 

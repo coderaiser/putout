@@ -7,7 +7,7 @@ const {
     isExportNamedDeclaration,
 } = types;
 
-export const report = () => `Use 'for...of' instead of '.reduce()'`;
+export const report = () => `Use 'for..of' instead of '.reduce()'`;
 
 export const match = () => ({
     'const __a = __b.reduce((__c, __d) => __e)': ({__b, __e}, path) => {

@@ -1,4 +1,4 @@
-export const report = () => `Use 'for' instead of 'for...of' with '.entries()' when change index`;
+export const report = () => `Use 'for' instead of 'for..of' with '.entries()' when change index`;
 
 export const match = () => ({
     'for (let [__a, __b] of __c.entries())__body': ({__a}, path) => {

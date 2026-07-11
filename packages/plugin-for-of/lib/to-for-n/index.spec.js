@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('for-of: to-for-n: report', (t) => {
-    t.report('to-for-n', `Use 'for' instead of 'for...of' with '.entries()' when change index`);
+    t.report('to-for-n', `Use 'for' instead of 'for..of' with '.entries()' when change index`);
     t.end();
 });
 

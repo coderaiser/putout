@@ -9,7 +9,7 @@ const {
 const isToManyProperties = (a, {maxProperties}) => a.isObjectPattern() && a.node.properties.length > maxProperties;
 const isAssignment = (a) => isAssignmentPattern(a.value);
 
-export const report = () => `Use destructuring in head of 'for...of'`;
+export const report = () => `Use destructuring in head of 'for..of'`;
 
 export const fix = ({path, varPath}) => {
     replaceWith(varPath, path.node.id);

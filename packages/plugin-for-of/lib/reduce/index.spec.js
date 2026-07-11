@@ -12,7 +12,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-convert-reduce-to-for-of: report: reduce', (t) => {
-    t.report('reduce', `Use 'for...of' instead of '.reduce()'`);
+    t.report('reduce', `Use 'for..of' instead of '.reduce()'`);
     t.end();
 });
 

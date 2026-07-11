@@ -11,7 +11,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-for-of: for-entries: report: for', (t) => {
-    t.report('for', `Use 'for...of' instead of 'for'`);
+    t.report('for', `Use 'for..of' instead of 'for'`);
     t.end();
 });
 

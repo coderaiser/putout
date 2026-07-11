@@ -13,7 +13,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: plugin-for-of: remove useless variables: report: for-of', (t) => {
-    t.report('for-of', `Use destructuring in head of 'for...of'`);
+    t.report('for-of', `Use destructuring in head of 'for..of'`);
     t.end();
 });
 

@@ -10,12 +10,12 @@ const test = createTest(import.meta.url, {
 });
 
 test('remove unused for-of-variables: report: object', (t) => {
-    t.report('object', `'b' inside 'for...of' loop defined but never used`);
+    t.report('object', `'b' inside 'for..of' loop defined but never used`);
     t.end();
 });
 
 test('remove unused for-of-variables: report: array', (t) => {
-    t.report('array', `'b' inside 'for...of' loop defined but never used`);
+    t.report('array', `'b' inside 'for..of' loop defined but never used`);
     t.end();
 });
 

@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-remove-useless-array-from: report: array-from', (t) => {
-    t.report('array-from', `'Array.from()' has no sense inside 'for...of'`);
+    t.report('array-from', `'Array.from()' has no sense inside 'for..of'`);
     t.end();
 });
 

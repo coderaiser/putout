@@ -11,7 +11,7 @@ const {
 
 const {isBlockStatement} = types;
 
-export const report = () => `Use 'for...of' instead of 'for'`;
+export const report = () => `Use 'for..of' instead of 'for'`;
 
 const forLoop = 'for (let __i = 0; __i < __e.length; __i++) __c';
 const getForOfLoop = template(`for (const LEFT of RIGHT) BODY`);
