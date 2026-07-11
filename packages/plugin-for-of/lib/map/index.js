@@ -44,6 +44,7 @@ export const match = () => ({
         
         return !isArrayPattern(__a);
     },
+    '__a = __b.map((__c) => __d)': ({__b}) => !isCallExpression(__b),
 });
 
 export const replace = () => ({
