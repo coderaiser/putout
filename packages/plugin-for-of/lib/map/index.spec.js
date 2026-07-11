@@ -9,7 +9,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-for-of: map: report', (t) => {
-    t.report('map', `Use 'for...of' instead of map when 'return' absent`);
+    t.report('map', `Use 'for..of' instead of 'map'`);
     t.end();
 });
 
@@ -42,5 +42,10 @@ test('plugin-for-of: map: no transform: try', (t) => {
 
 test('plugin-for-of: map: transform: block', (t) => {
     t.transform('block');
+    t.end();
+});
+
+test('plugin-for-of: map: no report: chain', (t) => {
+    t.noReport('chain');
     t.end();
 });

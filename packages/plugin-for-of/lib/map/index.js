@@ -11,13 +11,14 @@ const {
     isBlockStatement,
     isTryStatement,
     isArrayPattern,
+    isCallExpression,
 } = types;
 
 const createPush = template('%%ARRAY%%.push(%%ARGUMENT%%)');
 
 const tail = (body) => body.at(-1);
 
-export const report = () => `Use 'for...of' instead of map when 'return' absent`;
+export const report = () => `Use 'for..of' instead of 'map'`;
 
 export const match = () => ({
     '__a.map((__b) => __c)': ({__c}, path) => {
@@ -34,7 +35,10 @@ export const match = () => ({
         
         return !isReturnStatement(last);
     },
-    'const __a = __b.map((__c) => __d)': ({__a, __c, __d}) => {
+    'const __a = __b.map((__c) => __d)': ({__a, __b, __c, __d}) => {
+        if (isCallExpression(__b))
+            return false;
+        
         if (compare(__c, __d))
             return false;
         
