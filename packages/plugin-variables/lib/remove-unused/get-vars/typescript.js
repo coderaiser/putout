@@ -11,6 +11,9 @@ export default ({use, declare, visitors}) => ({
         const decorators = path.get('decorators');
         const {CallExpression} = visitors;
         
+        if (!decorators.length)
+            return;
+        
         for (const decoratorPath of decorators) {
             const expressionPath = decoratorPath.get('expression');
             

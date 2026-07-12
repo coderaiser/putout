@@ -1863,6 +1863,10 @@ test('remove-unused-variables: get-vars: ts-decorator', (t) => {
     const result = getVars(ast);
     
     const expected = [{
+        A: {
+            declared: true,
+            used: false,
+        },
         Fn: {
             declared: true,
             used: false,
