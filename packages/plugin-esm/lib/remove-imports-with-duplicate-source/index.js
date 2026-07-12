@@ -67,9 +67,20 @@ function convertImportToVariable(init, original) {
     replaceWith(original, variable);
 }
 
+const hasImportKindValue = ({node}) => {
+    const {importKind} = node;
+    
+    if (!importKind)
+        return true;
+    
+    return importKind === 'value';
+};
+
 export const traverse = ({push}) => ({
     Program(path) {
-        const imports = path.get('body').filter(isImportDeclaration);
+        const imports = path.get('body').filter(isImportDeclaration)
+            .filter(hasImportKindValue);
+        
         const sources = new Map();
         
         for (const element of imports) {

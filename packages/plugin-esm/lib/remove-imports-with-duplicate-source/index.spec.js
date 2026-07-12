@@ -21,3 +21,8 @@ test('esm: remove-imports-with-duplicate-source: transform: namespace-first', (t
     t.transform('namespace-first');
     t.end();
 });
+
+test('esm: remove-imports-with-duplicate-source: no report: type', (t) => {
+    t.noReport('type');
+    t.end();
+});
