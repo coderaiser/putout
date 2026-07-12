@@ -1,3 +1,38 @@
+2026.07.12, v42.9.0
+
+fix:
+- 7a52aef58 @putout/eslint-flat: types
+- 80620d6f3 eslint-plugin-putout: types
+- a661a6517 @putout/plugin-for-of: report: ... -> ..
+- 55b4d9268 @putout/plugin-for-of: map: chain: assign: exclude
+- a2d346a80 @putout/plugin-for-of: map: chain: exclude
+- 6d6cbbf3a @putout/plugin-wasm: remove-unused: __wasm
+- afba09017 @putout/plugin-wasm: remove-unused: report
+
+feature:
+- 453cb7db6 putout: @putout/operator-declare v18.0.0
+- 99624faa7 @putout/engine-runner: @putout/operator-declare v18.0.0
+- b005180b2 @putout/operator-declare: Includer -> Traverser
+- 69ca12194 @putout/plugin-esm: merge-duplicate-imports: join: importKind: type
+- 6538f7185 @putout/plugin-esm: remove-imports-with-duplicate-source: importKind: type: exclude
+- dd1b0dd39 @putout/eslint-flat: types
+- 5b49fc27f eslint-plugin-putout: types
+- b773edf53 @putout/compare: VariableDeclaration without init
+- b039bb9d4 @putout/engine-parser: template: errorRecovery
+- a6d35ef92 @putout/plugin-madrun: insert-test-dts: SpreadElement: exclude
+- 7630c450a @putout/plugin-variables: remove-unused: Decorator inside TSParameterProperty
+- be125348e @putout/plugin-variables: remove-unused: TSNonNullExpression
+- 66f0abe6b eslint-plugin-putout: function-declaration-paren-newline: exclude decorators
+- dbc3c24b6 @putout/plugin-for-of: map: BlockStatement
+- de3ef6776 @putout/plugin-for-of: remove-useless-map
+- 6dc264c91 @putout/plugin-for-of: map: MemberExpression
+- 0977e74d1 @putout/plugin-printer: apply-printer-declarations: traverse: add
+- 2a9f5abcf @putout/plugin-printer: declare-nearby: add
+- e9c2118f5 @putout/operator-declare: nearby: add
+- bccb29824 @putout/plugin-printer: apply-printer-declarations
+- e6591c683 @putout/processor-wasm: remove-useless-args -> arguments/remove-useless
+- 9f65b281a @putout/plugin-wasm: remove-unused
+
 2026.07.06, v42.8.0
 
 fix:
