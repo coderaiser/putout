@@ -1130,6 +1130,26 @@ test('compare: exclude: __putout_runner_replace', (t) => {
     t.end();
 });
 
+test('compare: const: without init: __array', (t) => {
+    const node = template.ast(`export const rules: typeof plugin.rules`);
+    const templateNode = template.ast(`export const __a: typeof __b.__c = __array`);
+    
+    const result = compare(node, templateNode);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: const: without init: __object', (t) => {
+    const node = template.ast(`export const rules: typeof plugin.rules`);
+    const templateNode = template.ast(`export const __a: typeof __b.__c = __object`);
+    
+    const result = compare(node, templateNode);
+    
+    t.notOk(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);

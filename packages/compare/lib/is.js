@@ -275,6 +275,9 @@ const __OBJECT_TYPE = 'ObjectPattern|ObjectExpression';
 const __ARRAY_TYPE = 'ArrayPattern|ArrayExpression';
 
 export const isEqualAnyArray = (node, templateNode) => {
+    if (!node)
+        return false;
+    
     if (!isAnyArray(templateNode))
         return false;
     
@@ -284,10 +287,13 @@ export const isEqualAnyArray = (node, templateNode) => {
 };
 
 export const isEqualAnyObject = (node, templateNode) => {
-    if (!isAnyObject(templateNode))
+    if (!node)
         return false;
     
     const {type} = node;
+    
+    if (!isAnyObject(templateNode))
+        return false;
     
     return __OBJECT_TYPE.includes(type);
 };
