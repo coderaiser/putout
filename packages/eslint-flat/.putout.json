@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "madrun/insert-test-dts": "on"
+    }
+}
