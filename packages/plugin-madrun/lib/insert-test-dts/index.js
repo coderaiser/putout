@@ -5,6 +5,7 @@ import {
 } from 'putout';
 
 const {insertAfter} = operator;
+
 const {
     stringLiteral,
     objectProperty,
