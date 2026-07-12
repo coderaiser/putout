@@ -3,9 +3,21 @@ import {types} from 'putout';
 const {
     isIdentifier,
     isTSModuleDeclaration,
+    isCallExpression,
 } = types;
 
-export default ({use, declare}) => ({
+export default ({use, declare, visitors}) => ({
+    TSParameterProperty(path) {
+        const decorators = path.get('decorators');
+        const {CallExpression} = visitors;
+        
+        for (const decoratorPath of decorators) {
+            const expressionPath = decoratorPath.get('expression');
+            
+            if (isCallExpression(expressionPath))
+                CallExpression(expressionPath);
+        }
+    },
     'TSClassImplements|TSInterfaceHeritage'(path) {
         const {expression} = path.node;
         const {type} = expression;

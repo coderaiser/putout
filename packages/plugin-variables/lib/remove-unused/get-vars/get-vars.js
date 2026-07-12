@@ -2,6 +2,7 @@ import {operator, types} from 'putout';
 import jsx from './jsx.js';
 import typescript from './typescript.js';
 import {createExportNamedDeclaration} from './visitors/export-named-declaration.js';
+import {createCallExpression} from './visitors/call-expression.js';
 import {
     traverseObjectExpression,
     processObjectPattern,
@@ -15,6 +16,7 @@ const {isKeyword} = operator;
 
 const {
     isAssignmentPattern,
+    isCallExpression,
     isClassDeclaration,
     isIdentifier,
     isSpreadElement,
@@ -27,23 +29,20 @@ const {
 } = types;
 
 export default ({use, declare, addParams}) => {
-    const traverseObj = traverseObjectExpression(use);
-    const declareObject = processObjectPattern({
-        use,
+    const {CallExpression} = createCallExpression('CallExpression', {
         declare,
+        use,
     });
     
-    const traverseAssign = traverseAssignmentExpression({
-        use,
+    const {OptionalCallExpression} = createCallExpression('OptionalCallExpression', {
         declare,
+        use,
     });
     
-    const traverseTmpl = traverseTemplateLiteral(use);
-    const traverseArray = traverseArrayExpression(use);
-    const declareArray = traverseArrayExpression(declare);
-    
-    return {
-        'ObjectExpression'(path) {
+    const visitors = {
+        CallExpression,
+        OptionalCallExpression,
+        ObjectExpression(path) {
             traverseObj(path.get('properties'));
         },
         SequenceExpression(path) {
@@ -82,12 +81,17 @@ export default ({use, declare, addParams}) => {
         Decorator(path) {
             const expressionPath = path.get('expression');
             
-            if (!expressionPath.isIdentifier())
+            if (isIdentifier(expressionPath)) {
+                const {name} = expressionPath.node;
+                
+                use(expressionPath, name);
                 return;
+            }
             
-            const {name} = expressionPath.node;
-            
-            use(expressionPath, name);
+            if (isCallExpression(expressionPath)) {
+                CallExpression(expressionPath);
+                return;
+            }
         },
         
         RestElement(path) {
@@ -452,27 +456,6 @@ export default ({use, declare, addParams}) => {
             });
         },
         
-        'CallExpression|OptionalCallExpression'(path) {
-            const {node} = path;
-            const {callee} = node;
-            
-            if (isIdentifier(callee))
-                use(path, node.callee.name);
-            
-            path.traverse({
-                SpreadElement(path) {
-                    const {argument} = path.node;
-                    
-                    if (isIdentifier(argument))
-                        use(path, argument.name);
-                },
-                Identifier(path) {
-                    if (node.arguments.includes(path.node))
-                        use(path, path.node.name);
-                },
-            });
-        },
-        
         BinaryExpression(path) {
             const {left, right} = path.node;
             
@@ -579,10 +562,31 @@ export default ({use, declare, addParams}) => {
                 params,
             });
         },
+    };
+    
+    const traverseObj = traverseObjectExpression(use);
+    
+    const declareObject = processObjectPattern({
+        use,
+        declare,
+    });
+    
+    const traverseAssign = traverseAssignmentExpression({
+        use,
+        declare,
+    });
+    
+    const traverseTmpl = traverseTemplateLiteral(use);
+    const traverseArray = traverseArrayExpression(use);
+    const declareArray = traverseArrayExpression(declare);
+    
+    return {
+        ...visitors,
         ...jsx(use),
         ...typescript({
             use,
             declare,
+            visitors,
         }),
     };
 };
