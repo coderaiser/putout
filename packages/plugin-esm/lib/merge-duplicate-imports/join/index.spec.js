@@ -109,3 +109,8 @@ test('plugin-merge-duplicate-imports: join: transform: convert-commonjs-to-esm',
     });
     t.end();
 });
+
+test('plugin-merge-duplicate-imports: join: transform: type', (t) => {
+    t.transform('type');
+    t.end();
+});

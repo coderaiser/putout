@@ -18,6 +18,9 @@ export const fix = ({path, imports}) => {
         const {specifiers} = imp.node;
         
         for (const spec of specifiers) {
+            if (imp.node.importKind === 'type')
+                spec.importKind = 'type';
+            
             if (isImportDefaultSpecifier(spec)) {
                 path.node.specifiers.unshift(spec);
                 continue;
