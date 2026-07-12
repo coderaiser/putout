@@ -16,3 +16,8 @@ test('madrun: insert-test-dts: transform', (t) => {
     t.transform('insert-test-dts');
     t.end();
 });
+
+test('madrun: insert-test-dts: no report: spread', (t) => {
+    t.noReport('spread');
+    t.end();
+});

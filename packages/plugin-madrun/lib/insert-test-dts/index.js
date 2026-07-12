@@ -5,7 +5,11 @@ import {
 } from 'putout';
 
 const {insertAfter} = operator;
-const {stringLiteral, objectProperty} = types;
+const {
+    stringLiteral,
+    objectProperty,
+    isObjectProperty,
+} = types;
 
 const nodeTestDts = template.ast('() => "check-dts test/*.ts"');
 
@@ -17,7 +21,7 @@ export const match = () => ({
         
         let is = false;
         
-        for (const property of properties) {
+        for (const property of properties.filter(isObjectProperty)) {
             const {value} = property.node.key;
             
             if (value === 'test:dts')
