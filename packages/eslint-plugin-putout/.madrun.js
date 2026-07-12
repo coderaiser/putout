@@ -13,8 +13,9 @@ const lintEnv = {
 };
 
 export default {
-    'wisdom': () => run(['lint:all', 'coverage']),
+    'wisdom': () => run(['lint:all', 'coverage', 'test:dts']),
     'test': () => [env, `tape 'test/*.js' 'test/safe/*.js' 'lib/config/*.spec.*'`],
+    'test:dts': () => 'check-dts test/*.ts',
     'test:all': () => [env, `mocha --timeout ${MOCHA_TIMEOUT} 'test/*.js' 'test/safe/*.js' 'lib/putout/*.spec.js' 'lib/**/*.spec.js'`],
     'watch:test': async () => [env, `nodemon -w rules -x "${await cutEnv('test')}"`],
     'lint': () => 'putout .',

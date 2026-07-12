@@ -1,9 +1,10 @@
 {
     "checkCoverage": true,
-    "all": false,
+    "all": true,
     "exclude": [
         "**/*.spec.*",
         "**/*.config.*",
+        "**/*.d.ts",
         "**/fixture",
         "**/eslint-fixture",
         ".*.*",
