@@ -1,6 +1,7 @@
 import {test} from 'supertape';
 
 const {keys} = Object;
+const {isArray} = Array;
 
 test('eslint-plugin-putout: exports: rules', async (t) => {
     const {rules} = await import('eslint-plugin-putout');
@@ -30,5 +31,12 @@ test('eslint-plugin-putout: exports: configs', async (t) => {
     ];
     
     t.deepEqual(result, expected);
+    t.end();
+});
+
+test('eslint-plugin-putout: exports: configs: safeAlign', async (t) => {
+    const {safeAlign} = await import('eslint-plugin-putout');
+    
+    t.ok(isArray(safeAlign));
     t.end();
 });

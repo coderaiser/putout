@@ -1,22 +1,28 @@
-import type {
-    ESLint,
-    Linter,
-    Rule,
-} from 'eslint';
+import type {Linter} from 'eslint';
+
+export type FlatConfigArray = Linter.Config[];
+
+export const recommended: FlatConfigArray;
+
+export const safeRules: Record<string, string>;
+
+export const safe: FlatConfigArray;
+
+export const safeAlign: FlatConfigArray;
 
 export interface PutoutPluginConfigs {
-    recommended: Linter.Config[];
-    jsx: Linter.Config[];
-    safe: Linter.Config[];
-    safeAlign: Linter.Config[];
+    recommended: FlatConfigArray;
+    jsx: Linter.Config;
+    safe: FlatConfigArray;
+    safeAlign: FlatConfigArray;
 }
 
-declare const plugin: ESLint.Plugin & {
-    configs: PutoutPluginConfigs;
-    rules: Record<string, Rule.RuleModule>;
+export const configs: PutoutPluginConfigs;
+
+export const rules: Record<string, unknown>;
+
+declare const putout: {
+    rules: typeof rules;
 };
 
-export default plugin;
-
-export const rules: typeof plugin.rules;
-export const configs: PutoutPluginConfigs;
+export default putout;
