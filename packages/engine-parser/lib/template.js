@@ -12,6 +12,7 @@ const {
 } = nano;
 
 const defaults = {
+    errorRecovery: true,
     ...options,
     plugins: [
         ...plugins,

@@ -20,6 +20,13 @@ test('parser: template', (t) => {
     t.end();
 });
 
+test('parser: template: errorRecovery', (t) => {
+    const [error] = tryCatch(template.ast, 'export const rules: typeof plugin.rules');
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('parser: template: statement', (t) => {
     const buildRequire = template(`
       var %%importName%% = require(%%source%%);
