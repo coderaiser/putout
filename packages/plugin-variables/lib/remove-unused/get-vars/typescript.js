@@ -147,4 +147,8 @@ export default ({use, declare}) => ({
         if (firstPath.isRestElement())
             use(firstPath, firstPath.node.argument.name);
     },
+    TSNonNullExpression(path) {
+        const expressionPath = path.get('expression');
+        use(expressionPath, expressionPath.node.name);
+    },
 });

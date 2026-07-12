@@ -81,6 +81,7 @@ const fixture = readFixtures([
     'try-catch',
     'ts-module-block',
     'ts-import-equals-declaration',
+    'ts-non-null-expression',
     'undeclared-vars',
     'unary-expression',
     'update-expression',
@@ -1823,6 +1824,28 @@ test('remove-unused-variables: get-vars: ts-import-equals-declaration', (t) => {
         },
         operator: {
             declared: true,
+            used: true,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: ts-non-null-expression', (t) => {
+    const ast = parse(fixture.tsNonNullExpression, {
+        isTS,
+    });
+    
+    const result = getVars(ast);
+    
+    const expected = [{
+        e: {
+            declared: false,
+            used: true,
+        },
+        t: {
+            declared: false,
             used: true,
         },
     }];
