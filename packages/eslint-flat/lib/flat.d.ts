@@ -10,7 +10,7 @@ export interface MatchToFlatDirOverrides {
 
 export function matchToFlatDir(cwd: string, path: string, config?: FlatConfigArray, overrides?: MatchToFlatDirOverrides): Promise<FlatConfigArray>;
 
-export function matchToFlat(config: Record<string, Linter.RulesRecord>): FlatConfigArray;
+export function matchToFlat<const T extends Record<string, Record<string, 'off' | 'on'>>>(config: T): FlatConfigArray;
 
 export interface MergeESLintConfigsOptions {
     readdir?: (dir: string) => Promise<string[]>;
