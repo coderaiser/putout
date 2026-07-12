@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-esm",
-  "version": "10.8.1",
+  "version": "10.9.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin improves ability to transform ESM code",
