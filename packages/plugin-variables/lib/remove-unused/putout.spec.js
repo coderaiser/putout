@@ -45,8 +45,8 @@ const fixture = readFixtures([
     'variable-declarator-fix',
     'try-catch',
     'try-catch-fix',
-    'typescript',
-    'typescript-fix',
+    'ts',
+    'ts-fix',
     'module-exports',
     'module-exports-fix',
     'exports',
@@ -225,12 +225,12 @@ test('remove-unused-variables: putout: try-catch', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: putout: typescript', (t) => {
-    const {code} = putout(fixture.typescript, {
+test('remove-unused-variables: putout: ts', (t) => {
+    const {code} = putout(fixture.ts, {
         isTS: true,
     });
     
-    const expected = fixture.typescriptFix;
+    const expected = fixture.tsFix;
     
     t.deepEqual(code, expected);
     t.end();

@@ -94,14 +94,14 @@ const fixture = readFixtures([
     'yield',
     'await',
     'flow',
-    'typescript',
-    'typescript-namespace',
-    'typescript-module',
-    'typescript-as',
-    'typescript-dts',
-    'typescript-type-query',
-    'typescript-function-type-parameter',
-    'typescript-declare-function',
+    'ts',
+    'ts-namespace',
+    'ts-module',
+    'ts-as',
+    'ts-dts',
+    'ts-type-query',
+    'ts-function-type-parameter',
+    'ts-declare-function',
 ]);
 
 const getVars = (a, b) => {
@@ -1658,8 +1658,8 @@ test('remove-unused-variables: get-vars: flow', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: typescript', (t) => {
-    const ast = parse(fixture.typescript, {
+test('remove-unused-variables: get-vars: ts', (t) => {
+    const ast = parse(fixture.ts, {
         isTS: true,
     });
     
@@ -1686,8 +1686,8 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: typescript: namespace', (t) => {
-    const ast = parse(fixture.typescriptNamespace, {
+test('remove-unused-variables: get-vars: ts: namespace', (t) => {
+    const ast = parse(fixture.tsNamespace, {
         isTS: true,
     });
     
@@ -1701,8 +1701,8 @@ test('remove-unused-variables: get-vars: typescript: namespace', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: typescript: module', (t) => {
-    const ast = parse(fixture.typescriptModule, {
+test('remove-unused-variables: get-vars: ts: module', (t) => {
+    const ast = parse(fixture.tsModule, {
         isTS: true,
     });
     
@@ -1716,8 +1716,8 @@ test('remove-unused-variables: get-vars: typescript: module', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: typescript: as', (t) => {
-    const ast = parse(fixture.typescriptAs, {
+test('remove-unused-variables: get-vars: ts: as', (t) => {
+    const ast = parse(fixture.tsAs, {
         isTS,
     });
     
@@ -1732,8 +1732,8 @@ test('remove-unused-variables: get-vars: typescript: as', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: typescript: declare function', (t) => {
-    const ast = parse(fixture.typescriptDeclareFunction, {
+test('remove-unused-variables: get-vars: ts: declare function', (t) => {
+    const ast = parse(fixture.tsDeclareFunction, {
         isTS,
     });
     
@@ -1747,8 +1747,8 @@ test('remove-unused-variables: get-vars: typescript: declare function', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: typescript: type query', (t) => {
-    const ast = parse(fixture.typescriptTypeQuery, {
+test('remove-unused-variables: get-vars: ts: type query', (t) => {
+    const ast = parse(fixture.tsTypeQuery, {
         isTS,
     });
     
@@ -1763,8 +1763,8 @@ test('remove-unused-variables: get-vars: typescript: type query', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: typescript: function type parameter', (t) => {
-    const ast = parse(fixture.typescriptFunctionTypeParameter, {
+test('remove-unused-variables: get-vars: ts: function type parameter', (t) => {
+    const ast = parse(fixture.tsFunctionTypeParameter, {
         isTS,
     });
     
@@ -1780,8 +1780,8 @@ test('remove-unused-variables: get-vars: typescript: function type parameter', (
     t.end();
 });
 
-test('remove-unused-variables: get-vars: typescript: types', (t) => {
-    const ast = parse(fixture.typescriptDts, {
+test('remove-unused-variables: get-vars: ts: types', (t) => {
+    const ast = parse(fixture.tsDts, {
         isTS,
     });
     
