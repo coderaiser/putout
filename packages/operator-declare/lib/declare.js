@@ -13,6 +13,7 @@ const {
     isImportDeclaration,
     isVariableDeclaration,
     isFunction,
+    isTSParameterProperty,
 } = types;
 
 const {keys} = Object;
@@ -34,19 +35,18 @@ const parseType = (path) => isESM(path) ? 'esm' : 'commonjs';
 
 const TS_EXCLUDE = [
     'TSMethodSignature',
-    'TSParameterProperty',
     'TSFunctionType',
     'TSDeclareMethod',
     'TSDeclareFunction',
+    'TSParameterProperty',
     'TSTypeAliasDeclaration',
     'TSQualifiedName',
 ];
 
 export const declare = (declarations) => ({
     report,
-    include,
     fix: fix(declarations),
-    filter: filter(declarations),
+    traverse: createTraverse(declarations),
 });
 
 const report = (path) => {
@@ -56,38 +56,56 @@ const report = (path) => {
     return `Declare '${peaceOfName}', it referenced but not defined`;
 };
 
-const include = () => [
-    'ReferencedIdentifier',
-];
-
-const filter = (declarations) => (path, {options}) => {
-    if (TS_EXCLUDE.includes(path.parentPath.type))
-        return false;
-    
-    const {dismiss = [], type: typeOverride} = options;
-    
-    const allDeclarations = {
-        ...declarations,
-        ...options.declarations,
-    };
-    
-    const names = keys(allDeclarations);
-    const {scope, node} = path;
-    const {name} = node;
-    
-    if (!names.includes(name))
-        return false;
-    
-    if (dismiss.includes(name))
-        return false;
-    
-    if (scope.hasBinding(name) || checkDeclarationForESLint(name, path))
-        return false;
-    
-    const type = computeType(path, typeOverride);
-    
-    return parseCode(type, allDeclarations[name]);
-};
+const createTraverse = (declarations) => ({push, options}) => ({
+    ReferencedIdentifier: function traverseAgain(path) {
+        const {
+            parentPath,
+            scope,
+            node,
+        } = path;
+        
+        if (isTSParameterProperty(parentPath) && parentPath.node.decorators) {
+            const decorators = parentPath.get('decorators');
+            
+            for (const decorator of decorators) {
+                const expression = decorator.get('expression');
+                
+                if (compare(expression, '__a(__b)'))
+                    traverseAgain(expression.get('callee'));
+            }
+            
+            return;
+        }
+        
+        if (TS_EXCLUDE.includes(parentPath.type))
+            return false;
+        
+        const {dismiss = [], type: typeOverride} = options;
+        
+        const allDeclarations = {
+            ...declarations,
+            ...options.declarations,
+        };
+        
+        const names = keys(allDeclarations);
+        
+        const {name} = node;
+        
+        if (!names.includes(name))
+            return false;
+        
+        if (dismiss.includes(name))
+            return false;
+        
+        if (scope.hasBinding(name) || checkDeclarationForESLint(name, path))
+            return false;
+        
+        const type = computeType(path, typeOverride);
+        
+        if (parseCode(type, allDeclarations[name]))
+            push(path);
+    },
+});
 
 const fix = (declarations) => (path, {options}) => {
     const type = getModuleType(path);

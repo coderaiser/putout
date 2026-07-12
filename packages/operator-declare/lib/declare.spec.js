@@ -1105,6 +1105,40 @@ test('putout: operator: declare: ts: TSQualifiedName', (t) => {
     t.end();
 });
 
+test('putout: operator: declare: ts: decorators', (t) => {
+    const declarations = {
+        Inject: `import {Inject} from 'nestjs/common'`,
+    };
+    
+    const source = montag`
+        class X {
+            constructor(
+                @Inject(GithubService) private readonly githubService: GithubService
+            ) {}
+        }
+    `;
+    
+    const {code} = putout(source, {
+        isTS: true,
+        plugins: [
+            ['declare', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        import {Inject} from 'nestjs/common';
+        
+        class X {
+            constructor(
+                @Inject(GithubService) private readonly githubService: GithubService
+            ) {}
+        }\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: operator: declare: sameScope', (t) => {
     const declarations = {
         indent: ['const {indent} = printer', {

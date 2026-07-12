@@ -169,7 +169,7 @@ function splitPlugins(plugins, {progress}) {
         }
         
         if (plugin.declare) {
-            pluginsTraverse.push(include(declare(item)));
+            pluginsTraverse.push(declare(item));
             continue;
         }
         
