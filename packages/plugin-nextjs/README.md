@@ -3,6 +3,10 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-nextjs.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-nextjs "npm"
 
+> The React Framework for the Web
+> 
+> (c) [nextjs.org](https://nextjs.org/)
+
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to migrate to latest version of [Next.js](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app). *Not Bundled*.
 
 ## Install
