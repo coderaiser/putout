@@ -1,4 +1,6 @@
-import {operator} from 'putout';
+import {operator, types} from 'putout';
+
+const {isStringLiteral} = types;
 
 const {
     traverseProperties,
@@ -26,6 +28,10 @@ export const traverse = ({push}) => ({
         
         for (const run of traverseProperties(__object, 'run')) {
             const valuePath = run.get('value');
+            
+            if (!isStringLiteral(valuePath))
+                continue;
+            
             const valueStr = valuePath.node.value;
             
             if (!valueStr.includes('npm i') && !valueStr.includes('npm install'))

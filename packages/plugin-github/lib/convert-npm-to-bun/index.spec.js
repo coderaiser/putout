@@ -26,3 +26,8 @@ test('putout: plugin-github: convert-npm-to-bun: no transform: no-install', (t) 
     t.noTransform('no-install');
     t.end();
 });
+
+test('putout: plugin-github: convert-npm-to-bun: no transform: run-object', (t) => {
+    t.noTransform('run-object');
+    t.end();
+});
