@@ -1,5 +1,10 @@
-import {template, operator} from 'putout';
+import {
+    template,
+    operator,
+    types,
+} from 'putout';
 
+const {isFunction} = types;
 const {replaceWith, getProperty} = operator;
 
 export const report = () => {
@@ -34,7 +39,12 @@ function add(currentPath, {push}) {
     if (!currentPath)
         return;
     
-    const bodyPath = currentPath.get('value.body');
+    const valuePath = currentPath.get('value');
+    
+    if (!isFunction(valuePath))
+        return;
+    
+    const bodyPath = valuePath.get('body');
     const line = bodyPath.toString();
     
     if (line.includes('c8') || !line.includes('nyc'))
