@@ -1,3 +1,16 @@
+2026.07.13, v42.9.1
+
+fix:
+- 82748741b @putout/plugin-github: convert-npm-to-bun: run not StringLiteral
+- 971fcd37d @putout/plugin-variables: TSParameterType: decorators
+
+feature:
+- 187fd5f28 putout: @putout/plugin-logical-expressions v9.0.0
+- 38b8664ef @putout/plugin-logical-expressions: drop support of 🐊 < 42
+- 560393b65 @putout/plugin-logical-expressions: simplify: __a && __a !== null -> __a
+- 09af4b4ac @putout/plugin-nestjs: add
+- a5319556b @putout/plugin-madrun: convert-nyc-to-c8: not fn: exclude
+
 2026.07.12, v42.9.0
 
 fix:
