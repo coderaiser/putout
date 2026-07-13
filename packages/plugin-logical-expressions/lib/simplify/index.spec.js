@@ -72,6 +72,11 @@ test('plugin-simplify-logical-expression: transform: constructor', (t) => {
     t.end();
 });
 
+test('plugin-simplify-logical-expression: transform: and', (t) => {
+    t.transform('and');
+    t.end();
+});
+
 test('plugin-simplify-logical-expression: no transform: jsx', (t) => {
     t.noTransform('jsx');
     t.end();
