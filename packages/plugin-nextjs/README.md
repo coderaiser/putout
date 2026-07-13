@@ -7,7 +7,7 @@
 > 
 > (c) [nextjs.org](https://nextjs.org/)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to migrate to latest version of [Next.js](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app). *Not Bundled*.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to migrate to latest version of Next.js. *Not Bundled*.
 
 ## Install
 
