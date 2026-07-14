@@ -39,3 +39,8 @@ test('putout: add-path-arg-to-fix: transform: nested-scopes', (t) => {
     t.transform('nested-scopes');
     t.end();
 });
+
+test('putout: add-path-arg-to-fix: transform: not-member', (t) => {
+    t.transform('not-member');
+    t.end();
+});

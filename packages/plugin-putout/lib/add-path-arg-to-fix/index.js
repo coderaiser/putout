@@ -13,6 +13,7 @@ export const {
             'export const fix = () => path.__(__args)',
             'module.exports.fix = () => __body',
             'module.exports.fix = () => path.__(__args)',
+            'module.exports.fix = () => __a(path)',
         ],
     }],
 });
