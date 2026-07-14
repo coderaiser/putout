@@ -418,7 +418,7 @@ cleanup();
 
 t.equal(result, expected);
 t.end();
-````
+```
 
 ## apply-destructuring
 
