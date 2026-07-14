@@ -167,6 +167,9 @@ test('putout: test: processor: comparePlaces: no filename', (t) => {
 });
 
 test('putout: test: processor: addDot', (t) => {
-    t.equal(_addDot(''), '');
+    const result = _addDot('');
+    const expected = '';
+    
+    t.equal(result, expected);
     t.end();
 });

@@ -823,6 +823,8 @@ test('some test', (t) => {
 
 ## move-out-result-from-assertion
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/264bc87f56eae9aa2b2884ff64fe7a06/94836a115a072a18fd717d5454792c1895ab0476).
+
 ### ❌ Example of incorrect code
 
 ```js

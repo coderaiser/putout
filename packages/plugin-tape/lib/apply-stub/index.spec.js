@@ -8,7 +8,10 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-tape: apply-stub: report: fn', (t) => {
-    t.report('fn', `Use 'stub()' instead of creating a function`);
+    const result = 'fn';
+    const expected = `Use 'stub()' instead of creating a function`;
+    
+    t.report(result, expected);
     t.end();
 });
 

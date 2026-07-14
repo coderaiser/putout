@@ -8,7 +8,10 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-tape: add-stop-all: report: mock-import', (t) => {
-    t.report('mock-import', `Call 'stopAll()' at the end of test when 'mockImport()' used`);
+    const result = 'mock-import';
+    const expected = `Call 'stopAll()' at the end of test when 'mockImport()' used`;
+    
+    t.report(result, expected);
     t.end();
 });
 

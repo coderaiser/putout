@@ -8,7 +8,10 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-tape: apply-with-name: report: called-before', (t) => {
-    t.report('called-before', `'stub().withName()' should be used`);
+    const result = 'called-before';
+    const expected = `'stub().withName()' should be used`;
+    
+    t.report(result, expected);
     t.end();
 });
 

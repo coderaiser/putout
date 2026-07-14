@@ -245,8 +245,9 @@ test('putout: parser: jsx', async (t) => {
     });
     
     const expected = fixture.jsxTemplateFix;
+    const result = `${code}\n`;
     
-    t.equal(`${code}\n`, expected);
+    t.equal(result, expected);
     t.end();
 });
 

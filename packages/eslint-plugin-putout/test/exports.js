@@ -36,7 +36,8 @@ test('eslint-plugin-putout: exports: configs', async (t) => {
 
 test('eslint-plugin-putout: exports: configs: safeAlign', async (t) => {
     const {safeAlign} = await import('eslint-plugin-putout');
+    const result = isArray(safeAlign);
     
-    t.ok(isArray(safeAlign));
+    t.ok(result);
     t.end();
 });

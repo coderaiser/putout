@@ -8,7 +8,10 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-tape: apply-destructuring: report', (t) => {
-    t.report('apply-destructuring', `Use destructuring when require 'test' -> '{test}'`);
+    const result = 'apply-destructuring';
+    const expected = `Use destructuring when require 'test' -> '{test}'`;
+    
+    t.report(result, expected);
     t.end();
 });
 

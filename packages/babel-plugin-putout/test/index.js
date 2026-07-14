@@ -32,8 +32,9 @@ for (const caseName of readdirSync(fixturesDir)) {
         });
         
         const expected = readFileSync(join(fixtureDir, 'expected.js'), 'utf8');
+        const result = trim(code);
         
-        t.equal(trim(code), trim(expected));
+        t.equal(result, trim(expected));
         t.end();
     });
 }

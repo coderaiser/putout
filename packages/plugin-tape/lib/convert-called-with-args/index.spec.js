@@ -8,7 +8,10 @@ const test = createTest(import.meta.url, {
 });
 
 test('plugin-tape: convert-called-with-arguments: report: args', (t) => {
-    t.report('args', `Use an array as args to 'calledWith()'`);
+    const result = 'args';
+    const expected = `Use an array as args to 'calledWith()'`;
+    
+    t.report(result, expected);
     t.end();
 });
 

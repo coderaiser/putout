@@ -8,7 +8,10 @@ const test = createTest(import.meta.url, {
 });
 
 test('tape: apply-assertions-order: report', (t) => {
-    t.report('apply-assertions-order', `Use 'cleanup();' before 't.equal(onShareButtonClick.callCount, 1);'`);
+    const result = 'apply-assertions-order';
+    const expected = `Use 'cleanup();' before 't.equal(onShareButtonClick.callCount, 1);'`;
+    
+    t.report(result, expected);
     t.end();
 });
 

@@ -13,7 +13,10 @@ test('test: exported: processor: esm', async (t) => {
 });
 
 test('test: exported: processor: createTest', (t) => {
-    t.equal(typeof createTest(__dirname), 'function');
+    const result = typeof createTest(__dirname);
+    const expected = 'function';
+    
+    t.equal(result, expected);
     t.end();
 });
 

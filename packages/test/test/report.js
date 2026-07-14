@@ -304,6 +304,8 @@ test('putout: test: report: with one argument', (t) => {
     cache.set('x', 'y');
     
     const [error] = tryCatch(t.report, 'remove-import');
+    
+    const result = stripVTControlCharacters(error.message);
     const expected = '\n' +
         montag`
           > 1 | report(name: string, message: string): Operator
@@ -315,7 +317,7 @@ test('putout: test: report: with one argument', (t) => {
       ` +
         '\n';
     
-    t.equal(stripVTControlCharacters(error.message), expected);
+    t.equal(result, expected);
     t.end();
 }, {
     checkAssertionsCount: false,

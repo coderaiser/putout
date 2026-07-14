@@ -8,14 +8,18 @@ test('putout: bin: createWrite: parentPort', (t) => {
     const write = createWrite(parentPort);
     
     write();
+    const result = String(write);
+    const expected = String(noop);
     
-    t.equal(String(write), String(noop));
+    t.equal(result, expected);
     t.end();
 });
 
 test('putout: bin: createWrite: no parentPort', (t) => {
     const write = createWrite();
+    const result = String(write);
+    const expected = String(noop);
     
-    t.notEqual(String(write), String(noop));
+    t.notEqual(result, expected);
     t.end();
 });

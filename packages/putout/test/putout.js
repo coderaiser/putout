@@ -853,7 +853,10 @@ test('putout: progress', async (t) => {
         }),
     ]);
     
-    t.equal(typeof pluginsCount, 'number');
+    const result = typeof pluginsCount;
+    const expected = 'number';
+    
+    t.equal(result, expected);
     t.end();
 });
 
