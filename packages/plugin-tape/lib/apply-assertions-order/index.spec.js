@@ -16,3 +16,8 @@ test('tape: apply-assertions-order: transform', (t) => {
     t.transform('apply-assertions-order');
     t.end();
 });
+
+test('tape: apply-assertions-order: no report: no-prev', (t) => {
+    t.noReport('no-prev');
+    t.end();
+});

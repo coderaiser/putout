@@ -28,10 +28,14 @@ export const fix = ({prev, prevPrev}) => {
 export const traverse = ({push}) => ({
     't.end()': (path) => {
         const prev = path.parentPath.getPrevSibling();
-        const prevPrev = prev.getPrevSibling();
+        
+        if (!prev.node)
+            return;
         
         if (compare(prev, 't.__a(__args)'))
             return;
+        
+        const prevPrev = prev.getPrevSibling();
         
         push({
             path,
