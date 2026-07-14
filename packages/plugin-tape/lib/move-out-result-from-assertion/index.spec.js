@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('tape: move-out-result-from-assertion: report', (t) => {
-    t.report('move-out-result-from-assertion', `Move out result from asssertion`);
+    t.report('move-out-result-from-assertion', `Move out result from assertion`);
     t.end();
 });
 

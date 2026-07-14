@@ -9,7 +9,7 @@ const {
     isObjectExpression,
 } = types;
 
-export const report = () => `Move out result from asssertion`;
+export const report = () => `Move out result from assertion`;
 export const match = () => ({
     't.__a(__b, __c)': ({__a, __b, __c}, path) => {
         if (!/equal/i.test(__a.name))
