@@ -1,4 +1,10 @@
-t.calledWith(fn, [a]);
+{
+    const result = fn.calledWith(a);
+    t.ok(result);
+}
 t.calledWith(fn, [a, b]);
-t.calledWith(fn, a);
+{
+    const result = fn.calledWith(...a);
+    t.ok(result);
+}
 t.calledWith(fn, a, 'x');

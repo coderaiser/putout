@@ -1,1 +1,4 @@
-t.match(result, 'hello');
+{
+    const result = result.includes('hello');
+    t.ok(result);
+}

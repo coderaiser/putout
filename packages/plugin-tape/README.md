@@ -50,6 +50,7 @@ npm i @putout/plugin-tape -D
 - ✅ [remove-useless-undefined](#remove-useless-undefined);
 - ✅ [switch-expected-with-result](#switch-expected-with-result);
 - ✅ [sync-with-name](#sync-with-name);
+- ✅ [move-out-result-from-assertion](#move-out-result-from-assertion);
 
 ## Config
 
@@ -90,7 +91,8 @@ npm i @putout/plugin-tape -D
         }],
         "tape/remove-skip": ["on", {
             "allowed": ["test"]
-        }]
+        }],
+        "tape/move-out-result-from-assertion": "on"
     }
 }
 ```
@@ -817,6 +819,37 @@ test.skip('some test', (t) => {
 test('some test', (t) => {
     t.end();
 });
+```
+
+## move-out-result-from-assertion
+
+### ❌ Example of incorrect code
+
+```js
+t.notOk(screen.getByRole('button').disabled);
+
+t.deepEqual(readState({
+    getItem,
+}), {
+    a: 1,
+});
+```
+
+### ✅ Example of correct code
+
+```js
+const {disabled} = screen.getByRole('button');
+t.notOk(disabled);
+
+const result = readState({
+    getItem,
+});
+
+const expected = {
+    a: 1,
+};
+
+t.deepEqual(result, expected);
 ```
 
 ## License

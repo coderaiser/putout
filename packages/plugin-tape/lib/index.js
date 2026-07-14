@@ -1,3 +1,4 @@
+import * as movOutResultFromAssertion from './move-out-result-from-assertion/index.js';
 import * as applyAssertionsOrder from './apply-assertions-order/index.js';
 import * as removeUselessUndefined from './remove-useless-undefined/index.js';
 import * as extractArgsFromCalledWith from './extract-args-from-called-with/index.js';
@@ -68,4 +69,5 @@ export const rules = {
     'extract-args-from-called-with': extractArgsFromCalledWith,
     'remove-useless-undefined': removeUselessUndefined,
     'apply-assertions-order': applyAssertionsOrder,
+    'move-out-result-from-assertion': movOutResultFromAssertion,
 };

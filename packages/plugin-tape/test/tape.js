@@ -187,3 +187,8 @@ test('plugin-tape: transform: apply-assertions-order', (t) => {
     t.transform('apply-assertions-order');
     t.end();
 });
+
+test('plugin-tape: transform: move-out-result-from-assertion', (t) => {
+    t.transform('move-out-result-from-assertion');
+    t.end();
+});
