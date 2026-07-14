@@ -19,6 +19,7 @@ npm i @putout/plugin-tape -D
 
 - ✅ [add-args](#add-args);
 - ✅ [add-t-end](#add-t-end);
+- ✅ [apply-assertions-order](#apply-assertions-order);
 - ✅ [apply-destructuring](#apply-destructuring);
 - ✅ [apply-stub](#apply-stub);
 - ✅ [apply-with-name](#apply-with-name);
@@ -57,6 +58,7 @@ npm i @putout/plugin-tape -D
     "rules": {
         "tape/jest": "on",
         "tape/apply-stub": "on",
+        "tape/apply-assertions-order": "on",
         "tape/apply-destructuring": "on",
         "tape/apply-with-name": "on",
         "tape/add-t-end": "on",
@@ -396,6 +398,27 @@ test('copymitter', async (t) => {
     t.end();
 });
 ```
+
+## apply-assertions-order
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0c0adae586448bd0921129275fb08891/c2f031920a3f1eb119c71b5ac3ba3c27ce1710ea).
+
+### ❌ Example of incorrect code
+
+```js
+t.equal(result, expected);
+cleanup();
+t.end();
+```
+
+### ✅ Example of correct code
+
+```js
+cleanup();
+
+t.equal(result, expected);
+t.end();
+````
 
 ## apply-destructuring
 

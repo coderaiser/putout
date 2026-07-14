@@ -1,3 +1,4 @@
+import * as applyAssertionsOrder from './apply-assertions-order/index.js';
 import * as removeUselessUndefined from './remove-useless-undefined/index.js';
 import * as extractArgsFromCalledWith from './extract-args-from-called-with/index.js';
 import * as applyStub from './apply-stub/index.js';
@@ -66,4 +67,5 @@ export const rules = {
     'remove-skip': removeSkip,
     'extract-args-from-called-with': extractArgsFromCalledWith,
     'remove-useless-undefined': removeUselessUndefined,
+    'apply-assertions-order': applyAssertionsOrder,
 };

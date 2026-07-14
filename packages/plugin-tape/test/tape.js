@@ -182,3 +182,8 @@ test('plugin-tape: transform: remove-useless-undefined', (t) => {
     t.transform('remove-useless-undefined');
     t.end();
 });
+
+test('plugin-tape: transform: apply-assertions-order', (t) => {
+    t.transform('apply-assertions-order');
+    t.end();
+});
