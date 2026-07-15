@@ -1,4 +1,21 @@
 import {operator, types} from 'putout';
+import {createParseStep} from './parse-step.js';
+
+const {
+    traverseProperties,
+    getTemplateValues,
+    __yaml,
+    remove,
+} = operator;
+
+const {
+    objectExpression,
+    stringLiteral,
+    objectProperty,
+} = types;
+
+const parseName = createParseStep('name');
+const parseUses = createParseStep('uses');
 
 const TYPOS_AI = 'coderaiser/typos.ai@v1.1.8';
 
@@ -72,32 +89,3 @@ export const traverse = ({push}) => ({
         typosSteps.map(push);
     },
 });
-
-const createParseStep = (name) => (step) => {
-    const properties = step.get('properties');
-    
-    for (const prop of properties) {
-        const key = prop.get('key.value').node;
-        
-        if (key === name)
-            return prop.get('value.value').node;
-    }
-    
-    return '';
-};
-
-const {
-    traverseProperties,
-    getTemplateValues,
-    __yaml,
-    remove,
-} = operator;
-
-const {
-    objectExpression,
-    stringLiteral,
-    objectProperty,
-} = types;
-
-const parseName = createParseStep('name');
-const parseUses = createParseStep('uses');
