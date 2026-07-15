@@ -1185,3 +1185,50 @@ test('putout: operator: declare: sameScope', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: declare: before call', (t) => {
+    const declarations = {
+        defineProperty: ['const {defineProperty} = Object', {
+            top: true,
+        }],
+    };
+    
+    const source = montag`
+        defineProperty(require, '__esModule', {
+            value: true,
+        });
+        require.require = require;
+        const a = require('hello');
+        
+        console.log(a);
+        
+        function require(a) {
+            return a;
+        }
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['declare', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        const {defineProperty} = Object;
+        
+        defineProperty(require, '__esModule', {
+            value: true,
+        });
+        require.require = require;
+        const a = require('hello');
+        
+        console.log(a);
+        
+        function require(a) {
+            return a;
+        }\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

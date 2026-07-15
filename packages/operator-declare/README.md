@@ -132,6 +132,43 @@ If you want to override `type` to avoid detecting, set it to `esm|commonjs`:
 }
 ```
 
+### `top`
+
+When you need to put declaration on top:
+
+```diff
++{defineProperty} = Object;
+defineProperty(require, '__esModule', {
+    value: true,
+});
+require.require = require;
+const a = require('hello');
+
+console.log(a);
+
+function require(a) {
+    return a;
+}
+```
+
+Use `nearby`:
+
+```js
+const {operator} = require('putout');
+const {declare} = operator;
+
+export const {
+    report,
+    include,
+    fix,
+    filter,
+} = declare({
+    defineProperty: ['const {defineProperty} = Object', {
+        top: true,
+    }],
+});
+```
+
 ### Used in
 
 - ✅ [declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme)

@@ -121,12 +121,15 @@ const fix = (declarations) => (path, {options}) => {
     const bodyPath = getBodyPath(path, current);
     const node = template.ast.fresh(code);
     
-    insert(node, bodyPath);
+    insert(node, bodyPath, current);
     addDeclarationForESLint(name, path);
 };
 
+const isNearBy = (a) => isArray(a) && a[1].nearby;
+const isTop = (a) => isArray(a) && a[1].top;
+
 const getBodyPath = (path, current) => {
-    if (isArray(current) && current[1].nearby) {
+    if (isNearBy(current)) {
         const fnPath = path.find(isFunction);
         
         if (fnPath)
@@ -149,9 +152,12 @@ const parseCode = (type, current) => {
     return current[type];
 };
 
-function getInsertionPath(node, bodyPath) {
+function getInsertionPath(node, bodyPath, current) {
     const lastImportPath = getLastImportPath(bodyPath);
     const lastVarPath = getLastVarPath(bodyPath);
+    
+    if (isTop(current))
+        return bodyPath[0];
     
     if (isVariableDeclaration(node) && lastImportPath)
         return lastImportPath;
@@ -167,8 +173,8 @@ function getInsertionPath(node, bodyPath) {
 
 const isRequire = (node) => compare(node, 'const __a = require(__b)');
 
-function insert(node, bodyPath) {
-    const insertionPath = getInsertionPath(node, bodyPath);
+function insert(node, bodyPath, current) {
+    const insertionPath = getInsertionPath(node, bodyPath, current);
     const [first] = bodyPath;
     
     if (isVariableDeclaration(node) && isImportDeclaration(insertionPath) || isRequire(insertionPath))
