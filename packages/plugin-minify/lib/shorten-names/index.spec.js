@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import * as declare from '@putout/plugin-declare';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -34,5 +35,12 @@ test('plugin-minify: shorten-names: transform: freeze', (t) => {
 
 test('plugin-minify: shorten-names: transform: is-array', (t) => {
     t.transform('is-array');
+    t.end();
+});
+
+test('plugin-minify: shorten-names: transform: declare', (t) => {
+    t.transform('declare', {
+        declare,
+    });
     t.end();
 });

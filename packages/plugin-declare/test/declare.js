@@ -58,6 +58,11 @@ test('putout: plugin: declare: object', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare: object-top', (t) => {
+    t.transform('object-top');
+    t.end();
+});
+
 test('putout: plugin: declare: string', (t) => {
     t.transform('string');
     t.end();
