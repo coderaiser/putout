@@ -1,3 +1,4 @@
+import * as removeEmptyNeeds from './remove-empty-needs/index.js';
 import * as setContentsPermissions from './set-contents-permissions/index.js';
 import * as addMadrunInit from './add-madrun-init/index.js';
 import * as convertTyposToTyposAi from './convert-typos-to-typos-ai/index.js';
@@ -22,4 +23,5 @@ export const rules = {
     'convert-typos-to-typos-ai': convertTyposToTyposAi,
     'add-madrun-init': addMadrunInit,
     'set-contents-permissions': setContentsPermissions,
+    'remove-empty-needs': removeEmptyNeeds,
 };

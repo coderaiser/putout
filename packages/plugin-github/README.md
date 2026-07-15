@@ -28,6 +28,7 @@ npm i @putout/plugin-github -D
 - ✅ [set-node-versions](#set-node-versions);
 - ✅ [set-message-of-commit-fixes](#set-message-of-commit-fixes);
 - ✅ [update-actions](#update-actions);
+- ✅ [remove-empty-needs](#remove-empty-needs);
 
 ## Config
 
@@ -44,7 +45,8 @@ npm i @putout/plugin-github -D
         "github/set-message-of-commit-fixes": "on",
         "github/install-bun": "on",
         "github/install-rust": "on",
-        "github/update-actions": "on"
+        "github/update-actions": "on",
+        "github/remove-empty-needs": "on"
     }
 }
 ```
@@ -335,6 +337,17 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/05457ee0a0
   - name: Install
 -   run: npm i -f --no-save
 +   run: bun i -f --no-save
+```
+
+## remove-empty-needs
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e861cfee107252f80025d4ccdab46be3/a96d306968b07edcf61e44ad9eddab1e0da94642).
+
+```diff
+jobs:
+  deploy-test:
+    runs-on: ubuntu-latest
+-   needs: []
 ```
 
 ## License

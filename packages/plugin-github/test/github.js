@@ -91,3 +91,8 @@ test('plugin-github: transform: set-contents-permissions', (t) => {
     t.transform('set-contents-permissions');
     t.end();
 });
+
+test('plugin-github: transform: remove-empty-needs', (t) => {
+    t.transform('remove-empty-needs');
+    t.end();
+});
