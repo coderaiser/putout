@@ -37,6 +37,9 @@ export const traverse = ({push}) => ({
         
         const prevPrev = prev.getPrevSibling();
         
+        if (!compare(prevPrev, 't.__a(__args)'))
+            return;
+        
         push({
             path,
             prev,

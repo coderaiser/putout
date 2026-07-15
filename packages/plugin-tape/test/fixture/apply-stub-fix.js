@@ -10,9 +10,9 @@ test('hello world', (t) => {
         return a;
     };
     
-    const e = stub().rejects(Error('hello'));
-    
     const d = stub().rejects(Error('hello'));
+    
+    const e = stub().rejects(Error('hello'));
     
     t.end();
 });

@@ -24,3 +24,8 @@ test('tape: apply-assertions-order: no report: no-prev', (t) => {
     t.noReport('no-prev');
     t.end();
 });
+
+test('tape: apply-assertions-order: no report: no-t', (t) => {
+    t.noReport('no-t');
+    t.end();
+});
