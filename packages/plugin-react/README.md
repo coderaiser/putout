@@ -103,7 +103,7 @@ const {default: toJsxString} = reactElementToJSXStringDefault;
 
 ## remove-useless-provider
 
-> In React 19, you can render <Context> as a provider instead of <Context.Provider>:
+> In React 19, you can render `<Context>` as a provider instead of `<Context.Provider>`:
 >
 > [react.dev](https://react.dev/blog/2024/04/25/react-19#context-as-a-provider)
 
