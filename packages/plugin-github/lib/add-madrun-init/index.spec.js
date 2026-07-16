@@ -21,3 +21,8 @@ test('github: add-madrun-init: no transform: no-install', (t) => {
     t.noTransform('no-install');
     t.end();
 });
+
+test('github: add-madrun-init: no report: install', (t) => {
+    t.noReport('install');
+    t.end();
+});

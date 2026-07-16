@@ -52,17 +52,26 @@ export const traverse = ({push}) => ({
             const name = parseName(step);
             
             if (name === 'Install Redrun') {
-                typosSteps.push(step);
+                typosSteps.push({
+                    step,
+                    name: 'Install Redrun',
+                });
                 continue;
             }
             
             if (name === 'Init Madrun') {
-                typosSteps.push(step);
+                typosSteps.push({
+                    step,
+                    name: 'Init Madrun',
+                });
                 continue;
             }
             
             if (name === 'Install') {
-                installStep.push(step);
+                installStep.push({
+                    step,
+                    name: 'Install',
+                });
                 continue;
             }
         }
@@ -73,7 +82,12 @@ export const traverse = ({push}) => ({
         if (typosSteps.length !== 1)
             return;
         
-        typosSteps.map(push);
+        const {name, step} = typosSteps[0];
+        
+        if (name === 'Init Madrun')
+            return;
+        
+        push(step);
     },
 });
 
