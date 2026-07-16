@@ -11,6 +11,7 @@ const {
 
 export const report = () => `Move out result from assertion`;
 export const match = () => ({
+    't.__(__a(__b))': (vars, path) => !getBinding(path, 'result'),
     't.__a(__b, __c)': ({__a, __b, __c}, path) => {
         if (!/equal/i.test(__a.name))
             return false;
