@@ -1,0 +1,1 @@
+const read = stub().returns('{"checkCoverage": true}');

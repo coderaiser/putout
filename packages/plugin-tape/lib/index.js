@@ -1,3 +1,4 @@
+import * as applyStringify from './apply-stringify/index.js';
 import * as movOutResultFromAssertion from './move-out-result-from-assertion/index.js';
 import * as applyAssertionsOrder from './apply-assertions-order/index.js';
 import * as removeUselessUndefined from './remove-useless-undefined/index.js';
@@ -70,4 +71,5 @@ export const rules = {
     'remove-useless-undefined': removeUselessUndefined,
     'apply-assertions-order': applyAssertionsOrder,
     'move-out-result-from-assertion': movOutResultFromAssertion,
+    'apply-stringify': applyStringify,
 };

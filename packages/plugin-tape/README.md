@@ -22,6 +22,7 @@ npm i @putout/plugin-tape -D
 - ✅ [apply-assertions-order](#apply-assertions-order);
 - ✅ [apply-destructuring](#apply-destructuring);
 - ✅ [apply-stub](#apply-stub);
+- ✅ [apply-stringify](#apply-stringify);
 - ✅ [apply-with-name](#apply-with-name);
 - ✅ [convert-called-with-args](#convert-called-with-args);
 - ✅ [convert-called-with-no-args-to-called-with](#convert-called-with-no-args-to-called-with);
@@ -59,6 +60,7 @@ npm i @putout/plugin-tape -D
     "rules": {
         "tape/jest": "on",
         "tape/apply-stub": "on",
+        "tape/apply-stringify": "on",
         "tape/apply-assertions-order": "on",
         "tape/apply-destructuring": "on",
         "tape/apply-with-name": "on",
@@ -461,6 +463,24 @@ const a = stub().resolves(true);
 const b = stub().resolves();
 const c = stub().rejects(Error('hello'));
 const d = stub().rejects(Error('hello'));
+```
+
+## apply-stringify
+
+Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/6791411046ac930e7d53a8954ec1ac90/e3735554f156221a8f2661a447a9b4f7db8994e9)
+
+### ❌ Example of incorrect code
+
+```js
+const read = stub().returns('{"checkCoverage": true}');
+```
+
+### ✅ Example of correct code
+
+```js
+const read = stub().returns(stringify({
+    checkCoverage: true,
+}));
 ```
 
 ## apply-with-name
