@@ -9,7 +9,7 @@ test('putout: cli: ruler-processor: read', async (t) => {
     const enable = 'remove-unused-variables';
     const places = [];
     
-    const readFile = stub().returns('{}');
+    const readFile = stub().returns(stringify({}));
     const writeFile = stub();
     
     await ruler(places, {
@@ -50,7 +50,7 @@ test('putout: cli: ruler-processor: read: error', async (t) => {
 });
 
 test('putout: cli: ruler-processor: write', async (t) => {
-    const readFile = stub().returns('{}');
+    const readFile = stub().returns(stringify({}));
     const writeFile = stub();
     
     const enable = 'remove-unused-variables';
@@ -75,7 +75,7 @@ test('putout: cli: ruler-processor: write', async (t) => {
 });
 
 test('putout: cli: ruler-processor: disable', async (t) => {
-    const readFile = stub().returns('{}');
+    const readFile = stub().returns(stringify({}));
     const writeFile = stub();
     
     const disable = 'remove-unused-variables';

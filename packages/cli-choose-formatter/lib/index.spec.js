@@ -210,7 +210,7 @@ test('putout: cli: choose-formatter: user formatter', async (t) => {
         '@putout/formatter-progress-bar',
     ];
     
-    const readFile = stub().returns('{}');
+    const readFile = stub().returns(stringify({}));
     const choose = stub().returns('dump');
     
     await chooseFormatter(FORMATTER, dependencies, {
