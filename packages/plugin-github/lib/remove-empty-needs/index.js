@@ -1,4 +1,6 @@
-import {operator} from 'putout';
+import {operator, types} from 'putout';
+
+const {isArrayExpression} = types;
 
 const {
     traverseProperties,
@@ -21,6 +23,9 @@ export const traverse = ({push}) => ({
             return;
         
         const needsPathValue = needsPath.get('value');
+        
+        if (!isArrayExpression(needsPathValue))
+            return;
         
         const elements = needsPathValue.get('elements');
         

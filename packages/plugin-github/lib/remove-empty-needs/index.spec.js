@@ -16,3 +16,8 @@ test('github: remove-empty-needs: transform', (t) => {
     t.transform('remove-empty-needs');
     t.end();
 });
+
+test('github: remove-empty-needs: no report: string', (t) => {
+    t.noReport('string');
+    t.end();
+});
