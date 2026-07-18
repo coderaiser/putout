@@ -21,3 +21,8 @@ test('github: set-message-of-commit-fixes: transform', (t) => {
     t.transform('set-message-of-commit-fixes');
     t.end();
 });
+
+test('github: set-message-of-commit-fixes: no report: deploy', (t) => {
+    t.noReport('deploy');
+    t.end();
+});

@@ -16,7 +16,6 @@ export const fix = ({path, message}) => {
 export const traverse = ({push, options}) => ({
     [__yaml](path) {
         const {message = 'chore: ${{ env.NAME }}: actions: lint ☘️'} = options;
-        
         const {__object} = getTemplateValues(path, __yaml);
         
         for (const messagePath of traverseProperties(__object, 'message')) {
@@ -24,6 +23,9 @@ export const traverse = ({push, options}) => ({
             const {value} = valuePath.node;
             
             if (value === message)
+                break;
+            
+            if (value.includes('deploy'))
                 break;
             
             push({
