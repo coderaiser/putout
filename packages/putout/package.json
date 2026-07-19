@@ -98,6 +98,7 @@
     "@putout/plugin-apply-flat-map": "^3.0.0",
     "@putout/plugin-apply-global-this": "^2.0.0",
     "@putout/plugin-apply-overrides": "^3.0.0",
+    "@putout/plugin-apply-push": "^1.0.0",
     "@putout/plugin-apply-shorthand-properties": "^7.0.0",
     "@putout/plugin-apply-starts-with": "^2.0.0",
     "@putout/plugin-apply-template-literals": "^5.0.0",
