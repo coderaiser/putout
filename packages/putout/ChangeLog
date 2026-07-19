@@ -1,3 +1,28 @@
+2026.07.19, v42.10.0
+
+fix:
+- 00f32d2d3 @putout/plugin-github: remove-empty-needs: string: exclude
+- f50fa128c @putout/plugin-github: add-madrun-init: exclude when exists
+- 494ae63b4 @putout/plugin-tape: apply-assetions-order: no t.__(__args) before
+- e8c359733 @putout/plugin-tape: apply-assertions-order: no prev: exclude
+
+feature:
+- b6ea0aa49 @putout/plugin-apply-push: add
+- c4e80d572 @putout/plugin-tape: apply-stub: no-var: include
+- 567bcd8fa @putout/plugin-minify: merge-assignment-expressions: array: exclude (coderaiser/minify#147)
+- a7f483856 @putout/plugin-github: set-message-of-commit-fixes: deploy: exclude
+- 4ddd09cfb @putout/plugin-tape: apply-stringify: add
+- 139801c66 @putout/plugin-declare: object: defineProperty: top (putoutjs/minify#32)
+- 9a5c7cef4 @putout/operator-declare: top (putoutjs/minify#32)
+- 847093045 @putout/plugin-github: remove-empty-needs
+- 09d2adeb3 @putout/plugin-github: convert-typos-to-typos-ai: parse-step: move out
+- 63d5a33bb @putout/engine-parser: hermes-parser v0.37.0
+- fe4a2574f @putout/plugin-tape: move-out-expected-from-assertion: improve¬
+- 1e6be891c @putout/plugin-tape: move-out-result-from-assertion
+- 6de924c9d @putout/plugin-tape: apply-assertions-order
+- ea8f50c74 @putout/plugin-putout: add-path-arg-to-fix: not-member
+- d272ef2f6 @putout/plugin-nextjs: drop support of 🐊 < 42
+
 2026.07.13, v42.9.1
 
 fix:
