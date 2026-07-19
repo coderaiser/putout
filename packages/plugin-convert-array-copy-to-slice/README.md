@@ -9,7 +9,7 @@
 >
 > (c) MDN
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin convert **spread** to `slice()`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin convert **spread** to `slice()`. Not bundled.
 
 ## Install
 
