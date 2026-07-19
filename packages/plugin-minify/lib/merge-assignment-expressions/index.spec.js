@@ -27,6 +27,11 @@ test('minify: merge-assignment-expressions: no report: different', (t) => {
     t.end();
 });
 
+test('minify: merge-assignment-expressions: no report: array', (t) => {
+    t.noReport('array');
+    t.end();
+});
+
 test('minify: merge-assignment-expressions: transform', (t) => {
     t.transform('merge-assignment-expressions');
     t.end();

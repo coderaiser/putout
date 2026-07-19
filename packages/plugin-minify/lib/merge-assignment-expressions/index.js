@@ -4,6 +4,7 @@ const {compare, remove} = operator;
 const {
     isAssignmentExpression,
     assignmentExpression,
+    isArrayExpression,
 } = types;
 
 export const report = () => `Merge assignment expressions`;
@@ -25,6 +26,9 @@ export const traverse = ({push}) => ({
         const {parentPath} = path;
         const {right} = path.node;
         const lefts = [];
+        
+        if (isArrayExpression(right))
+            return;
         
         let next = parentPath.getNextSibling();
         
