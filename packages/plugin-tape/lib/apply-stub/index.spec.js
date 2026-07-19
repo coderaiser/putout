@@ -20,7 +20,12 @@ test('plugin-tape: apply-stub: transform: fn', (t) => {
     t.end();
 });
 
-test('plugin-tape: apply-stub: no transform: no-var', (t) => {
-    t.noTransform('no-var');
+test('plugin-tape: apply-stub: transform: no-var', (t) => {
+    t.transform('no-var');
+    t.end();
+});
+
+test('plugin-tape: apply-stub: transform: async', (t) => {
+    t.transform('async');
     t.end();
 });
