@@ -36,3 +36,8 @@ test('plugin-react-router: transform: declare', (t) => {
     t.transform('declare');
     t.end();
 });
+
+test('plugin-react-router: transform: v7-apply-memory-router', (t) => {
+    t.transform('v7-apply-memory-router');
+    t.end();
+});

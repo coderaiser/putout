@@ -43,6 +43,7 @@ export const declare = () => ({
     
     StaticRouterProvider: `import { StaticRouterProvider } from 'react-router'`,
     ServerRouter: `import { ServerRouter } from 'react-router'`,
+    MemoryRouter: `import { MemoryRouter } from 'react-router'`,
     
     createStaticHandler: `import { createStaticHandler } from 'react-router'`,
     createStaticRouter: `import { createStaticRouter } from 'react-router'`,

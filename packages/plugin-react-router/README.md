@@ -16,6 +16,7 @@ npm i putout @putout/plugin-react-router -D
 - ✅ [declare](#declare);
 - ✅ [v6-convert-switch-to-routers](#v6-convert-switch-to-routers);
 - ✅ [v6-convert-component-to-element](#v6-convert-component-to-element);
+- ✅ [v7-apply-memory-router](#v7-apply-memory-router);
 - ✅ [v7-split-multi-segment-route](#v7-split-multi-segment-route);
 - ✅ [v7-remove-useless-server](#v7-remove-useless-server);
 - ✅ [v8-apply-react-router-dom](#v8-apply-react-router-dom);
@@ -28,6 +29,7 @@ npm i putout @putout/plugin-react-router -D
         "react-router/declare": "on",
         "react-router/v6-convert-switch-to-routers": "on",
         "react-router/v6-convert-component-to-element": "on",
+        "react-router/v7-apply-memory-router": "on",
         "react-router/v7-split-multi-segment-route": "on",
         "react-router/v7-remove-useless-server": "on",
         "react-router/v8-apply-react-router-dom": "on"
@@ -108,6 +110,22 @@ const routes = () => (
 
 ```jsx
 <Route path="/" element={<Home/>}/>;
+```
+
+## v7-apply-memory-router
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5f8d987393a0b5e65885ba3f7828ac18/fd1b7bbf30fc95de7a8d9777142e7dd48b474910).
+
+### ❌ Example of incorrect code
+
+```jsx
+import {MemoryRouter} from 'react-router/dom';
+```
+
+### ✅ Example of correct code
+
+```jsx
+import {MemoryRouter} from 'react-router';
 ```
 
 ## v7-split-multi-segment-route

@@ -16,3 +16,8 @@ test('react-router: declare: transform', (t) => {
     t.transform('declare');
     t.end();
 });
+
+test('react-router: declare: transform: memory-router', (t) => {
+    t.transform('memory-router');
+    t.end();
+});

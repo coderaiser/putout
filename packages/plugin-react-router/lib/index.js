@@ -1,3 +1,4 @@
+import * as v7ApplyMemoryRouter from './v7-apply-memory-router/index.js';
 import * as declare from './declare/index.js';
 import * as v8ApplyReactRouterDom from './v8-apply-react-router-dom/index.js';
 import * as v7RemoveUselessServer from './v7-remove-useless-server/index.js';
@@ -12,4 +13,5 @@ export const rules = {
     'v7-remove-useless-server': v7RemoveUselessServer,
     'v8-apply-react-router-dom': v8ApplyReactRouterDom,
     'declare': declare,
+    'v7-apply-memory-router': v7ApplyMemoryRouter,
 };
