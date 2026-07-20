@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-react-router",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to migrate to latest ReactRouter",
