@@ -14,6 +14,7 @@ npm i putout @putout/plugin-types -D
 ## Rules
 
 - ✅ [apply-is-array](#apply-is-array);
+- ✅ [apply-number](#apply-number);
 - ✅ [convert-typeof-to-is-type](#convert-typeof-to-is-type);
 - ✅ [declare](#declare);
 - ✅ [remove-double-negations](#remove-double-negations);
@@ -26,15 +27,84 @@ npm i putout @putout/plugin-types -D
 ```json
 {
     "rules": {
+        "types/apply-is-array": "on",
+        "types/apply-number": "on",
         "types/declare": "on",
         "types/convert-typeof-to-istype": "on",
         "types/remove-useless-conversion": "on",
         "types/remove-useless-constructor": "on",
         "types/remove-double-negations": "on",
-        "types/remove-useless-typeof": "on",
-        "types/apply-is-array": "on"
+        "types/remove-useless-typeof": "on"
     }
 }
+```
+
+## apply-number
+
+> The `Number` constructor contains constants and methods for working with numbers. Values of other types can be converted to numbers using the `Number()` function
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/05ad2a403eb6d765a190297c492fd6d1/3cf396d108bbb4822317b6d6856db3a4c26fa3c1).
+
+### ❌ Example of incorrect code
+
+```js
+const a = {
+    BooleanLiteral(node) {
+        return {
+            value: node.value ? 1 : 0,
+        };
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+const a = {
+    BooleanLiteral(node) {
+        return {
+            value: Number(node.value),
+        };
+    },
+};
+```
+
+## apply-is-array
+
+> The `Array.isArray()` method determines whether the passed value is an `Array`.
+> When checking for `Array` instance, `Array.isArray()` is preferred over `instanceof` because it works through `iframes`.
+
+### ❌ Example of incorrect code
+
+```js
+x instanceof Array;
+```
+
+### ✅ Example of correct code
+
+```js
+const {isArray} = Array;
+isArray(x);
+```
+
+In case of using `inline` option:
+
+```json
+{
+    "rules": {
+        "types/apply-is-array": ["on", {
+            "inline": true
+        }]
+    }
+}
+```
+
+`Array.isArray` will be inlined:
+
+```js
+Array.isArray(x);
 ```
 
 ## declare
@@ -190,52 +260,12 @@ typeof typeof 'hello';
 typeof 'hello';
 ```
 
-## apply-is-array
-
-> The `Array.isArray()` method determines whether the passed value is an `Array`.
-> When checking for `Array` instance, `Array.isArray()` is preferred over `instanceof` because it works through `iframes`.
-
-### ❌ Example of incorrect code
-
-```js
-x instanceof Array;
-```
-
-### ✅ Example of correct code
-
-```js
-const {isArray} = Array;
-isArray(x);
-```
-
-In case of using `inline` option:
-
-```json
-{
-    "rules": {
-        "types/apply-is-array": ["on", {
-            "inline": true
-        }]
-    }
-}
-```
-
-`Array.isArray` will be inlined:
-
-```js
-Array.isArray(x);
-```
-
-## License
-
-MIT
-
 ## Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`types`](https://github.com/coderaiser/putout/tree/master/packages/plugin-types#readme)| ✅
-⏣ **ESLint** | [`no-implicit-coercion`](https://eslint.org/docs/rules/no-implicit-coercion) | ✅
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`types`](https://github.com/coderaiser/putout/tree/master/packages/plugin-types#readme) | ✅   |
+| ⏣ **ESLint**  | [`no-implicit-coercion`](https://eslint.org/docs/rules/no-implicit-coercion) | ✅   |
 
 ## License
 

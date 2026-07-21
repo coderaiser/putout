@@ -1,3 +1,4 @@
+import * as applyNumber from './apply-number/index.js';
 import * as applyIsArray from './apply-is-array/index.js';
 import * as declare from './declare/index.js';
 import * as convertTypeofToIsType from './convert-typeof-to-is-type/index.js';
@@ -14,4 +15,5 @@ export const rules = {
     'remove-useless-constructor': removeUselessConstructor,
     'remove-double-negations': removeDoubleNegations,
     'remove-useless-typeof': removeUselessTypeof,
+    'apply-number': applyNumber,
 };

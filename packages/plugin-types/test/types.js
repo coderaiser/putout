@@ -41,3 +41,8 @@ test('putout: plugin: types: transform: comment', (t) => {
     t.transform('comment');
     t.end();
 });
+
+test('plugin-types: transform: apply-number', (t) => {
+    t.transform('apply-number');
+    t.end();
+});
