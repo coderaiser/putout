@@ -1,3 +1,4 @@
+import * as removeUselessMemoizations from './remove-useless-memoizations/index.js';
 import * as applyDefaultToJsxString from './apply-default-to-jsx-string/index.js';
 import * as convertNamespaceToDefaultInReactTestRenderer from './convert-namespace-to-default-in-react-test-renderer/index.js';
 import * as applyCreateRoot from './apply-create-root/index.js';
@@ -18,4 +19,5 @@ export const rules = {
     'rename-file-jsx-to-js': ['off', renameFileJsxToJs],
     'convert-namespace-to-default-in-react-test-renderer': convertNamespaceToDefaultInReactTestRenderer,
     'apply-default-to-jsx-string-': applyDefaultToJsxString,
+    'remove-useless-memoizations': removeUselessMemoizations,
 };

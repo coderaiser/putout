@@ -28,11 +28,12 @@ Add `.putout.json` with:
 - ✅ [apply-create-root](#apply-create-root);
 - ✅ [apply-default-to-jsx-string](#apply-default-to-jsx-string);
 - ✅ [convert-named-to-default-in-react-test-renderer](#convert-named-to-default-in-react-test-renderer);
+- ✅ [rename-file-js-to-jsx](#rename-file-js-to-jsx);
+- ✅ [rename-file-jsx-to-js](#rename-file-jsx-to-js);
 - ✅ [remove-useless-provider](#remove-useless-provider);
 - ✅ [remove-useless-forward-ref](#remove-useless-forward-ref);
 - ✅ [remove-implicit-ref-return](#remove-implicit-ref-return);
-- ✅ [rename-file-js-to-jsx](#rename-file-js-to-jsx);
-- ✅ [rename-file-jsx-to-js](#rename-file-jsx-to-js);
+- ✅ [remove-useless-memoizations](#remove-useless-memoizations);
 
 ## Filesystem
 
@@ -49,11 +50,12 @@ Here is list of rules:
         "react/apply-jsx-to-imported-file": "off",
         "react/apply-default-to-jsx-string": "on",
         "react/convert-named-to-default-in-react-test-renderer": "on",
+        "react/rename-file-jsx-to-js": "on",
+        "react/rename-file-js-to-jsx": "on",
         "react/remove-useless-provider": "on",
         "react/remove-useless-forward-ref": "on",
         "react/remove-implicit-ref-return": "on",
-        "react/rename-file-jsx-to-js": "on",
-        "react/rename-file-js-to-jsx": "on"
+        "react/remove-useless-memoizations": "on"
     }
 }
 ```
@@ -141,9 +143,55 @@ function App() {
 }
 ```
 
+## remove-useless-memoizations
+
+> React Compiler automatically memoizes values and functions, reducing the need for manual useMemo calls. You can use the compiler to handle memoization automatically.
+>
+> [react.dev](https://react.dev/reference/react/useMemo)
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/44355500a1d71b1680f0ed5b406b7e83/0c1c0bc12e50e096696c0be8a21361c0103ed022).
+
+### ❌ Example of incorrect code
+
+```jsx
+const treeAdapter = useMemo(() => treeAdapterFromParseResult(parseResult, settings), [parseResult.treeAdapter, settings]);
+
+const onMouseDown = useCallback(() => {
+    document.addEventListener('mousemove', moveHandler);
+    document.addEventListener('mouseup', upHandler);
+}, [vertical, onResize]);
+
+const Child = React.memo(({onClick}) => {
+    console.log('Child render');
+    
+    return (
+        <button onClick={onClick}>Click</button>
+    );
+});
+```
+
+### ✅ Example of correct code
+
+```jsx
+const treeAdapter = () => treeAdapterFromParseResult(parseResult, settings);
+
+const onMouseDown = () => {
+    document.addEventListener('mousemove', moveHandler);
+    document.addEventListener('mouseup', upHandler);
+};
+
+const Child = function Child({onClick}) {
+    console.log('Child render');
+    
+    return (
+        <button onClick={onClick}>Click</button>
+    );
+};
+```
+
 ## remove-useless-forward-ref
 
-> Starting in React 19, you can now access ref as a prop for function components:
+> Starting from React 19, you can now access ref as a prop for function components:
 > New function components will no longer need `forwardRef`.
 > In future versions we will deprecate and remove `forwardRef`.
 >

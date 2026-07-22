@@ -51,3 +51,8 @@ test('plugin-react: transform: apply-default-to-jsx-string', (t) => {
     t.transform('apply-default-to-jsx-string');
     t.end();
 });
+
+test('plugin-react: transform: remove-useless-memoizations', (t) => {
+    t.transform('remove-useless-memoizations');
+    t.end();
+});
