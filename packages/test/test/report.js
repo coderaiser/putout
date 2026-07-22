@@ -11,6 +11,10 @@ import {
     _createNoReportAfterTransformWithOptions,
 } from '../lib/test.js';
 
+const a = () => 'a';
+
+a();
+
 const removeUnusedVariables = variables.rules['remove-unused'];
 const {template} = putout;
 

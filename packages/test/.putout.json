@@ -1,17 +1,20 @@
 {
+    "rules": {
+        "eslint/apply-ignores": "off"
+    },
     "match": {
         "*.md": {
             "tape/declare": "off",
             "putout/declare": "off",
             "putout/convert-url-to-dirname": "off"
         },
+        ".*": {
+            "tape/apply-stub": "off"
+        },
         "test": {
             "promises/apply-top-level-await": "off",
             "putout/replace-test-message": "off",
             "putout/apply-fixture-name-to-message": "off"
         }
-    },
-    "rules": {
-        "eslint/apply-ignores": "off"
     }
 }
