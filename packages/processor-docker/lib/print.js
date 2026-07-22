@@ -2,7 +2,7 @@ const NEWLINE = '\\\n    ';
 
 export const print = (instructions) => {
     const stdout = [];
-    const write = (a) => stdout.push(a);
+    const write = stdout.push.bind(stdout);
     
     let line = 0;
     
