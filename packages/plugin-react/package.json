@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-react",
-  "version": "4.2.1",
+  "version": "4.3.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin helps to migrate to new version of React",
