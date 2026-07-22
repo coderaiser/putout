@@ -26,7 +26,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@eslint/config-helpers": "^0.6.0",
+    "@eslint/config-helpers": "^0.7.0",
     "@eslint/eslintrc": "^3.0.2",
     "try-to-catch": "^4.0.0"
   },
