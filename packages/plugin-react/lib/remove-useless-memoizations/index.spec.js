@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('react: remove-useless-memoizations: report', (t) => {
-    t.report('remove-useless-memoizations', `Avoid memo functions when react compiler actived`);
+    t.report('remove-useless-memoizations', `Avoid memo functions when react compiler activated`);
     t.end();
 });
 

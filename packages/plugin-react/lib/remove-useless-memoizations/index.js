@@ -1,4 +1,4 @@
-export const report = () => `Avoid memo functions when react compiler actived`;
+export const report = () => `Avoid memo functions when react compiler activated`;
 
 export const replace = () => ({
     'useMemo(__a, __b)': '__a',
