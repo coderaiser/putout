@@ -1,11 +1,11 @@
-export const getLogical = (path, {assign} = {}) => {
+export const getLogical = (path, {assign = false} = {}) => {
     const list = path
         .toString()
         .split('?.');
     
     const n = list.length;
     let [member] = list;
-    let i = assign ? 1 : 0;
+    let i = Number(assign);
     const logical = [member];
     
     while (++i < n) {
