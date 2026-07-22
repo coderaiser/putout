@@ -42,7 +42,7 @@ const dispatch = createMiddleware(store)((a) => nextActions.push(a));
 
 ```js
 const nextActions = [];
-const push = nextActions.push.bind(nexted);
+const push = nextActions.push.bind(nextActions);
 const dispatch = createMiddleware(store)(push);
 ```
 
