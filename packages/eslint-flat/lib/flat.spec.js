@@ -49,9 +49,10 @@ test('eslint-flat: matchToFlatDir', async (t) => {
 });
 
 test('eslint-flat: matchToFlatDir: not found', async (t) => {
-    const config = await matchToFlatDir(__dirname, './hello');
+    const result = await matchToFlatDir(__dirname, './hello');
+    const expected = [];
     
-    t.deepEqual(config, []);
+    t.deepEqual(result, expected);
     t.end();
 });
 

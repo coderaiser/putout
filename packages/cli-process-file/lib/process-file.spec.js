@@ -116,7 +116,10 @@ test('putout: cli: process-file: tsx from preProcessor', async (t) => {
         options,
     });
     
-    t.deepEqual(places, []);
+    const result = places;
+    const expected = [];
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 

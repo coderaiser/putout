@@ -7,6 +7,7 @@ const {
     isMemberExpression,
     isOptionalMemberExpression,
     isObjectExpression,
+    isArrayExpression,
 } = types;
 
 export const report = () => `Extract result from assertion`;
@@ -36,6 +37,9 @@ export const match = () => ({
         
         if (expectedBinding)
             return false;
+        
+        if (isArrayExpression(__c))
+            return true;
         
         return isObjectExpression(__c);
     },

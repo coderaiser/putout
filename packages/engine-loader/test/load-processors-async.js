@@ -18,9 +18,10 @@ test('putout: engine-loader: load processors', async (t) => {
 });
 
 test('putout: engine-loader: load processors: no processors', async (t) => {
-    const list = await loadProcessorsAsync({});
+    const result = await loadProcessorsAsync({});
+    const expected = [];
     
-    t.deepEqual(list, []);
+    t.deepEqual(result, expected);
     t.end();
 });
 

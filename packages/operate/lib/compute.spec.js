@@ -386,7 +386,9 @@ test('operate: compute: MemberExpression: nested: computed', (t) => {
         },
     });
     
-    t.deepEqual(result, [true, 15]);
+    const expected = [true, 15];
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -404,7 +406,9 @@ test('operate: no compute: spread: not computed', (t) => {
         },
     });
     
-    t.deepEqual(result, [NOT_COMPUTED]);
+    const expected = [NOT_COMPUTED];
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -430,7 +434,9 @@ test('operate: no compute: spread: chain', (t) => {
         },
     });
     
-    t.deepEqual(result, [NOT_COMPUTED]);
+    const expected = [NOT_COMPUTED];
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 

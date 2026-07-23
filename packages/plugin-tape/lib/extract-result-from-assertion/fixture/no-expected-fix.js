@@ -7,3 +7,9 @@ t.equal(result, `${code}\n`);
     };
     t.equal(result, expected);
 }
+{
+    const expected = [{
+        x: 'hello',
+    }];
+    t.deepEqual(rows, expected);
+}

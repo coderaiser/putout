@@ -348,7 +348,10 @@ test('putout: engine-processor: markdown: fix: no places', async (t) => {
         rawSource,
     });
     
-    t.deepEqual(places, []);
+    const result = places;
+    const expected = [];
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -677,7 +680,10 @@ test('putout: engine-processor: processorRunners', async (t) => {
         processorRunners: [typos],
     });
     
-    t.deepEqual(places, []);
+    const result = places;
+    const expected = [];
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 
