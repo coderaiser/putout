@@ -45,9 +45,19 @@ export type TransformOptions = {
 
 type Options = ParseOptions & TransformOptions;
 
-export default function putout(source: string, options: Options): PutoutReturn;
+export interface Putout {
+    (source: string, options: Options): PutoutReturn;
+    parse(source: string, options?: ParseOptions): Node;
+    print(ast: Node, options?: PrinterOptions): string;
+}
+
+export const putout: Putout;
+
+export default putout;
 
 export function putoutAsync(source: string, options: Options): Promise<PutoutReturn>;
+
+export function parse(source: string, options?: ParseOptions): Node;
 
 export function print(ast: Node, options?: PrinterOptions): string;
 
@@ -61,8 +71,11 @@ export interface Place {
 }
 
 export function transform(ast: Node, options?: TransformOptions): Place[];
+
 export function transformAsync(ast: Node, options?: TransformOptions): Promise<Place[]>;
+
 export function findPlaces(ast: Node, options?: TransformOptions): Place[];
+
 export function findPlacesAsync(ast: Node, options?: TransformOptions): Promise<Place[]>;
 
 export function codeframe(args: {
