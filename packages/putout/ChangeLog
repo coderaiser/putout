@@ -1,3 +1,18 @@
+2026.07.23, v42.10.1
+
+fix:
+- 79ad1c072 @putout/plugin-apply-push: package
+
+feature:
+- 149ea157a putout: types: improve
+- 9c0640de2 @putout/plugin-tape: remove-t-from-async
+- 9c10efb53 @putout/plugin-react: remove-useless-memoizations: add
+- 2ea143392 @putout/plugin-optional-chaining: simplify
+- 7a1397ed0 @putout/processor-docker: apply bind
+- d6f2ea8de @putout/eslint-flat: @eslint/config-helpers v0.7.0
+- f5fb6a854 @putout/plugin-types: apply-number: add
+- d91bf83de @putout/plugin-react-router: v7-apply-memory-router: add
+
 2026.07.19, v42.10.0
 
 fix:
