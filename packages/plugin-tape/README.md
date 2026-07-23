@@ -42,6 +42,7 @@ npm i @putout/plugin-tape -D
 - ✅ [convert-throws-to-try-catch](#convert-throws-to-try-catch);
 - ✅ [declare](#declare);
 - ✅ [extract-args-from-called-with](#extract-args-from-called-with);
+- ✅ [extract-result-from-assertion](#extract-result-from-assertion);
 - ✅ [jest](#jest);
 - ✅ [remove-default-messages](#remove-default-messages);
 - ✅ [remove-only](#remove-only);
@@ -52,7 +53,6 @@ npm i @putout/plugin-tape -D
 - ✅ [remove-t-from-async](#remove-t-from-async);
 - ✅ [switch-expected-with-result](#switch-expected-with-result);
 - ✅ [sync-with-name](#sync-with-name);
-- ✅ [move-out-result-from-assertion](#move-out-result-from-assertion);
 
 ## Config
 
@@ -96,7 +96,7 @@ npm i @putout/plugin-tape -D
         "tape/remove-skip": ["on", {
             "allowed": ["test"]
         }],
-        "tape/move-out-result-from-assertion": "on"
+        "tape/extract-result-from-assertion": "on"
     }
 }
 ```
@@ -875,7 +875,7 @@ test('some test', (t) => {
 });
 ```
 
-## move-out-result-from-assertion
+## extract-result-from-assertion
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/264bc87f56eae9aa2b2884ff64fe7a06/94836a115a072a18fd717d5454792c1895ab0476).
 

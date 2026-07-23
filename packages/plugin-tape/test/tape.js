@@ -178,6 +178,11 @@ test('plugin-tape: transform: extract-args-from-called-with', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: extract-result-from-assertion', (t) => {
+    t.transform('extract-result-from-assertion');
+    t.end();
+});
+
 test('plugin-tape: transform: remove-useless-undefined', (t) => {
     t.transform('remove-useless-undefined');
     t.end();
@@ -185,11 +190,6 @@ test('plugin-tape: transform: remove-useless-undefined', (t) => {
 
 test('plugin-tape: transform: apply-assertions-order', (t) => {
     t.transform('apply-assertions-order');
-    t.end();
-});
-
-test('plugin-tape: transform: move-out-result-from-assertion', (t) => {
-    t.transform('move-out-result-from-assertion');
     t.end();
 });
 

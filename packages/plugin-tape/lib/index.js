@@ -1,9 +1,9 @@
 import * as removeTFromAsync from './remove-t-from-async/index.js';
 import * as applyStringify from './apply-stringify/index.js';
-import * as movOutResultFromAssertion from './move-out-result-from-assertion/index.js';
 import * as applyAssertionsOrder from './apply-assertions-order/index.js';
-import * as removeUselessUndefined from './remove-useless-undefined/index.js';
 import * as extractArgsFromCalledWith from './extract-args-from-called-with/index.js';
+import * as extractResultFromAssertion from './extract-result-from-assertion/index.js';
+import * as removeUselessUndefined from './remove-useless-undefined/index.js';
 import * as applyStub from './apply-stub/index.js';
 import * as applyDestructuring from './apply-destructuring/index.js';
 import * as applyWithName from './apply-with-name/index.js';
@@ -69,9 +69,9 @@ export const rules = {
     'remove-only': removeOnly,
     'remove-skip': removeSkip,
     'extract-args-from-called-with': extractArgsFromCalledWith,
+    'extract-result-from-assertion': extractResultFromAssertion,
     'remove-useless-undefined': removeUselessUndefined,
     'apply-assertions-order': applyAssertionsOrder,
-    'move-out-result-from-assertion': movOutResultFromAssertion,
     'apply-stringify': applyStringify,
     'remove-t-from-async': removeTFromAsync,
 };
