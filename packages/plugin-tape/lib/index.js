@@ -1,3 +1,4 @@
+import * as removeTFromAsync from './remove-t-from-async/index.js';
 import * as applyStringify from './apply-stringify/index.js';
 import * as movOutResultFromAssertion from './move-out-result-from-assertion/index.js';
 import * as applyAssertionsOrder from './apply-assertions-order/index.js';
@@ -72,4 +73,5 @@ export const rules = {
     'apply-assertions-order': applyAssertionsOrder,
     'move-out-result-from-assertion': movOutResultFromAssertion,
     'apply-stringify': applyStringify,
+    'remove-t-from-async': removeTFromAsync,
 };

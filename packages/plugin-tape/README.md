@@ -49,6 +49,7 @@ npm i @putout/plugin-tape -D
 - ✅ [remove-useless-not-called-args](#remove-useless-not-called-args);
 - ✅ [remove-useless-t-end](#remove-useless-t-end);
 - ✅ [remove-useless-undefined](#remove-useless-undefined);
+- ✅ [remove-t-from-async](#remove-t-from-async);
 - ✅ [switch-expected-with-result](#switch-expected-with-result);
 - ✅ [sync-with-name](#sync-with-name);
 - ✅ [move-out-result-from-assertion](#move-out-result-from-assertion);
@@ -88,6 +89,7 @@ npm i @putout/plugin-tape -D
         "tape/remove-default-messages": "on",
         "tape/remove-useless-not-called-args": "on",
         "tape/remove-useless-undefined": "on",
+        "tape/remove-t-from-async": "on",
         "tape/remove-only": ["on", {
             "allowed": ["test"]
         }],
@@ -637,6 +639,37 @@ test('test: remove me', () => {
 ```js
 test('test: remove me', () => {
     t.end();
+});
+```
+
+## remove-t-from-async
+
+### ❌ Example of incorrect code
+
+```js
+test('sqlite: all returns empty array', async (t) => {
+    const db = await createDb();
+    await db.exec('CREATE TABLE t (id INTEGER PRIMARY KEY, x TEXT)');
+    const rows = await db.all('SELECT x FROM t WHERE x = :x', {
+        x: 'missing',
+    });
+    await t.dbAll(rows, []);
+    
+    t.end();
+});
+```
+
+### ✅ Example of correct code
+
+```js
+test('sqlite: all returns empty array', async ({dbAll}) => {
+    const db = await createDb();
+    await db.exec('CREATE TABLE t (id INTEGER PRIMARY KEY, x TEXT)');
+    const rows = await db.all('SELECT x FROM t WHERE x = :x', {
+        x: 'missing',
+    });
+    
+    await dbAll(rows, []);
 });
 ```
 

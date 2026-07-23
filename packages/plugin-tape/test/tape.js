@@ -197,3 +197,8 @@ test('plugin-tape: transform: apply-stringify', (t) => {
     t.transform('apply-stringify');
     t.end();
 });
+
+test('plugin-tape: transform: remove-t-from-async', (t) => {
+    t.transform('remove-t-from-async');
+    t.end();
+});
