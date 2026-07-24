@@ -11,11 +11,13 @@ export const report = () => `Use 't.deepEqual()' when comparing Objects an Array
 
 export const match = () => ({
     't.equal(__a, __b)': check,
+    'equal(__a, __b)': check,
     't.notEqual(__a, __b)': check,
 });
 
 export const replace = () => ({
     't.equal(__a, __b)': 't.deepEqual(__a, __b)',
+    'equal(__a, __b)': 'deepEqual(__a, __b)',
     't.notEqual(__a, __b)': 't.notDeepEqual(__a, __b)',
 });
 

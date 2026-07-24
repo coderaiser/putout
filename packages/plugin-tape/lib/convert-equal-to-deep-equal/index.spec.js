@@ -27,6 +27,11 @@ test('plugin-tape: convert-equal-to-deep-equal: transform: date', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-equal-to-deep-equal: transform: no-t', (t) => {
+    t.transform('no-t');
+    t.end();
+});
+
 test('plugin-tape: convert-equal-to-deep-equal: no report: array', (t) => {
     t.noReport('array');
     t.end();
