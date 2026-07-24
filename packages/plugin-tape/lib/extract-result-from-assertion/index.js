@@ -58,6 +58,10 @@ export const replace = () => ({
         const expected = __array;  
         deepEqual(__a, expected);
     }`,
+    'deepEqual(__a, __object)': `{
+        const expected = __object;  
+        deepEqual(__a, expected);
+    }`,
     't.__a(__b, __c)': ({__b, __c}, path) => {
         const resultBinding = getBinding(path, 'result');
         const expectedBinding = getBinding(path, 'expected');
