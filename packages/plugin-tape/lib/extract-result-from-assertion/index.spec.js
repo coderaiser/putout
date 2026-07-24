@@ -51,3 +51,8 @@ test('tape: extract-result-from-assertion: transform: no-expected', (t) => {
     t.transform('no-expected');
     t.end();
 });
+
+test('tape: extract-result-from-assertion: transform: no-t', (t) => {
+    t.transform('no-t');
+    t.end();
+});
