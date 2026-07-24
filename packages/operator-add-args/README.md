@@ -16,7 +16,7 @@ npm i putout @putout/operator-add-args
 If you want to create 🐊**Putout** `plugin` that will add `args` according to your needs just:
 
 ```js
-const {operator} = require('putout');
+import {operator} from 'putout';
 const {addArgs} = operator;
 
 export const {
