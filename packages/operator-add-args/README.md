@@ -17,6 +17,7 @@ If you want to create 🐊**Putout** `plugin` that will add `args` according to 
 
 ```js
 import {operator} from 'putout';
+
 const {addArgs} = operator;
 
 export const {
