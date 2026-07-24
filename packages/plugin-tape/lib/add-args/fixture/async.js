@@ -5,3 +5,15 @@ test('', async () => {
 test('', async (t) => {
    t.end();
 });
+
+test('', async () => {
+    deepEqual();
+});
+
+test('', async () => {
+    equal();
+});
+
+test('', async () => {
+    notOk();
+});

@@ -597,6 +597,12 @@ test('xxx', (t) => {
 test('xxx', () => {
     t.end();
 });
+
+test('hello: world', async () => {
+    const result = await get();
+    
+    deepEqual(result, []);
+});
 ```
 
 ### ✅ Example of correct code
@@ -604,6 +610,12 @@ test('xxx', () => {
 ```js
 test('xxx', (t) => {
     t.end();
+});
+
+test('hello: world', async ({deepEqual}) => {
+    const result = await get();
+    
+    deepEqual(result, []);
 });
 ```
 
