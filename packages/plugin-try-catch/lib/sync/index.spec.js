@@ -22,6 +22,11 @@ test('plugin-apply-try-catch: try-catch: transform: couple', (t) => {
     t.end();
 });
 
+test('plugin-apply-try-catch: try-catch: transform: assign', (t) => {
+    t.transform('assign');
+    t.end();
+});
+
 test('plugin-apply-try-catch: try-catch: no transform: no-call', (t) => {
     t.noTransform('no-call');
     t.end();

@@ -10,7 +10,12 @@ const {
     callExpression,
 } = types;
 
-const {replaceWithMultiple} = operator;
+const {
+    compare,
+    getBindingPath,
+    replaceWithMultiple,
+    remove,
+} = operator;
 
 export const applyTryCatch = (tryName) => (path) => {
     const expression = parseExpression(path);
@@ -21,8 +26,8 @@ export const applyTryCatch = (tryName) => (path) => {
         ...args,
     ]);
     
-    const {param} = path.node.handler;
-    const {body} = path.get('handler').node;
+    const {handler} = path.node;
+    const {param, body} = handler;
     
     if (!param) {
         replaceWithMultiple(path, [
@@ -34,12 +39,10 @@ export const applyTryCatch = (tryName) => (path) => {
     
     delete param.typeAnnotation;
     
-    const ifNode = body.body.length ? [
-        ifStatement(param, body),
-    ] : body.body;
+    const [newParam, ifNode] = parseIfNode(path);
     
     const varNode = variableDeclaration('const', [
-        variableDeclarator(arrayPattern([param]), maybeAwait(path, callNode)),
+        variableDeclarator(arrayPattern([newParam]), maybeAwait(path, callNode)),
     ]);
     
     const bodyOfTry = path.get('block').node.body.slice(1);
@@ -67,4 +70,34 @@ function maybeAwait(path, node) {
         return awaitExpression(node);
     
     return node;
+}
+
+function parseIfNode(path) {
+    const {handler} = path.node;
+    const {param, body} = handler;
+    
+    const emptyBody = [];
+    const {length} = body.body;
+    
+    if (!length)
+        return [param, emptyBody];
+    
+    const [first] = body.body;
+    
+    if (length === 1 && compare(first, 'error = e')) {
+        const errorBinding = getBindingPath(path, 'error');
+        remove(errorBinding);
+        
+        return [
+            identifier('error'),
+            emptyBody,
+        ];
+    }
+    
+    return [
+        param,
+        [
+            ifStatement(param, body),
+        ],
+    ];
 }

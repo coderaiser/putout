@@ -20,7 +20,9 @@ export const filter = (path) => {
     const {length} = block.body;
     const [first] = block.body;
     
-    if (path.parentPath.scope.bindings.error)
+    const {error} = path.parentPath.scope.bindings;
+    
+    if (error && error.path.node.init)
         return false;
     
     if (finalizer)
