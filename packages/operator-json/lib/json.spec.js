@@ -15,6 +15,7 @@ import {
     __ignore,
     __ignore_name,
     __markdown,
+    __sql,
 } from './json.js';
 
 test('putout: operator: json: toJS: filesystem', ({equal}) => {
@@ -120,6 +121,22 @@ test('putout: operator: json: fromJS: __markdown', ({equal}) => {
     const source = `__putout_processor_markdown([h1('hello')]);\n`;
     const result = fromJS(source, __markdown);
     const expected = `[h1('hello')]\n`;
+    
+    equal(result, expected);
+});
+
+test('putout: operator: json: toJS: __sql', ({equal}) => {
+    const source = `select('*', from('abc'));\n`;
+    const result = toJS(source, __sql);
+    const expected = `__putout_processor_sql(select('*', from('abc')));\n`;
+    
+    equal(result, expected);
+});
+
+test('putout: operator: json: fromJS: __sql', ({equal}) => {
+    const source = `__putout_processor_sql(select('*', from('abc')));\n`;
+    const result = fromJS(source, __sql);
+    const expected = `select('*', from('abc'))\n`;
     
     equal(result, expected);
 });

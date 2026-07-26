@@ -99,6 +99,18 @@ export const traverse = ({push}) => ({
 });
 ```
 
+### `__sql`
+
+```js
+import {operator} from 'putout';
+
+const {__sql} = operator;
+
+export const traverse = ({push}) => ({
+    [__sql]: push,
+});
+```
+
 ### `isJSON(source: string)`
 
 ```js

@@ -18,7 +18,9 @@ export const __toml_name = '__putout_processor_toml';
 export const __filesystem_name = '__putout_processor_filesystem';
 export const __ignore_name = '__putout_processor_ignore';
 export const __markdown_name = '__putout_processor_markdown';
+export const __sql_name = '__putout_processor_sql';
 
+export const __sql = `${__sql_name}(__object)`;
 export const __json = `${__json_name}(__object)`;
 export const __yaml = `${__yaml_name}(__object)`;
 export const __toml = `${__toml_name}(__object)`;
