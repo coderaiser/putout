@@ -1,3 +1,17 @@
+2026.07.26, v42.10.2
+
+fix:
+- 6f2709e8c putout: config: convert-quotes-to-backticks: yaml: disable
+- e2df4cd4f @putout/plugin-tape: move-out-result-from-assertion -> extract-result-from-assertion
+
+feature:
+- 25268c776 @putout/plugin-try-catch: assign
+- 17ecc13d4 @putout/plugin-extract-result-from-assertion: object
+- 91b0f1728 @putout/plugin-tape: convert-equal-to-deep-equal: no-t
+- 35c7df4ef @putout/plugin-tape: add-args: async
+- e04abf16f @putout/plugin-tape: extract-result-from-assertion: no-t
+- 48a84e7fc @putout/plugin-tape: extract-result-from-assertion: expected: array
+
 2026.07.23, v42.10.1
 
 fix:
