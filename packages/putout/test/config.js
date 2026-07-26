@@ -294,9 +294,9 @@ test('putout: config: Dockerfile', (t) => {
     t.end();
 });
 
-test('putout: config: {Dockerfile*,*rc,*.{json,yml}}', (t) => {
+test('putout: config: {Dockerfile*,*rc,*.{json,yml,yaml}}', (t) => {
     const {match} = putoutConfig;
-    const result = match['{Dockerfile*,*rc,*.{json,yml}}'];
+    const result = match['{Dockerfile*,*rc,*.{json,yml,yaml}}'];
     
     const expected = {
         'convert-quotes-to-backticks': 'off',
