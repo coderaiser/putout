@@ -149,6 +149,21 @@ test('plugin-putout: declare: transform: operator: __markdown', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: operator: __sql', (t) => {
+    const source = montag`
+        __sql;
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {__sql} = operator;
+        __sql;
+    
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: operator: __docker', (t) => {
     const source = montag`
         __docker;

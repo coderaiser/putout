@@ -8,4 +8,5 @@ export default {
     __docker: 'const {__docker} = operator',
     __toml: 'const {__toml} = operator',
     __markdown: 'const {__markdown} = operator',
+    __sql: 'const {__sql} = operator',
 };
