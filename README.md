@@ -22,10 +22,11 @@ The main target is **JavaScript**, but:
 
 - ✅ JSX;
 - ✅ TypeScript;
+- ✅ JSON;
+- ✅ SQL;
 - ✅ Yaml;
 - ✅ TOML;
 - ✅ Markdown;
-- ✅ JSON;
 - ✅ Ignore;
 - ✅ Dockerfile;
 
@@ -2301,6 +2302,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-generators`](/packages/plugin-generators#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-generators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-generators) |
 | [`@putout/plugin-gitignore`](/packages/plugin-gitignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-gitignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-gitignore) |
 | [`@putout/plugin-markdown`](/packages/plugin-markdown#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-markdown.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-markdown) |
+| [`@putout/plugin-sql`](/packages/plugin-sql#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-sql.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-sql) |
 | [`@putout/plugin-npmignore`](/packages/plugin-npmignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-npmignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-npmignore) |
 | [`@putout/plugin-coverage`](/packages/plugin-coverage#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-coverage.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-coverage) |
 | [`@putout/plugin-browserlist`](/packages/plugin-browserlist#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-browserlist.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-browserlist) |

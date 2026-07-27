@@ -1,0 +1,3 @@
+__putout_processor_sql([
+    select(count(1), from(orders))
+]);

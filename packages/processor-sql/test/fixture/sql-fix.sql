@@ -1,1 +1,2 @@
-select * from abc
+SELECT COUNT(*)
+FROM abc

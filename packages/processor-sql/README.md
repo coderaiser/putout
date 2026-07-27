@@ -27,16 +27,14 @@ npm i @putout/processor-sql -D
 
 Processor converts `sql` to JavaScript, it looks like this.
 
-```yaml
-# hello
+```sql
+SELECT * FROM users;
 ```
 
 Became:
 
 ```js
-__putout_processor_sql([
-    header(1, 'hello'),
-]);
+__putout_processor_sql(select('*', from(users)));
 ```
 
 ## License

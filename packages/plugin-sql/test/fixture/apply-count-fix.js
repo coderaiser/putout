@@ -1,0 +1,1 @@
+__putout_processor_sql(select(count('*'), from(orders)));

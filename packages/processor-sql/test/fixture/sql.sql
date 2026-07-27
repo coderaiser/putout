@@ -1,1 +1,1 @@
-select * from abc
+SELECT COUNT(1) FROM abc;
