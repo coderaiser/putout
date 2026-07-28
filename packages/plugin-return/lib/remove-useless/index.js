@@ -24,6 +24,9 @@ export const fix = (path) => {
 export const filter = (path) => {
     const bodyPath = path.get('body');
     
+    if (hasTypes(path))
+        return false;
+    
     if (!bodyPath.isBlockStatement())
         return false;
     
@@ -107,4 +110,15 @@ function hasComplexParams(path) {
     }
     
     return false;
+}
+
+function hasTypes(path) {
+    const {params} = path.node;
+    
+    if (!params.length)
+        return false;
+    
+    const [first] = params;
+    
+    return first.typeAnnotation;
 }

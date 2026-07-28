@@ -82,11 +82,6 @@ test('plugin-remove-useless: no transform: comment', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless: no transform: long', (t) => {
-    t.noTransform('long');
-    t.end();
-});
-
 test('plugin-remove-useless: no report: block', (t) => {
     t.noReport('block');
     t.end();
@@ -94,5 +89,15 @@ test('plugin-remove-useless: no report: block', (t) => {
 
 test('plugin-remove-useless: transform: object', (t) => {
     t.transform('object');
+    t.end();
+});
+
+test('plugin-remove-useless: no report: long', (t) => {
+    t.noReport('long');
+    t.end();
+});
+
+test('plugin-remove-useless: no report: types', (t) => {
+    t.noReport('types');
     t.end();
 });
