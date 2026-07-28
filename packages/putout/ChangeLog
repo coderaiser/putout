@@ -1,3 +1,15 @@
+2026.07.28, v42.10.3
+
+feature:
+- 645f90d36 putout: madrun: ts
+- cdf3b793d @putout/plugin-madrun: convert-to-async: cutEnv
+- ec9c37169 @putout/plugin-return: remove-useless: exclude types
+- 01dd0c9cf @putout/plugin-react: remove-useless-memoization: useMemo: improve
+- df59dac91 @putout/plugin-sql: add
+- 623320944 @putout/plugin-putout: declare: __sql
+- da156ea99 @putout/processor-sql: add
+- 15dab97ab @putout/operator-json: __sql: add
+
 2026.07.26, v42.10.2
 
 fix:
