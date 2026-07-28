@@ -37,6 +37,11 @@ test('madrun: convert to async: transform: esm', (t) => {
     t.end();
 });
 
+test('madrun: convert to async: transform: cut-env', (t) => {
+    t.transform('cut-env');
+    t.end();
+});
+
 test('madrun: convert to async: not transform: await', (t) => {
     t.noTransform('await');
     t.end();
