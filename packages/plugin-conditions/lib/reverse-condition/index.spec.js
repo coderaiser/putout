@@ -41,3 +41,8 @@ test('conditions: reverse-condition: transform: couple', (t) => {
     t.transform('couple');
     t.end();
 });
+
+test('conditions: reverse-condition: no report: not-not', (t) => {
+    t.noReport('not-not');
+    t.end();
+});
