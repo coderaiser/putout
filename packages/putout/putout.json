@@ -27,7 +27,7 @@
         "{.,}putout.json": {
             "putout-config": "on"
         },
-        ".madrun.{js,cjs,mjs}": {
+        ".madrun.{js,cjs,mjs,ts}": {
             "madrun": "on"
         },
         "setupTests.*": {
