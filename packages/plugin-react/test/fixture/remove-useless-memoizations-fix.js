@@ -1,4 +1,4 @@
-const treeAdapter = () => treeAdapterFromParseResult(parseResult, settings);
+const treeAdapter = treeAdapterFromParseResult(parseResult, settings);
 
 const onMouseDown = () => {
     document.addEventListener('mousemove', moveHandler);

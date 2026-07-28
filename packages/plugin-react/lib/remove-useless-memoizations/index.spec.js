@@ -16,3 +16,8 @@ test('react: remove-useless-memoizations: transform', (t) => {
     t.transform('remove-useless-memoizations');
     t.end();
 });
+
+test('react: remove-useless-memoizations: transform: use-memo', (t) => {
+    t.transform('use-memo');
+    t.end();
+});

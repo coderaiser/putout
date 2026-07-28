@@ -1,5 +1,3 @@
-const treeAdapter = useMemo(() => treeAdapterFromParseResult(parseResult, settings), [parseResult.treeAdapter, settings]);
-
 const onMouseDown = useCallback(() => {
     document.addEventListener('mousemove', moveHandler);
     document.addEventListener('mouseup', upHandler);
