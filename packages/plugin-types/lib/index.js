@@ -1,3 +1,4 @@
+import * as applyBoolean from './apply-boolean/index.js';
 import * as applyNumber from './apply-number/index.js';
 import * as applyIsArray from './apply-is-array/index.js';
 import * as declare from './declare/index.js';
@@ -16,4 +17,5 @@ export const rules = {
     'remove-double-negations': removeDoubleNegations,
     'remove-useless-typeof': removeUselessTypeof,
     'apply-number': applyNumber,
+    'apply-boolean': applyBoolean,
 };

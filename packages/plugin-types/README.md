@@ -15,6 +15,7 @@ npm i putout @putout/plugin-types -D
 
 - ✅ [apply-is-array](#apply-is-array);
 - ✅ [apply-number](#apply-number);
+- ✅ [apply-boolean](#apply-boolean);
 - ✅ [convert-typeof-to-is-type](#convert-typeof-to-is-type);
 - ✅ [declare](#declare);
 - ✅ [remove-double-negations](#remove-double-negations);
@@ -27,6 +28,7 @@ npm i putout @putout/plugin-types -D
 ```json
 {
     "rules": {
+        "types/apply-boolean": "on",
         "types/apply-is-array": "on",
         "types/apply-number": "on",
         "types/declare": "on",
@@ -37,6 +39,26 @@ npm i putout @putout/plugin-types -D
         "types/remove-useless-typeof": "on"
     }
 }
+```
+
+## apply-boolean
+
+> The `Boolean()` constructor creates `Boolean` objects. When called as a function, it returns primitive values of type `Boolean`.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/150f85ffc72f6f84249e75f38e21c081/d1588cd27f8854232cb08a4656bf238412501ef9).
+
+### ❌ Example of incorrect code
+
+```js
+!!(a || b);
+```
+
+### ✅ Example of correct code
+
+```js
+Boolean(a || b);
 ```
 
 ## apply-number

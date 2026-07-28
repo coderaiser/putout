@@ -46,3 +46,8 @@ test('plugin-types: transform: apply-number', (t) => {
     t.transform('apply-number');
     t.end();
 });
+
+test('plugin-types: transform: apply-boolean', (t) => {
+    t.transform('apply-boolean');
+    t.end();
+});
