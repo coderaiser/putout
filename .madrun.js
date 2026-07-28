@@ -41,7 +41,7 @@ export default {
     'test': () => [env, `tape -f time '${dirs}/*/test/*.{js,cjs}' '${dirs}/*/{bin,lib,rules}/**/*.spec.{js,cjs}'`],
     'test:break': async () => [envBreaking, await run('test')],
     'test:update': () => [envUpdate, `tape 'packages/{test,plugin,processor,engine}-*/test/*.*' 'packages/{test,plugin,processor,engine}-*/lib/**/*.spec.*'`],
-    'test:inspect': () => [env, `node --inspect-brk --inspect=0.0.0.0 node_modules/.bin/${cutEnv('test')}`],
+    'test:inspect': async () => [env, `node --inspect-brk --inspect=0.0.0.0 node_modules/.bin/${await cutEnv('test')}`],
     'test:fail': async () => await run('test', '-f fail'),
     'test:dts': () => 'check-dts packages/*/test/*.ts',
     'coverage:ci': async () => [env, `c8 --no-skip-full ${await cutEnv('test')}`],
