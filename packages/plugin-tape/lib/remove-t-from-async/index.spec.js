@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('tape: remove-t-from-async: report', (t) => {
-    t.report('remove-t-from-async', `Use 'if condition' instead of 'ternary expression'`);
+    t.report('remove-t-from-async', `Avoid 't' in async`);
     t.end();
 });
 
