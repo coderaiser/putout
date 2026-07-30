@@ -16,3 +16,8 @@ test('tape: remove-t-from-async: transform', (t) => {
     t.transform('remove-t-from-async');
     t.end();
 });
+
+test('tape: remove-t-from-async: no report: extend', (t) => {
+    t.noReport('extend');
+    t.end();
+});
