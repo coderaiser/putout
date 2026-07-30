@@ -75,3 +75,7 @@ test('putout: processor: toml: merge: no change', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: processor: toml: no report: quotes', async ({comparePlaces}) => {
+    await comparePlaces('quotes.toml', []);
+});

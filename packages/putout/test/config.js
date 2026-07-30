@@ -306,9 +306,9 @@ test('putout: config: madrun', (t) => {
     t.end();
 });
 
-test('putout: config: {Dockerfile*,*rc,*.{json,yml,yaml}}', (t) => {
+test('putout: config: {Dockerfile*,*rc,*.{json,yml,yaml,toml}}', (t) => {
     const {match} = putoutConfig;
-    const result = match['{Dockerfile*,*rc,*.{json,yml,yaml}}'];
+    const result = match['{Dockerfile*,*rc,*.{json,yml,yaml,toml}}'];
     
     const expected = {
         'convert-quotes-to-backticks': 'off',
