@@ -1,3 +1,14 @@
+2026.07.31, v42.10.4
+
+fix:
+- fc2f4485f putout: config: convert-quotes-to-backticks: disable on toml
+- 270d7cf7f @putout/plugin-tape: remove-t-from-async: extend: exclude
+- c988cd0b1 @putout/plugin-tape: remove-t-from-async: report
+- 25325cde8 @putout/plugin-conditions: remove-conditions: !!: exclude
+
+feature:
+- fe85396a3 @putout/plugin-types: apply-boolean: add
+
 2026.07.28, v42.10.3
 
 feature:

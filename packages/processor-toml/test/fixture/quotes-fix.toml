@@ -1,0 +1,3 @@
+[[options]]
+flag = "--no-check-scopes"
+desc = "do not check that messages contain scope: 'scope: message'"
