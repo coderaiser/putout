@@ -2307,6 +2307,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-coverage`](/packages/plugin-coverage#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-coverage.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-coverage) |
 | [`@putout/plugin-browserlist`](/packages/plugin-browserlist#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-browserlist.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-browserlist) |
 | [`@putout/plugin-github`](/packages/plugin-github#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-github.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-github) |
+| [`@putout/plugin-goreleaser`](/packages/plugin-goreleaser#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-goreleaser.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-goreleaser) |
 | [`@putout/plugin-regexp`](/packages/plugin-regexp#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-regexp.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-regexp) |
 | [`@putout/plugin-nodejs`](/packages/plugin-nodejs#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-nodejs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-nodejs) |
 | [`@putout/plugin-typescript`](/packages/plugin-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-typescript) |
