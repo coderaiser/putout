@@ -18,7 +18,9 @@ export const report = () => `Use 'format_overrides' instead of 'format'`;
 
 export const fix = (path) => {
     const {value} = path.node;
-    const property = objectProperty(stringLiteral('format_overrides'), objectExpression([path.node]));
+    const property = objectProperty(stringLiteral('format_overrides'), arrayExpression([
+        objectExpression([path.node]),
+    ]));
     
     path.node.key = stringLiteral('formats');
     path.node.value = arrayExpression([value]);
