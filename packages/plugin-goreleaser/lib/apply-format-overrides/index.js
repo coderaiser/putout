@@ -40,9 +40,4 @@ export const traverse = ({push}) => ({
         
         push(formatPath);
     },
-});/*
-archives:
-  - format_overrides:
-      - formats: ["zip"]
-*/
-
+});
