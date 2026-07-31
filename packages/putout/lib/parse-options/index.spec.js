@@ -854,7 +854,7 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
     
     const expected = {
         match: {
-            '*.js': {
+            '*.{js,ts}': {
                 'nodejs/convert-esm-to-commonjs': 'on',
                 'nodejs/add-missing-strict-mode': 'on',
                 'nodejs/remove-useless-strict-mode': 'off',
@@ -907,7 +907,7 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
     
     const expected = {
         match: {
-            '*.js': {
+            '*.{js,ts}': {
                 'nodejs/convert-commonjs-to-esm': 'on',
                 'nodejs/add-missing-strict-mode': 'off',
                 'nodejs/remove-useless-strict-mode': 'on',

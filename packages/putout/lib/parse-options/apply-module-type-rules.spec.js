@@ -12,7 +12,7 @@ test('putout: parse-options: apply module type rules: module', (t) => {
     
     const expected = {
         match: {
-            '*.js': {
+            '*.{js,ts}': {
                 'nodejs/convert-commonjs-to-esm': 'on',
                 'nodejs/add-missing-strict-mode': 'off',
                 'nodejs/remove-useless-strict-mode': 'on',
@@ -39,7 +39,7 @@ test('putout: parse-options: apply module type rules: commonjs', (t) => {
     
     const expected = {
         match: {
-            '*.js': {
+            '*.{js,ts}': {
                 'nodejs/convert-esm-to-commonjs': 'on',
                 'nodejs/add-missing-strict-mode': 'on',
                 'nodejs/remove-useless-strict-mode': 'off',
@@ -63,7 +63,7 @@ test('putout: parse-options: apply module type rules: no type', (t) => {
     
     const expected = {
         match: {
-            '*.js': {
+            '*.{js,ts}': {
                 'nodejs/convert-esm-to-commonjs': 'on',
                 'nodejs/add-missing-strict-mode': 'on',
                 'nodejs/remove-useless-strict-mode': 'off',
@@ -95,8 +95,10 @@ test('putout: parse-options: apply module type rules: match exists', (t) => {
     const expected = {
         match: {
             '*.js': {
-                'nodejs/convert-esm-to-commonjs': 'on',
                 'remove-unused-variables': 'off',
+            },
+            '*.{js,ts}': {
+                'nodejs/convert-esm-to-commonjs': 'on',
                 'nodejs/add-missing-strict-mode': 'on',
                 'nodejs/remove-useless-strict-mode': 'off',
             },
