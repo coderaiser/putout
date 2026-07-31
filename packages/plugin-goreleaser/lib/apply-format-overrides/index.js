@@ -2,7 +2,7 @@ import {types, operator} from 'putout';
 
 const {
     getProperties,
-    __toml,
+    __yaml,
     replaceWith,
 } = operator;
 
@@ -26,7 +26,7 @@ export const fix = (path) => {
 };
 
 export const traverse = ({push}) => ({
-    [__toml]: (path) => {
+    [__yaml]: (path) => {
         const __aPath = path.get('arguments.0');
         const {archivesPath} = getProperties(__aPath, ['archives']);
         

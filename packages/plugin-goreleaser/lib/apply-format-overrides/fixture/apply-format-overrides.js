@@ -1,9 +1,9 @@
-__putout_processor_toml({});
+__putout_processor_yaml({});
 
-__putout_processor_toml({
+__putout_processor_yaml({
     "archives": {}});
 
-__putout_processor_toml({
+__putout_processor_yaml({
     "archives": {
         "format": "zip"
     }
