@@ -9,6 +9,13 @@ __putout_processor_yaml({
     }
 });
 
+__putout_processor_yaml({
+    "archives": [{
+        "format": "zip"
+    }]
+});
+
+
 const a = {
     "archives": {
         "format": "zip"

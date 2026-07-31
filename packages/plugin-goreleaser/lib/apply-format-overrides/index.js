@@ -11,6 +11,7 @@ const {
     objectExpression,
     stringLiteral,
     objectProperty,
+    isArrayExpression,
 } = types;
 
 export const report = () => `Use 'format_overrides' instead of 'format'`;
@@ -33,11 +34,18 @@ export const traverse = ({push}) => ({
         if (!archivesPath)
             return;
         
-        const {formatPath} = getProperties(archivesPath.get('value'), ['format']);
+        const valuePath = archivesPath.get('value');
         
-        if (!formatPath)
-            return;
+        if (!isArrayExpression(valuePath))
+            return false;
         
-        push(formatPath);
+        for (const current of valuePath.get('elements')) {
+            const {formatPath} = getProperties(current, ['format']);
+            
+            if (!formatPath)
+                return;
+            
+            push(formatPath);
+        }
     },
 });
