@@ -1,3 +1,13 @@
+2026.07.31, v42.11.0
+
+fix:
+- 1613d2ac0 @putout/plugin-gorelease: apply-format-overrides: array
+- a57cd0444 @putout/plugin-goreleaser: toml -> yaml
+
+feature:
+- 9ba89152a @putout/plugin-putout: parser-options: apply-module-type-rules: improve ts support
+- ec0803932 @putout/plugin-goreleaser: add
+
 2026.07.31, v42.10.4
 
 fix:
