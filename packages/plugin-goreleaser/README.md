@@ -17,19 +17,19 @@ npm i @putout/plugin-goreleaser -D
 
 ## Rules
 
-- ✅ [apply-format-overrides](#add-continue-on-error-to-add-and-commit);
+- ✅ [apply-formats](#add-continue-on-error-to-add-and-commit);
 
 ## Config
 
 ```json
 {
     "rules": {
-        "gorelease/apply-format-overrides": "on"
+        "gorelease/apply-formats": "on"
     }
 }
 ```
 
-## apply-format-overrides
+## apply-formats
 
 > Format was renamed to formats, and now accepts a list of formats.
 >

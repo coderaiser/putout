@@ -3,29 +3,21 @@ import {types, operator} from 'putout';
 const {
     getProperties,
     __yaml,
-    replaceWith,
+    setLiteralValue,
 } = operator;
 
 const {
     arrayExpression,
-    objectExpression,
-    stringLiteral,
-    objectProperty,
     isArrayExpression,
 } = types;
 
-export const report = () => `Use 'format_overrides' instead of 'format'`;
+export const report = () => `Use 'formats' instead of 'format'`;
 
 export const fix = (path) => {
     const {value} = path.node;
-    const property = objectProperty(stringLiteral('format_overrides'), arrayExpression([
-        objectExpression([path.node]),
-    ]));
     
-    path.node.key = stringLiteral('formats');
+    setLiteralValue(path.node.key, 'formats');
     path.node.value = arrayExpression([value]);
-    
-    replaceWith(path, property);
 };
 
 export const traverse = ({push}) => ({

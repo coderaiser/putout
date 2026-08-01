@@ -1,5 +1,5 @@
-import * as applyFormatOverrides from './apply-format-overrides/index.js';
+import * as applyFormats from './apply-formats/index.js';
 
 export const rules = {
-    'apply-format-overrides': applyFormatOverrides,
+    'apply-formats': applyFormats,
 };

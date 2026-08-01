@@ -12,9 +12,7 @@ __putout_processor_yaml({
 
 __putout_processor_yaml({
     "archives": [{
-        "format_overrides": [{
-            "formats": ["zip"]
-        }]
+        "formats": ["zip"]
     }]
 });
 

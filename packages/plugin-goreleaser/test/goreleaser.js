@@ -7,7 +7,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-goreleaser: transform: apply-format-overrides', (t) => {
-    t.transform('apply-format-overrides');
+test('plugin-goreleaser: transform: apply-formats', (t) => {
+    t.transform('apply-formats');
     t.end();
 });
