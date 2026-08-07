@@ -39,6 +39,11 @@ export const fix = (path) => {
 export const traverse = ({push}) => ({
     SwitchStatement: (path) => {
         for (const currentCase of path.get('cases')) {
+            const {test} = currentCase.node;
+            
+            if (!test)
+                return;
+            
             if (!hasReturn(currentCase))
                 return;
         }

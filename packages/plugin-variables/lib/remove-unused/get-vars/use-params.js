@@ -84,29 +84,25 @@ export const useParamsBeforeLastUsed = ({use, isUsed}) => ({path, params}) => {
 const traverseIsUsed = (isUsed, path, node) => {
     const {type} = node;
     
-    switch(type) {
-    case 'Identifier':
+    if (type === 'Identifier')
         return isUsed(path, node.name);
     
-    case 'ObjectPattern':
+    if (type === 'ObjectPattern')
         return isUsedObjectPattern(isUsed, path, node);
     
-    case 'AssignmentPattern':
+    if (type === 'AssignmentPattern')
         return isUsedAssignmentPattern(isUsed, path, node);
-    }
 };
 
 const isUsedAssignmentPattern = (isUsed, path, node) => {
     const {left} = node;
     const {type} = left;
     
-    switch(type) {
-    case 'Identifier':
+    if (type === 'Identifier')
         return isUsed(path, left.name);
     
-    case 'ObjectPattern':
+    if (type === 'ObjectPattern')
         return isUsedObjectPattern(isUsed, path, left);
-    }
 };
 
 const isUsedObjectPattern = (isUsed, path, node) => {

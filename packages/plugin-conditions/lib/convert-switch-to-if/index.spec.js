@@ -21,3 +21,8 @@ test('putout: convert-switch-to-if: no report: no-return', (t) => {
     t.noReport('no-return');
     t.end();
 });
+
+test('putout: convert-switch-to-if: no report: default', (t) => {
+    t.noReport('default');
+    t.end();
+});
