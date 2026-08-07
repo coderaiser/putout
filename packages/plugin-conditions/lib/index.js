@@ -1,3 +1,4 @@
+import * as convertSwitchToIf from './convert-switch-to-if/index.js';
 import * as applyEarlyReturn from './apply-early-return/index.js';
 import * as applyEqual from './apply-equal/index.js';
 import * as applyConsistentBlocks from './apply-consistent-blocks/index.js';
@@ -40,4 +41,5 @@ export const rules = {
     'merge-if-with-else': mergeIfWithElse,
     'apply-equal': applyEqual,
     'apply-early-return': applyEarlyReturn,
+    'convert-switch-to-if': convertSwitchToIf,
 };

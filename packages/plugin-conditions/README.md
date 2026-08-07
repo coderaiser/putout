@@ -19,9 +19,10 @@ npm i @putout/plugin-conditions -D
 - ✅ [apply-consistent-blocks](#apply-consistent-blocks);
 - ✅ [apply-equal](#apply-equal);
 - ✅ [apply-if](#apply-if);
+- ✅ [convert-arrow-to-condition](#convert-arrow-to-condition);
 - ✅ [convert-comparison-to-boolean](#convert-comparison-to-boolean);
 - ✅ [convert-equal-to-strict-equal](#convert-equal-to-strict-equal);
-- ✅ [convert-arrow-to-condition](#convert-arrow-to-condition);
+- ✅ [convert-switch-to-if](#convert-switch-to-if);
 - ✅ [evaluate](#evaluate);
 - ✅ [merge-if-statements](#merge-if-statements);
 - ✅ [merge-if-with-else](#merge-if-with-else);
@@ -46,9 +47,10 @@ npm i @putout/plugin-conditions -D
         "conditions/apply-equal": "on",
         "conditions/apply-if": "on",
         "conditions/add-return": "on",
+        "conditions/convert-arrow-to-condition": "on",
         "conditions/convert-comparison-to-boolean": "on",
         "conditions/convert-equal-to-strict-equal": "on",
-        "conditions/convert-arrow-to-condition": "on",
+        "conditions/convert-switch-to-if": "on",
         "conditions/evaluate": "on",
         "conditions/reverse": "on",
         "conditions/remove-boolean": "on",
@@ -275,6 +277,38 @@ if (a == b) {}
 
 ```js
 if (a === b) {}
+```
+
+## convert-switch-to-if
+
+> The `switch` statement evaluates an `expression`, matching the expression's value against a series of case clauses, and executes `statements` after the first case clause with a matching value, until a break statement is encountered.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger)
+
+Checkout in 🐊[**Putout Editor**](https://putout.vercel.app/#/gist/725a934d13569bd48b781d0bfaaa3232/b53c994c9f1fc6c12d0e44811b6ff39a818be3dd).
+
+## ❌ Example of incorrect code
+
+```js
+function report(path) {
+    switch(path.node.type) {
+    case 'ImportFinding':
+        return 'remove unused import: ' + path.node.path;
+    }
+    
+    return 'remove unused variable';
+}
+```
+
+## ✅ Example of correct code
+
+```js
+function report(path) {
+    if (path.node.type === 'ImportFinding')
+        return 'remove unused import: ' + path.node.path;
+    
+    return 'remove unused variable';
+}
 ```
 
 ## evaluate

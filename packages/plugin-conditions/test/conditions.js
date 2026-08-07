@@ -106,3 +106,8 @@ test('plugin-conditions: transform: apply-early-return', (t) => {
     t.transform('apply-early-return');
     t.end();
 });
+
+test('plugin-conditions: transform: convert-switch-to-if', (t) => {
+    t.transform('convert-switch-to-if');
+    t.end();
+});
