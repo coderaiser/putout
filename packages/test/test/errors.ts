@@ -12,3 +12,6 @@ test('hello', (t) => {
     t.hello();
     t.end();
 });
+
+// THROWS Property 'extend' does not exist on type 'PutoutTestFunction'.
+test.extend();

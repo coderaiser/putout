@@ -1,7 +1,6 @@
 import {
     Test,
     OperationResult,
-    OperatorFactory,
 } from 'supertape';
 
 type TestOptions = {
@@ -10,17 +9,9 @@ type TestOptions = {
     checkDuplicates?: boolean;
     timeout?: number;
 };
-type CustomOperator = Record<string, OperatorFactory>;
-type OperatorsToMethods<T> = {
-    [K in keyof T]:
-    T[K] extends OperatorFactory
-        ? ReturnType<T[K]>
-        : never;
-};
 type TestFunction<T extends Test = Test> = ((message: string, fn: (t: T) => void, options?: TestOptions) => void) & {
     skip: TestFunction<T>;
     only: TestFunction<T>;
-    extend<U extends CustomOperator = {}>(operators?: U): TestFunction<T & OperatorsToMethods<U>>;
 };
 type Formatter = (...args: unknown[]) => unknown;
 type FormatterOptions = Record<string, unknown>;
