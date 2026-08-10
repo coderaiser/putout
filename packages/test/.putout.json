@@ -3,6 +3,9 @@
         "eslint/apply-ignores": "off"
     },
     "match": {
+        "*.d.ts": {
+            "putout/declare": "off"
+        },
         "*.madrun.*": {
             "madrun/insert-test-dts": "on"
         },
