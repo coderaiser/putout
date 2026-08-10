@@ -1232,3 +1232,27 @@ test('putout: operator: declare: before call', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: declare: ExportDefaultDeclaration', (t) => {
+    const declarations = {
+        createTest: ['const createTest = () => {}'],
+    };
+    
+    const source = montag`
+        export function createTest(url: string, options: unknown, maybeExtends?: Record<string, unknown>): PutoutTestFunction;
+        export default createTest;
+    `;
+    
+    const {places} = putout(source, {
+        fix: false,
+        isTS: true,
+        plugins: [
+            ['declare', declare(declarations)],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});

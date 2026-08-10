@@ -41,6 +41,7 @@ const TS_EXCLUDE = [
     'TSParameterProperty',
     'TSTypeAliasDeclaration',
     'TSQualifiedName',
+    'ExportDefaultDeclaration',
 ];
 
 export const declare = (declarations) => ({
