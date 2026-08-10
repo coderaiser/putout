@@ -1,3 +1,4 @@
+import * as convertEmptyTypeLiteralToRecord from './convert-empty-type-literal-to-record/index.js';
 import * as convertNamespaceToGlobal from './convert-namespace-to-global/index.js';
 import * as applyAsTypeAssertion from './apply-as-type-assertion/index.js';
 import * as applyTypeGuards from './apply-type-guards/index.js';
@@ -40,4 +41,5 @@ export const rules = {
     'convert-commonjs-to-esm': ['off', convertCommonjsToEsm],
     'convert-esm-to-commonjs': ['off', convertEsmToCommonjs],
     'convert-namespace-to-global': convertNamespaceToGlobal,
+    'convert-empty-type-literal-to-record': convertEmptyTypeLiteralToRecord,
 };

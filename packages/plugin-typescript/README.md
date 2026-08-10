@@ -24,6 +24,7 @@ npm i putout @putout/plugin-typescript -D
 - ✅ [convert-esm-to-commonjs](#convert-esm-to-commonjs);
 - ✅ [convert-generic-to-shorthand](#convert-generic-to-shorthand);
 - ✅ [convert-namespace-to-global](#convert-namespace-to-global);
+- ✅ [convert-empty-type-literal-to-record](#convert-empty-type-literal-to-record);
 - ✅ [cts-file](#cts-file);
 - ✅ [find-file](#find-file);
 - ✅ [mts-file](#mts-file);
@@ -54,7 +55,8 @@ npm i putout @putout/plugin-typescript -D
         "typescript/convert-generic-to-shorthand": "on",
         "typescript/convert-commonjs-to-esm": "off",
         "typescript/convert-esm-to-commonjs": "off",
-        "typescript/convert-namespace-to-global": "off",
+        "typescript/convert-namespace-to-global": "on",
+        "typescript/convert-empty-type-literal-to-record": "on",
         "typescript/remove-duplicates-from-union": "on",
         "typescript/remove-duplicates-interface-keys": "on",
         "typescript/remove-duplicates-exports": "on",
@@ -228,6 +230,37 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-namespace-to-global) | ✅
 ⏣ **ESLint** | [`@typescript-eslint/no-namespace`](https://typescript-eslint.io/rules/no-namespace/) | ❌
+
+## convert-empty-type-literal-to-record
+
+> `{}` doesn't mean an empty object, but means any types other than `null` and `undefined`
+>
+> (c) [deno.com](https://docs.deno.com/lint/rules/ban-types/)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6a6699b3f6ff1d707b732fd56323c329/a815410d21c9963bb1c8e974a1d0c93e6e53dd61).
+
+### ❌ Example of incorrect code
+
+```ts
+type TestFunction<T extends Test = Test> = ((message: string, fn: (t: T) => void) => void) & {
+    extend<U extends CustomOperator = {}>(operators?: U): TestFunction<T & OperatorsToMethods<U>>;
+};
+```
+
+### ✅ Example of correct code
+
+```ts
+type TestFunction<T extends Test = Test> = ((message: string, fn: (t: T) => void) => void) & {
+    extend<U extends CustomOperator = Record<PropertyKey, never>>(operators?: U): TestFunction<T & OperatorsToMethods<U>>;
+};
+```
+
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-namespace-to-global) | ✅
+🦕 **Deno** | [`bun-types`](https://docs.deno.com/lint/rules/ban-types/) | ❌
 
 ## remove-duplicates-from-union
 
