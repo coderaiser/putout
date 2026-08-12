@@ -57,6 +57,7 @@ export const rules = {
         'below',
     ],
     'lines-around-directive': 'error',
+    'use-isnan': 'off',
     '@stylistic/array-bracket-spacing': 'error',
     '@stylistic/arrow-spacing': 'error',
     '@stylistic/brace-style': 'error',

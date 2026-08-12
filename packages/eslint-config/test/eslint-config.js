@@ -134,6 +134,10 @@ test('eslint-config: no-dupe-keys', async ({comparePlaces}) => {
     await comparePlaces('no-dupe-keys', []);
 });
 
+test('eslint-config: use-isnan', async ({comparePlaces}) => {
+    await comparePlaces('use-isnan', []);
+});
+
 test('eslint-config: no-dupe', async ({comparePlaces}) => {
     await comparePlaces('no-dupe-args', [{
         position: {
