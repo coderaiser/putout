@@ -13,9 +13,10 @@ npm i putout @putout/plugin-types -D
 
 ## Rules
 
-- ✅ [apply-is-array](#apply-is-array);
-- ✅ [apply-number](#apply-number);
 - ✅ [apply-boolean](#apply-boolean);
+- ✅ [apply-number](#apply-number);
+- ✅ [apply-is-array](#apply-is-array);
+- ✅ [apply-is-nan](#apply-is-nan);
 - ✅ [convert-typeof-to-is-type](#convert-typeof-to-is-type);
 - ✅ [declare](#declare);
 - ✅ [remove-double-negations](#remove-double-negations);
@@ -29,8 +30,9 @@ npm i putout @putout/plugin-types -D
 {
     "rules": {
         "types/apply-boolean": "on",
-        "types/apply-is-array": "on",
         "types/apply-number": "on",
+        "types/apply-is-array": "on",
+        "types/apply-is-nan": "on",
         "types/declare": "on",
         "types/convert-typeof-to-istype": "on",
         "types/remove-useless-conversion": "on",
@@ -97,6 +99,8 @@ const a = {
 
 > The `Array.isArray()` method determines whether the passed value is an `Array`.
 > When checking for `Array` instance, `Array.isArray()` is preferred over `instanceof` because it works through `iframes`.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
 
 ### ❌ Example of incorrect code
 
@@ -127,6 +131,26 @@ In case of using `inline` option:
 
 ```js
 Array.isArray(x);
+```
+
+## apply-is-nan
+
+> The `NaN` global property is a value representing Not-A-Number.`NaN !== NaN`
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)
+
+### ❌ Example of incorrect code
+
+```js
+if (a === NaN)
+    console.log();
+```
+
+### ✅ Example of correct code
+
+```js
+if (Number.isNaN(a))
+    console.log();
 ```
 
 ## declare

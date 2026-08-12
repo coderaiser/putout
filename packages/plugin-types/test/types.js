@@ -51,3 +51,8 @@ test('plugin-types: transform: apply-boolean', (t) => {
     t.transform('apply-boolean');
     t.end();
 });
+
+test('plugin-types: transform: apply-is-nan', (t) => {
+    t.transform('apply-is-nan');
+    t.end();
+});
