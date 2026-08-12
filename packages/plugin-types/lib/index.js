@@ -1,3 +1,4 @@
+import * as applyIsNan from './apply-is-nan/index.js';
 import * as applyBoolean from './apply-boolean/index.js';
 import * as applyNumber from './apply-number/index.js';
 import * as applyIsArray from './apply-is-array/index.js';
@@ -18,4 +19,5 @@ export const rules = {
     'remove-useless-typeof': removeUselessTypeof,
     'apply-number': applyNumber,
     'apply-boolean': applyBoolean,
+    'apply-is-nan': applyIsNan,
 };
