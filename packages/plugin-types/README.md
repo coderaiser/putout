@@ -135,9 +135,12 @@ Array.isArray(x);
 
 ## apply-is-nan
 
-> The `NaN` global property is a value representing Not-A-Number.`NaN !== NaN`
+> The `NaN` global property is a value representing Not-A-Number: `NaN !== NaN`.
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e8ff80a3f522626c2d049b771692ced1/7ea6eb75d7d39f20654753fc2d800f7d881abaca)
+
 
 ### ❌ Example of incorrect code
 
