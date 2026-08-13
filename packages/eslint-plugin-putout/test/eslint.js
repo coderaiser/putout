@@ -90,11 +90,11 @@ test('eslint-plugin-putout: ts: type-annotation-spacing', async ({process}) => {
     await process('type-annotation-spacing');
 });
 
-test('eslint-plugin-putout: ts: disabled', async ({comparePlaces}) => {
+test('eslint-plugin-putout: ts: ts-disabled', async ({comparePlaces}) => {
     await comparePlaces('ts-disabled', []);
 });
 
-test('eslint-plugin-putout: ts: keyword-spacing', async ({comparePlaces}) => {
+test('eslint-plugin-putout: ts: ts-keyword-spacing', async ({comparePlaces}) => {
     await comparePlaces('ts-keyword-spacing', [{
         message: `There should be no space after '{'.`,
         position: {

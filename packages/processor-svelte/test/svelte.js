@@ -9,7 +9,7 @@ test('putout: processor: svelte', async ({process}) => {
     await process('html', ['variables']);
 });
 
-test('putout: processor: html: css: no fix', async ({comparePlaces}) => {
+test('putout: processor: html: css: style', async ({comparePlaces}) => {
     await comparePlaces('style', [{
         message: 'Add newline before expression',
         position: {
@@ -38,7 +38,7 @@ test('putout: processor: html: css: fix', async ({process}) => {
     await process('style', ['variables']);
 });
 
-test('putout: processor: html: css: template', async ({comparePlaces}) => {
+test('putout: processor: html: css: style-template', async ({comparePlaces}) => {
     await comparePlaces('style-template', [{
         message: 'Unknown word template',
         position: {

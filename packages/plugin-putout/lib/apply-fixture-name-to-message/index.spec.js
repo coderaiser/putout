@@ -97,6 +97,11 @@ test('putout: apply-fixture-name-to-message: transform: destructured', (t) => {
     t.end();
 });
 
+test('putout: apply-fixture-name-to-message: transform: compare-places', (t) => {
+    t.transform('compare-places');
+    t.end();
+});
+
 test('putout: apply-fixture-name-to-message: no report after transform: plus', (t) => {
     t.noReportAfterTransform('plus');
     t.end();
