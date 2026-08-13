@@ -138,7 +138,7 @@ test('eslint-config: use-isnan', async ({comparePlaces}) => {
     await comparePlaces('use-isnan', []);
 });
 
-test('eslint-config: no-dupe', async ({comparePlaces}) => {
+test('eslint-config: no-dupe-args', async ({comparePlaces}) => {
     await comparePlaces('no-dupe-args', [{
         position: {
             column: 20,
