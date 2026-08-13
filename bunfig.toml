@@ -1,3 +1,4 @@
 [install]
 lockfile = false
 linker = "hoisted"
+minimumReleaseAge = 604800
