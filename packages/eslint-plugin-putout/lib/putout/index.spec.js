@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {RuleTester} from 'eslint';
 import {montag} from 'montag';
 import babel from '@babel/eslint-parser';
-import typescript from '#typescript-eslint/parser';
+import typescript from '@typescript-eslint/parser';
 import rule from './index.js';
 
 const __filename = fileURLToPath(import.meta.url);
