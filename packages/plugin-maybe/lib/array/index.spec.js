@@ -17,6 +17,11 @@ test('plugin-maybe: array: transform', (t) => {
     t.end();
 });
 
+test('plugin-maybe: array: transform: concat', (t) => {
+    t.transform('concat');
+    t.end();
+});
+
 test('plugin-maybe: array: no transform: declared', (t) => {
     t.noTransform('declared');
     t.end();
