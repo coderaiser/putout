@@ -1,18 +1,22 @@
 import {operator} from 'putout';
 import regexpEscapePolifyll from 'regexp.escape';
+import {
+    isTest,
+    isTestAsync,
+    isTestDestructuring,
+    isTestOnly,
+} from './test-checker.js';
 
 const {
     escape = regexpEscapePolifyll,
 } = RegExp;
 
-const {
-    setLiteralValue,
-    compare,
-} = operator;
+const {setLiteralValue} = operator;
 
 const FIXTURE = [
     'report',
     'transform',
+    'comparePlaces',
 ];
 
 const NAMES = [
@@ -41,6 +45,7 @@ export const match = () => ({
     't.noTransform(__a)': check,
     't.noReportWithOptions(__a, __b)': check,
     'transform(__a)': check,
+    'comparePlaces(__a, __b)': check,
     'noReportAfterTransform(__a)': check,
 });
 
@@ -58,18 +63,7 @@ export const replace = () => ({
     't.noReportWithOptions(__a, __b)': transform,
     'transform(__a)': transform,
     'noReportAfterTransform(__a)': transform,
-});
-
-const isTest = (path) => compare(path, 'test(__a, (t) => __body)', {
-    findUp: false,
-});
-
-const isTestDestructuring = (path) => compare(path, 'test(__a, ({__b}) => __body)', {
-    findUp: false,
-});
-
-const isTestOnly = (path) => compare(path, 'test.only(__a, (t) => __body)', {
-    findUp: false,
+    'comparePlaces(__a, __b)': transform,
 });
 
 const check = ({__a}, path) => {
@@ -122,6 +116,9 @@ const getTestNodeArgument = (path) => {
     
     if (!testPath)
         testPath = path.find(isTestDestructuring);
+    
+    if (!testPath)
+        testPath = path.find(isTestAsync);
     
     if (!testPath)
         return {

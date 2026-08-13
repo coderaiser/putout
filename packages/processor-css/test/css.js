@@ -9,7 +9,7 @@ test('putout: processor: css', async ({process}) => {
     await process('style');
 });
 
-test('putout: processor: css: places', async ({comparePlaces}) => {
+test('putout: processor: css: style', async ({comparePlaces}) => {
     await comparePlaces('style', [{
         message: 'Expected indentation of 8 spaces',
         position: {

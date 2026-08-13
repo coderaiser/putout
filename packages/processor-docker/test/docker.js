@@ -9,7 +9,7 @@ test('putout: processor: docker', async ({noProcess}) => {
     await noProcess('Dockerfile');
 });
 
-test('putout: processor: docker: no places', async ({comparePlaces}) => {
+test('putout: processor: docker: Dockerfile', async ({comparePlaces}) => {
     await comparePlaces('Dockerfile', []);
 });
 

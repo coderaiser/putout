@@ -3,23 +3,24 @@ import {montag} from 'montag';
 import {merge} from '../lib/yaml.js';
 
 const test = createTest(import.meta.url, {
+    extension: 'yml',
     processors: ['yaml'],
 });
 
 test('putout: processor: yaml', async ({process}) => {
-    await process('travis.yml', ['travis']);
+    await process('travis', ['travis']);
 });
 
 test('putout: processor: yaml: long', async ({noProcess}) => {
-    await noProcess('long.yml');
+    await noProcess('long');
 });
 
 test('putout: processor: yaml: actions', async ({noProcess}) => {
-    await noProcess('actions.yml');
+    await noProcess('actions');
 });
 
 test('putout: processor: yaml: duplicate', async ({comparePlaces}) => {
-    await comparePlaces('duplicate.yml', [{
+    await comparePlaces('duplicate', [{
         position: {
             column: 3,
             line: 4,
@@ -29,12 +30,12 @@ test('putout: processor: yaml: duplicate', async ({comparePlaces}) => {
     }]);
 });
 
-test('putout: processor: yaml: no startLine', async ({comparePlaces}) => {
-    await comparePlaces('travis.yml', []);
+test('putout: processor: yaml: travis', async ({comparePlaces}) => {
+    await comparePlaces('travis', []);
 });
 
 test('putout: processor: yaml: duplicate: file content', async ({noProcess}) => {
-    await noProcess('duplicate.yml');
+    await noProcess('duplicate');
 });
 
 test('putout: processor: yaml: merge: a couple items in list: not last', (t) => {

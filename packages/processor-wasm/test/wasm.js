@@ -1,36 +1,37 @@
 import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
+    extension: 'wast',
     processors: ['wasm'],
     plugins: ['wasm', 'arguments'],
 });
 
 test('putout: processor: wasm: get-local', async ({process}) => {
-    await process('get-local.wast');
+    await process('get-local');
 });
 
 test('putout: processor: wasm: set-local', async ({process}) => {
-    await process('set-local.wast');
+    await process('set-local');
 });
 
 test('putout: processor: wasm: remove-useless-args', async ({process}) => {
-    await process('remove-useless-args.wast');
+    await process('remove-useless-args');
 });
 
 test('putout: processor: wasm: remove-unused', async ({process}) => {
-    await process('remove-unused.wast');
+    await process('remove-unused');
 });
 
 test('putout: processor: wasm: apply-nesting', async ({process}) => {
-    await process('apply-nesting.wast');
+    await process('apply-nesting');
 });
 
 test('putout: processor: wasm: local: wat', async ({noProcess}) => {
-    await noProcess('local.wat');
+    await noProcess('local');
 });
 
-test('putout: processor: wasm: parser error', async ({comparePlaces}) => {
-    await comparePlaces('error.wast', [{
+test('putout: processor: wasm: error', async ({comparePlaces}) => {
+    await comparePlaces('error', [{
         position: {
             column: 1,
             line: 1,
@@ -41,7 +42,7 @@ test('putout: processor: wasm: parser error', async ({comparePlaces}) => {
 });
 
 test('putout: processor: wasm: places: set-local', async ({comparePlaces}) => {
-    await comparePlaces('set-local.wast', [{
+    await comparePlaces('set-local', [{
         message: 'Use nestging',
         position: {
             column: 8,
@@ -66,7 +67,7 @@ test('putout: processor: wasm: places: set-local', async ({comparePlaces}) => {
 });
 
 test('putout: processor: wasm: places: get-local', async ({comparePlaces}) => {
-    await comparePlaces('get-local.wast', [{
+    await comparePlaces('get-local', [{
         message: `Use 'local.get' instead of 'get_local'`,
         position: {
             column: 16,

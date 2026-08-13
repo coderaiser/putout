@@ -3,19 +3,20 @@ import {montag} from 'montag';
 import {branch, merge} from '../lib/toml.js';
 
 const test = createTest(import.meta.url, {
+    extension: 'toml',
     processors: ['toml'],
 });
 
 test('putout: processor: toml', async ({noProcess}) => {
-    await noProcess('bunfig.toml');
+    await noProcess('bunfig');
 });
 
-test('putout: processor: toml: no places', async ({comparePlaces}) => {
-    await comparePlaces('bunfig.toml', []);
+test('putout: processor: toml: bunfig', async ({comparePlaces}) => {
+    await comparePlaces('bunfig', []);
 });
 
 test('putout: processor: toml: duplicate', async ({comparePlaces}) => {
-    await comparePlaces('duplicate.toml', [{
+    await comparePlaces('duplicate', [{
         position: {
             column: 0,
             line: 4,
@@ -77,5 +78,5 @@ test('putout: processor: toml: merge: no change', (t) => {
 });
 
 test('putout: processor: toml: no report: quotes', async ({comparePlaces}) => {
-    await comparePlaces('quotes.toml', []);
+    await comparePlaces('quotes', []);
 });
