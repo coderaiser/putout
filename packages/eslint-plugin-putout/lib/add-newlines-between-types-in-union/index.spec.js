@@ -2,7 +2,7 @@ import {RuleTester} from 'eslint';
 import {montag} from 'montag';
 import {createPlugin} from '@putout/eslint/create-plugin';
 import babelParser from '@babel/eslint-parser';
-import tsParser from '#typescript-eslint/parser';
+import tsParser from '@typescript-eslint/parser';
 import * as _rule from './index.js';
 
 const rule = createPlugin(_rule);
