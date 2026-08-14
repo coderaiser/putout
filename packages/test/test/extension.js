@@ -3,8 +3,11 @@ import process from 'node:process';
 import {stub} from 'supertape';
 import {lint} from '@putout/processor-wasm/lint';
 import {tryCatch} from 'try-catch';
+import * as variables from '@putout/plugin-variables';
 import {createUpdate} from './update.js';
 import {createTest} from '../lib/test.js';
+
+const removeUnused = variables.rules['remove-unused'];
 
 fs.writeFileSync = stub();
 
@@ -73,6 +76,14 @@ const testExtensionFix = createTest(import.meta.url, {
     plugins,
 });
 
+const testExtensionFixWithNoJs = createTest(import.meta.url, {
+    extension: 'js',
+    extensionFix: 'cde',
+    plugins: [
+        ['remove-unused-variables', removeUnused],
+    ],
+});
+
 const testExtensionFixWithJs = createTest(import.meta.url, {
     extension: 'wast',
     extensionFix: 'js',
@@ -136,6 +147,29 @@ testExtensionFix('transform: ext: with extensionFix', (t) => {
     globalThis.__putout_test_fs.writeFileSync = writeFileSync;
     
     const [first] = writeFileSyncStub.args[0];
+    
+    t.ok(first.endsWith('cde'), 'should write fixture with updated extension');
+    t.end();
+}, NO_CHECK_ASSERTIONS_COUNT);
+
+testExtensionFixWithNoJs('transform: ext: with extensionFix: no update', (t) => {
+    const {readFileSync} = globalThis.__putout_test_fs;
+    const readFileSyncStub = stub((name) => {
+        if (name.endsWith('cde'))
+            return '\n';
+        
+        return 'const a = 3;\n';
+    });
+    
+    globalThis.__putout_test_fs.readFileSync = readFileSyncStub;
+    update(0);
+    
+    t.transform('ext-remove');
+    
+    globalThis.__putout_test_fs.readFileSync = readFileSync;
+    update(process.env.UPDATE);
+    
+    const [first] = readFileSyncStub.args.at(-1);
     
     t.ok(first.endsWith('cde'), 'should write fixture with updated extension');
     t.end();

@@ -199,7 +199,7 @@ const transform = currify((dir, linterOptions, options, t, name, transformed = n
         return t.pass('fixed fixture updated');
     }
     
-    const [output] = isStr ? [transformed] : readFixture(`${full}-fix`, extension);
+    const [output] = isStr ? [transformed] : readFixture(`${full}-fix`, currentExtension);
     
     return t.equal(code, output);
 });
