@@ -57,14 +57,7 @@ export const replace = () => ({
     'const __a = __b.map((__c) => __d)': ({__a, __d}, path) => {
         if (isBlockStatement(__d)) {
             path.traverse({
-                ReturnStatement(path) {
-                    const {argument} = path.node;
-                    
-                    replaceWith(path, createPush({
-                        ARRAY: __a,
-                        ARGUMENT: argument,
-                    }));
-                },
+                ReturnStatement: createReplaceWithPush(__a),
             });
             return `{
                 const __a = [];
@@ -79,10 +72,42 @@ export const replace = () => ({
             }
         }`;
     },
-    '__a = __b.map((__c) => __d)': `{
-        __a = [];
-        for (const __c of __b) {
-            __a.push(__d);
+    /*
+     '__a = __b.map((__c) => __body': ({__a}, path) => {
+            path.traverse({
+                ReturnStatement: createReplaceWithPush(__a)
+            });
+            return `{
+                 __a = [];
+                for (const __c of __b) __body;
+            }`;
+        },
+    */
+    '__a = __b.map((__c) => __d)': ({__a, __d}, path) => {
+        if (isBlockStatement(__d)) {
+            path.traverse({
+                ReturnStatement: createReplaceWithPush(__a),
+            });
+            return `{
+                 __a = [];
+                for (const __c of __b) __d;
+            }`;
         }
-    }`,
+        
+        return `{
+            __a = [];
+            for (const __c of __b) {
+                __a.push(__d);
+            }
+        }`;
+    },
 });
+
+const createReplaceWithPush = (__a) => (path) => {
+    const {argument} = path.node;
+    
+    replaceWith(path, createPush({
+        ARRAY: __a,
+        ARGUMENT: argument,
+    }));
+};

@@ -16,3 +16,12 @@
         args.push(param);
     }
 }
+{
+    plugin[tag] = [];
+    for (const node of inner.elements) {
+        const wrapped = file(program([
+            expressionStatement(arrayExpression([node])),
+        ]));
+        plugin[tag].push(printSql(wrapped).trim());
+    }
+}

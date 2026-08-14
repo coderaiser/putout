@@ -9,3 +9,8 @@ const args = params.map(({id, valtype}) => {
     
     return param;
 });
+
+plugin[tag] = inner.elements.map((node) => {
+    const wrapped = file(program([expressionStatement(arrayExpression([node]))]));
+    return printSql(wrapped).trim();
+});
