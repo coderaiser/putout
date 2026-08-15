@@ -63,8 +63,8 @@ SELECT COUNT(*) FROM orders
 
 ### Rules
 
-- ✅ [convert-last-insert-rowid-to-returnning-id](#convert-last-insert-rowid-to-returnning-id)
-- ✅ [convert-auto-increment-to-identitiy](#convert-auto-increment-to-identitiy)
+- ✅ [convert-last-insert-rowid-to-returning-id](#convert-last-insert-rowid-to-returning-id)
+- ✅ [convert-auto-increment-to-identity](#convert-auto-increment-to-identity)
 
 ### Config
 
@@ -77,7 +77,7 @@ SELECT COUNT(*) FROM orders
 }
 ```
 
-### convert-last-insert-rowid-to-returnning-id
+### convert-last-insert-rowid-to-returning-id
 
 > The `last_insert_rowid()` function returns the ROWID of the last row insert from the database connection which invoked the function
 >
@@ -105,7 +105,7 @@ VALUES ('Alice')
 RETURNING id;
 ```
 
-### convert-auto-increment-to-identitiy
+### convert-auto-increment-to-identity
 
 If the `AUTOINCREMENT` keyword appears after `INTEGER PRIMARY KEY`, that changes the automatic `ROWID` assignment algorithm to prevent the reuse of `ROWIDs` over the lifetime of the database. In other words, the purpose of `AUTOINCREMENT` is to prevent the reuse of `ROWID`s from previously deleted rows.
 

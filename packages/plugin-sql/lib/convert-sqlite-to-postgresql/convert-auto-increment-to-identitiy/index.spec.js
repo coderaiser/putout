@@ -3,16 +3,16 @@ import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
     plugins: [
-        ['convert-auto-increment-to-identitiy', plugin],
+        ['convert-auto-increment-to-identity', plugin],
     ],
 });
 
-test('sql: convert-auto-increment-to-identitiy: report', (t) => {
-    t.report('convert-auto-increment-to-identitiy', `Replace INTEGER + autoIncrement with identity for PostgreSQL`);
+test('sql: convert-auto-increment-to-identity: report', (t) => {
+    t.report('convert-auto-increment-to-identity', `Replace INTEGER + autoIncrement with identity for PostgreSQL`);
     t.end();
 });
 
-test('sql: convert-auto-increment-to-identitiy: transform', (t) => {
-    t.transform('convert-auto-increment-to-identitiy');
+test('sql: convert-auto-increment-to-identity: transform', (t) => {
+    t.transform('convert-auto-increment-to-identity');
     t.end();
 });
