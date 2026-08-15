@@ -11,3 +11,8 @@ test('plugin-sql: transform: apply-count', (t) => {
     t.transform('apply-count');
     t.end();
 });
+
+test('plugin-sql: no report: convert-last-insert-rowid-to-returnning-id', (t) => {
+    t.noReport('convert-last-insert-rowid-to-returnning-id');
+    t.end();
+});
