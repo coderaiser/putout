@@ -9,6 +9,10 @@
   "release": false,
   "tag": false,
   "changelog": false,
+  "exports": {
+    ".": "./lib/index.js",
+    "./convert-sqlite-to-postgresql": "./lib/convert-sqlite-to-postgresql/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/coderaiser/putout.git"

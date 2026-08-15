@@ -25,7 +25,10 @@ Add `.putout.json` with:
 
 ## Rules
 
-Here is list of rules:
+- ✅ [apply-count](#apply-count)
+- ✅ [convert-sqlite-to-postgresql](#convert-sqlite-to-postgresql);
+
+## Config
 
 ```json
 {
@@ -58,7 +61,23 @@ SELECT COUNT(*) FROM orders
 
 ## convert-sqlite-to-postgresql
 
-### convert-last-insert-rowid-to-returning-id
+### Rules
+
+- ✅ [convert-last-insert-rowid-to-returnning-id](#convert-last-insert-rowid-to-returnning-id)
+- ✅ [convert-auto-increment-to-identitiy](#convert-auto-increment-to-identitiy)
+
+### Config
+
+```json
+{
+    "rules": {
+        "sql/convert-sqlite-to-postgresql/convert-last-insert-rowid-to-returnning-id": "off",
+        "sql/convert-sqlite-to-postgresql/convert-auto-increment-to-identitiy": "off"
+    }
+}
+```
+
+### convert-last-insert-rowid-to-returnning-id
 
 > The `last_insert_rowid()` function returns the ROWID of the last row insert from the database connection which invoked the function
 >
@@ -75,7 +94,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0ad7f0bb88
 ```sql
 INSERT INTO users (name)
 VALUES ('Alice');
-
 SELECT last_insert_rowid();
 ```
 
@@ -85,6 +103,35 @@ SELECT last_insert_rowid();
 INSERT INTO users (name)
 VALUES ('Alice')
 RETURNING id;
+```
+
+### convert-auto-increment-to-identitiy
+
+If the `AUTOINCREMENT` keyword appears after `INTEGER PRIMARY KEY`, that changes the automatic `ROWID` assignment algorithm to prevent the reuse of `ROWIDs` over the lifetime of the database. In other words, the purpose of `AUTOINCREMENT` is to prevent the reuse of `ROWID`s from previously deleted rows.
+
+> [sqlite.org](https://sqlite.org/autoinc.html)
+
+An identity column is a special column that is generated automatically from an implicit sequence. It can be used to generate key values.
+
+> [postgresql.org](https://www.postgresql.org/docs/current/ddl-identity-columns.html)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/06cd2641c1d1c7150e73bc672874e247/c0a15d84bd270dada57ff0c7960c2a819fd166dc).
+
+#### ❌ Example of incorrect code
+
+```sql
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT
+);
+```
+
+#### ✅ Example of correct code
+
+```sql
+CREATE TABLE users (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY
+);
 ```
 
 ## License
