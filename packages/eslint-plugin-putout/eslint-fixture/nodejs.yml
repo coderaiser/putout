@@ -12,9 +12,9 @@ jobs:
           - 16.x
           - 17.x
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v3.6.0
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.2
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Redrun, Lerna
@@ -26,8 +26,8 @@ jobs:
       - name: Coverage
         run: redrun coverage:ci report
       - name: Coveralls
-        uses: coverallsapp/github-action@master
+        uses: coverallsapp/github-action@3dfc5567390f6fa9267c0ee9c251e4c8c3f18949 # v1.2.13
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: typos-action
-        uses: crate-ci/typos@v1.0.4
+        uses: crate-ci/typos@a72f520c33ddc0c0b0b7f32f5c5e9e8b9c7d6e5f # v1.0.4
