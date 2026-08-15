@@ -16,3 +16,13 @@ test('sql: apply-count: transform', (t) => {
     t.transform('apply-count');
     t.end();
 });
+
+test('sql: apply-count: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
+
+test('sql: apply-count: no report: id', (t) => {
+    t.noReport('id');
+    t.end();
+});
