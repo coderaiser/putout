@@ -8,7 +8,7 @@ __putout_processor_yaml({
         build: {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": "actions/checkout@v5"
+                "uses": "actions/checkout@v7"
             }, {
                 "uses": "oven-sh/setup-bun@v2",
                 "with": {

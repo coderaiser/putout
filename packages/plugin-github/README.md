@@ -198,7 +198,7 @@ You can override versions with:
 ```diff
   steps:
 -      - uses: actions/checkout@v2
-+      - uses: actions/checkout@v3
++      - uses: actions/checkout@v7
 ```
 
 `actions/cache`:

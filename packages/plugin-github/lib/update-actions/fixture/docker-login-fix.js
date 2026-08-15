@@ -5,7 +5,7 @@ __putout_processor_yaml({
         "build": {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": "actions/checkout@v5"
+                "uses": "actions/checkout@v7"
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
                 "uses": "actions/setup-node@v6",
