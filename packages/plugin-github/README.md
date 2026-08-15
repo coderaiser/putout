@@ -214,7 +214,7 @@ You can override versions with:
 ```diff
   steps:
 -      - uses: actions/setup-node@v2
-+      - uses: actions/setup-node@v3
++      - uses: actions/setup-node@v7
 ```
 
 `docker/setup-quemu`:

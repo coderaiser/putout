@@ -16,7 +16,7 @@ __putout_processor_yaml({
                 }
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
-                "uses": "actions/setup-node@v6",
+                "uses": "actions/setup-node@v7",
                 "with": {
                     "node-version": "${{ matrix.node-version }}"
                 }
@@ -46,7 +46,7 @@ __putout_processor_yaml({
                 }
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
-                "uses": "actions/setup-node@v6",
+                "uses": "actions/setup-node@v7",
                 "with": {
                     "node-version": "${{ matrix.node-version }}"
                 }

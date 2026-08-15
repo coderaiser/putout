@@ -7,7 +7,7 @@ export const {
 } = updateActions({
     'actions/checkout': 'v7',
     'actions/cache': 'v5',
-    'actions/setup-node': 'v6',
+    'actions/setup-node': 'v7',
     'docker/setup-buildx-action': 'v4',
     'docker/build-push-action': 'v7',
     'docker/login-action': 'v4',
