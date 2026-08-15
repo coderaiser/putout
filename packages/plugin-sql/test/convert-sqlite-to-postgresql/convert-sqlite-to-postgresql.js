@@ -10,7 +10,7 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('plugin-sql: transform: convert-sqlite-to-postgresql: convert-last-insert-rowid-to-returnning-id', (t) => {
-    t.transform('convert-last-insert-rowid-to-returnning-id');
+test('plugin-sql: transform: convert-sqlite-to-postgresql: convert-last-insert-rowid-to-returning-id', (t) => {
+    t.transform('convert-last-insert-rowid-to-returning-id');
     t.end();
 });
