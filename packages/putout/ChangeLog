@@ -1,3 +1,36 @@
+2026.08.16, v42.12.0
+
+fix:
+- 5120440e0 @putout/plugin-sql: typos
+- 56b5b9abe @putout/plugin-goreleaser: apply-formats
+- db9efb962 @putout/plugin-goreleaser: apply-format-overrides: array
+
+feature:
+- 3b51696a2 @putout/processor-svelte: drop support of 🐊 < 42
+- 693d152c8 @putout/processor-svelte: @putout/processor-css v13.0.0
+- 8ead00d81 putout: @putout/processor-css v13.0.0
+- cf81766c2 @putout/processor-css: drop support of 🐊 < 42
+- 51d92ded2 @putout/processor-css: cosmiconfig v10.0.0
+- 94c81c70f @putout/processor-toml: @decimalturn/toml-patch vundefined
+- b1acf2d37 @putout/plugin-github: update-actions: actions/setup-node@7
+- 01de95f68 @putout/plugin-github: update-actions: actions/checkout@7
+- 118f55530 @putout/plugin-sql: convert-sqlite-to-postgresql: convert-auto-increment-to-identity: add
+- 1f598fcef @putout/plugin-sql: convert-sqlite-to-postgresql: convert-last-insert-rowid-to-returning-id
+- 0c29383c4 @putout/plugin-sql: apply-count: extend to all literals
+- e969f6f5a @putout/test: extension: read fix
+- 7500a759d @putout/plugin-for-of: map: assign: block
+- 8b088b568 @putout/plugin-maybe: array: concat: add
+- c3e30148a eslint-plugin-putout: rm eslint-v10 ponyfill
+- 20d624479 @putout/plugin-putout: apply-fixture-name-to-message: comparePlaces
+- ff4d891e9 @putout/eslint-config: use-isnan: off
+- 952b7248c @putout/plugin-types: apply-is-nan: add
+- 1d728e08e @putout/plugin-typescript: convert-empty-type-literal-to-record: add
+- 8b36fe48b @putout/test: types: extend: rm
+- 96233d1b3 @putout/operator-declare: ExportDefaultDeclaration: include back
+- c292be5c5 @putout/operator-declare: ExportDefaultDeclaration: exclude
+- 895af6c86 @putout/plugin-conditions: convert-switch-to-if: default: exclude
+- c0f8054bf @putout/plugin-conditions: convert-switch-to-if: add
+
 2026.07.31, v42.11.0
 
 fix:
