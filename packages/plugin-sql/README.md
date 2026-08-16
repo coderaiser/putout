@@ -3,9 +3,9 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-sql.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-sql "npm"
 
-> The React Framework for the Web
+> **SQL** (Structured Query Language) is a descriptive computer language designed for updating, retrieving, and calculating data in table-based databases.
 >
-> (c) [sql.org](https://sql.org/)
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Glossary/SQL)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability improve SQL. *Not Bundled*.
 
