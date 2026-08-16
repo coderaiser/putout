@@ -7,12 +7,12 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('sql: convert-auto-increment-to-identity: report', (t) => {
+test('putout: plugin-sql: convert-sqlite-to-postgres: convert-auto-increment-to-identity: report', (t) => {
     t.report('convert-auto-increment-to-identity', `Replace INTEGER + autoIncrement with identity for PostgreSQL`);
     t.end();
 });
 
-test('sql: convert-auto-increment-to-identity: transform', (t) => {
+test('putout: plugin-sql: convert-sqlite-to-postgres: convert-auto-increment-to-identity: transform', (t) => {
     t.transform('convert-auto-increment-to-identity');
     t.end();
 });

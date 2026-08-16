@@ -26,7 +26,7 @@ Add `.putout.json` with:
 ## Rules
 
 - ✅ [apply-count](#apply-count)
-- ✅ [convert-sqlite-to-postgresql](#convert-sqlite-to-postgresql);
+- ✅ [convert-sqlite-to-postgres](#convert-sqlite-to-postgres);
 
 ## Config
 
@@ -34,7 +34,7 @@ Add `.putout.json` with:
 {
     "rules": {
         "sql/apply-count": "on",
-        "sql/convert-sqlite-to-postgresql": "off"
+        "sql/convert-sqlite-to-postgres": "off"
     }
 }
 ```
@@ -59,7 +59,7 @@ SELECT COUNT(1) FROM orders
 SELECT COUNT(*) FROM orders
 ```
 
-## convert-sqlite-to-postgresql
+## convert-sqlite-to-postgres
 
 ### Rules
 
@@ -71,8 +71,8 @@ SELECT COUNT(*) FROM orders
 ```json
 {
     "rules": {
-        "sql/convert-sqlite-to-postgresql/convert-last-insert-rowid-to-returnning-id": "off",
-        "sql/convert-sqlite-to-postgresql/convert-auto-increment-to-identitiy": "off"
+        "sql/convert-sqlite-to-postgres/convert-last-insert-rowid-to-returnning-id": "off",
+        "sql/convert-sqlite-to-postgres/convert-auto-increment-to-identitiy": "off"
     }
 }
 ```
@@ -85,7 +85,7 @@ SELECT COUNT(*) FROM orders
 
 > Sometimes it is useful to obtain data from modified rows while they are being manipulated. The `INSERT`, `UPDATE`, `DELETE`, and `MERGE` commands all have an optional `RETURNING` clause that supports this. Use of `RETURNING` avoids performing an extra database query to collect the data, and is especially valuable when it would otherwise be difficult to identify the modified rows reliably.
 >
-> [postgresql.org](https://www.postgresql.org/docs/current/dml-returning.html)
+> [postgres.org](https://www.postgres.org/docs/current/dml-returning.html)
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0ad7f0bb883246a522452ba53c5e2844/d575938baa3d6ad31021658b80121545ea75e0f8).
 
@@ -113,7 +113,7 @@ If the `AUTOINCREMENT` keyword appears after `INTEGER PRIMARY KEY`, that changes
 
 An identity column is a special column that is generated automatically from an implicit sequence. It can be used to generate key values.
 
-> [postgresql.org](https://www.postgresql.org/docs/current/ddl-identity-columns.html)
+> [postgres.org](https://www.postgres.org/docs/current/ddl-identity-columns.html)
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/06cd2641c1d1c7150e73bc672874e247/c0a15d84bd270dada57ff0c7960c2a819fd166dc).
 
