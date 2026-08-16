@@ -86,9 +86,6 @@ const replaceNextvalWithSerial = (node, name) => {
     
     for (const child of children)
         replaceNextvalWithSerial(child, name);
-    
-    for (const child of children)
-        replaceNextvalWithSerial(child, name);
 };
 
 function parseChildren(node) {

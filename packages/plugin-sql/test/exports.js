@@ -15,3 +15,11 @@ test('putout: plugin-sql: exports: convert-postgres-to-sqlite', async (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: plugin-sql: exports: postgres', async (t) => {
+    const result = await import('@putout/plugin-sql/postgres');
+    const expected = await import('../lib/postgres/index.js');
+    
+    t.equal(result, expected);
+    t.end();
+});

@@ -12,7 +12,8 @@
   "exports": {
     ".": "./lib/index.js",
     "./convert-sqlite-to-postgres": "./lib/convert-sqlite-to-postgres/index.js",
-    "./convert-postgres-to-sqlite": "./lib/convert-postgres-to-sqlite/index.js"
+    "./convert-postgres-to-sqlite": "./lib/convert-postgres-to-sqlite/index.js",
+    "./postgres": "./lib/postgres/index.js"
   },
   "repository": {
     "type": "git",
