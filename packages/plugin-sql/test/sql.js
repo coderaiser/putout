@@ -31,3 +31,8 @@ test('plugin-sql: transform: convert-sequence-to-serial', (t) => {
     t.transform('convert-sequence-to-serial');
     t.end();
 });
+
+test('plugin-sql: transform: convert-serial-to-identity', (t) => {
+    t.transform('convert-serial-to-identity');
+    t.end();
+});

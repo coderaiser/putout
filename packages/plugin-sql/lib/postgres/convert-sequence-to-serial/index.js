@@ -40,9 +40,6 @@ export const fix = (path) => {
 };
 
 const hasNextval = (node, name) => {
-    if (!node)
-        return false;
-    
     const children = parseChildren(node);
     
     for (const child of children) {
@@ -71,9 +68,6 @@ const isNextvalCall = (node, name) => {
 };
 
 const replaceNextvalWithSerial = (node, name) => {
-    if (!node)
-        return;
-    
     if (isCallExpression(node))
         for (const [i, arg] of node.arguments.entries()) {
             if (isNextvalCall(arg, name)) {

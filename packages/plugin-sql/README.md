@@ -183,13 +183,15 @@ RETURNING id;
 ### Rules
 
 - ✅ [convert-sequence-to-serial](#convert-sequence-to-serial);
+- ✅ [convert-serial-to-identity](#convert-serial-to-identity);
 
 ### Config
 
 ```json
 {
     "rules": {
-        "sql/postgrest/convert-sequence-to-serial": "on"
+        "sql/postgres/convert-sequence-to-serial": "on",
+        "sql/postgres/convert-serial-to-identity": "on"
     }
 }
 ```
@@ -206,7 +208,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f633d8ea9a
 
 ```sql
 CREATE SEQUENCE users_id_seq;
-
 CREATE TABLE users (
     id INTEGER DEFAULT nextval('users_id_seq') PRIMARY KEY,
     name TEXT
@@ -218,6 +219,32 @@ CREATE TABLE users (
 ```sql
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
+    name TEXT
+);
+```
+
+### convert-serial-to-identity
+
+> An identity column is a special column that is generated automatically from an implicit sequence. It can be used to generate key values.
+>
+> [postgres.org](https://www.postgresql.org/docs/current/ddl-identity-columns.html)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/68fa280dcb4b9beadae0cb6af9803859/cf5f72ea7f41cde0a0e8c8311ab4cd2c601a8533).
+
+#### ❌ Example of incorrect code
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name TEXT
+);
+```
+
+#### ✅ Example of correct code
+
+```sql
+CREATE TABLE users (
+    id GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT
 );
 ```
