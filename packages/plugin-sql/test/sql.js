@@ -21,3 +21,8 @@ test('plugin-sql: no report: convert-sqlite-to-postgresql: convert-auto-incremen
     t.noReport('convert-auto-increment-to-identity');
     t.end();
 });
+
+test('plugin-sql: no report: convert-sqlite-to-postgresql: convert-with-to-sequential', (t) => {
+    t.noReport('convert-with-to-sequential');
+    t.end();
+});

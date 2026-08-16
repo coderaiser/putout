@@ -1,0 +1,16 @@
+import {createTest} from '@putout/test';
+import * as sql from '../../lib/index.js';
+
+const test = createTest(import.meta.url, {
+    rules: {
+        'sql/convert-postgres-to-sqlite': 'on',
+    },
+    plugins: [
+        ['sql', sql],
+    ],
+});
+
+test('plugin-sql: transform: convert-postgres-to-sqlite: convert-with-to-sequential', (t) => {
+    t.transform('convert-with-to-sequential');
+    t.end();
+});

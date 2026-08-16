@@ -25,8 +25,9 @@ Add `.putout.json` with:
 
 ## Rules
 
-- ✅ [apply-count](#apply-count)
+- ✅ [apply-count](#apply-count);
 - ✅ [convert-sqlite-to-postgres](#convert-sqlite-to-postgres);
+- ✅ [convert-postgres-to-sqlite](#convert-postgres-to-sqlite);
 
 ## Config
 
@@ -63,8 +64,8 @@ SELECT COUNT(*) FROM orders
 
 ### Rules
 
-- ✅ [convert-last-insert-rowid-to-returning-id](#convert-last-insert-rowid-to-returning-id)
-- ✅ [convert-auto-increment-to-identity](#convert-auto-increment-to-identity)
+- ✅ [convert-last-insert-rowid-to-returning-id](#convert-last-insert-rowid-to-returning-id);
+- ✅ [convert-auto-increment-to-identity](#convert-auto-increment-to-identity);
 
 ### Config
 
@@ -132,6 +133,46 @@ CREATE TABLE users (
 CREATE TABLE users (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY
 );
+```
+
+## convert-postgres-to-sqlite
+
+### Rules
+
+- ✅ [convert-with-to-sequential](#convert-with-to-sequential);
+
+### Config
+
+```json
+{
+    "rules": {
+        "sql/convert-postgrest-to-sqlite/convert-with-to-sequential": "off"
+    }
+}
+```
+
+### convert-with-to-sequential
+
+> `WITH` provides a way to write auxiliary statements for use in a larger query. These statements, which are often referred to as Common Table Expressions or **CTE**s, can be thought of as defining temporary tables that exist just for one query. Each auxiliary statement in a `WITH` clause can be a `SELECT`, `INSERT`, `UPDATE`, `DELETE`, or `MERGE`.
+>
+> [postgres.org](https://www.postgresql.org/docs/current/queries-with.html)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8940286d36d5e0daa44d1660f0c9e2aa/3e10e3a24dbff576f7fc23f1bddffac576db6573).
+
+#### ❌ Example of incorrect code
+
+```sql
+INSERT INTO users (name)
+VALUES ('Alice');
+SELECT last_insert_rowid();
+```
+
+#### ✅ Example of correct code
+
+```sql
+INSERT INTO users (name)
+VALUES ('Alice')
+RETURNING id;
 ```
 
 ## License
