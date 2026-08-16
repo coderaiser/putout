@@ -26,6 +26,7 @@ Add `.putout.json` with:
 ## Rules
 
 - ✅ [apply-count](#apply-count);
+- ✅ [postgres](#postgres);
 - ✅ [convert-sqlite-to-postgres](#convert-sqlite-to-postgres);
 - ✅ [convert-postgres-to-sqlite](#convert-postgres-to-sqlite);
 
@@ -35,7 +36,9 @@ Add `.putout.json` with:
 {
     "rules": {
         "sql/apply-count": "on",
-        "sql/convert-sqlite-to-postgres": "off"
+        "sql/postgres": "on",
+        "sql/convert-sqlite-to-postgres": "off",
+        "sql/convert-postgres-to-sqlite": "off"
     }
 }
 ```
@@ -173,6 +176,50 @@ SELECT last_insert_rowid();
 INSERT INTO users (name)
 VALUES ('Alice')
 RETURNING id;
+```
+
+## postgres
+
+### Rules
+
+- ✅ [convert-sequence-to-serial](#convert-sequence-to-serial);
+
+### Config
+
+```json
+{
+    "rules": {
+        "sql/postgrest/convert-sequence-to-serial": "on"
+    }
+}
+```
+
+### convert-sequence-to-serial
+
+> The data types `smallserial`, `serial` and `bigserial` are not true types, but merely a notational convenience for creating unique identifier columns (similar to the `AUTO_INCREMENT` property supported by some other databases)
+>
+> [postgres.org](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f633d8ea9a0b74276a80e8586e94b65c/d829ca2338d7f3b5aef5d1f98a2648a4c2f92d28).
+
+#### ❌ Example of incorrect code
+
+```sql
+CREATE SEQUENCE users_id_seq;
+
+CREATE TABLE users (
+    id INTEGER DEFAULT nextval('users_id_seq') PRIMARY KEY,
+    name TEXT
+);
+```
+
+#### ✅ Example of correct code
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name TEXT
+);
 ```
 
 ## License

@@ -26,3 +26,8 @@ test('plugin-sql: no report: convert-sqlite-to-postgresql: convert-with-to-seque
     t.noReport('convert-with-to-sequential');
     t.end();
 });
+
+test('plugin-sql: transform: convert-sequance-to-serial', (t) => {
+    t.transform('convert-sequance-to-serial');
+    t.end();
+});
