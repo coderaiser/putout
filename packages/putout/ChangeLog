@@ -1,3 +1,16 @@
+2026.08.17, v42.13.0
+
+fix:
+- 854478831 @putout/plugin-sql: exports: postgres
+- e22704d15 postgresql -> postgres
+
+feature:
+- 1f7e11787 @putout/plugin-remove-useless-computed: add
+- 31e9f6238 @putout/plugin-printer: apply-string-to-property-key: add
+- 7b97a506e @putout/plugin-sql: convert-serial-to-identity
+- 64fb5cf58 @putout/plugin-sql: postgres: add
+- c6290e188 @putout/plugin-sql: convert-postgres-to-sql: add
+
 2026.08.16, v42.12.0
 
 fix:
