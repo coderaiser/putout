@@ -2256,6 +2256,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-remove-iife`](/packages/plugin-remove-iife#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-iife.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-iife) |
 | [`@putout/plugin-remove-unreachable-code`](/packages/plugin-remove-unreachable-code#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unreachable-code.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unreachable-code) |
 | [`@putout/plugin-remove-console`](/packages/plugin-remove-console#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-console.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-console) |
+| [`@putout/plugin-remove-computed`](/packages/plugin-remove-computed#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-computed.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-computed) |
 | [`@putout/plugin-remove-empty`](/packages/plugin-remove-empty#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-empty.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-empty) |
 | [`@putout/plugin-remove-nested-blocks`](/packages/plugin-remove-nested-blocks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-nested-blocks) |
 

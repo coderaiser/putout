@@ -1,0 +1,8 @@
+*.config.*
+*.log
+*.lock
+
+.*
+
+test
+coverage
