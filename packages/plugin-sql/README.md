@@ -142,41 +142,20 @@ CREATE TABLE users (
 
 ### Rules
 
+- ✅ [apply-auto-increment](#apply-auto-increment);
 - ✅ [convert-with-to-sequential](#convert-with-to-sequential);
+- ✅ [convert-lastval-to-last-insert-rowid](#convert-lastval-to-last-insert-rowid);
 
 ### Config
 
 ```json
 {
     "rules": {
+        "sql/convert-postgrest-to-sqlite/apply-auto-increment": "off",
         "sql/convert-postgrest-to-sqlite/convert-with-to-sequential": "off",
-        "sql/convert-postgrest-to-sqlite/apply-auto-increment": "off"
+        "sql/convert-postgrest-to-sqlite/convert-lastval-to-last-insert-rowid": "off"
     }
 }
-```
-
-### convert-with-to-sequential
-
-> `WITH` provides a way to write auxiliary statements for use in a larger query. These statements, which are often referred to as Common Table Expressions or **CTE**s, can be thought of as defining temporary tables that exist just for one query. Each auxiliary statement in a `WITH` clause can be a `SELECT`, `INSERT`, `UPDATE`, `DELETE`, or `MERGE`.
->
-> [postgres.org](https://www.postgresql.org/docs/current/queries-with.html)
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8940286d36d5e0daa44d1660f0c9e2aa/3e10e3a24dbff576f7fc23f1bddffac576db6573).
-
-#### ❌ Example of incorrect code
-
-```sql
-INSERT INTO users (name)
-VALUES ('Alice');
-SELECT last_insert_rowid();
-```
-
-#### ✅ Example of correct code
-
-```sql
-INSERT INTO users (name)
-VALUES ('Alice')
-RETURNING id;
 ```
 
 ### apply-auto-increment
@@ -207,6 +186,54 @@ CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
 );
+```
+
+### convert-with-to-sequential
+
+> `WITH` provides a way to write auxiliary statements for use in a larger query. These statements, which are often referred to as Common Table Expressions or **CTE**s, can be thought of as defining temporary tables that exist just for one query. Each auxiliary statement in a `WITH` clause can be a `SELECT`, `INSERT`, `UPDATE`, `DELETE`, or `MERGE`.
+>
+> [postgres.org](https://www.postgresql.org/docs/current/queries-with.html)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8940286d36d5e0daa44d1660f0c9e2aa/3e10e3a24dbff576f7fc23f1bddffac576db6573).
+
+#### ❌ Example of incorrect code
+
+```sql
+INSERT INTO users (name)
+VALUES ('Alice');
+SELECT last_insert_rowid();
+```
+
+#### ✅ Example of correct code
+
+```sql
+INSERT INTO users (name)
+VALUES ('Alice')
+RETURNING id;
+```
+
+### convert-lastval-to-last-insert-rowid
+
+> `nextval` returns the value most recently returned by nextval in the current session. This function is identical to `currval`, except that instead of taking the sequence name as an argument it refers to whichever sequence nextval was most recently applied to in the current session. It is an error to call `lastval` if `nextval` has not yet been called in the current session.
+>
+> [postgres.org](https://www.postgresql.org/docs/current/functions-sequence.html)
+
+> The `last_insert_rowid()` function returns the `ROWID` of the last row insert from the database connection which invoked the function.
+>
+> (c) [sqlite.org](https://sqlite.org/lang_corefunc.html#last_insert_rowid)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6098b060fe10c8105a7d5756c2827e14/3b1e6c7e7a34fda07d5eecefb687f48bbdbee0d4).
+
+#### ❌ Example of incorrect code
+
+```sql
+SELECT lastval();
+```
+
+#### ✅ Example of correct code
+
+```sql
+SELECT last_insert_rowid();
 ```
 
 ## postgres

@@ -41,3 +41,8 @@ test('plugin-sql: transform: convert-serial-to-identity', (t) => {
     t.transform('convert-serial-to-identity');
     t.end();
 });
+
+test('plugin-sql: no report: convert-lastval-to-last-insert-rowid', (t) => {
+    t.noReport('convert-lastval-to-last-insert-rowid');
+    t.end();
+});
