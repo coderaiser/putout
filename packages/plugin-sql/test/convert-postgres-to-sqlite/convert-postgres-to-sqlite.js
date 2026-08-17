@@ -14,3 +14,8 @@ test('plugin-sql: transform: convert-postgres-to-sqlite: convert-with-to-sequent
     t.transform('convert-with-to-sequential');
     t.end();
 });
+
+test('plugin-sql: transform: convert-postgres-to-sqlite: apply-auto-increment', (t) => {
+    t.transform('apply-auto-increment');
+    t.end();
+});

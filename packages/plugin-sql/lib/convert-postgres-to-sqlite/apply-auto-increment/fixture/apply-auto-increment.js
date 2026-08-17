@@ -1,0 +1,3 @@
+[
+    column(id, serial(), name),
+];

@@ -27,6 +27,11 @@ test('plugin-sql: no report: convert-sqlite-to-postgresql: convert-with-to-seque
     t.end();
 });
 
+test('plugin-sql: no report: convert-sqlite-to-postgresql: apply-auto-increment', (t) => {
+    t.noReport('apply-auto-increment');
+    t.end();
+});
+
 test('plugin-sql: transform: convert-sequence-to-serial', (t) => {
     t.transform('convert-sequence-to-serial');
     t.end();

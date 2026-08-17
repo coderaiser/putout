@@ -149,7 +149,8 @@ CREATE TABLE users (
 ```json
 {
     "rules": {
-        "sql/convert-postgrest-to-sqlite/convert-with-to-sequential": "off"
+        "sql/convert-postgrest-to-sqlite/convert-with-to-sequential": "off",
+        "sql/convert-postgrest-to-sqlite/apply-auto-increment": "off"
     }
 }
 ```
@@ -176,6 +177,36 @@ SELECT last_insert_rowid();
 INSERT INTO users (name)
 VALUES ('Alice')
 RETURNING id;
+```
+
+### apply-auto-increment
+
+> With `AUTOINCREMENT`, rows with automatically selected ROWIDs are guaranteed to have ROWIDs that have never been used before by the same table in the same database. And the automatically generated ROWIDs are guaranteed to be monotonically increasing.
+>
+> [sqlite.org](https://sqlite.org/autoinc.html)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/1a05bedfd9f26629ef8ece27525beb5a/bed59477cecf0b973c54c89a924971a49fe64ed9).
+
+#### ❌ Example of incorrect code
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name TEXT
+);
+CREATE TABLE users (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT
+);
+```
+
+#### ✅ Example of correct code
+
+```sql
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT
+);
 ```
 
 ## postgres
