@@ -26,3 +26,8 @@ test('convert-postgresql-to-sqlite: apply-auto-increment: transform: identity-by
     t.transform('identity-by-default');
     t.end();
 });
+
+test('convert-postgresql-to-sqlite: apply-auto-increment: transform: nextval', (t) => {
+    t.transform('nextval');
+    t.end();
+});
