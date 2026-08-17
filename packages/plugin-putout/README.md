@@ -27,6 +27,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-async-formatter](#apply-async-formatter);
 - ✅ [apply-get-binding](#apply-get-binding);
 - ✅ [apply-create-test](#apply-create-test);
+- ✅ [apply-string-to-property-key](#apply-string-to-property-key);
 - ✅ [apply-create-nested-directory](#apply-create-nested-directory);
 - ✅ [apply-declare](#apply-declare);
 - ✅ [apply-destructuring](#apply-destructuring);
@@ -117,9 +118,9 @@ npm i @putout/plugin-putout -D
         "putout/add-crawl-file": "on",
         "putout/add-track-file": "on",
         "putout/add-await-to-progress": "on",
+        "putout/apply-async-formatter": "on",
         "putout/apply-create-test": "on",
         "putout/apply-create-nested-directory": "on",
-        "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
         "putout/apply-destructuring": "on",
         "putout/apply-destructuring-to-options": "on",
@@ -134,6 +135,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-rename": "on",
         "putout/apply-parens": "on",
         "putout/apply-remove": "on",
+        "putout/apply-string-to-property-key": "on",
         "putout/apply-transform-with-options": "on",
         "putout/apply-insert-before": "on",
         "putout/apply-traverser-to-ignore": "on",
@@ -258,6 +260,32 @@ t.noReport('rename-files-full');
 
 t.report('a', 'Use b');
 t.noReport('a');
+```
+
+## apply-string-to-property-key
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/46e3930cbdf32d316c0c6cb21eb59f5a/aecd754638d0bac8252048a4f4b3131c15ef6c6f).
+
+### ❌ Example of incorrect code
+
+```js
+export const replace = {
+    [`section('@select', select(__args))`]: ({__args}, path) => {
+        __args.unshift(identifier('id'));
+        return path;
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export const replace = {
+    'section("@select", select(__args))"': ({__args}, path) => {
+        __args.unshift(identifier('id'));
+        return path;
+    },
+};
 ```
 
 ## apply-transform-with-options

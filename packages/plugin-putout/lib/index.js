@@ -1,3 +1,4 @@
+import * as applyStringToPropertyKey from './apply-string-to-property-key/index.js';
 import * as convertTraverseToSuperTraverse from './convert-traverse-to-super-traverse/index.js';
 import * as applyDestructuringToOptions from './apply-destructuring-to-options/index.js';
 import * as applyGetBinding from './apply-get-binding/index.js';
@@ -174,4 +175,5 @@ export const rules = {
     'apply-get-binding': applyGetBinding,
     'apply-destructuring-to-options': applyDestructuringToOptions,
     'convert-traverse-to-super-traverse': convertTraverseToSuperTraverse,
+    'apply-string-to-property-key': applyStringToPropertyKey,
 };

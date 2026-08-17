@@ -88,7 +88,7 @@ const checkArgs = (names, push) => (path) => {
                 name,
             });
         },
-        [`__a(__args)`]: (path) => {
+        ['__a(__args)']: (path) => {
             const {callee} = path.node;
             const {name} = callee;
             

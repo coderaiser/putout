@@ -429,3 +429,8 @@ test('plugin-putout: transform: convert-traverse-to-super-traverse', (t) => {
     t.transform('convert-traverse-to-super-traverse');
     t.end();
 });
+
+test('plugin-putout: transform: apply-string-to-property-key', (t) => {
+    t.transform('apply-string-to-property-key');
+    t.end();
+});
