@@ -29,7 +29,7 @@ npm i @putout/plugin-conditions -D
 - ✅ [reverse](#reverse);
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-constant](#remove-constant);
-- ✅ [remove-same-values-condition](hremove-same-values-condition);
+- ✅ [remove-same-values-condition](#remove-same-values-condition);
 - ✅ [remove-useless-else](#remove-useless-else);
 - ✅ [remove-useless-loop-condition](#remove-useless-loop-condition);
 - ✅ [remove-zero](#remove-zero);
