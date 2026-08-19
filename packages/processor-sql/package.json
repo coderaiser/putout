@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@putout/operator-json": "^3.0.0",
-    "happy-sql": "^1.0.1"
+    "happy-sql": "^2.0.0"
   },
   "keywords": [
     "putout",
