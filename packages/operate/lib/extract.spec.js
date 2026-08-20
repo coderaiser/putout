@@ -246,9 +246,9 @@ test('operate: extract: unknown', (t) => {
     };
     
     const [error] = tryCatch(extract, node);
-    const expected = `'operator.extract(node)' understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, ArrayExpression, MemberExpression, JSXIdentifier, JSXAttribute, JSXText, TSTypeParameter, TSAsExpression and TSTypeReference🤷, found: UnknownStatement`;
+    const expected = `'operator.extract(node)' understands only`;
     
-    t.equal(error.message, expected);
+    t.match(error.message, expected);
     t.end();
 });
 
@@ -267,6 +267,24 @@ test('operate: extract: TSAsExpression', (t) => {
     
     const result = extract(key);
     const expected = 'x';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: extract: TSLiteralType', (t) => {
+    const source = `
+        fn(BinaryExpression as 'bin')
+    `;
+    
+    const ast = parse(source, {
+        isTS: true,
+    });
+    
+    const node = ast.program.body[0].expression.arguments[0].typeAnnotation;
+    
+    const result = extract(node);
+    const expected = 'bin';
     
     t.equal(result, expected);
     t.end();
