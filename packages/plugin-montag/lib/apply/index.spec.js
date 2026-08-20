@@ -27,6 +27,16 @@ test('plugin-montag: apply: transform: newline', (t) => {
     t.end();
 });
 
+test('plugin-montag: apply: transform: template', (t) => {
+    t.transform('template');
+    t.end();
+});
+
+test('plugin-montag: apply: no report: template-inside-montag', (t) => {
+    t.noReport('template-inside-montag');
+    t.end();
+});
+
 test('plugin-montag: apply: no transform: not-str', (t) => {
     t.noTransform('not-str');
     t.end();

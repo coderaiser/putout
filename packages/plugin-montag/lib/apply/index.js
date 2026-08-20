@@ -1,10 +1,18 @@
 import {types} from 'putout';
 
-const {isStringLiteral} = types;
+const {
+    isStringLiteral,
+    isCallExpression,
+    isVariableDeclarator,
+} = types;
 
 export const report = () => `Apply 'montag' instead of [''].join()`;
 
 export const match = () => ({
+    '`__a`': (vars, path) => {
+        const {parentPath} = path;
+        return isVariableDeclarator(parentPath);
+    },
     '__array.join("\\n")': ({__array}) => {
         const {elements} = __array;
         return elements.every(isStringLiteral);
@@ -12,10 +20,19 @@ export const match = () => ({
 });
 
 export const replace = () => ({
+    '`__a`': ({__a}, path) => {
+        const {cooked} = __a.value;
+        const [value, aligner] = evaluate(path, cooked.split('\n'));
+        
+        return `montag\`\n${value}\n${aligner}\``;
+    },
     '__array.join("\\n")': ({__array}, path) => {
-        const [value, aligner] = evaluate({
-            __array,
-        }, path);
+        const lines = __array.elements
+            .map(getValue)
+            .join('\n')
+            .split('\n');
+        
+        const [value, aligner] = evaluate(path, lines);
         
         return `montag\`\n${value}\n${aligner}\``;
     },
@@ -24,12 +41,7 @@ export const replace = () => ({
 const createAligner = (i) => Array(i + 1).join(' ');
 const getValue = (a) => a.value;
 
-function evaluate({__array}, path) {
-    const str = __array.elements
-        .map(getValue)
-        .join('\n');
-    
-    const lines = str.split('\n');
+function evaluate(path, lines) {
     const column = getColumn(path);
     const aligned = [];
     const aligner = createAligner(column);
@@ -46,7 +58,10 @@ function evaluate({__array}, path) {
 }
 
 function getColumn(path) {
-    const {column} = path.node.callee.object.elements[0].loc.start;
+    if (isCallExpression(path)) {
+        const {column} = path.node.callee.object.elements[0].loc.start;
+        return column;
+    }
     
-    return column;
+    return 8;
 }
