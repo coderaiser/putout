@@ -2,8 +2,10 @@ import {types} from 'putout';
 
 const {
     stringLiteral,
-    callExpression,
     identifier,
+    isCallExpression,
+    tsAsExpression,
+    tsLiteralType,
 } = types;
 
 export const report = () => `Use sequential queries instead of 'WITH'`;
@@ -20,7 +22,7 @@ export const fix = (path) => {
     
     const rewriteReferences = (node) => {
         for (const arg of node.arguments) {
-            if (arg.type === 'CallExpression' && arg.callee.name === 'from') {
+            if (isCallExpression(arg) && arg.callee.name === 'from') {
                 const [fromArg] = arg.arguments;
                 
                 const alias = aliases.get(fromArg.name);
@@ -49,10 +51,7 @@ export const fix = (path) => {
                 const returningNode = insertNode.arguments[returningIdx];
                 
                 returningNode.arguments = [
-                    callExpression(identifier('as'), [
-                        identifier('id'),
-                        stringLiteral(alias),
-                    ]),
+                    tsAsExpression(identifier('id'), tsLiteralType(stringLiteral(alias))),
                 ];
             }
             
