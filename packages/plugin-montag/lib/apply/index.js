@@ -3,16 +3,11 @@ import {types} from 'putout';
 const {
     isStringLiteral,
     isCallExpression,
-    isVariableDeclarator,
 } = types;
 
 export const report = () => `Apply 'montag' instead of [''].join()`;
 
 export const match = () => ({
-    '`__a`': (vars, path) => {
-        const {parentPath} = path;
-        return isVariableDeclarator(parentPath);
-    },
     '__array.join("\\n")': ({__array}) => {
         const {elements} = __array;
         return elements.every(isStringLiteral);
@@ -20,11 +15,11 @@ export const match = () => ({
 });
 
 export const replace = () => ({
-    '`__a`': ({__a}, path) => {
-        const {cooked} = __a.value;
+    'const __a = `__b`': ({__b}, path) => {
+        const {cooked} = __b.value;
         const [value, aligner] = evaluate(path, cooked.split('\n'));
         
-        return `montag\`\n${value}\n${aligner}\``;
+        return `const __a = montag\`\n${value}\n${aligner}\``;
     },
     '__array.join("\\n")': ({__array}, path) => {
         const lines = __array.elements
