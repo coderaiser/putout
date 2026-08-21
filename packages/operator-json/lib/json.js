@@ -73,3 +73,4 @@ export const isJSONGroup = (source) => {
     
     return false;
 };
+export const isSQL = (source) => !source.indexOf(__sql_name);

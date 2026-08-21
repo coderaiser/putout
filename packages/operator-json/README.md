@@ -131,6 +131,14 @@ isTOML(`__putout_processor_toml({"hello": "world"});`);
 true;
 ```
 
+### `isSQL(source: string)`
+
+```js
+isSQL(`__putout_processor_sql(select('hello'));`);
+// returns
+true;
+```
+
 ### `isDocker(source: string)`
 
 ```js
