@@ -1,3 +1,8 @@
 __putout_processor_sql([
-    column('id', INTEGER, primaryKey(), autoIncrement()),
+    column(
+        'id',
+        INTEGER,
+        primaryKey(),
+        autoIncrement(),
+    ),
 ]);

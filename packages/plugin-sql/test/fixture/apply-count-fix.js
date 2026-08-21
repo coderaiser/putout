@@ -1,1 +1,10 @@
-__putout_processor_sql(select(count('*'), from(orders)));
+__putout_processor_sql(
+    select(
+        count(
+            '*',
+        ),
+        from(
+            orders,
+        ),
+    ),
+);
