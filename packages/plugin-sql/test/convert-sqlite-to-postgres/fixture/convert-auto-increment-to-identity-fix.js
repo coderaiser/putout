@@ -3,6 +3,6 @@ __putout_processor_sql([
         'id',
         INTEGER,
         primaryKey(),
-        autoIncrement(),
+        identity(),
     ),
 ]);

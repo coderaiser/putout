@@ -7,8 +7,8 @@ __putout_processor_sql([
                 'Alice',
             ),
         ),
-    ),
-    select(
-        lastInsertRowid(),
+        returning(
+            id,
+        ),
     ),
 ]);
