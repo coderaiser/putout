@@ -46,3 +46,8 @@ test('plugin-montag: apply: no report: top-level', (t) => {
     t.noReport('top-level');
     t.end();
 });
+
+test('plugin-montag: apply: no report: no-newlines', (t) => {
+    t.noReport('no-newlines');
+    t.end();
+});

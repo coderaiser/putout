@@ -8,7 +8,12 @@ const {
 export const report = () => `Apply 'montag' instead of [''].join()`;
 
 export const match = () => ({
-    'const __a = `__b`': (vars, path) => path.node.loc.start.column,
+    'const __a = `__b`': ({__b}, path) => {
+        if (!path.node.loc.start.column)
+            return false;
+        
+        return __b.value.cooked.includes('\n');
+    },
     '__array.join("\\n")': ({__array}) => {
         const {elements} = __array;
         return elements.every(isStringLiteral);
