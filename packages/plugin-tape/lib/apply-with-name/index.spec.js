@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import {montag} from 'montag';
 import * as applyWithName from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -9,7 +10,9 @@ const test = createTest(import.meta.url, {
 
 test('plugin-tape: apply-with-name: report: called-before', (t) => {
     const result = 'called-before';
-    const expected = `'stub().withName()' should be used`;
+    const expected = montag`
+        'stub().withName()' should be used
+    `;
     
     t.report(result, expected);
     t.end();

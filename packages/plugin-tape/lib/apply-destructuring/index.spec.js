@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import {montag} from 'montag';
 import * as applyStub from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -9,7 +10,9 @@ const test = createTest(import.meta.url, {
 
 test('plugin-tape: apply-destructuring: report', (t) => {
     const result = 'apply-destructuring';
-    const expected = `Use destructuring when require 'test' -> '{test}'`;
+    const expected = montag`
+        Use destructuring when require 'test' -> '{test}'
+    `;
     
     t.report(result, expected);
     t.end();

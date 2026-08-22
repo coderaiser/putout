@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import {montag} from 'montag';
 import * as plugin from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -9,7 +10,9 @@ const test = createTest(import.meta.url, {
 
 test('tape: apply-assertions-order: report', (t) => {
     const result = 'apply-assertions-order';
-    const expected = `Use 'cleanup();' before 't.equal(onShareButtonClick.callCount, 1);'`;
+    const expected = montag`
+        Use 'cleanup();' before 't.equal(onShareButtonClick.callCount, 1);'
+    `;
     
     t.report(result, expected);
     t.end();

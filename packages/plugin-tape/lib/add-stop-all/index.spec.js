@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import {montag} from 'montag';
 import * as addStopAll from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -9,7 +10,9 @@ const test = createTest(import.meta.url, {
 
 test('plugin-tape: add-stop-all: report: mock-import', (t) => {
     const result = 'mock-import';
-    const expected = `Call 'stopAll()' at the end of test when 'mockImport()' used`;
+    const expected = montag`
+        Call 'stopAll()' at the end of test when 'mockImport()' used
+    `;
     
     t.report(result, expected);
     t.end();

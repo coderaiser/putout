@@ -6,12 +6,17 @@ const {isIdentifier} = types;
 
 export const report = () => 'Remove "test.skip"';
 
+export const match = ({options}) => ({
+    '__a.skip(__b, __c)': check(options),
+    '__a.skip(__b, __c, __d)': check(options),
+});
+
 export const replace = () => ({
     '__a.skip(__b, __c)': '__a(__b, __c)',
     '__a.skip(__b, __c, __d)': '__a(__b, __c, __d)',
 });
 
-export const filter = (path, {options}) => {
+const check = (options) => ({__a}) => {
     const {allowed = []} = options;
     const all = [
         'test',
@@ -19,7 +24,7 @@ export const filter = (path, {options}) => {
     ];
     
     for (const name of all) {
-        const is = isIdentifier(path.node.callee.object, {
+        const is = isIdentifier(__a, {
             name,
         });
         

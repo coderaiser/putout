@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import {montag} from 'montag';
 import * as applyStub from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -9,7 +10,9 @@ const test = createTest(import.meta.url, {
 
 test('plugin-tape: apply-stub: report: fn', (t) => {
     const result = 'fn';
-    const expected = `Use 'stub()' instead of creating a function`;
+    const expected = montag`
+        Use 'stub()' instead of creating a function
+    `;
     
     t.report(result, expected);
     t.end();

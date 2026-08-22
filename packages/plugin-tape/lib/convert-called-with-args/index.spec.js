@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import {montag} from 'montag';
 import * as convertCalledWithArguments from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -9,7 +10,9 @@ const test = createTest(import.meta.url, {
 
 test('plugin-tape: convert-called-with-arguments: report: args', (t) => {
     const result = 'args';
-    const expected = `Use an array as args to 'calledWith()'`;
+    const expected = montag`
+        Use an array as args to 'calledWith()'
+    `;
     
     t.report(result, expected);
     t.end();
