@@ -1,5 +1,6 @@
 import {test, stub} from 'supertape';
 import {tryCatch} from 'try-catch';
+import {montag} from 'montag';
 import * as babel from './parsers/babel/index.js';
 import customParser from './custom-parser.js';
 
@@ -26,9 +27,11 @@ test('putout: parser: custom parser: object', (t) => {
 });
 
 test('putout: parser: custom parser: typescript + jsx: ambiguity', (t) => {
-    const source = `
-        const boundaryElement = <HTMLElement1>e.target;
-   `;
+    const source = montag`
+                
+                const boundaryElement = <HTMLElement1>e.target;
+    
+    `;
     
     const args = [
         source,

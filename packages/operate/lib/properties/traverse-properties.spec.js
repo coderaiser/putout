@@ -160,23 +160,25 @@ test('operate: traverse-properties: traverse: ConditionalExpression: ignore', (t
 });
 
 test('operate: traverse-properties: object inside array', (t) => {
-    const source = `
-        __putout_processor_json({
-            "type": "directory",
-            "name": "/",
-            "files": [{
-                "name": "/abc",
-                "type": "directory",
-                "files": []
-            }, {
-                "name": "/hello",
-                "type": "directory",
-                "files": []
-            }, {
-                "name": "/world.txt",
-                "type": "file",
-            }]
-        });
+    const source = montag`
+                
+                __putout_processor_json({
+                    "type": "directory",
+                    "name": "/",
+                    "files": [{
+                        "name": "/abc",
+                        "type": "directory",
+                        "files": []
+                    }, {
+                        "name": "/hello",
+                        "type": "directory",
+                        "files": []
+                    }, {
+                        "name": "/world.txt",
+                        "type": "file",
+                    }]
+                });
+    
     `;
     
     let propertyPath;

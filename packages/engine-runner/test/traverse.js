@@ -327,14 +327,16 @@ test('putout: runner: uplist: removed node', async (t) => {
     const mergeVariables = minify.rules['merge-variables'];
     const removeUnreferenced = variables.rules['remove-unreferenced'];
     
-    const source = `
-        let a;
-        let b;
-        
-        a = 5;
-        b = 6;
-        
-        console.log(a);
+    const source = montag`
+                
+                let a;
+                let b;
+                
+                a = 5;
+                b = 6;
+                
+                console.log(a);
+    
     `;
     
     const {code} = putout(source, {

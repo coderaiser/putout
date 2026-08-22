@@ -34,7 +34,14 @@ SELECT * FROM users;
 Became:
 
 ```js
-__putout_processor_sql(select('*', from(users)));
+__putout_processor_sql(
+    select(
+        '*',
+        from(
+            users,
+        ),
+    ),
+);
 ```
 
 ## License

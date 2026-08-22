@@ -778,11 +778,13 @@ test('putout: operator: match-files: exclude', (t) => {
 });
 
 test('putout: operator: match-files: yaml to json', (t) => {
-    const content = `
-            name: Node CI
-            on:
-              push:
-                branches: master
+    const content = montag`
+                    
+                    name: Node CI
+                    on:
+                      push:
+                        branches: master
+    
     `;
     
     const source = stringify([
@@ -887,10 +889,12 @@ test('putout: operator: match-files: json to yaml', (t) => {
 });
 
 test('putout: operator: match-files: toml to json', (t) => {
-    const content = `
-        [install]
-        lockfile = false
-        linker = "hoisted"
+    const content = montag`
+                
+                [install]
+                lockfile = false
+                linker = "hoisted"
+    
     `;
     
     const source = stringify([

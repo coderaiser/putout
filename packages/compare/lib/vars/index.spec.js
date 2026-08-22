@@ -1058,15 +1058,17 @@ test('putout: compare: vars: getTemplateValues: setValues: BlockStatement: Class
         }),
     };
     
-    const input = `
-        export class Emojizer {
-            providedCodeActionKinds = [
-                vscode.CodeActionKind.QuickFix
-            ];
-            
-            provideCodeActions(document, range) {
-            };
-        }
+    const input = montag`
+                
+                export class Emojizer {
+                    providedCodeActionKinds = [
+                        vscode.CodeActionKind.QuickFix
+                    ];
+                    
+                    provideCodeActions(document, range) {
+                    };
+                }
+    
     `;
     
     const {code} = putout(input, {

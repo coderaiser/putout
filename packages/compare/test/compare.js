@@ -462,10 +462,12 @@ test('compare: object: template: comments', (t) => {
 test('compare: __args', (t) => {
     const b = '__.forEach(__args)';
     
-    const a = `
-        Object.keys(a).forEach((x) => {
-            console.log(x);
-        });
+    const a = montag`
+                
+                Object.keys(a).forEach((x) => {
+                    console.log(x);
+                });
+    
     `;
     
     const result = compare(a, b);

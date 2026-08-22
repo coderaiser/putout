@@ -310,11 +310,13 @@ test('putout: cli: process-file: configurePrinter: overrides', async (t) => {
         places: [],
     });
     
-    const source = `
-        function testFn() {
-        return 123;
-        }
-        testFn();
+    const source = montag`
+                
+                function testFn() {
+                return 123;
+                }
+                testFn();
+    
     `;
     
     const fix = false;

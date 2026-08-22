@@ -115,10 +115,12 @@ test('putout: loader: disabled rule', async (t) => {
 });
 
 test('putout: loader: disabled rule from multi rule plugin', (t) => {
-    const source = `montag
-        const t = async () => {
-            return 'hello'
-        }
+    const source = montag`
+        montag
+                const t = async () => {
+                    return 'hello'
+                }
+    
     `;
     
     const {places} = putout(source, {

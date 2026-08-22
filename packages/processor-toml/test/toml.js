@@ -61,8 +61,10 @@ test('putout: processor: toml: merge: a couple items in list: not last', (t) => 
 });
 
 test('putout: processor: toml: merge: no change', (t) => {
-    const rawSource = `
-        extend-exclude = ["ChangeLog"]
+    const rawSource = montag`
+                
+                extend-exclude = ["ChangeLog"]
+    
     `;
     
     const [{source}] = branch(rawSource);

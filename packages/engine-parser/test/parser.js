@@ -316,8 +316,10 @@ test('putout: print: recast: object expressions', (t) => {
 });
 
 test('putout: parser: json modules: with', (t) => {
-    const code = `
-        import json from "./foo.json" with { type: "json" };
+    const code = montag`
+                
+                import json from "./foo.json" with { type: "json" };
+    
     `;
     
     const [error] = tryCatch(parse, code);
@@ -327,8 +329,10 @@ test('putout: parser: json modules: with', (t) => {
 });
 
 test('putout: parser: json modules: assert', (t) => {
-    const code = `
-        import json from "./foo.json" assert { type: "json" };
+    const code = montag`
+                
+                import json from "./foo.json" assert { type: "json" };
+    
     `;
     
     const [error] = tryCatch(parse, code);
@@ -365,9 +369,11 @@ test('putout: parser: printer: putout', (t) => {
 });
 
 test('putout: parser: typescrip with jsx: ambiguity syntax', (t) => {
-    const source = `
-        const boundaryElement = <HTMLElement1>e.target;
-   `;
+    const source = montag`
+                
+                const boundaryElement = <HTMLElement1>e.target;
+    
+    `;
     
     const [error] = tryCatch(putout, source, {
         isTS: true,

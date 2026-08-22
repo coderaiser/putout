@@ -1,6 +1,7 @@
 import {tryCatch} from 'try-catch';
 import {test} from 'supertape';
 import {parse} from 'putout';
+import {montag} from 'montag';
 import {extract} from './extract.js';
 
 test('operate: extract: Identifier', (t) => {
@@ -253,10 +254,12 @@ test('operate: extract: unknown', (t) => {
 });
 
 test('operate: extract: TSAsExpression', (t) => {
-    const source = `
-        const a = {
-            [x as keyof typeof y]: 1,
-        };
+    const source = montag`
+                
+                const a = {
+                    [x as keyof typeof y]: 1,
+                };
+    
     `;
     
     const ast = parse(source, {
@@ -273,8 +276,10 @@ test('operate: extract: TSAsExpression', (t) => {
 });
 
 test('operate: extract: TSLiteralType', (t) => {
-    const source = `
-        fn(BinaryExpression as 'bin')
+    const source = montag`
+                
+                fn(BinaryExpression as 'bin')
+    
     `;
     
     const ast = parse(source, {

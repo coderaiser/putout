@@ -2,6 +2,7 @@ import {join, dirname} from 'node:path';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import test from 'supertape';
+import {montag} from 'montag';
 import {codeframe} from './codeframe.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -22,10 +23,12 @@ test('putout: codeframe: should return message', (t) => {
         message: 'some error is here',
     };
     
-    const source = `
-        function(a) {
-            return a;
-        }
+    const source = montag`
+                
+                function(a) {
+                    return a;
+                }
+    
     `;
     
     const result = codeframe({
@@ -50,10 +53,12 @@ test('putout: codeframe: not highlighted', async (t) => {
         loc,
     };
     
-    const source = `
-      function(a) {
-        return a;
-      }
+    const source = montag`
+              
+              function(a) {
+                return a;
+              }
+    
     `;
     
     const result = codeframe({

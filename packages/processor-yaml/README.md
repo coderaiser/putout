@@ -35,7 +35,7 @@ Became:
 
 ```js
 __putout_processor_yaml({
-    "node": "Node CI"
+    'node': 'Node CI'
 });
 ```
 

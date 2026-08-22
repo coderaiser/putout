@@ -87,12 +87,14 @@ test('putout: operate: insertBefore', (t) => {
 });
 
 test('putout: operate: insertAfter: trailingComments', (t) => {
-    const source = `
-        import a from 'b';
-        // hello
-        export function x() {
-            return isNumber(a);
-        }
+    const source = montag`
+                
+                import a from 'b';
+                // hello
+                export function x() {
+                    return isNumber(a);
+                }
+    
     `;
     
     const ast = parse(source);
@@ -141,10 +143,12 @@ test('putout: operate: insertAfter: recast: comments', (t) => {
 });
 
 test('putout: operate: insertAfter: trailingComments: node', (t) => {
-    const source = `
-        const isString = (a) => typeof a === 'string';
-        /* global CloudCmd */
-        const Util = require('../../common/util');
+    const source = montag`
+                
+                const isString = (a) => typeof a === 'string';
+                /* global CloudCmd */
+                const Util = require('../../common/util');
+    
     `;
     
     const ast = parse(source);
@@ -966,14 +970,16 @@ test('putout: operate: rename: no bindings', (t) => {
 
 test('putout: operate: remove: already removed', async (t) => {
     const minify = await import('@putout/plugin-minify');
-    const source = `
-        let a;
-        let b;
-        
-        a = 5;
-        b = 6;
-        
-        console.log(a);
+    const source = montag`
+                
+                let a;
+                let b;
+                
+                a = 5;
+                b = 6;
+                
+                console.log(a);
+    
     `;
     
     const {code} = putout(source, {

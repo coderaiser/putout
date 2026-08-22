@@ -22,6 +22,7 @@ import {
 test('putout: operator: json: toJS: filesystem', ({equal}) => {
     const source = '{"hello": "world"}';
     const result = toJS(source, __filesystem);
+    
     const expected = montag`
         __putout_processor_filesystem({"hello": "world"});
     
@@ -33,6 +34,7 @@ test('putout: operator: json: toJS: filesystem', ({equal}) => {
 test('putout: operator: json: toJS', ({equal}) => {
     const source = '{"hello": "world"}';
     const result = toJS(source, __json);
+    
     const expected = montag`
         __putout_processor_json({"hello": "world"});
     
@@ -46,6 +48,7 @@ test('putout: operator: json: fromJS', ({equal}) => {
         __putout_processor_filesystem({"hello": "world"});
     
     `;
+    
     const result = fromJS(source, __filesystem);
     const expected = '{"hello": "world"}\n';
     
@@ -57,6 +60,7 @@ test('putout: operator: json: fromJS: strict mode', ({equal}) => {
         'use strict'; __putout_processor_filesystem({"hello": "world"});
     
     `;
+    
     const result = fromJS(source, __filesystem);
     const expected = '{"hello": "world"}\n';
     
@@ -67,6 +71,7 @@ test('putout: operator: json: fromJS: newline', ({equal}) => {
     const source = montag`
         __putout_processor_filesystem({"hello": "world"});
     `;
+    
     const result = fromJS(source, __filesystem);
     const expected = '{"hello": "world"}\n';
     
@@ -76,6 +81,7 @@ test('putout: operator: json: fromJS: newline', ({equal}) => {
 test('putout: operator: json: toJS: __yaml', ({equal}) => {
     const source = '{"hello": "world"}';
     const result = toJS(source, __yaml);
+    
     const expected = montag`
         __putout_processor_yaml({"hello": "world"});
     
@@ -87,6 +93,7 @@ test('putout: operator: json: toJS: __yaml', ({equal}) => {
 test('putout: operator: json: toJS: __toml', ({equal}) => {
     const source = '{"hello": "world"}';
     const result = toJS(source, __toml);
+    
     const expected = montag`
         __putout_processor_toml({"hello": "world"});
     
@@ -100,6 +107,7 @@ test('putout: operator: json: isTOML', ({ok}) => {
         __putout_processor_toml({"hello": "world"});
     
     `;
+    
     const is = isTOML(source);
     
     ok(is);
@@ -110,6 +118,7 @@ test('putout: operator: json: isSQL', ({ok}) => {
         __putout_processor_sql(select('hello'));
     
     `;
+    
     const is = isSQL(source);
     
     ok(is);
@@ -133,6 +142,7 @@ test('putout: operator: json: fromJS: more newlines', ({equal}) => {
         );
     
     `;
+    
     const result = fromJS(source, __filesystem);
     const expected = '{"hello": "world"}\n';
     
@@ -144,6 +154,7 @@ test('putout: operator: json: fromJS: __ignore', ({equal}) => {
         __putout_processor_ignore([1, 2]);
     
     `;
+    
     const result = fromJS(source, __ignore);
     const expected = '[1, 2]\n';
     
@@ -155,7 +166,9 @@ test('putout: operator: json: toJS: __markdown', ({equal}) => {
         [h1('hello')];
     
     `;
+    
     const result = toJS(source, __markdown);
+    
     const expected = montag`
         __putout_processor_markdown([h1('hello')]);
     
@@ -169,7 +182,9 @@ test('putout: operator: json: fromJS: __markdown', ({equal}) => {
         __putout_processor_markdown([h1('hello')]);
     
     `;
+    
     const result = fromJS(source, __markdown);
+    
     const expected = montag`
         [h1('hello')]
     
@@ -183,7 +198,9 @@ test('putout: operator: json: toJS: __sql', ({equal}) => {
         select('*', from('abc'));
     
     `;
+    
     const result = toJS(source, __sql);
+    
     const expected = montag`
         __putout_processor_sql(select('*', from('abc')));
     
@@ -197,7 +214,9 @@ test('putout: operator: json: fromJS: __sql', ({equal}) => {
         __putout_processor_sql(select('*', from('abc')));
     
     `;
+    
     const result = fromJS(source, __sql);
+    
     const expected = montag`
         select('*', from('abc'))
     
@@ -211,6 +230,7 @@ test('putout: operator: json: fromJS: __ignore_name', ({equal}) => {
         __putout_processor_ignore([1, 2]);
     
     `;
+    
     const result = fromJS(source, __ignore_name);
     const expected = '[1, 2]\n';
     
@@ -222,6 +242,7 @@ test('putout: operator: json: isJSON', ({ok}) => {
         __putout_processor_json([1, 2]);
     
     `;
+    
     const result = isJSON(source);
     
     ok(result);
@@ -232,6 +253,7 @@ test('putout: operator: json: isJSON: false', ({notOk}) => {
         __putout_processor_toml([1, 2]);
     
     `;
+    
     const result = isJSON(source);
     
     notOk(result);
@@ -242,6 +264,7 @@ test('putout: operator: json: isJSONGroup', ({ok}) => {
         __putout_processor_json([1, 2]);
     
     `;
+    
     const result = isJSONGroup(source);
     
     ok(result);
@@ -252,6 +275,7 @@ test('putout: operator: json: isJSONGroup: false', ({notOk}) => {
         abc([1, 2]);
     
     `;
+    
     const result = isJSONGroup(source);
     
     notOk(result);
