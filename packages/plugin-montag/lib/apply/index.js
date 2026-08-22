@@ -12,7 +12,7 @@ export const match = () => ({
         if (!path.node.loc.start.column)
             return false;
         
-        return __b.value.cooked.includes('\n');
+        return __b.value.raw.includes('\n');
     },
     '__array.join("\\n")': ({__array}) => {
         const {elements} = __array;
