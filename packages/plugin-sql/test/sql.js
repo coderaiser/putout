@@ -47,7 +47,7 @@ test('plugin-sql: no report: convert-lastval-to-last-insert-rowid', (t) => {
     t.end();
 });
 
-test('plugin-sql: no report: apply-generate-series', (t) => {
-    t.noReport('apply-generate-series');
+test('plugin-sql: transform: apply-generate-series', (t) => {
+    t.transform('apply-generate-series');
     t.end();
 });

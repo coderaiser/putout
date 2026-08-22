@@ -67,7 +67,6 @@ SELECT COUNT(*) FROM orders
 
 ### Rules
 
-- ✅ [apply-generate-series](#apply-generate-series);
 - ✅ [convert-last-insert-rowid-to-returning-id](#convert-last-insert-rowid-to-returning-id);
 - ✅ [convert-auto-increment-to-identity](#convert-auto-increment-to-identity);
 
@@ -81,33 +80,6 @@ SELECT COUNT(*) FROM orders
         "sql/convert-sqlite-to-postgres/convert-auto-increment-to-identitiy": "off"
     }
 }
-```
-
-### apply-generate-series
-
-> The `generate_series()` generates a series of values from start to stop, with a step size of step
->
-> [postgresql.org](https://www.postgresql.org/docs/current/functions-srf.html)
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f3344608f9b4749e094dadce67f0ca4b/f8a701e1dfbdba1826311061bc3bf9a79a3415fe).
-
-#### ❌ Example of incorrect code
-
-```sql
-WITH RECURSIVE numbers(value) AS (
-    SELECT 1
-    UNION ALL
-    SELECT value + 2
-    FROM numbers
-    WHERE value < 10
-)
-SELECT value FROM numbers;
-```
-
-#### ✅ Example of correct code
-
-```sql
-SELECT * FROM generate_series(1, 10, 2);
 ```
 
 ### convert-last-insert-rowid-to-returning-id
@@ -269,6 +241,7 @@ SELECT last_insert_rowid();
 
 ### Rules
 
+- ✅ [apply-generate-series](#apply-generate-series);
 - ✅ [convert-sequence-to-serial](#convert-sequence-to-serial);
 - ✅ [convert-serial-to-identity](#convert-serial-to-identity);
 
@@ -277,10 +250,38 @@ SELECT last_insert_rowid();
 ```json
 {
     "rules": {
+        "sql/postgres/apply-generate-series": "on",
         "sql/postgres/convert-sequence-to-serial": "on",
         "sql/postgres/convert-serial-to-identity": "on"
     }
 }
+```
+
+### apply-generate-series
+
+> The `generate_series()` generates a series of values from start to stop, with a step size of step
+>
+> [postgresql.org](https://www.postgresql.org/docs/current/functions-srf.html)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f3344608f9b4749e094dadce67f0ca4b/f8a701e1dfbdba1826311061bc3bf9a79a3415fe).
+
+#### ❌ Example of incorrect code
+
+```sql
+WITH RECURSIVE numbers(value) AS (
+    SELECT 1
+    UNION ALL
+    SELECT value + 2
+    FROM numbers
+    WHERE value < 10
+)
+SELECT value FROM numbers;
+```
+
+#### ✅ Example of correct code
+
+```sql
+SELECT * FROM generate_series(1, 10, 2);
 ```
 
 ### convert-sequence-to-serial
