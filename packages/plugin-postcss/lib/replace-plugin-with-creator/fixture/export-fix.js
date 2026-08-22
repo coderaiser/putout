@@ -7,7 +7,8 @@ var defaultOptions = {
 };
 
 module.exports = function(opts) {
-    opts = extend(extend({},
+    opts = extend(extend(
+        {},
         defaultOptions,
     ), opts);
     

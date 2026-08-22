@@ -1,4 +1,4 @@
 __putout_processor_filesystem(["/", [
     "/package.json",
-    "ewogICJ2ZXJzaW9uIjogIjEuMC4wIiwKICAidHlwZSI6ICJjb21tb25qcyIKfQo="
+    "ewogICd2ZXJzaW9uJzogJzEuMC4wJywKICAndHlwZSc6ICdjb21tb25qcycKfQo="
 ]]);

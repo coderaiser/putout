@@ -2,7 +2,7 @@ __putout_processor_filesystem([
     "/",
     [
         "/package.json",
-        "ewogICJleHBvcnRzIjogewogICAgIi4vcGFyc2Utb3B0aW9ucyI6ICIuL2xpYi9wYXJzZS1vcHRpb25zL2luZGV4LmpzIgogIH0KfQo="
+        "ewogICdleHBvcnRzJzogewogICAgJy4vcGFyc2Utb3B0aW9ucyc6ICcuL2xpYi9wYXJzZS1vcHRpb25zL2luZGV4LmpzJwogIH0KfQo="
     ],
     "/lib/",
     "/lib/parse-options/",
