@@ -41,3 +41,8 @@ test('plugin-montag: apply: no transform: not-str', (t) => {
     t.noTransform('not-str');
     t.end();
 });
+
+test('plugin-montag: apply: no report: top-level', (t) => {
+    t.noReport('top-level');
+    t.end();
+});
