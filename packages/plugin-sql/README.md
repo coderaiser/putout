@@ -69,6 +69,7 @@ SELECT COUNT(*) FROM orders
 
 - ✅ [convert-last-insert-rowid-to-returning-id](#convert-last-insert-rowid-to-returning-id);
 - ✅ [convert-auto-increment-to-identity](#convert-auto-increment-to-identity);
+- ✅ [convert-generate-series-to-with-recursive](#convert-generate-series-to-with-recursive);
 
 ### Config
 
@@ -77,7 +78,8 @@ SELECT COUNT(*) FROM orders
     "rules": {
         "sql/convert-sqlite-to-postgres/apply-generate-series": "off",
         "sql/convert-sqlite-to-postgres/convert-last-insert-rowid-to-returnning-id": "off",
-        "sql/convert-sqlite-to-postgres/convert-auto-increment-to-identitiy": "off"
+        "sql/convert-sqlite-to-postgres/convert-auto-increment-to-identitiy": "off",
+        "sql/convert-sqlite-to-postgres/convert-generate-series-to-with-recursive": "off"
     }
 }
 ```
@@ -137,6 +139,33 @@ CREATE TABLE users (
 CREATE TABLE users (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY
 );
+```
+
+### convert-generate-series-to-with-recursive
+
+> The `generate_series()` generates a series of values from start to stop, with a step size of step
+>
+> [postgresql.org](https://www.postgresql.org/docs/current/functions-srf.html)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/100b3baa207b102b096d5d41c047bb2a/3f48386ab2ed4ad0e607f07d4ad3ca172177e10c).
+
+#### ❌ Example of incorrect code
+
+```sql
+SELECT * FROM generate_series(1, 10, 2);
+```
+
+#### ✅ Example of correct code
+
+```sql
+WITH RECURSIVE numbers(value) AS (
+    SELECT 1
+    UNION ALL
+    SELECT value + 2
+    FROM numbers
+    WHERE value < 10
+)
+SELECT value FROM numbers;
 ```
 
 ## convert-postgres-to-sqlite

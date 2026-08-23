@@ -7,6 +7,7 @@ import * as convertLastInsertRowidToReturningId from './convert-sqlite-to-postgr
 import * as convertWithToSequential from './convert-postgres-to-sqlite/convert-with-to-sequential/index.js';
 import * as applyAutoIncrement from './convert-postgres-to-sqlite/apply-auto-increment/index.js';
 import * as convertLastvalToLastInsertRowid from './convert-postgres-to-sqlite//convert-lastval-to-last-insert-rowid/index.js';
+import * as convertGenerateSeriesToWithRecursive from './convert-postgres-to-sqlite/convert-generate-series-to-with-recursive/index.js';
 
 export const rules = {
     'apply-count': applyCount,
@@ -18,4 +19,5 @@ export const rules = {
     'convert-postgres-to-sqlite/convert-with-to-sequential': ['off', convertWithToSequential],
     'convert-postgres-to-sqlite/apply-auto-increment': ['off', applyAutoIncrement],
     'convert-postgres-to-sqlite/convert-lastval-to-last-insert-rowid': ['off', convertLastvalToLastInsertRowid],
+    'convert-postgres-to-sqlite/convert-generate-series-to-with-recursive': ['off', convertGenerateSeriesToWithRecursive],
 };

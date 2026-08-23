@@ -1,0 +1,12 @@
+__putout_processor_sql([
+    select(
+        '*',
+        from(
+            generateSeries(
+                1,
+                10,
+                2,
+            ),
+        ),
+    ),
+]);

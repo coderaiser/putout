@@ -51,3 +51,8 @@ test('plugin-sql: transform: apply-generate-series', (t) => {
     t.transform('apply-generate-series');
     t.end();
 });
+
+test('plugin-sql: no report: convert-generate-series-to-with-recursive', (t) => {
+    t.noReport('convert-generate-series-to-with-recursive');
+    t.end();
+});

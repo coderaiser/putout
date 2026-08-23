@@ -4,6 +4,7 @@ import * as sql from '../../lib/index.js';
 const test = createTest(import.meta.url, {
     rules: {
         'sql/convert-postgres-to-sqlite': 'on',
+        'sql/postgres': 'off',
     },
     plugins: [
         ['sql', sql],
@@ -17,5 +18,10 @@ test('plugin-sql: transform: convert-postgres-to-sqlite: convert-with-to-sequent
 
 test('plugin-sql: transform: convert-postgres-to-sqlite: apply-auto-increment', (t) => {
     t.transform('apply-auto-increment');
+    t.end();
+});
+
+test('plugin-sql: transform: convert-generate-series-to-with-recursive', (t) => {
+    t.transform('convert-generate-series-to-with-recursive');
     t.end();
 });
