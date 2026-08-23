@@ -49,6 +49,13 @@ export const replace = {
 };
 ```
 
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`remove-useless-computed`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-computed#readme) | ✅
+⏣ **ESLint** | [`no-useless-computed-key`](https://eslint.org/docs/rules/no-useless-computed-key) | ✅
+
 ## License
 
 MIT
