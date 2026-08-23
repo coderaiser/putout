@@ -10,6 +10,7 @@ export const rules = {
     ],
     'dot-notation': 'off',
     'no-useless-assignment': 'off',
+    'no-useless-computed-key': 'off',
     'no-unassigned-vars': 'off',
     'no-global-assign': 'off',
     'no-debugger': 'off',
