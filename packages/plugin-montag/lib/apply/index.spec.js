@@ -51,3 +51,8 @@ test('plugin-montag: apply: no report: no-newlines', (t) => {
     t.noReport('no-newlines');
     t.end();
 });
+
+test('plugin-montag: apply: no report: formatted', (t) => {
+    t.noReport('formatted');
+    t.end();
+});
