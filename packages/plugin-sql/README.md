@@ -172,6 +172,7 @@ SELECT value FROM numbers;
 
 ### Rules
 
+- ✅ [apply-json-extract](#apply-json-extract);
 - ✅ [apply-auto-increment](#apply-auto-increment);
 - ✅ [convert-with-to-sequential](#convert-with-to-sequential);
 - ✅ [convert-lastval-to-last-insert-rowid](#convert-lastval-to-last-insert-rowid);
@@ -181,11 +182,33 @@ SELECT value FROM numbers;
 ```json
 {
     "rules": {
+        "sql/convert-postgrest-to-sqlite/apply-json-extract": "off",
         "sql/convert-postgrest-to-sqlite/apply-auto-increment": "off",
         "sql/convert-postgrest-to-sqlite/convert-with-to-sequential": "off",
         "sql/convert-postgrest-to-sqlite/convert-lastval-to-last-insert-rowid": "off"
     }
 }
+```
+### apply-json-extract
+
+> The `json_extract(X,P1,P2,...)` extracts and returns one or more values from the well-formed JSON at `X`.
+>
+> [sqlite.org](https://sqlite.org/json1.html#the_json_extract_function)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3edec887a1650739b770ab13c470eb80/ee6ca81970429fa26ec85d7ee4058ad88d1b444d).
+
+#### ❌ Example of incorrect code
+
+```sql
+SELECT jsonb_extract_path_text(data, 'user', 'name')
+FROM users;
+```
+
+#### ✅ Example of correct code
+
+```sql
+SELECT json_extract(data, '$.user.name')
+FROM users;
 ```
 
 ### apply-auto-increment

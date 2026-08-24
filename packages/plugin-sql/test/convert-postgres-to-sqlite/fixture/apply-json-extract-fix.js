@@ -1,0 +1,11 @@
+__putout_processor_sql([
+    select(
+        __json_extract(
+            data,
+            '$.user.name',
+        ),
+        from(
+            users,
+        ),
+    ),
+]);

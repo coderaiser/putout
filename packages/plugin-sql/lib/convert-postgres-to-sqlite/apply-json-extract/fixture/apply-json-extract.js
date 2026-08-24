@@ -1,0 +1,12 @@
+__putout_processor_sql([
+    select(
+        jsonb_extract_path_text(
+            data,
+            'user',
+            'name',
+        ),
+        from(
+            users,
+        ),
+    ),
+]);

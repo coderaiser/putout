@@ -25,3 +25,8 @@ test('plugin-sql: transform: convert-generate-series-to-with-recursive', (t) => 
     t.transform('convert-generate-series-to-with-recursive');
     t.end();
 });
+
+test('plugin-sql: transform: apply-json-extract', (t) => {
+    t.transform('apply-json-extract');
+    t.end();
+});

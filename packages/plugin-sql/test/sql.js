@@ -56,3 +56,8 @@ test('plugin-sql: no report: convert-generate-series-to-with-recursive', (t) => 
     t.noReport('convert-generate-series-to-with-recursive');
     t.end();
 });
+
+test('plugin-sql: no report: apply-json-extract', (t) => {
+    t.noReport('apply-json-extract');
+    t.end();
+});
