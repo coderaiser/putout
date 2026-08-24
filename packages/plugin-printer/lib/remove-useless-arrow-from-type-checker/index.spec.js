@@ -16,3 +16,13 @@ test('printer: remove-useless-arrow-from-type-checker: transform', (t) => {
     t.transform('remove-useless-arrow-from-type-checker');
     t.end();
 });
+
+test('printer: remove-useless-arrow-from-type-checker: transform: in-place-of-not', (t) => {
+    t.transform('in-place-of-not');
+    t.end();
+});
+
+test('printer: remove-useless-arrow-from-type-checker: no report: no-array', (t) => {
+    t.noReport('no-array');
+    t.end();
+});
