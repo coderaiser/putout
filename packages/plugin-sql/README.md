@@ -188,6 +188,7 @@ SELECT value FROM numbers;
     }
 }
 ```
+
 ### apply-json-extract
 
 > The `json_extract(X,P1,P2,...)` extracts and returns one or more values from the well-formed JSON at `X`.
