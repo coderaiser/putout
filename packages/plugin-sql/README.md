@@ -76,7 +76,6 @@ SELECT COUNT(*) FROM orders
 ```json
 {
     "rules": {
-        "sql/convert-sqlite-to-postgres/apply-generate-series": "off",
         "sql/convert-sqlite-to-postgres/convert-last-insert-rowid-to-returnning-id": "off",
         "sql/convert-sqlite-to-postgres/convert-auto-increment-to-identitiy": "off",
         "sql/convert-sqlite-to-postgres/convert-generate-series-to-with-recursive": "off"

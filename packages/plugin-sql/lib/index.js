@@ -8,7 +8,7 @@ import * as applyJsonExtract from './convert-postgres-to-sqlite/apply-json-extra
 import * as convertWithToSequential from './convert-postgres-to-sqlite/convert-with-to-sequential/index.js';
 import * as applyAutoIncrement from './convert-postgres-to-sqlite/apply-auto-increment/index.js';
 import * as convertLastvalToLastInsertRowid from './convert-postgres-to-sqlite//convert-lastval-to-last-insert-rowid/index.js';
-import * as convertGenerateSeriesToWithRecursive from './convert-postgres-to-sqlite/convert-generate-series-to-with-recursive/index.js';
+import * as convertGenerateSeriesToWithRecursive from './convert-sqlite-to-postgres/convert-generate-series-to-with-recursive/index.js';
 
 export const rules = {
     'apply-count': applyCount,
