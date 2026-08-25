@@ -54,11 +54,9 @@ test('putout: codeframe: not highlighted', async (t) => {
     };
     
     const source = montag`
-              
-              function(a) {
-                return a;
-              }
-    
+          function(a) {
+            return a;
+          }
     `;
     
     const result = codeframe({
