@@ -11,6 +11,10 @@ const MAX_LENGTH = 20;
 
 const getBody = (path) => {
     const {body} = path.scope.block;
+    
+    if (!body)
+        return [];
+    
     return body.body || body;
 };
 
