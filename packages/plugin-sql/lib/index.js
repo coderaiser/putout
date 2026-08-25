@@ -1,3 +1,4 @@
+import * as applyJsonbExtractPathText from './convert-sqlite-to-postgres/apply-jsonb-extract-path-text/index.js';
 import * as applyCount from './apply-count/index.js';
 import * as convertSerialToIdentity from './postgres/convert-serial-to-identity/index.js';
 import * as convertSequenceToSerial from './postgres/convert-sequence-to-serial/index.js';
@@ -17,6 +18,7 @@ export const rules = {
     'postgres/convert-serial-to-identity': convertSerialToIdentity,
     'convert-sqlite-to-postgres/convert-last-insert-rowid-to-returning-id': ['off', convertLastInsertRowidToReturningId],
     'convert-sqlite-to-postgres/convert-auto-increment-to-identitiy': ['off', convertAutoIncrementToIdentity],
+    'convert-sqlite-to-postgres/apply-jsonb-extract-path-text': ['off', applyJsonbExtractPathText],
     'convert-postgres-to-sqlite/apply-json-extract': ['off', applyJsonExtract],
     'convert-postgres-to-sqlite/convert-with-to-sequential': ['off', convertWithToSequential],
     'convert-postgres-to-sqlite/apply-auto-increment': ['off', applyAutoIncrement],

@@ -10,6 +10,11 @@ const test = createTest(import.meta.url, {
     ],
 });
 
+test('plugin-sql: transform: convert-sqlite-to-postgresql: apply-jsonb-extract-path-text', (t) => {
+    t.transform('apply-jsonb-extract-path-text');
+    t.end();
+});
+
 test('plugin-sql: transform: convert-sqlite-to-postgresql: convert-last-insert-rowid-to-returning-id', (t) => {
     t.transform('convert-last-insert-rowid-to-returning-id');
     t.end();

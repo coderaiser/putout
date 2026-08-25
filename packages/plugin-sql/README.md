@@ -67,6 +67,7 @@ SELECT COUNT(*) FROM orders
 
 ### Rules
 
+- ✅ [apply-jsonb-extract-path-text](#apply-jsonb-extract-path-text);
 - ✅ [convert-last-insert-rowid-to-returning-id](#convert-last-insert-rowid-to-returning-id);
 - ✅ [convert-auto-increment-to-identity](#convert-auto-increment-to-identity);
 - ✅ [convert-generate-series-to-with-recursive](#convert-generate-series-to-with-recursive);
@@ -76,11 +77,34 @@ SELECT COUNT(*) FROM orders
 ```json
 {
     "rules": {
+        "sql/convert-sqlite-to-postgres/apply-jsonb-extract-path-text": "off",
         "sql/convert-sqlite-to-postgres/convert-last-insert-rowid-to-returnning-id": "off",
         "sql/convert-sqlite-to-postgres/convert-auto-increment-to-identitiy": "off",
         "sql/convert-sqlite-to-postgres/convert-generate-series-to-with-recursive": "off"
     }
 }
+```
+
+### apply-jsonb-extract-path-text
+
+> The `jsonb_extract_path_text()` function allows you to extract a JSON subobject as text from a JSONB value at a specified path.
+>
+> [neon.com](https://neon.com/postgresql/json-functions/jsonb_extract_path_text)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/444c34ee61e89b6504a946f100f5b249/635b951b0d7140b6ba112011b98723dbb59b26e3).
+
+#### ❌ Example of incorrect code
+
+```sql
+SELECT json_extract(data, '$.user.name')
+FROM users;
+```
+
+#### ✅ Example of correct code
+
+```sql
+SELECT jsonb_extract_path_text(data, 'user', 'name')
+FROM users;
 ```
 
 ### convert-last-insert-rowid-to-returning-id
