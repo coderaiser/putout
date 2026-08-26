@@ -30,3 +30,8 @@ test('plugin-sql: transform: apply-json-extract', (t) => {
     t.transform('apply-json-extract');
     t.end();
 });
+
+test('plugin-sql: transform: apply-json-type', (t) => {
+    t.transform('apply-json-type');
+    t.end();
+});

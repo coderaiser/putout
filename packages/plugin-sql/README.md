@@ -196,6 +196,7 @@ SELECT value FROM numbers;
 ### Rules
 
 - ✅ [apply-json-extract](#apply-json-extract);
+- ✅ [apply-json-type](#apply-json-type);
 - ✅ [apply-auto-increment](#apply-auto-increment);
 - ✅ [convert-with-to-sequential](#convert-with-to-sequential);
 - ✅ [convert-lastval-to-last-insert-rowid](#convert-lastval-to-last-insert-rowid);
@@ -205,12 +206,37 @@ SELECT value FROM numbers;
 ```json
 {
     "rules": {
+        "sql/convert-postgrest-to-sqlite/apply-json-type": "off",
         "sql/convert-postgrest-to-sqlite/apply-json-extract": "off",
         "sql/convert-postgrest-to-sqlite/apply-auto-increment": "off",
         "sql/convert-postgrest-to-sqlite/convert-with-to-sequential": "off",
         "sql/convert-postgrest-to-sqlite/convert-lastval-to-last-insert-rowid": "off"
     }
 }
+```
+
+### apply-json-type
+
+> The `json_type(X)` function returns the "type" of the outermost element of `X`
+>
+> [sqlite.org](https://sqlite.org/json1.html#the_json_type_function)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0d8264a8f83870f30c8d95dc3baa401d/1e60c9f38641a44bf48bef2728171cf461529a3e).
+
+#### ❌ Example of incorrect code
+
+```sql
+SELECT *
+FROM users
+WHERE data ? 'email';
+```
+
+#### ✅ Example of correct code
+
+```sql
+SELECT *
+FROM users
+WHERE json_type(data, '$.email') IS NOT NULL;
 ```
 
 ### apply-json-extract

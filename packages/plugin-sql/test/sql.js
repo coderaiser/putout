@@ -66,3 +66,8 @@ test('plugin-sql: no report: apply-jsonb-extract-path-text', (t) => {
     t.noReport('apply-jsonb-extract-path-text');
     t.end();
 });
+
+test('plugin-sql: no report: apply-json-type', (t) => {
+    t.noReport('apply-json-type');
+    t.end();
+});

@@ -1,0 +1,16 @@
+__putout_processor_sql([
+    select(
+        '*',
+        from(
+            users,
+            where(
+                iNotNull(
+                    json_type(
+                        data,
+                        '$.email',
+                    ),
+                ),
+            ),
+        ),
+    ),
+]);

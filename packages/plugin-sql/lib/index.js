@@ -1,3 +1,4 @@
+import * as applyIsNotNull from './convert-postgres-to-sqlite/apply-json-type/index.js';
 import * as applyJsonbExtractPathText from './convert-sqlite-to-postgres/apply-jsonb-extract-path-text/index.js';
 import * as applyCount from './apply-count/index.js';
 import * as convertSerialToIdentity from './postgres/convert-serial-to-identity/index.js';
@@ -24,4 +25,5 @@ export const rules = {
     'convert-postgres-to-sqlite/apply-auto-increment': ['off', applyAutoIncrement],
     'convert-postgres-to-sqlite/convert-lastval-to-last-insert-rowid': ['off', convertLastvalToLastInsertRowid],
     'convert-postgres-to-sqlite/convert-generate-series-to-with-recursive': ['off', convertGenerateSeriesToWithRecursive],
+    'convert-postgres-to-sqlite/apply-json-type': ['off', applyIsNotNull],
 };
