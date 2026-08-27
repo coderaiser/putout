@@ -111,7 +111,6 @@ FROM users
 WHERE data ? 'email';
 ```
 
-
 ### apply-jsonb-extract-path-text
 
 > The `jsonb_extract_path_text()` function allows you to extract a JSON subobject as text from a JSONB value at a specified path.
