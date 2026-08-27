@@ -7,6 +7,6 @@ export const report = () => `Use 'IS NOT NULL' instead of '?'`;
 export const replace = () => ({
     '[__a, "?", "__b"]': ({__b}) => {
         setLiteralValue(__b, `$.${__b.value}`);
-        return 'iNotNull(json_type(__a, "__b"))';
+        return 'isNotNull(json_type(__a, "__b"))';
     },
 });

@@ -4,7 +4,7 @@ __putout_processor_sql([
         from(
             users,
             where(
-                iNotNull(
+                isNotNull(
                     json_type(
                         data,
                         '$.email',
