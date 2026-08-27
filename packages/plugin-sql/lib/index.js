@@ -10,6 +10,7 @@ import * as applyJsonExtract from './convert-postgres-to-sqlite/apply-json-extra
 import * as convertWithToSequential from './convert-postgres-to-sqlite/convert-with-to-sequential/index.js';
 import * as applyAutoIncrement from './convert-postgres-to-sqlite/apply-auto-increment/index.js';
 import * as convertLastvalToLastInsertRowid from './convert-postgres-to-sqlite//convert-lastval-to-last-insert-rowid/index.js';
+import * as applyKeyExists from './convert-sqlite-to-postgres/apply-key-exists/index.js';
 import * as convertGenerateSeriesToWithRecursive from './convert-sqlite-to-postgres/convert-generate-series-to-with-recursive/index.js';
 
 export const rules = {
@@ -20,6 +21,7 @@ export const rules = {
     'convert-sqlite-to-postgres/convert-last-insert-rowid-to-returning-id': ['off', convertLastInsertRowidToReturningId],
     'convert-sqlite-to-postgres/convert-auto-increment-to-identitiy': ['off', convertAutoIncrementToIdentity],
     'convert-sqlite-to-postgres/apply-jsonb-extract-path-text': ['off', applyJsonbExtractPathText],
+    'convert-sqlite-to-postgres/apply-key-exists': ['off', applyKeyExists],
     'convert-postgres-to-sqlite/apply-json-extract': ['off', applyJsonExtract],
     'convert-postgres-to-sqlite/convert-with-to-sequential': ['off', convertWithToSequential],
     'convert-postgres-to-sqlite/apply-auto-increment': ['off', applyAutoIncrement],

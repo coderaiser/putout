@@ -71,3 +71,8 @@ test('plugin-sql: no report: apply-json-type', (t) => {
     t.noReport('apply-json-type');
     t.end();
 });
+
+test('plugin-sql: no report: apply-key-exists', (t) => {
+    t.noReport('apply-key-exists');
+    t.end();
+});

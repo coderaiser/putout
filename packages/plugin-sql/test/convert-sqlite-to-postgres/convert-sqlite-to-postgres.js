@@ -24,3 +24,8 @@ test('plugin-sql: transform: convert-sqlite-to-postgresql: convert-auto-incremen
     t.transform('convert-auto-increment-to-identity');
     t.end();
 });
+
+test('plugin-sql: transform: apply-key-exists', (t) => {
+    t.transform('apply-key-exists');
+    t.end();
+});

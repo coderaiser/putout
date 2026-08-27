@@ -67,6 +67,7 @@ SELECT COUNT(*) FROM orders
 
 ### Rules
 
+- ✅ [apply-key-exists](#apply-key-exists);
 - ✅ [apply-jsonb-extract-path-text](#apply-jsonb-extract-path-text);
 - ✅ [convert-last-insert-rowid-to-returning-id](#convert-last-insert-rowid-to-returning-id);
 - ✅ [convert-auto-increment-to-identity](#convert-auto-increment-to-identity);
@@ -77,6 +78,7 @@ SELECT COUNT(*) FROM orders
 ```json
 {
     "rules": {
+        "sql/convert-sqlite-to-postgres/apply-key-exists": "off",
         "sql/convert-sqlite-to-postgres/apply-jsonb-extract-path-text": "off",
         "sql/convert-sqlite-to-postgres/convert-last-insert-rowid-to-returnning-id": "off",
         "sql/convert-sqlite-to-postgres/convert-auto-increment-to-identitiy": "off",
@@ -84,6 +86,31 @@ SELECT COUNT(*) FROM orders
     }
 }
 ```
+
+### apply-key-exists
+
+> `?` - does the string exist as a top-level key within the JSON value?
+>
+> [postgresql.org](https://www.postgresql.org/docs/9.5/functions-json.html)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c7d946f9969cc7e60322e9b4f1d93f31/558fd06f0b54f86a8f18949c607f313f6660748f).
+
+#### ❌ Example of incorrect code
+
+```sql
+SELECT *
+FROM users
+WHERE json_type(data, '$.email') IS NOT NULL;
+```
+
+#### ✅ Example of correct code
+
+```sql
+SELECT *
+FROM users
+WHERE data ? 'email';
+```
+
 
 ### apply-jsonb-extract-path-text
 
