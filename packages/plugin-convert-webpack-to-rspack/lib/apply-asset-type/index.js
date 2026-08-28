@@ -12,6 +12,7 @@ const {
     isStringLiteral,
     isIdentifier,
 } = types;
+
 const {insertAfter, remove} = operator;
 
 const isUse = (path) => isIdentifier(path.node.key, {

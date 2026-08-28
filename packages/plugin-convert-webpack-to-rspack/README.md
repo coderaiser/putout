@@ -94,6 +94,7 @@ export default {
 ```
 
 ## apply-asset-type
+
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6d4152d33dd67f39ef4a1d56769dc22b/a6d7b603f326717a462c01fb9568e4f989ca7af7).
 
 ### ❌ Example of incorrect code
