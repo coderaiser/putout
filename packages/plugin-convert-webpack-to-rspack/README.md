@@ -182,3 +182,7 @@ export default {
     plugins: [],
 };
 ```
+
+## License
+
+MIT
