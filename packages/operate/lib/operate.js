@@ -24,14 +24,21 @@ export {
 
 const {
     matchesPattern,
+    isArrayExpression,
     isImportDeclaration,
     isExportDeclaration,
     isStatement,
+    isSequenceExpression,
     expressionStatement,
 } = types;
 
 export const insertBefore = (path, node) => {
     path.insertBefore(node);
+    
+    if (isSequenceExpression(path) && isArrayExpression(path.parentPath)) {
+        const {key} = path;
+        path.parentPath.node.elements.splice(key, 1, ...path.node.expressions);
+    }
 };
 
 export const insertAfter = (path, node) => {

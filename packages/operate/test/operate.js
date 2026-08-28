@@ -86,6 +86,35 @@ test('putout: operate: insertBefore', (t) => {
     t.end();
 });
 
+test('putout: operate: insertBefore: inside array', (t) => {
+    const source = '[a()]';
+    const ast = parse(source);
+    
+    traverse(ast, {
+        CallExpression(path) {
+            if (path.node.callee.name !== 'a')
+                return;
+            
+            if (path.getPrevSibling().node)
+                return;
+            
+            operate.insertBefore(path, callExpression(identifier('b'), []));
+        },
+    });
+    
+    const result = print(ast);
+    
+    const expected = montag`
+        [
+            b(),
+            a(),
+        ];\n
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('putout: operate: insertAfter: trailingComments', (t) => {
     const source = montag`
                 
