@@ -21,6 +21,7 @@ npm i @putout/plugin-logical-expressions -D
 ## Rules
 
 - ✅ [convert-bitwise-to-logical](#convert-bitwise-to-logical);
+- ✅ [convert-coalescing-to-logical](#convert-coalescing-to-logical);
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-duplicates](#remove-duplicates);
 - ✅ [simplify](#simplify);
@@ -30,10 +31,11 @@ npm i @putout/plugin-logical-expressions -D
 ```json
 {
     "rules": {
+        "logical-expressions/convert-bitwise-to-logical": "on",
+        "logical-expressions/convert-coalescing-to-logical": "on",
         "logical-expressions/simplify": "on",
         "logical-expressions/remove-boolean": "on",
-        "logical-expressions/remove-duplicates": "on",
-        "logical-expressions/convert-bitwise-to-logical": "on"
+        "logical-expressions/remove-duplicates": "on"
     }
 }
 ```
