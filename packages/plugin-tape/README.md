@@ -35,6 +35,7 @@ npm i @putout/plugin-tape -D
 - ✅ [convert-equal-to-not-ok](#convert-equal-to-not-ok);
 - ✅ [convert-equal-to-ok](#convert-equal-to-ok);
 - ✅ [convert-equals-to-equal](#convert-equals-to-equal);
+- ✅ [convert-equal-length-to-match-string](#convert-equal-length-to-match-string);
 - ✅ [convert-match-regexp-to-string](#convert-match-regexp-to-string);
 - ✅ [convert-ok-to-called-with](#convert-ok-to-called-with);
 - ✅ [convert-ok-to-match](#convert-ok-to-match);
@@ -78,6 +79,7 @@ npm i @putout/plugin-tape -D
         "tape/convert-equal-to-called-once": "on",
         "tape/convert-equal-to-deep-equal": "on",
         "tape/convert-equals-to-equal": "on",
+        "tape/convert-equal-length-to-match-string": "on",
         "tape/convert-deep-equal-to-equal": "on",
         "tape/convert-emitter-to-promise": "on",
         "tape/convert-ok-to-match": "on",
