@@ -202,3 +202,8 @@ test('plugin-tape: transform: remove-t-from-async', (t) => {
     t.transform('remove-t-from-async');
     t.end();
 });
+
+test('plugin-tape: transform: convert-equal-length-to-match-string', (t) => {
+    t.transform('convert-equal-length-to-match-string');
+    t.end();
+});

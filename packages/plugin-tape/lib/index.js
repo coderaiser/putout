@@ -1,3 +1,4 @@
+import * as convertEqualLengthToMatchString from './convert-equal-length-to-match-string/index.js';
 import * as removeTFromAsync from './remove-t-from-async/index.js';
 import * as applyStringify from './apply-stringify/index.js';
 import * as applyAssertionsOrder from './apply-assertions-order/index.js';
@@ -74,4 +75,5 @@ export const rules = {
     'apply-assertions-order': applyAssertionsOrder,
     'apply-stringify': applyStringify,
     'remove-t-from-async': removeTFromAsync,
+    'convert-equal-length-to-match-string': convertEqualLengthToMatchString,
 };

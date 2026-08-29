@@ -920,6 +920,30 @@ const expected = {
 t.deepEqual(result, expected);
 ```
 
+## convert-equal-length-to-match-string
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/df8cdc1545ac527b79ecc9bbca98f0d5/167216bb0f2228f1d4214f2d55ef5acef2d96447).
+
+### ❌ Example of incorrect code
+
+```js
+test('hello: world', (t) => {
+    const count = (written.match(/## my-rule/) || []).length;
+    
+    t.equal(count, 1);
+    t.end();
+});
+```
+
+### ✅ Example of correct code
+
+```js
+test('hello: world', (t) => {
+    t.match(written, /## my-rule/);
+    t.end();
+});
+```
+
 ## License
 
 MIT
