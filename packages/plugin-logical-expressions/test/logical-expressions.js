@@ -26,3 +26,8 @@ test('plugin-logical-expressions: convert-bitwise-to-logical', (t) => {
     t.transform('convert-bitwise-to-logical');
     t.end();
 });
+
+test('plugin-logical-expressions: transform: convert-coalescing-to-logical', (t) => {
+    t.transform('convert-coalescing-to-logical');
+    t.end();
+});

@@ -160,10 +160,26 @@ if (a === b)
 
 ## Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout**| [`logical-expressions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-logical-expressions#readme)| ✅
-⏣ **ESLint** | [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) | ❌
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`logical-expressions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-logical-expressions#readme) | ✅   |
+| ⏣ **ESLint**  | [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) | ❌   |
+
+## convert-coalescing-to-logical
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8095c8bec8a289030cc725dc522e1840/3898c13dd1750064172d504adf8b0907da8a0429).
+
+### ❌ Example of incorrect code
+
+```js
+const fn = cb ?? noop;
+```
+
+### ✅ Example of correct code
+
+```js
+const fn = cb || noop;
+```
 
 ## License
 
