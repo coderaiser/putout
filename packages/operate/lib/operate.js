@@ -52,6 +52,8 @@ export const insertAfter = (path, node) => {
     
     if (isStatement(path) && !isStatement(node))
         path.insertAfter(expressionStatement(node));
+    else if (isArrayExpression(path.parentPath))
+        path.parentPath.node.elements.splice(path.key, 1, ...[path.node, node]);
     else
         path.insertAfter(node);
     
