@@ -83,9 +83,9 @@ export const branch = async (rawSource) => {
     
     return list;
 };
+
 export const merge = async (rawSource, list) => {
     const [mdJs, ...newList] = list;
-    
     const md = convertJsToMarkdown(fromJS(mdJs, __markdown));
     
     const {value} = await unified()

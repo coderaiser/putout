@@ -1,7 +1,11 @@
 import {createTest} from '@putout/test/processor';
 import {montag} from 'montag';
 import * as madcut from 'madcut/plugin';
-import {find, branch} from '../lib/markdown.js';
+import {
+    find,
+    branch,
+    merge,
+} from '../lib/markdown.js';
 
 const test = createTest(import.meta.url, {
     extension: 'md',
@@ -201,4 +205,22 @@ test('putout: processor: markdown: process: split-link-with-title: compare place
         },
         rule: 'markdown/split-link-with-title',
     }]);
+});
+
+test('putout: processor: markdown: merge', async ({equal}) => {
+    const raw = montag`
+        \`\`\`json
+            {
+                "hello": "world"
+            }
+       \`\`\`
+    
+    `;
+    
+    const list = await branch(raw);
+    const [{source}] = list;
+    
+    const code = await merge(raw, [source, list[1].source]);
+    
+    equal(code, raw);
 });
