@@ -36,7 +36,7 @@ result = typeof result === 'undefined' ? 'hello' : result;
 ## ✅ Example of correct code
 
 ```js
-const result = result ?? 'hello';
+const result = result || 'hello';
 ```
 
 ## License

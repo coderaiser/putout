@@ -22,8 +22,8 @@ const report = (path, {message}) => message;
 
 export const matchFiles = (options) => {
     const {filename} = options;
-    const files = options.files ?? options;
-    const exclude = options.exclude ?? [];
+    const files = options.files || options;
+    const exclude = options.exclude || [];
     
     check(files);
     
@@ -61,7 +61,7 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
     const allFiles = [];
     const cwd = getFilename(mainPath);
     
-    options.filename = options.filename ?? defaultFilename;
+    options.filename = options.filename || defaultFilename;
     
     for (const [filename, rawOptions] of entries(files)) {
         const [matchInputFilenameMask] = parseMatcher(filename, options);
