@@ -13,6 +13,16 @@ export const report = () => `Avoid duplicate imports`;
 
 export const fix = ({path, imports}) => {
     const all = [];
+    const {node} = path;
+    const {importKind, specifiers} = node;
+    
+    if (importKind === 'type') {
+        node.importKind = 'value';
+        
+        for (const spec of specifiers) {
+            spec.importKind = 'type';
+        }
+    }
     
     for (const imp of imports) {
         const {specifiers} = imp.node;
