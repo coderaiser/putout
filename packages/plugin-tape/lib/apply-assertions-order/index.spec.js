@@ -23,6 +23,11 @@ test('tape: apply-assertions-order: transform', (t) => {
     t.end();
 });
 
+test('tape: apply-assertions-order: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
+
 test('tape: apply-assertions-order: no report: no-prev', (t) => {
     t.noReport('no-prev');
     t.end();

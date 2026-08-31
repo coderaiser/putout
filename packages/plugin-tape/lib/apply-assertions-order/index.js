@@ -14,15 +14,15 @@ const printNode = (a) => print(a, {
     }],
 });
 
-export const report = ({prev, prevPrev}) => {
-    return `Use '${printNode(prev)}' before '${printNode(prevPrev)}'`;
+export const report = ({prev, assertion}) => {
+    return `Use '${printNode(prev)}' before '${printNode(assertion)}'`;
 };
 
-export const fix = ({prev, prevPrev}) => {
+export const fix = ({prev, assertion}) => {
     const prevNode = prev.node;
     
     remove(prev);
-    insertBefore(prevPrev, prevNode);
+    insertBefore(assertion, prevNode);
 };
 
 export const traverse = ({push}) => ({
@@ -35,15 +35,27 @@ export const traverse = ({push}) => ({
         if (compare(prev, 't.__a(__args)'))
             return;
         
-        const prevPrev = prev.getPrevSibling();
+        const assertion = findAssertion(prev);
         
-        if (!compare(prevPrev, 't.__a(__args)'))
+        if (!assertion)
             return;
         
         push({
             path,
             prev,
-            prevPrev,
+            assertion,
         });
     },
 });
+
+function findAssertion(path) {
+    const prev = path.getPrevSibling();
+    
+    if (compare(prev, 't.__a(__args)'))
+        return prev;
+    
+    if (!prev.node)
+        return null;
+    
+    return findAssertion(prev);
+}
