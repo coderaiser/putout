@@ -1,6 +1,7 @@
 {
     "extends": ["stylelint-config-standard"],
     "rules": {
+        "selector-id-pattern": null,
         "import-notation": "string",
         "at-rule-prelude-no-invalid": null,
         "@stylistic/indentation": 4,
