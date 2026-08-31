@@ -1,6 +1,8 @@
 {
     "extends": ["stylelint-config-standard"],
     "rules": {
+        "import-notation": "string",
+        "at-rule-prelude-no-invalid": null,
         "@stylistic/indentation": 4,
         "selector-class-pattern": null,
         "@stylistic/declaration-block-trailing-semicolon": "always",
@@ -10,7 +12,7 @@
         "@stylistic/number-leading-zero": null,
         "@stylistic/number-no-trailing-zeros": null,
         "@stylistic/string-quotes": "single",
-        "function-url-quotes": "never",
+        "function-url-quotes": "always",
         "@stylistic/no-eol-whitespace": null,
         "font-family-name-quotes": "always-unless-keyword",
         "font-family-no-missing-generic-family-keyword": null,

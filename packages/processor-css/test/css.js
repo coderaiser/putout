@@ -47,6 +47,10 @@ test('putout: processor: css: no process: template', async ({noProcess}) => {
     await noProcess('template');
 });
 
-test('putout: processor: css: no process: no-descending-specificity', async ({comparePlaces}) => {
+test('putout: processor: css: no places: no-descending-specificity', async ({comparePlaces}) => {
     await comparePlaces('no-descending-specificity', []);
+});
+
+test('putout: processor: css: no places: at-rule-prelude', async ({comparePlaces}) => {
+    await comparePlaces('at-rule-prelude', []);
 });
