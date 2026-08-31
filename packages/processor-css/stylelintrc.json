@@ -1,6 +1,7 @@
 {
     "extends": ["stylelint-config-standard"],
     "rules": {
+        "declaration-block-single-line-max-declarations": null,
         "selector-id-pattern": null,
         "import-notation": "string",
         "at-rule-prelude-no-invalid": null,
