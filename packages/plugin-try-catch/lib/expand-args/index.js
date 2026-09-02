@@ -45,8 +45,6 @@ export const replace = () => ({
         
         if (path.node.arguments.length === 1)
             path.node.arguments = [node.callee, ...node.arguments];
-        else
-            path.node.arguments[0] = node.callee;
         
         remove(fnPath);
         
