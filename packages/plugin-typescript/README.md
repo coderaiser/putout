@@ -130,7 +130,7 @@ const isNumber = (a) => typeof a === 'number';
 ### ✅ Example of correct code
 
 ```ts
-const isNumber = (a): a is number => typeof a === 'number';
+const isNumber = (a: unknown): a is number => typeof a === 'number';
 ```
 
 ## convert-generic-to-shorthand

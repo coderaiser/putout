@@ -26,3 +26,13 @@ test('plugin-apply-guards: transform: fn', (t) => {
     t.transform('fn');
     t.end();
 });
+
+test('plugin-apply-guards: transform: is-number', (t) => {
+    t.transform('is-number');
+    t.end();
+});
+
+test('plugin-apply-guards: no report: is-number-with-type-guard', (t) => {
+    t.noReport('is-number-with-type-guard');
+    t.end();
+});

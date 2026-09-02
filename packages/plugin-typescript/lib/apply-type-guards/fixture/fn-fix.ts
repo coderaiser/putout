@@ -1,1 +1,1 @@
-const isFn = (a): a is Function => typeof a === 'function';
+const isFn = (a: unknown): a is Function => typeof a === 'function';
