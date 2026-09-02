@@ -1,6 +1,10 @@
 import {operator} from 'putout';
 
-const {remove} = operator;
+const {
+    remove,
+    getBindingPath,
+    extract,
+} = operator;
 
 export const report = () => `Expand 'tryCatch()' arguments`;
 
@@ -8,19 +12,25 @@ export const match = () => ({
     'tryCatch(__args)': ({__args}, path) => {
         const [fn] = __args;
         const {name} = fn;
-        const {bindings} = path.scope;
+        const bindingPath = getBindingPath(path, name);
         
-        if (!bindings[name])
+        if (!bindingPath)
             return false;
         
-        const initPath = bindings[name].path.get('init');
+        const initPath = bindingPath.get('init');
         
         if (!initPath.isFunction())
             return false;
         
         const bodyPath = initPath.get('body');
         
-        return bodyPath.isCallExpression();
+        if (!bodyPath.isCallExpression())
+            return false;
+        
+        const calleePath = bodyPath.get('callee');
+        const calleeName = extract(calleePath);
+        
+        return getBindingPath(path, calleeName);
     },
 });
 

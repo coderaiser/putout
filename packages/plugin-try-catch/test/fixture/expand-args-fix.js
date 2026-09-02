@@ -1,3 +1,4 @@
+import {copymitter} from 'copymitter';
 import {tryCatch} from 'try-catch';
 
 test('message', (t) => {

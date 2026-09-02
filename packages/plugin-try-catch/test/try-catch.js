@@ -27,8 +27,8 @@ test('plugin-try-catch: transform: args', (t) => {
     t.end();
 });
 
-test('plugin-try-catch: transform: expand-arguments', (t) => {
-    t.transform('expand-arguments');
+test('plugin-try-catch: transform: expand-args', (t) => {
+    t.transform('expand-args');
     t.end();
 });
 

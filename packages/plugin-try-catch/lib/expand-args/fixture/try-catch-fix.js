@@ -1,3 +1,5 @@
+import {copymitter} from 'copymitter';
+
 test('message', (t) => {
     const [error] = tryCatch(copymitter, '/hello');
     

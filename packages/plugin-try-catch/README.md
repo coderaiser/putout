@@ -26,7 +26,7 @@ npm i @putout/plugin-try-catch
 - ✅ [args](#args);
 - ✅ [apply-destructuring](#apply-destructuring);
 - ✅ [declare](#declare);
-- ✅ [expand-arguments](#expand-args);
+- ✅ [expand-args](#expand-args);
 - ✅ [sync](#sync);
 - ✅ [async](#async);
 
@@ -39,7 +39,7 @@ npm i @putout/plugin-try-catch
         "try-catch/args": "on",
         "try-catch/apply-destructuring": "on",
         "try-catch/declare": "on",
-        "try-catch/expand-arguments": "on",
+        "try-catch/expand-args": "on",
         "try-catch/sync": "on",
         "try-catch/async": "on"
     }
