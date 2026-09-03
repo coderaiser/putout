@@ -43,6 +43,7 @@ export const fix = (file, {ast, from, to}) => {
 export const scan = (rootPath, {push, trackFile}) => {
     const mask = [
         '*.js',
+        '*.ts',
         '*.mjs',
     ];
     

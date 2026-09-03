@@ -42,6 +42,11 @@ test('putout: esm: shorten-imported-file: get-imports: report: export from: *', 
     t.end();
 });
 
+test('putout: esm: shorten-imported-file: get-imports: report: export from: *: ts', (t) => {
+    t.reportCode(`export * from './a.ts'`, './a.ts');
+    t.end();
+});
+
 test('putout: esm: shorten-imported-file: get-imports: report: dynamic: identifier', (t) => {
     t.noReportCode(`await import(a)`);
     t.end();

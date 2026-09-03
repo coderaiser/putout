@@ -66,3 +66,8 @@ test('esm: apply-privately-imported-file: transform: export', (t) => {
     t.transform('export');
     t.end();
 });
+
+test('esm: apply-privately-imported-file: transform: ts', (t) => {
+    t.transform('ts');
+    t.end();
+});

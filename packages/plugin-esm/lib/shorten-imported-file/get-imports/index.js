@@ -15,5 +15,5 @@ export const filter = (path) => {
     if (!value.startsWith('.'))
         return false;
     
-    return /\.[mc]?js/.test(value);
+    return /\.[mc]?[jt]s/.test(value);
 };
