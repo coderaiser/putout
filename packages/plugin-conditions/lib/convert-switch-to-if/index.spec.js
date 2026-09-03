@@ -22,7 +22,7 @@ test('putout: convert-switch-to-if: no report: no-return', (t) => {
     t.end();
 });
 
-test('putout: convert-switch-to-if: no report: default', (t) => {
-    t.noReport('default');
+test('putout: convert-switch-to-if: transform: default', (t) => {
+    t.transform('default');
     t.end();
 });
