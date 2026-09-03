@@ -4,7 +4,13 @@ import {
     template,
 } from 'putout';
 
-const {identifier} = types;
+const {
+    identifier,
+    isIdentifier,
+    tsAsExpression,
+    tsBooleanKeyword,
+} = types;
+
 const {replaceWith} = operator;
 
 const create = template('(__a: unknown): __a is __c => typeof __a === "__b"', {
@@ -30,7 +36,7 @@ export const replace = () => ({
             __a,
             __b,
             __c,
-            __d,
+            __d: buildD(__d),
         }));
         
         return path;
@@ -53,4 +59,11 @@ function parseGuard({value}) {
         return identifier('Function');
     
     return identifier(value);
+}
+
+function buildD(__d) {
+    if (isIdentifier(__d))
+        return tsAsExpression(__d, tsBooleanKeyword());
+    
+    return __d;
 }

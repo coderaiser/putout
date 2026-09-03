@@ -36,3 +36,8 @@ test('plugin-apply-guards: no report: is-number-with-type-guard', (t) => {
     t.noReport('is-number-with-type-guard');
     t.end();
 });
+
+test('plugin-apply-guards: transform: identifier-and', (t) => {
+    t.transform('identifier-and');
+    t.end();
+});
