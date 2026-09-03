@@ -8,7 +8,7 @@ __putout_processor_filesystem([
     "/lib/tokenize/",
     [
         "/lib/tokenize/is.ts",
-        "CiAgICAgICAgZXhwb3J0IGNvbnN0IGlzUHJldiA9IChwYXRoKSA9PiB7CiAgICAgICAgICAgIGNvbnN0IG5leHQgPSBwYXRoLmdldFByZXZTaWJsaW5nKCk7CiAgICAgICAgICAgIHJldHVybiBuZXh0Lm5vZGU7CiAgICAgICAgfTsKICAgIA=="
+        "CiAgICAgICAgZXhwb3J0IGNvbnN0IGlzUHJldiA9IChwYXRoKSA9PiB7CiAgICAgICAgICAgIGNvbnN0IG5leHQ6IE5leHQgPSBwYXRoLmdldFByZXZTaWJsaW5nKCk7CiAgICAgICAgICAgIHJldHVybiBuZXh0Lm5vZGU7CiAgICAgICAgfTsKICAgIA=="
     ],
     "/lib/tokenize/expressions/",
     [

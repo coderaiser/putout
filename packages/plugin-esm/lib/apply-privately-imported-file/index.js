@@ -56,7 +56,9 @@ export const scan = (rootPath, {push, trackFile}) => {
         if (!privateImports.size)
             continue;
         
-        const ast = parse(content);
+        const ast = parse(content, {
+            isTS: true,
+        });
         
         const places = findPlaces(ast, {
             plugins: [

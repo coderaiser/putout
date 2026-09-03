@@ -13,7 +13,7 @@ __putout_processor_filesystem([
     '/lib/tokenize/',
     ['/lib/tokenize/is.ts', `
         export const isPrev = (path) => {
-            const next = path.getPrevSibling();
+            const next: Next = path.getPrevSibling();
             return next.node;
         };
     `],
