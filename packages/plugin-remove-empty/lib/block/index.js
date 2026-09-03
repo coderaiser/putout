@@ -120,29 +120,26 @@ function blockIsAlternate(node, parentNode) {
 }
 
 function reverse(a) {
-    switch(a) {
-    case '>':
+    if (a === '>')
         return '<=';
     
-    case '<':
+    if (a === '<')
         return '>=';
     
-    case '<=':
+    if (a === '<=')
         return '>';
     
-    case '>=':
+    if (a === '>=')
         return '<';
     
-    case '!':
+    if (a === '!')
         return '';
     
-    case '!=':
+    if (a === '!=')
         return '==';
     
-    case '!==':
+    if (a === '!==')
         return '===';
     
-    default:
-        return `!${a}`.replace('=', '');
-    }
+    return `!${a}`.replace('=', '');
 }
