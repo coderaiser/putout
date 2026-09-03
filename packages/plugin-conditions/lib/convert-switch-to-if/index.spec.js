@@ -26,3 +26,8 @@ test('putout: convert-switch-to-if: transform: default', (t) => {
     t.transform('default');
     t.end();
 });
+
+test('putout: convert-switch-to-if: transform: default-multiple', (t) => {
+    t.transform('default-multiple');
+    t.end();
+});

@@ -20,7 +20,7 @@ export const fix = (path) => {
         const {test, consequent} = currentCase.node;
         
         if (!test) {
-            nodes.push(consequent[0]);
+            nodes.push(...consequent);
             continue;
         }
         
