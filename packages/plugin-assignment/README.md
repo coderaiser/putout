@@ -15,6 +15,7 @@ npm i putout @putout/plugin-assignment -D
 
 ## Rules
 
+- ✅ [remove-useless-undefined](#remove-useless-undefined)
 - ✅ [convert-to-arrow-function](#convert-to-arrow-function);
 - ✅ [convert-to-comparison](#convert-to-comparison);
 - ✅ [convert-to-declaration](#convert-to-declaration);
@@ -30,7 +31,8 @@ npm i putout @putout/plugin-assignment -D
         "assignment/convert-to-comparison": "on",
         "assignment/convert-to-declaration": "on",
         "assignment/simplify": "on",
-        "assignment/split": "on"
+        "assignment/split": "on",
+        "assignment/remove-useless-undefined": "on"
     }
 }
 ```
@@ -132,6 +134,27 @@ a = b = c = 1;
 a = 1;
 b = a;
 c = a;
+```
+
+## remove-useless-undefined
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/de00120e433802e73ae9464b4e63b718/e4cd06b2486afce08e213809de9f0dba7b2e94ea).
+
+### ❌ Example of incorrect code
+
+```js
+const x = ({a} = {
+    a: undefined,
+    b: '',
+}) => a;
+```
+
+### ✅ Example of correct code
+
+```js
+const x = ({a} = {
+    b: '',
+}) => a;
 ```
 
 ## License

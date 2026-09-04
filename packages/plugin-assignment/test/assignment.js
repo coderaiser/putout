@@ -31,3 +31,8 @@ test('putout: plugin: assignment: split', (t) => {
     t.transform('split');
     t.end();
 });
+
+test('plugin-assignment: transform: remove-useless-undefined', (t) => {
+    t.transform('remove-useless-undefined');
+    t.end();
+});
