@@ -17,6 +17,11 @@ test('putout: plugin-convert-webpack-to-rspack: apply-asset-type: transform: url
     t.end();
 });
 
+test('putout: plugin-convert-webpack-to-rspack: apply-asset-type: no report: use-array', (t) => {
+    t.noReport('use-array');
+    t.end();
+});
+
 test('putout: plugin-convert-webpack-to-rspack: apply-asset-type: no transform: no-url-loader', (t) => {
     t.noTransform('no-url-loader');
     t.end();

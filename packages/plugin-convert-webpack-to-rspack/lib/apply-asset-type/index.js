@@ -11,6 +11,7 @@ const {
     objectProperty,
     isStringLiteral,
     isIdentifier,
+    isArrayExpression,
 } = types;
 
 const {insertAfter, remove} = operator;
@@ -59,7 +60,12 @@ export const traverse = ({push}) => ({
             if (!isUse(propertyUse))
                 continue;
             
-            const properties = propertyUse.get('value.properties').filter(isObjectProperty);
+            const valuePath = propertyUse.get('value');
+            
+            if (isArrayExpression(valuePath))
+                continue;
+            
+            const properties = valuePath.get('properties').filter(isObjectProperty);
             
             for (const property of properties) {
                 if (!isUrlLoader(property))
