@@ -36,3 +36,8 @@ test('plugin-remove-useless-spread: transform: convert-object-assign-to-merge-sp
     t.transform('convert-object-assign-to-merge-spread');
     t.end();
 });
+
+test('plugin-spread: transform: remove-useless-logical', (t) => {
+    t.transform('remove-useless-logical');
+    t.end();
+});

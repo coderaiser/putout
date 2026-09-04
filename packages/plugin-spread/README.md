@@ -17,6 +17,7 @@ npm i @putout/plugin-spread
 
 ## Rules
 
+- ✅ [remove-useless-logical](#remove-useless-logical)
 - ✅ [convert-apply-to-spread](#convert-apply-to-spread);
 - ✅ [convert-convert-object-assign-to-merge-spread](#convert-object-assign-to-merge-spread);
 - ✅ [simplify-nested](#simplify-nested);
@@ -32,7 +33,8 @@ npm i @putout/plugin-spread
         "spread/convert-object-assign-to-merge-spread": "on",
         "spread/remove-useless-array": "on",
         "spread/remove-useless-object": "on",
-        "spread/simplify-nested": "on"
+        "spread/simplify-nested": "on",
+        "spread/remove-useless-logical": "on"
     }
 }
 ```
@@ -70,10 +72,10 @@ function merge(a) {
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`spread/convert-object-assign-to-merge-spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-spread#convert-object-assign-to-merge-spread) | ✅
-⏣ **ESLint** | [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread) | ✅
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`spread/convert-object-assign-to-merge-spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-spread#convert-object-assign-to-merge-spread) | ✅   |
+| ⏣ **ESLint**  | [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread) | ✅   |
 
 ## remove-useless-array
 
@@ -162,6 +164,32 @@ console.apply(null, arguments);
 
 ```js
 console.log(...arguments);
+```
+
+## remove-useless-logical
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6ceb0366f6576b18d4c08afe266ee637/da9616c2ad6f21472704d44e65609e81de22721c).
+
+### ❌ Example of incorrect code
+
+```js
+const state = {
+    workbench: {
+        ...base.workbench,
+        ...overrides.workbench || {},
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+const state = {
+    workbench: {
+        ...base.workbench,
+        ...overrides.workbench,
+    },
+};
 ```
 
 ## License

@@ -1,3 +1,4 @@
+import * as removeUselessLogical from './remove-useless-logical/index.js';
 import * as convertObjectAssignToMergeSpread from './convert-object-assign-to-merge-spread/index.js';
 import * as convertApplyToSpread from './convert-apply-to-spread/index.js';
 import * as removeUselessArray from './remove-useless-array/index.js';
@@ -10,4 +11,5 @@ export const rules = {
     'remove-useless-array': removeUselessArray,
     'remove-useless-object': removeUselessObject,
     'simplify-nested': simplifyNested,
+    'remove-useless-logical': removeUselessLogical,
 };
