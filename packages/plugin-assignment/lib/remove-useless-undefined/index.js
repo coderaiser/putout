@@ -4,6 +4,7 @@ const {
     isIdentifier,
     isAssignmentPattern,
 } = types;
+
 const {remove} = operator;
 
 export const report = () => `Avoid useless 'undefined' in assignment pattern object`;
