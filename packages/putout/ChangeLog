@@ -1,3 +1,64 @@
+2026.09.04, v42.14.0
+
+fix:
+- c45a4da7e @putout/plugin-convert-webpack-to-rspack: apply-asset-type: use: array
+- a07809a18 @putout/plugin-typescript: apply-type-guard: identifier and
+- a28b1a6c0 @putout/plugin-conditions: convert-switch-to-if: default: multiple consequents
+- d90a0d6de @putout/plugin-esm: apply-privately-imported-file: parse: ts
+- 54af7eb7e @putout/plugin-try-catch: expand-args: rm useless check
+- c88337b4f @putout/plugin-try-catch: expand-args: internal variable: exclude
+- 2ea37cdbc @putout/processor-css: declaration-block-single-line-max-declarations: on
+- b923551cf @putout/processor-css: declaration-block-single-line-max-declarations: off
+- bf0781a8d @putout/processor-css: selector-id-pattern: off
+- cca449a58 @putout/operate: npmignore: fixture: exclude
+- 3c5d7778a @putout/plugin-sql: convert-postgres-to-sqlite: apply-json-type: iNotNull -> isNotNull
+- 4ea2baa96 @putout/plugin-variables: remove-useless-declarations: const in switch without block: no body
+- be7eff5cb @putout/plugin-sql: convert-generate-series-to-with-recursive: convert-postgres-to-sqlite -> convert-sqlite-to-postgres
+- 16f989eba @putout/plugin-montag: formatted: exclude
+- e026bd139 @putout/plugin-montag: apply: coocked -> raw
+
+feature:
+- ddd279899 putout: @putout/plugin-assignment v3.0.0
+- e0f5110cb @putout/plugin-assignment: drop support of 🐊 < 42
+- e567be78b @putout/plugin-assignment: remove-useless-undefined
+- f33084fac @putout/plugin-spread: remove-useless-logical
+- ed1e5d748 @putout/plugin-conditions: convert-switch-to-if: default
+- 2dcac0869 @putout/plugin-esm: apply-privately-imported-file: ts
+- 5278880cb @putout/plugin-typescript: apply-typeguards: unknown
+- a03be3439 @putout/processor-css: at-rule-prelude: turn of (stylelint/stylelint#9472)
+- c958fd52a @putout/plugin-tape: apply-assertions-order: couple
+- 1b3de750a @putout/plugin-esm: merge-duplicate-imports: join: type first
+- 4ade6d478 @putout/engine-parser: plugins: types
+- 1f468311e @putout/operate: insertAfter: inside ArrayExpression
+- 342015d1c @putout/plugin-logical-expressions: convert-calescing-to-logical: add
+- 1e325647a @putout/plugin-tape: convert-equal-length-to-match-string: add
+- 3c3354a34 @putout/operate: insertBefore: inside array
+- 8fc3d318f @putout/plugin-convert-webpack-to-rspack: add
+- dbc3ca2bc @putout/plugin-sql: convert-sqlite-to-postgres: apply-key-exists
+- 4124f1c42 @putout/operator-json: types: __sql_name
+- 52934100f @putout/plugin-sql: apply-json-type: add
+- dbbe5ca3d @putout/plugin-sql: convert-sqlite-to-postgres: apply-jsonb-extract-path-text: add
+- c192cb8a7 @putout/plugin-sql: convert-postgres-to-sqlite: apply-json-extract: add
+- 9317fb969 @putout/plugin-printer: remove-useless-arrow-from-type-checker: arrow in comparators
+- dc37e149a @putout/plugin-sql: convert-postgres-to-sql: convert-generate-series-to-with-recursive
+- d6bc302f9 @putout/eslint-config: no-useless-computed-key: off
+- bd6f0971a @putout/plugin-sql: apply-generate-series: convert-sqlite-to-postgres -> postgres
+- 547d94a5e @putout/plugin-sql: convert-sqlite-to-postgres: apply-generate-series
+- afa16621d @putout/plugin-montag: apply: no newlines: exclude
+- a47a54173 @putout/plugin-tape: remove-skip: filter -> match
+- d869d0cd1 @putout/plugin-montag: apply: top level: exclude
+- bb02099e3 @putout/operator-json: isSQL: add
+- 4dfc1103c @putout/processor-toml: @decimalturn/toml-patch v3.0.2 (#244)
+- ae0ec2208 @putout/plugin-montag: apply: match -> replace
+- e6e20fa51 @putout/plugin-montag: apply: inside VariableDeclarator
+- 165ede694 @putout/plugin-sql: convert-postgres-to-sqlite: as
+- 29f3e5e4d @putout/operate: extract: TSLiteralType
+- 10ca06be0 @putout/processor-sql: happy-sql v2.0.0
+- 1450add9a @putout/plugin-sql: convert-postgres-to-sql: apply-auto-increment: nextval
+- c6731c9b3 @putout/plugin-sql: convert-postgres-to-sql: convert-lastval-tl-last-insert-rowid: add
+- 9c70b5f1d @putout/plugin-sql: convert-postgres-to-sqlite: apply-auto-increment
+- d49655c90 @putout/plugin-remove-useless-computed: add
+
 2026.08.17, v42.13.0
 
 fix:
