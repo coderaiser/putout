@@ -16,3 +16,8 @@ test('assignment: remove-useless-undefined: transform', (t) => {
     t.transform('remove-useless-undefined');
     t.end();
 });
+
+test('assignment: remove-useless-undefined: no report: not-assign', (t) => {
+    t.noReport('not-assign');
+    t.end();
+});
