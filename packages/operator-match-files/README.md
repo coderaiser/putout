@@ -16,11 +16,16 @@ npm i putout @putout/operator-match-files
 If you want to create 🐊[**Putout**](https://github.com/coderaiser/putout) `plugin` that will match files according to your needs just:
 
 ```js
-const {operator} = require('putout');
-const {matchFiles} = operator;
-const updateTSConfig = require('../update-tsconfig');
+import {operator} from 'putout';
+import * as updateTSConfig from '../update-tsconfig';
 
-module.exports = matchFiles({
+const {matchFiles} = operator;
+
+export const {
+    report,
+    scan,
+    fix,
+} = matchFiles({
     'tsconfig.json': updateTSConfig,
 });
 ```
@@ -28,9 +33,10 @@ module.exports = matchFiles({
 This will help in case when `update-tsconfig` is disabled by default:
 
 ```js
-const updateTSConfig = require('./update-tsconfig');
+import * as updateTSConfig from './update-tsconfig';
 
-module.exports.rules = {
+exports;
+const rules = {
     'update-tsconfig': ['off', updateTSConfig],
 };
 ```
@@ -70,11 +76,16 @@ Instead of this, [`redlint`](https://github.com/putoutjs/redlint) can be used, i
 If you want to save with other name use `->`:
 
 ```js
-const {operator} = require('putout');
-const {matchFiles} = operator;
-const updateTSConfig = require('../update-tsconfig');
+import {operator} from 'putout';
+import * as updateTSConfig from '../update-tsconfig';
 
-module.exports = matchFiles({
+const {matchFiles} = operator;
+
+export const {
+    report,
+    scan,
+    fix,
+} = matchFiles({
     'tsconfig.json -> hello.json': updateTSConfig,
 });
 ```
@@ -96,7 +107,11 @@ You can even use file matchers:
 Matchers: `__filename = __name.__ext`
 
 ```js
-module.exports = matchFiles({
+export const {
+    report,
+    scan,
+    fix,
+} = matchFiles({
     '__name.json -> __name.js': updateTSConfig,
 });
 ```
@@ -106,11 +121,16 @@ module.exports = matchFiles({
 If you want to exclude some files, use:
 
 ```js
-const {operator} = require('putout');
-const {matchFiles} = operator;
-const updateTSConfig = require('../update-tsconfig');
+import {operator} from 'putout';
+import * as updateTSConfig from '../update-tsconfig';
 
-module.exports = matchFiles({
+const {matchFiles} = operator;
+
+export const {
+    report,
+    scan,
+    fix,
+} = matchFiles({
     files: {
         '__name.ts -> __name.js': updateTSConfig,
     },
@@ -123,7 +143,11 @@ module.exports = matchFiles({
 You can also pass `options`:
 
 ```js
-module.exports = matchFiles({
+export const {
+    report,
+    scan,
+    fix,
+} = matchFiles({
     '.eslintrc.json -> eslint.config.js': {
         rules: {
             'eslint/declare': ['on', {
@@ -143,7 +167,11 @@ module.exports = matchFiles({
 You can also pass [`printer options`](https://github.com/putoutjs/printer?tab=readme-ov-file#overrides):
 
 ```js
-module.exports = matchFiles({
+export const {
+    report,
+    scan,
+    fix,
+} = matchFiles({
     '.eslintrc.json -> eslint.config.js': {
         printer: ['putout', {
             format: {
@@ -168,11 +196,16 @@ module.exports = matchFiles({
 You can pass default `filename`, so when no options provided it will be used.
 
 ```js
-const {operator} = require('putout');
-const {matchFiles} = operator;
-const updateTSConfig = require('../update-tsconfig');
+import {operator} from 'putout';
+import updateTSConfig from '../update-tsconfig';
 
-module.exports = matchFiles({
+const {matchFiles} = operator;
+
+export const {
+    report,
+    scan,
+    fix,
+} = matchFiles({
     filename: '*.d.ts',
     files: {
         '__name.ts -> __name.js': updateTSConfig,
