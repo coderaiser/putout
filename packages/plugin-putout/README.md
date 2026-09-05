@@ -102,6 +102,10 @@ npm i @putout/plugin-putout -D
 - ✅ [shorten-imports](#shorten-imports);
 - ✅ [simplify-replace-template](#simplify-replace-template);
 
+## File rules
+
+- ✅ [sort-readme-file](#sort-readme-file);
+
 ## Config
 
 ```json
@@ -180,7 +184,6 @@ npm i @putout/plugin-putout -D
         "putout/convert-plugins-element-to-tuple": "on",
         "putout/convert-push-object-to-push-path": "on",
         "putout/create-test": "on",
-        "putout/shorten-imports": "on",
         "putout/declare": "on",
         "putout/declare-template-variables": "on",
         "putout/declare-path-variable": "on",
@@ -193,7 +196,9 @@ npm i @putout/plugin-putout -D
         "putout/remove-useless-printer-option": "on",
         "putout/remove-useless-source-argument": "on",
         "putout/remove-message-from-no-report-after-transform": "on",
-        "putout/simplify-replace-template": "on"
+        "putout/simplify-replace-template": "on",
+        "putout/shorten-imports": "on",
+        "putout/sort-readme-file": "on"
     }
 }
 ```
@@ -1215,6 +1220,23 @@ const parseOptions = require('putout/lib/parse-options');
 
 ```js
 const parseOptions = require('putout/parse-options');
+```
+
+## sort-readme-file
+
+Checkout in 🐊**Putout Editor**:
+
+- ✅ [`sort-contents`](https://putout.cloudcmd.io/#/gist/647bcc98ba9eeaa619dfa90d129ee0ec/a19ba868e8c2f97292e763675de65cc1ec98ff66);
+- ✅ [`sort-readme-file`](https://putout.cloudcmd.io/#/gist/ac5f8b64383dabd025f38f177b18b5d2/09751fd2e6659445ed8d8d2102f1d23090a18f49);
+
+### ❌ Example of incorrect code
+
+```diff
+## Rules
+-- ✅ [remove-illegal-strict-mode](#remove-useless-strict-mode);
+-- ✅ [add-node-prefix](#add-node-prefix);
++- ✅ [add-node-prefix](#add-node-prefix);
++- ✅ [remove-illegal-strict-mode](#remove-useless-strict-mode);
 ```
 
 ## convert-include-to-traverse

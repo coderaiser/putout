@@ -1,3 +1,4 @@
+import * as sortReadmeFile from './sort-readme-file/index.js';
 import * as applyStringToPropertyKey from './apply-string-to-property-key/index.js';
 import * as convertTraverseToSuperTraverse from './convert-traverse-to-super-traverse/index.js';
 import * as applyDestructuringToOptions from './apply-destructuring-to-options/index.js';
@@ -176,4 +177,5 @@ export const rules = {
     'apply-destructuring-to-options': applyDestructuringToOptions,
     'convert-traverse-to-super-traverse': convertTraverseToSuperTraverse,
     'apply-string-to-property-key': applyStringToPropertyKey,
+    'sort-readme-file': sortReadmeFile,
 };

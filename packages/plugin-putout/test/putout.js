@@ -434,3 +434,8 @@ test('plugin-putout: transform: apply-string-to-property-key', (t) => {
     t.transform('apply-string-to-property-key');
     t.end();
 });
+
+test('plugin-putout: transform: sort-readme-file', (t) => {
+    t.transform('sort-readme-file');
+    t.end();
+});
