@@ -1,5 +1,5 @@
-__putout_processor_filesystem(["/", "/plugin-variables/", [
-    "/plugin-variables/README.md",
+__putout_processor_filesystem(["/", [
+    "/README.md",
     `
 ## Rules
 
