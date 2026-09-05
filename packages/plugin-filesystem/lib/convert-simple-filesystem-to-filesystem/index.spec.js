@@ -37,6 +37,11 @@ test('putout: filesystem: convert-simple-filesystem-to-filesystem: transform: us
     t.end();
 });
 
+test('putout: filesystem: convert-simple-filesystem-to-filesystem: transform: emoji', (t) => {
+    t.transform('emoji');
+    t.end();
+});
+
 test('putout: filesystem: convert-simple-filesystem-to-filesystem: no transform: no-slash', (t) => {
     const [error] = tryCatch(t.noTransform, 'no-slash');
     

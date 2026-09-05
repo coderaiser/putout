@@ -6,6 +6,7 @@ import {
     getFileType,
     getFilename,
     findFile,
+    toBase64,
 } from '@putout/operator-filesystem';
 import {replaceWith, getProperty} from '@putout/operate';
 
@@ -48,7 +49,7 @@ function parseContent(node, path) {
         return node.value;
     
     if (isTemplateLiteral(node))
-        return btoa(node.quasis[0].value.raw);
+        return toBase64(node.quasis[0].value.raw);
     
     throw Error(`☝️ Looks like wrong content type: '${node.type}' from file: '${path}'`);
 }
