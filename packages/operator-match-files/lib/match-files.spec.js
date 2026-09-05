@@ -1088,3 +1088,49 @@ test('putout: operator: match-files: markdown: json', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: operator: match-files: throws', (t) => {
+    const content = montag`
+        # Hello  world
+        
+        \`\`\`json
+        {
+            "hello": "world"
+        }
+        \`\`\`
+    `;
+    
+    const source = stringify([
+        '/',
+        ['/README.md', content],
+    ]);
+    
+    const plugin = {
+        report: () => '',
+        replace: () => {
+            throw Error('hello');
+        },
+    };
+    
+    const files = {
+        'README.md': {
+            plugins: [
+                ['markdown', plugin],
+            ],
+        },
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    const [error] = tryCatch(transform, ast, {
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const expected = '/README.md: hello';
+    
+    t.equal(error.message, expected);
+    t.end();
+});

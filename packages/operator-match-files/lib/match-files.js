@@ -1,4 +1,5 @@
 import path from 'node:path';
+import {tryCatch} from 'try-catch';
 import {transform} from 'putout/transform';
 import {findPlaces} from 'putout/find-places';
 import {ignores} from 'putout/ignores';
@@ -111,7 +112,12 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
         const [matchedJS, matchedAST] = magicParse(inputFilename, fileContent);
         
         const options = parseOptions(inputFilename, rawOptions);
-        const places = findPlaces(matchedAST, options);
+        const [error, places] = tryCatch(findPlaces, matchedAST, options);
+        
+        if (error)
+            throw Error(`${inputFilename}: ${error.message}`, {
+                cause: error,
+            });
         
         if (!places.length)
             continue;

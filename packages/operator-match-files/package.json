@@ -32,7 +32,8 @@
     "@putout/operator-json": "^3.0.0",
     "@putout/processor-markdown": "^14.1.0",
     "@putout/processor-toml": "^1.1.20",
-    "@putout/processor-yaml": "^10.0.0"
+    "@putout/processor-yaml": "^10.0.0",
+    "try-catch": "^4.1.1"
   },
   "keywords": [
     "putout",
@@ -52,8 +53,7 @@
     "montag": "^2.0.0",
     "nodemon": "^3.0.1",
     "superc8": "^12.0.0",
-    "supertape": "^13.0.0",
-    "try-catch": "^4.0.0"
+    "supertape": "^13.0.0"
   },
   "peerDependencies": {
     "putout": ">=42"
