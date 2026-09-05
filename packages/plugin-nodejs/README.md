@@ -59,6 +59,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/add-node-prefix": "on",
         "nodejs/apply-style-text": "on",
         "nodejs/apply-inherit": "on",
+        "nodejs/apply-privately-imported-file": "off",
         "nodejs/convert-commonjs-to-esm": "off",
         "nodejs/convert-esm-to-commonjs": "off",
         "nodejs/cjs-file": "off",
