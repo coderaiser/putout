@@ -34,7 +34,7 @@ const maybeArrayFrom = (a) => isSet(a) ? Array.from(a) : maybeArray(a);
 const escape = (a) => encodeURIComponent(a).replaceAll('%', '+');
 const unescape = (a) => decodeURIComponent(a.replaceAll('+', '%'));
 
-const toBase64 = (content) => {
+export const toBase64 = (content) => {
     const [e, result] = tryCatch(btoa, content);
     
     if (e)
@@ -43,7 +43,7 @@ const toBase64 = (content) => {
     return result;
 };
 
-const fromBase64 = (content) => {
+export const fromBase64 = (content) => {
     if (content.includes(' '))
         return content;
     

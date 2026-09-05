@@ -34,6 +34,8 @@ import {
     getRootDirectory,
     readFileContent,
     writeFileContent,
+    toBase64,
+    fromBase64,
 } from './filesystem.js';
 
 const {
@@ -1705,5 +1707,21 @@ test('putout: operator: filesystem: getFile: type', (t) => {
     });
     
     t.notOk(file);
+    t.end();
+});
+
+test('putout: operator: filesystem: toBase64', (t) => {
+    const result = toBase64('✅');
+    const expected = 'K0UyKzlDKzg1';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: fromBase64', (t) => {
+    const result = fromBase64('K0UyKzlDKzg1');
+    const expected = '✅';
+    
+    t.equal(result, expected);
     t.end();
 });
