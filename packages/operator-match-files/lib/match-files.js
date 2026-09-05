@@ -40,10 +40,10 @@ export const matchFiles = (options) => {
     };
 };
 
-function fix(inputFile, {dirPath, matchInputFilename, outputFilename, matchedAST, options, rawOptions}) {
+function fix(inputFile, {dirPath, matchInputFilename, outputFilename, matchedAST, matchedJS, options, rawOptions}) {
     transform(matchedAST, options);
     
-    const matchedJSON = magicPrint(outputFilename, matchedAST, rawOptions);
+    const matchedJSON = magicPrint(outputFilename, matchedAST, matchedJS, rawOptions);
     const outputFile = getOutputFile({
         dirPath,
         matchInputFilename,

@@ -4,7 +4,7 @@ import * as processorToml from '@putout/processor-toml';
 import * as processorMarkdown from '@putout/processor-markdown';
 import {fromJS} from '@putout/operator-json';
 
-export function magicPrint(name, ast, options) {
+export function magicPrint(name, ast, list, options) {
     const js = print(ast, options);
     
     if (name.endsWith('.json'))
@@ -14,7 +14,7 @@ export function magicPrint(name, ast, options) {
         return processorYaml.merge(null, [js]);
     
     if (name.endsWith('.md'))
-        return processorMarkdown.merge(null, [js]);
+        return processorMarkdown.merge(null, [js, ...list]);
     
     if (name.endsWith('.toml'))
         return processorToml.merge(null, [js]);

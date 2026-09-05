@@ -4,6 +4,8 @@ import * as processorToml from '@putout/processor-toml';
 import * as processorMarkdown from '@putout/processor-markdown';
 import {toJS} from '@putout/operator-json';
 
+const getSource = ({source}) => source;
+
 export function magicParse(name, content) {
     if (name.endsWith('.json')) {
         const js = toJS(content);
@@ -27,10 +29,14 @@ export function magicParse(name, content) {
     }
     
     if (name.endsWith('md')) {
-        const [{source: js}] = processorMarkdown.branch(content);
+        const list = processorMarkdown
+            .branch(content)
+            .map(getSource);
+        
+        const js = list.shift();
         const ast = parse(js);
         
-        return [js, ast];
+        return [list, ast];
     }
     
     if (/\.[cm]?ts(x)?$/.test(name)) {
