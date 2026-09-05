@@ -23,9 +23,9 @@ npm i @putout/plugin-eslint-plugin -D
 - ✅ [apply-is-space-between](#apply-is-space-between);
 - ✅ [convert-context-to-source](#convert-context-to-source);
 - ✅ [convert-require-resolve-to-require](#convert-require-resolve-to-require);
+- ✅ [remove-errors-type](#remove-errors-type);
 - ✅ [turn-off-schema](#turn-off-schema);
 - ✅ [update-ecma-version](#update-ecma-version);
-- ✅ [remove-errors-type](#remove-errors-type);
 
 ## Config
 

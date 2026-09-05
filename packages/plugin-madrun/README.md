@@ -26,12 +26,12 @@ npm i putout @putout/plugin-madrun -D
 - ✅ [convert-args-to-scripts](#convert-args-to-scripts);
 - ✅ [convert-cut-env-to-run](#convert-cut-env-to-run);
 - ✅ [convert-lint-lib](#convert-lint-lib);
-- ✅ [convert-nyc-to-c8](#convert-nyc-to-c8)
 - ✅ [convert-run-argument](#convert-run-argument);
 - ✅ [convert-run-to-cut-env](#convert-run-to-cut-env);
 - ✅ [convert-prepublish-only-to-wisdom](#convert-prepublish-only-to-wisdom);
 - ✅ [convert-to-async](#convert-to-async);
 - ✅ [declare](#declare);
+- ✅ [insert-test-dts](#insert-test-dts);
 - ✅ [remove-check-duplicates-from-test](#remove-check-duplicates-from-test);
 - ✅ [remove-putout](#remove-putout);
 - ✅ [remove-useless-array-in-run](#remove-useless-array-in-run);
@@ -40,7 +40,6 @@ npm i putout @putout/plugin-madrun -D
 - ✅ [rename-series-to-run](#rename-series-to-run);
 - ✅ [set-lint-dot](#set-lint-dot);
 - ✅ [set-report-lcov](#set-report-lcov);
-- ✅ [insert-test-dts](#insert-test-dts);
 
 ## File rules
 

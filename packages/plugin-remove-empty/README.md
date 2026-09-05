@@ -18,11 +18,11 @@ npm i @putout/plugin-remove-empty
 
 ## Rules
 
-- ✅ [block](#block);
-- ✅ [static-block](#static-block);
-- ✅ [pattern](#pattern);
-- ✅ [nested-pattern](#nested-pattern);
 - ✅ [argument](#argument);
+- ✅ [block](#block);
+- ✅ [nested-pattern](#nested-pattern);
+- ✅ [pattern](#pattern);
+- ✅ [static-block](#static-block);
 
 ## Config
 

@@ -25,10 +25,10 @@ npm i @putout/plugin-try-catch
 - ✅ [await](#await);
 - ✅ [args](#args);
 - ✅ [apply-destructuring](#apply-destructuring);
+- ✅ [async](#async);
 - ✅ [declare](#declare);
 - ✅ [expand-args](#expand-args);
 - ✅ [sync](#sync);
-- ✅ [async](#async);
 
 ## Rule
 

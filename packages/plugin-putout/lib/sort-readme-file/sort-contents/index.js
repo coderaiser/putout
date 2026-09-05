@@ -1,3 +1,6 @@
+import {operator} from 'putout';
+
+const {compareAny} = operator;
 const {entries} = Object;
 
 export const report = () => `Sort 'contents'`;
@@ -8,6 +11,15 @@ export const fix = ({path, list}) => {
 
 export const traverse = ({listStore, push}) => ({
     'li("✅ ", link(__b, __c), ";")': (path) => {
+        const {parentPath} = path;
+        const prev = parentPath.getPrevSibling();
+        
+        if (!compareAny(prev, [
+            `heading(2, 'Rules')`,
+            `heading(2, 'File rules')`,
+        ]))
+            return;
+        
         listStore(path);
     },
     'Program': {

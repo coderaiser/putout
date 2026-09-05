@@ -23,15 +23,14 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-strict-equal-to-equal](#convert-strict-equal-to-equal);
 - ✅ [expand-bindings](#expand-bindings);
 - ✅ [extract-body](#extract-body);
-- ✅ [join-continued-strings](#join-continued-strings);
 - ✅ [inline](#inline);
+- ✅ [join-continued-strings](#join-continued-strings);
 - ✅ [mangle-names](#mangle-names);
 - ✅ [merge-assignment-expressions](#merge-assignment-expressions);
 - ✅ [merge-loops](#merge-loops);
 - ✅ [merge-variables](#merge-variables);
 - ✅ [remove-return-undefined](#remove-return-undefined);
 - ✅ [remove-var-undefined](#remove-var-undefined);
-- ✅ [shorten-names](#shorten-names);j
 - ✅ [simplify-floor](#simplify-floor);
 - ✅ [types](#types);
 
@@ -177,7 +176,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/269edbd949
 
 ```
 javascript: let a = 3;
-
 if (5)
     let b = 3;
 ```

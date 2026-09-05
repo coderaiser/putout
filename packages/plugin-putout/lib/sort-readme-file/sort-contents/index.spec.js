@@ -7,12 +7,17 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('lib: sort-contents: report', (t) => {
+test('putout: plugin-putout: sort-readme-file: sort-contents: report', (t) => {
     t.report('sort-contents', `Sort 'contents'`);
     t.end();
 });
 
-test('lib: sort-contents: transform', (t) => {
+test('putout: plugin-putout: sort-readme-file: sort-contents: transform', (t) => {
     t.transform('sort-contents');
+    t.end();
+});
+
+test('putout: plugin-putout: sort-readme-file: sort-contents: no report: not-content', (t) => {
+    t.noReport('not-content');
     t.end();
 });

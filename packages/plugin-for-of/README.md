@@ -25,6 +25,7 @@ npm i @putout/plugin-for-of
 - ✅ [for-in-positive](#for-in-positive);
 - ✅ [for-length](#for-length);
 - ✅ [for-n](#for-n);
+- ✅ [from-while](#from-while);
 - ✅ [map](#map);
 - ✅ [reduce](#reduce);
 - ✅ [remove-unused-variables](#remove-unused-variables);
@@ -32,7 +33,6 @@ npm i @putout/plugin-for-of
 - ✅ [remove-useless-array-from](#remove-useless-array-from);
 - ✅ [remove-useless-variables](#remove-useless-variables);
 - ✅ [to-for-n](#to-for-n);
-- ✅ [from-while](#from-while);
 
 ## Configuration
 

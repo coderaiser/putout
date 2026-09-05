@@ -25,9 +25,9 @@ npm i @putout/plugin-printer -D
 - ✅ [apply-types](#apply-types);
 - ✅ [check-type-passed-to-type-checker](#check-type-passed-to-type-checker);
 - ✅ [check-if-success-possible-in-type-checker](#check-if-success-possible-in-type-checker);
-- ✅ [merge-tuple-of-type-checker](#merge-tuple-of-type-checker);
 - ✅ [declare](#declare);
 - ✅ [declare-nearby](#declare-nearby);
+- ✅ [merge-tuple-of-type-checker](#merge-tuple-of-type-checker);
 - ✅ [remove-args](#remove-args);
 - ✅ [remove-useless-maybe](#remove-useless-maybe);
 - ✅ [remove-useless-print](#remove-useless-print);

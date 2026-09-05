@@ -21,13 +21,13 @@ npm i @putout/plugin-destructuring
 - ✅ [apply-object](#apply-object);
 - ✅ [convert-object-to-array](#convert-object-to-array);
 - ✅ [extract-properties](#extract-properties);
+- ✅ [merge-properties](#merge-properties);
 - ✅ [remove-useless-object](#remove-useless-object);
 - ✅ [remove-useless-arguments](#remove-useless-arguments);
 - ✅ [remove-useless-variables](#remove-useless-variables);
 - ✅ [remove-useless-rename](#remove-useless-rename);
 - ✅ [split-nested](#split-nested);
 - ✅ [split-call](#split-call);
-- ✅ [merge-properties](#merge-properties);
 
 ## Config
 

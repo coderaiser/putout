@@ -24,11 +24,11 @@ npm i @putout/plugin-github -D
 - ✅ [convert-typos-to-typos-ai](#convert-typos-to-typos-ai);
 - ✅ [insert-rust](#insert-rust);
 - ✅ [install-bun](#install-bun);
+- ✅ [remove-empty-needs](#remove-empty-needs);
 - ✅ [set-contents-permissions](#set-contents-permissions);
 - ✅ [set-node-versions](#set-node-versions);
 - ✅ [set-message-of-commit-fixes](#set-message-of-commit-fixes);
 - ✅ [update-actions](#update-actions);
-- ✅ [remove-empty-needs](#remove-empty-needs);
 
 ## Config
 
@@ -133,9 +133,7 @@ You can override message with:
 ```diff
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
 -       node-version: [20.x, 22.x, 24.x]

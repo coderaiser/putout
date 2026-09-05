@@ -14,10 +14,10 @@ npm i @putout/plugin-maybe -D
 ## Rules
 
 - ✅ [array](#array);
+- ✅ [declare](#declare);
 - ✅ [empty-array](#empty-array);
 - ✅ [fn](#fn);
 - ✅ [noop](#noop);
-- ✅ [declare](#declare);
 
 ## Config
 

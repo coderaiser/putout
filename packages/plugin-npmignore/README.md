@@ -18,8 +18,8 @@ npm i @putout/plugin-npmignore -D
 ## Rules
 
 - ✅ [add](#add);
-- ✅ [sort](#sort);
 - ✅ [convert-loc-to-lock](#convert-loc-to-lock);
+- ✅ [sort](#sort);
 
 ## Config
 
@@ -62,7 +62,6 @@ yarn.lock
 .idea
 .DS_Store
 deno.lock
-
 coverage
 .filesystem.json
 ```
@@ -73,13 +72,10 @@ coverage
 .idea
 .filesystem.json
 .DS_Store
-
 *.swp
-
 yarn-error.log
 yarn.lock
 deno.lock
-
 node_modules
 coverage# sort
 ```

@@ -17,12 +17,11 @@ npm i @putout/plugin-spread
 
 ## Rules
 
-- ✅ [remove-useless-logical](#remove-useless-logical)
 - ✅ [convert-apply-to-spread](#convert-apply-to-spread);
 - ✅ [convert-convert-object-assign-to-merge-spread](#convert-object-assign-to-merge-spread);
-- ✅ [simplify-nested](#simplify-nested);
 - ✅ [remove-useless-array](#remove-useless-array);
 - ✅ [remove-useless-object](#remove-useless-object);
+- ✅ [simplify-nested](#simplify-nested);
 
 ## Rule
 

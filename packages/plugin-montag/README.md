@@ -18,8 +18,8 @@ npm i @putout/plugin-apply-montag
 ## Rules
 
 - ✅ [add-newline-before-text](#add-newline-before-text);
-- ✅ [convert-default-to-named](#convert-default-to-named);
 - ✅ [apply](#apply);
+- ✅ [convert-default-to-named](#convert-default-to-named);
 - ✅ [declare](#declare);
 - ✅ [remove-useless-space](#remove-useless-space);
 
