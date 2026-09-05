@@ -270,6 +270,39 @@ test('putout: operator: filesystem: findFile: exclude', (t) => {
     t.end();
 });
 
+test('putout: operator: filesystem: findFile: exclude: function', (t) => {
+    const ast = parseFilesystem([
+        '/',
+        '/hello/',
+        ['/hello/world.js', 'const a = 5'],
+        ['/hello/hello.js', 'const a = <A></A>'],
+    ]);
+    
+    const exclude = (path) => {
+        const source = readFileContent(path);
+        return source.includes('<');
+    };
+    
+    findFile(ast, '*.js', exclude).map(removeFile);
+    
+    const expected = {
+        type: 'directory',
+        filename: '/',
+        files: [{
+            type: 'directory',
+            filename: '/hello',
+            files: [{
+                type: 'file',
+                filename: '/hello/hello.js',
+                content: 'const a = <A></A>',
+            }],
+        }],
+    };
+    
+    t.equalFilesystems(ast, expected);
+    t.end();
+});
+
 test('putout: operator: filesystem: findFile: no names', (t) => {
     const ast = parse(montag`
         ${FS}({
@@ -305,6 +338,27 @@ test('putout: operator: filesystem: findFile: glob', (t) => {
     `;
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operator: filesystem: findFile: nested', (t) => {
+    const ast = parseFilesystem([
+        '/',
+        '/README.md',
+        '/plugin-variables/',
+        '/plugin-variables/README.md',
+    ]);
+    
+    const [filePath] = findFile(ast, 'README.md', (file) => {
+        const dir = getParentDirectory(file);
+        const dirname = getFilename(dir);
+        
+        return !/plugin-.*$/.test(dirname);
+    });
+    
+    const name = getFilename(filePath);
+    
+    t.equal(name, '/plugin-variables/README.md');
     t.end();
 });
 
@@ -1356,6 +1410,7 @@ test('putout: operator: filesystem: createFile: overwrite', (t) => {
     const ast = parseFilesystem(['/', '/doc/', '/doc/README.md']);
     
     const [dirPath] = findFile(ast, '/');
+    
     createFile(dirPath, 'README.md', 'hello');
     
     const expected = {

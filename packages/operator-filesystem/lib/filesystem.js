@@ -24,6 +24,7 @@ const {
     objectExpression,
 } = types;
 
+const isFn = (a) => typeof a === 'function';
 const isString = (a) => typeof a === 'string';
 const isSet = (a) => a instanceof Set;
 const {isArray} = Array;
@@ -80,7 +81,10 @@ export function getParentDirectory(filePath) {
     return parentPath;
 }
 
-function isExcluded({name, base, exclude}) {
+function isExcluded({path, name, base, exclude}) {
+    if (isFn(exclude))
+        return exclude(path);
+    
     for (const currentExclude of exclude) {
         if (name === currentExclude || getRegExp(currentExclude).test(base))
             return true;
@@ -98,6 +102,11 @@ function parseFindFileOptions(options) {
         };
     
     if (isArray(options))
+        return {
+            exclude: options,
+        };
+    
+    if (isFn(options))
         return {
             exclude: options,
         };
@@ -124,6 +133,7 @@ export function findFile(node, name, options) {
             if (value === name || getRegExp(name).test(base)) {
                 const path = filenamePath.parentPath;
                 const excluded = isExcluded({
+                    path,
                     name,
                     base,
                     exclude,

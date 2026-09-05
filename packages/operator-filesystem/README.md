@@ -109,6 +109,11 @@ import {operator} from 'putout';
 const {findFile, getFilename} = operator;
 
 const coupleFilesWithExcludeArray = findFile(ast, '*.ts', ['*.d.ts']);
+
+const coupleFilesWithExcludeFn = findFile(ast, '*.ts', (filePath) => {
+    const name = getFilename(filePath);
+    return !name.endsWith('*.d.ts');
+});
 ```
 
 And even search for a directory:
