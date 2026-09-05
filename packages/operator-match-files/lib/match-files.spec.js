@@ -3,6 +3,7 @@ import {tryCatch} from 'try-catch';
 import test from 'supertape';
 import putout from 'putout';
 import * as convertEsmToCommonjs from '@putout/plugin-nodejs/convert-esm-to-commonjs';
+import * as pluginMarkdown from '@putout/plugin-markdown';
 import {
     __yaml,
     __json,
@@ -890,11 +891,9 @@ test('putout: operator: match-files: json to yaml', (t) => {
 
 test('putout: operator: match-files: toml to json', (t) => {
     const content = montag`
-                
-                [install]
-                lockfile = false
-                linker = "hoisted"
-    
+        [install]
+        lockfile = false
+        linker = "hoisted"
     `;
     
     const source = stringify([
@@ -974,9 +973,6 @@ test('putout: operator: match-files: json to toml', (t) => {
     const ast = parse(jsSource);
     
     transform(ast, {
-        rules: {
-            'match-files': 'on',
-        },
         plugins: [
             ['match-files', matchFiles(files)],
         ],
@@ -994,6 +990,46 @@ test('putout: operator: match-files: json to toml', (t) => {
     `);
     
     const expected = ['/', ['/bunfig.toml', toml]];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: operator: match-files: markdown', (t) => {
+    const content = montag`
+        # Hello  world
+    `;
+    
+    const source = stringify([
+        '/',
+        ['/README.md', content],
+    ]);
+    
+    const files = {
+        'README.md': {
+            plugins: [
+                ['markdown', pluginMarkdown],
+            ],
+        },
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, {
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const markdown = btoa('# Hello world\n');
+    
+    const expected = ['/', ['/README.md', markdown]];
     
     t.deepEqual(result, expected);
     t.end();

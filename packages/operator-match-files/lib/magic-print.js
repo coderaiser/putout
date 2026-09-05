@@ -1,6 +1,7 @@
 import {print} from '@putout/engine-parser';
 import * as processorYaml from '@putout/processor-yaml';
 import * as processorToml from '@putout/processor-toml';
+import * as processorMarkdown from '@putout/processor-markdown';
 import {fromJS} from '@putout/operator-json';
 
 export function magicPrint(name, ast, options) {
@@ -11,6 +12,9 @@ export function magicPrint(name, ast, options) {
     
     if (name.endsWith('.yaml'))
         return processorYaml.merge(null, [js]);
+    
+    if (name.endsWith('.md'))
+        return processorMarkdown.merge(null, [js]);
     
     if (name.endsWith('.toml'))
         return processorToml.merge(null, [js]);
