@@ -23,6 +23,7 @@
             "putout/remove-useless-source-argument": "off"
         },
         ".filesystem.json": {
+            "putout/sort-readme-file": "on",
             "typescript/find-file": ["on", {
                 "ignore": [
                     "eslint-fixture"

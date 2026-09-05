@@ -2,7 +2,7 @@ import {
     configs,
     safeAlign,
     PutoutPluginConfigs,
-} from '../lib/index.js';
+} from '#eslint-plugin-putout';
 
 const fn = (a: unknown) => a;
 
