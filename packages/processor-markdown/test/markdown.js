@@ -207,7 +207,7 @@ test('putout: processor: markdown: process: split-link-with-title: compare place
     }]);
 });
 
-test('putout: processor: markdown: merge', async ({equal}) => {
+test('putout: processor: markdown: merge', ({equal}) => {
     const raw = montag`
         \`\`\`json
             {
@@ -217,10 +217,10 @@ test('putout: processor: markdown: merge', async ({equal}) => {
     
     `;
     
-    const list = await branch(raw);
+    const list = branch(raw);
     const [{source}] = list;
     
-    const code = await merge(raw, [source, list[1].source]);
+    const code = merge(raw, [source, list[1].source]);
     
     equal(code, raw);
 });

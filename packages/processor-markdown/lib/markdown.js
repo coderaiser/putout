@@ -65,30 +65,30 @@ export const fix = async (rawSource, options = {}) => {
     return value;
 };
 
-export const branch = async (rawSource) => {
+export const branch = (rawSource) => {
     const list = [{
         startLine: 0,
         source: toJS(convertMarkdownToJs(rawSource), __markdown),
         extension: 'md',
     }];
     
-    await unified()
+    unified()
         .use(remarkParse)
         .use(collect, {
             list,
             visit,
         })
         .use(stringify)
-        .process(rawSource);
+        .processSync(rawSource);
     
     return list;
 };
 
-export const merge = async (rawSource, list) => {
+export const merge = (rawSource, list) => {
     const [mdJs, ...newList] = list;
     const md = convertJsToMarkdown(fromJS(mdJs, __markdown));
     
-    const {value} = await unified()
+    const {value} = unified()
         .use(remarkParse)
         .use(apply, {
             list: newList,
@@ -96,7 +96,7 @@ export const merge = async (rawSource, list) => {
             visit,
         })
         .use(stringify, stringifyOptions)
-        .process(md);
+        .processSync(md);
     
     return value;
 };
