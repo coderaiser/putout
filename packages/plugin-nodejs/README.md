@@ -741,7 +741,7 @@ Let's consider file structure:
 
 ```
 /
-|-- package.json {"imports": {"#is: {"default": "./lib/tokenize/is.js"}}}
+|-- package.json {"imports": {"#is": {"default": "./lib/tokenize/is.js"}}}
 |-- lib/
 |  `-- tokenize/
 |     `-- is.js "export const isPrev = () => {}"
