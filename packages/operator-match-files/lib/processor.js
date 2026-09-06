@@ -1,4 +1,4 @@
-import {parse} from '@putout/engine-parser';
+import {parse, print} from '@putout/engine-parser';
 import * as processorYaml from '@putout/processor-yaml';
 import * as processorToml from '@putout/processor-toml';
 import * as processorMarkdown from '@putout/processor-markdown';
@@ -21,6 +21,7 @@ export const getProcessor = (name) => {
     
     return {
         branch,
+        merge,
     };
 };
 
@@ -36,10 +37,15 @@ function wrapProcessor(processor) {
             
             return [assets, ast];
         },
+        merge: (ast, assets, options) => {
+            const js = print(ast, options);
+            
+            return processor.merge(null, [js, ...assets]);
+        },
     };
 }
 
-const branch = (content) => {
+function branch(content) {
     const ast = parse(content, {
         isTS: true,
     });
@@ -47,4 +53,6 @@ const branch = (content) => {
     const assets = [content];
     
     return [assets, ast];
-};
+}
+
+export const merge = (ast, options) => print(ast, options);

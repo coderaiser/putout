@@ -1,23 +1,9 @@
-import {print} from '@putout/engine-parser';
-import * as processorYaml from '@putout/processor-yaml';
-import * as processorToml from '@putout/processor-toml';
-import * as processorMarkdown from '@putout/processor-markdown';
-import {fromJS} from '@putout/operator-json';
+import {getProcessor} from './processor.js';
+import {getType} from './type.js';
 
-export function magicPrint(name, ast, list, options) {
-    const js = print(ast, options);
+export function magicPrint(name, ast, assets, options) {
+    const type = getType(name);
+    const {merge} = getProcessor(type);
     
-    if (name.endsWith('.json'))
-        return fromJS(js);
-    
-    if (name.endsWith('.yaml'))
-        return processorYaml.merge(null, [js]);
-    
-    if (name.endsWith('.md'))
-        return processorMarkdown.merge(null, [js, ...list]);
-    
-    if (name.endsWith('.toml'))
-        return processorToml.merge(null, [js]);
-    
-    return js;
+    return merge(ast, assets, options);
 }
