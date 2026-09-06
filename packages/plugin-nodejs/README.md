@@ -729,7 +729,7 @@ export const readSize = promisify(async (dir, options, callback) => {});
 export const readSize = async (dir, options, callback) => {};
 ```
 
-#### apply-privately-required-to-file
+## apply-privately-required-to-file
 
 > Entries in the imports field must be strings starting with `#`.
 > Package imports permit mapping to external packages.
@@ -751,13 +751,13 @@ Let's consider file structure:
 
 In this case `spread-element.js` can be fixed:
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const {isPrev} = require('../is.js');
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 const {isPrev} = require('#is');
