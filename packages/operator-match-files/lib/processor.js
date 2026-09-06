@@ -35,7 +35,10 @@ function wrapProcessor(processor) {
             const js = assets.shift();
             const ast = parse(js);
             
-            return [assets, ast];
+            return {
+                assets,
+                ast,
+            };
         },
         merge: (ast, assets, options) => {
             const js = print(ast, options);
@@ -52,7 +55,10 @@ function branch(content) {
     
     const assets = [content];
     
-    return [assets, ast];
+    return {
+        assets,
+        ast,
+    };
 }
 
 export const merge = (ast, options) => print(ast, options);

@@ -41,10 +41,10 @@ export const matchFiles = (options) => {
     };
 };
 
-function fix(inputFile, {dirPath, matchInputFilename, outputFilename, matchedAST, matchedJS, options, rawOptions}) {
-    transform(matchedAST, options);
+function fix(inputFile, {dirPath, matchInputFilename, outputFilename, ast, assets, options, rawOptions}) {
+    transform(ast, options);
     
-    const matchedJSON = magicPrint(outputFilename, matchedAST, matchedJS, rawOptions);
+    const matchedJSON = magicPrint(outputFilename, ast, assets, rawOptions);
     const outputFile = getOutputFile({
         dirPath,
         matchInputFilename,
@@ -109,10 +109,10 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
         
         const fileContent = readFileContent(inputFile) || '{}';
         
-        const [matchedJS, matchedAST] = magicParse(inputFilename, fileContent);
+        const {assets, ast} = magicParse(inputFilename, fileContent);
         
         const options = parseOptions(inputFilename, rawOptions);
-        const [error, places] = tryCatch(findPlaces, matchedAST, options);
+        const [error, places] = tryCatch(findPlaces, ast, options);
         
         if (error)
             throw Error(`${inputFilename}: ${error.message}`, {
@@ -133,8 +133,8 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
             options,
             rawOptions,
             
-            matchedAST,
-            matchedJS,
+            ast,
+            assets,
         });
     }
 };
