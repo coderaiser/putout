@@ -49,7 +49,7 @@ export const toJS = (source, name = __json) => {
 };
 
 export const fromJS = (source, name = __json) => {
-    source = maybeNewline(source);
+    source = source.trimEnd() + '\n';
     const shortName = cut(name);
     
     source = source.slice(source.indexOf(shortName));
@@ -57,6 +57,7 @@ export const fromJS = (source, name = __json) => {
     const prefix = createPrefix(name);
     const suffix = createSuffix();
     const length = source.length - suffix.length;
+    
     const sliced = source.slice(prefix.length, length);
     
     return maybeNewline(removeBlankLines(sliced));

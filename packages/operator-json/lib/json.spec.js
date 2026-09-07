@@ -193,6 +193,25 @@ test('putout: operator: json: fromJS: __markdown', ({equal}) => {
     equal(result, expected);
 });
 
+test('putout: operator: json: fromJS: __markdown: trailing newlines', ({equal}) => {
+    const source = montag`
+        __putout_processor_markdown([h1('hello')]);
+    
+    
+    
+    
+    `;
+    
+    const result = fromJS(source, __markdown);
+    
+    const expected = montag`
+        [h1('hello')]
+    
+    `;
+    
+    equal(result, expected);
+});
+
 test('putout: operator: json: toJS: __sql', ({equal}) => {
     const source = montag`
         select('*', from('abc'));
