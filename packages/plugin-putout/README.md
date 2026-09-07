@@ -1227,6 +1227,7 @@ const parseOptions = require('putout/parse-options');
 Checkout in 🐊**Putout Editor**:
 
 - ✅ [`sort-contents`](https://putout.cloudcmd.io/#/gist/647bcc98ba9eeaa619dfa90d129ee0ec/a19ba868e8c2f97292e763675de65cc1ec98ff66);
+- ✅ [`sort-headings`](https://putout.cloudcmd.io/#/gist/a5a23310a84cb209e7e5537bab294ab2/0ecd88ffa6e37ac2553cabe5333d307aed2c4a7d);
 - ✅ [`sort-readme-file`](https://putout.cloudcmd.io/#/gist/ac5f8b64383dabd025f38f177b18b5d2/09751fd2e6659445ed8d8d2102f1d23090a18f49);
 
 ### ❌ Example of incorrect code

@@ -17,6 +17,11 @@ test('putout: sort-readme-file: transform', (t) => {
     t.end();
 });
 
+test('putout: sort-readme-file: transform: sort-headings', (t) => {
+    t.transform('sort-headings');
+    t.end();
+});
+
 test('putout: sort-readme-file: no report: not-plugin', (t) => {
     t.noReport('not-plugin');
     t.end();
