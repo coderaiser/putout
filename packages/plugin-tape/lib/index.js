@@ -1,3 +1,4 @@
+import * as convertOkToPass from './convert-ok-to-pass/index.js';
 import * as convertEqualLengthToMatchString from './convert-equal-length-to-match-string/index.js';
 import * as removeTFromAsync from './remove-t-from-async/index.js';
 import * as applyStringify from './apply-stringify/index.js';
@@ -76,4 +77,5 @@ export const rules = {
     'apply-stringify': applyStringify,
     'remove-t-from-async': removeTFromAsync,
     'convert-equal-length-to-match-string': convertEqualLengthToMatchString,
+    'convert-ok-to-pass': convertOkToPass,
 };

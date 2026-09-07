@@ -17,6 +17,7 @@ npm i @putout/plugin-tape -D
 
 ## Rules
 
+- ✅ [convert-ok-to-pass](#convert-ok-to-pass)
 - ✅ [add-args](#add-args);
 - ✅ [add-t-end](#add-t-end);
 - ✅ [apply-assertions-order](#apply-assertions-order);
@@ -98,7 +99,8 @@ npm i @putout/plugin-tape -D
         "tape/remove-skip": ["on", {
             "allowed": ["test"]
         }],
-        "tape/extract-result-from-assertion": "on"
+        "tape/extract-result-from-assertion": "on",
+        "tape/convert-ok-to-pass": "on"
     }
 }
 ```
@@ -944,6 +946,22 @@ test('hello: world', (t) => {
     t.match(written, /## my-rule/);
     t.end();
 });
+```
+
+## convert-ok-to-pass
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/33a05ac444d013db10fc5a1986b6ac49/f1bc8eda628a5ce5dc6ad5ee20e796b727e40083).
+
+### ❌ Example of incorrect code
+
+```js
+t.ok(true);
+```
+
+### ✅ Example of correct code
+
+```js
+t.pass();
 ```
 
 ## License

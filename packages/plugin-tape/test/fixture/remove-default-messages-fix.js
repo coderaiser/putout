@@ -1,4 +1,4 @@
-t.ok(true);
+t.pass();
 t.notOk(false);
 t.match('hello', 'hello');
 t.notMatch('hello', 'world');

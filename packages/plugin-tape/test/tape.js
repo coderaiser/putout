@@ -207,3 +207,8 @@ test('plugin-tape: transform: convert-equal-length-to-match-string', (t) => {
     t.transform('convert-equal-length-to-match-string');
     t.end();
 });
+
+test('plugin-tape: transform: convert-ok-to-pass', (t) => {
+    t.transform('convert-ok-to-pass');
+    t.end();
+});
