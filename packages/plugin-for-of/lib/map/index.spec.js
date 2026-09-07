@@ -49,3 +49,8 @@ test('plugin-for-of: map: no report: chain', (t) => {
     t.noReport('chain');
     t.end();
 });
+
+test('plugin-for-of: map: no report: re-assign', (t) => {
+    t.noReport('re-assign');
+    t.end();
+});

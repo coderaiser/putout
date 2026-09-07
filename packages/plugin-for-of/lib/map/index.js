@@ -44,7 +44,12 @@ export const match = () => ({
         
         return !isArrayPattern(__a);
     },
-    '__a = __b.map((__c) => __d)': ({__b}) => !isCallExpression(__b),
+    '__a = __b.map((__c) => __d)': ({__a, __b}) => {
+        if (compare(__a, __b))
+            return false;
+        
+        return !isCallExpression(__b);
+    },
 });
 
 export const replace = () => ({
@@ -72,17 +77,6 @@ export const replace = () => ({
             }
         }`;
     },
-    /*
-     '__a = __b.map((__c) => __body': ({__a}, path) => {
-            path.traverse({
-                ReturnStatement: createReplaceWithPush(__a)
-            });
-            return `{
-                 __a = [];
-                for (const __c of __b) __body;
-            }`;
-        },
-    */
     '__a = __b.map((__c) => __d)': ({__a, __d}, path) => {
         if (isBlockStatement(__d)) {
             path.traverse({
