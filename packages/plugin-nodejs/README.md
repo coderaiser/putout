@@ -40,7 +40,7 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [remove-top-level-process-exit](#remove-top-level-process-exit);
 - ✅ [remove-useless-strict-mode](#remove-useless-strict-mode);
 - ✅ [remove-useless-exports-assign](#remove-useless-exports-assign);
-- ✅ [remove-illegal-strict-mode](#remove-useless-strict-mode);
+- ✅ [remove-illegal-strict-mode](#remove-illegal-strict-mode);
 
 ## File rules
 
