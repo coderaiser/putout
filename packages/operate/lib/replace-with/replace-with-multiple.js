@@ -7,6 +7,8 @@ const {
     isArrayExpression,
 } = types;
 
+const getNode = (a) => a.node || a;
+
 export const replaceWithMultiple = (path, nodes) => {
     const {node} = path;
     const {
@@ -18,9 +20,9 @@ export const replaceWithMultiple = (path, nodes) => {
     delete path.node.trailingComments;
     
     const parentComments = path.parentPath.node.comments;
-    
     const newNodes = nodes
         .filter(Boolean)
+        .map(getNode)
         .map(toExpression);
     
     removeDuplicateLeadingComments(newNodes);
