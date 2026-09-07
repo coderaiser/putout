@@ -21,3 +21,13 @@ test('lib: sort-headings: no report: no-link', (t) => {
     t.noReport('no-link');
     t.end();
 });
+
+test('lib: sort-headings: transform: last-arg-not-array', (t) => {
+    t.transform('last-arg-not-array');
+    t.end();
+});
+
+test('lib: sort-headings: transform: empty-heading', (t) => {
+    t.transform('empty-heading');
+    t.end();
+});

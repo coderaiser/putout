@@ -8,7 +8,10 @@ const {
     __markdown,
 } = operator;
 
-const {arrayExpression} = types;
+const {
+    arrayExpression,
+    isArrayExpression,
+} = types;
 
 export const report = () => `Sort 'contents'`;
 
@@ -59,6 +62,12 @@ export const traverse = ({push}) => ({
 });
 
 function ascHeading(a, b) {
+    if (!a.node)
+        return 0;
+    
+    if (!b.node)
+        return 0;
+    
     return getValue(a).charCodeAt(0) - getValue(b).charCodeAt(0);
 }
 
@@ -81,9 +90,12 @@ function packHeadings(elements) {
 
 function extractHeadings(elements) {
     for (const element of elements) {
-        const argument = element.node.arguments.pop();
+        const args = element.node.arguments;
         
-        replaceWithMultiple(element, [element, ...argument.elements]);
+        if (isArrayExpression(args.at(-1))) {
+            const argument = args.pop();
+            replaceWithMultiple(element, [element, ...argument.elements]);
+        }
     }
 }
 

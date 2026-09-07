@@ -15,6 +15,9 @@ export const {
 } = matchFiles({
     files: {
         'README.md': {
+            rules: {
+                'sort-headings': 'off',
+            },
             plugins: [
                 ['sort-contents', sortContents],
                 ['sort-headings', sortHeadings],
