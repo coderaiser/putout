@@ -26,3 +26,8 @@ test('printer: remove-useless-arrow-from-type-checker: no report: no-array', (t)
     t.noReport('no-array');
     t.end();
 });
+
+test('printer: remove-useless-arrow-from-type-checker: no report: useful', (t) => {
+    t.noReport('useful');
+    t.end();
+});

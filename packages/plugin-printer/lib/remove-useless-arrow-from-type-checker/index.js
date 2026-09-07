@@ -42,11 +42,12 @@ export const traverse = ({push}) => ({
 function createWhere(path) {
     const {value} = path.node;
     const where = [];
+    const hasNot = value.includes('!');
     
     if (value.includes('-> ->'))
         where.push('duplicate');
     
-    if (isInsideCompareTuple(path) && value.includes(' -> '))
+    if (!hasNot && isInsideCompareTuple(path) && value.includes(' -> '))
         where.push('useless');
     
     return where;
@@ -63,7 +64,7 @@ function removeArrow(value, where) {
 }
 
 function isInsideCompareTuple({parentPath}) {
-    if (!isArrayExpression(parentPath))
+    if (!isArrayExpression(parentPath.parentPath))
         return false;
     
     return parentPath.node.elements.length === 3;
