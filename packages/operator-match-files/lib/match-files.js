@@ -41,10 +41,16 @@ export const matchFiles = (options) => {
     };
 };
 
-function fix(inputFile, {dirPath, matchInputFilename, outputFilename, ast, assets, options, rawOptions}) {
-    transform(ast, options);
+function fix(inputFile, {dirPath, matchInputFilename, inputFilename, outputFilename, ast, assets, options, rawOptions}) {
+    const [error] = tryCatch(transform, ast, options);
+    
+    if (error)
+        throw Error(`${inputFilename}: ${error.message}`, {
+            cause: error,
+        });
     
     const matchedJSON = magicPrint(outputFilename, ast, assets, rawOptions);
+    
     const outputFile = getOutputFile({
         dirPath,
         matchInputFilename,
@@ -128,6 +134,7 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
             dirPath,
             matchInputFilename,
             
+            inputFilename,
             outputFilename,
             message,
             options,
