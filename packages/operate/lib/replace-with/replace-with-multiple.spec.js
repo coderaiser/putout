@@ -126,3 +126,27 @@ test('putout: operate: replace-with: replaceWithMultiple: trailing comments', (t
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operate: replace-with: replaceWithMultiple: no SequenceExpression', (t) => {
+    const source = fixture.replaceWithMultipleNoSequence;
+    const {code} = putout(source, {
+        plugins: [
+            ['split-stack-operations', {
+                report: () => ``,
+                fix: (path) => {
+                    const arg = path.node.arguments.pop();
+                    replaceWithMultiple(path, [path.node, ...arg.elements]);
+                },
+                
+                include: () => [
+                    'heading(__a, __b, __c)',
+                ],
+            }],
+        ],
+    });
+    
+    const expected = fixture.replaceWithMultipleNoSequenceFix;
+    
+    t.equal(code, expected);
+    t.end();
+});

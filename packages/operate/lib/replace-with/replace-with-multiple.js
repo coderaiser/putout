@@ -2,7 +2,10 @@ import {types} from '@putout/babel';
 import {maybeBody} from './maybe-body.js';
 import {toExpression} from './to-expression.js';
 
-const {isSequenceExpression} = types;
+const {
+    isSequenceExpression,
+    isArrayExpression,
+} = types;
 
 export const replaceWithMultiple = (path, nodes) => {
     const {node} = path;
@@ -31,8 +34,21 @@ export const replaceWithMultiple = (path, nodes) => {
     if (!leadingComments && !isSequenceExpression(path))
         delete newPath[0].node.leadingComments;
     
-    newPath[0].node.comments = comments || parentComments;
-    newPath.at(-1).node.trailingComments = trailingComments;
+    const first = newPath.at(0);
+    const last = newPath.at(-1);
+    
+    first.node.comments = comments || parentComments;
+    last.node.trailingComments = trailingComments;
+    const newParentPath = first.parentPath;
+    
+    if (isSequenceExpression(newParentPath) && isArrayExpression(newParentPath.parentPath)) {
+        const {
+            parentPath,
+            key,
+            node,
+        } = newParentPath;
+        parentPath.node.elements.splice(key, 1, ...node.expressions);
+    }
     
     return newPath;
 };
