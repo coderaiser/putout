@@ -4,7 +4,7 @@ import * as convertUrlParseToNewUrl from './convert-url-parse-to-new-url/index.j
 import * as convertDefaultExportToDefault from './convert-default-export-to-default/index.js';
 import * as applyStyleText from './apply-style-text/index.js';
 import * as removeTopLevelProcessExit from './remove-top-level-process-exit/index.js';
-import * as applyPrivatelyRequiredFiles from './apply-privately-required-file/index.js';
+import * as applyPrivatelyRequiredFile from './apply-privately-required-file/index.js';
 import * as convertBufferToBufferAlloc from './convert-buffer-to-buffer-alloc/index.js';
 import * as convertFsPromises from './convert-fs-promises/index.js';
 import * as convertPromisifyToFsPromises from './convert-promisify-to-fs-promises/index.js';
@@ -39,7 +39,7 @@ export const rules = {
     'add-node-prefix': addNodePrefix,
     'convert-exports-to-module-exports': convertExportsToModuleExports,
     
-    'apply-privately-required-files': ['off', applyPrivatelyRequiredFiles],
+    'apply-privately-required-file': ['off', applyPrivatelyRequiredFile],
     'convert-esm-to-commonjs': ['off', convertEsmToCommonjs],
     'convert-commonjs-to-esm/exports': ['off', convertCommonjsToEsm.rules.exports],
     'convert-commonjs-to-esm/common': ['off', convertCommonjsToEsm.rules.commons],

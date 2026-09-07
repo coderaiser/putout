@@ -44,7 +44,7 @@ npm i putout @putout/plugin-nodejs -D
 
 ## File rules
 
-- ✅ [apply-privately-imported-file](#apply-privately-imported-file);
+- ✅ [apply-privately-required-file](#apply-privately-required-file);
 - ✅ [cjs-file](#cjs-file);
 - ✅ [mjs-file](#mjs-file);
 - ✅ [rename-file-cjs-to-js](#rename-file-cjs-to-js);
@@ -59,7 +59,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/add-node-prefix": "on",
         "nodejs/apply-style-text": "on",
         "nodejs/apply-inherit": "on",
-        "nodejs/apply-privately-imported-file": "off",
+        "nodejs/apply-privately-required-file": "off",
         "nodejs/convert-commonjs-to-esm": "off",
         "nodejs/convert-esm-to-commonjs": "off",
         "nodejs/cjs-file": "off",
@@ -729,7 +729,7 @@ export const readSize = promisify(async (dir, options, callback) => {});
 export const readSize = async (dir, options, callback) => {};
 ```
 
-## apply-privately-required-to-file
+## apply-privately-required-file
 
 > Entries in the imports field must be strings starting with `#`.
 > Package imports permit mapping to external packages.
