@@ -47,6 +47,7 @@ export const replaceWithMultiple = (path, nodes) => {
             key,
             node,
         } = newParentPath;
+        
         parentPath.node.elements.splice(key, 1, ...node.expressions);
     }
     
