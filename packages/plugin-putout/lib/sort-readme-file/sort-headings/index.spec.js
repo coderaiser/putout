@@ -31,3 +31,8 @@ test('lib: sort-headings: transform: empty-heading', (t) => {
     t.transform('empty-heading');
     t.end();
 });
+
+test('lib: sort-headings: transform: no-args', (t) => {
+    t.transform('no-args');
+    t.end();
+});

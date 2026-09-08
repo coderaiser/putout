@@ -15,19 +15,13 @@ const {
 
 export const report = () => `Sort 'contents'`;
 
-export const fix = ({path, rulesHeadings}) => {
-    const n = rulesHeadings.length - 1;
+export const fix = ({path, sorted, rulesHeadings}) => {
     const {elements} = path.node.arguments[0];
     
     packHeadings(path.get('arguments.0.elements'));
     
-    for (const [i, heading] of rulesHeadings.entries()) {
-        if (i < n && ascHeading(heading, rulesHeadings[i + 1])) {
-            const {node} = rulesHeadings[i + 1];
-            
-            elements.splice(heading.key, 1, node);
-            elements.splice(rulesHeadings[i + 1].key, 1, heading.node);
-        }
+    for (const [i, current] of rulesHeadings.entries()) {
+        elements.splice(current.key, 1, sorted[i].node);
     }
     
     extractHeadings(path.get('arguments.0.elements'));
@@ -57,6 +51,7 @@ export const traverse = ({push}) => ({
             push({
                 path,
                 rulesHeadings,
+                sorted,
             });
     },
 });
