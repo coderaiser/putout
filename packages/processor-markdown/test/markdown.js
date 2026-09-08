@@ -224,3 +224,20 @@ test('putout: processor: markdown: merge', ({equal}) => {
     
     equal(code, raw);
 });
+
+test('putout: processor: markdown: merge: no assets', ({equal}) => {
+    const raw = montag`
+        \`\`\`json
+            {
+                "hello": "world"
+            }
+       \`\`\`
+    
+    `;
+    
+    const [{source}] = branch(raw);
+    
+    const code = merge(raw, [source]);
+    
+    equal(code, raw);
+});

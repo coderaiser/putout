@@ -162,6 +162,9 @@ const apply = ({list, visit}) => (node) => {
     visit(node, 'code', (node) => {
         const {lang} = node;
         
+        if (!list.length)
+            return;
+        
         if (/^(jsx?|javascript)$/.test(lang)) {
             node.value = list.shift();
             return;
