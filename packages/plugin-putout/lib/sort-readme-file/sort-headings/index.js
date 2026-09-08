@@ -5,6 +5,7 @@ const {
     replaceWithMultiple,
     remove,
     compare,
+    compareAny,
     __markdown,
 } = operator;
 
@@ -13,9 +14,8 @@ const {arrayExpression} = types;
 export const report = () => `Sort 'contents'`;
 
 export const fix = ({path, sorted, rulesHeadings}) => {
-    const {elements} = path.node.arguments[0];
-    
     packHeadings(path.get('arguments.0.elements'));
+    const {elements} = path.node.arguments[0];
     
     for (const [i, current] of rulesHeadings.entries()) {
         elements.splice(current.key, 1, sorted[i].node);
@@ -63,10 +63,14 @@ function packHeadings(elements) {
     let argument = arrayExpression([]);
     
     for (const element of elements) {
-        if (compare(element, 'heading(__args)')) {
-            argument = arrayExpression([]);
-            element.node.arguments.push(argument);
-            continue;
+        if (compareAny(element, 'heading(__args)')) {
+            const {__a} = getTemplateValues(element, 'heading(__a, __b)');
+            
+            if (__a.value < 3) {
+                argument = arrayExpression([]);
+                element.node.arguments.push(argument);
+                continue;
+            }
         }
         
         argument.elements.push(element.node);

@@ -67,35 +67,6 @@ __putout_processor_markdown([
     heading(2, 'includer'),
     heading(3, '❌ Example of incorrect code'),
     codeblock('js', `
-        const test = require('@putout/test')(__dirname, {
-            'remove-debugger': require('..'),
-        });
-        
-        test('remove debugger: report', (t) => {
-            t.transform('debugger', {
-                'remove-debugger': require('..'),
-            });
-            t.end();
-        });
-    `),
-    heading(3, '✅ Example of correct code'),
-    codeblock('js', `
-        const removeDebugger = require('..');
-        
-        const test = require('@putout/test')(__dirname, {
-            'remove-debugger': removeDebugger,
-        });
-        
-        test('remove debugger: report', (t) => {
-            t.transform('debugger', {
-                'remove-debugger': removeDebugger,
-            });
-            t.end();
-        });
-    `),
-    heading(2, 'move-require-on-top-level'),
-    heading(3, '❌ Example of incorrect code'),
-    codeblock('js', `
         module.exports.include = () => 'cons __a = __b';
         module.exports.exclude = () => 'var __a = __b';
         module.exports.include = 'cons __a = __b';
@@ -134,5 +105,34 @@ __putout_processor_markdown([
         export const exclude = () => [
             'var __a = __b',
         ];
+    `),
+    heading(2, 'move-require-on-top-level'),
+    heading(3, '❌ Example of incorrect code'),
+    codeblock('js', `
+        const test = require('@putout/test')(__dirname, {
+            'remove-debugger': require('..'),
+        });
+        
+        test('remove debugger: report', (t) => {
+            t.transform('debugger', {
+                'remove-debugger': require('..'),
+            });
+            t.end();
+        });
+    `),
+    heading(3, '✅ Example of correct code'),
+    codeblock('js', `
+        const removeDebugger = require('..');
+        
+        const test = require('@putout/test')(__dirname, {
+            'remove-debugger': removeDebugger,
+        });
+        
+        test('remove debugger: report', (t) => {
+            t.transform('debugger', {
+                'remove-debugger': removeDebugger,
+            });
+            t.end();
+        });
     `),
 ]);

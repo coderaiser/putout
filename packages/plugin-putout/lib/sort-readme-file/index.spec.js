@@ -31,3 +31,8 @@ test('putout: sort-readme-file: transform: badges', (t) => {
     t.transform('badges');
     t.end();
 });
+
+test('putout: sort-readme-file: transform: codeblocks', (t) => {
+    t.transform('codeblocks');
+    t.end();
+});

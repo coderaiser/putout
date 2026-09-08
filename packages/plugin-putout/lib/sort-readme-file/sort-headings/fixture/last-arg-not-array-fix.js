@@ -16,13 +16,6 @@ __putout_processor_markdown([
     heading(2, 'includer'),
     heading(3, '❌ Example of incorrect code'),
     codeblock('js', `
-    `),
-    heading(3, '✅ Example of correct code'),
-    codeblock('js', `
-    `),
-    heading(2, 'move-require-on-top-level'),
-    heading(3, '❌ Example of incorrect code'),
-    codeblock('js', `
         export const exclude = [
             'var __a = __b',
         ];
@@ -32,5 +25,12 @@ __putout_processor_markdown([
         module.exports.include = () => [
             'const __a = __b',
         ];
+    `),
+    heading(2, 'move-require-on-top-level'),
+    heading(3, '❌ Example of incorrect code'),
+    codeblock('js', `
+    `),
+    heading(3, '✅ Example of correct code'),
+    codeblock('js', `
     `),
 ]);
