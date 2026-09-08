@@ -41,7 +41,7 @@ export const matchFiles = (options) => {
     };
 };
 
-function fix(inputFile, {dirPath, matchInputFilename, inputFilename, outputFilename, ast, assets, options, rawOptions}) {
+function fix(inputFile, {dirPath, matchInputFilename, inputFilename, outputFilename, ast, options, rawOptions}) {
     const [error] = tryCatch(transform, ast, options);
     
     if (error)
@@ -49,7 +49,7 @@ function fix(inputFile, {dirPath, matchInputFilename, inputFilename, outputFilen
             cause: error,
         });
     
-    const matchedJSON = magicPrint(outputFilename, ast, assets, rawOptions);
+    const matchedJSON = magicPrint(outputFilename, ast, rawOptions);
     
     const outputFile = getOutputFile({
         dirPath,
@@ -115,7 +115,7 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
         
         const fileContent = readFileContent(inputFile) || '{}';
         
-        const {assets, ast} = magicParse(inputFilename, fileContent);
+        const {ast} = magicParse(inputFilename, fileContent);
         
         const options = parseOptions(inputFilename, rawOptions);
         const [error, places] = tryCatch(findPlaces, ast, options);
@@ -141,7 +141,6 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
             rawOptions,
             
             ast,
-            assets,
         });
     }
 };

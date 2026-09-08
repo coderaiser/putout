@@ -1,9 +1,9 @@
 import {getProcessor} from './processor.js';
 import {getType} from './type.js';
 
-export function magicPrint(name, ast, assets, options) {
+export function magicPrint(name, ast, options) {
     const type = getType(name);
     const {merge} = getProcessor(type);
     
-    return merge(ast, assets, options);
+    return merge(ast, options);
 }

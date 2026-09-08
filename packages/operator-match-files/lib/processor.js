@@ -28,22 +28,20 @@ export const getProcessor = (name) => {
 function wrapProcessor(processor) {
     return {
         branch: (content) => {
-            const assets = processor
+            const [js] = processor
                 .branch(content)
                 .map(getSource);
             
-            const js = assets.shift();
             const ast = parse(js);
             
             return {
-                assets,
                 ast,
             };
         },
-        merge: (ast, assets, options) => {
+        merge: (ast, options) => {
             const js = print(ast, options);
             
-            return processor.merge(null, [js, ...assets]);
+            return processor.merge('', [js]);
         },
     };
 }
@@ -53,10 +51,7 @@ function branch(content) {
         isTS: true,
     });
     
-    const assets = [content];
-    
     return {
-        assets,
         ast,
     };
 }
