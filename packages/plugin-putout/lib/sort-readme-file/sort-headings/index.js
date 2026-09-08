@@ -57,12 +57,6 @@ export const traverse = ({push}) => ({
 });
 
 function ascHeading(a, b) {
-    if (!a.node)
-        return 0;
-    
-    if (!b.node)
-        return 0;
-    
     return getValue(a).charCodeAt(0) - getValue(b).charCodeAt(0);
 }
 
