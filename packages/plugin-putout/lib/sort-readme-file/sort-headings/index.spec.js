@@ -7,32 +7,32 @@ const test = createTest(import.meta.url, {
     ],
 });
 
-test('lib: sort-headings: report', (t) => {
+test('putout: plugin-putout: sort-readme-file: sort-heading: sort-headings: report', (t) => {
     t.report('sort-headings', `Sort 'contents'`);
     t.end();
 });
 
-test('lib: sort-headings: transform', (t) => {
+test('putout: plugin-putout: sort-readme-file: sort-heading: sort-headings: transform', (t) => {
     t.transform('sort-headings');
     t.end();
 });
 
-test('lib: sort-headings: no report: no-link', (t) => {
+test('putout: plugin-putout: sort-readme-file: sort-heading: sort-headings: no report: no-link', (t) => {
     t.noReport('no-link');
     t.end();
 });
 
-test('lib: sort-headings: transform: last-arg-not-array', (t) => {
+test('putout: plugin-putout: sort-readme-file: sort-heading: sort-headings: transform: last-arg-not-array', (t) => {
     t.transform('last-arg-not-array');
     t.end();
 });
 
-test('lib: sort-headings: transform: empty-heading', (t) => {
+test('putout: plugin-putout: sort-readme-file: sort-heading: sort-headings: transform: empty-heading', (t) => {
     t.transform('empty-heading');
     t.end();
 });
 
-test('lib: sort-headings: transform: no-args', (t) => {
+test('putout: plugin-putout: sort-readme-file: sort-heading: sort-headings: transform: no-args', (t) => {
     t.transform('no-args');
     t.end();
 });

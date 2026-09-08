@@ -26,3 +26,8 @@ test('putout: sort-readme-file: no report: not-plugin', (t) => {
     t.noReport('not-plugin');
     t.end();
 });
+
+test('putout: sort-readme-file: transform: badges', (t) => {
+    t.transform('badges');
+    t.end();
+});

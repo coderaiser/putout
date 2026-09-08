@@ -8,10 +8,7 @@ const {
     __markdown,
 } = operator;
 
-const {
-    arrayExpression,
-    isArrayExpression,
-} = types;
+const {arrayExpression} = types;
 
 export const report = () => `Sort 'contents'`;
 
@@ -66,7 +63,7 @@ function packHeadings(elements) {
     let argument = arrayExpression([]);
     
     for (const element of elements) {
-        if (compare(element, 'heading(__a, __b)')) {
+        if (compare(element, 'heading(__args)')) {
             argument = arrayExpression([]);
             element.node.arguments.push(argument);
             continue;
@@ -80,11 +77,9 @@ function packHeadings(elements) {
 function extractHeadings(elements) {
     for (const element of elements) {
         const args = element.node.arguments;
+        const argument = args.pop();
         
-        if (isArrayExpression(args.at(-1))) {
-            const argument = args.pop();
-            replaceWithMultiple(element, [element, ...argument.elements]);
-        }
+        replaceWithMultiple(element, [element, ...argument.elements]);
     }
 }
 
@@ -107,15 +102,15 @@ function getRules(elements) {
     return rules;
 }
 
-const HEADING = 'heading(2, __a)';
+const HEADING = 'heading(__a, __b)';
 
 function getRulesHeadings({rules, elements}) {
     const headings = [];
     
     for (const element of elements) {
-        if (compare(element, 'heading(__a, __b)')) {
-            const {__a} = getTemplateValues(element, HEADING);
-            const {value} = __a;
+        if (compare(element, HEADING)) {
+            const {__b} = getTemplateValues(element, HEADING);
+            const {value} = __b;
             
             if (rules.has(value))
                 headings.push(element);
