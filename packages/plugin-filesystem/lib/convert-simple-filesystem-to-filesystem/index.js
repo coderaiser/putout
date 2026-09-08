@@ -49,7 +49,7 @@ function parseContent(node, path) {
         return node.value;
     
     if (isTemplateLiteral(node))
-        return toBase64(node.quasis[0].value.raw);
+        return toBase64(node.quasis[0].value.cooked);
     
     throw Error(`☝️ Looks like wrong content type: '${node.type}' from file: '${path}'`);
 }

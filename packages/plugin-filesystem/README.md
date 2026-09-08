@@ -1,10 +1,3 @@
-# @putout/plugin-filesystem [![NPM version][NPMIMGURL]][NPMURL]
-
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-filesystem.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-filesystem "npm"
-
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to lint filesystem.
-
 ## Install
 
 ```
@@ -84,287 +77,6 @@ npm i @putout/plugin-filesystem -D
 }
 ```
 
-## rename-file
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0614c2da35a1864b59ac284f18656328/66daa5b325666a0d5befa586965c56e9636a5db4).
-
-Update `.putout.json` to enable rule:
-
-```json
-{
-    "rules": {
-        "filesystem/rename-file": ["on", {
-            "from": "README.md",
-            "to": "readme.md"
-        }]
-    }
-}
-```
-
-It will make next modifications to filesystem:
-
-```diff
--README.md
-+readme.md
-```
-
-For more sophisticated example, use `mask`:
-
-```json
-{
-    "rules": {
-        "filesystem/rename-file": ["on", {
-            "mask": "*.test.*",
-            "from": "test",
-            "to": "spec"
-        }]
-    }
-}
-```
-
-It will rename 'test' to 'spec' in `*.test.*` files:
-
-```diff
--index.test.js
-+index.spec.js
-```
-
-## remove-files
-
-Remove next files:
-
-- `*.swp`;
-- `*.swo`;
-- `*.lock`;
-- `.DS_Store`;
-- `.travis.yml`;
-
-Apply overrides:
-
-```json
-{
-    "rules": {
-        "filesystem/remove-files": ["on", {
-            "names": ["coverage"],
-            "dismiss": [
-                ".travis.yml"
-            ]
-        }]
-    }
-}
-```
-
-It will make next modifications to filesystem:
-
-```diff
- /
- |-- test/
- |   `-- hello.spec.js
--|-- coverage/
- `-- lib/
-     `-- hello.js
-```
-
-## rename-spec-to-test
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ab52a74195eeb2f689e7284a1c987a03/d3a0e2ffac0bb33cc243004975d242d07d6d0bff).
-
-```diff
--index.spec.js
-+index.test.js
-```
-
-## rename-test-to-spec
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/28e4d3a847f0968401da67fff04fb784/1e3bfd4ddb241dd0de6c2402f49252af0806b719).
-
-```diff
--index.test.js
-+index.spec.js
-```
-
-## rename-referenced-file
-
-Update `.putout.json` to enable rule:
-
-```json
-{
-    "rules": {
-        "filesystem/rename-referenced-file": ["on", {
-            "from": "hello.js",
-            "to": "world.js"
-        }]
-    }
-}
-```
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/688ef036984ed06a6b2ba349fdb84409/5597aa2b224d572b9204288f986ed06226a7c541).
-
-Before:
-
-```js
-// hello.spec.js
-import hello from './hello.js';
-```
-
-```js
-// hello.js
-export const hello = 'world';
-```
-
-After:
-
-```diff
--hello.js
-+world.js
-```
-
-```js
-// hello.spec.js
-import hello from './world.js';
-```
-
-```js
-// world.js
-export const hello = 'world';
-```
-
-## move-referenced-file
-
-Update `.putout.json` to enable rule:
-
-```json
-{
-    "rules": {
-        "filesystem/move-referenced-file": ["on", {
-            "name": "hello.js",
-            "directory": "lib"
-        }]
-    }
-}
-```
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/02d0fefd171f6552c611dc6c11d0bbec/2b530c289e16e3fae375d44ce69ab3f8143e092e).
-
-Before:
-
-```
-/
-|-- test/
-|  `-- hello.spec.js
-|-- src/
-|   `-- hello.js
-`-- lib/
-```
-
-```js
-// test/hello.spec.js
-import hello from '../src/hello.js';
-```
-
-```js
-// src/hello.js
-export const hello = 'world';
-```
-
-After:
-
-```
-/
-|-- test/
-|   `-- hello.spec.js
-|-- src/
-`-- lib/
-    `-- hello.js
-```
-
-```diff
--src/hello.js
-+lib/hello.js
-```
-
-```js
-// test/hello.spec.js
-import hello from '../lib/hello.js';
-```
-
-```js
-// lib/hello.js
-export const hello = 'world';
-```
-
-## convert-simple-filesystem-to-filesystem
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e15d077626f832dd0b98458b1b8ff284/e2d9d2767c9bfab3e4d337f149069666d2aafe79).
-
-### ❌ Example of incorrect code
-
-```js
-__putout_processor_filesystem([
-    '/',
-    '/hello.txt',
-    ['/world.txt', 'hello world'],
-    '/abc/',
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-__putout_processor_filesystem({
-    type: 'directory',
-    filename: '/',
-    files: [{
-        type: 'file',
-        filename: '/hello.txt',
-    }, {
-        type: 'file',
-        filename: '/world.txt',
-        content: 'hello world',
-    }, {
-        type: 'directory',
-        filename: '/abc',
-        files: [],
-    }],
-});
-```
-
-## convert-filesystem-to-simple-filesystem
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/79ce3ebdd5878d9fdcf80b762ceb8e76/52c9a16861c541abd601b83ad1c2ae988f97b28f).
-
-### ❌ Example of incorrect code
-
-```js
-__putout_processor_filesystem({
-    type: 'directory',
-    filename: '/',
-    files: [{
-        type: 'file',
-        filename: '/hello.txt',
-    }, {
-        type: 'file',
-        filename: '/world.txt',
-        content: 'hello world',
-    }, {
-        type: 'directory',
-        filename: '/abc',
-        files: [],
-    }],
-});
-```
-
-### ✅ Example of correct code
-
-```js
-__putout_processor_filesystem([
-    '/',
-    '/hello.txt',
-    ['/world.txt', 'hello world'],
-    '/abc/',
-]);
-```
-
 ## bundle
 
 Bundle and minify `css` files.
@@ -372,18 +84,9 @@ Bundle and minify `css` files.
 ```json
 {
     "rules": {
-        "filesystem/bundle": ["on", {
-            "groups": [
-                ["__:columns/__", [
-                    "name-size-date.css",
-                    "name-size.css"
-                ]],
-                [
-                    "main.css",
-                    ["hello.css", "world.css"]
-                ],
-                "1:1"
-            ]
+        "filesystem/rename-file": ["on", {
+            "from": "README.md",
+            "to": "readme.md"
         }]
     }
 }
@@ -416,8 +119,10 @@ Just minify styles:
 ```json
 {
     "rules": {
-        "filesystem/bundle": ["on", {
-            "groups": ["1:1"]
+        "filesystem/rename-file": ["on", {
+            "mask": "*.test.*",
+            "from": "test",
+            "to": "spec"
         }]
     }
 }
@@ -449,12 +154,10 @@ Create subdirectory:
 ```json
 {
     "rules": {
-        "filesystem/bundle": ["on", {
-            "groups": [
-                ["__:columns/__", [
-                    "name-size-date.css",
-                    "name-size.css"
-                ]]
+        "filesystem/remove-files": ["on", {
+            "names": ["coverage"],
+            "dismiss": [
+                ".travis.yml"
             ]
         }]
     }
@@ -488,9 +191,9 @@ Filter css files by mask:
 ```json
 {
     "rules": {
-        "filesystem/bundle": ["on", {
-            "mask": "*.good.css",
-            "groups": ["1:1"]
+        "filesystem/rename-referenced-file": ["on", {
+            "from": "hello.js",
+            "to": "world.js"
         }]
     }
 }
@@ -519,25 +222,13 @@ After:
 You can even override `transform` with your own `config`:
 
 ```ts
-putout(filesystem, {
-    rules: {
-        'filesystem/bundle': ['on', {
-            transform: (source: string | string[], config) => string,
-        }],
-    },
-});
+// hello.spec.js
+import hello from './hello.js';
 ```
 
 Concut files:
 
 ```json
-{
-    "rules": {
-        "filesystem/bundle": ["on", {
-            "groups": ["hello.css"]
-        }]
-    }
-}
 ```
 
 Before:
@@ -560,69 +251,13 @@ After:
 |   `-- hello.css
 ```
 
-## replace-cwd
+## convert-simple-filesystem-to-filesystem
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/97a4cb9bc9f79abc9585bf5b47392450/b6b9de0a407258643bfa469453d967e089648a59).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e15d077626f832dd0b98458b1b8ff284/e2d9d2767c9bfab3e4d337f149069666d2aafe79).
 
-When `from=/home/coderaiser/putout` and `to=/`:
+## convert-filesystem-to-simple-filesystem
 
-```json
-{
-    "rules": {
-        "filesystem/replace-cwd": ["on", {
-            "from": "/home/coderaiser/putout",
-            "to": "/"
-        }]
-    }
-}
-```
-
-### ❌ Example of incorrect code
-
-```js
-__putout_processor_filesystem([
-    '/home/coderaiser/putout/',
-    '/home/coderaiser/putout/README.md',
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-__putout_processor_filesystem(['/', '/README.md']);
-```
-
-## read-all-files
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fb221770d2f35e89faf19d70eb945a1c/c857e8c2bf0511157f30a36f167266da3ea31647).
-
-### ❌ Example of incorrect code
-
-```json
-["/", "/hello.xyz"]
-```
-
-### ✅ Example of correct code
-
-```json
-[
-    "/",
-    ["/hello.xyz", "hello world"]
-]
-```
-
-## write-all-files
-
-Write all files that was read before to Filesystem.
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2dda6b05987bbf91a1b18d7032489c05/286d2f04eb0e002cef14d102fa3e59bdf17bda47).
-
-```json
-[
-    "/",
-    ["/hello.xyz", "hello world"]
-]
-```
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/79ce3ebdd5878d9fdcf80b762ceb8e76/52c9a16861c541abd601b83ad1c2ae988f97b28f).
 
 ## convert-json-to-js
 
@@ -635,14 +270,6 @@ Filesystem:
 +["/", "/package.js"]
 ```
 
-### ❌ Example of incorrect code
-
-```json
-{
-    "plugins": []
-}
-```
-
 ## convert-json-to-toml
 
 Filesystem:
@@ -652,25 +279,6 @@ Filesystem:
 +["/", "/bunfig.toml"]
 ```
 
-### ❌ Example of incorrect code
-
-```json
-{
-    "install": {
-        "lockfile": false,
-        "linker": "hoisted"
-    }
-}
-```
-
-### ✅ Example of correct code
-
-```toml
-[install]
-lockfile = false
-linker = "hoisted"
-```
-
 ## convert-toml-to-json
 
 Filesystem:
@@ -678,25 +286,6 @@ Filesystem:
 ```diff
 -["/", "/bunfig.toml"]
 +["/", "/bunfig.json"]
-```
-
-### ❌ Example of incorrect code
-
-```toml
-[install]
-lockfile = false
-linker = "hoisted"
-```
-
-### ✅ Example of correct code
-
-```json
-{
-    "install": {
-        "lockfile": false,
-        "linker": "hoisted"
-    }
-}
 ```
 
 ## convert-toml-to-yaml
@@ -710,18 +299,16 @@ Filesystem:
 
 ### ❌ Example of incorrect code
 
-```toml
-[install]
-lockfile = false
-linker = "hoisted"
+```js
+// hello.spec.js
+import hello from './world.js';
 ```
 
 ### ✅ Example of correct code
 
-```yaml
-install:
-  lockfile: false
-  linker: hoisted
+```js
+// world.js
+export const hello = 'world';
 ```
 
 ## convert-json-to-yaml
@@ -735,13 +322,377 @@ Filesystem:
 
 ### ❌ Example of incorrect code
 
+```js
+__putout_processor_json({
+    rules: {
+        'filesystem/move-referenced-file': ['on', {
+            name: 'hello.js',
+            directory: 'lib',
+        }],
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+// test/hello.spec.js
+import hello from '../src/hello.js';
+```
+
+## convert-yaml-to-toml
+
+Filesystem:
+
+```diff
+-["/", "/bunfig.yaml"]
++["/", "/bunfig.toml"]
+```
+
+## convert-yaml-to-json
+
+Filesystem:
+
+```diff
+-["/", "/actions.yaml"]
++["/", "/actions.json"]
+```
+
+### ❌ Example of incorrect code
+
+```js
+// src/hello.js
+export const hello = 'world';
+```
+
+### ✅ Example of correct code
+
+```js
+// test/hello.spec.js
+import hello from '../lib/hello.js';
+```
+
+## convert-js-to-json
+
+Checkout in 🐊**Putout Editor**:
+
+- [**Replacer**](https://putout.cloudcmd.io/#/gist/1d24f6b52a49cfecbfe104982d292244/a469d79ca6bc296eeb94af0712e5841d79aac237);
+- [**Scanner**](https://putout.cloudcmd.io/#/gist/f0f290d79b06d718d13252d05ee739e7/3f063d9b62fe20fd26579792549a7deb32cd987a);
+
+Filesystem:
+
+```diff
+-["/", "/package.js"]
++["/", "/package.json"]
+```
+
+### ❌ Example of incorrect code
+
+```json
+```
+
+### ✅ Example of correct code
+
+```json
+```
+
+## move-referenced-file
+
+Update `.putout.json` to enable rule:
+
+```json
+```
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/02d0fefd171f6552c611dc6c11d0bbec/2b530c289e16e3fae375d44ce69ab3f8143e092e).
+
+Before:
+
+```
+/
+|-- test/
+|  `-- hello.spec.js
+|-- src/
+|   `-- hello.js
+`-- lib/
+```
+
+```js
+__putout_processor_filesystem({
+    type: 'directory',
+    filename: '/',
+    files: [{
+        type: 'file',
+        filename: '/hello.txt',
+    }, {
+        type: 'file',
+        filename: '/world.txt',
+        content: 'hello world',
+    }, {
+        type: 'directory',
+        filename: '/abc',
+        files: [],
+    }],
+});
+```
+
+```js
+__putout_processor_filesystem([
+    '/',
+    '/hello.txt',
+    ['/world.txt', 'hello world'],
+    '/abc/',
+]);
+```
+
+After:
+
+```
+/
+|-- test/
+|   `-- hello.spec.js
+|-- src/
+`-- lib/
+    `-- hello.js
+```
+
+```diff
+-src/hello.js
++lib/hello.js
+```
+
+```js
+__putout_processor_json({
+    rules: {
+        'filesystem/bundle': ['on', {
+            groups: [
+                ['__:columns/__', [
+                    'name-size-date.css',
+                    'name-size.css',
+                ]],
+                [
+                    'main.css',
+                    ['hello.css', 'world.css'],
+                ],
+                '1:1',
+            ],
+        }],
+    },
+});
+```
+
+```js
+__putout_processor_json({
+    rules: {
+        'filesystem/bundle': ['on', {
+            groups: ['1:1'],
+        }],
+    },
+});
+```
+
+## rename-file
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0614c2da35a1864b59ac284f18656328/66daa5b325666a0d5befa586965c56e9636a5db4).
+
+Update `.putout.json` to enable rule:
+
 ```json
 {
-    "name": "Node CI",
-    "on": {
-        "push": {
-            "branches": "master"
-        }
+    "rules": {
+        "filesystem/bundle": ["on", {
+            "groups": [
+                ["__:columns/__", [
+                    "name-size-date.css",
+                    "name-size.css"
+                ]]
+            ]
+        }]
+    }
+}
+```
+
+It will make next modifications to filesystem:
+
+```diff
+-README.md
++readme.md
+```
+
+For more sophisticated example, use `mask`:
+
+```json
+{
+    "rules": {
+        "filesystem/bundle": ["on", {
+            "mask": "*.good.css",
+            "groups": ["1:1"]
+        }]
+    }
+}
+```
+
+It will rename 'test' to 'spec' in `*.test.*` files:
+
+```diff
+-index.test.js
++index.spec.js
+```
+
+### ❌ Example of incorrect code
+
+```json
+```
+
+## remove-files
+
+Remove next files:
+
+- `*.swp`;
+- `*.swo`;
+- `*.lock`;
+- `.DS_Store`;
+- `.travis.yml`;
+
+Apply overrides:
+
+```json
+{
+    "rules": {
+        "filesystem/bundle": ["on", {
+            "groups": ["hello.css"]
+        }]
+    }
+}
+```
+
+It will make next modifications to filesystem:
+
+```diff
+ /
+ |-- test/
+ |   `-- hello.spec.js
+-|-- coverage/
+ `-- lib/
+     `-- hello.js
+```
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "rules": {
+        "filesystem/replace-cwd": ["on", {
+            "from": "/home/coderaiser/putout",
+            "to": "/"
+        }]
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```toml
+[install]
+lockfile = false
+linker = "hoisted"
+```
+
+## rename-spec-to-test
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ab52a74195eeb2f689e7284a1c987a03/d3a0e2ffac0bb33cc243004975d242d07d6d0bff).
+
+```diff
+-index.spec.js
++index.test.js
+```
+
+### ❌ Example of incorrect code
+
+```toml
+[install]
+lockfile = false
+linker = "hoisted"
+```
+
+### ✅ Example of correct code
+
+```json
+```
+
+## rename-test-to-spec
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/28e4d3a847f0968401da67fff04fb784/1e3bfd4ddb241dd0de6c2402f49252af0806b719).
+
+```diff
+-index.test.js
++index.spec.js
+```
+
+### ❌ Example of incorrect code
+
+```toml
+[install]
+lockfile = false
+linker = "hoisted"
+```
+
+### ✅ Example of correct code
+
+```yaml
+install:
+  lockfile: false
+  linker: hoisted
+```
+
+## rename-referenced-file
+
+Update `.putout.json` to enable rule:
+
+```json
+```
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/688ef036984ed06a6b2ba349fdb84409/5597aa2b224d572b9204288f986ed06226a7c541).
+
+Before:
+
+```js
+__putout_processor_json(['/', '/hello.xyz']);
+```
+
+```js
+__putout_processor_json([
+    '/',
+    ['/hello.xyz', 'hello world'],
+]);
+```
+
+After:
+
+```diff
+-hello.js
++world.js
+```
+
+```js
+__putout_processor_json([
+    '/',
+    ['/hello.xyz', 'hello world'],
+]);
+```
+
+```js
+__putout_processor_json({
+    plugins: [],
+});
+```
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "install": {
+        "lockfile": false,
+        "linker": "hoisted"
     }
 }
 ```
@@ -755,13 +706,19 @@ on:
         branches: master
 ```
 
-## convert-yaml-to-toml
+## replace-cwd
 
-Filesystem:
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/97a4cb9bc9f79abc9585bf5b47392450/b6b9de0a407258643bfa469453d967e089648a59).
 
-```diff
--["/", "/bunfig.yaml"]
-+["/", "/bunfig.toml"]
+When `from=/home/coderaiser/putout` and `to=/`:
+
+```json
+{
+    "install": {
+        "lockfile": false,
+        "linker": "hoisted"
+    }
+}
 ```
 
 ### ❌ Example of incorrect code
@@ -780,14 +737,9 @@ lockfile = false
 linker = "hoisted"
 ```
 
-## convert-yaml-to-json
+## read-all-files
 
-Filesystem:
-
-```diff
--["/", "/actions.yaml"]
-+["/", "/actions.json"]
-```
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fb221770d2f35e89faf19d70eb945a1c/c857e8c2bf0511157f30a36f167266da3ea31647).
 
 ### ❌ Example of incorrect code
 
@@ -811,18 +763,21 @@ on:
 }
 ```
 
-## convert-js-to-json
+## write-all-files
 
-Checkout in 🐊**Putout Editor**:
+Write all files that was read before to Filesystem.
 
-- [**Replacer**](https://putout.cloudcmd.io/#/gist/1d24f6b52a49cfecbfe104982d292244/a469d79ca6bc296eeb94af0712e5841d79aac237);
-- [**Scanner**](https://putout.cloudcmd.io/#/gist/f0f290d79b06d718d13252d05ee739e7/3f063d9b62fe20fd26579792549a7deb32cd987a);
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2dda6b05987bbf91a1b18d7032489c05/286d2f04eb0e002cef14d102fa3e59bdf17bda47).
 
-Filesystem:
-
-```diff
--["/", "/package.js"]
-+["/", "/package.json"]
+```json
+{
+    "name": "Node CI",
+    "on": {
+        "push": {
+            "branches": "master"
+        }
+    }
+}
 ```
 
 ### ❌ Example of incorrect code

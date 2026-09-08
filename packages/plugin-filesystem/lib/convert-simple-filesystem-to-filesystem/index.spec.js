@@ -56,6 +56,11 @@ test('putout: filesystem: convert-simple-filesystem-to-filesystem: no transform:
     t.end();
 }, CHECK_ASSERTIONS_COUNT);
 
+test('putout: filesystem: convert-simple-filesystem-to-filesystem: transform: escape', (t) => {
+    t.transform('escape');
+    t.end();
+});
+
 test('putout: filesystem: convert-simple-filesystem-to-filesystem: no transform: not-filesystem', (t) => {
     t.noTransform('not-filesystem');
     t.end();
