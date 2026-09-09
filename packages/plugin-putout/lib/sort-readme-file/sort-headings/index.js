@@ -5,15 +5,28 @@ const {
     replaceWithMultiple,
     remove,
     compare,
-    compareAny,
     __markdown,
 } = operator;
 
 const {arrayExpression} = types;
 
-export const report = () => `Sort 'contents'`;
+const MAX_RULE_HEADING = 2;
+const LINK = `li('✅ ', link(__a, __b), ';')`;
+const LIST = 'ul(__args)';
+const HEADING = 'heading(__a, __b)';
+const compareOne = (a) => (b) => compare(b, a);
 
-export const fix = ({path, sorted, rulesHeadings}) => {
+export const report = ({invalid}) => {
+    if (invalid.length)
+        return `Avoid using rules with heading level more then 2: '### ${invalid[0]}' -> '## ${invalid[0]}'`;
+    
+    return `Sort 'contents'`;
+};
+
+export const fix = ({path, sorted, rulesHeadings, invalid}) => {
+    if (invalid.length)
+        return;
+    
     packHeadings(path.get('arguments.0.elements'));
     const {elements} = path.node.arguments[0];
     
@@ -44,14 +57,43 @@ export const traverse = ({push}) => ({
             }
         }
         
-        if (is)
-            push({
-                path,
-                rulesHeadings,
-                sorted,
-            });
+        if (!is)
+            return;
+        
+        const invalid = validateRulesHeadings({
+            rules,
+            elements,
+        });
+        
+        push({
+            path,
+            rulesHeadings,
+            sorted,
+            invalid,
+        });
     },
 });
+
+function validateRulesHeadings({rules, elements}) {
+    const invalid = [];
+    
+    for (const element of elements) {
+        if (compare(element, HEADING)) {
+            const {__a, __b} = getTemplateValues(element, HEADING);
+            const {value} = __b;
+            
+            if (!rules.has(value))
+                continue;
+            
+            if (__a.value !== MAX_RULE_HEADING) {
+                invalid.push(value);
+                return invalid;
+            }
+        }
+    }
+    
+    return invalid;
+}
 
 function asc(a, b) {
     return getValue(a).localeCompare(getValue(b));
@@ -60,17 +102,13 @@ function asc(a, b) {
 const getValue = (path) => path.node.arguments[1].value;
 
 function packHeadings(elements) {
-    let argument = arrayExpression([]);
+    let argument;
     
     for (const element of elements) {
-        if (compareAny(element, 'heading(__args)')) {
-            const {__a} = getTemplateValues(element, 'heading(__a, __b)');
-            
-            if (__a.value < 3) {
-                argument = arrayExpression([]);
-                element.node.arguments.push(argument);
-                continue;
-            }
+        if (isRuleHeading(element)) {
+            argument = arrayExpression([]);
+            element.node.arguments.push(argument);
+            continue;
         }
         
         argument.elements.push(element.node);
@@ -79,7 +117,7 @@ function packHeadings(elements) {
 }
 
 function extractHeadings(elements) {
-    for (const element of elements) {
+    for (const element of elements.filter(isRuleHeading)) {
         const args = element.node.arguments;
         const argument = args.pop();
         
@@ -87,9 +125,14 @@ function extractHeadings(elements) {
     }
 }
 
-const LINK = `li('✅ ', link(__a, __b), ';')`;
-const LIST = 'ul(__args)';
-const compareOne = (a) => (b) => compare(b, a);
+function isRuleHeading(element) {
+    if (!compare(element, 'heading(__args)'))
+        return false;
+    
+    const {__a} = getTemplateValues(element, 'heading(__a, __b)');
+    
+    return __a.value <= MAX_RULE_HEADING;
+}
 
 function getRules(elements) {
     const rules = new Set();
@@ -105,8 +148,6 @@ function getRules(elements) {
     
     return rules;
 }
-
-const HEADING = 'heading(__a, __b)';
 
 function getRulesHeadings({rules, elements}) {
     const headings = [];

@@ -41,3 +41,8 @@ test('putout: plugin-putout: sort-readme-file: sort-heading: sort-headings: tran
     t.transform('locale-compare');
     t.end();
 });
+
+test('putout: plugin-putout: sort-readme-file: sort-heading: sort-headings: report: heading-3', (t) => {
+    t.report('heading-3', `Avoid using rules with heading level more then 2: '### for-n' -> '## for-n'`);
+    t.end();
+});

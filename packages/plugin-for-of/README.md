@@ -269,15 +269,13 @@ for (const x of Array.from(y)) {}
 for (const x of y) {}
 ```
 
-## for
+## for-n
 
 > The `for` statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement to be executed in the loop.
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
 
-### for-n
-
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const n = items.length;
@@ -288,7 +286,7 @@ for (let i = 0; i < n; i++) {
 }
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 for (const item of items) {
@@ -296,9 +294,9 @@ for (const item of items) {
 }
 ```
 
-### for-length
+## for-length
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 for (let i = 0; i < array.length; i++) {
@@ -307,7 +305,7 @@ for (let i = 0; i < array.length; i++) {
 }
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 for (const item of items) {
@@ -315,9 +313,9 @@ for (const item of items) {
 }
 ```
 
-### for-entries
+## for-entries
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 for (let i = 0; i < array.length; i++) {
@@ -326,7 +324,7 @@ for (let i = 0; i < array.length; i++) {
 }
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 for (const [i, item] of array.entries()) {
@@ -334,9 +332,9 @@ for (const [i, item] of array.entries()) {
 }
 ```
 
-### for-entries-n
+## for-entries-n
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 const n = array.length;
@@ -347,7 +345,7 @@ for (let i = 0; i < n; i++) {
 }
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 for (const [i, item] of array.entries()) {
@@ -381,7 +379,7 @@ for (let i = 0; i < n; i++) {
 }
 ```
 
-### from-while
+## from-while
 
 > The `while` statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.
 >
@@ -389,7 +387,7 @@ for (let i = 0; i < n; i++) {
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e4faebbc52bc2410425facc557b9acc7/9db52e3880190fe4f898ee6ac2722598073edf01).
 
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
 let i = 0;
@@ -403,7 +401,7 @@ while (i < node.signature.params.length) {
 }
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 for (const {name} of node.signature.params) {
