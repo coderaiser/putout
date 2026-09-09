@@ -34,7 +34,7 @@ export const traverse = ({push}) => ({
             rules,
         });
         
-        const sorted = rulesHeadings.toSorted(ascHeading);
+        const sorted = rulesHeadings.toSorted(asc);
         let is = false;
         
         for (const [index, heading] of rulesHeadings.entries()) {
@@ -53,8 +53,8 @@ export const traverse = ({push}) => ({
     },
 });
 
-function ascHeading(a, b) {
-    return getValue(a).charCodeAt(0) - getValue(b).charCodeAt(0);
+function asc(a, b) {
+    return getValue(a).localeCompare(getValue(b));
 }
 
 const getValue = (path) => path.node.arguments[1].value;

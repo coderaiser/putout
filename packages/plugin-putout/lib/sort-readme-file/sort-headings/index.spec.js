@@ -36,3 +36,8 @@ test('putout: plugin-putout: sort-readme-file: sort-heading: sort-headings: tran
     t.transform('no-args');
     t.end();
 });
+
+test('putout: plugin-putout: sort-readme-file: sort-heading: sort-headings: transform: locale-compare', (t) => {
+    t.transform('locale-compare');
+    t.end();
+});
