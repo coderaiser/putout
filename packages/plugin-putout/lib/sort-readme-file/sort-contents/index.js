@@ -61,7 +61,7 @@ export const traverse = ({listStore, push}) => ({
 });
 
 function asc(a, b) {
-    return getValue(a).charCodeAt(0) - getValue(b).charCodeAt(0);
+    return getValue(a).localeCompare(getValue(b));
 }
 
 function getValue(node) {

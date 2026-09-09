@@ -17,6 +17,11 @@ test('putout: plugin-putout: sort-readme-file: sort-contents: transform', (t) =>
     t.end();
 });
 
+test('putout: plugin-putout: sort-readme-file: sort-contents: transform: locale-compare', (t) => {
+    t.transform('locale-compare');
+    t.end();
+});
+
 test('putout: plugin-putout: sort-readme-file: sort-contents: no report: not-content', (t) => {
     t.noReport('not-content');
     t.end();
