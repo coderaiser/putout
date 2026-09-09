@@ -623,8 +623,6 @@ const a = require('b');
 const a = require('b');
 ```
 
-### ✅ Example of correct code
-
 ## remove-useless-strict-mode
 
 > The entire contents of JavaScript modules are automatically in strict mode, with no statement needed to initiate it.
