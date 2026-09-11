@@ -56,7 +56,9 @@ test('putout: cli: formatter: get reporter: exit: NO_FORMATTER', async (t) => {
 
 test('putout: cli: formatter: get reporter: exit: CANNOT_LOAD_FORMATTER', async (t) => {
     const exit = stub();
-    const createAsyncLoader = stub().returns(stub().rejects(Error('@putout/formatter-xxx: Syntax error')));
+    const createAsyncLoader = stub().returns(
+        stub().rejects(Error('@putout/formatter-xxx: Syntax error')),
+    );
     
     await getFormatter('xxx', exit, {
         createAsyncLoader,
