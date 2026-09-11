@@ -22,6 +22,8 @@
         const wrapped = file(program([
             expressionStatement(arrayExpression([node])),
         ]));
-        plugin[tag].push(printSql(wrapped).trim());
+        plugin[tag].push(
+            printSql(wrapped).trim(),
+        );
     }
 }

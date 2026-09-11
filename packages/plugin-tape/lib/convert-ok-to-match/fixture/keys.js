@@ -1,1 +1,3 @@
-t.ok(keys(result).includes('hello'));
+t.ok(
+    keys(result).includes('hello'),
+);
