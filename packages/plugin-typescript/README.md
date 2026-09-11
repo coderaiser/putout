@@ -21,19 +21,19 @@ npm i putout @putout/plugin-typescript -D
 - ✅ [apply-type-guards](#apply-type-guards);
 - ✅ [apply-utility-types](#apply-utility-types);
 - ✅ [convert-commonjs-to-esm](#convert-commonjs-to-esm);
+- ✅ [convert-empty-type-literal-to-record](#convert-empty-type-literal-to-record);
 - ✅ [convert-esm-to-commonjs](#convert-esm-to-commonjs);
 - ✅ [convert-generic-to-shorthand](#convert-generic-to-shorthand);
 - ✅ [convert-namespace-to-global](#convert-namespace-to-global);
-- ✅ [convert-empty-type-literal-to-record](#convert-empty-type-literal-to-record);
 - ✅ [cts-file](#cts-file);
 - ✅ [find-file](#find-file);
 - ✅ [mts-file](#mts-file);
 - ✅ [remove-duplicate-exports](#remove-duplicate-exports);
 - ✅ [remove-duplicate-interface-keys](#remove-duplicate-interface-keys);
 - ✅ [remove-duplicates-from-union](#remove-duplicates-from-union);
-- ✅ [remove-unused-types](#remove-unused-types);
 - ✅ [remove-getter-arguments](#remove-getter-arguments);
 - ✅ [remove-setter-return-type](#remove-setter-return-type);
+- ✅ [remove-unused-types](#remove-unused-types);
 - ✅ [remove-useless-mapped-types](#remove-useless-mapped-types);
 - ✅ [remove-useless-mapping-modifiers](#remove-useless-mapping-modifiers);
 - ✅ [remove-useless-non-null-expressions](#remove-useless-non-null-expressions);
@@ -137,7 +137,7 @@ const isNumber = (a: unknown): a is number => typeof a === 'number';
 
 > There is no difference at all. `Type[]` is the shorthand syntax for an `array` of `Type`. `Array<Type>` is the generic syntax. They are completely equivalent.
 >
-> (c) https://stackoverflow.com/a/36843084/4536327
+> (c) <https://stackoverflow.com/a/36843084/4536327>
 
 Convert `generic` to `shorthand`.
 
@@ -161,10 +161,10 @@ interface A {
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`typescript/convert-generic-to-shorthand`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-generic-to-shorthand) | ✅
-⏣ **ESLint** | [`@typescript-eslint/array-type`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/array-type.md#array-type) | ✅
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`typescript/convert-generic-to-shorthand`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-generic-to-shorthand) | ✅   |
+| ⏣ **ESLint**  | [`@typescript-eslint/array-type`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/array-type.md#array-type) | ✅   |
 
 ## convert-commonjs-to-esm
 
@@ -226,10 +226,10 @@ declare global {
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-namespace-to-global) | ✅
-⏣ **ESLint** | [`@typescript-eslint/no-namespace`](https://typescript-eslint.io/rules/no-namespace/) | ❌
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-namespace-to-global) | ✅   |
+| ⏣ **ESLint**  | [`@typescript-eslint/no-namespace`](https://typescript-eslint.io/rules/no-namespace/) | ❌   |
 
 ## convert-empty-type-literal-to-record
 
@@ -257,10 +257,10 @@ type TestFunction<T extends Test = Test> = ((message: string, fn: (t: T) => void
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-namespace-to-global) | ✅
-🦕 **Deno** | [`bun-types`](https://docs.deno.com/lint/rules/ban-types/) | ❌
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`typescript/convert-namespace-to-global`](https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#convert-namespace-to-global) | ✅   |
+| 🦕 **Deno**   | [`bun-types`](https://docs.deno.com/lint/rules/ban-types/) | ❌   |
 
 ## remove-duplicates-from-union
 

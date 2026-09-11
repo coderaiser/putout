@@ -20,13 +20,13 @@ npm i @putout/plugin-variables -D
 - ✅ [apply-declarations-order](#apply-declarations-order);
 - ✅ [convert-const-to-let](#convert-const-to-let');
 - ✅ [extract-keywords](#extract-keywords');
-- ✅ [reuse-duplicate-init](#reuse-duplicate-init);
+- ✅ [remove-unused](#remove-unused);
 - ✅ [remove-useless-assignment](#remove-useless-assignmenn);
 - ✅ [remove-useless-declaration](#remove-useless-declaration);
 - ✅ [remove-useless-duplicate](#remove-useless-duplicate);
-- ✅ [remove-useless-variables](#remove-useless-variables);
 - ✅ [remove-useless-rename](#remove-useless-rename);
-- ✅ [remove-unused](#remove-unused);
+- ✅ [remove-useless-variables](#remove-useless-variables);
+- ✅ [reuse-duplicate-init](#reuse-duplicate-init);
 - ✅ [split-declarations](#split-declarations);
 
 ## Config
@@ -274,10 +274,10 @@ let b;
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`remove-debugger`](https://github.com/coderaiser/putout/tree/master/packages/plugin-split-variable-declarations#readme) | ✅
-⏣ **ESLint** | [`no-var`](https://eslint.org/docs/latest/rules/one-var) | ✅
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`remove-debugger`](https://github.com/coderaiser/putout/tree/master/packages/plugin-split-variable-declarations#readme) | ✅   |
+| ⏣ **ESLint**  | [`no-var`](https://eslint.org/docs/latest/rules/one-var) | ✅   |
 
 ## convert-const-to-let
 
@@ -339,10 +339,10 @@ console.log(a);
 
 ## Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout**| [`remove-unused-variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables#readme)| ✅
-⏣ **ESLint** | [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars) | ❌
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`remove-unused-variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables#readme) | ✅   |
+| ⏣ **ESLint**  | [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars) | ❌   |
 
 ## extract-keywords
 

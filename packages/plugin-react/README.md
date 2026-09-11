@@ -28,12 +28,12 @@ Add `.putout.json` with:
 - ✅ [apply-create-root](#apply-create-root);
 - ✅ [apply-default-to-jsx-string](#apply-default-to-jsx-string);
 - ✅ [convert-named-to-default-in-react-test-renderer](#convert-named-to-default-in-react-test-renderer);
+- ✅ [remove-implicit-ref-return](#remove-implicit-ref-return);
+- ✅ [remove-useless-forward-ref](#remove-useless-forward-ref);
+- ✅ [remove-useless-memoizations](#remove-useless-memoizations);
+- ✅ [remove-useless-provider](#remove-useless-provider);
 - ✅ [rename-file-js-to-jsx](#rename-file-js-to-jsx);
 - ✅ [rename-file-jsx-to-js](#rename-file-jsx-to-js);
-- ✅ [remove-useless-provider](#remove-useless-provider);
-- ✅ [remove-useless-forward-ref](#remove-useless-forward-ref);
-- ✅ [remove-implicit-ref-return](#remove-implicit-ref-return);
-- ✅ [remove-useless-memoizations](#remove-useless-memoizations);
 
 ## Filesystem
 

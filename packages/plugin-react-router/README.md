@@ -14,11 +14,11 @@ npm i putout @putout/plugin-react-router -D
 ## Rules
 
 - ✅ [declare](#declare);
-- ✅ [v6-convert-switch-to-routers](#v6-convert-switch-to-routers);
 - ✅ [v6-convert-component-to-element](#v6-convert-component-to-element);
+- ✅ [v6-convert-switch-to-routers](#v6-convert-switch-to-routers);
 - ✅ [v7-apply-memory-router](#v7-apply-memory-router);
-- ✅ [v7-split-multi-segment-route](#v7-split-multi-segment-route);
 - ✅ [v7-remove-useless-server](#v7-remove-useless-server);
+- ✅ [v7-split-multi-segment-route](#v7-split-multi-segment-route);
 - ✅ [v8-apply-react-router-dom](#v8-apply-react-router-dom);
 
 ## Config

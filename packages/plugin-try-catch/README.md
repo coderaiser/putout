@@ -22,10 +22,10 @@ npm i @putout/plugin-try-catch
 
 ## Rules
 
-- ✅ [await](#await);
-- ✅ [args](#args);
 - ✅ [apply-destructuring](#apply-destructuring);
+- ✅ [args](#args);
 - ✅ [async](#async);
+- ✅ [await](#await);
 - ✅ [declare](#declare);
 - ✅ [expand-args](#expand-args);
 - ✅ [sync](#sync);

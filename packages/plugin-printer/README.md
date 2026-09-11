@@ -14,8 +14,8 @@ npm i @putout/plugin-printer -D
 ## Rules
 
 - ✅ [add-args](#add-args);
-- ✅ [add-missing-spaces-to-type-checker](#add-missing-spaces-to-type-checker);
 - ✅ [add-missing-colon-to-type-checker](#add-missing-spaces-to-type-checker);
+- ✅ [add-missing-spaces-to-type-checker](#add-missing-spaces-to-type-checker);
 - ✅ [add-missing-tuples-to-type-checker](#add-missing-tuples-to-type-checker);
 - ✅ [apply-breakline](#apply-breakline);
 - ✅ [apply-computed-print](#apply-computed-print);
@@ -23,22 +23,22 @@ npm i @putout/plugin-printer -D
 - ✅ [apply-linebreak](#apply-linebreak);
 - ✅ [apply-printer-declarations](#apply-printer-declarations);
 - ✅ [apply-types](#apply-types);
-- ✅ [check-type-passed-to-type-checker](#check-type-passed-to-type-checker);
 - ✅ [check-if-success-possible-in-type-checker](#check-if-success-possible-in-type-checker);
+- ✅ [check-type-passed-to-type-checker](#check-type-passed-to-type-checker);
 - ✅ [declare](#declare);
 - ✅ [declare-nearby](#declare-nearby);
 - ✅ [merge-tuple-of-type-checker](#merge-tuple-of-type-checker);
 - ✅ [remove-args](#remove-args);
-- ✅ [remove-useless-maybe](#remove-useless-maybe);
-- ✅ [remove-useless-print](#remove-useless-print);
 - ✅ [remove-legacy-test-declaration](#remove-legacy-test-declaration);
 - ✅ [remove-trailing-spaces-from-type-checker](#remove-trailing-spaces-from-type-checker);
-- ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker);
 - ✅ [remove-useless-arrow-from-type-checker](#remove-useless-arrow-from-type-checker);
 - ✅ [remove-useless-colon-from-type-checker](#remove-useless-colon-from-type-checker);
-- ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker);
+- ✅ [remove-useless-maybe](#remove-useless-maybe);
 - ✅ [remove-useless-not-from-type-checker](#remove-useless-not-from-type-checker);
 - ✅ [remove-useless-path-from-type-checker](#remove-useless-path-from-type-checker);
+- ✅ [remove-useless-print](#remove-useless-print);
+- ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker);
+- ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker);
 - ✅ [reverse-comparison-in-type-checker](#reverse-comparison-in-type-checker);
 
 ## Config

@@ -19,8 +19,8 @@ npm i @putout/plugin-vitest -D
 
 - ✅ [apply-hoisted](#apply-hoisted);
 - ✅ [convert-jest-to-vitest](#convert-jest-to-vitest);
-- ✅ [v3-apply-options-as-second-argument](#v3-apply-options-as-second-argument);
 - ✅ [v3-apply-browser-instances](#v3-apply-browser-instances);
+- ✅ [v3-apply-options-as-second-argument](#v3-apply-options-as-second-argument);
 
 ## Config
 

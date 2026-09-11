@@ -22,12 +22,12 @@ npm i @putout/plugin-destructuring
 - ✅ [convert-object-to-array](#convert-object-to-array);
 - ✅ [extract-properties](#extract-properties);
 - ✅ [merge-properties](#merge-properties);
-- ✅ [remove-useless-object](#remove-useless-object);
 - ✅ [remove-useless-arguments](#remove-useless-arguments);
-- ✅ [remove-useless-variables](#remove-useless-variables);
+- ✅ [remove-useless-object](#remove-useless-object);
 - ✅ [remove-useless-rename](#remove-useless-rename);
-- ✅ [split-nested](#split-nested);
+- ✅ [remove-useless-variables](#remove-useless-variables);
 - ✅ [split-call](#split-call);
+- ✅ [split-nested](#split-nested);
 
 ## Config
 

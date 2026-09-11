@@ -26,8 +26,8 @@ Add `.putout.json` with:
 ## Rules
 
 - ✅ [apply-count](#apply-count);
-- ✅ [convert-sqlite-to-postgres](#convert-sqlite-to-postgres);
 - ✅ [convert-postgres-to-sqlite](#convert-postgres-to-sqlite);
+- ✅ [convert-sqlite-to-postgres](#convert-sqlite-to-postgres);
 - ✅ [postgres](#postgres);
 
 ## Config

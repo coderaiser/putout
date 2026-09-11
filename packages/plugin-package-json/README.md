@@ -14,14 +14,14 @@ npm i @putout/plugin-package-json -D
 ## Rules
 
 - ✅ [add-type](#add-type);
-- ✅ [apply-js-extension](#apply-js-extension);
 - ✅ [apply-https-to-repository-url](#apply-https-to-repository-url);
-- ✅ [remove-nyc](#remove-nyc);
+- ✅ [apply-js-extension](#apply-js-extension);
 - ✅ [remove-commit-type](#remove-commit-type);
-- ✅ [remove-imports-nesting](#remove-imports-nesting);
-- ✅ [remove-exports-nesting](#remove-exports-nesting);
-- ✅ [remove-duplicate-keywords](#remove-duplicate-keywords);
 - ✅ [remove-dot-slash-from-bin](#remove-dot-slash-from-bin);
+- ✅ [remove-duplicate-keywords](#remove-duplicate-keywords);
+- ✅ [remove-exports-nesting](#remove-exports-nesting);
+- ✅ [remove-imports-nesting](#remove-imports-nesting);
+- ✅ [remove-nyc](#remove-nyc);
 - ✅ [remove-useless-exports](#remove-useless-exports);
 
 ## Filesystem rules

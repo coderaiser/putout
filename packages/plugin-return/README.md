@@ -18,11 +18,11 @@ npm i putout @putout/plugin-return -D
 ## Rules
 
 - ✅ [apply-early-return](#apply-early-return);
-- ✅ [convert-from-continue](#convert-from-continue);
 - ✅ [convert-from-break](#convert-from-continue);
+- ✅ [convert-from-continue](#convert-from-continue);
 - ✅ [merge-with-next-sibling](#merge-with-next-sibling);
-- ✅ [remove-useless](#remove-useless);
 - ✅ [remove-last-empty](#remove-last-empty);
+- ✅ [remove-useless](#remove-useless);
 - ✅ [simplify-boolean](#simplify-boolean);
 
 ## Config

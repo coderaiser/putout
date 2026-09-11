@@ -15,8 +15,8 @@ npm i @putout/plugin-conditions -D
 
 - ✅ [add-return](#add-return);
 - ✅ [apply-comparison-order](#apply-comparison-order);
-- ✅ [apply-early-return](#apply-early-return);
 - ✅ [apply-consistent-blocks](#apply-consistent-blocks);
+- ✅ [apply-early-return](#apply-early-return);
 - ✅ [apply-equal](#apply-equal);
 - ✅ [apply-if](#apply-if);
 - ✅ [convert-arrow-to-condition](#convert-arrow-to-condition);
@@ -26,13 +26,13 @@ npm i @putout/plugin-conditions -D
 - ✅ [evaluate](#evaluate);
 - ✅ [merge-if-statements](#merge-if-statements);
 - ✅ [merge-if-with-else](#merge-if-with-else);
-- ✅ [reverse](#reverse);
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-constant](#remove-constant);
 - ✅ [remove-same-values-condition](#remove-same-values-condition);
 - ✅ [remove-useless-else](#remove-useless-else);
 - ✅ [remove-useless-loop-condition](#remove-useless-loop-condition);
 - ✅ [remove-zero](#remove-zero);
+- ✅ [reverse](#reverse);
 - ✅ [simplify](#simplify);
 - ✅ [wrap-with-block](#wrap-with-block);
 
@@ -142,10 +142,10 @@ b > 3;
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout**| [`conditions/apply-comparison-order`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions/#apply-comparison-order)| ✅
-⏣ **ESLint** | [`yoda`](https://eslint.org/docs/rules/yoda) | ½
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`conditions/apply-comparison-order`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions/#apply-comparison-order) | ✅   |
+| ⏣ **ESLint**  | [`yoda`](https://eslint.org/docs/rules/yoda) | ½   |
 
 ## apply-early-return
 
@@ -511,10 +511,10 @@ console.log();
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`conditions/remove-useless-else`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions#remove-useless-else) | ✅
-⏣ **ESLint** | [`no-else-return`](https://eslint.org/docs/rules/no-else-return) | ✅
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`conditions/remove-useless-else`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions#remove-useless-else) | ✅   |
+| ⏣ **ESLint**  | [`no-else-return`](https://eslint.org/docs/rules/no-else-return) | ✅   |
 
 ## remove-useless-loop-condition
 

@@ -18,8 +18,8 @@ npm i @putout/plugin-eslint-plugin -D
 ## Rules
 
 - ✅ [apply-flat-config-to-rule-tester](#apply-flat-config-to-rule-tester);
-- ✅ [apply-get-token-before](#apply-get-token-before);
 - ✅ [apply-get-token-after](#apply-get-token-after);
+- ✅ [apply-get-token-before](#apply-get-token-before);
 - ✅ [apply-is-space-between](#apply-is-space-between);
 - ✅ [convert-context-to-source](#convert-context-to-source);
 - ✅ [convert-require-resolve-to-require](#convert-require-resolve-to-require);

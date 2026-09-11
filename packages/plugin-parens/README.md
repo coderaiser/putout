@@ -13,12 +13,12 @@ npm i @putout/plugin-parens
 
 ## Rules
 
-- ✅ [add-missing-from-await](#add-missing-from-await);
-- ✅ [add-missing-for-template](#add-missing-for-template);
 - ✅ [add-missing-for-assign](#add-missing-for-assign);
+- ✅ [add-missing-for-template](#add-missing-for-template);
+- ✅ [add-missing-from-await](#add-missing-from-await);
 - ✅ [remove-useless-from-await](#remove-useless-from-params);
-- ✅ [remove-useless-from-params](#remove-useless-from-params);
 - ✅ [remove-useless-from-object](#remove-useless-from-object);
+- ✅ [remove-useless-from-params](#remove-useless-from-params);
 
 ## Config
 

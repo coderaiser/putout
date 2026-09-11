@@ -17,12 +17,13 @@ npm i putout @putout/plugin-nodejs -D
 
 ## Rules
 
-- ✅ [add-node-prefix](#add-node-prefix);
-- ✅ [apply-style-text](#apply-style-text);
-- ✅ [apply-inherit](#apply-inherit);
 - ✅ [add-missing-strict-mode](#add-missing-strict-mode);
+- ✅ [add-node-prefix](#add-node-prefix);
+- ✅ [apply-inherit](#apply-inherit);
+- ✅ [apply-style-text](#apply-style-text);
 - ✅ [convert-buffer-to-buffer-alloc](#convert-buffer-to-buffer-alloc);
 - ✅ [convert-commonjs-to-esm](#convert-commonjs-to-esm);
+- ✅ [convert-default-export-to-default](#convert-default-export-to-default);
 - ✅ [convert-dirname-to-url](#convert-dirname-to-url);
 - ✅ [convert-esm-to-commonjs](#convert-esm-to-commonjs);
 - ✅ [convert-exports-to-module-exports](#convert-exports-to-module-exports);
@@ -31,16 +32,15 @@ npm i putout @putout/plugin-nodejs -D
 - ✅ [convert-top-level-return](#convert-top-level-return);
 - ✅ [convert-url-parse-to-new-url](#convert-url-parse-to-new-url);
 - ✅ [convert-url-to-dirname](#convert-url-to-dirname);
-- ✅ [convert-default-export-to-default](#convert-default-export-to-default);
 - ✅ [declare](#declare);
 - ✅ [declare-after-require](#declare-after-require);
 - ✅ [group-require-by-id](#group-require-by-id);
-- ✅ [remove-process-exit](#remove-process-exit);
-- ✅ [remove-useless-promisify](#remove-useless-promisify);
-- ✅ [remove-top-level-process-exit](#remove-top-level-process-exit);
-- ✅ [remove-useless-strict-mode](#remove-useless-strict-mode);
-- ✅ [remove-useless-exports-assign](#remove-useless-exports-assign);
 - ✅ [remove-illegal-strict-mode](#remove-illegal-strict-mode);
+- ✅ [remove-process-exit](#remove-process-exit);
+- ✅ [remove-top-level-process-exit](#remove-top-level-process-exit);
+- ✅ [remove-useless-exports-assign](#remove-useless-exports-assign);
+- ✅ [remove-useless-promisify](#remove-useless-promisify);
+- ✅ [remove-useless-strict-mode](#remove-useless-strict-mode);
 
 ## File rules
 
@@ -116,10 +116,10 @@ await import('node:path');
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`add-node-prefix`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs/add-node-prefix#readme) | ✅
-⏣ **ESLint** | [`prefer-node-protocol`](https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-node-protocol.md#readme)  | ✅
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`add-node-prefix`](https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs/add-node-prefix#readme) | ✅   |
+| ⏣ **ESLint**  | [`prefer-node-protocol`](https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-node-protocol.md#readme) | ✅   |
 
 ## apply-inherit
 

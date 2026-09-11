@@ -14,11 +14,11 @@ npm i putout @putout/plugin-cloudcmd -D
 ## Rules
 
 - ✅ [apply-init-module](#apply-init-module);
-- ✅ [convert-io-mv-to-io-move](#convert-io-mv-to-io-move);
+- ✅ [convert-arrow-to-declaration](#convert-arrow-to-declaration);
 - ✅ [convert-io-cp-to-io-copy](#convert-io-cp-to-io-copy);
 - ✅ [convert-io-delete-to-io-remove](#convert-io-delete-to-io-remove);
+- ✅ [convert-io-mv-to-io-move](#convert-io-mv-to-io-move);
 - ✅ [convert-load-dir-to-change-dir](#convert-load-dir-to-change-dir);
-- ✅ [convert-arrow-to-declaration](#convert-arrow-to-declaration);
 
 ## Config
 

@@ -14,14 +14,14 @@ npm i putout @putout/plugin-types -D
 ## Rules
 
 - ✅ [apply-boolean](#apply-boolean);
-- ✅ [apply-number](#apply-number);
 - ✅ [apply-is-array](#apply-is-array);
 - ✅ [apply-is-nan](#apply-is-nan);
+- ✅ [apply-number](#apply-number);
 - ✅ [convert-typeof-to-is-type](#convert-typeof-to-is-type);
 - ✅ [declare](#declare);
 - ✅ [remove-double-negations](#remove-double-negations);
-- ✅ [remove-useless-conversion](#remove-useless-conversion);
 - ✅ [remove-useless-constructor](#remove-useless-constructor);
+- ✅ [remove-useless-conversion](#remove-useless-conversion);
 - ✅ [remove-useless-typeof](#remove-useless-typeof);
 
 ## Config

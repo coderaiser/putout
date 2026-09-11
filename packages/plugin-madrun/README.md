@@ -26,9 +26,9 @@ npm i putout @putout/plugin-madrun -D
 - ✅ [convert-args-to-scripts](#convert-args-to-scripts);
 - ✅ [convert-cut-env-to-run](#convert-cut-env-to-run);
 - ✅ [convert-lint-lib](#convert-lint-lib);
+- ✅ [convert-prepublish-only-to-wisdom](#convert-prepublish-only-to-wisdom);
 - ✅ [convert-run-argument](#convert-run-argument);
 - ✅ [convert-run-to-cut-env](#convert-run-to-cut-env);
-- ✅ [convert-prepublish-only-to-wisdom](#convert-prepublish-only-to-wisdom);
 - ✅ [convert-to-async](#convert-to-async);
 - ✅ [declare](#declare);
 - ✅ [insert-test-dts](#insert-test-dts);

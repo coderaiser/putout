@@ -18,10 +18,10 @@ npm i @putout/plugin-eslint -D
 ## Rules
 
 - ✅ [add-putout](#add-putout);
+- ✅ [apply-create-eslint](#apply-create-eslint);
 - ✅ [apply-define-config](#apply-define-config);
 - ✅ [apply-dir-to-flat](#apply-dir-to-flat);
 - ✅ [apply-ignores](#apply-ignores);
-- ✅ [apply-create-eslint](#apply-create-eslint);
 - ✅ [apply-match-to-flat](#apply-match-to-flat);
 - ✅ [apply-safe-align](#apply-safe-align);
 - ✅ [convert-export-match-to-declaration](#convert-export-match-to-declaration);
@@ -33,18 +33,18 @@ npm i @putout/plugin-eslint -D
 - ✅ [convert-require-to-import](#convert-require-to-import);
 - ✅ [declare](#declare);
 - ✅ [move-putout-to-end-of-extends](#move-putout-to-end-of-extends);
+- ✅ [remove-create-eslint-config-with-one-argument](#remove-create-eslint-config-with-one-argument);
 - ✅ [remove-no-missing](#remove-no-missing);
-- ✅ [remove-useless-define-config](#remove-useless-define-config);
 - ✅ [remove-no-unpublished-require](#remove-no-unpublished-require);
 - ✅ [remove-no-unsupported-features](#remove-no-unsupported-features);
 - ✅ [remove-overrides-with-empty-rules](#remove-overrides-with-empty-rules);
-- ✅ [remove-useless-slice](#remove-useless-slice);
-- ✅ [remove-useless-properties](#remove-useless-properties);
-- ✅ [remove-useless-match-to-flat](#remove-useless-match-to-flat);
 - ✅ [remove-parser-options](#remove-parser-options);
-- ✅ [remove-suffix-config](#remove-suffix-config);
-- ✅ [remove-create-eslint-config-with-one-argument](#remove-create-eslint-config-with-one-argument);
 - ✅ [remove-spread-from-create-eslint-config](#remove-spread-from-create-eslint-config);
+- ✅ [remove-suffix-config](#remove-suffix-config);
+- ✅ [remove-useless-define-config](#remove-useless-define-config);
+- ✅ [remove-useless-match-to-flat](#remove-useless-match-to-flat);
+- ✅ [remove-useless-properties](#remove-useless-properties);
+- ✅ [remove-useless-slice](#remove-useless-slice);
 
 ## Config
 

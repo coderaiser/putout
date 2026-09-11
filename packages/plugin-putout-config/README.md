@@ -21,14 +21,14 @@ npm i @putout/plugin-putout-config -D
 - ✅ [apply-esm](#apply-esm);
 - ✅ [apply-filesystem](#apply-filesystem);
 - ✅ [apply-for-of](#apply-for-of);
-- ✅ [apply-parens](#apply-parens);
-- ✅ [apply-return](#apply-return);
-- ✅ [apply-spread](#apply-spread);
 - ✅ [apply-labels](#apply-labels);
 - ✅ [apply-math](#apply-math);
 - ✅ [apply-nodejs](#apply-nodejs);
 - ✅ [apply-optional-chaining](#apply-optional-chaining);
+- ✅ [apply-parens](#apply-parens);
 - ✅ [apply-promises](#apply-promises);
+- ✅ [apply-return](#apply-return);
+- ✅ [apply-spread](#apply-spread);
 - ✅ [apply-tape](#apply-tape);
 - ✅ [apply-types](#apply-types);
 - ✅ [apply-variables](#apply-variables);

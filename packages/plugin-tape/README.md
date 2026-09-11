@@ -17,13 +17,12 @@ npm i @putout/plugin-tape -D
 
 ## Rules
 
-- ✅ [convert-ok-to-pass](#convert-ok-to-pass)
 - ✅ [add-args](#add-args);
 - ✅ [add-t-end](#add-t-end);
 - ✅ [apply-assertions-order](#apply-assertions-order);
 - ✅ [apply-destructuring](#apply-destructuring);
-- ✅ [apply-stub](#apply-stub);
 - ✅ [apply-stringify](#apply-stringify);
+- ✅ [apply-stub](#apply-stub);
 - ✅ [apply-with-name](#apply-with-name);
 - ✅ [convert-called-with-args](#convert-called-with-args);
 - ✅ [convert-called-with-no-args-to-called-with](#convert-called-with-no-args-to-called-with);
@@ -31,12 +30,12 @@ npm i @putout/plugin-tape -D
 - ✅ [convert-deep-equal-to-equal](#convert-deep-equal-to-equal);
 - ✅ [convert-does-not-throw-to-try-catch](#convert-does-not-throw-to-try-catch);
 - ✅ [convert-emitter-to-promise](#convert-emitter-to-promise);
+- ✅ [convert-equal-length-to-match-string](#convert-equal-length-to-match-string);
 - ✅ [convert-equal-to-called-once](#convert-equal-to-called-once);
 - ✅ [convert-equal-to-deep-equal](#convert-equal-to-deep-equal);
 - ✅ [convert-equal-to-not-ok](#convert-equal-to-not-ok);
 - ✅ [convert-equal-to-ok](#convert-equal-to-ok);
 - ✅ [convert-equals-to-equal](#convert-equals-to-equal);
-- ✅ [convert-equal-length-to-match-string](#convert-equal-length-to-match-string);
 - ✅ [convert-match-regexp-to-string](#convert-match-regexp-to-string);
 - ✅ [convert-ok-to-called-with](#convert-ok-to-called-with);
 - ✅ [convert-ok-to-match](#convert-ok-to-match);
@@ -49,10 +48,10 @@ npm i @putout/plugin-tape -D
 - ✅ [remove-default-messages](#remove-default-messages);
 - ✅ [remove-only](#remove-only);
 - ✅ [remove-skip](#remove-skip);
+- ✅ [remove-t-from-async](#remove-t-from-async);
 - ✅ [remove-useless-not-called-args](#remove-useless-not-called-args);
 - ✅ [remove-useless-t-end](#remove-useless-t-end);
 - ✅ [remove-useless-undefined](#remove-useless-undefined);
-- ✅ [remove-t-from-async](#remove-t-from-async);
 - ✅ [switch-expected-with-result](#switch-expected-with-result);
 - ✅ [sync-with-name](#sync-with-name);
 

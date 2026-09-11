@@ -25,10 +25,10 @@ npm i @putout/plugin-regexp -D
 - ✅ [convert-replace-to-replace-all](#convert-replace-to-replace-all);
 - ✅ [convert-to-string](#convert-to-string);
 - ✅ [optimize](#optimize);
+- ✅ [remove-duplicates-from-character-class](#remove-duplicates-from-character-class);
+- ✅ [remove-useless-escape](#remove-useless-escape);
 - ✅ [remove-useless-group](#remove-useless-group);
 - ✅ [remove-useless-regexp](#remove-useless-regexp);
-- ✅ [remove-useless-escape](#remove-useless-escape);
-- ✅ [remove-duplicates-from-character-class](#remove-duplicates-from-character-class);
 
 ## Config
 
@@ -75,7 +75,7 @@ Checkout in:
 ### ❌ Example of incorrect code
 
 ```js
-/\)|\(/g;
+/)|(/g;
 ```
 
 ### ✅ Example of correct code
@@ -142,10 +142,10 @@ a.startsWith('hello');
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout**| [`regexp/apply-starts-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#apply-starts-with)| ✅
-🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅
+| Linter                   | Rule | Fix |
+|--------------------------|------|-----|
+| 🐊 **Putout**            | [`regexp/apply-starts-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#apply-starts-with) | ✅   |
+| 🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅   |
 
 ## apply-ends-with
 
@@ -169,10 +169,10 @@ a.endsWith('hello');
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout**| [`regexp/apply-ends-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#apply-ends-with)| ✅
-🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅
+| Linter                   | Rule | Fix |
+|--------------------------|------|-----|
+| 🐊 **Putout**            | [`regexp/apply-ends-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#apply-ends-with) | ✅   |
+| 🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅   |
 
 ## convert-to-string
 
@@ -225,7 +225,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/af9d1c774c
 ### ❌ Example of incorrect code
 
 ```js
-const cleanText = code.replaceAll(/[,;\(\)]/g, '');
+const cleanText = code.replaceAll(/[,;()]/g, '');
 ```
 
 ### ✅ Example of correct code
@@ -236,17 +236,17 @@ const cleanText = code.replaceAll(/[,;()]/g, '');
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout**| [`regexp/remove-useless-escape`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp/#remove-useless-escape)| ✅
-⏣ **ESLint** | [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape) | ❌
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`regexp/remove-useless-escape`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp/#remove-useless-escape) | ✅   |
+| ⏣ **ESLint**  | [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape) | ❌   |
 
 ## remove-useless-regexp
 
 ### ❌ Example of incorrect code
 
 ```js
-const a = /^\.hello$/.test(str);
+const a = /^.hello$/.test(str);
 ```
 
 ### ✅ Example of correct code

@@ -17,10 +17,10 @@ npm i @putout/plugin-arguments
 - ✅ [apply-rest](#apply-rest);
 - ✅ [convert-expressiont-to-arguments](#convert-expression-to-arguments);
 - ✅ [remove-duplicate](#remove-duplicate);
+- ✅ [remove-empty](#remove-empty);
+- ✅ [remove-unused](#remove-unused);
 - ✅ [remove-useless](#remove-useless);
 - ✅ [remove-useless-from-method](#remove-useless-from-method);
-- ✅ [remove-unused](#remove-unused);
-- ✅ [remove-empty](#remove-empty);
 
 ## Config
 
@@ -127,11 +127,11 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7f6d549de4
 
 ## Comparison
 
-Linter          | Rule  | Fix
-----------------|-------|------------|
-🐊 **Putout**   | [`arguments/remove-duplicate`](https://github.com/coderaiser/putout/tree/master/packages/plugin-arguments#remove-duplicate) | ✅
-⏣ **ESLint**    | [`no-dupe-args`](https://eslint.org/docs/rules/no-dupe-args) | ❌
-🦕 **Deno**     | [`no-dupe-args`](https://docs.deno.com/lint/rules/no-dupe-args/) | ❌
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`arguments/remove-duplicate`](https://github.com/coderaiser/putout/tree/master/packages/plugin-arguments#remove-duplicate) | ✅   |
+| ⏣ **ESLint**  | [`no-dupe-args`](https://eslint.org/docs/rules/no-dupe-args) | ❌   |
+| 🦕 **Deno**   | [`no-dupe-args`](https://docs.deno.com/lint/rules/no-dupe-args/) | ❌   |
 
 ## remove-useless
 

@@ -26,8 +26,8 @@ npm i @putout/plugin-github -D
 - ✅ [install-bun](#install-bun);
 - ✅ [remove-empty-needs](#remove-empty-needs);
 - ✅ [set-contents-permissions](#set-contents-permissions);
-- ✅ [set-node-versions](#set-node-versions);
 - ✅ [set-message-of-commit-fixes](#set-message-of-commit-fixes);
+- ✅ [set-node-versions](#set-node-versions);
 - ✅ [update-actions](#update-actions);
 
 ## Config

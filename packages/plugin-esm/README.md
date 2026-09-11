@@ -25,22 +25,22 @@ npm i putout @putout/plugin-esm -D
 - ✅ [convert-const-to-import](#convert-const-to-import);
 - ✅ [declare-imports-first](#declare-imports-first);
 - ✅ [group-imports-by-source](#group-imports-by-source);
-- ✅ [merge-duplicate-imports](#merge-duplicate-imports);
 - ✅ [merge-declaration-with-export](#merge-declaration-with-export);
+- ✅ [merge-duplicate-imports](#merge-duplicate-imports);
 - ✅ [merge-export-declarations](#merge-export-declarations);
-- ✅ [remove-quotes-from-import-assertions](#remove-quotes-from-import-assertions);
-- ✅ [remove-empty-import](#remove-empty-import);
 - ✅ [remove-empty-export](#remove-empty-export);
+- ✅ [remove-empty-import](#remove-empty-import);
 - ✅ [remove-imports-with-duplicate-source](#remove-imports-with-duplicate-source);
+- ✅ [remove-quotes-from-import-assertions](#remove-quotes-from-import-assertions);
 - ✅ [remove-useless-export-specifiers](#remove-useless-export-specifiers);
 - ✅ [sort-imports-by-specifiers](#sort-imports-by-specifiers);
 
 ## File rules
 
+- ✅ [apply-js-to-imported-file](#apply-js-to-imported-file);
 - ✅ [apply-name-to-imported-file](#apply-name-to-imported-file);
 - ✅ [apply-namespace-to-imported-file](#apply-namespace-to-imported-file);
 - ✅ [apply-privately-imported-file](#apply-privately-imported-file);
-- ✅ [apply-js-to-imported-file](#apply-js-to-imported-file);
 - ✅ [resolve-imported-file](#resolve-imported-file);
 - ✅ [resolve-imported-file-with-extension](#resolve-imported-file-with-extension);
 - ✅ [shorten-imported-file](#shorten-imported-file);
