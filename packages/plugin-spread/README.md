@@ -76,6 +76,24 @@ function merge(a) {
 | 🐊 **Putout** | [`spread/convert-object-assign-to-merge-spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-spread#convert-object-assign-to-merge-spread) | ✅   |
 | ⏣ **ESLint**  | [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread) | ✅   |
 
+## convert-apply-to-spread
+
+> Spread syntax (`...`) allows an array expression to be expanded in places where zero or more arguments are expected.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+### ❌ Example of incorrect code
+
+```js
+console.apply(null, arguments);
+```
+
+### ✅ Example of correct code
+
+```js
+console.log(...arguments);
+```
+
 ## remove-useless-array
 
 The thing is `[...b]` can be used for:
@@ -105,22 +123,6 @@ const places = getPlaces();
 [...Array(5)].map(Number);
 ```
 
-## remove-useless-object
-
-### ❌ Example of incorrect code
-
-```js
-const a = {
-    ...fn(),
-};
-```
-
-### ✅ Example of correct code
-
-```js
-const a = fn();
-```
-
 ## nested
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/60e5a99112affb8a629347e5bf04aedf/38b33f3b5b133897b346a018462c431824e64bb8).
@@ -147,22 +149,20 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/60e5a99112
 ];
 ```
 
-## convert-apply-to-spread
-
-> Spread syntax (`...`) allows an array expression to be expanded in places where zero or more arguments are expected.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+## remove-useless-object
 
 ### ❌ Example of incorrect code
 
 ```js
-console.apply(null, arguments);
+const a = {
+    ...fn(),
+};
 ```
 
 ### ✅ Example of correct code
 
 ```js
-console.log(...arguments);
+const a = fn();
 ```
 
 ## remove-useless-logical

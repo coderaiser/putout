@@ -40,6 +40,89 @@ npm i @putout/plugin-logical-expressions -D
 }
 ```
 
+## convert-bitwise-to-logical
+
+> The bitwise **OR** operator (`|`) returns a `1` in each bit position for which the corresponding bits of either or both operands are `1`s.
+>
+> The operands are converted to 32-bit integers and expressed by a series of bits (zeroes and ones).
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR)
+
+Convert `bitwise` to `logical` operator, when one of operands is not a number, since mostly likely it is an error.
+
+### ❌ Example of incorrect code
+
+```js
+a | !b;
+
+if (!(a !== b))
+    fn();
+```
+
+### ✅ Example of correct code
+
+```js
+a || !b;
+
+if (a === b)
+    fn();
+```
+
+## convert-coalescing-to-logical
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8095c8bec8a289030cc725dc522e1840/3898c13dd1750064172d504adf8b0907da8a0429).
+
+### ❌ Example of incorrect code
+
+```js
+const fn = cb ?? noop;
+```
+
+### ✅ Example of correct code
+
+```js
+const fn = cb || noop;
+```
+
+## remove-boolean
+
+> A **boolean** is a logical data type that can have only the values `true` or `false`.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Boolean)
+
+### ❌ Example of incorrect code
+
+```js
+const t = true && false;
+```
+
+### ✅ Example of correct code
+
+```js
+const t = false;
+```
+
+## remove-duplicates
+
+### ❌ Example of incorrect code
+
+```js
+const t = a && b && a;
+```
+
+### ✅ Example of correct code
+
+```js
+const t = a && b;
+```
+
+## Comparison
+
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`logical-expressions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-logical-expressions#readme) | ✅   |
+| ⏣ **ESLint**  | [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) | ❌   |
+
 ## simplify
 
 ### ❌ Example of incorrect code
@@ -98,89 +181,6 @@ In case of duplicates:
 ```diff
 -a && b && a
 +a && b
-```
-
-## remove-boolean
-
-> A **boolean** is a logical data type that can have only the values `true` or `false`.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Boolean)
-
-### ❌ Example of incorrect code
-
-```js
-const t = true && false;
-```
-
-### ✅ Example of correct code
-
-```js
-const t = false;
-```
-
-## remove-duplicates
-
-### ❌ Example of incorrect code
-
-```js
-const t = a && b && a;
-```
-
-### ✅ Example of correct code
-
-```js
-const t = a && b;
-```
-
-## convert-bitwise-to-logical
-
-> The bitwise **OR** operator (`|`) returns a `1` in each bit position for which the corresponding bits of either or both operands are `1`s.
->
-> The operands are converted to 32-bit integers and expressed by a series of bits (zeroes and ones).
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR)
-
-Convert `bitwise` to `logical` operator, when one of operands is not a number, since mostly likely it is an error.
-
-### ❌ Example of incorrect code
-
-```js
-a | !b;
-
-if (!(a !== b))
-    fn();
-```
-
-### ✅ Example of correct code
-
-```js
-a || !b;
-
-if (a === b)
-    fn();
-```
-
-## Comparison
-
-| Linter        | Rule | Fix |
-|---------------|------|-----|
-| 🐊 **Putout** | [`logical-expressions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-logical-expressions#readme) | ✅   |
-| ⏣ **ESLint**  | [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) | ❌   |
-
-## convert-coalescing-to-logical
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8095c8bec8a289030cc725dc522e1840/3898c13dd1750064172d504adf8b0907da8a0429).
-
-### ❌ Example of incorrect code
-
-```js
-const fn = cb ?? noop;
-```
-
-### ✅ Example of correct code
-
-```js
-const fn = cb || noop;
 ```
 
 ## License

@@ -75,6 +75,22 @@ const a = montag`
 `;
 ```
 
+## convert-default-to-named
+
+Checkout in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/729cfa698dd42d2f5a70d6646af37942/c908d7e03a986f39973a66e3899be3ce7e9bc9ba).
+
+### ❌ Example of incorrect code
+
+```js
+import montag from 'montag';
+```
+
+### ✅ Example of correct code
+
+```js
+import {montag} from 'montag';
+```
+
 ## declare
 
 ### ❌ Example of incorrect code
@@ -95,22 +111,6 @@ const a = montag`
     hello
     world
 `;
-```
-
-## convert-default-to-named
-
-Checkout in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/729cfa698dd42d2f5a70d6646af37942/c908d7e03a986f39973a66e3899be3ce7e9bc9ba).
-
-### ❌ Example of incorrect code
-
-```js
-import montag from 'montag';
-```
-
-### ✅ Example of correct code
-
-```js
-import {montag} from 'montag';
 ```
 
 ## remove-useless-space

@@ -76,12 +76,30 @@ npm i @putout/plugin-printer -D
 }
 ```
 
-## apply-breakline
+## add-args
 
-```diff
--print.newline();
--indent();
-print.breakline();
+### ❌ Example of incorrect code
+
+```js
+module.exports = {
+    TSPropertySignature(path) {
+        const {optional} = path.node;
+        print('__key');
+        maybe.print(optional, '?');
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports = {
+    TSPropertySignature(path, {print, maybe}) {
+        const {optional} = path.node;
+        print('__key');
+        maybe.print(optional, '?');
+    },
+};
 ```
 
 ## apply-linebreak;
@@ -90,6 +108,120 @@ print.breakline();
 -indent();
 -print.newline();
 print.linebreak();
+```
+
+## add-missing-colon-to-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/97d38d9bee0586deb8c627c19e399a27/889646df2dcfcfe86f7eb0efb6e3ed5791701f58).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['+ -> !', isInsideArray],
+    ['- parentPath ->', isCoupleLines],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['+: -> !', isInsideArray],
+    ['-: parentPath ->', isCoupleLines],
+]);
+```
+
+## add-missing-spaces-to-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2451cd51ebd3dfd20c32b6d22ca176b7/bd593860ff4bb2d66e06cf95bbe103cb1203129d).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-:->!', isInsideArray],
+    ['-:parentPath->', isCoupleLines],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: -> !', isInsideArray],
+    ['-: parentPath ->', isCoupleLines],
+]);
+```
+
+## apply-breakline
+
+```diff
+-print.newline();
+-indent();
+print.breakline();
+```
+
+## apply-computed-print
+
+### ❌ Example of incorrect code
+
+```js
+print(path.get('block'));
+```
+
+### ✅ Example of correct code
+
+```js
+print('__block');
+```
+
+## apply-create-test-url
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ddf1425ace2a53e9010b82ded1dd1012/3e56365b58d01ebe8abba46caf04ed5e51043feb).
+
+### ❌ Example of incorrect code
+
+```js
+import {createTest} from '#test';
+
+const {test, fixture} = createTest(__dirname);
+```
+
+### ✅ Example of correct code
+
+```js
+import {createTest} from '#test';
+
+const {test, fixture} = createTest(import.meta.url);
+```
+
+## add-missing-tuple-to-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9fdfda423df3af9b0f08541710706299/0259bba117997861fe7573bad5477282f4df8554).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    '- : -> !StringLiteral',
+    '- : -> BlockStatement',
+    '- : -> WrongType',
+    ['- : ->', isBlockStatement],
+    ['-', isBlockStatement],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['- : -> !StringLiteral'],
+    ['- : -> BlockStatement'],
+    ['- : -> WrongType'],
+    ['- : ->', isBlockStatement],
+    ['-', isBlockStatement],
+]);
 ```
 
 ## apply-printer-declarations
@@ -130,320 +262,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8a88fec812
 -const {isIdentifier} = require('@babel/types');
 +const {types} = require('@babel/types');
 +const {isIdentifier} = types;
-```
-
-## add-args
-
-### ❌ Example of incorrect code
-
-```js
-module.exports = {
-    TSPropertySignature(path) {
-        const {optional} = path.node;
-        print('__key');
-        maybe.print(optional, '?');
-    },
-};
-```
-
-### ✅ Example of correct code
-
-```js
-module.exports = {
-    TSPropertySignature(path, {print, maybe}) {
-        const {optional} = path.node;
-        print('__key');
-        maybe.print(optional, '?');
-    },
-};
-```
-
-## add-missing-spaces-to-type-checker
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2451cd51ebd3dfd20c32b6d22ca176b7/bd593860ff4bb2d66e06cf95bbe103cb1203129d).
-
-### ❌ Example of incorrect code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['-:->!', isInsideArray],
-    ['-:parentPath->', isCoupleLines],
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['-: -> !', isInsideArray],
-    ['-: parentPath ->', isCoupleLines],
-]);
-```
-
-## add-missing-colon-to-type-checker
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/97d38d9bee0586deb8c627c19e399a27/889646df2dcfcfe86f7eb0efb6e3ed5791701f58).
-
-### ❌ Example of incorrect code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['+ -> !', isInsideArray],
-    ['- parentPath ->', isCoupleLines],
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['+: -> !', isInsideArray],
-    ['-: parentPath ->', isCoupleLines],
-]);
-```
-
-## add-missing-tuple-to-type-checker
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9fdfda423df3af9b0f08541710706299/0259bba117997861fe7573bad5477282f4df8554).
-
-### ❌ Example of incorrect code
-
-```js
-export const beforeIf = createTypeChecker([
-    '- : -> !StringLiteral',
-    '- : -> BlockStatement',
-    '- : -> WrongType',
-    ['- : ->', isBlockStatement],
-    ['-', isBlockStatement],
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['- : -> !StringLiteral'],
-    ['- : -> BlockStatement'],
-    ['- : -> WrongType'],
-    ['- : ->', isBlockStatement],
-    ['-', isBlockStatement],
-]);
-```
-
-## apply-computed-print
-
-### ❌ Example of incorrect code
-
-```js
-print(path.get('block'));
-```
-
-### ✅ Example of correct code
-
-```js
-print('__block');
-```
-
-## apply-create-test-url
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ddf1425ace2a53e9010b82ded1dd1012/3e56365b58d01ebe8abba46caf04ed5e51043feb).
-
-### ❌ Example of incorrect code
-
-```js
-import {createTest} from '#test';
-
-const {test, fixture} = createTest(__dirname);
-```
-
-### ✅ Example of correct code
-
-```js
-import {createTest} from '#test';
-
-const {test, fixture} = createTest(import.meta.url);
-```
-
-## remove-args
-
-### ❌ Example of incorrect code
-
-```js
-print.indent(is);
-```
-
-### ✅ Example of correct code
-
-```js
-print.indent();
-```
-
-## remove-useless-maybe
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d448a928400ff37043ae03510ce7c85c/db1a758809e8759f591533f9ef92bef1188d32b0).
-
-### ❌ Example of incorrect code
-
-```js
-maybe.print.linebreak(wasNewline);
-maybe.print.newline(!wasNewline);
-```
-
-### ✅ Example of correct code
-
-```js
-maybe.indent(wasNewline);
-print.newline();
-```
-
-## remove-useless-spaces-from-type-checker
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2e90aa74898a496b488f9c369801b47a/fbd700d965952e80588ec61054b3ed7aee4d17a2).
-
-### ❌ Example of incorrect code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['- : -> !', isInsideArray],
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['-: -> !', isInsideArray],
-]);
-```
-
-## remove-useless-arrow-from-type-checker
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c12c37b793192eadb60fac332d95cc3b/3f4aa557c65897f4967712f30e51c29483feddc8).
-
-### ❌ Example of incorrect code
-
-```js
-const isTwoLongStringsInsideArray = createTypeChecker([
-    ['-: -> !', isTwoLongStrings],
-    ['+: parentPath -> -> ArrayExpression'],
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-const isTwoLongStringsInsideArray = createTypeChecker([
-    ['-: -> !', isTwoLongStrings],
-    ['+: parentPath -> ArrayExpression'],
-]);
-```
-
-## remove-useless-colon-from-type-checker
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/49a35399bd43d56bfd0221b3a0ace3b0/3ff3bdc8cb5f2a06786e9b616252d1b5f506dd73).
-
-### ❌ Example of incorrect code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['+:', isInsideArray],
-    ['-:', isCoupleLines],
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['+', isInsideArray],
-    ['-', isCoupleLines],
-]);
-```
-
-## remove-useless-not-from-type-checker
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/051b981021fd1e048b675106f0850211/2022b9797125016d4e5c5e6b5d4e066ab2e103ad).
-
-### ❌ Example of incorrect code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['-: -> !+'],
-    ['+: -> !-'],
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['-: -> -'],
-    ['+: -> +'],
-]);
-```
-
-## remove-useless-path-from-type-checker
-
-Selector always starts from `path`, so it can be `parentPath.`, or `node.`, but never `path.`, since it is self reference.
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ef8e1dc1036a4a2fcc99b32c3dc661e2/bc43a082dc9cb5ed8a8afe6964174f0d1be2e1c1).
-
-### ❌ Example of incorrect code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['-: path.parentPath -> ', isCoupleLines],
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['-: parentPath -> ', isCoupleLines],
-]);
-```
-
-## remove-useless-tuples-from-type-checker
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f53f386b607115e0a96f7e294e34761e/cefd72aba4fcade59bbf8faa59739bac5c2fe057).
-
-### ❌ Example of incorrect code
-
-```js
-export const allStrings = createTypeChecker([
-    ['- : -> BlockStatement'],
-    ['- : -> WrongType'],
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-export const allStrings = createTypeChecker([
-    '- : -> BlockStatement',
-    '- : -> WrongType',
-]);
-```
-
-## remove-trailing-spaces-from-type-checker
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/91d33e39485c31e76b534ad8447ba4db/abca8d21ad6edc1f6fed23edb05fa166677f11d6).
-
-### ❌ Example of incorrect code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['-: parentPath -> ', isCoupleLines],
-]);
-```
-
-### ✅ Example of correct code
-
-```js
-export const beforeIf = createTypeChecker([
-    ['-: parentPath ->', isCoupleLines],
-]);
 ```
 
 ## check-if-success-possible-in-type-checker
@@ -597,6 +415,201 @@ export const isNewlineAfterComma = createTypeChecker([
 ]);
 ```
 
+## remove-args
+
+### ❌ Example of incorrect code
+
+```js
+print.indent(is);
+```
+
+### ✅ Example of correct code
+
+```js
+print.indent();
+```
+
+## remove-legacy-test-declaration
+
+```diff
+-const {printExtension} = require('../../../test/printer');
+-const {readFixtures} = require('../../../test/fixture');
+-
+-const fixture = readFixtures(__dirname);
+-
+-const test = extend({
+-    print: printExtension,
+-});
+```
+
+## remove-trailing-spaces-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/91d33e39485c31e76b534ad8447ba4db/abca8d21ad6edc1f6fed23edb05fa166677f11d6).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: parentPath -> ', isCoupleLines],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: parentPath ->', isCoupleLines],
+]);
+```
+
+## remove-useless-arrow-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c12c37b793192eadb60fac332d95cc3b/3f4aa557c65897f4967712f30e51c29483feddc8).
+
+### ❌ Example of incorrect code
+
+```js
+const isTwoLongStringsInsideArray = createTypeChecker([
+    ['-: -> !', isTwoLongStrings],
+    ['+: parentPath -> -> ArrayExpression'],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+const isTwoLongStringsInsideArray = createTypeChecker([
+    ['-: -> !', isTwoLongStrings],
+    ['+: parentPath -> ArrayExpression'],
+]);
+```
+
+## remove-useless-colon-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/49a35399bd43d56bfd0221b3a0ace3b0/3ff3bdc8cb5f2a06786e9b616252d1b5f506dd73).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['+:', isInsideArray],
+    ['-:', isCoupleLines],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['+', isInsideArray],
+    ['-', isCoupleLines],
+]);
+```
+
+## remove-useless-maybe
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d448a928400ff37043ae03510ce7c85c/db1a758809e8759f591533f9ef92bef1188d32b0).
+
+### ❌ Example of incorrect code
+
+```js
+maybe.print.linebreak(wasNewline);
+maybe.print.newline(!wasNewline);
+```
+
+### ✅ Example of correct code
+
+```js
+maybe.indent(wasNewline);
+print.newline();
+```
+
+## remove-useless-not-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/051b981021fd1e048b675106f0850211/2022b9797125016d4e5c5e6b5d4e066ab2e103ad).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: -> !+'],
+    ['+: -> !-'],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: -> -'],
+    ['+: -> +'],
+]);
+```
+
+## remove-useless-path-from-type-checker
+
+Selector always starts from `path`, so it can be `parentPath.`, or `node.`, but never `path.`, since it is self reference.
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ef8e1dc1036a4a2fcc99b32c3dc661e2/bc43a082dc9cb5ed8a8afe6964174f0d1be2e1c1).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: path.parentPath -> ', isCoupleLines],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: parentPath -> ', isCoupleLines],
+]);
+```
+
+## remove-useless-spaces-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2e90aa74898a496b488f9c369801b47a/fbd700d965952e80588ec61054b3ed7aee4d17a2).
+
+### ❌ Example of incorrect code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['- : -> !', isInsideArray],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const beforeIf = createTypeChecker([
+    ['-: -> !', isInsideArray],
+]);
+```
+
+## remove-useless-tuples-from-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f53f386b607115e0a96f7e294e34761e/cefd72aba4fcade59bbf8faa59739bac5c2fe057).
+
+### ❌ Example of incorrect code
+
+```js
+export const allStrings = createTypeChecker([
+    ['- : -> BlockStatement'],
+    ['- : -> WrongType'],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+export const allStrings = createTypeChecker([
+    '- : -> BlockStatement',
+    '- : -> WrongType',
+]);
+```
+
 ## reverse-comparison-in-type-checker
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ae2335d32022de240e918ce077144767/f25c5a11f746fe532f81adede991286cb77d1b11).
@@ -621,19 +634,6 @@ const isMoreThenMaxElementLengthInOneLine = createTypeChecker([
     ['-: node.elements.length', '<', 2],
     ['-: node.elements.length', '>', 2],
 ]);
-```
-
-## remove-legacy-test-declaration
-
-```diff
--const {printExtension} = require('../../../test/printer');
--const {readFixtures} = require('../../../test/fixture');
--
--const fixture = readFixtures(__dirname);
--
--const test = extend({
--    print: printExtension,
--});
 ```
 
 ## reverse-comparison-in-type-checker

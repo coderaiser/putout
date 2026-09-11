@@ -74,119 +74,6 @@ npm i @putout/plugin-putout-config -D
 }
 ```
 
-## apply-assignment
-
-Apply [`assignment`](https://github.com/coderaiser/putout/tree/master/packages/plugin-assignment#readme) according to:
-
-- 🐊[**Putout v39**](https://github.com/coderaiser/putout/releases/tag/v39.0.0):
-
-```diff
-{
-    "rules": {
--       "split-assignment-expressions": "off",
--       "simplify-assignments": "off",
--       "convert-assignment-to-arrow-function": "off",
--       "convert-assignment-to-comparison": "off",
--       "convert-assignment-to-declaration": "off"
-+       "assignment/split": "off",
-+       "assignment/simplify": "off",
-+       "assignment/convert-to-arrow-function": "off"
-+       "assignment/convert-to-comparison": "off",
-+       "assignment/convert-to-declaration": "off"
-  }
-}
-```
-
-## apply-return
-
-Apply [`return`](https://github.com/coderaiser/putout/tree/master/packages/plugin-return#readme) according to:
-
-- 🐊[**Putout v38**](https://github.com/coderaiser/putout/releases/tag/v38.0.0):
-
-```diff
-{
-    "rules": {
--       "apply-early-return": "off",
-+       "return/apply-early": "off",
--       "simplify-boolean-return": "off",
-+       "return/simplify-boolean": "off",
--       "convert-break-to-return": "off",
-+       "return/convert-from-break": "off"
--       "remove-useless-return": "off"
-+       "return/remove-useless": "off"
-  }
-}
-```
-
-## apply-filesystem
-
-Apply [`filesystem`](https://github.com/coderaiser/putout/tree/master/packages/plugin-filesystem#readme) according to:
-
-- 🐊[**Putout v42**](https://github.com/coderaiser/putout/releases/tag/v42.0.0):
-
-```diff
-{
-    "rules": {
--       "filesystem/remove-travis-yml-file": "off",
--       "filesystem/remove-vim-swap-file": "off",
--       "filesystem/remove-nyc-output-file": "off",
--       "filesystem/remove-ds-store-file": "off",
--       "filesystem/remove-empty-directory": "off",
-+       "filesystem/remove-files": "off",
-  }
-}
-```
-
-## apply-esm
-
-Apply [`esm`](https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#readme) according to:
-
-- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
-
-```diff
-{
-    "rules": {
--       "esm/add-index-to-import": "on"
-  }
-}
-```
-
-- 🐊[**Putout v40**](https://github.com/coderaiser/putout/releases/tag/v40.0.0):
-
-```diff
-{
-    "rules": {
--       "putout/add-index-to-import": "on"
-+       "esm/add-index-to-import": "on"
-  }
-}
-```
-
-- 🐊[**Putout v37**](https://github.com/coderaiser/putout/releases/tag/v37.0.0):
-
-```diff
-{
-    "rules": {
--       "remove-empty/import": "on",
--       "remove-empty/export": "on",
-+       "esm/remove-empty-import": "on",
-+       "esm/remove-empty-export": "on",
--       "convert-assert-to-with": "off",
--       "group-imports-by-source": "on",
--       "declare-imports-first": "on",
--       "remove-quotes-from-import-assertions": "on",
--       "merge-duplicate-imports": "on",
--       "sort-imports-by-specifiers": "on"
-+       "esm/convert-assert-to-with": "off",
-+       "esm/group-imports-by-source": "on",
-+       "esm/declare-imports-first": "on",
-+       "esm/remove-quotes-from-import-assertions": "on",
-+       "esm/merge-duplicate-imports": "on",
-+       "esm/sort-imports-by-specifiers": "on"
-  }
-}
-```
-
 ## apply-arguments
 
 Apply [`arguments`](https://github.com/coderaiser/putout/tree/master/packages/plugin-arguments#readme) according to:
@@ -214,139 +101,25 @@ Apply [`arguments`](https://github.com/coderaiser/putout/tree/master/packages/pl
 }
 ```
 
-## apply-destructuring
+## apply-assignment
 
-Apply [`destructuring`](https://github.com/coderaiser/putout/tree/master/packages/plugin-destructuring#readme) according to:
+Apply [`assignment`](https://github.com/coderaiser/putout/tree/master/packages/plugin-assignment#readme) according to:
 
-- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
-
-```diff
-{
-    "rules": {
--       "apply-destructuring": "off",
--       "apply-destructuring/falsy": "off",
--       "apply-destructuring/array": "off",
--       "apply-destructuring/object": "off",
--       "apply-destructuring/convert-object-to-array": "off",
--       "split-call-with-destructuring": "off",
--       "merge-destructuring-properties": "off",
--       "split-nested-destructuring": "off",
--       "remove-useless-arguments/destructuring": "off",
--       "remove-useless-variables/destruct": "off",
--       "extract-object-properties": "off",
--       "extract-object-properties/equal-deep": "off",
--       "extract-object-properties/not-equal-deep": "off",
-+       "destructuring": "off",
-+       "destructuring/remove-useless-object": "off",
-+       "destructuring/apply-array": "off",
-+       "destructuring/apply-object": "off",
-+       "destructuring/convert-object-to-array": "off",
-+       "destructuring/split-call": "off",
-+       "destructuring/merge-properties": "off",
-+       "destructuring/split-nested": "off",
-+       "destructuring/remove-useless-arguments": "off",
-+       "destructuring/remove-useless-variables": "off"
-+       "destructuring/extract-properties": "off",
-+       "desturucturing/extract-properties-equal-deep": "off",
-+       "destructurigin/extract-properties-not-equal-deep": "off",
-  }
-}
-```
-
-## apply-parens
-
-Apply [`parens`](https://github.com/coderaiser/putout/tree/master/packages/plugin-parens#readme) according to:
-
-- 🐊[**Putout v37**](https://github.com/coderaiser/putout/releases/tag/v37.0.0):
+- 🐊[**Putout v39**](https://github.com/coderaiser/putout/releases/tag/v39.0.0):
 
 ```diff
 {
     "rules": {
--       "add-missing-parens": "on"
-+       "parens/add-missing": "on"
-  }
-}
-```
-
-## apply-optional-chaining
-
-Apply [`optional-chaining`](https://github.com/coderaiser/putout/tree/master/packages/plugin-optional-chaining#readme) according to:
-
-- 🐊[**Putout v37**](https://github.com/coderaiser/putout/releases/tag/v37.0.0):
-
-```diff
-{
-    "rules": {
--       "convert-optional-to-logical/assign": "on",
--       "convert-optional-to-logical/call": "off",
-+       "optional-chaining/convert-optional-assign-to-logical": "on",
-+       "optional-chaining/convert-optional-to-logical": "off"
--       "apply-optional-chaining/assign": "off"
--       "apply-optional-chaining/use": "on"
-+       "optional-chaining/convert-logical-assign-to-optional": "off",
-+       "optional-chaining/convert-logical-to-optional": "off"
-  }
-}
-```
-
-## apply-spread
-
-Apply [`spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-spread#readme) according to:
-
-- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
-
-```diff
-{
-    "rules": {
--       "remove-useless-spread": "on",
--       "remove-useless-spread/array": "on",
--       "remove-useless-spread/object": "on",
--       "remove-useless-spread/nested": "on",
--       "convert-apply-to-spread": "on"
--       "convert-object-assign-to-merge-spread": "on"
-+       "spread": "on",
-+       "spread/remove-useless-array": "on",
-+       "spread/remove-useless-object": "on",
-+       "spread/simplify-nested": "on",
-+       "spread/convert-apply-to-spread": "on",
-+       "spread/convert-object-assign-to-merge-spread": "on"
-  }
-}
-```
-
-## apply-variables
-
-Apply [`variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-variables#readme) according to:
-
-- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
-
-```diff
-{
-    "rules": {
--       "remove-useless-variables": "off",
--       "remove-unused-variables": "on",
--       "remove-useless-variables/remove": "on",
--       "remove-useless-variables/assignment": "on",
--       "remove-useless-arguments/declaration": "on",
--       "remove-useless-arguments/duplicate": "on",
--       "remove-useless-arguments/rename": "on",
--       "remove-unreferenced-variables": "on",
--       "convert-const-to-let": "on",
--       "extract-keyword-from-variables": "on"
--       "split-variable-declarations: "on",
--       "reuse-duplicate-init: "on",
-+       "variables": "off",
-+       "variables/remove-unused": "on",
-+       "variables/remove-useless": "on",
-+       "variables/remove-useless-assignment": "on",
-+       "variables/remove-useless-declarations": "on",
-+       "variables/remove-useless-duplicates": "on",
-+       "variables/remove-useless-rename": "on",
-+       "variables/remove-unreferenced": "on",
-+       "variables/convert-const-to-let": "on"
-+       "variables/extract-keyword": "on"
-+       "variables/split-declarations: "on",
-+       "variables/reuse-duplicate-init: "on"
+-       "split-assignment-expressions": "off",
+-       "simplify-assignments": "off",
+-       "convert-assignment-to-arrow-function": "off",
+-       "convert-assignment-to-comparison": "off",
+-       "convert-assignment-to-declaration": "off"
++       "assignment/split": "off",
++       "assignment/simplify": "off",
++       "assignment/convert-to-arrow-function": "off"
++       "assignment/convert-to-comparison": "off",
++       "assignment/convert-to-declaration": "off"
   }
 }
 ```
@@ -409,6 +182,114 @@ Apply [`coverage`](https://github.com/coderaiser/putout/tree/master/packages/plu
 -       "filesystem/remove-nyc-output": "off"
 +       "coverage/remove-files": "off"
     }
+  }
+}
+```
+
+## apply-destructuring
+
+Apply [`destructuring`](https://github.com/coderaiser/putout/tree/master/packages/plugin-destructuring#readme) according to:
+
+- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
+
+```diff
+{
+    "rules": {
+-       "apply-destructuring": "off",
+-       "apply-destructuring/falsy": "off",
+-       "apply-destructuring/array": "off",
+-       "apply-destructuring/object": "off",
+-       "apply-destructuring/convert-object-to-array": "off",
+-       "split-call-with-destructuring": "off",
+-       "merge-destructuring-properties": "off",
+-       "split-nested-destructuring": "off",
+-       "remove-useless-arguments/destructuring": "off",
+-       "remove-useless-variables/destruct": "off",
+-       "extract-object-properties": "off",
+-       "extract-object-properties/equal-deep": "off",
+-       "extract-object-properties/not-equal-deep": "off",
++       "destructuring": "off",
++       "destructuring/remove-useless-object": "off",
++       "destructuring/apply-array": "off",
++       "destructuring/apply-object": "off",
++       "destructuring/convert-object-to-array": "off",
++       "destructuring/split-call": "off",
++       "destructuring/merge-properties": "off",
++       "destructuring/split-nested": "off",
++       "destructuring/remove-useless-arguments": "off",
++       "destructuring/remove-useless-variables": "off"
++       "destructuring/extract-properties": "off",
++       "desturucturing/extract-properties-equal-deep": "off",
++       "destructurigin/extract-properties-not-equal-deep": "off",
+  }
+}
+```
+
+## apply-esm
+
+Apply [`esm`](https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#readme) according to:
+
+- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
+
+```diff
+{
+    "rules": {
+-       "esm/add-index-to-import": "on"
+  }
+}
+```
+
+- 🐊[**Putout v40**](https://github.com/coderaiser/putout/releases/tag/v40.0.0):
+
+```diff
+{
+    "rules": {
+-       "putout/add-index-to-import": "on"
++       "esm/add-index-to-import": "on"
+  }
+}
+```
+
+- 🐊[**Putout v37**](https://github.com/coderaiser/putout/releases/tag/v37.0.0):
+
+```diff
+{
+    "rules": {
+-       "remove-empty/import": "on",
+-       "remove-empty/export": "on",
++       "esm/remove-empty-import": "on",
++       "esm/remove-empty-export": "on",
+-       "convert-assert-to-with": "off",
+-       "group-imports-by-source": "on",
+-       "declare-imports-first": "on",
+-       "remove-quotes-from-import-assertions": "on",
+-       "merge-duplicate-imports": "on",
+-       "sort-imports-by-specifiers": "on"
++       "esm/convert-assert-to-with": "off",
++       "esm/group-imports-by-source": "on",
++       "esm/declare-imports-first": "on",
++       "esm/remove-quotes-from-import-assertions": "on",
++       "esm/merge-duplicate-imports": "on",
++       "esm/sort-imports-by-specifiers": "on"
+  }
+}
+```
+
+## apply-filesystem
+
+Apply [`filesystem`](https://github.com/coderaiser/putout/tree/master/packages/plugin-filesystem#readme) according to:
+
+- 🐊[**Putout v42**](https://github.com/coderaiser/putout/releases/tag/v42.0.0):
+
+```diff
+{
+    "rules": {
+-       "filesystem/remove-travis-yml-file": "off",
+-       "filesystem/remove-vim-swap-file": "off",
+-       "filesystem/remove-nyc-output-file": "off",
+-       "filesystem/remove-ds-store-file": "off",
+-       "filesystem/remove-empty-directory": "off",
++       "filesystem/remove-files": "off",
   }
 }
 ```
@@ -529,6 +410,42 @@ Apply [`nodejs`](https://github.com/coderaiser/putout/tree/master/packages/plugi
 }
 ```
 
+## apply-optional-chaining
+
+Apply [`optional-chaining`](https://github.com/coderaiser/putout/tree/master/packages/plugin-optional-chaining#readme) according to:
+
+- 🐊[**Putout v37**](https://github.com/coderaiser/putout/releases/tag/v37.0.0):
+
+```diff
+{
+    "rules": {
+-       "convert-optional-to-logical/assign": "on",
+-       "convert-optional-to-logical/call": "off",
++       "optional-chaining/convert-optional-assign-to-logical": "on",
++       "optional-chaining/convert-optional-to-logical": "off"
+-       "apply-optional-chaining/assign": "off"
+-       "apply-optional-chaining/use": "on"
++       "optional-chaining/convert-logical-assign-to-optional": "off",
++       "optional-chaining/convert-logical-to-optional": "off"
+  }
+}
+```
+
+## apply-parens
+
+Apply [`parens`](https://github.com/coderaiser/putout/tree/master/packages/plugin-parens#readme) according to:
+
+- 🐊[**Putout v37**](https://github.com/coderaiser/putout/releases/tag/v37.0.0):
+
+```diff
+{
+    "rules": {
+-       "add-missing-parens": "on"
++       "parens/add-missing": "on"
+  }
+}
+```
+
 ## apply-promises
 
 Apply [`promises`](https://github.com/coderaiser/putout/tree/master/packages/plugin-promises#readme) according to:
@@ -541,6 +458,52 @@ Apply [`promises`](https://github.com/coderaiser/putout/tree/master/packages/plu
 -       "remove-useless-variables/await": "off",
 +       "promises/remove-useless-variables": "off"
     }
+}
+```
+
+## apply-return
+
+Apply [`return`](https://github.com/coderaiser/putout/tree/master/packages/plugin-return#readme) according to:
+
+- 🐊[**Putout v38**](https://github.com/coderaiser/putout/releases/tag/v38.0.0):
+
+```diff
+{
+    "rules": {
+-       "apply-early-return": "off",
++       "return/apply-early": "off",
+-       "simplify-boolean-return": "off",
++       "return/simplify-boolean": "off",
+-       "convert-break-to-return": "off",
++       "return/convert-from-break": "off"
+-       "remove-useless-return": "off"
++       "return/remove-useless": "off"
+  }
+}
+```
+
+## apply-spread
+
+Apply [`spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-spread#readme) according to:
+
+- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
+
+```diff
+{
+    "rules": {
+-       "remove-useless-spread": "on",
+-       "remove-useless-spread/array": "on",
+-       "remove-useless-spread/object": "on",
+-       "remove-useless-spread/nested": "on",
+-       "convert-apply-to-spread": "on"
+-       "convert-object-assign-to-merge-spread": "on"
++       "spread": "on",
++       "spread/remove-useless-array": "on",
++       "spread/remove-useless-object": "on",
++       "spread/simplify-nested": "on",
++       "spread/convert-apply-to-spread": "on",
++       "spread/convert-object-assign-to-merge-spread": "on"
+  }
 }
 ```
 
@@ -590,6 +553,43 @@ Apply [`types`](https://github.com/coderaiser/putout/tree/master/packages/plugin
 +       "types/remove-useless-typeof": "off",
 +       "types/apply-is-array": "off",
 +       "types/remove-double-negations": "off"
+  }
+}
+```
+
+## apply-variables
+
+Apply [`variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-variables#readme) according to:
+
+- 🐊[**Putout v41**](https://github.com/coderaiser/putout/releases/tag/v41.0.0):
+
+```diff
+{
+    "rules": {
+-       "remove-useless-variables": "off",
+-       "remove-unused-variables": "on",
+-       "remove-useless-variables/remove": "on",
+-       "remove-useless-variables/assignment": "on",
+-       "remove-useless-arguments/declaration": "on",
+-       "remove-useless-arguments/duplicate": "on",
+-       "remove-useless-arguments/rename": "on",
+-       "remove-unreferenced-variables": "on",
+-       "convert-const-to-let": "on",
+-       "extract-keyword-from-variables": "on"
+-       "split-variable-declarations: "on",
+-       "reuse-duplicate-init: "on",
++       "variables": "off",
++       "variables/remove-unused": "on",
++       "variables/remove-useless": "on",
++       "variables/remove-useless-assignment": "on",
++       "variables/remove-useless-declarations": "on",
++       "variables/remove-useless-duplicates": "on",
++       "variables/remove-useless-rename": "on",
++       "variables/remove-unreferenced": "on",
++       "variables/convert-const-to-let": "on"
++       "variables/extract-keyword": "on"
++       "variables/split-declarations: "on",
++       "variables/reuse-duplicate-init: "on"
   }
 }
 ```

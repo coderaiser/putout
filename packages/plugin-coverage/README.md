@@ -37,17 +37,6 @@ npm i @putout/plugin-coverage -D
 }
 ```
 
-## apply-camel-case
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c6bbe7a8e10566a418dcd3f3a3412f92/2d4d05a2e5340466c50fbb3eaf35dd92dac82f0a).
-
-```diff
-{
--   "check-coverage": true
-+   "checkCoverage": true
-}
-```
-
 ## add-to-exclude
 
 ```diff
@@ -57,6 +46,17 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c6bbe7a8e1
 +       "test",
 +       *.config.*
     ]
+}
+```
+
+## apply-camel-case
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c6bbe7a8e10566a418dcd3f3a3412f92/2d4d05a2e5340466c50fbb3eaf35dd92dac82f0a).
+
+```diff
+{
+-   "check-coverage": true
++   "checkCoverage": true
 }
 ```
 

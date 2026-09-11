@@ -51,20 +51,6 @@ npm i @putout/plugin-regexp -D
 }
 ```
 
-## optimize
-
-### ❌ Example of incorrect code
-
-```js
-const a = /(ab|ab)/;
-```
-
-### ✅ Example of correct code
-
-```js
-const a = /(ab)/;
-```
-
 ## apply-character-class
 
 Checkout in:
@@ -83,6 +69,33 @@ Checkout in:
 ```js
 /[)(]/g;
 ```
+
+## apply-ends-with
+
+> The `startsWith()` method determines whether a string ends with the characters of a specified string, returning `true` or `false` as appropriate.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
+
+**RegExp** is overkill for such a simple task as determining that string located at the end.
+
+### ❌ Example of incorrect code
+
+```js
+/hello$/.test(a);
+```
+
+### ✅ Example of correct code
+
+```js
+a.endsWith('hello');
+```
+
+### Comparison
+
+| Linter                   | Rule | Fix |
+|--------------------------|------|-----|
+| 🐊 **Putout**            | [`regexp/apply-ends-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#apply-ends-with) | ✅   |
+| 🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅   |
 
 ## apply-global-regexp-to-replace-all
 
@@ -147,47 +160,6 @@ a.startsWith('hello');
 | 🐊 **Putout**            | [`regexp/apply-starts-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#apply-starts-with) | ✅   |
 | 🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅   |
 
-## apply-ends-with
-
-> The `startsWith()` method determines whether a string ends with the characters of a specified string, returning `true` or `false` as appropriate.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
-
-**RegExp** is overkill for such a simple task as determining that string located at the end.
-
-### ❌ Example of incorrect code
-
-```js
-/hello$/.test(a);
-```
-
-### ✅ Example of correct code
-
-```js
-a.endsWith('hello');
-```
-
-### Comparison
-
-| Linter                   | Rule | Fix |
-|--------------------------|------|-----|
-| 🐊 **Putout**            | [`regexp/apply-ends-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#apply-ends-with) | ✅   |
-| 🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅   |
-
-## convert-to-string
-
-### ❌ Example of incorrect code
-
-```js
-'hello'.replace(/hello/, 'world');
-```
-
-### ✅ Example of correct code
-
-```js
-'hello'.replace('hello', 'world');
-```
-
 ## convert-replace-to-replace-all
 
 Simplify code according to [string-replace-all](https://github.com/tc39/proposal-string-replaceall).
@@ -204,18 +176,48 @@ Simplify code according to [string-replace-all](https://github.com/tc39/proposal
 'hello'.replaceAll('hello', 'world');
 ```
 
-## remove-useless-group
+## convert-to-string
 
 ### ❌ Example of incorrect code
 
 ```js
-/(hello)/.test(str);
+'hello'.replace(/hello/, 'world');
 ```
 
 ### ✅ Example of correct code
 
 ```js
-/hello/.test(str);
+'hello'.replace('hello', 'world');
+```
+
+## optimize
+
+### ❌ Example of incorrect code
+
+```js
+const a = /(ab|ab)/;
+```
+
+### ✅ Example of correct code
+
+```js
+const a = /(ab)/;
+```
+
+## remove-duplicates-from-character-class
+
+Checkout in [AST Explorer](https://astexplorer.net/#/gist/634783e99f6a9432e375ac8ad96647d9/a889735af932bd9f88f953596bec80d3a714415f).
+
+### ❌ Example of incorrect code
+
+```js
+/[aaabb]/.test(str);
+```
+
+### ✅ Example of correct code
+
+```js
+/[ab]/.test(str);
 ```
 
 ## remove-useless-escape
@@ -241,6 +243,20 @@ const cleanText = code.replaceAll(/[,;()]/g, '');
 | 🐊 **Putout** | [`regexp/remove-useless-escape`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp/#remove-useless-escape) | ✅   |
 | ⏣ **ESLint**  | [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape) | ❌   |
 
+## remove-useless-group
+
+### ❌ Example of incorrect code
+
+```js
+/(hello)/.test(str);
+```
+
+### ✅ Example of correct code
+
+```js
+/hello/.test(str);
+```
+
 ## remove-useless-regexp
 
 ### ❌ Example of incorrect code
@@ -253,22 +269,6 @@ const a = /^.hello$/.test(str);
 
 ```js
 const a = str === '.hello';
-```
-
-## remove-duplicates-from-character-class
-
-Checkout in [AST Explorer](https://astexplorer.net/#/gist/634783e99f6a9432e375ac8ad96647d9/a889735af932bd9f88f953596bec80d3a714415f).
-
-### ❌ Example of incorrect code
-
-```js
-/[aaabb]/.test(str);
-```
-
-### ✅ Example of correct code
-
-```js
-/[ab]/.test(str);
 ```
 
 ## License

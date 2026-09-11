@@ -46,22 +46,36 @@ npm i @putout/plugin-try-catch
 }
 ```
 
-## sync
+## apply-destructuring
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3356a8971b6ef8dcc7f35d09f0670576/6690425625bfa8df47db2e9afdd3e7490e15c6c0).
 
 ### ❌ Example of incorrect code
 
 ```js
-try {
-    log('hello');
-} catch(error) {}
+import {tryCatch} from 'try-catch';
+import {tryToCatch} from 'try-to-catch';
 ```
 
 ### ✅ Example of correct code
 
 ```js
 import {tryCatch} from 'try-catch';
+import {tryToCatch} from 'try-to-catch';
+```
 
-const [error] = tryCatch(log, 'hello');
+## args
+
+### ❌ Example of incorrect code
+
+```js
+tryCatch(send('hello'));
+```
+
+### ✅ Example of correct code
+
+```js
+tryCatch(send, 'hello');
 ```
 
 ## async
@@ -95,38 +109,6 @@ tryToCatch(a, b);
 
 ```js
 await tryToCatch(a, b);
-```
-
-## args
-
-### ❌ Example of incorrect code
-
-```js
-tryCatch(send('hello'));
-```
-
-### ✅ Example of correct code
-
-```js
-tryCatch(send, 'hello');
-```
-
-## apply-destructuring
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3356a8971b6ef8dcc7f35d09f0670576/6690425625bfa8df47db2e9afdd3e7490e15c6c0).
-
-### ❌ Example of incorrect code
-
-```js
-import {tryCatch} from 'try-catch';
-import {tryToCatch} from 'try-to-catch';
-```
-
-### ✅ Example of correct code
-
-```js
-import {tryCatch} from 'try-catch';
-import {tryToCatch} from 'try-to-catch';
 ```
 
 ## declare
@@ -172,6 +154,24 @@ test('some message', (t) => {
     t.equal(error.message, 'to should be a string!');
     t.end();
 });
+```
+
+## sync
+
+### ❌ Example of incorrect code
+
+```js
+try {
+    log('hello');
+} catch(error) {}
+```
+
+### ✅ Example of correct code
+
+```js
+import {tryCatch} from 'try-catch';
+
+const [error] = tryCatch(log, 'hello');
 ```
 
 ## License

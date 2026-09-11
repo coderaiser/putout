@@ -251,13 +251,33 @@ After:
 |   `-- hello.css
 ```
 
-## convert-simple-filesystem-to-filesystem
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e15d077626f832dd0b98458b1b8ff284/e2d9d2767c9bfab3e4d337f149069666d2aafe79).
-
 ## convert-filesystem-to-simple-filesystem
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/79ce3ebdd5878d9fdcf80b762ceb8e76/52c9a16861c541abd601b83ad1c2ae988f97b28f).
+
+## convert-js-to-json
+
+Checkout in 🐊**Putout Editor**:
+
+- [**Replacer**](https://putout.cloudcmd.io/#/gist/1d24f6b52a49cfecbfe104982d292244/a469d79ca6bc296eeb94af0712e5841d79aac237);
+- [**Scanner**](https://putout.cloudcmd.io/#/gist/f0f290d79b06d718d13252d05ee739e7/3f063d9b62fe20fd26579792549a7deb32cd987a);
+
+Filesystem:
+
+```diff
+-["/", "/package.js"]
++["/", "/package.json"]
+```
+
+### ❌ Example of incorrect code
+
+```json
+```
+
+### ✅ Example of correct code
+
+```json
+```
 
 ## convert-json-to-js
 
@@ -278,6 +298,39 @@ Filesystem:
 -["/", "/bunfig.json"]
 +["/", "/bunfig.toml"]
 ```
+
+## convert-json-to-yaml
+
+Filesystem:
+
+```diff
+-["/", "/actions.json"]
++["/", "/actions.yaml"]
+```
+
+### ❌ Example of incorrect code
+
+```js
+__putout_processor_json({
+    rules: {
+        'filesystem/move-referenced-file': ['on', {
+            name: 'hello.js',
+            directory: 'lib',
+        }],
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+// test/hello.spec.js
+import hello from '../src/hello.js';
+```
+
+## convert-simple-filesystem-to-filesystem
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e15d077626f832dd0b98458b1b8ff284/e2d9d2767c9bfab3e4d337f149069666d2aafe79).
 
 ## convert-toml-to-json
 
@@ -311,44 +364,6 @@ import hello from './world.js';
 export const hello = 'world';
 ```
 
-## convert-json-to-yaml
-
-Filesystem:
-
-```diff
--["/", "/actions.json"]
-+["/", "/actions.yaml"]
-```
-
-### ❌ Example of incorrect code
-
-```js
-__putout_processor_json({
-    rules: {
-        'filesystem/move-referenced-file': ['on', {
-            name: 'hello.js',
-            directory: 'lib',
-        }],
-    },
-});
-```
-
-### ✅ Example of correct code
-
-```js
-// test/hello.spec.js
-import hello from '../src/hello.js';
-```
-
-## convert-yaml-to-toml
-
-Filesystem:
-
-```diff
--["/", "/bunfig.yaml"]
-+["/", "/bunfig.toml"]
-```
-
 ## convert-yaml-to-json
 
 Filesystem:
@@ -372,28 +387,13 @@ export const hello = 'world';
 import hello from '../lib/hello.js';
 ```
 
-## convert-js-to-json
-
-Checkout in 🐊**Putout Editor**:
-
-- [**Replacer**](https://putout.cloudcmd.io/#/gist/1d24f6b52a49cfecbfe104982d292244/a469d79ca6bc296eeb94af0712e5841d79aac237);
-- [**Scanner**](https://putout.cloudcmd.io/#/gist/f0f290d79b06d718d13252d05ee739e7/3f063d9b62fe20fd26579792549a7deb32cd987a);
+## convert-yaml-to-toml
 
 Filesystem:
 
 ```diff
--["/", "/package.js"]
-+["/", "/package.json"]
-```
-
-### ❌ Example of incorrect code
-
-```json
-```
-
-### ✅ Example of correct code
-
-```json
+-["/", "/bunfig.yaml"]
++["/", "/bunfig.toml"]
 ```
 
 ## move-referenced-file
@@ -490,57 +490,30 @@ __putout_processor_json({
 });
 ```
 
-## rename-file
+## read-all-files
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0614c2da35a1864b59ac284f18656328/66daa5b325666a0d5befa586965c56e9636a5db4).
-
-Update `.putout.json` to enable rule:
-
-```json
-{
-    "rules": {
-        "filesystem/bundle": ["on", {
-            "groups": [
-                ["__:columns/__", [
-                    "name-size-date.css",
-                    "name-size.css"
-                ]]
-            ]
-        }]
-    }
-}
-```
-
-It will make next modifications to filesystem:
-
-```diff
--README.md
-+readme.md
-```
-
-For more sophisticated example, use `mask`:
-
-```json
-{
-    "rules": {
-        "filesystem/bundle": ["on", {
-            "mask": "*.good.css",
-            "groups": ["1:1"]
-        }]
-    }
-}
-```
-
-It will rename 'test' to 'spec' in `*.test.*` files:
-
-```diff
--index.test.js
-+index.spec.js
-```
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fb221770d2f35e89faf19d70eb945a1c/c857e8c2bf0511157f30a36f167266da3ea31647).
 
 ### ❌ Example of incorrect code
 
+```yaml
+name: Node CI
+on:
+    push:
+    branches: master
+```
+
+### ✅ Example of correct code
+
 ```json
+{
+    "name": "Node CI",
+    "on": {
+        "push": {
+            "branches": "master"
+        }
+    }
+}
 ```
 
 ## remove-files
@@ -597,31 +570,48 @@ lockfile = false
 linker = "hoisted"
 ```
 
-## rename-spec-to-test
+## rename-file
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ab52a74195eeb2f689e7284a1c987a03/d3a0e2ffac0bb33cc243004975d242d07d6d0bff).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/0614c2da35a1864b59ac284f18656328/66daa5b325666a0d5befa586965c56e9636a5db4).
 
-```diff
--index.spec.js
-+index.test.js
-```
-
-### ❌ Example of incorrect code
-
-```toml
-[install]
-lockfile = false
-linker = "hoisted"
-```
-
-### ✅ Example of correct code
+Update `.putout.json` to enable rule:
 
 ```json
+{
+    "rules": {
+        "filesystem/bundle": ["on", {
+            "groups": [
+                ["__:columns/__", [
+                    "name-size-date.css",
+                    "name-size.css"
+                ]]
+            ]
+        }]
+    }
+}
 ```
 
-## rename-test-to-spec
+It will make next modifications to filesystem:
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/28e4d3a847f0968401da67fff04fb784/1e3bfd4ddb241dd0de6c2402f49252af0806b719).
+```diff
+-README.md
++readme.md
+```
+
+For more sophisticated example, use `mask`:
+
+```json
+{
+    "rules": {
+        "filesystem/bundle": ["on", {
+            "mask": "*.good.css",
+            "groups": ["1:1"]
+        }]
+    }
+}
+```
+
+It will rename 'test' to 'spec' in `*.test.*` files:
 
 ```diff
 -index.test.js
@@ -630,18 +620,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/28e4d3a847
 
 ### ❌ Example of incorrect code
 
-```toml
-[install]
-lockfile = false
-linker = "hoisted"
-```
-
-### ✅ Example of correct code
-
-```yaml
-install:
-  lockfile: false
-  linker: hoisted
+```json
 ```
 
 ## rename-referenced-file
@@ -706,6 +685,53 @@ on:
         branches: master
 ```
 
+## rename-spec-to-test
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ab52a74195eeb2f689e7284a1c987a03/d3a0e2ffac0bb33cc243004975d242d07d6d0bff).
+
+```diff
+-index.spec.js
++index.test.js
+```
+
+### ❌ Example of incorrect code
+
+```toml
+[install]
+lockfile = false
+linker = "hoisted"
+```
+
+### ✅ Example of correct code
+
+```json
+```
+
+## rename-test-to-spec
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/28e4d3a847f0968401da67fff04fb784/1e3bfd4ddb241dd0de6c2402f49252af0806b719).
+
+```diff
+-index.test.js
++index.spec.js
+```
+
+### ❌ Example of incorrect code
+
+```toml
+[install]
+lockfile = false
+linker = "hoisted"
+```
+
+### ✅ Example of correct code
+
+```yaml
+install:
+  lockfile: false
+  linker: hoisted
+```
+
 ## replace-cwd
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/97a4cb9bc9f79abc9585bf5b47392450/b6b9de0a407258643bfa469453d967e089648a59).
@@ -735,32 +761,6 @@ install:
 [install]
 lockfile = false
 linker = "hoisted"
-```
-
-## read-all-files
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fb221770d2f35e89faf19d70eb945a1c/c857e8c2bf0511157f30a36f167266da3ea31647).
-
-### ❌ Example of incorrect code
-
-```yaml
-name: Node CI
-on:
-    push:
-    branches: master
-```
-
-### ✅ Example of correct code
-
-```json
-{
-    "name": "Node CI",
-    "on": {
-        "push": {
-            "branches": "master"
-        }
-    }
-}
 ```
 
 ## write-all-files

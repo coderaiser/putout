@@ -44,24 +44,6 @@ npm i @putout/plugin-remove-empty
 -if (2 > 3) {}
 ```
 
-## static-block
-
-Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8d55df306ea7a3c74b494d37bd45f320/634cc2cf40fe7b691d969bb2bbfceecd1668b004).
-
-```diff
-class Hello {
--    static {
--    }
-}
-```
-
-## pattern
-
-```diff
--const [] = array;
--const {} = object;
-```
-
 ## nested-pattern
 
 ### ❌ Example of incorrect code
@@ -85,6 +67,24 @@ export const func = (param) => {
     const {c} = param;
     return c;
 };
+```
+
+## pattern
+
+```diff
+-const [] = array;
+-const {} = object;
+```
+
+## static-block
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8d55df306ea7a3c74b494d37bd45f320/634cc2cf40fe7b691d969bb2bbfceecd1668b004).
+
+```diff
+class Hello {
+-    static {
+-    }
+}
 ```
 
 ## arguments

@@ -51,20 +51,6 @@ npm i @putout/plugin-github -D
 }
 ```
 
-## add-madrun-init
-
-Checkout int 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9c9416fc9e68cb0d5d4c8c651585a150/0d0ddc337d20dd492e950a066c0f3d00ecda2eba).
-
-Add [`madrun init`](https://github.com/coderaiser/madrun):
-
-```diff
-  - name: Install redrun
--   run: bun i redrun -g
-+   run: bun i redrun madrun -g
-+ - name: Init madrun
-+   run: madrun init
-```
-
 ## add-continue-on-error-to-coveralls
 
 Add ability to continue when cannot submit coverage to Coveralls using [`continue-on-error`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error).
@@ -90,6 +76,128 @@ Add ability to continue when cannot submit coverage to Coveralls using [`continu
     with:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 +   continue-on-error: true
+```
+
+## add-madrun-init
+
+Checkout int 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9c9416fc9e68cb0d5d4c8c651585a150/0d0ddc337d20dd492e950a066c0f3d00ecda2eba).
+
+Add [`madrun init`](https://github.com/coderaiser/madrun):
+
+```diff
+  - name: Install redrun
+-   run: bun i redrun -g
++   run: bun i redrun madrun -g
++ - name: Init madrun
++   run: madrun init
+```
+
+## convert-npm-to-bun
+
+```diff
+  - name: Install Redrun
+-   run: npm install redrun -g --no-save
++   run: bun install redrun -g --no-save
+  - name: Install
+-   run: npm i -f --no-save
++   run: bun i -f --no-save
+```
+
+## convert-typos-to-typos-ai
+
+Use [typos.ai](https://github.com/coderaiser/typos.ai) action, it is much simpler and also clever.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/05457ee0a03ac861e0a12a35ce1f78db/8195c4f3c8ee83be9d9b33756ea329cfc688d7c4).
+
+```diff
+- - name: Install Rust
+-   run: rustup update
+- - uses: actions/cache@v5
+-   with:
+-     path: |
+-       ~/.cargo/bin/
+-       ~/.cargo/registry/index/
+-       ~/.cargo/registry/cache/
+-       ~/.cargo/git/db/
+-       target/
+-     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+- - name: Typos Install
+-   run: which typos || cargo install typos-cli
+  - name: Typos
+-   run: typos --write-changes
++   uses: coderaiser/typos.ai@v1.1.8
++   with:
++     key: ${{ secrets.TYPOS_AI_KEY }}
+```
+
+## install-bun
+
+> Bun is an all-in-one toolkit for JavaScript and TypeScript apps. It ships as a single executable called bun.
+>
+> At its core is the Bun runtime, a fast JavaScript runtime designed as a drop-in replacement for Node.js. It's written in Zig and powered by JavaScriptCore under the hood, dramatically reducing startup times and memory usage.
+>
+> (c) [bun.sh](https://bun.sh).
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2d10cb903c532df454a8dfd6de2780c3/ee6b347faef340f20b7c1aa53564f72572c493df).
+
+```diff
+steps:
+  - uses: actions/checkout@v3
+  - name: Use Node.js ${{ matrix.node-version }}
+    uses: actions/setup-node@v3
+    with:
+      node-version: ${{ matrix.node-version }}
++  - uses: oven-sh/setup-bun@v2
++    with:
++      bun-version: latest
+```
+
+## install-bun
+
+> Bun is an all-in-one toolkit for JavaScript and TypeScript apps. It ships as a single executable called bun.
+>
+> At its core is the Bun runtime, a fast JavaScript runtime designed as a drop-in replacement for Node.js. It's written in Zig and powered by JavaScriptCore under the hood, dramatically reducing startup times and memory usage.
+>
+> (c) [bun.sh](https://bun.sh).
+
+Bun install works much faster: 40s before - 2s after.
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e03cc6ff4d9927568dc4f6f608be10ef/52146f4cbbc02c5bc8d7242af94d37f8734b3b36).
+
+```diff
+- name: Install Redrun
+-    run: npm i redrun -g
++    run: bun i redrun -g --no-save
+- name: Install
+-    run: npm install
++    run: bun i --no-save
+```
+
+## remove-empty-needs
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e861cfee107252f80025d4ccdab46be3/a96d306968b07edcf61e44ad9eddab1e0da94642).
+
+```diff
+jobs:
+  deploy-test:
+    runs-on: ubuntu-latest
+-   needs: []
+```
+
+## install-rust
+
+> A language empowering everyone to build reliable and efficient software.
+>
+> (c) [Rust](https://rust-lang.orgh).
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ad1fbd14cf16ce2e0ebf768fbfc07387/ec47bc0fe622b0001070c871e423979f7d29cbfb).
+
+```diff
+steps:
+  - uses: actions-rs/toolchain@v1
+    with:
+      toolchain: stable
++  - name: Install Rust
++    run: runstup update
 ```
 
 ## set-contents-permissions
@@ -238,114 +346,6 @@ You can override versions with:
   steps:
 -      uses: oven-sh/setup-bun@v1
 +      uses: oven-sh/setup-bun@v2
-```
-
-## install-bun
-
-> Bun is an all-in-one toolkit for JavaScript and TypeScript apps. It ships as a single executable called bun.
->
-> At its core is the Bun runtime, a fast JavaScript runtime designed as a drop-in replacement for Node.js. It's written in Zig and powered by JavaScriptCore under the hood, dramatically reducing startup times and memory usage.
->
-> (c) [bun.sh](https://bun.sh).
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2d10cb903c532df454a8dfd6de2780c3/ee6b347faef340f20b7c1aa53564f72572c493df).
-
-```diff
-steps:
-  - uses: actions/checkout@v3
-  - name: Use Node.js ${{ matrix.node-version }}
-    uses: actions/setup-node@v3
-    with:
-      node-version: ${{ matrix.node-version }}
-+  - uses: oven-sh/setup-bun@v2
-+    with:
-+      bun-version: latest
-```
-
-## install-rust
-
-> A language empowering everyone to build reliable and efficient software.
->
-> (c) [Rust](https://rust-lang.orgh).
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ad1fbd14cf16ce2e0ebf768fbfc07387/ec47bc0fe622b0001070c871e423979f7d29cbfb).
-
-```diff
-steps:
-  - uses: actions-rs/toolchain@v1
-    with:
-      toolchain: stable
-+  - name: Install Rust
-+    run: runstup update
-```
-
-## install-bun
-
-> Bun is an all-in-one toolkit for JavaScript and TypeScript apps. It ships as a single executable called bun.
->
-> At its core is the Bun runtime, a fast JavaScript runtime designed as a drop-in replacement for Node.js. It's written in Zig and powered by JavaScriptCore under the hood, dramatically reducing startup times and memory usage.
->
-> (c) [bun.sh](https://bun.sh).
-
-Bun install works much faster: 40s before - 2s after.
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e03cc6ff4d9927568dc4f6f608be10ef/52146f4cbbc02c5bc8d7242af94d37f8734b3b36).
-
-```diff
-- name: Install Redrun
--    run: npm i redrun -g
-+    run: bun i redrun -g --no-save
-- name: Install
--    run: npm install
-+    run: bun i --no-save
-```
-
-## convert-typos-to-typos-ai
-
-Use [typos.ai](https://github.com/coderaiser/typos.ai) action, it is much simpler and also clever.
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/05457ee0a03ac861e0a12a35ce1f78db/8195c4f3c8ee83be9d9b33756ea329cfc688d7c4).
-
-```diff
-- - name: Install Rust
--   run: rustup update
-- - uses: actions/cache@v5
--   with:
--     path: |
--       ~/.cargo/bin/
--       ~/.cargo/registry/index/
--       ~/.cargo/registry/cache/
--       ~/.cargo/git/db/
--       target/
--     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-- - name: Typos Install
--   run: which typos || cargo install typos-cli
-  - name: Typos
--   run: typos --write-changes
-+   uses: coderaiser/typos.ai@v1.1.8
-+   with:
-+     key: ${{ secrets.TYPOS_AI_KEY }}
-```
-
-## convert-npm-to-bun
-
-```diff
-  - name: Install Redrun
--   run: npm install redrun -g --no-save
-+   run: bun install redrun -g --no-save
-  - name: Install
--   run: npm i -f --no-save
-+   run: bun i -f --no-save
-```
-
-## remove-empty-needs
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e861cfee107252f80025d4ccdab46be3/a96d306968b07edcf61e44ad9eddab1e0da94642).
-
-```diff
-jobs:
-  deploy-test:
-    runs-on: ubuntu-latest
--   needs: []
 ```
 
 ## License

@@ -50,54 +50,6 @@ const maybeArray = (a) => isArray(a) ? a : [a];
 const array = maybeArray(a);
 ```
 
-## empty-array
-
-### ❌ Example of incorrect code
-
-```js
-const array = !a ? [] : a;
-```
-
-### ✅ Example of correct code
-
-```js
-const maybeArray = (a) => !a ? [] : a;
-const array = maybeEmptyArray(a);
-```
-
-## fn
-
-### ❌ Example of incorrect code
-
-```js
-const isFn = (a) => typeof a === 'function';
-const fn = isFn(a) ? a : () => {};
-```
-
-### ✅ Example of correct code
-
-```js
-const isFn = (a) => typeof a === 'function';
-const noop = () => {};
-const maybeFn = isFn(a) ? a : noop;
-const fn = maybeFn(a);
-```
-
-## noop
-
-### ❌ Example of incorrect code
-
-```js
-const fn = f || (() => {});
-```
-
-### ✅ Example of correct code
-
-```js
-const noop = () => {};
-const fn = fn || noop;
-```
-
 ## declare
 
 Declares:
@@ -146,6 +98,54 @@ const {isArray} = Array;
 const maybeFirst = (a) => isArray(a) ? a[0] : a;
 
 const b = maybeFirst(a);
+```
+
+## empty-array
+
+### ❌ Example of incorrect code
+
+```js
+const array = !a ? [] : a;
+```
+
+### ✅ Example of correct code
+
+```js
+const maybeArray = (a) => !a ? [] : a;
+const array = maybeEmptyArray(a);
+```
+
+## fn
+
+### ❌ Example of incorrect code
+
+```js
+const isFn = (a) => typeof a === 'function';
+const fn = isFn(a) ? a : () => {};
+```
+
+### ✅ Example of correct code
+
+```js
+const isFn = (a) => typeof a === 'function';
+const noop = () => {};
+const maybeFn = isFn(a) ? a : noop;
+const fn = maybeFn(a);
+```
+
+## noop
+
+### ❌ Example of incorrect code
+
+```js
+const fn = f || (() => {});
+```
+
+### ✅ Example of correct code
+
+```js
+const noop = () => {};
+const fn = fn || noop;
 ```
 
 ## License

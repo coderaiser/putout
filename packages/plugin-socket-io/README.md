@@ -39,13 +39,6 @@ Add `.putout.json` with:
 }
 ```
 
-## declare
-
-```diff
-+import {Server} from 'socket.io';
-new Server(server);
-```
-
 ## convert-io-listen-to-new-server
 
 ESM has no `listen` exported, only `Server`. So it is better to change it to simplify migration.
@@ -60,6 +53,13 @@ io.listen(server);
 ### ✅ Example of correct code
 
 ```js
+new Server(server);
+```
+
+## declare
+
+```diff
++import {Server} from 'socket.io';
 new Server(server);
 ```
 

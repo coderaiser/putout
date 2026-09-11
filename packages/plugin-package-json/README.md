@@ -61,6 +61,21 @@ Add [`type`](https://nodejs.org/dist/latest-v17.x/docs/api/packages.html#type) f
 }
 ```
 
+## apply-https-to-repository-url
+
+The `git://` protocol for GitHub repos should not be used due [security concerns](https://github.blog/security/application-security/improving-git-protocol-security-github/).
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/63ab077723e3ff368fa4e3472f9a36f3/048984adbf078a7d153ea44100d3f03676aa02d5).
+
+```diff
+{
+  "repository": {
+    "type": "git",
+-   "url": "git://github.com/coderaiser/putout.git"
++   "url": "git+https://github.com/coderaiser/putout.git"
+  }
+```
+
 ## apply-js-extension
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31b208fae5f340b9d8a479c2d7475cd2/869370f138d0082cf67bb4372c62fb969bb98db5).
@@ -87,19 +102,118 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31b208fae5
 };
 ```
 
-## apply-https-to-repository-url
+## find-file
 
-The `git://` protocol for GitHub repos should not be used due [security concerns](https://github.blog/security/application-security/improving-git-protocol-security-github/).
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/63ab077723e3ff368fa4e3472f9a36f3/048984adbf078a7d153ea44100d3f03676aa02d5).
+Find `package.json` inside of `.filesystem.json` and applies all other `package-json` rules.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/325233d19fde0acacadbcf1f42dd3bb2/124a50fe0e92c6c3cab24f8b87c33b202dc3e540).
 
 ```diff
 {
-  "repository": {
-    "type": "git",
--   "url": "git://github.com/coderaiser/putout.git"
-+   "url": "git+https://github.com/coderaiser/putout.git"
-  }
+    "name": "hello",
+    "version": "1.0.0",
++   "type": "commonjs"
+}
+```
+
+## remove-commit-type
+
+Since 🎁**Wisdom** [v14](https://github.com/coderaiser/wisdom/releases/tag/v14.0.0) `commitType` set to `colon` be default, so it can be dropped from `package.json` if it's value not `paren`:
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c8e99effc91ae44119d625d7/8e60d60b2c2e7bb28ca5b2eba61715a062ac5319).
+
+```diff
+{
+    "name": "hello",
+    "version": "1.0.0",
+    "commitType": "colon"
+}
+```
+
+## remove-dot-slash-from-bin
+
+Fixes `npm` warnings:
+
+> "npm warn publish bin[c8]" script name was cleaned
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ef444a1679d00b8bb41a209e76499921/24a4a06d0db2d8b487b5ca5ff40290c8b3e24e3d).
+
+```diff
+{
+    "bin": {
+-       "c8": "./bin/c8.js"
++       "c8": "bin/c8.js"
+    }
+}
+```
+
+## remove-duplicate-keywords
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c8e99effc91ae44119d625d7/8e60d60b2c2e7bb28ca5b2eba61715a062ac5319).
+
+```diff
+{
+    "keywords": [
+     "putout",
+     "putout-plugin",
+-    "plugin",
+-    "putout"
++    "plugin"
+   ],
+}
+```
+
+## remove-exports-nesting
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9939ae5f61016e4e6a17f1e92c0e2b5b/cfa3dea4221c6b783ed4f5b59259c8230a756337).
+
+```diff
+{
+    "exports": {
+-       "./a.js": {
+-         "import": "./lib/a.js"
+-       },
++       "./a.js": "./lib/a.js"
+    }
+}
+```
+
+## remove-exports-with-missing-files
+
+Find `package.json` inside of `.filesystem.json` and removes `exports` with missing files.
+
+Checkout in 🐊**Putout Editor**:
+
+- [`remove-exports-with-missing-files`](https://putout.cloudcmd.io/#/gist/c79a69b797ccd2d94499349150e65f7c/37a48a054b98299cb15e71c3eaeb23b0b919d62c);
+- [`find-keys`](https://putout.cloudcmd.io/#/gist/b138e991aa21ad0ffb562b4c6fe6290f/cca92b8b87ca9d91c0a280991a1558a5e3fc260b);
+- [`remove-keys`](https://putout.cloudcmd.io/#/gist/b2fa6fba917a22bfc676f01532b4794e/e5970eb901ef5b29f7c143f76df9a10148b69d9e);
+
+```diff
+__putout_processor_filesystem([
+    "/",
+    ["/package.json", `{
+        "exports": {
+            "./parse-options": "./lib/parse-options/index.js",
+-            "./loader": "./lib/loader.mjs"
+        }
+    }`],
+    "/lib/",
+    "/lib/parse-options/",
+    ["/lib/parse-options/index.js", "export const a = 5"],
+]);
+```
+
+## remove-imports-nesting
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3527617ece2bfd9c39875db50a8a6245/2f3c6248b7b0ab539212b747f3cd480dc77ce3f1).
+
+```diff
+{
+    "imports": {
+-       "#get-imports": {
+-         "default": "./lib/shorten-imported-file/get-imports/index.js"
+-       }
++       "#get-imports": "./lib/shorten-imported-file/get-imports/index.js"
+    }
+}
 ```
 
 ## remove-nyc
@@ -151,35 +265,6 @@ File `.nycrc.json`:
 }
 ```
 
-## remove-commit-type
-
-Since 🎁**Wisdom** [v14](https://github.com/coderaiser/wisdom/releases/tag/v14.0.0) `commitType` set to `colon` be default, so it can be dropped from `package.json` if it's value not `paren`:
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c8e99effc91ae44119d625d7/8e60d60b2c2e7bb28ca5b2eba61715a062ac5319).
-
-```diff
-{
-    "name": "hello",
-    "version": "1.0.0",
-    "commitType": "colon"
-}
-```
-
-## remove-duplicate-keywords
-
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c8e99effc91ae44119d625d7/8e60d60b2c2e7bb28ca5b2eba61715a062ac5319).
-
-```diff
-{
-    "keywords": [
-     "putout",
-     "putout-plugin",
--    "plugin",
--    "putout"
-+    "plugin"
-   ],
-}
-```
-
 ## remove-useless-exports
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/111426a5251efe6702d705d388d4c63d/cc2f30061a4a7b169bb61afbb843592f2c664c82).
@@ -190,91 +275,6 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/111426a52
 -       ".": {}
 -     },
 }
-```
-
-## remove-dot-slash-from-bin
-
-Fixes `npm` warnings:
-
-> "npm warn publish bin[c8]" script name was cleaned
-
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ef444a1679d00b8bb41a209e76499921/24a4a06d0db2d8b487b5ca5ff40290c8b3e24e3d).
-
-```diff
-{
-    "bin": {
--       "c8": "./bin/c8.js"
-+       "c8": "bin/c8.js"
-    }
-}
-```
-
-## remove-imports-nesting
-
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3527617ece2bfd9c39875db50a8a6245/2f3c6248b7b0ab539212b747f3cd480dc77ce3f1).
-
-```diff
-{
-    "imports": {
--       "#get-imports": {
--         "default": "./lib/shorten-imported-file/get-imports/index.js"
--       }
-+       "#get-imports": "./lib/shorten-imported-file/get-imports/index.js"
-    }
-}
-```
-
-## remove-exports-nesting
-
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9939ae5f61016e4e6a17f1e92c0e2b5b/cfa3dea4221c6b783ed4f5b59259c8230a756337).
-
-```diff
-{
-    "exports": {
--       "./a.js": {
--         "import": "./lib/a.js"
--       },
-+       "./a.js": "./lib/a.js"
-    }
-}
-```
-
-## find-file
-
-Find `package.json` inside of `.filesystem.json` and applies all other `package-json` rules.
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/325233d19fde0acacadbcf1f42dd3bb2/124a50fe0e92c6c3cab24f8b87c33b202dc3e540).
-
-```diff
-{
-    "name": "hello",
-    "version": "1.0.0",
-+   "type": "commonjs"
-}
-```
-
-## remove-exports-with-missing-files
-
-Find `package.json` inside of `.filesystem.json` and removes `exports` with missing files.
-
-Checkout in 🐊**Putout Editor**:
-
-- [`remove-exports-with-missing-files`](https://putout.cloudcmd.io/#/gist/c79a69b797ccd2d94499349150e65f7c/37a48a054b98299cb15e71c3eaeb23b0b919d62c);
-- [`find-keys`](https://putout.cloudcmd.io/#/gist/b138e991aa21ad0ffb562b4c6fe6290f/cca92b8b87ca9d91c0a280991a1558a5e3fc260b);
-- [`remove-keys`](https://putout.cloudcmd.io/#/gist/b2fa6fba917a22bfc676f01532b4794e/e5970eb901ef5b29f7c143f76df9a10148b69d9e);
-
-```diff
-__putout_processor_filesystem([
-    "/",
-    ["/package.json", `{
-        "exports": {
-            "./parse-options": "./lib/parse-options/index.js",
--            "./loader": "./lib/loader.mjs"
-        }
-    }`],
-    "/lib/",
-    "/lib/parse-options/",
-    ["/lib/parse-options/index.js", "export const a = 5"],
-]);
 ```
 
 ## License

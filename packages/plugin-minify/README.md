@@ -66,25 +66,6 @@ npm i @putout/plugin-putout -D
 }
 ```
 
-## apply-ternary
-
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/69329ca15ca7b13a91caa17bbfd64327/57d98ae86d557596dbab396be3cd2d093b625ec4).
-
-### ❌ Example of incorrect code
-
-```js
-if (a)
-    b();
-else
-    c();
-```
-
-### ✅ Example of correct code
-
-```js
-a ? b() : c();
-```
-
 ## apply-template-literal
 
 Not only short, but also fast:
@@ -114,6 +95,55 @@ String(x);
 
 ```js
 String(x);
+```
+
+## apply-ternary
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/69329ca15ca7b13a91caa17bbfd64327/57d98ae86d557596dbab396be3cd2d093b625ec4).
+
+### ❌ Example of incorrect code
+
+```js
+if (a)
+    b();
+else
+    c();
+```
+
+### ✅ Example of correct code
+
+```js
+a ? b() : c();
+```
+
+## convert-array-from-to-spread
+
+### ❌ Example of incorrect code
+
+```js
+Array
+    .from(a)
+    .map((x, i) => `${i}: ${x}`);
+```
+
+### ✅ Example of correct code
+
+```js
+[...a].map((x, i) => `${i}: ${x}`);
+```
+
+## convert-const-to-let
+
+### ❌ Example of incorrect code
+
+```js
+const a = 5;
+```
+
+### ✅ Example of correct code
+
+```js
+let a = 5;
 ```
 
 ## convert-if-to-logical
@@ -148,20 +178,6 @@ a && console.log('hello');
 b && (console.log('hello'), console.log('world'));
 
 a ? (console.log(1), console.log(2)) : (console.log(3), console.log(4));
-```
-
-## convert-const-to-let
-
-### ❌ Example of incorrect code
-
-```js
-const a = 5;
-```
-
-### ✅ Example of correct code
-
-```js
-let a = 5;
 ```
 
 ## convert-let-to-var
@@ -227,20 +243,28 @@ a === b;
 a == b;
 ```
 
-## convert-array-from-to-spread
+## expand-bindings
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f181577b923e9a9efca794d9abf1d6c8/1a70c7ebb4af18901ad250c34c8f78ec7519a732).
 
 ### ❌ Example of incorrect code
 
 ```js
-Array
-    .from(a)
-    .map((x, i) => `${i}: ${x}`);
+const y = 'abc';
+const x = y;
+const fn = require(x);
+
+const a = 5;
+const b = a;
+const c = b;
+
+fn(c);
 ```
 
 ### ✅ Example of correct code
 
 ```js
-[...a].map((x, i) => `${i}: ${x}`);
+require('abc')(5);
 ```
 
 ## extract-body
@@ -267,66 +291,50 @@ if (x)
 const hello = () => 'world';
 ```
 
-## expand-bindings
+## inline
 
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f181577b923e9a9efca794d9abf1d6c8/1a70c7ebb4af18901ad250c34c8f78ec7519a732).
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/1b0ad2900f604352697e8edc9f2be61b/d60caae865597b4cb99dce5f95158ff26ae74e20).
 
 ### ❌ Example of incorrect code
 
 ```js
-const y = 'abc';
-const x = y;
-const fn = require(x);
+let x = 1;
+--x;
 
-const a = 5;
-const b = a;
-const c = b;
-
-fn(c);
+if (!x)
+    console.log('hello');
 ```
 
 ### ✅ Example of correct code
 
 ```js
-require('abc')(5);
+let x = 1;
+
+if (!--x)
+    console.log('hello');
 ```
 
-## remove-var-undefined
+## join-continued-strings
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/76ceb3f2604e887d7fe84e4b145db5f3/1be2301c0fa753f77090ca0d09df9a5ba1c0a819).
+Join continued strings to one line.
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/1b0ad2900f604352697e8edc9f2be61b/d60caae865597b4cb99dce5f95158ff26ae74e20).
 
 ### ❌ Example of incorrect code
 
 ```js
-var a = undefined;
+console.log(`\
+  1\
+  2\
+  3`, '\
+  a\
+  b\
+  c');
 ```
 
 ### ✅ Example of correct code
 
 ```js
-var a;
-```
-
-## remove-return-undefined
-
-### ❌ Example of incorrect code
-
-```js
-const fn = () => {
-    if (a)
-        return undefined;
-    
-    return undefined;
-};
-```
-
-### ✅ Example of correct code
-
-```js
-const fn = () => {
-    if (a)
-        return;
-};
+console.log(`  1  2  3`, '  a  b  c');
 ```
 
 ## mangle-names
@@ -406,23 +414,6 @@ d = 'hello';
 a = b = c = d = 'hello';
 ```
 
-## merge-variables
-
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31255c05343aa1b1c116a6a639a02d13/ba723cfb4abf475cd3f1bc2fe6908638cff92881).
-
-### ❌ Example of incorrect code
-
-```js
-var a;
-var b;
-```
-
-### ✅ Example of correct code
-
-```js
-var a, b;
-```
-
 ## merge-loops
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c9b77f37202389d30924135c2db3db9e/345edfc73c65b6cdf53c9b5e68bf689e4128291f).
@@ -444,30 +435,43 @@ for (const aa of [...a, ...b])
     d.push(aa);
 ```
 
-## simplify-floor
+## merge-variables
 
-Not only shorter, but faster:
-
-```js
-// 5.027ms
-for (let i = 0; i < 1_000_000; i++)
-    Math.floor(i + 0.5);
-
-// 3.493ms
-for (let i = 0; i < 1_000_000; i++)
-    ~~(i + 0.5);
-```
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31255c05343aa1b1c116a6a639a02d13/ba723cfb4abf475cd3f1bc2fe6908638cff92881).
 
 ### ❌ Example of incorrect code
 
 ```js
-Math.floor(x);
+var a;
+var b;
 ```
 
 ### ✅ Example of correct code
 
 ```js
-~~x;
+var a, b;
+```
+
+## remove-return-undefined
+
+### ❌ Example of incorrect code
+
+```js
+const fn = () => {
+    if (a)
+        return undefined;
+    
+    return undefined;
+};
+```
+
+### ✅ Example of correct code
+
+```js
+const fn = () => {
+    if (a)
+        return;
+};
 ```
 
 ## shorten-names
@@ -505,6 +509,48 @@ freeze(a);
 defineProperty(b);
 ```
 
+## remove-var-undefined
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/76ceb3f2604e887d7fe84e4b145db5f3/1be2301c0fa753f77090ca0d09df9a5ba1c0a819).
+
+### ❌ Example of incorrect code
+
+```js
+var a = undefined;
+```
+
+### ✅ Example of correct code
+
+```js
+var a;
+```
+
+## simplify-floor
+
+Not only shorter, but faster:
+
+```js
+// 5.027ms
+for (let i = 0; i < 1_000_000; i++)
+    Math.floor(i + 0.5);
+
+// 3.493ms
+for (let i = 0; i < 1_000_000; i++)
+    ~~(i + 0.5);
+```
+
+### ❌ Example of incorrect code
+
+```js
+Math.floor(x);
+```
+
+### ✅ Example of correct code
+
+```js
+~~x;
+```
+
 ## types
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/208d2f64b68be114e1f9f93cf4b60734/bdae9887bbf05719e365920d60f3b0b7ca29702b).
@@ -523,52 +569,6 @@ const c = false;
 const a = void 0;
 const b = !0;
 const c = !1;
-```
-
-## join-continued-strings
-
-Join continued strings to one line.
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/1b0ad2900f604352697e8edc9f2be61b/d60caae865597b4cb99dce5f95158ff26ae74e20).
-
-### ❌ Example of incorrect code
-
-```js
-console.log(`\
-  1\
-  2\
-  3`, '\
-  a\
-  b\
-  c');
-```
-
-### ✅ Example of correct code
-
-```js
-console.log(`  1  2  3`, '  a  b  c');
-```
-
-## inline
-
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/1b0ad2900f604352697e8edc9f2be61b/d60caae865597b4cb99dce5f95158ff26ae74e20).
-
-### ❌ Example of incorrect code
-
-```js
-let x = 1;
---x;
-
-if (!x)
-    console.log('hello');
-```
-
-### ✅ Example of correct code
-
-```js
-let x = 1;
-
-if (!--x)
-    console.log('hello');
 ```
 
 ## License

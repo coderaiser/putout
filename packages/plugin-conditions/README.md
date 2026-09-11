@@ -67,6 +67,53 @@ npm i @putout/plugin-conditions -D
 }
 ```
 
+## add-return
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b1c12a29951659bb54b283310027d6ef/b32270ca22a36728c67edf0dc0f0519876b78f16).
+
+### ❌ Example of incorrect code
+
+```js
+if (a)
+    false;
+```
+
+### ✅ Example of correct code
+
+```js
+if (a)
+    return false;
+```
+
+## apply-comparison-order
+
+> The result of evaluating an equality operator is always of type boolean based on whether the comparison is true.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
+
+Checkout it 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/c61c94d2e1990f59b160aaf462f9a903/0855844b114079ec46098be6f3602dfdaa74290c).
+
+### ❌ Example of incorrect code
+
+```js
+3 === a;
+3 < b;
+```
+
+### ✅ Example of correct code
+
+```js
+a === 3;
+b > 3;
+```
+
+### Comparison
+
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`conditions/apply-comparison-order`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions/#apply-comparison-order) | ✅   |
+| ⏣ **ESLint**  | [`yoda`](https://eslint.org/docs/rules/yoda) | ½   |
+
 ## apply-consistent-blocks
 
 > A **block statement** is used to group zero or more statements. The block is delimited by a pair of braces ("curly braces") and contains a list of zero or more statements and declarations.
@@ -117,35 +164,6 @@ if (a > 3) {
     fn();
 }
 ```
-
-## apply-comparison-order
-
-> The result of evaluating an equality operator is always of type boolean based on whether the comparison is true.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
-
-Checkout it 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/c61c94d2e1990f59b160aaf462f9a903/0855844b114079ec46098be6f3602dfdaa74290c).
-
-### ❌ Example of incorrect code
-
-```js
-3 === a;
-3 < b;
-```
-
-### ✅ Example of correct code
-
-```js
-a === 3;
-b > 3;
-```
-
-### Comparison
-
-| Linter        | Rule | Fix |
-|---------------|------|-----|
-| 🐊 **Putout** | [`conditions/apply-comparison-order`](https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions/#apply-comparison-order) | ✅   |
-| ⏣ **ESLint**  | [`yoda`](https://eslint.org/docs/rules/yoda) | ½   |
 
 ## apply-early-return
 
@@ -207,24 +225,6 @@ alert();
 ```js
 if (2 > 3)
     alert();
-```
-
-## add-return
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b1c12a29951659bb54b283310027d6ef/b32270ca22a36728c67edf0dc0f0519876b78f16).
-
-### ❌ Example of incorrect code
-
-```js
-if (a)
-    false;
-```
-
-### ✅ Example of correct code
-
-```js
-if (a)
-    return false;
 ```
 
 ## convert-arrow-to-condition
@@ -336,104 +336,6 @@ const c = a;
 console.log(a);
 ```
 
-## reverse
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fabfc16a5a5d1002c721fc2dfc31474b/8d1de98533ef439e56e8784f54a34c3928a074fa).
-
-### ❌ Example of incorrect code
-
-```js
-const check = (references) => !(references > 3);
-
-return !(nextNode.type !== 'text' || nextNode.value !== ' ');
-```
-
-### ✅ Example of correct code
-
-```js
-const check = (references) => references <= 3;
-
-return nextNode.type === 'text' && nextNode.value === ' ';
-```
-
-## remove-boolean
-
-### ❌ Example of incorrect code
-
-```js
-if (a === true)
-    alert();
-```
-
-### ✅ Example of correct code
-
-```js
-if (a)
-    alert();
-```
-
-## remove-constant
-
-### ❌ Example of incorrect code
-
-```js
-function hi(a) {
-    if (2 < 3) {
-        console.log('hello');
-        console.log('world');
-    }
-}
-```
-
-### ✅ Example of correct code
-
-```js
-function hi(b) {
-    console.log('hello');
-    console.log('world');
-}
-```
-
-## remove-zero
-
-### ❌ Example of incorrect code
-
-```js
-if (b === 0) {}
-
-if (b !== 0) {}
-```
-
-### ✅ Example of correct code
-
-```js
-if (!b) {}
-
-if (b) {}
-```
-
-## simplify
-
-### ❌ Example of incorrect code
-
-```js
-if (zone?.tooltipCallback)
-    zone.tooltipCallback(e);
-
-if (a)
-    alert('hello');
-else
-    alert('hello');
-```
-
-### ✅ Example of correct code
-
-```js
-zone?.tooltipCallback(e);
-
-alert('hello');
-```
-
 ## merge-if-statements
 
 > Multiple `if...else` statements can be nested to create an else if clause
@@ -477,6 +379,83 @@ else if (matchFn(options))
 ```js
 if (!matchFn || matchFn(options))
     fix(from, to, path);
+```
+
+## remove-boolean
+
+### ❌ Example of incorrect code
+
+```js
+if (a === true)
+    alert();
+```
+
+### ✅ Example of correct code
+
+```js
+if (a)
+    alert();
+```
+
+## remove-constant
+
+### ❌ Example of incorrect code
+
+```js
+function hi(a) {
+    if (2 < 3) {
+        console.log('hello');
+        console.log('world');
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```js
+function hi(b) {
+    console.log('hello');
+    console.log('world');
+}
+```
+
+## remove-same-values-condition
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e537d4ec636d4a9b849063a8326b70ae/661041b3fbb1e3678bf7f828e4c8bf6ca723f89d).
+
+### ❌ Example of incorrect code
+
+```js
+for (const [i, el] of entries(elements)) {
+    if (el !== path)
+        continue;
+    
+    if (!Number(i) && n) {
+        path.parentPath.node.elements[i] = null;
+        break;
+    }
+    
+    if (el === path) {
+        remove(path);
+        break;
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```js
+for (const [i, el] of entries(elements)) {
+    if (el !== path)
+        continue;
+    
+    if (!Number(i) && n) {
+        path.parentPath.node.elements[i] = null;
+        break;
+    }
+    
+    remove(path);
+}
 ```
 
 ## remove-useless-else
@@ -535,43 +514,64 @@ while (currentDirPath = getParentDirectory(currentDirPath)) {
 while (currentDirPath = getParentDirectory(currentDirPath)) {}
 ```
 
-## remove-same-values-condition
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e537d4ec636d4a9b849063a8326b70ae/661041b3fbb1e3678bf7f828e4c8bf6ca723f89d).
+## remove-zero
 
 ### ❌ Example of incorrect code
 
 ```js
-for (const [i, el] of entries(elements)) {
-    if (el !== path)
-        continue;
-    
-    if (!Number(i) && n) {
-        path.parentPath.node.elements[i] = null;
-        break;
-    }
-    
-    if (el === path) {
-        remove(path);
-        break;
-    }
-}
+if (b === 0) {}
+
+if (b !== 0) {}
 ```
 
 ### ✅ Example of correct code
 
 ```js
-for (const [i, el] of entries(elements)) {
-    if (el !== path)
-        continue;
-    
-    if (!Number(i) && n) {
-        path.parentPath.node.elements[i] = null;
-        break;
-    }
-    
-    remove(path);
-}
+if (!b) {}
+
+if (b) {}
+```
+
+## reverse
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fabfc16a5a5d1002c721fc2dfc31474b/8d1de98533ef439e56e8784f54a34c3928a074fa).
+
+### ❌ Example of incorrect code
+
+```js
+const check = (references) => !(references > 3);
+
+return !(nextNode.type !== 'text' || nextNode.value !== ' ');
+```
+
+### ✅ Example of correct code
+
+```js
+const check = (references) => references <= 3;
+
+return nextNode.type === 'text' && nextNode.value === ' ';
+```
+
+## simplify
+
+### ❌ Example of incorrect code
+
+```js
+if (zone?.tooltipCallback)
+    zone.tooltipCallback(e);
+
+if (a)
+    alert('hello');
+else
+    alert('hello');
+```
+
+### ✅ Example of correct code
+
+```js
+zone?.tooltipCallback(e);
+
+alert('hello');
 ```
 
 ## wrap-with-block

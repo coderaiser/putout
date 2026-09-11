@@ -88,6 +88,32 @@ npm i putout @putout/plugin-nodejs -D
 }
 ```
 
+## add-missing-strict-mode
+
+> **Strict mode** makes several changes to normal **JavaScript** semantics:
+>
+> - Eliminates some **JavaScript** silent errors by changing them to throw errors.
+> - Fixes mistakes that make it difficult for **JavaScript** engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode.
+> - Prohibits some syntax likely to be defined in future versions of **ECMAScript**.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+
+Add **strict mode** to **CommonJS**:
+
+### ❌ Example of incorrect code
+
+```js
+const a = require('b');
+```
+
+### ✅ Example of correct code
+
+```js
+'strict mode';
+
+const a = require('b');
+```
+
 ## add-node-prefix
 
 > `Deno` supports using Node.js built-in modules such as `fs`, `path`, `process`, and many more via `node`: specifiers.
@@ -145,6 +171,40 @@ spawn('ls', [], {
 });
 ```
 
+## apply-privately-required-file
+
+> Entries in the imports field must be strings starting with `#`.
+> Package imports permit mapping to external packages.
+> This field defines subpath imports for the current package.
+>
+> (c) [nodejs.org](https://nodejs.org/api/packages.html#imports)
+
+Let's consider file structure:
+
+```
+/
+|-- package.json {"imports": {"#is": {"default": "./lib/tokenize/is.js"}}}
+|-- lib/
+|  `-- tokenize/
+|     `-- is.js "export const isPrev = () => {}"
+|     `-- expressions/
+        `-- spread-element.js "const {isPrev} = require('../is.js')"
+```
+
+In this case `spread-element.js` can be fixed:
+
+### ❌ Example of incorrect code
+
+```js
+const {isPrev} = require('../is.js');
+```
+
+### ✅ Example of correct code
+
+```js
+const {isPrev} = require('#is');
+```
+
 ## apply-style-text
 
 Fixes `TypeError`:
@@ -164,6 +224,12 @@ styleText('grey', `${line}:${column}`);
 ```js
 styleText('gray', `${line}:${column}`);
 ```
+
+## cjs-file
+
+Run [convert-esm-to-commonjs](#convert-esm-to-commonjs) for all `*.cjs` files with help of [redlint](https://github.com/putoutjs/redlint).
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af59afc2d3da082088fd4c/d0b85b07c6aaf2b902a1c7eb7ae121dbcd181033).
 
 ## convert-buffer-to-buffer-alloc
 
@@ -201,58 +267,6 @@ Buffer.from([]);
 Buffer.from(buf);
 ```
 
-## convert-fs-promises
-
-Convert [fs.promises](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api) into form that will be simpler to use and convert to and from **ESM**.
-
-### ❌ Example of incorrect code
-
-```js
-const {readFile} = require('fs').promises;
-```
-
-### ✅ Example of correct code
-
-```js
-const {readFile} = require('fs/promises');
-```
-
-## convert-promisify-to-fs-promises
-
-### ❌ Example of incorrect code
-
-```js
-const fs = require('fs');
-const readFile = promisify(fs.readFile);
-```
-
-### ✅ Example of correct code
-
-```js
-const {readFile} = require('fs/promises');
-```
-
-## convert-dirname-to-url
-
-Only for **ESM**.
-
-### ❌ Example of incorrect code
-
-```js
-const {join} = require('path');
-const path = require('path');
-
-const file1 = join(__dirname, '../../package.json');
-const file2 = path.join(__dirname, '../../package.json');
-```
-
-### ✅ Example of correct code
-
-```js
-const file1 = new URL('../../package.json', import.meta.url);
-const file2 = new URL('../../package.json', import.meta.url);
-```
-
 ## convert-default-export-to-default
 
 > `MockModuleOptions.defaultExport` and `MockModuleOptions.namedExports` have been consolidated into a single option `lMockModuleOptions.exports` to align with user expectations and other test runners.
@@ -285,23 +299,107 @@ mock.module('fs', {
 });
 ```
 
-## convert-url-to-dirname
+## convert-dirname-to-url
 
-Only for **CommonJS**.
+Only for **ESM**.
 
 ### ❌ Example of incorrect code
 
 ```js
-const {readFile} = require('fs/promises');
-const file = new URL('../../package.json', import.meta.url);
+const {join} = require('path');
+const path = require('path');
+
+const file1 = join(__dirname, '../../package.json');
+const file2 = path.join(__dirname, '../../package.json');
+```
+
+### ✅ Example of correct code
+
+```js
+const file1 = new URL('../../package.json', import.meta.url);
+const file2 = new URL('../../package.json', import.meta.url);
+```
+
+## convert-esm-to-commonjs
+
+> **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
+>
+> (c) [parceljs](https://parceljs.org/languages/javascript/)
+
+Convert **EcmaScript Modules** to **CommonJS**.
+
+### ❌ Example of incorrect code
+
+```js
+import hello from 'world';
+```
+
+### ✅ Example of correct code
+
+```js
+const hello = require('world');
+```
+
+## convert-exports-to-module-exports
+
+Since `exports = 5` wan't make any export, just change value of variable.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8b2af2c4ad005ed1c77cde41377caaad/dfdccc794037d7f67bde1e7d7244bf5f14abebce).
+
+### ❌ Example of incorrect code
+
+```js
+exports.x = 5;
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports.x = 5;
+```
+
+## convert-fs-promises
+
+Convert [fs.promises](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api) into form that will be simpler to use and convert to and from **ESM**.
+
+### ❌ Example of incorrect code
+
+```js
+const {readFile} = require('fs').promises;
 ```
 
 ### ✅ Example of correct code
 
 ```js
 const {readFile} = require('fs/promises');
-const {join} = require('path');
-const file = join(__dirname, '../../package.json');
+```
+
+## convert-promisify-to-fs-promises
+
+### ❌ Example of incorrect code
+
+```js
+const fs = require('fs');
+const readFile = promisify(fs.readFile);
+```
+
+### ✅ Example of correct code
+
+```js
+const {readFile} = require('fs/promises');
+```
+
+## convert-top-level-return
+
+### ❌ Example of incorrect code
+
+```js
+return;
+```
+
+### ✅ Example of correct code
+
+```js
+process.exit();
 ```
 
 ## convert-url-parse-to-new-url
@@ -324,53 +422,88 @@ const parsed = url.parse(req.url);
 const parsed = new URL(req.url);
 ```
 
-## remove-process-exit
+## convert-url-to-dirname
 
-In most cases `process.exit()` is called from `bin` directory, if not - disable this rule using `match`.
-
-```diff
--process.exit();
-```
-
-## remove-top-level-process-exit
-
-Top-level `process.exit()` has no sense (except debugging).
-
-Checkout in ✅[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3aa8331269e49266d60914984027f9ed/9909ac2c07534299f64fee5ebf95cfc37ef04f11).
-
-```diff
--process.exit();
-```
-
-## convert-exports-to-module-exports
-
-Since `exports = 5` wan't make any export, just change value of variable.
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8b2af2c4ad005ed1c77cde41377caaad/dfdccc794037d7f67bde1e7d7244bf5f14abebce).
+Only for **CommonJS**.
 
 ### ❌ Example of incorrect code
 
 ```js
-exports.x = 5;
+const {readFile} = require('fs/promises');
+const file = new URL('../../package.json', import.meta.url);
 ```
 
 ### ✅ Example of correct code
 
 ```js
-module.exports.x = 5;
+const {readFile} = require('fs/promises');
+const {join} = require('path');
+const file = join(__dirname, '../../package.json');
 ```
 
-## convert-top-level-return
+## convert-commonjs-to-esm/require
+
+Convert **CommonJS** **EcmaScript Modules**.
+
+> **EcmaScript module** syntax is the standard way to import and export values between files in **JavaScript**. The `import` statement can be used to reference a value exposed by the `export` statement in another file.
+>
+> (c) [parceljs](https://parceljs.org/languages/javascript/)
 
 ### ❌ Example of incorrect code
 
 ```js
-return;
+const {join} = require('path');
+
+const args = require('minimist')({
+    string: ['a', 'b'],
+});
 ```
 
 ### ✅ Example of correct code
 
 ```js
-process.exit();
+import {join} from 'path';
+import minimist from 'minimist';
+
+const args = minimist({
+    string: ['a', 'b'],
+});
+```
+
+## convert-commonjs-to-esm/exports
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/39dd730c35e488db3e2cf8d4b4df0c5a/feb042a49539e6b4b2165558a1c636b705726c47).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports = () => {};
+```
+
+### ✅ Example of correct code
+
+```js
+export default () => {};
+```
+
+## convert-commonjs-to-esm/commons
+
+### ❌ Example of incorrect code
+
+```js
+const {readFile} = require('fs/promises');
+
+await readFile(__filename);
+```
+
+### ✅ Example of correct code
+
+```js
+import {readFile} from 'fs/promises';
+import {fileURLToPath} from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+await readFile(__filename);
 ```
 
 ## declare
@@ -441,71 +574,6 @@ const {readFile} = require('fs/promises');
 const name = 'hello.txt';
 ```
 
-## convert-commonjs-to-esm/require
-
-Convert **CommonJS** **EcmaScript Modules**.
-
-> **EcmaScript module** syntax is the standard way to import and export values between files in **JavaScript**. The `import` statement can be used to reference a value exposed by the `export` statement in another file.
->
-> (c) [parceljs](https://parceljs.org/languages/javascript/)
-
-### ❌ Example of incorrect code
-
-```js
-const {join} = require('path');
-
-const args = require('minimist')({
-    string: ['a', 'b'],
-});
-```
-
-### ✅ Example of correct code
-
-```js
-import {join} from 'path';
-import minimist from 'minimist';
-
-const args = minimist({
-    string: ['a', 'b'],
-});
-```
-
-## convert-commonjs-to-esm/exports
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/39dd730c35e488db3e2cf8d4b4df0c5a/feb042a49539e6b4b2165558a1c636b705726c47).
-
-### ❌ Example of incorrect code
-
-```js
-module.exports = () => {};
-```
-
-### ✅ Example of correct code
-
-```js
-export default () => {};
-```
-
-## convert-commonjs-to-esm/commons
-
-### ❌ Example of incorrect code
-
-```js
-const {readFile} = require('fs/promises');
-
-await readFile(__filename);
-```
-
-### ✅ Example of correct code
-
-```js
-import {readFile} from 'fs/promises';
-import {fileURLToPath} from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-await readFile(__filename);
-```
-
 ## group-require-by-id
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ff39c5d912d836a25b96772d8045dacb/fa8d8e1ebf8ac5f19a536247536f4bccf4fdac3d). For **ESM** use [`esm/group-imports-by-sources`](https://github.com/coderaiser/putout/tree/master/packages/plugin-esm#group-imports-by-source).
@@ -537,128 +605,11 @@ const m = require(x);
 const c = 5;
 ```
 
-## convert-esm-to-commonjs
-
-> **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
->
-> (c) [parceljs](https://parceljs.org/languages/javascript/)
-
-Convert **EcmaScript Modules** to **CommonJS**.
-
-### ❌ Example of incorrect code
-
-```js
-import hello from 'world';
-```
-
-### ✅ Example of correct code
-
-```js
-const hello = require('world');
-```
-
-## cjs-file
-
-Run [convert-esm-to-commonjs](#convert-esm-to-commonjs) for all `*.cjs` files with help of [redlint](https://github.com/putoutjs/redlint).
-
-Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af59afc2d3da082088fd4c/d0b85b07c6aaf2b902a1c7eb7ae121dbcd181033).
-
 ## mjs-file
 
 Run [convert-commonjs-to-esm](#convert-commonjs-to-esm) for all `*.cjs` files with help of [redlint](https://github.com/putoutjs/redlint).
 
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/779e7fb720af59afc2d3da082088fd4c/d0b85b07c6aaf2b902a1c7eb7ae121dbcd181033).
-
-## rename-file-cjs-to-js
-
-Rename `*.cjs` files when `type === "commonjs"`:
-
-```diff
- /
- |-- package.json
- `-- lib/
--     `-- hello.cjs
-+     `-- hello.js
-```
-
-Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8d8f3cd6662b70abbd5e4a2e4835077f/e43319fd63291ec3a5028b30a83f3c91fe90325e).
-
-## rename-file-mjs-to-js
-
-Rename `*.mjs` files when `type === "module"`:
-
-```diff
- /
- |-- package.json
- `-- lib/
--     `-- hello.mjs
-+     `-- hello.js
-```
-
-Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/94fb3298b210e703b01db9a6826942bc/dfe2462451c6b3d4d47da7fd8d39dc8e53bb16eb).
-
-## add-missing-strict-mode
-
-> **Strict mode** makes several changes to normal **JavaScript** semantics:
->
-> - Eliminates some **JavaScript** silent errors by changing them to throw errors.
-> - Fixes mistakes that make it difficult for **JavaScript** engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode.
-> - Prohibits some syntax likely to be defined in future versions of **ECMAScript**.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
-
-Add **strict mode** to **CommonJS**:
-
-### ❌ Example of incorrect code
-
-```js
-const a = require('b');
-```
-
-### ✅ Example of correct code
-
-```js
-'strict mode';
-
-const a = require('b');
-```
-
-## remove-useless-strict-mode
-
-> The entire contents of JavaScript modules are automatically in strict mode, with no statement needed to initiate it.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
-
-### ❌ Example of incorrect code
-
-```js
-'strict mode';
-
-import a from 'b';
-```
-
-### ✅ Example of correct code
-
-```js
-import a from 'b';
-```
-
-## remove-useless-exports-assign
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c4dbbdae2d02a11421320d99873ffb48/7d22a36f109125d9750794d881651a24e5d8e4bb).
-
-### ❌ Example of incorrect code
-
-```js
-exports = require('./abc.js');
-module.exports = exports;
-```
-
-### ✅ Example of correct code
-
-```js
-module.exports = require('./abc.js');
-```
 
 ## remove-illegal-strict-mode
 
@@ -707,6 +658,41 @@ function x4([a]) {}
 function x5(...a) {}
 ```
 
+## remove-process-exit
+
+In most cases `process.exit()` is called from `bin` directory, if not - disable this rule using `match`.
+
+```diff
+-process.exit();
+```
+
+## remove-top-level-process-exit
+
+Top-level `process.exit()` has no sense (except debugging).
+
+Checkout in ✅[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3aa8331269e49266d60914984027f9ed/9909ac2c07534299f64fee5ebf95cfc37ef04f11).
+
+```diff
+-process.exit();
+```
+
+## remove-useless-exports-assign
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c4dbbdae2d02a11421320d99873ffb48/7d22a36f109125d9750794d881651a24e5d8e4bb).
+
+### ❌ Example of incorrect code
+
+```js
+exports = require('./abc.js');
+module.exports = exports;
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports = require('./abc.js');
+```
+
 ## remove-useless-promisify
 
 > Takes a function following the common error-first callback style, i.e. taking an (err, value) => ... callback as the last argument, and returns a version that returns promises.
@@ -727,39 +713,53 @@ export const readSize = promisify(async (dir, options, callback) => {});
 export const readSize = async (dir, options, callback) => {};
 ```
 
-## apply-privately-required-file
+## remove-useless-strict-mode
 
-> Entries in the imports field must be strings starting with `#`.
-> Package imports permit mapping to external packages.
-> This field defines subpath imports for the current package.
+> The entire contents of JavaScript modules are automatically in strict mode, with no statement needed to initiate it.
 >
-> (c) [nodejs.org](https://nodejs.org/api/packages.html#imports)
-
-Let's consider file structure:
-
-```
-/
-|-- package.json {"imports": {"#is": {"default": "./lib/tokenize/is.js"}}}
-|-- lib/
-|  `-- tokenize/
-|     `-- is.js "export const isPrev = () => {}"
-|     `-- expressions/
-        `-- spread-element.js "const {isPrev} = require('../is.js')"
-```
-
-In this case `spread-element.js` can be fixed:
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 
 ### ❌ Example of incorrect code
 
 ```js
-const {isPrev} = require('../is.js');
+'strict mode';
+
+import a from 'b';
 ```
 
 ### ✅ Example of correct code
 
 ```js
-const {isPrev} = require('#is');
+import a from 'b';
 ```
+
+## rename-file-cjs-to-js
+
+Rename `*.cjs` files when `type === "commonjs"`:
+
+```diff
+ /
+ |-- package.json
+ `-- lib/
+-     `-- hello.cjs
++     `-- hello.js
+```
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8d8f3cd6662b70abbd5e4a2e4835077f/e43319fd63291ec3a5028b30a83f3c91fe90325e).
+
+## rename-file-mjs-to-js
+
+Rename `*.mjs` files when `type === "module"`:
+
+```diff
+ /
+ |-- package.json
+ `-- lib/
+-     `-- hello.mjs
++     `-- hello.js
+```
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/94fb3298b210e703b01db9a6826942bc/dfe2462451c6b3d4d47da7fd8d39dc8e53bb16eb).
 
 ## License
 

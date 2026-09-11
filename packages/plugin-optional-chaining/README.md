@@ -39,6 +39,33 @@ npm i @putout/plugin-optional-chaining
 }
 ```
 
+## convert-logical-assign-to-optional
+
+> Proposal to add support for optional chaining on the left of assignment operators: `a?.b = c`.
+>
+> (c) [Proposal of Optional Chaining Assignment](https://github.com/tc39/proposal-optional-chaining-assignment)
+
+Disabled by default. Checkout out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/74bde454f909b7f9d13e80da10e12a15/d31bd20ca18fefe474bb8ab73f963e47dffb89e7).
+
+### ❌ Example of incorrect code
+
+```js
+if (a) {
+    a.b = 5;
+}
+
+if (a)
+    a.b = 5;
+
+a && (a.b = 5);
+```
+
+### ✅ Example of correct code
+
+```js
+a?.b = 5;
+```
+
 ## convert-logical-to-optional
 
 > The logical **AND** (`&&`) (logical conjunction) operator for a set of boolean operands will be true if and only if all the operands are true. Otherwise it will be false.
@@ -65,33 +92,6 @@ const result = hello?.world;
 
 if (a?.(1, 2))
     alert();
-```
-
-## convert-logical-assign-to-optional
-
-> Proposal to add support for optional chaining on the left of assignment operators: `a?.b = c`.
->
-> (c) [Proposal of Optional Chaining Assignment](https://github.com/tc39/proposal-optional-chaining-assignment)
-
-Disabled by default. Checkout out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/74bde454f909b7f9d13e80da10e12a15/d31bd20ca18fefe474bb8ab73f963e47dffb89e7).
-
-### ❌ Example of incorrect code
-
-```js
-if (a) {
-    a.b = 5;
-}
-
-if (a)
-    a.b = 5;
-
-a && (a.b = 5);
-```
-
-### ✅ Example of correct code
-
-```js
-a?.b = 5;
 ```
 
 ## convert-optional-assign-to-logical

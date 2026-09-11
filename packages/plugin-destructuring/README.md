@@ -81,48 +81,6 @@ const {name} = user;
 ({hello} = world);
 ```
 
-## remove-useless-object
-
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c9ed04b421d75ae39e58038fa6e14630/4c097e3173990ec7e5ebabbe2cedf8e952092ebf).
-
-### ❌ Example of incorrect code
-
-```js
-const {maxElementsInOneLine} = {
-    options,
-};
-```
-
-### ✅ Example of correct code
-
-```js
-const {maxElementsInOneLine} = options;
-```
-
-## remove-useless-rename
-
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bff12ac912bec590fece55d63af467fc/0928cb7c8403d77497e9619503caa29ca6c1538c).
-
-### ❌ Example of incorrect code
-
-```js
-const {
-    convert: convertFn = convertFile,
-} = overrides;
-
-convertFn('hello');
-```
-
-### ✅ Example of correct code
-
-```js
-const {
-    convert = convertFile,
-} = overrides;
-
-convert('hello');
-```
-
 ## convert-object-to-array
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a1d26daf8bb83ee3ea1c0b62a6ad3afd/cef9b4d27c9dbb0d413a935b0359a6fe9b50364f).
@@ -139,60 +97,40 @@ const {0: a, 1: b} = c;
 const [a, b] = c;
 ```
 
-## split-nested
+## extract-properties
 
-> - Don't use nested destructuring on data that comes from any external data sources (such as `REST API`s, `GraphQL` endpoints or files).
-> - Don't use nested destructuring on function arguments that have long or complicated signatures.
->
-> (c) [Destructuring in JavaScript: the not so good parts](https://goodguydaniel.com/blog/destructuring-not-so-good-parts)
+### Equal Deep
 
-### ❌ Example of incorrect code
+#### ❌ Example of incorrect code
 
 ```js
-const {
-    a: {
-        b,
-    },
-    a: {
-        b: x,
-    },
-} = c;
-
-function f({a}) {
-    const {b} = a;
-    console.log(b);
-}
+const {replaceWith} = a.operate;
+const {isIdentifier} = a.types;
 ```
 
-### ✅ Example of correct code
+#### ✅ Example of correct code
 
 ```js
-const {a} = c;
-const {b, b: x} = a;
+const {operator, types} = a;
 
-function f({a}) {
-    const {b} = a;
-    console.log(b);
-}
+const {replaceWith} = operator;
+const {isIdentifier} = types;
 ```
 
-## split-call
+### Not Equal Deep
 
-### ❌ Example of incorrect code
+#### ❌ Example of incorrect code
 
 ```js
-console.log('hello')({uid} = path.scope);
-console.log('hello')[uid] = path.scope;
+const {replaceWith} = a;
+const {isIdentifier} = a.types;
 ```
 
-### ✅ Example of correct code
+#### ✅ Example of correct code
 
 ```js
-console.log('hello');
-({uid} = path.scope);
-
-console.log('hello');
-[uid] = path.scope;
+const {replaceWith, types} = a;
+const {isIdentifier} = types;
 ```
 
 ## merge-properties
@@ -247,6 +185,48 @@ onIfStatement({
 function onIfStatement({push}) {}
 ```
 
+## remove-useless-object
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c9ed04b421d75ae39e58038fa6e14630/4c097e3173990ec7e5ebabbe2cedf8e952092ebf).
+
+### ❌ Example of incorrect code
+
+```js
+const {maxElementsInOneLine} = {
+    options,
+};
+```
+
+### ✅ Example of correct code
+
+```js
+const {maxElementsInOneLine} = options;
+```
+
+## remove-useless-rename
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bff12ac912bec590fece55d63af467fc/0928cb7c8403d77497e9619503caa29ca6c1538c).
+
+### ❌ Example of incorrect code
+
+```js
+const {
+    convert: convertFn = convertFile,
+} = overrides;
+
+convertFn('hello');
+```
+
+### ✅ Example of correct code
+
+```js
+const {
+    convert = convertFile,
+} = overrides;
+
+convert('hello');
+```
+
 ## remove-useless-variables
 
 ### ❌ Example of incorrect code
@@ -263,40 +243,60 @@ function hi(c) {
 function hi({a, b}) {}
 ```
 
-## extract-properties
+## split-call
 
-### Equal Deep
-
-#### ❌ Example of incorrect code
+### ❌ Example of incorrect code
 
 ```js
-const {replaceWith} = a.operate;
-const {isIdentifier} = a.types;
+console.log('hello')({uid} = path.scope);
+console.log('hello')[uid] = path.scope;
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
-const {operator, types} = a;
+console.log('hello');
+({uid} = path.scope);
 
-const {replaceWith} = operator;
-const {isIdentifier} = types;
+console.log('hello');
+[uid] = path.scope;
 ```
 
-### Not Equal Deep
+## split-nested
 
-#### ❌ Example of incorrect code
+> - Don't use nested destructuring on data that comes from any external data sources (such as `REST API`s, `GraphQL` endpoints or files).
+> - Don't use nested destructuring on function arguments that have long or complicated signatures.
+>
+> (c) [Destructuring in JavaScript: the not so good parts](https://goodguydaniel.com/blog/destructuring-not-so-good-parts)
+
+### ❌ Example of incorrect code
 
 ```js
-const {replaceWith} = a;
-const {isIdentifier} = a.types;
+const {
+    a: {
+        b,
+    },
+    a: {
+        b: x,
+    },
+} = c;
+
+function f({a}) {
+    const {b} = a;
+    console.log(b);
+}
 ```
 
-#### ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
-const {replaceWith, types} = a;
-const {isIdentifier} = types;
+const {a} = c;
+const {b, b: x} = a;
+
+function f({a}) {
+    const {b} = a;
+    console.log(b);
+}
 ```
 
 ## License

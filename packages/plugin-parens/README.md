@@ -69,20 +69,6 @@ To disable use:
 +a && (b = a);
 ```
 
-## add-missing-from-await
-
-### ❌ Example of incorrect code
-
-```ts
-await asyncFn().filter(Boolean);
-```
-
-### ✅ Example of correct code
-
-```js
-(await asyncFn()).filter(Boolean);
-```
-
 ## add-missing-for-template
 
 > The JavaScript exception "tagged template cannot be used with optional chain" occurs when the tag expression of a tagged template literal is an optional chain, or if there's an optional chain between the tag and the template.
@@ -115,6 +101,20 @@ String?.raw!``;
 (String?.raw)!``;
 ```
 
+## add-missing-from-await
+
+### ❌ Example of incorrect code
+
+```ts
+await asyncFn().filter(Boolean);
+```
+
+### ✅ Example of correct code
+
+```js
+(await asyncFn()).filter(Boolean);
+```
+
 ## remove-useless-from-await
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3800b0c52a199dd49a089ed4b9b37566/e2dddb75cb68811883cae640a22b340b8e1afa73).
@@ -129,6 +129,22 @@ const s = (await m());
 
 ```ts
 const s = await m();
+```
+
+## remove-useless-from-object
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3800b0c52a199dd49a089ed4b9b37566/16cee4a82af4e6add03b8c26e20923ac0e66cec3).
+
+### ❌ Example of incorrect code
+
+```ts
+createNestedDirectory({} as any);
+```
+
+### ✅ Example of correct code
+
+```ts
+createNestedDirectory({} as any);
 ```
 
 ## remove-useless-from-params
@@ -149,22 +165,6 @@ const a = ((b)) => c;
 
 ```js
 const a = (b) => c;
-```
-
-## remove-useless-from-object
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3800b0c52a199dd49a089ed4b9b37566/16cee4a82af4e6add03b8c26e20923ac0e66cec3).
-
-### ❌ Example of incorrect code
-
-```ts
-createNestedDirectory({} as any);
-```
-
-### ✅ Example of correct code
-
-```ts
-createNestedDirectory({} as any);
 ```
 
 ## License

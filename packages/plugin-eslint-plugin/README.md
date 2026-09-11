@@ -79,33 +79,6 @@ const parserTester = new RuleTester({
 });
 ```
 
-## apply-get-token-before
-
-> The following deprecated SourceCode methods have been removed in ESLint v10.0.0: `getTokenOrCommentBefore()`.
->
-> (c) [eslint.org](https://eslint.org/docs/next/use/migrate-to-10.0.0#sourcecode-methods-removed)
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/700a2bd89917e6fd9471eea8d5dec588/61f93534a821d37ae5c909ef4c8d85231e6c2ab2).
-
-### ❌ Example of incorrect code
-
-```js
-source.getTokenOrCommentBefore(token);
-source.getTokenOrCommentBefore(token, x);
-```
-
-### ✅ Example of correct code
-
-```js
-source.getTokenBefore(token, {
-    includeComments: true,
-});
-source.getTokenBefore(token, {
-    skip: x,
-    includeComments: true,
-});
-```
-
 ## apply-get-token-after
 
 > The following deprecated SourceCode methods have been removed in ESLint v10.0.0: `getTokenOrCommentAfter()`.
@@ -128,6 +101,33 @@ source.getTokenAfter(token, {
     includeComments: true,
 });
 source.getTokenAfter(token, {
+    skip: x,
+    includeComments: true,
+});
+```
+
+## apply-get-token-before
+
+> The following deprecated SourceCode methods have been removed in ESLint v10.0.0: `getTokenOrCommentBefore()`.
+>
+> (c) [eslint.org](https://eslint.org/docs/next/use/migrate-to-10.0.0#sourcecode-methods-removed)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/700a2bd89917e6fd9471eea8d5dec588/61f93534a821d37ae5c909ef4c8d85231e6c2ab2).
+
+### ❌ Example of incorrect code
+
+```js
+source.getTokenOrCommentBefore(token);
+source.getTokenOrCommentBefore(token, x);
+```
+
+### ✅ Example of correct code
+
+```js
+source.getTokenBefore(token, {
+    includeComments: true,
+});
+source.getTokenBefore(token, {
     skip: x,
     includeComments: true,
 });
@@ -272,6 +272,27 @@ const test = new RuleTester({
 });
 ```
 
+## remove-errors-type
+
+> In ESLint v10.0.0, the deprecated nodeType property on LintMessage objects has been removed. Correspondingly, RuleTester no longer accepts the deprecated type property in errors of invalid test cases.
+>
+> (c) [eslint.org](https://eslint.org/blog/2025/11/eslint-^10.0.0-alpha.0-released/#removed-deprecated-lintmessage%23nodetype-and-testcaseerror%23type-properties)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bec61b7973acba2d84a076789a2c5c8b/42a7d4a9e58f219d6039389c4e295a4530fcff19).
+
+### ❌ Example of incorrect code
+
+```js
+ruleTester.run('remove-newline-after-default-import', rule, {
+    invalid: [{
+        errors: [{
+            message: 'Remove newline before t.end()',
+            type: 'CallExpression',
+        }],
+    }],
+});
+```
+
 ## turn-off-schema
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5044f09074f6d4772dc637962c49d73d/dde068d6773f3bc7bf6c47892487e155a5ef3cc4).
@@ -345,27 +366,6 @@ const ruleTester = new RuleTester({
             sourceType: 'module',
         },
     },
-});
-```
-
-## remove-errors-type
-
-> In ESLint v10.0.0, the deprecated nodeType property on LintMessage objects has been removed. Correspondingly, RuleTester no longer accepts the deprecated type property in errors of invalid test cases.
->
-> (c) [eslint.org](https://eslint.org/blog/2025/11/eslint-^10.0.0-alpha.0-released/#removed-deprecated-lintmessage%23nodetype-and-testcaseerror%23type-properties)
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bec61b7973acba2d84a076789a2c5c8b/42a7d4a9e58f219d6039389c4e295a4530fcff19).
-
-### ❌ Example of incorrect code
-
-```js
-ruleTester.run('remove-newline-after-default-import', rule, {
-    invalid: [{
-        errors: [{
-            message: 'Remove newline before t.end()',
-            type: 'CallExpression',
-        }],
-    }],
 });
 ```
 

@@ -100,6 +100,30 @@ npm i @putout/plugin-eslint -D
 }
 ```
 
+## apply-create-eslint
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3e2944d9298bca267b133fa4dc01131/fc0aa8718af032c67d310456e775c8590c3b9b70).
+
+### ❌ Example of incorrect code
+
+```js
+export default [
+    ...safeAlign, {
+        ignores: ['**/fixture'],
+    },
+];
+```
+
+### ✅ Example of correct code
+
+```js
+export default createESLintConfig([
+    safeAlign, {
+        ignores: ['**/fixture'],
+    },
+]);
+```
+
 ## apply-define-config
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3e2944d9298bca267b133fa4dc01131/fc0aa8718af032c67d310456e775c8590c3b9b70).
@@ -128,82 +152,6 @@ export default defineConfig([
         ignores: ['**/fixture'],
     },
 ]);
-```
-
-## apply-ignores
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/4d25771243a5aa3db09330187fd835a0/34a8347b368f889316c5a3b004fe94393771ab93).
-Legacy config:
-
-```diff
-{
-    "extends": [
-        "plugin:putout/safe+align",
-        "plugin:node/recommended"
-    ],
-    "plugins": [
-        "putout",
-        "node"
-    ],
-    "ignorePatterns": [
-        "**/fixture"
-    ]
-}
-```
-
-Flat config:
-
-```diff
--export default safeAlign;
-+export default [
-+   ...safeAlign, {
-+   ignores: [
-+       "**/fixture"
-+   ]
-+}];
-```
-
-## apply-create-eslint
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3e2944d9298bca267b133fa4dc01131/fc0aa8718af032c67d310456e775c8590c3b9b70).
-
-### ❌ Example of incorrect code
-
-```js
-export default [
-    ...safeAlign, {
-        ignores: ['**/fixture'],
-    },
-];
-```
-
-### ✅ Example of correct code
-
-```js
-export default createESLintConfig([
-    safeAlign, {
-        ignores: ['**/fixture'],
-    },
-]);
-```
-
-## apply-safe-align
-
-```diff
-{
--    "rules": {
--       "putout/align-spaces": "error"
--    },
-    "extends": [
--       "plugin:putout/safe",
-+       "plugin:putout/safe+align",
-        "plugin:node/recommended"
-    ],
-    "plugins": [
-        "putout",
-        "node"
-    ]
-}
 ```
 
 ## apply-dir-to-flat
@@ -237,6 +185,39 @@ module.exports = [
     ...scriptsConfig,
     ...monoConfig,
 ];
+```
+
+## apply-ignores
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/4d25771243a5aa3db09330187fd835a0/34a8347b368f889316c5a3b004fe94393771ab93).
+Legacy config:
+
+```diff
+{
+    "extends": [
+        "plugin:putout/safe+align",
+        "plugin:node/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ],
+    "ignorePatterns": [
+        "**/fixture"
+    ]
+}
+```
+
+Flat config:
+
+```diff
+-export default safeAlign;
++export default [
++   ...safeAlign, {
++   ignores: [
++       "**/fixture"
++   ]
++}];
 ```
 
 ## apply-match-to-flat
@@ -283,14 +264,16 @@ export default [
 ];
 ```
 
-## move-putout-to-end-of-extends
+## apply-safe-align
 
-### ❌ Example of incorrect code
-
-```json
+```diff
 {
+-    "rules": {
+-       "putout/align-spaces": "error"
+-    },
     "extends": [
-        "plugin:putout/recommended",
+-       "plugin:putout/safe",
++       "plugin:putout/safe+align",
         "plugin:node/recommended"
     ],
     "plugins": [
@@ -300,19 +283,44 @@ export default [
 }
 ```
 
-### ✅ Example of correct code
+## convert-export-match-to-declaration
 
-```json
+Fixes [apply-match-to-flat](#apply-match-to-flat).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2962264f25b2a9764977b53eba1baf3d/c095282c78574a57418a5a4385b28ff79a62c2a5).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.match = {
+    'bin/**': {
+        'no-process-exit': 'off',
+    },
+};
+
+module.exports = [
+    ...safeAlign, {
+        rules: {
+            'node/no-unsupported-features/node-builtins': 'off',
+        },
+    },
+    ...matchToFlat(match),
+];
+```
+
+## convert-files-to-array
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1acad4ce8d999ff9311126c1ed69f/68f98adff1c9b650d51e816e72142b2f86deeb87).
+
+```diff
 {
-    "extends": [
-        "plugin:node/recommended",
-        "plugin:putout/recommended"
-    ],
-    "plugins": [
-        "putout",
-        "node"
-    ]
-}
+    "overrides": [{
+-        "files": "test/*.js",
++        "files": ["test/*.js"],
+         "rules": {
+           "node/no-missing-require": "off"
+        }
+    }],
+};
 ```
 
 ## convert-ide-to-safe
@@ -347,20 +355,142 @@ export default [
 }
 ```
 
-## convert-files-to-array
+## convert-node-to-n
 
-Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1acad4ce8d999ff9311126c1ed69f/68f98adff1c9b650d51e816e72142b2f86deeb87).
+`eslint-plugin-node` [is no longer supported](https://github.com/mysticatea/eslint-plugin-node/issues/300). Better to use [`eslint-plugin-n`](https://github.com/weiran-zsd/eslint-plugin-node).
 
 ```diff
 {
-    "overrides": [{
--        "files": "test/*.js",
-+        "files": ["test/*.js"],
-         "rules": {
-           "node/no-missing-require": "off"
-        }
-    }],
+    "extends": [
+        "plugin:putout/safe+align",
+-       "plugin:node/recommended"
++       "plugin:n/recommended"
+    ],
+    "plugins": [
+        "putout",
+-       "node"
++       "n"
+    ]
+}
+```
+
+## convert-plugins-array-to-object
+
+> On the surface, using a plugin in `flat config` looks very similar to using a plugin in `eslintrc`. The big difference is that `eslintrc` used `string`s whereas `flat configs` uses `object`s. Instead of specifying the name of a plugin, you import the plugin directly and place it into the plugins `key`.
+>
+> (c) [eslint.org](https://eslint.org/blog/2022/08/new-config-system-part-2/)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e3c56c40746e85d745774b1929181fdb/42c6c4c699ee8e389b96298f52d8911b5be603bc).
+
+### ❌ Example of incorrect code
+
+```js
+import {types} from 'putout';
+
+const {react} = types;
+
+export default {
+    plugins: [react],
 };
+
+module.exports = {
+    plugins: ['react'],
+};
+```
+
+## convert-rc-to-flat
+
+Checkout in 🐊**Putout Editor**:
+
+- [Scanner](https://putout.cloudcmd.io/#/gist/f2abf46afeb67b23de1c06e8e6d0f9bb/73b87d76149c4d680ca66a1358586865eb9f9361);
+- [Traverser](https://putout.cloudcmd.io/#/gist/fcacf6f0b9f9e368568c108999882f33/dafdbca579d27e1a8ab0be7316eb1a9848d4037c);
+
+Converts `.eslintrc.json`:
+
+```json
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "node": true
+    },
+    "extends": ["eslint:recommended"],
+    "plugins": ["@nx"],
+    "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "error"
+    },
+    "overrides": [{
+        "files": ["*.json"],
+        "parser": "jsonc-eslint-parser"
+    }, {
+        "files": [
+            "*.ts",
+            "*.tsx",
+            "*.js",
+            "*.jsx"
+        ],
+        "rules": {
+            "@nx/enforce-module-boundaries": ["error", {
+                "enforceBuildableLibDependency": true,
+                "allow": [],
+                "depConstraints": [{
+                    "sourceTag": "*",
+                    "onlyDependOnLibsWithTags": ["*"]
+                }]
+            }]
+        }
+    }]
+}
+```
+
+To `.eslint.config.js`:
+
+```js
+const nxPlugin = require('@nx/eslint-plugin');
+const js = require('@eslint/js');
+const globals = require('globals');
+const jsoncParser = require('jsonc-eslint-parser');
+const tsParser = require('@typescript-eslint/parser');
+
+module.exports = [
+    js.configs.recommended, {
+        plugins: {
+            '@nx': nxPlugin,
+        },
+    }, {
+        languageOptions: {
+            parser: tsParser,
+            globals: {
+                ...globals.node,
+            },
+        },
+        rules: {
+            '@typescript-eslint/explicit-module-boundary-types': ['error'],
+        },
+    }, {
+        files: ['*.json'],
+        languageOptions: {
+            parser: jsoncParser,
+        },
+        rules: {},
+    }, {
+        files: [
+            '*.ts',
+            '*.tsx',
+            '*.js',
+            '*.jsx',
+        ],
+        rules: {
+            '@nx/enforce-module-boundaries': ['error', {
+                enforceBuildableLibDependency: true,
+                allow: [],
+                depConstraints: [{
+                    sourceTag: '*',
+                    onlyDependOnLibsWithTags: ['*'],
+                }],
+            }],
+        },
+    }];
 ```
 
 ## convert-require-to-import
@@ -375,6 +505,85 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1ac
         "rules": {
 -           "node/no-missing-require": "off"
 +           "node/no-missing-import": "off"
+        }
+    }],
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+};
+```
+
+## declare
+
+Declare:
+
+- [`safeAlign`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#flat);
+
+## move-putout-to-end-of-extends
+
+### ❌ Example of incorrect code
+
+```json
+{
+    "extends": [
+        "plugin:putout/recommended",
+        "plugin:node/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+}
+```
+
+### ✅ Example of correct code
+
+```json
+{
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+}
+```
+
+## remove-create-eslint-config-with-one-argument
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/609b2ca3789d0b7220fb224e2f4f9aa2/4db953be75214e2c07f1c0eb4f81b74ad29ac2e8).
+
+### ❌ Example of incorrect code
+
+```js
+export default createESLintConfig([safeAlign]);
+```
+
+### ✅ Example of correct code
+
+```js
+export default safeAlign;
+```
+
+## remove-no-missing
+
+`node/remove-no-missing-require` and `node/remove-no-missing-import` doesn't supports [`exports`](https://nodejs.org/dist/latest-v18.x/docs/api/packages.html#exports)
+and already disabled by [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme).
+
+```diff
+{
+    "overrides": [{
+        "files": "test/*.js",
+        "rules": {
+-           "node/no-missing-require": "off",
+-           "node/no-missing-import": "off"
         }
     }],
     "extends": [
@@ -534,33 +743,7 @@ const ruleTester = new RuleTester({
 });
 ```
 
-## remove-suffix-config
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5770e4174210dd3d811726b661a3336a/1c1bf17bb90dd57ae40bf71e5038dd21cfb71681).
-
-### ❌ Example of incorrect code
-
-```js
-import {safeAlign} from 'eslint-plugin-putout/config';
-```
-
-### ✅ Example of correct code
-
-```js
-import {safeAlign} from 'eslint-plugin-putout';
-```
-
-## remove-create-eslint-config-with-one-argument
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/609b2ca3789d0b7220fb224e2f4f9aa2/4db953be75214e2c07f1c0eb4f81b74ad29ac2e8).
-
-### ❌ Example of incorrect code
-
-```js
-export default createESLintConfig([safeAlign]);
-```
-
-### ✅ Example of correct code
+## ✅ Example of correct code
 
 ```js
 export default safeAlign;
@@ -585,70 +768,34 @@ export default createESLintConfig([
 export default createESLintConfig([safeAlign, matchToFlat(match)]);
 ```
 
-## convert-node-to-n
+## ✅ Example of correct code
 
-`eslint-plugin-node` [is no longer supported](https://github.com/mysticatea/eslint-plugin-node/issues/300). Better to use [`eslint-plugin-n`](https://github.com/weiran-zsd/eslint-plugin-node).
-
-```diff
-{
-    "extends": [
-        "plugin:putout/safe+align",
--       "plugin:node/recommended"
-+       "plugin:n/recommended"
-    ],
-    "plugins": [
-        "putout",
--       "node"
-+       "n"
-    ]
-}
+```js
+module.exports = safeAlign;
 ```
 
-## remove-no-missing
+## remove-suffix-config
 
-`node/remove-no-missing-require` and `node/remove-no-missing-import` doesn't supports [`exports`](https://nodejs.org/dist/latest-v18.x/docs/api/packages.html#exports)
-and already disabled by [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme).
-
-```diff
-{
-    "overrides": [{
-        "files": "test/*.js",
-        "rules": {
--           "node/no-missing-require": "off",
--           "node/no-missing-import": "off"
-        }
-    }],
-    "extends": [
-        "plugin:node/recommended",
-        "plugin:putout/recommended"
-    ],
-    "plugins": [
-        "putout",
-        "node"
-    ]
-};
-```
-
-## remove-useless-slice
-
-Fixes code after [`convert-array-copy-to-slice`](http://github.com/coderaiser/putout/tree/master/packages/plugin-convert-array-copy-to-slice#readme).
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2962264f25b2a9764977b53eba1baf3d/c095282c78574a57418a5a4385b28ff79a62c2a5).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5770e4174210dd3d811726b661a3336a/1c1bf17bb90dd57ae40bf71e5038dd21cfb71681).
 
 ### ❌ Example of incorrect code
 
 ```js
-export default x.slice();
-
-module.exports = x.slice();
+import {safeAlign} from 'eslint-plugin-putout/config';
 ```
 
 ### ✅ Example of correct code
 
 ```js
-export default x;
+import {safeAlign} from 'eslint-plugin-putout';
+```
 
-module.exports = x;
+## ✅ Example of correct code
+
+```js
+import {safeAlign} from 'eslint-plugin-putout';
+
+export default safeAlign;
 ```
 
 ## remove-useless-define-config
@@ -659,77 +806,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/732e388d14
 
 ```js
 export default defineConfig([safeAlign]);
-```
-
-## ✅ Example of correct code
-
-```js
-export default safeAlign;
-```
-
-## remove-useless-properties
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bc90ecd03d5e55900d95797a4979adb4/aed3f14d3541674a2c08c61bf87ac0c0f833532b).
-
-### ❌ Example of incorrect code
-
-```js
-module.exports = [
-    ...safeAlign, {
-        rules: {},
-    },
-];
-```
-
-## ✅ Example of correct code
-
-```js
-module.exports = safeAlign;
-```
-
-## remove-useless-match-to-flat
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bab49b08d12e779729265c05423bb856/a0b80b8e52f5319c40174773f36d8afbffb1c8b9).
-
-### ❌ Example of incorrect code
-
-```js
-import {safeAlign} from 'eslint-plugin-putout';
-
-export let match;
-export default createESLintConfig([safeAlign, matchToFlat(match)]);
-```
-
-## ✅ Example of correct code
-
-```js
-import {safeAlign} from 'eslint-plugin-putout';
-
-export default safeAlign;
-```
-
-## convert-export-match-to-declaration
-
-Fixes [apply-match-to-flat](#apply-match-to-flat).
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2962264f25b2a9764977b53eba1baf3d/c095282c78574a57418a5a4385b28ff79a62c2a5).
-
-### ❌ Example of incorrect code
-
-```js
-module.exports.match = {
-    'bin/**': {
-        'no-process-exit': 'off',
-    },
-};
-
-module.exports = [
-    ...safeAlign, {
-        rules: {
-            'node/no-unsupported-features/node-builtins': 'off',
-        },
-    },
-    ...matchToFlat(match),
-];
 ```
 
 ## ✅ Example of correct code
@@ -753,34 +829,31 @@ module.exports = [
 module.exports.match = match;
 ```
 
-## declare
+## remove-useless-match-to-flat
 
-Declare:
-
-- [`safeAlign`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#flat);
-
-## convert-plugins-array-to-object
-
-> On the surface, using a plugin in `flat config` looks very similar to using a plugin in `eslintrc`. The big difference is that `eslintrc` used `string`s whereas `flat configs` uses `object`s. Instead of specifying the name of a plugin, you import the plugin directly and place it into the plugins `key`.
->
-> (c) [eslint.org](https://eslint.org/blog/2022/08/new-config-system-part-2/)
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e3c56c40746e85d745774b1929181fdb/42c6c4c699ee8e389b96298f52d8911b5be603bc).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bab49b08d12e779729265c05423bb856/a0b80b8e52f5319c40174773f36d8afbffb1c8b9).
 
 ### ❌ Example of incorrect code
 
 ```js
-import {types} from 'putout';
+import {safeAlign} from 'eslint-plugin-putout';
 
-const {react} = types;
+export let match;
+export default createESLintConfig([safeAlign, matchToFlat(match)]);
+```
 
-export default {
-    plugins: [react],
-};
+## remove-useless-properties
 
-module.exports = {
-    plugins: ['react'],
-};
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bc90ecd03d5e55900d95797a4979adb4/aed3f14d3541674a2c08c61bf87ac0c0f833532b).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports = [
+    ...safeAlign, {
+        rules: {},
+    },
+];
 ```
 
 ## ✅ Example of correct code
@@ -801,99 +874,26 @@ module.exports = {
 };
 ```
 
-## convert-rc-to-flat
+## remove-useless-slice
 
-Checkout in 🐊**Putout Editor**:
+Fixes code after [`convert-array-copy-to-slice`](http://github.com/coderaiser/putout/tree/master/packages/plugin-convert-array-copy-to-slice#readme).
 
-- [Scanner](https://putout.cloudcmd.io/#/gist/f2abf46afeb67b23de1c06e8e6d0f9bb/73b87d76149c4d680ca66a1358586865eb9f9361);
-- [Traverser](https://putout.cloudcmd.io/#/gist/fcacf6f0b9f9e368568c108999882f33/dafdbca579d27e1a8ab0be7316eb1a9848d4037c);
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2962264f25b2a9764977b53eba1baf3d/c095282c78574a57418a5a4385b28ff79a62c2a5).
 
-Converts `.eslintrc.json`:
-
-```json
-{
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "env": {
-        "node": true
-    },
-    "extends": ["eslint:recommended"],
-    "plugins": ["@nx"],
-    "rules": {
-        "@typescript-eslint/explicit-module-boundary-types": "error"
-    },
-    "overrides": [{
-        "files": ["*.json"],
-        "parser": "jsonc-eslint-parser"
-    }, {
-        "files": [
-            "*.ts",
-            "*.tsx",
-            "*.js",
-            "*.jsx"
-        ],
-        "rules": {
-            "@nx/enforce-module-boundaries": ["error", {
-                "enforceBuildableLibDependency": true,
-                "allow": [],
-                "depConstraints": [{
-                    "sourceTag": "*",
-                    "onlyDependOnLibsWithTags": ["*"]
-                }]
-            }]
-        }
-    }]
-}
-```
-
-To `.eslint.config.js`:
+### ❌ Example of incorrect code
 
 ```js
-const nxPlugin = require('@nx/eslint-plugin');
-const js = require('@eslint/js');
-const globals = require('globals');
-const jsoncParser = require('jsonc-eslint-parser');
-const tsParser = require('@typescript-eslint/parser');
+export default x.slice();
 
-module.exports = [
-    js.configs.recommended, {
-        plugins: {
-            '@nx': nxPlugin,
-        },
-    }, {
-        languageOptions: {
-            parser: tsParser,
-            globals: {
-                ...globals.node,
-            },
-        },
-        rules: {
-            '@typescript-eslint/explicit-module-boundary-types': ['error'],
-        },
-    }, {
-        files: ['*.json'],
-        languageOptions: {
-            parser: jsoncParser,
-        },
-        rules: {},
-    }, {
-        files: [
-            '*.ts',
-            '*.tsx',
-            '*.js',
-            '*.jsx',
-        ],
-        rules: {
-            '@nx/enforce-module-boundaries': ['error', {
-                enforceBuildableLibDependency: true,
-                allow: [],
-                depConstraints: [{
-                    sourceTag: '*',
-                    onlyDependOnLibsWithTags: ['*'],
-                }],
-            }],
-        },
-    }];
+module.exports = x.slice();
+```
+
+### ✅ Example of correct code
+
+```js
+export default x;
+
+module.exports = x;
 ```
 
 ## License

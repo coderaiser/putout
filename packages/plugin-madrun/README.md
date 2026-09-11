@@ -76,21 +76,25 @@ npm i putout @putout/plugin-madrun -D
 }
 ```
 
-## add-function
+## add-cut-env
 
 ### ❌ Example of incorrect code
 
 ```js
-module.exports = {
-    hello: 'world',
+export default {
+    'test': () => [env, 'test:only'],
+    'test:only': () => [env, 'npm test'],
 };
 ```
 
 ### ✅ Example of correct code
 
 ```js
-module.exports = {
-    hello: () => 'world',
+import {cutEnv} from 'madrun';
+
+export default {
+    'test': async () => [testEnv, await cutEnv('test:only')],
+    'test:only': () => [env, 'npm test'],
 };
 ```
 
@@ -114,6 +118,24 @@ const {run} = require('madrun');
 module.exports = {
     'lint': 'putout lib test',
     'fix:lint': run('lint', '--fix'),
+};
+```
+
+## add-function
+
+### ❌ Example of incorrect code
+
+```js
+module.exports = {
+    hello: 'world',
+};
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports = {
+    hello: () => 'world',
 };
 ```
 
@@ -157,46 +179,6 @@ module.exports = {
 };
 ```
 
-## add-cut-env
-
-### ❌ Example of incorrect code
-
-```js
-export default {
-    'test': () => [env, 'test:only'],
-    'test:only': () => [env, 'npm test'],
-};
-```
-
-### ✅ Example of correct code
-
-```js
-import {cutEnv} from 'madrun';
-
-export default {
-    'test': async () => [testEnv, await cutEnv('test:only')],
-    'test:only': () => [env, 'npm test'],
-};
-```
-
-## convert-run-argument
-
-### ❌ Example of incorrect code
-
-```js
-module.exports = {
-    hello: () => run(['a']),
-};
-```
-
-### ✅ Example of correct code
-
-```js
-module.exports = {
-    hello: () => run('a'),
-};
-```
-
 ## convert-args-to-scripts
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/bc9afe77c9853716392f812b5000fbbb/e290c6d41f8a31c81ce4b81e1c1ccec78a319e27).
@@ -216,30 +198,6 @@ export default {
 export default {
     build: () => 'tsup',
     wisdom: () => run(['build', 'test', 'test:dts']),
-};
-```
-
-## convert-run-to-cut-env
-
-### ❌ Example of incorrect code
-
-```js
-export default {
-    'test': () => [env, 'npm test'],
-    'test:only': () => 'npm test',
-    'coverage': async () => [env, await run('test')],
-    'coverage:only': async () => [env, await run('test:only')],
-};
-```
-
-### ✅ Example of correct code
-
-```js
-export default {
-    'test': () => [env, 'npm test'],
-    'test:only': () => 'npm test',
-    'coverage': async () => [env, await cutEnv('test')],
-    'coverage:only': async () => [env, await run('test:only')],
 };
 ```
 
@@ -289,6 +247,189 @@ export default {
 };
 ```
 
+## convert-run-argument
+
+### ❌ Example of incorrect code
+
+```js
+module.exports = {
+    hello: () => run(['a']),
+};
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports = {
+    hello: () => run('a'),
+};
+```
+
+## convert-run-to-cut-env
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    'test': () => [env, 'npm test'],
+    'test:only': () => 'npm test',
+    'coverage': async () => [env, await run('test')],
+    'coverage:only': async () => [env, await run('test:only')],
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    'test': () => [env, 'npm test'],
+    'test:only': () => 'npm test',
+    'coverage': async () => [env, await cutEnv('test')],
+    'coverage:only': async () => [env, await run('test:only')],
+};
+```
+
+## convert-to-async
+
+### ❌ Example of incorrect code
+
+```js
+module.exports = {
+    lint: () => String(run('hello')),
+};
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports = {
+    lint: async () => String(await run('hello')),
+};
+```
+
+## declare
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    coverage: async () => [env, `c8 ${await cutEnv('test')}`],
+};
+```
+
+### ✅ Example of correct code
+
+```js
+import {cutEnv} from 'madrun';
+
+export default {
+    coverage: async () => [env, `c8 ${await cutEnv('test')}`],
+};
+```
+
+## insert-test-dts
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b6261f1f7405af95185b9e18431e1dcc/18ba644eb07263268aec964065a0e58c38e859d2).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    'wisdom': () => run(['lint', 'coverage']),
+    'fix:lint': () => run('lint', '--fix'),
+    'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    'wisdom': () => run(['lint', 'coverage', 'test:dts']),
+    'fix:lint': () => run('lint', '--fix'),
+    'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
+    'test:dts': () => 'check-dts test/*.ts',
+};
+```
+
+## remove-check-duplicates-from-test
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    test: () => 'tape -d *.js',
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    test: () => 'tape *.js',
+};
+```
+
+## convert-nyc-to-c8
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    coverage: () => 'nyc npm test',
+    report: () => `nyc report --reporter=text-lcov | coveralls`,
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    coverage: () => 'c8 npm test',
+    report: 'c8 report --reporter=lcov',
+};
+```
+
+## remove-useless-array-in-run
+
+Checkout in [🐊**Putout Editor**](https://putout.cloudcmd.io/#/gist/84c7838a6099a281a370809e51997212/356cbf9050bee7205eb670aa807b336fc28340f7).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    time: async () => await run(['lint:fresh', '-f time']),
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    time: async () => await run('lint:fresh', '-f time'),
+};
+```
+
+## remove-useless-string-conversion
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6fd51ff9244bda07919ddacfb07d32d2/4c4ed5336c1bbef6fba47ff61f3558a87435443c).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    time: async () => [testEnv, String(await cutEnv('test:raw'))],
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    time: async () => [testEnv, await cutEnv('test:raw')],
+};
+```
+
 ## rename-eslint-to-putout
 
 ### ❌ Example of incorrect code
@@ -335,44 +476,6 @@ module.exports = {
 };
 ```
 
-## convert-to-async
-
-### ❌ Example of incorrect code
-
-```js
-module.exports = {
-    lint: () => String(run('hello')),
-};
-```
-
-### ✅ Example of correct code
-
-```js
-module.exports = {
-    lint: async () => String(await run('hello')),
-};
-```
-
-## convert-nyc-to-c8
-
-### ❌ Example of incorrect code
-
-```js
-export default {
-    coverage: () => 'nyc npm test',
-    report: () => `nyc report --reporter=text-lcov | coveralls`,
-};
-```
-
-### ✅ Example of correct code
-
-```js
-export default {
-    coverage: () => 'c8 npm test',
-    report: 'c8 report --reporter=lcov',
-};
-```
-
 ## set-report-lcov
 
 ### ❌ Example of incorrect code
@@ -388,109 +491,6 @@ export default {
 ```js
 export default {
     report: 'c8 report --reporter=lcov',
-};
-```
-
-## remove-check-duplicates-from-test
-
-### ❌ Example of incorrect code
-
-```js
-export default {
-    test: () => 'tape -d *.js',
-};
-```
-
-### ✅ Example of correct code
-
-```js
-export default {
-    test: () => 'tape *.js',
-};
-```
-
-## remove-useless-array-in-run
-
-Checkout in [🐊**Putout Editor**](https://putout.cloudcmd.io/#/gist/84c7838a6099a281a370809e51997212/356cbf9050bee7205eb670aa807b336fc28340f7).
-
-### ❌ Example of incorrect code
-
-```js
-export default {
-    time: async () => await run(['lint:fresh', '-f time']),
-};
-```
-
-### ✅ Example of correct code
-
-```js
-export default {
-    time: async () => await run('lint:fresh', '-f time'),
-};
-```
-
-## remove-useless-string-conversion
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6fd51ff9244bda07919ddacfb07d32d2/4c4ed5336c1bbef6fba47ff61f3558a87435443c).
-
-### ❌ Example of incorrect code
-
-```js
-export default {
-    time: async () => [testEnv, String(await cutEnv('test:raw'))],
-};
-```
-
-### ✅ Example of correct code
-
-```js
-export default {
-    time: async () => [testEnv, await cutEnv('test:raw')],
-};
-```
-
-## declare
-
-### ❌ Example of incorrect code
-
-```js
-export default {
-    coverage: async () => [env, `c8 ${await cutEnv('test')}`],
-};
-```
-
-### ✅ Example of correct code
-
-```js
-import {cutEnv} from 'madrun';
-
-export default {
-    coverage: async () => [env, `c8 ${await cutEnv('test')}`],
-};
-```
-
-## insert-test-dts
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b6261f1f7405af95185b9e18431e1dcc/18ba644eb07263268aec964065a0e58c38e859d2).
-
-### ❌ Example of incorrect code
-
-```js
-export default {
-    'wisdom': () => run(['lint', 'coverage']),
-    'fix:lint': () => run('lint', '--fix'),
-    'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
-};
-```
-
-### ✅ Example of correct code
-
-```js
-export default {
-    'wisdom': () => run(['lint', 'coverage', 'test:dts']),
-    'fix:lint': () => run('lint', '--fix'),
-    'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
-    'test:dts': () => 'check-dts test/*.ts',
 };
 ```
 

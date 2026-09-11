@@ -33,26 +33,6 @@ npm i @putout/plugin-math -D
 }
 ```
 
-## convert-sqrt-to-hypot
-
-> The `Math.hypot()` function returns the square root of the sum of squares of its arguments.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/hypot)
-
-Convert `Math.sqrt()` to `Math.hypot()`. Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a35660f8883687ddfe53f8fbc36706ad/d83e26a547f71128f94af1d3fd542557ce820f1a).
-
-### ❌ Example of incorrect code
-
-```js
-Math.sqrt(a ** 2, b ** 2);
-```
-
-### ✅ Example of correct code
-
-```js
-Math.hypot(a, b);
-```
-
 ## apply-exponentiation
 
 > - The [`Math.pow()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow) static method, given two arguments, base and exponent, returns baseexponent.
@@ -74,10 +54,10 @@ Math.pow(2, 4);
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`convert-math-pow`](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-math-pow#readme) | ✅
-⏣ **ESLint** | [`prefer-exponentiation-operator`](https://eslint.org/docs/rules/prefer-exponentiation-operator) | ✅
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`convert-math-pow`](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-math-pow#readme) | ✅   |
+| ⏣ **ESLint**  | [`prefer-exponentiation-operator`](https://eslint.org/docs/rules/prefer-exponentiation-operator) | ✅   |
 
 ## apply-multiplication
 
@@ -115,6 +95,26 @@ const t = 10000000;
 
 ```js
 const t = 10_000_000;
+```
+
+## convert-sqrt-to-hypot
+
+> The `Math.hypot()` function returns the square root of the sum of squares of its arguments.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/hypot)
+
+Convert `Math.sqrt()` to `Math.hypot()`. Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a35660f8883687ddfe53f8fbc36706ad/d83e26a547f71128f94af1d3fd542557ce820f1a).
+
+### ❌ Example of incorrect code
+
+```js
+Math.sqrt(a ** 2, b ** 2);
+```
+
+### ✅ Example of correct code
+
+```js
+Math.hypot(a, b);
 ```
 
 ## declare

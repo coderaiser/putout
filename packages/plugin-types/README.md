@@ -63,38 +63,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/150f85ffc7
 Boolean(a || b);
 ```
 
-## apply-number
-
-> The `Number` constructor contains constants and methods for working with numbers. Values of other types can be converted to numbers using the `Number()` function
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/05ad2a403eb6d765a190297c492fd6d1/3cf396d108bbb4822317b6d6856db3a4c26fa3c1).
-
-### ❌ Example of incorrect code
-
-```js
-const a = {
-    BooleanLiteral(node) {
-        return {
-            value: node.value ? 1 : 0,
-        };
-    },
-};
-```
-
-### ✅ Example of correct code
-
-```js
-const a = {
-    BooleanLiteral(node) {
-        return {
-            value: Number(node.value),
-        };
-    },
-};
-```
-
 ## apply-is-array
 
 > The `Array.isArray()` method determines whether the passed value is an `Array`.
@@ -155,6 +123,60 @@ if (Number.isNaN(a))
     console.log();
 ```
 
+## apply-number
+
+> The `Number` constructor contains constants and methods for working with numbers. Values of other types can be converted to numbers using the `Number()` function
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/05ad2a403eb6d765a190297c492fd6d1/3cf396d108bbb4822317b6d6856db3a4c26fa3c1).
+
+### ❌ Example of incorrect code
+
+```js
+const a = {
+    BooleanLiteral(node) {
+        return {
+            value: node.value ? 1 : 0,
+        };
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+const a = {
+    BooleanLiteral(node) {
+        return {
+            value: Number(node.value),
+        };
+    },
+};
+```
+
+## convert-typeof-to-is-type
+
+> The `typeof` operator returns a string indicating the type of the unevaluated operand.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+
+### ❌ Example of incorrect code
+
+```js
+if (typeof a === 'boolean')
+    return x;
+```
+
+### ✅ Example of correct code
+
+```js
+const isBool = (a) => typeof a === 'boolean';
+
+if (isBool(a))
+    return x;
+```
+
 ## declare
 
 Based on [`@putout/operator-declare`](https://github.com/coderaiser/putout/tree/master/packages/operator-declare#putoutoperator-declare-).
@@ -207,41 +229,26 @@ When you want to skip some declaration use `dismiss`:
 }
 ```
 
-## convert-typeof-to-is-type
+## remove-double-negations
 
-> The `typeof` operator returns a string indicating the type of the unevaluated operand.
+> It is possible to use a couple of **NOT** operators (`!!`) in series to explicitly force the conversion of any value to the corresponding boolean primitive. The conversion is based on the "truthyness" or "falsyness" of the value.
 >
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+> The same conversion can be done through the `Boolean` function.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT)
 
 ### ❌ Example of incorrect code
 
 ```js
-if (typeof a === 'boolean')
-    return x;
+if (!!a)
+    console.log('hi');
 ```
 
 ### ✅ Example of correct code
 
 ```js
-const isBool = (a) => typeof a === 'boolean';
-
-if (isBool(a))
-    return x;
-```
-
-## remove-useless-conversion
-
-### ❌ Example of incorrect code
-
-```js
-const a = !![1].includes(1);
-const b = Boolean([1].includes(1));
-```
-
-### ✅ Example of correct code
-
-```js
-const a = [1].includes(1);
+if (a)
+    console.log('hi');
 ```
 
 ## remove-useless-constructor
@@ -268,26 +275,19 @@ const b = false;
 const n = 5;
 ```
 
-## remove-double-negations
-
-> It is possible to use a couple of **NOT** operators (`!!`) in series to explicitly force the conversion of any value to the corresponding boolean primitive. The conversion is based on the "truthyness" or "falsyness" of the value.
->
-> The same conversion can be done through the `Boolean` function.
->
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT)
+## remove-useless-conversion
 
 ### ❌ Example of incorrect code
 
 ```js
-if (!!a)
-    console.log('hi');
+const a = !![1].includes(1);
+const b = Boolean([1].includes(1));
 ```
 
 ### ✅ Example of correct code
 
 ```js
-if (a)
-    console.log('hi');
+const a = [1].includes(1);
 ```
 
 ## remove-useless-typeof
