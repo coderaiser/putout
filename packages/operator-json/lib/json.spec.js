@@ -193,6 +193,41 @@ test('putout: operator: json: fromJS: __markdown', ({equal}) => {
     equal(result, expected);
 });
 
+test('putout: operator: json: fromJS: __markdown: newline', ({equal}) => {
+    const source = montag`
+        __putout_processor_markdown([
+            heading(2, 'apply hoisted'),
+            codeblock('js', \`
+                let hello;
+                let world;
+                
+                it('hello', () => {
+                    hello.calledWith();
+                });
+            \`),
+        ]);
+    `;
+    
+    const result = fromJS(source, __markdown);
+    
+    const expected = montag`
+        [
+            heading(2, 'apply hoisted'),
+            codeblock('js', \`
+                let hello;
+                let world;
+                
+                it('hello', () => {
+                    hello.calledWith();
+                });
+            \`),
+       ]
+    
+    `;
+    
+    equal(result, expected);
+});
+
 test('putout: operator: json: fromJS: __markdown: trailing newlines', ({equal}) => {
     const source = montag`
         __putout_processor_markdown([h1('hello')]);

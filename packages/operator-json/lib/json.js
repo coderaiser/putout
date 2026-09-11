@@ -1,5 +1,3 @@
-import removeBlankLines from 'remove-blank-lines';
-
 const cut = (a) => a.slice(0, a.indexOf('('));
 const createPrefix = (name) => {
     if (name.includes('('))
@@ -60,7 +58,8 @@ export const fromJS = (source, name = __json) => {
     
     const sliced = source.slice(prefix.length, length);
     
-    return maybeNewline(removeBlankLines(sliced));
+    //return maybeNewline(removeBlankLines(sliced));
+    return maybeNewline(sliced);
 };
 
 export const isJSON = (source) => !source.indexOf(__json_name);

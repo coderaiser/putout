@@ -48,7 +48,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "remove-blank-lines": "^1.4.1"
-  }
+  "dependencies": {}
 }
