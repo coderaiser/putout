@@ -1,4 +1,4 @@
-import removeBlankLinkes from 'remove-blank-lines';
+import removeBlankLines from 'remove-blank-lines';
 import {
     toJS,
     fromJS,
@@ -17,5 +17,5 @@ export const branch = (rawSource) => {
 
 export const merge = (rawSource, list) => {
     const [source] = list.filter(isJSON);
-    return removeBlankLinkes(fromJS(source));
+    return removeBlankLines(fromJS(source));
 };
