@@ -57,14 +57,14 @@
     "parse-import-specifiers": "^1.0.1",
     "try-catch": "^4.0.0",
     "try-to-catch": "^4.0.0",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.0",
     "typescript-eslint": "^8.24.1"
   },
   "devDependencies": {
     "@babel/plugin-syntax-typescript": "^8.0.0",
     "@putout/plugin-eslint-plugin": "^7.0.0",
     "@putout/test": "^15.0.0",
-    "check-dts": "^1.0.0",
+    "check-dts": "^2.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-eslint-plugin": "^7.0.0",
     "madrun": "^13.0.0",

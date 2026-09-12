@@ -39,7 +39,7 @@
     "@putout/operator-json": "^3.0.0",
     "@putout/plugin-nodejs": "*",
     "@putout/test": "^15.0.0",
-    "check-dts": "^1.0.0",
+    "check-dts": "^2.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-putout": "^31.0.0",
     "madrun": "^13.0.0",

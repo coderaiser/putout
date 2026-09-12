@@ -91,7 +91,7 @@ function useTraverser(fn: Traverser) {
     return fn;
 }
 
-// THROWS not assignable to parameter of type 'Traverser'
+// THROWS Type '{}' is missing the following properties from type 'Traverser': report, traverse, fix
 useTraverser({});
 
 // Replacer error tests
@@ -99,7 +99,7 @@ function useReplacer(fn: Replacer) {
     return fn;
 }
 
-// THROWS not assignable to parameter of type 'Replacer'
+// THROWS Type '{}' is missing the following properties from type 'Replacer': report, replace
 useReplacer({});
 
 // Includer error tests
@@ -107,7 +107,7 @@ function useIncluder(fn: Includer) {
     return fn;
 }
 
-// THROWS not assignable to parameter of type 'Includer'
+// THROWS Type '{}' is missing the following properties from type 'Includer': report, fix, include
 useIncluder({});
 
 // Declarator error tests
@@ -115,5 +115,5 @@ function useDeclarator(fn: Declarator) {
     return fn;
 }
 
-// THROWS not assignable to parameter of type 'Declarator'
+// THROWS Property 'declare' is missing in type '{}' but required in type 'Declarator'.
 useDeclarator({});

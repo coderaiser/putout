@@ -16,7 +16,7 @@ function useConfigs(c: PutoutPluginConfigs) {
     return c;
 }
 
-// THROWS Argument of type '{ recommended: never[]; }' is not assignable to parameter of type 'PutoutPluginConfigs'
+// THROWS Type '{ recommended: never[]; }' is missing the following properties from type 'PutoutPluginConfigs': jsx, safe, safeAlign
 useConfigs({
     recommended: [],
 });

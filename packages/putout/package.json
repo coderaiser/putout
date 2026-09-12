@@ -225,7 +225,7 @@
     "@putout/eslint-flat": "^4.0.0",
     "@putout/plugin-apply-entries": "^3.0.0",
     "@putout/test": "^15.1.0",
-    "check-dts": "^1.0.0",
+    "check-dts": "^2.0.0",
     "currify": "^4.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-putout": "^31.0.0",
