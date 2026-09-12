@@ -8,7 +8,7 @@ const {
     isImportNamespaceSpecifier,
 } = types;
 
-const {values} = Object;
+const {values, assign} = Object;
 const {remove, insertAfter} = operator;
 
 export const report = () => `Use 'export from' instead of 'import' + 'export'`;
@@ -70,8 +70,14 @@ function createExport(path, parentReference) {
     const {parentPath} = path;
     const {source} = parentPath.node;
     
-    if (isImportSpecifier(path))
-        return exportNamedDeclaration(null, [parentReference.node], source);
+    if (isImportSpecifier(path)) {
+        const {exportKind} = parentReference.parentPath.node;
+        const node = exportNamedDeclaration(null, [parentReference.node], source);
+        
+        return assign(node, {
+            exportKind,
+        });
+    }
     
     const {exported} = parentReference.node;
     const specifier = exportNamespaceSpecifier(exported);

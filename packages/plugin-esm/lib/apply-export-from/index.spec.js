@@ -16,3 +16,8 @@ test('esm: apply-export-from: transform', (t) => {
     t.transform('apply-export-from');
     t.end();
 });
+
+test('esm: apply-export-from: transform: type', (t) => {
+    t.transform('type');
+    t.end();
+});
