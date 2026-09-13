@@ -1,3 +1,54 @@
+2026.09.13, v42.15.0
+
+fix:
+- cacfcc3ad @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: TemplateLiteral: raw -> cooked
+- 39763c79a @putout/operator-json: fromJS: trailing newlines
+- c0f93dde2 @putout/plugin-for-of: map: re-assign: exclude
+- 045c25cfa @putout/plugin-assignment: not AssignmentPattern: exclude
+
+feature:
+- eb301694c @putout/plugin-putout: declare: sortProperties: add
+- 416d5cf82 @putout/operator-sort-properties: add
+- b245da1ff @putout/plugin-putout: declare-template-variables: not Replacer: exclude
+- eae196ebd putout: ts 7
+- edc9346c0 @putout/plugin-esm: apply-export-from: exportKind: type
+- 7dc1b495e @putout/processor-json: remove-blank-line: add
+- 23ecc3ee6 @putout/operator-json: rm useless remove-black-lines
+- 92e8fee0d @putout/formatter-time: chalk v6.0.0
+- b97a62d78 @putout/formatter-progress-bar: chalk v6.0.0
+- 7ccf78824 @putout/formatter-memory: chalk v6.0.0
+- fb31bdee6 eslint-plugin-putout: mocha v12.0.0
+- 9ee198b07 @putout/plugin-sort-readme-file: sort-headings: heading level more then 2
+- 1df8ad59e @putout/plugin-putout: sort-readme-file: sort-contents: localeCompare (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare)
+- 3f9c2697f @putout/plugin-putout: sort-readme-file: sort-headings: localeCompare (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare)
+- ba9b4f7e6 @putout/plugin-putout: sort-readme-file: sort-headings: codeblocks
+- 5054c74b6 @putout/operator-match-files: do not pass assets to merge
+- 63a22b19f @putout/processor-markdown: merge: no assets passed -> preserve existing
+- 320dcfbd1 @putout/plugin-putout: sort-readme-file: sort-headings: badges
+- 0830a2440 @putout/plugin-putout: sort-readme-file: sort-headings: rm dead code
+- bb8fe6e95 @putout/plugin-putout: sort-readme-file: sort-headings: simplify
+- a565a3186 @putout/plugin-putout: sort-readme-file: sort-heading: improve
+- 6b51163e3 @putout/operator-match-files: fix: handle throw
+- 24cd38a10 @putout/plugin-putout: sort-readme-file: sort-headings
+- 91f1988e5 @putout/plugin-printer: remove-useless-arrow: useful: exclude
+- 525cd3002 @putout/operate: replaceWithMultiple: path can be passed instead of node
+- 0bfe2e105 @putout/operate: replace-with: get rid of SequenceExpression: when inside ArrayExpression
+- 04e59542b @putout/plugin-tape: convert-ok-to-pass: add
+- e23bdf04e @putout/plugin-filesystem: convert-js-to-json: strict: rm
+- bcffce48f @putout/operator-match-files: [matchedAST, matchedJS] -> {ast, assets}
+- e54df3b90 @putout/operator-match-files: magic-print: simplify
+- 30fd2397a @putout/operator-match-files: magic-parse: simplify
+- fd2a0e586 @putout/plugin-putout: sort-readme-file: sort-content: rules section
+- de043975f @putout/operator-match-files: throw
+- 522302d75 @putout/operator-match-files: markdown: json
+- 517b46a5e @putout/plugin-putout: sort-readme-file: add
+- 4a0c2696e @putout/operator-filesystem: findFile: exclude fn
+- 91d7f423a @putout/plugin-putout: sort-readme-file: add
+- 02e37ba83 @putout/operator-match-files: markdown
+- 388f78d29 @putout/processor-markdown: branch/merge: sync
+- 2f65e5d3d @putout/plugin-filesystem: convert-simple-filesystem-to-filesystem: emoji
+- 733974100 @putout/operator-filesystem: export toBase64, fromBase64
+
 2026.09.04, v42.14.0
 
 fix:
