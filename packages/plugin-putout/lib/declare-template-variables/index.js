@@ -4,9 +4,14 @@ const {
     objectPattern,
     isIdentifier,
     objectProperty,
+    isObjectProperty,
+    isObjectExpression,
 } = types;
 
-const {getBindingPath} = operator;
+const {
+    getBindingPath,
+    getTemplateValues,
+} = operator;
 
 const SHORTHAND = true;
 const COMPUTED = false;
@@ -41,11 +46,20 @@ export const fix = ({path, node}) => {
 export const traverse = ({push}) => ({
     '(__a, path) => __b': process(push),
     '(__a) => __b': process(push),
-    '() => __a': process(push),
+    '() => __b': process(push),
 });
 
 const process = (push) => (path) => {
-    if (!path.parentPath.isObjectProperty())
+    const {parentPath} = path;
+    const {__b} = getTemplateValues(path, '(__args) => __b');
+    
+    if (isObjectExpression(__b))
+        return;
+    
+    if (!parentPath.isObjectProperty())
+        return;
+    
+    if (!isReplacer(path))
         return;
     
     path.traverse({
@@ -66,3 +80,16 @@ const process = (push) => (path) => {
         },
     });
 };
+
+function isReplacer({parentPath}) {
+    const currentPath = parentPath.parentPath.parentPath.parentPath;
+    
+    if (!isObjectProperty(currentPath))
+        return true;
+    
+    const {key} = currentPath.node;
+    
+    return isIdentifier(key, {
+        name: 'replace',
+    });
+}

@@ -46,3 +46,8 @@ test('putout: declare-template-variables: no report: test', (t) => {
     t.noReport('test');
     t.end();
 });
+
+test('putout: declare-template-variables: no report: traverse', (t) => {
+    t.noReport('traverse');
+    t.end();
+});
