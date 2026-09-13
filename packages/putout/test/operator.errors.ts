@@ -15,6 +15,7 @@ const {
     isSimpleRegExp,
     addParens,
     sortIgnore,
+    sortProperties,
     createTypeChecker,
     removeFiles,
     wrapInNamespace,
@@ -67,6 +68,9 @@ addParens(5);
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'SortIgnoreOptions'
 sortIgnore(5);
+//
+// THROWS Argument of type 'number' is not assignable to parameter of type 'string'
+sortProperties(5);
 
 // THROWS Argument of type 'string' is not assignable to parameter of type 'unknown[]'
 createTypeChecker('hello');

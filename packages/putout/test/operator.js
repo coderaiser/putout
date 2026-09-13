@@ -200,6 +200,13 @@ test('putout: operate: sortIgnore', async (t) => {
     t.end();
 });
 
+test('putout: operate: sortProperties', async (t) => {
+    const {sortProperties} = await import('@putout/operator-sort-properties');
+    
+    t.equal(sortProperties, operator.sortProperties);
+    t.end();
+});
+
 test('putout: operate: removeFiles', async (t) => {
     const {removeFiles} = await import('@putout/operator-remove-files');
     
