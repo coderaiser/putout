@@ -34,7 +34,7 @@ npm i @putout/plugin-for-of
 - ✅ [remove-useless-variables](#remove-useless-variables);
 - ✅ [to-for-n](#to-for-n);
 
-## Configuration
+## Config
 
 ```json
 {
