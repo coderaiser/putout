@@ -52,5 +52,6 @@ export default {
     matchFiles: 'const {matchFiles} = operator',
     ignore: 'const {ignore} = operator',
     sortIgnore: 'const {sortIgnore} = operator',
+    sortProperties: 'const {sortProperties} = operator',
     removeFiles: 'const {removeFiles} = operator',
 };

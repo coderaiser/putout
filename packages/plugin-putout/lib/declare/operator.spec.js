@@ -61,6 +61,21 @@ test('plugin-putout: declare: transform: operator: sortIgnore', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: operator: sortProperties', (t) => {
+    const source = montag`
+        sortProperties('rules');
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {sortProperties} = operator;
+        sortProperties('rules');
+    
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: operator: removeFiles', (t) => {
     const source = montag`
         removeFiles([
