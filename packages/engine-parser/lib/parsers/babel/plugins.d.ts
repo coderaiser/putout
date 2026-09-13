@@ -1,5 +1,2 @@
-type Plugin = string | Record<string, object>;
-
-declare const plugins: readonly Plugin[];
-
+declare const plugins: readonly string[];
 export default plugins;

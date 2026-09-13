@@ -11,13 +11,34 @@
   "tag": false,
   "changelog": false,
   "exports": {
-    ".": "./lib/parser.js",
-    "./acorn": "./lib/parsers/acorn.cjs",
-    "./babel": "./lib/parsers/babel/index.js",
-    "./babel/options": "./lib/parsers/babel/options.js",
-    "./babel/plugins": "./lib/parsers/babel/plugins.js",
-    "./espree": "./lib/parsers/espree.cjs",
-    "./esprima": "./lib/parsers/esprima.cjs"
+    ".": {
+      "types": "./lib/parser.d.ts",
+      "default": "./lib/parser.js"
+    },
+    "./acorn": {
+      "types": "./lib/parsers/acorn.d.cts",
+      "default": "./lib/parsers/acorn.cjs"
+    },
+    "./babel": {
+      "types": "./lib/parsers/babel/index.d.ts",
+      "default": "./lib/parsers/babel/index.js"
+    },
+    "./babel/options": {
+      "types": "./lib/parsers/babel/options.d.ts",
+      "default": "./lib/parsers/babel/options.js"
+    },
+    "./babel/plugins": {
+      "types": "./lib/parsers/babel/plugins.d.ts",
+      "default": "./lib/parsers/babel/plugins.js"
+    },
+    "./espree": {
+      "types": "./lib/parsers/espree.d.cts",
+      "default": "./lib/parsers/espree.cjs"
+    },
+    "./esprima": {
+      "types": "./lib/parsers/esprima.d.cts",
+      "default": "./lib/parsers/esprima.cjs"
+    }
   },
   "repository": {
     "type": "git",
