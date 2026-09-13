@@ -53,28 +53,35 @@ npm i putout @putout/plugin-esm -D
         "esm/apply-default-import": "on",
         "esm/apply-export-from": "on",
         "esm/apply-import-attirbutes": "on",
-        "esm/declare-imports-first": "on",
-        "esm/convert-assert-to-with": "on",
-        "esm/convert-const-to-import": "on",
-        "esm/group-imports-by-source": "on",
-        "esm/merge-duplicate-imports": "on",
-        "esm/merge-declaration-with-export": "on",
-        "esm/merge-export-declaration": "on",
-        "esm/remove-quotes-from-import-assertions": "on",
-        "esm/remove-empty-export": "on",
-        "esm/remove-imports-with-duplicate-source": "on",
-        "esm/remove-empty-import": ["on", {
-            "ignore": []
-        }],
-        "esm/sort-imports-by-specifiers": "on",
-        "esm/shorten-imported-file": "off",
-        "esm/resolve-imported-file": "off",
-        "esm/resolve-imported-file-with-extension": "off",
+        
         "esm/apply-js-to-imported-file": "off",
         "esm/apply-name-to-imported-file": "off",
         "esm/apply-namespace-to-imported-file": "off",
         "esm/apply-privately-imported-file": "off",
-        "esm/remove-useless-export-specifiers": "off"
+        "esm/convert-assert-to-with": "on",
+        "esm/convert-const-to-import": "on",
+        "esm/declare-imports-first": "on",
+        
+        "esm/group-imports-by-source": "on",
+        
+        "esm/merge-declaration-with-export": "on",
+        "esm/merge-duplicate-imports": "on",
+        
+        "esm/merge-export-declaration": "on",
+        
+        "esm/remove-empty-export": "on",
+        
+        "esm/remove-empty-import": ["on", {
+            "ignore": []
+        }],
+        "esm/remove-imports-with-duplicate-source": "on",
+        "esm/remove-quotes-from-import-assertions": "on",
+        
+        "esm/remove-useless-export-specifiers": "off",
+        "esm/resolve-imported-file": "off",
+        "esm/resolve-imported-file-with-extension": "off",
+        "esm/shorten-imported-file": "off",
+        "esm/sort-imports-by-specifiers": "on"
     }
 }
 ```

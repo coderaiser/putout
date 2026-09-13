@@ -39,28 +39,37 @@ npm i @putout/plugin-putout -D
 ```json
 {
     "rules": {
-        "minify/apply-ternary": "on",
         "minify/apply-template-literal": "on",
-        "minify/convert-const-to-let": "on",
-        "minify/convert-let-to-var": "on",
-        "minify/convert-if-to-logical": "on",
-        "minify/convert-strict-equal-to-equal": "on",
+        "minify/apply-ternary": "on",
+        
         "minify/convert-array-from-to-spread": "on",
+        "minify/convert-const-to-let": "on",
+        
+        "minify/convert-if-to-logical": "on",
+        "minify/convert-let-to-var": "on",
+        
         "minify/convert-return-to-sequence-expression": "on",
-        "minify/extract-body": "on",
+        "minify/convert-strict-equal-to-equal": "on",
+        
         "minify/expand-bindings": "on",
+        "minify/extract-body": "on",
+        
+        "minify/inline": "on",
+        "minify/join-continued-strings": "on",
         "minify/mangle-names": ["on", {
             "mangleClassNames": true
         }],
         "minify/merge-assignment-expressions": "on",
-        "minify/merge-variables": "on",
+        
         "minify/merge-loops": "on",
-        "minify/remove-var-undefined": "on",
+        "minify/merge-variables": "on",
+        
         "minify/remove-return-undefined": "on",
-        "minify/simplify-floor": "on",
+        "minify/remove-var-undefined": "on",
+        
         "minify/shorten-names": "on",
-        "minify/join-continued-strings": "on",
-        "minify/inline": "on",
+        "minify/simplify-floor": "on",
+        
         "minify/types": "on"
     }
 }

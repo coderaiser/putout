@@ -51,8 +51,10 @@ npm i @putout/plugin-putout-config -D
         "putout-config/apply-coverage": "on",
         "putout-config/apply-destructuring": "on",
         "putout-config/apply-esm": "on",
-        "putout-config/apply-for-of": "on",
+        
         "putout-config/apply-filesystem": "on",
+        "putout-config/apply-for-of": "on",
+        
         "putout-config/apply-labels": "on",
         "putout-config/apply-math": "on",
         "putout-config/apply-nodejs": "on",

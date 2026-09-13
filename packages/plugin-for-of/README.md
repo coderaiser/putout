@@ -40,9 +40,14 @@ npm i @putout/plugin-for-of
 {
     "rules": {
         "for-of/add-missing-declaration": "on",
-        "for-of/map": "on",
-        "for-of/for-in": "on",
+        
+        "for-of/for": "on",
         "for-of/for-each": "on",
+        "for-of/for-in": "on",
+        
+        "for-of/from-while": "on",
+        "for-of/map": "on",
+        
         "for-of/reduce": "on",
         "for-of/remove-unused-variables": "on",
         "for-of/remove-useless": "on",
@@ -50,9 +55,8 @@ npm i @putout/plugin-for-of
         "for-of/remove-useless-variables": ["on", {
             "maxProperties": 4
         }],
-        "for-of/for": "on",
-        "for-of/to-for-n": "on",
-        "for-of/from-while": "on"
+        
+        "for-of/to-for-n": "on"
     }
 }
 ```

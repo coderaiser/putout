@@ -35,8 +35,9 @@ npm i @putout/plugin-npmignore -D
                 "*.config.*"
             ]
         }],
-        "npmignore/sort": "on",
-        "npmignore/convert-loc-to-lock": "on"
+        
+        "npmignore/convert-loc-to-lock": "on",
+        "npmignore/sort": "on"
     }
 }
 ```

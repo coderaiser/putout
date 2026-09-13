@@ -30,9 +30,10 @@ npm i putout @putout/plugin-assignment -D
         "assignment/convert-to-arrow-function": "on",
         "assignment/convert-to-comparison": "on",
         "assignment/convert-to-declaration": "on",
+        
+        "assignment/remove-useless-undefined": "on",
         "assignment/simplify": "on",
-        "assignment/split": "on",
-        "assignment/remove-useless-undefined": "on"
+        "assignment/split": "on"
     }
 }
 ```

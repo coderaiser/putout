@@ -33,9 +33,10 @@ npm i @putout/plugin-logical-expressions -D
     "rules": {
         "logical-expressions/convert-bitwise-to-logical": "on",
         "logical-expressions/convert-coalescing-to-logical": "on",
-        "logical-expressions/simplify": "on",
+        
         "logical-expressions/remove-boolean": "on",
-        "logical-expressions/remove-duplicates": "on"
+        "logical-expressions/remove-duplicates": "on",
+        "logical-expressions/simplify": "on"
     }
 }
 ```

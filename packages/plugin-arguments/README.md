@@ -31,10 +31,11 @@ npm i @putout/plugin-arguments
         "arguments/apply-rest": "on",
         "arguments/convert-expressiont-to-arguments": "on",
         "arguments/remove-duplicate": "on",
-        "arguments/remove-useless": "on",
-        "arguments/remove-useless-from-method": "on",
+        
+        "arguments/remove-empty": "on",
         "arguments/remove-unused": "on",
-        "arguments/remove-empty": "on"
+        "arguments/remove-useless": "on",
+        "arguments/remove-useless-from-method": "on"
     }
 }
 ```

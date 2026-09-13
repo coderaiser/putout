@@ -36,3 +36,8 @@ test('putout: sort-readme-file: transform: codeblocks', (t) => {
     t.transform('codeblocks');
     t.end();
 });
+
+test('putout: sort-readme-file: transform: config', (t) => {
+    t.transform('config');
+    t.end();
+});

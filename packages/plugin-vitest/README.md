@@ -29,8 +29,9 @@ npm i @putout/plugin-vitest -D
     "rules": {
         "vitest/apply-hoisted": "on",
         "vitest/convert-jest-to-vitest": "on",
-        "vitest/v3-apply-options-as-second-argument": "on",
-        "vitest/v3-apply-browser-instances": "on"
+        
+        "vitest/v3-apply-browser-instances": "on",
+        "vitest/v3-apply-options-as-second-argument": "on"
     },
     "plugins": ["vitest"]
 }

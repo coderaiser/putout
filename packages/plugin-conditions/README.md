@@ -41,26 +41,31 @@ npm i @putout/plugin-conditions -D
 ```json
 {
     "rules": {
-        "conditions/apply-consistent-blocks": "on",
-        "conditions/apply-return-return": "on",
+        "conditions/add-return": "on",
         "conditions/apply-comparison-order": "on",
+        "conditions/apply-consistent-blocks": "on",
+        
         "conditions/apply-equal": "on",
         "conditions/apply-if": "on",
-        "conditions/add-return": "on",
+        "conditions/apply-return-return": "on",
+        
         "conditions/convert-arrow-to-condition": "on",
         "conditions/convert-comparison-to-boolean": "on",
         "conditions/convert-equal-to-strict-equal": "on",
         "conditions/convert-switch-to-if": "on",
         "conditions/evaluate": "on",
-        "conditions/reverse": "on",
-        "conditions/remove-boolean": "on",
-        "conditions/remove-constant": "on",
-        "conditions/remove-zero": "on",
-        "conditions/remove-useless-else": "on",
-        "conditions/remove-useless-loop-condition": "on",
-        "conditions/remove-same-values-condition": "on",
+        
         "conditions/merge-if-statements": "on",
         "conditions/merge-if-with-else": "on",
+        "conditions/remove-boolean": "on",
+        "conditions/remove-constant": "on",
+        
+        "conditions/remove-same-values-condition": "on",
+        "conditions/remove-useless-else": "on",
+        "conditions/remove-useless-loop-condition": "on",
+        "conditions/remove-zero": "on",
+        "conditions/reverse": "on",
+        
         "conditions/simplify": "on",
         "conditions/wrap-with-block": "on"
     }

@@ -38,13 +38,16 @@ npm i @putout/plugin-destructuring
         "destructuring/apply-object": "on",
         "destructuring/convert-object-to-array": "on",
         "destructuring/extract-properties": "on",
-        "destructuring/remove-useless-object": "on",
+        
+        "destructuring/merge-properties": "on",
         "destructuring/remove-useless-arguments": "on",
-        "destructuring/remove-useless-variables": "on",
+        "destructuring/remove-useless-object": "on",
+        
         "destructuring/remove-useless-rename": "on",
-        "destructuring/split-nested": "on",
+        "destructuring/remove-useless-variables": "on",
+        
         "destructuring/split-call": "on",
-        "destructuring/merge-properties": "on"
+        "destructuring/split-nested": "on"
     }
 }
 ```

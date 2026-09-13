@@ -1,6 +1,7 @@
 import {operator} from 'putout';
 import * as sortContents from './sort-contents/index.js';
 import * as sortHeadings from './sort-headings/index.js';
+import * as sortConfig from './sort-config/index.js';
 
 const {
     matchFiles,
@@ -17,6 +18,7 @@ export const {
         'README.md': {
             plugins: [
                 ['sort-contents', sortContents],
+                ['sort-config', sortConfig],
                 ['sort-headings', sortHeadings],
             ],
         },

@@ -26,11 +26,13 @@ npm i putout @putout/plugin-cloudcmd -D
 {
     "rules": {
         "cloudcmd/apply-init-module": "on",
-        "cloudcmd/convert-io-mv-to-io-move": "on",
+        
+        "cloudcmd/convert-arrow-to-declaration": "on",
         "cloudcmd/convert-io-cp-to-io-copy": "on",
         "cloudcmd/convert-io-delete-to-io-remove": "on",
-        "cloudcmd/convert-load-dir-to-change-dir": "on",
-        "cloudcmd/convert-arrow-to-declaration": "on"
+        "cloudcmd/convert-io-mv-to-io-move": "on",
+        
+        "cloudcmd/convert-load-dir-to-change-dir": "on"
     },
     "plugins": {
         "cloudcmd": "on"

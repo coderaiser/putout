@@ -30,8 +30,10 @@ npm i @putout/plugin-apply-montag
     "rules": {
         "montag/add-newline-before-text": "on",
         "montag/apply": "on",
-        "montag/declare": "on",
+        
         "montag/convert-default-to-named": "on",
+        "montag/declare": "on",
+        
         "montag/remove-useless-space": "on"
     }
 }

@@ -31,11 +31,15 @@ npm i putout @putout/plugin-return -D
 {
     "rules": {
         "return/apply-early-return": "on",
-        "return/convert-from-continue": "on",
+        
         "return/convert-from-break": "on",
+        "return/convert-from-continue": "on",
+        
         "return/merge-with-next-sibling": "on",
-        "return/remove-useless": "on",
+        
         "return/remove-last-empty": "on",
+        "return/remove-useless": "on",
+        
         "return/simplify-boolean": "on"
     }
 }

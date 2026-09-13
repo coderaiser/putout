@@ -27,12 +27,13 @@ npm i @putout/plugin-coverage -D
 ```json
 {
     "rules": {
-        "coverage/apply-camel-case": "on",
         "coverage/add-to-exclude": ["on", {
             "dismiss": ["*.spec.*"]
         }],
-        "coverage/sort-ignore": "on",
-        "coverage/remove-files": "on"
+        "coverage/apply-camel-case": "on",
+        
+        "coverage/remove-files": "on",
+        "coverage/sort-ignore": "on"
     }
 }
 ```

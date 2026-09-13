@@ -37,15 +37,18 @@ npm i @putout/plugin-variables -D
         "variables/apply-declarations-order": "on",
         "variables/convert-const-to-let": "on",
         "variables/extract-keywords": "on",
-        "variables/reuse-duplicate-init": "on",
+        
+        "variables/remove-unused": "on",
         "variables/remove-useless-assignment": "on",
         "variables/remove-useless-declaration": ["on", {
             "maxLength": 20
         }],
         "variables/remove-useless-duplicate": "on",
-        "variables/remove-useless-rename": "on",
+        
         "variables/remove-useless-remove": "on",
-        "variables/remove-unused": "on",
+        "variables/remove-useless-rename": "on",
+        "variables/reuse-duplicate-init": "on",
+        
         "variables/split-declarations": "on"
     }
 }

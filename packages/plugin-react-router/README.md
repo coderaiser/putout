@@ -27,11 +27,15 @@ npm i putout @putout/plugin-react-router -D
 {
     "rules": {
         "react-router/declare": "on",
-        "react-router/v6-convert-switch-to-routers": "on",
+        
         "react-router/v6-convert-component-to-element": "on",
+        "react-router/v6-convert-switch-to-routers": "on",
+        
         "react-router/v7-apply-memory-router": "on",
-        "react-router/v7-split-multi-segment-route": "on",
+        
         "react-router/v7-remove-useless-server": "on",
+        "react-router/v7-split-multi-segment-route": "on",
+        
         "react-router/v8-apply-react-router-dom": "on"
     },
     "plugins": ["react-router"]

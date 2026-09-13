@@ -36,9 +36,10 @@ Add `.putout.json` with:
 {
     "rules": {
         "sql/apply-count": "on",
-        "sql/postgres": "on",
+        
+        "sql/convert-postgres-to-sqlite": "off",
         "sql/convert-sqlite-to-postgres": "off",
-        "sql/convert-postgres-to-sqlite": "off"
+        "sql/postgres": "on"
     }
 }
 ```

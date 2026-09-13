@@ -50,28 +50,38 @@ npm i putout @putout/plugin-madrun -D
 ```json
 {
     "rules": {
-        "madrun/add-function": "on",
-        "madrun/add-fix-lint": "on",
-        "madrun/add-run": "on",
-        "madrun/add-missing-quotes-to-watcher": "on",
         "madrun/add-cut-env": "on",
+        "madrun/add-fix-lint": "on",
+        "madrun/add-function": "on",
+        
+        "madrun/add-missing-quotes-to-watcher": "on",
+        "madrun/add-run": "on",
+        
         "madrun/call-run": "on",
-        "madrun/convert-run-argument": "on",
+        
         "madrun/convert-args-to-scripts": "on",
-        "madrun/convert-run-to-cut-env": "on",
+        
         "madrun/convert-cut-env-to-run": "on",
-        "madrun/convert-prepublish-only-to-wisdom": "on",
-        "madrun/rename-file": "off",
-        "madrun/rename-series-to-run": "on",
-        "madrun/rename-eslint-to-putout": "on",
-        "madrun/set-lint-dot": "on",
-        "madrun/convert-to-async": "on",
+        
         "madrun/convert-nyc-to-c8": "on",
-        "madrun/set-report-lcov": "on",
+        "madrun/convert-prepublish-only-to-wisdom": "on",
+        "madrun/convert-run-argument": "on",
+        
+        "madrun/convert-run-to-cut-env": "on",
+        
+        "madrun/convert-to-async": "on",
+        
+        "madrun/insert-test-dts": "off",
         "madrun/remove-check-duplicates-from-test": "on",
         "madrun/remove-useless-array-in-run": "on",
         "madrun/remove-useless-string-conversion": "on",
-        "madrun/insert-test-dts": "off"
+        "madrun/rename-eslint-to-putout": "on",
+        "madrun/rename-file": "off",
+        "madrun/rename-series-to-run": "on",
+        
+        "madrun/set-lint-dot": "on",
+        
+        "madrun/set-report-lcov": "on"
     }
 }
 ```

@@ -52,35 +52,44 @@ npm i @putout/plugin-eslint -D
 {
     "rules": {
         "eslint/add-putout": "on",
+        
+        "eslint/apply-create-eslint": "on",
         "eslint/apply-define-config": "on",
         "eslint/apply-dir-to-flat": "on",
-        "eslint/apply-create-eslint": "on",
+        
         "eslint/apply-ignores": ["off", {
             "ignores": ["**/fixture"]
         }],
-        "eslint/apply-safe-align": "on",
+        
         "eslint/apply-match-to-flat": "on",
-        "eslint/declare": "on",
-        "eslint/move-putout-to-end-of-extends": "on",
+        "eslint/apply-safe-align": "on",
+        
         "eslint/convert-export-match-to-decleration": "on",
         "eslint/convert-files-to-array": "on",
         "eslint/convert-ide-to-safe": "on",
-        "eslint/convert-require-to-import": "on",
+        
         "eslint/convert-node-to-n": "on",
         "eslint/convert-plugins-array-to-object": "on",
         "eslint/convert-rc-to-flat": "off",
+        "eslint/convert-require-to-import": "on",
+        "eslint/declare": "on",
+        "eslint/move-putout-to-end-of-extends": "on",
+        
+        "eslint/remove-create-eslint-config-with-one-argument": "on",
         "eslint/remove-no-missing": "on",
         "eslint/remove-no-unpublished-require": "on",
         "eslint/remove-no-unsupported-features": "on",
         "eslint/remove-overrides-with-empty-rules": "on",
-        "eslint/remove-useless-slice": "on",
-        "eslint/remove-useless-define-config": "on",
-        "eslint/remove-useless-properties": "on",
-        "eslint/remove-useless-match-to-flat": "on",
+        
         "eslint/remove-parser-options": "on",
+        
+        "eslint/remove-spread-from-create-eslint-config": "on",
         "eslint/remove-suffix-config": "on",
-        "eslint/remove-create-eslint-config-with-one-argument": "on",
-        "eslint/remove-spread-from-create-eslint-config": "on"
+        "eslint/remove-useless-define-config": "on",
+        
+        "eslint/remove-useless-match-to-flat": "on",
+        "eslint/remove-useless-properties": "on",
+        "eslint/remove-useless-slice": "on"
     }
 }
 ```

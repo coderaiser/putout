@@ -33,46 +33,53 @@ npm i @putout/plugin-filesystem -D
 {
     "rules": {
         "filesystem/bundle": "off",
-        "filesystem/read-all-files": ["off", {
-            "mask": "*"
-        }],
-        "filesystem/write-all-files": "off",
-        "filesystem/rename-file": "off",
-        "filesystem/remove-files": "off",
-        "filesystem/rename-spec-to-test": "off",
-        "filesystem/rename-test-to-spec": "off",
-        "filesystem/rename-referenced-file": "off",
-        "filesystem/move-referenced-file": "off",
-        "filesystem/convert-simple-filesystem-to-filesystem": "off",
+        
         "filesystem/convert-filesystem-to-simple-filesystem": "off",
-        "filesystem/replace-cwd": ["off", {
-            "from": "/home/coderaiser/putout",
-            "to": "/"
+        
+        "filesystem/convert-js-to-json": ["off", {
+            "filename": "package.js"
         }],
-        "filesystem/convert-json-to-yaml": ["off", {
-            "filename": "actions.json"
-        }],
-        "filesystem/convert-yaml-to-toml": ["off", {
-            "filename": "bunfig.yaml"
+        "filesystem/convert-json-to-js": ["off", {
+            "filename": "package.json"
         }],
         "filesystem/convert-json-to-toml": ["off", {
             "filename": "bunfig.json"
         }],
+        "filesystem/convert-json-to-yaml": ["off", {
+            "filename": "actions.json"
+        }],
+        "filesystem/convert-simple-filesystem-to-filesystem": "off",
+        
         "filesystem/convert-toml-to-json": ["off", {
             "filename": "bunfig.toml"
         }],
         "filesystem/convert-toml-to-yaml": ["off", {
             "filename": "bunfig.toml"
         }],
-        "filesystem/convert-json-to-js": ["off", {
-            "filename": "package.json"
-        }],
+        
         "filesystem/convert-yaml-to-json": ["off", {
             "filename": "actions.yaml"
         }],
-        "filesystem/convert-js-to-json": ["off", {
-            "filename": "package.js"
-        }]
+        "filesystem/convert-yaml-to-toml": ["off", {
+            "filename": "bunfig.yaml"
+        }],
+        "filesystem/move-referenced-file": "off",
+        "filesystem/read-all-files": ["off", {
+            "mask": "*"
+        }],
+        
+        "filesystem/remove-files": "off",
+        "filesystem/rename-file": "off",
+        
+        "filesystem/rename-referenced-file": "off",
+        "filesystem/rename-spec-to-test": "off",
+        "filesystem/rename-test-to-spec": "off",
+        
+        "filesystem/replace-cwd": ["off", {
+            "from": "/home/coderaiser/putout",
+            "to": "/"
+        }],
+        "filesystem/write-all-files": "off"
     }
 }
 ```

@@ -35,16 +35,21 @@ npm i @putout/plugin-package-json -D
 {
     "rules": {
         "package-json/add-type": "on",
-        "package-json/apply-js-extension": "on",
+        
         "package-json/apply-https-to-repository-url": "on",
-        "package-json/remove-nyc": "on",
+        "package-json/apply-js-extension": "on",
+        
+        "package-json/find-file": "off",
         "package-json/remove-commit-type": "on",
-        "package-json/remove-imports-nesting": "on",
-        "package-json/remove-exports-nesting": "on",
+        
         "package-json/remove-dot-slash-from-bin": "bin",
+        "package-json/remove-exports-nesting": "on",
+        
         "package-json/remove-exports-with-missing-files": "off",
-        "package-json/remove-useless-exports": "off",
-        "package-json/find-file": "off"
+        "package-json/remove-imports-nesting": "on",
+        "package-json/remove-nyc": "on",
+        
+        "package-json/remove-useless-exports": "off"
     }
 }
 ```

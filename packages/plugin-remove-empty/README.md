@@ -29,11 +29,12 @@ npm i @putout/plugin-remove-empty
 ```json
 {
     "rules": {
+        "remove-empty/argument": "on",
         "remove-empty/block": "on",
-        "remove-empty/static-block": "on",
-        "remove-empty/pattern": "on",
+        
         "remove-empty/nested-pattern": "on",
-        "remove-empty/argument": "on"
+        "remove-empty/pattern": "on",
+        "remove-empty/static-block": "on"
     }
 }
 ```

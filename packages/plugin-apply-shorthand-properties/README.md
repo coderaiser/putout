@@ -71,10 +71,10 @@ export const setSession = (payload) => ({
 
 ## Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`apply-shorthand-properties`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-shorthand-properties#readme) | ✅
-⏣ **ESLint** | [`no-useless-rename`](https://eslint.org/docs/rules/no-useless-rename) | ❌
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`apply-shorthand-properties`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-shorthand-properties#readme) | ✅   |
+| ⏣ **ESLint**  | [`no-useless-rename`](https://eslint.org/docs/rules/no-useless-rename) | ❌   |
 
 ## License
 

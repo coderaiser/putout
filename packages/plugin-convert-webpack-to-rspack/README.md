@@ -24,10 +24,11 @@ npm i putout @putout/plugin-convert-webpack-to-rspack -D
 ```json
 {
     "rules": {
-        "convert-webpack-to-rspack/apply-rspack-import": "on",
-        "convert-webpack-to-rspack/apply-swc-loader": "on",
         "convert-webpack-to-rspack/apply-asset-type": "on",
         "convert-webpack-to-rspack/apply-library-object": "on",
+        "convert-webpack-to-rspack/apply-rspack-import": "on",
+        "convert-webpack-to-rspack/apply-swc-loader": "on",
+        
         "convert-webpack-to-rspack/remove-webpackbar": "on"
     }
 }

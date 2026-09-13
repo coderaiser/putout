@@ -36,17 +36,21 @@ npm i @putout/plugin-regexp -D
 {
     "rules": {
         "regexp/apply-character-class": "on",
+        
+        "regexp/apply-ends-with": "on",
         "regexp/apply-global-regexp-to-replace-all": "on",
         "regexp/apply-literal-notation": "on",
         "regexp/apply-starts-with": "on",
-        "regexp/apply-ends-with": "on",
-        "regexp/optimize": "on",
-        "regexp/convert-to-string": "on",
+        
         "regexp/convert-replace-to-replace-all": "on",
-        "regexp/remove-useless-group": "on",
+        "regexp/convert-to-string": "on",
+        "regexp/optimize": "on",
+        
+        "regexp/remove-duplicates-from-character-class": "on",
         "regexp/remove-useless-escape": "on",
-        "regexp/remove-useless-regexp": "on",
-        "regexp/remove-duplicates-from-character-class": "on"
+        "regexp/remove-useless-group": "on",
+        
+        "regexp/remove-useless-regexp": "on"
     }
 }
 ```

@@ -35,18 +35,24 @@ npm i @putout/plugin-github -D
 ```json
 {
     "rules": {
-        "github/add-continue-on-error-to-coveralls": "on",
         "github/add-continue-on-error-to-add-and-commit": "on",
+        "github/add-continue-on-error-to-coveralls": "on",
+        
         "github/add-madrun-init": "on",
-        "github/set-contents-permissions": "on",
+        
         "github/convert-npm-to-bun": "on",
         "github/convert-typos-to-typos-ai": "on",
-        "github/set-node-versions": "on",
-        "github/set-message-of-commit-fixes": "on",
+        
         "github/install-bun": "on",
         "github/install-rust": "on",
-        "github/update-actions": "on",
-        "github/remove-empty-needs": "on"
+        
+        "github/remove-empty-needs": "on",
+        "github/set-contents-permissions": "on",
+        
+        "github/set-message-of-commit-fixes": "on",
+        "github/set-node-versions": "on",
+        
+        "github/update-actions": "on"
     }
 }
 ```

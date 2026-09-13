@@ -33,8 +33,10 @@ npm i @putout/plugin-eslint-plugin -D
 {
     "rules": {
         "eslint-plugin/apply-flat-config-to-rule-tester": "on",
-        "eslint-plugin/apply-get-token-before": "on",
+        
         "eslint-plugin/apply-get-token-after": "on",
+        "eslint-plugin/apply-get-token-before": "on",
+        
         "eslint-plugin/apply-is-space-between": "on",
         "eslint-plugin/convert-context-to-source": "on",
         "eslint-plugin/convert-require-resolve-to-require": "on",

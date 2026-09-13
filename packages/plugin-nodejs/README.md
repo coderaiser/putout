@@ -57,33 +57,43 @@ npm i putout @putout/plugin-nodejs -D
     "rules": {
         "nodejs/add-missing-strict-mode": "on",
         "nodejs/add-node-prefix": "on",
-        "nodejs/apply-style-text": "on",
+        
         "nodejs/apply-inherit": "on",
         "nodejs/apply-privately-required-file": "off",
-        "nodejs/convert-commonjs-to-esm": "off",
-        "nodejs/convert-esm-to-commonjs": "off",
+        "nodejs/apply-style-text": "on",
+        
         "nodejs/cjs-file": "off",
-        "nodejs/mjs-file": "off",
-        "nodejs/rename-file-cjs-to-js": "off",
-        "nodejs/rename-file-mjs-to-js": "off",
+        
         "nodejs/convert-buffer-to-buffer-alloc": "on",
+        "nodejs/convert-commonjs-to-esm": "off",
+        
+        "nodejs/convert-default-export-to-default": "on",
+        "nodejs/convert-dirname-to-url": "on",
+        "nodejs/convert-esm-to-commonjs": "off",
+        
+        "nodejs/convert-exportst-to-module-exports": "on",
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
-        "nodejs/convert-dirname-to-url": "on",
-        "nodejs/convert-default-export-to-default": "on",
-        "nodejs/convert-exportst-to-module-exports": "on",
-        "nodejs/convert-url-to-dirname": "on",
-        "nodejs/convert-url-parse-to-new-url": "on",
+        
         "nodejs/convert-top-level-return": "on",
+        "nodejs/convert-url-parse-to-new-url": "on",
+        "nodejs/convert-url-to-dirname": "on",
+        
         "nodejs/declare": "on",
         "nodejs/declare-after-require": "on",
         "nodejs/group-require-by-id": "on",
-        "nodejs/remove-process-exit": "on",
+        "nodejs/mjs-file": "off",
+        
         "nodejs/remove-illegal-strict-mode": "on",
+        "nodejs/remove-process-exit": "on",
+        
         "nodejs/remove-top-level-process-exit": "on",
+        
+        "nodejs/remove-useless-exports-assign": "on",
         "nodejs/remove-useless-promisify": "on",
         "nodejs/remove-useless-strict-mode": "on",
-        "nodejs/remove-useless-exports-assign": "on"
+        "nodejs/rename-file-cjs-to-js": "off",
+        "nodejs/rename-file-mjs-to-js": "off"
     }
 }
 ```

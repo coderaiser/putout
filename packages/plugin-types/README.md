@@ -30,14 +30,18 @@ npm i putout @putout/plugin-types -D
 {
     "rules": {
         "types/apply-boolean": "on",
-        "types/apply-number": "on",
+        
         "types/apply-is-array": "on",
         "types/apply-is-nan": "on",
-        "types/declare": "on",
+        "types/apply-number": "on",
+        
         "types/convert-typeof-to-istype": "on",
-        "types/remove-useless-conversion": "on",
-        "types/remove-useless-constructor": "on",
+        "types/declare": "on",
+        
         "types/remove-double-negations": "on",
+        "types/remove-useless-constructor": "on",
+        "types/remove-useless-conversion": "on",
+        
         "types/remove-useless-typeof": "on"
     }
 }

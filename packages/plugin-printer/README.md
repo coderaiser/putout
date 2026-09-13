@@ -47,30 +47,42 @@ npm i @putout/plugin-printer -D
 {
     "rules": {
         "printer/add-args": "on",
-        "printer/add-missing-tuples-to-type-checker": "on",
+        
         "printer/add-missing-colon-to-type-checker": "on",
         "printer/add-missing-spaces-to-type-checker": "on",
+        "printer/add-missing-tuples-to-type-checker": "on",
+        
         "printer/apply-breakline": "on",
-        "printer/apply-linebreak": "on",
+        
         "printer/apply-computed-print": "on",
         "printer/apply-create-test-url": "on",
+        "printer/apply-linebreak": "on",
+        
         "printer/apply-printer-declarations": "on",
         "printer/apply-types": "on",
-        "printer/check-type-passed-to-type-checker": "on",
+        
         "printer/check-if-success-possible-in-type-checker": "on",
+        "printer/check-type-passed-to-type-checker": "on",
+        
         "printer/declare": "on",
         "printer/declare-nearby": "on",
         "printer/merge-tuple-of-type-checker": "on",
         "printer/remove-args": "on",
-        "printer/remove-useless-maybe": "on",
+        
         "printer/remove-trailing-spaces-from-type-checker": "on",
-        "printer/remove-useless-spaces-from-type-checker": "on",
+        
         "printer/remove-useless-arrow-from-type-checker": "on",
         "printer/remove-useless-colon-from-type-checker": "on",
+        "printer/remove-useless-maybe": "on",
+        
         "printer/remove-useless-not-from-type-checker": "on",
         "printer/remove-useless-path-from-type-checker": "on",
-        "printer/remove-useless-tuples-from-type-checker": "on",
+        
         "printer/remove-useless-print": "on",
+        "printer/remove-useless-spaces-from-type-checker": "on",
+        
+        "printer/remove-useless-tuples-from-type-checker": "on",
+        
         "printer/reverse-comparison-in-type-checker": "on"
     }
 }

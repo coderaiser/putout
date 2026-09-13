@@ -39,18 +39,21 @@ npm i @putout/plugin-promises -D
 ```json
 {
     "rules": {
-        "promises/add-missing-await": "on",
         "promises/add-missing-async": "on",
+        "promises/add-missing-await": "on",
+        
         "promises/apply-await-import": "on",
         "promises/apply-top-level-await": "on",
         "promises/apply-with-resolvers": "off",
-        "promises/remove-useless-resolve": "on",
-        "promises/remove-useless-async": "on",
-        "promises/remove-useless-await": "on",
-        "promises/remove-useless-variables": "on",
+        
+        "promises/convert-new-promise-to-async": "on",
         "promises/convert-reject-to-throw": "on",
         "promises/convert-resolve-to-async": "on",
-        "promises/convert-new-promise-to-async": "on"
+        "promises/remove-useless-async": "on",
+        "promises/remove-useless-await": "on",
+        "promises/remove-useless-resolve": "on",
+        
+        "promises/remove-useless-variables": "on"
     }
 }
 ```

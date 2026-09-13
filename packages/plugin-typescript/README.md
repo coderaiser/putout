@@ -50,32 +50,41 @@ npm i putout @putout/plugin-typescript -D
 {
     "rules": {
         "typescript/apply-as-type-assertion": "on",
-        "typescript/apply-utility-types": "on",
+        
         "typescript/apply-type-guards": "on",
-        "typescript/convert-generic-to-shorthand": "on",
+        "typescript/apply-utility-types": "on",
+        
         "typescript/convert-commonjs-to-esm": "off",
-        "typescript/convert-esm-to-commonjs": "off",
-        "typescript/convert-namespace-to-global": "on",
+        
         "typescript/convert-empty-type-literal-to-record": "on",
-        "typescript/remove-duplicates-from-union": "on",
-        "typescript/remove-duplicates-interface-keys": "on",
-        "typescript/remove-duplicates-exports": "on",
-        "typescript/remove-useless-types-from-constants": "on",
-        "typescript/remove-unused-types": "on",
-        "typescript/remove-useless-types": "on",
-        "typescript/remove-useless-parens": "on",
-        "typescript/remove-useless-promise": "on",
-        "typescript/remove-getter-arguments": "on",
-        "typescript/remove-setter-return-type": "on",
-        "typescript/remove-useless-mapped-types": "on",
-        "typescript/remove-useless-non-null-expressions": "on",
+        "typescript/convert-esm-to-commonjs": "off",
+        "typescript/convert-generic-to-shorthand": "on",
+        
+        "typescript/convert-namespace-to-global": "on",
+        
         "typescript/cts-file": "off",
-        "typescript/mts-file": "off",
-        "typescript/rename-file-cts-to-ts": "off",
-        "typescript/rename-file-mts-to-ts": "off",
+        
         "typescript/find-file": ["off", {
             "ignore": []
-        }]
+        }],
+        "typescript/mts-file": "off",
+        "typescript/remove-duplicates-exports": "on",
+        "typescript/remove-duplicates-from-union": "on",
+        "typescript/remove-duplicates-interface-keys": "on",
+        
+        "typescript/remove-getter-arguments": "on",
+        "typescript/remove-setter-return-type": "on",
+        "typescript/remove-unused-types": "on",
+        
+        "typescript/remove-useless-mapped-types": "on",
+        "typescript/remove-useless-non-null-expressions": "on",
+        "typescript/remove-useless-parens": "on",
+        "typescript/remove-useless-promise": "on",
+        "typescript/remove-useless-types": "on",
+        "typescript/remove-useless-types-from-constants": "on",
+        
+        "typescript/rename-file-cts-to-ts": "off",
+        "typescript/rename-file-mts-to-ts": "off"
     }
 }
 ```

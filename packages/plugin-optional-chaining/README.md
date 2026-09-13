@@ -31,9 +31,10 @@ npm i @putout/plugin-optional-chaining
 ```json
 {
     "rules": {
+        "optional-chaining/convert-logical-assign-to-optional": "off",
         "optional-chaining/convert-logical-to-optional": "on",
         "optional-chaining/convert-optional-assign-to-logical": "on",
-        "optional-chaining/convert-logical-assign-to-optional": "off",
+        
         "optional-chaining/convert-optional-to-logical": "off"
     }
 }

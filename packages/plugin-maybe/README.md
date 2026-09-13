@@ -25,10 +25,11 @@ npm i @putout/plugin-maybe -D
 {
     "rules": {
         "maybe/array": "on",
+        
+        "maybe/declare": "on",
         "maybe/empty-array": "on",
         "maybe/fn": "on",
-        "maybe/noop": "on",
-        "maybe/declare": "on"
+        "maybe/noop": "on"
     }
 }
 ```

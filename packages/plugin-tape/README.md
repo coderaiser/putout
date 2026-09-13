@@ -60,46 +60,58 @@ npm i @putout/plugin-tape -D
 ```json
 {
     "rules": {
-        "tape/jest": "on",
-        "tape/apply-stub": "on",
-        "tape/apply-stringify": "on",
+        "tape/add-args": "on",
+        "tape/add-t-end": "on",
         "tape/apply-assertions-order": "on",
         "tape/apply-destructuring": "on",
+        "tape/apply-stringify": "on",
+        "tape/apply-stub": "on",
+        
         "tape/apply-with-name": "on",
-        "tape/add-t-end": "on",
-        "tape/remove-useless-t-end": "on",
-        "tape/sync-with-name": "on",
-        "tape/switch-expected-with-result": "on",
-        "tape/convert-tape-to-supertape": "on",
-        "tape/convert-throws-to-try-catch": "on",
-        "tape/convert-does-not-throw-to-try-catch": "on",
+        
         "tape/convert-called-with-args": "on",
-        "tape/convert-called-with-to-called-with-no-args": "on",
+        
         "tape/convert-called-with-no-args-to-called-with": "on",
+        "tape/convert-called-with-to-called-with-no-args": "on",
+        
+        "tape/convert-deep-equal-to-equal": "on",
+        "tape/convert-does-not-throw-to-try-catch": "on",
+        
+        "tape/convert-emitter-to-promise": "on",
+        "tape/convert-equal-length-to-match-string": "on",
         "tape/convert-equal-to-called-once": "on",
         "tape/convert-equal-to-deep-equal": "on",
         "tape/convert-equals-to-equal": "on",
-        "tape/convert-equal-length-to-match-string": "on",
-        "tape/convert-deep-equal-to-equal": "on",
-        "tape/convert-emitter-to-promise": "on",
-        "tape/convert-ok-to-match": "on",
-        "tape/convert-ok-to-called-with": "on",
+        
         "tape/convert-match-regexp-to-string": "on",
-        "tape/add-args": "on",
+        "tape/convert-ok-to-called-with": "on",
+        "tape/convert-ok-to-match": "on",
+        
+        "tape/convert-ok-to-pass": "on",
+        "tape/convert-tape-to-supertape": "on",
+        "tape/convert-throws-to-try-catch": "on",
+        
         "tape/declare": "on",
         "tape/extract-args-from-called-with": "on",
+        
+        "tape/extract-result-from-assertion": "on",
+        "tape/jest": "on",
+        
         "tape/remove-default-messages": "on",
-        "tape/remove-useless-not-called-args": "on",
-        "tape/remove-useless-undefined": "on",
-        "tape/remove-t-from-async": "on",
+        
         "tape/remove-only": ["on", {
             "allowed": ["test"]
         }],
         "tape/remove-skip": ["on", {
             "allowed": ["test"]
         }],
-        "tape/extract-result-from-assertion": "on",
-        "tape/convert-ok-to-pass": "on"
+        "tape/remove-t-from-async": "on",
+        "tape/remove-useless-not-called-args": "on",
+        "tape/remove-useless-t-end": "on",
+        
+        "tape/remove-useless-undefined": "on",
+        "tape/switch-expected-with-result": "on",
+        "tape/sync-with-name": "on"
     }
 }
 ```
