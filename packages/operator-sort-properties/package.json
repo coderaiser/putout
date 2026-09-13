@@ -53,5 +53,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@putout/operate": "^15.9.0",
+    "@putout/operator-json": "^3.9.0"
+  }
 }

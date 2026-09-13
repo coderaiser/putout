@@ -1,9 +1,5 @@
-import {operator} from 'putout';
-
-const {
-    __json,
-    traverseProperties,
-} = operator;
+import {traverseProperties} from '@putout/operate';
+import {__json} from '@putout/operator-json';
 
 export const sortProperties = (name) => ({
     report,
