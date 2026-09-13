@@ -1070,3 +1070,103 @@ test('putout: cli: process-file: logError: traverse: no error', async (t) => {
     t.notCalled(logError);
     t.end();
 });
+
+test('putout: cli: process-file: cts', async (t) => {
+    const putoutAsync = stub().returns({
+        code: '',
+        places: [],
+    });
+    
+    const source = montag`
+        export declare function parse(source: string, options?: Record<string, unknown>): Program;
+    `;
+    
+    const fix = false;
+    
+    const log = stub();
+    const write = stub();
+    
+    const options = {
+        dir: '.',
+    };
+    
+    const fn = initProcessFile({
+        fix,
+        log,
+        write,
+    });
+    
+    await fn({
+        options,
+        name: 'example.d.cts',
+        
+        index: 0,
+        length: 1,
+        
+        source,
+        putoutAsync,
+    });
+    
+    const expected = [
+        source, {
+            dir: '.',
+            fix: false,
+            fixCount: undefined,
+            isTS: true,
+            printer: ['putout', {}],
+        },
+    ];
+    
+    t.calledWith(putoutAsync, expected, 'should call configurePrinter');
+    t.end();
+});
+
+test('putout: cli: process-file: tsx', async (t) => {
+    const putoutAsync = stub().returns({
+        code: '',
+        places: [],
+    });
+    
+    const source = montag`
+        export const Element = () => <a>hello</a>;
+    `;
+    
+    const fix = false;
+    
+    const log = stub();
+    const write = stub();
+    
+    const options = {
+        dir: '.',
+    };
+    
+    const fn = initProcessFile({
+        fix,
+        log,
+        write,
+    });
+    
+    await fn({
+        options,
+        name: 'example.tsx',
+        
+        index: 0,
+        length: 1,
+        
+        source,
+        putoutAsync,
+    });
+    
+    const expected = [
+        source, {
+            dir: '.',
+            fix: false,
+            fixCount: undefined,
+            isTS: true,
+            printer: ['putout', {}],
+        },
+    ];
+    
+    t.calledWith(putoutAsync, expected, 'should call configurePrinter');
+    t.end();
+});

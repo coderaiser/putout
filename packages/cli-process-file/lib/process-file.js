@@ -8,6 +8,7 @@ import {putoutAsync as _putoutAsync} from 'putout';
 import once from 'once';
 import {simpleImport as _simpleImport} from './simple-import.js';
 import {configurePrinter} from './printer/printer.js';
+import {checkTS} from './ts.js';
 
 const getMatchedOptions = (name, options) => {
     if (!name.includes('{'))
@@ -32,7 +33,7 @@ export const initProcessFile = ({fix, fixCount, logError, raw}) => async functio
         putoutAsync = _putoutAsync,
     } = overrides;
     
-    const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
+    const isTS = checkTS(name);
     const {printer, ...matchedOptions} = getMatchedOptions(name, options);
     
     const [e, result] = await tryToCatch(putoutAsync, source, {
