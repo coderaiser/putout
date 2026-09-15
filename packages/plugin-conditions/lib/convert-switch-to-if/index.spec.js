@@ -31,3 +31,8 @@ test('putout: convert-switch-to-if: transform: default-multiple', (t) => {
     t.transform('default-multiple');
     t.end();
 });
+
+test('putout: convert-switch-to-if: transform: await', (t) => {
+    t.transform('await');
+    t.end();
+});

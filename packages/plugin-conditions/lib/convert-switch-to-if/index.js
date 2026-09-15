@@ -15,12 +15,13 @@ export const report = () => `Use 'if' instead of 'switch'`;
 export const fix = (path) => {
     const nodes = [];
     const {discriminant} = path.node;
+    const defaultCase = [];
     
     for (const currentCase of path.get('cases')) {
         const {test, consequent} = currentCase.node;
         
         if (!test) {
-            nodes.push(...consequent);
+            defaultCase.push(...consequent);
             continue;
         }
         
@@ -32,6 +33,8 @@ export const fix = (path) => {
         
         nodes.push(node);
     }
+    
+    nodes.push(...defaultCase);
     
     path.traverse({
         BreakStatement(path) {
