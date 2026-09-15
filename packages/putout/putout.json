@@ -180,6 +180,7 @@
         "**/package-lock.json",
         "**/node_modules",
         "**/fixture",
+        "**/test-results",
         "**/coverage/*",
         "**/dist",
         "**/dist-dev",
