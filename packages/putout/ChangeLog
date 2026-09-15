@@ -1,3 +1,15 @@
+2026.09.16, v42.16.0
+
+fix:
+- 3873b2010 @putout/plugin-conditions: convert-switch-to-if: default first (coderaiser/cloudcmd#477)
+- 783437964 @putout/operator-sort-properties: operator -> @putout/operate
+
+feature:
+- 2326979eb putout: ignore: test-results
+- cdf25d12a @putout/engine-parser: parsers: types
+- 3037d166c @putout/cli-process-file: isTS: cts
+- 1de4e7f46 @putout/plugin-putout: sort-readme-file: sort-config: add
+
 2026.09.13, v42.15.0
 
 fix:
