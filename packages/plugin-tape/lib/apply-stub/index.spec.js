@@ -32,3 +32,8 @@ test('plugin-tape: apply-stub: transform: async', (t) => {
     t.transform('async');
     t.end();
 });
+
+test('plugin-tape: apply-stub: no report: call', (t) => {
+    t.noReport('call');
+    t.end();
+});

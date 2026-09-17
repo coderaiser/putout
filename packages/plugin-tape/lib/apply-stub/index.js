@@ -4,6 +4,7 @@ const {
     isUnaryExpression,
     isThrowStatement,
     isBlockStatement,
+    isCallExpression,
 } = types;
 
 const REJECTS = template('stub().rejects(A)');
@@ -12,6 +13,9 @@ export const report = () => `Use 'stub()' instead of creating a function`;
 
 export const match = () => ({
     'async () => __a': ({__a}) => {
+        if (isCallExpression(__a))
+            return false;
+        
         if (!isBlockStatement(__a))
             return true;
         
