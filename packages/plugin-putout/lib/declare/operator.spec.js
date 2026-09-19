@@ -164,6 +164,21 @@ test('plugin-putout: declare: transform: operator: __markdown', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: operator: __css', (t) => {
+    const source = montag`
+        __css;
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {__css} = operator;
+        __css;
+    
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: operator: __sql', (t) => {
     const source = montag`
         __sql;

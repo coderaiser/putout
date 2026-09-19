@@ -9,4 +9,5 @@ export default {
     __toml: 'const {__toml} = operator',
     __markdown: 'const {__markdown} = operator',
     __sql: 'const {__sql} = operator',
+    __css: 'const {__css} = operator',
 };
