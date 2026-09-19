@@ -16,6 +16,7 @@ export const __toml_name = '__putout_processor_toml';
 export const __filesystem_name = '__putout_processor_filesystem';
 export const __ignore_name = '__putout_processor_ignore';
 export const __markdown_name = '__putout_processor_markdown';
+export const __css_name = '__putout_processor_css';
 export const __sql_name = '__putout_processor_sql';
 
 export const __sql = `${__sql_name}(__object)`;
@@ -26,6 +27,7 @@ export const __docker = `${__docker_name}(__array)`;
 export const __filesystem = `${__filesystem_name}(__object)`;
 export const __ignore = `${__ignore_name}(__array)`;
 export const __markdown = `${__markdown_name}(__array)`;
+export const __css = `${__css_name}(__array)`;
 
 const TYPES = [
     __json_name,

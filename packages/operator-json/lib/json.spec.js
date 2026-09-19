@@ -16,6 +16,7 @@ import {
     __ignore,
     __ignore_name,
     __markdown,
+    __css,
     __sql,
 } from './json.js';
 
@@ -171,6 +172,27 @@ test('putout: operator: json: toJS: __markdown', ({equal}) => {
     
     const expected = montag`
         __putout_processor_markdown([h1('hello')]);
+    
+    `;
+    
+    equal(result, expected);
+});
+
+test('putout: operator: json: toJS: __css', ({equal}) => {
+    const source = montag`
+        [rule(
+            selector([classSelector('button')]),
+            [declaration('color', 'red')],
+        )];\n
+    `;
+    
+    const result = toJS(source, __css);
+    
+    const expected = montag`
+        __putout_processor_css([rule(
+            selector([classSelector('button')]),
+            [declaration('color', 'red')],
+        )]);
     
     `;
     

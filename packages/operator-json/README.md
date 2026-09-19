@@ -99,6 +99,18 @@ export const traverse = ({push}) => ({
 });
 ```
 
+### `__css`
+
+```js
+import {operator} from 'putout';
+
+const {__css} = operator;
+
+export const traverse = ({push}) => ({
+    [__css]: push,
+});
+```
+
 ### `__sql`
 
 ```js
