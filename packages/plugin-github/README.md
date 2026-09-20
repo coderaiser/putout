@@ -329,6 +329,14 @@ You can override versions with:
 +      - uses: actions/setup-node@v7
 ```
 
+`actions/upload-artifact`:
+
+```diff
+  steps:
+-      - uses: actions/uplod-artifact@v4
++      - uses: actions/upload-artifact@v7
+```
+
 `docker/setup-quemu`:
 
 ```diff

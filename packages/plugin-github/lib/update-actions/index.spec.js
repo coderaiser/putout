@@ -32,6 +32,11 @@ test('plugin-github: update-actions: transform: bun', (t) => {
     t.end();
 });
 
+test('plugin-github: update-actions: transform: uploud-artifact', (t) => {
+    t.transform('uploud-artifact');
+    t.end();
+});
+
 test('plugin-github: update-actions: transform with options: options', (t) => {
     t.transformWithOptions('options', {
         actions: {
