@@ -3,6 +3,7 @@ import {createTest} from '@putout/test/processor';
 const test = createTest(import.meta.url, {
     extension: 'css',
     processors: ['css'],
+    plugins: ['css'],
 });
 
 test('putout: processor: css', async ({process}) => {
@@ -53,4 +54,22 @@ test('putout: processor: css: no places: no-descending-specificity', async ({com
 
 test('putout: processor: css: no places: at-rule-prelude', async ({comparePlaces}) => {
     await comparePlaces('at-rule-prelude', []);
+});
+
+test('putout: processor: css: no places: css-apply-shorthand', async ({comparePlaces}) => {
+    await comparePlaces('css-apply-shorthand', [{
+        message: 'Apply shorthand',
+        position: {
+            column: 8,
+            line: 5,
+        },
+        rule: 'css/apply-shorthand',
+    }, {
+        message: 'Expected "1px 1px 1px 1px" to be "1px"',
+        position: {
+            column: 13,
+            line: 2,
+        },
+        rule: 'shorthand-property-no-redundant-values (stylelint)',
+    }]);
 });

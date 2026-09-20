@@ -1,6 +1,12 @@
 import stylelint from 'stylelint';
 import {cosmiconfig} from 'cosmiconfig';
 import {alignSpaces} from 'align-spaces';
+import {convertJsToCss, convertCssToJs} from 'happy-style';
+import {
+    __css,
+    toJS,
+    fromJS,
+} from '@putout/operator-json';
 import {createConfigLoader} from './config-loader.js';
 
 const loadConfig = createConfigLoader({
@@ -29,6 +35,17 @@ export const lint = async (source, {fix} = {}) => {
         alignSpaces(code),
         places,
     ];
+};
+
+export const branch = (rawSource) => [{
+    startLine: 0,
+    source: toJS(convertCssToJs(rawSource), __css),
+    extension: 'css',
+}];
+
+export const merge = (rawSource, list) => {
+    const [cssJs] = list;
+    return convertJsToCss(fromJS(cssJs, __css));
 };
 
 const toPlace = ({line, column, rule, text}) => ({
