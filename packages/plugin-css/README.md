@@ -7,7 +7,7 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to improve css.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to improve css. *Not bundled*.
 
 ## Install
 
