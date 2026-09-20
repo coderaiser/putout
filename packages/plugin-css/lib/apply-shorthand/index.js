@@ -9,7 +9,7 @@ const DIMENSION_4 = `
 
 const DIMENSION_1 = 'declaration("__a", valueList([dimension(__b, __c)]))';
 
-export const report = () => `Use 'if condition' instead of 'ternary expression'`;
+export const report = () => `Apply shorthand`;
 
 export const replace = () => ({
     [DIMENSION_4]: DIMENSION_1,

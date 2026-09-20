@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('css: apply-shorthand: report', (t) => {
-    t.report('apply-shorthand', `Use 'if condition' instead of 'ternary expression'`);
+    t.report('apply-shorthand', `Apply shorthand`);
     t.end();
 });
 
