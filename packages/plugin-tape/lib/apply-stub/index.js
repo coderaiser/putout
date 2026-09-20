@@ -1,6 +1,7 @@
 import {template, types} from 'putout';
 
 const {
+    isAwaitExpression,
     isUnaryExpression,
     isThrowStatement,
     isBlockStatement,
@@ -14,6 +15,9 @@ export const report = () => `Use 'stub()' instead of creating a function`;
 export const match = () => ({
     'async () => __a': ({__a}) => {
         if (isCallExpression(__a))
+            return false;
+        
+        if (isAwaitExpression(__a))
             return false;
         
         if (!isBlockStatement(__a))

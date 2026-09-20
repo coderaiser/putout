@@ -37,3 +37,8 @@ test('plugin-tape: apply-stub: no report: call', (t) => {
     t.noReport('call');
     t.end();
 });
+
+test('plugin-tape: apply-stub: no report: await', (t) => {
+    t.noReport('await');
+    t.end();
+});

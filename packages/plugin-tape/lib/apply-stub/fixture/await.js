@@ -1,0 +1,1 @@
+withHash('', async () => await fetchFromURL());
