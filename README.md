@@ -2332,6 +2332,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 | Package | Version |
 |---------|---------|
 | [`@putout/plugin-apply-entries`](/packages/plugin-apply-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-entries) |
+| [`@putout/plugin-css`](/packages/plugin-css#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-css) |
 | [`@putout/plugin-eslint-plugin`](/packages/plugin-eslint-plugin#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-eslint-plugin.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-eslint-plugin) |
 | [`@putout/plugin-react`](/packages/plugin-react#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react) |
 | [`@putout/plugin-react-hook-form`](/packages/plugin-react-hook-form#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-hook-form.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-hook-form) |

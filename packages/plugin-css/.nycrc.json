@@ -1,0 +1,16 @@
+{
+    "checkCoverage": true,
+    "all": true,
+    "exclude": [
+        "**/*.spec.*",
+        "**/*.config.*",
+        "**/fixture",
+        ".*.*",
+        "eslint.config.js",
+        "test"
+    ],
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100
+}
