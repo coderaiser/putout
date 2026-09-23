@@ -11,6 +11,8 @@ const {
 } = types;
 
 const {
+    compare,
+    getTemplateValues,
     replaceWith,
     replaceWithMultiple,
     superTraverse,
@@ -31,97 +33,119 @@ const isRoot = (path) => path.isFunction() || path.isProgram();
 
 export const report = () => `Use 'for-of' instead of 'forEach()'`;
 
-export const replace = () => ({
-    '__.forEach.call(__a, (__b) => __body)': 'for (const __b of __a) __body',
-    '__.forEach(__args)': (vars, path) => {
-        const {params, body} = path.node.arguments[0];
-        const item = getItem(params);
+export const fix = (path) => {
+    if (compare(path, '__.forEach.call(__a, (__b) => __body)')) {
+        const {
+            __a,
+            __b,
+            __body,
+        } = getTemplateValues(path, '__.forEach.call(__a, (__b) => __body)');
         
-        delete item.typeAnnotation;
+        replaceWith(path, forOfTemplate({
+            item: __b,
+            items: __a,
+            body: __body,
+        }));
         
-        const {length} = params;
+        return;
+    }
+    
+    const {params, body} = path.node.arguments[0];
+    const item = getItem(params);
+    
+    delete item.typeAnnotation;
+    
+    const {length} = params;
+    
+    for (const param of params) {
+        delete param.typeAnnotation;
+    }
+    
+    const thisPassed = isIdentifier(params[0], {
+        name: 'this',
+    });
+    
+    const items = path.node.callee.object;
+    
+    if (length === 1 || length === 2 && thisPassed) {
+        const newPath = replaceWith(path, forOfTemplate({
+            item,
+            items,
+            body,
+        }));
         
-        for (const param of params) {
-            delete param.typeAnnotation;
-        }
-        
-        const thisPassed = isIdentifier(params[0], {
-            name: 'this',
-        });
-        
-        const items = path.node.callee.object;
-        
-        if (length === 1 || length === 2 && thisPassed) {
-            const newPath = replaceWith(path, forOfTemplate({
-                item,
-                items,
-                body,
-            }));
-            
-            fixReturn(newPath);
-            
-            return;
-        }
-        
-        if (params.length === 2) {
-            const [, index] = params;
-            
-            const newPath = replaceWith(path, forOfEntriesTemplate({
-                index,
-                item,
-                items,
-                body,
-            }));
-            
-            fixReturn(newPath);
-        }
-    },
-});
+        fixReturn(newPath);
+        return;
+    }
+    
+    const [, index] = params;
+    
+    const newPath = replaceWith(path, forOfEntriesTemplate({
+        index,
+        item,
+        items,
+        body,
+    }));
+    
+    fixReturn(newPath);
+};
 
-export const match = () => ({
-    '__.forEach(__args)': (vars, path) => {
+export const traverse = ({push}) => ({
+    '__.forEach.call(__a, (__b) => __body)': push,
+    '__.forEach(__args)': (path) => {
         const {parentPath} = path;
         
         if (isReturnStatement(parentPath))
-            return false;
+            return;
         
         if (parentPath.isSequenceExpression())
-            return false;
+            return;
         
         if (parentPath.isConditionalExpression())
-            return false;
+            return;
         
         if (parentPath.isVariableDeclarator())
-            return false;
+            return;
         
         const objectPath = path.get('callee.object');
         const fnPath = path.get('arguments.0');
         
         if (!fnPath.isFunction())
-            return false;
+            return;
         
         const params = fnPath.get('params');
         
         if (!params.length)
-            return false;
+            return;
         
         if (isParentContainsFunctionArgument(objectPath))
-            return false;
+            return;
         
-        if (path.node.arguments.length === 2 && !path.get('arguments.1').isThisExpression())
-            return false;
+        const {length} = path.node.arguments;
+        
+        if (length === 2 && !path.get('arguments.1').isThisExpression())
+            return;
         
         if (isIndexWithThis(params))
-            return false;
+            return;
         
         const [paramPath] = params;
         
         if (isSameNames(paramPath, objectPath))
-            return false;
+            return;
         
         const rootPath = path.findParent(isRoot);
         
-        return !isBoundVars(rootPath, fnPath);
+        if (isBoundVars(rootPath, fnPath))
+            return;
+        
+        if (length === 1) {
+            push(path);
+            return;
+        }
+        
+        if (params.length === 2)
+            push(path);
     },
 });
 
@@ -153,7 +177,7 @@ function isBoundVars(parentPath, path) {
     const currentBindings = keys(parentPath.scope.bindings);
     const fnBindings = keys(path.scope.bindings);
     
-    return compare(currentBindings, fnBindings);
+    return compareBindings(currentBindings, fnBindings);
 }
 
 function isParentContainsFunctionArgument(objectPath) {
@@ -175,7 +199,7 @@ function getItem(params) {
     return thisItem;
 }
 
-function compare(a, b) {
+function compareBindings(a, b) {
     for (const el of a) {
         if (b.includes(el))
             return true;
