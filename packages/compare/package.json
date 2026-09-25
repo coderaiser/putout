@@ -31,7 +31,7 @@
     "@putout/operate": "^15.0.0",
     "jessy": "^5.0.0",
     "nessy": "^6.0.0",
-    "obug": "^2.1.1"
+    "obug": "^3.0.0"
   },
   "keywords": [
     "putout",
