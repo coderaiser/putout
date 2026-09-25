@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "emoji-regex": "^10.0.1"
+    "emoji-regex": "^11.0.0"
   },
   "keywords": [
     "putout",
