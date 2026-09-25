@@ -1,8 +1,6 @@
-import {putout, type PutoutPlugin} from 'putout';
 import * as removeDebugger from '@putout/plugin-remove-debugger';
-
-const ast = putout.parse('const a = 3');
-putout.print(ast);
+import type {PutoutPlugin} from '../lib/plugin.d.ts';
 
 const {report}: PutoutPlugin = removeDebugger;
+
 report();
