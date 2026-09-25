@@ -47,7 +47,9 @@ export type PutoutPlugin =
     | Replacer
     | Includer
     | Traverser
-    | Declarator;
+    | Declarator & {
+        report: Report;
+    };
 
 export type Report = () => string;
 
@@ -72,7 +74,6 @@ type MatchResolver = (vars: Record<string, Node>, path: NodePath) => boolean;
 export type Match = () => Record<string, MatchResolver>;
 
 export type Declarator = {
-    report?: Report;
     declare: () => Record<string, string | {
         esm: string;
         commonjs: string;
