@@ -18,7 +18,6 @@
     "eslint": "^10.0.0",
     "eslint-plugin-putout": "^31.0.0",
     "madrun": "^13.0.0",
-    "mocha": "^11.1.0",
     "superc8": "^12.0.0",
     "supertape": "^13.0.0"
   },
