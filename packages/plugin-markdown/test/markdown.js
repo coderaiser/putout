@@ -26,3 +26,8 @@ test('plugin-markdown: transform: remove-trailing-whitespaces-from-heading', (t)
     t.transform('remove-trailing-whitespaces-from-heading');
     t.end();
 });
+
+test('plugin-markdown: transform: convert-js-to-ts', (t) => {
+    t.transform('convert-js-to-ts');
+    t.end();
+});
