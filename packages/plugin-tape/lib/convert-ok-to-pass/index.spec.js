@@ -16,3 +16,8 @@ test('tape: convert-ok-to-pass: transform', (t) => {
     t.transform('convert-ok-to-pass');
     t.end();
 });
+
+test('tape: convert-ok-to-pass: no report: not-test', (t) => {
+    t.noReport('not-test');
+    t.end();
+});
