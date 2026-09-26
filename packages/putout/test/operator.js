@@ -234,3 +234,10 @@ test('putout: operate: wrapInNamespace', async (t) => {
     t.equal(wrapInNamespace, operator.wrapInNamespace);
     t.end();
 });
+
+test('putout: operate: indentCodeblock', async (t) => {
+    const {indentCodeblock} = await import('@putout/operator-markdown');
+    
+    t.equal(indentCodeblock, operator.indentCodeblock);
+    t.end();
+});

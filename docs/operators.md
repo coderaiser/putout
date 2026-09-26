@@ -45,6 +45,7 @@ Here is list of built-in operators
 | [`@putout/operator-json`](/packages/operator-json#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-json.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-json) |
 | [`@putout/operator-jsx`](/packages/operator-jsx#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-jsx.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-jsx) |
 | [`@putout/operator-keyword`](/packages/operator-keyword#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-keyword.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-keyword) |
+| [`@putout/operator-markdown`](/packages/operator-markdown#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-markdown.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-markdown) |
 | [`@putout/operator-match-files`](/packages/operator-match-files#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-match-files.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-match-files) |
 | [`@putout/operator-parens`](/packages/operator-parens#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-parens.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-parens) |
 | [`@putout/operator-regexp`](/packages/operator-regexp#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-regexp.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-regexp) |

@@ -9,6 +9,7 @@ export * from '@putout/operator-regexp';
 export * from '@putout/operator-add-args';
 export * from '@putout/operator-filesystem';
 export * from '@putout/operator-keyword';
+export * from '@putout/operator-markdown';
 export * from '@putout/operator-match-files';
 export * from '@putout/operator-rename-files';
 export * from '@putout/operator-ignore';

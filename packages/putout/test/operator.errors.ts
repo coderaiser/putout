@@ -19,6 +19,7 @@ const {
     createTypeChecker,
     removeFiles,
     wrapInNamespace,
+    indentCodeblock,
 } = operator;
 
 // THROWS Expected 2 arguments, but got 1.
@@ -82,3 +83,6 @@ removeFiles(5);
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'string'.
 wrapInNamespace(5);
+
+// THROWS Argument of type 'number' is not assignable to parameter of type 'string'.
+indentCodeblock(5);
