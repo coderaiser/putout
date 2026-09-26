@@ -1,3 +1,28 @@
+2026.09.27, v42.17.0
+
+fix:
+- 6e5400567 @putout/types: all plugins has report
+- 5d959de18 @putout/plugin-css: apply-shorthand: report
+
+feature:
+- 5e9682076 @putout/plugin-putout: declare: markdown: indentCodeblock
+- e13e7526a @putout/operator-markdown: add
+- dc66636a5 @putout/plugin-tape: convert-ok-to-pass: VariableDeclarator: exclude
+- 87cc2dfc8 @putout/plugin-markdown: convert-js-to-ts: add
+- e1f94c840 @putout/types: Declarator: report
+- 496d56a68 eslint-plugin-putout: mocha v12.0.2
+- c0e6db62e @putout/plugin-remove-useless-escape: emoji-regex v11.0.0
+- 34a46dba6 @putout/engine-runner: obug v3.0.0
+- 0682dd819 @putout/compare: obug v3.0.0
+- 63fd6766b @putout/plugin-for-of: for-each: Replacer -> Traverser
+- 2ccad6642 @putout/plugin-tape: apply-stub: await: exclude
+- b3bef1692 @putout/plugin-github: actions/upload-artifact@v7
+- aed2f16bb @putout/processor-css: branch/merge
+- fc659c09c @putout/plugin-css: add
+- 108559f52 @putout/plugin-putout: declare: __css
+- 5a031d3af @putout/operator-json: __css
+- 5197cdc61 @putout/plugin-tape: apply-stub: call: exclude
+
 2026.09.16, v42.16.0
 
 fix:
