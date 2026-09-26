@@ -2271,28 +2271,6 @@ Checkout in 🐊**Putout Editor**:
 - ✅ [`sort-config`](https://putout.cloudcmd.io/#/gist/41c9975090803fdee30c445868e5b93f/18f78a72eb4f4cf33f5137fca11de9314c12763c);
 - ✅ [`sort-readme-file`](https://putout.cloudcmd.io/#/gist/41c9975090803fdee30c445868e5b93f/a5edcb99b4769c05d6482a051f918442bdcc86e9);
 
-### ❌ Example of incorrect code
-
-```js
-import {tryCatch} from 'try-catch';
-
-transform(ast, source, options);
-findPlaces(ast, source, options);
-tryCatch(transform, ast, source, {});
-tryCatch(findPlaces, ast, source, resultOptions);
-```
-
-### ✅ Example of correct code
-
-```js
-import {tryCatch} from 'try-catch';
-
-transform(ast, options);
-findPlaces(ast, options);
-tryCatch(transform, ast, {});
-tryCatch(findPlaces, ast, resultOptions);
-```
-
 ## apply-fixture-name-to-message"
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/66eb493ee966c2465a9fc783cd3ca362/f42ec60e393181b6d6aaf6df81640e93fabe8783).
