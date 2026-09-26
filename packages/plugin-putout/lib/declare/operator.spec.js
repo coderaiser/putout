@@ -208,3 +208,18 @@ test('plugin-putout: declare: transform: operator: __docker', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: operator: indentCodeblock', (t) => {
+    const source = montag`
+        indentCodeblock;
+    `;
+    
+    t.transformCode(source, montag`
+        import {operator} from 'putout';
+        
+        const {indentCodeblock} = operator;
+        indentCodeblock;
+    
+    `);
+    t.end();
+});
