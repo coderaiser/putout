@@ -1,3 +1,11 @@
+2026.09.27, v42.18.0
+
+fix:
+- 319b7d5f8 @putout/plugin-markdown: convert-js-to-ts: apply-ts-codeblock-in-file
+
+feature:
+- 32382edd9 putout: markdown: apply-ts-codeblock-in-file
+
 2026.09.27, v42.17.0
 
 fix:
