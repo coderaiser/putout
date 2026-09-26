@@ -17,22 +17,25 @@ npm i @putout/plugin-markdown -D
 
 ## Rules
 
-- ✅ [convert-js-to-ts](#convert-js-to-ts)
 - ✅ [merge-heading-spaces](#merge-heading-spaces);
 - ✅ [remove-dependencies-status-badge](#remove-dependencies-status-badge);
 - ✅ [remove-trailing-whitespaces-from-heading](#remove-trailing-whitespaces-from-heading);
 - ✅ [split-link-with-title](#split-link-with-title);
+
+## Filesystem
+
+- ✅ [apply-ts-codeblock-in-file](#apply-ts-codeblock-in-file)
 
 ## Config
 
 ```json
 {
     "rules": {
+        "markdown/apply-ts-codeblock-in-file": "on",
         "markdown/merge-heading-spaces": "on",
         "markdown/remove-dependencies-status-badge": "on",
         "markdown/remove-trailing-whitespaces-from-heading": "on",
-        "markdown/split-link-with-title": "on",
-        "markdown/convert-js-to-ts": "on"
+        "markdown/split-link-with-title": "on"
     }
 }
 ```
@@ -90,7 +93,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f11d7152b8
 +# @putout/plugin-apply-replace-all [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] hello
 ```
 
-## convert-js-to-ts
+## apply-ts-codeblock-in-file
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7ae48ca6533eef3858f58b94a8d8e27d/392e8d9b76d69df8aa5d649e84874d18d36fe6fb).
 

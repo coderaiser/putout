@@ -1,12 +1,14 @@
 import {parse, operator} from 'putout';
+import {tryCatch} from 'try-catch';
 
 const {
     setLiteralValue,
     __markdown,
     compare,
+    extract,
 } = operator;
 
-export const report = () => `Use a 'ts' instead of 'js' fence for TypeScript`;
+export const report = () => `Use 'ts' instead of 'js' fence for TypeScript`;
 
 export const match = () => ({
     'codeblock(__args)': ({__args}, {parentPath}) => {
@@ -15,7 +17,7 @@ export const match = () => ({
         
         const [lang, source] = __args;
         
-        return lang.value === 'js' && isTypeScript(source.value);
+        return lang.value === 'js' && isTypeScript(extract(source));
     },
 });
 
@@ -33,14 +35,6 @@ const isClean = (source, options) => {
     const [error, ast] = tryCatch(parse, source, options);
     return !error && !ast.errors.length;
 };
-
-function tryCatch(fn, ...a) {
-    try {
-        return [null, fn(...a)];
-    } catch(e) {
-        return [e];
-    }
-}
 
 const isTypeScript = (source) => isClean(source, {
     isTS: true,

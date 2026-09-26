@@ -27,7 +27,7 @@ test('plugin-markdown: transform: remove-trailing-whitespaces-from-heading', (t)
     t.end();
 });
 
-test('plugin-markdown: transform: convert-js-to-ts', (t) => {
-    t.transform('convert-js-to-ts');
+test('plugin-markdown: no report: apply-ts-codeblock-in-file', (t) => {
+    t.noReport('apply-ts-codeblock-in-file');
     t.end();
 });

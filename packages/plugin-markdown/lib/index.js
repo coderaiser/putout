@@ -1,4 +1,4 @@
-import * as convertJsToTs from './convert-js-to-ts/index.js';
+import * as applyTsCodeblockInFile from './apply-ts-codeblock-in-file/index.js';
 import * as removeTrailingWhitespacesFromHeading from './remove-trailing-whitespaces-from-heading/index.js';
 import * as removeDependenciesStatusBadge from './remove-dependencies-status-badge/index.js';
 import * as splitLinkWithTitle from './split-link-with-title/index.js';
@@ -9,5 +9,5 @@ export const rules = {
     'split-link-with-title': splitLinkWithTitle,
     'remove-dependencies-status-badge': removeDependenciesStatusBadge,
     'remove-trailing-whitespaces-from-heading': removeTrailingWhitespacesFromHeading,
-    'convert-js-to-ts': convertJsToTs,
+    'apply-ts-codeblock-in-file': ['off', applyTsCodeblockInFile],
 };
