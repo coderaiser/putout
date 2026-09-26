@@ -60,7 +60,6 @@ export const fromJS = (source, name = __json) => {
     
     const sliced = source.slice(prefix.length, length);
     
-    //return maybeNewline(removeBlankLines(sliced));
     return maybeNewline(sliced);
 };
 
