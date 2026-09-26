@@ -139,6 +139,7 @@ test('putout: config: filesystem', (t) => {
         'esm/resolve-imported-file': 'on',
         'esm/shorten-imported-file': 'on',
         'madrun/rename-file': 'on',
+        'markdown/apply-ts-codeblock-in-file': 'on',
         'nodejs/cjs-file': 'on',
         'nodejs/mjs-file': 'on',
         'nodejs/rename-file-cjs-to-js': 'on',
