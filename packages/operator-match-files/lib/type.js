@@ -8,6 +8,9 @@ export const getType = (name) => {
     if (name.endsWith('toml'))
         return 'toml';
     
+    if (name.endsWith('css'))
+        return 'css';
+    
     if (name.endsWith('md'))
         return 'markdown';
     

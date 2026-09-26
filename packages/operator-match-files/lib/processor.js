@@ -3,6 +3,7 @@ import * as processorYaml from '@putout/processor-yaml';
 import * as processorToml from '@putout/processor-toml';
 import * as processorMarkdown from '@putout/processor-markdown';
 import * as processorJson from '@putout/processor-json';
+import * as processorCss from '@putout/processor-css';
 
 const getSource = ({source}) => source;
 
@@ -11,6 +12,7 @@ export const processors = {
     yaml: wrapProcessor(processorYaml),
     toml: wrapProcessor(processorToml),
     markdown: wrapProcessor(processorMarkdown),
+    css: wrapProcessor(processorCss),
 };
 
 export const getProcessor = (name) => {

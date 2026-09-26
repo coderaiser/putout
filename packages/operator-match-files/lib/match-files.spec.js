@@ -1183,3 +1183,53 @@ test('putout: operator: match-files: throws on fix', (t) => {
     t.equal(error.message, expected);
     t.end();
 });
+
+test('putout: operator: match-files: css', (t) => {
+    const plugin = {
+        report: () => `Use 'var' instead of 'rgb'`,
+        replace: () => ({
+            'functionValue("rgb", __a)': 'functionValue("var", ["--shadow-color"])',
+        }),
+    };
+    
+    const content = montag`
+        .hello {
+            box-shadow: 0 -4px 16px rgb(0 0 0 / 20%);
+        }
+    `;
+    
+    const source = stringify(['/', ['/style.css', btoa(content)]]);
+    
+    const files = {
+        '*.css': {
+            plugins: [
+                ['css', plugin],
+            ],
+        },
+    };
+    
+    const jsSource = toJS(source, __filesystem);
+    const ast = parse(jsSource);
+    
+    transform(ast, {
+        plugins: [
+            ['match-files', matchFiles(files)],
+        ],
+    });
+    
+    const result = JSON.parse(fromJS(
+        print(ast),
+        __filesystem,
+    ));
+    
+    const css = btoa(montag`
+        .hello {
+            box-shadow: 0 -4px 16px var(--shadow-color);
+        }\n
+    `);
+    
+    const expected = ['/', ['/style.css', css]];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
