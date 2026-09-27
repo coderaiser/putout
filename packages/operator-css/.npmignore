@@ -1,0 +1,10 @@
+*.spec.js
+*.config.*
+*.log
+*.lock
+
+.*
+
+test
+fixture
+coverage

@@ -241,3 +241,10 @@ test('putout: operate: indentCodeblock', async (t) => {
     t.equal(indentCodeblock, operator.indentCodeblock);
     t.end();
 });
+
+test('putout: operate: convertJsToCss', async (t) => {
+    const {convertJsToCss} = await import('@putout/operator-css');
+    
+    t.equal(convertJsToCss, operator.convertJsToCss);
+    t.end();
+});

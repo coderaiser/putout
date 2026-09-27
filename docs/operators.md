@@ -38,6 +38,7 @@ Here is list of built-in operators
 |---------|---------|
 | [`@putout/operate`](/packages/operate#readme) | [![npm](https://img.shields.io/npm/v/@putout/operate.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operate) |
 | [`@putout/operator-add-args`](/packages/operator-add-args#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-add-args.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-add-args) |
+| [`@putout/operator-css`](/packages/operator-css#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-css) |
 | [`@putout/operator-declare`](/packages/operator-declare#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-declare.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-declare) |
 | [`@putout/operator-filesystem`](/packages/operator-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-filesystem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-filesystem) |
 | [`@putout/operator-find-file-up`](/packages/operator-find-file-up#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-find-file-up.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-find-file-up) |

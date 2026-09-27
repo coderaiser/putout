@@ -2,6 +2,7 @@ import {operator} from '../lib/index.js';
 
 const {
     compare,
+    convertJsToCss,
     traverse,
     toJS,
     hasTagName,
@@ -70,8 +71,6 @@ addParens(5);
 // THROWS Argument of type 'number' is not assignable to parameter of type 'SortIgnoreOptions'
 sortIgnore(5);
 
-//
-
 // THROWS Argument of type 'number' is not assignable to parameter of type 'string'
 sortProperties(5);
 
@@ -86,3 +85,6 @@ wrapInNamespace(5);
 
 // THROWS Argument of type 'number' is not assignable to parameter of type 'string'.
 indentCodeblock(5);
+//
+// THROWS Argument of type 'number' is not assignable to parameter of type 'string'.
+convertJsToCss(5);
