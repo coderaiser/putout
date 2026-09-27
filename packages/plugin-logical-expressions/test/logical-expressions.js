@@ -31,3 +31,8 @@ test('plugin-logical-expressions: transform: convert-coalescing-to-logical', (t)
     t.transform('convert-coalescing-to-logical');
     t.end();
 });
+
+test('plugin-logical-expressions: transform: apply-destructuring', (t) => {
+    t.transform('apply-destructuring');
+    t.end();
+});

@@ -1,3 +1,4 @@
+import * as applyDestructuring from './apply-destructuring/index.js';
 import * as convertCoalescingToLogical from './convert-coalescing-to-logical/index.js';
 import * as simplify from './simplify/index.js';
 import * as removeBoolean from './remove-boolean/index.js';
@@ -10,4 +11,5 @@ export const rules = {
     'remove-duplicates': removeDuplicates,
     'convert-bitwise-to-logical': convertBitwiseToLogical,
     'convert-coalescing-to-logical': convertCoalescingToLogical,
+    'apply-destructuring': applyDestructuring,
 };

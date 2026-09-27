@@ -25,6 +25,7 @@ npm i @putout/plugin-logical-expressions -D
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-duplicates](#remove-duplicates);
 - ✅ [simplify](#simplify);
+- ✅ [apply-destructuring](#apply-destructuring);
 
 ## Config
 
@@ -33,10 +34,10 @@ npm i @putout/plugin-logical-expressions -D
     "rules": {
         "logical-expressions/convert-bitwise-to-logical": "on",
         "logical-expressions/convert-coalescing-to-logical": "on",
-        
         "logical-expressions/remove-boolean": "on",
         "logical-expressions/remove-duplicates": "on",
-        "logical-expressions/simplify": "on"
+        "logical-expressions/simplify": "on",
+        "logical-expressions/apply-destructuring": "on"
     }
 }
 ```
@@ -182,6 +183,30 @@ In case of duplicates:
 ```diff
 -a && b && a
 +a && b
+```
+
+## apply-destructuring
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8be6be9e01228bee4d2cc0afbb132884/b87007a1a86680f5d1315c735549a24279d6eb2a).
+
+### ❌ Example of incorrect code
+
+```js
+const arrow = (el) => el().text && el().text.trim();
+
+const value = getState().workbench && getState().workbench.code;
+```
+
+### ✅ Example of correct code
+
+```js
+const arrow = (el) => {
+    const {text} = el();
+    return text && text.trim();
+};
+
+const {workbench} = getState();
+const value = workbench && workbench.code;
 ```
 
 ## License
