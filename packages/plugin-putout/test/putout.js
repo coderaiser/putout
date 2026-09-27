@@ -439,3 +439,8 @@ test('plugin-putout: transform: sort-readme-file', (t) => {
     t.transform('sort-readme-file');
     t.end();
 });
+
+test('plugin-putout: transform: apply-type-check', (t) => {
+    t.transform('apply-type-check');
+    t.end();
+});

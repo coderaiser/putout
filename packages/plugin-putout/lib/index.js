@@ -1,3 +1,4 @@
+import * as applyTypeCheck from './apply-type-check/index.js';
 import * as sortReadmeFile from './sort-readme-file/index.js';
 import * as applyStringToPropertyKey from './apply-string-to-property-key/index.js';
 import * as convertTraverseToSuperTraverse from './convert-traverse-to-super-traverse/index.js';
@@ -178,4 +179,5 @@ export const rules = {
     'convert-traverse-to-super-traverse': convertTraverseToSuperTraverse,
     'apply-string-to-property-key': applyStringToPropertyKey,
     'sort-readme-file': sortReadmeFile,
+    'apply-type-check': applyTypeCheck,
 };

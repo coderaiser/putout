@@ -13,6 +13,7 @@ npm i @putout/plugin-putout -D
 
 ## Rules
 
+- ✅ [apply-type-check](#apply-type-check)
 - ✅ [add-await-to-progress](#add-await-to-progress);
 - ✅ [add-crawl-file](#add-crawl-file);
 - ✅ [add-path-arg-to-filter](#add-path-arg-to-filter);
@@ -115,22 +116,16 @@ npm i @putout/plugin-putout -D
         "putout/add-crawl-file": "on",
         "putout/add-path-arg-to-filter": "on",
         "putout/add-path-arg-to-fix": "on",
-        
         "putout/add-path-arg-to-match": "on",
         "putout/add-path-arg-to-visitors": "on",
         "putout/add-places-to-compare-places": "on",
-        
         "putout/add-push-arg": "on",
         "putout/add-test-args": "on",
-        
         "putout/add-track-file": "on",
         "putout/add-traverse-args": "on",
-        
         "putout/apply-async-formatter": "on",
-        
         "putout/apply-create-nested-directory": "on",
         "putout/apply-create-test": "on",
-        
         "putout/apply-declare": "on",
         "putout/apply-destructuring": "on",
         "putout/apply-destructuring-to-options": "on",
@@ -139,100 +134,73 @@ npm i @putout/plugin-putout -D
         "putout/apply-exports-to-add-args": "on",
         "putout/apply-exports-to-match-files": "on",
         "putout/apply-exports-to-rename-files": "on",
-        
         "putout/apply-fixture-name-to-message": "on",
         "putout/apply-for-of-to-track-file": "on",
         "putout/apply-get-binding": "on",
-        
         "putout/apply-insert-after": "on",
         "putout/apply-insert-before": "on",
-        
         "putout/apply-lowercase-to-node-builders": "on",
         "putout/apply-name-to-is-identifier": "on",
-        
         "putout/apply-namespace-specifier": "on",
         "putout/apply-parens": "on",
         "putout/apply-processors-destructuring": "on",
-        
         "putout/apply-remove": "on",
         "putout/apply-rename": "on",
         "putout/apply-report": "on",
-        
         "putout/apply-short-processors": "on",
         "putout/apply-string-to-property-key": "on",
         "putout/apply-transform-with-options": "on",
-        
         "putout/apply-traverser-to-ignore": "on",
         
+        "putout/apply-type-check": "on",
         "putout/apply-vars": "on",
-        
         "putout/check-declare": "on",
         "putout/check-match": "on",
-        
         "putout/check-replace-code": ["on", {
             "once": true
         }],
-        
         "putout/convert-add-argument-to-add-args": "on",
         "putout/convert-babel-types": "on",
         "putout/convert-destructuring-to-identifier": "on",
-        
         "putout/convert-dirname-to-url": "on",
-        
         "putout/convert-get-file-content-to-read-file-content": "on",
         "putout/convert-get-rule-to-require": "on",
         "putout/convert-include-to-traverse": "on",
         "putout/convert-match-to-function": "on",
-        
         "putout/convert-method-to-property": "on",
         "putout/convert-node-to-path-in-get-template-values": "on",
         "putout/convert-number-to-numeric": "on",
-        
         "putout/convert-plugins-element-to-tuple": "on",
         "putout/convert-process-to-find": "on",
-        
         "putout/convert-progress-to-track-file": "on",
-        
         "putout/convert-push-object-to-push-path": "on",
         "putout/convert-putout-test-to-create-test": "on",
-        
         "putout/convert-replace-to-function": "on",
         "putout/convert-replace-to-traverse": "on",
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
-        
         "putout/convert-report-to-function": "on",
         "putout/convert-to-no-transform-code": "on",
-        
         "putout/convert-traverse-to-include": "on",
         "putout/convert-traverse-to-replace": "on",
         "putout/convert-traverse-to-scan": "on",
         "putout/convert-traverse-to-super-traverse": "on",
-        
         "putout/convert-url-to-dirname": "on",
-        
         "putout/create-test": "on",
         "putout/declare": "on",
-        
         "putout/declare-path-variable": "on",
         "putout/declare-template-variables": "on",
-        
         "putout/includer": "on",
         "putout/move-require-on-top-level": "on",
-        
         "putout/remove-empty-array-from-process": "on",
         "putout/remove-empty-object-from-transform": "on",
-        
         "putout/remove-message-from-no-report-after-transform": "on",
         "putout/remove-unused-get-properties-argument": "on",
-        
         "putout/remove-useless-printer-option": "on",
         "putout/remove-useless-source-argument": "on",
         "putout/replace-test-message": "on",
-        
         "putout/shorten-imports": "on",
         "putout/simplify-replace-template": "on",
-        
         "putout/sort-readme-file": "on"
     }
 }
@@ -2289,6 +2257,22 @@ test('flatlint: convert-comma-to-semicolon: no report: array', (t) => {
     t.noReport('array');
     t.end();
 });
+```
+
+## apply-type-check
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3176ff5d9bfb388723c977735e49d599/00036b9cbd71b1a778c8423e2e7a707abd9f2f1f).
+
+### ❌ Example of incorrect code
+
+```js
+if (a.type === 'CallExpression') {}
+```
+
+### ✅ Example of correct code
+
+```js
+if (isCallExpression(a)) {}
 ```
 
 ## License
