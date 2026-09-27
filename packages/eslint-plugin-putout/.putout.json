@@ -1,6 +1,7 @@
 {
     "rules": {
         "putout": "on",
+        "putout/apply-type-check": "off",
         "madrun/insert-test-dts": "on",
         "regexp/apply-starts-with": "off",
         "eslint/apply-ignores": "off",
