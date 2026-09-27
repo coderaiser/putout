@@ -4,6 +4,7 @@ const {
     isCallExpression,
     isSuper,
 } = types;
+
 const {remove} = operator;
 
 export const report = () => `Avoid useless constructor`;
