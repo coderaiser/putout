@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('putout: apply-type-check: report', (t) => {
-    t.report('apply-type-check', `Use 'if' instead of ternary 🧹`);
+    t.report('apply-type-check', `Use 'is-' function to check type`);
     t.end();
 });
 

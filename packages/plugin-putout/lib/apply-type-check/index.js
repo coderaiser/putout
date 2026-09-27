@@ -7,7 +7,7 @@ const {
 
 const {extract} = operator;
 
-export const report = () => `Use 'if' instead of ternary 🧹`;
+export const report = () => `Use 'is-' function to check type`;
 
 export const match = () => ({
     '__a.type === __b': check,
