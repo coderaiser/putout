@@ -51,10 +51,10 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c27bb67e49
 
 ### Comparison
 
-Linter | Rule | Fix
---------|-------|------------|
-🐊 **Putout** | [`css/apply-shorthand`](https://github.com/coderaiser/putout/tree/master/packages/plugin-css#apply-shorthand) | ✅
-🤵🏻‍♂️ **Stylelint** | [`shorthand-property-no-redundant-values`](https://stylelint.io/user-guide/rules/shorthand-property-no-redundant-values/) | ✅
+| Linter                | Rule | Fix |
+|-----------------------|------|-----|
+| 🐊 **Putout**         | [`css/apply-shorthand`](https://github.com/coderaiser/putout/tree/master/packages/plugin-css#apply-shorthand) | ✅   |
+| 🤵🏻‍♂️ **Stylelint** | [`shorthand-property-no-redundant-values`](https://stylelint.io/user-guide/rules/shorthand-property-no-redundant-values/) | ✅   |
 
 ## License
 
