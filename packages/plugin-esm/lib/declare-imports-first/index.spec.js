@@ -63,7 +63,8 @@ test('putout: plugin-esm: declare-imports-first: transform: convert-esm-to-commo
 
 test('putout: plugin-esm: declare-imports-first: transform: merge-destructuring-properties', (t) => {
     t.transform('merge-destructuring-properties', {
-        putout,
+        'putout/declare': putout.rules.declare,
+        'putout/apply-lowercase-to-node-builders': putout.rules['apply-lowercase-to-node-builders'],
         'merge-destructuring-properties': mergeDestructuringProperties,
     });
     t.end();
