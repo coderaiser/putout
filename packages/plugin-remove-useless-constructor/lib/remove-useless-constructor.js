@@ -1,6 +1,9 @@
 import {operator, types} from 'putout';
 
-const {isCallExpression} = types;
+const {
+    isCallExpression,
+    isSuper,
+} = types;
 const {remove} = operator;
 
 export const report = () => `Avoid useless constructor`;
@@ -21,7 +24,7 @@ export const traverse = ({push}) => ({
         
         const [first] = node.body.body;
         
-        if (!isCallExpression(first?.expression) || first.expression.callee.type !== 'Super')
+        if (!isCallExpression(first?.expression) || !isSuper(first.expression.callee))
             return;
         
         push(path);

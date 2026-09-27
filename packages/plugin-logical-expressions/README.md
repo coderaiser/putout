@@ -144,7 +144,7 @@ a() && b;
 ```js
 const is = !options || options.bidirectional;
 
-if (left.type !== 'UnaryExpression') {}
+if (!isUnaryExpression(left)) {}
 
 const oneOf = a;
 const same = true;
