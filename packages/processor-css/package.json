@@ -30,7 +30,6 @@
     "align-spaces": "^3.0.0",
     "cosmiconfig": "^10.0.0",
     "deepmerge": "^4.2.2",
-    "happy-style": "^1.0.6",
     "stylelint": "^17.0.0",
     "stylelint-config-standard": "^40.0.0"
   },
