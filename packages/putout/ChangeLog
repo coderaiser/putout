@@ -1,3 +1,14 @@
+2026.09.27, v42.19.0
+
+fix:
+- c29f76cf4 @putout/processor-css: rm happy-style
+
+feature:
+- 55ba52565 @putout/operator-match-files: @putout/processor-css -> @putout/operator-css
+- 9a63abd43 @putout/processor-css: happy-style -> operator-css
+- 9a03bf257 @putout/operator-css: add
+- 134909f42 @putout/operator-match-files: css
+
 2026.09.27, v42.18.0
 
 fix:
