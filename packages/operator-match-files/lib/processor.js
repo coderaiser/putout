@@ -3,7 +3,7 @@ import * as processorYaml from '@putout/processor-yaml';
 import * as processorToml from '@putout/processor-toml';
 import * as processorMarkdown from '@putout/processor-markdown';
 import * as processorJson from '@putout/processor-json';
-import * as processorCss from '@putout/processor-css';
+import {convertJsToCss, convertCssToJs} from '@putout/operator-css';
 
 const getSource = ({source}) => source;
 
@@ -12,7 +12,10 @@ export const processors = {
     yaml: wrapProcessor(processorYaml),
     toml: wrapProcessor(processorToml),
     markdown: wrapProcessor(processorMarkdown),
-    css: wrapProcessor(processorCss),
+    css: {
+        branch: (a) => parse(convertCssToJs(a)),
+        merge: (a) => convertJsToCss(print(a)),
+    },
 };
 
 export const getProcessor = (name) => {
@@ -34,11 +37,7 @@ function wrapProcessor(processor) {
                 .branch(content)
                 .map(getSource);
             
-            const ast = parse(js);
-            
-            return {
-                ast,
-            };
+            return parse(js);
         },
         merge: (ast, options) => {
             const js = print(ast, options);
@@ -53,9 +52,7 @@ function branch(content) {
         isTS: true,
     });
     
-    return {
-        ast,
-    };
+    return ast;
 }
 
 export const merge = (ast, options) => print(ast, options);

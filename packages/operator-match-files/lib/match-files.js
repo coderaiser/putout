@@ -114,8 +114,7 @@ const createScan = ({files, exclude, defaultFilename}) => (mainPath, {push, prog
         });
         
         const fileContent = readFileContent(inputFile) || '{}';
-        
-        const {ast} = magicParse(inputFilename, fileContent);
+        const ast = magicParse(inputFilename, fileContent);
         
         const options = parseOptions(inputFilename, rawOptions);
         const [error, places] = tryCatch(findPlaces, ast, options);
