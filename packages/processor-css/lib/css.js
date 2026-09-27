@@ -1,7 +1,7 @@
 import stylelint from 'stylelint';
 import {cosmiconfig} from 'cosmiconfig';
 import {alignSpaces} from 'align-spaces';
-import {convertJsToCss, convertCssToJs} from 'happy-style';
+import {convertJsToCss, convertCssToJs} from '@putout/operator-css';
 import {
     __css,
     toJS,
