@@ -195,6 +195,52 @@ test('putout: parseOptions: custom match more important then custom options', (t
     t.end();
 });
 
+test('putout: parseOptions: custom match: nested', (t) => {
+    const readCodeMods = stub().returns([__dirname, empty]);
+    const readOptions = stub().returns([__dirname, empty]);
+    const readHomeOptions = stub().returns(empty);
+    
+    const defaultOptions = empty;
+    
+    const options = {
+        rules: {
+            'tape/remove-only': 'on',
+        },
+        match: {
+            '*.spec.js': {
+                tape: 'off',
+            },
+        },
+    };
+    
+    const overrides = {
+        defaultOptions,
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+        readCodeMods,
+    }, overrides);
+    
+    const expected = {
+        dir: __dirname,
+        match: {
+            '*.spec.js': {
+                tape: 'off',
+            },
+        },
+        rules: {
+            tape: 'off',
+        },
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: parseOptions: no code mods directory: .putout', (t) => {
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);

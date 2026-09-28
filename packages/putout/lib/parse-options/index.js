@@ -11,6 +11,7 @@ import _defaultOptions from '../../putout.json' with {
     type: 'json',
 };
 import {mergeOptions} from './merge-options.js';
+import {applyMatchRules} from './apply-match-rules.js';
 import _recursiveRead from './recursive-read.js';
 import applyModuleTypeRules from './apply-module-type-rules.js';
 import {validateOptions} from './validate-options/index.js';
@@ -87,6 +88,12 @@ export const parseOptions = (info = {}, overrides = {}) => {
     ];
     
     const finalMergedOptions = mergeOptions(...resultOptionsList);
+    
+    const matched = parseMatch(name, options.match);
+    const withMatchRules = applyMatchRules(finalMergedOptions.rules, matched.rules);
+    
+    if (withMatchRules !== finalMergedOptions.rules)
+        finalMergedOptions.rules = withMatchRules;
     
     validateOptions(finalMergedOptions);
     
