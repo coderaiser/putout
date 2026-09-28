@@ -17,6 +17,11 @@ test('logical-expressions: apply-destructuring: transform', (t) => {
     t.end();
 });
 
+test('logical-expressions: apply-destructuring: transform: return', (t) => {
+    t.transform('return');
+    t.end();
+});
+
 test('logical-expressions: apply-destructuring: no report: declared', (t) => {
     t.noReport('declared');
     t.end();
