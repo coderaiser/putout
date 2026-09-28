@@ -1,3 +1,8 @@
+2026.09.28, v42.20.1
+
+fix:
+- c869b5c1d putout: parse-options: revert match more important then rule
+
 2026.09.28, v42.20.0
 
 fix:
