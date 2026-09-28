@@ -1,3 +1,15 @@
+2026.09.28, v42.20.0
+
+fix:
+- 68a30b688 putout: parse-options: match more important then rule
+- 9fc0ed334 @putout/plugin-putout: apply-type-check: report
+
+feature:
+- a3a8ebab3 @putout/plugin-logical-expressions: apply-destructuring: return
+- e68d745fd @putout/plugin-logical-expressions: apply-destructuring: declared: exclude
+- 9ab71f538 @putout/plugin-logical-expressions: apply-destructuring
+- 78be97a4e @putout/plugin-putout: apply-type-check
+
 2026.09.27, v42.19.0
 
 fix:
