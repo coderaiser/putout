@@ -11,7 +11,7 @@ export const match = () => ({
 export const replace = () => ({
     'return __a().__b && __a().__b.__c()': `{
         const {__b} = __a();
-        return __b.__c();
+        return __b && __b.__c();
     }`,
     '(__a) => __a().__b && __a().__b.__c()': `(__a) => {
         const {__b} = __a();
