@@ -444,3 +444,8 @@ test('plugin-putout: transform: apply-type-check', (t) => {
     t.transform('apply-type-check');
     t.end();
 });
+
+test('plugin-putout: transform: convert-replacer-to-includer', (t) => {
+    t.transform('convert-replacer-to-includer');
+    t.end();
+});

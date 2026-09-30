@@ -1,3 +1,4 @@
+import * as convertReplacerToIncluder from './convert-replacer-to-includer/index.js';
 import * as applyTypeCheck from './apply-type-check/index.js';
 import * as sortReadmeFile from './sort-readme-file/index.js';
 import * as applyStringToPropertyKey from './apply-string-to-property-key/index.js';
@@ -180,4 +181,5 @@ export const rules = {
     'apply-string-to-property-key': applyStringToPropertyKey,
     'sort-readme-file': sortReadmeFile,
     'apply-type-check': applyTypeCheck,
+    'convert-replacer-to-includer': convertReplacerToIncluder,
 };

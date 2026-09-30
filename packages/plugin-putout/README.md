@@ -102,6 +102,7 @@ npm i @putout/plugin-putout -D
 - ✅ [replace-test-message](#replace-test-message);
 - ✅ [shorten-imports](#shorten-imports);
 - ✅ [simplify-replace-template](#simplify-replace-template);
+- ✅ [convert-replacer-to-includer](#convert-replacer-to-includer);
 
 ## File rules
 
@@ -151,7 +152,6 @@ npm i @putout/plugin-putout -D
         "putout/apply-string-to-property-key": "on",
         "putout/apply-transform-with-options": "on",
         "putout/apply-traverser-to-ignore": "on",
-        
         "putout/apply-type-check": "on",
         "putout/apply-vars": "on",
         "putout/check-declare": "on",
@@ -201,7 +201,8 @@ npm i @putout/plugin-putout -D
         "putout/replace-test-message": "on",
         "putout/shorten-imports": "on",
         "putout/simplify-replace-template": "on",
-        "putout/sort-readme-file": "on"
+        "putout/sort-readme-file": "on",
+        "putout/convert-replacer-to-includer": "on"
     }
 }
 ```
@@ -2273,6 +2274,29 @@ if (a.type === 'CallExpression') {}
 
 ```js
 if (isCallExpression(a)) {}
+```
+
+## convert-replacer-to-includer
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/4b5e172466fda5e8fb114e767639f7ee/d3af95da4418b8c0e761d8cd50c1fa38a412b55c).
+
+### ❌ Example of incorrect code
+
+```js
+export const replace = () => ({
+    'const [__a, {__b}] = __c(__d, __e)': 'const [__a, {__b}] = __c(__d, __e)',
+    'const [__a, {__b = {}} = {}] = __c(__d, __e)': 'const [__a, {__b = {}} = {}] = __c(__d, __e)',
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const fix = () => {};
+export const include = () => [
+    'const [__a, {__b}] = __c(__d, __e)',
+    'const [__a, {__b = {}} = {}] = __c(__d, __e)',
+];
 ```
 
 ## License
