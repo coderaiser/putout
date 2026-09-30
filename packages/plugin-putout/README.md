@@ -103,6 +103,7 @@ npm i @putout/plugin-putout -D
 - ✅ [shorten-imports](#shorten-imports);
 - ✅ [simplify-replace-template](#simplify-replace-template);
 - ✅ [convert-replacer-to-includer](#convert-replacer-to-includer);
+- ✅ [remove-useless-match](#remove-useless-match);
 
 ## File rules
 
@@ -202,7 +203,8 @@ npm i @putout/plugin-putout -D
         "putout/shorten-imports": "on",
         "putout/simplify-replace-template": "on",
         "putout/sort-readme-file": "on",
-        "putout/convert-replacer-to-includer": "on"
+        "putout/convert-replacer-to-includer": "on",
+        "putout/remove-useless-match": "on"
     }
 }
 ```
@@ -2297,6 +2299,24 @@ export const include = () => [
     'const [__a, {__b}] = __c(__d, __e)',
     'const [__a, {__b = {}} = {}] = __c(__d, __e)',
 ];
+```
+
+## remove-useless-match
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a813e8b3da2ccbe949a3156842c3112e/5e21a147247c2451f9f826ba384d62ab37c17a01).
+
+### ❌ Example of incorrect code
+
+```js
+export const match = () => ({
+    'const [__a, {__b}] = __c(__d, __e)': () => true,
+    'const [__a, {__b = {}} = {}] = __c(__d, __e)': () => true,
+});
+```
+
+### ✅ Example of correct code
+
+```js
 ```
 
 ## License

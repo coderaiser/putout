@@ -449,3 +449,8 @@ test('plugin-putout: transform: convert-replacer-to-includer', (t) => {
     t.transform('convert-replacer-to-includer');
     t.end();
 });
+
+test('plugin-putout: transform: remove-useless-match', (t) => {
+    t.transform('remove-useless-match');
+    t.end();
+});

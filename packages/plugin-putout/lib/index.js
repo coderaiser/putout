@@ -1,3 +1,4 @@
+import * as removeUselessMatch from './remove-useless-match/index.js';
 import * as convertReplacerToIncluder from './convert-replacer-to-includer/index.js';
 import * as applyTypeCheck from './apply-type-check/index.js';
 import * as sortReadmeFile from './sort-readme-file/index.js';
@@ -182,4 +183,5 @@ export const rules = {
     'sort-readme-file': sortReadmeFile,
     'apply-type-check': applyTypeCheck,
     'convert-replacer-to-includer': convertReplacerToIncluder,
+    'remove-useless-match': removeUselessMatch,
 };
