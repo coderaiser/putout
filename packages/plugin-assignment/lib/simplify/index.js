@@ -1,9 +1,14 @@
+import {types} from 'putout';
+
+const {isSpreadElement} = types;
+
 export const report = () => 'Simplify assignment';
 
 export const match = () => ({
     'const __a = (() => __b)()': check,
     '__a = (() => __b)()': check,
     'var __a = (() => __b)()': check,
+    'const [__a] = [__b]': ({__b}) => !isSpreadElement(__b),
 });
 
 export const replace = () => ({

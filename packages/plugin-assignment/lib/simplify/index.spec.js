@@ -26,3 +26,8 @@ test('plugin-assignment: simplify: no transform: iife', (t) => {
     t.noTransform('iife');
     t.end();
 });
+
+test('plugin-assignment: simplify: no report: spread', (t) => {
+    t.noReport('spread');
+    t.end();
+});
