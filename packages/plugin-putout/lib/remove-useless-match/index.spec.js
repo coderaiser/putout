@@ -21,3 +21,8 @@ test('putout: remove-useless-match: no report: not-true', (t) => {
     t.noReport('not-true');
     t.end();
 });
+
+test('putout: remove-useless-match: no report: method', (t) => {
+    t.noReport('method');
+    t.end();
+});

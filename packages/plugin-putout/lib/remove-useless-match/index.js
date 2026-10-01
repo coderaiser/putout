@@ -1,7 +1,10 @@
 import {operator, types} from 'putout';
 
 const {compare, remove} = operator;
-const {booleanLiteral} = types;
+const {
+    booleanLiteral,
+    isObjectProperty,
+} = types;
 
 export const report = () => `Avoid useless 'match'`;
 
@@ -14,7 +17,7 @@ export const traverse = ({push}) => ({
         const properties = __objectPath.get('properties');
         const boolean = booleanLiteral(true);
         
-        for (const property of properties) {
+        for (const property of properties.filter(isObjectProperty)) {
             const {body} = property.node.value;
             
             if (compare(body, boolean))
