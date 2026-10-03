@@ -454,3 +454,8 @@ test('plugin-putout: transform: remove-useless-match', (t) => {
     t.transform('remove-useless-match');
     t.end();
 });
+
+test('plugin-putout: transform: remove-useless-type-check-declaration', (t) => {
+    t.transform('remove-useless-type-check-declaration');
+    t.end();
+});

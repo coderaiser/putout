@@ -1,3 +1,4 @@
+import * as removeUselessTypeCheckDeclaration from './remove-useless-type-check-declaration/index.js';
 import * as removeUselessMatch from './remove-useless-match/index.js';
 import * as convertReplacerToIncluder from './convert-replacer-to-includer/index.js';
 import * as applyTypeCheck from './apply-type-check/index.js';
@@ -184,4 +185,5 @@ export const rules = {
     'apply-type-check': applyTypeCheck,
     'convert-replacer-to-includer': convertReplacerToIncluder,
     'remove-useless-match': removeUselessMatch,
+    'remove-useless-type-check-declaration': removeUselessTypeCheckDeclaration,
 };

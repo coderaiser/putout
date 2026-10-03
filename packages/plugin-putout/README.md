@@ -104,6 +104,7 @@ npm i @putout/plugin-putout -D
 - ✅ [simplify-replace-template](#simplify-replace-template);
 - ✅ [convert-replacer-to-includer](#convert-replacer-to-includer);
 - ✅ [remove-useless-match](#remove-useless-match);
+- ✅ [remove-useless-type-check-declaration](#remove-useless-type-check-declaration);
 
 ## File rules
 
@@ -204,7 +205,8 @@ npm i @putout/plugin-putout -D
         "putout/simplify-replace-template": "on",
         "putout/sort-readme-file": "on",
         "putout/convert-replacer-to-includer": "on",
-        "putout/remove-useless-match": "on"
+        "putout/remove-useless-match": "on",
+        "putout/remove-useless-type-check-declaration": "on"
     }
 }
 ```
@@ -2317,6 +2319,23 @@ export const match = () => ({
 ### ✅ Example of correct code
 
 ```js
+```
+
+## remove-useless-type-check-declaration
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/443f742c8cda2b50e1722cdf2577d5c3/1f269a3d5ae0dcfa8661ca283b329c53c2450b39).
+
+### ❌ Example of incorrect code
+
+```js
+const isStringLiteral = (arg) => arg.type === 'StringLiteral';
+const isMemberExpression = (arg) => arg.type === 'Identifier';
+```
+
+### ✅ Example of correct code
+
+```js
+const isMemberExpression = (arg) => arg.type === 'Identifier';
 ```
 
 ## License
