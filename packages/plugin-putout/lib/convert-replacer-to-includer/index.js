@@ -4,16 +4,13 @@ import {
     types,
 } from 'putout';
 
-const {
-    compare,
-    insertBefore,
-    replaceWith,
-} = operator;
+const {insertBefore, replaceWith} = operator;
 
 const {
     stringLiteral,
     arrayExpression,
     isObjectProperty,
+    isStringLiteral,
 } = types;
 
 const createInclude = template('export const include = () => LIST');
@@ -54,7 +51,10 @@ export const traverse = ({push}) => ({
             if (computed)
                 return;
             
-            if (!compare(key, value))
+            if (!isStringLiteral(value))
+                return;
+            
+            if (key.value !== value.value)
                 return;
         }
         

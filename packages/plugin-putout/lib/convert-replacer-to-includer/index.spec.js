@@ -26,3 +26,8 @@ test('putout: convert-replacer-to-includer: no report: spread', (t) => {
     t.noReport('spread');
     t.end();
 });
+
+test('putout: convert-replacer-to-includer: no report: different', (t) => {
+    t.noReport('different');
+    t.end();
+});
