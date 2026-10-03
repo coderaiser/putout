@@ -36,12 +36,12 @@ export const traverse = ({push}) => ({
     'export const replace = () => __object': (path) => {
         const __objectPath = path.get('declaration.declarations.0.init.body');
         const properties = __objectPath.get('properties');
-        const fileteredProperties = properties.filter(isObjectProperty);
+        const filteredProperties = properties.filter(isObjectProperty);
         
-        if (!fileteredProperties.length)
+        if (!filteredProperties.length)
             return;
         
-        for (const property of fileteredProperties) {
+        for (const property of filteredProperties) {
             const {
                 key,
                 value,
