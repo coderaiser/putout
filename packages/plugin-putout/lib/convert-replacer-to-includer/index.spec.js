@@ -21,3 +21,8 @@ test('putout: convert-replacer-to-includer: no report: not-string', (t) => {
     t.noReport('not-string');
     t.end();
 });
+
+test('putout: convert-replacer-to-includer: no report: spread', (t) => {
+    t.noReport('spread');
+    t.end();
+});

@@ -13,6 +13,7 @@ const {
 const {
     stringLiteral,
     arrayExpression,
+    isObjectProperty,
 } = types;
 
 const createInclude = template('export const include = () => LIST');
@@ -38,8 +39,12 @@ export const traverse = ({push}) => ({
     'export const replace = () => __object': (path) => {
         const __objectPath = path.get('declaration.declarations.0.init.body');
         const properties = __objectPath.get('properties');
+        const fileteredProperties = properties.filter(isObjectProperty);
         
-        for (const property of properties) {
+        if (!fileteredProperties.length)
+            return;
+        
+        for (const property of fileteredProperties) {
             const {
                 key,
                 value,
