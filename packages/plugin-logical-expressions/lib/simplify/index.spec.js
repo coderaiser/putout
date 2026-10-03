@@ -77,6 +77,11 @@ test('plugin-simplify-logical-expression: transform: and', (t) => {
     t.end();
 });
 
+test('plugin-simplify-logical-expression: transform: or-and-or', (t) => {
+    t.transform('or-and-or');
+    t.end();
+});
+
 test('plugin-simplify-logical-expression: no transform: jsx', (t) => {
     t.noTransform('jsx');
     t.end();
