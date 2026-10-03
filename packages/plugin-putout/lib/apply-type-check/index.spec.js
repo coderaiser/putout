@@ -21,3 +21,8 @@ test('putout: apply-type-check: no report: empty', (t) => {
     t.noReport('empty');
     t.end();
 });
+
+test('putout: apply-type-check: no report: arrow', (t) => {
+    t.noReport('arrow');
+    t.end();
+});

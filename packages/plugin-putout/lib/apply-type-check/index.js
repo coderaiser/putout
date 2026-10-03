@@ -3,6 +3,7 @@ import {types, operator} from 'putout';
 const {
     isTemplateLiteral,
     isStringLiteral,
+    isVariableDeclarator,
 } = types;
 
 const {extract} = operator;
@@ -25,7 +26,10 @@ export const replace = () => ({
     },
 });
 
-function check({__b}) {
+function check({__b}, path) {
+    if (isVariableDeclarator(path.parentPath.parentPath))
+        return false;
+    
     if (!isStringLiteral(__b) && !isTemplateLiteral(__b))
         return false;
     
