@@ -2329,13 +2329,11 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/443f742c8c
 
 ```js
 const isStringLiteral = (arg) => arg.type === 'StringLiteral';
-const isMemberExpression = (arg) => arg.type === 'Identifier';
 ```
 
 ### ✅ Example of correct code
 
 ```js
-const isMemberExpression = (arg) => arg.type === 'Identifier';
 ```
 
 ## License
