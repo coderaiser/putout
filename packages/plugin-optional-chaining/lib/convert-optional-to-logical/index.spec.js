@@ -24,3 +24,8 @@ test('packages: optional-chaining: convert-optional-to-logical: call: transform:
     t.transform('squire');
     t.end();
 });
+
+test('packages: optional-chaining: convert-optional-to-logical: call: transform: not-equal', (t) => {
+    t.transform('not-equal');
+    t.end();
+});

@@ -1,4 +1,5 @@
-export const getLogical = (path, {assign = false} = {}) => {
+export const getLogical = (path, overrides = {}) => {
+    const {assign = false, notEqual} = overrides;
     const list = path
         .toString()
         .split('?.');
@@ -12,6 +13,9 @@ export const getLogical = (path, {assign = false} = {}) => {
         member += compute(list[i]);
         logical.push(member);
     }
+    
+    if (notEqual)
+        return '!' + logical.join(' || ');
     
     const fullLogical = logical.join(' && ');
     
