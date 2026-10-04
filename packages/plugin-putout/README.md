@@ -105,6 +105,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-replacer-to-includer](#convert-replacer-to-includer);
 - ✅ [remove-useless-match](#remove-useless-match);
 - ✅ [remove-useless-type-check-declaration](#remove-useless-type-check-declaration);
+- ✅ [shorten-path-get](#shorten-path-get);
 
 ## File rules
 
@@ -206,7 +207,8 @@ npm i @putout/plugin-putout -D
         "putout/sort-readme-file": "on",
         "putout/convert-replacer-to-includer": "on",
         "putout/remove-useless-match": "on",
-        "putout/remove-useless-type-check-declaration": "on"
+        "putout/remove-useless-type-check-declaration": "on",
+        "putout/shorten-path-get": "on"
     }
 }
 ```
@@ -2334,6 +2336,22 @@ const isStringLiteral = (arg) => arg.type === 'StringLiteral';
 ### ✅ Example of correct code
 
 ```js
+```
+
+## shorten-path-get
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/afc8a421eee129910153939eae2eb79e/04304530529a53f5894a289bcd83d3ac2460c9ab).
+
+### ❌ Example of incorrect code
+
+```js
+const elements = path.get('arguments')[0].get('elements');
+```
+
+### ✅ Example of correct code
+
+```js
+const elements = path.get('arguments.0.elements');
 ```
 
 ## License

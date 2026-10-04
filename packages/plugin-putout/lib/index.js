@@ -1,3 +1,4 @@
+import * as shortenPathGet from './shorten-path-get/index.js';
 import * as removeUselessTypeCheckDeclaration from './remove-useless-type-check-declaration/index.js';
 import * as removeUselessMatch from './remove-useless-match/index.js';
 import * as convertReplacerToIncluder from './convert-replacer-to-includer/index.js';
@@ -186,4 +187,5 @@ export const rules = {
     'convert-replacer-to-includer': convertReplacerToIncluder,
     'remove-useless-match': removeUselessMatch,
     'remove-useless-type-check-declaration': removeUselessTypeCheckDeclaration,
+    'shorten-path-get': shortenPathGet,
 };

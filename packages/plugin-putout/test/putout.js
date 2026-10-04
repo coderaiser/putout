@@ -459,3 +459,8 @@ test('plugin-putout: transform: remove-useless-type-check-declaration', (t) => {
     t.transform('remove-useless-type-check-declaration');
     t.end();
 });
+
+test('plugin-putout: transform: shorten-path-get', (t) => {
+    t.transform('shorten-path-get');
+    t.end();
+});
