@@ -25,6 +25,7 @@ npm i @putout/plugin-optional-chaining
 - ✅ [convert-logical-to-optional](#convert-logical-to-optional);
 - ✅ [convert-optional-assign-to-logical](#convert-logical-assign-to-optional);
 - ✅ [convert-optional-to-logical](#convert-optional-to-logical);
+- ✅ [convert-optional-to-logical-inside-for-of](#convert-optional-to-logical-inside-for-of);
 
 ## Config
 
@@ -34,8 +35,8 @@ npm i @putout/plugin-optional-chaining
         "optional-chaining/convert-logical-assign-to-optional": "off",
         "optional-chaining/convert-logical-to-optional": "on",
         "optional-chaining/convert-optional-assign-to-logical": "on",
-        
-        "optional-chaining/convert-optional-to-logical": "off"
+        "optional-chaining/convert-optional-to-logical": "off",
+        "optional-chaining/convert-optional-to-logical-inside-for-of": "on"
     }
 }
 ```
@@ -130,6 +131,24 @@ hello?.world?.();
 
 ```js
 hello && hello.world && hello.world();
+```
+
+## convert-optional-to-logical-inside-for-of
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ec819b1cd0fe547a7762728d39482aa6/cc50a32def29b5afdc88cc949bb9220f0c776411).
+
+### ❌ Example of incorrect code
+
+```js
+for (const property of objectOf(init)?.properties || []) {}
+```
+
+### ✅ Example of correct code
+
+```js
+const {properties} = objectOf(init) || {};
+
+for (const property of properties || []) {}
 ```
 
 ## License

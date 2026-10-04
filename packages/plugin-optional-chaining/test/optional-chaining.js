@@ -71,3 +71,8 @@ test('plugin-optional-chaining: transform: convert-optional-assign-to-logical', 
     t.transform('convert-optional-assign-to-logical');
     t.end();
 });
+
+test('plugin-optional-chaining: transform: convert-optional-to-logical-inside-for-of', (t) => {
+    t.transform('convert-optional-to-logical-inside-for-of');
+    t.end();
+});

@@ -1,3 +1,4 @@
+import * as convertOptionalToLogicalInsideForOf from './convert-optional-to-logical-inside-for-of/index.js';
 import * as convertLogicalAssignToOptional from './convert-logical-assign-to-optional/index.js';
 import * as convertLogicalToOptional from './convert-logical-to-optional/index.js';
 import * as convertOptionalAssignToLogical from './convert-optional-assign-to-logical/index.js';
@@ -8,4 +9,5 @@ export const rules = {
     'convert-logical-to-optional': convertLogicalToOptional,
     'convert-optional-assign-to-logical': convertOptionalAssignToLogical,
     'convert-optional-to-logical': ['off', convertOptionalToLogical],
+    'convert-optional-to-logical-inside-for-of': convertOptionalToLogicalInsideForOf,
 };
