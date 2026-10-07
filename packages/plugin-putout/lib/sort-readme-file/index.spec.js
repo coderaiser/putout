@@ -41,3 +41,8 @@ test('putout: sort-readme-file: transform: config', (t) => {
     t.transform('config');
     t.end();
 });
+
+test('putout: sort-readme-file: transform: add-missing-semicolon', (t) => {
+    t.transform('add-missing-semicolon');
+    t.end();
+});

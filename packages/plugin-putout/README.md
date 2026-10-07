@@ -2241,6 +2241,7 @@ module.exports.replace = () => ({
 
 Checkout in 🐊**Putout Editor**:
 
+- ✅ [`add-missing-semicolon`](https://putout.cloudcmd.io/#/gist/7c7ab5cbedef8d6021ce2a77b5caa4f0/aee514d0cc4ef0ea26f4fdcf4def03a078eb1bd0);
 - ✅ [`sort-contents`](https://putout.cloudcmd.io/#/gist/647bcc98ba9eeaa619dfa90d129ee0ec/a19ba868e8c2f97292e763675de65cc1ec98ff66);
 - ✅ [`sort-headings`](https://putout.cloudcmd.io/#/gist/a5a23310a84cb209e7e5537bab294ab2/0ecd88ffa6e37ac2553cabe5333d307aed2c4a7d);
 - ✅ [`sort-config`](https://putout.cloudcmd.io/#/gist/41c9975090803fdee30c445868e5b93f/18f78a72eb4f4cf33f5137fca11de9314c12763c);
