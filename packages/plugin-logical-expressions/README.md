@@ -20,12 +20,12 @@ npm i @putout/plugin-logical-expressions -D
 
 ## Rules
 
+- ✅ [apply-destructuring](#apply-destructuring);
 - ✅ [convert-bitwise-to-logical](#convert-bitwise-to-logical);
 - ✅ [convert-coalescing-to-logical](#convert-coalescing-to-logical);
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-duplicates](#remove-duplicates);
 - ✅ [simplify](#simplify);
-- ✅ [apply-destructuring](#apply-destructuring);
 
 ## Config
 
