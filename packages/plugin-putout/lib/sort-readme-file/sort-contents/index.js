@@ -26,8 +26,9 @@ export const traverse = ({listStore, push}) => ({
         exit() {
             const list = {};
             const ids = {};
+            const stored = listStore();
             
-            for (const {node, parentPath} of listStore()) {
+            for (const {node, parentPath} of stored) {
                 const {line} = parentPath.node.loc.start;
                 
                 ids[line] = parentPath;
@@ -51,8 +52,13 @@ export const traverse = ({listStore, push}) => ({
             }
             
             for (const [id, list] of entries(resultList)) {
+                const currentPath = ids[id];
+                
+                if (currentPath.node.arguments.length !== list.length)
+                    return;
+                
                 push({
-                    path: ids[id],
+                    path: currentPath,
                     list,
                 });
             }

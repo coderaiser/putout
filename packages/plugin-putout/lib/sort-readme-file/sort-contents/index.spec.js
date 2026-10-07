@@ -26,3 +26,8 @@ test('putout: plugin-putout: sort-readme-file: sort-contents: no report: not-con
     t.noReport('not-content');
     t.end();
 });
+
+test('putout: plugin-putout: sort-readme-file: sort-contents: no report: no-semicolon', (t) => {
+    t.noReport('no-semicolon');
+    t.end();
+});
