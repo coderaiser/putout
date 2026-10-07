@@ -13,7 +13,7 @@ npm i @putout/plugin-putout -D
 
 ## Rules
 
-- ✅ [apply-type-check](#apply-type-check)
+- ✅ [apply-type-check](#apply-type-check);
 - ✅ [add-await-to-progress](#add-await-to-progress);
 - ✅ [add-crawl-file](#add-crawl-file);
 - ✅ [add-path-arg-to-filter](#add-path-arg-to-filter);
