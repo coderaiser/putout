@@ -126,3 +126,8 @@ test('plugin-esm: transform: remove-imports-with-duplicate-source', (t) => {
     t.transform('remove-imports-with-duplicate-source');
     t.end();
 });
+
+test('plugin-esm: transform: remove-useless-slash', (t) => {
+    t.transform('remove-useless-slash');
+    t.end();
+});

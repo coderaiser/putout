@@ -53,7 +53,6 @@ npm i putout @putout/plugin-esm -D
         "esm/apply-default-import": "on",
         "esm/apply-export-from": "on",
         "esm/apply-import-attirbutes": "on",
-        
         "esm/apply-js-to-imported-file": "off",
         "esm/apply-name-to-imported-file": "off",
         "esm/apply-namespace-to-imported-file": "off",
@@ -61,27 +60,22 @@ npm i putout @putout/plugin-esm -D
         "esm/convert-assert-to-with": "on",
         "esm/convert-const-to-import": "on",
         "esm/declare-imports-first": "on",
-        
         "esm/group-imports-by-source": "on",
-        
         "esm/merge-declaration-with-export": "on",
         "esm/merge-duplicate-imports": "on",
-        
         "esm/merge-export-declaration": "on",
-        
         "esm/remove-empty-export": "on",
-        
         "esm/remove-empty-import": ["on", {
             "ignore": []
         }],
         "esm/remove-imports-with-duplicate-source": "on",
         "esm/remove-quotes-from-import-assertions": "on",
-        
         "esm/remove-useless-export-specifiers": "off",
         "esm/resolve-imported-file": "off",
         "esm/resolve-imported-file-with-extension": "off",
         "esm/shorten-imported-file": "off",
-        "esm/sort-imports-by-specifiers": "on"
+        "esm/sort-imports-by-specifiers": "on",
+        "esm/remove-useless-slash": "on"
     }
 }
 ```
@@ -726,6 +720,22 @@ import a from './a.mjs';
 
 ```js
 import a from './a.js';
+```
+
+## remove-useless-slash
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3ae86417ae3af5b5dbd3a10717668607/2a1396092ad67ca7aaacd396f50b3f6b3ae4116e).
+
+### ❌ Example of incorrect code
+
+```js
+import * as convertLastvalToLastInsertRowid from './convert-postgres-to-sqlite//convert-lastval-to-last-insert-rowid/index.js';
+```
+
+### ✅ Example of correct code
+
+```js
+import * as convertLastvalToLastInsertRowid from './convert-postgres-to-sqlite/convert-lastval-to-last-insert-rowid/index.js';
 ```
 
 ## License

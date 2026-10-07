@@ -1,3 +1,4 @@
+import * as removeUselessSlash from './remove-useless-slash/index.js';
 import * as removeImportsWithDuplicateSource from './remove-imports-with-duplicate-source/index.js';
 import * as convertConstToImport from './convert-const-to-import/index.js';
 import * as applyImportAttributes from './apply-import-attributes/index.js';
@@ -47,4 +48,5 @@ export const rules = {
     'apply-import-attributes': applyImportAttributes,
     'convert-const-to-import': convertConstToImport,
     'remove-imports-with-duplicate-source': removeImportsWithDuplicateSource,
+    'remove-useless-slash': removeUselessSlash,
 };
