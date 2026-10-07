@@ -211,9 +211,9 @@ PUTOUT_FILES=lib,test putout --fix
 When you need to run 🐊**Putout** in [**Deno**](https://deno.land/), use [`@putout/bundle`](https://github.com/putoutjs/bundle):
 
 ```js
-import putout from 'https://esm.sh/@putout/bundle';
-import removeDebugger from 'https://esm.sh/@putout/plugin-remove-debugger?alias=putout:@putout/bundle';
-import declare from 'https://esm.sh/@putout/plugin-declare?alias=putout:@putout/bundle';
+import putout from 'https:/esm.sh/@putout/bundle';
+import removeDebugger from 'https:/esm.sh/@putout/plugin-remove-debugger?alias=putout:@putout/bundle';
+import declare from 'https:/esm.sh/@putout/plugin-declare?alias=putout:@putout/bundle';
 
 putout('isFn(fn); debugger', {
     plugins: [
@@ -460,8 +460,8 @@ With help of [processors](https://github.com/coderaiser/putout/blob/master/packa
 
 Here is a list of built-in processors:
 
-| Package | Version |
-|---------|---------|
+| Package                           | Version |
+|-----------------------------------|---------|
 | [`@putout/processor-javascript`](/packages/processor-javascript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-javascript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-javascript) |
 | [`@putout/processor-json`](/packages/processor-json#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-json.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-json) |
 | [`@putout/processor-markdown`](/packages/processor-markdown#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-markdown.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-markdown) |
@@ -472,7 +472,7 @@ Here is a list of built-in processors:
 | [`@putout/processor-css`](/packages/processor-css#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-css) |
 | [`@putout/processor-filesystem`](/packages/processor-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-filesystem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-filesystem) |
 | [`@putout/processor-html`](/packages/processor-html#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-html.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-html) |
-You can disable any of them with:
+| You can disable any of them with: |
 
 ```json
 {
@@ -484,18 +484,18 @@ You can disable any of them with:
 
 Not bundled processors:
 
-| Package | Version |
-|---------|---------|
+| Package              | Version |
+|----------------------|---------|
 | [`@putout/processor-docker`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript) |
 | [`@putout/processor-typescript`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript) |
 | [`@putout/processor-svelte`](/packages/processor-svelte#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-svelte.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-svelte) |
 | [`@putout/processor-wasm`](/packages/processor-wasm#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-wasm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-wasm) |
-External processors:
+| External processors: |
 
-| Package | Version |
-|---------|---------|
+| Package                     | Version |
+|-----------------------------|---------|
 | [`putout-processor-typos`](https://github.com/putoutjs/putout-processor-typos) | [![npm](https://img.shields.io/npm/v/putout-processor-typos.svg?maxAge=86400)](https://www.npmjs.com/package/putout-processor-typos) |
-To enable, install and use:
+| To enable, install and use: |
 
 ```json
 {
