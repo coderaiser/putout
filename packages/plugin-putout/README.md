@@ -86,6 +86,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-traverse-to-super-traverse](#convert-traverse-to-super-traverse);
 - ✅ [convert-url-to-dirname](#convert-url-to-dirname);
 - ✅ [create-test](#create-test);
+- ✅ [convert-replacer-to-includer](#convert-replacer-to-includer);
 - ✅ [declare](#declare);
 - ✅ [declare-path-variable](#declare-path-variable);
 - ✅ [declare-template-variables](#declare-template-variables);
@@ -100,11 +101,10 @@ npm i @putout/plugin-putout -D
 - ✅ [rename-operate-to-operator](#rename-operate-to-operator);
 - ✅ [replace-operate-with-operator](#replace-operate-with-operator);
 - ✅ [replace-test-message](#replace-test-message);
-- ✅ [shorten-imports](#shorten-imports);
-- ✅ [simplify-replace-template](#simplify-replace-template);
-- ✅ [convert-replacer-to-includer](#convert-replacer-to-includer);
 - ✅ [remove-useless-match](#remove-useless-match);
 - ✅ [remove-useless-type-check-declaration](#remove-useless-type-check-declaration);
+- ✅ [shorten-imports](#shorten-imports);
+- ✅ [simplify-replace-template](#simplify-replace-template);
 - ✅ [shorten-path-get](#shorten-path-get);
 
 ## File rules
