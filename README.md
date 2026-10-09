@@ -36,7 +36,7 @@ are also supported. Here is how it looks like:
 
 ## Table of contents
 
-- [🤷‍♂️ In doubt about using 🐊Putout?](#%EF%B8%8F-in-doubt-about-using-putout)
+- [🤷‍♂️ In doubt about using 🐊Putout?](%E2%80%8D%EF%B8%8F-in-doubt-about-using-putout)
 - [🙏 Whom should I thank for this project exist?](#-whom-should-i-thank-for-this-project-exist)
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [🪬Core Concepts](https://github.com/coderaiser/putout/blob/master/docs/core-concepts.md#-core-concepts)
