@@ -2205,6 +2205,7 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-apply-global-this`](/packages/plugin-apply-global-this#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-global-this.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-global-this) |
 | [`@putout/plugin-apply-flat-map`](/packages/plugin-apply-flat-map#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-flat-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-flat-map) |
 | [`@putout/plugin-apply-template-literals`](/packages/plugin-apply-template-literals#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-template-literals.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-template-literals) |
+| [`@putout/plugin-apply-to-sorted`](/packages/plugin-apply-to-sorted#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-to-sorted.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-to-sorted) |
 | [`@putout/plugin-apply-overrides`](/packages/plugin-apply-overrides#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-overrides.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-overrides) |
 | [`@putout/plugin-apply-shorthand-properties`](/packages/plugin-apply-shorthand-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-shorthand-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-shorthand-properties) |
 
