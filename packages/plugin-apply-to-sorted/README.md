@@ -8,6 +8,8 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply `toSorted`.
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d830f5f671b78d6040c6a24862a8777f/bdb7291787f18dc15c86e7bcd685774905640859).
+
 ## Install
 
 ```
