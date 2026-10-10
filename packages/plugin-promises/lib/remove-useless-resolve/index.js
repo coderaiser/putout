@@ -13,4 +13,5 @@ export const replace = () => ({
     'return Promise.resolve()': 'return',
     'return Promise.resolve(__a)': `return __a`,
     'await Promise.resolve(__a)': `__a`,
+    'await Promise.resolve()': '',
 });
