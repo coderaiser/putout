@@ -1,3 +1,28 @@
+2026.10.10, v42.21.0
+
+fix:
+- 3471ff856 @putout/plugin-putout: sort-readm-file: sort-contents: no semicolon: exclude
+- 10c7f28dc @putout/plugin-putout/convert-replacer-to-includer: no string: exclude
+- 1aaa001ad @putout/plugin-logical-expressions: apply-destructuring: return: add missing "&&"
+
+feature:
+- 09e9b2f5a @putout/plugin-apply-to-sorted: add
+- bb5b8419c @putout/plugin-promises: remove-useless-resolve: no args
+- ef17cdeea @putout/plugin-putout: sort-readme-file: add-missing-semicolon: add
+- 3f2c612b7 @putout/plugin-esm: remove-useless-slash: add
+- 1aac0641b @putout/plugin-optional-chaining: convert-optional-to-logical-inside-for-of
+- ee57110f9 @putout/plugin-optional-chaining: convert-optional-to-logical: __a?.__b !== __c -> !__a || __b !== __c
+- 504ca50f6 @putout/plugin-putout: shorten-path-get
+- ef3427f04 @putout/plugin-putout: remove-useless-type-check-declaration: add
+- b796f46ed @putout/plugin-putout: apply-type-check: apply-type-check: VariableDeclarator: exclude
+- 5980af95e @putout/plugin-logical-expressions: simplify: __a || __b && (__c || __a) -> __a || (__b && __c)
+- aa613f86b @putout/plugin-logical-expressions: simplify: (__a || __b) && (__c || __a) -> __a || (__b && __c)
+- e9e31b1ea @putout/plugin-putout: convert-replacer-to-includer: spread: exclude
+- 6baebc223 @putout/plugin-putout: remove-useless-match: method: exclude
+- 5a3da4a21 @putout/plugin-assign: simplify: spread: exclude
+- 21e477748 @putout/plugin-putout: remove-useless-match
+- 28e666b28 @putout/plugin-putout: convert-replacer-to-includer: add
+
 2026.09.28, v42.20.1
 
 fix:
