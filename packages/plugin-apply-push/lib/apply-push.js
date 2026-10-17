@@ -5,6 +5,14 @@ const createPush = template('const push = NAME.push.bind(NAME)');
 
 export const report = () => `Use binded 'push'`;
 
+export const match = () => ({
+    '(__a) => __b.push(__a)': ({__b}, path) => {
+        const {name} = __b;
+        
+        return getBinding(path, name);
+    },
+});
+
 export const replace = () => ({
     '(__a) => __b.push(__a)': ({__b}, path) => {
         const {name} = __b;
