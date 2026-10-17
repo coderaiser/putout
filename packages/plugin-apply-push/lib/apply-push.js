@@ -8,6 +8,10 @@ export const report = () => `Use binded 'push'`;
 export const match = () => ({
     '(__a) => __b.push(__a)': ({__b}, path) => {
         const {name} = __b;
+        const pushBinding = getBinding(path, 'push');
+        
+        if (pushBinding)
+            return false;
         
         return getBinding(path, name);
     },
@@ -17,12 +21,10 @@ export const replace = () => ({
     '(__a) => __b.push(__a)': ({__b}, path) => {
         const {name} = __b;
         const binding = getBinding(path, name);
-        const pushBinding = getBinding(path, 'push');
         
-        if (!pushBinding)
-            insertAfter(binding.path.parentPath, createPush({
-                NAME: name,
-            }));
+        insertAfter(binding.path.parentPath, createPush({
+            NAME: name,
+        }));
         
         return 'push';
     },

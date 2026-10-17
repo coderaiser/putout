@@ -22,7 +22,7 @@ test('putout: apply-push: transform: no-declaration', (t) => {
     t.end();
 });
 
-test('putout: apply-push: transform: declared', (t) => {
-    t.transform('declared');
+test('putout: apply-push: no report: declared', (t) => {
+    t.noReport('declared');
     t.end();
 });
