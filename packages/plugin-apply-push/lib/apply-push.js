@@ -17,10 +17,12 @@ export const replace = () => ({
     '(__a) => __b.push(__a)': ({__b}, path) => {
         const {name} = __b;
         const binding = getBinding(path, name);
+        const pushBinding = getBinding(path, 'push');
         
-        insertAfter(binding.path.parentPath, createPush({
-            NAME: name,
-        }));
+        if (!pushBinding)
+            insertAfter(binding.path.parentPath, createPush({
+                NAME: name,
+            }));
         
         return 'push';
     },

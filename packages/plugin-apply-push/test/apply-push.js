@@ -21,3 +21,8 @@ test('putout: apply-push: transform: no-declaration', (t) => {
     t.transform('no-declaration');
     t.end();
 });
+
+test('putout: apply-push: transform: declared', (t) => {
+    t.transform('declared');
+    t.end();
+});
