@@ -1,3 +1,4 @@
+import * as removeUselessCoalescing from './remove-useless-coalescing/index.js';
 import * as applyDestructuring from './apply-destructuring/index.js';
 import * as convertCoalescingToLogical from './convert-coalescing-to-logical/index.js';
 import * as simplify from './simplify/index.js';
@@ -12,4 +13,5 @@ export const rules = {
     'convert-bitwise-to-logical': convertBitwiseToLogical,
     'convert-coalescing-to-logical': convertCoalescingToLogical,
     'apply-destructuring': applyDestructuring,
+    'remove-useless-coalescing': removeUselessCoalescing,
 };

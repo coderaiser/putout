@@ -26,6 +26,7 @@ npm i @putout/plugin-logical-expressions -D
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-duplicates](#remove-duplicates);
 - ✅ [simplify](#simplify);
+- ✅ [remove-useless-coalescing](#remove-useless-coalescing);
 
 ## Config
 
@@ -37,7 +38,8 @@ npm i @putout/plugin-logical-expressions -D
         "logical-expressions/remove-boolean": "on",
         "logical-expressions/remove-duplicates": "on",
         "logical-expressions/simplify": "on",
-        "logical-expressions/apply-destructuring": "on"
+        "logical-expressions/apply-destructuring": "on",
+        "logical-expressions/remove-useless-coalescing": "on"
     }
 }
 ```
@@ -207,6 +209,22 @@ const arrow = (el) => {
 
 const {workbench} = getState();
 const value = workbench && workbench.code;
+```
+
+## remove-useless-coalescing
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7b1d6cddb047dc2db650569659254873/bcc66c1e679aa3fa1d9cc865b2166344c2a4b58c).
+
+### ❌ Example of incorrect code
+
+```js
+a ?? undefined;
+```
+
+### ✅ Example of correct code
+
+```js
+a;
 ```
 
 ## License

@@ -36,3 +36,8 @@ test('plugin-logical-expressions: transform: apply-destructuring', (t) => {
     t.transform('apply-destructuring');
     t.end();
 });
+
+test('plugin-logical-expressions: transform: remove-useless-coalescing', (t) => {
+    t.transform('remove-useless-coalescing');
+    t.end();
+});
