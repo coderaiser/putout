@@ -3,7 +3,9 @@ import {replace} from './replacer/index.js';
 import {declare} from './declarator/index.js';
 import {scan} from './scanner/index.js';
 
-export function buildPlugin(item, {progress}) {
+const {entries} = Object;
+
+export function buildPlugin(item, {progress, runners}) {
     const {plugin} = item;
     
     if (plugin.traverse)
@@ -22,4 +24,9 @@ export function buildPlugin(item, {progress}) {
         return scan(item, {
             progress,
         });
+    
+    for (const [name, build] of entries(runners)) {
+        if (plugin[name])
+            return build(item);
+    }
 }

@@ -13,7 +13,7 @@ import {buildPlugin} from './builder/index.js';
 const debug = createDebug('putout:runner:find');
 const isRemoved = (a) => a?.removed;
 
-export const runPlugins = ({ast, fix, fixCount = 2, plugins, progress = createProgress(), traverse = defaultTraverse}) => {
+export const runPlugins = ({ast, runners, fix, fixCount = 2, plugins, progress = createProgress(), traverse = defaultTraverse}) => {
     let places = [];
     
     const merge = once(mergeVisitors);
@@ -21,6 +21,7 @@ export const runPlugins = ({ast, fix, fixCount = 2, plugins, progress = createPr
         pluginsFind,
         pluginsTraverse,
     } = splitPlugins(plugins, {
+        runners,
         progress,
     });
     
@@ -137,7 +138,7 @@ function runWithoutMerge({ast, fix, pluginsFind, traverse}) {
     return places;
 }
 
-function splitPlugins(plugins, {progress}) {
+function splitPlugins(plugins, {progress, runners}) {
     const pluginsFind = [];
     const pluginsTraverse = [];
     
@@ -150,6 +151,7 @@ function splitPlugins(plugins, {progress}) {
         }
         
         const result = buildPlugin(item, {
+            runners,
             progress,
         });
         

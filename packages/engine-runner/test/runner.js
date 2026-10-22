@@ -1173,3 +1173,45 @@ test('putout: runner: runPlugins: no plugin passed', (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: runner: runPlugins: runners', (t) => {
+    const plugin = {
+        report: () => 'debugger found',
+        when: () => true,
+        fix: () => {},
+    };
+    
+    const createWhen = ({plugin, ...a}) => ({
+        ...a,
+        plugin: {
+            ...plugin,
+            traverse: ({push}) => ({
+                DebuggerStatement: (path) => {
+                    push(path);
+                },
+            }),
+        },
+    });
+    
+    const {places} = putout('debugger', {
+        runPlugins,
+        runners: {
+            when: createWhen,
+        },
+        plugins: [
+            ['remove-debugger', plugin],
+        ],
+    });
+    
+    const expected = [{
+        message: 'debugger found',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'remove-debugger',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
