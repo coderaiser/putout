@@ -13,6 +13,7 @@ export const loadPlugins = (options) => {
     const {
         pluginNames = [],
         rules = {},
+        runners,
     } = options;
     
     const {
@@ -26,6 +27,7 @@ export const loadPlugins = (options) => {
     
     const plugins = loadAllPlugins({
         items,
+        runners,
         loadedRules,
     });
     
@@ -43,7 +45,7 @@ const parseRule = (rule) => rule
 
 const maybeFromTuple = (a) => isArray(a) ? a[1] : a;
 
-function loadAllPlugins({items, loadedRules}) {
+function loadAllPlugins({items, loadedRules, runners}) {
     const plugins = [];
     
     for (const [rule, itemPlugin] of items) {
@@ -60,9 +62,8 @@ function loadAllPlugins({items, loadedRules}) {
             namespace,
         });
         
-        validatePlugin({
-            plugin,
-            rule,
+        validatePlugin(rule, plugin, {
+            runners,
         });
         
         const {rules} = plugin;

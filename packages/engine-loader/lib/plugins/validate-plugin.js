@@ -9,10 +9,15 @@ const supportedKeys = [
     'scan',
 ];
 
-export default ({plugin, rule}) => {
+export default (rule, plugin, {runners}) => {
     const keys = Object.keys(plugin);
     
     for (const key of supportedKeys) {
+        if (keys.includes(key))
+            return;
+    }
+    
+    for (const key of Object.keys(runners)) {
         if (keys.includes(key))
             return;
     }

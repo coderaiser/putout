@@ -14,6 +14,7 @@ export const loadPluginsAsync = async (options) => {
     const {
         pluginNames = [],
         rules = {},
+        runners,
     } = options;
     
     const {
@@ -23,11 +24,13 @@ export const loadPluginsAsync = async (options) => {
     } = prepareRules({
         rules,
         pluginNames,
+        runners,
     });
     
     const plugins = await loadPlugins({
         items,
         loadedRules,
+        runners,
     });
     
     return filterEnabledPlugins({
@@ -44,7 +47,7 @@ const splitRule = (rule) => [rule, 'putout'];
 // This may be caused by a race condition if the module is simultaneously dynamically import()-ed via Promise.all().
 // Try await-ing the import() sequentially in a loop instead.
 //  (From /Users/coderaiser/putout/packages/putout/lib/index.cjs in non-loader-hook thread)
-async function loadPlugins({items, loadedRules}) {
+async function loadPlugins({runners, items, loadedRules}) {
     const enabledRules = [];
     const resolvedPlugins = [];
     
@@ -66,9 +69,8 @@ async function loadPlugins({items, loadedRules}) {
     for (const [i, rule] of enabledRules.entries()) {
         const plugin = resolvedPlugins[i];
         
-        validatePlugin({
-            plugin,
-            rule,
+        validatePlugin(rule, plugin, {
+            runners,
         });
         
         const {rules} = plugin;
