@@ -4,8 +4,8 @@ import {tryCatch} from 'try-catch';
 import {test, stub} from 'supertape';
 import putout from 'putout';
 import {loadPlugins} from '@putout/engine-loader';
+import {runPlugins} from '#runner';
 import {readFixtures} from './fixture.js';
-import {runPlugins} from '../lib/index.js';
 
 const noop = () => {};
 const {parse} = putout;
@@ -1149,5 +1149,27 @@ test('putout: runner: runPlugins: fix: reason', (t) => {
     });
     
     t.equal(error.reason, 'fix');
+    t.end();
+});
+
+test('putout: runner: runPlugins: no plugin passed', (t) => {
+    const include = {
+        report: () => 'debugger found',
+        fix: () => {},
+        exclude: () => [
+            'debugger',
+        ],
+    };
+    
+    const {places} = putout('debugger', {
+        runPlugins,
+        plugins: [{
+            include,
+        }],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
     t.end();
 });

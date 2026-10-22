@@ -1,9 +1,10 @@
 import {traverse} from '@putout/babel';
 import {generate} from '@putout/engine-parser';
+import maybeArray from '#maybe-array';
+import {validate} from '#validate';
 import runFix from './run-fix.js';
 import {getPosition} from './get-position.js';
-import maybeArray from './maybe-array.js';
-import {validate} from './validate.js';
+import template from './template/index.js';
 import {
     listStore,
     mapStore,
@@ -29,7 +30,7 @@ const parse = (name, plugin, options) => {
     return list;
 };
 
-export default (pluginsToMerge, {fix, template}) => {
+export default (pluginsToMerge, {fix}) => {
     const mergeItems = [];
     const pushed = {};
     

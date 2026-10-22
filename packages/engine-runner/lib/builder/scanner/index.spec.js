@@ -8,8 +8,8 @@ import {
     createFile,
     writeFileContent,
 } from '@putout/operator-filesystem';
-import {createProgress} from '../progress.js';
-import {runPlugins} from '../index.js';
+import {createProgress} from '#progress';
+import {runPlugins} from '#runner';
 
 test('putout: runner: scanner', (t) => {
     const addFile = {

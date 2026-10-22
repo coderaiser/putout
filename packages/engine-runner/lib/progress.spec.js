@@ -2,8 +2,8 @@ import {once} from 'node:events';
 import {montag} from 'montag';
 import {test} from 'supertape';
 import putout from 'putout';
-import {runPlugins} from './index.js';
-import {createProgress} from './progress.js';
+import {runPlugins} from '#runner';
+import {createProgress} from '#progress';
 
 test('putout: runner: progress: start', async (t) => {
     const progress = createProgress();

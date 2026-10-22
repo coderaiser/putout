@@ -3,10 +3,11 @@ import {
     types,
 } from '@putout/babel';
 import {generate} from '@putout/engine-parser';
+import template from './template/index.js';
 
 const {merge} = babelTraverse.visitors;
 
-export default function superFind({rule, find, ast, options, template, traverse = babelTraverse}) {
+export default function superFind({rule, find, ast, options, traverse = babelTraverse}) {
     const pushItems = [];
     
     const push = (a) => {

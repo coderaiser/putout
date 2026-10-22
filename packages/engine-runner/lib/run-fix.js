@@ -1,5 +1,5 @@
 import {tryCatch} from 'try-catch';
-import {createDebug} from './debug.js';
+import {createDebug} from '#debug';
 
 const {stringify} = JSON;
 

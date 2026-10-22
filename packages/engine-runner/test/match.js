@@ -1,7 +1,7 @@
 import test from 'supertape';
 import putout from 'putout';
 import {tryCatch} from 'try-catch';
-import {runPlugins} from '../lib/index.js';
+import {runPlugins} from '#runner';
 
 test('putout: runner: match', (t) => {
     const rm = {

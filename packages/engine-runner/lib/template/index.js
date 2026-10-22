@@ -5,8 +5,8 @@ import {
     parseTemplate,
     isTemplate,
 } from '@putout/compare';
-import maybeArray from '../maybe-array.js';
-import {createDebug} from '../debug.js';
+import maybeArray from '#maybe-array';
+import {createDebug} from '#debug';
 
 const debug = createDebug('putout:runner:template');
 

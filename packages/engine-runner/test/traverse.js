@@ -2,7 +2,7 @@ import {tryCatch} from 'try-catch';
 import {montag} from 'montag';
 import test from 'supertape';
 import putout from 'putout';
-import {runPlugins} from '../lib/index.js';
+import {runPlugins} from '#runner';
 
 test('putout: runner: plugins: traverse: listStore', (t) => {
     let result = [];

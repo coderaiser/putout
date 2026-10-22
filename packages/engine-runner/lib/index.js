@@ -1,15 +1,14 @@
 import {traverse as defaultTraverse} from '@putout/babel';
 import once from 'once';
 import {clearWatermark} from '@putout/operator-watermark';
-import {createDebug} from './debug.js';
+import {createDebug} from '#debug';
+import {createProgress} from '#progress';
 import runFix from './run-fix.js';
 import mergeVisitors from './merge-visitors.js';
 import superFind from './super-find.js';
-import template from './template/index.js';
-import {createProgress} from './progress.js';
 import {tryThrowWithReason} from './try-throw-with-reason.js';
 import {getPath, getPosition} from './get-position.js';
-import {buildPlugin} from './build-plugin.js';
+import {buildPlugin} from './builder/index.js';
 
 const debug = createDebug('putout:runner:find');
 const isRemoved = (a) => a?.removed;
@@ -32,7 +31,6 @@ export const runPlugins = ({ast, fix, fixCount = 2, plugins, progress = createPr
             pluginsFind,
             pluginsTraverse,
             merge,
-            template,
             traverse,
         });
         
@@ -53,28 +51,25 @@ export {
     getPosition,
 };
 
-const run = ({ast, fix, pluginsFind, pluginsTraverse, template, merge, traverse}) => [
+const run = ({ast, fix, pluginsFind, pluginsTraverse, merge, traverse}) => [
     ...runWithoutMerge({
         ast,
         fix,
-        template,
         pluginsFind,
         traverse,
     }),
     ...runWithMerge({
         ast,
         fix,
-        template,
         pluginsTraverse,
         merge,
         traverse,
     }),
 ];
 
-function runWithMerge({ast, fix, template, pluginsTraverse, merge, traverse}) {
+function runWithMerge({ast, fix, pluginsTraverse, merge, traverse}) {
     const {entries, visitor} = merge(pluginsTraverse, {
         fix,
-        template,
     });
     
     tryThrowWithReason(traverse, ast, visitor);
@@ -96,7 +91,7 @@ function runWithMerge({ast, fix, template, pluginsTraverse, merge, traverse}) {
     return places;
 }
 
-function runWithoutMerge({ast, fix, template, pluginsFind, traverse}) {
+function runWithoutMerge({ast, fix, pluginsFind, traverse}) {
     const places = [];
     
     for (const {rule, plugin, msg, options} of pluginsFind) {
@@ -110,7 +105,6 @@ function runWithoutMerge({ast, fix, template, pluginsFind, traverse}) {
             ast,
             options,
             fix,
-            template,
             traverse,
         });
         
@@ -155,9 +149,12 @@ function splitPlugins(plugins, {progress}) {
             continue;
         }
         
-        pluginsTraverse.push(buildPlugin(item, {
+        const result = buildPlugin(item, {
             progress,
-        }));
+        });
+        
+        if (result)
+            pluginsTraverse.push(result);
     }
     
     return {

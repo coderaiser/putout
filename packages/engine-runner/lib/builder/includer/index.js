@@ -1,6 +1,6 @@
-import {createDebug} from '../debug.js';
-import maybeArray from '../maybe-array.js';
-import {validate} from '../validate.js';
+import {createDebug} from '#debug';
+import maybeArray from '#maybe-array';
+import {validate} from '#validate';
 
 const log = createDebug('putout:runner:include');
 const stub = () => [];

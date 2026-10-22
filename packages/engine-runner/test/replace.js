@@ -5,7 +5,7 @@ import test from 'supertape';
 import {montag} from 'montag';
 import putout, {template} from 'putout';
 import {tryCatch} from 'try-catch';
-import {runPlugins} from '../lib/index.js';
+import {runPlugins} from '#runner';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

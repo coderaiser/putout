@@ -1,6 +1,6 @@
 import {test, stub} from 'supertape';
 import putout from 'putout';
-import {runPlugins} from '../index.js';
+import {runPlugins} from '#runner';
 import {_log} from './index.js';
 
 test('putout: plugin: traverse: template', (t) => {
