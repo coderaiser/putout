@@ -25,23 +25,48 @@ npm i @putout/plugin-logical-expressions -D
 - ✅ [convert-coalescing-to-logical](#convert-coalescing-to-logical);
 - ✅ [remove-boolean](#remove-boolean);
 - ✅ [remove-duplicates](#remove-duplicates);
-- ✅ [simplify](#simplify);
 - ✅ [remove-useless-coalescing](#remove-useless-coalescing);
+- ✅ [simplify](#simplify);
 
 ## Config
 
 ```json
 {
     "rules": {
+        "logical-expressions/apply-destructuring": "on",
         "logical-expressions/convert-bitwise-to-logical": "on",
         "logical-expressions/convert-coalescing-to-logical": "on",
         "logical-expressions/remove-boolean": "on",
         "logical-expressions/remove-duplicates": "on",
-        "logical-expressions/simplify": "on",
-        "logical-expressions/apply-destructuring": "on",
-        "logical-expressions/remove-useless-coalescing": "on"
+        
+        "logical-expressions/remove-useless-coalescing": "on",
+        "logical-expressions/simplify": "on"
     }
 }
+```
+
+## apply-destructuring
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8be6be9e01228bee4d2cc0afbb132884/b87007a1a86680f5d1315c735549a24279d6eb2a).
+
+### ❌ Example of incorrect code
+
+```js
+const arrow = (el) => el().text && el().text.trim();
+
+const value = getState().workbench && getState().workbench.code;
+```
+
+### ✅ Example of correct code
+
+```js
+const arrow = (el) => {
+    const {text} = el();
+    return text && text.trim();
+};
+
+const {workbench} = getState();
+const value = workbench && workbench.code;
 ```
 
 ## convert-bitwise-to-logical
@@ -106,6 +131,13 @@ const t = true && false;
 const t = false;
 ```
 
+## Comparison
+
+| Linter        | Rule | Fix |
+|---------------|------|-----|
+| 🐊 **Putout** | [`logical-expressions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-logical-expressions#readme) | ✅   |
+| ⏣ **ESLint**  | [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) | ❌   |
+
 ## remove-duplicates
 
 ### ❌ Example of incorrect code
@@ -120,12 +152,21 @@ const t = a && b && a;
 const t = a && b;
 ```
 
-## Comparison
+## remove-useless-coalescing
 
-| Linter        | Rule | Fix |
-|---------------|------|-----|
-| 🐊 **Putout** | [`logical-expressions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-logical-expressions#readme) | ✅   |
-| ⏣ **ESLint**  | [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) | ❌   |
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7b1d6cddb047dc2db650569659254873/bcc66c1e679aa3fa1d9cc865b2166344c2a4b58c).
+
+### ❌ Example of incorrect code
+
+```js
+a ?? undefined;
+```
+
+### ✅ Example of correct code
+
+```js
+a;
+```
 
 ## simplify
 
@@ -185,46 +226,6 @@ In case of duplicates:
 ```diff
 -a && b && a
 +a && b
-```
-
-## apply-destructuring
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8be6be9e01228bee4d2cc0afbb132884/b87007a1a86680f5d1315c735549a24279d6eb2a).
-
-### ❌ Example of incorrect code
-
-```js
-const arrow = (el) => el().text && el().text.trim();
-
-const value = getState().workbench && getState().workbench.code;
-```
-
-### ✅ Example of correct code
-
-```js
-const arrow = (el) => {
-    const {text} = el();
-    return text && text.trim();
-};
-
-const {workbench} = getState();
-const value = workbench && workbench.code;
-```
-
-## remove-useless-coalescing
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7b1d6cddb047dc2db650569659254873/bcc66c1e679aa3fa1d9cc865b2166344c2a4b58c).
-
-### ❌ Example of incorrect code
-
-```js
-a ?? undefined;
-```
-
-### ✅ Example of correct code
-
-```js
-a;
 ```
 
 ## License

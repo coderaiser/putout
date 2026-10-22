@@ -17,7 +17,7 @@ npm i @putout/plugin-css -D
 
 ## Rules
 
-- ✅ [apply-shorthand](#apply-shorthand)
+- ✅ [apply-shorthand](#apply-shorthand);
 
 ## Config
 

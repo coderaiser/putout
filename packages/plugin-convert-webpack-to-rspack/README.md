@@ -13,11 +13,11 @@ npm i putout @putout/plugin-convert-webpack-to-rspack -D
 
 ## Rules
 
-- ✅ [apply-rspack-import](#apply-rspack-import)
-- ✅ [apply-swc-loader](#apply-swc-loader)
-- ✅ [apply-asset-type](#apply-asset-type)
-- ✅ [apply-library-object](#apply-library-object)
-- ✅ [remove-webpackbar](#remove-webpackbar)
+- ✅ [apply-asset-type](#apply-asset-type);
+- ✅ [apply-library-object](#apply-library-object);
+- ✅ [apply-rspack-import](#apply-rspack-import);
+- ✅ [apply-swc-loader](#apply-swc-loader);
+- ✅ [remove-webpackbar](#remove-webpackbar);
 
 ## Config
 
@@ -32,66 +32,6 @@ npm i putout @putout/plugin-convert-webpack-to-rspack -D
         "convert-webpack-to-rspack/remove-webpackbar": "on"
     }
 }
-```
-
-## apply-rspack-import
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6af7c06cecb5e2b5717271dddd783fcf/fb2b92aa42bb5c1dadd2d5d5fb98ca06d2b6ee0d).
-
-### ❌ Example of incorrect code
-
-```js
-import webpack from 'webpack';
-
-const {EnvironmentPlugin} = webpack;
-```
-
-### ✅ Example of correct code
-
-```js
-import {rspack} from '@rspack/core';
-
-const {EnvironmentPlugin} = rspack;
-```
-
-## apply-swc-loader
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d26a479c7f677bcfe74f9f946c514983/c88686d689396c1e47b22d8aee24e737eff7e24f).
-
-### ❌ Example of incorrect code
-
-```js
-export default {
-    module: {
-        rules: [{
-            test: /\.js$/,
-            loader: 'babel-loader',
-        }],
-    },
-};
-```
-
-### ✅ Example of correct code
-
-```js
-export default {
-    module: {
-        rules: [{
-            test: /\.js$/,
-            loader: 'builtin:swc-loader',
-            options: {
-                jsc: {
-                    parser: {
-                        syntax: 'ecmascript',
-                    },
-                },
-                env: {
-                    targets: 'defaults',
-                },
-            },
-        }],
-    },
-};
 ```
 
 ## apply-asset-type
@@ -160,6 +100,66 @@ export default {
             type: 'var',
             export: 'default',
         },
+    },
+};
+```
+
+## apply-rspack-import
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6af7c06cecb5e2b5717271dddd783fcf/fb2b92aa42bb5c1dadd2d5d5fb98ca06d2b6ee0d).
+
+### ❌ Example of incorrect code
+
+```js
+import webpack from 'webpack';
+
+const {EnvironmentPlugin} = webpack;
+```
+
+### ✅ Example of correct code
+
+```js
+import {rspack} from '@rspack/core';
+
+const {EnvironmentPlugin} = rspack;
+```
+
+## apply-swc-loader
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d26a479c7f677bcfe74f9f946c514983/c88686d689396c1e47b22d8aee24e737eff7e24f).
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    module: {
+        rules: [{
+            test: /\.js$/,
+            loader: 'babel-loader',
+        }],
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    module: {
+        rules: [{
+            test: /\.js$/,
+            loader: 'builtin:swc-loader',
+            options: {
+                jsc: {
+                    parser: {
+                        syntax: 'ecmascript',
+                    },
+                },
+                env: {
+                    targets: 'defaults',
+                },
+            },
+        }],
     },
 };
 ```

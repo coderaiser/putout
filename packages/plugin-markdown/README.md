@@ -24,7 +24,7 @@ npm i @putout/plugin-markdown -D
 
 ## Filesystem
 
-- ✅ [apply-ts-codeblock-in-file](#apply-ts-codeblock-in-file)
+- ✅ [apply-ts-codeblock-in-file](#apply-ts-codeblock-in-file);
 
 ## Config
 

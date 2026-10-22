@@ -20,7 +20,7 @@ npm i @putout/plugin-coverage -D
 
 ## File rules
 
-- ✅ [remove-files](#remove-files)
+- ✅ [remove-files](#remove-files);
 
 ## Config
 
@@ -61,6 +61,14 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c6bbe7a8e1
 }
 ```
 
+## remove-files
+
+```diff
+/
+-├── .nyc_output
+-└── coverage
+```
+
 ## sort-ignore
 
 ### ❌ Example of incorrect code
@@ -89,14 +97,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c6bbe7a8e1
         "test"
     ]
 }
-```
-
-## remove-files
-
-```diff
-/
--├── .nyc_output
--└── coverage
 ```
 
 ## License

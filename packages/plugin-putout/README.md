@@ -13,7 +13,6 @@ npm i @putout/plugin-putout -D
 
 ## Rules
 
-- ✅ [apply-type-check](#apply-type-check);
 - ✅ [add-await-to-progress](#add-await-to-progress);
 - ✅ [add-crawl-file](#add-crawl-file);
 - ✅ [add-path-arg-to-filter](#add-path-arg-to-filter);
@@ -53,6 +52,7 @@ npm i @putout/plugin-putout -D
 - ✅ [apply-string-to-property-key](#apply-string-to-property-key);
 - ✅ [apply-transform-with-options](#apply-transform-with-options);
 - ✅ [apply-traverser-to-ignore](#apply-traverser-to-ignore);
+- ✅ [apply-type-check](#apply-type-check);
 - ✅ [apply-vars](#apply-vars);
 - ✅ [check-declare](#check-declare);
 - ✅ [check-match](#check-match);
@@ -78,6 +78,7 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-replace-to-traverse](#convert-replace-to-traverse);
 - ✅ [convert-replace-with](#convert-replace-with);
 - ✅ [convert-replace-with-multiple](#convert-replace-with-multiple);
+- ✅ [convert-replacer-to-includer](#convert-replacer-to-includer);
 - ✅ [convert-report-to-function](#convert-report-to-function);
 - ✅ [convert-to-no-transform-code](#convert-to-no-transform-code);
 - ✅ [convert-traverse-to-include](#convert-traverse-to-include);
@@ -86,7 +87,6 @@ npm i @putout/plugin-putout -D
 - ✅ [convert-traverse-to-super-traverse](#convert-traverse-to-super-traverse);
 - ✅ [convert-url-to-dirname](#convert-url-to-dirname);
 - ✅ [create-test](#create-test);
-- ✅ [convert-replacer-to-includer](#convert-replacer-to-includer);
 - ✅ [declare](#declare);
 - ✅ [declare-path-variable](#declare-path-variable);
 - ✅ [declare-template-variables](#declare-template-variables);
@@ -96,16 +96,16 @@ npm i @putout/plugin-putout -D
 - ✅ [remove-empty-object-from-transform](#remove-empty-object-from-transform);
 - ✅ [remove-message-from-no-report-after-transform](#remove-message-from-no-report-after-transform);
 - ✅ [remove-unused-get-properties-argument](#remove-unused-get-properties-argument);
+- ✅ [remove-useless-match](#remove-useless-match);
 - ✅ [remove-useless-printer-option](#remove-useless-printer-option);
 - ✅ [remove-useless-source-argument](#remove-useless-source-argument);
+- ✅ [remove-useless-type-check-declaration](#remove-useless-type-check-declaration);
 - ✅ [rename-operate-to-operator](#rename-operate-to-operator);
 - ✅ [replace-operate-with-operator](#replace-operate-with-operator);
 - ✅ [replace-test-message](#replace-test-message);
-- ✅ [remove-useless-match](#remove-useless-match);
-- ✅ [remove-useless-type-check-declaration](#remove-useless-type-check-declaration);
 - ✅ [shorten-imports](#shorten-imports);
-- ✅ [simplify-replace-template](#simplify-replace-template);
 - ✅ [shorten-path-get](#shorten-path-get);
+- ✅ [simplify-replace-template](#simplify-replace-template);
 
 ## File rules
 
@@ -182,6 +182,8 @@ npm i @putout/plugin-putout -D
         "putout/convert-replace-to-traverse": "on",
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
+        
+        "putout/convert-replacer-to-includer": "on",
         "putout/convert-report-to-function": "on",
         "putout/convert-to-no-transform-code": "on",
         "putout/convert-traverse-to-include": "on",
@@ -199,16 +201,18 @@ npm i @putout/plugin-putout -D
         "putout/remove-empty-object-from-transform": "on",
         "putout/remove-message-from-no-report-after-transform": "on",
         "putout/remove-unused-get-properties-argument": "on",
+        
+        "putout/remove-useless-match": "on",
         "putout/remove-useless-printer-option": "on",
         "putout/remove-useless-source-argument": "on",
+        
+        "putout/remove-useless-type-check-declaration": "on",
         "putout/replace-test-message": "on",
         "putout/shorten-imports": "on",
+        
+        "putout/shorten-path-get": "on",
         "putout/simplify-replace-template": "on",
-        "putout/sort-readme-file": "on",
-        "putout/convert-replacer-to-includer": "on",
-        "putout/remove-useless-match": "on",
-        "putout/remove-useless-type-check-declaration": "on",
-        "putout/shorten-path-get": "on"
+        "putout/sort-readme-file": "on"
     }
 }
 ```
@@ -1096,6 +1100,22 @@ export const {
 });
 ```
 
+## apply-type-check
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3176ff5d9bfb388723c977735e49d599/00036b9cbd71b1a778c8423e2e7a707abd9f2f1f).
+
+### ❌ Example of incorrect code
+
+```js
+if (a.type === 'CallExpression') {}
+```
+
+### ✅ Example of correct code
+
+```js
+if (isCallExpression(a)) {}
+```
+
 ## apply-vars
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6b1a4b5dc75f2591faf580774d23b38f/7278945371ceb76942494f7caf88375d2eaca869).
@@ -1594,6 +1614,24 @@ module.exports.replace = () => ({
 });
 ```
 
+## add-places-to-compare-places"
+
+### ❌ Example of incorrect code
+
+[`comparePlaces`](https://github.com/coderaiser/putout/tree/master/packages/test#compareplacesfilename-places-overrides) takes two or more arguments.
+
+Checkout in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/a83b1a6785bb01102451df4510333f42/a2439f7f44da56318d9a0e44b2602972811d9afb).
+
+```js
+comparePlaces('hello');
+```
+
+### ✅ Example of correct code
+
+```js
+comparePlaces('hello', []);
+```
+
 ## convert-replace-to-function
 
 ### ❌ Example of incorrect code
@@ -1616,24 +1654,6 @@ export const traverse = () => ({
         });
     },
 });
-```
-
-## add-places-to-compare-places"
-
-### ❌ Example of incorrect code
-
-[`comparePlaces`](https://github.com/coderaiser/putout/tree/master/packages/test#compareplacesfilename-places-overrides) takes two or more arguments.
-
-Checkout in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/a83b1a6785bb01102451df4510333f42/a2439f7f44da56318d9a0e44b2602972811d9afb).
-
-```js
-comparePlaces('hello');
-```
-
-### ✅ Example of correct code
-
-```js
-comparePlaces('hello', []);
 ```
 
 ## convert-replace-to-traverse
@@ -1691,6 +1711,29 @@ module.exports.traverse = ({push}) => ({
 ```js
 module.exports.include = () => [
     'TSTypeAssertion',
+];
+```
+
+## convert-replacer-to-includer
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/4b5e172466fda5e8fb114e767639f7ee/d3af95da4418b8c0e761d8cd50c1fa38a412b55c).
+
+### ❌ Example of incorrect code
+
+```js
+export const replace = () => ({
+    'const [__a, {__b}] = __c(__d, __e)': 'const [__a, {__b}] = __c(__d, __e)',
+    'const [__a, {__b = {}} = {}] = __c(__d, __e)': 'const [__a, {__b = {}} = {}] = __c(__d, __e)',
+});
+```
+
+### ✅ Example of correct code
+
+```js
+export const fix = () => {};
+export const include = () => [
+    'const [__a, {__b}] = __c(__d, __e)',
+    'const [__a, {__b = {}} = {}] = __c(__d, __e)',
 ];
 ```
 
@@ -1890,6 +1933,37 @@ const test = createTest(import.meta.url, {
 });
 ```
 
+## convert-progress-to-track
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8736a0cf838a3660b0927e161e4fb06c/9f5c9f810babd4450898069d3d8dc28aceee1e2d).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.scan = (root, {push, progress}) => {
+    const files = findFile(root, ['*']);
+    const n = files.length;
+    
+    for (const [i, file] of files.entries()) {
+        push(file);
+        progress({
+            i,
+            n,
+        });
+    }
+};
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports.scan = (root, {push, trackFile}) => {
+    for (const file of trackFile(root, ['*'])) {
+        push(file);
+    }
+};
+```
+
 ## declare-path-variable
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b485bf55785ea836408d0d45c492c3e4/2a0b465076242ebf6a0d8015a90ccf7b0b660a42).
@@ -1930,37 +2004,6 @@ const plugin = require('@putout/plugin-debugger');
 const test = createTest(import.meta.url, {
     'remove-debugger': plugin,
 });
-```
-
-## convert-progress-to-track
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8736a0cf838a3660b0927e161e4fb06c/9f5c9f810babd4450898069d3d8dc28aceee1e2d).
-
-### ❌ Example of incorrect code
-
-```js
-module.exports.scan = (root, {push, progress}) => {
-    const files = findFile(root, ['*']);
-    const n = files.length;
-    
-    for (const [i, file] of files.entries()) {
-        push(file);
-        progress({
-            i,
-            n,
-        });
-    }
-};
-```
-
-### ✅ Example of correct code
-
-```js
-module.exports.scan = (root, {push, trackFile}) => {
-    for (const file of trackFile(root, ['*'])) {
-        push(file);
-    }
-};
 ```
 
 ## includer
@@ -2105,6 +2148,24 @@ await process('input', []);
 await process('input');
 ```
 
+## remove-useless-match
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a813e8b3da2ccbe949a3156842c3112e/5e21a147247c2451f9f826ba384d62ab37c17a01).
+
+### ❌ Example of incorrect code
+
+```js
+export const match = () => ({
+    'const [__a, {__b}] = __c(__d, __e)': () => true,
+    'const [__a, {__b = {}} = {}] = __c(__d, __e)': () => true,
+});
+```
+
+### ✅ Example of correct code
+
+```js
+```
+
 ## remove-useless-printer-option
 
 Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f176313cf67fd6d7138470385511319f/5b26aa45db21f250016d228b7bbabbb3c10b582b).
@@ -2154,6 +2215,41 @@ test('github: set-message-of-commit-fixes: no report after transform', (t) => {
 ```js
 test('github: set-message-of-commit-fixes: no report after transform', (t) => {
     t.noReportAfterTransform('set-message-of-commit-fixes');
+    t.end();
+});
+```
+
+## remove-useless-type-check-declaration
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/443f742c8cda2b50e1722cdf2577d5c3/1f269a3d5ae0dcfa8661ca283b329c53c2450b39).
+
+### ❌ Example of incorrect code
+
+```js
+const isStringLiteral = (arg) => arg.type === 'StringLiteral';
+```
+
+### ✅ Example of correct code
+
+```js
+```
+
+## apply-fixture-name-to-message"
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/66eb493ee966c2465a9fc783cd3ca362/f42ec60e393181b6d6aaf6df81640e93fabe8783).
+
+```js
+test('flatlint: convert-comma-to-semicolon: no report: xxx', (t) => {
+    t.noReport('array');
+    t.end();
+});
+```
+
+### ✅ Example of correct code
+
+```js
+test('flatlint: convert-comma-to-semicolon: no report: array', (t) => {
+    t.noReport('array');
     t.end();
 });
 ```
@@ -2217,6 +2313,22 @@ const test = createTest(__dirname, {
 });
 ```
 
+## shorten-path-get
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/afc8a421eee129910153939eae2eb79e/04304530529a53f5894a289bcd83d3ac2460c9ab).
+
+### ❌ Example of incorrect code
+
+```js
+const elements = path.get('arguments')[0].get('elements');
+```
+
+### ✅ Example of correct code
+
+```js
+const elements = path.get('arguments.0.elements');
+```
+
 ## simplify-replace-template
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a012fc12f4d38038da022f7c8f379fe2/c65bf97c42650aa31c5481849bc934323df892a6).
@@ -2246,114 +2358,6 @@ Checkout in 🐊**Putout Editor**:
 - ✅ [`sort-headings`](https://putout.cloudcmd.io/#/gist/a5a23310a84cb209e7e5537bab294ab2/0ecd88ffa6e37ac2553cabe5333d307aed2c4a7d);
 - ✅ [`sort-config`](https://putout.cloudcmd.io/#/gist/41c9975090803fdee30c445868e5b93f/18f78a72eb4f4cf33f5137fca11de9314c12763c);
 - ✅ [`sort-readme-file`](https://putout.cloudcmd.io/#/gist/41c9975090803fdee30c445868e5b93f/a5edcb99b4769c05d6482a051f918442bdcc86e9);
-
-## apply-fixture-name-to-message"
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/66eb493ee966c2465a9fc783cd3ca362/f42ec60e393181b6d6aaf6df81640e93fabe8783).
-
-```js
-test('flatlint: convert-comma-to-semicolon: no report: xxx', (t) => {
-    t.noReport('array');
-    t.end();
-});
-```
-
-### ✅ Example of correct code
-
-```js
-test('flatlint: convert-comma-to-semicolon: no report: array', (t) => {
-    t.noReport('array');
-    t.end();
-});
-```
-
-## apply-type-check
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/3176ff5d9bfb388723c977735e49d599/00036b9cbd71b1a778c8423e2e7a707abd9f2f1f).
-
-### ❌ Example of incorrect code
-
-```js
-if (a.type === 'CallExpression') {}
-```
-
-### ✅ Example of correct code
-
-```js
-if (isCallExpression(a)) {}
-```
-
-## convert-replacer-to-includer
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/4b5e172466fda5e8fb114e767639f7ee/d3af95da4418b8c0e761d8cd50c1fa38a412b55c).
-
-### ❌ Example of incorrect code
-
-```js
-export const replace = () => ({
-    'const [__a, {__b}] = __c(__d, __e)': 'const [__a, {__b}] = __c(__d, __e)',
-    'const [__a, {__b = {}} = {}] = __c(__d, __e)': 'const [__a, {__b = {}} = {}] = __c(__d, __e)',
-});
-```
-
-### ✅ Example of correct code
-
-```js
-export const fix = () => {};
-export const include = () => [
-    'const [__a, {__b}] = __c(__d, __e)',
-    'const [__a, {__b = {}} = {}] = __c(__d, __e)',
-];
-```
-
-## remove-useless-match
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a813e8b3da2ccbe949a3156842c3112e/5e21a147247c2451f9f826ba384d62ab37c17a01).
-
-### ❌ Example of incorrect code
-
-```js
-export const match = () => ({
-    'const [__a, {__b}] = __c(__d, __e)': () => true,
-    'const [__a, {__b = {}} = {}] = __c(__d, __e)': () => true,
-});
-```
-
-### ✅ Example of correct code
-
-```js
-```
-
-## remove-useless-type-check-declaration
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/443f742c8cda2b50e1722cdf2577d5c3/1f269a3d5ae0dcfa8661ca283b329c53c2450b39).
-
-### ❌ Example of incorrect code
-
-```js
-const isStringLiteral = (arg) => arg.type === 'StringLiteral';
-```
-
-### ✅ Example of correct code
-
-```js
-```
-
-## shorten-path-get
-
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/afc8a421eee129910153939eae2eb79e/04304530529a53f5894a289bcd83d3ac2460c9ab).
-
-### ❌ Example of incorrect code
-
-```js
-const elements = path.get('arguments')[0].get('elements');
-```
-
-### ✅ Example of correct code
-
-```js
-const elements = path.get('arguments.0.elements');
-```
 
 ## License
 

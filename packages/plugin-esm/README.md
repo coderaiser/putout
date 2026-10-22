@@ -71,11 +71,12 @@ npm i putout @putout/plugin-esm -D
         "esm/remove-imports-with-duplicate-source": "on",
         "esm/remove-quotes-from-import-assertions": "on",
         "esm/remove-useless-export-specifiers": "off",
+        
+        "esm/remove-useless-slash": "on",
         "esm/resolve-imported-file": "off",
         "esm/resolve-imported-file-with-extension": "off",
         "esm/shorten-imported-file": "off",
-        "esm/sort-imports-by-specifiers": "on",
-        "esm/remove-useless-slash": "on"
+        "esm/sort-imports-by-specifiers": "on"
     }
 }
 ```

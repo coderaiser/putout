@@ -9,8 +9,8 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds support of:
 
-- ✅ [try-catch](https://github.com/coderaiser/try-catch)
-- ✅ [try-to-catch](https://github.com/coderaiser/try-to-catch)
+- ✅ [try-catch](https://github.com/coderaiser/try-catch);
+- ✅ [try-to-catch](https://github.com/coderaiser/try-to-catch);
 
 Which are drastically simplifies [`try...catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) blocks.
 

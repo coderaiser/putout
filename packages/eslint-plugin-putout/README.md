@@ -106,49 +106,49 @@ Then configure the rules you want to use under the rules section.
 
 ### 🐊 [Putout](https://github.com/coderaiser/putout#readme)
 
-- ✅ [Putout](/packages/eslint-plugin-putout/lib/putout#readme)
-- ✅ [Evaluate](/packages/eslint-plugin-putout/lib/evaluate#readme)
+- ✅ [Putout](/packages/eslint-plugin-putout/lib/putout#readme);
+- ✅ [Evaluate](/packages/eslint-plugin-putout/lib/evaluate#readme);
 
 ### 📼 [Supertape](https://github.com/coderaiser/supertape#readme)
 
-- ✅ [add newline before assertion](/packages/eslint-plugin-putout/lib/tape-add-newline-before-assertion#readme)
-- ✅ [add newline between tests](/packages/eslint-plugin-putout/lib/tape-add-newline-between-tests#readme)
-- ✅ [remove newline before `t.end()`](/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end#readme)
+- ✅ [add newline before assertion](/packages/eslint-plugin-putout/lib/tape-add-newline-before-assertion#readme);
+- ✅ [add newline between tests](/packages/eslint-plugin-putout/lib/tape-add-newline-between-tests#readme);
+- ✅ [remove newline before `t.end()`](/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end#readme);
 
 ### TypeScript
 
-- ✅ [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union#readme)
-- ✅ [Object property newline](/packages/eslint-plugin-putout/lib/object-property-newline#readme)
+- ✅ [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union#readme);
+- ✅ [Object property newline](/packages/eslint-plugin-putout/lib/object-property-newline#readme);
 
 ### ESM
 
-- ✅ [Remove duplicate extension](/packages/eslint-plugin-putout/lib/remove-duplicate-extensions#readme)
-- ✅ [Add newlines between specifiers](/packages/eslint-plugin-putout/lib/add-newlines-between-specifiers#readme)
+- ✅ [Remove duplicate extension](/packages/eslint-plugin-putout/lib/remove-duplicate-extensions#readme);
+- ✅ [Add newlines between specifiers](/packages/eslint-plugin-putout/lib/add-newlines-between-specifiers#readme);
 
 ### Formatting
 
-- ✅ [Add newline before return](/packages/eslint-plugin-putout/lib/add-newline-before-return#readme)
-- ✅ [Add newline before function call](/packages/eslint-plugin-putout/lib/add-newline-before-function-call#readme)
-- ✅ [Add newline after function call](/packages/eslint-plugin-putout/lib/add-newline-after-function-call#readme)
-- ✅ [Align spaces](/packages/eslint-plugin-putout/lib/align-spaces#readme)
-- ✅ [Array element newline](/packages/eslint-plugin-putout/lib/array-element-newline#readme)
-- ✅ [Single property destructuring](/packages/eslint-plugin-putout/lib/single-property-destructuring#readme)
-- ✅ [Multiple properties destructuring](/packages/eslint-plugin-putout/lib/multiple-properties-destructuring#readme)
-- ✅ [For-of multiple properties destructuring](/packages/eslint-plugin-putout/lib/for-of-multiple-properties-destructuring#readme)
-- ✅ [Long properties destructuring](/packages/eslint-plugin-putout/lib/long-properties-destructuring#readme)
-- ✅ [Destructuring as function argument](/packages/eslint-plugin-putout/lib/destructuring-as-function-argument#readme)
-- ✅ [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments#readme)
-- ✅ [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline#readme)
-- ✅ [Remove newline between declarations](/packages/eslint-plugin-putout/lib/remove-newline-between-declarations#readme)
-- ✅ [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import#readme)
-- ✅ [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object#readme)
-- ✅ [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier#readme)
-- ✅ [Remove empty newline after last specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-specifier#readme)
-- ✅ [Remove empty newline after last element](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-element#readme)
-- ✅ [Remove empty newline after import](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-import#readme)
-- ✅ [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers#readme)
-- ✅ [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme)
-- ✅ [Nonblock statement body newline](/packages/eslint-plugin-putout/lib/nonblock-statement-body-newline#readme)
+- ✅ [Add newline before return](/packages/eslint-plugin-putout/lib/add-newline-before-return#readme);
+- ✅ [Add newline before function call](/packages/eslint-plugin-putout/lib/add-newline-before-function-call#readme);
+- ✅ [Add newline after function call](/packages/eslint-plugin-putout/lib/add-newline-after-function-call#readme);
+- ✅ [Align spaces](/packages/eslint-plugin-putout/lib/align-spaces#readme);
+- ✅ [Array element newline](/packages/eslint-plugin-putout/lib/array-element-newline#readme);
+- ✅ [Single property destructuring](/packages/eslint-plugin-putout/lib/single-property-destructuring#readme);
+- ✅ [Multiple properties destructuring](/packages/eslint-plugin-putout/lib/multiple-properties-destructuring#readme);
+- ✅ [For-of multiple properties destructuring](/packages/eslint-plugin-putout/lib/for-of-multiple-properties-destructuring#readme);
+- ✅ [Long properties destructuring](/packages/eslint-plugin-putout/lib/long-properties-destructuring#readme);
+- ✅ [Destructuring as function argument](/packages/eslint-plugin-putout/lib/destructuring-as-function-argument#readme);
+- ✅ [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments#readme);
+- ✅ [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline#readme);
+- ✅ [Remove newline between declarations](/packages/eslint-plugin-putout/lib/remove-newline-between-declarations#readme);
+- ✅ [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import#readme);
+- ✅ [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object#readme);
+- ✅ [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier#readme);
+- ✅ [Remove empty newline after last specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-specifier#readme);
+- ✅ [Remove empty newline after last element](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-element#readme);
+- ✅ [Remove empty newline after import](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-import#readme);
+- ✅ [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers#readme);
+- ✅ [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme);
+- ✅ [Nonblock statement body newline](/packages/eslint-plugin-putout/lib/nonblock-statement-body-newline#readme);
 
 ### Safe mode
 

@@ -15,10 +15,10 @@ npm i putout @putout/plugin-assignment -D
 
 ## Rules
 
-- ✅ [remove-useless-undefined](#remove-useless-undefined)
 - ✅ [convert-to-arrow-function](#convert-to-arrow-function);
 - ✅ [convert-to-comparison](#convert-to-comparison);
 - ✅ [convert-to-declaration](#convert-to-declaration);
+- ✅ [remove-useless-undefined](#remove-useless-undefined);
 - ✅ [simplify](#simplify);
 - ✅ [split](#split);
 
@@ -96,6 +96,27 @@ a = 5;
 const a = 5;
 ```
 
+## remove-useless-undefined
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/de00120e433802e73ae9464b4e63b718/e4cd06b2486afce08e213809de9f0dba7b2e94ea).
+
+### ❌ Example of incorrect code
+
+```js
+const x = ({a} = {
+    a: undefined,
+    b: '',
+}) => a;
+```
+
+### ✅ Example of correct code
+
+```js
+const x = ({a} = {
+    b: '',
+}) => a;
+```
+
 ## simplify
 
 ### ❌ Example of incorrect code
@@ -117,12 +138,6 @@ const b = 5;
 const c = 7;
 ```
 
-## split
-
-Rule adds ability to find and split variable declarations because (re)moving a line is simpler and less error prone then changing coma (`=`) to colon (`;`).
-
-For the same reason, **diff** of changed declarations are more comfortable to read. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fee33133e2313c3a741193570e307a58/f8fae66c93acc546194df49fff2a5fc13de8434c).
-
 ## ❌ Example of incorrect code
 
 ```js
@@ -137,26 +152,11 @@ b = a;
 c = a;
 ```
 
-## remove-useless-undefined
+## split
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/de00120e433802e73ae9464b4e63b718/e4cd06b2486afce08e213809de9f0dba7b2e94ea).
+Rule adds ability to find and split variable declarations because (re)moving a line is simpler and less error prone then changing coma (`=`) to colon (`;`).
 
-### ❌ Example of incorrect code
-
-```js
-const x = ({a} = {
-    a: undefined,
-    b: '',
-}) => a;
-```
-
-### ✅ Example of correct code
-
-```js
-const x = ({a} = {
-    b: '',
-}) => a;
-```
+For the same reason, **diff** of changed declarations are more comfortable to read. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fee33133e2313c3a741193570e307a58/f8fae66c93acc546194df49fff2a5fc13de8434c).
 
 ## License
 
