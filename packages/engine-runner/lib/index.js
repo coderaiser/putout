@@ -158,36 +158,36 @@ function splitPlugins(plugins, {progress}) {
             continue;
         }
         
-        if (plugin.traverse) {
-            pluginsTraverse.push(item);
-            continue;
-        }
-        
-        if (plugin.replace) {
-            pluginsTraverse.push(include(replace(item)));
-            continue;
-        }
-        
-        if (plugin.declare) {
-            pluginsTraverse.push(declare(item));
-            continue;
-        }
-        
-        if (plugin.include) {
-            pluginsTraverse.push(include(item));
-            continue;
-        }
-        
-        if (plugin.scan) {
-            pluginsTraverse.push(scan(item, {
-                progress,
-            }));
-            continue;
-        }
+        pluginsTraverse.push(buildPlugin(item, {
+            progress,
+        }));
     }
     
     return {
         pluginsFind,
         pluginsTraverse,
     };
+}
+
+function buildPlugin(item, {progress}) {
+    const {plugin} = item;
+    
+    if (plugin.traverse)
+        return item;
+    
+    if (plugin.replace)
+        return include(replace(item));
+    
+    if (plugin.declare)
+        return declare(item);
+    
+    if (plugin.include)
+        return include(item);
+    
+    if (plugin.scan)
+        return scan(item, {
+            progress,
+        });
+    
+    return item;
 }
