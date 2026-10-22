@@ -16,16 +16,13 @@ export const include = () => [
 
 export const filter = (path) => {
     const {node} = path;
-    const {block, finalizer} = node;
+    const {block} = node;
     const {length} = block.body;
     const [first] = block.body;
     
     const {error} = path.parentPath.scope.bindings;
     
     if (error && error.path.node.init)
-        return false;
-    
-    if (finalizer)
         return false;
     
     if (length !== 1)

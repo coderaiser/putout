@@ -1,7 +1,7 @@
 const f = () => {
     try {
-        __estrace.enter('<anonymous:1>', 'trace.js:1', arguments);
+        await enter('<anonymous:1>', 'trace.js:1', arguments);
     } finally {
-        __estrace.exit('<anonymous:1>', 'trace.js:1');
+        exit('<anonymous:1>', 'trace.js:1');
     }
 }

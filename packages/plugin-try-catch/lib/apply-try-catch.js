@@ -27,6 +27,14 @@ export const applyTryCatch = (tryName) => (path) => {
     ]);
     
     const {handler} = path.node;
+    
+    if (!handler) {
+        replaceWithMultiple(path, [
+            maybeAwait(path, callNode),
+        ]);
+        return;
+    }
+    
     const {param, body} = handler;
     
     if (!param) {

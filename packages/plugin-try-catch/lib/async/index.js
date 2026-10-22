@@ -13,15 +13,12 @@ export const include = () => [
 
 export const filter = (path) => {
     const {node} = path;
-    const {block, finalizer} = node;
+    const {block} = node;
     
     const {length} = block.body;
     const [first] = block.body;
     
     if (path.parentPath.scope.bindings.error)
-        return false;
-    
-    if (finalizer)
         return false;
     
     if (!length)

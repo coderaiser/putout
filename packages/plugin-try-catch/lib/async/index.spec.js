@@ -42,7 +42,7 @@ test('plugin-try-catch: async: no report: no-await', (t) => {
     t.end();
 });
 
-test('plugin-try-catch: async: no report: finalizer', (t) => {
-    t.noReport('finalizer');
+test('plugin-try-catch: async: transform: finalizer', (t) => {
+    t.transform('finalizer');
     t.end();
 });
