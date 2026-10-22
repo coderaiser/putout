@@ -1,3 +1,21 @@
+2026.10.23, v42.22.0
+
+fix:
+- 6132ee735 @putout/plugin-apply-push: duplicate declaration
+
+feature:
+- f55962b7b putout: runners: add
+- 90b1a0898 @putout/engine-loader: runners: add
+- c6152122b @putout/engine-runner: runners: add
+- 044998c8d @putout/test: runners: add support
+- 153aa035f @putout/engine-runner: build-plugin: move
+- 13c71e873 @putout/engine-runner: buildPlugin: move out
+- 2d5211922 @putout/engine-runner: buildPlugin
+- 0effb21fe @putout/plugin-try-catch: finally: improve support
+- 1ac4a8de8 @putout/plugin-logical-expressions: remove-useless-coalescing
+- 041a48c24 @putout/plugin-apply-push: declared
+- 6a2149311 @putout/plugin-apply-push: no-declaration
+
 2026.10.10, v42.21.0
 
 fix:
