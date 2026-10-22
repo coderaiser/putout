@@ -8,11 +8,8 @@ import superFind from './super-find.js';
 import template from './template/index.js';
 import {createProgress} from './progress.js';
 import {tryThrowWithReason} from './try-throw-with-reason.js';
-import {include} from './includer/index.js';
-import {replace} from './replacer/index.js';
-import {declare} from './declarator/index.js';
-import {scan} from './scanner/index.js';
 import {getPath, getPosition} from './get-position.js';
+import {buildPlugin} from './build-plugin.js';
 
 const debug = createDebug('putout:runner:find');
 const isRemoved = (a) => a?.removed;
@@ -167,27 +164,4 @@ function splitPlugins(plugins, {progress}) {
         pluginsFind,
         pluginsTraverse,
     };
-}
-
-function buildPlugin(item, {progress}) {
-    const {plugin} = item;
-    
-    if (plugin.traverse)
-        return item;
-    
-    if (plugin.replace)
-        return include(replace(item));
-    
-    if (plugin.declare)
-        return declare(item);
-    
-    if (plugin.include)
-        return include(item);
-    
-    if (plugin.scan)
-        return scan(item, {
-            progress,
-        });
-    
-    return item;
 }
