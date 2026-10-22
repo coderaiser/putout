@@ -12,7 +12,7 @@ const maybeEntries = (a) => isArray(a) ? a : entries(a).pop();
 export const _maybeEntries = maybeEntries;
 export const _maybeTuple = maybeTuple;
 
-export function preTest(test, plugin) {
+export function preTest(test, plugin, runners) {
     const [name, {
         report,
         find,
@@ -26,6 +26,7 @@ export function preTest(test, plugin) {
         match,
         declare,
         scan,
+        ...other
     }] = maybeEntries(plugin);
     
     isArray(plugin);
@@ -75,7 +76,8 @@ export function preTest(test, plugin) {
             
             declare,
             scan,
-        });
+            ...other,
+        }, runners);
         
         t.ok(result, getIsCorrectPluginMessage());
         t.end();

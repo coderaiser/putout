@@ -75,7 +75,7 @@ export function createTest(url, maybeOptions, maybeExtends = {}) {
         extensionFix,
     };
     
-    preTest(test, plugin);
+    preTest(test, plugin, options.runners);
     
     return test.extend({
         transform: transform(dir, linterOptions, options),

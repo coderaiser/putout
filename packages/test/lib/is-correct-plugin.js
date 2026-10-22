@@ -2,7 +2,10 @@ const isFn = (a) => typeof a === 'function';
 
 export const getIsCorrectPluginMessage = () => `should export 'replace', 'find', 'traverse', 'include', 'exclude', 'declare' or 'scan' function`;
 
-export const isCorrectPlugin = (plugin) => {
+const {keys} = Object;
+const has = (a, b) => new Set(a).intersection(new Set(b)).size;
+
+export const isCorrectPlugin = (plugin, runners = {}) => {
     const {
         find,
         fix,
@@ -13,6 +16,12 @@ export const isCorrectPlugin = (plugin) => {
         declare,
         scan,
     } = plugin;
+    
+    const runnersKeys = keys(runners);
+    const pluginKeys = keys(plugin);
+    
+    if (runnersKeys && has(pluginKeys, runnersKeys))
+        return true;
     
     const isFix = isFn(fix);
     const isReplace = isFn(replace);
