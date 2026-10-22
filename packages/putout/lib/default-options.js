@@ -12,6 +12,7 @@ export const defaultOptions = (opts = {}) => {
         loadPluginsAsync = loader.loadPluginsAsync,
         runPlugins = runner.runPlugins,
         progress = createProgress(),
+        runners = {},
     } = opts;
     
     return {
@@ -24,5 +25,6 @@ export const defaultOptions = (opts = {}) => {
         loadPluginsAsync,
         runPlugins,
         progress,
+        runners,
     };
 };

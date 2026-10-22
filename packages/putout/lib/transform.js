@@ -16,6 +16,7 @@ export const transform = (ast, opts) => {
         loadPlugins,
         runPlugins,
         progress,
+        runners,
     } = opts;
     
     const [validationError] = tryCatch(validateRulesRelations, {
@@ -26,6 +27,7 @@ export const transform = (ast, opts) => {
     const plugins = loadPlugins({
         pluginNames,
         rules,
+        runners,
     });
     
     const places = runPlugins({
@@ -34,6 +36,7 @@ export const transform = (ast, opts) => {
         fixCount,
         plugins,
         progress,
+        runners,
     });
     
     return [
@@ -53,6 +56,7 @@ export const transformAsync = async (ast, opts) => {
         loadPluginsAsync,
         runPlugins,
         progress,
+        runners,
     } = opts;
     
     const [validationError] = tryCatch(validateRulesRelations, {
@@ -63,6 +67,7 @@ export const transformAsync = async (ast, opts) => {
     const plugins = await loadPluginsAsync({
         pluginNames,
         rules,
+        runners,
     });
     
     const places = runPlugins({
@@ -71,6 +76,7 @@ export const transformAsync = async (ast, opts) => {
         fixCount,
         plugins,
         progress,
+        runners,
     });
     
     return [
