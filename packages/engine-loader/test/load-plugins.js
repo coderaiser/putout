@@ -647,6 +647,47 @@ test('putout: loader: rules has object instead of toggle', async (t) => {
     t.end();
 });
 
+test('putout: loader: runners', (t) => {
+    const plugin = {
+        report: () => 'debugger found',
+        when: () => true,
+        fix: () => {},
+    };
+    
+    const createWhen = ({plugin, ...a}) => ({
+        ...a,
+        plugin: {
+            ...plugin,
+            traverse: ({push}) => ({
+                DebuggerStatement: (path) => {
+                    push(path);
+                },
+            }),
+        },
+    });
+    
+    const {places} = putout('debugger', {
+        runners: {
+            when: createWhen,
+        },
+        plugins: [
+            ['remove-debugger', plugin],
+        ],
+    });
+    
+    const expected = [{
+        message: 'debugger found',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'remove-debugger',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
 const createFindPath = (pluginName, findPath) => (name, paths) => {
     if (!name.indexOf(`@putout/plugin-${pluginName}`))
         return false;
