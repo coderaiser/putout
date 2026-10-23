@@ -27,3 +27,10 @@ template(5);
 
 // THROWS Argument of type 'string' is not assignable to parameter of type 'Node'
 generate('hello');
+
+putout('debugger', {
+    runners: {
+        // THROWS Type 'string' is not assignable to type '(item: { [key: string]: unknown; plugin: { [key: string]: unknown; report: Report; }; }) => { rule: string; msg?: string | undefined; options?: Record<string, unknown> | undefined; plugin: { report: Report; }; }'.
+        hello: 'world',
+    },
+});

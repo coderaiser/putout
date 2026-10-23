@@ -888,3 +888,89 @@ test('putout: loader: no plugin found', (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: runners: passes runners to loadPlugins and runPlugins', (t) => {
+    const plugin = {
+        report: () => 'debugger found',
+        when: () => true,
+        fix: () => {},
+    };
+    
+    const result = putout('debugger', {
+        fix: false,
+        plugins: [
+            ['remove-debugger', plugin],
+        ],
+        runners: {
+            when: ({plugin: item, ...a}) => ({
+                ...a,
+                plugin: {
+                    ...item,
+                    traverse: ({push}) => ({
+                        DebuggerStatement: (path) => {
+                            push(path);
+                        },
+                    }),
+                },
+            }),
+        },
+    });
+    
+    const expected = {
+        code: 'debugger',
+        places: [{
+            message: 'debugger found',
+            position: {
+                column: 0,
+                line: 1,
+            },
+            rule: 'remove-debugger',
+        }],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: runners: fix: runner built plugin is fixed', (t) => {
+    const plugin = {
+        report: () => 'debugger found',
+        when: () => true,
+        fix: () => {},
+    };
+    
+    const result = putout('debugger', {
+        fix: true,
+        plugins: [
+            ['remove-debugger', plugin],
+        ],
+        runners: {
+            when: ({plugin: item, ...a}) => ({
+                ...a,
+                plugin: {
+                    ...item,
+                    traverse: ({push}) => ({
+                        DebuggerStatement: (path) => {
+                            push(path);
+                        },
+                    }),
+                },
+            }),
+        },
+    });
+    
+    const expected = {
+        code: 'debugger;\n',
+        places: [{
+            message: 'debugger found',
+            position: {
+                column: 0,
+                line: 1,
+            },
+            rule: 'remove-debugger',
+        }],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

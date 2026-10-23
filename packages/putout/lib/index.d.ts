@@ -1,6 +1,6 @@
 import {Node} from '@putout/babel';
 import {PrinterOptions, ParseOptions} from '@putout/engine-parser';
-import {PutoutPlugin} from '@putout/types/plugin';
+import {PutoutPlugin, Report} from '@putout/types/plugin';
 
 export type * from '@putout/types/plugin';
 export * as operator from '../types/operator.ts';
@@ -34,6 +34,21 @@ type RuleValue = RuleState | RuleTuple;
 
 export type Rules = Record<string, RuleValue>;
 
+type Runners = Record<string, (item: {
+    plugin: {
+        report: Report;
+        [key: string]: unknown;
+    };
+    [key: string]: unknown;
+}) => {
+    rule: string;
+    msg?: string;
+    options?: Record<string, unknown>;
+    plugin: {
+        report: Report;
+    };
+}>;
+
 export type TransformOptions = {
     plugins?: (string | [string, Record<string, unknown>] | [string, PutoutPlugin])[];
     rules?: Rules;
@@ -41,6 +56,7 @@ export type TransformOptions = {
     fixCount?: number;
     parser?: string;
     printer?: PrinterConfig;
+    runners?: Runners;
 };
 
 type Options = ParseOptions & TransformOptions;
