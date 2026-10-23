@@ -15,7 +15,8 @@
         "packages/*/test",
         "coverage",
         "packages/engine-loader/transforms",
-        "packages/cli-choose/**/keypress*"
+        "packages/cli-choose/**/keypress*",
+        "packages/test/bin"
     ],
     "branches": 100,
     "lines": 100,
