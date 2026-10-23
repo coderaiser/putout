@@ -1,5 +1,9 @@
 {
     "match": {
+        "test/*.ts": {
+            "variables/remove-unused": "off",
+            "variables/remove-useless": "off"
+        },
         "*.md": {
             "remove-debugger": "off"
         }

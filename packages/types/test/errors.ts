@@ -12,6 +12,8 @@ import {
     Replacer,
     Includer,
     Declarator,
+    Runner,
+    Runners,
 } from '../lib/plugin.js';
 
 // PutoutPlugin error tests
@@ -117,3 +119,18 @@ function useDeclarator(fn: Declarator) {
 
 // THROWS Property 'declare' is missing in type '{}' but required in type 'Declarator'.
 useDeclarator({});
+
+// Runner error tests
+function useRunner(fn: Runner) {
+    return fn;
+}
+
+// THROWS Argument of type '{}' is not assignable to parameter of type 'Runner'.
+useRunner({});
+
+// Runners error tests
+function useRunners(map: Runners) {
+    return map;
+}
+
+useRunners({});

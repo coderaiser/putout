@@ -79,3 +79,20 @@ export type Declarator = {
         commonjs: string;
     }>;
 };
+
+export type Runner = (item: {
+    plugin: {
+        report: Report;
+        [key: string]: unknown;
+    };
+    [key: string]: unknown;
+}) => {
+    rule: string;
+    msg?: string;
+    options?: Record<string, unknown>;
+    plugin: {
+        report: Report;
+    };
+};
+
+export type Runners = Record<string, Runner>;
