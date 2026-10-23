@@ -398,8 +398,8 @@ tsParserTester.run('putout: async: typescript-eslint-parser-error', rule, {
         `,
         errors: [{
             message: `Identifier 'Stub' has already been declared. (3:20) (parser)`,
-            line: 2,
-            column: 13,
+            line: 1,
+            column: 1,
         }],
     }],
 });
