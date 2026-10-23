@@ -5,7 +5,6 @@
         "**/*.spec.*",
         "**/*.config.*",
         "**/fixture",
-        "**/transforms",
         ".*.*",
         "test",
         "coverage"

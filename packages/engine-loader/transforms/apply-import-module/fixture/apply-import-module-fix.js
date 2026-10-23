@@ -3,4 +3,5 @@
 
     const {createRequire = returns(noop)} = module;
 }
+
 const require = createRequire(import.meta.url);
