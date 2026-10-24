@@ -1215,3 +1215,43 @@ test('putout: runner: runPlugins: runners', (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: runner: runPlugins: runners: include', (t) => {
+    const plugin = {
+        report: () => 'debugger found',
+        when: () => true,
+        fix: () => {},
+    };
+    
+    const createWhen = ({plugin, ...a}) => ({
+        ...a,
+        plugin: {
+            ...plugin,
+            include: () => [
+                'debugger',
+            ],
+        },
+    });
+    
+    const {places} = putout('debugger', {
+        runPlugins,
+        runners: {
+            when: createWhen,
+        },
+        plugins: [
+            ['remove-debugger', plugin],
+        ],
+    });
+    
+    const expected = [{
+        message: 'debugger found',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'remove-debugger',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
