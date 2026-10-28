@@ -1,3 +1,9 @@
+2026.10.28, v42.23.0
+
+feature:
+- 2fb06c478 @putout/plugin-apply-cause: add
+- a21d5883b @putout/eslint-config: preserve-caught-error
+
 2026.10.23, v42.22.1
 
 feature:
