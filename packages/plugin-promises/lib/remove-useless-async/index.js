@@ -11,6 +11,7 @@ export const fix = (path) => {
 export const exclude = () => [
     '__nop',
     'async (__args): Promise<__b> => __body',
+    'async function __(__args): Promise<__b> {__body}',
 ];
 
 export const include = () => [
