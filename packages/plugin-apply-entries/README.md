@@ -1,6 +1,6 @@
 # @putout/plugin-apply-entries [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-entries.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-entries.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-entries "npm"
 
 > The `Object.entries()` static method returns an array of a given object's own enumerable string-keyed property key-value pairs..

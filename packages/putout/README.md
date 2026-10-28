@@ -1,11 +1,11 @@
 # Putout [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat\&longCache=true
 [BuildStatusIMGURL]: https://github.com/coderaiser/putout/workflows/Node%20CI/badge.svg
 [NPMURL]: https://npmjs.org/package/putout "npm"
 [BuildStatusURL]: https://github.com/coderaiser/putout/actions?query=workflow%3A%22Node+CI%22 "Build Status"
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
-[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
+[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master\&service=github
 
 > **Perfection is finally attained not when there is no longer anything to add,
 > but when there is no longer anything to take away.**

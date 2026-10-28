@@ -1,6 +1,6 @@
 # @putout/plugin-convert-quotes-to-backticks [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-quotes-to-backticks "npm"
 
 > Template literals are literals delimited with **backticks** (`).

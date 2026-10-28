@@ -1,6 +1,6 @@
 # @putout/plugin-sql [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-sql.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-sql.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-sql "npm"
 
 > **SQL** (Structured Query Language) is a descriptive computer language designed for updating, retrieving, and calculating data in table-based databases.

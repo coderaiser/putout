@@ -1,6 +1,6 @@
 # @putout/plugin-browserlist [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-browserlist.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-browserlist.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-browserlist "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with [browserlist](https://github.com/browserslist/browserslist).

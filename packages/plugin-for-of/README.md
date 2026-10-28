@@ -1,6 +1,6 @@
 # @putout/plugin-for-of [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-for-of.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-for-of.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-for-of "npm"
 
 > The [`for...of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) statement creates a loop which invokes a custom iteration hook with statements to be executed for the value of each element of an array.

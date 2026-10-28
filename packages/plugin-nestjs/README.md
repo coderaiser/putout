@@ -1,6 +1,6 @@
 # @putout/plugin-nestjs [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-nestjs.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-nestjs.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-nestjs "npm"
 
 > Nest is a modern framework designed to build efficient, scalable web applications

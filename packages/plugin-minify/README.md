@@ -1,6 +1,6 @@
 # @putout/plugin-minify [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-minify.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-minify.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-minify "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds support of minifiers used in [`@putout/minify`](https://github.com/putoutjs/minify) and [`minify`](https://github.com/coderaiser/minify).

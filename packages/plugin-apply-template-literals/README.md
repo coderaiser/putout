@@ -1,6 +1,6 @@
 # @putout/plugin-apply-template-literals [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-template-literals.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-template-literals.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-template-literals "npm"
 
 > Template literals are literals delimited with backtick (`) characters, allowing for multi-line strings, string interpolation with embedded expressions, and special constructs called tagged templates.

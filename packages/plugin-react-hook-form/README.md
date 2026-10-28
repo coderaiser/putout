@@ -1,6 +1,6 @@
 # @putout/plugin-react-hook-form [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-react-hook-form.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-react-hook-form.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-react-hook-form "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to migrate to latest version of [React Hook Form](https://react-hook-form.com/). *Not bundled*.

@@ -1,6 +1,6 @@
 # @putout/plugin-remove-useless-object-from-entries [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-object-from-entries.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-object-from-entries.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-object-from-entries "npm"
 
 > The `Object.fromEntries()` static method transforms a list of key-value pairs into an object.

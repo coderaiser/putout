@@ -1,6 +1,6 @@
 # @putout/plugin-apply-at [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-at.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-at.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-at "npm"
 
 > The `at()` method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.

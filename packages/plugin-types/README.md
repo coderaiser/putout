@@ -1,6 +1,6 @@
 # @putout/plugin-types [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-types.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-types.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-types "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to help with transforming code related to types.

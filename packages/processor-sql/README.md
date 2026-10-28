@@ -1,6 +1,6 @@
 # @putout/processor-sql [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-sql.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-sql.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/processor-sql "npm"
 
 > **sql**, the simple and easy-to-use markup language you can use to format virtually any document.

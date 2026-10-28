@@ -1,6 +1,6 @@
 # @putout/processor-wasm [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-wasm.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-wasm.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/processor-wasm "npm"
 
 > **WebAssembly** is a low-level assembly-like language with a compact binary format that runs with near-native performance. It designed to run alongside JavaScript, allowing both to work together.

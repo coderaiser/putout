@@ -1,6 +1,6 @@
 # @putout/plugin-declare [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-declare.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-declare.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-declare "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to declare variable that was not defined before, including:

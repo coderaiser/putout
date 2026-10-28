@@ -1,6 +1,6 @@
 # @putout/plugin-remove-useless-array-entries [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-entries.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-entries.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-array-entries "npm"
 
 > The `entries()` method returns a new Array Iterator object that contains the key/value pairs for each index in the array.

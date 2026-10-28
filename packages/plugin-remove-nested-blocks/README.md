@@ -1,6 +1,6 @@
 # @putout/plugin-remove-nested-blocks [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-nested-blocks "npm"
 
 > Delimited by a pair of curly brackets **block statement** is used to group zero or more statements.

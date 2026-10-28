@@ -1,6 +1,6 @@
 # @putout/plugin-socket-io [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-socket-io-hooks.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-socket-io-hooks.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-socket-io-hooks "npm"
 
 > The library for web and native user interfaces

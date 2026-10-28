@@ -1,6 +1,6 @@
 # @putout/plugin-esm [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-esm.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-esm.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-esm "npm"
 
 > The static `import` statement is used to `import` read only live bindings which are exported by another module.

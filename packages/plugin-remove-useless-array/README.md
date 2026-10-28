@@ -1,6 +1,6 @@
 # @putout/plugin-remove-useless-array [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-array.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-array.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-array "npm"
 
 > Property accessors provide access to an object's properties by using the dot notation or the bracket notation.

@@ -1,6 +1,6 @@
 # @putout/plugin-cloudcmd [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-cloudcmd.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-cloudcmd.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-cloudcmd "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to transform to new [Cloud Commander](https://cloudcmd.io) API.

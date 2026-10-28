@@ -1,6 +1,6 @@
 # @putout/plugin-optional-chaining [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-optional-chaining "npm"
 
 > The **optional chaining operator** (`?.`) enables you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid.

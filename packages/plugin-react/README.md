@@ -1,6 +1,6 @@
 # @putout/plugin-react [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-react-hooks "npm"
 
 > The library for web and native user interfaces

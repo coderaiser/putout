@@ -1,6 +1,6 @@
 # @putout/plugin-apply-flat-map [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-flat-map.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-flat-map.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-flat-map "npm"
 
 > The `flatMap()` method returns a new array formed by applying a given callback function to each element of the array, and then flattening the result by one level.

@@ -1,6 +1,6 @@
 # @putout/plugin-variables [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-variables.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-variables.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-variables "npm"
 
 > A **variable** is a named reference to a **value**.

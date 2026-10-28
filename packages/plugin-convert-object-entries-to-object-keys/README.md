@@ -1,6 +1,6 @@
 # @putout/plugin-convert-object-entries-to-object-keys [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-object-entries-to-object-keys.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-object-entries-to-object-keys.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-object-entreis-to-object-keys "npm"
 
 > The `Object.keys()` static method returns an array of a given object's own enumerable string-keyed property key-value pairs.

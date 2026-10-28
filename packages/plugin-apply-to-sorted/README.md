@@ -1,6 +1,6 @@
 # @putout/plugin-apply-to-sorted [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-to-sorted.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-to-sorted.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-to-sorted "npm"
 
 > The `toSorted()` method of `Array` instances is the copying version of the `sort()` method. It returns a new array with the elements sorted in ascending order.

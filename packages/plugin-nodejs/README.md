@@ -1,6 +1,6 @@
 # @putout/plugin-nodejs [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-nodejs.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-nodejs.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-nodejs "npm"
 
 > **Node.js** is an open-source, cross-platform, **JavaScript** runtime environment.

@@ -1,6 +1,6 @@
 # @putout/processor-toml [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-toml.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-toml.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/processor-toml "npm"
 
 > **T**om's **O**bvious **M**inimal **L**language]

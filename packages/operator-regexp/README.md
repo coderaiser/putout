@@ -1,6 +1,6 @@
 # @putout/operator-regexp [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-regexp.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-regexp.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-regexp "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) operator adds ability to determine that provided [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) can be

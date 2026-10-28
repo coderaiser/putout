@@ -1,6 +1,6 @@
 # @putout/formatter-codeframe [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-codeframe.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-codeframe.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-codeframe "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) formatter shows codeframe of file with an errors.

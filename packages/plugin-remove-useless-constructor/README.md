@@ -1,6 +1,6 @@
 # @putout/plugin-remove-useless-constructor [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-constructor.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-constructor.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-constructor "npm"
 
 > The `constructor` method is a special method of a class for creating and initializing an object instance of that class.

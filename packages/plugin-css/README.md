@@ -1,6 +1,6 @@
 # @putout/plugin-css [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-css.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-css.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-css "npm"
 
 > Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML.

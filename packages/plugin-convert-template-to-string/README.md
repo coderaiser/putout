@@ -1,6 +1,6 @@
 # @putout/plugin-convert-template-to-string [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-template-to-string.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-template-to-string.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-template-to-string "npm"
 
 > - [**Template literals**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) are literals delimited with backticks (`), allowing embedded expressions called substitutions.

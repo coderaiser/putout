@@ -1,6 +1,6 @@
 # @putout/plugin-remove-useless-push [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-push.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-push.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-push "npm"
 
 > The `push()` method of `Array` instances adds the specified elements to the end of an array and returns the new length of the array.

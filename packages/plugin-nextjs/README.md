@@ -1,6 +1,6 @@
 # @putout/plugin-nextjs [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-nextjs.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-nextjs.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-nextjs "npm"
 
 > The React Framework for the Web

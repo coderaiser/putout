@@ -1,6 +1,6 @@
 # @putout/eslint [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/eslint.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/eslint.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/eslint "npm"
 
 Wrapper that simplifies [**ESLint**](https://eslint.org/) API and makes it compatible with 🐊[**Putout**](https://github.com/coderaiser/putout).

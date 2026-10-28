@@ -1,6 +1,6 @@
 # @putout/plugin-gitignore [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-gitignore.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-gitignore.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-gitignore "npm"
 
 > A `.gitignore` file specifies intentionally untracked files that Git should ignore. Files already tracked by Git are not affected.

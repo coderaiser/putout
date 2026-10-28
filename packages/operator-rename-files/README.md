@@ -1,6 +1,6 @@
 # @putout/operator-rename-files [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-rename-files.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-rename-files.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-rename-files "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) operator adds ability to rename files to plugins.

@@ -1,6 +1,6 @@
 # @putout/processor-typescript [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-typescript.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-typescript.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/processor-typescript "npm"
 
 🐊**Putout** processor adds support of type check for `typescript` files.

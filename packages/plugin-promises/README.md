@@ -1,6 +1,6 @@
 # @putout/plugin-promises [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-promises.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-promises.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-promises "npm"
 
 > A `Promise` is in one of these states:

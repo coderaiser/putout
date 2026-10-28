@@ -1,6 +1,6 @@
 # @putout/processor-markdown [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-markdown.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-markdown.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/processor-markdown "npm"
 
 > **Markdown**, the simple and easy-to-use markup language you can use to format virtually any document.

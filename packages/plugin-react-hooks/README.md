@@ -1,6 +1,6 @@
 # @putout/plugin-react-hooks [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-react-hooks "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert class components to [react hooks](https://reactjs.org/docs/hooks-intro.html). *Not bundled*.

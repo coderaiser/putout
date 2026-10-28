@@ -1,6 +1,6 @@
 # @putout/plugin-printer [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-printer.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-printer.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-printer "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) adds support of transformations for [`@putout/printer`](https://github.com/putoutjs/printer).

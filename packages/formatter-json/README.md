@@ -1,6 +1,6 @@
 # @putout/formatter-json [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-json.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-json.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-json "npm"
 
 > **JSON** is a syntax for serializing `objects`, `arrays`, `numbers`, `strings`, `booleans`, and `null`. It is based upon **JavaScript** syntax but is distinct from it: some **JavaScript** is *not* **JSON**.

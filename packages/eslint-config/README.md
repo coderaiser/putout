@@ -1,6 +1,6 @@
 # @putout/eslint-config [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/eslint-config.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/eslint-config.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/eslint-config "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) config for **ESLint**. If 🐊**Putout** brakes formatting **ESLint** will fix it back 😉.

@@ -1,6 +1,6 @@
 # @putout/plugin-convert-webpack-to-rspack [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-webpack-to-rspack.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-webpack-to-rspack.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-webpack-to-rspack "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin to convert `webpack.config.js` to [rspack](https://rspack.dev). *Not bundled*.

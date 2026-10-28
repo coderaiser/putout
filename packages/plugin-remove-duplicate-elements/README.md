@@ -1,6 +1,6 @@
 # @putout/plugin-remove-duplicate-elements [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-elements.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-elements.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-duplicate-elements "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove duplecate elements.

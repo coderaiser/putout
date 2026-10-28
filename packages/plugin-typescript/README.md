@@ -1,6 +1,6 @@
 # @putout/plugin-typescript [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-typescript.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-typescript.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-typescript "npm"
 
 > TypeScript is JavaScript with syntax for types.

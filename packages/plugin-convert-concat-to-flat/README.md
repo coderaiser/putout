@@ -1,6 +1,6 @@
 # @putout/plugin-convert-concat-to-flat [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-concat-to-flat.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-concat-to-flat.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-concat-to-flat "npm"
 
 > The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.

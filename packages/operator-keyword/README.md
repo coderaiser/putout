@@ -1,6 +1,6 @@
 # @putout/operator-keyword [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-keyword.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-keyword.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-keyword "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) operator adds ability to check whether `Identifier` is a `keyword` or not.

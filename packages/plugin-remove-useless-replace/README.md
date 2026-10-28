@@ -1,6 +1,6 @@
 # @putout/plugin-remove-useless-replace [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-replace.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-replace.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-replace "npm"
 
 > The `replace()` method returns a new string with some or all matches of a `pattern` replaced by a `replacement`. The original string is left unchanged.

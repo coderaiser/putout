@@ -1,6 +1,6 @@
 # @putout/plugin-new [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-new.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-new.svg?style=flat\&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-new "npm"
 
 > The `new` operator lets developers create an instance of a user-defined object type or of one of the built-in object types that has a constructor function.
