@@ -152,3 +152,7 @@ test('eslint-config: no-dupe-args', async ({comparePlaces}) => {
         rule: 'parser (eslint)',
     }]);
 });
+
+test('eslint-config: no-preserve-caught-error', async ({comparePlaces}) => {
+    await comparePlaces('no-preserve-caught-error', []);
+});

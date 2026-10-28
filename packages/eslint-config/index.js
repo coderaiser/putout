@@ -26,6 +26,7 @@ export const rules = {
             object: false,
         },
     }],
+    'preserve-caught-error': 'off',
     'no-delete-var': 'off',
     'no-prototype-builtins': 'off',
     'no-unused-labels': 'off',
