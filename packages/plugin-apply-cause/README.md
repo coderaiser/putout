@@ -47,6 +47,13 @@ try {} catch(error) {
 }
 ```
 
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`apply-cause`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-cause#readme) | ✅
+⏣ **ESLint** | [`apply-cause`](https://eslint.org/docs/rules/https://eslint.org/docs/latest/rules/preserve-caught-error) | ❌
+
 ## License
 
 MIT
