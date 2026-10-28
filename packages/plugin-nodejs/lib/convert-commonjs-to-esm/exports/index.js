@@ -16,6 +16,7 @@ const {
     isSpreadElement,
     isObjectMethod,
     isFunction,
+    isArrayExpression,
 } = types;
 
 const {replaceWith} = operator;
@@ -122,6 +123,11 @@ export const replace = () => ({
                     params,
                     body,
                 });
+                continue;
+            }
+            
+            if (isArrayExpression(value)) {
+                declarations.push(createDeclaration(key.name, path.get(`right.properties.${index}.value`)));
                 continue;
             }
             
