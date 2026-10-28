@@ -97,6 +97,7 @@
     "@putout/operator-wasm": "^1.0.0",
     "@putout/plugin-apply-arrow": "^3.0.0",
     "@putout/plugin-apply-at": "^3.0.0",
+    "@putout/plugin-apply-cause": "^1.0.0",
     "@putout/plugin-apply-dot-notation": "^3.0.0",
     "@putout/plugin-apply-flat-map": "^3.0.0",
     "@putout/plugin-apply-global-this": "^2.0.0",

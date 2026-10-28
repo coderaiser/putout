@@ -215,6 +215,7 @@
         "parens",
         "apply-at",
         "apply-arrow",
+        "apply-cause",
         "apply-dot-notation",
         "apply-flat-map",
         "apply-global-this",
