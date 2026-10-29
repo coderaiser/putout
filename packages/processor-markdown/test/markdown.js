@@ -55,6 +55,10 @@ test('putout: processor: links: no new lines', async ({process}) => {
     await process('links');
 });
 
+test('putout: processor: markdown: definition: ampersand: no escape', async ({noProcess}) => {
+    await noProcess('definition-ampersand');
+});
+
 test('putout: processor: markdown: places', async ({process}) => {
     await process('place');
 });

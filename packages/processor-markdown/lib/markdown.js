@@ -8,6 +8,7 @@ import {
     convertMarkdownToJs,
 } from 'happy-mark';
 import stringify from 'remark-stringify';
+import {defaultHandlers} from 'mdast-util-to-markdown';
 import preset from 'remark-preset-lint-consistent';
 import remarkFrontmatter from 'remark-frontmatter';
 import {visit} from 'unist-util-visit';
@@ -17,6 +18,16 @@ import {run} from './rules/index.js';
 import {toPlace} from './parse-place.js';
 
 const text = ({value}) => value;
+const URL_PLACEHOLDER = 'url-placeholder';
+
+const definition = (node, parent, state, info) => {
+    const result = defaultHandlers.definition({
+        ...node,
+        url: URL_PLACEHOLDER,
+    }, parent, state, info);
+    
+    return result.replace(URL_PLACEHOLDER, node.url);
+};
 
 const stringifyOptions = {
     bullet: '-',
@@ -25,6 +36,7 @@ const stringifyOptions = {
     tightDefinitions: true,
     handlers: {
         text,
+        definition,
     },
 };
 

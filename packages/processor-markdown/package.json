@@ -30,6 +30,7 @@
   "dependencies": {
     "@putout/operator-json": "^3.0.0",
     "happy-mark": "^1.0.2",
+    "mdast-util-to-markdown": "^2.1.2",
     "once": "^1.4.0",
     "remark-frontmatter": "^5.0.0",
     "remark-parse": "^11.0.0",
