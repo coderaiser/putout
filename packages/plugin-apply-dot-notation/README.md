@@ -1,6 +1,6 @@
 # @putout/plugin-apply-dot-notation [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-dot-notation.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-dot-notation.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-dot-notation "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply dot notation. Checkout out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d0702a7f5765c0f26788be18296eefca/a33f4501ce1e6018e6bb1b52ae0f554cb4483a05).

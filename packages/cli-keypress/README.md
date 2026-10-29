@@ -1,6 +1,6 @@
 # @putout/cli-keypress [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-keypress.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-keypress.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/cli-keypress "npm"
 
 `putout` keypress handler.

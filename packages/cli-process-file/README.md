@@ -1,6 +1,6 @@
 # @putout/cli-process-file [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-process-file.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-process-file.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/cli-process-file "npm"
 
 Process file using 🐊**Putout**, **Samadhi** and **ESLint**.

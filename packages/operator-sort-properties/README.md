@@ -1,6 +1,6 @@
 # @putout/operator-sort-properties [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-sort-properties.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-sort-properties.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-sort-properties "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) operator simplify ability to create plugins that sorts `properties`.

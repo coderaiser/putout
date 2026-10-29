@@ -1,6 +1,6 @@
 # @putout/plugin-jest [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-jest.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-jest.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-jest "npm"
 
 > Jest is a delightful JavaScript Testing Framework with a focus on simplicity.

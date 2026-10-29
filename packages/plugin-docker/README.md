@@ -1,6 +1,6 @@
 # @putout/plugin-docker [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-docker.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-docker.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-docker "npm"
 
 > A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. This page describes the commands you can use in a Dockerfile.

@@ -1,6 +1,6 @@
 # @putout/plugin-remove-useless-delete [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-assign.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-assign.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-assign "npm"
 
 > The `delete` operator removes a `property` from an `object`. If the `property`'s value is an `object` and there are no more references to the `object`, the `object` held by that `property` is eventually released automatically.

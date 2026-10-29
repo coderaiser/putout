@@ -1,6 +1,6 @@
 # @putout/plugin-apply-starts-with [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-starts-with.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-starts-with.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-starts-with "npm"
 
 > The `startsWith()` method determines whether a string begins with the characters of a specified string, returning `true` or `false` as appropriate.

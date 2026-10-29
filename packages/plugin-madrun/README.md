@@ -1,6 +1,6 @@
 # @putout/plugin-madrun [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-madrun.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-madrun.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-madrun "npm"
 
 > CLI tool to run multiple npm-scripts in a madly comfortable way.

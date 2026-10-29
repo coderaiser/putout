@@ -1,6 +1,6 @@
 # @putout/operator-sort-ignore [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-sort-ignore.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-sort-ignore.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-sort-ignore "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) operator simplify ability to create plugins that sorts `ignore`.

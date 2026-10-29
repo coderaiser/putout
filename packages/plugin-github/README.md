@@ -1,6 +1,6 @@
 # @putout/plugin-github [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-github.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-github.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-github "npm"
 
 > Automate, customize, and execute your software development workflows right in your repository with **GitHub Actions**.

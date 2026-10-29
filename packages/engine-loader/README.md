@@ -1,6 +1,6 @@
 # @putout/engine-loader [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/engine-loader "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) loader for `plugins` and `processors`.

@@ -1,6 +1,6 @@
 # @putout/plugin-package-json [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-package-json.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-package-json.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-package-json "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to automate fixing `package.json`.

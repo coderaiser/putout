@@ -1,6 +1,6 @@
 # @putout/engine-parser [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-parser.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-parser.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/engine-parser "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) engine that parses input.

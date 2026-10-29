@@ -1,6 +1,6 @@
 # @putout/plugin-apply-global-this [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-global-this.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-global-this.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-global-this "npm"
 
 > Historically, accessing the global object has required different syntax in different JavaScript environments. On the web you can use `window`, `self`, or frames - but in Web Workers only `self` will work. In Node.js none of these work, and you must instead use `global`

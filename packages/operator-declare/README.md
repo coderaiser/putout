@@ -1,6 +1,6 @@
 # @putout/operator-declare [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-declare.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-declare.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-declare "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) operator adds ability to declare variables that has references with no definitions. Most likely you prefer using [Declarator](https://github.com/coderaiser/putout/blob/master/packages/engine-runner/README.md#Declarator) plugin type based on current Operator.

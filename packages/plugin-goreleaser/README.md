@@ -1,6 +1,6 @@
 # @putout/plugin-goreleaser [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-goreleaser.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-goreleaser.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-goreleaser "npm"
 
 > Release engineering, simplified.

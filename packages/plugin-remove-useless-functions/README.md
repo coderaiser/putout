@@ -1,6 +1,6 @@
 # @putout/plugin-remove-useless-functions [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-functions.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-functions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-functions "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove `useless functions`.

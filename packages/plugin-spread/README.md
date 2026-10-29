@@ -1,6 +1,6 @@
 # @putout/plugin-spread [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-spread.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-spread.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-spread "npm"
 
 > **Spread** syntax can be used when all elements from an object or array need to be included in a list of some kind.

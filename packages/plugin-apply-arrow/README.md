@@ -1,6 +1,6 @@
 # @putout/plugin-apply-arrow [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-arrow.svg?style=flarrow\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-arrow.svg?style=flarrow&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-arrow "npm"
 
 > An arrow function expression is a compact alternative to a traditional function expression, with some semantic differences and deliberate limitations in usage:

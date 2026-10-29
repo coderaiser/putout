@@ -1,6 +1,6 @@
 # @putout/plugin-vitest [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-vitest.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-vitest.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-vitest "npm"
 
 > A Vite-native testing framework. It's fast!

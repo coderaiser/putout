@@ -1,6 +1,6 @@
 # @putout/plugin-assignment [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-assignment.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-assignment.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-assignment "npm"
 
 > The [**assignment operator**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment) (`=`) is used to assign a value to a variable. The assignment operation evaluates to the assigned value. Chaining the assignment operator is possible in order to assign a single value to multiple variables.

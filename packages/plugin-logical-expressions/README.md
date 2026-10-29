@@ -1,6 +1,6 @@
 # @putout/plugin-logical-expressions [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-logical-expressions.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-logical-expressions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-logical-expressions "npm"
 
 > The logical NOT (`!`) operator takes truth to falsity and vice versa.

@@ -1,6 +1,6 @@
 # @putout/formatter-json-lines [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-json-lines.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-json-lines.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-json-lines "npm"
 
 > **JSON Lines** is a convenient format for storing structured data that may be processed one record at a time. It works well with unix-style text processing tools and shell pipelines. It's a great format for log files. It's also a flexible format for passing messages between cooperating processes.

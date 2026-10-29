@@ -1,6 +1,6 @@
 # @putout/plugin-return [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-return.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-return.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-return "npm"
 
 > The `return` statement ends function execution and specifies a value to be returned to the function caller.

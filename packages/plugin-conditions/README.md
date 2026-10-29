@@ -1,6 +1,6 @@
 # @putout/plugin-conditions [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-conditions.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-conditions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-conditions "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) adds support of conditions transformations.

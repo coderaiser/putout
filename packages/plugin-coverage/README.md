@@ -1,6 +1,6 @@
 # @putout/plugin-coverage [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-coverage.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-coverage.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-coverage "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with coverage configuration files, like :`.nycrc.json`, `c8rc.json`.

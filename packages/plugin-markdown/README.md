@@ -1,6 +1,6 @@
 # @putout/plugin-markdown [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-markdown.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-markdown.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-markdown "npm"
 
 > Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents.

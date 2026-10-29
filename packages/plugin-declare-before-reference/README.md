@@ -1,6 +1,6 @@
 # @putout/plugin-declare-before-reference [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-declare-before-reference.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-declare-before-reference.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-declare-before-reference "npm"
 
 > The `ReferenceError` object represents an error when a variable hasn't yet been initialized in the current scope is referenced.

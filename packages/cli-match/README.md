@@ -1,6 +1,6 @@
 # @putout/cli-match [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-match.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-match.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/cli-match "npm"
 
 Read `.putout.json` and convert `rules`  into `match`.

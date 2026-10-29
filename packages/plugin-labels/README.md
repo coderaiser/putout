@@ -1,6 +1,6 @@
 # @putout/plugin-labels [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-labels.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-labels.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-labels "npm"
 
 > A **labeled statement** is any `statement` that is prefixed with an `identifier`. You can jump to this label using a `break` or `continue` statement nested within the labeled statement.

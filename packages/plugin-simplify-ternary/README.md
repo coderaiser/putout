@@ -1,6 +1,6 @@
 # @putout/plugin-simplify-ternary [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-simplify-ternary "npm"
 
 > The **ternary** operator takes three operands: a condition followed by a question mark (`?`), then an expression to execute if the condition is truthy followed by a colon (`:`), and finally the expression to execute if the condition is falsy. This operator is frequently used as an alternative to an `if...else` statement.

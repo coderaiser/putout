@@ -1,6 +1,6 @@
 # @putout/operator-add-args [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-add-args.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-add-args.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-add-args "npm"
 
 🐊**Putout** operator adds ability to add argument that was not defined before.

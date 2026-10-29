@@ -1,6 +1,6 @@
 # @putout/plugin-remove-debugger [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-debugger.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-debugger.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-debugger "npm"
 
 > The `debugger` statement invokes any available debugging functionality, such as setting a **breakpoint**. If no debugging functionality is available, this statement has no effect.

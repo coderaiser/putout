@@ -1,6 +1,6 @@
 # @putout/compare [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/compare.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/compare.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/compare "npm"
 
 Compare AST-nodes according to 🦎[**PutoutScript**](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript).

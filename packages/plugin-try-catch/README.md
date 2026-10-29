@@ -1,6 +1,6 @@
 # @putout/plugin-try-catch [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-try-catch.svg?style=flat\&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-try-catch.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-try-catch "npm"
 
 > The `try...catch` statement marks a `try` block and a `catch` block. If the code in the `try` block throws an exception then the code in the `catch` block will be executed.
