@@ -29,11 +29,13 @@ test('test: format: many', async ({formatMany}) => {
 });
 
 test('test: format: options', async ({format}) => {
+    before();
     update(1);
     await format(formatterProgress, 'var', {
         minCount: 10,
     });
     update();
+    after();
 });
 
 test('test: no format', async ({noFormat}) => {
@@ -58,20 +60,24 @@ testUpdate('test: formatSave', async ({ok, format}) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 testUpdate('test: formatSave: success', async ({equal, format}) => {
+    before();
     update(1);
     
     const {message} = await format(formatter, 'var');
     
     update();
+    after();
     equal(message, 'fixed fixture updated');
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 testUpdate('test: formatManySave: success', async ({equal, formatMany}) => {
+    before();
     update(1);
     
     const {message} = await formatMany(formatter, ['var']);
     
     update();
+    after();
     equal(message, 'fixed fixture updated');
 }, NO_CHECK_ASSERTIONS_COUNT);
 
