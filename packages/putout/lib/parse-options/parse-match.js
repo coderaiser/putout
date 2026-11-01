@@ -13,6 +13,7 @@ const getMatcher = (glob) => {
         `${glob}/**`,
         `**/${glob}/**`,
     ];
+    
     const isMatch = picomatch(paths, {
         dot: true,
     });
