@@ -108,7 +108,7 @@ export const compareAll = (path, templateNodes, options) => {
 
 // @babel/template creates empty array directives
 // extra duplicate value
-const ignore = [
+const ignore = new Set([
     'loc',
     'start',
     'end',
@@ -125,7 +125,7 @@ const ignore = [
     'importKind',
     'exportKind',
     '__putout_runner_replace',
-];
+]);
 
 function superCompareIterate(node, template) {
     let item = [node, template];
@@ -141,7 +141,7 @@ function superCompareIterate(node, template) {
             return false;
         
         for (const key of keys(template)) {
-            if (ignore.includes(key))
+            if (ignore.has(key))
                 continue;
             
             const nodeValue = extractExpression(node[key]);
