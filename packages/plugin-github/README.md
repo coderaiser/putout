@@ -251,7 +251,7 @@ jobs:
     strategy:
       matrix:
 -       node-version: [20.x, 22.x, 24.x]
-+       node-version: [22.x, 24.x, 26.x]
++       node-version: [22.x, 24.x, 26.x, 27.x]
 ```
 
 You can override versions with:
@@ -263,8 +263,7 @@ You can override versions with:
             "versions": [
                 "16.x",
                 "18.x",
-                "20.x",
-                "25.x"
+                "20.x"
             ]
         }]
     }
