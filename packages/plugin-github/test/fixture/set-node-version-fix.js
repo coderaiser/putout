@@ -8,7 +8,7 @@ __putout_processor_yaml({
                         "22.x",
                         "24.x",
                         "26.x",
-                        "27.x"
+                        ">= 27.0.0-alpha.0 <= 27.x"
                     ]
                 }
             }
