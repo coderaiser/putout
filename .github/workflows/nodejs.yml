@@ -15,7 +15,6 @@ jobs:
           - 22.x
           - 24.x
           - 26.x
-          - 27.x
     steps:
       - uses: actions/checkout@v7
       - uses: oven-sh/setup-bun@v2
