@@ -1,3 +1,20 @@
+2026.11.01, v42.24.0
+
+fix:
+- a98d2e199 @putout/processor-markdown: escape of "&"
+
+feature:
+- 5c32c8712 putout: @putout/plugin-github v21.0.0
+- 81be4516e @putout/plugin-github: node v27
+- 91c94b913 @putout/operator-declare: speed up: 6m31 -> 5m46: 11.5%
+- 190442654 putout: speed up: 7m44s -> 7m32s: 2.5%
+- 3422fb0ca @putout/compare: runComparators: speed up: 7m44s -> 7m18s
+- 58086c44c compare: ignore: [] -> Set
+- 37cbddf24 @putout/plugin-remove-useless-async: FunctionDeclaration: type: exclude
+- 881c48946 @putout/plugin-nodejs: convert-commonjs-to-esm: exports: object
+- 9d800e416 @putout/plugin-apply-cause: add
+- b275d7876 @putout/eslint-config: preserve-caught-error: off
+
 2026.10.28, v42.23.0
 
 feature:
