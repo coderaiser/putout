@@ -56,56 +56,58 @@ const report = (path) => {
     return `Declare '${peaceOfName}', it referenced but not defined`;
 };
 
-const createTraverse = (declarations) => ({push, options}) => ({
-    ReferencedIdentifier: function traverseAgain(path) {
-        const {
-            parentPath,
-            scope,
-            node,
-        } = path;
-        
-        if (isTSParameterProperty(parentPath) && parentPath.node.decorators) {
-            const decorators = parentPath.get('decorators');
+const createTraverse = (declarations) => ({push, options}) => {
+    const {dismiss = [], type: typeOverride} = options;
+    
+    const allDeclarations = {
+        ...declarations,
+        ...options.declarations,
+    };
+    
+    const names = new Set(keys(allDeclarations));
+    
+    return {
+        ReferencedIdentifier: function traverseAgain(path) {
+            const {
+                parentPath,
+                scope,
+                node,
+            } = path;
             
-            for (const decorator of decorators) {
-                const expression = decorator.get('expression');
+            if (isTSParameterProperty(parentPath) && parentPath.node.decorators) {
+                const decorators = parentPath.get('decorators');
                 
-                if (compare(expression, '__a(__b)'))
-                    traverseAgain(expression.get('callee'));
+                for (const decorator of decorators) {
+                    const expression = decorator.get('expression');
+                    
+                    if (compare(expression, '__a(__b)'))
+                        traverseAgain(expression.get('callee'));
+                }
+                
+                return;
             }
             
-            return;
-        }
-        
-        if (TS_EXCLUDE.includes(parentPath.type))
-            return false;
-        
-        const {dismiss = [], type: typeOverride} = options;
-        
-        const allDeclarations = {
-            ...declarations,
-            ...options.declarations,
-        };
-        
-        const names = keys(allDeclarations);
-        
-        const {name} = node;
-        
-        if (!names.includes(name))
-            return false;
-        
-        if (dismiss.includes(name))
-            return false;
-        
-        if (scope.hasBinding(name) || checkDeclarationForESLint(name, path))
-            return false;
-        
-        const type = computeType(path, typeOverride);
-        
-        if (parseCode(type, allDeclarations[name]))
-            push(path);
-    },
-});
+            const {name} = node;
+            
+            if (!names.has(name))
+                return false;
+            
+            if (TS_EXCLUDE.includes(parentPath.type))
+                return false;
+            
+            if (dismiss.includes(name))
+                return false;
+            
+            if (scope.hasBinding(name) || checkDeclarationForESLint(name, path))
+                return false;
+            
+            const type = computeType(path, typeOverride);
+            
+            if (parseCode(type, allDeclarations[name]))
+                push(path);
+        },
+    };
+};
 
 const fix = (declarations) => (path, {options}) => {
     const type = getModuleType(path);
