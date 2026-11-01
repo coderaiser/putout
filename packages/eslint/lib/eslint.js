@@ -65,6 +65,7 @@ export const eslint = async (overrides = {}) => {
         name,
         fix,
         config,
+        putout,
         overrideConfigFile: overrideConfigFile(),
     });
     
