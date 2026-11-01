@@ -78,10 +78,15 @@ export const runComparators = (node, template, {add, templateStore, plain}) => {
             add,
         });
     
+    const options = {
+        add,
+        templateStore,
+    };
+    
     while (++i < n) {
         const compare = comparators[i];
         
-        if (compare(node, template, {add, templateStore}))
+        if (compare(node, template, options))
             return true;
     }
     
