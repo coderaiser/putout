@@ -102,8 +102,7 @@
                 "versions": [
                     "22.x",
                     "24.x",
-                    "26.x",
-                    "27.x"
+                    "26.x"
                 ]
             }],
             "remove-useless-escape": "off"
