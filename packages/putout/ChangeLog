@@ -1,3 +1,8 @@
+2026.11.01, v42.24.1
+
+fix:
+- 19862d255 putout: node v27: get back to v26: Not found in manifest
+
 2026.11.01, v42.24.0
 
 fix:
