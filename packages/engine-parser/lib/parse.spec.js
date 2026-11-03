@@ -111,6 +111,24 @@ test('putout: engine-parser: babel: importSync', (t) => {
     t.end();
 });
 
+test('putout: engine-parser: babel: struct', (t) => {
+    const source = montag`
+        struct Point {
+            x = 0;
+            y = 0;
+            
+            get length() {
+                return Math.hypot(this.x, this.y);
+            }
+        }
+    `;
+    
+    const [error] = tryCatch(parse, source);
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('putout: engine-parser: parse + generate = sourcemap', (t) => {
     const source = `const hello = 'world';`;
     

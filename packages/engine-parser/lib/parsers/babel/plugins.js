@@ -16,6 +16,7 @@ export default [
         syntaxType: 'void',
     }],
     'sourcePhaseImports',
+    'structs',
     ['optionalChainingAssign', {
         version: '2023-07',
     }],
