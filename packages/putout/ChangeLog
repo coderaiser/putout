@@ -1,3 +1,16 @@
+2026.11.03, v42.24.2
+
+fix:
+- bd7f8a65f @putout/plugin-github: v27: range
+- ed168a559 putout: node v27: get back to v26: Not found in manifest
+
+feature:
+- ebf7b1d54 @putout/engine-parser: structs (https://github.com/tc39/proposal-structs)
+- 06932d8f1 @putout/engine-parser: importSync (https://github.com/tc39/proposal-import-sync)
+- 1d5d08893 @putout/engine-parser: deferredReexports (https://github.com/tc39/proposal-deferred-reexports)
+- 34832b008 @putout/eslint: speed up: 6m25s -> 5m45s: 10%
+- 4ef1ece0c putout: node v27
+
 2026.11.01, v42.24.1
 
 fix:
