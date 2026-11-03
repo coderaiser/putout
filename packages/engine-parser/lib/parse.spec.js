@@ -89,6 +89,17 @@ test('putout: engine-parser: babel: optionalChainingAssign', (t) => {
     t.end();
 });
 
+test('putout: engine-parser: babel: deferedReexports', (t) => {
+    const source = montag`
+        export defer { parse } from "./parser.js";
+    `;
+    
+    const [error] = tryCatch(parse, source);
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('putout: engine-parser: parse + generate = sourcemap', (t) => {
     const source = `const hello = 'world';`;
     

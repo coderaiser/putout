@@ -10,6 +10,7 @@ export default [
     'exportDefaultFrom',
     'throwExpressions',
     'deferredImportEvaluation',
+    'deferredReexports',
     ['discardBinding', {
         syntaxType: 'void',
     }],
