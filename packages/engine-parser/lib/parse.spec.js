@@ -89,7 +89,7 @@ test('putout: engine-parser: babel: optionalChainingAssign', (t) => {
     t.end();
 });
 
-test('putout: engine-parser: babel: deferedReexports', (t) => {
+test('putout: engine-parser: babel: deferredReexports', (t) => {
     const source = montag`
         export defer { parse } from "./parser.js";
     `;
