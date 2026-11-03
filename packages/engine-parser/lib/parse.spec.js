@@ -100,6 +100,17 @@ test('putout: engine-parser: babel: deferedReexports', (t) => {
     t.end();
 });
 
+test('putout: engine-parser: babel: importSync', (t) => {
+    const source = montag`
+        const {readFile} = import.sync('node:fs');
+    `;
+    
+    const [error] = tryCatch(parse, source);
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('putout: engine-parser: parse + generate = sourcemap', (t) => {
     const source = `const hello = 'world';`;
     

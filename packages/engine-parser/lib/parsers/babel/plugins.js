@@ -1,6 +1,7 @@
 export default [
     'importMeta',
     'importAttributes',
+    'importSync',
     'dynamicImport',
     'bigInt',
     'classProperties',
