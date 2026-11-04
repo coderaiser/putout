@@ -76,7 +76,7 @@ test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
     calledWith(writeFile, [name, data]);
 }, CHECK_ASSERTIONS_COUNT);
 
-test('putout: test: processor: UPDATE: no fixture', async ({process, ok}) => {
+test('putout: test: processor: UPDATE: no fixture', async ({process, notOk}) => {
     update(1);
     
     await process('no-fixture');
@@ -85,11 +85,11 @@ test('putout: test: processor: UPDATE: no fixture', async ({process, ok}) => {
     
     const nameOutput = new URL('fixture/no-fixture-fix.json', import.meta.url).pathname;
     
-    const result = stat(nameOutput);
+    const [error] = await tryToCatch(stat, nameOutput);
     
-    await unlink(nameOutput);
+    await tryToCatch(unlink, nameOutput);
     
-    ok(result, 'should create output file');
+    notOk(error, 'should create output file');
 }, CHECK_ASSERTIONS_COUNT);
 
 test('putout: test: processor: UPDATE: no global', async ({process}) => {
