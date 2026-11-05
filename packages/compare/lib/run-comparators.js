@@ -45,7 +45,6 @@ const comparators = [
     comparePrimitives,
     compareTemplateElements,
     compareJSXTexts,
-    compareAny,
     second(isClassBody),
     second(isEmptyBlock),
     second(isAny),
@@ -97,10 +96,6 @@ export const runComparators = (node, template, {add, templateStore, plain}) => {
     
     return false;
 };
-
-function compareAny(node, template) {
-    return isAnyStr(template);
-}
 
 function compareArrays(node, template, {add}) {
     const is = isArrays(node, template);
