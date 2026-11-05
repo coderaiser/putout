@@ -8,6 +8,7 @@ const {
     isProgram,
     isIdentifier,
     isObjectProperty,
+    isArrayExpression,
 } = types;
 
 const isTop = (a) => isFunction(a) || isProgram(a);
@@ -31,6 +32,9 @@ export const traverse = ({push}) => ({
         
         for (const ref of binding.referencePaths) {
             if (isObjectProperty(ref.parentPath))
+                return;
+            
+            if (isArrayExpression(ref.parentPath))
                 return;
         }
         
