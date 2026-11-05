@@ -9,6 +9,7 @@ import {
     isObject,
     isArrays,
     isAny,
+    isAnyStr,
     isAnyLiteral,
     isArgs,
     isEqualTypeParams,
@@ -35,6 +36,7 @@ const {
     isTemplateElement,
 } = types;
 
+const isPrimitive = (a) => typeof a !== 'object' || a === null;
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
 
 const second = (f) => (a, b) => f(b);
@@ -78,6 +80,9 @@ export const runComparators = (node, template, {add, templateStore, plain}) => {
             add,
         });
     
+    if (isPrimitive(template))
+        return comparePrimitives(node, template) || isAnyStr(template);
+    
     const options = {
         add,
         templateStore,
@@ -94,7 +99,7 @@ export const runComparators = (node, template, {add, templateStore, plain}) => {
 };
 
 function compareAny(node, template) {
-    return template === '__';
+    return isAnyStr(template);
 }
 
 function compareArrays(node, template, {add}) {

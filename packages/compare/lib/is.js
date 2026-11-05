@@ -62,6 +62,20 @@ const ALL = [
     LINKED_BOOL,
 ];
 
+const isType = (node, type) => {
+    if (!node)
+        return false;
+    
+    return node.type === type;
+};
+
+const isIdentifierNamed = (node, name) => {
+    if (!isType(node, 'Identifier'))
+        return false;
+    
+    return node.name === name;
+};
+
 export const isTemplate = (a) => /[(;={.\s]/.test(a) || !/^[A-Z]/.test(a);
 
 export const is = (str, array = ALL) => {
@@ -92,9 +106,7 @@ export const isArrayStr = (a) => a === ANY_ARRAY;
 export const isAnyStr = (a) => a === ANY;
 export const isBodyStr = (a) => a === BODY;
 
-const isBody = (a) => isIdentifier(a, {
-    name: BODY,
-});
+const isBody = (a) => isIdentifierNamed(a, BODY);
 
 const isFunctionDeclarationBody = (a) => {
     if (isBody(a))
@@ -106,27 +118,21 @@ const isFunctionDeclarationBody = (a) => {
     return isBody(a.body[0].expression);
 };
 
-const isNop = (a) => isIdentifier(a, {
-    name: NOP,
-});
+const isNop = (a) => isIdentifierNamed(a, NOP);
 
-const isAnyObject = (a) => isIdentifier(a, {
-    name: ANY_OBJECT,
-});
+const isAnyObject = (a) => isIdentifierNamed(a, ANY_OBJECT);
 
-const isAnyArray = (a) => isIdentifier(a, {
-    name: ANY_ARRAY,
-});
+const isAnyArray = (a) => isIdentifierNamed(a, ANY_ARRAY);
 
 export const isId = (a, b) => {
-    if (!isIdentifier(b, {name: ID}))
+    if (!isIdentifierNamed(b, ID))
         return false;
     
     return isIdentifier(a);
 };
 
 export const isBool = (a, b) => {
-    if (!isIdentifier(b, {name: BOOL}))
+    if (!isIdentifierNamed(b, BOOL))
         return false;
     
     return isBooleanLiteral(a);
@@ -135,16 +141,14 @@ export const isBool = (a, b) => {
 export const isEqualType = (a, b) => a.type === b.type;
 
 export const isAny = (a) => {
-    if (isIdentifier(a, {name: ANY}))
+    if (isIdentifierNamed(a, ANY))
         return true;
     
-    return isJSXText(a, {
-        value: ANY,
-    });
+    return isType(a, 'JSXText') && a.value === ANY;
 };
 
 export const isAnyLiteral = (a, b) => {
-    if (!isLiteral(b, {value: ANY}))
+    if (!b || b.value !== ANY || !isLiteral(b))
         return false;
     
     return isEqualType(a, b);
@@ -153,9 +157,7 @@ export const isAnyLiteral = (a, b) => {
 export const isArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
     
-    return isIdentifier(b, {
-        name: ARGS,
-    });
+    return isIdentifierNamed(b, ARGS);
 };
 
 const isTypeParams = (node) => {
@@ -182,15 +184,13 @@ export const isEqualTypeParams = (a, b) => {
 
 export const isLinkedArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
-    return isIdentifier(b) && LINKED_ARGS.test(b.name);
+    return isType(b, 'Identifier') && LINKED_ARGS.test(b.name);
 };
 
 export const isJSXChildren = (a) => {
     const b = !isArray(a) ? a : a[0];
     
-    return isJSXText(b, {
-        value: JSX_CHILDREN,
-    });
+    return isType(b, 'JSXText') && b.value === JSX_CHILDREN;
 };
 
 export const isJSXAttributes = (a) => {
@@ -205,14 +205,14 @@ export const isJSXAttributes = (a) => {
 };
 
 export const isLinkedId = (a, b) => {
-    if (!isIdentifier(b) || !LINKED_ID.test(b.name))
+    if (!isType(b, 'Identifier') || !LINKED_ID.test(b.name))
         return false;
     
     return isIdentifier(a);
 };
 
 export const isLinkedBool = (a, b) => {
-    if (!isIdentifier(b) || !LINKED_BOOL.test(b.name))
+    if (!isType(b, 'Identifier') || !LINKED_BOOL.test(b.name))
         return false;
     
     return isBooleanLiteral(a);
@@ -336,7 +336,7 @@ export const isEqualNop = (node, templateNode) => {
 };
 
 export const isLinkedNode = (a) => {
-    if (isIdentifier(a) && LINKED_NODE.test(a.name))
+    if (isType(a, 'Identifier') && LINKED_NODE.test(a.name))
         return true;
     
     if (isLiteral(a) && LINKED_NODE.test(a.value))

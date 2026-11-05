@@ -3,6 +3,7 @@ import test from 'supertape';
 import {
     parseTemplate,
     isNameStr,
+    isObject,
     isObjectStr,
     isArrayStr,
     isAnyStr,
@@ -39,6 +40,13 @@ test('compare: is: isNameStr: yes', (t) => {
     const result = isNameStr('__a');
     
     t.ok(result);
+    t.end();
+});
+
+test('compare: is: isObject: null', (t) => {
+    const result = isObject(null);
+    
+    t.notOk(result);
     t.end();
 });
 
