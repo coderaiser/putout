@@ -92,7 +92,7 @@ export const replace = () => ({
     [NOT_BODIES.error]: '!isError(__a)',
     [NOT_BODIES.array]: '!isArray(__a)',
     [NOT_BODIES.object]: '!isObject(__a)',
-    [NOT_BODIES.regexp]: 'isRegExp(__a)',
+    [NOT_BODIES.regexp]: '!isRegExp(__a)',
     [NOT_BODIES.equalUndefined]: '!isUndefined(__a)',
 });
 
