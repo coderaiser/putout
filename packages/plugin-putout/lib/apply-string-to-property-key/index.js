@@ -5,7 +5,7 @@ const {
     stringLiteral,
 } = types;
 
-const {replaceWith} = operator;
+const {compare, replaceWith} = operator;
 
 export const report = () => `Use 'string' instead of 'template' in property key`;
 
@@ -19,6 +19,9 @@ export const fix = (path) => {
 
 export const traverse = ({push}) => ({
     ObjectProperty(path) {
+        if (!compare(path, 'export const replace = __'))
+            return;
+        
         const keyPath = path.get('key');
         
         if (!isTemplateLiteral(keyPath))

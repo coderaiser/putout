@@ -16,3 +16,8 @@ test('putout: apply-string-to-property-key: transform', (t) => {
     t.transform('apply-string-to-property-key');
     t.end();
 });
+
+test('putout: apply-string-to-property-key: no report: object', (t) => {
+    t.noReport('object');
+    t.end();
+});
