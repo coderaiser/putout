@@ -55,3 +55,21 @@ test('compare: fingerprint: not object', (t) => {
     t.notOk(result);
     t.end();
 });
+
+test('compare: fingerprint: not node', (t) => {
+    const path = {
+        type: null,
+    };
+    
+    path.parentPath = {
+        type: 'SwitchCase',
+        scope: {
+            path,
+        },
+    };
+    
+    const result = matchFingerprint(ast.fresh('a'), path, ignore);
+    
+    t.ok(result);
+    t.end();
+});

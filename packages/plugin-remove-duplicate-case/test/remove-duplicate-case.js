@@ -26,3 +26,8 @@ test('remove duplicate-case: no transform: no-duplicate', (t) => {
     t.noTransform('no-duplicate');
     t.end();
 });
+
+test('remove duplicate-case: no report: default', (t) => {
+    t.noReport('default');
+    t.end();
+});

@@ -16,8 +16,10 @@ const STOP = new Set([
     'BlockStatement',
 ]);
 
+const isNode = (a) => isString(a.type);
+
 const isPlain = (node) => {
-    if (STOP.has(node.type))
+    if (!isNode(node) || STOP.has(node.type))
         return false;
     
     for (const key of keys(node))
@@ -57,7 +59,7 @@ const cache = new WeakMap();
 
 const getLeaves = (templateNode, ignore) => {
     if (!cache.has(templateNode))
-        cache.set(templateNode, collect(templateNode, ignore, [], []));
+        cache.set(templateNode, isNode(templateNode) ? collect(templateNode, ignore, [], []) : []);
     
     return cache.get(templateNode);
 };
