@@ -97,6 +97,9 @@ export const replace = () => ({
 });
 
 function check({__a, __b}, path) {
+    if (compare(path.parentPath, '!Number.isNaN(__a) && __b'))
+        return false;
+    
     if (path.parentPath.isFunction())
         return false;
     

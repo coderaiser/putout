@@ -88,6 +88,11 @@ test('plugin-convert-typeof-to-is-type: transform: call', (t) => {
     t.end();
 });
 
+test('plugin-convert-typeof-to-is-type: no report: is-nan', (t) => {
+    t.noReport('is-nan');
+    t.end();
+});
+
 test('plugin-convert-typeof-to-is-type: transform: regexp', (t) => {
     t.transform('regexp');
     t.end();
