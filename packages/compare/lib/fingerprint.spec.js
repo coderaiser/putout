@@ -73,3 +73,43 @@ test('compare: fingerprint: not node', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('compare: fingerprint: cycle', (t) => {
+    const child = {
+        type: 'Child',
+    };
+    
+    child.child = child;
+    
+    const templateNode = {
+        type: 'Parent',
+        child,
+    };
+    
+    const result = matchFingerprint({
+        type: 'Parent',
+    }, templateNode, ignore);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: fingerprint: deep', (t) => {
+    const result = matchFingerprint(ast.fresh('a.b.c.d.e.f'), ast('x.b.c.d.e.f'), ignore);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: fingerprint: changed template', (t) => {
+    const node = ast.fresh('a.map(b)');
+    const templateNode = ast.fresh('a.forEach(b)');
+    
+    matchFingerprint(node, templateNode, ignore);
+    templateNode.callee.property.name = 'map';
+    
+    const result = matchFingerprint(node, templateNode, ignore);
+    
+    t.ok(result);
+    t.end();
+});

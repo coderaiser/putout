@@ -1175,3 +1175,13 @@ test('compare: linked: plain: missing', (t) => {
     t.notOk(result);
     t.end();
 });
+
+test('compare: empty block: statement', (t) => {
+    const a = template.ast('if (a) b()');
+    const b = template.ast('if (a) {}');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
