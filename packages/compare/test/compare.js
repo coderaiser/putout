@@ -1165,3 +1165,13 @@ function getProgramPath(str) {
     
     return result;
 }
+
+test('compare: linked: plain: missing', (t) => {
+    const a = template.ast('a.b === a[b]');
+    const b = template.ast('__a === __a');
+    
+    const result = compare(a, b);
+    
+    t.notOk(result);
+    t.end();
+});

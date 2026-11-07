@@ -1,5 +1,6 @@
 import {template} from '@putout/engine-parser';
 import {runComparators} from './run-comparators.js';
+import {matchFingerprint} from './fingerprint.js';
 import {runTopLevelComparators} from './top-level-comparators.js';
 import {
     isStr,
@@ -128,6 +129,9 @@ const ignore = new Set([
 ]);
 
 function superCompareIterate(node, template) {
+    if (!matchFingerprint(node, template, ignore))
+        return false;
+    
     let item = [node, template];
     
     const array = [item];
