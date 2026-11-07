@@ -388,6 +388,24 @@ test('putout: eslint: get-eslint: config file', async (t) => {
     t.end();
 });
 
+test('putout: eslint: get-eslint: config file: absolute', async (t) => {
+    process.env.ESLINT_CONFIG_FILE = '/abcdef.js';
+    
+    const [, places] = await eslint({
+        name: 'hello.js',
+        code: `const t = 'hi'\n`,
+        fix: false,
+    });
+    
+    const [place] = places;
+    const {message} = place;
+    
+    delete process.env.ESLINT_CONFIG_FILE;
+    
+    t.match(message, `stat '/abcdef.js'`);
+    t.end();
+});
+
 test('putout: eslint: convert places', async (t) => {
     const WARNING = 1;
     const calculateConfigForFile = stub().resolves({

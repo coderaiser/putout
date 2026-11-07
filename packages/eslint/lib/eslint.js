@@ -1,4 +1,4 @@
-import {join} from 'node:path';
+import {resolve} from 'node:path';
 import process from 'node:process';
 import {tryToCatch} from 'try-to-catch';
 import {simpleImport as _simpleImport} from './simple-import.js';
@@ -160,5 +160,5 @@ function parseOverride(dir, configFilePath) {
     if (!configFilePath)
         return configFilePath;
     
-    return join(dir, configFilePath);
+    return resolve(dir, configFilePath);
 }
