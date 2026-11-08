@@ -13,6 +13,7 @@ import {test, stub} from 'supertape';
 import {tryCatch} from 'try-catch';
 import {tryToCatch} from 'try-to-catch';
 import formatterJSON from '@putout/formatter-json';
+import {resetTime, setTime} from '@putout/engine-runner/time';
 import {parseOptions} from '#parse-options';
 import {simpleImport as _simpleImport} from './simple-import.js';
 import {red} from './chalk.js';
@@ -2006,6 +2007,231 @@ test('putout: processor: invalid config: message', async (t) => {
     t.end();
 });
 
+const runWithTime = async ({enabled = true, ...options}) => {
+    const order = [];
+    const log = (message) => order.push(['log', message]);
+    const halt = (code) => order.push(['halt', code]);
+    
+    resetTime();
+    setTime(enabled);
+    
+    await runCli({
+        ...options,
+        log,
+        halt,
+    });
+    
+    resetTime();
+    setTime(false);
+    
+    return order;
+};
+
+test('putout: cli: time: printed before halt', async (t) => {
+    const name = join(__dirname, 'fixture', 'types.d.ts');
+    const options = parseOptions({
+        name,
+    });
+    
+    assign(options, {
+        ignore: [],
+    });
+    
+    const [[first, message], [second, code]] = await runWithTime({
+        env: {
+            PUTOUT_TIME: '1',
+        },
+        argv: [name],
+        getOptions: stub().returns(options),
+    });
+    
+    const result = {
+        first,
+        second,
+        code,
+        printed: message.startsWith('time:\n'),
+    };
+    
+    const expected = {
+        first: 'log',
+        second: 'halt',
+        code: OK,
+        printed: true,
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: time: off: not printed', async (t) => {
+    const name = join(__dirname, 'fixture', 'types.d.ts');
+    const options = parseOptions({
+        name,
+    });
+    
+    assign(options, {
+        ignore: [],
+    });
+    
+    const order = await runWithTime({
+        env: {},
+        argv: [name],
+        getOptions: stub().returns(options),
+    });
+    
+    const result = order.filter(([type]) => type === 'log');
+    const expected = [];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: time: printed when places found', async (t) => {
+    const argv = [
+        __filename,
+        '--no-config',
+        '--no-ci',
+        '--no-cache',
+    ];
+    
+    const getOptions = stub().returns({
+        dir: __dirname,
+        formatter: 'dump',
+    });
+    
+    const name = new URL('./fixture/parse-error.js', import.meta.url).pathname;
+    const source = await readFile(name, 'utf8');
+    
+    const order = await runWithTime({
+        env: {
+            PUTOUT_TIME: '1',
+        },
+        argv,
+        readFile: stub().returns(source),
+        getOptions,
+    });
+    
+    const types = [];
+    
+    for (const [type] of order) {
+        types.push(type);
+    }
+    
+    const result = types.slice(-2);
+    
+    const expected = [
+        'log',
+        'halt',
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: time: not printed when there are no files', async (t) => {
+    const getFiles = stub().returns([
+        Error('No files'),
+    ]);
+    
+    const order = await runWithTime({
+        env: {
+            PUTOUT_TIME: '1',
+        },
+        argv: ['xx'],
+        getFiles,
+    });
+    
+    const result = order.filter(([type, message]) => type === 'log' && String(message).startsWith('time:'));
+    const expected = [];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: time: all: no anomalies line', async (t) => {
+    const name = join(__dirname, 'fixture', 'types.d.ts');
+    const options = parseOptions({
+        name,
+    });
+    
+    const [[, message]] = await runWithTime({
+        env: {
+            PUTOUT_TIME: 'all',
+        },
+        argv: [name],
+        getOptions: stub().returns(options),
+    });
+    
+    t.notMatch(message, 'anomalies:');
+    t.end();
+});
+
+test('putout: cli: time: 0: not printed', async (t) => {
+    const name = join(__dirname, 'fixture', 'types.d.ts');
+    const options = parseOptions({
+        name,
+    });
+    
+    const order = await runWithTime({
+        env: {
+            PUTOUT_TIME: '0',
+        },
+        argv: [name],
+        getOptions: stub().returns(options),
+    });
+    
+    const result = order.filter(([type]) => type === 'log');
+    const expected = [];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: time: file: writeFile called', async (t) => {
+    const name = join(__dirname, 'fixture', 'types.d.ts');
+    const options = parseOptions({
+        name,
+    });
+    
+    const writeFile = stub();
+    
+    await runWithTime({
+        env: {
+            PUTOUT_TIME: 'file',
+        },
+        argv: [name],
+        getOptions: stub().returns(options),
+        writeFile,
+        date: new Date(2026, 10, 8, 12, 38, 40),
+        pid: 7,
+    });
+    
+    const [[file]] = writeFile.args.filter(([a]) => a.startsWith('.putout-time'));
+    
+    t.equal(file, '.putout-time-2026-11-08-12-38-40-7.json');
+    t.end();
+});
+
+test('putout: cli: time: file: log has file name', async (t) => {
+    const name = join(__dirname, 'fixture', 'types.d.ts');
+    const options = parseOptions({
+        name,
+    });
+    
+    const [[, message]] = await runWithTime({
+        env: {
+            PUTOUT_TIME: 'file',
+        },
+        argv: [name],
+        getOptions: stub().returns(options),
+        date: new Date(2026, 10, 8, 12, 38, 40),
+        pid: 7,
+    });
+    
+    t.equal(message, '.putout-time-2026-11-08-12-38-40-7.json');
+    t.end();
+});
+
 async function runCli(options) {
     const {
         isStop,
@@ -2028,6 +2254,9 @@ async function runCli(options) {
         isCI,
         simpleImport,
         processor,
+        env,
+        date,
+        pid,
     } = options;
     
     await cli({
@@ -2051,5 +2280,8 @@ async function runCli(options) {
         isCI,
         simpleImport,
         processor,
+        env,
+        date,
+        pid,
     });
 }

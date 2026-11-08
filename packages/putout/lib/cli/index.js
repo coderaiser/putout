@@ -8,6 +8,7 @@ import {fullstore} from 'fullstore';
 import nano from 'nano-memoize';
 import * as _cliStaged from '@putout/cli-staged';
 import {initReport as _initReport} from '@putout/engine-reporter/report';
+import {parseTime} from '@putout/engine-runner/time';
 import {keypress as _keypress} from '@putout/cli-keypress';
 import {getFormatter} from '@putout/engine-reporter/formatter';
 import {
@@ -22,6 +23,8 @@ import {argvConfig, parseArgs} from './parse-args.js';
 import {getFiles as _getFiles} from './get-files.js';
 import {simpleImport as _simpleImport} from './simple-import.js';
 import {run} from './runner/runner.js';
+import {printTime} from './print-time.js';
+import {red} from './chalk.js';
 
 const require = createRequire(import.meta.url);
 const {formatter: defaultFormatter} = require('../../putout.json');
@@ -86,6 +89,9 @@ export default async (overrides = {}) => {
         isCI = _isCI,
         simpleImport = _simpleImport,
         processor = {},
+        env = process.env,
+        date = new Date(),
+        pid = process.pid,
     } = overrides;
     
     const isStop = parseIsStop(overrides.isStop || noop, {
@@ -320,6 +326,18 @@ export default async (overrides = {}) => {
     
     if (exited)
         return;
+    
+    const timeMode = parseTime(env.PUTOUT_TIME);
+    
+    if (timeMode !== 'off')
+        await printTime({
+            log,
+            writeFile,
+            mode: timeMode,
+            paint: red,
+            date,
+            pid,
+        });
     
     fileCache.reconcile();
     
