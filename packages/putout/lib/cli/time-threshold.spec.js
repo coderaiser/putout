@@ -221,3 +221,75 @@ test('putout: cli: time-threshold: getAnomalies: flags', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: cli: time-threshold: getAnomalies: value that shows as 0.000s is not an anomaly', (t) => {
+    const rules = [{
+        rule: 'a',
+        setup: 0.0004,
+    }, {
+        rule: 'b',
+        setup: 0.0001,
+    }, {
+        rule: 'c',
+        setup: 0.0001,
+    }, {
+        rule: 'd',
+        setup: 0.0001,
+    }];
+    
+    const {flags} = getAnomalies(rules);
+    const result = [];
+    
+    for (const set of flags) {
+        result.push(set.size);
+    }
+    
+    const expected = [
+        0,
+        0,
+        0,
+        0,
+    ];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: time-threshold: getAnomalies: threshold is not zero', (t) => {
+    const rules = [{
+        rule: 'a',
+        setup: 0.0004,
+    }, {
+        rule: 'b',
+        setup: 0.0001,
+    }, {
+        rule: 'c',
+        setup: 0.0001,
+    }];
+    
+    const {thresholds} = getAnomalies(rules);
+    
+    t.notOk(thresholds.setup);
+    t.end();
+});
+
+test('putout: cli: time-threshold: getAnomalies: values are compared as milliseconds', (t) => {
+    const rules = [{
+        rule: 'a',
+        setup: 0.0104,
+    }, {
+        rule: 'b',
+        setup: 0.0001,
+    }, {
+        rule: 'c',
+        setup: 0.0002,
+    }, {
+        rule: 'd',
+        setup: 0.0003,
+    }];
+    
+    const {thresholds} = getAnomalies(rules);
+    
+    t.equal(thresholds.setup, 0.01);
+    t.end();
+});

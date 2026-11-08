@@ -20,12 +20,12 @@ const HIDDEN = new Set([
 
 const sec = (a) => `${a.toFixed(3)}s`;
 const key = (name) => SIMPLE.test(name) ? name : JSON.stringify(name);
-const identity = (a) => a;
+const id = (a) => a;
 
 export const formatTime = ({files, traverse, rules, passes}, overrides = {}) => {
     const {
         mode = 'on',
-        paint = identity,
+        paint = id,
     } = overrides;
     
     const isAll = mode === 'all';
@@ -74,8 +74,11 @@ export const formatTime = ({files, traverse, rules, passes}, overrides = {}) => 
             if (!isAll && HIDDEN.has(field) && !isAnomaly)
                 continue;
             
-            const tag = isAnomaly ? ` ${paint('[anomaly]')}` : '';
-            lines.push(`    ${field}: ${sec(rule[field])}${tag}`);
+            const tag = isAnomaly ? ` [anomaly]` : '';
+            const highlight = isAnomaly ? paint : id;
+            const time = highlight(sec(rule[field]));
+            
+            lines.push(`    ${field}: ${time}${tag}`);
         }
         
         lines.push(`    calls: ${rule.calls}`, `    hits: ${rule.hits}`);

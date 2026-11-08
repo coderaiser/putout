@@ -55,15 +55,21 @@ export const getThreshold = (values) => {
     return sorted[best.k - 1];
 };
 
+// values are compared as they are shown: whole milliseconds,
+// so a value that shows as 0.000s is never an anomaly
+const round = (a) => Math.round(a * 1000) / 1000;
+
 export const getAnomalies = (rules) => {
     const thresholds = {};
     
     for (const field of FIELDS) {
         const values = rules
             .filter((rule) => rule[field] !== undefined)
-            .map((rule) => rule[field]);
+            .map((rule) => round(rule[field]));
         
-        thresholds[field] = getThreshold(values);
+        const threshold = getThreshold(values);
+        
+        thresholds[field] = threshold || null;
     }
     
     const flags = [];
@@ -74,7 +80,7 @@ export const getAnomalies = (rules) => {
         for (const field of FIELDS) {
             const threshold = thresholds[field];
             
-            if (threshold !== null && rule[field] >= threshold)
+            if (threshold !== null && round(rule[field]) >= threshold)
                 set.add(field);
         }
         

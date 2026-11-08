@@ -24,7 +24,7 @@ import {getFiles as _getFiles} from './get-files.js';
 import {simpleImport as _simpleImport} from './simple-import.js';
 import {run} from './runner/runner.js';
 import {printTime} from './print-time.js';
-import {red} from './chalk.js';
+import {green} from './chalk.js';
 
 const require = createRequire(import.meta.url);
 const {formatter: defaultFormatter} = require('../../putout.json');
@@ -334,7 +334,7 @@ export default async (overrides = {}) => {
             log,
             writeFile,
             mode: timeMode,
-            paint: red,
+            paint: green,
             date,
             pid,
         });

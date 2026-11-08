@@ -279,7 +279,7 @@ test('putout: cli: print-time: formatTime: paint', (t) => {
         paint,
     });
     
-    t.match(result, 'match: 9.900s RED\n');
+    t.match(result, 'match: RED [anomaly]\n');
     t.end();
 });
 
