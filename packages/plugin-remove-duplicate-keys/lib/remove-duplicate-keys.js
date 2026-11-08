@@ -2,27 +2,57 @@ import {types, operator} from 'putout';
 
 const {
     compare,
-    traverseProperties,
     extract,
+    createTypeChecker,
 } = operator;
 
-const {
-    isSpreadElement,
-    isIdentifier,
-    isMemberExpression,
-    isObjectProperty,
-    isStringLiteral,
-    isObjectPattern,
-    isCallExpression,
-} = types;
+const {isObjectPattern} = types;
 
-const isSpreadId = (name) => (a) => isSpreadElement(a) && isIdentifier(a.argument, {
-    name,
-});
+const isSpreadId = createTypeChecker([
+    ['-: -> !SpreadElement'],
+    ['-: argument -> !Identifier'],
+    ['+: -> SpreadElement'],
+]);
 
-const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStringLiteral(a.key, {
-    value,
-});
+const isIdentifierKey = createTypeChecker([
+    ['-: -> !ObjectProperty'],
+    ['+: key -> Identifier'],
+]);
+
+const isStringKey = createTypeChecker([
+    ['-: -> !ObjectProperty'],
+    ['+: key -> StringLiteral'],
+]);
+
+const isMemberKey = createTypeChecker([
+    ['-: -> !ObjectProperty'],
+    ['-: key -> !MemberExpression'],
+    ['-: key.object -> CallExpression'],
+    ['+: -> ObjectProperty'],
+]);
+
+const getId = (property) => {
+    if (isSpreadId(property))
+        return `...${property.argument.name}`;
+    
+    if (isIdentifierKey(property))
+        return property.computed ? `[${property.key.name}]` : property.key.name;
+    
+    if (isStringKey(property))
+        return `'${property.key.value}'`;
+    
+    if (isMemberKey(property))
+        return `[${extract(property.key)}]`;
+    
+    return '';
+};
+
+const getName = (property) => {
+    if (isSpreadId(property))
+        return property.argument.name;
+    
+    return extract(property.key);
+};
 
 const addQuotes = (a) => `'${a}'`;
 
@@ -40,91 +70,29 @@ export const fix = ({path, newProperties}) => {
 
 export const traverse = ({push}) => ({
     __object: (path) => {
-        let is = false;
         const newProperties = [];
+        const names = [];
+        const ids = new Set();
         const {properties} = path.node;
         
-        const reversed = properties
-            .slice()
-            .reverse();
-        
-        const names = [];
-        
-        for (const prop of reversed) {
+        for (const prop of properties.toReversed()) {
             if (isObjectPattern(path) && !compare(prop.key, prop.value))
                 continue;
             
-            if (isSpreadElement(prop) && isIdentifier(prop.argument)) {
-                const {name} = prop.argument;
-                const isFirst = checkIfFirst(properties, newProperties, isSpreadId, name);
-                
-                if (!isFirst) {
-                    is = true;
-                    names.unshift(name);
-                    continue;
-                }
+            const id = getId(prop);
+            
+            if (ids.has(id)) {
+                names.unshift(getName(prop));
+                continue;
             }
             
-            if (isObjectProperty(prop) && isIdentifier(prop.key)) {
-                const {computed} = prop;
-                const {name} = prop.key;
-                
-                const props = traverseProperties(path, name, {
-                    firstLevel: true,
-                });
-                
-                if (props.length > 1) {
-                    const isFirst = checkIfFirst(properties, newProperties, isObjectPropertyId, name, {
-                        computed,
-                    });
-                    
-                    if (!isFirst) {
-                        is = true;
-                        names.unshift(name);
-                        continue;
-                    }
-                }
-            }
-            
-            if (isObjectProperty(prop) && isStringLiteral(prop.key)) {
-                const {value} = prop.key;
-                const isFirst = checkIfFirst(properties, newProperties, isObjectPropertyLiteral, value);
-                
-                if (!isFirst) {
-                    is = true;
-                    names.unshift(value);
-                    continue;
-                }
-            }
-            
-            if (isObjectProperty(prop) && isMemberExpression(prop.key)) {
-                if (isCallExpression(prop.key.object))
-                    continue;
-                
-                const {computed} = prop;
-                const name = extract(prop.key);
-                
-                const props = traverseProperties(path, name, {
-                    firstLevel: true,
-                });
-                
-                if (props.length > 1) {
-                    const isFirst = checkIfFirst(properties, newProperties, isMemberExpressionId, name, {
-                        computed,
-                    });
-                    
-                    if (!isFirst) {
-                        is = true;
-                        names.unshift(name);
-                        continue;
-                    }
-                }
-            }
+            if (id)
+                ids.add(id);
             
             newProperties.unshift(prop);
         }
         
-        if (is)
+        if (names.length)
             push({
                 path,
                 names,
@@ -132,26 +100,3 @@ export const traverse = ({push}) => ({
             });
     },
 });
-
-function checkIfFirst(properties, newProperties, isFn, str, {computed} = {}) {
-    const oldLength = properties.filter(isFn(str, computed)).length;
-    const newLength = newProperties.filter(isFn(str, computed)).length;
-    
-    return !newLength || oldLength <= 1;
-}
-
-const isObjectPropertyId = (name, computed) => (a) => {
-    if (!isObjectProperty(a, {computed}))
-        return false;
-    
-    return isIdentifier(a.key, {
-        name,
-    });
-};
-
-const isMemberExpressionId = (name, computed) => (a) => {
-    if (!isObjectProperty(a, {computed}))
-        return false;
-    
-    return name === extract(a.key);
-};

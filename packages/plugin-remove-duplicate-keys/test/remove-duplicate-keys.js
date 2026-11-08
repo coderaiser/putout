@@ -109,3 +109,13 @@ test('remove duplicate-keys: no report: as', (t) => {
     t.noReport('as');
     t.end();
 });
+
+test('remove duplicate-keys: report: computed', (t) => {
+    t.report('computed', `Avoid duplicate keys: 'b'`);
+    t.end();
+});
+
+test('remove duplicate-keys: transform: computed', (t) => {
+    t.transform('computed');
+    t.end();
+});
