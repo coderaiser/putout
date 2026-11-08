@@ -62,8 +62,10 @@ export const replace = () => ({
             }
         }`;
     },
-    'const __a = __b.reduce((__c, __d) => __e, __f)': (vars, path) => {
+    'const __a = __b.reduce((__c, __d) => __e, __f)': ({__a, __c}, path) => {
         path.__putout_for_of_reduce = true;
+        rename(path, __c, __a);
+        
         return `{
             let __a = __f;
             for (const __d of __b) {
