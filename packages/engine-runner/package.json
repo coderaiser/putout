@@ -8,14 +8,16 @@
   "main": "./lib/index.js",
   "exports": {
     ".": "./lib/index.js",
-    "./progress": "./lib/progress.js"
+    "./progress": "./lib/progress.js",
+    "./time": "./lib/time.js"
   },
   "imports": {
     "#debug": "./lib/debug.js",
     "#runner": "./lib/index.js",
     "#maybe-array": "./lib/maybe-array.js",
     "#validate": "./lib/validate.js",
-    "#progress": "./lib/progress.js"
+    "#progress": "./lib/progress.js",
+    "#time": "./lib/time.js"
   },
   "release": false,
   "tag": false,

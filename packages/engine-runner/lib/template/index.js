@@ -7,6 +7,15 @@ import {
 } from '@putout/compare';
 import maybeArray from '#maybe-array';
 import {createDebug} from '#debug';
+import {
+    isTime,
+    now,
+    addCall,
+    addMatch,
+    addVisit,
+    getReportNs,
+    markMatch,
+} from '#time';
 
 const debug = createDebug('putout:runner:template');
 
@@ -22,7 +31,7 @@ const {stringify} = JSON;
 export const _log = log;
 
 const exclude = ({rule, tmpl, fn, nodesExclude}) => {
-    if (!isFn(fn) || !nodesExclude.length)
+    if (!isFn(fn) || !nodesExclude.length && !isTime())
         return {
             [tmpl]: fn,
         };
@@ -78,22 +87,55 @@ export default ({rule, visitor, options}) => {
     return parsed;
 };
 
-const wrapWithCheck = ({rule, nodesInclude, nodesExclude, fn}) => (path) => {
-    log(rule, path);
+const wrapWithCheck = ({rule, nodesInclude, nodesExclude, fn}) => {
+    const hasChecks = nodesInclude.length > 0 || nodesExclude.length > 0;
     
-    if (nodesExclude.length && compareAny(path, nodesExclude))
-        return;
+    if (isTime() && hasChecks)
+        markMatch(rule);
     
-    if (nodesInclude.length && !compareAll(path, nodesInclude))
-        return;
-    
-    if (!isFn(fn))
-        throw Error(`☝️ Looks like provided visitor is not a function: ${stringify(fn)}. More on using Traverser: https://git.io/JqcMn`);
-    
-    const [e] = tryCatch(fn, path);
-    
-    if (e) {
-        e.rule = rule;
-        throw e;
-    }
+    return (path) => {
+        log(rule, path);
+        
+        const timed = isTime();
+        const reportBefore = timed ? getReportNs(rule) : 0n;
+        
+        if (timed)
+            addCall(rule);
+        
+        const start = timed ? now() : 0n;
+        
+        const skip = isSkip({
+            path,
+            nodesInclude,
+            nodesExclude,
+        });
+        
+        const matched = timed ? now() : 0n;
+        
+        if (timed && hasChecks)
+            addMatch(rule, matched - start);
+        
+        if (skip)
+            return;
+        
+        if (!isFn(fn))
+            throw Error(`☝️ Looks like provided visitor is not a function: ${stringify(fn)}. More on using Traverser: https://git.io/JqcMn`);
+        
+        const [e] = tryCatch(fn, path);
+        
+        if (timed)
+            addVisit(rule, now() - matched, reportBefore);
+        
+        if (e) {
+            e.rule = rule;
+            throw e;
+        }
+    };
 };
+
+function isSkip({path, nodesInclude, nodesExclude}) {
+    if (nodesExclude.length && compareAny(path, nodesExclude))
+        return true;
+    
+    return nodesInclude.length && !compareAll(path, nodesInclude);
+}

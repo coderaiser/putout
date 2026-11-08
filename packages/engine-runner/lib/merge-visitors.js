@@ -2,6 +2,12 @@ import {traverse} from '@putout/babel';
 import {generate} from '@putout/engine-parser';
 import maybeArray from '#maybe-array';
 import {validate} from '#validate';
+import {
+    isTime,
+    now,
+    addSetup,
+    addReport,
+} from '#time';
 import runFix from './run-fix.js';
 import {getPosition} from './get-position.js';
 import template from './template/index.js';
@@ -52,6 +58,7 @@ export default (pluginsToMerge, {fix}) => {
         
         pushed[rule] = pull;
         
+        const setupStart = isTime() ? now() : 0n;
         const visitor = plugin.traverse({
             push,
             store,
@@ -62,6 +69,9 @@ export default (pluginsToMerge, {fix}) => {
             generate,
             options,
         });
+        
+        if (isTime())
+            addSetup(rule, now() - setupStart);
         
         if (!visitor)
             throw Error(`☝️ Visitors cannot be empty in "${rule}"`);
@@ -97,7 +107,9 @@ function getStore(plugin, {fix, rule, msg, options}) {
     const paths = pathStore();
     
     const push = (path, pathOptions) => {
+        const start = isTime() ? now() : 0n;
         const position = getPosition(path);
+        
         const message = msg || plugin.report(path, {
             options,
             ...pathOptions,
@@ -115,6 +127,9 @@ function getStore(plugin, {fix, rule, msg, options}) {
             position,
             options,
         });
+        
+        if (isTime())
+            addReport(rule, now() - start);
     };
     
     const pull = () => {
