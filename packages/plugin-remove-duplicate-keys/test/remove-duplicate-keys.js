@@ -95,6 +95,11 @@ test('remove duplicate-keys: no report: call', (t) => {
     t.end();
 });
 
+test('remove duplicate-keys: no report: call-in-computed-key', (t) => {
+    t.noReport('call-in-computed-key');
+    t.end();
+});
+
 test('remove duplicate-keys: no report: object-pattern-nested', (t) => {
     t.noReport('object-pattern-nested');
     t.end();

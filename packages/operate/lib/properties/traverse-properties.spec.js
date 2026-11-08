@@ -159,6 +159,40 @@ test('operate: traverse-properties: traverse: ConditionalExpression: ignore', (t
     t.end();
 });
 
+test('operate: traverse-properties: traverse: CallExpression key: ignore', (t) => {
+    const source = `({a: 'b', [f()]: 'z'})`;
+    let list = [];
+    
+    traverse(parse(source), {
+        ObjectExpression(path) {
+            list = traverseProperties(path, 'a', {
+                firstLevel: true,
+            });
+            path.stop();
+        },
+    });
+    
+    t.equal(list.length, 1);
+    t.end();
+});
+
+test('operate: traverse-properties: traverse: MemberExpression with call key: ignore', (t) => {
+    const source = `({a: 'b', [require('hello').world]: 'z'})`;
+    let list = [];
+    
+    traverse(parse(source), {
+        ObjectExpression(path) {
+            list = traverseProperties(path, 'a', {
+                firstLevel: true,
+            });
+            path.stop();
+        },
+    });
+    
+    t.equal(list.length, 1);
+    t.end();
+});
+
 test('operate: traverse-properties: object inside array', (t) => {
     const source = montag`
                 

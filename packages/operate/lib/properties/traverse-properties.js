@@ -56,6 +56,12 @@ const collect = ({name, collector}) => (path) => {
         if (keyPath.isConditionalExpression())
             continue;
         
+        if (keyPath.isCallExpression())
+            continue;
+        
+        if (keyPath.isMemberExpression() && isCallExpression(keyPath.node.object))
+            continue;
+        
         const currentName = extract(keyPath);
         
         if (name === currentName)
