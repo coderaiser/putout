@@ -1,3 +1,28 @@
+2026.11.08, v42.25.0
+
+fix:
+- c2d2cb711 putout: print-time: red -> green
+- 4cb7c33dc @putout/plugin-for-of: reduce: name differs from result
+- e3686577a @putout/compare: fingerprint: limit depth, refresh changed template
+- ef320e282 @putout/compare: fingerprint: ERR_WORKER_OUT_OF_MEMORY
+- 74f07a521 @putout/eslint: ESLINT_CONFIG_FILE
+- 12a5d2232 @putout/plugin-types: convert-typeof-to-is-type: isNaN: exclude (putoutjs/minify#33)
+- 1adc151eb @putout/plugin-putout: apply-string-to-property: object: exclude
+- 6e139e8f7 @putout/plugin-arguments: remove-unused: function inside array: exclude
+- 5ef0ae2bc @putout/plugin-types: convert-typeof-to-is-type: regExp: not
+
+feature:
+- 92a32619c @putout/operate: traverse-properties: call in computed key: exclude
+- 918a971cc @putout/plugin-arguments: remove-unused: speed up: add early return
+- 47314a148 @putout/engine-runner: spead up: check include before exclude: 0.217s -> 0.038s
+- 39e1f6f02 putout: cli: PUTOUT_TIME: modes, file, env override
+- 165c3a240 putout: cli: time: print anomalies in seconds, file mode
+- 89d682907 putout: cli: time: threshold
+- c1b0d3083 @putout/engine-runner: time: collector, template, runner wiring, plugin type
+- 2e9a9da05 @putout/compare: speed up: 4m13s -> 3m25s: 19.1%
+- 303570112 compare: compareAny: rm useless
+- 4f2599272 @putout/compare: speed up: 4m00s -> 3m33s
+
 2026.11.03, v42.24.2
 
 fix:
