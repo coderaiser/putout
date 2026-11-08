@@ -56,6 +56,9 @@ export const traverse = ({push}) => ({
             }
         }
         
+        if (!indexes.length)
+            return;
+        
         const allArgs = [];
         
         operator.traverse(path.parentPath.find(isTop), {
