@@ -549,6 +549,53 @@ const places = runPlugins({
 });
 ```
 
+## `PUTOUT_TIME`
+
+Shows how much time each rule uses. Set the environment variable and run `putout`:
+
+```sh
+PUTOUT_TIME=1 putout lib
+```
+
+| Value | Result |
+|---|---|
+| not set, empty, `0`, `false` | off |
+| `all` | text on stdout, all rules, all fields, no analysis |
+| `file` | JSON file `.putout-time-YYYY-MM-DD-HH-MM-SS-<pid>.json` in the current directory, raw numbers in seconds |
+| any other (for example `1`) | text on stdout, only rules with an anomaly |
+
+Fields (seconds, summed over all files and passes):
+
+- `total` - sum of the fields of the rule;
+- `setup` - time of `plugin.traverse()` (not for finders);
+- `match` - time of `include`/`exclude` checks (only rules that have checks: templates, `replace`, `include`);
+- `visit` - time of the callback, without `report`;
+- `report` - time of `report` and fix;
+- `find` - time of a finder outside of its callbacks (only finders);
+- `calls` - how many times the visitor ran;
+- `hits` - how many times checks passed and the callback ran.
+
+By default only fields with an anomaly are shown for `setup`, `report` and `find`. A threshold is found for each field
+with the Otsu method, no constant is used. The rule type is shown in brackets:
+
+```yaml
+time:
+  files: 3427
+  traverse: 41.990s
+  rules: 40.199s
+anomalies: 1 of 505 rules
+thresholds: setup -, match 0.345s, visit -, report -, find -
+rules:
+  destructuring/apply-array[replacer]:
+    total: 1.824s
+    match: 1.821s [anomaly]
+    visit: 0.000s
+    calls: 4210000
+    hits: 0
+```
+
+Time measuring costs about 10%, when it is on. Object visitors (`{enter, exit}`) are not measured.
+
 ## Logs
 
 To see logs, use:

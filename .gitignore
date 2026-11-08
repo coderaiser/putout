@@ -5,6 +5,7 @@
 .idea
 .DS_Store
 .filesystem.json
+.putout-time-*.json
 
 node_modules
 coverage

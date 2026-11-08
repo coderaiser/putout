@@ -222,6 +222,7 @@ putout lib --plugins remove-debugger,remove-unused-variables
 - `ESLINT_CONFIG_FILE` - path to **ESLint** config file;
 - `NO_ESLINT` - do not run **ESLint** after 🐊**Putout**;
 - `NO_ESLINT_WARNINGS` - do not show **ESLint** warnings;
+- `PUTOUT_TIME` - show time used by each rule, see [`PUTOUT_TIME`](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#putout_time) (not related to `--format time`);
 
 ```sh
 PUTOUT_FILES=lib,test putout --fix
