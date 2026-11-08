@@ -134,8 +134,8 @@ const wrapWithCheck = ({rule, nodesInclude, nodesExclude, fn}) => {
 };
 
 function isSkip({path, nodesInclude, nodesExclude}) {
-    if (nodesExclude.length && compareAny(path, nodesExclude))
+    if (nodesInclude.length && !compareAll(path, nodesInclude))
         return true;
     
-    return nodesInclude.length && !compareAll(path, nodesInclude);
+    return nodesExclude.length && compareAny(path, nodesExclude);
 }

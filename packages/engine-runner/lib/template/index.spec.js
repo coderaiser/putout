@@ -845,3 +845,21 @@ test('putout: plugin: traverse: template: time: off: markMatch is not called', (
     t.deepEqual(getTime().rules, []);
     t.end();
 });
+
+test('putout: plugin: traverse: template: include is checked before exclude', (t) => {
+    const exp = {
+        report: () => '',
+        fix: () => {},
+        exclude: () => [
+            '@@@ not valid code',
+        ],
+        traverse: () => ({
+            'const __a = __b'() {},
+        }),
+    };
+    
+    const [error] = tryCatch(lint, 'let a = 5', exp);
+    
+    t.notOk(error);
+    t.end();
+});
