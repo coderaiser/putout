@@ -5,6 +5,9 @@ export const buildResolved = ({dir, imports, rootPath, crawlFile}) => {
     const result = [];
     
     for (const [relative, current] of importsTuples) {
+        if (relative.includes('?'))
+            continue;
+        
         if (crawlFile(rootPath, current).length)
             continue;
         

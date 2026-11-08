@@ -62,6 +62,11 @@ test('esm: resolve-imported-file-with-extension: no report: exists', (t) => {
     t.end();
 });
 
+test('esm: resolve-imported-file-with-extension: no report: query', (t) => {
+    t.noReport('query');
+    t.end();
+});
+
 test('esm: resolve-imported-file-with-extension: transform: js', (t) => {
     t.transform('js');
     t.end();
