@@ -3,7 +3,7 @@
     
     for (const {a, b = []} of list) {
         m = {
-            ...x,
+            ...m,
             [a]: b || 'hello',
         };
     }

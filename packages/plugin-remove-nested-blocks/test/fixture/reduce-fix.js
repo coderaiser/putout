@@ -3,7 +3,7 @@ element.addEventListener('click', () => {
     
     for (const d of b) {
         a = {
-            ...c,
+            ...a,
             [d.name]: 'hello',
         };
     }
