@@ -72,3 +72,13 @@ test('plugin-for-of: entries-n: transform: no references i', (t) => {
     `);
     t.end();
 });
+
+test('plugin-for-of: entries-n: no transform: not-assign', (t) => {
+    t.noTransform('not-assign');
+    t.end();
+});
+
+test('plugin-for-of: entries-n: no transform: no-n', (t) => {
+    t.noTransform('no-n');
+    t.end();
+});

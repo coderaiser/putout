@@ -1,16 +1,29 @@
 import {
     operator,
     template,
-    types,
 } from 'putout';
 
 const {
     compare,
     getTemplateValues,
     getBinding,
+    createTypeChecker,
 } = operator;
 
-const {isBlockStatement} = types;
+const isForWithBlock = createTypeChecker([
+    ['-: body -> !BlockStatement'],
+    ['+: -> ForStatement'],
+]);
+
+const isIndexUsedOften = createTypeChecker([
+    ['-: constantViolations.length', '>', 1],
+    ['+: references', '>', 3],
+]);
+
+const isUsedOnce = createTypeChecker([
+    ['-: references', '>', 1],
+    ['+: path -> VariableDeclarator'],
+]);
 
 export const report = () => `Use 'for..of' instead of 'for'`;
 
@@ -26,20 +39,13 @@ export const filter = (path) => {
     if (!prevPath.node)
         return false;
     
-    const {body} = node;
-    
-    if (!isBlockStatement(body))
+    if (!isForWithBlock(node))
         return false;
     
-    const [first] = body.body;
+    const [first] = node.body.body;
     const {__i, __n} = getTemplateValues(path, forLoopToN);
     
-    const {
-        constantViolations,
-        references,
-    } = path.scope.bindings[__i.name];
-    
-    if (constantViolations.length > 1)
+    if (!isIndexUsedOften(path.scope.bindings[__i.name]))
         return false;
     
     if (!compare(first, assignIterable(__i)))
@@ -48,12 +54,7 @@ export const filter = (path) => {
     if (!comparePrevSiblings(path, assignN(__n)))
         return false;
     
-    const nBinding = getBinding(path, __n.name);
-    
-    if (nBinding.references > 1)
-        return false;
-    
-    return references > 3;
+    return isUsedOnce(getBinding(path, __n.name));
 };
 
 export const replace = () => ({
