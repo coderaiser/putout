@@ -1,3 +1,24 @@
+2026.11.09, v42.25.1
+
+fix:
+- e6e9aa75e @putout/plugin-esm: resolve-imported-file-with-extension: query: exclude
+
+feature:
+- 806a0db33 putout: @putout/plugin-remove-nested-blocks v10.0.0
+- 5c48272c0 @putout/plugin-remove-nested-blocks: drop support of 🐊 < 42
+- 403701126 @putout/plugin-remove-nested-blocks: apply type check
+- 0eecd5e59 @putout/plugin-esm: merge-declaration-with-export: apply type check
+- e30c230d6 @putout/plugin-for-of: for-entries-n: apply-type-check
+- 3fa68b369 @putout/plugin-destructuring: remove-useless-variables: apply type check
+- f1610e19f @putout/plugin-promises: add-missing-await: apply type checker
+- c3b3e21bb &putout/plugin-return: remove-useless: apply type checker
+- 5d3548eed @putout/plugin-variables: remove-useless-declarations: apply type checker
+- 722c17bf3 @putout/plugin-promises: remove-useless-await: apply type checker
+- b2122b8ac @putout/plugin-remove-duplicate-keys: simplify: apply type checkers
+- a8fb8ed7f @putout/processor-css: @stylistic/stylelint-plugin v6.0.1
+- 9bc9be4eb @putout/processor-css: stylelint-config-standard v41.0.0
+- 77a6d29d7 @putout/processor-css: stylelint v18.0.0
+
 2026.11.08, v42.25.0
 
 fix:
