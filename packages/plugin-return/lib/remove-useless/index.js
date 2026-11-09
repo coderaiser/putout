@@ -1,12 +1,28 @@
 import {types, operator} from 'putout';
 
-const {replaceWith} = operator;
+const {
+    replaceWith,
+    createTypeChecker,
+} = operator;
+
 const {
     isIdentifier,
     isLiteral,
     isAssignmentPattern,
     isObjectExpression,
 } = types;
+
+const isCandidate = createTypeChecker([
+    ['-: params.0.typeAnnotation', Boolean],
+    ['-: body -> !BlockStatement'],
+    ['-: body.body.0 -> !ReturnStatement'],
+    ['-: body.body.0.leadingComments.length', '>', 0],
+    ['-: body.body.0.argument -> NewExpression'],
+    ['-: body.body.0.argument -> AwaitExpression'],
+    ['-: body.body.0.argument -> TemplateLiteral'],
+    ['-: body.body.0.argument -> LogicalExpression'],
+    ['+: body.body.0.argument', Boolean],
+]);
 
 export const report = () => `Avoid useless 'return'`;
 
@@ -22,29 +38,10 @@ export const fix = (path) => {
 };
 
 export const filter = (path) => {
-    const bodyPath = path.get('body');
-    
-    if (hasTypes(path))
+    if (!isCandidate(path.node))
         return false;
     
-    if (!bodyPath.isBlockStatement())
-        return false;
-    
-    const first = bodyPath.get('body.0');
-    
-    if (!first)
-        return false;
-    
-    if (!first.isReturnStatement())
-        return false;
-    
-    if (hasComments(first))
-        return false;
-    
-    const argPath = first.get('argument');
-    
-    if (!argPath.node)
-        return false;
+    const argPath = path.get('body.body.0.argument');
     
     if (hasComplexParams(path) && !isObjectExpression(argPath))
         return false;
@@ -52,19 +49,7 @@ export const filter = (path) => {
     if (isChainCall(argPath))
         return false;
     
-    if (!isSimpleArgs(argPath))
-        return false;
-    
-    if (argPath.isNewExpression())
-        return false;
-    
-    if (argPath.isAwaitExpression())
-        return false;
-    
-    if (argPath.isTemplateLiteral())
-        return false;
-    
-    return !argPath.isLogicalExpression();
+    return isSimpleArgs(argPath);
 };
 
 const isChainCall = (path) => {
@@ -98,11 +83,6 @@ const isSimpleArgs = (path) => {
     return true;
 };
 
-function hasComments(path) {
-    const {leadingComments} = path.node;
-    return leadingComments?.length;
-}
-
 function hasComplexParams(path) {
     for (const param of path.get('params')) {
         if (isAssignmentPattern(param))
@@ -110,15 +90,4 @@ function hasComplexParams(path) {
     }
     
     return false;
-}
-
-function hasTypes(path) {
-    const {params} = path.node;
-    
-    if (!params.length)
-        return false;
-    
-    const [first] = params;
-    
-    return first.typeAnnotation;
 }
