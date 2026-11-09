@@ -114,6 +114,11 @@ test('remove useless variables: declaration: transform: no-loc', (t) => {
     t.end();
 });
 
+test('remove useless variables: declaration: transform: switch-case', (t) => {
+    t.transform('switch-case');
+    t.end();
+});
+
 test('remove useless variables: declaration: no report: no-body', (t) => {
     t.noReport('no-body');
     t.end();

@@ -4,10 +4,20 @@ const {
     compare,
     remove,
     replaceWith,
+    createTypeChecker,
 } = operator;
 
 const {isIdentifier} = types;
 const MAX_LENGTH = 20;
+
+const isSingleUse = createTypeChecker([
+    ['-: path -> !VariableDeclarator'],
+    ['-: path.node.id -> !Identifier'],
+    ['-: referencePaths.length', '<', 1],
+    ['-: referencePaths.length', '>', 1],
+    ['-: constantViolations.length', '>', 0],
+    ['+: path -> VariableDeclarator'],
+]);
 
 const getBody = (path) => {
     const {body} = path.scope.block;
@@ -27,16 +37,7 @@ export const match = ({options}) => ({
         if (!binding)
             return false;
         
-        if (binding.referencePaths.length !== 1)
-            return false;
-        
-        if (!binding.path.isVariableDeclarator())
-            return false;
-        
-        if (binding.constantViolations.length)
-            return false;
-        
-        if (!binding.path.get('id').isIdentifier())
+        if (!isSingleUse(binding))
             return false;
         
         if (!isTakesOneLine(binding))
@@ -59,13 +60,7 @@ export const match = ({options}) => ({
         if (path.scope.uid !== binding.scope.uid)
             return false;
         
-        if (binding.referencePaths.length !== 1)
-            return false;
-        
-        if (binding.constantViolations.length)
-            return false;
-        
-        if (!binding.path.isVariableDeclarator())
+        if (!isSingleUse(binding))
             return false;
         
         if (compare(__a, 'module.exports'))
