@@ -6,7 +6,28 @@ const {
     isAssignmentPattern,
 } = types;
 
-const {replaceWith} = operator;
+const {
+    replaceWith,
+    createTypeChecker,
+} = operator;
+
+const isSimpleFunction = createTypeChecker([
+    ['-: params.length', '<', 1],
+    ['-: params.length', '>', 1],
+    ['-: params.0 -> !Identifier'],
+    ['-: params.0.typeAnnotation', Boolean],
+    ['+: params.0 -> Identifier'],
+]);
+
+const isSmallPattern = createTypeChecker([
+    ['-: properties.length', '>', 3],
+    ['+: -> ObjectPattern'],
+]);
+
+const isSingleReference = createTypeChecker([
+    ['-: references', '>', 1],
+    ['+: path -> Identifier'],
+]);
 
 const MAX_LENGTH = 20;
 
@@ -41,28 +62,18 @@ export const match = () => ({
         if (path.node !== parentPath.node.body.body[0])
             return false;
         
-        const {params} = parentPath.node;
-        
-        if (params.length !== 1)
+        if (!isSimpleFunction(parentPath.node))
             return false;
         
-        const [first] = params;
-        
-        if (__object.properties.length > 3)
+        if (!isSmallPattern(__object))
             return false;
         
-        if (!isIdentifier(first))
-            return false;
+        const [first] = parentPath.node.params;
         
         if (__a.name !== first.name)
             return false;
         
-        const binding = path.scope.bindings[first.name];
-        
-        if (binding.path.node.typeAnnotation)
-            return false;
-        
-        if (binding.references > 1)
+        if (!isSingleReference(path.scope.bindings[first.name]))
             return false;
         
         const namesLength = __object.properties.reduce(sum, 0);
