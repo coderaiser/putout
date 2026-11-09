@@ -4,6 +4,7 @@ const {
     remove,
     replaceWith,
     compare,
+    createTypeChecker,
 } = operator;
 
 const {
@@ -11,10 +12,14 @@ const {
     isVariableDeclarator,
     exportNamedDeclaration,
     isFunctionDeclaration,
-    isImportSpecifier,
-    isImportDefaultSpecifier,
-    isExportNamedDeclaration,
 } = types;
+
+const isInlinable = createTypeChecker([
+    ['-: parentPath.parentPath -> ExportNamedDeclaration'],
+    ['-: -> ImportSpecifier'],
+    ['-: -> ImportDefaultSpecifier'],
+    ['+', Boolean],
+]);
 
 export const report = () => `Inline export`;
 export const include = () => [
@@ -42,13 +47,7 @@ export const filter = (path) => {
         
         const bindingPath = binding.path;
         
-        if (isExportNamedDeclaration(bindingPath.parentPath.parentPath))
-            return false;
-        
-        if (isImportSpecifier(bindingPath))
-            return false;
-        
-        if (isImportDefaultSpecifier(bindingPath))
+        if (!isInlinable(bindingPath))
             return false;
         
         if (compare(bindingPath, 'const __a = require(__b)'))
