@@ -1,9 +1,22 @@
-import {types} from 'putout';
+import {types, operator} from 'putout';
+
+const {createTypeChecker} = operator;
 
 const {
     isIdentifier,
     awaitExpression,
 } = types;
+
+const isNotAwaited = createTypeChecker([
+    ['-: parentPath -> ArrayExpression'],
+    ['-: parentPath -> MemberExpression'],
+    ['-: parentPath -> AwaitExpression'],
+    ['+: -> CallExpression'],
+]);
+
+const isAsyncFunction = createTypeChecker([
+    ['+: path.node.async', Boolean],
+]);
 
 export const report = () => `Call async functions using 'await'`;
 
@@ -15,10 +28,7 @@ export const match = () => ({
         if (!path.getFunctionParent())
             return false;
         
-        if (path.parentPath.isArrayExpression())
-            return false;
-        
-        if (path.parentPath.isMemberExpression())
+        if (!isNotAwaited(path))
             return false;
         
         if (path.find(isInsideUseEffect))
@@ -30,13 +40,7 @@ export const match = () => ({
         if (!binding)
             return false;
         
-        if (!binding.path.isFunction())
-            return false;
-        
-        if (!binding.path.node.async)
-            return false;
-        
-        return !path.parentPath.isAwaitExpression();
+        return isAsyncFunction(binding);
     },
 });
 
