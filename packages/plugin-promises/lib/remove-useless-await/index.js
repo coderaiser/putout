@@ -1,6 +1,22 @@
 import {operator} from 'putout';
 
-const {superTraverse} = operator;
+const {
+    superTraverse,
+    createTypeChecker,
+} = operator;
+
+const isCall = createTypeChecker([
+    ['+: argument -> CallExpression'],
+]);
+
+const isUselessArgument = createTypeChecker([
+    ['-: argument -> TaggedTemplateExpression'],
+    ['+: argument -> AwaitExpression'],
+    ['-: argument -> Identifier'],
+    ['-: argument -> LogicalExpression'],
+    ['-: argument -> MemberExpression'],
+    ['+: argument -> !CallExpression'],
+]);
 
 export const report = () => `Avoid useless 'await'`;
 
@@ -20,26 +36,10 @@ export const replace = () => ({
 });
 
 export const filter = (path) => {
+    if (!isCall(path.node))
+        return isUselessArgument(path.node);
+    
     const argumentPath = path.get('argument');
-    
-    if (argumentPath.isTaggedTemplateExpression())
-        return false;
-    
-    if (argumentPath.isAwaitExpression())
-        return true;
-    
-    if (argumentPath.isIdentifier())
-        return false;
-    
-    if (argumentPath.isLogicalExpression())
-        return false;
-    
-    if (argumentPath.isMemberExpression())
-        return false;
-    
-    if (!argumentPath.isCallExpression())
-        return true;
-    
     const calleePath = argumentPath.get('callee');
     
     if (!calleePath.isIdentifier())
