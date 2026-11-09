@@ -1,13 +1,37 @@
-import {types, operator} from 'putout';
+import {operator} from 'putout';
 
 const {
-    isReturnStatement,
-    isExportNamedDeclaration,
-    isIdentifier,
-} = types;
+    replaceWithMultiple,
+    createTypeChecker,
+} = operator;
 
-const {replaceWithMultiple} = operator;
 const {keys} = Object;
+const is = (name) => (a) => a === name;
+
+const isBlockedByPrev = createTypeChecker([
+    ['+: -> ExportNamedDeclaration'],
+    ['+: node.expression.name', is('assert')],
+    ['-: -> !ReturnStatement'],
+    ['+: node.argument', isMissing],
+]);
+
+const isSwitchCase = createTypeChecker([
+    ['+: parentPath -> SwitchCase'],
+]);
+
+const isSingleStatement = createTypeChecker([
+    ['-: container.length', '>', 1],
+    ['+: container.length', '>', 0],
+]);
+
+const isParentBlock = createTypeChecker([
+    ['+: parentPath -> BlockStatement'],
+    ['+: parentPath -> Program'],
+]);
+
+function isMissing(a) {
+    return !a;
+}
 
 export const report = () => 'Avoid nested blocks';
 
@@ -19,64 +43,32 @@ export const include = () => [
     'BlockStatement',
 ];
 
-export const filter = (path) => {
-    const prev = path.getPrevSibling();
-    
-    if (isExportNamedDeclaration(prev))
-        return false;
-    
-    if (isReturnWithoutArg(path))
-        return false;
-    
-    if (isImportAssert(path))
-        return false;
-    
-    const {parentPath} = path;
+const callWithPrev = (fn) => (path) => fn(path.getPrevSibling());
+
+const isSwitchBinding = (path) => {
     const {bindings} = path.scope;
     
-    const isSwitch = parentPath.isSwitchCase();
-    const varsCount = keys(bindings).length;
-    
-    if (isSwitch && !varsCount)
-        return true;
-    
-    if (isSwitch)
+    if (!isSwitchCase(path))
         return false;
     
-    if (!parentPath.isBlockStatement() && !parentPath.isProgram())
-        return false;
-    
-    if (!isIntersect(parentPath, bindings))
-        return true;
-    
-    return path.container.length === 1;
+    return !keys(bindings).length;
 };
 
-function isReturnWithoutArg(path) {
-    const prevPath = path.getPrevSibling();
-    
-    if (!isReturnStatement(prevPath))
-        return false;
-    
-    return !prevPath.node.argument;
-}
+export const filter = createTypeChecker([
+    ['-', callWithPrev(isBlockedByPrev)],
+    ['+', isSwitchBinding],
+    ['-: -> !', isParentBlock],
+    ['+: -> !', isIntersect],
+    ['+', isSingleStatement],
+]);
 
-const isIntersect = (path, bindings) => {
+function isIntersect(path) {
+    const {bindings} = path.scope;
+    
     for (const key of keys(bindings)) {
-        if (path.scope.hasBinding(key))
+        if (path.parentPath.scope.hasBinding(key))
             return true;
     }
     
     return false;
-};
-
-function isImportAssert(path) {
-    const prev = path.getPrevSibling();
-    
-    if (!prev.isExpressionStatement())
-        return false;
-    
-    return isIdentifier(prev.node.expression, {
-        name: 'assert',
-    });
 }
