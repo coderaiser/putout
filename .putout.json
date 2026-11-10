@@ -32,9 +32,6 @@
                     "eslint-fixture"
                 ]
             }]
-        },
-        "*.ts": {
-            "printer": "off"
         }
     },
     "rules": {
@@ -43,13 +40,7 @@
         "spread/remove-useless-object": ["off", {
             "exclude": "module.exports.rules = __"
         }],
-        "github/convert-npm-to-bun": "off",
-        "printer/declare-nearby": "off",
-        "printer/declare": "off",
-        "printer/add-args": "off",
-        "printer/remove-args": "off",
-        "printer/remove-legacy-test-declaration": "off"
+        "github/convert-npm-to-bun": "off"
     },
-    "ignore": [".husky"],
-    "plugins": ["printer"]
+    "ignore": [".husky"]
 }
