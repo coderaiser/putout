@@ -17,11 +17,11 @@ const isTypePromise = createTypeChecker([
 ]);
 
 const isSyncFunction = createTypeChecker([
-    ['-: path', isNotFunction],
-    ['-: path', looksLikePromise],
-    ['-: path', isTypePromise],
-    ['-: path.node.async', Boolean],
-    ['+', Boolean],
+    ['-', isNotFunction],
+    ['-', looksLikePromise],
+    ['-', isTypePromise],
+    ['-: node.async -> +'],
+    ['+: -> +'],
 ]);
 
 const isSyncCallee = (path) => {
@@ -31,7 +31,7 @@ const isSyncCallee = (path) => {
     if (!binding)
         return false;
     
-    return isSyncFunction(binding);
+    return isSyncFunction(binding.path);
 };
 
 export const report = () => `Avoid useless 'await'`;

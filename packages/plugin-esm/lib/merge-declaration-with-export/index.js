@@ -15,10 +15,10 @@ const {
 } = types;
 
 const isInlinable = createTypeChecker([
-    ['-: parentPath.parentPath -> ExportNamedDeclaration'],
-    ['-: -> ImportSpecifier'],
-    ['-: -> ImportDefaultSpecifier'],
-    ['+', Boolean],
+    '-: parentPath.parentPath -> ExportNamedDeclaration',
+    '-: -> ImportSpecifier',
+    '-: -> ImportDefaultSpecifier',
+    '+: -> +',
 ]);
 
 export const report = () => `Inline export`;

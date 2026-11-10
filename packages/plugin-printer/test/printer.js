@@ -146,3 +146,8 @@ test('plugin-printer: transform: declare-nearby', (t) => {
     t.transform('declare-nearby');
     t.end();
 });
+
+test('plugin-printer: transform: apply-boolean-operator-to-type-checker', (t) => {
+    t.transform('apply-boolean-operator-to-type-checker');
+    t.end();
+});

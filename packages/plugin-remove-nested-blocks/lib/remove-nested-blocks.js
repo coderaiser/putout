@@ -16,7 +16,7 @@ const isBlockedByPrev = createTypeChecker([
 ]);
 
 const isSwitchCase = createTypeChecker([
-    ['+: parentPath -> SwitchCase'],
+    '+: parentPath -> SwitchCase',
 ]);
 
 const isSingleStatement = createTypeChecker([
@@ -25,8 +25,8 @@ const isSingleStatement = createTypeChecker([
 ]);
 
 const isParentBlock = createTypeChecker([
-    ['+: parentPath -> BlockStatement'],
-    ['+: parentPath -> Program'],
+    '+: parentPath -> BlockStatement',
+    '+: parentPath -> Program',
 ]);
 
 function isMissing(a) {

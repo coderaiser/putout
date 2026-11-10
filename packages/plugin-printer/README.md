@@ -40,6 +40,7 @@ npm i @putout/plugin-printer -D
 - ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker);
 - ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker);
 - ✅ [reverse-comparison-in-type-checker](#reverse-comparison-in-type-checker);
+- ✅ [apply-boolean-operator-to-type-checker](#apply-boolean-operator-to-type-checker);
 
 ## Config
 
@@ -47,43 +48,32 @@ npm i @putout/plugin-printer -D
 {
     "rules": {
         "printer/add-args": "on",
-        
         "printer/add-missing-colon-to-type-checker": "on",
         "printer/add-missing-spaces-to-type-checker": "on",
         "printer/add-missing-tuples-to-type-checker": "on",
-        
         "printer/apply-breakline": "on",
-        
         "printer/apply-computed-print": "on",
         "printer/apply-create-test-url": "on",
         "printer/apply-linebreak": "on",
-        
         "printer/apply-printer-declarations": "on",
         "printer/apply-types": "on",
-        
         "printer/check-if-success-possible-in-type-checker": "on",
         "printer/check-type-passed-to-type-checker": "on",
-        
         "printer/declare": "on",
         "printer/declare-nearby": "on",
         "printer/merge-tuple-of-type-checker": "on",
         "printer/remove-args": "on",
-        
         "printer/remove-trailing-spaces-from-type-checker": "on",
-        
         "printer/remove-useless-arrow-from-type-checker": "on",
         "printer/remove-useless-colon-from-type-checker": "on",
         "printer/remove-useless-maybe": "on",
-        
         "printer/remove-useless-not-from-type-checker": "on",
         "printer/remove-useless-path-from-type-checker": "on",
-        
         "printer/remove-useless-print": "on",
         "printer/remove-useless-spaces-from-type-checker": "on",
-        
         "printer/remove-useless-tuples-from-type-checker": "on",
-        
-        "printer/reverse-comparison-in-type-checker": "on"
+        "printer/reverse-comparison-in-type-checker": "on",
+        "printer/apply-boolean-operator-to-type-checker": "on"
     }
 }
 ```
@@ -672,6 +662,30 @@ export const ExpressionStatement = (path, {indent, print}) => {
     print('__expression');
     print.newline();
 };
+```
+
+## apply-boolean-operator-to-type-checker
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/053946bd010f04ad87e148c648d3af32/a69e0182048d692747b34df94ac4ce0b47d49f33).
+
+### ❌ Example of incorrect code
+
+```js
+const isNotMarked = createTypeChecker([
+    ['-: node.async', not(Boolean)],
+    ['-: __putout_promises_add_missing_async', Boolean],
+    ['+', Boolean],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+const isNotMarked = createTypeChecker([
+    ['-: node.async -> -'],
+    ['-: __putout_promises_add_missing_async -> +'],
+    ['+ -> +'],
+]);
 ```
 
 ## License

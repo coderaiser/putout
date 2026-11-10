@@ -6,8 +6,8 @@ const {
 } = operator;
 
 const isTopLevel = createTypeChecker([
-    ['-: parentPath.parentPath.parentPath', Boolean],
-    ['+', Boolean],
+    '-: parentPath.parentPath.parentPath -> +',
+    '+: -> +',
 ]);
 
 const add = ({push, store}) => (path) => {

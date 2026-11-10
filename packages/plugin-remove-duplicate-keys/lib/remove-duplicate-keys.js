@@ -9,26 +9,26 @@ const {
 const {isObjectPattern} = types;
 
 const isSpreadId = createTypeChecker([
-    ['-: -> !SpreadElement'],
-    ['-: argument -> !Identifier'],
-    ['+: -> SpreadElement'],
+    '-: -> !SpreadElement',
+    '-: argument -> !Identifier',
+    '+: -> SpreadElement',
 ]);
 
 const isIdentifierKey = createTypeChecker([
-    ['-: -> !ObjectProperty'],
-    ['+: key -> Identifier'],
+    '-: -> !ObjectProperty',
+    '+: key -> Identifier',
 ]);
 
 const isStringKey = createTypeChecker([
-    ['-: -> !ObjectProperty'],
-    ['+: key -> StringLiteral'],
+    '-: -> !ObjectProperty',
+    '+: key -> StringLiteral',
 ]);
 
 const isMemberKey = createTypeChecker([
-    ['-: -> !ObjectProperty'],
-    ['-: key -> !MemberExpression'],
-    ['-: key.object -> CallExpression'],
-    ['+: -> ObjectProperty'],
+    '-: -> !ObjectProperty',
+    '-: key -> !MemberExpression',
+    '-: key.object -> CallExpression',
+    '+: -> ObjectProperty',
 ]);
 
 const getId = (property) => {

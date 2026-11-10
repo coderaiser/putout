@@ -13,7 +13,7 @@ const {
 } = types;
 
 const isCandidate = createTypeChecker([
-    ['-: params.0.typeAnnotation', Boolean],
+    ['-: params.0.typeAnnotation -> +'],
     ['-: body -> !BlockStatement'],
     ['-: body.body.0 -> !ReturnStatement'],
     ['-: body.body.0.leadingComments.length', '>', 0],
@@ -21,7 +21,7 @@ const isCandidate = createTypeChecker([
     ['-: body.body.0.argument -> AwaitExpression'],
     ['-: body.body.0.argument -> TemplateLiteral'],
     ['-: body.body.0.argument -> LogicalExpression'],
-    ['+: body.body.0.argument', Boolean],
+    ['+: body.body.0.argument -> +'],
 ]);
 
 export const report = () => `Avoid useless 'return'`;

@@ -12,7 +12,7 @@ const MAX_LENGTH = 20;
 
 const isSingleUse = createTypeChecker([
     ['-: path -> !VariableDeclarator'],
-    ['-: path.node.id -> !Identifier'],
+    ['-: node.id -> !Identifier'],
     ['-: referencePaths.length', '<', 1],
     ['-: referencePaths.length', '>', 1],
     ['-: constantViolations.length', '>', 0],

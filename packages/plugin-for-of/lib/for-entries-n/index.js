@@ -11,8 +11,8 @@ const {
 } = operator;
 
 const isForWithBlock = createTypeChecker([
-    ['-: body -> !BlockStatement'],
-    ['+: -> ForStatement'],
+    '-: body -> !BlockStatement',
+    '+: -> ForStatement',
 ]);
 
 const isIndexUsedOften = createTypeChecker([

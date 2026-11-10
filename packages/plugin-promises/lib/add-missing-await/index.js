@@ -8,14 +8,14 @@ const {
 } = types;
 
 const isNotAwaited = createTypeChecker([
-    ['-: parentPath -> ArrayExpression'],
-    ['-: parentPath -> MemberExpression'],
-    ['-: parentPath -> AwaitExpression'],
-    ['+: -> CallExpression'],
+    '-: parentPath -> ArrayExpression',
+    '-: parentPath -> MemberExpression',
+    '-: parentPath -> AwaitExpression',
+    '+: -> CallExpression',
 ]);
 
 const isAsyncFunction = createTypeChecker([
-    ['+: path.node.async', Boolean],
+    '+: node.async -> +',
 ]);
 
 export const report = () => `Call async functions using 'await'`;
@@ -40,7 +40,7 @@ export const match = () => ({
         if (!binding)
             return false;
         
-        return isAsyncFunction(binding);
+        return isAsyncFunction(binding.path);
     },
 });
 

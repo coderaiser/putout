@@ -3,9 +3,9 @@ import {operator} from 'putout';
 const {createTypeChecker} = operator;
 
 const isNotMarked = createTypeChecker([
-    ['-: node.async', Boolean],
-    ['-: __putout_promises_add_missing_async', Boolean],
-    ['+', Boolean],
+    '-: node.async -> +',
+    '-: __putout_promises_add_missing_async -> +',
+    '+: -> +',
 ]);
 
 export const report = () => `Add missing 'async'`;

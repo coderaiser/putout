@@ -15,7 +15,7 @@ const isSimpleFunction = createTypeChecker([
     ['-: params.length', '<', 1],
     ['-: params.length', '>', 1],
     ['-: params.0 -> !Identifier'],
-    ['-: params.0.typeAnnotation', Boolean],
+    ['-: params.0.typeAnnotation -> +'],
     ['+: params.0 -> Identifier'],
 ]);
 
