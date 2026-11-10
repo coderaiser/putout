@@ -2,13 +2,16 @@
     "printer": "putout",
     "match": {
         "**/codemods": {
-            "putout": "on"
+            "putout": "on",
+            "type-checker": "on"
         },
         "**/packages/{formatter-*,plugin-*,processor-*,test,eslint-config,engine-processor}": {
-            "putout": "on"
+            "putout": "on",
+            "type-checker": "on"
         },
         "**/rules": {
-            "putout": "on"
+            "putout": "on",
+            "type-checker": "on"
         },
         "**/packages/plugin-*/*.md{json}": {
             "putout-config": "on"
