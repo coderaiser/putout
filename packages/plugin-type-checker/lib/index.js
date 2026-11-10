@@ -1,0 +1,35 @@
+import * as applyBooleanOperatorToTypeChecker from './apply-boolean-operator-to-type-checker/index.js';
+import * as addMissingArrowToTypeChecker from './add-missing-arrow-to-type-checker/index.js';
+import * as removeUselessArrowFromTypeChecker from './remove-useless-arrow-from-type-checker/index.js';
+import * as removeUselessPathFromTypeChecker from './remove-useless-path-from-type-checker/index.js';
+import * as reverseComparisonInTypeChecker from './reverse-comparison-in-type-checker/index.js';
+import * as removeUselessNotFromTypeChecker from './remove-useless-not-from-type-checker/index.js';
+import * as removeUselessColonFromTypeChecker from './remove-useless-colon-from-type-checker/index.js';
+import * as addMissingColonToTypeChecker from './add-missing-colon-to-type-checker/index.js';
+import * as mergeTuplesOfTypeCheckers from './merge-tuples-of-type-checkers/index.js';
+import * as checkIfSuccessPossibleInTypeChecker from './check-if-success-possible-in-type-checker/index.js';
+import * as removeUselessTuplesFromTypeChecker from './remove-useless-tuples-from-type-checker/index.js';
+import * as addMissingTuplesToTypeChecker from './add-missing-tuples-to-type-checker/index.js';
+import * as checkTypePassedToTypeChecker from './check-type-passed-to-type-checker/index.js';
+import * as removeUselessSpacesFromTypeChecker from './remove-useless-spaces-from-type-checker/index.js';
+import * as addMissingSpacesToTypeChecker from './add-missing-spaces-to-type-checker/index.js';
+import * as removeTrailingSpacesFromTypeChecker from './remove-trailing-spaces-from-type-checker/index.js';
+
+export const rules = {
+    'remove-trailing-spaces-from-type-checker': removeTrailingSpacesFromTypeChecker,
+    'add-missing-spaces-to-type-checker': addMissingSpacesToTypeChecker,
+    'remove-useless-spaces-from-type-checker': removeUselessSpacesFromTypeChecker,
+    'check-type-passed-to-type-checker': checkTypePassedToTypeChecker,
+    'add-missing-tuples-to-type-checker': addMissingTuplesToTypeChecker,
+    'remove-useless-tuples-from-type-checker': removeUselessTuplesFromTypeChecker,
+    'check-if-success-possible-in-type-checker': checkIfSuccessPossibleInTypeChecker,
+    'merge-tuples-of-type-checkers': mergeTuplesOfTypeCheckers,
+    'add-missing-colon-to-type-checker': addMissingColonToTypeChecker,
+    'remove-useless-colon-from-type-checker': removeUselessColonFromTypeChecker,
+    'remove-useless-not-from-type-checker': removeUselessNotFromTypeChecker,
+    'reverse-comparison-in-type-checker': reverseComparisonInTypeChecker,
+    'remove-useless-path-from-type-checker': removeUselessPathFromTypeChecker,
+    'remove-useless-arrow-from-type-checker': removeUselessArrowFromTypeChecker,
+    'add-missing-arrow-to-type-checker': addMissingArrowToTypeChecker,
+    'apply-boolean-operator-to-type-checker': applyBooleanOperatorToTypeChecker,
+};

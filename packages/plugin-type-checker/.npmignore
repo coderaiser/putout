@@ -1,0 +1,13 @@
+*.spec.js
+*.config.*
+*.log
+*.lock
+
+.*
+
+fixture.js
+
+test
+coverage
+fixture
+rules
