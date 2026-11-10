@@ -7,8 +7,8 @@ import {
 const {awaitExpression} = types;
 const {replaceWith, addParens} = operator;
 
-export const report = () => {
-    const line = print('__argument.callee');
+export const report = (path) => {
+    const line = print(path.get('argument.callee'));
     return `TypeError: '${line}' is not a function`;
 };
 
