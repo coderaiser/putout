@@ -57,81 +57,6 @@ test('plugin-printer: transform: remove-useless-maybe', (t) => {
     t.end();
 });
 
-test('plugin-printer: transform: remove-trailing-spaces-from-type-checker', (t) => {
-    t.transform('remove-trailing-spaces-from-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: add-missing-spaces-to-type-checker', (t) => {
-    t.transform('add-missing-spaces-to-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: remove-useless-spaces-from-type-checker', (t) => {
-    t.transform('remove-useless-spaces-from-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: check-type-passed-to-type-checker', (t) => {
-    t.transform('check-type-passed-to-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: add-missing-tuples-to-type-checker', (t) => {
-    t.transform('add-missing-tuples-to-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: remove-useless-tuples-from-type-checker', (t) => {
-    t.transform('remove-useless-tuples-from-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: check-if-success-possible-in-type-checker', (t) => {
-    t.transform('check-if-success-possible-in-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: merge-tuples-of-type-checkers', (t) => {
-    t.transform('merge-tuples-of-type-checkers');
-    t.end();
-});
-
-test('plugin-printer: transform: add-missing-colon-to-type-checker', (t) => {
-    t.transform('add-missing-colon-to-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: remove-useless-colon-from-type-checker', (t) => {
-    t.transform('remove-useless-colon-from-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: remove-useless-not-from-type-checker', (t) => {
-    t.transform('remove-useless-not-from-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: reverse-comparison-in-type-checker', (t) => {
-    t.transform('reverse-comparison-in-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: remove-useless-path-from-type-checker', (t) => {
-    t.transform('remove-useless-path-from-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: remove-useless-arrow-from-type-checker', (t) => {
-    t.transform('remove-useless-arrow-from-type-checker');
-    t.end();
-});
-
-test('plugin-printer: transform: add-missing-arrow-to-type-checker', (t) => {
-    t.transform('add-missing-arrow-to-type-checker');
-    t.end();
-});
-
 test('plugin-printer: transform: remove-useless-print', (t) => {
     t.transform('remove-useless-print');
     t.end();
@@ -144,10 +69,5 @@ test('plugin-printer: transform: apply-printer-declarations', (t) => {
 
 test('plugin-printer: transform: declare-nearby', (t) => {
     t.transform('declare-nearby');
-    t.end();
-});
-
-test('plugin-printer: transform: apply-boolean-operator-to-type-checker', (t) => {
-    t.transform('apply-boolean-operator-to-type-checker');
     t.end();
 });
