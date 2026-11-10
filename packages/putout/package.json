@@ -182,6 +182,7 @@
     "@putout/plugin-spread": "^3.0.0",
     "@putout/plugin-tape": "^21.0.0",
     "@putout/plugin-try-catch": "^8.0.0",
+    "@putout/plugin-type-checker": "^1.0.0",
     "@putout/plugin-types": "^10.0.0",
     "@putout/plugin-typescript": "^13.0.0",
     "@putout/plugin-variables": "^2.0.0",
