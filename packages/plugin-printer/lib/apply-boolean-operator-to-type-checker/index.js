@@ -4,6 +4,7 @@ const {
     compare,
     setLiteralValue,
 } = operator;
+
 const {
     isArrayExpression,
     isIdentifier,

@@ -245,12 +245,14 @@ test('putout: runner: time: type: replacer: setup and match', (t) => {
     };
     
     const {rules: [rule]} = run('const a = 5', plugin);
+    
     const result = {
         type: rule.type,
         setup: 'setup' in rule,
         match: 'match' in rule,
         find: 'find' in rule,
     };
+    
     const expected = {
         type: 'replacer',
         setup: true,
@@ -271,10 +273,12 @@ test('putout: runner: time: type: includer: setup and match', (t) => {
     };
     
     const {rules: [rule]} = run('const a = 5', plugin);
+    
     const result = {
         type: rule.type,
         match: 'match' in rule,
     };
+    
     const expected = {
         type: 'includer',
         match: true,
@@ -291,6 +295,7 @@ test('putout: runner: time: type: traverser: setup, no match', (t) => {
         setup: 'setup' in rule,
         match: 'match' in rule,
     };
+    
     const expected = {
         type: 'traverser',
         setup: true,
@@ -308,11 +313,13 @@ test('putout: runner: time: type: finder: find, no setup', (t) => {
     };
     
     const {rules: [rule]} = run('const a = 5', plugin);
+    
     const result = {
         type: rule.type,
         setup: 'setup' in rule,
         find: 'find' in rule,
     };
+    
     const expected = {
         type: 'finder',
         setup: false,
@@ -365,11 +372,13 @@ test('putout: runner: time: find: time outside of callbacks', (t) => {
         find,
         visit,
     }]} = run('const a = 5', plugin);
+    
     const result = {
         found: find >= 0.005,
         small: find < 0.015,
         visited: visit >= 0.02,
     };
+    
     const expected = {
         found: true,
         small: true,
@@ -389,11 +398,13 @@ test('putout: runner: time: replacer: many calls, no hits, match > 0', (t) => {
     };
     
     const {rules: [rule]} = run('const a = 5; const b = 5;', plugin);
+    
     const result = {
         calls: rule.calls,
         hits: rule.hits,
         match: rule.match > 0,
     };
+    
     const expected = {
         calls: 2,
         hits: 0,

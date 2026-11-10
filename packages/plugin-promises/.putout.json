@@ -1,11 +1,7 @@
 {
-    "rules": {
-        "printer": "on"
-    },
     "match": {
         "*.md": {
             "promises": "off"
         }
-    },
-    "plugins": ["printer"]
+    }
 }
