@@ -3,17 +3,15 @@ import {types, operator} from 'putout';
 const {replaceWith} = operator;
 const {
     isFunction,
+    isVariableDeclarator,
     awaitExpression,
 } = types;
 
 export const report = () => `Use 'await' near 'import' call`;
 
 export const match = () => ({
-    'import(__a)'(vars, path) {
-        if (!path.parentPath.isVariableDeclarator())
-            return false;
-        
-        return !path.parentPath.isAwaitExpression();
+    'import(__a)'(vars, {parentPath}) {
+        return isVariableDeclarator(parentPath);
     },
 });
 

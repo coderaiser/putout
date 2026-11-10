@@ -2,10 +2,18 @@ import {operator} from 'putout';
 
 const {
     replaceWithMultiple,
-    compare,
+    createTypeChecker,
 } = operator;
 
+const isTopLevel = createTypeChecker([
+    ['-: parentPath.parentPath.parentPath', Boolean],
+    ['+', Boolean],
+]);
+
 const add = ({push, store}) => (path) => {
+    if (!isTopLevel(path))
+        return;
+    
     const calleePath = path.get('callee');
     
     if (!store('is-imports') && !store('is-exports'))
@@ -42,28 +50,7 @@ export const traverse = ({push, store}) => {
         ExportDefaultDeclaration() {
             store('is-exports', true);
         },
-        '(async function __() {})()': (path) => {
-            if (!isAsyncParent(path))
-                return;
-            
-            addPath(path);
-        },
-        '(async () => __)()': (path) => {
-            if (!isAsyncParent(path))
-                return;
-            
-            addPath(path);
-        },
+        '(async function __() {})()': addPath,
+        '(async () => __)()': addPath,
     };
 };
-
-const isInsideUseEffect = (a) => compare(a, 'useEffect(__args)');
-
-function isAsyncParent(path) {
-    const {parentPath} = path.parentPath.parentPath;
-    
-    if (path.find(isInsideUseEffect))
-        return false;
-    
-    return !parentPath;
-}

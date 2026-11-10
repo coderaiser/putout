@@ -1,6 +1,19 @@
 import {operator} from 'putout';
 
-const {remove, rename} = operator;
+const {
+    remove,
+    rename,
+    compare,
+    createTypeChecker,
+} = operator;
+
+const compareWith = (a) => (b) => compare(b, a);
+
+const isPromiseResolve = createTypeChecker([
+    ['-: parentPath -> !VariableDeclarator'],
+    ['-: node.argument -> !CallExpression'],
+    ['+: node.argument.callee', compareWith('Promise.resolve')],
+]);
 
 export const report = () => `'Promise.resolve()' has no sense in async function`;
 
@@ -18,19 +31,10 @@ export const fix = (path) => {
 
 export const traverse = ({push}) => ({
     AwaitExpression(path) {
-        const argumentPath = path.get('argument');
-        const declaratorPath = path.parentPath;
-        
-        if (!declaratorPath.isVariableDeclarator())
+        if (!isPromiseResolve(path))
             return;
         
-        if (!argumentPath.isCallExpression())
-            return;
-        
-        if (!argumentPath.get('callee').matchesPattern('Promise.resolve'))
-            return;
-        
-        push(argumentPath);
+        push(path.get('argument'));
     },
 });
 

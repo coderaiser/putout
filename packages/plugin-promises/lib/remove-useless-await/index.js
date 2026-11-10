@@ -3,20 +3,36 @@ import {operator} from 'putout';
 const {
     superTraverse,
     createTypeChecker,
+    getBinding,
 } = operator;
 
-const isCall = createTypeChecker([
-    ['+: argument -> CallExpression'],
+const isNotFunction = (a) => !a.isFunction();
+
+const isTypePromise = createTypeChecker([
+    [
+        '+: node.returnType.typeAnnotation.typeName.name',
+        '=',
+        'Promise',
+    ],
 ]);
 
-const isUselessArgument = createTypeChecker([
-    ['-: argument -> TaggedTemplateExpression'],
-    ['+: argument -> AwaitExpression'],
-    ['-: argument -> Identifier'],
-    ['-: argument -> LogicalExpression'],
-    ['-: argument -> MemberExpression'],
-    ['+: argument -> !CallExpression'],
+const isSyncFunction = createTypeChecker([
+    ['-: path', isNotFunction],
+    ['-: path', looksLikePromise],
+    ['-: path', isTypePromise],
+    ['-: path.node.async', Boolean],
+    ['+', Boolean],
 ]);
+
+const isSyncCallee = (path) => {
+    const {name} = path.node.argument.callee;
+    const binding = getBinding(path, name);
+    
+    if (!binding)
+        return false;
+    
+    return isSyncFunction(binding);
+};
 
 export const report = () => `Avoid useless 'await'`;
 
@@ -35,49 +51,16 @@ export const replace = () => ({
     'await __a': '__a',
 });
 
-export const filter = (path) => {
-    if (!isCall(path.node))
-        return isUselessArgument(path.node);
-    
-    const argumentPath = path.get('argument');
-    const calleePath = argumentPath.get('callee');
-    
-    if (!calleePath.isIdentifier())
-        return false;
-    
-    const {name} = calleePath.node;
-    const scope = argumentPath.scope.getBinding(name);
-    
-    if (!scope)
-        return false;
-    
-    const fnPath = scope.path;
-    
-    if (!fnPath.isFunction())
-        return false;
-    
-    if (looksLikePromise(fnPath))
-        return false;
-    
-    if (isTypePromise(fnPath))
-        return false;
-    
-    return !fnPath.node.async;
-};
-
-function isTypePromise(path) {
-    const returnTypePath = path.get('returnType');
-    
-    if (!returnTypePath.node)
-        return false;
-    
-    const typeNamePath = returnTypePath.get('typeAnnotation.typeName');
-    
-    if (!typeNamePath.isIdentifier())
-        return false;
-    
-    return typeNamePath.node.name === 'Promise';
-}
+export const filter = createTypeChecker([
+    ['-: node.argument -> TaggedTemplateExpression'],
+    ['+: node.argument -> AwaitExpression'],
+    ['-: node.argument -> Identifier'],
+    ['-: node.argument -> LogicalExpression'],
+    ['-: node.argument -> MemberExpression'],
+    ['+: node.argument -> !CallExpression'],
+    ['-: node.argument.callee -> !Identifier'],
+    ['+', isSyncCallee],
+]);
 
 function looksLikePromise(path) {
     let is = false;
