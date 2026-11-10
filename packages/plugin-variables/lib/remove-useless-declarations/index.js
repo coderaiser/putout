@@ -2,6 +2,7 @@ import {types, operator} from 'putout';
 
 const {
     compare,
+    getBinding,
     remove,
     replaceWith,
     createTypeChecker,
@@ -10,13 +11,18 @@ const {
 const {isIdentifier} = types;
 const MAX_LENGTH = 20;
 
+const isNotSingleReference = (path) => {
+    const {name} = path.node.id;
+    const binding = getBinding(path, name);
+    
+    return binding.referencePaths.length !== 1 || binding.constantViolations.length > 0;
+};
+
 const isSingleUse = createTypeChecker([
-    ['-: path -> !VariableDeclarator'],
+    ['-: -> !VariableDeclarator'],
     ['-: node.id -> !Identifier'],
-    ['-: referencePaths.length', '<', 1],
-    ['-: referencePaths.length', '>', 1],
-    ['-: constantViolations.length', '>', 0],
-    ['+: path -> VariableDeclarator'],
+    ['-', isNotSingleReference],
+    ['+: -> VariableDeclarator'],
 ]);
 
 const getBody = (path) => {
@@ -37,7 +43,7 @@ export const match = ({options}) => ({
         if (!binding)
             return false;
         
-        if (!isSingleUse(binding))
+        if (!isSingleUse(binding.path))
             return false;
         
         if (!isTakesOneLine(binding))
@@ -60,7 +66,7 @@ export const match = ({options}) => ({
         if (path.scope.uid !== binding.scope.uid)
             return false;
         
-        if (!isSingleUse(binding))
+        if (!isSingleUse(binding.path))
             return false;
         
         if (compare(__a, 'module.exports'))
