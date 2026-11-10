@@ -31,6 +31,14 @@ test('putout: processor: markdown', async ({process}) => {
     await process('js');
 });
 
+test('putout: processor: markdown: strong-marker', async ({noProcess}) => {
+    await noProcess('strong-marker');
+});
+
+test('putout: processor: markdown: emphasis', async ({noProcess}) => {
+    await noProcess('emphasis');
+});
+
 test('putout: processor: markdown: ts', async ({process}) => {
     await process('ts');
 });

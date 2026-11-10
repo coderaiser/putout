@@ -29,6 +29,9 @@ const definition = (node, parent, state, info) => {
     return result.replace(URL_PLACEHOLDER, node.url);
 };
 
+const strong = (node, parent, state, info) => `**${state.containerPhrasing(node, info)}**`;
+const emphasis = (node, parent, state, info) => `*${state.containerPhrasing(node, info)}*`;
+
 const stringifyOptions = {
     bullet: '-',
     listItemIndent: 'one',
@@ -36,6 +39,8 @@ const stringifyOptions = {
     tightDefinitions: true,
     handlers: {
         text,
+        strong,
+        emphasis,
         definition,
     },
 };
