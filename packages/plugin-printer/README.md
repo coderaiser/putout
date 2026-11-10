@@ -169,14 +169,20 @@ print.breakline();
 ### ❌ Example of incorrect code
 
 ```js
-print(path.get('block'));
+export const TryStatement = (path, {print}) => {
+    print(path.get('block'));
+};
 ```
 
 ### ✅ Example of correct code
 
 ```js
-print('__block');
+export const TryStatement = (path, {print}) => {
+    print('__block');
+};
 ```
+
+The rule changes only the `print` of a printer visitor (a parameter). Imported `print` of `putout` needs a path and stays as is.
 
 ## apply-create-test-url
 

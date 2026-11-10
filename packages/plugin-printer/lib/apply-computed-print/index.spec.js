@@ -16,3 +16,13 @@ test('plugin-printer: apply-computed-print: transform', (t) => {
     t.transform('apply-computed-print');
     t.end();
 });
+
+test('plugin-printer: apply-computed-print: no transform: apply-computed-print-putout-print', (t) => {
+    t.noTransform('apply-computed-print-putout-print');
+    t.end();
+});
+
+test('plugin-printer: apply-computed-print: no transform: apply-computed-print-no-binding', (t) => {
+    t.noTransform('apply-computed-print-no-binding');
+    t.end();
+});
