@@ -1,7 +1,9 @@
-export const beforeIf = createTypeChecker([
-    ['-: parentPath ->', isCoupleLines],
+const isBeforeIf = createTypeChecker([
+    ['-: parentPath', isCoupleLines],
 ]);
 
+isBeforeIf(path);
+
 is([
-    ['-: path.parentPath -> ', isCoupleLines],
+    ['-: path.parentPath ->', isCoupleLines],
 ]);

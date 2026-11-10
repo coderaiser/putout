@@ -3,6 +3,8 @@ import {operator, types} from 'putout';
 const {
     isIdentifier,
     isCallExpression,
+    isMemberExpression,
+    isVariableDeclarator,
 } = types;
 
 const {setLiteralValue} = operator;
@@ -26,6 +28,9 @@ export const traverse = ({push}) => ({
             return;
         
         if (!isIdentifier(call.node.callee, {name: 'createTypeChecker'}))
+            return;
+        
+        if (!isPathPassed(call))
             return;
         
         const {value} = path.node;
@@ -67,4 +72,52 @@ function removePath(value, where) {
         value = value.replace('path.', '');
     
     return value;
+}
+
+// 'path.' can be removed only when checker always receives a path
+function isPathPassed(call) {
+    const {parentPath} = call;
+    
+    if (parentPath.isCallExpression({callee: call.node}))
+        return isPath(parentPath.node.arguments[0]);
+    
+    if (!isVariableDeclarator(parentPath))
+        return false;
+    
+    if (parentPath.parentPath.parentPath.isExportNamedDeclaration())
+        return false;
+    
+    const binding = call.scope.getBinding(parentPath.node.id.name);
+    
+    return isEveryCallWithPath(binding.referencePaths);
+}
+
+function isEveryCallWithPath(references) {
+    if (!references.length)
+        return false;
+    
+    for (const {parentPath, node} of references) {
+        if (parentPath.isExportSpecifier())
+            return false;
+        
+        if (!parentPath.isCallExpression({callee: node}))
+            return false;
+        
+        if (!isPath(parentPath.node.arguments[0]))
+            return false;
+    }
+    
+    return true;
+}
+
+function isPath(node) {
+    if (isIdentifier(node, {name: 'path'}))
+        return true;
+    
+    if (!isMemberExpression(node, {computed: false}))
+        return false;
+    
+    return isIdentifier(node.property, {
+        name: 'path',
+    });
 }
