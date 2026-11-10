@@ -1,3 +1,19 @@
+2026.11.10, v42.26.0
+
+fix:
+- 80653b510 @putout/plugin-printer: remove-useless-path-from-type-checker: check argument
+- 06b618a71 @putout/plugin-parens: add-missing-for-await: print receives path
+- 9f198ffc4 @putout/plugin-printer: apply-computed-print: scope
+- d16d6697b @putout/plugin-variables: remove-useless-declarations: type checker receives path
+- c076e6467 @putout/processor-markdown: formatting: strong, emphasis
+
+feature:
+- e8cf17b20 root: .putout.json: type-checker: on
+- 7bfd94780 putout: @putout/plugin-type-checker: add, disabled by default
+- 6e2497199 @putout/plugin-type-checker: create (move rules from @putout/plugin-printer)
+- 0a4762ff1 @putout/plugin-printer: apply-boolean-to-type-checker
+- ff3a2d438 @putout/plugin-promises: apply type check
+
 2026.11.09, v42.25.1
 
 fix:
