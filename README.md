@@ -2287,6 +2287,8 @@ It has a lot of plugins divided by groups:
 | [`@putout/plugin-filesystem`](/packages/plugin-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-filesystem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-filesystem) |
 | [`@putout/plugin-for-of`](/packages/plugin-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-for-of) |
 | [`@putout/plugin-types`](/packages/plugin-types#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-types) |
+| [`@putout/plugin-types`](/packages/plugin-types#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-types) |
+| [`@putout/plugin-type-checker`](/packages/plugin-type-checker#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-type-checker.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-type-checker) |
 | [`@putout/plugin-labels`](/packages/plugin-labels#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-labels.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-labels) |
 | [`@putout/plugin-math`](/packages/plugin-math#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-math.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-math) |
 | [`@putout/plugin-madrun`](/packages/plugin-madrun#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-madrun.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-madrun) |
