@@ -155,7 +155,7 @@
     "@putout/plugin-remove-duplicate-case": "^5.0.0",
     "@putout/plugin-remove-duplicate-elements": "^1.0.0",
     "@putout/plugin-remove-duplicate-keys": "^9.0.0",
-    "@putout/plugin-remove-empty": "^15.0.0",
+    "@putout/plugin-remove-empty": "^16.0.0",
     "@putout/plugin-remove-iife": "^5.0.0",
     "@putout/plugin-remove-nested-blocks": "^10.0.0",
     "@putout/plugin-remove-unreachable-code": "^3.0.0",
