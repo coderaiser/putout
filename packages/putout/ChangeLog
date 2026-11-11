@@ -1,3 +1,12 @@
+2026.11.12, v42.26.3
+
+feature:
+- de3d4585c putout: @putout/plugin-apply-shorthand-properties v8.0.0
+- 2c91f49da @putout/plugin-apply-shorthand-properties: drop support of 🐊 < 42
+- 99ff04d1a @putout/plugin-apply-shorthand-properties: apply type check
+- 943d9c413 @putout/plugin-variables: extract-keywords: apply type check
+- c6085226c @putout/plugin-for-of: remove-useless-variables: apply type check
+
 2026.11.11, v42.26.2
 
 feature:
