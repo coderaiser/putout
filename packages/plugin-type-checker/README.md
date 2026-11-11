@@ -445,4 +445,3 @@ const isNotMarked = createTypeChecker([
     ['+ -> +'],
 ]);
 ```
-
