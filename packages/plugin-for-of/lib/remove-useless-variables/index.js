@@ -1,13 +1,36 @@
 import {types, operator} from 'putout';
 
-const {replaceWith, remove} = operator;
+const {
+    replaceWith,
+    remove,
+    createTypeChecker,
+} = operator;
+
 const {
     isAssignmentPattern,
     isObjectPattern,
 } = types;
 
-const isToManyProperties = (a, {maxProperties}) => a.isObjectPattern() && a.node.properties.length > maxProperties;
-const isAssignment = (a) => isAssignmentPattern(a.value);
+const isAssignment = ({value}) => isAssignmentPattern(value);
+const isNestedProperty = ({value}) => isObjectPattern(value);
+
+const isToManyProperties = ({node}, {maxProperties}) => node.properties.length > maxProperties;
+const isNested = ({node}) => node.properties.some(isNestedProperty);
+const hasAssignment = ({node}) => node.properties.some(isAssignment);
+
+const isSupportedBinding = createTypeChecker([
+    ['-: references', '!=', 1],
+    ['-: referencePaths.0.parentPath -> !VariableDeclarator'],
+    ['+: -> +'],
+]);
+
+const isSupportedId = createTypeChecker([
+    ['+: -> !ObjectPattern'],
+    ['-', isToManyProperties],
+    ['-', isNested],
+    ['-', hasAssignment],
+    ['+: -> ObjectPattern'],
+]);
 
 export const report = () => `Use destructuring in head of 'for..of'`;
 
@@ -18,37 +41,20 @@ export const fix = ({path, varPath}) => {
 
 export const traverse = ({push, options}) => ({
     'for (const __ of __) __'(path) {
-        const leftPath = path.get('left');
-        const varPath = leftPath.get('declarations.0.id');
+        const varPath = path.get('left.declarations.0.id');
         
         if (!varPath.isIdentifier())
             return;
         
-        const {scope, node} = varPath;
-        const {name} = node;
-        const {references, referencePaths} = scope.bindings[name];
+        const binding = varPath.scope.bindings[varPath.node.name];
         
-        if (references !== 1)
+        if (!isSupportedBinding(binding))
             return;
         
-        const [referencePath] = referencePaths;
-        const {parentPath} = referencePath;
-        
-        if (!parentPath.isVariableDeclarator())
-            return;
-        
-        const idPath = parentPath.get('id');
         const {maxProperties = 4} = options;
+        const {parentPath} = binding.referencePaths[0];
         
-        if (isToManyProperties(idPath, {maxProperties}))
-            return;
-        
-        if (isNested(idPath))
-            return;
-        
-        const {properties} = idPath.node;
-        
-        if (idPath.isObjectPattern() && properties.find(isAssignment))
+        if (!isSupportedId(parentPath.get('id'), {maxProperties}))
             return;
         
         push({
@@ -57,15 +63,3 @@ export const traverse = ({push, options}) => ({
         });
     },
 });
-
-function isNested(path) {
-    if (!path.isObjectPattern())
-        return false;
-    
-    for (const {value} of path.node.properties) {
-        if (isObjectPattern(value))
-            return true;
-    }
-    
-    return false;
-}
