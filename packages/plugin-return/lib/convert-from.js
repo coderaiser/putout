@@ -1,10 +1,28 @@
 import {types, operator} from 'putout';
 
-const {replaceWith} = operator;
+const {
+    replaceWith,
+    createTypeChecker,
+} = operator;
+
 const {
     isLabeledStatement,
+    isFunction,
+    isLoop,
     returnStatement,
 } = types;
+
+const isBreakTarget = createTypeChecker([
+    ['+', isLoop],
+    ['+: -> SwitchStatement'],
+]);
+
+const isBoundary = createTypeChecker([
+    ['+', isLoop],
+    ['+', isFunction],
+    ['+: -> Program'],
+    ['+: -> SwitchStatement'],
+]);
 
 const createReport = (name) => () => `Use 'return' instead of '${name}'`;
 
@@ -33,27 +51,11 @@ const createTraverse = (visitor) => ({push}) => ({
                 return;
         }
         
-        const upperPath = path.find(isUpperScope);
+        const boundaryPath = path.find(isBoundary);
         
-        if (upperPath.isLoop())
-            return;
-        
-        if (upperPath.isSwitchStatement())
+        if (isBreakTarget(boundaryPath))
             return;
         
         push(path);
     },
 });
-
-const isUpperScope = (path) => {
-    if (path.isLoop())
-        return true;
-    
-    if (path.isProgram())
-        return true;
-    
-    if (path.isSwitchStatement())
-        return true;
-    
-    return path.isFunction();
-};

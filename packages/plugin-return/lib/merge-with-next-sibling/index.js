@@ -5,7 +5,20 @@ const {
     objectProperty,
 } = types;
 
-const {remove} = operator;
+const {
+    remove,
+    createTypeChecker,
+} = operator;
+
+const isEmptyReturn = createTypeChecker([
+    '-: node.argument -> +',
+    '+: -> +',
+]);
+
+const isMergeable = createTypeChecker([
+    '+: -> ExpressionStatement',
+    '+: -> BlockStatement',
+]);
 
 export const report = () => `Merge 'return' with next sibling`;
 
@@ -30,12 +43,12 @@ export const fix = ({path, nextPath}) => {
 };
 export const traverse = ({push}) => ({
     ReturnStatement(path) {
-        if (path.node.argument)
-            return false;
+        if (!isEmptyReturn(path))
+            return;
         
         const nextPath = path.getNextSibling();
         
-        if (!nextPath.isExpressionStatement() && !nextPath.isBlockStatement())
+        if (!isMergeable(nextPath))
             return;
         
         push({

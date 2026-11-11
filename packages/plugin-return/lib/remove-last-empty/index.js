@@ -1,26 +1,20 @@
-import {types} from 'putout';
+import {types, operator} from 'putout';
 
-const {
-    isFunction,
-    isBlockStatement,
-} = types;
+const {isFunction} = types;
+const {createTypeChecker} = operator;
+
+const hasNext = (path) => path.getNextSibling().node;
+
+const isLast = createTypeChecker([
+    ['-: parentPath -> !BlockStatement'],
+    ['-', hasNext],
+    ['+: parentPath.parentPath', isFunction],
+]);
 
 export const report = () => `Avoid empty 'return' in function body`;
 
 export const match = () => ({
-    return: (vars, path) => {
-        const {parentPath} = path;
-        
-        if (!isBlockStatement(parentPath))
-            return false;
-        
-        const next = path.getNextSibling();
-        
-        if (next.node)
-            return false;
-        
-        return isFunction(parentPath.parentPath);
-    },
+    return: (vars, path) => isLast(path),
 });
 
 export const replace = () => ({
