@@ -1,3 +1,14 @@
+2026.11.11, v42.26.1
+
+fix:
+- f9b11fa4b @putout/plugin-type-checker: merge-tuples-of-type-checker: isLoop: exclude
+
+feature:
+- bac86f2eb @putout/plugin-remove-empty: v16.0.0
+- 29a63b9a3 @putout/plugin-remove-empty: drop support of 🐊 < 42
+- 86b560bc0 @putout/plugin-remove-empty: block: apply type checker
+- b3cdd0d0c @putout/plugin-return: apply type checker
+
 2026.11.10, v42.26.0
 
 fix:
