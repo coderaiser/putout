@@ -8,18 +8,15 @@ const {
     variableDeclarator,
     variableDeclaration,
     isExportDeclaration,
-    isArrowFunctionExpression,
-    isLiteral,
     isAssignmentExpression,
     isExportNamedDeclaration,
-    isIdentifier,
     isImportDeclaration,
-    isMemberExpression,
     isBlockStatement,
     arrowFunctionExpression,
 } = types;
 
 const {
+    createTypeChecker,
     removeParens,
     remove,
     replaceWith,
@@ -28,7 +25,18 @@ const {
     isModuleDeclarationKeyword,
 } = operator;
 
-const isInit = (a) => isIdentifier(a) || isLiteral(a) || isMemberExpression(a) || isArrowFunctionExpression(a);
+const isInit = createTypeChecker([
+    '+: -> Identifier',
+    '+: -> StringLiteral',
+    '+: -> NumericLiteral',
+    '+: -> BooleanLiteral',
+    '+: -> NullLiteral',
+    '+: -> BigIntLiteral',
+    '+: -> RegExpLiteral',
+    '+: -> TemplateLiteral',
+    '+: -> MemberExpression',
+    '+: -> ArrowFunctionExpression',
+]);
 
 const buildDeclaration = (type) => (nextPath, path) => {
     const {expression} = nextPath.node;
