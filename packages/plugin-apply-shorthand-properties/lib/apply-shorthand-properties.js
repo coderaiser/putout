@@ -4,6 +4,7 @@ const {
     findBinding,
     rename,
     replaceWith,
+    createTypeChecker,
 } = operator;
 
 const {
@@ -11,6 +12,33 @@ const {
     identifier,
     isStringLiteral,
 } = types;
+
+const isShorthand = ({node}) => node.shorthand;
+const isKeyMismatch = ({node}) => node.computed !== isStringLiteral(node.key);
+const isCapitalized = (name) => /^[A-Z].+$/.test(name);
+const isEmpty = (name) => !name;
+const isIgnored = (name, {ignore}) => ignore.includes(name);
+
+const isSupportedProperty = createTypeChecker([
+    ['-', isShorthand],
+    ['-: node.value -> StringLiteral'],
+    ['-', isKeyMismatch],
+    ['+: -> +'],
+]);
+
+const isSupportedName = createTypeChecker([
+    ['-', isEmpty],
+    ['-', isCapitalized],
+    ['-', isIgnored],
+    ['+: -> +'],
+]);
+
+const isUnsupportedPattern = createTypeChecker([
+    '+: -> ImportDefaultSpecifier',
+    '+: -> ImportSpecifier',
+    '+: -> ObjectPattern',
+    '+: node.id -> ObjectPattern',
+]);
 
 export const report = () => `Use shorthand properties`;
 
@@ -45,38 +73,17 @@ export const traverse = ({push, options}) => ({
             return;
         
         for (const propPath of properties) {
-            const {computed, shorthand} = propPath.node;
-            
-            if (shorthand)
+            if (!isSupportedProperty(propPath))
                 continue;
             
             const keyPath = propPath.get('key');
             const valuePath = propPath.get('value');
-            
-            const keyIsString = keyPath.isStringLiteral();
-            const valueIsString = valuePath.isStringLiteral();
-            
-            if (valueIsString)
-                continue;
-            
-            if (computed && !keyIsString)
-                continue;
-            
-            if (!computed && keyIsString)
-                continue;
-            
             const {rename, ignore = []} = options;
             
             const from = getName(valuePath);
             const to = getName(keyPath);
             
-            if (!from)
-                continue;
-            
-            if (ignore.includes(from))
-                continue;
-            
-            if (/^[A-Z].+$/.test(from))
+            if (!isSupportedName(from, {ignore}))
                 continue;
             
             if (!rename) {
@@ -99,7 +106,7 @@ export const traverse = ({push, options}) => ({
             
             const {references, path} = bindingFrom;
             
-            if (path.isImportDefaultSpecifier() || path.isImportSpecifier() || path.isObjectPattern() || path.get('id').isObjectPattern())
+            if (isUnsupportedPattern(path))
                 continue;
             
             if (references > 1)
