@@ -2,7 +2,6 @@
     "match": {
         "*.md{js}": {
             "putout": "off",
-            "printer": "off",
             "type-checker": "off"
         }
     },
