@@ -1,18 +1,21 @@
 import {types, operator} from 'putout';
 
-const isNull = (a) => !a && typeof a === 'object';
-const isUndefined = (a) => typeof a === 'undefined';
-const isBool = (a) => typeof a === 'boolean';
-const isNumber = (a) => typeof a === 'number';
-const isString = (a) => typeof a === 'string';
-const isPrimitive = (a) => isString(a) || isNumber(a) || isBool(a) || isNull(a) || isUndefined(a);
-const {compute, compare} = operator;
+const PRIMITIVES = new Set([
+    'string',
+    'number',
+    'boolean',
+    'undefined',
+]);
+
+const isPrimitive = (a) => a === null || PRIMITIVES.has(typeof a);
 
 const {
-    isLiteral,
-    isRegExpLiteral,
-    isIdentifier,
-} = types;
+    compute,
+    compare,
+    createTypeChecker,
+} = operator;
+
+const {isIdentifier} = types;
 
 export const report = (path) => {
     const args = path.get('arguments');
@@ -23,29 +26,32 @@ export const report = (path) => {
     return `Use 't.equal(${args[0]}, ${args[1]}, ${args[2]})' instead of '${path} when comparing with primitive'`;
 };
 
-const check = ({__b}, path) => {
-    if (isRegExpLiteral(__b))
-        return false;
-    
-    if (isLiteral(__b))
-        return true;
-    
-    if (isIdentifier(__b, {name: 'undefined'}))
-        return true;
-    
-    const expectedPath = path.get('arguments.1');
-    
-    if (checkExpected(expectedPath))
-        return true;
-    
-    const [is, value] = compute(expectedPath);
+const isUndefinedName = (a) => isIdentifier(a, {
+    name: 'undefined',
+});
+
+const isPrimitiveExpected = (path) => {
+    const [is, value] = compute(path.get('arguments.1'));
     
     return is && isPrimitive(value);
 };
 
+const check = createTypeChecker([
+    ['-: node.arguments.1 -> RegExpLiteral'],
+    ['+: node.arguments.1 -> StringLiteral'],
+    ['+: node.arguments.1 -> NumericLiteral'],
+    ['+: node.arguments.1 -> BooleanLiteral'],
+    ['+: node.arguments.1 -> NullLiteral'],
+    ['+: node.arguments.1 -> BigIntLiteral'],
+    ['+: node.arguments.1 -> TemplateLiteral'],
+    ['+: node.arguments.1', isUndefinedName],
+    ['+', isExpected],
+    ['+', isPrimitiveExpected],
+]);
+
 export const match = () => ({
-    't.deepEqual(__a, __b)': check,
-    't.deepEqual(__a, __b, __c)': check,
+    't.deepEqual(__a, __b)': (vars, path) => check(path),
+    't.deepEqual(__a, __b, __c)': (vars, path) => check(path),
 });
 
 export const replace = () => ({
@@ -53,12 +59,14 @@ export const replace = () => ({
     't.deepEqual(__a, __b, __c)': 't.equal(__a, __b, __c)',
 });
 
-function checkExpected(path) {
-    if (!path.isIdentifier())
+function isExpected(path) {
+    const secondArg = path.get('arguments.1');
+    
+    if (!secondArg.isIdentifier())
         return false;
     
-    const {name} = path.node;
-    const binding = path.scope.bindings[name];
+    const {name} = secondArg.node;
+    const binding = secondArg.scope.bindings[name];
     
     if (!binding)
         return false;
