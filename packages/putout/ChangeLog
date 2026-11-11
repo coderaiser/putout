@@ -1,3 +1,11 @@
+2026.11.11, v42.26.2
+
+feature:
+- c53268b6d putout: @putout/plugin-remove-unused-expressions v13.0.
+- d28fb3d3d @putout/plugin-remove-unused-expressions: drop support of 🐊 < 42
+- 5e6294799 @putout/plugin-remove-unused-expressions: apply type checker
+- c0755d0e8 @putout/plugin-tape: convert-deep-equal-to-equal: apply type checker
+
 2026.11.11, v42.26.1
 
 fix:
