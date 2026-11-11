@@ -1,14 +1,24 @@
 import {types, operator} from 'putout';
 
-const {replaceWith, remove} = operator;
+const {
+    replaceWith,
+    remove,
+    createTypeChecker,
+} = operator;
+
+const isEmptyBlock = createTypeChecker([
+    ['-: node.innerComments -> +'],
+    ['-: node.body.length', '>', 0],
+    ['-: parentPath -> ArrowFunctionExpression'],
+    ['-: parentPath -> FunctionExpression'],
+    ['-: parentPath -> FunctionDeclaration'],
+    ['-: parentPath -> ObjectMethod'],
+    ['-: parentPath -> ClassMethod'],
+    ['-: parentPath -> CatchClause'],
+    ['+: -> +'],
+]);
 
 const {
-    isArrowFunctionExpression,
-    isFunctionExpression,
-    isFunctionDeclaration,
-    isObjectMethod,
-    isClassMethod,
-    isCatchClause,
     isIfStatement,
     isTryStatement,
     unaryExpression,
@@ -55,23 +65,11 @@ export const fix = (path) => {
 
 export const traverse = ({push}) => ({
     BlockStatement(path) {
+        if (!isEmptyBlock(path))
+            return;
+        
         const {node, parentPath} = path;
-        
-        const {body} = node;
-        
-        if (node.innerComments)
-            return;
-        
-        if (body.length)
-            return;
-        
         const parentNode = parentPath.node;
-        
-        if (isFunction(parentNode))
-            return;
-        
-        if (isCatchClause(parentNode))
-            return;
         
         if (isTryStatement(parentNode))
             return push(parentPath);
@@ -91,8 +89,6 @@ export const traverse = ({push}) => ({
         push(parentPath);
     },
 });
-
-const isFunction = (node) => isArrowFunctionExpression(node) || isFunctionExpression(node) || isFunctionDeclaration(node) || isObjectMethod(node) || isClassMethod(node);
 
 function blockIsIndependentBody(node, parentNode) {
     const {body} = parentNode;
