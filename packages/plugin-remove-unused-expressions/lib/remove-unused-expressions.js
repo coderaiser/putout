@@ -1,6 +1,11 @@
 import {types, operator} from 'putout';
 
-const {remove, isSimple} = operator;
+const {
+    remove,
+    isSimple,
+    createTypeChecker,
+} = operator;
+
 const {
     isReturnStatement,
     isBlockStatement,
@@ -26,36 +31,22 @@ export const traverse = ({push}) => ({
         push(path.parentPath);
     },
     ExpressionStatement(path) {
-        const expressionPath = path.get('expression');
-        
-        if (isPrevReturnWithoutArg(path))
+        if (isSkip(path))
             return;
         
-        if (isImportAssert(path))
-            return;
-        
-        if (isUselessLogical(expressionPath))
-            return push(expressionPath);
-        
-        if (expressionPath.isIdentifier())
-            return push(expressionPath);
-        
-        if (expressionPath.isObjectExpression())
-            return push(expressionPath);
-        
-        if (expressionPath.isArrayExpression())
-            return push(expressionPath);
-        
-        if (expressionPath.isMemberExpression())
-            return push(expressionPath);
-        
-        if (isNotDirectiveLiteral(expressionPath))
-            return push(expressionPath);
-        
-        if (expressionPath.isUnaryExpression({operator: '!'}) && !isIIFE(expressionPath))
-            return push(expressionPath);
+        if (isUnused(path))
+            push(path.get('expression'));
     },
 });
+
+function isUselessNot(statementPath) {
+    const path = statementPath.get('expression');
+    
+    if (!path.isUnaryExpression({operator: '!'}))
+        return false;
+    
+    return !isIIFE(path);
+}
 
 function isIIFE(path) {
     const argPath = path.get('argument');
@@ -68,7 +59,9 @@ function isIIFE(path) {
     return calleePath.isFunction();
 }
 
-function isNotDirectiveLiteral(path) {
+function isNotDirectiveLiteral(statementPath) {
+    const path = statementPath.get('expression');
+    
     if (!path.isLiteral())
         return false;
     
@@ -81,7 +74,9 @@ function isNotDirectiveLiteral(path) {
     return !isDirective;
 }
 
-function isUselessLogical(path) {
+function isUselessLogical(statementPath) {
+    const path = statementPath.get('expression');
+    
     if (!path.isLogicalExpression())
         return false;
     
@@ -90,6 +85,21 @@ function isUselessLogical(path) {
     
     return isSimple(left) && isSimple(right);
 }
+
+const isSkip = createTypeChecker([
+    ['+', isPrevReturnWithoutArg],
+    ['+', isImportAssert],
+]);
+
+const isUnused = createTypeChecker([
+    ['+', isUselessLogical],
+    ['+: node.expression -> Identifier'],
+    ['+: node.expression -> ObjectExpression'],
+    ['+: node.expression -> ArrayExpression'],
+    ['+: node.expression -> MemberExpression'],
+    ['+', isNotDirectiveLiteral],
+    ['+', isUselessNot],
+]);
 
 function isPrevReturnWithoutArg(path) {
     const prevPath = path.getPrevSibling();
