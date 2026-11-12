@@ -37,6 +37,11 @@ test('plugin-github: update-actions: transform: uploud-artifact', (t) => {
     t.end();
 });
 
+test('plugin-github: update-actions: transform: typos-ai', (t) => {
+    t.transform('typos-ai');
+    t.end();
+});
+
 test('plugin-github: update-actions: transform with options: options', (t) => {
     t.transformWithOptions('options', {
         actions: {

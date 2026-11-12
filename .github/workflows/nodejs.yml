@@ -40,7 +40,7 @@ jobs:
       - name: Deno Lint
         run: deno lint
       - name: Typos
-        uses: coderaiser/typos.ai@v1.1.8
+        uses: coderaiser/typos.ai@v2.0.0
         with:
           key: ${{ secrets.TYPOS_AI_KEY }}
       - name: Commit fixes

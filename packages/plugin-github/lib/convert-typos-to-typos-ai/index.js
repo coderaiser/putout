@@ -9,7 +9,6 @@ const {
 } = operator;
 
 const {
-    objectExpression,
     stringLiteral,
     objectProperty,
 } = types;
@@ -17,7 +16,7 @@ const {
 const parseName = createParseStep('name');
 const parseUses = createParseStep('uses');
 
-const TYPOS_AI = 'coderaiser/typos.ai@v1.1.8';
+const TYPOS_AI = 'coderaiser/typos.ai@v2.0.0';
 
 export const report = () => `Use 'typos.ai' instead of 'typos'`;
 
@@ -38,12 +37,7 @@ export const fix = (path) => {
     
     const uses = objectProperty(stringLiteral('uses'), stringLiteral(TYPOS_AI));
     
-    const withObject = objectProperty(stringLiteral('with'), objectExpression([
-        objectProperty(stringLiteral('key'), stringLiteral('${{ secrets.TYPOS_AI_KEY }}')),
-    ]));
-    
     path.node.properties.push(uses);
-    path.node.properties.push(withObject);
 };
 
 export const traverse = ({push}) => ({

@@ -10,7 +10,7 @@ const {
 const {entries} = Object;
 
 const {stringLiteral} = types;
-const cutV = (a) => Number(a.slice(1));
+const cutV = (a) => parseInt(a.slice(1));
 const cutMaster = (a) => a.replace('master', 'v0');
 
 export const updateActions = (actions) => ({
