@@ -8,10 +8,7 @@ const {
     remove,
 } = operator;
 
-const {
-    stringLiteral,
-    objectProperty,
-} = types;
+const {stringLiteral, objectProperty} = types;
 
 const parseName = createParseStep('name');
 const parseUses = createParseStep('uses');
