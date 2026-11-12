@@ -96,3 +96,8 @@ test('plugin-github: transform: remove-empty-needs', (t) => {
     t.transform('remove-empty-needs');
     t.end();
 });
+
+test('plugin-github: transform: remove-useless-with-from-typos-step', (t) => {
+    t.transform('remove-useless-with-from-typos-step');
+    t.end();
+});

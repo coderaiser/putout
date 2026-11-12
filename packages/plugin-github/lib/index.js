@@ -1,3 +1,4 @@
+import * as removeUselessWithFromTyposStep from './remove-useless-with-from-typos-step/index.js';
 import * as removeEmptyNeeds from './remove-empty-needs/index.js';
 import * as setContentsPermissions from './set-contents-permissions/index.js';
 import * as addMadrunInit from './add-madrun-init/index.js';
@@ -24,4 +25,5 @@ export const rules = {
     'add-madrun-init': addMadrunInit,
     'set-contents-permissions': setContentsPermissions,
     'remove-empty-needs': removeEmptyNeeds,
+    'remove-useless-with-from-typos-step': removeUselessWithFromTyposStep,
 };

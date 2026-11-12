@@ -29,6 +29,7 @@ npm i @putout/plugin-github -D
 - ✅ [set-message-of-commit-fixes](#set-message-of-commit-fixes);
 - ✅ [set-node-versions](#set-node-versions);
 - ✅ [update-actions](#update-actions);
+- ✅ [remove-useless-with-from-typos-step](#remove-useless-with-from-typos-step);
 
 ## Config
 
@@ -37,22 +38,17 @@ npm i @putout/plugin-github -D
     "rules": {
         "github/add-continue-on-error-to-add-and-commit": "on",
         "github/add-continue-on-error-to-coveralls": "on",
-        
         "github/add-madrun-init": "on",
-        
         "github/convert-npm-to-bun": "on",
         "github/convert-typos-to-typos-ai": "on",
-        
         "github/install-bun": "on",
         "github/install-rust": "on",
-        
         "github/remove-empty-needs": "on",
         "github/set-contents-permissions": "on",
-        
         "github/set-message-of-commit-fixes": "on",
         "github/set-node-versions": "on",
-        
-        "github/update-actions": "on"
+        "github/update-actions": "on",
+        "github/remove-useless-with-from-typos-step": "on"
     }
 }
 ```
@@ -357,6 +353,43 @@ You can override versions with:
   steps:
 -      uses: oven-sh/setup-bun@v1
 +      uses: oven-sh/setup-bun@v2
+```
+
+## remove-useless-with-from-typos-step
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b8c03347df6a7a02cf62bb1a2a778ca0/3b12d9de66c7421e9d6521cd508146c4f2d89756).
+
+### ❌ Example of incorrect code
+
+```js
+__putout_processor_yaml({
+    jobs: {
+        build: {
+            steps: [{
+                name: 'Typos',
+                uses: 'coderaiser/typos.ai@v1.1.8',
+                with: {
+                    key: 'secrets.TYPOS_AI_KEY',
+                },
+            }],
+        },
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+__putout_processor_yaml({
+    jobs: {
+        build: {
+            steps: [{
+                name: 'Typos',
+                uses: 'coderaiser/typos.ai@v1.1.8',
+            }],
+        },
+    },
+});
 ```
 
 ## License

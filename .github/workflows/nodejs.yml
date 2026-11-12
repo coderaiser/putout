@@ -41,8 +41,6 @@ jobs:
         run: deno lint
       - name: Typos
         uses: coderaiser/typos.ai@v2.0.0
-        with:
-          key: ${{ secrets.TYPOS_AI_KEY }}
       - name: Commit fixes
         continue-on-error: true
         uses: EndBug/add-and-commit@v10

@@ -34,7 +34,5 @@ jobs:
         run: redrun lint
       - name: Typos
         uses: coderaiser/typos.ai@v2.0.0
-        with:
-          key: ${{ secrets.TYPOS_AI_KEY }}
       - name: Coverage
         run: redrun coverage report
