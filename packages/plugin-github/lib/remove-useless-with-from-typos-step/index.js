@@ -7,7 +7,7 @@ const {
     remove,
 } = operator;
 
-export const report = () => `Remove empty 'needs: []' from GitHub Actions 🐙`;
+export const report = () => `Remove useless 'with' from 'typos.io'`;
 
 export const fix = (path) => {
     remove(path);

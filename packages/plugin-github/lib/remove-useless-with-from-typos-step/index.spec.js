@@ -8,7 +8,7 @@ const test = createTest(import.meta.url, {
 });
 
 test('github: remove-useless-with-from-typos-step: report', (t) => {
-    t.report('remove-useless-with-from-typos-step', `Remove empty 'needs: []' from GitHub Actions 🐙`);
+    t.report('remove-useless-with-from-typos-step', `Remove useless 'with' from 'typos.io'`);
     t.end();
 });
 
