@@ -2984,7 +2984,7 @@ import {OK} from 'putout/exit-codes';
 - [**RedLint**](https://github.com/putoutjs/redlint) - Linter for your Filesystem 😏💾.
 - [**Bundler**](https://github.com/putoutjs/bundler#) - Simplest possible bundler.
 - [**OpenRewrite**](https://docs.openrewrite.org/) - an open-source automated refactoring ecosystem for source code, enabling developers to effectively eliminate technical debt within their repositories.
-- [**ishvara**](https://github.com/putoutjs/bundle) - compile JavaScript to WASM and Fasm.
+- [**nirguna**](https://github.com/putoutjs/nirguna) - compile JavaScript to WASM and Fasm.
 - [**EsJS**](https://es.js.org) - JavaScript con sintaxis en Español.
 - [**tsre**](https://github.com/lafkpages/tsre) - a JavaScript and TypeScript reverse engineering tool.
 - [**aleman**](https://github.com/putoutjs/aleman) - 🐊Putout-based framework for web.
