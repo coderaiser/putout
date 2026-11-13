@@ -16,5 +16,5 @@ export const {
     'coverallsapp/github-action': 'v2',
     'EndBug/add-and-commit': 'v10',
     'oven-sh/setup-bun': 'v2',
-    'coderaiser/typos.ai': 'v2.0.0',
+    'coderaiser/typos.ai': 'v2',
 });

@@ -126,7 +126,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/05457ee0a0
 -   run: which typos || cargo install typos-cli
   - name: Typos
 -   run: typos --write-changes
-+   uses: coderaiser/typos.ai@v2.0.0
++   uses: coderaiser/typos.ai@v2
 ```
 
 ## install-bun

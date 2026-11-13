@@ -3,7 +3,7 @@ __putout_processor_yaml({
         "build": {
             "steps": [{
                 "name": "Typos",
-                "uses": "coderaiser/typos.ai@v2.0.0"
+                "uses": "coderaiser/typos.ai@v2"
             }]
         }
     }

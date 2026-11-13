@@ -40,7 +40,7 @@ jobs:
       - name: Deno Lint
         run: deno lint
       - name: Typos
-        uses: coderaiser/typos.ai@v2.0.0
+        uses: coderaiser/typos.ai@v2
       - name: Commit fixes
         continue-on-error: true
         uses: EndBug/add-and-commit@v10
