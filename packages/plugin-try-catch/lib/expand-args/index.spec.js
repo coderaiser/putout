@@ -36,3 +36,8 @@ test('plugin-tape: expand-try-catch-arguments: no-expand', (t) => {
     t.noReport('no-expand');
     t.end();
 });
+
+test('plugin-tape: expand-try-catch-arguments: scope', (t) => {
+    t.transform('scope');
+    t.end();
+});

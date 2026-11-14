@@ -38,9 +38,8 @@ export const replace = () => ({
     'tryCatch(__args)': ({__args}, path) => {
         const [fn] = __args;
         const {name} = fn;
-        const {bindings} = path.scope;
         
-        const fnPath = bindings[name].path;
+        const fnPath = getBindingPath(path, name);
         const {node} = fnPath.get('init.body');
         
         if (path.node.arguments.length === 1)
