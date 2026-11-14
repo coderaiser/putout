@@ -43,9 +43,7 @@ export default (is, fix, {path, pathOptions, rule, position, options}) => {
     
     if (debug.enabled)
         debug(
-            
             `${rule}:`,
-            
             position,
             getPath(path).toString(),
         );

@@ -20,8 +20,7 @@ export const filterEnabledPlugins = ({plugins, cookedRules}) => {
         if (!isExactRuleEnabled(name, status, cookedRules))
             continue;
         
-        result.push(mergeRules(
-            [name, currentPlugin],
+        result.push(mergeRules([name, currentPlugin],
             cookedRules,
         ));
     }

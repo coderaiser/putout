@@ -62,10 +62,8 @@ export const parseOptions = (info = {}, overrides = {}) => {
     
     const mergedDefaultsMatch = mergeOptions(
         mergedOptions,
-        parseMatch(
-            name,
-            mergedOptions.match,
-        ),
+        parseMatch(name,
+            mergedOptions.match),
         options,
     );
     

@@ -25,10 +25,8 @@ export default (name, configName, overrides = {}) => {
         mergedOptions = mergeOptions(
             mergedOptions,
             currentOptions,
-            parseMatch(
-                name,
-                currentOptions.match,
-            ),
+            parseMatch(name,
+                currentOptions.match),
         );
     
     return [mainDir, mergedOptions];
