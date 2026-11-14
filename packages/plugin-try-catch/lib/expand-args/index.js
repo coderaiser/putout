@@ -1,10 +1,24 @@
-import {operator} from 'putout';
+import {operator, types} from 'putout';
+
+const {traverseFast} = types;
 
 const {
     remove,
     getBindingPath,
     extract,
 } = operator;
+
+// moved nodes keep old location, and 'declare-before-reference'
+// thinks they are referenced before declaration: endless loop
+const removeLoc = (node) => {
+    traverseFast(node, (current) => {
+        delete current.loc;
+        delete current.start;
+        delete current.end;
+    });
+    
+    return node;
+};
 
 export const report = () => `Expand 'tryCatch()' arguments`;
 
@@ -42,7 +56,7 @@ export const replace = () => ({
         const fnPath = getBindingPath(path, name);
         const {node} = fnPath.get('init.body');
         
-        path.node.arguments = [node.callee, ...node.arguments];
+        path.node.arguments = [node.callee, ...node.arguments].map(removeLoc);
         
         remove(fnPath);
         

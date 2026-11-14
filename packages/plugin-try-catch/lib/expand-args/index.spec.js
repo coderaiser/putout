@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test';
+import * as declareBeforeReference from '@putout/plugin-declare-before-reference';
 import * as convert from './index.js';
 
 const test = createTest(import.meta.url, {
@@ -44,5 +45,19 @@ test('plugin-tape: expand-try-catch-arguments: scope', (t) => {
 
 test('plugin-tape: expand-try-catch-arguments: object', (t) => {
     t.transform('object');
+    t.end();
+});
+
+test('plugin-try-catch: expand-args: transform: declare-before-reference', (t) => {
+    t.transform('declare-before-reference', {
+        'declare-before-reference': declareBeforeReference,
+    });
+    t.end();
+});
+
+test('plugin-try-catch: expand-args: no report after transform: declare-before-reference', (t) => {
+    t.noReportAfterTransform('declare-before-reference', {
+        'declare-before-reference': declareBeforeReference,
+    });
     t.end();
 });
