@@ -60,7 +60,6 @@ export const rules = {
     ],
     'lines-around-directive': 'error',
     'use-isnan': 'off',
-    '@stylistic/array-bracket-spacing': 'error',
     '@stylistic/arrow-spacing': 'error',
     '@stylistic/brace-style': 'error',
     '@stylistic/comma-dangle': ['error', 'always-multiline'],
@@ -87,7 +86,6 @@ export const rules = {
             '?': 'before',
         },
     }],
-    '@stylistic/function-paren-newline': ['error', 'multiline-arguments'],
     '@stylistic/key-spacing': 'error',
     '@stylistic/newline-per-chained-call': 'error',
     '@stylistic/space-infix-ops': ['error', {
@@ -111,7 +109,6 @@ export const rules = {
     '@stylistic/quote-props': ['error', 'consistent-as-needed'],
     '@stylistic/semi': 'error',
     '@stylistic/no-extra-semi': 'error',
-    '@stylistic/object-curly-spacing': 'error',
     '@stylistic/no-extra-parens': ['error', 'all', {
         enforceForSequenceExpressions: false,
         ignoreJSX: 'all',
