@@ -1,7 +1,7 @@
 const ruleTester = new RuleTester({
     languageOptions: {
         parserOptions: {
-            ecmaVersion: 2025,
+            ecmaVersion: 2026,
             sourceType: 'module',
         },
     },
