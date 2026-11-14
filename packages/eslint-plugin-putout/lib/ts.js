@@ -46,15 +46,12 @@ const extensionRules = {
     '@stylistic/operator-linebreak': getOperatorLinebreak(rules['@stylistic/operator-linebreak']),
     '@stylistic/padding-line-between-statements': convertPaddingLines(rules['@stylistic/padding-line-between-statements']),
     
-    '@stylistic/object-curly-spacing': rules['@stylistic/object-curly-spacing'],
-    
     '@stylistic/semi': rules['@stylistic/semi'],
     
     '@stylistic/no-extra-parens': rules['@stylistic/no-extra-parens'],
     
     '@stylistic/space-before-function-paren': rules['@stylistic/space-before-function-paren'],
     
-    ...reEnable('object-curly-spacing'),
     ...reEnable('function-call-spacing'),
     '@typescript-eslint/no-array-constructor': 'off',
     '@typescript-eslint/no-implied-eval': 'off',

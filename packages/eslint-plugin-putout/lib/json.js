@@ -22,7 +22,6 @@ export default [{
             'never',
         ],
         '@stylistic/comma-spacing': 'off',
-        '@stylistic/function-paren-newline': 'off',
         '@stylistic/eol-last': [
             'error',
             'always',

@@ -4,7 +4,6 @@ import {defineConfig} from 'eslint/config';
 
 export const match = {
     '*.md{js}': {
-        'function-paren-newline': 'off',
         'putout/newline-function-call-arguments': 'off',
     },
 };

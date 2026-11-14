@@ -95,21 +95,7 @@ test('eslint-plugin-putout: ts: ts-disabled', async ({comparePlaces}) => {
 });
 
 test('eslint-plugin-putout: ts: ts-keyword-spacing', async ({comparePlaces}) => {
-    await comparePlaces('ts-keyword-spacing', [{
-        message: `There should be no space after '{'.`,
-        position: {
-            column: 9,
-            line: 1,
-        },
-        rule: '@stylistic/object-curly-spacing (eslint)',
-    }, {
-        message: `There should be no space before '}'.`,
-        position: {
-            column: 11,
-            line: 1,
-        },
-        rule: '@stylistic/object-curly-spacing (eslint)',
-    }]);
+    await comparePlaces('ts-keyword-spacing', []);
 });
 
 test('eslint-plugin-putout: remove-empty-specifiers', async ({process}) => {
