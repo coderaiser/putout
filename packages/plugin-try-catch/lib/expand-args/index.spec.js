@@ -41,3 +41,8 @@ test('plugin-tape: expand-try-catch-arguments: scope', (t) => {
     t.transform('scope');
     t.end();
 });
+
+test('plugin-tape: expand-try-catch-arguments: object', (t) => {
+    t.transform('object');
+    t.end();
+});

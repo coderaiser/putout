@@ -42,8 +42,7 @@ export const replace = () => ({
         const fnPath = getBindingPath(path, name);
         const {node} = fnPath.get('init.body');
         
-        if (path.node.arguments.length === 1)
-            path.node.arguments = [node.callee, ...node.arguments];
+        path.node.arguments = [node.callee, ...node.arguments];
         
         remove(fnPath);
         
