@@ -45,7 +45,6 @@ Options of `@putout/printer` for a file: `json` and `package.json` keep the doub
 import {configurePrinter} from '@putout/cli-process-file/printer';
 
 configurePrinter('package.json');
-
 // returns
 ['putout', {
     semantics: {
