@@ -37,6 +37,28 @@ const {code, places} = await processFile({
 }]];
 ```
 
+## configurePrinter
+
+Options of `@putout/printer` for a file: `json` and `package.json` keep the double quotes, `package.json` has two spaces of indent.
+
+```js
+import {configurePrinter} from '@putout/cli-process-file/printer';
+
+configurePrinter('package.json');
+
+// returns
+['putout', {
+    semantics: {
+        trailingComma: false,
+        maxElementsInOneLine: 0,
+    },
+    format: {
+        quote: '"',
+        indent: '  ',
+    },
+}];
+```
+
 ## License
 
 MIT

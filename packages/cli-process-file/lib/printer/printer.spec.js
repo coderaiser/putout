@@ -103,3 +103,10 @@ test('putout: cli: printer: printer: overrides', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: cli: printer: exports', async (t) => {
+    const {configurePrinter: configure} = await import('@putout/cli-process-file/printer');
+    
+    t.equal(configure, configurePrinter);
+    t.end();
+});

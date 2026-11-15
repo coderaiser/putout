@@ -5,6 +5,11 @@
   "description": "Run all 🐊Putout linters",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-process-file#readme",
   "main": "lib/process-file.js",
+  "exports": {
+    ".": "./lib/process-file.js",
+    "./printer": "./lib/printer/printer.js",
+    "./package.json": "./package.json"
+  },
   "type": "module",
   "release": false,
   "tag": false,
