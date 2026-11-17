@@ -1,0 +1,7 @@
+__putout_processor_sql([
+    createFunction(add_foo_fn, returns(trigger), language(plpgsql), [
+        deleteFrom(from(x), where(y === NEW.id)),
+        returnNew(),
+    ]),
+    createTrigger(add_foo, beforeInsert(foo), forEachRow(), execute(add_foo_fn)),
+]);

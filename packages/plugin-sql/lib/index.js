@@ -12,6 +12,8 @@ import * as applyAutoIncrement from './convert-postgres-to-sqlite/apply-auto-inc
 import * as convertLastvalToLastInsertRowid from './convert-postgres-to-sqlite/convert-lastval-to-last-insert-rowid/index.js';
 import * as applyKeyExists from './convert-sqlite-to-postgres/apply-key-exists/index.js';
 import * as convertGenerateSeriesToWithRecursive from './convert-sqlite-to-postgres/convert-generate-series-to-with-recursive/index.js';
+import * as convertTriggerToFunction from './convert-sqlite-to-postgres/convert-trigger-to-function/index.js';
+import * as convertFunctionToTrigger from './convert-postgres-to-sqlite/convert-function-to-trigger/index.js';
 
 export const rules = {
     'apply-count': applyCount,
@@ -22,6 +24,8 @@ export const rules = {
     'convert-sqlite-to-postgres/convert-auto-increment-to-identitiy': ['off', convertAutoIncrementToIdentity],
     'convert-sqlite-to-postgres/apply-jsonb-extract-path-text': ['off', applyJsonbExtractPathText],
     'convert-sqlite-to-postgres/apply-key-exists': ['off', applyKeyExists],
+    'convert-sqlite-to-postgres/convert-trigger-to-function': ['off', convertTriggerToFunction],
+    'convert-postgres-to-sqlite/convert-function-to-trigger': ['off', convertFunctionToTrigger],
     'convert-postgres-to-sqlite/apply-json-extract': ['off', applyJsonExtract],
     'convert-postgres-to-sqlite/convert-with-to-sequential': ['off', convertWithToSequential],
     'convert-postgres-to-sqlite/apply-auto-increment': ['off', applyAutoIncrement],

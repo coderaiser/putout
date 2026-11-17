@@ -3,6 +3,7 @@ import * as applyJsonExtract from './apply-json-extract/index.js';
 import * as convertWithToSequential from './convert-with-to-sequential/index.js';
 import * as applyAutoIncrement from './apply-auto-increment/index.js';
 import * as convertLastvalToInsertRowid from './convert-lastval-to-last-insert-rowid/index.js';
+import * as convertFunctionToTrigger from './convert-function-to-trigger/index.js';
 
 export const rules = {
     'apply-auto-increment': applyAutoIncrement,
@@ -10,4 +11,5 @@ export const rules = {
     'apply-json-type': applyJsonType,
     'convert-with-to-sequential': convertWithToSequential,
     'convert-lastval-to-last-insert-rowid': convertLastvalToInsertRowid,
+    'convert-function-to-trigger': convertFunctionToTrigger,
 };

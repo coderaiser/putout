@@ -73,6 +73,7 @@ SELECT COUNT(*) FROM orders
 - ✅ [convert-last-insert-rowid-to-returning-id](#convert-last-insert-rowid-to-returning-id);
 - ✅ [convert-auto-increment-to-identity](#convert-auto-increment-to-identity);
 - ✅ [convert-generate-series-to-with-recursive](#convert-generate-series-to-with-recursive);
+- ✅ [convert-trigger-to-function](#convert-trigger-to-function);
 
 ### Config
 
@@ -83,7 +84,8 @@ SELECT COUNT(*) FROM orders
         "sql/convert-sqlite-to-postgres/apply-jsonb-extract-path-text": "off",
         "sql/convert-sqlite-to-postgres/convert-last-insert-rowid-to-returnning-id": "off",
         "sql/convert-sqlite-to-postgres/convert-auto-increment-to-identitiy": "off",
-        "sql/convert-sqlite-to-postgres/convert-generate-series-to-with-recursive": "off"
+        "sql/convert-sqlite-to-postgres/convert-generate-series-to-with-recursive": "off",
+        "sql/convert-sqlite-to-postgres/convert-trigger-to-function": "off"
     }
 }
 ```
@@ -218,6 +220,46 @@ WITH RECURSIVE numbers(value) AS (
 SELECT value FROM numbers;
 ```
 
+### convert-trigger-to-function
+
+> `SQLite` trigger has the statements inside `BEGIN ... END`.
+>
+> [sqlite.org](https://sqlite.org/lang_createtrigger.html)
+
+> A trigger in `PostgreSQL` executes a function that returns `trigger`. A trigger runs per statement by default, so `FOR EACH ROW` is added to keep the `SQLite` behavior. `RETURN OLD` is used for `DELETE`, `RETURN NEW` for other events. `IF NOT EXISTS` is replaced with `OR REPLACE` for the trigger and the function: `PostgreSQL` has no `CREATE TRIGGER IF NOT EXISTS`.
+>
+> [postgresql.org](https://www.postgresql.org/docs/current/sql-createtrigger.html)
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b8651629ae9aca354287ff3d3d89f4a8/0a25ca3c97a223103289bdb9f4532fc469914a78).
+
+#### ❌ Example of incorrect code
+
+```sql
+CREATE TRIGGER del_foo AFTER DELETE ON foo
+BEGIN
+    DELETE FROM x
+    WHERE y = OLD.id;
+END;
+```
+
+#### ✅ Example of correct code
+
+```sql
+CREATE FUNCTION del_foo_fn()
+RETURNS trigger
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    DELETE FROM x
+    WHERE y = OLD.id;
+    RETURN OLD;
+END;
+$$;
+CREATE TRIGGER del_foo AFTER DELETE ON foo
+FOR EACH ROW
+EXECUTE FUNCTION del_foo_fn();
+```
+
 ## convert-postgres-to-sqlite
 
 ### Rules
@@ -227,6 +269,7 @@ SELECT value FROM numbers;
 - ✅ [apply-auto-increment](#apply-auto-increment);
 - ✅ [convert-with-to-sequential](#convert-with-to-sequential);
 - ✅ [convert-lastval-to-last-insert-rowid](#convert-lastval-to-last-insert-rowid);
+- ✅ [convert-function-to-trigger](#convert-function-to-trigger);
 
 ### Config
 
@@ -237,7 +280,8 @@ SELECT value FROM numbers;
         "sql/convert-postgrest-to-sqlite/apply-json-extract": "off",
         "sql/convert-postgrest-to-sqlite/apply-auto-increment": "off",
         "sql/convert-postgrest-to-sqlite/convert-with-to-sequential": "off",
-        "sql/convert-postgrest-to-sqlite/convert-lastval-to-last-insert-rowid": "off"
+        "sql/convert-postgrest-to-sqlite/convert-lastval-to-last-insert-rowid": "off",
+        "sql/convert-postgres-to-sqlite/convert-function-to-trigger": "off"
     }
 }
 ```
@@ -364,6 +408,49 @@ SELECT lastval();
 
 ```sql
 SELECT last_insert_rowid();
+```
+
+### convert-function-to-trigger
+
+> `SQLite` trigger has no function: the statements live inside `BEGIN ... END` of the trigger itself.
+>
+> [sqlite.org](https://sqlite.org/lang_createtrigger.html)
+
+> A trigger in `PostgreSQL` executes a function that returns `trigger`.
+>
+> [postgresql.org](https://www.postgresql.org/docs/current/sql-createtrigger.html)
+
+The function is removed after the last trigger that executes it. The `RETURN OLD`, `RETURN NEW` and `RETURN NULL` statements are removed. `OR REPLACE` of the trigger is replaced with `IF NOT EXISTS`: `SQLite` has no `CREATE OR REPLACE TRIGGER`.
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/18869f1ff00c133ac3dace58de6bbecc/a6fe7e534d428569695bbd63e03da553d8d23730).
+
+#### ❌ Example of incorrect code
+
+```sql
+CREATE FUNCTION del_foo_fn()
+RETURNS trigger
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    DELETE FROM x
+    WHERE y = OLD.id;
+    RETURN OLD;
+END;
+$$;
+CREATE TRIGGER del_foo AFTER DELETE ON foo
+FOR EACH ROW
+EXECUTE FUNCTION del_foo_fn();
+```
+
+#### ✅ Example of correct code
+
+```sql
+CREATE TRIGGER del_foo AFTER DELETE ON foo
+FOR EACH ROW
+BEGIN
+    DELETE FROM x
+    WHERE y = OLD.id;
+END;
 ```
 
 ## postgres

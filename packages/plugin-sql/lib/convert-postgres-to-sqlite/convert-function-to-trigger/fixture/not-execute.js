@@ -1,0 +1,31 @@
+__putout_processor_sql([
+    createFunction(
+        del_foo_fn,
+        returns(
+            trigger,
+        ),
+        language(
+            plpgsql,
+        ), [
+            deleteFrom(
+                from(
+                    x,
+                ),
+                where(
+                    y === OLD.id,
+                ),
+            ),
+            returnOld(),
+        ],
+    ),
+    createTrigger(
+        del_foo,
+        afterDelete(
+            foo,
+        ),
+        forEachRow(),
+        noop(
+            del_foo_fn,
+        ),
+    ),
+]);
