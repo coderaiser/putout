@@ -30,9 +30,11 @@ export const fix = (path) => {
     const returned = event.callee.name.endsWith('Delete') ? 'returnOld' : 'returnNew';
     
     const ifNotExists = options.findIndex(isCall('ifNotExists'));
-    const orReplace = ifNotExists === -1 ? [] : [
-        call('orReplace'),
-    ];
+    const orReplace = ifNotExists === -1
+        ? []
+        : [
+            call('orReplace'),
+        ];
     
     const createFunction = call('createFunction', [
         identifier(functionName),
