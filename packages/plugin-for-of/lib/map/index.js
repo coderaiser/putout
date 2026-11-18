@@ -4,7 +4,11 @@ import {
     template,
 } from 'putout';
 
-const {compare, replaceWith} = operator;
+const {
+    compare,
+    replaceWith,
+    insertAfter,
+} = operator;
 
 const {
     isReturnStatement,
@@ -19,6 +23,21 @@ const {
 } = types;
 
 const createPush = template('%%ARRAY%%.push(%%ARGUMENT%%)');
+const createLoop = template('for (const %%ITEM%% of %%LIST%%) %%BODY%%');
+
+const createBody = (array, body) => {
+    if (isBlockStatement(body))
+        return body;
+    
+    const push = createPush({
+        ARRAY: array,
+        ARGUMENT: body,
+    });
+    
+    return blockStatement([
+        expressionStatement(push),
+    ]);
+};
 
 const tail = (body) => body.at(-1);
 
@@ -63,21 +82,17 @@ export const replace = () => ({
         
         return `for (const ${b} of ${a}) __c`;
     },
-    'const __a = __b.map((__c) => __d)': ({__a, __d}, path) => {
-        if (isBlockStatement(__d)) {
+    'const __a = __b.map((__c) => __d)': ({__a, __b, __c, __d}, path) => {
+        if (isBlockStatement(__d))
             path.traverse(createVisitor(__a, __d));
-            return `{
-                const __a = [];
-                for (const __c of __b) __d;
-            }`;
-        }
         
-        return `{
-            const __a = [];
-            for (const __c of __b) {
-                __a.push(__d);
-            }
-        }`;
+        insertAfter(path, createLoop({
+            ITEM: __c,
+            LIST: __b,
+            BODY: createBody(__a, __d),
+        }));
+        
+        return 'const __a = []';
     },
     '__a = __b.map((__c) => __d)': ({__a, __d}, path) => {
         if (isBlockStatement(__d)) {

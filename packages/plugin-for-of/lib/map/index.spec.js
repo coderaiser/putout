@@ -69,3 +69,13 @@ test('plugin-for-of: map: transform: return-empty', (t) => {
     t.transform('return-empty');
     t.end();
 });
+
+test('plugin-for-of: map: transform: scope-after', (t) => {
+    t.transform('scope-after');
+    t.end();
+});
+
+test('plugin-for-of: map: transform: export', (t) => {
+    t.transform('export');
+    t.end();
+});

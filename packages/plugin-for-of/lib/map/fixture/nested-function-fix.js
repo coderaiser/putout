@@ -1,11 +1,9 @@
-{
-    const args = [];
+const args = [];
+
+for (const arg of params) {
+    const get = () => {
+        return arg.id;
+    };
     
-    for (const arg of params) {
-        const get = () => {
-            return arg.id;
-        };
-        
-        args.push(get());
-    }
+    args.push(get());
 }

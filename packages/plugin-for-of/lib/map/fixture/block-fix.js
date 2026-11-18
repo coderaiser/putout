@@ -1,21 +1,19 @@
-{
-    const a = [];
-    
-    for (const a of list) {
-        alert('hello');
-    }
+const a = [];
+
+for (const a of list) {
+    alert('hello');
 }
-{
-    const args = [];
+
+const args = [];
+
+for (const {id, valtype} of params) {
+    const param = identifier(id);
     
-    for (const {id, valtype} of params) {
-        const param = identifier(id);
-        
-        param.typeAnnotation = typeAnnotation(valtype);
-        
-        args.push(param);
-    }
+    param.typeAnnotation = typeAnnotation(valtype);
+    
+    args.push(param);
 }
+
 {
     plugin[tag] = [];
     for (const node of inner.elements) {

@@ -1,11 +1,11 @@
 {
     alert('hello');
 }
+
+const a = [];
+
 {
-    const a = [];
-    {
-        alert('hello');
-    }
+    alert('hello');
 }
 list.map((a) => 'hello');
 

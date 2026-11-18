@@ -1,10 +1,9 @@
-{
-    const funcs = [];
-    
-    for (const {value} of node.funcs) {
-        funcs.push(identifier(value));
-    }
+const funcs = [];
+
+for (const {value} of node.funcs) {
+    funcs.push(identifier(value));
 }
+
 {
     node.leadingComments = [];
     
