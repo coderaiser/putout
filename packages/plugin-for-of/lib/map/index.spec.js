@@ -54,3 +54,18 @@ test('plugin-for-of: map: no report: re-assign', (t) => {
     t.noReport('re-assign');
     t.end();
 });
+
+test('plugin-for-of: map: transform: early-return', (t) => {
+    t.transform('early-return');
+    t.end();
+});
+
+test('plugin-for-of: map: transform: nested-function', (t) => {
+    t.transform('nested-function');
+    t.end();
+});
+
+test('plugin-for-of: map: transform: return-empty', (t) => {
+    t.transform('return-empty');
+    t.end();
+});

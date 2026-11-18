@@ -12,6 +12,10 @@ const {
     isTryStatement,
     isArrayPattern,
     isCallExpression,
+    blockStatement,
+    continueStatement,
+    expressionStatement,
+    identifier,
 } = types;
 
 const createPush = template('%%ARRAY%%.push(%%ARGUMENT%%)');
@@ -61,9 +65,7 @@ export const replace = () => ({
     },
     'const __a = __b.map((__c) => __d)': ({__a, __d}, path) => {
         if (isBlockStatement(__d)) {
-            path.traverse({
-                ReturnStatement: createReplaceWithPush(__a),
-            });
+            path.traverse(createVisitor(__a, __d));
             return `{
                 const __a = [];
                 for (const __c of __b) __d;
@@ -79,9 +81,7 @@ export const replace = () => ({
     },
     '__a = __b.map((__c) => __d)': ({__a, __d}, path) => {
         if (isBlockStatement(__d)) {
-            path.traverse({
-                ReturnStatement: createReplaceWithPush(__a),
-            });
+            path.traverse(createVisitor(__a, __d));
             return `{
                  __a = [];
                 for (const __c of __b) __d;
@@ -97,11 +97,37 @@ export const replace = () => ({
     },
 });
 
-const createReplaceWithPush = (__a) => (path) => {
-    const {argument} = path.node;
+const isTail = (path, body) => {
+    if (path.parentPath.node !== body)
+        return false;
     
-    replaceWith(path, createPush({
+    return tail(body.body) === path.node;
+};
+
+const skipNested = (body) => (path) => {
+    if (path.node.body !== body)
+        path.skip();
+};
+
+const createVisitor = (__a, body) => ({
+    Function: skipNested(body),
+    ReturnStatement: createReplaceWithPush(__a, body),
+});
+
+const createReplaceWithPush = (__a, body) => (path) => {
+    const argument = path.node.argument || identifier('undefined');
+    const push = createPush({
         ARRAY: __a,
         ARGUMENT: argument,
-    }));
+    });
+    
+    if (isTail(path, body)) {
+        replaceWith(path, push);
+        return;
+    }
+    
+    replaceWith(path, blockStatement([
+        expressionStatement(push),
+        continueStatement(),
+    ]));
 };
