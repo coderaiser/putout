@@ -3,6 +3,7 @@ import htmlToJsx from 'node-html-to-jsx';
 const DIV_OPEN = 5;
 const DIV_CLOSE = -6;
 const DOCTYPE = /^\s*<!doctype[^>]*>\s*/i;
+const CLASS_NAME = /(?<=\s)className=/g;
 
 export const files = ['*.html'];
 
@@ -22,7 +23,7 @@ export const merge = (rawSource, [first]) => {
     const tail = getTail(rawSource);
     
     const source = fromJS(first)
-        .replaceAll('className', 'class')
+        .replace(CLASS_NAME, 'class=')
         .trimEnd();
     
     return doctype + source + tail;

@@ -64,3 +64,7 @@ test('putout: processor: html: no changes', async ({noProcess}) => {
 test('putout: processor: html: no changes: no new line at end', async ({noProcess}) => {
     await noProcess('no-changes-eof');
 });
+
+test('putout: processor: html: no changes: class name in text', async ({noProcess}) => {
+    await noProcess('class-name-text');
+});
