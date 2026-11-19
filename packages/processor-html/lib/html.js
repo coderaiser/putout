@@ -20,6 +20,7 @@ export const branch = (rawSource) => {
 export const merge = (rawSource, [first]) => {
     const doctype = maybeDoctype(rawSource);
     const tail = getTail(rawSource);
+    
     const source = fromJS(first)
         .replaceAll('className', 'class')
         .trimEnd();
