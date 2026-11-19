@@ -2,6 +2,7 @@ import htmlToJsx from 'node-html-to-jsx';
 
 const DIV_OPEN = 5;
 const DIV_CLOSE = -6;
+const DOCTYPE = /^\s*<!doctype[^>]*>\s*/i;
 
 export const files = ['*.html'];
 
@@ -16,7 +17,25 @@ export const branch = (rawSource) => {
     }];
 };
 
-export const merge = (rawSource, [first]) => fromJS(first).replaceAll('className', 'class');
+export const merge = (rawSource, [first]) => {
+    const doctype = maybeDoctype(rawSource);
+    const tail = getTail(rawSource);
+    const source = fromJS(first)
+        .replaceAll('className', 'class')
+        .trimEnd();
+    
+    return doctype + source + tail;
+};
+
+function getTail(rawSource) {
+    return rawSource.slice(rawSource.trimEnd().length);
+}
+
+function maybeDoctype(rawSource) {
+    const [doctype = ''] = rawSource.match(DOCTYPE) || [];
+    
+    return doctype;
+}
 
 const SUFFIX = ';\n';
 
