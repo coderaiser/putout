@@ -5,13 +5,14 @@ import {
 } from 'putout';
 
 const {
+    isFunction,
     isIdentifier,
     continueStatement,
-    isReturnStatement,
 } = types;
 
 const {
     compare,
+    createTypeChecker,
     getTemplateValues,
     replaceWith,
     replaceWithMultiple,
@@ -29,7 +30,19 @@ const forOfEntriesTemplate = template(`
 `);
 
 const {keys} = Object;
-const isRoot = (path) => path.isFunction() || path.isProgram();
+
+const isRoot = createTypeChecker([
+    ['+', isFunction],
+    ['+: -> Program'],
+]);
+
+const isSupportedParent = createTypeChecker([
+    '-: parentPath -> ReturnStatement',
+    '-: parentPath -> SequenceExpression',
+    '-: parentPath -> ConditionalExpression',
+    '-: parentPath -> VariableDeclarator',
+    '+: -> +',
+]);
 
 export const report = () => `Use 'for-of' instead of 'forEach()'`;
 
@@ -93,18 +106,7 @@ export const fix = (path) => {
 export const traverse = ({push}) => ({
     '__.forEach.call(__a, (__b) => __body)': push,
     '__.forEach(__args)': (path) => {
-        const {parentPath} = path;
-        
-        if (isReturnStatement(parentPath))
-            return;
-        
-        if (parentPath.isSequenceExpression())
-            return;
-        
-        if (parentPath.isConditionalExpression())
-            return;
-        
-        if (parentPath.isVariableDeclarator())
+        if (!isSupportedParent(path))
             return;
         
         const objectPath = path.get('callee.object');
