@@ -6,7 +6,7 @@ const env = {
 
 export default {
     'publishOnly': () => run('lint'),
-    'test': () => [env, `tape 'test/*.js' lib/**/*.spec.js`],
+    'test': () => [env, `putout-test 'test/*.js' lib/**/*.spec.js`],
     'watch:test': async () => [env, `nodemon -w lib -w test -x "${await cutEnv('test')}"`],
     'lint': () => `putout .`,
     'fresh:lint': () => run('lint', '--fresh'),

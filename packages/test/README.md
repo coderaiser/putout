@@ -23,6 +23,14 @@ UPDATE=1 tape test/*.js
 
 When you need to override extension use `UPDATE_EXTENSION`, for example `UPDATE_EXTENSION=abc` will create files with extension 'abc'.
 
+## `PUTOUT_INSTRUMENT`
+
+When you want to check coverage of [type checkers](https://github.com/coderaiser/putout/tree/master/packages/operator-type-checker#readme) use:
+
+```
+PUTOUT_INSTRUMENT=1 putout-test 'lib/**/*.spec.js`
+```
+
 ## Plugins API
 
 🐊**Putout** can be used in all IDE's supported by`ESLint` as [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/packages/eslint-plugin-putout).

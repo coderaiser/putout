@@ -7,7 +7,8 @@
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/test#readme",
   "main": "lib/test.js",
   "bin": {
-    "tape": "bin/test.js"
+    "tape": "bin/test.js",
+    "putout-test": "bin/test.js"
   },
   "exports": {
     ".": "./lib/test.js",
