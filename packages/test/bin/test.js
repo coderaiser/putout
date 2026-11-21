@@ -9,6 +9,7 @@ const {PUTOUT_INSTRUMENT} = process.env;
 callWhenTestsEnds('PUTOUT_INSTRUMENT', whenTestsEnds);
 
 // coverage of type checkers lives in the thread that creates them,
+
 // so tests must run in the same thread as the report
 if (PUTOUT_INSTRUMENT)
     process.argv.push('--no-worker');
