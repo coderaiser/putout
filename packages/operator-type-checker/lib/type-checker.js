@@ -2,6 +2,7 @@ import {createTypeChecker as _createTypeChecker} from '@putout/printer/type-chec
 
 const typeOptions = {
     instrumentName: 'PUTOUT_INSTRUMENT',
+    stackIndex: 4,
 };
 
 export const createTypeChecker = (checkers, overrides = {}) => {

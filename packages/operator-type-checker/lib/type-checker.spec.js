@@ -19,6 +19,7 @@ test('@putout/operator-type-checker: createTypeChecker', (t) => {
 test('@putout/operator-type-checker: createTypeChecker: typeOptions', (t) => {
     const typeOptions = {
         instrumentName: 'PUTOUT_INSTRUMENT',
+        stackIndex: 4,
     };
     
     const create = stub().returns(stub());
