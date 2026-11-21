@@ -31,6 +31,7 @@ test('@putout/test: type-check-coverage: createGetCoverage: only checkers of cur
     const result = Array.from(
         getCoverage().keys(),
     );
+    
     const expected = [OWN];
     
     t.deepEqual(result, expected);
@@ -56,9 +57,11 @@ test('@putout/test: type-check-coverage: whenTestsEnds: pass own coverage', (t) 
     });
     
     const [[{getCoverage}]] = whenTestsEndsStub.args;
+    
     const keys = Array.from(
         getCoverage().keys(),
     );
+    
     const expected = [0, [OWN]];
     
     t.deepEqual([result, keys], expected);
