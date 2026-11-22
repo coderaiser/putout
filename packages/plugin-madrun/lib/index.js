@@ -23,6 +23,7 @@ import * as convertArgsToScripts from './convert-args-to-scripts/index.js';
 import * as removeUselessArrayInRun from './remove-useless-array-in-run/index.js';
 import * as removeUselessStringConversion from './remove-useless-string-conversion/index.js';
 import * as addMissingQuotesToWatcher from './add-missing-quotes-to-watcher/index.js';
+import * as moveEnvToEnd from './move-env-to-end/index.js';
 
 export const rules = {
     'add-function': addFunction,
@@ -47,6 +48,7 @@ export const rules = {
     'remove-useless-array-in-run': removeUselessArrayInRun,
     'remove-useless-string-conversion': removeUselessStringConversion,
     'add-missing-quotes-to-watcher': addMissingQuotesToWatcher,
+    'move-env-to-end': moveEnvToEnd,
     'rename-file': ['off', renameFile],
     'convert-prepublish-only-to-wisdom': convertPrepublishOnlyToWisdom,
     'insert-test-dts': ['off', insertTestDts],

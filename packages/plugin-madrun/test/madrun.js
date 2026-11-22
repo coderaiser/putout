@@ -67,6 +67,11 @@ test('plugin-madrun: transform: remove-useless-array-in-run', (t) => {
     t.end();
 });
 
+test('plugin-madrun: transform: move-env-to-end', (t) => {
+    t.transform('move-env-to-end');
+    t.end();
+});
+
 test('plugin-madrun: transform: remove-useless-string-conversion', (t) => {
     t.transform('remove-useless-string-conversion');
     t.end();

@@ -32,6 +32,7 @@ npm i putout @putout/plugin-madrun -D
 - ✅ [convert-to-async](#convert-to-async);
 - ✅ [declare](#declare);
 - ✅ [insert-test-dts](#insert-test-dts);
+- ✅ [move-env-to-end](#move-env-to-end);
 - ✅ [remove-check-duplicates-from-test](#remove-check-duplicates-from-test);
 - ✅ [remove-putout](#remove-putout);
 - ✅ [remove-useless-array-in-run](#remove-useless-array-in-run);
@@ -72,6 +73,7 @@ npm i putout @putout/plugin-madrun -D
         "madrun/convert-to-async": "on",
         
         "madrun/insert-test-dts": "off",
+        "madrun/move-env-to-end": "on",
         "madrun/remove-check-duplicates-from-test": "on",
         "madrun/remove-useless-array-in-run": "on",
         "madrun/remove-useless-string-conversion": "on",
@@ -359,6 +361,30 @@ export default {
     'fix:lint': () => run('lint', '--fix'),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'test:dts': () => 'check-dts test/*.ts',
+};
+```
+
+## move-env-to-end
+
+`madrun` accepts the env as the first or the last item of the array. Passing an object directly is fine, but not as the first item: there it is easy to lose the command. A variable can stay first.
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    'test:e2e': () => [{
+        SUPERTAPE_TIMEOUT: '60000',
+    }, `tape 'test/e2e/**/*.spec.js'`],
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export default {
+    'test:e2e': () => [`tape 'test/e2e/**/*.spec.js'`, {
+        SUPERTAPE_TIMEOUT: '60000',
+    }],
 };
 ```
 
