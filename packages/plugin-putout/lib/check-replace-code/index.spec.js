@@ -107,6 +107,11 @@ test('plugin-putout: check-replace-code: no report: match', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: no report: match: match-esm', (t) => {
+    t.noReport('match-esm');
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: no report: template', (t) => {
     t.noReport('template');
     t.end();

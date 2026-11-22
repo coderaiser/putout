@@ -15,6 +15,7 @@ const {
     __json,
     __yaml,
     __toml,
+    compareAny,
 } = operator;
 
 const name = '__putout_plugin_check_replace_code';
@@ -174,11 +175,16 @@ function parseKey(propertyPath) {
     return [null, key];
 }
 
+const MATCHERS = [
+    'module.exports.match = __a',
+    'export const match = __a',
+];
+
 function hasMatch(path) {
     const {body} = path.scope.getProgramParent().path.node;
     
     for (const current of body) {
-        if (compare(current, 'module.exports.match = __a'))
+        if (compareAny(current, MATCHERS))
             return true;
     }
     
