@@ -27,6 +27,9 @@ export const replaceWithMultiple = (path, nodes) => {
     
     removeDuplicateLeadingComments(newNodes);
     
+    const {leadingComments: ownLeadingComments} = newNodes.at(0) || {};
+    const {trailingComments: ownTrailingComments} = newNodes.at(-1) || {};
+    
     const {currentPath} = maybeBody(path);
     const newPath = currentPath.replaceWithMultiple(newNodes);
     
@@ -34,13 +37,15 @@ export const replaceWithMultiple = (path, nodes) => {
         return newPath;
     
     if (!leadingComments && !isSequenceExpression(path))
-        delete newPath[0].node.leadingComments;
+        restoreLeadingComments(newPath[0].node, ownLeadingComments);
+    else if (leadingComments && ownLeadingComments)
+        newPath[0].node.leadingComments = mergeComments(leadingComments, ownLeadingComments);
     
     const first = newPath.at(0);
     const last = newPath.at(-1);
     
     first.node.comments = comments || parentComments;
-    last.node.trailingComments = trailingComments;
+    last.node.trailingComments = mergeComments(ownTrailingComments, trailingComments);
     const newParentPath = first.parentPath;
     
     if (isSequenceExpression(newParentPath) && isArrayExpression(newParentPath.parentPath)) {
@@ -66,4 +71,25 @@ function removeDuplicateLeadingComments(nodes) {
                 delete node2.leadingComments;
         }
     }
+}
+
+function restoreLeadingComments(node, ownLeadingComments) {
+    if (ownLeadingComments) {
+        node.leadingComments = ownLeadingComments;
+        return;
+    }
+    
+    delete node.leadingComments;
+}
+
+function mergeComments(own, comments) {
+    if (!own)
+        return comments;
+    
+    if (!comments)
+        return own;
+    
+    const rest = comments.filter((comment) => !own.includes(comment));
+    
+    return [...own, ...rest];
 }

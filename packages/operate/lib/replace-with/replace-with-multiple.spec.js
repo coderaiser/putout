@@ -174,3 +174,52 @@ test('putout: operate: replace-with: replaceWithMultiple: path passed', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operate: replace-with: replaceWithMultiple: empty', (t) => {
+    const source = 'hello();\nworld();\n';
+    const {code} = putout(source, {
+        plugins: [
+            ['remove-hello', {
+                report: () => '',
+                fix: (path) => {
+                    replaceWithMultiple(path, []);
+                },
+                include: () => [
+                    'hello()',
+                ],
+            }],
+        ],
+    });
+    
+    t.equal(code, 'world();\n');
+    t.end();
+});
+
+const unwrapBlock = ['unwrap-block', {
+    report: () => '',
+    fix: (path) => {
+        replaceWithMultiple(path, path.node.body);
+    },
+    include: () => [
+        'BlockStatement',
+    ],
+    filter: (path) => path.parentPath.isBlockStatement(),
+}];
+
+test('putout: operate: replace-with: replaceWithMultiple: block: both comments', (t) => {
+    const {code} = putout(fixture.replaceWithMultipleBlockBoth, {
+        plugins: [unwrapBlock],
+    });
+    
+    t.equal(code, fixture.replaceWithMultipleBlockBothFix);
+    t.end();
+});
+
+test('putout: operate: replace-with: replaceWithMultiple: block: own comments', (t) => {
+    const {code} = putout(fixture.replaceWithMultipleBlockOwn, {
+        plugins: [unwrapBlock],
+    });
+    
+    t.equal(code, fixture.replaceWithMultipleBlockOwnFix);
+    t.end();
+});
