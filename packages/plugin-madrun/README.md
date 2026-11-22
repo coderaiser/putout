@@ -366,7 +366,9 @@ export default {
 
 ## move-env-to-end
 
-`madrun` accepts the env as the first or the last item of the array. Passing an object directly is fine, but not as the first item: there it is easy to lose the command. A variable can stay first.
+Easier to read passed config when object is second parameter.
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a8c957c932ff36cffdced9c704001adf/115048fef97e5fb022577c0f33e9907c6a4fc3ec).
 
 ### ❌ Example of incorrect code
 
