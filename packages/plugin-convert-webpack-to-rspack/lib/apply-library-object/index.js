@@ -1,18 +1,16 @@
 import {operator, template} from 'putout';
 
-const {remove, replaceWith} = operator;
+const {
+    remove,
+    replaceWith,
+    getProperty,
+    createTypeChecker,
+} = operator;
 
-const isLibrary = (path) => path.get('key').isIdentifier({
-    name: 'library',
-});
-
-const isLibraryTarget = (path) => path.get('key').isIdentifier({
-    name: 'libraryTarget',
-});
-
-const isLibraryExport = (path) => path.get('key').isIdentifier({
-    name: 'libraryExport',
-});
+const isStringValue = createTypeChecker([
+    '-: node.value -> !StringLiteral',
+    '+: -> +',
+]);
 
 export const report = () => `Use 'output.library' object instead of 'libraryTarget'`;
 
@@ -43,17 +41,28 @@ export const fix = ({libraryProp, libraryTargetProp, libraryExportProp}) => {
 
 export const traverse = ({push}) => ({
     ObjectExpression(path) {
-        const properties = path.get('properties');
-        const libraryTargetProp = properties.find(isLibraryTarget);
+        const libraryTargetProp = getProperty(path, 'libraryTarget');
         
         if (!libraryTargetProp)
             return;
         
+        const libraryProp = getProperty(path, 'library');
+        const libraryExportProp = getProperty(path, 'libraryExport');
+        
+        if (!libraryProp || !isStringValue(libraryProp))
+            return;
+        
+        if (!isStringValue(libraryTargetProp))
+            return;
+        
+        if (libraryExportProp && !isStringValue(libraryExportProp))
+            return;
+        
         push({
             path,
-            libraryProp: properties.find(isLibrary),
+            libraryProp,
             libraryTargetProp,
-            libraryExportProp: properties.find(isLibraryExport),
+            libraryExportProp,
         });
     },
 });

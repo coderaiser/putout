@@ -26,3 +26,23 @@ test('putout: plugin-convert-webpack-to-rspack: apply-library-object: no transfo
     t.noTransform('no-library-target');
     t.end();
 });
+
+test('putout: plugin-convert-webpack-to-rspack: apply-library-object: no transform: library-target-no-library', (t) => {
+    t.noTransform('library-target-no-library');
+    t.end();
+});
+
+test('putout: plugin-convert-webpack-to-rspack: apply-library-object: no transform: library-object', (t) => {
+    t.noTransform('library-object');
+    t.end();
+});
+
+test('putout: plugin-convert-webpack-to-rspack: apply-library-object: no transform: library-target-not-string', (t) => {
+    t.noTransform('library-target-not-string');
+    t.end();
+});
+
+test('putout: plugin-convert-webpack-to-rspack: apply-library-object: no transform: library-export-not-string', (t) => {
+    t.noTransform('library-export-not-string');
+    t.end();
+});
