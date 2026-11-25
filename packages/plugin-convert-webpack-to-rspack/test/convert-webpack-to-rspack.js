@@ -31,3 +31,8 @@ test('putout: plugin-convert-webpack-to-rspack: transform: remove-webpackbar', (
     t.transform('remove-webpackbar');
     t.end();
 });
+
+test('putout: plugin-convert-webpack-to-rspack: transform: apply-global-define', (t) => {
+    t.transform('apply-global-define');
+    t.end();
+});

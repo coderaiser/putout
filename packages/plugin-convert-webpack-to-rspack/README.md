@@ -14,6 +14,7 @@ npm i putout @putout/plugin-convert-webpack-to-rspack -D
 ## Rules
 
 - ✅ [apply-asset-type](#apply-asset-type);
+- ✅ [apply-global-define](#apply-global-define);
 - ✅ [apply-library-object](#apply-library-object);
 - ✅ [apply-rspack-import](#apply-rspack-import);
 - ✅ [apply-swc-loader](#apply-swc-loader);
@@ -25,6 +26,7 @@ npm i putout @putout/plugin-convert-webpack-to-rspack -D
 {
     "rules": {
         "convert-webpack-to-rspack/apply-asset-type": "on",
+        "convert-webpack-to-rspack/apply-global-define": "on",
         "convert-webpack-to-rspack/apply-library-object": "on",
         "convert-webpack-to-rspack/apply-rspack-import": "on",
         "convert-webpack-to-rspack/apply-swc-loader": "on",
@@ -71,6 +73,37 @@ export default {
             },
         }],
     },
+};
+```
+
+## apply-global-define
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/627e3b66b31f9490499dcd611b535db5/8c20fc89fbe02011c38ffb850486db0452ffdcfa).
+
+Webpack replaces `global` with the global object in browser bundles, `rspack` does not do it for ESM modules (`node.global` has no effect there), so a bundle that touches `global` throws `ReferenceError: global is not defined` in the browser.
+
+Use `DefinePlugin` to replace `global` with `globalThis`. Skipped for `target: 'node'`.
+
+### ❌ Example of incorrect code
+
+```js
+export default {
+    entry: './client/index.js',
+};
+```
+
+### ✅ Example of correct code
+
+```js
+import {rspack} from '@rspack/core';
+
+export default {
+    entry: './client/index.js',
+    plugins: [
+        new rspack.DefinePlugin({
+            global: 'globalThis',
+        }),
+    ],
 };
 ```
 
