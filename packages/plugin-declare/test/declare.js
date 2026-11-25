@@ -136,7 +136,7 @@ test('putout: plugin: declare: pipe', (t) => {
 
 test('putout: plugin: declare: pullout', (t) => {
     t.transformCode('await pullout(stream);', montag`
-        import pullout from 'pullout';
+        import {pullout} from 'pullout';
         
         await pullout(stream);\n
     `);

@@ -35,7 +35,7 @@ export const declare = () => ({
     wraptile: `import wraptile from 'wraptile'`,
     fullstore: `import {fullstore} from 'fullstore'`,
     pipe: `import pipe from 'pipe-io'`,
-    pullout: `import pullout from 'pullout'`,
+    pullout: `import {pullout} from 'pullout'`,
     chalk: `import chalk from 'chalk'`,
     table: `import table from 'table'`,
     wait: `import wait from '@iocmd/wait'`,
