@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-arguments",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to find and remove useless arguments",
