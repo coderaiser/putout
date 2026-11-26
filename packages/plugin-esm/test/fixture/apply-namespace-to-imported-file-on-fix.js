@@ -12,6 +12,6 @@ __putout_processor_filesystem([
     "/lib/b/",
     [
         "/lib/b/index.js",
-        "export const a = 7\n"
+        "export const a = 7\\n"
     ]
 ]);

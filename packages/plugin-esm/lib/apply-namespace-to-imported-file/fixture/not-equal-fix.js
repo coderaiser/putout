@@ -9,6 +9,6 @@ __putout_processor_filesystem([
     "/lib/b/",
     [
         "/lib/b/index.js",
-        "export const dotdot = 7\n"
+        "export const dotdot = 7\\n"
     ]
 ]);

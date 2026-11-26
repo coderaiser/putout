@@ -15,7 +15,9 @@ export const replace = () => ({
     't.throws(__a, __b, __c)': ({__a, __b}, path) => {
         putTryCatch(__a, path);
         
-        return `t.equal(error.message, '${getStringFromRegExp(__b)}', __c)`;
+        const pattern = __b.pattern.replaceAll(/\\([^\w\s])/g, '$1');
+        
+        return `t.equal(error.message, '${getStringFromRegExp({pattern})}', __c)`;
     },
 });
 

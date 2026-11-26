@@ -10,15 +10,8 @@ const {
 
 const decode = (a) => {
     return a
-        .replaceAll('\\\\/', '\\/')
-        .replaceAll('\\\\(', '\\(')
-        .replaceAll('\\(', '(')
         .replaceAll('\\n', '\n')
-        .replaceAll('\\\\^', '\\^')
-        .replaceAll('\\\\:', '\\:')
-        .replaceAll('\\\\+', '\\+')
-        .replaceAll('\\\\,', '\\,')
-        .replaceAll('\\\\', '\\');
+        .replaceAll(/\\([^\w\s])/g, '$1');
 };
 
 export const report = () => `Use 'replaceAll()' instead of 'replace()'`;

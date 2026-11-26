@@ -27,6 +27,7 @@ export const replace = () => ({
     '__a.test(__b)': ({__a}) => {
         const str = __a.raw
             .slice(1, -1)
+            .replaceAll(/\\([^\w\s\\])/g, '$1')
             .replace('$', '');
         
         return `__b.endsWith('${str}')`;

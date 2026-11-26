@@ -7,6 +7,6 @@ __putout_processor_filesystem([
     ],
     ["/lib/a.js", "ZXhwb3J0IGRlZmF1bHQgNVxu"],
     "/lib/b/",
-    ["/lib/b/index.js", "export default 7\n"],
+    ["/lib/b/index.js", "export default 7\\n"],
     ["/package.json", "{\"main\": \"lib/b/index.js\"}"]
 ]);

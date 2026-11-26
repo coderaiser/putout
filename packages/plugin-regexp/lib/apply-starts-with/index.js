@@ -79,7 +79,7 @@ export const replace = () => ({
     '/__a/.test(__b)': ({__a}) => {
         const str = __a.raw
             .slice(1, -1)
-            .replaceAll('\\n', '\\\\n')
+            .replaceAll(/\\([^\w\s\\])/g, '$1')
             .replace('^', '');
         
         return `__b.startsWith('${str}')`;
