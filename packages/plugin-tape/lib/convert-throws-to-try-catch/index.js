@@ -17,7 +17,9 @@ export const replace = () => ({
         
         const pattern = __b.pattern.replaceAll(/\\([^\w\s])/g, '$1');
         
-        return `t.equal(error.message, '${getStringFromRegExp({pattern})}', __c)`;
+        return `t.equal(error.message, '${getStringFromRegExp({
+            pattern,
+        })}', __c)`;
     },
 });
 
