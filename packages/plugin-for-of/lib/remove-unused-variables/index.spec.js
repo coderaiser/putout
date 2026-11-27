@@ -73,6 +73,13 @@ test('remove unused for-of-variables: transform: remove-empty', (t) => {
     t.end();
 });
 
+test('remove unused for-of-variables: transform: object-remove-empty', (t) => {
+    t.transform('object-remove-empty', {
+        removeEmpty,
+    });
+    t.end();
+});
+
 test('remove unused for-of-variables: transform: entries', (t) => {
     t.transform('entries');
     t.end();

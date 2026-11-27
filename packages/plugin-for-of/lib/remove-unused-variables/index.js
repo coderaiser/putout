@@ -5,7 +5,11 @@ const {
     isObjectProperty,
 } = types;
 
-const {remove} = operator;
+const {
+    remove,
+    createTypeChecker,
+} = operator;
+
 const getValue = ({value}) => value;
 
 export const report = (path) => {
@@ -29,8 +33,23 @@ function matchForOf(vars, path) {
     const idPath = path.get('left.declarations.0.id');
     const elements = getElements(idPath);
     
-    return !isAllReferenced(idPath, elements);
+    if (isAllReferenced(idPath, elements))
+        return false;
+    
+    return isSupportedForOf(idPath, {
+        variables: getVariables(path),
+    });
 }
+
+const hasOneProperty = ({node}) => node.properties.length === 1;
+const isFullyUnreferenced = ({node}, {variables}) => variables.length === node.properties.length;
+
+const isSupportedForOf = createTypeChecker([
+    ['+: -> !ObjectPattern'],
+    ['+', hasOneProperty],
+    ['-', isFullyUnreferenced],
+    ['+: -> ObjectPattern'],
+]);
 
 function replaceForOf(vars, path) {
     const variables = getVariables(path);

@@ -8,5 +8,5 @@ for (d of b) {
     log(d);
 }
 
-for (const {} of b)
+for (const {key, value} of b)
     c;
