@@ -18,16 +18,13 @@ export const traverse = ({push}) => ({
         if (raw.length < 5)
             return;
         
-        if (raw.startsWith('0x'))
+        if (/^0[box]/i.test(raw))
             return;
         
         if (raw.includes('_'))
             return;
         
         if (raw.includes('.'))
-            return;
-        
-        if (raw.includes('o'))
             return;
         
         push({

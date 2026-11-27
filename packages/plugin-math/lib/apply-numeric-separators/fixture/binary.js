@@ -1,0 +1,1 @@
+const FLAG_LOOSE = 0b00010;

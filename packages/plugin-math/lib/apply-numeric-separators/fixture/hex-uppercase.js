@@ -1,0 +1,1 @@
+const WHITE = 0XFFFFFF;
