@@ -49,6 +49,9 @@ export const traverse = ({push}) => ({
         
         const {name} = left;
         
+        if (name === 'exports')
+            return;
+        
         if (getBinding(path, name))
             return;
         

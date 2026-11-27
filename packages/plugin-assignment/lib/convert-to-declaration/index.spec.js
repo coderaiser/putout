@@ -31,3 +31,8 @@ test('putout: plugin-assignment: convert-to-declaration: no report: same-operand
     t.noReport('same-operand');
     t.end();
 });
+
+test('putout: plugin-assignment: convert-to-declaration: no report: exports', (t) => {
+    t.noReport('exports');
+    t.end();
+});
