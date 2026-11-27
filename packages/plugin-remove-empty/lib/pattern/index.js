@@ -15,6 +15,9 @@ export const match = () => ({
     'const __array = __': check,
     'let __array = __': check,
     '__array = __': check,
+    'const {} = __': checkNotForOf,
+    'let {} = __': checkNotForOf,
+    'var {} = __': checkNotForOf,
     'function __a(__args) {}': checkArgs,
     '(function __b(__args) {})': checkArgs,
     '(async function __b(__args) {})': checkArgs,
@@ -39,6 +42,8 @@ export const replace = () => ({
     '(__args) => __a': replaceArgs,
     'async (__args) => __a': replaceArgs,
 });
+
+const checkNotForOf = (vars, path) => !path.parentPath.isForOfStatement();
 
 const check = ({__array}, path) => {
     if (path.parentPath.isForOfStatement())
@@ -83,5 +88,6 @@ function replaceArray({__array}, path) {
 
 const checkArray = ({__array}) => {
     const {elements} = __array;
+    
     return elements.filter(isNull).length === elements.length;
 };

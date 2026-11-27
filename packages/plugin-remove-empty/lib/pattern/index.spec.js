@@ -130,3 +130,23 @@ test('plugin-remove-empty: pattern: transform: var: array', (t) => {
     t.transformCode('var [] = array', '\n');
     t.end();
 });
+
+test('plugin-remove-empty: pattern: for of: array: for-of-array-all-holes', (t) => {
+    t.transform('for-of-array-all-holes');
+    t.end();
+});
+
+test('plugin-remove-empty: pattern: no transform: for of: for-of-object-pattern', (t) => {
+    t.noTransform('for-of-object-pattern');
+    t.end();
+});
+
+test('plugin-remove-empty: pattern: no transform: for of: for-of-empty-object-pattern', (t) => {
+    t.noTransform('for-of-empty-object-pattern');
+    t.end();
+});
+
+test('plugin-remove-empty: pattern: no transform: for of: for-of-empty-object-pattern-let', (t) => {
+    t.noTransform('for-of-empty-object-pattern-let');
+    t.end();
+});

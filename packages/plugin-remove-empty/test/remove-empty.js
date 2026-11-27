@@ -41,3 +41,13 @@ test('plugin-remove-empty: transform: static-block', (t) => {
     t.transform('static-block');
     t.end();
 });
+
+test('plugin-remove-empty: no transform: for-of: for-of-empty', (t) => {
+    t.noTransform('for-of-empty');
+    t.end();
+});
+
+test('plugin-remove-empty: no transform: for-of: for-of-elements', (t) => {
+    t.noTransform('for-of-elements');
+    t.end();
+});
