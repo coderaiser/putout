@@ -152,3 +152,7 @@ test('eslint-config: no-dupe-args', async ({comparePlaces}) => {
 test('eslint-config: no-preserve-caught-error', async ({comparePlaces}) => {
     await comparePlaces('no-preserve-caught-error', []);
 });
+
+test('eslint-config: quote-props: consistent-as-needed', async ({process}) => {
+    await process('quote-props');
+});
