@@ -136,7 +136,7 @@
     "@putout/plugin-logical-expressions": "^9.0.0",
     "@putout/plugin-madrun": "^24.0.0",
     "@putout/plugin-markdown": "^1.0.0",
-    "@putout/plugin-math": "^5.0.0",
+    "@putout/plugin-math": "^6.0.0",
     "@putout/plugin-maybe": "^5.0.0",
     "@putout/plugin-merge-duplicate-functions": "^4.0.0",
     "@putout/plugin-montag": "^5.0.0",
