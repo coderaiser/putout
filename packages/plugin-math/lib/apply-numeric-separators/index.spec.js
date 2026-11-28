@@ -69,3 +69,43 @@ test('plugin-math: apply-numeric-separators: transform: webpack', (t) => {
     });
     t.end();
 });
+
+test('plugin-math: apply-numeric-separators: report: hex-long', (t) => {
+    t.report('hex-long', `Use numeric separators: '0xDEADBEEF' -> '0xDEAD_BEEF'`);
+    t.end();
+});
+
+test('plugin-math: apply-numeric-separators: transform: hex-long', (t) => {
+    t.transform('hex-long');
+    t.end();
+});
+
+test('plugin-math: apply-numeric-separators: report: binary-long', (t) => {
+    t.report('binary-long', `Use numeric separators: '0b11110000111100001111000011110000' -> '0b1111_0000_1111_0000_1111_0000_1111_0000'`);
+    t.end();
+});
+
+test('plugin-math: apply-numeric-separators: transform: binary-long', (t) => {
+    t.transform('binary-long');
+    t.end();
+});
+
+test('plugin-math: apply-numeric-separators: no transform: binary', (t) => {
+    t.noTransform('binary');
+    t.end();
+});
+
+test('plugin-math: apply-numeric-separators: report: octal-long', (t) => {
+    t.report('octal-long', `Use numeric separators: '0o777123456' -> '0o777_123_456'`);
+    t.end();
+});
+
+test('plugin-math: apply-numeric-separators: transform: octal-long', (t) => {
+    t.transform('octal-long');
+    t.end();
+});
+
+test('plugin-math: apply-numeric-separators: no transform: octal-short', (t) => {
+    t.noTransform('octal-short');
+    t.end();
+});
