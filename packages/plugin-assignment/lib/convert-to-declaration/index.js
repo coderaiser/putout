@@ -19,7 +19,9 @@ export const report = (path) => {
     return `Declare '${name}' before assignment`;
 };
 
-export const include = () => ['AssignmentExpression'];
+export const include = () => [
+    'AssignmentExpression',
+];
 
 export const filter = createTypeChecker([
     ['-: node.left -> !Identifier'],
