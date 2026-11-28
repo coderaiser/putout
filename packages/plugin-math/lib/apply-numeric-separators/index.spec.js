@@ -48,6 +48,16 @@ test('plugin-math: apply-numeric-separators: no report: octal', (t) => {
     t.end();
 });
 
+test('plugin-math: apply-numeric-separators: no report: binary', (t) => {
+    t.noReport('binary');
+    t.end();
+});
+
+test('plugin-math: apply-numeric-separators: no report: hex-uppercase', (t) => {
+    t.noReport('hex-uppercase');
+    t.end();
+});
+
 test('plugin-math: apply-numeric-separators: no report: not-integer', (t) => {
     t.noReport('not-integer');
     t.end();
