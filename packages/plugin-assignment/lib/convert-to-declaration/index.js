@@ -2,7 +2,6 @@ import {types, operator} from 'putout';
 
 const {
     variableDeclarator,
-    isIdentifier,
     variableDeclaration,
     isBinaryExpression,
 } = types;
@@ -12,12 +11,25 @@ const {
     getBinding,
     isKeyword,
     compareAny,
+    createTypeChecker,
 } = operator;
 
 export const report = (path) => {
     const {name} = path.node.left;
     return `Declare '${name}' before assignment`;
 };
+
+export const include = () => ['AssignmentExpression'];
+
+export const filter = createTypeChecker([
+    ['-: node.left -> !Identifier'],
+    ['-: parentPath -> !ExpressionStatement'],
+    ['-', isKeywordBefore],
+    ['-', isSameOperand],
+    ['-: node.left.name', '=', 'exports'],
+    ['-', isDeclared],
+    ['+: -> +'],
+]);
 
 export const fix = (path) => {
     const {left, right} = path.node;
@@ -28,41 +40,25 @@ export const fix = (path) => {
     replaceWith(path, node);
 };
 
-export const traverse = ({push}) => ({
-    AssignmentExpression(path) {
-        const prevPath = path.parentPath.getPrevSibling();
-        
-        if (prevPath.isVariableDeclaration()) {
-            const {name} = prevPath.node.declarations.at(-1).id;
-            
-            if (isKeyword(name))
-                return;
-        }
-        
-        const {left, right} = path.node;
-        
-        if (!isIdentifier(left))
-            return;
-        
-        if (isSameOperand({left, right}))
-            return;
-        
-        const {name} = left;
-        
-        if (name === 'exports')
-            return;
-        
-        if (getBinding(path, name))
-            return;
-        
-        if (!path.parentPath.isExpressionStatement())
-            return;
-        
-        push(path);
-    },
-});
+function isKeywordBefore(path) {
+    const prevPath = path.parentPath.getPrevSibling();
+    
+    if (!prevPath.isVariableDeclaration())
+        return false;
+    
+    const {name} = prevPath.node.declarations.at(-1).id;
+    
+    return isKeyword(name);
+}
 
-function isSameOperand({left, right}) {
+function isDeclared(path) {
+    const {name} = path.node.left;
+    return getBinding(path, name);
+}
+
+function isSameOperand({node}) {
+    const {left, right} = node;
+    
     if (!isBinaryExpression(right))
         return false;
     
