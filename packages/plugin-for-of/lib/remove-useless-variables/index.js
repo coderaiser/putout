@@ -20,8 +20,7 @@ const hasAssignment = ({node}) => node.properties.some(isAssignment);
 
 const isSupportedBinding = createTypeChecker([
     ['-: references', '!=', 1],
-    ['-: referencePaths.0.parentPath -> !VariableDeclarator'],
-    ['+: -> +'],
+    ['+: referencePaths.0.parentPath -> VariableDeclarator'],
 ]);
 
 const isSupportedId = createTypeChecker([

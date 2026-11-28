@@ -8,8 +8,7 @@ const {
 } = operator;
 
 const isStringValue = createTypeChecker([
-    '-: node.value -> !StringLiteral',
-    '+: -> +',
+    '+: node.value -> StringLiteral',
 ]);
 
 export const report = () => `Use 'output.library' object instead of 'libraryTarget'`;
