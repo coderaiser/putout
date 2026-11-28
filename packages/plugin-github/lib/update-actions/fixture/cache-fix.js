@@ -5,7 +5,7 @@ __putout_processor_yaml({
         "build": {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": "actions/cache@v5",
+                "uses": "actions/cache@v6",
                 "with": {
                     "path": [
                         "~/.cargo/bin/"
