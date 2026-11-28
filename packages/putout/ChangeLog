@@ -1,3 +1,46 @@
+2026.11.28, v42.26.4
+
+fix:
+- 1f1b76b5f @putout/plugin-assignment: convert-to-declaration: skip exports (#248)
+- aab4075d6 @putout/plugin-math: apply-numeric-separators: skip binary and uppercase prefixed literals (#247)
+- cb6a1c615 @putout/plugin-remove-empty: pattern: guard empty ObjectPattern replace against ForOfStatement head
+- b95f0528b @putout/plugin-tape: convert-throws-to-try-catch: unescape regexp before building string
+- 1036fde3c @putout/test: putout-test: type checker coverage: load hook in worker
+- db92de7eb @putout/test: revert --no-worker
+- 044461253 @putout/test: bin: run tests in main thread when PUTOUT_INSTRUMENT is set
+- aefd9ebe5 @putout/plugin-for-of: map: keep early return and nested function
+- cbd217c05 @putout/plugin-for-of: map: keep early return and nested function
+- c677201ce try-catch: expand-try-catch: arguments'
+- 65e2543c4 @putout/plugin-try-catch: expand-args: scope
+- 495f4b389 @putout/plugin-github: update-actions: typos.io: v2.0.0 -> v2
+- 7577c92bc @putout/plugin-github: remove-useless-with-from-typos-step: report
+
+feature:
+- 066f4d745 putout: @putout/plugin-math v6.0.0
+- ad39a79e1 @putout/plugin-math: drop support of 🐊 < 42
+- 07ae2ca81 @putout/plugin-for-of: remove-unused-variables: avoid cascading removal of multi-property ObjectPattern
+- fa4e40aae @putout/plugin-arguments: remove-empty: improve support
+- 06c26fef1 @putout/plugin-convert-webpack-to-rspack: apply-library-object: add
+- 23cca98f1 @putout/plugin-convert-webpack-to-rspack: apply-global-define: add
+- f0f00d582 @putout/plugin-declare: pullout -> {pullout}
+- c7d9628b5 @putout/operate: replaceWithMultiple: improve comments handling
+- f761404d4 @putout/plugin-madrun: move-env-to-end: add
+- 630acedc9 @putout/plugin-putout: check-replace-code: match: esm
+- 047bc64e8 @putout/test: bin: putout-test: add
+- c2562ded3 @putout/plugin-for-of: for-each: apply type checker
+- 964bbc111 @putout/processor-html: className
+- e1e23728e @putout/processor-html: doctype
+- 4f6597867 @putout/plugin-sql: convert-trigger-to-function, convert-function-to-trigger
+- 52ebda4e2 @putout/cli-process-file: exports: printer
+- d107997e6 eslint-plugin-putout: @putout/eslint-config v15.0.0
+- 27d789a26 eslint-plugin-putout: remove deprecated @stylistic rules from ts and json configs
+- e6af3945a @putout/eslint-config: remove deprecated @stylistic rules: array-bracket-spacing, object-curly-spacing, function-paren-newline
+- 2a05939cc @putout/plugin-eslint-plugin: drop support of 🐊 < 42
+- b53b82007 @putout/plugin-eslint-plugin: update-ecma-version: 2026
+- 30321fab3 @putout/plugin-try-catch: declare-before-reference: improve support
+- a832d904f @putout/plugin-github: remove-useless-with-from-typos-step
+- 42910bcc0 update actions: typos.ai v2
+
 2026.11.12, v42.26.3
 
 feature:
