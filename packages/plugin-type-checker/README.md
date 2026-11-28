@@ -25,6 +25,7 @@ npm i @putout/plugin-type-checker -D
 - ✅ [remove-useless-not-from-type-checker](#remove-useless-not-from-type-checker);
 - ✅ [remove-useless-path-from-type-checker](#remove-useless-path-from-type-checker);
 - ✅ [remove-useless-spaces-from-type-checker](#remove-useless-spaces-from-type-checker);
+- ✅ [remove-useless-success-from-type-checker](#remove-useless-success-from-type-checker);
 - ✅ [remove-useless-tuples-from-type-checker](#remove-useless-tuples-from-type-checker);
 - ✅ [reverse-comparison-in-type-checker](#reverse-comparison-in-type-checker);
 - ✅ [apply-boolean-operator-to-type-checker](#apply-boolean-operator-to-type-checker);
@@ -46,6 +47,7 @@ npm i @putout/plugin-type-checker -D
         "type-checker/remove-useless-not-from-type-checker": "on",
         "type-checker/remove-useless-path-from-type-checker": "on",
         "type-checker/remove-useless-spaces-from-type-checker": "on",
+        "type-checker/remove-useless-success-from-type-checker": "on",
         "type-checker/remove-useless-tuples-from-type-checker": "on",
         "type-checker/reverse-comparison-in-type-checker": "on",
         "type-checker/apply-boolean-operator-to-type-checker": "on"
@@ -345,6 +347,31 @@ export const beforeIf = createTypeChecker([
 ```js
 export const beforeIf = createTypeChecker([
     ['-: -> !', isInsideArray],
+]);
+```
+
+## remove-useless-success-from-type-checker
+
+When the last route is a bare success (`+ -> +`), the fail route before it that checks a negated type is redundant: invert it into a success route and remove the trailing one.
+
+### ❌ Example of incorrect code
+
+```js
+const isSingleMethod = createTypeChecker([
+    ['-: -> !ObjectExpression'],
+    ['-: node.properties.length', '!=', 1],
+    ['-: node.properties.0 -> !ObjectMethod'],
+    ['+ -> +'],
+]);
+```
+
+### ✅ Example of correct code
+
+```js
+const isSingleMethod = createTypeChecker([
+    ['-: -> !ObjectExpression'],
+    ['-: node.properties.length', '!=', 1],
+    ['+: node.properties.0 -> ObjectMethod'],
 ]);
 ```
 

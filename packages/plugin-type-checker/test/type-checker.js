@@ -81,3 +81,8 @@ test('type-checker: transform: apply-boolean-operator-to-type-checker', (t) => {
     t.transform('apply-boolean-operator-to-type-checker');
     t.end();
 });
+
+test('type-checker: transform: remove-useless-success-from-type-checker', (t) => {
+    t.transform('remove-useless-success-from-type-checker');
+    t.end();
+});
